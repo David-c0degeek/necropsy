@@ -49,6 +49,7 @@ offline. Snapshot v0 ingestion stays independent of the future v1 live format.
       uses: characters, reports, fights, actors, pets, abilities, events,
       combatant_info, gear, talents, buffs, rankings, benchmark_sets,
       stream_coverage) with a schema version; migration = rebuild from raw.
+      Every column type is declared explicitly; no JSON auto-inference.
 - [ ] **02.4** (agent) Event dedup contract: source and target streams of the
       same actor, and overlapping actors (player target stream vs pet source
       stream), never double count. Define event identity (report, fight,

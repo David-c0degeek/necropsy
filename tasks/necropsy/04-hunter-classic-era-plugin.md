@@ -52,7 +52,10 @@ the Hunter-specific forensics behind the Haplina findings.
 - [ ] **04.5** (agent) Pet forensics: family evidence (observed vs inferred from
       ability compatibility in `rules/classic_era/pets`), ranks from spell IDs,
       DPS, start/stop relative to fight, death + killing blows, absent pet
-      gated on coverage.
+      gated on coverage. Actors linked by `petOwner` are classified first:
+      hunter pet vs guardian/engineering summon (e.g. Battle Chicken) vs trap
+      object (e.g. Frost Trap) vs other (e.g. Skilled Bonesmith, Sheep); only
+      hunter pets feed pet benchmarks.
 - [ ] **04.6** (agent) Hunter gear context: ranged weapon, trinkets, scope,
       melee setup per fight; dominance per boss from cohort.
 - [ ] **04.7** (agent) Golden: Patchwerk Raptor counts; Haplina Patchwerk Aimed

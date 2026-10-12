@@ -46,7 +46,9 @@ source and a status.
       `snapshot/`, `normalize/`, `benchmark/`, `analysis/{generic,classes,encounters}/`,
       `reports/`, `storage/`), `rules/classic_era/`, `tests/{unit,integration,golden}/`.
       Create directories only as code lands in them. `necropsy --help` and
-      `necropsy --version` work.
+      `necropsy --version` work. `pyproject.toml` registers pytest markers
+      `golden` and `live` with `--strict-markers`, mypy strict (with `types-PyYAML`), ruff; `CHANGELOG.md`
+      created.
 - [ ] **01.2** (agent) GitHub Actions CI: `uv sync --locked`, ruff, type check,
       fast tests on Windows + Linux. Golden suite as manual/scheduled job with
       LFS checkout. Green run recorded.
@@ -56,7 +58,9 @@ source and a status.
       (`clientSecretIncludedInExport=false`, `userAccessTokenIncludedInExport=false`),
       character/zone/partition, SHA-256 of the zip and an extracted-file
       manifest. Definitive playbook HTML/CSVs frozen alongside with hashes;
-      v1/v2 outputs stored under `historical/`, marked superseded.
+      v1/v2 outputs stored under `historical/`, marked superseded. gitleaks
+      scans the extracted full fixture (no size cap) with zero findings before
+      the first LFS push.
 - [ ] **01.4** (agent) Golden-fact register `tests/golden/haplina_naxx/facts.yaml`:
       each fact has id, statement, expected value + tolerance, mode
       (`historical` / `live`), source (file + row/section), status

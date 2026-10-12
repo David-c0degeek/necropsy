@@ -158,7 +158,8 @@ simulation, Polars unless a measured need appears (D007).
 | Credentials leak into repo/exports/fixtures | Account compromise | Secret + user token in OS keyring only; fixture provenance check asserts no token/secret; `.wcl_user_token.json` never copied; secret-scan gate in §7 |
 | Personal confidential-client auth ships in a distributed build | Secret exposure | D005: personal-only; PKCE is a hard gate before any distribution (manual action) |
 | Live WCL API changes / rate limit (observed 1,800 pts/h) | Live mode fails mid-job | Resumable cache, `rateLimitData` pacing, explicit partial-coverage result; offline mode unaffected |
-| Python 3.14 wheel gaps on Windows | Blocked setup | 00 smoke-installs the exact locked stack; fallback 3.13 by decision |
+| Python 3.14 wheel gaps on Windows | Blocked setup | Retired risk: 00.3 smoke run green on CPython 3.14.6; fallback 3.13 by decision if a new dependency lacks wheels |
+| Actor-scoped coverage (only selected Hunters + `petOwner` actors have streams) | Threat, boss-target time, raid composition unknowable from v0 data | Those fields are `UNKNOWN` with coverage refs, never inferred; live acquisition may add streams later by decision |
 
 Rollback: greenfield repo, no consumers. Each subject is a set of pushed
 checkpoint commits; revert by `git revert` of the subject's commits.
@@ -189,15 +190,15 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 | Purpose | Command | Notes |
 |---|---|---|
-| Install | `uv sync --locked` | TBD — confirmed in 00.3/00.7 |
-| Build | `uv build` | TBD |
-| Test (fast) | `uv run pytest -m "not golden and not live"` | Subset fixture only; ordinary CI |
-| Test (golden) | `uv run pytest -m golden` | Needs LFS checkout of full fixture; local + scheduled/manual CI |
+| Install | `uv sync --locked` | Confirmed by 00.3 smoke run (uv 0.11.21, CPython 3.14.6) |
+| Build | `uv build` | Confirmed by 00.3 smoke run |
+| Test (fast) | `uv run pytest -m "not golden and not live"` | Subset fixture only; ordinary CI; markers enforced by `--strict-markers` |
+| Test (golden) | `uv run pytest -m golden` | Needs `git lfs pull` of the full fixture; local + scheduled/manual CI |
 | Test (live) | `uv run pytest -m live` | Needs keyring credentials; manual only, never CI |
-| Lint/format | `uv run ruff check . && uv run ruff format --check .` | TBD |
-| Type check | `uv run mypy src` or pyright | TBD in 00.4 |
+| Lint/format | `uv run ruff check . && uv run ruff format --check .` | Confirmed by 00.3 smoke run |
+| Type check | `uv run mypy` | mypy strict, configured in `pyproject.toml` (D012) |
 | Plan-specific gate | clean-clone replay: fresh clone → `git lfs pull` → `uv sync --locked` → `uv run necropsy offline <fixture> --out <dir>` → golden suite | Defined in 01 |
-| Plan-specific gate | secret scan of repo + generated packages | Tool TBD in 00.6 |
+| Plan-specific gate | `gitleaks git . --redact` and `gitleaks dir <generated package dir> --redact` | gitleaks 8.30.1 (00.7); zero findings required |
 
 ---
 
@@ -268,6 +269,9 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | D008 | 2026-10-12 | Two run modes | Historical mode (frozen fixture, recorded overall-top-5 cohort, faction-annotated) is the deterministic acceptance target; live mode (same-faction cohort) is accepted on contract/coverage, not exact ranks | Definitive playbook's "Alliance comparator" is best Alliance within overall top 5, not a same-faction top 5; live rankings mutate | 01.4, 05.3, 05.6, 07.4, 07.7; §7 acceptance gates |
 | D009 | 2026-10-12 | Plan location | `tasks/Necropsy-Plan.md` + `tasks/necropsy/` (template convention), not `docs/plan/` | Template standard; durable docs go to `docs/` | `tasks/Necropsy-Plan.md`; `tasks/necropsy/*`; `README.md` |
 | D010 | 2026-10-12 | Collaboration mode | `coordinated` instead of the template default `solo` | User asked for Claude Code + Codex pair programming, and the plan has product-owner / domain-sme / release-engineer boxes; one write owner at a time via the pair mailbox, no parallel branches | Collaboration model; `manual-actions.md`; every subject Hindsight checkpoint |
+| D012 | 2026-10-13 | Type checker | mypy in strict mode, configured in `pyproject.toml`; pyright not adopted | Python-native, cp314 wheel, no Node toolchain; one gate tool | 00.4; 01.1; §2 Type check |
+| D013 | 2026-10-13 | No third-party WCL client or MCP | Necropsy owns its httpx GraphQL client; the evaluated community WCL MCP servers and PyPI packages are rejected | None of the evaluated candidates (00.6) meets Necropsy's needs; the MCP servers would receive WCL credentials from unknown authors | 00.6; 07.1 |
+| D014 | 2026-10-13 | Explicit DuckDB schemas | Raw-derived tables use declared column types, never JSON auto-inference | Auto-inference typed `targetID` as `HUGEINT` on a real page; types must be stable across fixtures | 00.2; 02.3 |
 | D011 | 2026-10-12 | Tool installs approved | User approved all installs named in the plan: uv, git-lfs, secret scanner (gitleaks or equivalent), and LFS storage for the 80 MB fixture on the personal account | Explicit user approval in session | 00.7, 00.9, 01.3; `manual-actions.md` |
 
 ---
@@ -307,13 +311,13 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
-| [ ] | 00 | `tasks/necropsy/00-tooling-research-and-readiness.md` | TODO | agent: 8; product-owner: 1 | yes |
+| [x] | 00 | `tasks/necropsy/00-tooling-research-and-readiness.md` | DONE | agent: 8; product-owner: 1 | yes |
 | [ ] | 01 | `tasks/necropsy/01-foundation-and-golden-fixture.md` | TODO | agent: 6; domain-sme: 1 | yes |
 | [ ] | 02 | `tasks/necropsy/02-snapshot-ingest-and-normalize.md` | TODO | agent: 6 | n/a |
 | [ ] | 03 | `tasks/necropsy/03-evidence-model-and-generic-analyzers.md` | TODO | agent: 6 | n/a |
 | [ ] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | TODO | agent: 7; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | TODO | agent: 6; domain-sme: 1 | yes |
-| [ ] | 06 | `tasks/necropsy/06-report-and-package.md` | TODO | agent: 5; product-owner: 1 | yes |
+| [ ] | 06 | `tasks/necropsy/06-report-and-package.md` | TODO | agent: 5; product-owner: 2 | yes |
 | [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | TODO | agent: 8; product-owner: 1; release-engineer: 1 | yes |
 
 ---

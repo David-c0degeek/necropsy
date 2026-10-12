@@ -1,0 +1,72 @@
+$ uv --version
+uv 0.11.21 (5aa65dd7a 2026-06-11 x86_64-pc-windows-msvc)
+exit=0
+$ uv init --package --python 3.14 smoke -q
+exit=0
+$ uv add -q duckdb==1.5.6 pydantic==2.14.1 typer==0.27.3 jinja2==3.1.6 httpx==0.28.1 keyring==25.7.0 pyyaml==6.0.3
+exit=0
+$ uv add -q --dev pytest==9.1.1 ruff==0.17.0 mypy==2.4.0 respx==0.23.1 types-PyYAML
+exit=0
+$ uv run pytest -q -s
+   Building smoke @ file:///C:/Users/David/AppData/Local/Temp/claude/D--Parsing/ff309e1b-0157-43df-9693-d813f984547b/scratchpad/smoke
+      Built smoke @ file:///C:/Users/David/AppData/Local/Temp/claude/D--Parsing/ff309e1b-0157-43df-9693-d813f984547b/scratchpad/smoke
+Uninstalled 1 package in 1ms
+Installed 1 package in 49ms
+{'python': '3.14.6', 'duckdb': '1.5.6', 'pydantic': '2.14.1', 'typer': '0.27.3', 'jinja2': '3.1.6', 'httpx': '0.28.1', 'yaml': '6.0.3', 'keyring_backend': 'WinVaultKeyring'}
+...
+3 passed in 0.54s
+exit=0
+$ uv run ruff check .
+All checks passed!
+exit=0
+$ uv run ruff format --check .
+4 files already formatted
+exit=0
+$ uv run mypy src tests
+Success: no issues found in 3 source files
+exit=0
+$ uv build -q
+exit=0
+uv.lock sha256: a61d3684b2bb6bb045c38629d9e08d001a9b1d59d9fec5631d0dd7328f7e7cfc
+--- pyproject.toml
+[project]
+name = "smoke"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "David", email = "David@C0deGeek.dev" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "duckdb==1.5.6",
+    "httpx==0.28.1",
+    "jinja2==3.1.6",
+    "keyring==25.7.0",
+    "pydantic==2.14.1",
+    "pyyaml==6.0.3",
+    "typer==0.27.3",
+]
+
+[project.scripts]
+smoke = "smoke:main"
+
+[build-system]
+requires = ["uv_build>=0.11.21,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy==2.4.0",
+    "pytest==9.1.1",
+    "respx==0.23.1",
+    "ruff==0.17.0",
+    "types-pyyaml>=6.0.12.20260906",
+]
+
+[tool.mypy]
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+markers = ["golden: full fixture", "live: live WCL"]

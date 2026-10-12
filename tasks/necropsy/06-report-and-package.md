@@ -57,6 +57,9 @@ export package.
       headless browser (nav works, 15 boss pages).
 - [ ] **06.6** (product-owner) Side-by-side review of generated playbook vs
       `Haplina_Naxx_Definitive_Playbook.html`; list must-fix gaps.
+- [ ] **06.7** (product-owner) Approve installing Playwright (Python package
+      plus a Chromium download) for the 06.5 headless HTML smoke check, or
+      choose a manual browser check instead.
 
 ## Hindsight checkpoint
 > Run after all boxes in this subject are complete and before marking
