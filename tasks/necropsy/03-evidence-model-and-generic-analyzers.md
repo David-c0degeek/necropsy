@@ -78,8 +78,16 @@ environment and bias profile, and generic analyzers usable by any class plugin.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded
+- [x] Verdict is `CLOSE`
+
+**Captain Hindsight — 2026-10-13 (after navigator `VERDICT AGREE round=2`)**
+
+1. **Keep:** evidence rules enforced at construction (VALUE vs COMPLETE, persisted coverage refs, NOT_OBSERVED only as COMPLETE); Windfury split into confirmed status, counts and a clearly labelled inferred estimate; every verified golden fact backed by a registered checker running the analyzers (57/79); faction rule data-validated before use; rules as package data proven from an installed wheel.
+2. **Fix before closing:** none open. Review rounds fixed: Windfury "lower bound" wording and zero-match handling (two design CHALLENGEs), single-flag aura uptime, last-row-wins faction, unenforced absence contract, per-slot cohort scope, kill duration level.
+3. **Record:** D019, D020. Lessons: probes must filter exactly like analyzers; realm-name normalization; guild faction enum differs. Carry to 04: pet classification (Faerlina/Razuvious DPS over-count, two facts xfail), Hunter consumable list, Hunter spell IDs in rules.
+4. **Risk:** analyzers have only test callers until `analysis.json` (05.5); two cohort factions are inferences; `wf-unique-swing-v1` window (400 ms) is a parameter, not validated against a ground truth.
+5. **Verdict:** CLOSE
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
@@ -88,3 +96,4 @@ environment and bias profile, and generic analyzers usable by any class plugin.
 2026-10-13 · slice 1 · 03.1–03.6 · design huddle (two Codex CHALLENGEs on Windfury attribution accepted: INFERRED, unique-match only, no lower-bound claim, zero matches → UNKNOWN), evidence model + factories, rules package data (racials, externals incl. WF ids, DMF, world buffs, faction codes, raid-class faction rule), context (participant → actor via coverage rows, realm-name normalization), environment profile, metrics, target split (native/foreign UNKNOWN without encounter rule), cohort distributions, fact-checker registry (subset + full) · observed: subset profiles match the oracle (kill durations, Haplina DMF Agility vs top Damage, Smcadogx Orc + WF 9/4 procs, Alliance comparators NOT_OBSERVED, Snape single death 25.678 s); probe error found and corrected (the 39.0 s death was a Fallout Slime in Snape's stream); faction split 63/12 needs two INFERRED factions; Haplina DPS matches 13/15 bosses, Faerlina/Razuvious over-count pending 04.5; facts verified against raw: 57/79 (checker-backed); fast suite 144 passed; ruff + mypy strict clean · commit pending pair review
 2026-10-13 · slice 2 · 03.1, 03.2, 03.3, 03.5 · review round 1 fixes: VALUE/COMPLETE claims with persisted coverage refs (NOT_OBSERVED only as COMPLETE; direct-constructor bypass rejected), per-aura uptime with interval union and settled-state rule, faction aggregates every reading (conflict or unreadable code → UNKNOWN, no inference), per-slot gear/enchant distributions and starting-aura prevalence, faction-inference caveat documented · fast 154 passed, golden 61 passed + 2 xfail · commit pending pair review
 2026-10-13 · slice 3 · 03.2 · navigator AGREE round 2 with one important note absorbed: kill duration is DERIVED (end − start), level pinned in test · fast suite green
+2026-10-13 · slice 4 · Hindsight · commit pushed; CI run 38322905509 success; Hindsight CLOSE
