@@ -49,7 +49,7 @@ source and a status.
       `necropsy --version` work. `pyproject.toml` registers pytest markers
       `golden` and `live` with `--strict-markers`, mypy strict (with `types-PyYAML`), ruff; `CHANGELOG.md`
       created.
-- [ ] **01.2** (agent) GitHub Actions CI: `uv sync --locked`, ruff, type check,
+- [x] **01.2** (agent) GitHub Actions CI: `uv sync --locked`, ruff, type check,
       fast tests on Windows + Linux. Golden suite as manual/scheduled job with
       LFS checkout. Green run recorded.
 - [x] **01.3** (agent) Git LFS tracks the full v6 export zip under
@@ -90,6 +90,8 @@ source and a status.
       duplicate names, encryption, size caps on declared and read bytes).
 - [ ] **01.7** (domain-sme) Review `facts.yaml` seed: confirm trusted oracle
       facts, mark known-wrong ones `disputed` with a note.
+      `DEFERRED — see manual-actions` (D017): batched with the 05.7 review, when
+      analyzers have verified most facts against raw data.
 
 ## Hindsight checkpoint
 > Run after all boxes in this subject are complete and before marking
@@ -104,11 +106,20 @@ source and a status.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded
+- [x] Verdict is `CLOSE`
+
+**Captain Hindsight — 2026-10-13 (after navigator `VERDICT AGREE round=3`)**
+
+1. **Keep:** one verified archive reader for every consumer (D016); fixture digests pinned in `provenance.json` and checked in fast CI on both OSes from a fresh checkout (proves `-text` keeps oracle bytes exact); subset tied to the full export by member digests, not zip bytes; acceptance gate separated from the always-green suites; facts carry source + evidence.
+2. **Fix before closing:** none open. Review found and fixed: a non-existent floating `setup-uv@v10` tag, uncaught `zlib.error` on corrupt DEFLATE data, and a mistyped pinned checkout SHA that only the hosted run exposed (run 38316490928 failed; 38316637450 passed).
+3. **Record:** lessons appended (no `git stash` mid-review; pin Actions by SHA and assert 40-hex length). D015/D016 amend 01.5/01.6; D017 defers 01.7. The raw probe found a second Snape death (39.0 s) the oracle never mentioned — recorded as a fact for Hunter-domain review.
+4. **Risk:** `VerifiedArchive` and `scripts/fixture_tools.py` have only test/tooling callers until snapshot ingest (disclosed in D016 and README). `ubuntu-latest` moves to Ubuntu 26 on 2026-10-19 (runner annotation); CI may need a follow-up then. Acceptance gate is red by design until the analyzers land.
+5. **Verdict:** CLOSE
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
 2026-10-13 · slice 1 · 01.1, 01.3–01.6 · skeleton (uv, typer CLI with UTF-8 output, ruff, mypy strict, pytest strict markers + `acceptance` marker), `VerifiedArchive` + 20 unit tests, full fixture in LFS (sha256 f249c944…), 1,407-member entries manifest, 36 oracle files + provenance.json/PROVENANCE.md, 13.6 MB deterministic subset (two builds identical), facts.yaml (78 facts, 61 mandatory, 11 verified against raw), CI + manual golden workflow, README/CHANGELOG · observed: fast suite 48 passed; golden 2 passed (every full-export member digest verified; subset regenerates identically); acceptance fails as designed; ruff/mypy clean; gitleaks over the extracted full fixture: no leaks; `necropsy --version` → `necropsy 0.1.0` · 01.2 waits for the first CI run after push · commit pending pair review
+2026-10-13 · slice 2 · 01.2, 01.7 (deferred), Hindsight · commits 0bd010a + workflow SHA fix; CI run 38316637450 success (ubuntu + windows: ruff, mypy, 49 passed); golden workflow run 38316710288 success from a clean clone with LFS (1 passed, 1 skipped: zip-byte comparison skipped on a different zlib, member manifest identical) · pushed
