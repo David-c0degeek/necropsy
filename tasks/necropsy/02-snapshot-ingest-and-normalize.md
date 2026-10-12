@@ -94,8 +94,16 @@ offline. Snapshot v0 ingestion stays independent of the future v1 live format.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded
+- [x] Verdict is `CLOSE`
+
+**Captain Hindsight — 2026-10-13 (after navigator `VERDICT AGREE round=3`)**
+
+1. **Keep:** reader protocol separates layout from ingest; multiplicity-preserving identity verified against an implementation that shares no code (863,536 both ways); coverage trust combines fetch completeness with ambiguity/mismatch counts; raw event kept as a queryable JSON object; atomic rebuild with pre-build and pre-swap target checks; NDJSON bulk load (executemany was unusable).
+2. **Fix before closing:** none open. Review caught and fixed: the agreed design still described content-based page dedup (CHALLENGE, now D018), `raw` stored as a JSON string, deleting the target's WAL before the swap, single-event-only boundary detection, and a WAL appearing during the build.
+3. **Record:** D018 (kept page repeats, shipped table set). Lesson: atomic file replacement must re-validate the target immediately before the swap and never touch sidecar files it does not own. Lesson: a JSON column fed from NDJSON must receive objects, not pre-serialized strings.
+4. **Risk:** residual race between the final target check and the swap (documented); database size ~370 MB for the full export; ingest ~60 s; v0 reader is specific to the v6 layout by design.
+5. **Verdict:** CLOSE
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
@@ -104,3 +112,4 @@ offline. Snapshot v0 ingestion stays independent of the future v1 live format.
 2026-10-13 · slice 1 · 02.1–02.6 · design huddle (Codex CHALLENGE on page-boundary dedup accepted: keep all occurrences, record ambiguity), snapshot model + `SnapshotReader` protocol + `V0Snapshot`, DuckDB schema v1 (14 tables, explicit types), multiplicity-preserving merge, coverage + `has_complete_coverage`, atomic rebuild with `--replace` policy, `necropsy ingest`, NDJSON bulk load (executemany measured 325 s / 50k rows), docs/database.md, README, CHANGELOG, profiling evidence in `evidence/02-*` · observed: subset ingest 12 fights / 114 streams complete / 123,109 events / 0 anomalies / 10 issues (unselected Dwarfazz data) in ~9 s; full ingest 89 fights / 762 streams complete / 3,674,640 stream events → 863,536 events (= independent count) / 0 anomalies / 0 issues in 58 s; Haplina combatant talents 12/33/6; fast suite 80 passed, golden 4 passed; ruff + mypy strict clean · commit pending pair review
 2026-10-13 · slice 2 · 02.3, 02.4, 02.5 · review round 1 fixes: `events.raw` stored as JSON object (was a JSON string), target WAL never deleted (ingest refuses a target with a `.wal`), boundary ambiguity detects any repeated same-timestamp group, box text amended (D018) · regression tests added (raw JSON queries, repeated group withholds coverage, WAL refusal, failed replace, busy DB on Windows) · fast 88 passed · commit pending pair review
 2026-10-13 · slice 3 · 02.5 · review round 2 fix: target re-checked (WAL + identity + size/mtime) immediately before the swap; late-WAL and changed-target regressions in both modes; residual race documented in docs/database.md and `ingest` docstring · fast 92 passed · commit pending pair review
+2026-10-13 · slice 4 · Hindsight · commit with CI run 38319784456 success (ubuntu + windows); Hindsight CLOSE · pushed

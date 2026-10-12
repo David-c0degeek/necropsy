@@ -318,7 +318,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/necropsy/00-tooling-research-and-readiness.md` | DONE | agent: 8; product-owner: 1 | yes |
 | [x] | 01 | `tasks/necropsy/01-foundation-and-golden-fixture.md` | DONE | agent: 6; domain-sme: 1 | yes |
-| [ ] | 02 | `tasks/necropsy/02-snapshot-ingest-and-normalize.md` | TODO | agent: 6 | n/a |
+| [x] | 02 | `tasks/necropsy/02-snapshot-ingest-and-normalize.md` | DONE | agent: 6 | n/a |
 | [ ] | 03 | `tasks/necropsy/03-evidence-model-and-generic-analyzers.md` | TODO | agent: 6 | n/a |
 | [ ] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | TODO | agent: 7; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | TODO | agent: 6; domain-sme: 1 | yes |
