@@ -1,21 +1,29 @@
 # Necropsy-Plan.md — Milestone A: Headless Hunter/Naxx Forensics
 
-> **Disposable.** This plan and its `tasks/necropsy/` folder are deleted (or
-> archived out of the repo) once Milestone A ships. Deleting or archiving the
-> folder is human-owned and happens only after §8 sign-off; the agent never
-> deletes the plan folder. Shipped code, comments, tests, identifiers, and
-> commit messages must not depend on or reference it — see §6.11. The folder is
-> committed while the plan is live so it is resume-safe across machines and
-> context resets (§6.14).
+> **Disposable.** The plan and its `tasks/necropsy/` folder are deleted (or
+> archived out of the repo) once the subject ships to production. Deleting or
+> archiving the folder is human-owned and happens only after §8 sign-off; the
+> agent never deletes the plan folder. Shipped
+> code, comments, tests, identifiers, and commit messages must not depend on or
+> reference them — see §6.11. Commit the folder anyway while the plan is live,
+> so it is resume-safe across machines and context resets (§6.14).
 
 > **Terms.**
-> - **Subject** — one file under `tasks/necropsy/` (`NN-<slug>.md`). Subject
->   `00` is reserved for tooling research and readiness.
+> - **Subject** — one file under `tasks/necropsy/` (`NN-<slug>.md`). 5-8 per plan.
+>   Subject `00` is reserved for tooling research and readiness.
 > - **Box** — one `[ ]` checklist item inside a subject file, ID
->   `<subject-id>.<box-number>`. Stable; never renumbered.
-> - **Slice** — one agent work-session, one line in a subject's Progress log.
-> - **Checkpoint** — plan files updated, verification recorded, commit created,
->   branch pushed.
+>   `<subject-id>.<box-number>`, where `<subject-id>` is the §3 `#` / `NN`
+>   filename prefix (e.g. `01`) and `<box-number>` is the box ordinal in
+>   that file. Stable; never renumbered.
+> - **Slice** — one agent work-session, recorded as one line in a
+>   subject's Progress log. A box may span several slices; a slice may
+>   tick several boxes. Slice numbers count per subject, starting at 1.
+> - **Checkpoint** — a durable handoff point after one or more boxes are
+>   completed: plan files updated, verification recorded, commit created,
+>   and branch pushed.
+> - **Collaboration mode** — `solo`, `coordinated`, or `parallel`.
+>   All modes are resume-safe; only `parallel` activates branch/owner
+>   coordination tables.
 > - **Golden fixture** — the frozen Haplina v6 export (raw WCL JSON) plus the
 >   frozen definitive playbook and its provenance record.
 > - **Historical mode** — analysis of the frozen fixture with its recorded
@@ -26,6 +34,11 @@
 ---
 
 ## Collaboration model
+
+> One plan shape supports solo work, coordinated human/agent work, and true
+> parallel work. Keep the plan low-noise by starting in `solo` unless
+> multiple active workers are expected now. Upgrade by §4 Decision-log row
+> when the need appears; do not fork the plan or switch templates.
 
 | Field | Value |
 |---|---|
@@ -38,16 +51,26 @@
 
 Mode rules:
 
-- `solo` — one active worker owns the plan at a time.
-- `coordinated` — one primary worker owns the plan, with explicit non-agent
-  boxes mirrored into `manual-actions.md`; no parallel branch table.
-- `parallel` — multiple workers on separate subjects; requires a §4 row first.
+- `solo` — one active worker owns the plan at a time. Checkpoint
+  commits/pushes are still required so another worker can resume after a
+  session, account, machine, or context-window limit.
+- `coordinated` — one primary worker owns the plan, with explicit
+  non-agent boxes for release, product, security, infra, review, or domain
+  sign-off. Use `manual-actions.md`; no parallel branch table is required.
+- `parallel` — multiple workers may work concurrently on separate subjects.
+  Each active subject must have an owner, branch, dependencies, conflict-risk
+  files, status, and handoff notes recorded before work starts.
 
-If Mode changes, append a §4 Decision-log row.
+If Mode changes, append a §4 Decision-log row with the previous mode, new mode,
+rationale, affected subjects, and branch/ownership impact.
 
 ### Parallel work tracker
 
-n/a — Mode is `coordinated`.
+> Fill only when Mode is `parallel`. In `solo` / `coordinated` plans, leave
+> the starter row empty or mark it `n/a`; keep the section so a later upgrade
+> has a known place to land.
+
+n/a — Mode is `coordinated` (D010).
 
 | Subject | Owner | Branch | Dependencies | Conflict-risk files | Status | Handoff notes |
 |---|---|---|---|---|---|---|
@@ -55,25 +78,48 @@ n/a — Mode is `coordinated`.
 
 ### Checkpoint gate
 
+> A box is not truly done until the work can be resumed by someone else.
+> A single checkpoint may cover several related boxes.
+
 Before considering a box done:
 
 - Update the box, subject Progress log, §5 tracker, and any affected §4
   decisions / lessons / manual actions.
-- Run the relevant command from the §2 Verification-commands table, or record
-  the exact blocker and reproduction command.
-- **Behaviour verification:** for a box that changes runtime behaviour, run the
-  changed flow end-to-end (CLI command against the fixture subset or full
-  fixture) and record observed-vs-expected output in the Progress log. A green
-  `pytest` alone does not close it.
-- **Doc-currency:** update every dependent doc in the same checkpoint, or record
-  `n/a` with a reason (§6.16).
-- Commit the coherent checkpoint and push `main` (or the working branch).
-- Never rewrite pushed checkpoint history.
-- Keep commit messages, branch names, and PR titles plan-agnostic (§6.11).
+- Run the relevant verification command from the §2 Verification-commands
+  table, or record the exact blocker and reproduction command.
+- **Behaviour verification:** for a box that changes runtime behaviour, exercise
+  the changed flow end-to-end and record observed-vs-expected output in the
+  Progress log — a green build/test exit code alone does not close it. A
+  command-level gate can pass while the behaviour is wrong (a service that
+  listens but isn't ready, a grader that never ran); drive the flow, don't just
+  compile it. Here: run the changed `necropsy` CLI command against the subset
+  or full fixture and record observed-vs-expected output.
+- **Doc-currency:** if the box changed behaviour, architecture, commands, usage,
+  configuration, setup, troubleshooting, or developer workflow, update every doc
+  that depends on it in the *same* checkpoint — user- and developer-facing alike
+  (see §6.16 for the full scope) — or record in the Progress log that none
+  applied and why.
+- Commit the coherent checkpoint and push the branch. In this pair plan the
+  navigator reviews the diff (`VERDICT AGREE`) before the checkpoint closes.
+  If the repo has no remote, record that once in the Collaboration model Notes and treat the
+  local commit as the checkpoint.
+- Never rewrite pushed checkpoint history — no force-push, rebase, or reset
+  of checkpoint commits.
+- Keep commit messages, branch names, and PR titles/descriptions
+  plan-agnostic: no box IDs, decision IDs, plan filenames, `tasks/necropsy/`,
+  or `slice`/`slices` (see §6.11). Repo commit style still applies.
+
+Checkpoint names should describe durable project work, not plan administration.
+Example commit message shape: `Add provider retry policy tests`, not
+`Complete 03.2`.
 
 ---
 
 ## 1. Subject
+
+> One paragraph. What is being built. What is explicitly out of scope.
+> The "out of scope" half is as important as the "in scope" half — it
+> stops the plan from sprawling.
 
 Build **Milestone A** of Necropsy: a headless Python CLI that turns Warcraft
 Logs data for a Classic Era Hunter in Naxxramas into the definitive forensic
@@ -97,6 +143,11 @@ simulation, Polars unless a measured need appears (D007).
 
 ### Risks and rollback
 
+> Fill at plan creation; `n/a` requires a one-line reason. What can go
+> wrong once this ships, and how the change is undone or disabled —
+> revert, feature flag, config switch, migration down-script. Data and
+> compatibility hazards belong here too. Revisited at the §7 gate.
+
 | Risk | Impact | Mitigation / rollback |
 |---|---|---|
 | Golden oracle wrong (ChatGPT miscomputed a value) | Tests pin a bug as truth | Golden-fact register (01) records provenance + status per fact; mismatches are triaged by `domain-sme`, never force-matched |
@@ -116,6 +167,9 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 ## 2. Authoritative inputs
 
+> Table. One row per input doc / branch / spec / archived plan.
+> Contribution column says exactly what each input gives.
+
 | Source | Contribution |
 |---|---|
 | `main` branch | Merge base / target branch |
@@ -127,6 +181,11 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | WCL v2 API docs (vanilla.warcraftlogs.com/v2-api-docs) | GraphQL schema, `rateLimitData`, OAuth endpoints (verified in 00.5) |
 
 ### Verification commands
+
+> Single source for "the relevant verification command" used by the
+> Checkpoint gate and the §7 gates. Fill what is known at plan creation
+> (`TBD` allowed); subject 00.3 confirms or corrects the rows against the
+> real repo, and 00.8 bakes in any additions. Stack here: Python + uv.
 
 | Purpose | Command | Notes |
 |---|---|---|
@@ -144,6 +203,14 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 ## 3. Subject file index
 
+> One row per subject file. **Aim for 5-8 subjects, not 15.** If you
+> need more, the work is probably two plans.
+>
+> **Depends-on orders subjects in every mode.** Solo runs pick the next
+> subject by this column; `parallel` runs copy it into the Parallel work
+> tracker before concurrent work starts. `—` means no dependency beyond
+> subject 00. Keep the graph acyclic.
+
 | # | File | Subject | Depends on |
 |---|---|---|---|
 | 00 | `tasks/necropsy/00-tooling-research-and-readiness.md` | Tooling research and readiness | — |
@@ -159,22 +226,77 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 ## 4. Decision log
 
-| ID | Date | Title | Decision | Rationale | Refs |
+> Append-only. Every time the agent (or reviewer) deviates from a
+> spec literal — even slightly — a row goes here. **A spec amendment
+> never disappears into a slice; it is recorded as a decision with
+> rationale.** This is what makes the plan survive a context-window
+> reset.
+>
+> **Cite the box.** The Refs column names the box ID(s) (`<subject-id>.<box-number>`) and/or
+> file(s) the decision touches. A decision that can't name what it
+> amends is too vague — sharpen it.
+>
+> **ADR promotion.** A decision-log row dies when the plan folder is
+> deleted. If a decision is a *durable architecture* call — anything a
+> future contributor would need to understand the design — promote it to
+> the project's decision log / ADR file (create one if the project lacks
+> it) and cite the ADR number in the Refs column. Transient
+> build-sequencing choices stay here; durable architecture choices
+> graduate.
+>
+> **Retiring a subject or box.** If a subject or box proves wrong
+> mid-run, do **not** delete it. Mark it done and struck
+> (`- [x] ~~<box-id> <box text>~~ ABANDONED; see D###`), mark the subject
+> `ABANDONED` in §5, and add a Decision-log row with the rationale.
+> History must survive a reset; a silently deleted box looks like
+> unfinished work after compaction.
+>
+> **Collaboration changes.** Mode changes (`solo` -> `coordinated` /
+> `parallel`, or back) are decisions. Record the previous mode, new mode,
+> rationale, affected subjects, and branch/ownership impact before multiple
+> workers begin.
+
+| ID | Date | Title | Decision | Rationale | Refs (box IDs / files / ADR#) |
 |---|---|---|---|---|---|
-| D001 | 2026-10-12 | Project name | `necropsy`, private repo `David-c0degeek/necropsy` | User asked for a made-up name; personal account, not org | README |
-| D002 | 2026-10-12 | Offline-first order | Deviates from spec §13 order: build ingest→analyzers→JSON→HTML on the frozen export (01–06) before the live WCL client (07) | Data already exists; analyzer is the hard/valuable part; no API quota burned while contracts settle. Pair-agreed | 01–07; spec §13 |
-| D003 | 2026-10-12 | Analyzer is a rewrite | Analyzer is fresh code validated against raw events; ChatGPT CSVs/report are an oracle to triage, not to force-match | Sandbox scripts lost; only the exporter survives | 01.4, 03–05 |
+| D001 | 2026-10-12 | Project name | `necropsy`, private repo `David-c0degeek/necropsy` | User asked for a made-up name; personal account, not org | `README.md`; §2 inputs; Collaboration model Notes |
+| D002 | 2026-10-12 | Offline-first order | Deviates from spec §13 order: build ingest→analyzers→JSON→HTML on the frozen export (01–06) before the live WCL client (07) | Data already exists; analyzer is the hard/valuable part; no API quota burned while contracts settle. Pair-agreed | 01.1–07.10; §3; `docs/roadmap.md`; spec §13 |
+| D003 | 2026-10-12 | Analyzer is a rewrite | Analyzer is fresh code validated against raw events; ChatGPT CSVs/report are an oracle to triage, not to force-match | Sandbox scripts lost; only the exporter survives | 01.4, 03.6, 04.7, 05.6 |
 | D004 | 2026-10-12 | Fixture storage | Full v6 zip in Git LFS (golden suite); small deterministic subset committed plainly (fast CI); SHA-256 hashes + provenance file | User chose in-repo private; LFS quota + CI speed | 01.3, 01.5 |
-| D005 | 2026-10-12 | Auth for Milestone A | Reuse user's confidential client (secret + user token in OS keyring) for personal use only; PKCE public client is a hard gate before any distribution | User has client ID+secret; spec mandates PKCE for desktop binaries | 07.2; manual-actions |
+| D005 | 2026-10-12 | Auth for Milestone A | Reuse user's confidential client (secret + user token in OS keyring) for personal use only; PKCE public client is a hard gate before any distribution | User has client ID+secret; spec mandates PKCE for desktop binaries | 07.2, 07.9, 07.10; `manual-actions.md`; §7 PKCE gate |
 | D006 | 2026-10-12 | Python version | Provisional CPython 3.14 (installed); 00 smoke-installs the exact locked stack on Windows; fallback 3.13 by new decision row | Spec says 3.12+; DuckDB/Polars publish cp314 wheels, unproven for full env | 00.3, 00.7 |
-| D007 | 2026-10-12 | Trimmed stack for A | Typer CLI + Pydantic contracts + DuckDB + Jinja2 + httpx (07 only). No FastAPI. Polars only on measured need; analytics implemented once (SQL in DuckDB or Python, not both) | YAGNI until desktop (B) | 01.1, 02, 06 |
-| D008 | 2026-10-12 | Two run modes | Historical mode (frozen fixture, recorded overall-top-5 cohort, faction-annotated) is the deterministic acceptance target; live mode (same-faction cohort) is accepted on contract/coverage, not exact ranks | Definitive playbook's "Alliance comparator" is best Alliance within overall top 5, not a same-faction top 5; live rankings mutate | 05, 07, §7 |
-| D009 | 2026-10-12 | Plan location | `tasks/Necropsy-Plan.md` + `tasks/necropsy/` (template convention), not `docs/plan/` | Template standard; durable docs go to `docs/` | — |
+| D007 | 2026-10-12 | Trimmed stack for A | Typer CLI + Pydantic contracts + DuckDB + Jinja2 + httpx (07 only). No FastAPI. Polars only on measured need; analytics implemented once (SQL in DuckDB or Python, not both) | YAGNI until desktop (B) | 00.3, 01.1, 02.3, 06.1, 07.1 |
+| D008 | 2026-10-12 | Two run modes | Historical mode (frozen fixture, recorded overall-top-5 cohort, faction-annotated) is the deterministic acceptance target; live mode (same-faction cohort) is accepted on contract/coverage, not exact ranks | Definitive playbook's "Alliance comparator" is best Alliance within overall top 5, not a same-faction top 5; live rankings mutate | 01.4, 05.3, 05.6, 07.4, 07.7; §7 acceptance gates |
+| D009 | 2026-10-12 | Plan location | `tasks/Necropsy-Plan.md` + `tasks/necropsy/` (template convention), not `docs/plan/` | Template standard; durable docs go to `docs/` | `tasks/Necropsy-Plan.md`; `tasks/necropsy/*`; `README.md` |
+| D010 | 2026-10-12 | Collaboration mode | `coordinated` instead of the template default `solo` | User asked for Claude Code + Codex pair programming, and the plan has product-owner / domain-sme / release-engineer boxes; one write owner at a time via the pair mailbox, no parallel branches | Collaboration model; `manual-actions.md`; every subject Hindsight checkpoint |
+| D011 | 2026-10-12 | Tool installs approved | User approved all installs named in the plan: uv, git-lfs, secret scanner (gitleaks or equivalent), and LFS storage for the 80 MB fixture on the personal account | Explicit user approval in session | 00.7, 00.9, 01.3; `manual-actions.md` |
 
 ---
 
 ## 5. Master progress tracker
 
+> One row per subject file. A subject is `DONE` when **every** box in
+> its file is `[x]` and its Hindsight checkpoint verdict is `CLOSE`.
+> Abandoned boxes must use the exact struck-and-done
+> format from §4. Mark a retired subject `ABANDONED` (see §4); an
+> abandoned subject still gets its Done cell `[x]` (abandoned counts as
+> resolved).
+> §5 is "fully ticked" when every Done cell is `[x]` and every Status is
+> `DONE` or `ABANDONED`.
+>
+> **Owner labels and summary.** Every box in every subject file MUST have
+> an owner. Owners are one of: `agent`, `release-engineer`,
+> `product-owner`, `tech-lead`, `domain-sme`. (Lesson from messaging
+> plan: not having owner labels meant the master tracker stalled at
+> "almost done" with a residue of human-owned items confused for
+> agent-owned. Split them upfront.) The Owner-summary column names the
+> specific roles present (e.g. `agent: 4; tech-lead: 1`), never a generic
+> `human`. In a solo repo most boxes are `agent`; reserve human roles for
+> sign-off boxes. If the plan needs a role the enum lacks (e.g. security
+> or infra sign-off), extend the enum with a §4 Decision-log row.
+>
+> **Human-owned boxes** are mirrored into `tasks/necropsy/manual-actions.md`
+> so they don't get lost between agent-owned boxes. Keep the two in sync.
+>
 > **Done rule.** A subject is `DONE` when every box is `[x]` — except a
 > human-owned box recorded `DEFERRED` (with rationale) in `manual-actions.md`,
 > which stays `[ ]`, is annotated `DEFERRED — see manual-actions` in its
@@ -198,23 +320,32 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 ## 6. Cross-cutting principles
 
+> These apply to every subject file. Violations are blockers, not nits.
+> 1-11 are **trimmable defaults distilled from prior runs** — keep, cut, or
+> trim each to what actually bites this plan. 12-17 are **structural** — the
+> Checkpoint gate and §7 depend on them; keep them. Lift any others from
+> `AGENTS.md` / `CLAUDE.md`. Principles 2-4 are **C#/.NET-specific** —
+> drop them for a non-.NET plan. When cutting a principle, strike it
+> (`~~...~~`) instead of deleting it so the numbering — and every `§6.x`
+> reference in this file — stays stable. Never renumber.
+
 1. KISS · YAGNI · CLEAN · SOLID · DRY (in that order when conflicting).
 2. ~~*(C#)* One class per file.~~ n/a — Python.
-3. ~~*(C#)* Nullable reference types enabled.~~ n/a — Python; type hints + checker per 00.4 instead.
-4. ~~*(.NET)* No new build warnings.~~ n/a — replaced by ruff + type-check clean.
-5. **Keep code modular and locally understandable.** Small cohesive modules with explicit boundaries.
-6. **Cyclomatic complexity stays low.** Prefer table-driven rules (YAML/JSON) over branch-heavy analyzers.
-7. **Spec at the contract level, not the SDK level.**
-8. **Coverage % is a smell-detector, not a goal.**
-9. **Every plan box has an owner and a stable ID.**
-10. **Lessons land in `tasks/necropsy/lessons.md` as they happen.**
-11. **Code and public metadata are plan-agnostic.** No box/decision IDs, plan filenames, or "slice" in code, tests, commits, branches, PRs.
-12. **Captain Hindsight review before subject close.**
-13. **Tooling research before implementation.**
-14. **All plans are resume-safe.**
-15. **Parallelism is opt-in.**
-16. **Documentation ships with the change.**
-17. **Reuse and integrate before adding.** Wire or delete.
+3. ~~*(C#)* Nullable reference types enabled.~~ n/a — Python; full type hints checked by the 00.4-selected type checker instead.
+4. ~~*(.NET)* No new build warnings.~~ n/a — replaced by: ruff and the type checker report zero findings.
+5. **Keep code modular and locally understandable.** Prefer small, cohesive modules with explicit boundaries. Split files before they become catch-all dumping grounds; split methods when branching, nesting, or mixed responsibilities make them hard to scan. If a file or method has to be large, record why and pin the coordinated behaviour with tests.
+6. **Cyclomatic complexity stays low.** Branch-heavy methods are blockers unless the branching is inherent to the domain and covered by focused tests. Prefer guard clauses, extracted decision helpers, table-driven cases, or explicit strategy objects over deep `if`/`else`, nested `switch`, or boolean-flag flows. If the repo has a cyclomatic-complexity threshold, meet it; otherwise treat double-digit complexity in a method as design pressure to simplify.
+7. **Spec at the contract level, not the SDK level.** State requirements as testable contracts on observable behaviour. Do not prescribe SDK call shapes — that's the implementer's choice. (Lesson from messaging plan: the spec said "one `SendAsync` per message" and the SB SDK couldn't honour the per-message error semantics implied. Three Decision-log amendments resulted. State *what* must be true, not *how* to call.)
+8. **Coverage % is a smell-detector, not a goal.** A test exists to pin observable behaviour, not to chase a number. If you can't articulate "this test prevents future-X bug", delete it. Coverage gate failures should provoke "why is this code path untested?" — not "let's write a test that touches it". Architecture tests pin contracts; coverage gates flag gaps. Don't conflate them.
+9. **Every plan box has an owner and a stable ID.** Owner from the §5 enum; ID `<subject-id>.<box-number>`. See §5.
+10. **Lessons land in `tasks/necropsy/lessons.md` as they happen**, not at the gate — per-plan run-notes that die with the folder. Durable lessons migrate to the permanent `tasks/lessons.md` at §7.
+11. **Code and public metadata are plan-agnostic.** Comments, test names, commit messages, branch names, PR titles, and identifiers must read as permanent project artefacts. Never reference the plan, slices, box IDs (`<subject-id>.<box-number>`), decision-log entries (`D###`), or this file — they vanish when the plan is deleted after go-live (see the Disposable note). A dangling `// see 03.2` or `// per Decision D007` becomes a broken reference in production. Put the *why* directly in the comment. (A durable design rationale belongs in an ADR, not a plan ref — see §4 ADR promotion.)
+12. **Captain Hindsight review before subject close.** Before marking a subject `DONE`, run the subject's Hindsight checkpoint. Record Keep / Fix before closing / Record / Risk / Verdict in the subject file. A `DO NOT CLOSE` verdict is a blocker: add or reopen boxes, update §4 decisions, or append lessons before closing.
+13. **Tooling research before implementation.** Every plan starts with subject `00 - Tooling Research And Readiness` unless explicitly waived in §4. No implementation subject starts until subject 00 records repo context, baseline verification, stack best practices, official sources, and any approved Skills/MCP/tooling setup. A waiver must explain why the research step is unnecessary or unsafe for this plan.
+14. **All plans are resume-safe.** A checked box must be backed by a durable checkpoint: plan updates, verification note or blocker, commit, and push (no-remote exception per the Checkpoint gate). One checkpoint may cover several related boxes, but no box is ticked merely because work exists in an unpushed workspace.
+15. **Parallelism is opt-in.** Start in `solo` unless multiple workers are known upfront. If the plan changes to `parallel`, add a §4 decision and fill the Parallel work tracker before concurrent subject work starts.
+16. **Documentation ships with the change.** Every box runs a *documentation-impact review*: name which docs the change touches and update them in the *same* checkpoint, or record `n/a` with a one-line reason (in the Progress log, confirmed at the §7 gate). The trigger is broad — behaviour, architecture, commands, usage, configuration, setup, troubleshooting, or developer workflow. The scope is every doc a user *or* contributor relies on, not only user-facing ones: README, usage/setup guides and HOWTOs, CHANGELOG/release notes, API/command/config reference, architecture and design docs, developer-onboarding/contributor docs, troubleshooting/runbooks, examples, wiki pages, and prompt/skill docs. (Durable architecture *decisions* still graduate to an ADR per §4; this rule covers the prose docs around them.) Docs are a durable knowledge sink that survives the disposable plan folder (alongside ADRs and the permanent `tasks/lessons.md`); plan files are not the place for knowledge a future user or contributor needs. Update docs to match what *shipped*, never what was planned.
+17. **Reuse and integrate before adding.** No implementation box starts until that subject's `## Integration analysis` records where the change belongs, what already exists, what is reused or extended, the chosen integration point and why, and whether it supports or conflicts with the project vision/ADRs. Prefer expanding, connecting, or refactoring existing code over new parallel code; new code is justified only when no existing surface fits. (Lesson: agents accrete duplicate code when they skip the prior-art check — see the 00.2 prior-art map and 00.1 vision review.) **Wire or delete:** new public surface (a function, endpoint, flag, command, or export) ships wired to a real non-test caller, or is explicitly disclosed as library-only/unwired — in the docs or a §4 decision — never as undisclosed dead surface a later cleanup-audit has to discover.
 18. **Truth model is non-negotiable.** Every surfaced claim carries an evidence level (`OBSERVED` / `DERIVED` / `INFERRED` / `UNKNOWN`). Windfury is `CONFIRMED` / `NOT_OBSERVED` / `UNKNOWN`; race is named only from a structured field or racial-ability event. Absence claims require recorded coverage of the relevant stream; otherwise `UNKNOWN`.
 19. **Same-faction by default; never silent substitution.** Cohort keys (game, zone, partition, encounter, size, class, WCL spec/category, role, faction) are never relaxed silently. Shortfall, inaccessible archive/private data, or partial streams yield an explicit partial-coverage result. Cross-faction data is opt-in, shown separately, never merged into same-faction medians.
 20. **Controllability on every recommendation.** Each is classified player / gear-build / pet / raid assignment / raid speed-environment / faction-racial-external / RNG-low-confidence. Gaps are reported as observed gap + likely impact + confidence, never as a precise DPS gain.
@@ -226,28 +357,31 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 ## 7. Gate review (run last; tick everything)
 
+> Run only when §5 is fully ticked. §7 is the engineering gate the agent
+> ticks; §8 is human acceptance that follows it.
+
 - [ ] All §5 subjects done (or explicitly `ABANDONED` with a §4 row), applying the §5 Done rule for `DEFERRED` human boxes
 - [ ] Subject 00 completed, or explicitly waived/abandoned with a §4 row
-- [ ] Build command from §2 passes with 0 errors
-- [ ] Fast and golden test commands from §2 pass
-- [ ] Behaviour verification done for every box that changed runtime behaviour
-- [ ] Remaining §2 rows (lint/format, type check, plan-specific gates) pass or are recorded `n/a`
-- [ ] §1 Risks-and-rollback table reviewed
-- [ ] Cross-cutting principles from §6 reviewed
-- [ ] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication
-- [ ] New public surface wired to a non-test caller or disclosed as library-only
-- [ ] Every non-abandoned subject has a Captain Hindsight checkpoint with verdict `CLOSE`
-- [ ] Every ticked box has a Progress-log entry and a pushed checkpoint commit
-- [ ] Durable architecture decisions promoted to `docs/adr/`
-- [ ] Documentation-impact review done for every shipped box
-- [ ] `main` pushed; `git status --short` clean except ignored artefacts
-- [ ] If Mode is `parallel`, Parallel work tracker clean
-- [ ] Shipped code/tests/comments/identifiers are plan-agnostic — grep excluding `tasks/` for `\b\d\d\.\d+\b`, `\bD\d{3}\b`, `tasks/necropsy/`, `Necropsy-Plan.md`, `\bslices?\b`; zero hits after triage
-- [ ] Commit messages plan-agnostic (`git log` same patterns)
-- [ ] Branch names and PR titles/descriptions plan-agnostic if used
+- [ ] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings (ruff + type checker clean)
+- [ ] Fast and golden test commands from the §2 Verification-commands table pass; coverage gate met if the repo enforces one
+- [ ] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
+- [ ] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
+- [ ] §1 Risks-and-rollback table reviewed; rollback steps still accurate for what actually shipped
+- [ ] Cross-cutting principles from §6 reviewed; any plan-specific architecture tests/rules hold
+- [ ] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication or new parallel code where an existing surface fit (see §6.17)
+- [ ] New public surface added by this plan is wired to a non-test caller, or is explicitly disclosed as library-only/unwired (in the docs or a §4 decision) — no undisclosed dead surface shipped (see §6.17 "Wire or delete")
+- [ ] Every non-abandoned subject has a recorded Captain Hindsight checkpoint with verdict `CLOSE`
+- [ ] Every ticked box has a Progress-log entry and is covered by a pushed checkpoint commit
+- [ ] Durable architecture decisions promoted to the project's decision log / ADR file (see §4 ADR promotion)
+- [ ] Documentation-impact review done for every shipped box — user- and developer-facing docs updated to match shipped behaviour (see §6.16 for scope), or recorded `n/a` with a one-line reason
+- [ ] Current plan/integration branch is pushed (or the no-remote note from the Checkpoint gate applies); `git status --short` has no uncommitted plan/code changes except explicitly deferred or ignored artefacts
+- [ ] If Collaboration mode is `parallel`, the Parallel work tracker has no stale active owners, unmerged subject branches, or unresolved handoff notes
+- [ ] Shipped code/tests/comments/identifiers are plan-agnostic — grep the repo **excluding `tasks/`** for box IDs (`\b\d\d\.\d+\b`), decision IDs (`\bD\d{3}\b`), the literal `tasks/necropsy/`, the plan filename `Necropsy-Plan.md`, and `\bslices?\b`; zero hits after triaging false positives (version strings can match the box-ID pattern; "slice" may be a legit domain term). See §6.11
+- [ ] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/necropsy/`, `Necropsy-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
+- [ ] Branch names and public PR titles/descriptions are plan-agnostic if used
 - [ ] `tasks/necropsy/manual-actions.md` — every human-owned box resolved or explicitly deferred
-- [ ] `cleanup-audit` run or waived by §4 row; findings triaged
-- [ ] `tasks/necropsy/lessons.md` reconciled into permanent `tasks/lessons.md`
+- [ ] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see the Disposable note). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
+- [ ] `tasks/necropsy/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/necropsy/` folder is deleted (see Disposable note)
 - [ ] **Historical-mode acceptance:** clean-clone replay of the full fixture produces a package against which the golden-fact register passes, where: (a) the set of `mandatory: true` facts is non-empty and covers at least every spec §11 fact plus one fact per boss; (b) every mandatory fact has status `verified-against-raw` and passes within tolerance; (c) every `oracle-only` fact is either promoted to `verified-against-raw` and passes, or carries a recorded exclusion reason; (d) every `disputed` fact carries a recorded `domain-sme` resolution (corrected value or exclusion). No fact passes silently by status alone
 - [ ] **Live-mode acceptance:** `necropsy analyze https://vanilla.warcraftlogs.com/character/id/86583560` completes against live WCL, produces a same-faction package with recorded coverage, cohort provenance, and no silent faction/partition substitution
 - [ ] **Secret scan:** repo history, fixtures, and a generated package contain no client secret or token
@@ -257,6 +391,9 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 ---
 
 ## 8. Acceptance / sign-off
+
+> Filled by the user or reviewer after §7 passes. This is intentionally
+> separate from §4: sign-off is acceptance, not a spec amendment.
 
 | Date | Reviewer | Result | Notes |
 |---|---|---|---|

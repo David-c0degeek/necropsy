@@ -1,8 +1,16 @@
 # Manual actions
 
+> Mirror of every human-owned box from the subject files (see §5). One
+> row per human action; keep in sync with the owning subject file.
+> Status is one of `TODO`, `DONE`, `DEFERRED` (a deferral needs a rationale),
+> `SUPERSEDED` (a later decision/box replaced it — cite it), or `ABANDONED`
+> (cite the §4 row). Only terminal states (`DONE`/`DEFERRED`/`SUPERSEDED`/
+> `ABANDONED`) may survive into an archived plan — never `TODO`.
+> Owner is a non-`agent` role from the §5 enum.
+
 | Box ID | Owner | Action | Source subject | Status | Deferral rationale |
 |---|---|---|---|---|---|
-| 00.9 | product-owner | Approve uv / git-lfs / secret-scanner installs; confirm LFS storage for the 80 MB fixture | 00 | TODO | |
+| 00.9 | product-owner | Approve uv / git-lfs / secret-scanner installs; confirm LFS storage for the 80 MB fixture | 00 | DONE | Approved by user 2026-10-12 (D011) |
 | 01.7 | domain-sme | Review golden-fact register seed; mark disputed facts | 01 | TODO | |
 | 04.8 | domain-sme | Review one boss's Hunter analyzer output for mechanics correctness | 04 | TODO | |
 | 05.7 | domain-sme | Review weave matrix and per-boss recommendations vs definitive playbook | 05 | TODO | |
