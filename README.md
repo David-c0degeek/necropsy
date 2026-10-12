@@ -4,7 +4,8 @@ Local-first Warcraft Logs forensics. Paste a WCL character URL; get a same-facti
 class/spec/role-aware benchmark analysis and an offline boss-by-boss playbook.
 
 Status: early development (Milestone A — headless Hunter/Naxxramas analysis).
-The CLI currently only reports its version. Plan: `tasks/Necropsy-Plan.md`.
+The CLI can normalize a raw snapshot into a DuckDB analysis database
+(`necropsy ingest`); analysis and reports come next. Plan: `tasks/Necropsy-Plan.md`.
 Roadmap: `docs/roadmap.md`. Source specification and the investigation that led
 here: `docs/origin/`.
 
@@ -19,6 +20,18 @@ uv run ruff check . && uv run ruff format --check .
 uv run mypy
 uv run pytest -m "not golden and not live and not acceptance"   # fast suite
 ```
+
+## Usage
+
+```sh
+uv run necropsy ingest tests/fixtures/haplina_naxx_subset.zip --db work/subset.duckdb
+uv run necropsy ingest <export.zip> --db work/full.duckdb --sha256 <expected> --replace
+```
+
+`ingest` verifies the archive, merges overlapping event streams without losing
+genuine duplicate events, records how complete every stream is, and replaces the
+database only if the build succeeds. Database layout and the event-identity
+rules: [`docs/database.md`](docs/database.md).
 
 ### Test suites
 
