@@ -6,3 +6,5 @@
 - 2026-10-13 — WCL documentation hosts return HTTP 403 to the WebFetch tool (bot check). The vanilla schema pages fetch fine with `curl -A <browser UA>`; `www.warcraftlogs.com/api/docs` still needs a human browser.
 - 2026-10-13 — Exporter JSON is pretty-printed and compresses ~20x. Size budgets for committed fixtures must be stated for the compressed archive, never for raw JSON (subset: ~290 MB raw vs ~12.8 MB compressed).
 - 2026-10-13 — Windows console output in cp1252 crashes on non-ASCII player names. Any CLI or script that prints WCL names must force UTF-8 output.
+- 2026-10-13 — Do not run `git stash` while staged review work is in flight: `--keep-index` still removes unstaged edits from the tree, and popping onto staged add/add files conflicts. Verify with `git diff stash@{0}` before dropping.
+- 2026-10-13 — astral-sh/setup-uv publishes only full version tags (no floating `v10`); pin GitHub Actions to commit SHAs with a version comment.

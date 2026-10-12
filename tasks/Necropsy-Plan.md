@@ -192,8 +192,9 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 |---|---|---|
 | Install | `uv sync --locked` | Confirmed by 00.3 smoke run (uv 0.11.21, CPython 3.14.6) |
 | Build | `uv build` | Confirmed by 00.3 smoke run |
-| Test (fast) | `uv run pytest -m "not golden and not live"` | Subset fixture only; ordinary CI; markers enforced by `--strict-markers` |
+| Test (fast) | `uv run pytest -m "not golden and not live and not acceptance"` | Subset fixture only; ordinary CI; markers enforced by `--strict-markers` |
 | Test (golden) | `uv run pytest -m golden` | Needs `git lfs pull` of the full fixture; local + scheduled/manual CI |
+| Test (acceptance) | `uv run pytest -m acceptance` | Golden-fact register gate; expected to fail until analyzers verify every mandatory fact; run at §7 |
 | Test (live) | `uv run pytest -m live` | Needs keyring credentials; manual only, never CI |
 | Lint/format | `uv run ruff check . && uv run ruff format --check .` | Confirmed by 00.3 smoke run |
 | Type check | `uv run mypy` | mypy strict, configured in `pyproject.toml` (D012) |
@@ -272,6 +273,8 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | D012 | 2026-10-13 | Type checker | mypy in strict mode, configured in `pyproject.toml`; pyright not adopted | Python-native, cp314 wheel, no Node toolchain; one gate tool | 00.4; 01.1; §2 Type check |
 | D013 | 2026-10-13 | No third-party WCL client or MCP | Necropsy owns its httpx GraphQL client; the evaluated community WCL MCP servers and PyPI packages are rejected | None of the evaluated candidates (00.6) meets Necropsy's needs; the MCP servers would receive WCL credentials from unknown authors | 00.6; 07.1 |
 | D014 | 2026-10-13 | Explicit DuckDB schemas | Raw-derived tables use declared column types, never JSON auto-inference | Auto-inference typed `targetID` as `HUGEINT` on a real page; types must be stable across fixtures | 00.2; 02.3 |
+| D015 | 2026-10-13 | Subset fixture is a compressed archive | The fast-test subset is a deterministic zip of original member bytes plus a generated `subset.json`; the < 25 MB budget applies to the zip (13.6 MB) | Exporter JSON is pretty-printed: the same 12 fights are ~290 MB raw; original bytes must stay unmodified | 01.5; `tests/fixtures/haplina_naxx_subset.zip`; `scripts/fixture_tools.py` |
+| D016 | 2026-10-13 | Read snapshots from the zip, no extraction | `VerifiedArchive` streams members from the zip with whole-file and per-member digest checks; the bounded-extraction helper is not built | Avoids a 1.8 GB cache and its invalidation; same safety guarantees. `VerifiedArchive` is library code whose non-test callers are `scripts/fixture_tools.py` now and snapshot ingest next | 01.6; 02.2; `src/necropsy/snapshot/archive.py` |
 | D011 | 2026-10-12 | Tool installs approved | User approved all installs named in the plan: uv, git-lfs, secret scanner (gitleaks or equivalent), and LFS storage for the 80 MB fixture on the personal account | Explicit user approval in session | 00.7, 00.9, 01.3; `manual-actions.md` |
 
 ---

@@ -25,13 +25,13 @@ source and a status.
 > - **Vision fit** — supports or conflicts with the project vision/ADRs (00.1); cite drift if any.
 > - **Risks** — duplication, architectural drift, or accidental complexity introduced.
 
-- **Existing code found** — TBD
-- **Behaviour to preserve** — TBD
-- **Reuse / extend** — TBD
-- **Do not duplicate** — TBD
-- **Integration point + why** — TBD
-- **Vision fit** — TBD
-- **Risks** — TBD
+- **Existing code found** — none in the repo (00.2: only docs and plan files). Prior art outside the repo: `D:\repos\wcl_access_test\wcl_hunter_deep_export.py` writes the export layout (`export_actor_events`, `write_json`, `shutil.make_archive`); no reader exists anywhere.
+- **Behaviour to preserve** — the raw export's exact bytes (immutability, plan §6.21); the oracle files' exact bytes (frozen with `-text`).
+- **Reuse / extend** — exporter layout knowledge (member paths, `selection.json` shape) reused by `scripts/fixture_tools.py::subset_members`; uv/ruff/mypy/pytest configuration from the 00.3 smoke run.
+- **Do not duplicate** — one archive reader (`necropsy.snapshot.archive.VerifiedArchive`) serves the subset generator, the fixture tests and (later) snapshot ingest; no second zip/extraction path.
+- **Integration point + why** — `src/necropsy/snapshot/archive.py`: snapshots are archives, so verified archive access is the seam every later reader builds on. `tests/golden/haplina_naxx/` holds fixture + oracle + facts; `tests/fixtures/` holds the subset; `scripts/` holds developer-only tooling.
+- **Vision fit** — supports spec §2 step 7 / §11 (immutable raw, golden fixture) and plan §6.21–6.22; D015/D016 adjust 01.5/01.6 without changing intent.
+- **Risks** — zip bytes depend on the zlib build (mitigated: member manifest is the cross-machine contract; byte check skips with a reason on a different zlib); LFS bandwidth (mitigated: manual golden workflow only); `VerifiedArchive` and `scripts/fixture_tools.py` have test-and-tooling callers only until snapshot ingest wires the reader (disclosed in README and D016).
 
 ## Boxes
 > ID = `<subject-id>.<box-number>` (subject index ID · box ordinal). Stable — never
@@ -41,7 +41,7 @@ source and a status.
 > Owner MUST be one of the §5 enum:
 > agent · release-engineer · product-owner · tech-lead · domain-sme.
 
-- [ ] **01.1** (agent) uv project at repo root: `src/necropsy/` laid out per
+- [x] **01.1** (agent) uv project at repo root: `src/necropsy/` laid out per
       spec §10 adapted for Python-only Milestone A (`wcl/`, `acquisition/`,
       `snapshot/`, `normalize/`, `benchmark/`, `analysis/{generic,classes,encounters}/`,
       `reports/`, `storage/`), `rules/classic_era/`, `tests/{unit,integration,golden}/`.
@@ -52,7 +52,7 @@ source and a status.
 - [ ] **01.2** (agent) GitHub Actions CI: `uv sync --locked`, ruff, type check,
       fast tests on Windows + Linux. Golden suite as manual/scheduled job with
       LFS checkout. Green run recorded.
-- [ ] **01.3** (agent) Git LFS tracks the full v6 export zip under
+- [x] **01.3** (agent) Git LFS tracks the full v6 export zip under
       `tests/golden/haplina_naxx/raw/`; `PROVENANCE.md` records origin path,
       export timestamp, auth mode from `manifest.json`
       (`clientSecretIncludedInExport=false`, `userAccessTokenIncludedInExport=false`),
@@ -61,7 +61,7 @@ source and a status.
       v1/v2 outputs stored under `historical/`, marked superseded. gitleaks
       scans the extracted full fixture (no size cap) with zero findings before
       the first LFS push.
-- [ ] **01.4** (agent) Golden-fact register `tests/golden/haplina_naxx/facts.yaml`:
+- [x] **01.4** (agent) Golden-fact register `tests/golden/haplina_naxx/facts.yaml`:
       each fact has id, statement, expected value + tolerance, mode
       (`historical` / `live`), source (file + row/section), status
       (`verified-against-raw` / `oracle-only` / `disputed`), `mandatory`
@@ -75,14 +75,19 @@ source and a status.
       only — mixed overall top 5); Snape death ~25.678 s on Grobbulus; Gothik
       foreign-trash shares; KT MC-utility timestamps; Haplina 12/33/6; pet ranks
       (Bite 8 / 17261, Dive 3 / 23148, Lightning Breath 6 / 25012); shot counts.
-- [ ] **01.5** (agent) Deterministic subset fixture committed plainly (no LFS):
+- [x] **01.5** (agent) Deterministic subset fixture committed plainly (no LFS):
       Patchwerk (Haplina + recorded top 5), plus Grobbulus, Gothik, KT for
       Haplina and the rank-1 comparator, with every stream those fights need.
       Generator script reproduces it from the full zip and verifies hashes.
-      Size budget recorded (target < 25 MB).
-- [ ] **01.6** (agent) Bounded extraction helper for the full zip (cache dir,
+      Size budget recorded (target < 25 MB). Amended by D015: the budget applies
+      to the compressed subset zip of original member bytes (13.6 MB); a
+      generated `subset.json` defines the subset scope.
+- [x] **01.6** (agent) Bounded extraction helper for the full zip (cache dir,
       hash-verified, idempotent, refuses path traversal and oversize entries)
-      used by golden tests; clean-clone replay steps in README.
+      used by golden tests; clean-clone replay steps in README. Amended by D016:
+      no extraction; `necropsy.snapshot.archive.VerifiedArchive` reads members
+      straight from the zip with the same guarantees (digests, unsafe and
+      duplicate names, encryption, size caps on declared and read bytes).
 - [ ] **01.7** (domain-sme) Review `facts.yaml` seed: confirm trusted oracle
       facts, mark known-wrong ones `disputed` with a note.
 
@@ -106,3 +111,4 @@ source and a status.
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
+2026-10-13 · slice 1 · 01.1, 01.3–01.6 · skeleton (uv, typer CLI with UTF-8 output, ruff, mypy strict, pytest strict markers + `acceptance` marker), `VerifiedArchive` + 20 unit tests, full fixture in LFS (sha256 f249c944…), 1,407-member entries manifest, 36 oracle files + provenance.json/PROVENANCE.md, 13.6 MB deterministic subset (two builds identical), facts.yaml (78 facts, 61 mandatory, 11 verified against raw), CI + manual golden workflow, README/CHANGELOG · observed: fast suite 48 passed; golden 2 passed (every full-export member digest verified; subset regenerates identically); acceptance fails as designed; ruff/mypy clean; gitleaks over the extracted full fixture: no leaks; `necropsy --version` → `necropsy 0.1.0` · 01.2 waits for the first CI run after push · commit pending pair review
