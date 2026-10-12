@@ -11,3 +11,6 @@
 - 2026-10-13 — Atomic file replacement: re-validate the target (sidecars, identity, size/mtime) immediately before the swap and never delete files the build does not own, such as the target's WAL.
 - 2026-10-13 — DuckDB `read_json` with a `JSON` column stores whatever the NDJSON value is: pass objects, not pre-serialized JSON strings, or `json_extract` returns NULL.
 - 2026-10-13 — DuckDB `executemany` inserts ~150 rows/s; bulk-load via NDJSON + `read_json(columns=…)` instead.
+- 2026-10-13 — A read-only probe that scanned every death event in a pet's streams reported a second pet death that was really a mob dying. Fact probes must filter by target actor, exactly like the analyzer; verify facts only through registered checkers.
+- 2026-10-13 — Realm names differ between rankings ("Pyrewood Village") and report actors ("PyrewoodVillage"); compare normalized keys.
+- 2026-10-13 — WCL `guild.faction` in rankings does not use the combatant faction codes (a Shaman raid reported 1); never mix enumerations without data proof.

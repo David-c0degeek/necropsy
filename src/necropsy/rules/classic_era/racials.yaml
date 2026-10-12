@@ -1,0 +1,18 @@
+# Player racial abilities that prove a character's race when the character
+# itself casts them. A racial is never inferred from faction or class.
+#
+# source: "fixture" = name and ID seen in the abilities table of the Haplina
+# Naxxramas export (2026-10-13); "spell-data" = Classic Era spell ID not seen
+# in that export.
+version: 1
+racials:
+  - {spell: 20572, name: Blood Fury, race: Orc, source: fixture}
+  - {spell: 20554, name: Berserking, race: Troll, source: fixture}
+  - {spell: 26296, name: Berserking, race: Troll, source: fixture}
+  - {spell: 26297, name: Berserking, race: Troll, source: fixture}
+  - {spell: 7744, name: Will of the Forsaken, race: Undead, source: fixture}
+  - {spell: 20549, name: War Stomp, race: Tauren, source: fixture}
+  - {spell: 20594, name: Stoneform, race: Dwarf, source: fixture}
+  - {spell: 20580, name: Shadowmeld, race: Night Elf, source: fixture}
+  - {spell: 20589, name: Escape Artist, race: Gnome, source: fixture}
+  - {spell: 20600, name: Perception, race: Human, source: fixture}

@@ -9,15 +9,16 @@ facts:
   statement: The downloaded overall top-five set (75 rows) contains 63 Alliance and 12 Horde rows.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 63
     horde: 12
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: 'Probe: playerDetails combatantInfo.factionID gives 62 Alliance / 11 Horde / 2 missing; combatantinfo
-    events give 57 / 11 / 7 missing. Union of both sources not yet computed.'
+  evidence: Computed by fact checker `cohort.faction-split` (tests/golden/fact_checks.py) from the full
+    analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: patchwerk.smcadogx.raptor-casts
   statement: Smcadogx's recorded top-five Patchwerk fight has 11 Raptor Strike casts.
   mode: historical
@@ -27,8 +28,8 @@ facts:
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
+  evidence: Computed by fact checker `patchwerk.smcadogx.raptor-casts` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: patchwerk.charies.raptor-casts
   statement: Charies's recorded top-five Patchwerk fight has 9 Raptor Strike casts.
   mode: historical
@@ -38,8 +39,8 @@ facts:
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
+  evidence: Computed by fact checker `patchwerk.charies.raptor-casts` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: patchwerk.andrenn.raptor-casts
   statement: Andrenn's recorded top-five Patchwerk fight has 8 Raptor Strike casts.
   mode: historical
@@ -49,8 +50,8 @@ facts:
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
+  evidence: Computed by fact checker `patchwerk.andrenn.raptor-casts` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: patchwerk.xert.raptor-casts
   statement: Xert's recorded top-five Patchwerk fight has 0 Raptor Strike casts.
   mode: historical
@@ -60,8 +61,8 @@ facts:
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
+  evidence: Computed by fact checker `patchwerk.xert.raptor-casts` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: patchwerk.xal.raptor-casts
   statement: Xal's recorded top-five Patchwerk fight has 6 Raptor Strike casts.
   mode: historical
@@ -71,19 +72,19 @@ facts:
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
+  evidence: Computed by fact checker `patchwerk.xal.raptor-casts` (tests/golden/fact_checks.py) from the
+    subset analysis database.
 - id: patchwerk.smcadogx.faction
   statement: Smcadogx (Patchwerk rank 1) is Horde.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: Horde
   source:
     file: oracle/definitive/top5_definitive_with_faction_race_wf.csv
     locator: Boss=Patchwerk, Position=1, Faction
-  evidence: 'Probe: playerDetails factionID 0 for Smcadogx; mapping 0=Horde/1=Alliance not
-    yet confirmed.'
+  evidence: Computed by fact checker `patchwerk.smcadogx.faction` (tests/golden/fact_checks.py) from the
+    subset analysis database.
 - id: patchwerk.smcadogx.race
   statement: Smcadogx is Orc, proven by a Blood Fury (spell 20572) cast.
   mode: historical
@@ -96,8 +97,8 @@ facts:
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams; Blood Fury cast count 1
+  evidence: Computed by fact checker `patchwerk.smcadogx.race` (tests/golden/fact_checks.py) from the
+    subset analysis database.
 - id: patchwerk.smcadogx.windfury
   statement: Smcadogx's Patchwerk fight has 9 Windfury Totem extra-attack events (Windfury CONFIRMED).
   mode: historical
@@ -109,8 +110,24 @@ facts:
   source:
     file: docs/origin/WCL_Forensics_App_Architecture_v0.1.md
     locator: section 11
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
+  evidence: Computed by fact checker `patchwerk.smcadogx.windfury` (tests/golden/fact_checks.py) from
+    the subset analysis database.
+- id: patchwerk.alliance-comparators.windfury
+  statement: No Windfury extra attacks are observed for the Alliance Patchwerk top-five Hunters (Charies,
+    Andrenn, Xert, Xal).
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    Charies: NOT_OBSERVED
+    Andrenn: NOT_OBSERVED
+    Xert: NOT_OBSERVED
+    Xal: NOT_OBSERVED
+  source:
+    file: oracle/definitive/top5_definitive_with_faction_race_wf.csv
+    locator: Boss=Patchwerk, Positions 2-5, WindfuryExtraAttacks
+  evidence: Computed by fact checker `patchwerk.alliance-comparators.windfury` (tests/golden/fact_checks.py)
+    from the subset analysis database.
 - id: grobbulus.smcadogx.windfury
   statement: Smcadogx's Grobbulus fight has 4 Windfury Totem extra-attack events.
   mode: historical
@@ -122,8 +139,8 @@ facts:
   source:
     file: docs/origin/Haplina Analysis.md
     locator: Smcadogx Raptor/WF table
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
+  evidence: Computed by fact checker `grobbulus.smcadogx.windfury` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: grobbulus.haplina.pet-death
   statement: Haplina's pet Snape first dies 25.678 s into the Grobbulus fight.
   mode: historical
@@ -135,22 +152,19 @@ facts:
   source:
     file: oracle/definitive/pet_forensics_with_ranks.csv
     locator: Boss=Grobbulus, Hunter=Haplina, DeathAt_s
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams
-- id: grobbulus.haplina.pet-second-death
-  statement: Snape has a second death event 39.0 s into the Grobbulus fight.
+  evidence: Computed by fact checker `grobbulus.haplina.pet-death` (tests/golden/fact_checks.py) from
+    the subset analysis database.
+- id: grobbulus.haplina.pet-death-count
+  statement: Snape dies exactly once during Haplina's Grobbulus fight.
   mode: historical
   mandatory: false
   status: verified-against-raw
-  expected: 39.0
-  tolerance: 0.001
-  unit: s
+  expected: 1
   source:
-    file: raw/wcl_hunter_deep_export_20261012_145328.zip
-    locator: Grobbulus Haplina fight, Snape pet target stream, death events
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams. Not reported by the oracle; Hunter domain review to confirm meaning (revive
-    and second death, or a duplicate).
+    file: oracle/definitive/pet_forensics_with_ranks.csv
+    locator: Boss=Grobbulus, Hunter=Haplina, DeathAt_s (single value)
+  evidence: Computed by fact checker `grobbulus.haplina.pet-death-count` (tests/golden/fact_checks.py)
+    from the subset analysis database.
 - id: gothik-the-harvester.foreign-trash-detected
   statement: Every recorded Gothik top-five fight has non-native trash damage; Haplina has none.
   mode: historical
@@ -203,8 +217,8 @@ facts:
   source:
     file: oracle/definitive/pet_forensics_with_ranks.csv
     locator: Hunter=Haplina, HunterSpec
-  evidence: read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in
-    selected Hunter and pet streams; combatantinfo talents ids [12, 33, 6] on Patchwerk
+  evidence: Computed by fact checker `haplina.talents` (tests/golden/fact_checks.py) from the subset analysis
+    database.
 - id: haplina.pet-ranks
   statement: Snape's observed ability ranks are Bite 8 (17261), Dive 3 (23148), Lightning Breath 6 (25012).
   mode: historical
@@ -236,24 +250,29 @@ facts:
   statement: 'Haplina''s selected Patchwerk fight: 1000.86 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 1000.86
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Patchwerk, Haplina_DPS
+  evidence: Computed by fact checker `patchwerk.haplina.dps` (tests/golden/fact_checks.py) from the subset
+    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
+    duration.
 - id: patchwerk.haplina.kill-duration
   statement: Haplina's selected Patchwerk kill lasts 84.038 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 84.038
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Patchwerk, CurrentKill_s
+  evidence: Computed by fact checker `patchwerk.haplina.kill-duration` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: patchwerk.haplina.shot-counts
   statement: Haplina's selected Patchwerk fight has Auto/Aimed/Multi = 28/7/8.
   mode: historical
@@ -266,42 +285,49 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Patchwerk, Current_Auto_Aimed_Multi
-  evidence: 'read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events
-    in selected Hunter and pet streams: Aimed 7 and Multi 8 match; Auto count not yet probed, so the fact
-    stays oracle-only.'
+  evidence: 'read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in selected
+    Hunter and pet streams: Aimed 7 and Multi 8 match; Auto count not yet probed, so the fact stays oracle-only.'
 - id: patchwerk.top5.faction-split
   statement: 'Patchwerk overall top five: 4 Alliance / 1 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 4
     horde: 1
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Patchwerk, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `patchwerk.top5.faction-split` (tests/golden/fact_checks.py) from
+    the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: grobbulus.haplina.dps
   statement: 'Haplina''s selected Grobbulus fight: 834.884 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 834.884
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grobbulus, Haplina_DPS
+  evidence: Computed by fact checker `grobbulus.haplina.dps` (tests/golden/fact_checks.py) from the subset
+    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
+    duration.
 - id: grobbulus.haplina.kill-duration
   statement: Haplina's selected Grobbulus kill lasts 66.765 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 66.765
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grobbulus, CurrentKill_s
+  evidence: Computed by fact checker `grobbulus.haplina.kill-duration` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: grobbulus.haplina.shot-counts
   statement: Haplina's selected Grobbulus fight has Auto/Aimed/Multi = 21/6/6.
   mode: historical
@@ -318,35 +344,42 @@ facts:
   statement: 'Grobbulus overall top five: 3 Alliance / 2 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 3
     horde: 2
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grobbulus, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `grobbulus.top5.faction-split` (tests/golden/fact_checks.py) from
+    the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: gluth.haplina.dps
   statement: 'Haplina''s selected Gluth fight: 807.434 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 807.434
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gluth, Haplina_DPS
+  evidence: Computed by fact checker `gluth.haplina.dps` (tests/golden/fact_checks.py) from the full analysis
+    database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight duration.
 - id: gluth.haplina.kill-duration
   statement: Haplina's selected Gluth kill lasts 55.586 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 55.586
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gluth, CurrentKill_s
+  evidence: Computed by fact checker `gluth.haplina.kill-duration` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: gluth.haplina.shot-counts
   statement: Haplina's selected Gluth fight has Auto/Aimed/Multi = 16/4/5.
   mode: historical
@@ -363,35 +396,43 @@ facts:
   statement: 'Gluth overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gluth, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `gluth.top5.faction-split` (tests/golden/fact_checks.py) from the
+    full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: thaddius.haplina.dps
   statement: 'Haplina''s selected Thaddius fight: 1361.75 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 1361.75
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Thaddius, Haplina_DPS
+  evidence: Computed by fact checker `thaddius.haplina.dps` (tests/golden/fact_checks.py) from the full
+    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
+    duration.
 - id: thaddius.haplina.kill-duration
   statement: Haplina's selected Thaddius kill lasts 122.5 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 122.5
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Thaddius, CurrentKill_s
+  evidence: Computed by fact checker `thaddius.haplina.kill-duration` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: thaddius.haplina.shot-counts
   statement: Haplina's selected Thaddius fight has Auto/Aimed/Multi = 32/9/10.
   mode: historical
@@ -408,35 +449,43 @@ facts:
   statement: 'Thaddius overall top five: 4 Alliance / 1 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 4
     horde: 1
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Thaddius, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `thaddius.top5.faction-split` (tests/golden/fact_checks.py) from
+    the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: noth-the-plaguebringer.haplina.dps
   statement: 'Haplina''s selected Noth the Plaguebringer fight: 1052.68 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 1052.68
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Noth the Plaguebringer, Haplina_DPS
+  evidence: Computed by fact checker `noth-the-plaguebringer.haplina.dps` (tests/golden/fact_checks.py)
+    from the full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided
+    by fight duration.
 - id: noth-the-plaguebringer.haplina.kill-duration
   statement: Haplina's selected Noth the Plaguebringer kill lasts 47.778 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 47.778
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Noth the Plaguebringer, CurrentKill_s
+  evidence: Computed by fact checker `noth-the-plaguebringer.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: noth-the-plaguebringer.haplina.shot-counts
   statement: Haplina's selected Noth the Plaguebringer fight has Auto/Aimed/Multi = 16/4/5.
   mode: historical
@@ -453,35 +502,43 @@ facts:
   statement: 'Noth the Plaguebringer overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Noth the Plaguebringer, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `noth-the-plaguebringer.top5.faction-split` (tests/golden/fact_checks.py)
+    from the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介,
+    Grobbulus) count via the INFERRED raid-class-faction-v1 rule.
 - id: heigan-the-unclean.haplina.dps
   statement: 'Haplina''s selected Heigan the Unclean fight: 882.527 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 882.527
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Heigan the Unclean, Haplina_DPS
+  evidence: Computed by fact checker `heigan-the-unclean.haplina.dps` (tests/golden/fact_checks.py) from
+    the full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided
+    by fight duration.
 - id: heigan-the-unclean.haplina.kill-duration
   statement: Haplina's selected Heigan the Unclean kill lasts 55.0 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 55.0
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Heigan the Unclean, CurrentKill_s
+  evidence: Computed by fact checker `heigan-the-unclean.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: heigan-the-unclean.haplina.shot-counts
   statement: Haplina's selected Heigan the Unclean fight has Auto/Aimed/Multi = 18/4/5.
   mode: historical
@@ -498,35 +555,43 @@ facts:
   statement: 'Heigan the Unclean overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Heigan the Unclean, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `heigan-the-unclean.top5.faction-split` (tests/golden/fact_checks.py)
+    from the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介,
+    Grobbulus) count via the INFERRED raid-class-faction-v1 rule.
 - id: loatheb.haplina.dps
   statement: 'Haplina''s selected Loatheb fight: 1046.21 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 1046.21
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Loatheb, Haplina_DPS
+  evidence: Computed by fact checker `loatheb.haplina.dps` (tests/golden/fact_checks.py) from the full
+    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
+    duration.
 - id: loatheb.haplina.kill-duration
   statement: Haplina's selected Loatheb kill lasts 132.902 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 132.902
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Loatheb, CurrentKill_s
+  evidence: Computed by fact checker `loatheb.haplina.kill-duration` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: loatheb.haplina.shot-counts
   statement: Haplina's selected Loatheb fight has Auto/Aimed/Multi = 42/11/10.
   mode: historical
@@ -543,35 +608,43 @@ facts:
   statement: 'Loatheb overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Loatheb, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `loatheb.top5.faction-split` (tests/golden/fact_checks.py) from the
+    full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: anub-rekhan.haplina.dps
   statement: 'Haplina''s selected Anub''Rekhan fight: 1232.39 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 1232.39
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Anub'Rekhan, Haplina_DPS
+  evidence: Computed by fact checker `anub-rekhan.haplina.dps` (tests/golden/fact_checks.py) from the
+    full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by
+    fight duration.
 - id: anub-rekhan.haplina.kill-duration
   statement: Haplina's selected Anub'Rekhan kill lasts 35.324 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 35.324
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Anub'Rekhan, CurrentKill_s
+  evidence: Computed by fact checker `anub-rekhan.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: anub-rekhan.haplina.shot-counts
   statement: Haplina's selected Anub'Rekhan fight has Auto/Aimed/Multi = 14/3/3.
   mode: historical
@@ -588,13 +661,16 @@ facts:
   statement: 'Anub''Rekhan overall top five: 3 Alliance / 2 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 3
     horde: 2
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Anub'Rekhan, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `anub-rekhan.top5.faction-split` (tests/golden/fact_checks.py) from
+    the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: grand-widow-faerlina.haplina.dps
   statement: 'Haplina''s selected Grand Widow Faerlina fight: 1086.8 DPS.'
   mode: historical
@@ -606,17 +682,21 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grand Widow Faerlina, Haplina_DPS
+  evidence: Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67) because actors exported
+    as the Hunter's pets include non-Hunter-pet units; pending pet classification.
 - id: grand-widow-faerlina.haplina.kill-duration
   statement: Haplina's selected Grand Widow Faerlina kill lasts 40.034 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 40.034
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grand Widow Faerlina, CurrentKill_s
+  evidence: Computed by fact checker `grand-widow-faerlina.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: grand-widow-faerlina.haplina.shot-counts
   statement: Haplina's selected Grand Widow Faerlina fight has Auto/Aimed/Multi = 16/3/4.
   mode: historical
@@ -633,35 +713,43 @@ facts:
   statement: 'Grand Widow Faerlina overall top five: 4 Alliance / 1 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 4
     horde: 1
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grand Widow Faerlina, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `grand-widow-faerlina.top5.faction-split` (tests/golden/fact_checks.py)
+    from the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介,
+    Grobbulus) count via the INFERRED raid-class-faction-v1 rule.
 - id: maexxna.haplina.dps
   statement: 'Haplina''s selected Maexxna fight: 1122.04 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 1122.04
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Maexxna, Haplina_DPS
+  evidence: Computed by fact checker `maexxna.haplina.dps` (tests/golden/fact_checks.py) from the full
+    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
+    duration.
 - id: maexxna.haplina.kill-duration
   statement: Haplina's selected Maexxna kill lasts 36.341 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 36.341
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Maexxna, CurrentKill_s
+  evidence: Computed by fact checker `maexxna.haplina.kill-duration` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: maexxna.haplina.shot-counts
   statement: Haplina's selected Maexxna fight has Auto/Aimed/Multi = 14/3/4.
   mode: historical
@@ -678,13 +766,16 @@ facts:
   statement: 'Maexxna overall top five: 3 Alliance / 2 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 3
     horde: 2
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Maexxna, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `maexxna.top5.faction-split` (tests/golden/fact_checks.py) from the
+    full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: instructor-razuvious.haplina.dps
   statement: 'Haplina''s selected Instructor Razuvious fight: 833.912 DPS.'
   mode: historical
@@ -696,17 +787,21 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Instructor Razuvious, Haplina_DPS
+  evidence: Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67) because actors exported
+    as the Hunter's pets include non-Hunter-pet units; pending pet classification.
 - id: instructor-razuvious.haplina.kill-duration
   statement: Haplina's selected Instructor Razuvious kill lasts 44.627 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 44.627
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Instructor Razuvious, CurrentKill_s
+  evidence: Computed by fact checker `instructor-razuvious.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: instructor-razuvious.haplina.shot-counts
   statement: Haplina's selected Instructor Razuvious fight has Auto/Aimed/Multi = 13/4/4.
   mode: historical
@@ -723,35 +818,43 @@ facts:
   statement: 'Instructor Razuvious overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Instructor Razuvious, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `instructor-razuvious.top5.faction-split` (tests/golden/fact_checks.py)
+    from the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介,
+    Grobbulus) count via the INFERRED raid-class-faction-v1 rule.
 - id: gothik-the-harvester.haplina.dps
   statement: 'Haplina''s selected Gothik the Harvester fight: 163.224 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 163.224
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Haplina_DPS
+  evidence: Computed by fact checker `gothik-the-harvester.haplina.dps` (tests/golden/fact_checks.py)
+    from the subset analysis database. DPS = damage by the Hunter and every actor exported as its pet,
+    divided by fight duration.
 - id: gothik-the-harvester.haplina.kill-duration
   statement: Haplina's selected Gothik the Harvester kill lasts 307.087 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 307.087
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, CurrentKill_s
+  evidence: Computed by fact checker `gothik-the-harvester.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the subset analysis database.
 - id: gothik-the-harvester.haplina.shot-counts
   statement: Haplina's selected Gothik the Harvester fight has Auto/Aimed/Multi = 45/2/14.
   mode: historical
@@ -768,35 +871,43 @@ facts:
   statement: 'Gothik the Harvester overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `gothik-the-harvester.top5.faction-split` (tests/golden/fact_checks.py)
+    from the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介,
+    Grobbulus) count via the INFERRED raid-class-faction-v1 rule.
 - id: the-four-horsemen.haplina.dps
   statement: 'Haplina''s selected The Four Horsemen fight: 495.88 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 495.88
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=The Four Horsemen, Haplina_DPS
+  evidence: Computed by fact checker `the-four-horsemen.haplina.dps` (tests/golden/fact_checks.py) from
+    the full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided
+    by fight duration.
 - id: the-four-horsemen.haplina.kill-duration
   statement: Haplina's selected The Four Horsemen kill lasts 142.248 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 142.248
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=The Four Horsemen, CurrentKill_s
+  evidence: Computed by fact checker `the-four-horsemen.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: the-four-horsemen.haplina.shot-counts
   statement: Haplina's selected The Four Horsemen fight has Auto/Aimed/Multi = 44/8/11.
   mode: historical
@@ -813,35 +924,43 @@ facts:
   statement: 'The Four Horsemen overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=The Four Horsemen, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `the-four-horsemen.top5.faction-split` (tests/golden/fact_checks.py)
+    from the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介,
+    Grobbulus) count via the INFERRED raid-class-faction-v1 rule.
 - id: sapphiron.haplina.dps
   statement: 'Haplina''s selected Sapphiron fight: 815.097 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 815.097
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Haplina_DPS
+  evidence: Computed by fact checker `sapphiron.haplina.dps` (tests/golden/fact_checks.py) from the full
+    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
+    duration.
 - id: sapphiron.haplina.kill-duration
   statement: Haplina's selected Sapphiron kill lasts 116.223 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 116.223
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, CurrentKill_s
+  evidence: Computed by fact checker `sapphiron.haplina.kill-duration` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: sapphiron.haplina.shot-counts
   statement: Haplina's selected Sapphiron fight has Auto/Aimed/Multi = 43/9/11.
   mode: historical
@@ -858,35 +977,43 @@ facts:
   statement: 'Sapphiron overall top five: 2 Alliance / 3 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 2
     horde: 3
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `sapphiron.top5.faction-split` (tests/golden/fact_checks.py) from
+    the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.
 - id: kel-thuzad.haplina.dps
   statement: 'Haplina''s selected Kel''Thuzad fight: 643.76 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 643.76
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Kel'Thuzad, Haplina_DPS
+  evidence: Computed by fact checker `kel-thuzad.haplina.dps` (tests/golden/fact_checks.py) from the subset
+    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
+    duration.
 - id: kel-thuzad.haplina.kill-duration
   statement: Haplina's selected Kel'Thuzad kill lasts 176.83 s.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 176.83
   tolerance: 0.01
   unit: s
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Kel'Thuzad, CurrentKill_s
+  evidence: Computed by fact checker `kel-thuzad.haplina.kill-duration` (tests/golden/fact_checks.py)
+    from the subset analysis database.
 - id: kel-thuzad.haplina.shot-counts
   statement: Haplina's selected Kel'Thuzad fight has Auto/Aimed/Multi = 54/13/8.
   mode: historical
@@ -903,10 +1030,13 @@ facts:
   statement: 'Kel''Thuzad overall top five: 5 Alliance / 0 Horde.'
   mode: historical
   mandatory: false
-  status: oracle-only
+  status: verified-against-raw
   expected:
     alliance: 5
     horde: 0
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Kel'Thuzad, Alliance_in_overall_top5/Horde_in_overall_top5
+  evidence: Computed by fact checker `kel-thuzad.top5.faction-split` (tests/golden/fact_checks.py) from
+    the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
+    count via the INFERRED raid-class-faction-v1 rule.

@@ -1,0 +1,59 @@
+# External effects that change a fight's environment, and the codes WCL uses.
+#
+# source: "fixture" = seen in the Haplina Naxxramas export (2026-10-13);
+# "spell-data" = Classic Era spell ID not seen in that export.
+version: 1
+
+factions:
+  # combatantinfo.faction and playerDetails combatantInfo.factionID.
+  # Established from the fixture: Haplina (Alliance in the source investigation)
+  # reports 1; Smcadogx, who casts the Horde-only Blood Fury, reports 0.
+  0: Horde
+  1: Alliance
+
+# Raid faction from class composition: in Classic Era Paladins are Alliance-only
+# and Shamans Horde-only, and a raid is single-faction. Only applied when a
+# report's players include one of the two classes and not the other.
+# Checked on the fixture (2026-10-13): 70 Paladin-only reports with a recorded
+# faction are all Alliance, 10 Shaman-only ones all Horde; 3 reports list both
+# classes and are never used.
+raid_class_faction:
+  rule: raid-class-faction-v1
+  Paladin: Alliance
+  Shaman: Horde
+
+melee_swing_abilities: [1]
+
+windfury:
+  # `extraattacks` events whose ability is a Windfury Totem effect.
+  extra_attack_abilities:
+    - {spell: 10610, name: Windfury Totem, source: fixture}
+    - {spell: 8516, name: Windfury Totem, source: spell-data}
+    - {spell: 10608, name: Windfury Totem, source: spell-data}
+  # Other extra-attack sources seen in the fixture. They are not Windfury.
+  not_windfury_extra_attacks: [16459, 15601, 15494, 21919, 20178]
+  attribution:
+    rule: wf-unique-swing-v1
+    window_ms: 400
+
+darkmoon_faire:
+  - {spell: 23768, name: "Sayge's Dark Fortune of Damage", source: fixture}
+  - {spell: 23736, name: "Sayge's Dark Fortune of Agility", source: fixture}
+  - {spell: 23735, name: "Sayge's Dark Fortune of Strength", source: spell-data}
+  - {spell: 23737, name: "Sayge's Dark Fortune of Stamina", source: spell-data}
+  - {spell: 23738, name: "Sayge's Dark Fortune of Spirit", source: spell-data}
+  - {spell: 23766, name: "Sayge's Dark Fortune of Intelligence", source: spell-data}
+  - {spell: 23767, name: "Sayge's Dark Fortune of Armor", source: spell-data}
+  - {spell: 23769, name: "Sayge's Dark Fortune of Resistance", source: spell-data}
+
+world_buffs:
+  - {spell: 22888, name: Rallying Cry of the Dragonslayer, source: fixture}
+  - {spell: 355363, name: Rallying Cry of the Dragonslayer, source: fixture}
+  - {spell: 24425, name: Spirit of Zandalar, source: fixture}
+  - {spell: 355365, name: Spirit of Zandalar, source: fixture}
+  - {spell: 16609, name: Warchief's Blessing, source: fixture}
+  - {spell: 355366, name: Warchief's Blessing, source: fixture}
+  - {spell: 15366, name: Songflower Serenade, source: fixture}
+  - {spell: 22817, name: "Fengus' Ferocity", source: fixture}
+  - {spell: 22818, name: "Mol'dar's Moxie", source: fixture}
+  - {spell: 22820, name: "Slip'kik's Savvy", source: fixture}

@@ -17,4 +17,10 @@ All notable changes to Necropsy are documented here.
   DuckDB database with explicit column types, multiplicity-preserving event
   identity, per-stream coverage and anomaly records, and atomic replacement.
   Documented in `docs/database.md`.
+- Analysis foundation: evidence model (OBSERVED / DERIVED / INFERRED / UNKNOWN with
+  coverage-gated absence claims), rule files shipped as package data, fight
+  context, environment profile (faction, racial-proven race, talents, starting
+  auras, world buffs, Darkmoon Faire, Windfury, gear), generic metrics (damage,
+  casts, aura uptime, deaths, activity window), target split and cohort
+  distributions. Documented in `docs/evidence-model.md`.
 - CI on Linux and Windows (lint, strict types, fast tests) and a manual golden workflow.

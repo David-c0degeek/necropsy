@@ -31,7 +31,8 @@ uv run necropsy ingest <export.zip> --db work/full.duckdb --sha256 <expected> --
 `ingest` verifies the archive, merges overlapping event streams without losing
 genuine duplicate events, records how complete every stream is, and replaces the
 database only if the build succeeds. Database layout and the event-identity
-rules: [`docs/database.md`](docs/database.md).
+rules: [`docs/database.md`](docs/database.md). How every reported value states its
+evidence: [`docs/evidence-model.md`](docs/evidence-model.md).
 
 ### Test suites
 
