@@ -14,3 +14,5 @@
 - 2026-10-13 — A read-only probe that scanned every death event in a pet's streams reported a second pet death that was really a mob dying. Fact probes must filter by target actor, exactly like the analyzer; verify facts only through registered checkers.
 - 2026-10-13 — Realm names differ between rankings ("Pyrewood Village") and report actors ("PyrewoodVillage"); compare normalized keys.
 - 2026-10-13 — WCL `guild.faction` in rankings does not use the combatant faction codes (a Shaman raid reported 1); never mix enumerations without data proof.
+- 2026-10-13 — Validate a ranking-damage rule against every cohort row, not one boss: "hostile NPC targets" matched Patchwerk but failed KT, where WCL counts damage to mind-controlled players. The rule that holds is "exclude only self and own pets".
+- 2026-10-13 — WCL ability names can differ from community references ("Demoralizing Screech" vs Petopia's "Screech"); keep aliases in rule data, keep raw names in output.

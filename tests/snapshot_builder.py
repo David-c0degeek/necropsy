@@ -15,7 +15,7 @@ ENCOUNTER = 51118
 
 
 def ev(
-    ts: int, kind: str = "damage", source: int = 1, target: int = 50, **extra: Any
+    ts: int, kind: str = "damage", source: int = 1, target: int | None = 50, **extra: Any
 ) -> dict[str, Any]:
     return {
         "timestamp": ts,
@@ -41,6 +41,10 @@ class SnapshotSpec:
     participants: list[dict[str, Any]] | None = None
     subset: dict[str, Any] | None = None
     extra_members: dict[str, bytes] = field(default_factory=dict)
+    extra_actors: list[dict[str, Any]] = field(default_factory=list)
+    extra_abilities: list[dict[str, Any]] = field(default_factory=list)
+    friendly_players: list[int] | None = None
+    enemy_npcs: list[int] = field(default_factory=list)
 
 
 def page(events: list[dict[str, Any]], next_ts: float | None = None) -> dict[str, Any]:
@@ -126,8 +130,10 @@ def build(path: Path, spec: SnapshotSpec) -> Path:
                             "difficulty": 3,
                             "size": 40,
                             "averageItemLevel": 80.0,
-                            "friendlyPlayers": [1],
-                            "enemyNPCs": [],
+                            "friendlyPlayers": spec.friendly_players or list(spec.players),
+                            "enemyNPCs": [
+                                {"id": n, "gameID": n, "petOwner": None} for n in spec.enemy_npcs
+                            ],
                             "friendlyPets": [],
                         }
                     ],
@@ -138,7 +144,7 @@ def build(path: Path, spec: SnapshotSpec) -> Path:
                             {
                                 "id": aid,
                                 "name": n,
-                                "type": "Hunter",
+                                "type": "Player",
                                 "subType": "Hunter",
                                 "server": "Realm",
                                 "gameID": aid,
@@ -146,9 +152,11 @@ def build(path: Path, spec: SnapshotSpec) -> Path:
                                 "icon": "x",
                             }
                             for aid, n in spec.players.items()
-                        ],
+                        ]
+                        + spec.extra_actors,
                         "abilities": [
-                            {"gameID": 75, "name": "Auto Shot", "type": "1", "icon": "y"}
+                            {"gameID": 75, "name": "Auto Shot", "type": "1", "icon": "y"},
+                            *spec.extra_abilities,
                         ],
                     },
                     "playerDetails": {"data": {"playerDetails": {"dps": []}}},

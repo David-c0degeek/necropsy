@@ -1,0 +1,92 @@
+# Classic Era Hunter rules.
+#
+# Spell IDs: every ID below was seen under that ability name in the abilities
+# table of the Haplina Naxxramas export (2026-10-13) unless marked otherwise.
+version: 1
+
+shots:
+  auto_shot: [75]
+  aimed_shot: [20902, 20904]
+  multi_shot: [2643, 14289, 14290, 21390, 25294]
+  arcane_shot: [3044, 14282, 14286, 14287]
+  raptor_strike: [14263, 14265, 14266]
+
+cooldowns:
+  rapid_fire: [3045]
+  refocus: [24531]           # Renataki's Charm of Beasts reset
+  hunters_mark: [14324, 14325]
+
+auras:
+  rapid_fire: [3045]
+  quick_shots: [6150]        # Improved Aspect of the Hawk proc
+
+# Ranged haste effects; an Auto Shot interval overlapping one of these is not
+# used as a "normal" interval baseline.
+ranged_haste_auras:
+  - {spell: 3045, name: Rapid Fire}
+  - {spell: 6150, name: Quick Shots}
+  - {spell: 20554, name: Berserking}
+  - {spell: 26296, name: Berserking}
+  - {spell: 26297, name: Berserking}
+
+explosives:
+  - {spell: 23063, name: Dense Dynamite}
+  - {spell: 13241, name: Goblin Sapper Charge}
+  - {spell: 19769, name: Thorium Grenade}
+
+# Abilities a Hunter can use on a friendly player (e.g. a mind-controlled raid
+# member). Whether a cast targeted a friendly is read from the event.
+# ground_placed: the cast is placed on the ground, so its WCL target is the
+# "Environment" placeholder (-1) rather than a unit.
+crowd_control:
+  - {spell: 14311, name: Freezing Trap, ground_placed: true}
+  - {spell: 19503, name: Scatter Shot}
+  - {spell: 13327, name: Reckless Charge}
+  - {spell: 22641, name: Reckless Charge}
+
+melee_swing_abilities: [1]
+
+auto_gap:
+  rule: auto-gap-v1
+  # An interval is "unusually long" when it exceeds `threshold` x the median of
+  # the fight's baseline intervals. Baseline intervals contain no special shot
+  # and overlap no ranged haste aura; at least `min_baseline` are required.
+  threshold: 1.25
+  min_baseline: 5
+
+# Pet families: which families can learn each family-restricted ability.
+# Source: https://www.wow-petopia.com/classic/abilities.php ("Can be learned
+# by"), fetched 2026-10-13. Growl, Cower and the resistances are learnable by
+# all families and say nothing about family.
+pet_family_abilities:
+  Bite: [Bat, Bear, Boar, Carrion Bird, Cat, Crocolisk, Gorilla, Hyena, Raptor, Spider, Tallstrider, Turtle, Wind Serpent, Wolf]
+  Charge: [Boar]
+  Claw: [Bear, Carrion Bird, Cat, Crab, Owl, Raptor, Scorpid]
+  Dash: [Boar, Cat, Hyena, Tallstrider, Wolf]
+  Dive: [Bat, Carrion Bird, Owl, Wind Serpent]
+  Furious Howl: [Wolf]
+  Lightning Breath: [Wind Serpent]
+  Prowl: [Cat]
+  Scorpid Poison: [Scorpid]
+  Screech: [Bat, Carrion Bird, Owl]
+  Shell Shield: [Turtle]
+  Thunderstomp: [Gorilla]
+hunter_pet_only_abilities: [Growl, Cower]
+# WCL ability names that differ from the Petopia names above.
+pet_ability_aliases:
+  Demoralizing Screech: Screech   # spell 24579, seen in the fixture
+
+# Pet-linked actors that are not the Hunter's own pet, by game ID (all seen in
+# the fixture). These rules take precedence over ability-based inference.
+non_hunter_pets:
+  - {game_id: 8836, name: Battle Chicken, category: engineering}
+  - {game_id: 12473, name: Arcanite Dragonling, category: engineering}
+  - {game_id: 2674, name: Advanced Target Dummy, category: engineering}
+  - {game_id: 164639, name: Frost Trap, category: trap}
+  - {game_id: 164877, name: Scrapper Baddan, category: other}
+  - {game_id: 15901, name: Vanquished Tentacle, category: other}
+  - {game_id: 12426, name: Masterwork Target Dummy, category: engineering}
+  - {game_id: 164880, name: Skilled Bonesmith, category: other}
+  - {game_id: 164875, name: Mire Runestag, category: other}
+  - {game_id: 11200, name: Summoned Skeleton, category: other}
+  - {game_id: 16111, name: Love Fool, category: other}

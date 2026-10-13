@@ -1,0 +1,1 @@
+"""Classic Era class plugins."""

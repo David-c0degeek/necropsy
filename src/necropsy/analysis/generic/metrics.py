@@ -171,35 +171,30 @@ _AURA_SQL = f"""
 """  # noqa: S608 - the IN list is fixed event-type names, never input
 
 
-def _union_ms(intervals: list[tuple[int, int]]) -> int:
-    total = 0
-    current: tuple[int, int] | None = None
+def _merge(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    merged: list[tuple[int, int]] = []
     for start, end in sorted(intervals):
-        if current is None or start > current[1]:
-            if current is not None:
-                total += current[1] - current[0]
-            current = (start, end)
+        if merged and start <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], end))
         else:
-            current = (current[0], max(current[1], end))
-    if current is not None:
-        total += current[1] - current[0]
-    return total
+            merged.append((start, end))
+    return merged
 
 
-def aura_uptime(
+def aura_intervals(
     con: duckdb.DuckDBPyConnection,
     pf: ParticipantFight,
     actor_id: int,
     aura_ids: list[int],
     active_at_start: frozenset[int] | None,
-) -> Evidenced[float]:
-    """Seconds during which at least one of the auras was on the actor, clipped to the fight.
+) -> Evidenced[tuple[tuple[int, int], ...]]:
+    """Merged (start, end) timestamps when at least one of the auras was on the actor.
 
     `active_at_start` is the set of auras present at the pull (from the starting
     aura snapshot), or None when that snapshot is missing. Each aura is tracked
     separately and the intervals are merged. An aura whose state cannot be
     settled — no starting snapshot and no events, or a refresh/stack event while
-    it should be off — makes the result UNKNOWN.
+    it should be off — makes the result UNKNOWN. Intervals are clipped to the fight.
     """
     rows = _rows(con, _AURA_SQL, [pf.report_code, pf.fight_id, actor_id, aura_ids])
     cov = [coverage(con, pf, actor_id, Direction.TARGET)]
@@ -232,7 +227,26 @@ def aura_uptime(
         if since is not None:
             intervals.append((since, pf.end_time))
     return complete_or_unknown(
-        _union_ms(intervals) / 1000.0, cov, ref, params={"auras": tuple(aura_ids)}
+        tuple(_merge(intervals)), cov, ref, params={"auras": tuple(aura_ids)}
+    )
+
+
+def aura_uptime(
+    con: duckdb.DuckDBPyConnection,
+    pf: ParticipantFight,
+    actor_id: int,
+    aura_ids: list[int],
+    active_at_start: frozenset[int] | None,
+) -> Evidenced[float]:
+    """Seconds during which at least one of the auras was on the actor (see aura_intervals)."""
+    intervals = aura_intervals(con, pf, actor_id, aura_ids, active_at_start)
+    if intervals.value is None:
+        return unknown(
+            intervals.note or "aura intervals unknown", *intervals.refs, coverage=intervals.coverage
+        )
+    total = sum(end - start for start, end in intervals.value)
+    return complete_or_unknown(
+        total / 1000.0, intervals.coverage, *intervals.refs, params={"auras": tuple(aura_ids)}
     )
 
 

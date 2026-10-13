@@ -23,13 +23,13 @@ the Hunter-specific forensics behind the Haplina findings.
 > - **Vision fit** — supports or conflicts with the project vision/ADRs (00.1); cite drift if any.
 > - **Risks** — duplication, architectural drift, or accidental complexity introduced.
 
-- **Existing code found** — TBD
-- **Behaviour to preserve** — TBD
-- **Reuse / extend** — TBD
-- **Do not duplicate** — TBD
-- **Integration point + why** — TBD
-- **Vision fit** — TBD
-- **Risks** — TBD
+- **Existing code found** — generic layer from 03 (`necropsy.analysis.generic.{environment,metrics,targets}`, `necropsy.analysis.context`), rule loader `necropsy.rules.load_rules`; no class-specific code existed (search `rg -n "Hunter|hunter" src` before this subject → only docstrings).
+- **Behaviour to preserve** — evidence and coverage contracts from 03; all 03 fact checks.
+- **Reuse / extend** — cast and damage aggregation, deaths, activity windows and aura handling come from `metrics` (aura uptime refactored into `aura_intervals` so Auto intervals can test haste overlap); pet discovery from `context.owned_pets`; Windfury from the environment profile.
+- **Do not duplicate** — no second cast/aura/death implementation; ranking damage lives once in `targets.ranking_damage` and is used by the fact checkers.
+- **Integration point + why** — `necropsy.analysis.classes` registry (`plugin_for(game, class_id)`) with `classic_era/hunter.py`; rules `hunter.yaml`, `items.yaml`. Encounter rules (05) plug into `ranking_damage(excluded=…)` and consume `friendly_crowd_control` and the Auto-gap signal.
+- **Vision fit** — spec §3 class plugin list (Auto cycle, Aimed/Multi, RF, Quick Shots, Renataki/Refocus, Raptor weaving, pets, gear, Hunter's Mark); plan §6.23 (class vs encounter knowledge separate); D021 ranking-damage rule; D022 pet ranks not reported.
+- **Risks** — the long-gap signal has no encounter context yet (movement, phases); `items.yaml` names are display data from an oracle join; FD trinket swaps not inferred; the plugin has only test callers until `analysis.json` (05.5).
 
 ## Boxes
 > ID = `<subject-id>.<box-number>` (subject index ID · box ordinal). Stable — never
@@ -39,30 +39,32 @@ the Hunter-specific forensics behind the Haplina findings.
 > Owner MUST be one of the §5 enum:
 > agent · release-engineer · product-owner · tech-lead · domain-sme.
 
-- [ ] **04.1** (agent) Class plugin interface + registry; Hunter is the only
+- [x] **04.1** (agent) Class plugin interface + registry; Hunter is the only
       implementation (no stubs for other classes).
-- [ ] **04.2** (agent) Auto Shot cycle reconstruction: every Auto→Auto interval
+- [x] **04.2** (agent) Auto Shot cycle reconstruction: every Auto→Auto interval
       with RF/Quick Shots overlap and Aimed/Multi/Raptor/Refocus inside;
       clipped-cycle detection. Semantics match `auto_interval_reconstruction.csv`.
-- [ ] **04.3** (agent) Special-shot cadence: Aimed/Multi per minute, gaps,
+- [x] **04.3** (agent) Special-shot cadence: Aimed/Multi per minute, gaps,
       opener timeline, RF timing, Renataki equipped vs Refocus cast, Hunter's
       Mark, explosives (Dense Dynamite, Sapper).
-- [ ] **04.4** (agent) Melee weave: Raptor count + DPS, white-melee count,
+- [x] **04.4** (agent) Melee weave: Raptor count + DPS, white-melee count,
       WF-attributed share; Raptor-only weave distinguished from WF melee package.
-- [ ] **04.5** (agent) Pet forensics: family evidence (observed vs inferred from
+- [x] **04.5** (agent) Pet forensics: family evidence (observed vs inferred from
       ability compatibility in `rules/classic_era/pets`), ranks from spell IDs,
       DPS, start/stop relative to fight, death + killing blows, absent pet
       gated on coverage. Actors linked by `petOwner` are classified first:
       hunter pet vs guardian/engineering summon (e.g. Battle Chicken) vs trap
       object (e.g. Frost Trap) vs other (e.g. Skilled Bonesmith, Sheep); only
       hunter pets feed pet benchmarks.
-- [ ] **04.6** (agent) Hunter gear context: ranged weapon, trinkets, scope,
+- [x] **04.6** (agent) Hunter gear context: ranged weapon, trinkets, scope,
       melee setup per fight; dominance per boss from cohort.
-- [ ] **04.7** (agent) Golden: Patchwerk Raptor counts; Haplina Patchwerk Aimed
+- [x] **04.7** (agent) Golden: Patchwerk Raptor counts; Haplina Patchwerk Aimed
       timestamps (10.91 → 75.47); Gothik Aimed gap; KT 38.97 s Aimed gap;
       Patchwerk pet DPS; 24/24 Renataki → Refocus (historical mode).
 - [ ] **04.8** (domain-sme) Review one boss's Hunter output for mechanics
       correctness.
+      `DEFERRED — see manual-actions`: batched with the 05.7 review (D017 pattern),
+      when per-boss output exists to review.
 
 ## Hindsight checkpoint
 > Run after all boxes in this subject are complete and before marking
@@ -84,3 +86,7 @@ the Hunter-specific forensics behind the Haplina findings.
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
+2026-10-13 · slice 1 · 04.1–04.7 · design huddle (Codex DESIGN_AGREED with guardrails), plugin registry, Hunter plugin, rules `hunter.yaml` (spell IDs from fixture, Petopia family table fetched 2026-10-13, non-Hunter pet game IDs from fixture) and `items.yaml` (oracle-join + Wowhead tooltip corroboration), `aura_intervals`, `ranking_damage` · findings: WCL ranking damage = Hunter + pet-linked actors minus self/own-pet damage (64/75 top rows exact; 11 are encounter exclusions for 05); Haplina Faerlina/Razuvious DPS gaps = Worshipper/Understudy damage; `Demoralizing Screech` alias needed · observed: Patchwerk Aimed timestamps 10.91…75.47, Gothik 282.5 s gap, KT 38.97 s gap with friendly Reckless Charge 102.51 / Scatter 115.32 and Freezing Trap 97.36, top-5 Patchwerk pet DPS 216/149/222/160/174, Cats by Claw+Dash, all 15 Haplina shot counts, Renataki→Refocus 24/24 · facts verified 80/84 · fast 176 passed · commit pending pair review
+2026-10-13 · slice 2 · 04.3, 04.5, 04.6 · review round 1 fixes: spell IDs grouped by name (both Reckless Charge IDs), target-friendliness-v1 (event flag, fight friendly lists, NPC/NPC-owned pet hostile, else undecided → partial), Renataki/trinkets UNKNOWN unless both trinket slots recorded, ranking damage UNKNOWN for target-less damage and blocks exclusions on unlisted targets · regressions added; fast 182 passed, golden 84 + 2 xfail; KT friendly CC still Reckless 102.51 / Scatter 115.32 as a COMPLETE claim · commit pending pair review
+2026-10-13 · slice 3 · 04.3, 04.5 · review round 2 fixes: target-less damage detected by row count (zero-amount crash fixed), target-side-v1 (event flag / fight friendly lists / fight enemy list, also via pet owner; actor type never decides; side provenance recorded), WCL Environment placeholder (-1) = no unit target · regressions added; fast suite green; golden 84 + 2 xfail; KT friendly CC complete (Reckless 102.51, Scatter 115.32) · commit pending pair review
+2026-10-13 · slice 4 · 04.5 · in-round fix: missing target ID stays undecided; Environment placeholder is no-unit-target only for ground-placed abilities (Freezing Trap) · navigator AGREE round 3

@@ -187,7 +187,7 @@ facts:
     97.36 s, Reckless Charge on a teammate 102.51 s, Scatter Shot on a teammate 115.32 s.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     Freezing Trap: 97.36
     Reckless Charge: 102.51
@@ -197,17 +197,21 @@ facts:
   source:
     file: docs/origin/Haplina Analysis.md
     locator: Kel'Thuzad section
+  evidence: Computed by fact checker `kel-thuzad.haplina.mc-utility` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: kel-thuzad.haplina.aimed-gap
   statement: Haplina's KT Aimed Shot sequence has a 38.97 s gap (84.92 s to 123.89 s).
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 38.97
   tolerance: 0.01
   unit: s
   source:
     file: docs/origin/Haplina Analysis.md
     locator: Kel'Thuzad section
+  evidence: Computed by fact checker `kel-thuzad.haplina.aimed-gap` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: haplina.talents
   statement: Haplina's combatant info reports 12/33/6 talent points.
   mode: historical
@@ -223,7 +227,7 @@ facts:
   statement: Snape's observed ability ranks are Bite 8 (17261), Dive 3 (23148), Lightning Breath 6 (25012).
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     Bite: 17261
     Dive: 23148
@@ -231,6 +235,8 @@ facts:
   source:
     file: oracle/definitive/pet_forensics_with_ranks.csv
     locator: Boss=Patchwerk, Hunter=Haplina, ObservedSpellIDs
+  evidence: Computed by fact checker `haplina.pet-ranks` (tests/golden/fact_checks.py) from the subset
+    analysis database.
 - id: recommendations.same-vs-cross-faction
   statement: On bosses whose overall rank 1 is Horde (Patchwerk, Grobbulus, Anub'Rekhan, Maexxna, Sapphiron)
     the realistic comparator is the best Alliance entry, not rank 1.
@@ -257,9 +263,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Patchwerk, Haplina_DPS
-  evidence: Computed by fact checker `patchwerk.haplina.dps` (tests/golden/fact_checks.py) from the subset
-    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
-    duration.
+  evidence: 'Computed by fact checker `patchwerk.haplina.dps` (tests/golden/fact_checks.py): damage by
+    the Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: patchwerk.haplina.kill-duration
   statement: Haplina's selected Patchwerk kill lasts 84.038 s.
   mode: historical
@@ -277,7 +282,7 @@ facts:
   statement: Haplina's selected Patchwerk fight has Auto/Aimed/Multi = 28/7/8.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 28
     aimed: 7
@@ -285,8 +290,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Patchwerk, Current_Auto_Aimed_Multi
-  evidence: 'read-only probe of the raw export on 2026-10-13, cast/extraattacks/death events in selected
-    Hunter and pet streams: Aimed 7 and Multi 8 match; Auto count not yet probed, so the fact stays oracle-only.'
+  evidence: Computed by fact checker `patchwerk.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: patchwerk.top5.faction-split
   statement: 'Patchwerk overall top five: 4 Alliance / 1 Horde.'
   mode: historical
@@ -312,9 +317,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grobbulus, Haplina_DPS
-  evidence: Computed by fact checker `grobbulus.haplina.dps` (tests/golden/fact_checks.py) from the subset
-    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
-    duration.
+  evidence: 'Computed by fact checker `grobbulus.haplina.dps` (tests/golden/fact_checks.py): damage by
+    the Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: grobbulus.haplina.kill-duration
   statement: Haplina's selected Grobbulus kill lasts 66.765 s.
   mode: historical
@@ -332,7 +336,7 @@ facts:
   statement: Haplina's selected Grobbulus fight has Auto/Aimed/Multi = 21/6/6.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 21
     aimed: 6
@@ -340,6 +344,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grobbulus, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `grobbulus.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: grobbulus.top5.faction-split
   statement: 'Grobbulus overall top five: 3 Alliance / 2 Horde.'
   mode: historical
@@ -365,8 +371,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gluth, Haplina_DPS
-  evidence: Computed by fact checker `gluth.haplina.dps` (tests/golden/fact_checks.py) from the full analysis
-    database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight duration.
+  evidence: 'Computed by fact checker `gluth.haplina.dps` (tests/golden/fact_checks.py): damage by the
+    Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: gluth.haplina.kill-duration
   statement: Haplina's selected Gluth kill lasts 55.586 s.
   mode: historical
@@ -384,7 +390,7 @@ facts:
   statement: Haplina's selected Gluth fight has Auto/Aimed/Multi = 16/4/5.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 16
     aimed: 4
@@ -392,6 +398,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gluth, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `gluth.haplina.shot-counts` (tests/golden/fact_checks.py) from the
+    full analysis database.
 - id: gluth.top5.faction-split
   statement: 'Gluth overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -417,9 +425,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Thaddius, Haplina_DPS
-  evidence: Computed by fact checker `thaddius.haplina.dps` (tests/golden/fact_checks.py) from the full
-    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
-    duration.
+  evidence: 'Computed by fact checker `thaddius.haplina.dps` (tests/golden/fact_checks.py): damage by
+    the Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: thaddius.haplina.kill-duration
   statement: Haplina's selected Thaddius kill lasts 122.5 s.
   mode: historical
@@ -437,7 +444,7 @@ facts:
   statement: Haplina's selected Thaddius fight has Auto/Aimed/Multi = 32/9/10.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 32
     aimed: 9
@@ -445,6 +452,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Thaddius, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `thaddius.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: thaddius.top5.faction-split
   statement: 'Thaddius overall top five: 4 Alliance / 1 Horde.'
   mode: historical
@@ -470,9 +479,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Noth the Plaguebringer, Haplina_DPS
-  evidence: Computed by fact checker `noth-the-plaguebringer.haplina.dps` (tests/golden/fact_checks.py)
-    from the full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided
-    by fight duration.
+  evidence: 'Computed by fact checker `noth-the-plaguebringer.haplina.dps` (tests/golden/fact_checks.py):
+    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1), divided by fight duration.'
 - id: noth-the-plaguebringer.haplina.kill-duration
   statement: Haplina's selected Noth the Plaguebringer kill lasts 47.778 s.
   mode: historical
@@ -490,7 +498,7 @@ facts:
   statement: Haplina's selected Noth the Plaguebringer fight has Auto/Aimed/Multi = 16/4/5.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 16
     aimed: 4
@@ -498,6 +506,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Noth the Plaguebringer, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `noth-the-plaguebringer.haplina.shot-counts` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: noth-the-plaguebringer.top5.faction-split
   statement: 'Noth the Plaguebringer overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -523,9 +533,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Heigan the Unclean, Haplina_DPS
-  evidence: Computed by fact checker `heigan-the-unclean.haplina.dps` (tests/golden/fact_checks.py) from
-    the full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided
-    by fight duration.
+  evidence: 'Computed by fact checker `heigan-the-unclean.haplina.dps` (tests/golden/fact_checks.py):
+    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1), divided by fight duration.'
 - id: heigan-the-unclean.haplina.kill-duration
   statement: Haplina's selected Heigan the Unclean kill lasts 55.0 s.
   mode: historical
@@ -543,7 +552,7 @@ facts:
   statement: Haplina's selected Heigan the Unclean fight has Auto/Aimed/Multi = 18/4/5.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 18
     aimed: 4
@@ -551,6 +560,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Heigan the Unclean, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `heigan-the-unclean.haplina.shot-counts` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: heigan-the-unclean.top5.faction-split
   statement: 'Heigan the Unclean overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -576,9 +587,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Loatheb, Haplina_DPS
-  evidence: Computed by fact checker `loatheb.haplina.dps` (tests/golden/fact_checks.py) from the full
-    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
-    duration.
+  evidence: 'Computed by fact checker `loatheb.haplina.dps` (tests/golden/fact_checks.py): damage by the
+    Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: loatheb.haplina.kill-duration
   statement: Haplina's selected Loatheb kill lasts 132.902 s.
   mode: historical
@@ -596,7 +606,7 @@ facts:
   statement: Haplina's selected Loatheb fight has Auto/Aimed/Multi = 42/11/10.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 42
     aimed: 11
@@ -604,6 +614,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Loatheb, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `loatheb.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: loatheb.top5.faction-split
   statement: 'Loatheb overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -629,9 +641,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Anub'Rekhan, Haplina_DPS
-  evidence: Computed by fact checker `anub-rekhan.haplina.dps` (tests/golden/fact_checks.py) from the
-    full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by
-    fight duration.
+  evidence: 'Computed by fact checker `anub-rekhan.haplina.dps` (tests/golden/fact_checks.py): damage
+    by the Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: anub-rekhan.haplina.kill-duration
   statement: Haplina's selected Anub'Rekhan kill lasts 35.324 s.
   mode: historical
@@ -649,7 +660,7 @@ facts:
   statement: Haplina's selected Anub'Rekhan fight has Auto/Aimed/Multi = 14/3/3.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 14
     aimed: 3
@@ -657,6 +668,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Anub'Rekhan, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `anub-rekhan.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: anub-rekhan.top5.faction-split
   statement: 'Anub''Rekhan overall top five: 3 Alliance / 2 Horde.'
   mode: historical
@@ -682,8 +695,9 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grand Widow Faerlina, Haplina_DPS
-  evidence: Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67) because actors exported
-    as the Hunter's pets include non-Hunter-pet units; pending pet classification.
+  evidence: 'Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67): the difference
+    is exactly the damage to Naxxramas Worshipper (5,903) and Death Knight Understudy (5,612), which WCL
+    rankings exclude; pending the encounter exclusion rules.'
 - id: grand-widow-faerlina.haplina.kill-duration
   statement: Haplina's selected Grand Widow Faerlina kill lasts 40.034 s.
   mode: historical
@@ -701,7 +715,7 @@ facts:
   statement: Haplina's selected Grand Widow Faerlina fight has Auto/Aimed/Multi = 16/3/4.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 16
     aimed: 3
@@ -709,6 +723,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grand Widow Faerlina, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `grand-widow-faerlina.haplina.shot-counts` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: grand-widow-faerlina.top5.faction-split
   statement: 'Grand Widow Faerlina overall top five: 4 Alliance / 1 Horde.'
   mode: historical
@@ -734,9 +750,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Maexxna, Haplina_DPS
-  evidence: Computed by fact checker `maexxna.haplina.dps` (tests/golden/fact_checks.py) from the full
-    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
-    duration.
+  evidence: 'Computed by fact checker `maexxna.haplina.dps` (tests/golden/fact_checks.py): damage by the
+    Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: maexxna.haplina.kill-duration
   statement: Haplina's selected Maexxna kill lasts 36.341 s.
   mode: historical
@@ -754,7 +769,7 @@ facts:
   statement: Haplina's selected Maexxna fight has Auto/Aimed/Multi = 14/3/4.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 14
     aimed: 3
@@ -762,6 +777,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Maexxna, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `maexxna.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: maexxna.top5.faction-split
   statement: 'Maexxna overall top five: 3 Alliance / 2 Horde.'
   mode: historical
@@ -787,8 +804,9 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Instructor Razuvious, Haplina_DPS
-  evidence: Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67) because actors exported
-    as the Hunter's pets include non-Hunter-pet units; pending pet classification.
+  evidence: 'Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67): the difference
+    is exactly the damage to Naxxramas Worshipper (5,903) and Death Knight Understudy (5,612), which WCL
+    rankings exclude; pending the encounter exclusion rules.'
 - id: instructor-razuvious.haplina.kill-duration
   statement: Haplina's selected Instructor Razuvious kill lasts 44.627 s.
   mode: historical
@@ -806,7 +824,7 @@ facts:
   statement: Haplina's selected Instructor Razuvious fight has Auto/Aimed/Multi = 13/4/4.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 13
     aimed: 4
@@ -814,6 +832,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Instructor Razuvious, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `instructor-razuvious.haplina.shot-counts` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: instructor-razuvious.top5.faction-split
   statement: 'Instructor Razuvious overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -839,9 +859,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Haplina_DPS
-  evidence: Computed by fact checker `gothik-the-harvester.haplina.dps` (tests/golden/fact_checks.py)
-    from the subset analysis database. DPS = damage by the Hunter and every actor exported as its pet,
-    divided by fight duration.
+  evidence: 'Computed by fact checker `gothik-the-harvester.haplina.dps` (tests/golden/fact_checks.py):
+    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1), divided by fight duration.'
 - id: gothik-the-harvester.haplina.kill-duration
   statement: Haplina's selected Gothik the Harvester kill lasts 307.087 s.
   mode: historical
@@ -859,7 +878,7 @@ facts:
   statement: Haplina's selected Gothik the Harvester fight has Auto/Aimed/Multi = 45/2/14.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 45
     aimed: 2
@@ -867,6 +886,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `gothik-the-harvester.haplina.shot-counts` (tests/golden/fact_checks.py)
+    from the subset analysis database.
 - id: gothik-the-harvester.top5.faction-split
   statement: 'Gothik the Harvester overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -892,9 +913,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=The Four Horsemen, Haplina_DPS
-  evidence: Computed by fact checker `the-four-horsemen.haplina.dps` (tests/golden/fact_checks.py) from
-    the full analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided
-    by fight duration.
+  evidence: 'Computed by fact checker `the-four-horsemen.haplina.dps` (tests/golden/fact_checks.py): damage
+    by the Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: the-four-horsemen.haplina.kill-duration
   statement: Haplina's selected The Four Horsemen kill lasts 142.248 s.
   mode: historical
@@ -912,7 +932,7 @@ facts:
   statement: Haplina's selected The Four Horsemen fight has Auto/Aimed/Multi = 44/8/11.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 44
     aimed: 8
@@ -920,6 +940,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=The Four Horsemen, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `the-four-horsemen.haplina.shot-counts` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: the-four-horsemen.top5.faction-split
   statement: 'The Four Horsemen overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -945,9 +967,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Haplina_DPS
-  evidence: Computed by fact checker `sapphiron.haplina.dps` (tests/golden/fact_checks.py) from the full
-    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
-    duration.
+  evidence: 'Computed by fact checker `sapphiron.haplina.dps` (tests/golden/fact_checks.py): damage by
+    the Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: sapphiron.haplina.kill-duration
   statement: Haplina's selected Sapphiron kill lasts 116.223 s.
   mode: historical
@@ -965,7 +986,7 @@ facts:
   statement: Haplina's selected Sapphiron fight has Auto/Aimed/Multi = 43/9/11.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 43
     aimed: 9
@@ -973,6 +994,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `sapphiron.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the full analysis database.
 - id: sapphiron.top5.faction-split
   statement: 'Sapphiron overall top five: 2 Alliance / 3 Horde.'
   mode: historical
@@ -998,9 +1021,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Kel'Thuzad, Haplina_DPS
-  evidence: Computed by fact checker `kel-thuzad.haplina.dps` (tests/golden/fact_checks.py) from the subset
-    analysis database. DPS = damage by the Hunter and every actor exported as its pet, divided by fight
-    duration.
+  evidence: 'Computed by fact checker `kel-thuzad.haplina.dps` (tests/golden/fact_checks.py): damage by
+    the Hunter and every pet-linked actor to hostile NPC targets, divided by fight duration.'
 - id: kel-thuzad.haplina.kill-duration
   statement: Haplina's selected Kel'Thuzad kill lasts 176.83 s.
   mode: historical
@@ -1018,7 +1040,7 @@ facts:
   statement: Haplina's selected Kel'Thuzad fight has Auto/Aimed/Multi = 54/13/8.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     auto: 54
     aimed: 13
@@ -1026,6 +1048,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Kel'Thuzad, Current_Auto_Aimed_Multi
+  evidence: Computed by fact checker `kel-thuzad.haplina.shot-counts` (tests/golden/fact_checks.py) from
+    the subset analysis database.
 - id: kel-thuzad.top5.faction-split
   statement: 'Kel''Thuzad overall top five: 5 Alliance / 0 Horde.'
   mode: historical
@@ -1040,3 +1064,89 @@ facts:
   evidence: Computed by fact checker `kel-thuzad.top5.faction-split` (tests/golden/fact_checks.py) from
     the full analysis database. Two participants without a faction field (Ixtlan, Razuvious; 古美门研介, Grobbulus)
     count via the INFERRED raid-class-faction-v1 rule.
+- id: patchwerk.haplina.aimed-timestamps
+  statement: Haplina's Patchwerk Aimed Shot casts happen at 10.91, 21.88, 32.75, 43.28, 53.25, 63.15 and
+    75.47 s.
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+  - 10.91
+  - 21.88
+  - 32.75
+  - 43.28
+  - 53.25
+  - 63.15
+  - 75.47
+  tolerance: 0.01
+  unit: s
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: Patchwerk section, 'Your exact Aimed completions'
+  evidence: Computed by fact checker `patchwerk.haplina.aimed-timestamps` (tests/golden/fact_checks.py)
+    from the subset analysis database.
+- id: gothik-the-harvester.haplina.aimed-gap
+  statement: 'Haplina''s Gothik Aimed Shots are at 16.97 s and 299.47 s only: a 282.5 s gap.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    first: 16.97
+    second: 299.47
+    gap: 282.5
+  tolerance: 0.01
+  unit: s
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: Gothik section
+  evidence: Computed by fact checker `gothik-the-harvester.haplina.aimed-gap` (tests/golden/fact_checks.py)
+    from the subset analysis database.
+- id: patchwerk.pet-dps
+  statement: Hunter-pet DPS on the recorded Patchwerk fights.
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    Haplina: 78.04
+    Smcadogx: 215.83
+    Charies: 149.46
+    Andrenn: 222.24
+    Xert: 159.8
+    Xal: 174.07
+  tolerance: 0.05
+  unit: dps
+  source:
+    file: oracle/definitive/pet_forensics_with_ranks.csv
+    locator: Boss=Patchwerk, PetDPS
+  evidence: Computed by fact checker `patchwerk.pet-dps` (tests/golden/fact_checks.py) from the subset
+    analysis database.
+- id: patchwerk.pet-families
+  statement: 'Pet families identifiable from abilities on Patchwerk: Snape is a Wind Serpent; Smcadogx''s,
+    Andrenn''s and Xert''s pets are Cats.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected:
+    Haplina: Wind Serpent
+    Smcadogx: Cat
+    Andrenn: Cat
+    Xert: Cat
+  source:
+    file: oracle/definitive/pet_forensics_with_ranks.csv
+    locator: Boss=Patchwerk, Family
+  evidence: Computed by fact checker `patchwerk.pet-families` (tests/golden/fact_checks.py) from the subset
+    analysis database.
+- id: cohort.renataki-refocus
+  statement: 24 recorded top-five fights have Renataki's Charm of Beasts equipped at the pull, and all
+    24 cast Refocus.
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    renataki_at_pull: 24
+    refocus_cast: 24
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: Renataki section ('Exactly 24/24')
+  evidence: Computed by fact checker `cohort.renataki-refocus` (tests/golden/fact_checks.py) from the
+    full analysis database.

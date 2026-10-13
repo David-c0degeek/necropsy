@@ -7,6 +7,7 @@ only if a checker computes it from raw-derived data and it matches.
 
 from __future__ import annotations
 
+import itertools
 import re
 from collections import Counter
 from collections.abc import Callable
@@ -17,7 +18,7 @@ import duckdb
 
 from necropsy.analysis.context import ParticipantFight, owned_pets, participant_fights
 from necropsy.analysis.evidence import Faction
-from necropsy.analysis.generic import environment, metrics
+from necropsy.analysis.generic import environment, metrics, targets
 
 Scope = Literal["subset", "full"]
 Checker = Callable[[duckdb.DuckDBPyConnection], Any]
@@ -97,11 +98,10 @@ def _wf(pf: ParticipantFight, con: duckdb.DuckDBPyConnection) -> dict[str, Any]:
 
 
 def _dps(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> float:
-    actors = [pf.actor_id] + [p.actor_id for p in owned_pets(con, pf)]
-    by_ability = metrics.damage_by_ability(con, pf, actors)
-    if by_ability.value is None:
-        raise LookupError(f"damage unknown for {pf.player}")
-    return round(sum(by_ability.value.values()) / pf.duration_ms * 1000.0, 2)
+    ranked = targets.ranking_damage(con, pf, None, None).ranked
+    if ranked.value is None:
+        raise LookupError(f"ranking damage unknown for {pf.player}: {ranked.note}")
+    return round(ranked.value / pf.duration_ms * 1000.0, 2)
 
 
 def _faction_split(pfs: list[ParticipantFight], con: duckdb.DuckDBPyConnection) -> dict[str, int]:
@@ -225,8 +225,134 @@ def matches(expected: Any, actual: Any, tolerance: float | None) -> bool:
             and set(expected) == set(actual)
             and all(matches(expected[k], actual[k], tolerance) for k in expected)
         )
+    if isinstance(expected, list):
+        return (
+            isinstance(actual, list)
+            and len(expected) == len(actual)
+            and all(matches(e, a, tolerance) for e, a in zip(expected, actual, strict=True))
+        )
     if isinstance(expected, bool) or not isinstance(expected, int | float):
         return bool(expected == actual)
     if not isinstance(actual, int | float):
         return False
     return abs(expected - actual) <= (tolerance or 0)
+
+
+# --- Hunter plugin -----------------------------------------------------------
+
+
+def _hunter(con: duckdb.DuckDBPyConnection, boss: str, player: str) -> Any:
+    from necropsy.analysis.classes import plugin_for
+
+    plugin = plugin_for("classic_era", 3)
+    assert plugin is not None
+    pf = _participant(con, boss, player)
+    return plugin.analyze(con, pf, environment.environment_profile(con, pf))
+
+
+def _times(analysis: Any, kind: str) -> list[float]:
+    casts = analysis.shots[kind].casts.value
+    if casts is None:
+        raise LookupError(f"{kind} casts unknown")
+    return [round(c.t_s, 2) for c in casts]
+
+
+def _shot_counts(boss: str) -> Checker:
+    def compute(con: duckdb.DuckDBPyConnection) -> Any:
+        analysis = _hunter(con, boss, "Haplina")
+        return {k: len(_times(analysis, f"{k}_shot")) for k in ("auto", "aimed", "multi")}
+
+    return compute
+
+
+for _boss in NAXX_BOSSES:
+    check(f"{slug(_boss)}.haplina.shot-counts", "subset" if _boss in SUBSET_BOSSES else "full")(
+        _shot_counts(_boss)
+    )
+
+
+@check("patchwerk.haplina.aimed-timestamps", "subset")
+def _patchwerk_aimed(con: duckdb.DuckDBPyConnection) -> Any:
+    return _times(_hunter(con, "Patchwerk", "Haplina"), "aimed_shot")
+
+
+def _aimed_gap(con: duckdb.DuckDBPyConnection, boss: str) -> dict[str, float]:
+    times = _times(_hunter(con, boss, "Haplina"), "aimed_shot")
+    gaps = [(b - a, a, b) for a, b in itertools.pairwise(times)]
+    gap, first, second = max(gaps)
+    return {"first": first, "second": second, "gap": round(gap, 2)}
+
+
+@check("gothik-the-harvester.haplina.aimed-gap", "subset")
+def _gothik_gap(con: duckdb.DuckDBPyConnection) -> Any:
+    return _aimed_gap(con, "Gothik the Harvester")
+
+
+@check("kel-thuzad.haplina.aimed-gap", "subset")
+def _kt_gap(con: duckdb.DuckDBPyConnection) -> Any:
+    return _aimed_gap(con, "Kel'Thuzad")["gap"]
+
+
+@check("kel-thuzad.haplina.mc-utility", "subset")
+def _kt_cc(con: duckdb.DuckDBPyConnection) -> Any:
+    analysis = _hunter(con, "Kel'Thuzad", "Haplina")
+    gap = _aimed_gap(con, "Kel'Thuzad")
+    from necropsy.analysis.classes.classic_era.hunter import (
+        _casts,
+        _rules,
+        ground_placed_ids,
+        spell_groups,
+    )
+
+    pf = analysis.participant
+    rules = _rules()["crowd_control"]
+    cc = _casts(con, pf, spell_groups(rules), ground_placed_ids(rules)).value
+    if cc is None:
+        raise LookupError("crowd-control casts unknown")
+    found: dict[str, float] = {}
+    for c in cc:
+        if gap["first"] < c.t_s < gap["second"]:
+            found.setdefault(c.kind, round(c.t_s, 2))
+    return found
+
+
+@check("haplina.pet-ranks", "subset")
+def _snape_spells(con: duckdb.DuckDBPyConnection) -> Any:
+    pet = _hunter(con, "Patchwerk", "Haplina").hunter_pets[0]
+    names = {"Bite", "Dive", "Lightning Breath"}
+    return {name: spell for spell, name in pet.abilities.value or () if name in names}
+
+
+@check("patchwerk.pet-dps", "subset")
+def _patchwerk_pet_dps(con: duckdb.DuckDBPyConnection) -> Any:
+    result = {}
+    for player in ("Haplina", "Smcadogx", "Charies", "Andrenn", "Xert", "Xal"):
+        pets = _hunter(con, "Patchwerk", player).hunter_pets
+        if len(pets) != 1 or pets[0].dps.value is None:
+            raise LookupError(f"{player}: {len(pets)} hunter pets")
+        result[player] = round(pets[0].dps.value, 2)
+    return result
+
+
+@check("patchwerk.pet-families", "subset")
+def _patchwerk_families(con: duckdb.DuckDBPyConnection) -> Any:
+    result = {}
+    for player in ("Haplina", "Smcadogx", "Andrenn", "Xert"):
+        result[player] = _hunter(con, "Patchwerk", player).hunter_pets[0].family.value
+    return result
+
+
+@check("cohort.renataki-refocus", "full")
+def _renataki(con: duckdb.DuckDBPyConnection) -> Any:
+    equipped = refocus = 0
+    for pf in participant_fights(con):
+        if pf.kind != "top":
+            continue
+        analysis = _hunter(con, pf.boss, pf.player)
+        if analysis.gear.renataki_at_pull.value:
+            equipped += 1
+            casts = analysis.refocus.casts.value
+            if casts is None:
+                raise LookupError(f"{pf.player} refocus unknown")
+            refocus += bool(casts)
+    return {"renataki_at_pull": equipped, "refocus_cast": refocus}

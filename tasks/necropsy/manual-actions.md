@@ -12,8 +12,8 @@
 |---|---|---|---|---|---|
 | 00.9 | product-owner | Approve uv / git-lfs / secret-scanner installs; confirm LFS storage for the 80 MB fixture | 00 | DONE | Approved by user 2026-10-12 (D011) |
 | 01.7 | domain-sme | Review golden-fact register seed; mark disputed facts | 01 | DEFERRED | Batched with 05.7 once analyzers verify facts against raw data (D017) |
-| 04.8 | domain-sme | Review one boss's Hunter analyzer output for mechanics correctness | 04 | TODO | |
-| 05.7 | domain-sme | Review weave matrix and per-boss recommendations vs definitive playbook; also covers the deferred 01.7 fact-register review | 05 | TODO | |
+| 04.8 | domain-sme | Review one boss's Hunter analyzer output for mechanics correctness | 04 | DEFERRED | Batched with 05.7 once per-boss output exists (D017 pattern) |
+| 05.7 | domain-sme | Review weave matrix and per-boss recommendations vs definitive playbook; also covers the deferred 01.7 fact-register review and 04.8 Hunter-mechanics review | 05 | TODO | |
 | 06.6 | product-owner | Side-by-side review of generated playbook vs definitive playbook | 06 | TODO | |
 | 06.7 | product-owner | Approve Playwright + Chromium download for the headless HTML smoke check, or choose a manual browser check | 06 | TODO | |
 | 07.9 | product-owner | Run `necropsy auth login`; confirm redirect URI `http://localhost:8765/callback` is registered | 07 | TODO | |

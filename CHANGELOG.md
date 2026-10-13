@@ -23,4 +23,10 @@ All notable changes to Necropsy are documented here.
   auras, world buffs, Darkmoon Faire, Windfury, gear), generic metrics (damage,
   casts, aura uptime, deaths, activity window), target split and cohort
   distributions. Documented in `docs/evidence-model.md`.
+- Classic Era Hunter plugin: shot cadence and casts, opener, Quick Shots and
+  Rapid Fire uptime, every Auto Shot interval with an advisory long-gap
+  signal, melee weaving, friendly crowd control, pet classification and
+  family inference, gear at the pull; WCL-style ranking damage (self-damage
+  excluded, encounter exclusions pluggable). Documented in
+  `docs/hunter-analysis.md`.
 - CI on Linux and Windows (lint, strict types, fast tests) and a manual golden workflow.
