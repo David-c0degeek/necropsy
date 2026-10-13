@@ -14,7 +14,8 @@ from necropsy.snapshot.model import SnapshotError
 
 app = typer.Typer(
     name="necropsy",
-    help="Local-first Warcraft Logs forensics.",
+    help="Local-first Warcraft Logs forensics. Analyze saved Classic Era Hunter/Naxxramas logs.",
+    epilog="Start here: necropsy offline SNAPSHOT.zip --out workspace/analysis",
     no_args_is_help=True,
     add_completion=False,
 )
@@ -47,25 +48,26 @@ def root(
         ),
     ] = False,
 ) -> None:
-    """Analyze Warcraft Logs data offline and produce forensic playbooks."""
+    """Analyze a supported saved export offline. Run a command with --help for its options."""
 
 
 @app.command("ingest")
 def ingest_command(
-    snapshot: Annotated[Path, typer.Argument(help="Raw snapshot archive (.zip).")],
-    db: Annotated[Path, typer.Option("--db", help="DuckDB database to build.")],
+    snapshot: Annotated[Path, typer.Argument(help="v6 Hunter deep-export ZIP or fixture subset.")],
+    db: Annotated[Path, typer.Option("--db", help="Save the analysis database at this path.")],
     sha256: Annotated[
         str | None, typer.Option(help="Refuse the archive unless its SHA-256 matches.")
     ] = None,
     entries: Annotated[
         Path | None,
-        typer.Option(help="Entries manifest; every member is checked against it."),
+        typer.Option(help="Member checksum manifest (not the export's manifest.json)."),
     ] = None,
     replace: Annotated[
-        bool, typer.Option("--replace", help="Overwrite a database built from another snapshot.")
+        bool,
+        typer.Option("--replace", help="Replace a database from another archive. Keep it closed."),
     ] = False,
 ) -> None:
-    """Normalize a raw snapshot into a DuckDB analysis database (offline)."""
+    """Build a database for inspection or repeat analysis. No network access."""
     try:
         manifest = load_entries_manifest(entries) if entries else None
         summary = ingest(snapshot, db, expected_sha256=sha256, entries=manifest, replace=replace)
@@ -82,34 +84,37 @@ def ingest_command(
     )
     typer.echo(f"anomalies:  {summary.anomalies}")
     typer.echo(f"issues:     {summary.issues}")
+    typer.echo("Next: run necropsy offline on the same ZIP with --db pointing to this database.")
 
 
 @app.command("offline")
 def offline_command(
-    snapshot: Annotated[Path, typer.Argument(help="Raw snapshot archive (.zip).")],
-    out: Annotated[Path, typer.Option("--out", help="Directory for analysis.json.")],
+    snapshot: Annotated[Path, typer.Argument(help="v6 Hunter deep-export ZIP or fixture subset.")],
+    out: Annotated[Path, typer.Option("--out", help="Write analysis.json in this directory.")],
     db: Annotated[
         Path | None,
-        typer.Option(help="Keep the analysis database here (reused if it matches)."),
+        typer.Option(help="Keep/reuse a matching database here. Default: temporary database."),
     ] = None,
     cross_faction: Annotated[
         bool,
         typer.Option(
             "--cross-faction",
-            help="Also show the cross-faction view. Never merged into the realistic benchmark.",
+            help="Add separate cross-faction context; keep the same-faction baseline unchanged.",
         ),
     ] = False,
     sha256: Annotated[
         str | None, typer.Option(help="Refuse the archive unless its SHA-256 matches.")
     ] = None,
     entries: Annotated[
-        Path | None, typer.Option(help="Entries manifest; every member is checked against it.")
+        Path | None,
+        typer.Option(help="Member checksum manifest (not the export's manifest.json)."),
     ] = None,
     replace: Annotated[
-        bool, typer.Option("--replace", help="Overwrite a --db built from another snapshot.")
+        bool,
+        typer.Option("--replace", help="Replace a --db from another archive. Keep it closed."),
     ] = False,
 ) -> None:
-    """Analyze a snapshot offline and write analysis.json."""
+    """Analyze bosses, comparisons and recommendations. Write analysis.json offline."""
     try:
         manifest = load_entries_manifest(entries) if entries else None
         result = run_offline(
@@ -127,6 +132,7 @@ def offline_command(
     typer.echo(f"analysis:         {result.analysis}")
     typer.echo(f"bosses:           {result.bosses}")
     typer.echo(f"recommendations:  {result.recommendations}")
+    typer.echo("Next: open analysis.json in your editor. Result guide: docs/reading-results.md")
 
 
 def main() -> None:

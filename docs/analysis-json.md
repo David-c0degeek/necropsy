@@ -1,5 +1,7 @@
 # analysis.json
 
+[Home](../README.md) · [Documentation](README.md) · [Reading results](reading-results.md)
+
 `necropsy offline` writes one `analysis.json` per run. It is the only input the
 report and playbook renderers use, so everything they show must be in it.
 

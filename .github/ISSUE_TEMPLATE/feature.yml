@@ -1,0 +1,22 @@
+name: Suggest an improvement
+description: Describe a user need, workflow improvement, or missing analysis.
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What are you trying to do?
+      description: Describe the goal and what makes it difficult today.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What would a useful result look like?
+      description: A concrete example helps more than a prescribed implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context or evidence
+      description: Include the game variant, class, raid, or workflow. Keep credentials and private exports out.

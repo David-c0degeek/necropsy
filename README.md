@@ -1,70 +1,70 @@
-# Necropsy
+<p align="center">
+  <img src="docs/assets/necropsy-banner.svg" alt="Necropsy — Warcraft Logs, with context." width="960">
+</p>
 
-Local-first Warcraft Logs forensics. Paste a WCL character URL; get a same-faction,
-class/spec/role-aware benchmark analysis and an offline boss-by-boss playbook.
+<p align="center"><strong>Understand the log. Find the next improvement.</strong><br>
+Offline forensics for Classic Era Hunters in Naxxramas.</p>
 
-Status: early development (Milestone A — headless Hunter/Naxxramas analysis).
-The CLI normalizes a raw snapshot into a DuckDB analysis database
-(`necropsy ingest`) and analyzes it offline into a versioned, deterministic
-`analysis.json` (`necropsy offline`); HTML report and playbook come next. Plan: `tasks/Necropsy-Plan.md`.
-Roadmap: `docs/roadmap.md`. Source specification and the investigation that led
-here: `docs/origin/`.
+<p align="center">
+<a href="docs/getting-started.md">Get started</a> ·
+<a href="docs/reading-results.md">Read the results</a> ·
+<a href="docs/README.md">Documentation</a> ·
+<a href="CONTRIBUTING.md">Contribute</a>
+</p>
 
-## Development
+Necropsy turns a saved Warcraft Logs export into boss-by-boss analysis: what
+happened, how comparable Hunters played, and which improvements deserve a closer
+look. Each finding keeps its evidence and uncertainty visible.
 
-Requirements: [uv](https://docs.astral.sh/uv/), Git LFS (only for the golden suite).
+**Available today:** a local command-line workflow that writes `analysis.json`
+from the v6 Hunter deep-export format or the included fixture subset.
+**Planned:** paste a WCL character URL, acquire the logs, and open a browsable
+report and playbook. See the [roadmap](docs/roadmap.md).
+
+## Your first analysis
+
+From the repository root, with [uv](https://docs.astral.sh/uv/) installed:
 
 ```sh
 uv sync --locked
-uv run necropsy --version
-uv run ruff check . && uv run ruff format --check .
-uv run mypy
-uv run pytest -m "not golden and not live and not acceptance"   # fast suite
+uv run necropsy offline tests/fixtures/haplina_naxx_subset.zip --out workspace/demo
 ```
 
-## Usage
+Your results are in **`workspace/demo/analysis.json`**. This small sample covers
+four bosses and runs without WCL credentials or the full Git LFS fixture.
+The analysis command makes no network requests; dependency installation can.
 
-```sh
-uv run necropsy ingest tests/fixtures/haplina_naxx_subset.zip --db work/subset.duckdb
-uv run necropsy ingest <export.zip> --db work/full.duckdb --sha256 <expected> --replace
-uv run necropsy offline <export.zip> --out out/ --db work/full.duckdb
-```
+For your own supported export, substitute its ZIP path.
+[Getting started](docs/getting-started.md) explains the format, database reuse,
+and common errors. The output is JSON today; HTML reports are planned.
 
-`ingest` verifies the archive, merges overlapping event streams without losing
-genuine duplicate events, records how complete every stream is, and replaces the
-database only if the build succeeds. Database layout and the event-identity
-rules: [`docs/database.md`](docs/database.md). How every reported value states its
-evidence: [`docs/evidence-model.md`](docs/evidence-model.md). Hunter analysis:
-[`docs/hunter-analysis.md`](docs/hunter-analysis.md).
+## What you get
 
-`offline` builds the same-faction benchmarks, encounter findings and structured
-recommendations for every boss and writes `analysis.json` (no network access).
-Layout and guarantees: [`docs/analysis-json.md`](docs/analysis-json.md).
-`--cross-faction` adds the cross-faction view as a separate section; it is never
-merged into the realistic benchmark.
+| Question | Where Necropsy helps |
+|---|---|
+| How does my execution compare? | Same-faction shot cadence, pet DPS, build and gear comparisons |
+| Does this leaderboard make a fair target? | Cohort size, inferred faction membership, and separate cross-faction context |
+| What happened on this boss? | Cast timelines, pet activity, crowd control, and damage by target |
+| Why is the kill-time gap so large? | Median and fastest same-faction comparisons, with the flag's basis shown |
+| What should I investigate next? | Recommendations grouped by what you control, with confidence and evidence links |
 
-### Test suites
+An unknown value stays unknown. A small comparison sample stays visible.
+Heuristic advice is a prompt to investigate, not a promise of extra DPS.
+[Learn how to read the results →](docs/reading-results.md)
 
-| Marker | What it needs | Command |
-|---|---|---|
-| *(none)* | nothing beyond the clone | `uv run pytest -m "not golden and not live and not acceptance"` |
-| `golden` | the full raw export from Git LFS | `git lfs pull && uv run pytest -m golden` |
-| `acceptance` | the golden-fact register; fails until every mandatory fact is verified | `uv run pytest -m acceptance` |
-| `live` | WCL credentials in the OS keyring | `uv run pytest -m live` (manual only) |
+## Find your way
 
-### Clean-clone replay of the golden fixture
+| I want to… | Start here |
+|---|---|
+| Run an analysis or solve a setup problem | [Getting started](docs/getting-started.md) |
+| Understand benchmarks and recommendations | [Reading results](docs/reading-results.md) |
+| Consume the JSON output | [Analysis JSON](docs/analysis-json.md) |
+| Inspect events, coverage, or evidence | [Evidence model](docs/evidence-model.md) · [Database](docs/database.md) |
+| Understand Hunter-specific rules | [Hunter analysis](docs/hunter-analysis.md) |
+| Develop or review a change | [Contributing](CONTRIBUTING.md) |
+| See what is coming next | [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md) |
 
-```sh
-git clone https://github.com/David-c0degeek/necropsy.git
-cd necropsy
-git lfs pull
-uv sync --locked
-uv run pytest -m golden
-```
-
-### Fixtures
-
-`tests/golden/haplina_naxx/` holds the frozen Haplina export, its oracle outputs
-and the golden-fact register; `PROVENANCE.md` there explains each file.
-`scripts/fixture_tools.py` is developer tooling (not part of the CLI) that writes
-member manifests and rebuilds the fast-test subset `tests/fixtures/haplina_naxx_subset.zip`.
+This is a private development project. The full golden fixture contains real
+player logs and is available to authorized collaborators. Its
+[provenance record](tests/golden/haplina_naxx/PROVENANCE.md) documents the source
+files. Keep credentials and private exports out of issues and patches.

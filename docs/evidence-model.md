@@ -1,5 +1,7 @@
 # Evidence model
 
+[Home](../README.md) · [Documentation](README.md) · [Reading results](reading-results.md)
+
 Every value Necropsy reports says how it is known. Analyzers build values only
 through the factories in `necropsy.analysis.evidence`, which enforce the rules
 below.

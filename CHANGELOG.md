@@ -1,47 +1,51 @@
 # Changelog
 
-All notable changes to Necropsy are documented here.
+[Home](README.md) · [Documentation](docs/README.md) · [Roadmap](docs/roadmap.md)
+
+Notable user-facing and developer changes. Entries under **Unreleased** are
+implemented in the development checkout; they are not a published release.
 
 ## [Unreleased]
 
 ### Added
-- Python 3.14 project skeleton with the `necropsy` command (`--help`, `--version`);
-  output is always UTF-8 so non-ASCII player names print on any console.
-- Verified read-only access to snapshot zip archives (`necropsy.snapshot.archive`):
-  whole-archive digest check, unsafe/duplicate/encrypted member rejection, size
-  caps, and per-member SHA-256 verification against an entries manifest.
-- Frozen Haplina Naxxramas golden fixture (full raw export in Git LFS, a 13.6 MB
-  subset for fast tests, oracle outputs, provenance record) and a golden-fact
-  register with an acceptance gate.
-- `necropsy ingest`: normalizes a v6 Hunter export (full or fixture subset) into a
-  DuckDB database with explicit column types, multiplicity-preserving event
-  identity, per-stream coverage and anomaly records, and atomic replacement.
-  Documented in `docs/database.md`.
-- Analysis foundation: evidence model (OBSERVED / DERIVED / INFERRED / UNKNOWN with
-  coverage-gated absence claims), rule files shipped as package data, fight
-  context, environment profile (faction, racial-proven race, talents, starting
-  auras, world buffs, Darkmoon Faire, Windfury, gear), generic metrics (damage,
-  casts, aura uptime, deaths, activity window), target split and cohort
-  distributions. Documented in `docs/evidence-model.md`.
-- Classic Era Hunter plugin: shot cadence and casts, opener, Quick Shots and
-  Rapid Fire uptime, every Auto Shot interval with an advisory long-gap
-  signal, melee weaving, friendly crowd control, pet classification and
-  family inference, gear at the pull; WCL-style ranking damage (self-damage
-  excluded, encounter exclusions pluggable). Documented in
-  `docs/hunter-analysis.md`.
-- `necropsy offline`: snapshot to a versioned, deterministic `analysis.json`
-  (JSON Schema committed) with per-boss same-faction baseline medians, shot-target
-  ranges, weave adoption, ceiling, opt-in cross-faction view, Naxxramas encounter
-  rules (ranking exclusions, Gothik native targets), target-integrity and
-  raid-utility findings, and evidence-linked recommendations with controllability
-  and confidence tiers. Pets with no events in a fight are classified inactive.
-  Inferred faction membership stays inferred through every median, range and
-  ceiling; unclassifiable damage targets make the target split unknown; a reused
-  `--db` never skips archive verification. Weave adoption is judged separately
-  on the boss and on other NPCs; raid speed compares with the same-faction
-  median kill time and always shows the fastest same-faction kill too; when the
-  same faction has too few entries, proven-Tauren entries fill the missing
-  medians in a separate view; every boss shows which targets count toward
-  ranked damage; start-of-fight trash is no longer counted as padding.
-  Documented in `docs/analysis-json.md`.
-- CI on Linux and Windows (lint, strict types, fast tests) and a manual golden workflow.
+
+- **Offline boss analysis.** `necropsy offline` writes deterministic, versioned
+  `analysis.json` with same-faction medians, a best-ranked ceiling, optional
+  cross-faction context, encounter findings, and evidence-linked recommendations.
+  A retained database is reused only after archive verification.
+  [Output reference](docs/analysis-json.md).
+- **Hunter detail.** Shot cadence and timelines, opener, Quick Shots and Rapid
+  Fire uptime, Auto Shot intervals and advisory gap signals, melee, friendly
+  crowd control, pet classification/family inference, pet activity and deaths,
+  and gear at the pull. Inactive pet-linked actors are identified from trusted
+  streams. [Hunter rules](docs/hunter-analysis.md).
+- **Fairer context.** Inferred faction membership remains inferred through
+  medians, shot ranges, and the ceiling. Unavailable execution medians can use
+  a separate proven-Tauren fallback with low-confidence advice. Weaving is
+  judged separately on bosses and other hostile NPCs. Raid speed compares with
+  the same-faction median and also shows the fastest same-faction kill.
+- **Damage-target explanations.** Empirical Naxxramas ranking exclusions,
+  individual ranking categories, and cohort target shares with stable NPC
+  identities, aliases, and known/unknown sample sizes. Gothik start trash is
+  separated from native and foreign targets. Unclassifiable targets remain
+  unknown; subject zero shares retain trusted coverage.
+- **Evidence and normalization.** `necropsy ingest` builds a typed DuckDB
+  database from v6 exports, preserving genuine event multiplicity, stream
+  coverage, anomalies, and provenance, with atomic replacement. Archive checks
+  cover whole-file and member digests, member safety, encryption, duplicates,
+  and size bounds. [Database](docs/database.md) · [Evidence](docs/evidence-model.md).
+- **Reproducible development.** Python 3.14 project, UTF-8 CLI output, packaged
+  rule data, frozen golden export in Git LFS, ordinary-Git test subset, oracle
+  provenance, and a golden-fact acceptance gate. Linux/Windows CI runs lint,
+  strict types, and fast tests; full golden replay has a manual workflow.
+- **A clearer starting point.** Sample-first setup and troubleshooting,
+  a guide to reading results, documentation navigation, contributing instructions,
+  and issue/PR templates.
+
+### Changed
+
+- CLI help explains supported inputs, output locations, database reuse, and
+  separate cross-faction context. Successful commands point to the next step;
+  command names, options, version output, and error exit behavior are preserved.
+- README and roadmap distinguish the implemented offline JSON workflow from
+  planned live acquisition, HTML reports, and the desktop app.

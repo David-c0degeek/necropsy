@@ -1,5 +1,7 @@
 # Analysis database
 
+[Home](../README.md) · [Documentation](README.md) · [Reading results](reading-results.md)
+
 `necropsy ingest <snapshot.zip> --db <file.duckdb>` normalizes a raw WCL
 snapshot into a DuckDB database. Everything after acquisition reads this
 database; it never needs the network.

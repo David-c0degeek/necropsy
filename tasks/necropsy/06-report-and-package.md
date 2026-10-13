@@ -81,3 +81,5 @@ export package.
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
+
+2026-10-13 · slice 1 (preparation; no 06 boxes completed) · documentation/CLI UX pass under D034: sample-first README and guides, reference navigation, current/planned roadmap, contributing and GitHub templates, accessible SVG banner, CLI help and next-step wording; analysis behavior unchanged · documented subset run: 4 bosses/12 recommendations; local links, YAML/SVG, lint/types and fast suite; awaiting peer review · not committed

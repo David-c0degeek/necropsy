@@ -1,0 +1,32 @@
+name: Something went wrong
+description: Report a command failure or an analysis finding that looks incorrect.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep credentials and real exports out of this issue. Use a sanitized example or reference the authorized fixture.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you see instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How can we reproduce it?
+      description: Include the command and safe input details. For a finding, name the boss and evidence path.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Necropsy version and operating system
+      description: Run uv run necropsy --version. Include the commit if working from a checkout.
+  - type: textarea
+    id: output
+    attributes:
+      label: Error or evidence
+      description: Paste relevant sanitized output. Remove tokens, credentials, and private player details.
+      render: text

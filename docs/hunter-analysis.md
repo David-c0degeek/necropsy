@@ -1,5 +1,7 @@
 # Hunter analysis (Classic Era)
 
+[Home](../README.md) · [Documentation](README.md) · [Reading results](reading-results.md)
+
 The Hunter plugin (`necropsy.analysis.classes.classic_era.hunter`) analyzes one
 Hunter in one fight on top of the generic environment profile. Every value
 follows the evidence model in [`evidence-model.md`](evidence-model.md); rule
