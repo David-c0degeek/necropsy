@@ -83,3 +83,4 @@ export package.
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
 
 2026-10-13 · slice 1 (preparation; no 06 boxes completed) · documentation/CLI UX pass under D034: sample-first README and guides, reference navigation, current/planned roadmap, contributing and GitHub templates, accessible SVG banner, CLI help and next-step wording; analysis behavior unchanged · documented subset run: 4 bosses/12 recommendations; local links, YAML/SVG, lint/types and fast suite; awaiting peer review · not committed
+2026-10-13 · slice 2 (documentation checkpoint; no 06 boxes completed) · peer AGREE round 1 on documentation/CLI UX; 271 fast tests plus documented subset/ingest/reuse/error flows passed; links, issue-form YAML, SVG XML, ruff/format/mypy clean · commit a76c35d pushed; Linux/Windows CI run 38373980724 success; approved repository description/topics applied, private visibility retained · report design next
