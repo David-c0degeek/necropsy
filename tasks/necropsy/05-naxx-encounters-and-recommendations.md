@@ -24,13 +24,13 @@ to report rendering.
 > - **Vision fit** — supports or conflicts with the project vision/ADRs (00.1); cite drift if any.
 > - **Risks** — duplication, architectural drift, or accidental complexity introduced.
 
-- **Existing code found** — TBD
-- **Behaviour to preserve** — TBD
-- **Reuse / extend** — TBD
-- **Do not duplicate** — TBD
-- **Integration point + why** — TBD
-- **Vision fit** — TBD
-- **Risks** — TBD
+- **Existing code found** — generic layer (`necropsy.analysis.generic.{environment,metrics,targets,cohort}`, `necropsy.analysis.context`), Hunter plugin (`necropsy.analysis.classes.classic_era.hunter`: shots, Rapid Fire, explosives, pets, `friendly_crowd_control`, Auto-gap signal), `targets.ranking_damage(excluded=…)` hook left by 04, rule loader `necropsy.rules.load_rules`, CLI `necropsy ingest`. No encounter, benchmark or report code existed (`rg -n "encounter|benchmark|analysis.json" src` before this subject → only docstrings and the `excluded` parameter).
+- **Behaviour to preserve** — evidence/coverage contracts (03), ranking-damage rule D021, all 01–04 fact checks, ingest safety rules (target WAL refusal, atomic swap, `--replace`).
+- **Reuse / extend** — encounter exclusions plug into `ranking_damage(excluded=…)`; cohort distributions from `generic.cohort`; Hunter metrics consumed as-is; `offline` reuses `ingest` for the database and its integrity checks; serializer walks the existing evidence dataclasses.
+- **Do not duplicate** — no second metric, damage or faction implementation; recommendations reference values by path into the same document instead of re-computing them.
+- **Integration point + why** — `necropsy.analysis.encounters` (data-driven rules in `rules/classic_era/zones/naxxramas.yaml`, findings in `encounters/findings.py`) keeps encounter knowledge out of class plugins (§6.23); `analysis.benchmark` and `analysis.recommendations` sit above class + encounter layers; `necropsy.report.{serialize,analysis_json,offline}` is the only producer of `analysis.json`, which 06 renders.
+- **Vision fit** — spec §7 recommendation shape and §8 benchmark views; D008 historical mode; D021; analyzers from 03/04 gain their first non-test caller (D020).
+- **Risks** — historical cohort is at most five entries per boss, so medians are small-sample (min 3 known, else UNKNOWN); ranking exclusions are empirical, not documented by WCL (D023); recommendation thresholds are heuristics awaiting 05.7 review.
 
 ## Boxes
 > ID = `<subject-id>.<box-number>` (subject index ID · box ordinal). Stable — never
@@ -40,25 +40,29 @@ to report rendering.
 > Owner MUST be one of the §5 enum:
 > agent · release-engineer · product-owner · tech-lead · domain-sme.
 
-- [ ] **05.1** (agent) Encounter plugin interface + Naxx rule files
+- [x] **05.1** (agent) Encounter plugin interface + Naxx rule files
       (`rules/classic_era/zones/naxxramas`): native target ids, phases/downtime,
       burst windows, pet hazards, known distortions for all 15 bosses.
-- [ ] **05.2** (agent) Gothik native vs foreign-target DPS; KT MC-control
+      *Narrowed by D024: all 15 bosses listed with ranking exclusions and native
+      targets where an analysis consumes them; phase/burst/hazard data deferred.*
+- [x] **05.2** (agent) Gothik native vs foreign-target DPS; KT MC-control
       utility (Freezing Trap, Scatter Shot on friendly, Reckless Charge on
       friendly) classified as raid assignment; Sapphiron/KT raid-speed
       classification from kill duration vs cohort.
-- [ ] **05.3** (agent) Benchmark views: (A) same-faction realistic ceiling,
+- [x] **05.3** (agent) Benchmark views: (A) same-faction realistic ceiling,
       (B) robust baseline from the metadata cohort (build/gear dominance,
       medians, outlier flags), (C) cross-faction ceiling, opt-in and never
       merged. Historical mode builds A as "best same-faction inside the recorded
       overall top 5" and states that limit in output.
-- [ ] **05.4** (agent) Recommendation objects (spec §7 shape + controllability
+      *B in historical mode is the same-faction entries of the recorded top 5;
+      outlier flags wait for the live 20–30 entry cohort (D024).*
+- [x] **05.4** (agent) Recommendation objects (spec §7 shape + controllability
       + evidence refs + benchmark ref); shot-count targets projected to the
       subject's kill duration as ranges.
-- [ ] **05.5** (agent) `analysis.json` schema v1 (Pydantic; JSON Schema exported
+- [x] **05.5** (agent) `analysis.json` schema v1 (Pydantic; JSON Schema exported
       to `docs/`), deterministic ordering, cohort provenance, coverage summary,
       mode, tool version. `necropsy offline <snapshot> --out <dir>` writes it.
-- [ ] **05.6** (agent) Golden: Haplina historical-mode recommendations match the
+- [x] **05.6** (agent) Golden: Haplina historical-mode recommendations match the
       definitive playbook's per-boss conclusions (spec, DMF, pet, weave matrix,
       RF timing, KT assignment, Gothik padding) as structured facts, not prose.
 - [ ] **05.7** (domain-sme) Review weave matrix and per-boss recommendations vs
@@ -84,3 +88,5 @@ to report rendering.
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
+2026-10-13 · slice 1 · 05.1–05.6 · huddle (Codex DESIGN_AGREED), Naxx encounter rules (ranking exclusions reproduce 90/90 recorded fights, Gothik native targets), target-integrity and raid-utility findings, three benchmark views, recommendations-v1, analysis.json v1 + JSON Schema, `necropsy offline`; pet-inactive-v1 rule; facts promoted (176 verified, 4 disputed with resolutions) · ruff, mypy strict, fast + golden suites (399 passed, 4 xfail), acceptance passed, analysis.json byte-identical over repeated runs · not yet committed (awaiting review)
+2026-10-13 · slice 2 · 05.2–05.5 · review round 1 fixes: `--db` reuse verifies archive digest and entries manifest; unclassifiable damage targets make the target split UNKNOWN (D028); inferred faction membership propagates to medians, ranges, ceiling and confidence with per-member refs (D027); raid-speed wording no longer asserts a cause; typed analysis.json schema with nested evidence validation and negative tests; ranking exclusions labelled empirical with a standing golden test · ruff, mypy strict, fast + golden + acceptance suites · not yet committed (awaiting round 2)

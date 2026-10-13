@@ -99,6 +99,7 @@ def damage_by_ability(
         SELECT ability_game_id, coalesce(amount, 0), event_uid, copy_index FROM events
         WHERE report_code = ? AND fight_id = ? AND type = 'damage'
           AND source_id IN (SELECT unnest(?::BIGINT[]))
+        ORDER BY timestamp, event_uid, copy_index
         """,
         [pf.report_code, pf.fight_id, actor_ids],
     )

@@ -29,4 +29,13 @@ All notable changes to Necropsy are documented here.
   family inference, gear at the pull; WCL-style ranking damage (self-damage
   excluded, encounter exclusions pluggable). Documented in
   `docs/hunter-analysis.md`.
+- `necropsy offline`: snapshot to a versioned, deterministic `analysis.json`
+  (JSON Schema committed) with per-boss same-faction baseline medians, shot-target
+  ranges, weave adoption, ceiling, opt-in cross-faction view, Naxxramas encounter
+  rules (ranking exclusions, Gothik native targets), target-integrity and
+  raid-utility findings, and evidence-linked recommendations with controllability
+  and confidence tiers. Pets with no events in a fight are classified inactive.
+  Inferred faction membership stays inferred through every median, range and
+  ceiling; unclassifiable damage targets make the target split unknown; a reused
+  `--db` never skips archive verification. Documented in `docs/analysis-json.md`.
 - CI on Linux and Windows (lint, strict types, fast tests) and a manual golden workflow.

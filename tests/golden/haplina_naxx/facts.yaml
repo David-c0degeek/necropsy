@@ -169,7 +169,7 @@ facts:
   statement: Every recorded Gothik top-five fight has non-native trash damage; Haplina has none.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     Haplina: 0.0
     Andrenn: 47.64
@@ -182,6 +182,9 @@ facts:
   source:
     file: oracle/definitive/gothik_target_padding.csv
     locator: NonNativePercent
+  evidence: 'Computed by fact checker `gothik-the-harvester.foreign-trash-detected` (tests/golden/fact_checks.py)
+    from the full analysis database: the Hunter''s own damage (pets excluded, as in the oracle) to units
+    outside Gothik''s native-target list.'
 - id: kel-thuzad.haplina.mc-utility
   statement: 'Haplina''s KT fight shows friendly-target crowd control during the Aimed gap: Freezing Trap
     97.36 s, Reckless Charge on a teammate 102.51 s, Scatter Shot on a teammate 115.32 s.'
@@ -242,7 +245,7 @@ facts:
     the realistic comparator is the best Alliance entry, not rank 1.
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected:
     Patchwerk: Charies
     Grobbulus: Clicker
@@ -252,6 +255,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Best_Alliance_Hunter
+  evidence: Computed by fact checker `recommendations.same-vs-cross-faction` (tests/golden/fact_checks.py)
+    from the full analysis database.
 - id: patchwerk.haplina.dps
   statement: 'Haplina''s selected Patchwerk fight: 1000.86 DPS.'
   mode: historical
@@ -480,7 +485,8 @@ facts:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Noth the Plaguebringer, Haplina_DPS
   evidence: 'Computed by fact checker `noth-the-plaguebringer.haplina.dps` (tests/golden/fact_checks.py):
-    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1), divided by fight duration.'
+    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1),
+    divided by fight duration.'
 - id: noth-the-plaguebringer.haplina.kill-duration
   statement: Haplina's selected Noth the Plaguebringer kill lasts 47.778 s.
   mode: historical
@@ -534,7 +540,8 @@ facts:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Heigan the Unclean, Haplina_DPS
   evidence: 'Computed by fact checker `heigan-the-unclean.haplina.dps` (tests/golden/fact_checks.py):
-    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1), divided by fight duration.'
+    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1),
+    divided by fight duration.'
 - id: heigan-the-unclean.haplina.kill-duration
   statement: Haplina's selected Heigan the Unclean kill lasts 55.0 s.
   mode: historical
@@ -688,16 +695,16 @@ facts:
   statement: 'Haplina''s selected Grand Widow Faerlina fight: 1086.8 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 1086.8
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Grand Widow Faerlina, Haplina_DPS
-  evidence: 'Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67): the difference
-    is exactly the damage to Naxxramas Worshipper (5,903) and Death Knight Understudy (5,612), which WCL
-    rankings exclude; pending the encounter exclusion rules.'
+  evidence: 'Computed by fact checker `grand-widow-faerlina.haplina.dps` (tests/golden/fact_checks.py)
+    from the full analysis database: damage by the Hunter and every pet-linked actor to anything but themselves,
+    minus the encounter''s ranking exclusions (naxx-ranking-exclusions-v1), divided by fight duration.'
 - id: grand-widow-faerlina.haplina.kill-duration
   statement: Haplina's selected Grand Widow Faerlina kill lasts 40.034 s.
   mode: historical
@@ -797,16 +804,16 @@ facts:
   statement: 'Haplina''s selected Instructor Razuvious fight: 833.912 DPS.'
   mode: historical
   mandatory: true
-  status: oracle-only
+  status: verified-against-raw
   expected: 833.912
   tolerance: 0.01
   unit: dps
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Instructor Razuvious, Haplina_DPS
-  evidence: 'Fact checker computes a higher value (Faerlina 1234.25, Razuvious 959.67): the difference
-    is exactly the damage to Naxxramas Worshipper (5,903) and Death Knight Understudy (5,612), which WCL
-    rankings exclude; pending the encounter exclusion rules.'
+  evidence: 'Computed by fact checker `instructor-razuvious.haplina.dps` (tests/golden/fact_checks.py)
+    from the full analysis database: damage by the Hunter and every pet-linked actor to anything but themselves,
+    minus the encounter''s ranking exclusions (naxx-ranking-exclusions-v1), divided by fight duration.'
 - id: instructor-razuvious.haplina.kill-duration
   statement: Haplina's selected Instructor Razuvious kill lasts 44.627 s.
   mode: historical
@@ -860,7 +867,8 @@ facts:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Haplina_DPS
   evidence: 'Computed by fact checker `gothik-the-harvester.haplina.dps` (tests/golden/fact_checks.py):
-    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1), divided by fight duration.'
+    damage by the Hunter and every pet-linked actor to anything but themselves (rule external-damage-v1),
+    divided by fight duration.'
 - id: gothik-the-harvester.haplina.kill-duration
   statement: Haplina's selected Gothik the Harvester kill lasts 307.087 s.
   mode: historical
@@ -1150,3 +1158,1234 @@ facts:
     locator: Renataki section ('Exactly 24/24')
   evidence: Computed by fact checker `cohort.renataki-refocus` (tests/golden/fact_checks.py) from the
     full analysis database.
+- id: patchwerk.ceiling
+  statement: 'Patchwerk: the best Alliance entry inside the recorded overall top five is Charies (#2).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Charies
+    position: 2
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `patchwerk.ceiling` (tests/golden/fact_checks.py) from the full analysis
+    database.
+- id: patchwerk.baseline-medians
+  statement: 'Patchwerk: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute, Hunter-pet
+    DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 19.95
+    aimed: 5.968
+    multi: 5.41
+    pet_dps: 166.94
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, Alliance_Median_*
+  evidence: Computed by fact checker `patchwerk.baseline-medians` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: patchwerk.shot-targets
+  statement: 'Patchwerk: Auto/Aimed/Multi targets at Haplina''s kill length are 27–28 / 8–9 / 7–8.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 27–28 / 8–9 / 7–8
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `patchwerk.shot-targets` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: patchwerk.weave-adoption
+  statement: 'Patchwerk: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 3
+    with_five_raptors: 3
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `patchwerk.weave-adoption` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: patchwerk.weave-verdict
+  statement: 'Patchwerk: weave verdict yes.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'yes'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, Weave
+  evidence: Computed by fact checker `patchwerk.weave-verdict` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: patchwerk.horde-windfury-users
+  statement: 'Patchwerk: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, Horde_WF_users
+  evidence: Computed by fact checker `patchwerk.horde-windfury-users` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: grobbulus.ceiling
+  statement: 'Grobbulus: the best Alliance entry inside the recorded overall top five is Clicker (#2).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Clicker
+    position: 2
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `grobbulus.ceiling` (tests/golden/fact_checks.py) from the full analysis
+    database.
+- id: grobbulus.baseline-medians
+  statement: 'Grobbulus: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute, Hunter-pet
+    DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 22.303
+    aimed: 6.85
+    multi: 5.709
+    pet_dps: 154.97
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, Alliance_Median_*
+  evidence: Computed by fact checker `grobbulus.baseline-medians` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: grobbulus.shot-targets
+  statement: 'Grobbulus: Auto/Aimed/Multi targets at Haplina''s kill length are 24–25 / 7–8 / 6–7.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 24–25 / 7–8 / 6–7
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `grobbulus.shot-targets` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: grobbulus.weave-adoption
+  statement: 'Grobbulus: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `grobbulus.weave-adoption` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: grobbulus.weave-verdict
+  statement: 'Grobbulus: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, Weave
+  evidence: Computed by fact checker `grobbulus.weave-verdict` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: grobbulus.horde-windfury-users
+  statement: 'Grobbulus: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, Horde_WF_users
+  evidence: Computed by fact checker `grobbulus.horde-windfury-users` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: gluth.ceiling
+  statement: 'Gluth: the best Alliance entry inside the recorded overall top five is Clicker (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Clicker
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `gluth.ceiling` (tests/golden/fact_checks.py) from the full analysis
+    database.
+- id: gluth.baseline-medians
+  statement: 'Gluth: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute, Hunter-pet
+    DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 23.711
+    aimed: 5.702
+    multi: 5.702
+    pet_dps: 116.37
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, Alliance_Median_*
+  evidence: Computed by fact checker `gluth.baseline-medians` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: gluth.shot-targets
+  statement: 'Gluth: Auto/Aimed/Multi targets at Haplina''s kill length are 21–22 / 5–6 / 5–6.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 21–22 / 5–6 / 5–6
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `gluth.shot-targets` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: gluth.weave-adoption
+  statement: 'Gluth: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `gluth.weave-adoption` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: gluth.weave-verdict
+  statement: 'Gluth: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, Weave
+  evidence: Computed by fact checker `gluth.weave-verdict` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: gluth.horde-windfury-users
+  statement: 'Gluth: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, Horde_WF_users
+  evidence: Computed by fact checker `gluth.horde-windfury-users` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: thaddius.ceiling
+  statement: 'Thaddius: the best Alliance entry inside the recorded overall top five is Xert (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Xert
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `thaddius.ceiling` (tests/golden/fact_checks.py) from the full analysis
+    database.
+- id: thaddius.baseline-medians
+  statement: 'Thaddius: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute, Hunter-pet
+    DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 17.515
+    aimed: 5.38
+    multi: 4.732
+    pet_dps: 107.38
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, Alliance_Median_*
+  evidence: Computed by fact checker `thaddius.baseline-medians` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: thaddius.shot-targets
+  statement: 'Thaddius: Auto/Aimed/Multi targets at Haplina''s kill length are 35–36 / 10–11 / 9–10.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 35–36 / 10–11 / 9–10
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `thaddius.shot-targets` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: thaddius.weave-adoption
+  statement: 'Thaddius: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 3
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `thaddius.weave-adoption` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: thaddius.weave-verdict
+  statement: 'Thaddius: weave verdict opportunistic.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: opportunistic
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, Weave
+  evidence: Computed by fact checker `thaddius.weave-verdict` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: thaddius.horde-windfury-users
+  statement: 'Thaddius: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, Horde_WF_users
+  evidence: Computed by fact checker `thaddius.horde-windfury-users` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: noth-the-plaguebringer.ceiling
+  statement: 'Noth the Plaguebringer: the best Alliance entry inside the recorded overall top five is
+    Clicker (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Clicker
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `noth-the-plaguebringer.ceiling` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: noth-the-plaguebringer.baseline-medians
+  statement: 'Noth the Plaguebringer: Alliance medians inside the recorded top five (Auto/Aimed/Multi
+    per minute, Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 24.152
+    aimed: 6.795
+    multi: 5.436
+    pet_dps: 161.24
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, Alliance_Median_*
+  evidence: Computed by fact checker `noth-the-plaguebringer.baseline-medians` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: noth-the-plaguebringer.shot-targets
+  statement: 'Noth the Plaguebringer: Auto/Aimed/Multi targets at Haplina''s kill length are 19–20 / 5–6
+    / 4–5.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 19–20 / 5–6 / 4–5
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `noth-the-plaguebringer.shot-targets` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: noth-the-plaguebringer.weave-adoption
+  statement: 'Noth the Plaguebringer: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 1
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `noth-the-plaguebringer.weave-adoption` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: noth-the-plaguebringer.weave-verdict
+  statement: 'Noth the Plaguebringer: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, Weave
+  evidence: Computed by fact checker `noth-the-plaguebringer.weave-verdict` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: noth-the-plaguebringer.horde-windfury-users
+  statement: 'Noth the Plaguebringer: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, Horde_WF_users
+  evidence: Computed by fact checker `noth-the-plaguebringer.horde-windfury-users` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: heigan-the-unclean.ceiling
+  statement: 'Heigan the Unclean: the best Alliance entry inside the recorded overall top five is Clicker
+    (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Clicker
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `heigan-the-unclean.ceiling` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: heigan-the-unclean.baseline-medians
+  statement: 'Heigan the Unclean: Alliance medians inside the recorded top five (Auto/Aimed/Multi per
+    minute, Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 23.804
+    aimed: 5.811
+    multi: 5.529
+    pet_dps: 148.83
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, Alliance_Median_*
+  evidence: Computed by fact checker `heigan-the-unclean.baseline-medians` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: heigan-the-unclean.shot-targets
+  statement: 'Heigan the Unclean: Auto/Aimed/Multi targets at Haplina''s kill length are 21–22 / 5–6 /
+    5–6.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 21–22 / 5–6 / 5–6
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `heigan-the-unclean.shot-targets` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: heigan-the-unclean.weave-adoption
+  statement: 'Heigan the Unclean: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 4
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `heigan-the-unclean.weave-adoption` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: heigan-the-unclean.weave-verdict
+  statement: 'Heigan the Unclean: weave verdict opportunistic.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: opportunistic
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, Weave
+  evidence: Computed by fact checker `heigan-the-unclean.weave-verdict` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: heigan-the-unclean.horde-windfury-users
+  statement: 'Heigan the Unclean: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, Horde_WF_users
+  evidence: Computed by fact checker `heigan-the-unclean.horde-windfury-users` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: loatheb.ceiling
+  statement: 'Loatheb: the best Alliance entry inside the recorded overall top five is Tagx (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Tagx
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `loatheb.ceiling` (tests/golden/fact_checks.py) from the full analysis
+    database.
+- id: loatheb.baseline-medians
+  statement: 'Loatheb: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute, Hunter-pet
+    DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 20.824
+    aimed: 5.988
+    multi: 5.19
+    pet_dps: 190.86
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, Alliance_Median_*
+  evidence: Computed by fact checker `loatheb.baseline-medians` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: loatheb.shot-targets
+  statement: 'Loatheb: Auto/Aimed/Multi targets at Haplina''s kill length are 46–47 / 13–14 / 11–12.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 46–47 / 13–14 / 11–12
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `loatheb.shot-targets` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: loatheb.weave-adoption
+  statement: 'Loatheb: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 1
+    with_five_raptors: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `loatheb.weave-adoption` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: loatheb.weave-verdict
+  statement: 'Loatheb: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, Weave
+  evidence: Computed by fact checker `loatheb.weave-verdict` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: loatheb.horde-windfury-users
+  statement: 'Loatheb: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, Horde_WF_users
+  evidence: Computed by fact checker `loatheb.horde-windfury-users` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: anub-rekhan.ceiling
+  statement: 'Anub''Rekhan: the best Alliance entry inside the recorded overall top five is Clicker (#2).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Clicker
+    position: 2
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `anub-rekhan.ceiling` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: anub-rekhan.baseline-medians
+  statement: 'Anub''Rekhan: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute,
+    Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 25.881
+    aimed: 7.305
+    multi: 7.305
+    pet_dps: 142.35
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, Alliance_Median_*
+  evidence: Computed by fact checker `anub-rekhan.baseline-medians` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: anub-rekhan.shot-targets
+  statement: 'Anub''Rekhan: Auto/Aimed/Multi targets at Haplina''s kill length are 15–16 / 4–5 / 4–5.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 15–16 / 4–5 / 4–5
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `anub-rekhan.shot-targets` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: anub-rekhan.weave-adoption
+  statement: 'Anub''Rekhan: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `anub-rekhan.weave-adoption` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: anub-rekhan.weave-verdict
+  statement: 'Anub''Rekhan: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, Weave
+  evidence: Computed by fact checker `anub-rekhan.weave-verdict` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: anub-rekhan.horde-windfury-users
+  statement: 'Anub''Rekhan: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, Horde_WF_users
+  evidence: Computed by fact checker `anub-rekhan.horde-windfury-users` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: grand-widow-faerlina.ceiling
+  statement: 'Grand Widow Faerlina: the best Alliance entry inside the recorded overall top five is Andrenn
+    (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Andrenn
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `grand-widow-faerlina.ceiling` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: grand-widow-faerlina.baseline-medians
+  statement: 'Grand Widow Faerlina: Alliance medians inside the recorded top five (Auto/Aimed/Multi per
+    minute, Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 25.483
+    aimed: 6.707
+    multi: 6.755
+    pet_dps: 138.02
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, Alliance_Median_*
+  evidence: Computed by fact checker `grand-widow-faerlina.baseline-medians` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: grand-widow-faerlina.shot-targets
+  statement: 'Grand Widow Faerlina: Auto/Aimed/Multi targets at Haplina''s kill length are 17–18 / 4–5
+    / 4–5.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 17–18 / 4–5 / 4–5
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `grand-widow-faerlina.shot-targets` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: grand-widow-faerlina.weave-adoption
+  statement: 'Grand Widow Faerlina: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `grand-widow-faerlina.weave-adoption` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: grand-widow-faerlina.weave-verdict
+  statement: 'Grand Widow Faerlina: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, Weave
+  evidence: Computed by fact checker `grand-widow-faerlina.weave-verdict` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: grand-widow-faerlina.horde-windfury-users
+  statement: 'Grand Widow Faerlina: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, Horde_WF_users
+  evidence: Computed by fact checker `grand-widow-faerlina.horde-windfury-users` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: maexxna.ceiling
+  statement: 'Maexxna: the best Alliance entry inside the recorded overall top five is Clicker (#2).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Clicker
+    position: 2
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `maexxna.ceiling` (tests/golden/fact_checks.py) from the full analysis
+    database.
+- id: maexxna.baseline-medians
+  statement: 'Maexxna: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute, Hunter-pet
+    DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 25.696
+    aimed: 8.308
+    multi: 6.647
+    pet_dps: 104.71
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, Alliance_Median_*
+  evidence: Computed by fact checker `maexxna.baseline-medians` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: maexxna.shot-targets
+  statement: 'Maexxna: Auto/Aimed/Multi targets at Haplina''s kill length are 15–16 / 5–6 / 4–5.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 15–16 / 5–6 / 4–5
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `maexxna.shot-targets` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: maexxna.weave-adoption
+  statement: 'Maexxna: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `maexxna.weave-adoption` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: maexxna.weave-verdict
+  statement: 'Maexxna: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, Weave
+  evidence: Computed by fact checker `maexxna.weave-verdict` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: maexxna.horde-windfury-users
+  statement: 'Maexxna: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, Horde_WF_users
+  evidence: Computed by fact checker `maexxna.horde-windfury-users` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: instructor-razuvious.ceiling
+  statement: 'Instructor Razuvious: the best Alliance entry inside the recorded overall top five is Clicker
+    (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Clicker
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `instructor-razuvious.ceiling` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: instructor-razuvious.baseline-medians
+  statement: 'Instructor Razuvious: Alliance medians inside the recorded top five (Auto/Aimed/Multi per
+    minute, Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 22.731
+    aimed: 5.982
+    multi: 5.334
+    pet_dps: 151.39
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, Alliance_Median_*
+  evidence: Computed by fact checker `instructor-razuvious.baseline-medians` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: instructor-razuvious.shot-targets
+  statement: 'Instructor Razuvious: Auto/Aimed/Multi targets at Haplina''s kill length are 16–17 / 4–5
+    / 3–4.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 16–17 / 4–5 / 3–4
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `instructor-razuvious.shot-targets` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: instructor-razuvious.weave-adoption
+  statement: 'Instructor Razuvious: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `instructor-razuvious.weave-adoption` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: instructor-razuvious.weave-verdict
+  statement: 'Instructor Razuvious: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, Weave
+  evidence: Computed by fact checker `instructor-razuvious.weave-verdict` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: instructor-razuvious.horde-windfury-users
+  statement: 'Instructor Razuvious: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, Horde_WF_users
+  evidence: Computed by fact checker `instructor-razuvious.horde-windfury-users` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: gothik-the-harvester.ceiling
+  statement: 'Gothik the Harvester: the best Alliance entry inside the recorded overall top five is Andrenn
+    (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Andrenn
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `gothik-the-harvester.ceiling` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: gothik-the-harvester.baseline-medians
+  statement: 'Gothik the Harvester: Alliance medians inside the recorded top five (Auto/Aimed/Multi per
+    minute, Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 11.127
+    aimed: 2.225
+    multi: 3.8
+    pet_dps: 12.8
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Alliance_Median_*
+  evidence: Computed by fact checker `gothik-the-harvester.baseline-medians` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: gothik-the-harvester.shot-targets
+  statement: 'Gothik the Harvester: Auto/Aimed/Multi targets at Haplina''s kill length are 56–57 / 11–12
+    / 19–20.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 56–57 / 11–12 / 19–20
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `gothik-the-harvester.shot-targets` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: gothik-the-harvester.weave-adoption
+  statement: 'Gothik the Harvester: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 2
+    with_five_raptors: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `gothik-the-harvester.weave-adoption` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: gothik-the-harvester.weave-verdict
+  statement: 'Gothik the Harvester: weave verdict conditional.'
+  mode: historical
+  mandatory: false
+  status: disputed
+  expected: conditional
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Weave
+  resolution: The oracle calls Gothik 'conditional' (2/5 weave, Eye of Nerub 4/5); rule weave-verdict-v1
+    gives 'no' from the same counts. Left for Hunter-domain review; no encounter override added.
+- id: gothik-the-harvester.horde-windfury-users
+  statement: 'Gothik the Harvester: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Horde_WF_users
+  evidence: Computed by fact checker `gothik-the-harvester.horde-windfury-users` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: the-four-horsemen.ceiling
+  statement: 'The Four Horsemen: the best Alliance entry inside the recorded overall top five is Folkx
+    (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Folkx
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `the-four-horsemen.ceiling` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: the-four-horsemen.baseline-medians
+  statement: 'The Four Horsemen: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute,
+    Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 17.962
+    aimed: 5.702
+    multi: 5.22
+    pet_dps: 48.61
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, Alliance_Median_*
+  evidence: Computed by fact checker `the-four-horsemen.baseline-medians` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: the-four-horsemen.shot-targets
+  statement: 'The Four Horsemen: Auto/Aimed/Multi targets at Haplina''s kill length are 42–43 / 13–14
+    / 12–13.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 42–43 / 13–14 / 12–13
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `the-four-horsemen.shot-targets` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: the-four-horsemen.weave-adoption
+  statement: 'The Four Horsemen: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 1
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `the-four-horsemen.weave-adoption` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: the-four-horsemen.weave-verdict
+  statement: 'The Four Horsemen: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, Weave
+  evidence: Computed by fact checker `the-four-horsemen.weave-verdict` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: the-four-horsemen.horde-windfury-users
+  statement: 'The Four Horsemen: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, Horde_WF_users
+  evidence: Computed by fact checker `the-four-horsemen.horde-windfury-users` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: sapphiron.ceiling
+  statement: 'Sapphiron: the best Alliance entry inside the recorded overall top five is Folk (#3).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Folk
+    position: 3
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `sapphiron.ceiling` (tests/golden/fact_checks.py) from the full analysis
+    database.
+- id: sapphiron.baseline-medians
+  statement: 'Sapphiron: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute, Hunter-pet
+    DPS).'
+  mode: historical
+  mandatory: false
+  status: disputed
+  expected:
+    auto: 27.632
+    aimed: 6.958
+    multi: 8.29
+    pet_dps: 111.38
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, Alliance_Median_*
+  resolution: The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
+    the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median.
+- id: sapphiron.shot-targets
+  statement: 'Sapphiron: Auto/Aimed/Multi targets at Haplina''s kill length are 53–54 / 13–14 / 16–17.'
+  mode: historical
+  mandatory: false
+  status: disputed
+  expected: 53–54 / 13–14 / 16–17
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, Alliance_Normalized_Auto_Aimed_Multi_Target
+  resolution: The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
+    the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median.
+- id: sapphiron.weave-adoption
+  statement: 'Sapphiron: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `sapphiron.weave-adoption` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: sapphiron.weave-verdict
+  statement: 'Sapphiron: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: disputed
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, Weave
+  resolution: Only 2 Alliance entries; rule weave-verdict-v1 needs 3 known entries and reports UNKNOWN.
+- id: sapphiron.horde-windfury-users
+  statement: 'Sapphiron: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, Horde_WF_users
+  evidence: Computed by fact checker `sapphiron.horde-windfury-users` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: kel-thuzad.ceiling
+  statement: 'Kel''Thuzad: the best Alliance entry inside the recorded overall top five is Snipex (#1).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    player: Snipex
+    position: 1
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, Best_Alliance_Hunter / Best_Alliance_Rank_within_overall_top5
+  evidence: Computed by fact checker `kel-thuzad.ceiling` (tests/golden/fact_checks.py) from the full
+    analysis database.
+- id: kel-thuzad.baseline-medians
+  statement: 'Kel''Thuzad: Alliance medians inside the recorded top five (Auto/Aimed/Multi per minute,
+    Hunter-pet DPS).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    auto: 21.845
+    aimed: 6.546
+    multi: 4.634
+    pet_dps: 135.05
+  tolerance: 0.05
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, Alliance_Median_*
+  evidence: Computed by fact checker `kel-thuzad.baseline-medians` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: kel-thuzad.shot-targets
+  statement: 'Kel''Thuzad: Auto/Aimed/Multi targets at Haplina''s kill length are 64–65 / 19–20 / 13–14.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected: 64–65 / 19–20 / 13–14
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, Alliance_Normalized_Auto_Aimed_Multi_Target
+  evidence: Computed by fact checker `kel-thuzad.shot-targets` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: kel-thuzad.weave-adoption
+  statement: 'Kel''Thuzad: Alliance entries with at least one / five or more Raptor Strikes.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    with_raptor: 0
+    with_five_raptors: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, Alliance_Raptor_users / Alliance_5plus_Raptor_users
+  evidence: Computed by fact checker `kel-thuzad.weave-adoption` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: kel-thuzad.weave-verdict
+  statement: 'Kel''Thuzad: weave verdict no.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 'no'
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, Weave
+  evidence: Computed by fact checker `kel-thuzad.weave-verdict` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: kel-thuzad.horde-windfury-users
+  statement: 'Kel''Thuzad: Horde entries in the recorded top five with confirmed Windfury.'
+  mode: historical
+  mandatory: false
+  status: verified-against-raw
+  expected: 0
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, Horde_WF_users
+  evidence: Computed by fact checker `kel-thuzad.horde-windfury-users` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: recommendations.pet-absent
+  statement: 'Bosses where no Hunter pet took part in Haplina''s selected fight: Gluth, Heigan, Anub''Rekhan,
+    Sapphiron.'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+  - Anub'Rekhan
+  - Gluth
+  - Heigan the Unclean
+  - Sapphiron
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: '''Gluth, Heigan, Anub and Sapphiron need a pet'''
+  evidence: Computed by fact checker `recommendations.pet-absent` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: recommendations.rapid-fire-unused
+  statement: Rapid Fire was never cast on Grobbulus and Thaddius.
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+  - Grobbulus
+  - Thaddius
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: Grobbulus and Thaddius sections ('you never use Rapid Fire', 'you never cast RF')
+  evidence: Computed by fact checker `recommendations.rapid-fire-unused` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: recommendations.raid-utility
+  statement: Only Kel'Thuzad has a raid-assignment finding (crowd control on raid members).
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+  - Kel'Thuzad
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: Kel'Thuzad section
+  evidence: Computed by fact checker `recommendations.raid-utility` (tests/golden/fact_checks.py) from
+    the full analysis database.
+- id: recommendations.foreign-target-padding
+  statement: Only Gothik has a foreign-target padding finding.
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+  - Gothik the Harvester
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: Gothik section
+  evidence: Computed by fact checker `recommendations.foreign-target-padding` (tests/golden/fact_checks.py)
+    from the full analysis database.
+- id: recommendations.raid-speed
+  statement: Sapphiron and Kel'Thuzad are flagged as raid-speed gaps.
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+  - Kel'Thuzad
+  - Sapphiron
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: '''Some bosses are personal-performance problems; others are raid-speed problems'''
+  evidence: Computed by fact checker `recommendations.raid-speed` (tests/golden/fact_checks.py) from the
+    full analysis database.
+- id: recommendations.patchwerk-build-and-darkmoon
+  statement: On Patchwerk the dominant same-faction build is 20/31/0 and Darkmoon Faire buff is Damage,
+    against Haplina's 12/33/6 and Agility.
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    build: 20/31/0
+    darkmoon: Sayge's Dark Fortune of Damage
+  source:
+    file: docs/origin/Haplina Analysis.md
+    locator: sections 1 and 2
+  evidence: Computed by fact checker `recommendations.patchwerk-build-and-darkmoon` (tests/golden/fact_checks.py)
+    from the full analysis database.

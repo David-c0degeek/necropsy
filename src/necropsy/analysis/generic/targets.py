@@ -27,12 +27,19 @@ class TargetDamage:
     name: str | None
     damage: int
 
+    @property
+    def classifiable(self) -> bool:
+        """An encounter rule can only judge a target that is a listed actor with a game ID."""
+        return self.actor_id is not None and self.game_id is not None
+
 
 @dataclass(frozen=True, slots=True)
 class TargetSplit:
     by_target: Evidenced[tuple[TargetDamage, ...]]
     native_damage: Evidenced[int]
     foreign_damage: Evidenced[int]
+    unclassified: tuple[TargetDamage, ...] = ()
+    """Damaged targets with no target ID, no actor record, or no game ID."""
 
 
 def damage_by_target(
@@ -70,6 +77,10 @@ def damage_by_target(
             else "damage by target unknown"
         )
         return TargetSplit(by_target, unknown(why, ref), unknown(why, ref))
+    unclassified = tuple(t for t in split if not t.classifiable and t.damage)
+    if unclassified:
+        why = f"{len(unclassified)} damaged targets cannot be classified (no actor or game ID)"
+        return TargetSplit(by_target, unknown(why, ref), unknown(why, ref), unclassified)
     native = sum(t.damage for t in split if is_native(t.game_id, t.name))
     foreign = sum(t.damage for t in split) - native
     return TargetSplit(

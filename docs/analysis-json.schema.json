@@ -1,0 +1,1048 @@
+{
+  "$defs": {
+    "BenchmarkRef": {
+      "additionalProperties": true,
+      "properties": {
+        "n_known": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "N Known"
+        },
+        "view": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "View"
+        }
+      },
+      "title": "BenchmarkRef",
+      "type": "object"
+    },
+    "Benchmarks": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Baseline"
+        },
+        "ceiling": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ceiling"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cross_faction": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CrossFaction"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "excluded": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Excluded"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ceiling",
+        "baseline",
+        "cross_faction",
+        "excluded"
+      ],
+      "title": "Benchmarks",
+      "type": "object"
+    },
+    "BossRules": {
+      "additionalProperties": false,
+      "properties": {
+        "native_targets": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Native Targets"
+        },
+        "ranking_exclusion_rule": {
+          "$ref": "#/$defs/ExclusionRule"
+        },
+        "ranking_exclusions": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Ranking Exclusions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "ranking_exclusions",
+        "ranking_exclusion_rule",
+        "native_targets"
+      ],
+      "title": "BossRules",
+      "type": "object"
+    },
+    "BossSection": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmarks": {
+          "$ref": "#/$defs/Benchmarks"
+        },
+        "boss": {
+          "title": "Boss",
+          "type": "string"
+        },
+        "cohort": {
+          "items": {
+            "$ref": "#/$defs/EntrySection"
+          },
+          "title": "Cohort",
+          "type": "array"
+        },
+        "encounter": {
+          "$ref": "#/$defs/EncounterFindings"
+        },
+        "encounter_id": {
+          "title": "Encounter Id",
+          "type": "integer"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/RecommendationSection"
+          },
+          "title": "Recommendations",
+          "type": "array"
+        },
+        "rules": {
+          "$ref": "#/$defs/BossRules"
+        },
+        "subject": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EntrySection"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "encounter_id",
+        "boss",
+        "rules",
+        "subject",
+        "benchmarks",
+        "encounter",
+        "cohort",
+        "recommendations"
+      ],
+      "title": "BossSection",
+      "type": "object"
+    },
+    "Ceiling": {
+      "additionalProperties": false,
+      "properties": {
+        "kill_duration_s": {
+          "title": "Kill Duration S",
+          "type": "number"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "leaderboard_position": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Leaderboard Position"
+        },
+        "membership": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "player": {
+          "title": "Player",
+          "type": "string"
+        },
+        "ranked_dps": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ranked Dps"
+        }
+      },
+      "required": [
+        "label",
+        "player",
+        "leaderboard_position",
+        "ranked_dps",
+        "kill_duration_s",
+        "membership"
+      ],
+      "title": "Ceiling",
+      "type": "object"
+    },
+    "Claim": {
+      "enum": [
+        "value",
+        "complete"
+      ],
+      "title": "Claim",
+      "type": "string"
+    },
+    "CohortInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "top_n": {
+          "title": "Top N",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind",
+        "top_n",
+        "limitations"
+      ],
+      "title": "CohortInfo",
+      "type": "object"
+    },
+    "Controllability": {
+      "enum": [
+        "player",
+        "gear-build",
+        "pet",
+        "raid-assignment",
+        "raid-speed-environment",
+        "faction-racial-external",
+        "rng-low-confidence"
+      ],
+      "title": "Controllability",
+      "type": "string"
+    },
+    "CoverageReference": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "title": "Actor",
+          "type": "integer"
+        },
+        "direction": {
+          "enum": [
+            "source",
+            "target"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "fight": {
+          "title": "Fight",
+          "type": "integer"
+        },
+        "report": {
+          "title": "Report",
+          "type": "string"
+        },
+        "trusted": {
+          "title": "Trusted",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "report",
+        "fight",
+        "actor",
+        "direction",
+        "trusted"
+      ],
+      "title": "CoverageReference",
+      "type": "object"
+    },
+    "CoverageSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "event_anomalies": {
+          "minimum": 0,
+          "title": "Event Anomalies",
+          "type": "integer"
+        },
+        "snapshot_issues": {
+          "minimum": 0,
+          "title": "Snapshot Issues",
+          "type": "integer"
+        },
+        "streams": {
+          "minimum": 0,
+          "title": "Streams",
+          "type": "integer"
+        },
+        "streams_not_complete": {
+          "minimum": 0,
+          "title": "Streams Not Complete",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "streams",
+        "streams_not_complete",
+        "event_anomalies",
+        "snapshot_issues"
+      ],
+      "title": "CoverageSummary",
+      "type": "object"
+    },
+    "CrossFaction": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline": {
+          "additionalProperties": true,
+          "title": "Baseline",
+          "type": "object"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "rank_one": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Rank One"
+        }
+      },
+      "required": [
+        "label",
+        "baseline",
+        "rank_one"
+      ],
+      "title": "CrossFaction",
+      "type": "object"
+    },
+    "EncounterFindings": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_median_foreign_share_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cohort Median Foreign Share Pct"
+        },
+        "cohort_target_integrity": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Cohort Target Integrity",
+          "type": "array"
+        },
+        "raid_utility": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Raid Utility"
+        },
+        "target_integrity": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Target Integrity"
+        }
+      },
+      "required": [
+        "target_integrity",
+        "raid_utility",
+        "cohort_target_integrity"
+      ],
+      "title": "EncounterFindings",
+      "type": "object"
+    },
+    "EntrySection": {
+      "additionalProperties": false,
+      "properties": {
+        "environment": {
+          "additionalProperties": true,
+          "title": "Environment",
+          "type": "object"
+        },
+        "fight_id": {
+          "title": "Fight Id",
+          "type": "integer"
+        },
+        "hunter": {
+          "additionalProperties": true,
+          "title": "Hunter",
+          "type": "object"
+        },
+        "kill_duration_s": {
+          "exclusiveMinimum": 0,
+          "title": "Kill Duration S",
+          "type": "number"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "leaderboard_position": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Leaderboard Position"
+        },
+        "player": {
+          "title": "Player",
+          "type": "string"
+        },
+        "ranking": {
+          "additionalProperties": true,
+          "title": "Ranking",
+          "type": "object"
+        },
+        "report_code": {
+          "title": "Report Code",
+          "type": "string"
+        },
+        "server": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Server"
+        }
+      },
+      "required": [
+        "player",
+        "server",
+        "kind",
+        "leaderboard_position",
+        "report_code",
+        "fight_id",
+        "kill_duration_s",
+        "environment",
+        "ranking",
+        "hunter"
+      ],
+      "title": "EntrySection",
+      "type": "object"
+    },
+    "EventRef": {
+      "additionalProperties": false,
+      "properties": {
+        "copy": {
+          "title": "Copy",
+          "type": "integer"
+        },
+        "uid": {
+          "title": "Uid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "uid",
+        "copy"
+      ],
+      "title": "EventRef",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "description": "Every evidence object in the document, wherever it is nested.",
+      "properties": {
+        "claim": {
+          "$ref": "#/$defs/Claim"
+        },
+        "coverage": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/CoverageReference"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Coverage"
+        },
+        "level": {
+          "$ref": "#/$defs/EvidenceLevel"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Params"
+        },
+        "refs": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/Reference"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Refs"
+        },
+        "rule": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rule"
+        },
+        "value": {
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "level",
+        "claim"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "EvidenceLevel": {
+      "enum": [
+        "observed",
+        "derived",
+        "inferred",
+        "unknown"
+      ],
+      "title": "EvidenceLevel",
+      "type": "string"
+    },
+    "Excluded": {
+      "additionalProperties": false,
+      "properties": {
+        "other_faction": {
+          "minimum": 0,
+          "title": "Other Faction",
+          "type": "integer"
+        },
+        "unknown_faction": {
+          "minimum": 0,
+          "title": "Unknown Faction",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "other_faction",
+        "unknown_faction"
+      ],
+      "title": "Excluded",
+      "type": "object"
+    },
+    "ExclusionRule": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "enum": [
+            "empirical",
+            "none"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        },
+        "validation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Validation"
+        }
+      },
+      "required": [
+        "rule",
+        "basis",
+        "validation"
+      ],
+      "title": "ExclusionRule",
+      "type": "object"
+    },
+    "Options": {
+      "additionalProperties": false,
+      "properties": {
+        "cross_faction": {
+          "title": "Cross Faction",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cross_faction"
+      ],
+      "title": "Options",
+      "type": "object"
+    },
+    "RecommendationSection": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmark": {
+          "$ref": "#/$defs/BenchmarkRef"
+        },
+        "boss": {
+          "title": "Boss",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Tier"
+        },
+        "controllability": {
+          "$ref": "#/$defs/Controllability"
+        },
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "finding": {
+          "title": "Finding",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "observed": {
+          "additionalProperties": true,
+          "title": "Observed",
+          "type": "object"
+        },
+        "recommendation": {
+          "title": "Recommendation",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Tier"
+        }
+      },
+      "required": [
+        "rule",
+        "boss",
+        "category",
+        "controllability",
+        "severity",
+        "confidence",
+        "finding",
+        "recommendation",
+        "observed",
+        "benchmark",
+        "evidence",
+        "limitations"
+      ],
+      "title": "RecommendationSection",
+      "type": "object"
+    },
+    "Reference": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Actor"
+        },
+        "detail": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Detail"
+        },
+        "event_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Event Count"
+        },
+        "events": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/EventRef"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Events"
+        },
+        "fight": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fight"
+        },
+        "report": {
+          "title": "Report",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "report"
+      ],
+      "title": "Reference",
+      "type": "object"
+    },
+    "Snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Archive Sha256",
+          "type": "string"
+        },
+        "database_schema_version": {
+          "title": "Database Schema Version",
+          "type": "integer"
+        },
+        "format": {
+          "title": "Format",
+          "type": "string"
+        },
+        "scope": {
+          "enum": [
+            "full",
+            "subset"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "selected_fights": {
+          "minimum": 0,
+          "title": "Selected Fights",
+          "type": "integer"
+        },
+        "source_fight_count": {
+          "minimum": 0,
+          "title": "Source Fight Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "archive_sha256",
+        "scope",
+        "format",
+        "source_fight_count",
+        "selected_fights",
+        "database_schema_version"
+      ],
+      "title": "Snapshot",
+      "type": "object"
+    },
+    "Subject": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "title": "Class Id",
+          "type": "integer"
+        },
+        "id": {
+          "title": "Id",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "region": {
+          "title": "Region",
+          "type": "string"
+        },
+        "server": {
+          "title": "Server",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "server",
+        "region",
+        "class_id"
+      ],
+      "title": "Subject",
+      "type": "object"
+    },
+    "Tier": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "title": "Tier",
+      "type": "string"
+    },
+    "Zone": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "partition": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Partition"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "partition"
+      ],
+      "title": "Zone",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Top-level structure of analysis.json (schema_version 1).",
+  "properties": {
+    "bosses": {
+      "items": {
+        "$ref": "#/$defs/BossSection"
+      },
+      "title": "Bosses",
+      "type": "array"
+    },
+    "cohort": {
+      "$ref": "#/$defs/CohortInfo"
+    },
+    "coverage": {
+      "$ref": "#/$defs/CoverageSummary"
+    },
+    "mode": {
+      "const": "historical",
+      "title": "Mode",
+      "type": "string"
+    },
+    "necropsy_version": {
+      "title": "Necropsy Version",
+      "type": "string"
+    },
+    "options": {
+      "$ref": "#/$defs/Options"
+    },
+    "schema_id": {
+      "const": "necropsy.analysis",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "snapshot": {
+      "$ref": "#/$defs/Snapshot"
+    },
+    "subject": {
+      "$ref": "#/$defs/Subject"
+    },
+    "zone": {
+      "$ref": "#/$defs/Zone"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "necropsy_version",
+    "mode",
+    "options",
+    "snapshot",
+    "subject",
+    "zone",
+    "cohort",
+    "coverage",
+    "bosses"
+  ],
+  "title": "AnalysisDocument",
+  "type": "object"
+}

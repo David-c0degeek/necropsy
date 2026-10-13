@@ -428,6 +428,36 @@ def _pet_abilities(
     ).fetchall()
 
 
+def _inactive(
+    con: duckdb.DuckDBPyConnection, pf: ParticipantFight, pet_id: int
+) -> Evidenced[str] | None:
+    """`inactive` when the actor has no event at all in the fight, on trusted streams.
+
+    Rule pet-inactive-v1: a pet-linked actor listed for the Hunter that neither
+    caused nor received any event did not take part in this fight.
+    """
+    row = con.execute(
+        """
+        SELECT count(*) FROM events WHERE report_code = ? AND fight_id = ?
+          AND (source_id = ? OR target_id = ?)
+        """,
+        [pf.report_code, pf.fight_id, pet_id, pet_id],
+    ).fetchone()
+    if row is None or row[0]:
+        return None
+    cov = [coverage(con, pf, pet_id, Direction.SOURCE), coverage(con, pf, pet_id, Direction.TARGET)]
+    ref = EvidenceRef(
+        pf.report_code,
+        pf.fight_id,
+        pet_id,
+        "events",
+        event_count=0,
+        detail="no events caused or received",
+    )
+    found = complete_or_unknown("inactive", cov, ref, rule_id="pet-inactive-v1")
+    return found if found.value is not None else None
+
+
 def classify_pets(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> tuple[PetCategory, ...]:
     rules = _rules()
     by_game_id = {int(e["game_id"]): e for e in rules["non_hunter_pets"]}
@@ -447,6 +477,8 @@ def classify_pets(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> tuple
                 rule_id="non-hunter-pet-gameid-v1",
                 params={"game_id": pet.game_id},
             )
+        elif (inactive := _inactive(con, pf, pet.actor_id)) is not None:
+            category = inactive
         else:
             used = _pet_abilities(con, pf, pet.actor_id)
             evidence = [
@@ -631,6 +663,7 @@ class HunterClassicEra:
             SELECT event_uid, copy_index FROM events
             WHERE report_code = ? AND fight_id = ? AND type = 'applybuff' AND target_id = ?
               AND ability_game_id IN (SELECT unnest(?::BIGINT[]))
+            ORDER BY timestamp, event_uid, copy_index
             """,
             [pf.report_code, pf.fight_id, pf.actor_id, quick_ids],
         ).fetchall()

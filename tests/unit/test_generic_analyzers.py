@@ -15,6 +15,8 @@ from necropsy.analysis.context import (
     participant_fights,
     pet_listing_known,
 )
+from necropsy.analysis.encounters import EncounterRules
+from necropsy.analysis.encounters.findings import target_integrity
 from necropsy.analysis.evidence import EvidenceLevel, Faction, RaceStatus, WindfuryStatus
 from necropsy.analysis.generic import cohort, environment, metrics, targets
 from necropsy.analysis.generic.environment import _attribute
@@ -231,14 +233,60 @@ def test_deaths_with_recent_hits(db: duckdb.DuckDBPyConnection) -> None:
     assert window is not None and window.first_damage_s == 0.001
 
 
-@pytest.mark.parametrize("db", [_spec([ev(1, target=50), ev(2, target=51)])], indirect=True)
+def _npc(actor_id: int, game_id: int | None) -> dict[str, Any]:
+    return {
+        "id": actor_id,
+        "name": f"Mob {actor_id}",
+        "type": "NPC",
+        "gameID": game_id,
+        "petOwner": None,
+        "icon": "z",
+    }
+
+
+LISTED = [_npc(50, 5000), _npc(51, 5100)]
+
+
+@pytest.mark.parametrize(
+    "db", [_spec([ev(1, target=50), ev(2, target=51)], extra_actors=LISTED)], indirect=True
+)
 def test_target_split_without_native_rule_is_unknown(db: duckdb.DuckDBPyConnection) -> None:
     pf = participant_fights(db)[0]
     split = targets.damage_by_target(db, pf, [pf.actor_id], None)
     assert split.by_target.value is not None and len(split.by_target.value) == 2
     assert split.native_damage.level is EvidenceLevel.UNKNOWN
-    ruled = targets.damage_by_target(db, pf, [pf.actor_id], lambda gid, name: False)
-    assert (ruled.native_damage.value, ruled.foreign_damage.value) == (0, 200)
+    ruled = targets.damage_by_target(db, pf, [pf.actor_id], lambda gid, name: gid == 5000)
+    assert (ruled.native_damage.value, ruled.foreign_damage.value) == (100, 100)
+    assert ruled.unclassified == ()
+
+
+@pytest.mark.parametrize(
+    ("db", "label"),
+    [
+        (_spec([ev(1, target=50), ev(2, target=None)], extra_actors=LISTED), "no target"),
+        (_spec([ev(1, target=50), ev(2, target=777)], extra_actors=LISTED), "actor 777"),
+        (
+            _spec([ev(1, target=50), ev(2, target=52)], extra_actors=[*LISTED, _npc(52, None)]),
+            "Mob 52",
+        ),
+    ],
+    indirect=["db"],
+)
+def test_unclassifiable_targets_make_the_split_unknown(
+    db: duckdb.DuckDBPyConnection, label: str
+) -> None:
+    pf = participant_fights(db)[0]
+    split = targets.damage_by_target(db, pf, [pf.actor_id], lambda gid, name: gid == 5000)
+    assert split.by_target.value is not None
+    assert split.native_damage.level is EvidenceLevel.UNKNOWN
+    assert split.foreign_damage.level is EvidenceLevel.UNKNOWN
+    assert [t.damage for t in split.unclassified] == [100]
+    rules = EncounterRules(1, "Boss", frozenset(), frozenset(), frozenset({5000}), "r")
+    found = target_integrity(db, pf, rules, [pf.actor_id], "hunter")
+    assert found is not None
+    assert found.foreign_share_pct.level is EvidenceLevel.UNKNOWN
+    assert found.foreign_targets == ()
+    assert found.unclassified_targets == ((label, 100),)
 
 
 @pytest.mark.parametrize("db", [_spec([ev(1)])], indirect=True)

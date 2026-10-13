@@ -102,6 +102,25 @@ def item_prevalence(profiles: Iterable[EnvironmentProfile]) -> Distribution[int]
     )
 
 
+def slot_item_prevalence(
+    profiles: Iterable[EnvironmentProfile], slots: tuple[int, ...]
+) -> Distribution[int]:
+    """How many profiles wear each item ID in any of the given slots (e.g. both trinkets).
+
+    A profile counts as known only when every one of the slots is recorded.
+    """
+
+    def extract(p: EnvironmentProfile) -> list[int] | None:
+        if p.gear.value is None:
+            return None
+        by_slot = {g.slot: g.item_id for g in p.gear.value}
+        if any(s not in by_slot for s in slots):
+            return None
+        return [by_slot[s] for s in slots if by_slot[s]]
+
+    return _count_where(profiles, extract)
+
+
 def starting_aura_prevalence(
     profiles: Iterable[EnvironmentProfile], auras: Mapping[int, str]
 ) -> Distribution[str]:

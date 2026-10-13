@@ -16,3 +16,4 @@
 - 2026-10-13 — WCL `guild.faction` in rankings does not use the combatant faction codes (a Shaman raid reported 1); never mix enumerations without data proof.
 - 2026-10-13 — Validate a ranking-damage rule against every cohort row, not one boss: "hostile NPC targets" matched Patchwerk but failed KT, where WCL counts damage to mind-controlled players. The rule that holds is "exclude only self and own pets".
 - 2026-10-13 — WCL ability names can differ from community references ("Demoralizing Screech" vs Petopia's "Screech"); keep aliases in rule data, keep raw names in output.
+- 2026-10-13 — A test that resolves every recommendation's evidence path against the emitted document caught a path naming a field that the serializer had renamed (`kill_duration_ms` vs `kill_duration_s`). Cross-references inside one document need a resolution test, not review.

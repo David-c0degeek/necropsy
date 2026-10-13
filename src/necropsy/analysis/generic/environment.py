@@ -87,7 +87,7 @@ def _combatant_rows(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> lis
         con,
         """
         SELECT faction, talent_points, auras, gear, event_uid FROM combatant_info
-        WHERE report_code = ? AND fight_id = ? AND actor_id = ? ORDER BY timestamp
+        WHERE report_code = ? AND fight_id = ? AND actor_id = ? ORDER BY timestamp, event_uid
         """,
         [pf.report_code, pf.fight_id, pf.actor_id],
     )
@@ -163,6 +163,7 @@ def race(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> RaceFinding:
         SELECT ability_game_id, event_uid, copy_index FROM events
         WHERE report_code = ? AND fight_id = ? AND type = 'cast' AND source_id = ?
           AND ability_game_id IN (SELECT unnest(?::BIGINT[]))
+        ORDER BY timestamp, event_uid, copy_index
         """,
         [pf.report_code, pf.fight_id, pf.actor_id, list(racials)],
     )

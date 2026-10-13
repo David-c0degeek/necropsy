@@ -1,0 +1,31 @@
+# Thresholds for benchmark summaries and recommendations. These are named
+# heuristics, not calibrated models; every output that uses one cites its rule.
+version: 1
+
+weave_verdict:
+  rule: weave-verdict-v1
+  # yes: at least `share` of the known same-faction entries cast `heavy_raptors`
+  # or more Raptor Strikes; opportunistic: at least `share` cast one or more;
+  # otherwise no. Fewer than `min_known` known entries -> unknown.
+  share: 0.5
+  heavy_raptors: 5
+  min_known: 3
+
+raid_speed:
+  rule: raid-speed-v1
+  # Flag when the subject's kill took at least `ratio` times as long as the
+  # same-faction comparator's kill.
+  ratio: 1.5
+
+recommendations:
+  rule_set: recommendations-v1
+  build_share: 0.5          # dominant talent build shared by at least this many
+  darkmoon_share: 0.5
+  trinket_share: 0.5
+  explosive_share: 0.5
+  rapid_fire_share: 0.5
+  aimed_shortfall: 0.10     # Aimed/min more than 10% below the median
+  pet_dps_ratio: 0.75       # Hunter-pet DPS below 75% of the median
+  pet_stop_early_s: 3.0     # last pet damage more than 3 s before the kill
+  foreign_share_pct: 25.0   # cohort median foreign-target share for "padding"
+  subject_foreign_max_pct: 5.0

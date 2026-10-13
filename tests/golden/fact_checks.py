@@ -17,6 +17,7 @@ from typing import Any, Literal
 import duckdb
 
 from necropsy.analysis.context import ParticipantFight, owned_pets, participant_fights
+from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.evidence import Faction
 from necropsy.analysis.generic import environment, metrics, targets
 
@@ -98,7 +99,10 @@ def _wf(pf: ParticipantFight, con: duckdb.DuckDBPyConnection) -> dict[str, Any]:
 
 
 def _dps(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> float:
-    ranked = targets.ranking_damage(con, pf, None, None).ranked
+    rules = encounter_rules("classic_era", "naxxramas", pf.encounter_id)
+    ranked = targets.ranking_damage(
+        con, pf, rules.excluded_from_ranking, rules.exclusion_rule
+    ).ranked
     if ranked.value is None:
         raise LookupError(f"ranking damage unknown for {pf.player}: {ranked.note}")
     return round(ranked.value / pf.duration_ms * 1000.0, 2)
@@ -356,3 +360,132 @@ def _renataki(con: duckdb.DuckDBPyConnection) -> Any:
                 raise LookupError(f"{pf.player} refocus unknown")
             refocus += bool(casts)
     return {"renataki_at_pull": equipped, "refocus_cast": refocus}
+
+
+# --- analysis.json (benchmarks, encounter findings, recommendations) -----------
+
+_DOCS: dict[tuple[str, bool], dict[str, Any]] = {}
+
+
+def _document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) -> dict[str, Any]:
+    from necropsy.report.analysis_json import build_document
+
+    key = (str(con.execute("SELECT archive_sha256 FROM snapshot_meta").fetchone()), cross_faction)
+    if key not in _DOCS:
+        _DOCS[key] = build_document(con, cross_faction=cross_faction)
+    return _DOCS[key]
+
+
+def _boss_doc(con: duckdb.DuckDBPyConnection, boss: str, cross: bool = False) -> dict[str, Any]:
+    return next(b for b in _document(con, cross)["bosses"] if b["boss"] == boss)
+
+
+def _value(evidence: dict[str, Any]) -> Any:
+    return evidence["value"]
+
+
+def _per_boss_doc_checkers(boss: str) -> dict[str, Checker]:
+    def ceiling(con: duckdb.DuckDBPyConnection) -> Any:
+        c = _boss_doc(con, boss)["benchmarks"]["ceiling"]
+        return {"player": c["player"], "position": c["leaderboard_position"]}
+
+    def medians(con: duckdb.DuckDBPyConnection) -> Any:
+        m = _boss_doc(con, boss)["benchmarks"]["baseline"]["medians"]
+        out = {}
+        for key, name in (
+            ("auto", "auto_per_min"),
+            ("aimed", "aimed_per_min"),
+            ("multi", "multi_per_min"),
+            ("pet_dps", "pet_dps"),
+        ):
+            out[key] = _value(m[name]["value"])
+        return out
+
+    def targets_range(con: duckdb.DuckDBPyConnection) -> Any:
+        t = _boss_doc(con, boss)["benchmarks"]["baseline"]["shot_targets"]
+        parts = []
+        for kind in ("auto", "aimed", "multi"):
+            v = _value(t[kind])
+            parts.append(None if v is None else f"{v[0]}\u2013{v[1]}")
+        return " / ".join(str(p) for p in parts)
+
+    def adoption(con: duckdb.DuckDBPyConnection) -> Any:
+        w = _boss_doc(con, boss)["benchmarks"]["baseline"]["weave"]
+        return {"with_raptor": w["with_raptor"], "with_five_raptors": w["with_five_raptors"]}
+
+    def verdict(con: duckdb.DuckDBPyConnection) -> Any:
+        return _value(_boss_doc(con, boss)["benchmarks"]["baseline"]["weave"]["verdict"])
+
+    def horde_wf(con: duckdb.DuckDBPyConnection) -> Any:
+        rows = _boss_doc(con, boss, cross=True)["cohort"]
+        return sum(
+            1
+            for r in rows
+            if _value(r["environment"]["faction"]) == "Horde"
+            and r["environment"]["windfury"]["status"] == "confirmed"
+        )
+
+    return {
+        "ceiling": ceiling,
+        "baseline-medians": medians,
+        "shot-targets": targets_range,
+        "weave-adoption": adoption,
+        "weave-verdict": verdict,
+        "horde-windfury-users": horde_wf,
+    }
+
+
+for _boss in NAXX_BOSSES:
+    for _suffix, _fn in _per_boss_doc_checkers(_boss).items():
+        check(f"{slug(_boss)}.{_suffix}", "full")(_fn)
+
+
+def _bosses_with(rule: str) -> Checker:
+    def compute(con: duckdb.DuckDBPyConnection) -> Any:
+        return sorted(
+            b["boss"]
+            for b in _document(con)["bosses"]
+            if any(r["rule"] == rule for r in b["recommendations"])
+        )
+
+    return compute
+
+
+check("recommendations.pet-absent", "full")(_bosses_with("pet-absent"))
+check("recommendations.raid-utility", "full")(_bosses_with("raid-utility"))
+check("recommendations.foreign-target-padding", "full")(_bosses_with("foreign-target-padding"))
+
+
+@check("recommendations.rapid-fire-unused", "full")
+def _rf_unused(con: duckdb.DuckDBPyConnection) -> Any:
+    found = _bosses_with("rapid-fire-unused")(con)
+    return [b for b in found if b in ("Grobbulus", "Thaddius")]
+
+
+@check("recommendations.raid-speed", "full")
+def _raid_speed(con: duckdb.DuckDBPyConnection) -> Any:
+    return [b for b in _bosses_with("raid-speed-v1")(con) if b in ("Kel'Thuzad", "Sapphiron")]
+
+
+@check("recommendations.patchwerk-build-and-darkmoon", "full")
+def _patchwerk_recs(con: duckdb.DuckDBPyConnection) -> Any:
+    recs = {r["rule"]: r for r in _boss_doc(con, "Patchwerk")["recommendations"]}
+    return {
+        "build": recs["talent-build"]["benchmark"]["dominant"],
+        "darkmoon": recs["darkmoon-faire"]["benchmark"]["dominant"],
+    }
+
+
+@check("gothik-the-harvester.foreign-trash-detected", "full")
+def _gothik_foreign(con: duckdb.DuckDBPyConnection) -> Any:
+    enc = _boss_doc(con, "Gothik the Harvester")["encounter"]
+    out = {"Haplina": _value(enc["target_integrity"]["foreign_share_pct"])}
+    for row in enc["cohort_target_integrity"]:
+        out[row["player"]] = _value(row["foreign_share_pct"])
+    return {k: round(v, 2) for k, v in out.items()}
+
+
+@check("recommendations.same-vs-cross-faction", "full")
+def _same_faction_comparators(con: duckdb.DuckDBPyConnection) -> Any:
+    bosses = ("Patchwerk", "Grobbulus", "Anub'Rekhan", "Maexxna", "Sapphiron")
+    return {b: _boss_doc(con, b)["benchmarks"]["ceiling"]["player"] for b in bosses}

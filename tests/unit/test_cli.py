@@ -1,10 +1,12 @@
 import subprocess
 import sys
+from pathlib import Path
 
 from typer.testing import CliRunner
 
 from necropsy import __version__
 from necropsy.cli import app
+from tests.fixture_paths import subset_path
 
 
 def test_version_option() -> None:
@@ -27,3 +29,21 @@ def test_module_entry_point_runs() -> None:
         check=True,
     )
     assert completed.stdout.strip() == f"necropsy {__version__}"
+
+
+def test_offline_reports_a_missing_snapshot(tmp_path: Path) -> None:
+    result = CliRunner().invoke(
+        app, ["offline", str(tmp_path / "missing.zip"), "--out", str(tmp_path / "out")]
+    )
+    assert result.exit_code == 1
+    assert "offline analysis failed" in result.output
+    assert not (tmp_path / "out").exists()
+
+
+def test_offline_refuses_a_wrong_checksum(tmp_path: Path) -> None:
+    result = CliRunner().invoke(
+        app,
+        ["offline", str(subset_path()), "--out", str(tmp_path / "out"), "--sha256", "0" * 64],
+    )
+    assert result.exit_code == 1
+    assert not (tmp_path / "out").exists()

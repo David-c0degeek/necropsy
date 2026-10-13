@@ -44,6 +44,26 @@ Haplina cohort two of the 75 top-five rows rely on the inference (Ixtlan on
 Instructor Razuvious, 古美门研介 on Grobbulus), so the reproduced 63 / 12 split
 confirms the inference output, not two observed factions.
 
+### Same-faction membership
+
+Benchmarks compare the subject with entries of the same faction. Rule
+`same-faction-membership-v1` grades that selection by its weakest proof: if the
+subject's faction or any included entry's faction is INFERRED, the membership is
+INFERRED, and so is everything aggregated over it — medians
+(`median-over-inferred-membership`), the shot-target ranges projected from them,
+and the same-faction ceiling. Recommendations built on an inferred membership
+are at most `medium` confidence (raid speed drops to `low`). Aggregation never
+turns an inferred membership into a confirmed one. Every median lists one
+reference per member, so the entries behind it can be audited.
+
+## Target integrity
+
+Encounter rules say which units belong to an encounter (Gothik's native
+targets). A damaged target can only be judged when it is a listed actor with a
+game ID. If any damaged target has no target ID, no actor record or no game ID,
+the native and foreign totals and the foreign share are UNKNOWN, the
+unclassifiable targets are listed separately, and no padding finding is raised.
+
 ## Race
 
 Only RACIAL_EVENT_CONFIRMED (the character cast its own racial ability) or

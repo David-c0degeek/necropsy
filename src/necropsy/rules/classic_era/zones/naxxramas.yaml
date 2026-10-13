@@ -1,0 +1,89 @@
+# Naxxramas encounter rules (Classic Era).
+#
+# ranking_exclusions: targets whose damage WCL leaves out of the ranked amount.
+#   Not from WCL documentation: found by searching, per boss, for the target set
+#   whose removal makes rule external-damage-v1 reproduce the recorded ranked
+#   amounts. Validated on the Haplina fixture (2026-10-13): with these
+#   exclusions all 90 recorded fights (75 top five + 15 Haplina) match within
+#   15 damage. The golden test tests/golden/test_ranking_rules_full.py keeps
+#   that validation standing. analysis.json reports this rule as empirical.
+# native_targets: the encounter's own units; damage to anything else in the
+#   fight is foreign (e.g. trash pulled into the encounter window). Only listed
+#   where an analysis needs it.
+version: 1
+zone: {id: 2006, name: Naxxramas}
+ranking_exclusions_rule:
+  rule: naxx-ranking-exclusions-v1
+  basis: empirical
+  validated: "90/90 recorded fights within 15 damage (Haplina fixture, 2026-10-13)"
+
+encounters:
+  - id: 51118
+    name: Patchwerk
+    boss_game_ids: [16028]
+  - id: 51111
+    name: Grobbulus
+    boss_game_ids: [15931]
+  - id: 51108
+    name: Gluth
+    boss_game_ids: [15932]
+    ranking_exclusions:
+      - {game_id: 16360, name: Zombie Chow}
+  - id: 51120
+    name: Thaddius
+    boss_game_ids: [15928]
+  - id: 51117
+    name: Noth the Plaguebringer
+    boss_game_ids: [15954]
+  - id: 51112
+    name: Heigan the Unclean
+    boss_game_ids: [15936]
+    ranking_exclusions:
+      - {game_id: 16036, name: Frenzied Bat}
+      - {game_id: 16037, name: Plagued Bat}
+  - id: 51115
+    name: Loatheb
+    boss_game_ids: [16011]
+  - id: 51107
+    name: Anub'Rekhan
+    boss_game_ids: [15956]
+    ranking_exclusions:
+      - {game_id: 16698, name: Corpse Scarab}
+  - id: 51110
+    name: Grand Widow Faerlina
+    boss_game_ids: [15953]
+    ranking_exclusions:
+      - {game_id: 16506, name: Naxxramas Worshipper}   # Followers (16505) do count
+  - id: 51116
+    name: Maexxna
+    boss_game_ids: [15952]
+  - id: 51113
+    name: Instructor Razuvious
+    boss_game_ids: [16061]
+    ranking_exclusions:
+      - {game_id: 16803, name: Death Knight Understudy}
+  - id: 51109
+    name: Gothik the Harvester
+    boss_game_ids: [16060]
+    # Gothik's own waves. Spirit of Naxxramas is counted native as in the
+    # source investigation; flagged for Hunter-domain review.
+    native_targets:
+      - {game_id: 16060, name: Gothik the Harvester}
+      - {game_id: 16124, name: Unrelenting Trainee}
+      - {game_id: 16125, name: Unrelenting Death Knight}
+      - {game_id: 16126, name: Unrelenting Rider}
+      - {game_id: 16127, name: Spectral Trainee}
+      - {game_id: 16137, name: Naxxramas Military Sub-Boss Trigger}
+      - {game_id: 16148, name: Spectral Death Knight}
+      - {game_id: 16149, name: Spectral Horse}
+      - {game_id: 16150, name: Spectral Rider}
+      - {game_id: 16449, name: Spirit of Naxxramas}
+  - id: 51121
+    name: The Four Horsemen
+    boss_game_ids: []
+  - id: 51119
+    name: Sapphiron
+    boss_game_ids: [15989]
+  - id: 51114
+    name: Kel'Thuzad
+    boss_game_ids: [15990]

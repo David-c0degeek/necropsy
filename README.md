@@ -4,8 +4,9 @@ Local-first Warcraft Logs forensics. Paste a WCL character URL; get a same-facti
 class/spec/role-aware benchmark analysis and an offline boss-by-boss playbook.
 
 Status: early development (Milestone A — headless Hunter/Naxxramas analysis).
-The CLI can normalize a raw snapshot into a DuckDB analysis database
-(`necropsy ingest`); analysis and reports come next. Plan: `tasks/Necropsy-Plan.md`.
+The CLI normalizes a raw snapshot into a DuckDB analysis database
+(`necropsy ingest`) and analyzes it offline into a versioned, deterministic
+`analysis.json` (`necropsy offline`); HTML report and playbook come next. Plan: `tasks/Necropsy-Plan.md`.
 Roadmap: `docs/roadmap.md`. Source specification and the investigation that led
 here: `docs/origin/`.
 
@@ -26,6 +27,7 @@ uv run pytest -m "not golden and not live and not acceptance"   # fast suite
 ```sh
 uv run necropsy ingest tests/fixtures/haplina_naxx_subset.zip --db work/subset.duckdb
 uv run necropsy ingest <export.zip> --db work/full.duckdb --sha256 <expected> --replace
+uv run necropsy offline <export.zip> --out out/ --db work/full.duckdb
 ```
 
 `ingest` verifies the archive, merges overlapping event streams without losing
@@ -34,6 +36,12 @@ database only if the build succeeds. Database layout and the event-identity
 rules: [`docs/database.md`](docs/database.md). How every reported value states its
 evidence: [`docs/evidence-model.md`](docs/evidence-model.md). Hunter analysis:
 [`docs/hunter-analysis.md`](docs/hunter-analysis.md).
+
+`offline` builds the same-faction benchmarks, encounter findings and structured
+recommendations for every boss and writes `analysis.json` (no network access).
+Layout and guarantees: [`docs/analysis-json.md`](docs/analysis-json.md).
+`--cross-faction` adds the cross-faction view as a separate section; it is never
+merged into the realistic benchmark.
 
 ### Test suites
 

@@ -61,6 +61,13 @@ Haplina fixture this reproduces 64 of the 75 top-five rankings exactly. The
 other 11 are on bosses whose adds WCL leaves out (Faerlina, Razuvious,
 Anub'Rekhan, Gluth, Heigan); encounter rules supply those exclusions.
 
+Both rules are empirical: WCL does not document them. With the Naxxramas
+exclusions (`naxx-ranking-exclusions-v1`) all 90 recorded fights reproduce
+their ranked amount within 15 damage, and the golden test
+`tests/golden/test_ranking_rules_full.py` keeps that validation standing.
+`analysis.json` labels the exclusion rule `basis: empirical` in every boss's
+`rules` block.
+
 Any damage event with no target ID makes the external and ranked totals UNKNOWN,
 because it could be self-damage. Encounter exclusions cannot be applied to a
 target missing from the report's actor list, so the ranked total is then UNKNOWN.

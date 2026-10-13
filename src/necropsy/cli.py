@@ -8,6 +8,7 @@ import typer
 
 from necropsy import __version__
 from necropsy.normalize.ingest import IngestError, ingest
+from necropsy.report.offline import run_offline
 from necropsy.snapshot.archive import ArchiveError, load_entries_manifest
 from necropsy.snapshot.model import SnapshotError
 
@@ -81,6 +82,51 @@ def ingest_command(
     )
     typer.echo(f"anomalies:  {summary.anomalies}")
     typer.echo(f"issues:     {summary.issues}")
+
+
+@app.command("offline")
+def offline_command(
+    snapshot: Annotated[Path, typer.Argument(help="Raw snapshot archive (.zip).")],
+    out: Annotated[Path, typer.Option("--out", help="Directory for analysis.json.")],
+    db: Annotated[
+        Path | None,
+        typer.Option(help="Keep the analysis database here (reused if it matches)."),
+    ] = None,
+    cross_faction: Annotated[
+        bool,
+        typer.Option(
+            "--cross-faction",
+            help="Also show the cross-faction view. Never merged into the realistic benchmark.",
+        ),
+    ] = False,
+    sha256: Annotated[
+        str | None, typer.Option(help="Refuse the archive unless its SHA-256 matches.")
+    ] = None,
+    entries: Annotated[
+        Path | None, typer.Option(help="Entries manifest; every member is checked against it.")
+    ] = None,
+    replace: Annotated[
+        bool, typer.Option("--replace", help="Overwrite a --db built from another snapshot.")
+    ] = False,
+) -> None:
+    """Analyze a snapshot offline and write analysis.json."""
+    try:
+        manifest = load_entries_manifest(entries) if entries else None
+        result = run_offline(
+            snapshot,
+            out,
+            db=db,
+            cross_faction=cross_faction,
+            expected_sha256=sha256,
+            entries=manifest,
+            replace=replace,
+        )
+    except (ArchiveError, SnapshotError, IngestError) as exc:
+        typer.echo(f"offline analysis failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(f"analysis:         {result.analysis}")
+    typer.echo(f"bosses:           {result.bosses}")
+    typer.echo(f"recommendations:  {result.recommendations}")
 
 
 def main() -> None:
