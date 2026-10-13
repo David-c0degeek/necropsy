@@ -63,7 +63,11 @@ def test_kel_thuzad_findings(document: dict[str, Any]) -> None:
     kt = next(b for b in document["bosses"] if b["boss"] == "Kel'Thuzad")
     rules = {r["rule"]: r for r in kt["recommendations"]}
     assert rules["raid-utility"]["controllability"] == "raid-assignment"
-    assert "raid-speed-v1" in rules
+    # One same-faction entry: no median, so the fastest kill decides at 2.0x (1.96x here).
+    speed = kt["benchmarks"]["raid_speed"]
+    assert speed["basis"] == "fastest" and speed["threshold"] == 2.0
+    assert speed["flagged"] is False and "raid-speed-v2" not in rules
+    assert speed["vs_median"]["ratio"]["value"] is None
     # The subset has one same-faction Kel'Thuzad entry, so no baseline and no cadence finding.
     assert "aimed-cadence" not in rules
 

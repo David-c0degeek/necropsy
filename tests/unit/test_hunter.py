@@ -9,9 +9,11 @@ from typing import Any
 import duckdb
 import pytest
 
+from necropsy.analysis.benchmark import RaptorRoles, raptor_roles
 from necropsy.analysis.classes import plugin_for
 from necropsy.analysis.classes.classic_era.hunter import HunterAnalysis
 from necropsy.analysis.context import participant_fights
+from necropsy.analysis.encounters import EncounterRules, encounter_rules
 from necropsy.analysis.evidence import EvidenceLevel
 from necropsy.analysis.generic import targets
 from necropsy.analysis.generic.environment import environment_profile
@@ -300,6 +302,13 @@ def test_ranking_damage_excludes_only_self_damage(db: duckdb.DuckDBPyConnection)
     excluded = targets.ranking_damage(db, pf, lambda gid, name: name == "Patchwerk", "test-rule")
     assert excluded.ranked.value == 80
     assert dict(excluded.ranked.params)["encounter_exclusions"] == "test-rule"
+    assert excluded.by_target.value is not None
+    rows = {(r.actor_id, r.category): r.damage for r in excluded.by_target.value}
+    assert rows[(BOSS_ID, "excluded")] == 1200
+    assert rows[(9, "counted")] == 80
+    assert rows[(1, "own")] == 300 and rows[(2, "own")] == 50
+    counted = sum(r.damage for r in excluded.by_target.value if r.category == "counted")
+    assert counted == excluded.ranked.value
 
 
 @pytest.mark.parametrize(
@@ -327,6 +336,11 @@ def test_unlisted_target_blocks_encounter_exclusions(db: duckdb.DuckDBPyConnecti
     ruled = targets.ranking_damage(db, pf, lambda gid, name: False, "test-rule")
     assert ruled.external.value == 1070
     assert ruled.ranked.level is EvidenceLevel.UNKNOWN
+    assert ruled.by_target.value is not None
+    categories = {r.actor_id: r.category for r in ruled.by_target.value}
+    assert categories[77] == "unclassifiable"
+    assert plain.by_target.value is not None
+    assert {r.actor_id: r.category for r in plain.by_target.value}[77] == "counted"
 
 
 ZERO_NO_TARGET = [
@@ -529,3 +543,104 @@ def test_unit_cc_without_a_real_target_is_undecided(db: duckdb.DuckDBPyConnectio
     result = _analyze(db).friendly_crowd_control
     assert result.claim.value == "value"
     assert "partial" in (result.note or "")
+
+
+ADD = {
+    "id": 60,
+    "name": "Add",
+    "type": "NPC",
+    "subType": "NPC",
+    "server": None,
+    "gameID": 4242,
+    "petOwner": None,
+    "icon": "x",
+}
+TRASH = {**ADD, "id": 61, "name": "Trash", "gameID": 4343}
+STRAY = {**ADD, "id": 62, "name": "Stray", "gameID": 4444}
+RULES = EncounterRules(
+    1,
+    "Boss",
+    frozenset({16028}),
+    frozenset(),
+    frozenset({16028, 4242}),
+    "r",
+    start_trash_game_ids=frozenset({4343}),
+)
+RAPTORS = [
+    cast(1000, RAPTOR),
+    cast(4000, RAPTOR, target=60),
+    cast(7000, RAPTOR, target=61),
+    cast(9000, RAPTOR, target=62),
+]
+
+
+@pytest.mark.parametrize(
+    "db",
+    [_spec(RAPTORS, more_actors=[ADD, TRASH, STRAY], enemy_npcs=[BOSS_ID, 60, 61, 62])],
+    indirect=True,
+)
+def test_raptor_casts_split_by_target_role(db: duckdb.DuckDBPyConnection) -> None:
+    pf = participant_fights(db)[0]
+    casts = _analyze(db).shots["raptor_strike"].casts
+    roles = raptor_roles(db, pf, RULES, casts)
+    assert roles.value == RaptorRoles(boss=1, non_boss=3, native_adds=1, start_trash=1, foreign=1)
+    assert roles.rule_id == "cast-target-role-v1"
+
+
+@pytest.mark.parametrize(
+    "db",
+    [_spec(RAPTORS[:2], more_actors=[ADD], enemy_npcs=[BOSS_ID])],
+    indirect=True,
+)
+def test_raptor_on_an_undecided_side_makes_roles_unknown(db: duckdb.DuckDBPyConnection) -> None:
+    pf = participant_fights(db)[0]
+    casts = _analyze(db).shots["raptor_strike"].casts
+    roles = raptor_roles(db, pf, RULES, casts)
+    assert roles.level is EvidenceLevel.UNKNOWN
+    assert roles.note is not None and "no resolved hostile NPC target" in roles.note
+
+
+NAMELESS_WORSHIPPER = {**ADD, "id": 77, "name": "Naxxramas Worshipper", "gameID": None}
+
+
+@pytest.mark.parametrize(
+    "db",
+    [_spec([dmg(1000, 1, AUTO, 1000, target=77)], more_actors=[NAMELESS_WORSHIPPER])],
+    indirect=True,
+)
+def test_named_target_without_game_id_blocks_exclusions(db: duckdb.DuckDBPyConnection) -> None:
+    pf = participant_fights(db)[0]
+    faerlina = encounter_rules("classic_era", "naxxramas", 51110)
+    result = targets.ranking_damage(db, pf, faerlina.excluded_from_ranking, faerlina.exclusion_rule)
+    assert result.external.value == 1000
+    assert result.ranked.level is EvidenceLevel.UNKNOWN
+    assert result.by_target.value is not None
+    assert [r.category for r in result.by_target.value] == ["unclassifiable"]
+
+
+HOSTILE_PLAYER = {**MC_PLAYER, "id": 70, "gameID": 0}
+HOSTILE_PET = {**CAT, "id": 71, "petOwner": None, "gameID": 555}
+
+
+@pytest.mark.parametrize(
+    ("db", "target"),
+    [
+        (_spec([cast(1000, RAPTOR, target=70)], more_actors=[HOSTILE_PLAYER], enemy_npcs=[70]), 70),
+        (_spec([cast(1000, RAPTOR, target=71)], more_actors=[HOSTILE_PET], enemy_npcs=[71]), 71),
+        (
+            _spec(
+                [cast(1000, RAPTOR, target=72)],
+                more_actors=[{**ADD, "id": 72, "type": None}],
+                enemy_npcs=[72],
+            ),
+            72,
+        ),
+    ],
+    indirect=["db"],
+)
+def test_raptor_on_a_non_npc_target_is_unknown(db: duckdb.DuckDBPyConnection, target: int) -> None:
+    pf = participant_fights(db)[0]
+    casts = _analyze(db).shots["raptor_strike"].casts
+    assert casts.value is not None and [c.target_id for c in casts.value] == [target]
+    roles = raptor_roles(db, pf, RULES, casts)
+    assert roles.level is EvidenceLevel.UNKNOWN

@@ -37,5 +37,11 @@ All notable changes to Necropsy are documented here.
   and confidence tiers. Pets with no events in a fight are classified inactive.
   Inferred faction membership stays inferred through every median, range and
   ceiling; unclassifiable damage targets make the target split unknown; a reused
-  `--db` never skips archive verification. Documented in `docs/analysis-json.md`.
+  `--db` never skips archive verification. Weave adoption is judged separately
+  on the boss and on other NPCs; raid speed compares with the same-faction
+  median kill time and always shows the fastest same-faction kill too; when the
+  same faction has too few entries, proven-Tauren entries fill the missing
+  medians in a separate view; every boss shows which targets count toward
+  ranked damage; start-of-fight trash is no longer counted as padding.
+  Documented in `docs/analysis-json.md`.
 - CI on Linux and Windows (lint, strict types, fast tests) and a manual golden workflow.

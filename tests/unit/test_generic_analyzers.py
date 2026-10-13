@@ -444,3 +444,31 @@ def test_cohort_per_slot_distributions(db: duckdb.DuckDBPyConnection) -> None:
     assert cohort.item_prevalence(profiles).counts == {100: 1, 200: 1}
     seen = cohort.starting_aura_prevalence(profiles, {22888: "Ony buff", 1: "Elixir"})
     assert (seen.counts, seen.n_known) == ({"Ony buff": 1}, 1)
+
+
+@pytest.mark.parametrize(
+    "db",
+    [
+        _spec(
+            [ev(1, target=50), ev(2, target=51), ev(3, target=52), ev(4, target=52)],
+            extra_actors=[*LISTED, _npc(52, 5200)],
+        )
+    ],
+    indirect=True,
+)
+def test_start_trash_is_neither_native_nor_foreign(db: duckdb.DuckDBPyConnection) -> None:
+    pf = participant_fights(db)[0]
+    rules = EncounterRules(
+        1,
+        "Boss",
+        frozenset(),
+        frozenset(),
+        frozenset({5000}),
+        "r",
+        start_trash_game_ids=frozenset({5100}),
+    )
+    found = target_integrity(db, pf, rules, [pf.actor_id], "hunter")
+    assert found is not None
+    assert (found.native.value, found.start_trash.value, found.foreign.value) == (100, 100, 200)
+    assert found.foreign_share_pct.value == 50.0
+    assert found.foreign_targets == (("Mob 52", 200),)

@@ -3,19 +3,23 @@
 version: 1
 
 weave_verdict:
-  rule: weave-verdict-v1
+  rule: weave-verdict-v2
+  # Judged separately for Raptor Strikes on the boss and on every other hostile
+  # NPC (adds, start trash, pulled-in trash).
   # yes: at least `share` of the known same-faction entries cast `heavy_raptors`
-  # or more Raptor Strikes; opportunistic: at least `share` cast one or more;
-  # otherwise no. Fewer than `min_known` known entries -> unknown.
+  # or more Raptor Strikes on that role; opportunistic: at least `share` cast one
+  # or more; otherwise no. Fewer than `min_known` known entries -> unknown.
   share: 0.5
   heavy_raptors: 5
   min_known: 3
 
 raid_speed:
-  rule: raid-speed-v1
-  # Flag when the subject's kill took at least `ratio` times as long as the
-  # same-faction comparator's kill.
+  rule: raid-speed-v2
+  # Basis: the same-faction median kill time when at least 3 kill times are
+  # known; flag at `ratio` or more. Otherwise the fastest same-faction kill,
+  # flagged at `fallback_ratio` or more. Both comparisons are always reported.
   ratio: 1.5
+  fallback_ratio: 2.0
 
 recommendations:
   rule_set: recommendations-v1

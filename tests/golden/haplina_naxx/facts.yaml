@@ -2067,8 +2067,27 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Weave
-  resolution: The oracle calls Gothik 'conditional' (2/5 weave, Eye of Nerub 4/5); rule weave-verdict-v1
-    gives 'no' from the same counts. Left for Hunter-domain review; no encounter override added.
+  resolution: 'Reviewed with the user 2026-10-13. Weaving is reported per target role (weave-verdict-v2):
+    on Gothik himself 0/5 entries cast Raptor Strike (no); on adds and other NPCs 2/5 did, 1/5 five
+    or more, which is under the 0.5 share, so also no, with the counts shown. The oracle''s "conditional"
+    meant "on adds that reach melee, never on the boss"; that is now expressed by the per-role counts
+    (fact gothik-the-harvester.weave-by-role), not by a separate label.'
+- id: gothik-the-harvester.weave-by-role
+  statement: 'Gothik the Harvester: same-faction Raptor Strike adoption by target role, as [entries with
+    one or more, entries with five or more, known entries]: none on Gothik; on adds and other NPCs 2 used
+    it (Andrenn 6, Caffè 3).'
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  expected:
+    boss: [0, 0, 5]
+    non_boss: [2, 1, 5]
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Weave (user review 2026-10-13 asked for the per-role split)
+  evidence: 'Computed by fact checker `gothik-the-harvester.weave-by-role` (tests/golden/fact_checks.py)
+    from the full analysis database: Raptor Strike casts by resolved hostile target, boss = encounter
+    boss units (rule cast-target-role-v1).'
 - id: gothik-the-harvester.horde-windfury-users
   statement: 'Gothik the Harvester: Horde entries in the recorded top five with confirmed Windfury.'
   mode: historical
@@ -2186,8 +2205,11 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Alliance_Median_*
-  resolution: The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
+  resolution: 'The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
     the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median.
+    User review 2026-10-13: fill from proven Tauren only (rule tauren-fill-v1); none of the three Horde
+    entries qualifies (two of unproven race, one Troll), so the medians stay UNKNOWN. Live mode fetches
+    deeper than the top five instead.'
 - id: sapphiron.shot-targets
   statement: 'Sapphiron: Auto/Aimed/Multi targets at Haplina''s kill length are 53–54 / 13–14 / 16–17.'
   mode: historical
@@ -2197,8 +2219,11 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Alliance_Normalized_Auto_Aimed_Multi_Target
-  resolution: The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
+  resolution: 'The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
     the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median.
+    User review 2026-10-13: fill from proven Tauren only (rule tauren-fill-v1); none of the three Horde
+    entries qualifies (two of unproven race, one Troll), so the medians stay UNKNOWN. Live mode fetches
+    deeper than the top five instead.'
 - id: sapphiron.weave-adoption
   statement: 'Sapphiron: Alliance entries with at least one / five or more Raptor Strikes.'
   mode: historical
@@ -2221,7 +2246,8 @@ facts:
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Weave
-  resolution: Only 2 Alliance entries; rule weave-verdict-v1 needs 3 known entries and reports UNKNOWN.
+  resolution: Only 2 Alliance entries; rule weave-verdict-v2 needs 3 known entries and reports UNKNOWN
+    for both target roles. Tauren fill applies to medians only, never to weave adoption.
 - id: sapphiron.horde-windfury-users
   statement: 'Sapphiron: Horde entries in the recorded top five with confirmed Windfury.'
   mode: historical

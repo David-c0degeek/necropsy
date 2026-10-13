@@ -66,8 +66,17 @@ exclusions (`naxx-ranking-exclusions-v1`) all 90 recorded fights reproduce
 their ranked amount within 15 damage, and the golden test
 `tests/golden/test_ranking_rules_full.py` keeps that validation standing.
 `analysis.json` labels the exclusion rule `basis: empirical` in every boss's
-`rules` block.
+`rules` block, lists every damaged target with its ranking category, and shows
+per boss which targets make up the same-faction entries' ranked damage.
+
+## Melee weaving by target role
+
+Raptor Strike casts are split by what they hit (rule `cast-target-role-v1`): the
+boss itself, or another hostile NPC (encounter adds, start trash, pulled-in
+trash). On Gothik, for example, the recorded top five never weave on Gothik but
+two of them use Raptor Strike on adds that reach melee. A cast whose target side
+or identity is unknown, or whose target is not an NPC (a hostile player or pet), makes the split unknown.
 
 Any damage event with no target ID makes the external and ranked totals UNKNOWN,
 because it could be self-damage. Encounter exclusions cannot be applied to a
-target missing from the report's actor list, so the ranked total is then UNKNOWN.
+target without a game ID (missing from the report's actor list, or listed without one), so the ranked total is then UNKNOWN; a display name alone never decides an exclusion.

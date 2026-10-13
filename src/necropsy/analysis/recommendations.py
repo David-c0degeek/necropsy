@@ -19,7 +19,7 @@ from necropsy.analysis.benchmark import (
     CohortSplit,
     Entry,
     Median,
-    membership,
+    RaidSpeed,
 )
 from necropsy.analysis.encounters.findings import RaidUtility, TargetIntegrity
 from necropsy.analysis.evidence import Evidenced, EvidenceLevel
@@ -73,6 +73,21 @@ def _confidence(inputs: list[Evidenced[Any]], n_known: int, partial: bool = Fals
 
 def _bench(view: str, n: int, **values: Any) -> dict[str, Any]:
     return {"view": view, "n_known": n, **values}
+
+
+def _baseline_median(base: Baseline, key: str) -> tuple[Median, str, str, bool]:
+    """The same-faction median, or the Tauren-fill median when the same faction has too few.
+
+    Returns (median, benchmark view, evidence path, filled). A filled median always
+    caps the recommendation at LOW confidence.
+    """
+    med = base.medians[key]
+    fill = base.tauren_fill
+    if med.value.value is None and fill is not None and key in fill.medians:
+        filled = fill.medians[key]
+        if filled.value.value is not None:
+            return filled, "tauren-fill", f"benchmarks.baseline.tauren_fill.medians.{key}", True
+    return med, "same-faction-baseline", f"benchmarks.baseline.medians.{key}", False
 
 
 def _talents(boss: BossData, subject: Entry, base: Baseline) -> list[Recommendation]:
@@ -194,7 +209,7 @@ def _pet(boss: BossData, subject: Entry, base: Baseline) -> list[Recommendation]
         ]
     out: list[Recommendation] = []
     pet = hunter_pets[0]
-    med: Median = base.medians["pet_dps"]
+    med, view, med_path, filled = _baseline_median(base, "pet_dps")
     if (
         pet.dps.value is not None
         and med.value.value
@@ -207,15 +222,13 @@ def _pet(boss: BossData, subject: Entry, base: Baseline) -> list[Recommendation]
                 category="pet",
                 controllability=Controllability.PET,
                 severity=Tier.HIGH,
-                confidence=_confidence([pet.dps, med.value], med.n_known),
-                finding=f"Pet {pet.name}: {pet.dps.value:.0f} DPS vs same-faction median "
-                f"{med.value.value:.0f}.",
+                confidence=Tier.LOW if filled else _confidence([pet.dps, med.value], med.n_known),
+                finding=f"Pet {pet.name}: {pet.dps.value:.0f} DPS vs "
+                f"{'Tauren-fill' if filled else 'same-faction'} median {med.value.value:.0f}.",
                 recommendation="Review pet choice, buffs, uptime and survival.",
                 observed={"pet": pet.name, "pet_dps": pet.dps.value, "family": pet.family.value},
-                benchmark=_bench(
-                    "same-faction-baseline", med.n_known, median_pet_dps=med.value.value
-                ),
-                evidence=("subject.hunter.hunter_pets", "benchmarks.baseline.medians.pet_dps"),
+                benchmark=_bench(view, med.n_known, median_pet_dps=med.value.value),
+                evidence=("subject.hunter.hunter_pets", med_path),
             )
         )
     if pet.deaths.deaths.value:
@@ -265,7 +278,7 @@ def _aimed(
     boss: BossData, subject: Entry, base: Baseline, utility: RaidUtility | None
 ) -> list[Recommendation]:
     rate = subject.hunter.shots["aimed_shot"].per_minute
-    med = base.medians["aimed_per_min"]
+    med, view, med_path, filled = _baseline_median(base, "aimed_per_min")
     if rate.value is None or med.value.value is None:
         return []
     if rate.value >= (1 - _cfg()["aimed_shortfall"]) * med.value.value:
@@ -278,7 +291,10 @@ def _aimed(
             "(see the raid-assignment finding).",
         )
         confidence = Tier.LOW
-    target = base.shot_targets.get("aimed")
+    if filled:
+        confidence = Tier.LOW
+        limitations = (*limitations, "Median includes other-faction Tauren entries.")
+    target = None if filled else base.shot_targets.get("aimed")
     return [
         Recommendation(
             rule="aimed-cadence",
@@ -287,20 +303,17 @@ def _aimed(
             controllability=Controllability.PLAYER,
             severity=Tier.HIGH,
             confidence=confidence,
-            finding=f"{rate.value:.2f} Aimed Shots/min vs same-faction median "
-            f"{med.value.value:.2f}.",
+            finding=f"{rate.value:.2f} Aimed Shots/min vs "
+            f"{'Tauren-fill' if filled else 'same-faction'} median {med.value.value:.2f}.",
             recommendation="Fit an Aimed Shot into more Auto Shot cycles without clipping Autos.",
             observed={"aimed_per_min": rate.value},
             benchmark=_bench(
-                "same-faction-baseline",
+                view,
                 med.n_known,
                 median=med.value.value,
                 target_range=None if target is None else target.value,
             ),
-            evidence=(
-                "subject.hunter.shots.aimed_shot",
-                "benchmarks.baseline.medians.aimed_per_min",
-            ),
+            evidence=("subject.hunter.shots.aimed_shot", med_path),
             limitations=limitations,
         )
     ]
@@ -365,36 +378,52 @@ def _explosives(boss: BossData, subject: Entry, base: Baseline) -> list[Recommen
     ]
 
 
+_ROLE_TEXT = {"boss": "the boss", "non_boss": "adds and other NPCs"}
+
+
 def _weave(boss: BossData, subject: Entry, base: Baseline) -> list[Recommendation]:
-    verdict = base.weave.verdict
-    raptors = subject.hunter.shots["raptor_strike"].casts.value
-    if verdict.value != "yes" or raptors is None or raptors:
+    """Weave advice per target role: only where most same-faction entries weave heavily."""
+    mine = subject.raptor_roles.value
+    if mine is None:
         return []
-    return [
-        Recommendation(
-            rule="weave-adoption",
-            boss=boss.boss,
-            category="rotation",
-            controllability=Controllability.PLAYER,
-            severity=Tier.LOW,
-            confidence=Tier.MEDIUM,
-            finding=f"No Raptor Strikes; {base.weave.with_five_raptors}/{base.weave.known} "
-            "same-faction entries cast five or more.",
-            recommendation="Once the ranged cycle is clean, add Raptor Strikes only in free "
-            "windows that cost no Auto Shot.",
-            observed={"raptor_strikes": 0},
-            benchmark=_bench(
-                "same-faction-baseline",
-                base.weave.known,
-                with_raptor=base.weave.with_raptor,
-                with_five_raptors=base.weave.with_five_raptors,
-                verdict=verdict.value,
-                verdict_rule=verdict.rule_id,
-            ),
-            evidence=("subject.hunter.shots.raptor_strike", "benchmarks.baseline.weave"),
-            limitations=("Adoption among recorded entries is not proof weaving pays off here.",),
+    found: list[Recommendation] = []
+    for role in ("boss", "non_boss"):
+        stats = getattr(base.weave, role)
+        if stats.verdict.value != "yes" or getattr(mine, role):
+            continue
+        where = _ROLE_TEXT[role]
+        found.append(
+            Recommendation(
+                rule="weave-adoption",
+                boss=boss.boss,
+                category="rotation",
+                controllability=Controllability.PLAYER,
+                severity=Tier.LOW,
+                confidence=_confidence([stats.verdict, base.membership], stats.known),
+                finding=f"No Raptor Strikes on {where}; {stats.with_five_raptors}/{stats.known} "
+                f"same-faction entries cast five or more there.",
+                recommendation="Once the ranged cycle is clean, add Raptor Strikes on "
+                f"{where} only in free windows that cost no Auto Shot.",
+                observed={"raptor_strikes": 0, "role": role},
+                benchmark=_bench(
+                    "same-faction-baseline",
+                    stats.known,
+                    role=role,
+                    with_raptor=stats.with_raptor,
+                    with_five_raptors=stats.with_five_raptors,
+                    verdict=stats.verdict.value,
+                    verdict_rule=stats.verdict.rule_id,
+                ),
+                evidence=(
+                    "subject.raptor_roles",
+                    f"benchmarks.baseline.weave.{role}",
+                ),
+                limitations=(
+                    "Adoption among recorded entries is not proof weaving pays off here.",
+                ),
+            )
         )
-    ]
+    return found
 
 
 def _raid_assignment(boss: BossData, utility: RaidUtility | None) -> list[Recommendation]:
@@ -466,38 +495,39 @@ def _padding(
     ]
 
 
-def _raid_speed(boss: BossData, subject: Entry, comparator: Entry | None) -> list[Recommendation]:
-    rule = load_rules("classic_era", "benchmarks")["raid_speed"]
-    if comparator is None:
+def _raid_speed(boss: BossData, speed: RaidSpeed | None) -> list[Recommendation]:
+    if speed is None or not speed.flagged:
         return []
-    mine = subject.participant.duration_ms
-    theirs = comparator.participant.duration_ms
-    ratio = mine / theirs if theirs else None
-    if ratio is None or ratio < float(rule["ratio"]):
-        return []
+    used = speed.vs_median if speed.basis == "median" else speed.vs_fastest
+    assert used is not None and used.ratio.value is not None
+    assert used.reference_s.value is not None
+    # A kill-time ratio is a heuristic: at best MEDIUM; LOW on the fastest-kill
+    # fallback or when the comparison rests on an inferred faction.
+    weak = any(e.level is not EvidenceLevel.DERIVED for e in (used.ratio, used.membership))
+    confidence = Tier.LOW if speed.basis == "fastest" or weak else Tier.MEDIUM
     return [
         Recommendation(
-            rule=str(rule["rule"]),
+            rule="raid-speed-v2",
             boss=boss.boss,
             category="raid speed",
             controllability=Controllability.RAID_SPEED_ENVIRONMENT,
             severity=Tier.HIGH,
-            confidence=Tier.LOW
-            if membership((comparator,), subject).level is not EvidenceLevel.DERIVED
-            else Tier.MEDIUM,
-            finding=f"Kill took {mine / 1000:.0f} s vs {theirs / 1000:.0f} s for the same-faction "
-            f"comparator ({ratio:.1f}x).",
+            confidence=confidence,
+            finding=f"Kill took {speed.subject_s:.0f} s vs {used.reference_s.value:.0f} s "
+            f"({used.reference}; {used.ratio.value:.1f}x).",
             recommendation="Kill length is a large part of this gap. Look at raid speed and "
             "environment alongside your own execution and assignments.",
-            observed={"kill_s": mine / 1000},
+            observed={"kill_s": speed.subject_s},
             benchmark=_bench(
-                "same-faction-ceiling",
-                1,
-                comparator=comparator.participant.player,
-                comparator_kill_s=theirs / 1000,
-                ratio=ratio,
+                "same-faction-median" if speed.basis == "median" else "same-faction-fastest",
+                used.n_known,
+                basis=speed.basis,
+                threshold=speed.threshold,
+                reference=used.reference,
+                reference_kill_s=used.reference_s.value,
+                ratio=used.ratio.value,
             ),
-            evidence=("subject.kill_duration_s", "benchmarks.ceiling"),
+            evidence=("subject.kill_duration_s", "benchmarks.raid_speed"),
             limitations=("A named heuristic on kill-time ratio; not a measured cause.",),
         )
     ]
@@ -507,7 +537,7 @@ def recommend(
     boss: BossData,
     split: CohortSplit,
     base: Baseline,
-    comparator: Entry | None,
+    speed: RaidSpeed | None,
     utility: RaidUtility | None,
     subject_integrity: TargetIntegrity | None,
     cohort_foreign_shares: list[float],
@@ -528,5 +558,5 @@ def recommend(
         *_weave(boss, subject, base),
         *_raid_assignment(boss, utility),
         *_padding(boss, base, subject_integrity, cohort_foreign_shares),
-        *_raid_speed(boss, subject, comparator),
+        *_raid_speed(boss, speed),
     ]

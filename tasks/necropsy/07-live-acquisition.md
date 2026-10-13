@@ -53,7 +53,9 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
       resolver (faction, class, WCL spec/role, zones, partitions, rankings) with
       confidence; user confirms zone/partition when ambiguous.
 - [ ] **07.4** (agent) Benchmark selector: strict cohort key; pages rankings,
-      discards opposite faction, stops at 5 deep + 20–30 metadata same-faction;
+      discards opposite faction, stops at 5 deep + 20–30 metadata same-faction,
+      and keeps paging past the overall top five until at least 3 same-faction
+      deep entries exist per boss (bounded page budget; D031);
       shortfall and inaccessible archive/private logs yield explicit partial
       coverage, never substitution. Tested with recorded ranking pages.
 - [ ] **07.5** (agent) Two-pass acquisition (metadata, then deep events for

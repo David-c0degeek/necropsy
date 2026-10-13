@@ -76,11 +76,24 @@
               "type": "null"
             }
           ]
+        },
+        "raid_speed": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Raid Speed"
         }
       },
       "required": [
         "ceiling",
         "baseline",
+        "raid_speed",
         "cross_faction",
         "excluded"
       ],
@@ -419,6 +432,19 @@
           ],
           "title": "Raid Utility"
         },
+        "ranked_target_shares": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ranked Target Shares"
+        },
         "target_integrity": {
           "anyOf": [
             {
@@ -486,6 +512,11 @@
           "title": "Ranking",
           "type": "object"
         },
+        "raptor_roles": {
+          "additionalProperties": true,
+          "title": "Raptor Roles",
+          "type": "object"
+        },
         "report_code": {
           "title": "Report Code",
           "type": "string"
@@ -512,6 +543,7 @@
         "kill_duration_s",
         "environment",
         "ranking",
+        "raptor_roles",
         "hunter"
       ],
       "title": "EntrySection",

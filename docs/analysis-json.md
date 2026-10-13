@@ -67,13 +67,15 @@ afterwards. The file is written atomically: a failed run leaves no partial file.
 |---|---|
 | `encounter_id`, `boss` | the encounter |
 | `rules` | encounter rules applied: ranking exclusions with the rule's `basis` (`empirical` — found from recorded rankings, not documented by WCL) and validation, and native targets |
-| `subject` | the subject's selected kill: ranking damage, environment profile, Hunter analysis |
+| `subject` | the subject's selected kill: ranking damage (with `by_target`: every damaged target as `counted`, `excluded`, `own` or `unclassifiable` — no target ID, or no game ID while encounter exclusions apply, which also makes the ranked total unknown), Raptor Strike casts by target role (`raptor_roles`; a cast on anything but a proven hostile NPC makes it unknown), environment profile, Hunter analysis |
 | `cohort` | the same structure for each comparison entry (same faction only, unless `--cross-faction`) |
 | `benchmarks.baseline` | same-faction medians (Auto/Aimed/Multi per minute, Hunter-pet DPS, kill time, first Rapid Fire), shot-target ranges, weave adoption, talent / Darkmoon / item / trinket distributions, explosive and Rapid Fire use |
-| `benchmarks.ceiling` | best same-faction entry inside the recorded top five, with its `membership` evidence |
+| `benchmarks.ceiling` | best-ranked same-faction entry inside the recorded top five, with its `membership` evidence |
+| `benchmarks.raid_speed` | the subject's kill time against the same-faction median kill time (`vs_median`) and the fastest same-faction kill (`vs_fastest`), both always reported; `basis` names which one decides `flagged` (median at 1.5x when at least 3 kill times are known, else fastest at 2.0x) |
+| `benchmarks.baseline.tauren_fill` | only when a same-faction median has too few values: the same metrics recomputed with other-faction entries proven Tauren with Windfury proven absent (`eligible`, `excluded` with reasons, `needed_for`). Separate from the same-faction baseline and from `--cross-faction`; kill time and weave adoption are never filled |
 | `benchmarks.cross_faction` | `null` unless `--cross-faction`; never merged into the baseline |
 | `benchmarks.excluded` | entries left out of the baseline, by reason |
-| `encounter` | target integrity (foreign-target share; unknown while any damaged target is unclassifiable, listed in `unclassified_targets`) and raid utility findings |
+| `encounter` | target integrity (native, start-trash and foreign damage; foreign share = foreign / all three; unknown while any damaged target is unclassifiable, listed in `unclassified_targets`), raid utility findings, and `ranked_target_shares`: which targets make up ranked damage on this boss — one row per NPC (by game ID, with the most common name as label and other names as `aliases`) and one category row each for players and pets (different people in different raids are not compared one by one), the same-faction median share (`n_known`, and `n_unknown` entries whose ranked damage is unknown and never counted as 0), the subject's share (COMPLETE, so a 0 is a proven absence), and the targets the encounter rule excludes |
 | `recommendations` | see below |
 
 A median needs at least 3 known values; with fewer it is `unknown`, and nothing
@@ -81,6 +83,13 @@ built on it (shot targets, weave verdict, recommendations) is emitted as a
 number. `benchmarks.baseline.membership` grades the same-faction selection: when
 any faction in it is inferred, every median, shot-target range and the ceiling
 are `inferred` too (see [`evidence-model.md`](evidence-model.md)).
+
+Weave adoption (`benchmarks.baseline.weave`) is judged per target role (rule
+`weave-verdict-v2`): `boss` (the encounter's boss units) and `non_boss` (every
+other hostile NPC: adds, start trash, pulled-in trash). Each role has its own
+counts and verdict; the top-level counts are descriptive totals over any target.
+A Raptor Strike whose target has no resolved hostile identity makes that entry's
+roles unknown, never zero.
 
 ## Recommendations
 

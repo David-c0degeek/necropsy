@@ -22,6 +22,8 @@ from necropsy.analysis.benchmark import (
     best_entry,
     load_bosses,
     membership,
+    raid_speed,
+    ranked_target_shares,
     split_by_faction,
 )
 from necropsy.analysis.encounters.findings import raid_utility, target_integrity
@@ -175,6 +177,7 @@ class EntrySection(_Strict):
     kill_duration_s: float = Field(gt=0)
     environment: EvidenceTree
     ranking: EvidenceTree
+    raptor_roles: EvidenceTree
     hunter: EvidenceTree
 
 
@@ -201,6 +204,7 @@ class CrossFaction(_Strict):
 class Benchmarks(_Strict):
     ceiling: Ceiling | None
     baseline: EvidenceTree | None
+    raid_speed: EvidenceTree | None
     cross_faction: CrossFaction | None
     excluded: Excluded | None
 
@@ -210,6 +214,7 @@ class EncounterFindings(_Strict):
     raid_utility: EvidenceTree | None
     cohort_target_integrity: list[EvidenceTree]
     cohort_median_foreign_share_pct: float | None = None
+    ranked_target_shares: EvidenceTree | None = None
 
 
 class BenchmarkRef(BaseModel):
@@ -299,6 +304,7 @@ def _entry(e: Entry, names: dict[int, str], detail: bool) -> dict[str, Any]:
         "kill_duration_s": pf.duration_ms / 1000.0,
         "environment": env,
         "ranking": {**to_data(e.ranking), "ranked_dps": None if dps is None else round(dps, 6)},
+        "raptor_roles": to_data(e.raptor_roles),
         "hunter": hunter,
     }
 
@@ -327,6 +333,7 @@ def _boss(
     benchmarks: dict[str, Any] = {
         "ceiling": None,
         "baseline": None,
+        "raid_speed": None,
         "cross_faction": None,
         "excluded": None,
     }
@@ -335,7 +342,7 @@ def _boss(
     if subject is not None:
         encounter["raid_utility"] = to_data(raid_utility(subject.hunter))
     if subject is not None and split is not None:
-        base = baseline(split.same_faction, subject)
+        base = baseline(split.same_faction, subject, fill_candidates=split.other_faction)
         comparator = best_entry(split.same_faction)
         benchmarks["ceiling"] = (
             None
@@ -352,6 +359,11 @@ def _boss(
             }
         )
         benchmarks["baseline"] = to_data(base)
+        speed = raid_speed(split.same_faction, subject, base)
+        encounter["ranked_target_shares"] = to_data(
+            ranked_target_shares(split.same_faction, subject, base.membership)
+        )
+        benchmarks["raid_speed"] = to_data(speed)
         benchmarks["excluded"] = {
             "other_faction": len(split.other_faction),
             "unknown_faction": len(split.unknown_faction),
@@ -384,7 +396,7 @@ def _boss(
                 boss,
                 split,
                 base,
-                comparator,
+                speed,
                 raid_utility(subject.hunter),
                 integrity_subject,
                 shares,

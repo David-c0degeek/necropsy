@@ -10,13 +10,19 @@ import pytest
 from necropsy.analysis import benchmark
 from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.evidence import (
+    Claim,
+    CoverageRef,
     EvidenceLevel,
     EvidenceRef,
     Faction,
+    RaceStatus,
+    WindfuryStatus,
+    complete_or_unknown,
     derived,
     inferred,
     unknown,
 )
+from necropsy.analysis.generic.targets import RankedTarget
 
 REF = EvidenceRef("R", 1, 1, "x")
 
@@ -55,9 +61,16 @@ class _Participant:
 
 
 class _Entry:
-    def __init__(self, raptors: int | None = None) -> None:
+    def __init__(self, raptors: int | None = None, boss_share: int | None = None) -> None:
+        """`raptors` casts; `boss_share` of them on the boss (all on the boss when None)."""
         self.participant = _Participant()
         self.hunter = _Hunter(raptors)
+        if raptors is None:
+            self.raptor_roles: Any = unknown("x")
+        else:
+            on_boss = raptors if boss_share is None else boss_share
+            roles = benchmark.RaptorRoles(on_boss, raptors - on_boss, None, 0, None)
+            self.raptor_roles = derived(roles, REF)
 
 
 def _weave(counts: list[int | None]) -> Any:
@@ -75,10 +88,30 @@ def _weave(counts: list[int | None]) -> Any:
 )
 def test_weave_verdict(counts: list[int | None], verdict: str | None) -> None:
     result = _weave(counts)
-    assert result.verdict.value == verdict
+    assert result.boss.verdict.value == verdict
     if verdict is not None:
-        assert result.verdict.level is EvidenceLevel.INFERRED
-        assert result.verdict.rule_id == "weave-verdict-v1"
+        assert result.boss.verdict.level is EvidenceLevel.INFERRED
+        assert result.boss.verdict.rule_id == "weave-verdict-v2"
+        assert dict(result.boss.verdict.params)["role"] == "boss"
+        assert result.non_boss.verdict.value == "no"
+
+
+def test_weave_is_judged_per_role() -> None:
+    # Gothik-like: Raptor Strikes only on adds, never on the boss.
+    entries = (_Entry(6, 0), _Entry(3, 0), _Entry(0), _Entry(0), _Entry(0))
+    result = benchmark.weave_adoption(entries)  # type: ignore[arg-type]
+    assert (result.boss.with_raptor, result.boss.verdict.value) == (0, "no")
+    assert (result.non_boss.with_raptor, result.non_boss.with_five_raptors) == (2, 1)
+    assert result.non_boss.verdict.value == "no"  # 2/5 is under the 0.5 share
+    assert result.with_raptor == 2
+
+
+def test_unresolved_raptor_targets_are_unknown_not_zero() -> None:
+    entries = [_Entry(4, 4), _Entry(4, 4), _Entry(4, 4)]
+    entries[2].raptor_roles = unknown("1 Raptor Strike casts have no resolved hostile target")
+    result = benchmark.weave_adoption(tuple(entries))  # type: ignore[arg-type]
+    assert result.boss.known == 2 and result.boss.verdict.value is None
+    assert result.known == 3
 
 
 def test_weave_counts_are_descriptive() -> None:
@@ -173,3 +206,140 @@ def test_inferred_median_projects_an_inferred_range() -> None:
     found = benchmark.shot_target_range(median, _Entry())  # type: ignore[arg-type]
     assert found.level is EvidenceLevel.INFERRED
     assert found.value == (8, 9)
+
+
+def _horde(race: str | None, status: RaceStatus, wf: Any, aimed: float = 6.0) -> Any:
+    entry = _member(SEEN, derived(aimed, REF))
+    entry.profile.race = SimpleNamespace(
+        race=derived(race, REF) if race else unknown("x"), status=status
+    )
+    entry.profile.windfury = SimpleNamespace(status_evidence=wf)
+    return entry
+
+
+WF_ABSENT = complete_or_unknown(
+    WindfuryStatus.NOT_OBSERVED, [CoverageRef("R", 1, 1, "source", True)], REF
+)
+WF_SEEN = derived(WindfuryStatus.CONFIRMED, REF)
+CONFIRMED = RaceStatus.RACIAL_EVENT_CONFIRMED
+
+
+@pytest.mark.parametrize(
+    ("entry", "reason"),
+    [
+        (_horde("Tauren", CONFIRMED, WF_ABSENT), None),
+        (_horde("Tauren", RaceStatus.API_CONFIRMED, WF_ABSENT), None),
+        (_horde("Troll", CONFIRMED, WF_ABSENT), "race Troll"),
+        (_horde("Orc", CONFIRMED, WF_ABSENT), "race Orc"),
+        (_horde(None, RaceStatus.UNKNOWN, WF_ABSENT), "race not proven"),
+        (_horde("Tauren", RaceStatus.INFERRED, WF_ABSENT), "race not proven"),
+        (_horde("Tauren", CONFIRMED, WF_SEEN), "Windfury not proven absent"),
+        (_horde("Tauren", CONFIRMED, unknown("x")), "Windfury not proven absent"),
+    ],
+)
+def test_fill_eligibility(entry: Any, reason: str | None) -> None:
+    assert benchmark.fill_eligibility(entry) == reason
+
+
+def test_tauren_fill_is_a_separate_inferred_view() -> None:
+    same = tuple(_member(SEEN, derived(v, REF)) for v in (5.0, 7.0))
+    others = (
+        _horde("Tauren", CONFIRMED, WF_ABSENT, 9.0),
+        _horde("Troll", CONFIRMED, WF_ABSENT, 20.0),
+    )
+    metric = {"aimed_per_min": lambda e: e.hunter.shots["aimed_shot"].per_minute}
+    medians = {"aimed_per_min": benchmark.median_of(same, metric["aimed_per_min"], "Aimed/min")}
+    assert medians["aimed_per_min"].value.value is None  # only two same-faction values
+    fill = benchmark.tauren_fill(same, others, medians, metric)
+    assert fill is not None
+    assert fill.needed_for == ("aimed_per_min",)
+    assert fill.excluded == (("P", "race Troll"),)
+    filled = fill.medians["aimed_per_min"]
+    assert filled.value.value == 7.0 and filled.value.level is EvidenceLevel.INFERRED
+    assert fill.membership.rule_id == "tauren-fill-v1"
+
+
+def test_no_fill_when_the_same_faction_suffices() -> None:
+    same = tuple(_member(SEEN, derived(v, REF)) for v in (5.0, 6.0, 7.0))
+    metric = {"aimed_per_min": lambda e: e.hunter.shots["aimed_shot"].per_minute}
+    medians = {"aimed_per_min": benchmark.median_of(same, metric["aimed_per_min"], "x")}
+    fill = benchmark.tauren_fill(same, (_horde("Tauren", CONFIRMED, WF_ABSENT),), medians, metric)
+    assert fill is None
+
+
+TRUSTED = CoverageRef("R", 1, 1, "source", True)
+
+
+def _ranked(
+    rows: list[tuple[int | None, str, int, str]] | None, ranked: int | None, kind: str = "NPC"
+) -> Any:
+    entry = _member(SEEN, derived(1.0, REF))
+    by_target = (
+        unknown("x")
+        if rows is None
+        else derived(
+            tuple(RankedTarget(i, g, n, kind, d, c) for i, (g, n, d, c) in enumerate(rows)), REF
+        )
+    )
+    entry.ranking = SimpleNamespace(
+        ranked=unknown("x") if ranked is None else complete_or_unknown(ranked, [TRUSTED], REF),
+        by_target=by_target,
+    )
+    return entry
+
+
+def test_ranked_target_shares() -> None:
+    boss = (16060, "Gothik", 0, "counted")
+    ghoul = (16447, "Plagued Ghoul", 0, "counted")
+    cohort = (
+        _ranked([(*boss[:2], 20, "counted"), (*ghoul[:2], 80, "counted")], 100),
+        _ranked([(*boss[:2], 50, "counted"), (*ghoul[:2], 50, "counted")], 100),
+        _ranked([(*boss[:2], 100, "counted"), (16506, "Worshipper", 40, "excluded")], 100),
+        _ranked(None, None),  # unknown entry: not counted as zero
+    )
+    subject = _ranked([(*boss[:2], 10, "counted")], 10)
+    shares = benchmark.ranked_target_shares(cohort, subject, SEEN)
+    by_name = {s.name: s for s in shares.counted}
+    assert by_name["Plagued Ghoul"].median_share_pct.value == 50.0
+    assert (by_name["Plagued Ghoul"].n_known, by_name["Plagued Ghoul"].n_unknown) == (3, 1)
+    zero = by_name["Plagued Ghoul"].subject_share_pct
+    assert zero.value == 0.0 and zero.claim is Claim.COMPLETE and zero.coverage == (TRUSTED,)
+    assert by_name["Gothik"].median_share_pct.value == 50.0
+    assert by_name["Gothik"].subject_share_pct.value == 100.0
+    assert shares.excluded == ("Worshipper (16506)",)
+    inferred_shares = benchmark.ranked_target_shares(cohort, subject, GUESSED)
+    assert inferred_shares.counted[0].median_share_pct.level is EvidenceLevel.INFERRED
+    few = benchmark.ranked_target_shares(cohort[2:], subject, SEEN)
+    assert all(s.median_share_pct.value is None for s in few.counted)
+
+
+def test_one_npc_identity_across_labels_and_instances() -> None:
+    cohort = (
+        _ranked([(16060, "Gothik", 60, "counted"), (16060, "Gothik", 40, "counted")], 100),
+        _ranked([(16060, "Gothik", 100, "counted")], 100),
+        _ranked([(16060, "Gothik der Ernter", 100, "counted")], 100),
+    )
+    subject = _ranked([(16060, "Gothik der Ernter", 10, "counted")], 10)
+    shares = benchmark.ranked_target_shares(cohort, subject, SEEN)
+    [only] = shares.counted
+    assert (only.kind, only.game_id, only.name) == ("NPC", 16060, "Gothik")
+    assert only.aliases == ("Gothik der Ernter",)
+    assert only.median_share_pct.value == 100.0
+    assert only.subject_share_pct.value == 100.0
+
+
+def test_unknown_subject_ranking_gives_unknown_shares() -> None:
+    cohort = tuple(_ranked([(16060, "Gothik", 100, "counted")], 100) for _ in range(3))
+    shares = benchmark.ranked_target_shares(cohort, _ranked(None, None), SEEN)
+    assert shares.counted[0].subject_share_pct.level is EvidenceLevel.UNKNOWN
+
+
+def test_players_are_one_category_without_personal_aliases() -> None:
+    cohort = tuple(
+        _ranked([(0, name, 30, "counted")], 100, kind="Player") for name in ("Ann", "Bob", "Cid")
+    )
+    subject = _ranked([(0, "Dee", 10, "counted")], 100, kind="Player")
+    [row] = benchmark.ranked_target_shares(cohort, subject, SEEN).counted
+    assert (row.kind, row.game_id, row.aliases) == ("Player", None, ())
+    assert row.name is not None and row.name.startswith("Players")
+    assert row.median_share_pct.value == 30.0 and row.subject_share_pct.value == 10.0

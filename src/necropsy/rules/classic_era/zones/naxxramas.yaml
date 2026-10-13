@@ -10,6 +10,11 @@
 # native_targets: the encounter's own units; damage to anything else in the
 #   fight is foreign (e.g. trash pulled into the encounter window). Only listed
 #   where an analysis needs it.
+# start_trash: trash every raid kills at the start of the encounter. Neither
+#   the encounter's own units nor padding; reported separately. An empirical
+#   classification from the recorded kills, not a documented mechanic.
+# boss_game_ids: the boss units themselves; every other hostile NPC is a
+#   non-boss target (encounter adds, start trash, pulled-in trash).
 version: 1
 zone: {id: 2006, name: Naxxramas}
 ranking_exclusions_rule:
@@ -65,8 +70,7 @@ encounters:
   - id: 51109
     name: Gothik the Harvester
     boss_game_ids: [16060]
-    # Gothik's own waves. Spirit of Naxxramas is counted native as in the
-    # source investigation; flagged for Hunter-domain review.
+    # Gothik's own waves.
     native_targets:
       - {game_id: 16060, name: Gothik the Harvester}
       - {game_id: 16124, name: Unrelenting Trainee}
@@ -77,10 +81,13 @@ encounters:
       - {game_id: 16148, name: Spectral Death Knight}
       - {game_id: 16149, name: Spectral Horse}
       - {game_id: 16150, name: Spectral Rider}
+    # Present in the first ~50 s of all six recorded kills, the subject's included,
+    # with the same damage taken each time (reviewed 2026-10-13).
+    start_trash:
       - {game_id: 16449, name: Spirit of Naxxramas}
   - id: 51121
     name: The Four Horsemen
-    boss_game_ids: []
+    boss_game_ids: [16062, 16063, 16064, 16065]
   - id: 51119
     name: Sapphiron
     boss_game_ids: [15989]

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import Any
 
 import duckdb
 
@@ -95,6 +96,43 @@ ExcludedTarget = Callable[[int | None, str | None], bool]
 
 
 @dataclass(frozen=True, slots=True)
+class RankedTarget:
+    """One damaged target and whether WCL's ranking counts its damage."""
+
+    actor_id: int | None
+    game_id: int | None
+    name: str | None
+    kind: str | None
+    """Actor type from the report (`NPC`, `Player`, `Pet`, ...); None when unlisted."""
+    damage: int
+    category: str
+    """`counted`, `excluded` (encounter rule), `own` (the Hunter or its pets), or
+    `unclassifiable` (no target ID, or no game ID while encounter exclusions apply)."""
+
+
+def _ranked_targets(
+    rows: list[tuple[Any, ...]], own: set[int], excluded: ExcludedTarget | None
+) -> tuple[RankedTarget, ...]:
+    out = []
+    for target_id, game_id, name, kind, damage, _count in rows:
+        if target_id is None:
+            category = "unclassifiable"
+        elif int(target_id) in own:
+            category = "own"
+        elif excluded is not None and game_id is None:
+            # Exclusions are decided by game ID; a display name alone cannot decide.
+            category = "unclassifiable"
+        elif excluded is not None and excluded(game_id, name):
+            category = "excluded"
+        else:
+            category = "counted"
+        out.append(RankedTarget(target_id, game_id, name, kind, int(damage), category))
+    return tuple(
+        sorted(out, key=lambda r: (-r.damage, r.actor_id if r.actor_id is not None else -1))
+    )
+
+
+@dataclass(frozen=True, slots=True)
 class RankingDamage:
     """Damage by a Hunter and every actor exported as its pet, split by what counts."""
 
@@ -105,6 +143,8 @@ class RankingDamage:
     ranked: Evidenced[int]
     """External damage minus targets the encounter rule excludes from WCL rankings."""
     actor_ids: tuple[int, ...]
+    by_target: Evidenced[tuple[RankedTarget, ...]]
+    """Every damaged target with its ranking category."""
 
 
 def ranking_damage(
@@ -127,12 +167,12 @@ def ranking_damage(
     actor_ids = [pf.actor_id, *pets]
     rows = con.execute(
         """
-        SELECT e.target_id, a.game_id, a.name, sum(coalesce(e.amount, 0)), count(*)
+        SELECT e.target_id, a.game_id, a.name, a.type, sum(coalesce(e.amount, 0)), count(*)
         FROM events e
         LEFT JOIN actors a ON a.report_code = e.report_code AND a.actor_id = e.target_id
         WHERE e.report_code = ? AND e.fight_id = ? AND e.type = 'damage'
           AND e.source_id IN (SELECT unnest(?::BIGINT[]))
-        GROUP BY 1, 2, 3
+        GROUP BY 1, 2, 3, 4
         """,
         [pf.report_code, pf.fight_id, actor_ids],
     ).fetchall()
@@ -141,42 +181,52 @@ def ranking_damage(
         pf.fight_id,
         pf.actor_id,
         "events",
-        event_count=sum(int(r[4]) for r in rows),
+        event_count=sum(int(r[5]) for r in rows),
         detail=f"damage by Hunter and pet-linked actors {actor_ids}",
     )
     cov = [coverage(con, pf, a, Direction.SOURCE) for a in actor_ids]
     if not pet_listing_known(con, pf):
         why = "the Hunter's pet listing is missing, so pet damage cannot be attributed"
         gone: Evidenced[int] = unknown(why, ref, coverage=cov)
-        return RankingDamage(gone, gone, gone, tuple(actor_ids))
+        return RankingDamage(gone, gone, gone, tuple(actor_ids), unknown(why, ref, coverage=cov))
     own = set(actor_ids)
-    raw = sum(int(r[3]) for r in rows)
+    by_target = complete_or_unknown(
+        _ranked_targets(rows, own, excluded),
+        cov,
+        ref,
+        rule_id="external-damage-v1",
+        params={"encounter_exclusions": exclusion_rule or "none"},
+    )
+    raw = sum(int(r[4]) for r in rows)
     raw_e = complete_or_unknown(raw, cov, ref)
     rule = "external-damage-v1"
     no_target = [r for r in rows if r[0] is None]
     if no_target:
-        events = sum(int(r[4]) for r in no_target)
-        amount = sum(int(r[3]) for r in no_target)
+        events = sum(int(r[5]) for r in no_target)
+        amount = sum(int(r[4]) for r in no_target)
         why = f"{events} damage events ({amount} damage) have no target ID; they may be self-damage"
         return RankingDamage(
             raw_e,
             unknown(why, ref, coverage=cov),
             unknown(why, ref, coverage=cov),
             tuple(actor_ids),
+            by_target,
         )
     external_rows = [r for r in rows if int(r[0]) not in own]
-    external = sum(int(r[3]) for r in external_rows)
+    external = sum(int(r[4]) for r in external_rows)
     external_e = complete_or_unknown(external, cov, ref, rule_id=rule)
-    unlisted = [r for r in external_rows if r[1] is None and r[2] is None]
+    unlisted = [r for r in external_rows if r[1] is None]
     if excluded is not None and unlisted:
         why = (
-            f"{sum(int(r[4]) for r in unlisted)} damage events went to targets missing from "
-            "the actor list, "
+            f"{sum(int(r[5]) for r in unlisted)} damage events went to targets with no game ID "
+            "(missing from the actor list or unidentified), "
             "so the encounter exclusions cannot be applied"
         )
-        return RankingDamage(raw_e, external_e, unknown(why, ref, coverage=cov), tuple(actor_ids))
+        return RankingDamage(
+            raw_e, external_e, unknown(why, ref, coverage=cov), tuple(actor_ids), by_target
+        )
     ranked_total = external - sum(
-        int(r[3]) for r in external_rows if excluded is not None and excluded(r[1], r[2])
+        int(r[4]) for r in external_rows if excluded is not None and excluded(r[1], r[2])
     )
     return RankingDamage(
         raw_e,
@@ -189,4 +239,5 @@ def ranking_damage(
             params={"encounter_exclusions": exclusion_rule or "none"},
         ),
         tuple(actor_ids),
+        by_target,
     )

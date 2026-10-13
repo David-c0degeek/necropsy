@@ -59,7 +59,10 @@ reference per member, so the entries behind it can be audited.
 ## Target integrity
 
 Encounter rules say which units belong to an encounter (Gothik's native
-targets). A damaged target can only be judged when it is a listed actor with a
+targets) and which trash every raid kills at the start (`start_trash`, e.g.
+Spirit of Naxxramas on Gothik). Start trash is neither native nor foreign: it is
+reported separately and never counts as padding. Both lists are empirical
+classifications from recorded kills. A damaged target can only be judged when it is a listed actor with a
 game ID. If any damaged target has no target ID, no actor record or no game ID,
 the native and foreign totals and the foreign share are UNKNOWN, the
 unclassifiable targets are listed separately, and no padding finding is raised.

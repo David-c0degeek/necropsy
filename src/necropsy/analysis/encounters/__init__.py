@@ -24,9 +24,16 @@ class EncounterRules:
     exclusion_basis: str = "none"
     """`empirical` when the exclusions were found from recorded rankings, not documented."""
     exclusion_validation: str | None = None
+    start_trash_game_ids: frozenset[int] = frozenset()
 
     def excluded_from_ranking(self, game_id: int | None, _name: str | None) -> bool:
         return game_id is not None and game_id in self.ranking_excluded_game_ids
+
+    def is_boss(self, game_id: int | None) -> bool:
+        return game_id is not None and game_id in self.boss_game_ids
+
+    def is_start_trash(self, game_id: int | None) -> bool:
+        return game_id is not None and game_id in self.start_trash_game_ids
 
     def is_native(self, game_id: int | None, _name: str | None) -> bool:
         if self.native_game_ids is None:
@@ -55,6 +62,9 @@ def _zone(game: str, zone: str) -> dict[int, EncounterRules]:
             exclusion_rule=rule,
             exclusion_basis=str(meta["basis"]),
             exclusion_validation=str(meta["validated"]),
+            start_trash_game_ids=frozenset(
+                int(e["game_id"]) for e in entry.get("start_trash") or ()
+            ),
         )
     return result
 

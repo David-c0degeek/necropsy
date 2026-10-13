@@ -414,7 +414,9 @@ def _per_boss_doc_checkers(boss: str) -> dict[str, Checker]:
         return {"with_raptor": w["with_raptor"], "with_five_raptors": w["with_five_raptors"]}
 
     def verdict(con: duckdb.DuckDBPyConnection) -> Any:
-        return _value(_boss_doc(con, boss)["benchmarks"]["baseline"]["weave"]["verdict"])
+        # The oracle gives one verdict per boss; Necropsy's comparable one is on the boss.
+        weave = _boss_doc(con, boss)["benchmarks"]["baseline"]["weave"]
+        return _value(weave["boss"]["verdict"])
 
     def horde_wf(con: duckdb.DuckDBPyConnection) -> Any:
         rows = _boss_doc(con, boss, cross=True)["cohort"]
@@ -462,9 +464,16 @@ def _rf_unused(con: duckdb.DuckDBPyConnection) -> Any:
     return [b for b in found if b in ("Grobbulus", "Thaddius")]
 
 
-@check("recommendations.raid-speed", "full")
-def _raid_speed(con: duckdb.DuckDBPyConnection) -> Any:
-    return [b for b in _bosses_with("raid-speed-v1")(con) if b in ("Kel'Thuzad", "Sapphiron")]
+check("recommendations.raid-speed", "full")(_bosses_with("raid-speed-v2"))
+
+
+@check("gothik-the-harvester.weave-by-role", "full")
+def _gothik_weave_roles(con: duckdb.DuckDBPyConnection) -> Any:
+    weave = _boss_doc(con, "Gothik the Harvester")["benchmarks"]["baseline"]["weave"]
+    return {
+        role: [weave[role]["with_raptor"], weave[role]["with_five_raptors"], weave[role]["known"]]
+        for role in ("boss", "non_boss")
+    }
 
 
 @check("recommendations.patchwerk-build-and-darkmoon", "full")

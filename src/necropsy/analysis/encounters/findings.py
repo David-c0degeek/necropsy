@@ -19,7 +19,11 @@ class TargetIntegrity:
 
     native: Evidenced[int]
     foreign: Evidenced[int]
+    """Damage to units that are neither the encounter's own nor start trash."""
+    start_trash: Evidenced[int]
+    """Damage to trash every raid kills at the start (encounter rule `start_trash`)."""
     foreign_share_pct: Evidenced[float]
+    """foreign / (native + start trash + foreign)."""
     foreign_targets: tuple[tuple[str, int], ...]
     unclassified_targets: tuple[tuple[str, int], ...]
     """Damaged targets no rule can judge; while any exist the split is UNKNOWN."""
@@ -37,18 +41,43 @@ def target_integrity(
     """None when the encounter has no native-target rule."""
     if rules.native_game_ids is None:
         return None
-    split = targets.damage_by_target(con, pf, actor_ids, rules.is_native)
+
+    def native_or_trash(game_id: int | None, name: str | None) -> bool:
+        return rules.is_native(game_id, name) or rules.is_start_trash(game_id)
+
+    split = targets.damage_by_target(con, pf, actor_ids, native_or_trash)
     foreign_targets: tuple[tuple[str, int], ...] = ()
     if split.by_target.value is not None:
         foreign_targets = tuple(
             (t.name or f"actor {t.actor_id}", t.damage)
             for t in split.by_target.value
-            if t.classifiable and not rules.is_native(t.game_id, t.name) and t.damage
+            if t.classifiable and not native_or_trash(t.game_id, t.name) and t.damage
         )
     unclassified = tuple(
         (t.name or ("no target" if t.actor_id is None else f"actor {t.actor_id}"), t.damage)
         for t in split.unclassified
     )
+    if split.native_damage.value is None or split.by_target.value is None:
+        trash: Evidenced[int] = unknown("target split unknown", *split.native_damage.refs)
+        native = split.native_damage
+    else:
+        trash_total = sum(
+            t.damage for t in split.by_target.value if rules.is_start_trash(t.game_id)
+        )
+        trash = complete_or_unknown(
+            trash_total,
+            split.native_damage.coverage,
+            *split.native_damage.refs,
+            rule_id="start-trash",
+            params={"encounter": rules.name},
+        )
+        native = complete_or_unknown(
+            split.native_damage.value - trash_total,
+            split.native_damage.coverage,
+            *split.native_damage.refs,
+            rule_id="native-targets",
+            params={"encounter": rules.name},
+        )
     if split.native_damage.value is None or split.foreign_damage.value is None:
         share: Evidenced[float] = unknown("target split unknown", *split.native_damage.refs)
     else:
@@ -61,8 +90,9 @@ def target_integrity(
             params={"encounter": rules.name},
         )
     return TargetIntegrity(
-        split.native_damage,
+        native,
         split.foreign_damage,
+        trash,
         share,
         foreign_targets,
         unclassified,
