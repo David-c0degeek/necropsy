@@ -508,19 +508,25 @@ def _write_locked(acquisition: Acquisition, store: Cache, out_dir: Path, stem: s
     )
     _validate(out_dir, stem, data, entries)
     contents = [data, entries.encode("utf-8"), f"{digest}  {stem}.zip\n".encode()]
-    published: list[tuple[Path, int, int]] = []
+    published: list[tuple[Path, int, int, bytes]] = []
     try:
         for target, body in zip(targets, contents, strict=True):
             if publish(target, body) != "published":
                 raise WriteError(f"{target} appeared while writing")
             info = target.lstat()
-            published.append((target, info.st_ino, info.st_dev))
+            published.append((target, info.st_ino, info.st_dev, body))
     except BaseException:
-        # Remove only files this attempt published and that are still the same files.
-        for path, ino, dev in published:
+        # Remove only files this attempt published that still are those files: same
+        # inode and device (an inode number alone can be reused by a replacement on
+        # some filesystems) and the same bytes.
+        for path, ino, dev, body in published:
             with contextlib.suppress(FileNotFoundError):
                 now = path.lstat()
-                if (now.st_ino, now.st_dev) == (ino, dev) and not is_link(path):
+                if (
+                    (now.st_ino, now.st_dev) == (ino, dev)
+                    and not is_link(path)
+                    and path.read_bytes() == body
+                ):
                     path.unlink()
         raise
     marker = json.loads(members[MARKER][0])
