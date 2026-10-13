@@ -1,0 +1,134 @@
+# How Necropsy works
+
+[Home](../README.md) · [Documentation](README.md) · [Architecture decisions](decisions/README.md)
+
+Necropsy is a local Python CLI for Classic Era Hunters in Naxxramas. It acquires
+WCL data or reads a saved snapshot, normalizes it into a derived DuckDB database,
+and produces one versioned analysis document. The report, playbook and package
+are built from that document alone.
+
+Offline analysis and synthetic acquisition integration are verified. Authenticated
+live acquisition and real credential-store acceptance still need validation.
+A desktop shell, more game/class support and public-client PKCE authentication
+are future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
+is design history; this page describes the current implementation.
+
+## Two entry paths, one analysis pipeline
+
+```mermaid
+flowchart TD
+    URL[Character URL] --> Resolve[Resolve character and partition]
+    Resolve --> Acquire[Select cohort and acquire report/event streams]
+    Acquire --> Finalize[Finalize combined reports at one revision]
+    Finalize --> Live[Verified live snapshot v1]
+    Historical[Saved historical v6 export] --> Reader[Snapshot reader]
+    Live --> Reader
+    Reader --> DB[Derived DuckDB database]
+    DB --> JSON[analysis.json]
+    JSON --> HTML[Report and playbook]
+    JSON --> Package[Shareable package]
+```
+
+`analyze` runs the URL path with saved credentials and a fixed API endpoint.
+`offline` starts from either archive format. `ingest` retains a database for
+inspection; `render` rebuilds pages from an existing `analysis.json`, without
+the archive or database. Analysis, rendering and reading the saved pages make
+no automatic network requests. Following a source link opens its online page.
+
+## Acquisition and comparison scope
+
+URL parsing enforces supported HTTPS hosts and exact character paths. Resolution
+requests the supported zone and its partition list. Ambiguous partitions require
+a choice. Character faction is observed only from a recognized canonical name;
+unknown faction blocks same-faction acquisition.
+
+Live selection seeks five verified same-faction deep entries and up to 25 metadata
+entries per boss. Metadata includes the deep sample; metadata-only rows do not
+enlarge event medians. The cohort key records or enforces site, game, zone,
+partition, encounter, difficulty, class, role, spec, size and faction. All Hunter
+specs are allowed; row size is attendance, not proof of raid format.
+
+Leaderboard guild faction supplies inference only. A deep entry needs observed
+player faction from its report. Unresolved or inaccessible entries stay visible
+in provenance and may be replaced by later eligible entries. The subject's fight
+uses the highest ranking `amount`, with deterministic tie rules. Optional
+other-faction overall #1 context stays separate from the primary baseline.
+
+Each entry acquires its bundle, exact Hunter actor by name and realm, pet
+ownership and player/pet streams as one generation. A revision change restarts
+the whole entry once. Unresolved pet ownership, including ownerless engineering
+pets, remains unknown. It never proves that no pet participated.
+
+The HTTP client bounds retries, request deadlines, backoff and page traversal.
+Quota, inaccessible data and bounded stops cannot silently certify a full sample.
+Account point changes are reported only between readings with a proven common
+accounting period; they may include other activity. Unknown cost stays unknown.
+
+## Raw evidence, integrity and derived state
+
+The cache stores API data by site family, report code, revision and fight, with
+separate actor/direction streams. Canonical request identities include endpoint,
+bounds, filters and query version. Pages and markers publish without replacing
+existing data. OS advisory locks release when a process dies; stream completion
+requires verified pages and an explicit null terminal cursor. Reads recheck
+identity, page hashes and pagination. Durability is limited by the filesystem's
+fsync and hard-link support; unsupported publication fails explicitly.
+
+Live snapshot v1 reuses the historical report/event/rankings member layout and
+adds a strict `necropsy-snapshot.json` marker. Acquisition finalization fetches one
+combined report per code over the exact selected fight set. Mixed revisions are
+refused. The reader checks participants, actor records, known pet ownership,
+stream identities and page proofs. The writer reads back its finished archive
+before publishing the ZIP, member manifest and checksum companions under a set
+lock. A malformed live marker never falls back to the historical reader.
+
+The database is disposable derived state. Schema 2 records origin mode,
+limitations and acquisition provenance. An older database is rebuilt from the
+same verified archive rather than migrated in place. Archive identity, open WAL
+and target-state checks protect existing databases; see the
+[database reference](database.md) for replacement and race limits.
+
+Normalization preserves event multiplicity across overlapping streams and records
+boundary ambiguity. Analysis can claim absence only through complete, trusted
+coverage. Values retain observed, derived, inferred or unknown evidence; unknown
+is null, never zero. Medians require three known values. Encounter rules, game
+client tables and guide knowledge stay distinct from log observations.
+
+Historical exports contain the recorded overall top five. Live event comparisons
+contain acquired players, and the overall rank-one metric stays unknown if that
+fight was not acquired. Every requested live boss remains in acquisition coverage,
+even without a detailed analysis section. [Reading results](reading-results.md)
+explains these limits in the pages.
+
+## Outputs and recovery
+
+`analyze` refuses earlier analysis outputs and snapshots before credential access,
+holds an output lock throughout the run, and rechecks output names before writing
+pages. Exit `0` means a report with complete requested acquisition coverage;
+`4` means a written partial report; `2` requests a partition choice; `3` means
+finalization stopped before a snapshot/report; `1` means failure. Complete
+acquisition can still yield unknown analysis values.
+
+When a snapshot was saved but report generation fails, the command retains it and
+prints an offline recovery command. `offline` and `render` intentionally replace
+their derived output set, with staged writes, backups and best-effort rollback;
+a killed process can leave mixed files requiring recovery. These replacement
+semantics differ from the no-clobber acquisition cache and raw snapshots.
+
+The package includes both pages, exact analysis JSON, CSV tables, per-boss evidence
+and a checksum manifest. It does not contain the raw snapshot or DuckDB database.
+
+## Source map
+
+| Responsibility | Implementation |
+|---|---|
+| Commands and workflow | [CLI](../src/necropsy/cli.py), [live orchestration](../src/necropsy/wcl/analyze.py) |
+| Authentication | [Auth](../src/necropsy/wcl/auth.py), [credential store](../src/necropsy/wcl/credentials.py); [boundaries](auth.md) |
+| API and context | [Client](../src/necropsy/wcl/client.py), [URLs](../src/necropsy/wcl/urls.py), [context](../src/necropsy/wcl/context.py) |
+| Selection and acquisition | [Cohort](../src/necropsy/wcl/cohort.py), [acquire](../src/necropsy/wcl/acquire.py), [fetch](../src/necropsy/wcl/fetch.py) |
+| Immutable evidence | [Cache](../src/necropsy/wcl/cache.py), [live reader](../src/necropsy/snapshot/v1.py), [writer](../src/necropsy/snapshot/v1_writer.py), [historical reader](../src/necropsy/snapshot/v0.py) |
+| Normalization | [Ingest](../src/necropsy/normalize/ingest.py), [schema](../src/necropsy/normalize/schema.py) |
+| Analysis and contract | [Analysis modules](../src/necropsy/analysis), [JSON builder/model](../src/necropsy/report/analysis_json.py), [JSON reference](analysis-json.md) |
+| Presentation and package | [Renderers](../src/necropsy/report/render), [package](../src/necropsy/report/package.py), [publisher](../src/necropsy/report/publish.py) |
+| Verification | [Synthetic CLI tests](../tests/integration/test_analyze_cli.py), [snapshot tests](../tests/integration/test_live_snapshot.py), [historical tests](../tests/golden) |
+

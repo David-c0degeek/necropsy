@@ -11,6 +11,9 @@ The current connection supports **Classic Era on `vanilla.warcraftlogs.com`**
 and the Naxxramas context. Other Warcraft Logs game sites are recognized and
 refused with an explanation before Necropsy accesses saved credentials.
 
+For storage, token lifecycle and distribution limits, see
+[Authentication boundaries](auth.md).
+
 ## Set up your personal API client
 
 This sign-in flow uses your own confidential Warcraft Logs API client on your

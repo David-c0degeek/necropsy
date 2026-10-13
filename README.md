@@ -76,6 +76,7 @@ Heuristic advice is a prompt to investigate, not a promise of extra DPS.
 | Sign in to WCL or resolve a character URL | [Warcraft Logs connection](docs/warcraft-logs.md) |
 | Consume the JSON output | [Analysis JSON](docs/analysis-json.md) |
 | Inspect events, coverage, or evidence | [Evidence model](docs/evidence-model.md) · [Database](docs/database.md) |
+| Understand authentication and system design | [Auth boundaries](docs/auth.md) · [Architecture](docs/architecture.md) · [Decisions](docs/decisions/README.md) |
 | Understand Hunter-specific rules | [Hunter analysis](docs/hunter-analysis.md) |
 | Develop or review a change | [Contributing](CONTRIBUTING.md) |
 | See what is coming next | [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md) |

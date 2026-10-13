@@ -73,6 +73,12 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
       reported; divergences from historical mode recorded and explained.
 - [ ] **07.8** (agent) Docs: README quickstart, `docs/auth.md` (personal-only
       warning), `docs/architecture.md`, ADRs promoted from §4.
+      Drafted and awaiting independent factual review: auth/architecture references
+      and four ADRs under `docs/decisions/` promote D036–D038 and D041–D044;
+      package scope from D035 is retained in the output contract. Operational
+      guides and navigation reconciled; authenticated acceptance stays open.
+      Validation: 155 relative source/navigation links checked, CLI help compared,
+      no plan IDs in new shipped docs; documentation-only slice awaiting review.
 - [ ] **07.9** (product-owner) Run `necropsy auth login` once to move the user
       token into the keyring; confirm redirect URI 8765 is registered.
 - [ ] **07.10** (release-engineer) Before ANY distribution: register a WCL

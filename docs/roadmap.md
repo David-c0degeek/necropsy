@@ -46,3 +46,5 @@ Offline analysis of a saved export needs no WCL credentials.
 The [original architecture specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
 describes the wider design, including the proposed Tauri shell and local Python
 analyzer. It is design history, not an inventory of available features.
+The [current architecture](architecture.md) and
+[accepted decisions](decisions/README.md) describe implemented behavior.
