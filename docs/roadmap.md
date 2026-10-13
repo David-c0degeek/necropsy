@@ -12,8 +12,9 @@ Classic Era Hunter/Naxxramas analysis from a saved v6 deep-export ZIP:
 `necropsy ingest` builds a database; `necropsy offline` writes `analysis.json`, an
 offline HTML report and playbook, and a package; `necropsy render` rebuilds the
 pages from an existing `analysis.json`. `necropsy auth` signs in to Warcraft Logs for
-personal use and `necropsy resolve` looks up a character URL; acquisition itself is
-not built yet.
+personal use and `necropsy resolve` looks up a character URL. The benchmark selector
+is available as a library for acquisition code; it is not connected to a CLI workflow
+yet. Live acquisition and the proposed `necropsy analyze` command remain planned.
 Same-faction comparisons, encounter context, and evidence-linked recommendations
 are implemented. [Try the sample](getting-started.md).
 

@@ -44,3 +44,21 @@ playbook:
   pet_stop_early_s: 3.0
   # Cohort median share of damage to non-encounter targets that marks padded parses.
   padding_share_pct: 25.0
+
+# Live cohort selection from WCL characterRankings pages (rule set live-cohort-v1).
+# `metadata` counts every selected same-faction row, the `deep` ones included.
+live_cohort:
+  rule_set: live-cohort-v1
+  deep: 5
+  metadata: 25
+  min_same_faction: 3
+  max_pages: 10
+  # Ranking rows carry no character faction, only the guild's `faction` number.
+  # Checked against the recorded Naxxramas fixture (faction from combatant info):
+  # 0 matched Alliance 36/36 and 1 matched Horde 7/7, no contradictions; 31 of 75
+  # rows had no guild. A guild's faction is not the character's own record, so the
+  # rule only ever gives INFERRED, and an observed check overrides it.
+  guild_faction:
+    rule: guild-faction-v1
+    map: {0: Alliance, 1: Horde}
+    verified: "recorded fixture 2026-10-13: 0=Alliance 36/36, 1=Horde 7/7, 0 contradictions"

@@ -62,6 +62,10 @@ class InvalidResponse(WclError):
     """The response does not have the shape the query promises."""
 
 
+class PageBudgetExhausted(InvalidResponse):
+    """More pages remain than the caller's page budget allows (not a malformed page)."""
+
+
 class PartialResponse(WclError):
     """Data came back together with errors."""
 
@@ -335,7 +339,7 @@ def pages(
         if not has_more:
             return
         page += 1
-    raise InvalidResponse(f"more than {max_pages} pages; stopping instead of guessing")
+    raise PageBudgetExhausted(f"more than {max_pages} pages; stopping instead of guessing")
 
 
 __all__ = [
@@ -345,6 +349,7 @@ __all__ = [
     "InvalidRequest",
     "InvalidResponse",
     "NotFound",
+    "PageBudgetExhausted",
     "PartialResponse",
     "PermissionDenied",
     "Policy",

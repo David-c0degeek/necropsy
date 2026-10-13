@@ -69,6 +69,11 @@ def _zone(game: str, zone: str) -> dict[int, EncounterRules]:
     return result
 
 
+def zone_encounters(game: str, zone: str) -> frozenset[int]:
+    """Encounter ids the zone's rule data lists (the supported bosses)."""
+    return frozenset(_zone(game, zone))
+
+
 def encounter_rules(game: str, zone: str, encounter_id: int) -> EncounterRules:
     """Rules for one encounter; an unlisted encounter gets no exclusions and no native rule."""
     known = _zone(game, zone)

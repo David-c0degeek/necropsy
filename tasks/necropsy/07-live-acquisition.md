@@ -31,6 +31,7 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 - **Integration point + why** — new package `necropsy.wcl` (sites, urls, credentials, auth, client, context, cli) so acquisition (07.4–07.6) builds on it and the analysis layers stay offline.
 - **Vision fit** — spec §5 acquisition, D005 personal-only auth with PKCE gate, D007 httpx, D036–D038, pre-mortem PM-1..PM-3.
 - **Risks** — WCL schema drift (queries unverified live until 07.7); Windows credential size limit (chunking); field shapes in tests are synthetic.
+- **07.4 extension** — reuses `wcl/client.py::pages` (bool `hasMorePages`, repeat detection; its page-budget stop is now the typed `PageBudgetExhausted` so a budget stop is a partial cohort while malformed pages still fail), `WclClient.ensure_budget`/`last_rate`, `wcl/context.py::CharacterContext` (`same_faction_ready` inputs, `SUPPORTED_ZONE_ID`), `sites.require_supported`, and rule data `rules/classic_era/benchmarks.yaml::live_cohort` (targets, page budget, `guild-faction-v1`). New `wcl/cohort.py` is pure selection with an injected `verify` callback, library-only until 07.5 wires acquisition; the leaderboard query copies the recorded exporter's shape (unverified live until 07.7). Lessons line on `guild.faction` informed the INFERRED-only rule (D041).
 
 ## Boxes
 > ID = `<subject-id>.<box-number>` (subject index ID · box ordinal). Stable — never
@@ -52,7 +53,7 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
       `/character/<region>/<realm>/<name>`, site family) and character context
       resolver (faction, class, WCL spec/role, zones, partitions, rankings) with
       confidence; user confirms zone/partition when ambiguous.
-- [ ] **07.4** (agent) Benchmark selector: strict cohort key; pages rankings,
+- [x] **07.4** (agent) Benchmark selector: strict cohort key; pages rankings,
       discards opposite faction, stops at 5 deep + 20–30 metadata same-faction,
       and keeps paging past the overall top five until at least 3 same-faction
       deep entries exist per boss (bounded page budget; D031);
@@ -100,3 +101,5 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 2026-10-13 · slice 1 · 07.1–07.3 · design huddle with pre-mortem (PM-1..PM-3, D036–D038), `necropsy.wcl` package: allowlisted single-backend credential store with chunking, personal confidential-client auth with sentinel-tested redaction, bounded client with typed errors/pacing/pagination guards, strict URL parser, graded character context; `necropsy auth login|status|logout`, `necropsy resolve` · unit tests on synthetic shapes (no live calls) · awaiting review
 2026-10-13 · slice 2 · 07.1–07.3 · review round 1 fixes: generation-based chunk writes with head committed last, sanitised backend failures, one atomic record per client id with staged sign-in (saved only on success), listener bound before the browser, request deadline bounding requests, malformed URLs refused cleanly · unit tests incl. failure-injection and sentinel scans · awaiting round 2
 2026-10-13 · slice 3 · 07.2 · round-2 follow-up: confirmed-absence deletes, logout tests · navigator AGREE round 2 · commit f4ddddc pushed; CI run 38385955588 success
+2026-10-13 · slice 4 · 07.4 · `wcl/cohort.py` benchmark selector: dimensional cohort key with refusal before any query, cumulative raw-row positions, duplicate-safe candidates, guild faction INFERRED with observed override and contradiction record, deep ⊂ metadata targets, typed partial stops (page budget, quota, permission) with no endpoint change; `PageBudgetExhausted` in the client; D041 · 24 unit tests on synthetic pages · awaiting review
+2026-10-13 · slice 5 · 07.4 · review rounds 1–2 fixes: verified first-row context, shared realm key for subject and duplicates, integer-0 difficulty, positive non-blank report references, full-page fingerprints, canonical key rebuilt and compared on every dimension (value, type, status) before any row is read; supported-encounter check from zone rules · 64 cohort unit tests, full suite 789 passed / 4 xfailed · navigator AGREE round 3 · committed and pushed (see git log)

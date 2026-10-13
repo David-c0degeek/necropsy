@@ -47,7 +47,7 @@ class Pet:
     game_id: int | None
 
 
-def _realm_key(name: str | None) -> str | None:
+def realm_key(name: str | None) -> str | None:
     """Rankings spell realms "Pyrewood Village"; report actors spell them "PyrewoodVillage"."""
     if name is None:
         return None
@@ -68,7 +68,7 @@ def _resolve_actor(
         [report, fight, player],
     ).fetchall()
     if server is not None and len(rows) > 1:
-        rows = [r for r in rows if _realm_key(r[1]) == _realm_key(server)]
+        rows = [r for r in rows if realm_key(r[1]) == realm_key(server)]
     if len(rows) != 1:
         raise ContextError(
             f"{player!r} in {report}/{fight} resolves to {len(rows)} exported actors"
@@ -77,7 +77,7 @@ def _resolve_actor(
     if (
         server is not None
         and actor_server is not None
-        and _realm_key(actor_server) != _realm_key(server)
+        and realm_key(actor_server) != realm_key(server)
     ):
         raise ContextError(
             f"{player!r} in {report}/{fight}: actor server {actor_server!r} != {server!r}"
