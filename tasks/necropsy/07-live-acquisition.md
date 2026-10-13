@@ -71,14 +71,15 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 - [ ] **07.7** (agent) Manual live end-to-end (`-m live`) on Haplina's URL:
       package produced, coverage and cohort provenance recorded, API points used
       reported; divergences from historical mode recorded and explained.
-- [ ] **07.8** (agent) Docs: README quickstart, `docs/auth.md` (personal-only
+- [x] **07.8** (agent) Docs: README quickstart, `docs/auth.md` (personal-only
       warning), `docs/architecture.md`, ADRs promoted from §4.
-      Drafted and awaiting independent factual review: auth/architecture references
+      Completed with independent factual review: auth/architecture references
       and four ADRs under `docs/decisions/` promote D036–D038 and D041–D044;
       package scope from D035 is retained in the output contract. Operational
       guides and navigation reconciled; authenticated acceptance stays open.
       Validation: 155 relative source/navigation links checked, CLI help compared,
-      no plan IDs in new shipped docs; documentation-only slice awaiting review.
+      no plan IDs in new shipped docs; navigator AGREE round 1. Authenticated live
+      and real-store acceptance remain open in 07.7/07.9.
 - [ ] **07.9** (product-owner) Run `necropsy auth login` once to move the user
       token into the keyring; confirm redirect URI 8765 is registered.
 - [ ] **07.10** (release-engineer) Before ANY distribution: register a WCL
@@ -126,3 +127,7 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 2026-10-13 · slice 17 · 07.6 (part B) · design huddle (no-clobber output contract, exit codes, run-level points); `wcl/analyze.py` + `necropsy analyze`: offline checks before credentials (URL/site, endpoint, partition, name, plain link-free cache/output dirs, no earlier analysis), output lock for the whole run with the check repeated before the report, one endpoint (resolve gained `endpoint`), partition choice exit 2, finalization stop exit 3, partial exit 4, recovery command when the report fails after the snapshot was saved · 15 CLI tests with a fake token source and the synthetic WCL server · wording/help/docs handed to Codex
 2026-10-13 · slice 18 · 07.6 (part B) · Codex wording/help/docs window (README, docs index, getting started, Warcraft Logs guide, roadmap, analysis-json intro, CHANGELOG, analyze/ingest/offline help, points wording), then STEER fixes: --cross-faction forwarded to the offline analysis, the recovery command keeps --cross-faction and --no-package and is PowerShell-safe on Windows (single quotes, apostrophes doubled) and POSIX-safe elsewhere · 26 CLI tests · awaiting final review
 2026-10-13 · slice 19 · 07.6 · navigator AGREE round 1 on `necropsy analyze`; 07.6 complete (live snapshot format, reader, pipeline, CLI) on synthetic data; authenticated WCL and real credential-store validation stay with 07.7/07.9 · committed and pushed (see git log)
+
+2026-10-13 · slice 20 · 07.8 · auth.md, current architecture/source map and four accepted ADRs shipped in f3964595d3bb6d2008a109e858f4c48d219f21bf; README/docs/WCL/roadmap navigation reconciled; navigator AGREE round 1 on all 12 file fingerprints; 155 relative links verified and CLI help compared; decision-log rows now link the durable ADR records. CI 38462789103 passed on ubuntu-latest and windows-latest.
+
+Documentation checkpoint close-out: Keep — operational guides and boundary references are separate, evidence/source links resolve, historical/live and personal/distributed status are explicit. Fix before closing — none. Record — implemented auth/acquisition/cache/snapshot choices promoted with plan traceability. Risk — authenticated WCL and actual credential-store behavior are still unverified and cannot be established by these docs. Verdict — CLOSE 07.8 only; subject 07 remains open for 07.7/07.9, distribution gate deferred as recorded.
