@@ -75,6 +75,10 @@ def test_pages_are_self_contained_and_offline(analysis: bytes) -> None:
             assert tag not in ("link", "iframe", "object", "embed", "img", "form"), (name, tag)
             for key, value in attrs.items():
                 if key in ("href", "action", "src") and value:
+                    if tag == "a" and key == "href" and value.startswith("https://"):
+                        assert attrs.get("target") == "_blank"
+                        assert attrs.get("rel") == "noopener noreferrer"
+                        continue  # cited sources open only when the reader follows them
                     assert not re.match(r"^[a-z][a-z0-9+.-]*:", value), (name, value)
         assert "@import" not in html and "url(" not in html
         script = html.split("<script>")[1].split("</script>")[0]
@@ -89,6 +93,8 @@ def test_ids_are_unique_and_every_link_resolves(analysis: bytes) -> None:
         page = _parse(html)
         assert len(page.ids) == len(set(page.ids)), name
         for href in page.hrefs:
+            if href.startswith("https://"):
+                continue
             target, _, anchor = href.partition("#")
             other = target or name
             assert other in pages, (name, href)
@@ -107,6 +113,40 @@ def test_rendering_is_deterministic(analysis: bytes) -> None:
     first = build_outputs(analysis)
     second = build_outputs(analysis)
     assert first == second
+
+
+def test_untrusted_citation_schemes_never_become_links(analysis: bytes) -> None:
+    document = json.loads(analysis)
+    document["overview"]["setup"]["subject_ammo"]["source"] = "javascript:alert(1)"
+    document["overview"]["setup"]["pet_facts"]["sources"]["family_modifiers"] = [
+        "javascript:alert(3)"
+    ]
+    for boss in document["bosses"]:
+        if boss.get("playbook") and boss["playbook"].get("static"):
+            static = boss["playbook"]["static"]
+            static["encounter"]["source"] = "data:text/html,<script>alert(2)</script>"
+            for bonus in static["type_bonuses"]:
+                bonus["source"] = "file:///private/secret"
+    for html in _pages(json.dumps(document).encode()).values():
+        assert all(not h.startswith(("javascript:", "data:", "file:")) for h in _parse(html).hrefs)
+
+
+def test_conditional_guidance_keeps_both_choices_and_uncertainty(analysis: bytes) -> None:
+    document = json.loads(analysis)
+    item = document["bosses"][0]["playbook"]["static"]["guidance"]["items"][0]
+    item["status"] = "conditional"
+    item["text"] = "GUIDANCE_PRIMARY"
+    item["otherwise"] = "GUIDANCE_ALTERNATIVE"
+    item["condition"] = {
+        "name": "kill_within_rapid_fire_cooldown",
+        "status": "unknown",
+        "detail": "GUIDANCE_REASON_UNKNOWN",
+        "level": "unknown",
+    }
+    for html in _pages(json.dumps(document).encode()).values():
+        assert "Conditional advice: GUIDANCE_PRIMARY" in html
+        assert "Alternative: GUIDANCE_ALTERNATIVE" in html
+        assert "unknown: GUIDANCE_REASON_UNKNOWN" in html
 
 
 def _hostile(analysis: bytes) -> bytes:

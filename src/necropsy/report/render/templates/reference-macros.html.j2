@@ -1,0 +1,11 @@
+{% from "macros.html.j2" import val %}
+{% macro prose(lines) %}
+{% for l in lines %}<p>{{ l.text }}{% if l.note %}<span class="why">{{ l.note }}</span>{% endif %}
+{% for s in l.sources %}<a class="source-link" href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.label }} ↗</a>{% endfor %}</p>{% endfor %}
+{% endmacro %}
+{% macro equipment(rows) %}
+<div class="gear-grid">{% for row in rows %}<div><span>{{ row.label }}</span><b>{{ val(row.value) }}</b>{% if row.detail %}<small>{{ row.detail }}</small>{% endif %}</div>{% endfor %}</div>
+{% endmacro %}
+{% macro plans(rows) %}
+<dl class="plan-lines">{% for row in rows %}<dt>{{ row.label }}</dt><dd>{{ prose(row.lines) }}</dd>{% endfor %}</dl>
+{% endmacro %}

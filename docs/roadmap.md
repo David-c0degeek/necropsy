@@ -27,13 +27,14 @@ are implemented. [Try the sample](getting-started.md).
 | D — More class plugins | Druid, Warrior, Rogue, Mage, Warlock, then healers | Classification foundation |
 | E — More raids and variants | Other Classic Era raids, then Fresh/SoD/other sites | Stable analyzer contracts |
 
-The proposed `necropsy analyze <url>` command is future work. No live or auth
-command exists today.
+The proposed `necropsy analyze <url>` command is future work.
+[Sign-in and character resolution](warcraft-logs.md) are available today;
+acquiring reports and building an analysis from a URL remain planned.
 
 ## Authentication and distribution
 
-The initial live client is planned for personal use with a confidential OAuth
-client. Credentials belong to that local setup and must not be shared or shipped.
+The current WCL connection is for personal use with a confidential OAuth
+client. Credentials stay in the selected operating system credential store.
 A PKCE public-client flow must replace it before any distributed desktop client.
 Offline analysis of a saved export needs no WCL credentials.
 

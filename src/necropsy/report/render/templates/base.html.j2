@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,36 +10,44 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar">
-  <div class="brand">Necropsy <span>·</span> {{ doc.character }} · {{ doc.zone }}</div>
-  <nav class="switch" aria-label="Views">
-    <a href="report.html"{% if page == "report" %} aria-current="page"{% endif %}>Report</a>
-    <a href="playbook.html"{% if page == "playbook" %} aria-current="page"{% endif %}>Playbook</a>
+<aside class="sidebar" aria-label="Playbook navigation">
+  <header class="topbar">
+    <div class="brand">{{ doc.character }} Definitive Parse Book
+      <p>{{ doc.zone }} · Classic Era · {{ doc.reference.faction_label }}</p>
+    </div>
+  </header>
+  <label class="sr" for="boss-search">Filter bosses</label>
+  <input id="boss-search" class="search" type="search" placeholder="Filter bosses…" autocomplete="off">
+  <nav class="sidenav" aria-label="Bosses">
+    <ol>
+      <li><a class="nav-special" href="#overview"><span class="nav-number">00</span><span>Overview</span></a></li>
+      <li><a class="nav-special" href="#truth-model"><span class="nav-number">★</span><span>Truth model</span></a></li>
+      {% for boss in doc.bosses %}
+      <li data-boss-name="{{ boss.name|lower }}"><a href="#{{ boss.anchor }}"><span class="nav-number">{{ "%02d"|format(loop.index) }}</span><span>{{ boss.name }}</span><span class="sr">finding{{ "" if boss.cards|length == 1 else "s" }}: {{ boss.cards|length }}</span></a></li>
+      {% endfor %}
+    </ol>
   </nav>
-  <div class="tools">
-    <button type="button" id="theme-toggle">Theme: system</button>
+  <div class="sidebar-tools">
+    <nav class="switch" aria-label="Views">
+      <a href="report.html"{% if page == "report" %} aria-current="page"{% endif %}>Report</a>
+      <a href="playbook.html"{% if page == "playbook" %} aria-current="page"{% endif %}>Playbook</a>
+    </nav>
+    <div class="tools"><button type="button" id="theme-toggle">Theme: system</button></div>
   </div>
-</header>
+</aside>
 <nav class="picker" aria-label="Bosses (compact)">
   <details id="boss-picker">
     <summary>Jump to a boss</summary>
     <ol>
       <li><a href="#overview">Overview</a></li>
+      <li><a href="#truth-model">★ Truth model</a></li>
       {% for boss in doc.bosses %}
-      <li><a href="#{{ boss.anchor }}">{{ boss.name }} <span class="count">{{ boss.cards|length }} finding{{ "" if boss.cards|length == 1 else "s" }}</span></a></li>
+      <li data-boss-name="{{ boss.name|lower }}"><a href="#{{ boss.anchor }}">{{ "%02d"|format(loop.index) }} {{ boss.name }} <span class="sr">finding{{ "" if boss.cards|length == 1 else "s" }}: {{ boss.cards|length }}</span></a></li>
       {% endfor %}
     </ol>
   </details>
 </nav>
 <div class="layout">
-  <nav class="sidenav" aria-label="Bosses">
-    <ol>
-      <li><a href="#overview"><span>Overview</span></a></li>
-      {% for boss in doc.bosses %}
-      <li><a href="#{{ boss.anchor }}"><span>{{ boss.name }}</span><span class="count">{{ boss.cards|length }}<span class="sr"> finding{{ "" if boss.cards|length == 1 else "s" }}</span></span></a></li>
-      {% endfor %}
-    </ol>
-  </nav>
   <main id="main" tabindex="-1">
 {% block main %}{% endblock %}
     <footer class="muted notice">

@@ -214,3 +214,48 @@ def test_empirical_ranking_rule_is_labelled(document: dict[str, Any]) -> None:
     rule = document["bosses"][0]["rules"]["ranking_exclusion_rule"]
     assert rule["basis"] == "empirical"
     assert rule["validation"]
+
+
+def test_every_recorded_row_is_kept_as_overall_context(document: dict[str, Any]) -> None:
+    patchwerk = document["bosses"][0]
+    overall = patchwerk["overall_cohort"]
+    factions = {row["environment"]["faction"]["value"] for row in overall}
+    assert factions == {"Alliance", "Horde"}  # Horde rank 1 is context, not baseline
+    assert {r["player"] for r in patchwerk["cohort"]} < {r["player"] for r in overall}
+    assert all("gear" in r["environment"] for r in overall)
+    assert patchwerk["benchmarks"]["cross_faction"] is None
+
+
+def test_documents_without_the_new_fields_still_validate(document: dict[str, Any]) -> None:
+    old = json.loads(json.dumps(document))
+    for boss in old["bosses"]:
+        boss.pop("overall_cohort", None)
+        boss["benchmarks"].pop("overall_top", None)
+        boss["benchmarks"].pop("faction_mix", None)
+    AnalysisDocument.model_validate(old)
+
+
+def test_conflicting_item_names_keep_their_note() -> None:
+    from necropsy.analysis.generic.catalog import ItemName
+    from necropsy.report.analysis_json import _gear
+
+    names = {1: ItemName(1, None, "conflict", "ranking rows name this item differently: A, B")}
+    [item] = _gear([{"item_id": 1, "slot": 0}], names)
+    assert item["name"] is None and item["name_source"] == "conflict"
+    assert "A, B" in item["name_note"]
+
+
+def test_playbook_decisions_are_present_and_bounded(document: dict[str, Any]) -> None:
+    for boss in document["bosses"]:
+        playbook = boss["playbook"]
+        assert playbook["rule_set"] == "playbook-v1"
+        context = playbook["context"]
+        assert sum(context["by_faction"].values()) == len(boss["overall_cohort"])
+        same = {e["player"] for e in boss["cohort"]}
+        for weapon_set in playbook["weapons"]:
+            assert {e["player"] for e in weapon_set["entries"]} <= same
+        for package in playbook["melee_packages"]:
+            assert package["entry"]["player"] not in same
+        first = playbook["refocus"]["same_faction_first_s"]
+        assert first["n_values"] + first["n_without"] + first["n_unknown"] == len(same)
+        assert first["value"] is None or first["n_values"] >= 3

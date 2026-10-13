@@ -1,0 +1,55 @@
+{% from "reference-macros.html.j2" import prose, equipment, plans %}
+{% from "macros.html.j2" import val %}
+{% set ref = boss.reference %}
+<div class="boss-head">
+  <div>
+    <div class="eyebrow">Boss {{ "%02d"|format(boss_number) }} · {{ boss.name }}</div>
+    <h2 id="{{ boss.anchor }}-title" tabindex="-1">{{ boss.name }}</h2>
+    <div class="metrics">{% for label, value in ref.metrics %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endfor %}</div>
+  </div>
+  <label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.name }}</span></label>
+</div>
+<div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div>
+<article class="truth-card">
+  <h3>Benchmark context</h3><p>{{ ref.context_text }}</p>
+  <p class="tiny">Race is named only with racial-cast evidence. WF counts detected extra-attack events; non-observation is not proof of totem unavailability. Other-faction rows below are context.</p>
+  {% for limit in ref.limits %}<p class="tiny">{{ limit }}</p>{% endfor %}
+</article>
+<div class="grid two">
+  <article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article>
+  <article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article>
+</div>
+<div class="grid two warnings">
+  <article class="dont"><h3>Do not</h3>{{ prose(ref.dont) }}</article>
+  <article class="ask"><h3>Raid ask</h3>{{ prose(ref.asks) }}</article>
+</div>
+{% if ref.facts %}<details><summary>Encounter knowledge and sources</summary><div>{{ prose(ref.facts) }}</div></details>{% endif %}
+<details class="full-gear"><summary>Your full logged gear for this selected best parse</summary><div>{{ equipment(ref.gear) }}</div></details>
+<details class="cohort-details" open>
+  <summary>Current overall top five — faction / race evidence / Windfury / gear / pet</summary>
+  <div>
+    {% if not ref.cohort_complete %}<p class="notice">This older analysis contains only its comparison rows; rebuild from the archive for the complete recorded overall top five.</p>{% endif %}
+    <div class="table-wrap cohort-table-wrap" role="region" aria-label="{{ boss.name }}: Current overall top five" tabindex="0">
+      <table class="cohort-table stack">
+        <thead><tr><th scope="col">#</th><th scope="col">Hunter</th><th scope="col">Faction</th><th scope="col">Race evidence</th><th scope="col">WF procs</th><th scope="col">DPS</th><th scope="col">Spec</th><th scope="col">Trinkets</th><th scope="col">Weapons</th><th scope="col">Raptor</th><th scope="col">White</th><th scope="col">Pet</th><th scope="col">Pet DPS</th></tr></thead>
+        <tbody>{% for e in ref.cohort %}<tr class="{{ e.class }}">
+          <td data-label="Rank">{{ e.rank if e.rank is not none else "Unknown" }}</td>
+          <th scope="row">{{ e.player }}<span class="why">Recorded overall leaderboard · {{ e.kill }} kill</span></th>
+          <td data-label="Faction">{{ val(e.faction) }}</td><td data-label="Race evidence">{{ val(e.race) }}{% if e.race_note %}<span class="why">{{ e.race_note }}</span>{% endif %}</td>
+          <td data-label="WF procs">{{ val(e.wf) }}<span class="why">{{ e.wf_status }}</span></td><td data-label="DPS">{{ e.dps }}</td><td data-label="Spec">{{ val(e.spec) }}</td>
+          <td data-label="Trinkets">{{ val(e.trinkets) }}</td><td data-label="Weapons">{% for weapon in e.weapons %}{{ val(weapon) }}{% if not loop.last %}<br>{% endif %}{% endfor %}</td>
+          <td data-label="Raptor">{{ val(e.raptor) }}</td><td data-label="White">{{ val(e.white) }}</td>
+          <td data-label="Pet">{{ e.pet.name }}{% for f in e.pet.family %}{{ val(f) }}{% endfor %}<span class="why">{{ e.pet.abilities }}</span></td><td data-label="Pet DPS">{{ val(e.pet.dps) }}</td>
+        </tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    <p class="table-note">All recorded rows are shown. Faction colors indicate the returned faction; its evidence label still applies. Family inference stays qualified. Raptor/white counts need complete streams. Gear is the recorded pull snapshot, not proof of in-fight swaps.</p>
+  </div>
+</details>
+<details class="hunter-gear"><summary>Full 17-slot gear for each top-five Hunter</summary><div class="hunter-cards">
+  {% for e in ref.cohort %}<article class="hunter-card {{ e.class }}">
+    <div class="hunter-title"><div><strong>#{{ e.rank if e.rank is not none else "?" }} {{ e.player }}</strong><span>{{ e.faction.text }} · {{ e.dps }} DPS · {{ e.spec.text }}</span></div>
+      <div class="mini-badges"><em>Raptor {{ e.raptor.text }}</em><em>White {{ e.white.text }}</em><em>WF procs {{ e.wf.text }}</em></div>
+    </div>{{ equipment(e.gear) }}
+  </article>{% endfor %}
+</div></details>

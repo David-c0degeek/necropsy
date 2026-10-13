@@ -343,3 +343,49 @@ def test_players_are_one_category_without_personal_aliases() -> None:
     assert (row.kind, row.game_id, row.aliases) == ("Player", None, ())
     assert row.name is not None and row.name.startswith("Players")
     assert row.median_share_pct.value == 30.0 and row.subject_share_pct.value == 10.0
+
+
+def _pet_entry(listed: bool, pets: list[Any], category_known: bool = True) -> Any:
+    hunter_pets = [p for p in pets]
+    all_pets = [
+        SimpleNamespace(category=derived("hunter-pet", REF) if category_known else unknown("x"))
+        for _ in pets or [None]
+    ]
+    return SimpleNamespace(
+        pets_listed=listed, hunter=SimpleNamespace(hunter_pets=hunter_pets, pets=all_pets)
+    )
+
+
+def _pet(family: Any) -> Any:
+    return SimpleNamespace(family=family)
+
+
+def test_pet_families_keep_the_grade_and_account_for_every_entry() -> None:
+    entries = [
+        _pet_entry(True, [_pet(inferred("Cat", REF, rule_id="r"))]),
+        _pet_entry(True, [_pet(inferred("Cat", REF, rule_id="r"))]),
+        _pet_entry(True, [_pet(derived("Wolf", REF))]),
+        _pet_entry(True, [_pet(unknown("x"))]),
+        _pet_entry(False, []),
+        _pet_entry(True, [], category_known=False),
+        _pet_entry(True, [_pet(derived("Cat", REF)), _pet(derived("Cat", REF))]),
+    ]
+    entries.append(
+        SimpleNamespace(pets_listed=True, hunter=SimpleNamespace(hunter_pets=[], pets=[]))
+    )
+    found = benchmark.pet_families(entries)
+    cats = next(f for f in found.families if f.family == "Cat")
+    assert (cats.observed, cats.inferred) == (0, 2)
+    wolf = next(f for f in found.families if f.family == "Wolf")
+    assert (wolf.observed, wolf.inferred) == (0, 1)  # derived is not observed
+    assert (found.unknown_family, found.listing_missing, found.unclassified) == (1, 1, 1)
+    assert (found.multiple_hunter_pets, found.no_hunter_pet, found.entries) == (1, 1, 8)
+    counted = sum(f.observed + f.inferred for f in found.families)
+    assert (
+        counted
+        + found.unknown_family
+        + found.no_hunter_pet
+        + found.listing_missing
+        + (found.unclassified + found.multiple_hunter_pets)
+        == found.entries
+    )

@@ -2,10 +2,15 @@
 {% from "macros.html.j2" import val, card %}
 {% block title %}Playbook · {{ doc.title }} · Necropsy{% endblock %}
 {% block main %}
-<section id="overview" aria-labelledby="overview-title">
+<section id="overview" class="hero" aria-labelledby="overview-title">
+  <div class="eyebrow">Hunter parse playbook · faction-aware comparisons</div>
   <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} playbook</h1>
   <p class="lede">A boss-by-boss review list built only from findings the evidence supports.</p>
   <p class="caveat">Compared with players of your faction inside the recorded top five per boss. Advice is a prompt to investigate, not a promise of extra DPS.</p>
+  <div class="badges">{% for badge in doc.reference.badges %}<span class="badge">{{ badge }}</span>{% endfor %}</div>
+</section>
+{% include "reference-overview.html.j2" %}
+<section class="global" aria-label="How to review">
   <div class="disclosures">
     <details>
       <summary>How to use this playbook</summary>
@@ -26,14 +31,14 @@
 </section>
 
 {% for boss in doc.bosses %}
+{% set boss_number = loop.index %}
 <section class="boss" id="{{ boss.anchor }}" aria-labelledby="{{ boss.anchor }}-title">
-  <div class="boss-head">
-    <h2 id="{{ boss.anchor }}-title" tabindex="-1">{{ boss.name }}</h2>
-    <span class="facts">Kill {{ boss.kill_s }} · <a href="report.html#{{ boss.anchor }}">Full report</a></span>
-  </div>
+  {% include "reference-boss.html.j2" %}
+  <p class="table-note"><a href="report.html#{{ boss.anchor }}">Open execution, target shares, raid-speed comparisons and evidence in the full report →</a></p>
   {% if not boss.has_subject %}
   <p class="muted">No kill for this character in the snapshot.</p>
   {% else %}
+  <details class="analytical-details"><summary>Findings and recorded comparison details</summary><div>
   {% for g in boss.playbook %}
   <section class="group" aria-labelledby="{{ boss.anchor }}-{{ g.key }}">
     <div class="group-head">
@@ -51,6 +56,7 @@
     {% if g.cards %}<div class="cards">{% for c in g.cards %}{{ card(c, review=True) }}{% endfor %}</div>{% endif %}
   </section>
   {% endfor %}
+  </div></details>
   {% endif %}
 </section>
 {% endfor %}

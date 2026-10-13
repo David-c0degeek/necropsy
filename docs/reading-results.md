@@ -7,6 +7,21 @@ recommendations. Use the evidence to decide how much weight to give a finding.
 `report.html` and `playbook.html` show the same content; this guide names the
 `analysis.json` fields behind each part.
 
+Both pages retain the same boss review structure: metric tiles, benchmark
+context, loadout and execution plans, **Do not**, **Raid ask**, your full gear,
+the recorded overall top-five table, and full gear cards for those Hunters.
+The report adds execution, target-share, raid-speed and evidence drilldowns;
+the playbook adds the review checklist. Overall rows remain context, while
+same-faction data drives the primary comparison.
+
+The overview includes global setup, faction corrections, the Truth model and
+an at-a-glance raid sheet. **Current %** is the percentile against the rankings
+at export time (`today_percent`), rather than a live update. **Ammo** and cited
+encounter knowledge are general game advice; they do not establish what this
+Hunter equipped or which phase a log event belongs to. Source links open online
+only when you follow them; rendering and browsing the pages make no automatic
+network requests.
+
 ## Choose a fair comparison
 
 Top-level `subject`, `zone`, and `snapshot` identify the character, raid, and

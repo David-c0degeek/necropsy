@@ -1,0 +1,439 @@
+# Classic Era game data used by Necropsy, extracted by scripts/game_data.py.
+# Source: the game's client data tables, build 1.15.9.70003 (wow_classic_era), via wago.tools.
+# Only rows the snapshot's Hunters wear, their item sets, and endgame ammunition.
+version: 1
+source:
+  provider: wago.tools DB2 exports of the game client data
+  product: wow_classic_era
+  build: 1.15.9.70003
+  tables:
+  - Item
+  - ItemSparse
+  - ItemSet
+  - SpellItemEnchantment
+  - ItemEffect
+  url_template: https://wago.tools/db2/{table}/csv?build={build}
+items:
+- id: 127
+  name: Trapper's Shirt
+  slot: shirt
+- id: 148
+  name: Rugged Trapper's Shirt
+  slot: shirt
+- id: 859
+  name: Fine Cloth Shirt
+  slot: shirt
+- id: 2575
+  name: Red Linen Shirt
+  slot: shirt
+- id: 3427
+  name: Stylish Black Shirt
+  slot: shirt
+- id: 4333
+  name: Dark Silk Shirt
+  slot: shirt
+- id: 4335
+  name: Rich Purple Silk Shirt
+  slot: shirt
+- id: 4336
+  name: Black Swashbuckler's Shirt
+  slot: shirt
+- id: 5107
+  name: Deckhand's Shirt
+  slot: shirt
+- id: 5976
+  name: Guild Tabard
+  slot: tabard
+- id: 6385
+  name: Stylish Green Shirt
+  slot: shirt
+- id: 10056
+  name: Orange Mageweave Shirt
+  slot: shirt
+- id: 11284
+  name: Accurate Slugs
+  slot: ammo
+  ammo: bullet
+- id: 11285
+  name: Jagged Arrow
+  slot: ammo
+  ammo: arrow
+- id: 11630
+  name: Rockshard Pellets
+  slot: ammo
+  ammo: bullet
+- id: 11840
+  name: Master Builder's Shirt
+  slot: shirt
+- id: 12654
+  name: Doomshot
+  slot: ammo
+  ammo: arrow
+- id: 13209
+  name: Seal of the Dawn
+  slot: trinket
+- id: 13377
+  name: Miniature Cannon Balls
+  slot: ammo
+  ammo: bullet
+- id: 13965
+  name: Blackhand's Breadth
+  slot: trinket
+- id: 14617
+  name: Sawbones Shirt
+  slot: shirt
+- id: 15198
+  name: Knight's Colors
+  slot: tabard
+- id: 15199
+  name: Stone Guard's Herald
+  slot: tabard
+- id: 15997
+  name: Thorium Shells
+  slot: ammo
+  ammo: bullet
+- id: 16463
+  name: Marshal's Chain Grips
+  slot: hands
+- id: 16571
+  name: General's Chain Gloves
+  slot: hands
+- id: 16852
+  name: Giantstalker's Gloves
+  slot: hands
+- id: 16939
+  name: Dragonstalker's Helm
+  slot: head
+- id: 17063
+  name: Band of Accuria
+  slot: finger
+- id: 17102
+  name: Cloak of the Shrouded Mists
+  slot: back
+- id: 18042
+  name: Thorium Headed Arrow
+  slot: ammo
+  ammo: arrow
+- id: 18404
+  name: Onyxia Tooth Pendant
+  slot: neck
+- id: 18473
+  name: Royal Seal of Eldre'Thalas
+  slot: trinket
+- id: 18832
+  name: Brutality Blade
+  slot: one-hand
+- id: 19031
+  name: Frostwolf Battle Tabard
+  slot: tabard
+- id: 19032
+  name: Stormpike Battle Tabard
+  slot: tabard
+- id: 19083
+  name: Frostwolf Legionnaire's Cloak
+  slot: back
+- id: 19316
+  name: Ice Threaded Arrow
+  slot: ammo
+  ammo: arrow
+- id: 19317
+  name: Ice Threaded Bullet
+  slot: ammo
+  ammo: bullet
+- id: 19361
+  name: Ashjre'thul, Crossbow of Smiting
+  slot: ranged
+  ranged_type: crossbow
+  uses_ammo: arrow
+- id: 19377
+  name: Prestor's Talisman of Connivery
+  slot: neck
+- id: 19384
+  name: Master Dragonslayer's Ring
+  slot: finger
+- id: 19406
+  name: Drake Fang Talisman
+  slot: trinket
+- id: 19506
+  name: Silverwing Battle Tabard
+  slot: tabard
+- id: 19859
+  name: Fang of the Faceless
+  slot: one-hand
+- id: 19865
+  name: Warblade of the Hakkari
+  slot: main-hand
+- id: 19953
+  name: Renataki's Charm of Beasts
+  slot: trinket
+  on_use:
+    spell: 24531
+    cooldown_ms: 180000
+    category: 1141
+    category_cooldown_ms: 10000
+- id: 21134
+  name: Dark Edge of Insanity
+  slot: two-hand
+- id: 21180
+  name: Earthstrike
+  slot: trinket
+  on_use:
+    spell: 25891
+    cooldown_ms: 120000
+    category: 1141
+    category_cooldown_ms: 20000
+- id: 21205
+  name: Signet Ring of the Bronze Dragonflight
+  slot: finger
+- id: 21244
+  name: Blessed Qiraji Pugio
+  slot: one-hand
+- id: 21370
+  name: Striker's Hauberk
+  slot: chest
+- id: 21579
+  name: Vanquished Tentacle of C'Thun
+  slot: trinket
+  on_use:
+    spell: 26391
+    cooldown_ms: 180000
+    category: 0
+    category_cooldown_ms: -1
+- id: 21635
+  name: Barb of the Sand Reaver
+  slot: two-hand
+- id: 21664
+  name: Barbed Choker
+  slot: neck
+- id: 21670
+  name: Badge of the Swarmguard
+  slot: trinket
+  on_use:
+    spell: 26480
+    cooldown_ms: 180000
+    category: 0
+    category_cooldown_ms: -1
+- id: 21710
+  name: Cloak of the Fallen God
+  slot: back
+- id: 22436
+  name: Cryptstalker Tunic
+  slot: chest
+- id: 22437
+  name: Cryptstalker Legguards
+  slot: legs
+- id: 22438
+  name: Cryptstalker Headpiece
+  slot: head
+- id: 22439
+  name: Cryptstalker Spaulders
+  slot: shoulder
+- id: 22440
+  name: Cryptstalker Boots
+  slot: feet
+- id: 22441
+  name: Cryptstalker Handguards
+  slot: hands
+- id: 22442
+  name: Cryptstalker Girdle
+  slot: waist
+- id: 22443
+  name: Cryptstalker Wristguards
+  slot: wrist
+- id: 22802
+  name: Kingsfall
+  slot: one-hand
+- id: 22804
+  name: Maexxna's Fang
+  slot: one-hand
+- id: 22812
+  name: Nerubian Slavemaker
+  slot: ranged
+  ranged_type: crossbow
+  uses_ammo: arrow
+- id: 22816
+  name: Hatchet of Sundered Bone
+  slot: one-hand
+- id: 22961
+  name: Band of Reanimation
+  slot: finger
+- id: 22999
+  name: Tabard of the Argent Dawn
+  slot: tabard
+- id: 23014
+  name: Iblis, Blade of the Fallen Seraph
+  slot: one-hand
+- id: 23023
+  name: Sadist's Collar
+  slot: neck
+- id: 23030
+  name: Cloak of the Scourge
+  slot: back
+- id: 23039
+  name: The Eye of Nerub
+  slot: two-hand
+- id: 23041
+  name: Slayer's Crest
+  slot: trinket
+  on_use:
+    spell: 28777
+    cooldown_ms: 120000
+    category: 1141
+    category_cooldown_ms: 20000
+- id: 23044
+  name: Harbinger of Doom
+  slot: one-hand
+- id: 23053
+  name: Stormrage's Talisman of Seething
+  slot: neck
+- id: 23067
+  name: Ring of the Cryptstalker
+  slot: finger
+- id: 23071
+  name: Leggings of Apocalypse
+  slot: legs
+- id: 23192
+  name: Tabard of the Scarlet Crusade
+  slot: tabard
+- id: 23206
+  name: Mark of the Champion
+  slot: trinket
+- id: 23242
+  name: Claw of the Frost Wyrm
+  slot: off-hand
+- id: 23570
+  name: Jom Gabbar
+  slot: trinket
+  on_use:
+    spell: 29602
+    cooldown_ms: 120000
+    category: 1141
+    category_cooldown_ms: 20000
+- id: 191481
+  name: Tabard of Mastery
+  slot: tabard
+item_sets:
+- id: 206
+  name: Giantstalker Armor
+  items:
+  - 16845
+  - 16846
+  - 16847
+  - 16848
+  - 16849
+  - 16850
+  - 16851
+  - 16852
+- id: 215
+  name: Dragonstalker Armor
+  items:
+  - 16935
+  - 16936
+  - 16937
+  - 16938
+  - 16939
+  - 16940
+  - 16941
+  - 16942
+- id: 395
+  name: Field Marshal's Pursuit
+  items:
+  - 16462
+  - 16463
+  - 16465
+  - 16466
+  - 16467
+  - 16468
+- id: 396
+  name: Warlord's Pursuit
+  items:
+  - 16565
+  - 16566
+  - 16567
+  - 16568
+  - 16569
+  - 16571
+- id: 461
+  name: The Twin Blades of Hakkari
+  items:
+  - 19865
+  - 19866
+- id: 477
+  name: Predator's Armor
+  items:
+  - 19621
+  - 19831
+  - 19832
+  - 19833
+  - 19953
+- id: 509
+  name: Striker's Garb
+  items:
+  - 21365
+  - 21366
+  - 21367
+  - 21368
+  - 21370
+- id: 530
+  name: Cryptstalker Armor
+  items:
+  - 22436
+  - 22437
+  - 22438
+  - 22439
+  - 22440
+  - 22441
+  - 22442
+  - 22443
+  - 23067
+enchants:
+- id: 247
+  name: Agility +1
+- id: 564
+  name: Windfury Totem 3
+- id: 664
+  name: Scope (+7 Damage)
+- id: 849
+  name: Agility +3
+- id: 911
+  name: Minor Speed Increase
+- id: 928
+  name: All Stats +3
+- id: 1643
+  name: Sharpened +8
+- id: 1883
+  name: Intellect +7
+- id: 1886
+  name: Stamina +9
+- id: 1887
+  name: Agility +7
+- id: 1891
+  name: All Stats +4
+- id: 1892
+  name: Health +100
+- id: 2506
+  name: Critical +2%
+- id: 2523
+  name: +3% Hit
+- id: 2564
+  name: Agility +15
+- id: 2565
+  name: Mana Regen 4 per 5 sec.
+- id: 2586
+  name: Ranged Attack Power +24/Stamina +10/Hit +1%
+- id: 2606
+  name: +30 Attack Power
+- id: 2625
+  name: Lesser Mana Oil
+- id: 2628
+  name: Brilliant Wizard Oil
+- id: 2629
+  name: Brilliant Mana Oil
+- id: 2646
+  name: Agility +25
+- id: 2684
+  name: +100 Attack Power vs Undead
+- id: 2716
+  name: Stamina +16 and Armor +100
+- id: 2717
+  name: Attack Power +26 and +1% Critical Strike

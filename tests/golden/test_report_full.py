@@ -63,8 +63,8 @@ def test_full_report_in_a_browser(site: Path) -> None:
             page.goto((site / name).as_uri())
             assert page.locator("section.boss").count() == 15
             links = page.locator("nav.sidenav a")
-            assert links.count() == 16
-            for i in range(1, 16):
+            assert links.count() == 17
+            for i in range(17):
                 href = links.nth(i).get_attribute("href")
                 assert href is not None and page.locator(href).count() == 1
         browser.close()

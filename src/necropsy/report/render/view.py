@@ -340,6 +340,7 @@ class BossView:
     playbook: tuple[PlaybookGroup, ...]
     counts_by_control: tuple[tuple[str, int], ...]
     top_severity: str
+    reference: Mapping[str, Any] | None = None
 
     @property
     def limit_summary(self) -> str:
@@ -368,6 +369,7 @@ class DocumentView:
     bosses: tuple[BossView, ...]
     total_cards: int
     controls: tuple[str, ...] = field(default_factory=tuple)
+    reference: Mapping[str, Any] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -652,7 +654,7 @@ def _distribution_top(
 def _item_names(document: Mapping[str, Any]) -> dict[str, str]:
     names: dict[str, str] = {}
     for boss in document["bosses"]:
-        for entry in [boss.get("subject"), *boss.get("cohort", [])]:
+        for entry in [boss.get("subject"), *(boss.get("overall_cohort") or boss.get("cohort", []))]:
             if not entry:
                 continue
             gear = entry["environment"].get("gear", {})
@@ -872,6 +874,9 @@ def _boss(
     analysis_sha: str,
     names: Mapping[str, str],
 ) -> BossView:
+    from necropsy.report.render.playbook_view import boss_view
+
+    reference = boss_view(boss, names, analysis_sha, document)
     eid = int(boss["encounter_id"])
     anchor = f"boss-{eid}"
     subject = boss.get("subject")
@@ -921,6 +926,7 @@ def _boss(
             (),
             (),
             "none",
+            reference=reference,
         )
     hunter = subject["hunter"]
     medians = baseline["medians"] if baseline else {}
@@ -1121,10 +1127,13 @@ def _boss(
         playbook=tuple(playbook),
         counts_by_control=tuple(sorted(controls.items())),
         top_severity=top,
+        reference=reference,
     )
 
 
 def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentView:
+    from necropsy.report.render.playbook_view import overview_view
+
     names = _item_names(document)
     bosses = tuple(_boss(document, b, analysis_sha, names) for b in document["bosses"])
     subject = document["subject"]
@@ -1152,6 +1161,7 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
         ),
         bosses=bosses,
         total_cards=sum(len(b.cards) for b in bosses),
+        reference=overview_view(document),
     )
 
 

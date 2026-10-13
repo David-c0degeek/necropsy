@@ -1,0 +1,89 @@
+# Execution guidance for Naxxramas (Classic Era): general advice, not observation.
+#
+# Each item reasons from cited facts and names them in `based_on`: timing keys
+# from naxxramas_facts.yaml, and `rapid_fire` / `refocus` / `pet` from the
+# cooldown and pet facts in hunter.yaml. None of it says that a log showed a
+# phase or a window; observed timings are reported separately.
+#
+# `when` names a condition the analysis evaluates from the snapshot:
+#   kill_within_rapid_fire_cooldown  the subject's kill is shorter than Rapid Fire's
+#                                    cooldown as the subject's worn sets leave it
+#   non_boss_ranked_damage           the same-faction median share of ranked damage
+#                                    on targets other than the boss reaches
+#                                    `non_boss_share_min_pct`
+#   refocus_shares_trinket_lockout   the subject wears Renataki's Charm with another
+#                                    on-use trinket of the same cooldown category
+# A true condition shows `text`; a false one shows `otherwise`, or marks the item
+# inapplicable when there is none; an unknown one shows both, as conditional.
+version: 1
+rule: naxx-execution-v1
+non_boss_share_min_pct: 5.0
+
+general:
+  - key: one-rapid-fire
+    when: kill_within_rapid_fire_cooldown
+    text: "With no cooldown reset, this kill is shorter than Rapid Fire's cooldown, so it allows one use: spend it where it covers the most ranked damage."
+    otherwise: "This kill is longer than Rapid Fire's cooldown: a pull use comes back before the end, so a second use is possible."
+    based_on: [rapid_fire]
+  - key: refocus-after-specials
+    text: "Refocus clears the cooldowns of Aimed Shot, Multi-Shot, Volley and Arcane Shot. It gains most right after Aimed Shot and Multi-Shot have both been used; resetting only one still gains that shot."
+    based_on: [refocus]
+  - key: refocus-trinket-lockout
+    when: refocus_shares_trinket_lockout
+    text: "Renataki's Charm shares a cooldown category with your other on-use trinket: using Refocus locks that trinket for 10 s, and using that trinket locks Refocus for its own category time."
+    based_on: [refocus]
+
+encounters:
+  51118:  # Patchwerk
+    - key: rapid-fire-at-pull
+      text: "Patchwerk is a single target with no phase transition before Berserk at 7:00: an early Rapid Fire is a useful baseline. Coordinate its window with your raid buffs and on-use trinkets rather than assuming the pull is always optimal."
+      based_on: [berserk, rapid_fire]
+  51120:  # Thaddius
+    - key: no-cooldowns-into-transition
+      text: "Avoid starting Rapid Fire into the 15–20 s transition between the wights dying and Thaddius becoming active. Refocus is an instant reset: review whether the specials were consumed and will be ready for the next damage window; a transition alone does not waste the reset."
+      based_on: [wights, transition, rapid_fire, refocus]
+    - key: rapid-fire-phase
+      when: non_boss_ranked_damage
+      text: "Stalagg and Feugen carry a real share of ranked damage in this cohort, so Rapid Fire at the pull on the wights is not wasted."
+      otherwise: "Almost all ranked damage in this cohort is on Thaddius himself: hold Rapid Fire for him, after the transition."
+      based_on: [wights, transition, rapid_fire]
+  51115:  # Loatheb
+    - key: spore-window
+      text: "A killed spore gives up to five players +50% critical strike chance for 90 s: line Rapid Fire and on-use trinkets up with your group's spore."
+      based_on: [spores, rapid_fire]
+  51117:  # Noth
+    - key: before-first-teleport
+      text: "Noth teleports to the balcony 90 s after the pull: Rapid Fire at the pull ends long before that."
+      based_on: [first_teleport, rapid_fire]
+  51109:  # Gothik
+    - key: waves-or-boss
+      when: non_boss_ranked_damage
+      text: "Wave adds carry a real share of ranked damage in this cohort and Gothik lands only at 4:34: spend Rapid Fire on a wave rather than holding it for him."
+      otherwise: "Almost all ranked damage in this cohort is on Gothik himself: hold Rapid Fire until he lands at 4:34."
+      based_on: [waves, lands, rapid_fire]
+  51116:  # Maexxna
+    - key: around-web-spray
+      text: "Web Spray at 40 s (then every 40 s) incapacitates everyone for 8 s: Rapid Fire at the pull ends before it, and a later one should not overlap a spray."
+      based_on: [web_spray, rapid_fire]
+  51119:  # Sapphiron
+    - key: before-air-phase
+      text: "The first air phase starts 45 s after the pull: Rapid Fire and a first Refocus both fit before it."
+      based_on: [air_phase, rapid_fire, refocus]
+  # Kel'Thuzad: no item. Every recorded kill's logged fight damages him within the
+  # first second, so logged fight time starts at phase two, not at the 5:10 pull
+  # timing of the facts page; advice keyed to that timing would mislead.
+  51121:  # Four Horsemen
+    - key: shield-wall
+      text: "Each Horseman casts Shield Wall at 50% and 20% health for 20 s: avoid starting Rapid Fire on a Horseman about to shield."
+      based_on: [shield_wall, rapid_fire]
+
+# Pet survival: general advice, never the subject's own pet training.
+pet:
+  51108:  # Gluth
+    - key: decimate-spares-pets
+      text: "Decimate does not affect pets, so it is not a reason to dismiss the pet."
+      based_on: [decimate]
+  51119:  # Sapphiron
+    - key: frost-resistance
+      text: "Frost Aura deals 600 frost damage every 2 s and can be partially resisted: give the pet Frost Resistance (up to +120 at rank 4)."
+      based_on: [frost_aura, pet]

@@ -60,6 +60,7 @@ Heuristic advice is a prompt to investigate, not a promise of extra DPS.
 |---|---|
 | Run an analysis or solve a setup problem | [Getting started](docs/getting-started.md) |
 | Understand benchmarks and recommendations | [Reading results](docs/reading-results.md) |
+| Sign in to WCL or resolve a character URL | [Warcraft Logs connection](docs/warcraft-logs.md) |
 | Consume the JSON output | [Analysis JSON](docs/analysis-json.md) |
 | Inspect events, coverage, or evidence | [Evidence model](docs/evidence-model.md) · [Database](docs/database.md) |
 | Understand Hunter-specific rules | [Hunter analysis](docs/hunter-analysis.md) |

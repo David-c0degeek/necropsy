@@ -2,10 +2,15 @@
 {% from "macros.html.j2" import val, card %}
 {% block title %}Report · {{ doc.title }} · Necropsy{% endblock %}
 {% block main %}
-<section id="overview" aria-labelledby="overview-title">
+<section id="overview" class="hero" aria-labelledby="overview-title">
+  <div class="eyebrow">Hunter forensics · faction-aware comparisons</div>
   <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} report</h1>
   <p class="lede">{{ doc.realm }} · {{ doc.mode }} mode · {{ doc.scope }} snapshot · {{ doc.total_cards }} findings across {{ doc.bosses|length }} bosses</p>
   <p class="caveat">Compared with players of your faction inside the recorded top five per boss — a small sample, not a full leaderboard.</p>
+  <div class="badges">{% for badge in doc.reference.badges %}<span class="badge">{{ badge }}</span>{% endfor %}</div>
+</section>
+{% include "reference-overview.html.j2" %}
+<section class="global" aria-label="Snapshot and review overview">
   <div class="disclosures">
     <details>
       <summary>How this comparison was formed</summary>
@@ -40,10 +45,8 @@
 
 {% for boss in doc.bosses %}
 <section class="boss" id="{{ boss.anchor }}" aria-labelledby="{{ boss.anchor }}-title">
-  <div class="boss-head">
-    <h2 id="{{ boss.anchor }}-title" tabindex="-1">{{ boss.name }}</h2>
-    <span class="facts">Kill {{ boss.kill_s }} · ranked DPS {{ boss.ranked_dps }}</span>
-  </div>
+  {% set boss_number = loop.index %}
+  {% include "reference-boss.html.j2" %}
   {% if boss.limits %}
   <div class="panel limits"><h3>Data limits</h3><ul>{% for l in boss.limits %}<li>{{ l }}</li>{% endfor %}</ul></div>
   {% endif %}
@@ -89,7 +92,7 @@
     <summary>Cast timeline ({{ boss.timeline_total }} casts)</summary>
     <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Cast timeline" tabindex="0">
       <table>
-        <caption>Seconds from the pull.{% if boss.timeline_total > boss.timeline|length %} First {{ boss.timeline|length }} shown; the rest are in analysis.json.{% endif %}</caption>
+        <caption>Seconds from the selected logged fight's start. Static encounter timers can use a different time origin.{% if boss.timeline_total > boss.timeline|length %} First {{ boss.timeline|length }} shown; the rest are in analysis.json.{% endif %}</caption>
         <thead><tr><th scope="col" class="num">Time (s)</th><th scope="col">Cast</th></tr></thead>
         <tbody>{% for c in boss.timeline %}<tr><td class="num">{{ c.t_s }}</td><td>{{ c.kind }}</td></tr>{% endfor %}</tbody>
       </table>

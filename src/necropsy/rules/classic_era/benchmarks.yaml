@@ -33,3 +33,14 @@ recommendations:
   pet_stop_early_s: 3.0     # last pet damage more than 3 s before the kill
   foreign_share_pct: 25.0   # cohort median foreign-target share for "padding"
   subject_foreign_max_pct: 5.0
+
+playbook:
+  rule_set: playbook-v1
+  # An other-faction entry counts as a "melee package" (context, not a benchmark)
+  # when Windfury was confirmed or it swung in melee at least this often.
+  melee_package_min_swings: 5
+  heavy_raptors: 5
+  opener_casts: 8
+  pet_stop_early_s: 3.0
+  # Cohort median share of damage to non-encounter targets that marks padded parses.
+  padding_share_pct: 25.0

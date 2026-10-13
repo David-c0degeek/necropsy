@@ -15,6 +15,7 @@ import duckdb
 from pydantic import AfterValidator, BaseModel, ConfigDict, Field, model_validator
 
 from necropsy import __version__
+from necropsy.analysis import gamedata
 from necropsy.analysis.benchmark import (
     BossData,
     Entry,
@@ -28,9 +29,11 @@ from necropsy.analysis.benchmark import (
 )
 from necropsy.analysis.encounters.findings import raid_utility, target_integrity
 from necropsy.analysis.evidence import Claim, EvidenceLevel
+from necropsy.analysis.generic.catalog import ItemName, item_catalog, rank_percent
+from necropsy.analysis.overview import build as build_overview
+from necropsy.analysis.playbook import build as build_playbook
 from necropsy.analysis.recommendations import Controllability, Tier, recommend
 from necropsy.report.serialize import to_data
-from necropsy.rules import load_rules
 
 SCHEMA_ID = "necropsy.analysis"
 SCHEMA_VERSION = 1
@@ -180,6 +183,9 @@ class EntrySection(_Strict):
     raptor_roles: EvidenceTree
     hunter: EvidenceTree
     pets_listed: bool | None = None
+    set_pieces: list[dict[str, Any]] | None = None
+    set_armor: list[dict[str, Any]] | None = None
+    """Item sets worn with two or more pieces (game client data); absent in older documents."""
     """Whether the export listed this Hunter's pets; None in documents written before
     this field existed (read as unknown)."""
 
@@ -210,6 +216,9 @@ class Benchmarks(_Strict):
     raid_speed: EvidenceTree | None
     cross_faction: CrossFaction | None
     excluded: Excluded | None
+    overall_top: EvidenceTree | None = None
+    """Recorded leaderboard rank 1, any faction (absent in older documents)."""
+    faction_mix: dict[str, Any] | None = None
 
 
 class EncounterFindings(_Strict):
@@ -254,6 +263,10 @@ class BossSection(_Strict):
     encounter: EncounterFindings
     cohort: list[EntrySection]
     recommendations: list[RecommendationSection]
+    overall_cohort: list[EntrySection] | None = None
+    playbook: dict[str, Any] | None = None
+    """Structured playbook decisions (rule set playbook-v1); absent in older documents."""
+    """Every recorded leaderboard row, any faction, for context (absent in older documents)."""
 
 
 class AnalysisDocument(_Strict):
@@ -270,22 +283,91 @@ class AnalysisDocument(_Strict):
     cohort: CohortInfo
     coverage: CoverageSummary
     bosses: list[BossSection]
+    overview: EvidenceTree | None = None
+    """Zone-wide summaries (rule set overview-v1); absent in older documents."""
+    game_data: dict[str, Any] | None = None
+    """Where the static item/set/enchant data comes from (game client build)."""
 
 
-def _item_names() -> dict[int, str]:
-    data = load_rules(GAME, "items")
-    return {int(i["id"]): str(i["name"]) for i in data["items"]}
+Names = dict[int, ItemName]
 
 
-def _gear(items: Any, names: dict[int, str]) -> Any:
+def _gear(items: Any, names: Names) -> Any:
     if not isinstance(items, list):
         return items
+    out = []
+    for g in items:
+        if not isinstance(g, dict):
+            out.append(g)
+            continue
+        found = names.get(int(g["item_id"]))
+        out.append(
+            {
+                **g,
+                "name": None if found is None else found.name,
+                "name_source": "none" if found is None else found.source,
+                "name_note": None if found is None else found.note,
+                "enchant_name": gamedata.enchant_names().get(int(g.get("permanent_enchant") or 0)),
+                "temporary_enchant_name": gamedata.enchant_names().get(
+                    int(g.get("temporary_enchant") or 0)
+                ),
+            }
+        )
+    return out
+
+
+def _set_pieces(e: Entry) -> list[dict[str, Any]] | None:
+    gear = e.profile.gear.value
+    if gear is None:
+        return None
     return [
-        {**g, "name": names.get(int(g["item_id"]))} if isinstance(g, dict) else g for g in items
+        {"set": name, "pieces": n}
+        for name, n in gamedata.set_pieces(g.item_id for g in gear if g.item_id)
     ]
 
 
-def _entry(e: Entry, names: dict[int, str], detail: bool) -> dict[str, Any]:
+def _set_armor(e: Entry) -> list[dict[str, Any]] | None:
+    gear = e.profile.gear.value
+    if gear is None:
+        return None
+    return [to_data(s) for s in gamedata.set_armor(g.item_id for g in gear if g.item_id)]
+
+
+def _overall_top(boss: BossData) -> dict[str, Any] | None:
+    """Rank 1 of the recorded leaderboard, whatever its faction; None if not recorded."""
+    first = [e for e in boss.cohort if e.participant.leaderboard_position == 1]
+    if len(first) != 1:
+        return None
+    e = first[0]
+    return {
+        "player": e.participant.player,
+        "leaderboard_position": 1,
+        "faction": to_data(e.profile.faction),
+        "ranked_dps": None if e.ranked_dps is None else round(e.ranked_dps, 6),
+        "kill_duration_s": e.participant.duration_ms / 1000.0,
+    }
+
+
+def _faction_mix(boss: BossData, split: Any) -> dict[str, Any]:
+    by: dict[str, int] = {}
+    inferred = 0
+    for e in boss.cohort:
+        faction = e.profile.faction
+        key = "unknown" if faction.value is None else str(faction.value.value)
+        by[key] = by.get(key, 0) + 1
+        if faction.level is EvidenceLevel.INFERRED:
+            inferred += 1
+    return {
+        "recorded_entries": len(boss.cohort),
+        "by_faction": dict(sorted(by.items())),
+        "inferred_faction_entries": inferred,
+        "same_faction": None if split is None else len(split.same_faction),
+        "other_faction": None if split is None else len(split.other_faction),
+        "unknown_faction": None if split is None else len(split.unknown_faction),
+    }
+
+
+def _entry(e: Entry, names: Names, detail: bool, percent: Any = None) -> dict[str, Any]:
     pf = e.participant
     hunter = to_data(e.hunter)
     hunter.pop("participant", None)
@@ -306,15 +388,21 @@ def _entry(e: Entry, names: dict[int, str], detail: bool) -> dict[str, Any]:
         "fight_id": pf.fight_id,
         "kill_duration_s": pf.duration_ms / 1000.0,
         "environment": env,
-        "ranking": {**to_data(e.ranking), "ranked_dps": None if dps is None else round(dps, 6)},
+        "ranking": {
+            **to_data(e.ranking),
+            "ranked_dps": None if dps is None else round(dps, 6),
+            "rank_percent": None if percent is None else to_data(percent),
+        },
         "raptor_roles": to_data(e.raptor_roles),
         "pets_listed": e.pets_listed,
+        "set_pieces": _set_pieces(e),
+        "set_armor": _set_armor(e),
         "hunter": hunter,
     }
 
 
 def _boss(
-    con: duckdb.DuckDBPyConnection, boss: BossData, cross_faction: bool, names: dict[int, str]
+    con: duckdb.DuckDBPyConnection, boss: BossData, cross_faction: bool, names: Names
 ) -> dict[str, Any]:
     split = split_by_faction(boss)
     subject = boss.subject
@@ -340,9 +428,12 @@ def _boss(
         "raid_speed": None,
         "cross_faction": None,
         "excluded": None,
+        "overall_top": _overall_top(boss),
+        "faction_mix": _faction_mix(boss, split),
     }
     recommendations: list[dict[str, Any]] = []
     cohort_rows: list[Entry] = []
+    playbook: Any = None
     if subject is not None:
         encounter["raid_utility"] = to_data(raid_utility(subject.hunter))
     if subject is not None and split is not None:
@@ -404,20 +495,37 @@ def _boss(
                 raid_utility(subject.hunter),
                 integrity_subject,
                 shares,
-                names,
+                {i: n.name for i, n in names.items() if n.name},
             )
         ]
         encounter["cohort_median_foreign_share_pct"] = (
             statistics.median(shares) if len(shares) >= 3 else None
         )
+        playbook = build_playbook(
+            boss,
+            split.same_faction,
+            split.other_faction,
+            base,
+            comparator,
+            speed,
+            raid_utility(subject.hunter),
+            integrity_subject,
+            encounter["cohort_median_foreign_share_pct"],
+        )
     return {
         "encounter_id": boss.encounter_id,
         "boss": boss.boss,
         "rules": rules,
-        "subject": None if subject is None else _entry(subject, names, detail=True),
+        "subject": None
+        if subject is None
+        else _entry(subject, names, detail=True, percent=rank_percent(con, subject.participant)),
         "benchmarks": benchmarks,
         "encounter": encounter,
         "cohort": [_entry(e, names, detail=False) for e in cohort_rows],
+        # Every recorded leaderboard row, any faction: context only. Baselines,
+        # ceilings and recommendations still use the same-faction cohort.
+        "overall_cohort": [_entry(e, names, detail=False) for e in boss.cohort],
+        "playbook": to_data(playbook),
         "recommendations": recommendations,
     }
 
@@ -442,8 +550,9 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
                   (SELECT count(*) FROM snapshot_issues) FROM stream_coverage"""
     ).fetchone()
     assert cov is not None
-    names = _item_names()
-    bosses = [_boss(con, b, cross_faction, names) for b in load_bosses(con, GAME, ZONE)]
+    names = item_catalog(con)
+    boss_data = load_bosses(con, GAME, ZONE)
+    bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     document = {
         "schema_id": SCHEMA_ID,
         "schema_version": SCHEMA_VERSION,
@@ -478,6 +587,8 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
             "snapshot_issues": cov[3],
         },
         "bosses": bosses,
+        "overview": to_data(build_overview(boss_data)),
+        "game_data": gamedata.source(),
     }
     AnalysisDocument.model_validate(document)
     return document

@@ -77,6 +77,32 @@
             }
           ]
         },
+        "faction_mix": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Faction Mix"
+        },
+        "overall_top": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Overall Top"
+        },
         "raid_speed": {
           "anyOf": [
             {
@@ -159,6 +185,34 @@
         "encounter_id": {
           "title": "Encounter Id",
           "type": "integer"
+        },
+        "overall_cohort": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/EntrySection"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Overall Cohort"
+        },
+        "playbook": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Playbook"
         },
         "recommendations": {
           "items": {
@@ -543,6 +597,38 @@
             }
           ],
           "title": "Server"
+        },
+        "set_armor": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Set Armor"
+        },
+        "set_pieces": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Set Pieces"
         }
       },
       "required": [
@@ -1042,6 +1128,19 @@
     "coverage": {
       "$ref": "#/$defs/CoverageSummary"
     },
+    "game_data": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Game Data"
+    },
     "mode": {
       "const": "historical",
       "title": "Mode",
@@ -1053,6 +1152,19 @@
     },
     "options": {
       "$ref": "#/$defs/Options"
+    },
+    "overview": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Overview"
     },
     "schema_id": {
       "const": "necropsy.analysis",

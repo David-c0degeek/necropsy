@@ -90,3 +90,126 @@ non_hunter_pets:
   - {game_id: 164875, name: Mire Runestag, category: other}
   - {game_id: 11200, name: Summoned Skeleton, category: other}
   - {game_id: 16111, name: Love Fool, category: other}
+
+# Recommended endgame ammunition (general advice, not observed in any log: the
+# export records no ammunition). Arrows fit bows and crossbows, bullets fit guns;
+# the ranged weapon's ammunition type comes from game_data.yaml.
+# Sources: https://warcraft.wiki.gg/wiki/Arrow , https://warcraft.wiki.gg/wiki/Bullet
+# (retrieved 2026-10-13); user statement 2026-10-13: "Doomshot is the HIGHEST
+# end-game ammunition for wow classic era, so any parser trying to go for top
+# rank should use it."
+ammunition_advice:
+  rule: ammo-advice-v1
+  arrow: {id: 12654, name: Doomshot, dps_bonus: 20.0, source: "https://warcraft.wiki.gg/wiki/Arrow"}
+  bullet: {id: 13377, name: Miniature Cannon Balls, dps_bonus: 20.5, source: "https://warcraft.wiki.gg/wiki/Bullet"}
+
+# Cooldown facts read from the game client data (wow_classic_era 1.15.9.70003,
+# wago.tools tables Spell, SpellMisc, SpellDuration, SpellCooldowns, SpellEffect,
+# ItemEffect, ItemSetSpell). Modifiers are set bonuses that change them; the
+# analysis applies one only when the worn set reaches its threshold.
+cooldown_facts:
+  rule: hunter-cooldowns-v1
+  source: "game client data, wow_classic_era 1.15.9.70003 (wago.tools DB2)"
+  rapid_fire:
+    spell: 3045
+    duration_s: 15
+    cooldown_s: 300
+    ranged_haste_pct: 40
+    modifiers:
+      - {set_id: 530, set: Cryptstalker Armor, pieces: 2, spell: 28755, duration_s: 4}
+      - {set_id: 509, set: "Striker's Garb", pieces: 5, spell: 26174, cooldown_s: -120}
+  refocus:
+    spell: 24531
+    item: 19953
+    effect: "Instantly clears the cooldowns of Aimed Shot, Multishot, Volley, and Arcane Shot."
+    cooldown_s: 180
+    category: 1141
+    category_cooldown_s: 10
+
+# Hunter pet facts. General knowledge only: how a pet was trained is not in combat
+# logs, so none of this is ever shown as the subject's own pet.
+pet_facts:
+  rule: pet-facts-v1
+  training_points:
+    budget: "pet level x (loyalty level - 1); 300 at level 60, Best Friend (loyalty 6)"
+    max: 300
+    cumulative: true
+    note: >-
+      Training points spent on lower ranks count toward the next rank, so an
+      ability costs its highest rank's points.
+    sources:
+      - https://warcraft.wiki.gg/wiki/Training_point
+      - https://www.warcrafttavern.com/wow-classic/guides/hunter-pet-abilities/
+  # Per-rank training points: Ten Ton Hammer, "WoW Hunter Guide: Pet Passive Skill
+  # List" (2006, patch 1.7 tables). Server-side, not in the client data: a third-party
+  # guide value. Resistance amounts and pet levels match the client data (24446-24449).
+  passive_ranks_source: https://www.tentonhammer.com/guides/wow-hunter-guide-pet-passive-skill-list
+  passive_ranks:
+    great_stamina:
+      - {rank: 1, stamina: 3, pet_level: 10, tp: 5}
+      - {rank: 2, stamina: 5, pet_level: 12, tp: 10}
+      - {rank: 3, stamina: 7, pet_level: 18, tp: 15}
+      - {rank: 4, stamina: 10, pet_level: 24, tp: 25}
+      - {rank: 5, stamina: 13, pet_level: 30, tp: 50}
+      - {rank: 6, stamina: 17, pet_level: 36, tp: 75}
+      - {rank: 7, stamina: 21, pet_level: 42, tp: 100}
+      - {rank: 8, stamina: 26, pet_level: 48, tp: 125}
+      - {rank: 9, stamina: 32, pet_level: 54, tp: 150}
+      - {rank: 10, stamina: 40, pet_level: 60, tp: 185}
+    natural_armor:
+      - {rank: 1, armor: 50, pet_level: 10, tp: 1}
+      - {rank: 2, armor: 100, pet_level: 12, tp: 5}
+      - {rank: 3, armor: 160, pet_level: 18, tp: 10}
+      - {rank: 4, armor: 240, pet_level: 24, tp: 15}
+      - {rank: 5, armor: 330, pet_level: 30, tp: 25}
+      - {rank: 6, armor: 430, pet_level: 36, tp: 50}
+      - {rank: 7, armor: 550, pet_level: 42, tp: 75}
+      - {rank: 8, armor: 675, pet_level: 48, tp: 100}
+      - {rank: 9, armor: 810, pet_level: 54, tp: 125}
+      - {rank: 10, armor: 1000, pet_level: 60, tp: 150}
+    frost_resistance:
+      - {rank: 1, spell: 24446, resistance: 30, pet_level: 20, tp: 5}
+      - {rank: 2, spell: 24447, resistance: 60, pet_level: 30, tp: 15}
+      - {rank: 3, spell: 24448, resistance: 90, pet_level: 40, tp: 45}
+      - {rank: 4, spell: 24449, resistance: 120, pet_level: 50, tp: 90}
+  # Highest-rank training points of active abilities: Wowhead, "Hunter Pets Guide -
+  # WoW Classic" (patch 1.15.8). Growl costs none (warcraft.wiki.gg Training point).
+  active_ranks_source: https://www.wowhead.com/classic/guide/classic-wow-hunter-pets
+  active_ranks:
+    claw: {rank: 8, spell: 3009, pet_level: 56, tp: 25}
+    bite: {rank: 8, spell: 17261, pet_level: 56, tp: 25}
+    dash: {rank: 3, spell: 23110, pet_level: 50, tp: 25}
+    cower: {rank: 6, spell: 16697, pet_level: 55, tp: 18}
+    growl: {rank: null, spell: null, pet_level: null, tp: 0}
+  # Example builds, totalled by the analysis against the 300-point budget.
+  profiles:
+    - {key: reference-frost, label: "Great Stamina 10, Claw 8, Dash 3, Frost Resistance 3",
+       ranks: {great_stamina: 10, claw: 8, dash: 3, frost_resistance: 3}}
+    - {key: frost-max-no-dash, label: "Great Stamina 10, Claw 8, Frost Resistance 4",
+       ranks: {great_stamina: 10, claw: 8, frost_resistance: 4}}
+    - {key: frost-max-stamina-9, label: "Great Stamina 9, Claw 8, Dash 3, Frost Resistance 4",
+       ranks: {great_stamina: 9, claw: 8, dash: 3, frost_resistance: 4}}
+    - {key: frost-max-all, label: "Great Stamina 10, Claw 8, Dash 3, Frost Resistance 4",
+       ranks: {great_stamina: 10, claw: 8, dash: 3, frost_resistance: 4}}
+  # Health / armor / damage multipliers by family: Wowhead "Hunter Pets Guide - WoW
+  # Classic", Pet and Stat Modifiers Table. The guide adds that the difference
+  # between pet categories is under 5%.
+  family_modifiers_source: https://www.wowhead.com/classic/guide/classic-wow-hunter-pets
+  family_modifiers:
+    Bat: {health: 1.00, armor: 1.00, damage: 1.07}
+    Bear: {health: 1.08, armor: 1.05, damage: 0.91}
+    Boar: {health: 1.04, armor: 1.09, damage: 0.90}
+    Carrion Bird: {health: 1.00, armor: 1.05, damage: 1.00}
+    Cat: {health: 0.98, armor: 1.00, damage: 1.10}
+    Crab: {health: 0.96, armor: 1.13, damage: 0.95}
+    Crocolisk: {health: 0.95, armor: 1.10, damage: 1.00}
+    Gorilla: {health: 1.04, armor: 1.00, damage: 1.02}
+    Hyena: {health: 1.00, armor: 1.05, damage: 1.00}
+    Owl: {health: 1.00, armor: 1.00, damage: 1.07}
+    Raptor: {health: 0.95, armor: 1.03, damage: 1.10}
+    Scorpid: {health: 1.00, armor: 1.10, damage: 0.94}
+    Spider: {health: 1.00, armor: 1.00, damage: 1.07}
+    Tallstrider: {health: 1.05, armor: 1.00, damage: 1.00}
+    Turtle: {health: 1.00, armor: 1.13, damage: 0.90}
+    Wind Serpent: {health: 1.00, armor: 1.00, damage: 1.07}
+    Wolf: {health: 1.00, armor: 1.05, damage: 1.00}

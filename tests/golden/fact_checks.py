@@ -427,6 +427,15 @@ def _per_boss_doc_checkers(boss: str) -> dict[str, Checker]:
             and r["environment"]["windfury"]["status"] == "confirmed"
         )
 
+    def today_percent(con: duckdb.DuckDBPyConnection) -> Any:
+        rank = _boss_doc(con, boss)["subject"]["ranking"]["rank_percent"]
+        value = _value(rank)
+        return None if value is None else round(value["today_percent"], 4)
+
+    def overall_top_dps(con: duckdb.DuckDBPyConnection) -> Any:
+        top = _boss_doc(con, boss)["benchmarks"]["overall_top"]
+        return None if top is None else round(top["ranked_dps"], 2)
+
     return {
         "ceiling": ceiling,
         "baseline-medians": medians,
@@ -434,6 +443,8 @@ def _per_boss_doc_checkers(boss: str) -> dict[str, Checker]:
         "weave-adoption": adoption,
         "weave-verdict": verdict,
         "horde-windfury-users": horde_wf,
+        "haplina.today-percent": today_percent,
+        "overall-top-dps": overall_top_dps,
     }
 
 

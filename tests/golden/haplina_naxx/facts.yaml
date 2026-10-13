@@ -2068,8 +2068,8 @@ facts:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Weave
   resolution: 'Reviewed with the user 2026-10-13. Weaving is reported per target role (weave-verdict-v2):
-    on Gothik himself 0/5 entries cast Raptor Strike (no); on adds and other NPCs 2/5 did, 1/5 five
-    or more, which is under the 0.5 share, so also no, with the counts shown. The oracle''s "conditional"
+    on Gothik himself 0/5 entries cast Raptor Strike (no); on adds and other NPCs 2/5 did, 1/5 five or
+    more, which is under the 0.5 share, so also no, with the counts shown. The oracle''s "conditional"
     meant "on adds that reach melee, never on the boss"; that is now expressed by the per-role counts
     (fact gothik-the-harvester.weave-by-role), not by a separate label.'
 - id: gothik-the-harvester.weave-by-role
@@ -2080,8 +2080,14 @@ facts:
   mandatory: true
   status: verified-against-raw
   expected:
-    boss: [0, 0, 5]
-    non_boss: [2, 1, 5]
+    boss:
+    - 0
+    - 0
+    - 5
+    non_boss:
+    - 2
+    - 1
+    - 5
   source:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Gothik the Harvester, Weave (user review 2026-10-13 asked for the per-role split)
@@ -2206,10 +2212,10 @@ facts:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Alliance_Median_*
   resolution: 'The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
-    the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median.
-    User review 2026-10-13: fill from proven Tauren only (rule tauren-fill-v1); none of the three Horde
-    entries qualifies (two of unproven race, one Troll), so the medians stay UNKNOWN. Live mode fetches
-    deeper than the top five instead.'
+    the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median. User
+    review 2026-10-13: fill from proven Tauren only (rule tauren-fill-v1); none of the three Horde entries
+    qualifies (two of unproven race, one Troll), so the medians stay UNKNOWN. Live mode fetches deeper
+    than the top five instead.'
 - id: sapphiron.shot-targets
   statement: 'Sapphiron: Auto/Aimed/Multi targets at Haplina''s kill length are 53–54 / 13–14 / 16–17.'
   mode: historical
@@ -2220,10 +2226,10 @@ facts:
     file: oracle/definitive/boss_playbook_definitive.csv
     locator: Boss=Sapphiron, Alliance_Normalized_Auto_Aimed_Multi_Target
   resolution: 'The same-faction baseline needs at least 3 entries; this boss has 2 Alliance entries in
-    the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median.
-    User review 2026-10-13: fill from proven Tauren only (rule tauren-fill-v1); none of the three Horde
-    entries qualifies (two of unproven race, one Troll), so the medians stay UNKNOWN. Live mode fetches
-    deeper than the top five instead.'
+    the recorded top five, so Necropsy reports the medians as UNKNOWN instead of a two-entry median. User
+    review 2026-10-13: fill from proven Tauren only (rule tauren-fill-v1); none of the three Horde entries
+    qualifies (two of unproven race, one Troll), so the medians stay UNKNOWN. Live mode fetches deeper
+    than the top five instead.'
 - id: sapphiron.weave-adoption
   statement: 'Sapphiron: Alliance entries with at least one / five or more Raptor Strikes.'
   mode: historical
@@ -2415,3 +2421,369 @@ facts:
     locator: sections 1 and 2
   evidence: Computed by fact checker `recommendations.patchwerk-build-and-darkmoon` (tests/golden/fact_checks.py)
     from the full analysis database.
+- id: patchwerk.haplina.today-percent
+  statement: 'Patchwerk: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 96.0319
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, TodayPercent
+  evidence: Computed by fact checker `patchwerk.haplina.today-percent` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: patchwerk.overall-top-dps
+  statement: 'Patchwerk: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1409.79
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Patchwerk, Rank1_DPS
+  evidence: Computed by fact checker `patchwerk.overall-top-dps` (tests/golden/fact_checks.py) from the
+    full analysis document.
+- id: grobbulus.haplina.today-percent
+  statement: 'Grobbulus: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 88.8915
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, TodayPercent
+  evidence: Computed by fact checker `grobbulus.haplina.today-percent` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: grobbulus.overall-top-dps
+  statement: 'Grobbulus: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1518.32
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grobbulus, Rank1_DPS
+  evidence: Computed by fact checker `grobbulus.overall-top-dps` (tests/golden/fact_checks.py) from the
+    full analysis document.
+- id: gluth.haplina.today-percent
+  statement: 'Gluth: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 95.2203
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, TodayPercent
+  evidence: Computed by fact checker `gluth.haplina.today-percent` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: gluth.overall-top-dps
+  statement: 'Gluth: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1433.97
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gluth, Rank1_DPS
+  evidence: Computed by fact checker `gluth.overall-top-dps` (tests/golden/fact_checks.py) from the full
+    analysis document.
+- id: thaddius.haplina.today-percent
+  statement: 'Thaddius: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 95.7037
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, TodayPercent
+  evidence: Computed by fact checker `thaddius.haplina.today-percent` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: thaddius.overall-top-dps
+  statement: 'Thaddius: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 2043.61
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Thaddius, Rank1_DPS
+  evidence: Computed by fact checker `thaddius.overall-top-dps` (tests/golden/fact_checks.py) from the
+    full analysis document.
+- id: noth-the-plaguebringer.haplina.today-percent
+  statement: 'Noth the Plaguebringer: Haplina''s parse percentile against today''s parses at export time
+    (WCL todayPercent).'
+  expected: 95.6988
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, TodayPercent
+  evidence: Computed by fact checker `noth-the-plaguebringer.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: noth-the-plaguebringer.overall-top-dps
+  statement: 'Noth the Plaguebringer: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1522.95
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Noth the Plaguebringer, Rank1_DPS
+  evidence: Computed by fact checker `noth-the-plaguebringer.overall-top-dps` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: heigan-the-unclean.haplina.today-percent
+  statement: 'Heigan the Unclean: Haplina''s parse percentile against today''s parses at export time (WCL
+    todayPercent).'
+  expected: 95.2934
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, TodayPercent
+  evidence: Computed by fact checker `heigan-the-unclean.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: heigan-the-unclean.overall-top-dps
+  statement: 'Heigan the Unclean: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1370.97
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Heigan the Unclean, Rank1_DPS
+  evidence: Computed by fact checker `heigan-the-unclean.overall-top-dps` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: loatheb.haplina.today-percent
+  statement: 'Loatheb: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 93.2414
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, TodayPercent
+  evidence: Computed by fact checker `loatheb.haplina.today-percent` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: loatheb.overall-top-dps
+  statement: 'Loatheb: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1564.61
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Loatheb, Rank1_DPS
+  evidence: Computed by fact checker `loatheb.overall-top-dps` (tests/golden/fact_checks.py) from the
+    full analysis document.
+- id: anub-rekhan.haplina.today-percent
+  statement: 'Anub''Rekhan: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 97.0346
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, TodayPercent
+  evidence: Computed by fact checker `anub-rekhan.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: anub-rekhan.overall-top-dps
+  statement: 'Anub''Rekhan: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1949.64
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Anub'Rekhan, Rank1_DPS
+  evidence: Computed by fact checker `anub-rekhan.overall-top-dps` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: grand-widow-faerlina.haplina.today-percent
+  statement: 'Grand Widow Faerlina: Haplina''s parse percentile against today''s parses at export time
+    (WCL todayPercent).'
+  expected: 98.2804
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, TodayPercent
+  evidence: Computed by fact checker `grand-widow-faerlina.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: grand-widow-faerlina.overall-top-dps
+  statement: 'Grand Widow Faerlina: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1546.79
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Grand Widow Faerlina, Rank1_DPS
+  evidence: Computed by fact checker `grand-widow-faerlina.overall-top-dps` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: maexxna.haplina.today-percent
+  statement: 'Maexxna: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 99.0788
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, TodayPercent
+  evidence: Computed by fact checker `maexxna.haplina.today-percent` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: maexxna.overall-top-dps
+  statement: 'Maexxna: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1650.03
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Maexxna, Rank1_DPS
+  evidence: Computed by fact checker `maexxna.overall-top-dps` (tests/golden/fact_checks.py) from the
+    full analysis document.
+- id: instructor-razuvious.haplina.today-percent
+  statement: 'Instructor Razuvious: Haplina''s parse percentile against today''s parses at export time
+    (WCL todayPercent).'
+  expected: 98.0065
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, TodayPercent
+  evidence: Computed by fact checker `instructor-razuvious.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: instructor-razuvious.overall-top-dps
+  statement: 'Instructor Razuvious: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1347.15
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Instructor Razuvious, Rank1_DPS
+  evidence: Computed by fact checker `instructor-razuvious.overall-top-dps` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: gothik-the-harvester.haplina.today-percent
+  statement: 'Gothik the Harvester: Haplina''s parse percentile against today''s parses at export time
+    (WCL todayPercent).'
+  expected: 83.8757
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, TodayPercent
+  evidence: Computed by fact checker `gothik-the-harvester.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: gothik-the-harvester.overall-top-dps
+  statement: 'Gothik the Harvester: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 444.12
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Gothik the Harvester, Rank1_DPS
+  evidence: Computed by fact checker `gothik-the-harvester.overall-top-dps` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: the-four-horsemen.haplina.today-percent
+  statement: 'The Four Horsemen: Haplina''s parse percentile against today''s parses at export time (WCL
+    todayPercent).'
+  expected: 99.0535
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, TodayPercent
+  evidence: Computed by fact checker `the-four-horsemen.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: the-four-horsemen.overall-top-dps
+  statement: 'The Four Horsemen: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 826.34
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=The Four Horsemen, Rank1_DPS
+  evidence: Computed by fact checker `the-four-horsemen.overall-top-dps` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: sapphiron.haplina.today-percent
+  statement: 'Sapphiron: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 98.9924
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, TodayPercent
+  evidence: Computed by fact checker `sapphiron.haplina.today-percent` (tests/golden/fact_checks.py) from
+    the full analysis document.
+- id: sapphiron.overall-top-dps
+  statement: 'Sapphiron: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 3559.14
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Sapphiron, Rank1_DPS
+  evidence: Computed by fact checker `sapphiron.overall-top-dps` (tests/golden/fact_checks.py) from the
+    full analysis document.
+- id: kel-thuzad.haplina.today-percent
+  statement: 'Kel''Thuzad: Haplina''s parse percentile against today''s parses at export time (WCL todayPercent).'
+  expected: 83.9309
+  tolerance: 0.0001
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, TodayPercent
+  evidence: Computed by fact checker `kel-thuzad.haplina.today-percent` (tests/golden/fact_checks.py)
+    from the full analysis document.
+- id: kel-thuzad.overall-top-dps
+  statement: 'Kel''Thuzad: ranked DPS of the recorded leaderboard rank 1 (any faction).'
+  expected: 1320.6
+  tolerance: 0.01
+  mode: historical
+  mandatory: true
+  status: verified-against-raw
+  source:
+    file: oracle/definitive/boss_playbook_definitive.csv
+    locator: Boss=Kel'Thuzad, Rank1_DPS
+  evidence: Computed by fact checker `kel-thuzad.overall-top-dps` (tests/golden/fact_checks.py) from the
+    full analysis document.

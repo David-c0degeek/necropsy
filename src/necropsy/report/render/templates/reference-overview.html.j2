@@ -1,0 +1,44 @@
+{% from "reference-macros.html.j2" import prose, plans %}
+{% from "macros.html.j2" import val %}
+<section class="global" aria-labelledby="global-setup-title">
+  <h2 id="global-setup-title">Global setup</h2>
+  <ul class="global-setup">{% for row in doc.reference.setup %}<li><b>{{ row.label }}:</b> {{ prose(row.lines) }}</li>{% endfor %}</ul>
+  {% if doc.reference.pet_profiles %}
+  <details><summary>Pet survival profiles, training points and family modifiers</summary><div>
+    <p>{{ doc.reference.pet_facts.budget_text }}. {{ doc.reference.pet_facts.cumulative_note }}</p>
+    {{ prose(doc.reference.pet_profiles) }}
+    <div class="table-wrap" role="region" aria-label="Pet Frost Resistance guide values" tabindex="0"><table class="stack">
+      <caption>General pet knowledge. Resistance amounts and level requirements come from client data; TP costs are guide values, rather than client-verified server costs.</caption>
+      <thead><tr><th scope="col">Frost Resistance rank</th><th scope="col">Resistance</th><th scope="col">Pet level</th><th scope="col">Training points</th></tr></thead>
+      <tbody>{% for rank, resistance, level, tp in doc.reference.pet_facts.frost_resistance %}<tr><th scope="row">{{ rank }}</th><td data-label="Resistance">{{ resistance }}</td><td data-label="Pet level">{{ level }}</td><td data-label="TP">{{ tp }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <div class="table-wrap" role="region" aria-label="Pet family guide modifiers" tabindex="0"><table class="stack">
+      <caption>Family modifiers from the cited Classic guide. These are general multipliers, not observed pet damage or a predicted DPS gain.</caption>
+      <thead><tr><th scope="col">Family</th><th scope="col">Health</th><th scope="col">Armor</th><th scope="col">Damage</th></tr></thead>
+      <tbody>{% for f in doc.reference.pet_facts.family_modifiers %}<tr><th scope="row">{{ f.family }}</th><td data-label="Health">{{ f.health }}×</td><td data-label="Armor">{{ f.armor }}×</td><td data-label="Damage">{{ f.damage }}×</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="table-note">{% for s in doc.reference.pet_family_sources %}<a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.label }} ↗</a>{% endfor %}</p>
+  </div></details>
+  {% endif %}
+  {% if doc.reference.sources %}<p class="table-note">Item, enchant and set names from the pinned game client tables:
+    {% for s in doc.reference.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}.
+    Recorded gear names use the snapshot first; client data and the item catalog are fallbacks.</p>{% endif %}
+</section>
+<section class="global revision" aria-labelledby="corrections-title">
+  <h2 id="corrections-title">Corrections that matter after faction normalization</h2>
+  <details class="corrections" open><summary>Boss-by-boss faction context</summary><div>{{ prose(doc.reference.corrections) }}</div></details>
+</section>
+{% include "truth-model.html.j2" %}
+<section class="global" aria-labelledby="raid-sheet-title">
+  <h2 id="raid-sheet-title">At-a-glance raid sheet</h2>
+  <div class="table-wrap raid-sheet" role="region" aria-label="At-a-glance raid sheet" tabindex="0">
+    <table class="stack"><thead><tr><th scope="col">Boss</th><th scope="col">Your %</th><th scope="col">Your DPS</th><th scope="col">Your kill</th><th scope="col">Overall #1</th><th scope="col">Same-faction comparator in overall top five</th><th scope="col">A/H</th><th scope="col">Normalized Auto/Aimed/Multi target</th><th scope="col">Weave verdict</th></tr></thead>
+    <tbody>{% for b in doc.bosses %}<tr>
+      <th scope="row"><a href="#{{ b.anchor }}">{{ b.name }}</a></th>
+      <td data-label="Your %">{{ val(b.reference.percent) }}</td><td data-label="Your DPS">{{ b.ranked_dps }}</td><td data-label="Your kill">{{ b.reference.metrics[2][1].text }}</td>
+      <td data-label="Overall #1">{{ val(b.reference.metrics[3][1]) }}</td><td data-label="Same-faction comparator">{{ b.reference.comparator }}</td>
+      <td data-label="Faction mix">{{ b.reference.mix }}</td><td data-label="Shot target">{{ b.reference.target }}</td><td data-label="Weave verdict">{{ b.reference.weave }}</td>
+    </tr>{% endfor %}</tbody></table>
+  </div>
+  <p class="table-note">Your % is todayPercent at export time, rather than a live percentile. Same-faction medians need three known values. Other-faction rows are context; projected shots are not guaranteed opportunities.</p>
+</section>

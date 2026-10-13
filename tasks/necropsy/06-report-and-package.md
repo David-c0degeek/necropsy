@@ -57,8 +57,11 @@ export package.
 - [x] **06.5** (agent) Golden end-to-end: `necropsy offline` on the full fixture
       produces the package; facts register passes; HTML smoke-checked in a
       headless browser (nav works, 15 boss pages).
-- [ ] **06.6** (product-owner) Side-by-side review of generated playbook vs
+- [x] **06.6** (product-owner) Side-by-side review of generated playbook vs
       `Haplina_Naxx_Definitive_Playbook.html`; list must-fix gaps.
+      *User completed the comparison on 2026-10-13 and identified the must-fix:
+      preserve the definitive playbook's content and appearance. Implementation
+      of that verdict is tracked in 06.8; this does not claim acceptance of the redesign.*
 - [x] **06.7** (product-owner) Approve installing Playwright (Python package
       plus a Chromium download) for the 06.5 headless HTML smoke check, or
       choose a manual browser check instead.
@@ -85,6 +88,11 @@ export package.
       template is the floor; Necropsy's extra views are additions.*
 
 ## Hindsight checkpoint
+
+The [definitive-playbook parity inventory](06-8-parity-inventory.md) maps every
+reference section, column and advice type to existing analysis data or an
+owned gap. It is the implementation and content acceptance checklist for 06.8.
+
 > Run after all boxes in this subject are complete and before marking
 > the subject `DONE` in §5. Use the embedded prompt in "Appendix: Captain
 > Hindsight Prompt". Record the review result here. An interim run after
@@ -128,3 +136,9 @@ export package.
 2026-10-13 · slice 3 · 06.1–06.5, 06.7 · navigator-led design (DESIGN_AGREED after staged-publication challenge; two visual STEER rounds): view model + Jinja templates + inline CSS/JS, report.html and playbook.html, deterministic package with tables/evidence/manifest, staged publish with rollback, `necropsy render`, `--no-package`; Playwright 1.63 + Chromium (user approved 06.7) · unit, integration, browser (14) and golden end-to-end (full export: 15 bosses, byte-identical rerender) checks; screenshots light/dark desktop/mobile · awaiting review
 2026-10-13 · slice 4 · 06.2–06.5 · review round 1 fixes: publish preflight refuses directories/links with artifact names; `pets_listed` added to analysis.json entries and the no-pet fact proven only with the listing; every cohort aggregate (explosives, weave adoption, foreign-share median) keeps the inferred grade; Tauren fill reported as considered vs used; RenderError for analysis.json missing nested data or evidence paths (clean CLI exit); failure/recovery docs scoped · 518 passed 4 xfailed, acceptance · awaiting round 2
 2026-10-13 · slice 5 · 06.2 · round-2 wording refinements (fill applied / none qualified / too few; pet listing missing vs unrecorded vs none) · navigator AGREE round 2 · commit e1d4f11 pushed; CI run 38381853527 success; Hindsight CLOSE for agent boxes
+
+2026-10-13 · slice 6 · 06.8 (in progress) · complete reference parity inventory agreed; data percentile/name/overall-cohort and structured playbook checkpoints reviewed, timing/evidence corrections requested; shared reference frame, boss search and Truth model, auth guide and docs links · focused analysis checks59 and browser/view/render checks47; ruff/format/mypy93 files clean; desktop/mobile draft screenshots · uncommitted, remaining global/static data and full content presentation open
+
+2026-10-13 · slice 7 · 06.8 (review pending) · complete reference structure and dense shared presentation, all15boss content/13column overall cohort/17slot gear, percentile/name catalog/global setup and sourced conditional guidance, pet training and armor-slot correction, auth guide; evidence drilldowns retained · focused browser/view/render50 and data/guidance69 pass; full-fixture package regenerated with 75 recorded cohort rows, screenshots desktop/mobile top/Patchwerk/Gothik; full suite and peer review pending · uncommitted
+
+2026-10-13 · slice 8 · 06.8 (final review requested) · source-based guidance integrated with conditional/unknown states, unchanged valid280TP profile, separate armor/ring counts, default-dark reference theme with persisted light/system choice, safe source links and long-name overflow checks across added sections; KT encounter clock explicitly separated from logged fight start · full suite727 passed/4 known xfailed; final focused presentation51 passed, source/test secret scans clean, docs links and full15boss desktop/mobile expanded overflow checked · uncommitted; peer review pending

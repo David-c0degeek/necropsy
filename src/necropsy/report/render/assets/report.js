@@ -6,7 +6,17 @@
   var storage = store();
   var root = document.documentElement;
 
-  // Theme: follows the system unless the reader picks one; the choice is optional to store.
+  var search = document.getElementById("boss-search");
+  if (search) {
+    search.addEventListener("input", function () {
+      var query = search.value.toLocaleLowerCase().trim();
+      Array.prototype.forEach.call(document.querySelectorAll("[data-boss-name]"), function (row) {
+        row.hidden = row.getAttribute("data-boss-name").indexOf(query) < 0;
+      });
+    });
+  }
+
+  // Start with the reference's dark theme; readers can choose light or system.
   var themeButton = document.getElementById("theme-toggle");
   function applyTheme(theme) {
     if (theme === "light" || theme === "dark") { root.setAttribute("data-theme", theme); }
@@ -18,13 +28,13 @@
   }
   var saved = null;
   if (storage) { try { saved = storage.getItem("necropsy:theme"); } catch (e) { saved = null; } }
-  applyTheme(saved);
+  applyTheme(saved === "light" || saved === "dark" || saved === "system" ? saved : "dark");
   if (themeButton) {
     themeButton.addEventListener("click", function () {
       var current = root.getAttribute("data-theme");
       var next = current === "dark" ? "light" : current === "light" ? null : "dark";
       applyTheme(next);
-      if (storage) { try { if (next) { storage.setItem("necropsy:theme", next); } else { storage.removeItem("necropsy:theme"); } } catch (e) {} }
+      if (storage) { try { storage.setItem("necropsy:theme", next || "system"); } catch (e) {} }
     });
   }
 
@@ -41,7 +51,7 @@
     if (!link) { return; }
     var id = link.getAttribute("href").slice(1);
     if (picker && picker.contains(link)) { picker.open = false; }
-    if (id === "overview" || id.indexOf("boss-") === 0) { window.setTimeout(function () { focusSection(id); }, 0); }
+    if (id === "overview" || id === "truth-model" || id.indexOf("boss-") === 0) { window.setTimeout(function () { focusSection(id); }, 0); }
   });
 
   // Wide screens: mark the boss currently on screen in the side navigation.
@@ -56,7 +66,7 @@
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) { if (entry.isIntersecting) { markCurrent(entry.target.id); } });
     }, { rootMargin: "-20% 0px -70% 0px" });
-    Array.prototype.forEach.call(document.querySelectorAll("#overview, section.boss"), function (s) { observer.observe(s); });
+    Array.prototype.forEach.call(document.querySelectorAll("#overview, #truth-model, section.boss"), function (s) { observer.observe(s); });
   }
   if (window.location.hash) { markCurrent(window.location.hash.slice(1)); }
 

@@ -41,6 +41,12 @@ def hostile_site(site: Path, tmp_path_factory: pytest.TempPathFactory) -> Path:
     boss = document["bosses"][0]
     boss["boss"] = long_name
     boss["cohort"][0]["player"] = long_name
+    if boss.get("overall_cohort"):
+        boss["overall_cohort"][0]["player"] = long_name
+    if document.get("overview"):
+        document["overview"]["corrections"][0]["rank_one_player"] = long_name
+    if boss.get("playbook"):
+        boss["playbook"]["context"]["comparator"]["player"] = long_name
     for rec in boss["recommendations"]:
         rec["finding"] = long_name
     out = tmp_path_factory.mktemp("hostile-site")
@@ -103,23 +109,27 @@ def test_keyboard_skip_link_and_disclosures(page: Any, site: Path) -> None:
     summary = page.locator("main details > summary").first
     details = page.locator("main details").first
     summary.focus()
-    assert not details.evaluate("d => d.open")
+    initial = details.evaluate("d => d.open")
     page.keyboard.press("Enter")
-    assert details.evaluate("d => d.open")
+    assert details.evaluate("d => d.open") is not initial
 
 
 def test_theme_toggle_cycles_and_persists(page: Any, site: Path) -> None:
     page.goto((site / "report.html").as_uri())
     button = page.locator("#theme-toggle")
-    assert button.inner_text() == "Theme: system"
-    button.click()
+    assert button.inner_text() == "Theme: dark"
     assert page.evaluate("document.documentElement.dataset.theme") == "dark"
+    button.click()
+    assert page.evaluate("document.documentElement.dataset.theme") == "light"
     page.reload()
-    assert page.evaluate("document.documentElement.dataset.theme") == "dark"
-    button.click()
+    assert page.evaluate("document.documentElement.dataset.theme") == "light"
     button.click()
     assert page.evaluate("document.documentElement.dataset.theme") is None
     assert button.inner_text() == "Theme: system"
+    page.reload()
+    assert page.locator("#theme-toggle").inner_text() == "Theme: system"
+    button.click()
+    assert page.evaluate("document.documentElement.dataset.theme") == "dark"
 
 
 def test_review_marks_persist_and_reset(page: Any, site: Path) -> None:
@@ -138,11 +148,12 @@ def test_print_opens_disclosures_and_restores_them(page: Any, site: Path) -> Non
     page.goto((site / "report.html").as_uri())
     first = page.locator("main details").first
     first.evaluate("d => { d.open = true; }")
+    before = page.evaluate("[...document.querySelectorAll('main details')].map(d => d.open)")
     page.evaluate("window.dispatchEvent(new Event('beforeprint'))")
     assert page.evaluate("[...document.querySelectorAll('details')].every(d => d.open)")
     page.evaluate("window.dispatchEvent(new Event('afterprint'))")
     states = page.evaluate("[...document.querySelectorAll('main details')].map(d => d.open)")
-    assert states[0] is True and not any(states[1:])
+    assert states == before
     page.emulate_media(media="print")
     assert not page.locator("#theme-toggle").is_visible()
 
@@ -167,6 +178,31 @@ def test_side_navigation_marks_the_current_boss(page: Any, site: Path) -> None:
     current = page.locator(".sidenav a[aria-current='location']")
     assert current.count() == 1 and "Gothik" in current.inner_text()
     assert page.locator(".sidenav .sr").first.inner_text().strip().startswith("finding")
+
+
+@pytest.mark.parametrize("viewport", [DESKTOP, MOBILE])
+def test_boss_search_keeps_overview_and_truth_links(
+    browser: Any, site: Path, viewport: dict[str, int]
+) -> None:
+    context = browser.new_context(viewport=viewport)
+    page = context.new_page()
+    page.goto((site / "playbook.html").as_uri())
+    nav = "nav.sidenav" if viewport == DESKTOP else "#boss-picker"
+    if viewport == MOBILE:
+        page.locator("#boss-picker > summary").click()
+    page.get_by_role("searchbox", name="Filter bosses").fill("  GoThIk  ")
+    assert page.locator(f"{nav} li[data-boss-name]:visible").count() == 1
+    assert page.locator(f"{nav} a[href='#overview']").is_visible()
+    truth = page.locator(f"{nav} a[href='#truth-model']")
+    assert truth.is_visible()
+    assert page.locator("section.boss").count() == 4
+    truth.click()
+    page.wait_for_function("document.activeElement.id === 'truth-model-title'")
+    page.get_by_role("searchbox", name="Filter bosses").fill("")
+    if viewport == MOBILE:
+        page.locator("#boss-picker > summary").click()
+    assert page.locator(f"{nav} li[data-boss-name]:visible").count() == 4
+    context.close()
 
 
 @pytest.mark.parametrize("width", [320, 390, 768])
@@ -194,3 +230,59 @@ def test_storage_blocked_still_works(browser: Any, site: Path) -> None:
     page.locator("#theme-toggle").click()
     watch.check()
     context.close()
+
+
+@pytest.mark.parametrize("name", ["report.html", "playbook.html"])
+def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, name: str) -> None:
+    document = json.loads((site / "analysis.json").read_bytes())
+    watch = _Watch(page)
+    page.goto((site / name).as_uri())
+    for heading in (
+        "Global setup",
+        "Corrections that matter after faction normalization",
+        "Truth model / what every label means",
+        "At-a-glance raid sheet",
+    ):
+        assert page.get_by_role("heading", name=heading, exact=True).count() == 1
+    columns = [
+        "#",
+        "Hunter",
+        "Faction",
+        "Race evidence",
+        "WF procs",
+        "DPS",
+        "Spec",
+        "Trinkets",
+        "Weapons",
+        "Raptor",
+        "White",
+        "Pet",
+        "Pet DPS",
+    ]
+    for boss in document["bosses"]:
+        section = page.locator(f"#boss-{boss['encounter_id']}")
+        for heading in (
+            "Benchmark context",
+            "Loadout plan",
+            "Execution plan",
+            "Do not",
+            "Raid ask",
+        ):
+            assert section.get_by_role("heading", name=heading, exact=True).count() == 1
+        assert section.locator(".plan-lines > dt").all_text_contents() == [
+            "Weapons",
+            "Trinkets",
+            "Pet",
+            "Weaving",
+            "Opener",
+            "Rapid Fire",
+            "Refocus",
+        ]
+        assert section.locator(".cohort-table thead th").all_text_contents() == columns
+        assert section.locator(".cohort-table tbody > tr").count() == len(boss["overall_cohort"])
+        assert section.locator(".full-gear .gear-grid > div").count() == 17
+        cards = section.locator(".hunter-card")
+        assert cards.count() == len(boss["overall_cohort"])
+        for card in cards.all():
+            assert card.locator(".gear-grid > div").count() == 17
+    watch.check()

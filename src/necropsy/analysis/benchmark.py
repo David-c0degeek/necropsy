@@ -554,6 +554,18 @@ def _share_map(entry: Entry) -> dict[TargetKey, float] | None:
     return out
 
 
+def non_boss_share(entry: Entry, rules: EncounterRules) -> float | None:
+    """Percent of ranked damage on anything but the boss; None unless ranked damage is known."""
+    shares = _share_map(entry)
+    if shares is None:
+        return None
+    return sum(
+        v
+        for (kind, gid), v in shares.items()
+        if not (kind == "NPC" and isinstance(gid, int) and rules.is_boss(gid))
+    )
+
+
 def ranked_target_shares(
     entries: tuple[Entry, ...], subject: Entry, member: Evidenced[str]
 ) -> RankedTargetShares:
@@ -623,6 +635,57 @@ def ranked_target_shares(
 
 
 @dataclass(frozen=True, slots=True)
+class FamilyCount:
+    family: str
+    observed: int
+    inferred: int
+
+
+@dataclass(frozen=True, slots=True)
+class PetFamilies:
+    """Hunter-pet families among entries; every entry is accounted for exactly once."""
+
+    entries: int
+    families: tuple[FamilyCount, ...]
+    """Entries with one Hunter pet whose family is known, by family and grade."""
+    unknown_family: int
+    no_hunter_pet: int
+    """Pet listing present and classified, but no Hunter pet took part."""
+    listing_missing: int
+    unclassified: int
+    """A pet-linked actor could not be classified."""
+    multiple_hunter_pets: int
+
+
+def pet_families(entries: Iterable[Entry]) -> PetFamilies:
+    counts: dict[str, list[int]] = {}
+    total = unknown_family = none = missing = unclassified = multiple = 0
+    for e in entries:
+        total += 1
+        pets = e.hunter.hunter_pets
+        if not e.pets_listed:
+            missing += 1
+        elif any(p.category.value is None for p in e.hunter.pets):
+            unclassified += 1
+        elif not pets:
+            none += 1
+        elif len(pets) > 1:
+            multiple += 1
+        elif pets[0].family.value is None:
+            unknown_family += 1
+        else:
+            slot = counts.setdefault(str(pets[0].family.value), [0, 0])
+            slot[0 if pets[0].family.level is EvidenceLevel.OBSERVED else 1] += 1
+    families = tuple(
+        FamilyCount(name, observed_n, inferred_n)
+        for name, (observed_n, inferred_n) in sorted(
+            counts.items(), key=lambda kv: (-(kv[1][0] + kv[1][1]), kv[0])
+        )
+    )
+    return PetFamilies(total, families, unknown_family, none, missing, unclassified, multiple)
+
+
+@dataclass(frozen=True, slots=True)
 class Baseline:
     entries: int
     membership: Evidenced[str]
@@ -638,6 +701,8 @@ class Baseline:
     explosive_known: int
     rapid_fire_users: int
     rapid_fire_known: int
+    pet_families: PetFamilies | None = None
+    """Hunter-pet families among the entries, with how each family is known."""
     tauren_fill: TaurenFill | None = None
     """Only on a same-faction baseline whose medians lack known values (rule tauren-fill-v1)."""
 
@@ -714,6 +779,7 @@ def baseline(
         explosive_known=len(explosive_counts),
         rapid_fire_users=sum(1 for c in rf_counts if c),
         rapid_fire_known=len(rf_counts),
+        pet_families=pet_families(entries),
         tauren_fill=fill,
     )
 

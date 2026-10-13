@@ -41,7 +41,8 @@ The command prints the boss and recommendation counts and every file it wrote:
 | `necropsy-<character id>-<zone id>.zip` | A package: both pages, `analysis.json`, CSV tables, evidence files and a checksum manifest |
 
 Open **`workspace/demo/report.html`** in your browser. The pages work straight from
-disk, load nothing from the network, and follow your system's light or dark theme.
+disk and load nothing from the network automatically. They start in the reference's
+dark theme; the Theme button offers light and system modes and remembers your choice.
 Review marks in the playbook are saved only in that browser, for that exact
 analysis. Use `--no-package` to skip the ZIP (an older package of the same name is
 then removed so it never looks current). The package holds derived analysis of
@@ -69,9 +70,10 @@ Assuming your export is saved as `export.zip`:
 uv run necropsy offline export.zip --out workspace/my-analysis
 ```
 
-Supported analysis is Classic Era Hunter in Naxxramas. Live fetching,
-authentication, and other classes or raids are future work. No WCL credentials
-are needed for this offline command.
+Supported analysis is Classic Era Hunter in Naxxramas. You can now
+[sign in to WCL and resolve a character URL](warcraft-logs.md); fetching its
+reports and building an analysis from that URL are still future work.
+No WCL credentials are needed for this offline command.
 
 ## Repeat an analysis faster
 

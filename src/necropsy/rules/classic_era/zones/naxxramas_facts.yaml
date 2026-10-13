@@ -1,0 +1,142 @@
+# Naxxramas encounter knowledge that is not in any combat log (Classic Era).
+#
+# Every value cites the public page it was read from (retrieved 2026-10-13).
+# These are static rules, not observations: the analysis reports them as such,
+# and a value that a source gives inconsistently keeps both readings in `note`.
+# Timings are seconds from the pull unless stated otherwise.
+version: 1
+rule: naxx-encounter-facts-v1
+retrieved: "2026-10-13"
+
+encounters:
+  - id: 51118
+    name: Patchwerk
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Patchwerk_(Classic)
+    timings:
+      - {key: berserk, at_s: 420, text: "Berserk at 7:00: damage greatly increased"}
+      - {key: slime_bolts, at_s: 450, text: "Slime Bolts hit the whole raid from 7:30"}
+      - {key: enrage, at_health_pct: 5, text: "Enrage at 5% health"}
+  - id: 51111
+    name: Grobbulus
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Grobbulus_(Classic)
+    timings:
+      - {key: mutating_injection, text: "Mutating Injection detonates after 10 s; more frequent below 30% health"}
+      - {key: enrage, at_s: 720, text: "Enrages at the 12-minute mark"}
+  - id: 51108
+    name: Gluth
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Gluth_(Classic)
+    timings:
+      - {key: decimate, every_s: 105, text: "Decimate about every 105 s sets every raid member and zombie to 5% health; it does not affect pets"}
+      - {key: enrage, text: "Enrages 10–20 s after the third Decimate"}
+      - {key: zombies, every_s: 10, text: "Zombies spawn about every 10 s and heal Gluth 5% if eaten"}
+      - {key: frenzy, every_s: 10, text: "Frenzy about every 10 s: removed by Tranquilizing Shot"}
+  - id: 51120
+    name: Thaddius
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Thaddius_(Classic)
+    timings:
+      - {key: wights, text: "Stalagg and Feugen must die within 5 s of each other"}
+      - {key: transition, after_s: 15, text: "15 s to reach the centre after both wights die (about 20 s until charges)"}
+      - {key: polarity_shift, every_s: 30, text: "Polarity Shift every 30 s; +10% damage per nearby ally with the same charge"}
+      - {key: berserk, at_s: 300, text: "Berserk after 5 minutes of combat with Thaddius"}
+  - id: 51117
+    name: Noth the Plaguebringer
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Noth_the_Plaguebringer_(Classic)
+    timings:
+      - {key: first_teleport, at_s: 90, text: "Teleports to the balcony 90 s after the pull; returns after the waves or 70 s"}
+      - {key: second_teleport, after_s: 110, text: "Second teleport 110 s after the first; returns after the waves or 90 s"}
+      - {key: third_teleport, after_s: 180, text: "Third teleport 180 s after the second"}
+      - {key: blink, every_s: 25, text: "Blink about every 25 s wipes threat"}
+  - id: 51112
+    name: Heigan the Unclean
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Heigan_the_Unclean_(Classic)
+    timings:
+      - {key: floor_phase, duration_s: 90, text: "90 s floor phase"}
+      - {key: dance_phase, duration_s: 45, text: "45 s platform phase with faster eruptions; safe zone resets to 1"}
+  - id: 51115
+    name: Loatheb
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Loatheb_(Classic)
+    timings:
+      - {key: spores, every_s: 13, text: "A spore spawns about every 13 s; killing it gives up to 5 players +50% critical strike chance for 90 s",
+         note: "The page gives 13 s in its strategy section and 12 s in its abilities list"}
+      - {key: inevitable_doom, at_s: 120, text: "Inevitable Doom from 2:00, every 30 s; every 15 s from 5:00"}
+  - id: 51107
+    name: Anub'Rekhan
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Anub%27Rekhan_(Classic)
+    timings:
+      - {key: locust_swarm, text: "Locust Swarm kites every 70–120 s (first after about 60–75 s), lasting 20 s; a new Crypt Guard spawns with each"}
+  - id: 51110
+    name: Grand Widow Faerlina
+    creature_type: Humanoid
+    source: https://warcraft.wiki.gg/wiki/Grand_Widow_Faerlina_(Classic)
+    timings:
+      - {key: enrage_sacrifice, text: "A mind-controlled Worshipper sacrificed as she enrages removes the enrage and silences her for 30 s"}
+  - id: 51116
+    name: Maexxna
+    creature_type: Beast
+    source: https://warcraft.wiki.gg/wiki/Maexxna_(Classic)
+    timings:
+      - {key: web_wrap, at_s: 20, every_s: 40, text: "Web Wrap at 20 s, then every 40 s"}
+      - {key: web_spray, at_s: 40, every_s: 40, text: "Web Spray every 40 s incapacitates everyone for 8 s"}
+      - {key: spiderlings, at_s: 30, every_s: 40, text: "Spiderlings at 30 s, then every 40 s"}
+      - {key: enrage, at_health_pct: 30, text: "Enrage at 30% health"}
+  - id: 51113
+    name: Instructor Razuvious
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Instructor_Razuvious_(Classic)
+    timings:
+      - {key: disrupting_shout, every_s: 25, text: "Disrupting Shout every 25 s in line of sight; ranged break line of sight at the railing"}
+  - id: 51109
+    name: Gothik the Harvester
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Gothik_the_Harvester_(Classic)
+    timings:
+      - {key: waves, text: "Living waves: Trainees from 24 s every 20 s, Deathknights from 74 s every 25 s, Riders from 134 s every 30 s"}
+      - {key: lands, at_s: 274, text: "Gothik lands at 4:34 and switches sides every 15–20 s"}
+      - {key: gate, at_health_pct: 30, text: "The central gate opens at 30% health"}
+  - id: 51121
+    name: The Four Horsemen
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Four_Horsemen_(Classic)
+    note: "The infobox gives the race as \"Varies (Undead)\". Mark range is 65 yd in the ability list and 70 yd in the strategy section."
+    timings:
+      - {key: marks, at_s: 20, every_s: 12, text: "First mark at 20 s, then every 12 s; stacks last 75 s and the 2nd–5th deal 250/1000/3000/5000"}
+      - {key: specials, every_s: 12, text: "Meteor, Holy Wrath and Void Zone on 12 s cooldowns; void zones last 90 s"}
+      - {key: shield_wall, duration_s: 20, text: "Each Horseman casts Shield Wall at 50% and 20% health, lasting 20 s"}
+      - {key: berserk, text: "Berserk after 100 marks (about 20 minutes)"}
+  - id: 51119
+    name: Sapphiron
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Sapphiron_(Classic)
+    type_source: https://warcraft.wiki.gg/wiki/Sapphiron
+    note: "The (Classic) page states no creature type; the general Sapphiron page gives the race as \"Frost wyrm (Undead)\"."
+    timings:
+      - {key: frost_aura, every_s: 2, text: "Frost Aura deals 600 frost damage every 2 s to all enemies; it can be partially resisted and the page calls Frost Resistance mandatory to survive it"}
+      - {key: air_phase, at_s: 45, text: "First air phase at 45 s, then 67 s after each landing, until 10% health"}
+      - {key: life_drain, every_s: 24, text: "Life Drain every 24 s on 10 targets"}
+      - {key: berserk, at_s: 900, text: "Berserk at 15 minutes"}
+  - id: 51114
+    name: Kel'Thuzad
+    creature_type: Undead
+    source: https://warcraft.wiki.gg/wiki/Kel%27Thuzad_(Classic)
+    note: "These timers start at the full encounter pull. A selected logged fight can start later, so do not apply the 5:10 phase-two timer to its cast timeline without checking the time origin."
+    timings:
+      - {key: phase_two, at_s: 310, text: "Kel'Thuzad becomes active 5:10 after the pull"}
+      - {key: chains, text: "Chains of Kel'Thuzad (mind control) every 60–120 s in phase 2"}
+      - {key: frost_blast, every_s: 30, text: "Frost Blast every 30 s"}
+      - {key: phase_three, at_health_pct: 40, text: "Guardians of Icecrown join at 40% health"}
+
+# Trinkets whose bonus depends on the target's creature type.
+creature_type_items:
+  - id: 23206
+    name: Mark of the Champion
+    applies_to: [Undead]
+    effect: "+150 attack power when fighting Undead"
+    source: https://www.wowhead.com/classic/item=23206/mark-of-the-champion

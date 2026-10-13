@@ -12,6 +12,7 @@ Each run also writes an offline HTML report and playbook. Live acquisition is pl
 |---|---|
 | [Getting started](getting-started.md) | How do I run it, where are my results, and what if a command fails? |
 | [Reading results](reading-results.md) | Which comparisons are fair, and how should I act on findings? |
+| [Warcraft Logs connection](warcraft-logs.md) | How do I sign in, check access, and resolve a character URL? |
 | [Roadmap](roadmap.md) | What works today and what comes next? |
 
 ## Go deeper

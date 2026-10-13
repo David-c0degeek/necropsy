@@ -7,6 +7,18 @@ implemented in the development checkout; they are not a published release.
 
 ## [Unreleased]
 
+### Changed
+
+- **Definitive playbook layout and content.** Both pages use the requested dark
+  reference layout: searchable numbered sidebar, overview and Truth model,
+  metric tiles, benchmark context, loadout and execution plans, Do not and Raid
+  ask panels, the full recorded top-five table, and seventeen-slot gear cards.
+  Same-faction advice stays separate from other-faction context. Saved ranking
+  percentiles, item names, armor-set counts and cited encounter/cooldown/pet
+  guidance enrich the analysis; unknown and inferred evidence stays qualified.
+  Light/system themes, source links, local review marks and analytical drilldowns
+  remain available. [Reading results](docs/reading-results.md).
+
 ### Added
 
 - **Warcraft Logs sign-in and character lookup (personal use).** `necropsy auth
