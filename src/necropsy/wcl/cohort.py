@@ -30,6 +30,7 @@ from necropsy.rules import load_rules
 from necropsy.wcl.client import (
     RATE_FIELDS,
     BudgetExceeded,
+    Endpoint,
     InvalidResponse,
     PageBudgetExhausted,
     PermissionDenied,
@@ -178,8 +179,25 @@ class Candidate:
     raw: dict[str, Any]
 
 
-Verify = Callable[[Candidate], Faction | None]
-"""Return the row's observed faction, or None when it could not be checked."""
+@dataclass(frozen=True, slots=True)
+class Verdict:
+    """The outcome of an attempted faction check of one ranking row."""
+
+    status: str
+    """`observed`, `unknown` (attempted, no usable faction) or `inaccessible`."""
+    faction: Faction | None = None
+    reason: str | None = None
+
+
+Verify = Callable[[Candidate], "Verdict | Faction | None"]
+"""Check a row: a Verdict, a bare observed Faction (legacy form), or None when no
+check was attempted (the row keeps its guild inference)."""
+
+
+def _verdict(result: Verdict | Faction | None) -> Verdict | None:
+    if result is None or isinstance(result, Verdict):
+        return result
+    return Verdict("observed", result)
 
 
 @dataclass(frozen=True, slots=True)
@@ -203,6 +221,12 @@ class Selection:
     """Rows with no report reference to acquire."""
     key_mismatch: list[Candidate] = field(default_factory=list)
     duplicates: int = 0
+    displaced: list[Candidate] = field(default_factory=list)
+    """Metadata rows given up so an observed row could take a deep slot."""
+    verdicts: dict[int, Verdict] = field(default_factory=dict)
+    """Attempted checks by raw position (observed, unknown or inaccessible)."""
+    raw_pages: list[dict[str, Any]] = field(default_factory=list)
+    """Every ranking page document as returned, for the snapshot."""
     contradicted: list[Candidate] = field(default_factory=list)
     """Rows whose observed faction contradicted the guild rule (reclassified)."""
     subject_rows: int = 0
@@ -266,18 +290,33 @@ def _int(value: Any) -> int | None:
     return value if isinstance(value, int) and not isinstance(value, bool) else None
 
 
-def fetch_page(client: WclClient, key: CohortKey) -> Callable[[int], tuple[list[Any], Any, Any]]:
-    """A page fetcher for `client.pages`, checking each page belongs to the key."""
+def fetch_page(
+    client: WclClient,
+    key: CohortKey,
+    *,
+    endpoint: Endpoint = "client",
+    raw_pages: list[dict[str, Any]] | None = None,
+) -> Callable[[int], tuple[list[Any], Any, Any]]:
+    """A page fetcher for `client.pages`, checking each page belongs to the key.
+
+    Every page goes to the one `endpoint` given; raw page documents are appended to
+    `raw_pages` when a list is passed.
+    """
 
     def fetch(page: int) -> tuple[list[Any], Any, Any]:
         client.ensure_budget(None)
         result = client.query(
             LEADERBOARD_QUERY,
             {"encounter": key.encounter.value, "partition": key.partition.value, "page": page},
+            endpoint=endpoint,
         )
         encounter = (result.data.get("worldData") or {}).get("encounter")
         if not isinstance(encounter, dict) or encounter.get("id") != key.encounter.value:
             raise InvalidResponse(f"page {page} is not for encounter {key.encounter.value}")
+        if raw_pages is not None:
+            raw_pages.append(
+                {"page": page, "characterRankings": encounter.get("characterRankings")}
+            )
         return page_items(encounter.get("characterRankings"), page)
 
     return fetch
@@ -369,8 +408,17 @@ def select(
     key: CohortKey,
     context: CharacterContext,
     verify: Verify | None = None,
+    *,
+    deep_needs_observed: bool = False,
 ) -> Selection:
-    """Walk ranking rows in leaderboard order and pick same-faction candidates."""
+    """Walk ranking rows in leaderboard order and pick same-faction candidates.
+
+    Without `deep_needs_observed`, `verify` (when given) checks every row, as before.
+    With it, only rows that could take a deep slot and guildless rows are checked,
+    and a deep slot accepts only an observed same-faction verdict; other rows keep
+    their guild inference and may fill metadata only. An attempted check that finds
+    no usable faction discards the guild inference.
+    """
     _check_key(key, context)
     cfg = _cfg()
     deep_n, meta_n = int(cfg["deep"]), int(cfg["metadata"])
@@ -402,11 +450,26 @@ def select(
             if c.report_code is None or c.fight_id is None:
                 out.inaccessible.append(c)
                 continue
-            checked = None if verify is None else verify(c)
-            if checked is not None:
-                if c.faction.level == "inferred" and c.faction.value != checked.value:
-                    out.contradicted.append(c)
-                c = _with_faction(c, RowFaction(checked.value, "observed", "verify"))
+            wanted_check = verify is not None and (
+                not deep_needs_observed or len(out.deep) < deep_n or c.faction.level == "unknown"
+            )
+            verdict = _verdict(verify(c)) if wanted_check and verify is not None else None
+            if verdict is not None:
+                out.verdicts[position] = verdict
+                if verdict.status == "inaccessible":
+                    out.inaccessible.append(c)
+                    continue
+                if verdict.status == "observed" and verdict.faction is not None:
+                    if c.faction.level == "inferred" and c.faction.value != verdict.faction.value:
+                        out.contradicted.append(c)
+                    c = _with_faction(c, RowFaction(verdict.faction.value, "observed", "verify"))
+                else:
+                    c = _with_faction(
+                        c,
+                        RowFaction(
+                            None, "unknown", "verify", None, verdict.reason or "check failed"
+                        ),
+                    )
                 if position == 1:
                     out.overall_first = c
             faction = _FACTIONS.get(c.faction.value or "")
@@ -416,9 +479,19 @@ def select(
             if faction is not want:
                 out.other_faction += 1
                 continue
+            deep_ok = len(out.deep) < deep_n and (
+                c.faction.level == "observed" or not deep_needs_observed
+            )
+            if deep_ok and len(out.metadata) >= meta_n:
+                # Keep deep within metadata and metadata within its target: make room
+                # by dropping the lowest-ranked metadata row that is not deep.
+                spare = [m for m in out.metadata if m not in out.deep]
+                if spare:
+                    out.metadata.remove(spare[-1])
+                    out.displaced.append(spare[-1])
             if len(out.metadata) < meta_n:
                 out.metadata.append(c)
-                if len(out.deep) < deep_n:
+                if deep_ok:
                     out.deep.append(c)
             if len(out.deep) >= deep_n and len(out.metadata) >= meta_n:
                 out.stop = "targets met"
@@ -457,11 +530,17 @@ def select_boss(
     context: CharacterContext,
     encounter_id: int,
     verify: Verify | None = None,
+    *,
+    endpoint: Endpoint = "client",
+    deep_needs_observed: bool = False,
 ) -> Selection:
     """Page one boss's Hunter rankings until the same-faction targets are met."""
     key = cohort_key(site, context, encounter_id)
-    rows = pages(fetch_page(client, key), max_pages=int(_cfg()["max_pages"]))
-    selection = select(rows, key, context, verify)
+    raw: list[dict[str, Any]] = []
+    fetch = fetch_page(client, key, endpoint=endpoint, raw_pages=raw)
+    rows = pages(fetch, max_pages=int(_cfg()["max_pages"]))
+    selection = select(rows, key, context, verify, deep_needs_observed=deep_needs_observed)
+    selection.raw_pages = raw
     if selection.rate is None:
         selection.rate = client.last_rate
     return selection
@@ -475,6 +554,8 @@ __all__ = [
     "Dimension",
     "RowFaction",
     "Selection",
+    "Verdict",
+    "Verify",
     "cohort_key",
     "guild_faction",
     "page_items",

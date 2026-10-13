@@ -62,3 +62,11 @@ live_cohort:
     rule: guild-faction-v1
     map: {0: Alliance, 1: Horde}
     verified: "recorded fixture 2026-10-13: 0=Alliance 36/36, 1=Horde 7/7, 0 contradictions"
+
+# Which of the subject's ranked kills is "the subject's fight" for a boss in live mode.
+# Highest amount (DPS); ties: higher rankPercent, then earlier startTime (a missing
+# field sorts after a present one), then report code and fight id. On the recorded
+# Naxxramas fixture this reproduces the export's chosen subject fight on 15 of 15
+# bosses; ordering by rankPercent first would pick a different Patchwerk kill.
+subject_fight:
+  rule: subject-fight-v1

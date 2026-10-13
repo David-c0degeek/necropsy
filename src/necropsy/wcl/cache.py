@@ -86,6 +86,11 @@ def canonical_bytes(value: Any) -> bytes:
     )
 
 
+def valid_report_code(code: Any) -> bool:
+    """True for a plain WCL report code (letters and digits, 1-32 characters)."""
+    return isinstance(code, str) and _CODE.fullmatch(code) is not None
+
+
 def _positive(value: Any, what: str) -> int:
     if not isinstance(value, int) or isinstance(value, bool) or value <= 0:
         raise UnsafeKey(f"{what} must be a positive integer, got {value!r}")
@@ -528,4 +533,5 @@ __all__ = [
     "check_identity",
     "item_lock",
     "publish",
+    "valid_report_code",
 ]
