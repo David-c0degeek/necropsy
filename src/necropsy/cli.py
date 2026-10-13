@@ -14,6 +14,7 @@ from necropsy.report.publish import PublishError
 from necropsy.report.render import RenderError
 from necropsy.snapshot.archive import ArchiveError, load_entries_manifest
 from necropsy.snapshot.model import SnapshotError
+from necropsy.wcl.cli import auth_app, resolve_command
 
 app = typer.Typer(
     name="necropsy",
@@ -165,6 +166,10 @@ def render_command(
     for path in paths:
         typer.echo(f"wrote:            {path}")
     typer.echo(f"Next: open {out / REPORT_FILE} in your browser.")
+
+
+app.add_typer(auth_app, name="auth")
+app.command("resolve")(resolve_command)
 
 
 def main() -> None:

@@ -11,7 +11,9 @@ comes first, so every screen can explain the evidence behind its advice.
 Classic Era Hunter/Naxxramas analysis from a saved v6 deep-export ZIP:
 `necropsy ingest` builds a database; `necropsy offline` writes `analysis.json`, an
 offline HTML report and playbook, and a package; `necropsy render` rebuilds the
-pages from an existing `analysis.json`.
+pages from an existing `analysis.json`. `necropsy auth` signs in to Warcraft Logs for
+personal use and `necropsy resolve` looks up a character URL; acquisition itself is
+not built yet.
 Same-faction comparisons, encounter context, and evidence-linked recommendations
 are implemented. [Try the sample](getting-started.md).
 

@@ -63,6 +63,27 @@ export package.
       plus a Chromium download) for the 06.5 headless HTML smoke check, or
       choose a manual browser check instead.
 
+- [ ] **06.8** (agent) Visual match to the definitive playbook
+      (`D:/Parsing/Results/Playbook/Haplina_Naxx_Definitive_Playbook.html`, read-only
+      template): report and playbook adopt its layout, palette, type scale and density
+      (fixed sidebar with search and numbered bosses, gradient hero, per-boss panels
+      with eyebrow, metric tiles and reviewed control, sticky-header tables), content
+      still only from analysis.json with unknown/inferred labels, evidence, offline,
+      escaping, print, keyboard and narrow-screen guarantees kept. Reopened by the
+      user's 06.6 verdict; navigator-led (D034, D039).
+      *User, 2026-10-13: "I actually simply love everything about the
+      [definitive playbook], i don't want to miss anything currently there."
+      Scope is content parity as well as look: every element of the template
+      (overview, truth model, per-boss metric tiles, faction mix, current and
+      target shot counts, pet DPS vs median, benchmark context, loadout plan,
+      execution plan, Do not, Raid ask, full gear, top-five table with race
+      evidence / WF procs / spec / trinkets / weapons / Raptor / white / pet / pet
+      DPS) gets a data source in analysis.json or an explicit gap entry, before
+      building. Prose is generated from the data, never copied from the oracle.
+      User: "Benchmark context, loadout plan, execution plan, do not, raid ask,
+      EVERYTHING." and "you can add to it, but do not take away from it" — the
+      template is the floor; Necropsy's extra views are additions.*
+
 ## Hindsight checkpoint
 > Run after all boxes in this subject are complete and before marking
 > the subject `DONE` in §5. Use the embedded prompt in "Appendix: Captain
@@ -77,7 +98,7 @@ export package.
 > and rerun this checkpoint after the fixes.
 
 - [x] Captain Hindsight review recorded (2026-10-13, agent boxes 06.1–06.5, 06.7)
-- [ ] Verdict is `CLOSE` — agent work CLOSE; subject stays open until 06.6 is reviewed by the user
+- [ ] Verdict is `CLOSE` — agent boxes 06.1–06.5 CLOSE; subject reopened for 06.8 after the user's 06.6 verdict
 
 **Captain Hindsight — 06 agent boxes (2026-10-13)**
 

@@ -24,13 +24,13 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 > - **Vision fit** — supports or conflicts with the project vision/ADRs (00.1); cite drift if any.
 > - **Risks** — duplication, architectural drift, or accidental complexity introduced.
 
-- **Existing code found** — TBD
-- **Behaviour to preserve** — TBD
-- **Reuse / extend** — TBD
-- **Do not duplicate** — TBD
-- **Integration point + why** — TBD
-- **Vision fit** — TBD
-- **Risks** — TBD
+- **Existing code found** — no network, auth or URL code in `src` (`rg -n "httpx|keyring|oauth|warcraftlogs" src` before this subject → only docs strings); read-only reference `D:/repos/wcl_access_test/{wcl_auth.py,wcl_hunter_deep_export.py}` (working v6 queries, vanilla endpoints, port 8765). Reused in Necropsy: `necropsy.analysis.evidence.Faction`, the CLI app in `necropsy.cli`.
+- **Behaviour to preserve** — offline commands untouched and network-free; secrets never in repo/fixtures/output (§6.22); analysis contracts unchanged.
+- **Reuse / extend** — query shapes ported from the exporter (ours to own, re-verified live in 07.7); `Faction` enum for context; typer sub-app for `auth`.
+- **Do not duplicate** — no second token/secret store (one `CredentialStore`), no file fallback; one client for /client and /user.
+- **Integration point + why** — new package `necropsy.wcl` (sites, urls, credentials, auth, client, context, cli) so acquisition (07.4–07.6) builds on it and the analysis layers stay offline.
+- **Vision fit** — spec §5 acquisition, D005 personal-only auth with PKCE gate, D007 httpx, D036–D038, pre-mortem PM-1..PM-3.
+- **Risks** — WCL schema drift (queries unverified live until 07.7); Windows credential size limit (chunking); field shapes in tests are synthetic.
 
 ## Boxes
 > ID = `<subject-id>.<box-number>` (subject index ID · box ordinal). Stable — never
@@ -40,15 +40,15 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 > Owner MUST be one of the §5 enum:
 > agent · release-engineer · product-owner · tech-lead · domain-sme.
 
-- [ ] **07.1** (agent) WCL GraphQL client rewritten from v6 learnings: site
+- [x] **07.1** (agent) WCL GraphQL client rewritten from v6 learnings: site
       profiles (vanilla first), `/client` vs `/user`, pagination,
       `rateLimitData` read on every call with dynamic pacing, cost estimate
       before the deep pass, retry/backoff; tests use recorded responses.
-- [ ] **07.2** (agent) Auth per the personal-only confidential-client decision:
+- [x] **07.2** (agent) Auth per the personal-only confidential-client decision:
       secret and user token in the OS keyring (no token file), auth-code flow on
       `http://localhost:8765/callback` with state check, refresh;
       `necropsy auth login|status|logout`. PKCE stays a distribution gate.
-- [ ] **07.3** (agent) URL parser (`/character/id/<id>`,
+- [x] **07.3** (agent) URL parser (`/character/id/<id>`,
       `/character/<region>/<realm>/<name>`, site family) and character context
       resolver (faction, class, WCL spec/role, zones, partitions, rankings) with
       confidence; user confirms zone/partition when ambiguous.
@@ -97,3 +97,5 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
+2026-10-13 · slice 1 · 07.1–07.3 · design huddle with pre-mortem (PM-1..PM-3, D036–D038), `necropsy.wcl` package: allowlisted single-backend credential store with chunking, personal confidential-client auth with sentinel-tested redaction, bounded client with typed errors/pacing/pagination guards, strict URL parser, graded character context; `necropsy auth login|status|logout`, `necropsy resolve` · unit tests on synthetic shapes (no live calls) · awaiting review
+2026-10-13 · slice 2 · 07.1–07.3 · review round 1 fixes: generation-based chunk writes with head committed last, sanitised backend failures, one atomic record per client id with staged sign-in (saved only on success), listener bound before the browser, request deadline bounding requests, malformed URLs refused cleanly · unit tests incl. failure-injection and sentinel scans · awaiting round 2

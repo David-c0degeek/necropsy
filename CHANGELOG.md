@@ -9,6 +9,13 @@ implemented in the development checkout; they are not a published release.
 
 ### Added
 
+- **Warcraft Logs sign-in and character lookup (personal use).** `necropsy auth
+  login | status | logout` signs in with your own confidential WCL client: the
+  client secret is entered at a hidden prompt and, with your token, stored only in
+  the OS credential store (never a file). `necropsy resolve <character URL>` shows
+  the character, faction, raid and partition, refusing non-Warcraft Logs and not yet
+  supported sites. Live acquisition comes next; a public PKCE client is required
+  before any distribution.
 - **Offline report and playbook.** Every `necropsy offline` run also writes
   `report.html` (findings first, then execution, comparisons and evidence) and
   `playbook.html` (a per-boss review list with local review marks), both

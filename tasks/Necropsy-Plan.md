@@ -177,6 +177,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | `docs/origin/WCL_Forensics_App_Architecture_v0.1.md` | Product + architecture spec v0.1 (principles, evidence model, cohort model, schema, plugin interface, milestones) |
 | `docs/origin/Haplina Analysis.md` | Full ChatGPT investigation: derivations, corrections (faction/race/WF), expected facts, design rationale |
 | `D:\repos\wcl_access_test\` (read-only) | v6 exporter (`wcl_hunter_deep_export.py`, `wcl_auth.py`), README of auth findings (vanilla.warcraftlogs.com OAuth, port 8765), raw export `exports\wcl_hunter_deep_export_20261012_145328.zip` (80 MB; 1,407 files / 1.7 GB unpacked). **Contains `.wcl_user_token.json` — never copy.** |
+| `tasks/necropsy/pre-mortem.md` | Retained pre-mortem risks PM-1..PM-3 for live acquisition, their guardrails and calibration |
 | `D:\Parsing\Results\Playbook\Haplina_Naxx_Definitive_Playbook.html` (+ `.zip`, `boss_playbook_definitive.csv`, `top5_definitive_with_faction_race_wf.csv`, `README.txt`) | Frozen report oracle (definitive; supersedes v1 and Alliance-normalized v2) |
 | `D:\Parsing\Results\*.csv`, `Haplina_Naxx_Forensic_Pack.zip`, `Playbook\Archive\` | Historical derived outputs; oracle candidates for the golden-fact register, status per fact |
 | WCL v2 API docs (vanilla.warcraftlogs.com/v2-api-docs) | GraphQL schema, `rateLimitData`, OAuth endpoints (verified in 00.5) |
@@ -294,6 +295,10 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | D033 | 2026-10-13 | Ranked damage by target | Every damaged target carries a ranking category (counted / excluded / own / unclassifiable); per boss, same-faction median share per counted target (>=3 known, membership graded) and the subject's share | User asked which mobs count toward the parse per boss | 05.5; `targets.py::RankedTarget`, `benchmark.py::ranked_target_shares` |
 | D034 | 2026-10-13 | Navigator leads UI, UX and docs | Codex leads all UI/UX and documentation work — HTML report/playbook, CLI help and output wording, README, docs/, CHANGELOG and GitHub-facing material — and takes write ownership via handoff for UI/docs-only units; Claude reviews for code and evidence accuracy. Behaviour-changing code still ships its factual doc update in the same checkpoint | User: "super user friendly experience, layout and documentations ... Codex leads on those" | 06; all doc surfaces |
 | D035 | 2026-10-13 | Package scope | The package holds report, playbook, exact analysis.json bytes, manifest (sha256 per member), CSV tables and per-boss evidence; it is named from numeric IDs only. Including the raw snapshot or the DuckDB file is deferred until a user needs it | Keeps the package small and avoids shipping raw logs; adding either later is a new opt-in member in `package.build_outputs` | 06.3; `docs/getting-started.md` |
+| D036 | 2026-10-13 | Keyring backend allowlist | Credentials are read or written only through exactly one allowlisted OS credential backend instance selected from the keyring configuration by class identity (never through the chaining facade) (Windows Credential Locker, macOS Keychain, Secret Service, KWallet); null, fail, plaintext, file or unknown backends are refused before any access, and there is no file fallback. `keyring` is a runtime dependency under D005 | The keyring facade can silently pick an insecure backend; the exporter's file fallbacks must not be inherited (PM-1) | 07.2; `tasks/necropsy/pre-mortem.md` |
+| D037 | 2026-10-13 | Bounded API pacing | The WCL client has finite retries, an overall deadline, capped jittered backoff, Retry-After support, typed errors never retried when permanent, page budgets with repeat detection, and no silent endpoint downgrade; unknown query cost stays unknown and an estimate above the hourly budget needs an explicit policy | Throttles or malformed pages must not hang the CLI or yield a silently incomplete cohort (PM-2) | 07.1, 07.4, 07.5 |
+| D038 | 2026-10-13 | Character context discovery | Only WCL hosts over HTTPS with exact path parsing; zone defaults to the supported zone from rule data (Naxxramas) and partitions come from the zone's own partition list; ambiguity is returned for the user to choose; faction is OBSERVED only from WCL's canonical faction name, otherwise UNKNOWN with the raw faction object kept (no ID table until a live check verifies one); UNKNOWN faction blocks same-faction selection | A wrong host/partition/faction would contaminate same-faction acquisition (PM-3) | 07.3, 07.4 |
+| D039 | 2026-10-13 | Definitive playbook is the visual template | The report and playbook will match the layout and look of the definitive playbook (box 06.8), replacing the earlier palette; the navigator owns the redesign and acquisition beyond 07.1–07.3 waits until it ships | User 06.6 verdict: "the latter is MUCH nicer UX/UI wise. I want to use that as template. it should look the same." | 06.6, 06.8; D034 |
 | D011 | 2026-10-12 | Tool installs approved | User approved all installs named in the plan: uv, git-lfs, secret scanner (gitleaks or equivalent), and LFS storage for the 80 MB fixture on the personal account | Explicit user approval in session | 00.7, 00.9, 01.3; `manual-actions.md` |
 
 ---
@@ -378,6 +383,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 21. **Raw is immutable; analysis is reproducible offline.** Raw WCL payloads are stored unchanged with hashes; everything after acquisition runs with no network. HTML is rendered only from `analysis.json`.
 22. **Secrets never leave the keyring.** No client secret or user token in repo, fixtures, cache, logs, `analysis.json`, or export packages.
 23. **Encounter knowledge ≠ class knowledge.** Class plugins and encounter plugins are separate modules; stable metadata (spell IDs, native targets, racials, pet abilities) lives in versioned rule files under `rules/`.
+24. Pre-Mortem obligations live in tasks/necropsy/pre-mortem.md; every PM-* risk must have Plan refs and a non-Pending resolution before sign-off.
 
 ---
 
@@ -412,6 +418,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 - [ ] **Live-mode acceptance:** `necropsy analyze https://vanilla.warcraftlogs.com/character/id/86583560` completes against live WCL, produces a same-faction package with recorded coverage, cohort provenance, and no silent faction/partition substitution
 - [ ] **Secret scan:** repo history, fixtures, and a generated package contain no client secret or token
 - [ ] **PKCE distribution gate** (07.10) remains `[ ]` with status `DEFERRED` in manual-actions and is listed in §8 notes as an open blocker for any binary distribution
+- [ ] If tasks/necropsy/pre-mortem.md exists, every PM-* risk has a terminal Resolution; Captain Hindsight calibration is recorded for every risk whose outcome is observable; unelapsed observation horizons are Inconclusive rather than false positives; every CH-MISS-* row has a future lesson.
 - [ ] Plan handed to reviewer for §8 sign-off
 
 ---
@@ -437,6 +444,7 @@ Assume the work is already done, then identify what is clearer now than it was
 before the work started.
 
 Check specifically for:
+- If tasks/necropsy/pre-mortem.md exists, calibrate the PM-* risks relevant to this review target and append any unpredicted material failure as the next CH-MISS-*; do not rewrite the original prediction fields.
 - Scope drift or missed requirements.
 - Spec deviations that need a Decision-log row (and whether the decision is
   durable enough to promote to the project's ADR / decision log).
