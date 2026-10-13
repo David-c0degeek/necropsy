@@ -32,6 +32,7 @@ export package.
 - **Integration point + why** — new `necropsy.report.render` (view model + Jinja templates + inline assets as package data), `necropsy.report.package` (outputs, tables, evidence, deterministic ZIP), `necropsy.report.publish` (staged publication): analysis.json is the single contract between analysis and presentation (spec §7/§10).
 - **Vision fit** — offline, self-contained report/playbook from analysis.json (D002, D007 Jinja2); UX led by the navigator (D034); Playwright approved by the user (06.7).
 - **Risks** — package contents are real players' derived data (stated in docs and manifest; secret/path regex is a guard, not anonymisation); view wording can drift from the data contract (mitigated by view tests and evidence labels); publication is not crash-proof (documented, backup kept).
+- **Reference expansion** — `analysis_json.build_document` extends the existing JSON with `analysis.playbook`, `analysis.overview`, `analysis.guidance` and `analysis.gamedata`; `generic.catalog` reuses stored ranking raw and the existing item catalog. `render.playbook_view` supplies the shared reference presentation through `view.document_view`; the existing finding/evidence view remains the drill-down rather than being reimplemented. Both pages, CLI paths and ZIP still use the same renderer/publisher. Optional additions preserve older JSON; no database schema change or oracle-derived runtime constants.
 
 ## Boxes
 > ID = `<subject-id>.<box-number>` (subject index ID · box ordinal). Stable — never
@@ -66,7 +67,7 @@ export package.
       plus a Chromium download) for the 06.5 headless HTML smoke check, or
       choose a manual browser check instead.
 
-- [ ] **06.8** (agent) Visual match to the definitive playbook
+- [x] **06.8** (agent) Visual match to the definitive playbook
       (`D:/Parsing/Results/Playbook/Haplina_Naxx_Definitive_Playbook.html`, read-only
       template): report and playbook adopt its layout, palette, type scale and density
       (fixed sidebar with search and numbered bosses, gradient hero, per-boss panels
@@ -106,7 +107,7 @@ owned gap. It is the implementation and content acceptance checklist for 06.8.
 > and rerun this checkpoint after the fixes.
 
 - [x] Captain Hindsight review recorded (2026-10-13, agent boxes 06.1–06.5, 06.7)
-- [ ] Verdict is `CLOSE` — agent boxes 06.1–06.5 CLOSE; subject reopened for 06.8 after the user's 06.6 verdict
+- [x] Verdict is `CLOSE` — closing run after the reference-content implementation, peer AGREE round 2 and pushed checkpoint cd64345
 
 **Captain Hindsight — 06 agent boxes (2026-10-13)**
 
@@ -126,6 +127,14 @@ owned gap. It is the implementation and content acceptance checklist for 06.8.
 - **Verdict:** `CLOSE` for 06.1–06.5 and 06.7 (commit e1d4f11, CI run 38381853527
   success). Subject 06 remains IN PROGRESS pending 06.6.
 
+**Captain Hindsight — complete report and reference presentation (2026-10-13)**
+
+- **Keep:** analysis.json remains the renderer's only data contract. The shared reference frame adds all inventoried content while keeping findings and evidence drill-downs. Known non-use, unavailable casts and insufficient timing samples remain distinguishable. Source-based guidance uses named conditions, separately from logged observations. Full overall rows remain context; same-faction statistics still require three known inputs and retain inference. Both pages and the package use the existing publication path.
+- **Fix before closing:** no implementation fixes remain after peer AGREE round 2 (#89). The optional host-qualified citation labels are a readability improvement, not a correctness blocker. Final record review and CI confirmation precede the work-unit boundary.
+- **Record:** D040 is implemented and its durable reasoning appears in the output contract and result-reading guide. Integration analysis extended above; lessons record tri-state cast timing and dependency-based citations. The retained PM-1–PM-3 register concerns subject07 only; its live observation horizon has not elapsed and no prediction fields or calibration are changed by this report close-out. The disclosed handoff failure and recovery remain recorded in the inventory; successful acceptance and write guards were checked for both later transfers. No plan references were found in shipped source/docs/tests after excluding raw oracle CSV false positives.
+- **Risk:** guide-based training costs remain unverified against server costs; ammo and actual pet training are absent from the logs. Static encounter clocks do not prove observed phase timings or optimal cooldown placement. Package privacy and publication recovery limits remain documented. Broader human mechanics review (05.7) and real auth/live acquisition (07.9) remain open in manual-actions; this closure does not complete either.
+- **Verdict:** `CLOSE` for subject06 on the reviewed, pushed implementation cd64345. Evidence: peer full suite728 passed/4 known xfailed after data fixes, final focused62 checks after presentation fixes, clean ruff/format/mypy, regenerated full15boss/75row pages and screenshots at1400/390px; `necropsy render workspace/parity-full/analysis.json --out workspace/parity-rerender` emitted JSON, both pages and ZIP byte-identical to the preview. Peer round2 independently rehashed51 files and checked rendered timing/citation corrections;40 view/integration tests passed in its review. Linux and Windows CI run38417517143 succeeded. Final record review precedes moving to the next work unit.
+
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
@@ -142,3 +151,5 @@ owned gap. It is the implementation and content acceptance checklist for 06.8.
 2026-10-13 · slice 7 · 06.8 (review pending) · complete reference structure and dense shared presentation, all15boss content/13column overall cohort/17slot gear, percentile/name catalog/global setup and sourced conditional guidance, pet training and armor-slot correction, auth guide; evidence drilldowns retained · focused browser/view/render50 and data/guidance69 pass; full-fixture package regenerated with 75 recorded cohort rows, screenshots desktop/mobile top/Patchwerk/Gothik; full suite and peer review pending · uncommitted
 
 2026-10-13 · slice 8 · 06.8 (final review requested) · source-based guidance integrated with conditional/unknown states, unchanged valid280TP profile, separate armor/ring counts, default-dark reference theme with persisted light/system choice, safe source links and long-name overflow checks across added sections; KT encounter clock explicitly separated from logged fight start · full suite727 passed/4 known xfailed; final focused presentation51 passed, source/test secret scans clean, docs links and full15boss desktop/mobile expanded overflow checked · uncommitted; peer review pending
+
+2026-10-13 · slice 9 · 06.8 complete · peer round1 corrections preserve rank-one known non-use, explain known non-users in insufficient timing samples, and attach specific citations once per profile section and only to declared advice dependencies; peer AGREE round2 (0 blocking/0 important), Captain Hindsight CLOSE with integration/decision/lesson/manual-action review · peer full728 passed/4 known xfailed; Codex62 focused checks, ruff/format/mypy clean; full15boss/75row preview plus actual CLI rerender verified byte-identical JSON/HTML/ZIP; desktop/mobile timing/citation/overflow checks passed · implementation cd64345 committed and pushed; Linux/Windows CI run38417517143 success; record-only close-out follows in the same checkpoint sequence
