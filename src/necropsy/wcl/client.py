@@ -189,6 +189,8 @@ class WclClient:
     rng: random.Random = field(default_factory=random.Random)
     policy: Policy = field(default_factory=Policy)
     last_rate: RateLimit | None = None
+    last_rate_at: float | None = None
+    """Monotonic time `last_rate` was read from a response; None when not observed."""
 
     def __post_init__(self) -> None:
         require_supported(self.site)
@@ -271,6 +273,7 @@ class WclClient:
         rate = _rate(data)
         if rate is not None:
             self.last_rate = rate
+            self.last_rate_at = self.clock.monotonic()
         if errors and not isinstance(errors, list):
             raise InvalidResponse("errors is not a list", self.last_rate)
         if errors and not data:
@@ -313,6 +316,7 @@ class WclClient:
             )
         self.clock.sleep(float(rate.reset_in_s) + 1.0)
         self.last_rate = RateLimit(rate.limit_per_hour, 0.0, 3600)
+        self.last_rate_at = None  # assumed after the reset, not observed
 
 
 def pages(
