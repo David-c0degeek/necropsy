@@ -79,8 +79,16 @@ the Hunter-specific forensics behind the Haplina findings.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded
+- [x] Verdict is `CLOSE`
+
+**Captain Hindsight — 2026-10-13 (after navigator `VERDICT AGREE round=3`)**
+
+1. **Keep:** plugin registry with one real plugin; every Hunter value goes through the shared metrics and evidence factories; rule data with sources (fixture IDs, Petopia family table, Wowhead-corroborated item IDs); ranking damage validated against all 75 cohort rows rather than one boss; target side recorded with provenance; golden facts now 80/84, every one checker-backed.
+2. **Fix before closing:** none open. Reviews fixed: name-keyed spell maps losing IDs, type-based friendliness (twice: Player/Pet, then NPC), partial gear producing a false negative, target-less damage (positive and zero amounts), Environment placeholder vs missing target.
+3. **Record:** D021, D022; lessons on rule validation across the whole cohort and WCL ability-name aliases. Carry to 05: encounter exclusions (Faerlina Worshipper, Razuvious Understudy, Anub, Gluth, Heigan) to reach 75/75 ranking DPS; Gothik native targets; KT raid-utility window; long-gap signal needs phase/downtime context; Hunter consumable list.
+4. **Risk:** plugin has only test callers until `analysis.json` (05.5); `auto-gap-v1` parameters (1.25 × median, 5 clean intervals) are not validated against labelled clips; fight friendly/enemy lists are WCL's and could omit actors.
+5. **Verdict:** CLOSE
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
@@ -90,3 +98,4 @@ the Hunter-specific forensics behind the Haplina findings.
 2026-10-13 · slice 2 · 04.3, 04.5, 04.6 · review round 1 fixes: spell IDs grouped by name (both Reckless Charge IDs), target-friendliness-v1 (event flag, fight friendly lists, NPC/NPC-owned pet hostile, else undecided → partial), Renataki/trinkets UNKNOWN unless both trinket slots recorded, ranking damage UNKNOWN for target-less damage and blocks exclusions on unlisted targets · regressions added; fast 182 passed, golden 84 + 2 xfail; KT friendly CC still Reckless 102.51 / Scatter 115.32 as a COMPLETE claim · commit pending pair review
 2026-10-13 · slice 3 · 04.3, 04.5 · review round 2 fixes: target-less damage detected by row count (zero-amount crash fixed), target-side-v1 (event flag / fight friendly lists / fight enemy list, also via pet owner; actor type never decides; side provenance recorded), WCL Environment placeholder (-1) = no unit target · regressions added; fast suite green; golden 84 + 2 xfail; KT friendly CC complete (Reckless 102.51, Scatter 115.32) · commit pending pair review
 2026-10-13 · slice 4 · 04.5 · in-round fix: missing target ID stays undecided; Environment placeholder is no-unit-target only for ground-placed abilities (Freezing Trap) · navigator AGREE round 3
+2026-10-13 · slice 5 · Hindsight · commit pushed; CI run 38327193624 success; Hindsight CLOSE

@@ -324,7 +324,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | [x] | 01 | `tasks/necropsy/01-foundation-and-golden-fixture.md` | DONE | agent: 6; domain-sme: 1 | yes |
 | [x] | 02 | `tasks/necropsy/02-snapshot-ingest-and-normalize.md` | DONE | agent: 6 | n/a |
 | [x] | 03 | `tasks/necropsy/03-evidence-model-and-generic-analyzers.md` | DONE | agent: 6 | n/a |
-| [ ] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | TODO | agent: 7; domain-sme: 1 | yes |
+| [x] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | DONE | agent: 7; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | TODO | agent: 6; domain-sme: 1 | yes |
 | [ ] | 06 | `tasks/necropsy/06-report-and-package.md` | TODO | agent: 5; product-owner: 2 | yes |
 | [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | TODO | agent: 8; product-owner: 1; release-engineer: 1 | yes |
