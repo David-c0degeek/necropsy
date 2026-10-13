@@ -76,8 +76,26 @@ export package.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded (2026-10-13, agent boxes 06.1–06.5, 06.7)
+- [ ] Verdict is `CLOSE` — agent work CLOSE; subject stays open until 06.6 is reviewed by the user
+
+**Captain Hindsight — 06 agent boxes (2026-10-13)**
+
+- **Keep:** analysis.json as the only renderer input; a pure view model where every
+  wording/grade decision lives; staged publication with preflight; browser tests that
+  measure real behaviour (overflow at 320/390/768 with hostile names, keyboard, print,
+  storage blocked) — they caught the mobile overflow before review; screenshots shared
+  early so the navigator could steer UX while mechanics were finished.
+- **Fix before closing:** none in code. 06.6 (side-by-side vs the definitive playbook)
+  needs the user.
+- **Record:** D035; lessons below. Navigator round 1 again found uncertainty becoming
+  confident text in the presentation layer (empty pet arrays read as "none", cohort
+  counts shown as calculated under inferred membership) — the same class as subject 05.
+- **Risk:** package holds real players' derived data (documented, not anonymised);
+  publication is not crash-proof (documented recovery); one unexplained native-stack
+  abort during a full local run, not reproduced.
+- **Verdict:** `CLOSE` for 06.1–06.5 and 06.7 (commit e1d4f11, CI run 38381853527
+  success). Subject 06 remains IN PROGRESS pending 06.6.
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
@@ -88,3 +106,4 @@ export package.
 2026-10-13 · slice 2 (documentation checkpoint; no 06 boxes completed) · peer AGREE round 1 on documentation/CLI UX; 271 fast tests plus documented subset/ingest/reuse/error flows passed; links, issue-form YAML, SVG XML, ruff/format/mypy clean · commit a76c35d pushed; Linux/Windows CI run 38373980724 success; approved repository description/topics applied, private visibility retained · report design next
 2026-10-13 · slice 3 · 06.1–06.5, 06.7 · navigator-led design (DESIGN_AGREED after staged-publication challenge; two visual STEER rounds): view model + Jinja templates + inline CSS/JS, report.html and playbook.html, deterministic package with tables/evidence/manifest, staged publish with rollback, `necropsy render`, `--no-package`; Playwright 1.63 + Chromium (user approved 06.7) · unit, integration, browser (14) and golden end-to-end (full export: 15 bosses, byte-identical rerender) checks; screenshots light/dark desktop/mobile · awaiting review
 2026-10-13 · slice 4 · 06.2–06.5 · review round 1 fixes: publish preflight refuses directories/links with artifact names; `pets_listed` added to analysis.json entries and the no-pet fact proven only with the listing; every cohort aggregate (explosives, weave adoption, foreign-share median) keeps the inferred grade; Tauren fill reported as considered vs used; RenderError for analysis.json missing nested data or evidence paths (clean CLI exit); failure/recovery docs scoped · 518 passed 4 xfailed, acceptance · awaiting round 2
+2026-10-13 · slice 5 · 06.2 · round-2 wording refinements (fill applied / none qualified / too few; pet listing missing vs unrecorded vs none) · navigator AGREE round 2 · commit e1d4f11 pushed; CI run 38381853527 success; Hindsight CLOSE for agent boxes
