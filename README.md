@@ -12,15 +12,17 @@ Offline forensics for Classic Era Hunters in Naxxramas.</p>
 <a href="CONTRIBUTING.md">Contribute</a>
 </p>
 
-Necropsy turns a saved Warcraft Logs export into boss-by-boss analysis: what
+Necropsy turns Warcraft Logs data into boss-by-boss analysis: what
 happened, how comparable Hunters played, and which improvements deserve a closer
 look. Each finding keeps its evidence and uncertainty visible.
 
 **Available today:** a local command-line workflow that turns the v6 Hunter
 deep-export format (or the included fixture subset) into an offline HTML report,
 a boss-by-boss playbook, `analysis.json`, and a shareable package.
-**Planned:** paste a WCL character URL and let Necropsy acquire the logs. See the
-[roadmap](docs/roadmap.md).
+`necropsy analyze` also accepts a supported character URL, acquires a saved
+snapshot, and writes the same results. This flow is tested with synthetic API
+responses; authenticated live validation remains pending. See the
+[connection guide](docs/warcraft-logs.md) and [roadmap](docs/roadmap.md).
 
 ## Your first analysis
 
@@ -33,12 +35,23 @@ uv run necropsy offline tests/fixtures/haplina_naxx_subset.zip --out workspace/d
 
 Open **`workspace/demo/report.html`** in your browser; `playbook.html` next to it
 is the review list. This small sample covers four bosses and runs without WCL
-credentials or the full Git LFS fixture. The analysis command and the pages make
+credentials or the full Git LFS fixture. This sample command and the pages make
 no network requests; dependency installation can.
 
 For your own supported export, substitute its ZIP path.
 [Getting started](docs/getting-started.md) explains the format, database reuse,
 and common errors.
+
+To acquire your own logs, first [configure and sign in to WCL](docs/warcraft-logs.md),
+then use an output directory without earlier results:
+
+```sh
+uv run necropsy analyze "YOUR_CHARACTER_URL" --cache workspace/wcl-cache --out workspace/my-run
+```
+
+Acquisition uses the network and requires a Classic Era Hunter URL on
+`vanilla.warcraftlogs.com`. Check its coverage summary: exit 4 means a report
+was written with partial coverage. The saved snapshot and pages work offline.
 
 ## What you get
 

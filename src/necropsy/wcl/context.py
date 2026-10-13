@@ -16,7 +16,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from necropsy.analysis.evidence import Faction
-from necropsy.wcl.client import RATE_FIELDS, InvalidResponse, NotFound, WclClient
+from necropsy.wcl.client import RATE_FIELDS, Endpoint, InvalidResponse, NotFound, WclClient
 from necropsy.wcl.urls import CharacterRef
 
 SUPPORTED_ZONE_ID = 2006
@@ -144,14 +144,18 @@ def _has_rankings(value: Any) -> bool | None:
 
 
 def resolve(
-    client: WclClient, ref: CharacterRef, *, partition: int | None = None
+    client: WclClient,
+    ref: CharacterRef,
+    *,
+    partition: int | None = None,
+    endpoint: Endpoint = "client",
 ) -> CharacterContext:
     variables: dict[str, Any] = {"zone": SUPPORTED_ZONE_ID}
     if ref.character_id is not None:
         variables["id"] = ref.character_id
     else:
         variables.update(name=ref.name, server=ref.realm, region=ref.region)
-    result = client.query(CHARACTER_QUERY, variables)
+    result = client.query(CHARACTER_QUERY, variables, endpoint=endpoint)
     character = (result.data.get("characterData") or {}).get("character")
     if character is None:
         raise NotFound("WCL has no such character (or it is hidden)", result.rate)
@@ -177,7 +181,9 @@ def resolve(
     presence: dict[int, bool | None] = {}
     if listed and partition is None:
         ranks = client.query(
-            rankings_query([p for p, _, _ in listed]), {"id": cid, "zone": SUPPORTED_ZONE_ID}
+            rankings_query([p for p, _, _ in listed]),
+            {"id": cid, "zone": SUPPORTED_ZONE_ID},
+            endpoint=endpoint,
         )
         holder = (ranks.data.get("characterData") or {}).get("character") or {}
         for pid, _, _ in listed:

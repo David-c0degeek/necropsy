@@ -2,8 +2,9 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Getting started](getting-started.md)
 
-Necropsy can sign in and resolve a Warcraft Logs character URL. Fetching a full
-analysis from that URL is still being built. The [offline sample](getting-started.md)
+Necropsy can sign in, resolve a Warcraft Logs character URL, and acquire a snapshot
+for a report and playbook. The CLI flow is verified with synthetic responses;
+authenticated live validation remains pending. The [offline sample](getting-started.md)
 already produces a report and playbook without signing in.
 
 The current connection supports **Classic Era on `vanilla.warcraftlogs.com`**
@@ -93,7 +94,7 @@ uv run necropsy resolve "https://vanilla.warcraftlogs.com/character/eu/REALM/CHA
 Replace `REALM` and `CHARACTER` with the values in your WCL character URL.
 An ID URL, such as `https://vanilla.warcraftlogs.com/character/id/12345`, is also
 accepted. Resolution shows the character, server, region, faction, zone, and
-partition; it does not fetch reports or build a playbook yet.
+partition. Use `analyze` below to acquire fights and build the pages.
 
 If several partitions are possible, the command lists the choices and exits
 with status 2. Repeat with the ID you want:
@@ -105,6 +106,55 @@ uv run necropsy resolve "YOUR_CHARACTER_URL" --partition 1
 Faction remains **unknown** when the returned name cannot be reliably
 identified. Necropsy keeps that uncertainty rather than guessing a faction
 from an API ID. Same-faction acquisition cannot use an unknown faction.
+
+## Acquire an analysis
+
+After signing in, run:
+
+```sh
+uv run necropsy analyze "YOUR_CHARACTER_URL" --cache workspace/wcl-cache --out workspace/my-run
+```
+
+Both directories can be created by the command. Reuse the cache across runs;
+choose an output directory without earlier analysis files or snapshots. The
+command refuses existing results before accessing credentials or making requests.
+It also refuses paths through symlinks or junctions and prevents simultaneous
+`analyze` runs in one output directory. The offline and render commands retain
+their existing replacement behavior.
+
+If several partitions are possible, read the listed choices and repeat with
+`--partition ID`. Only an observed faction and Hunter character are supported.
+Every request uses `--endpoint client` by default; `--endpoint user` selects the
+user API for the whole run. Permission failures never switch endpoints.
+
+Acquisition seeks five verified same-faction event samples and up to 25 metadata
+entries per boss. Metadata-only rows are context, not extra event samples.
+`--cross-faction` adds the verified other-faction overall #1 as separate context;
+it does not replace the same-faction baseline. `--no-package` skips the shareable
+ZIP. `--name STEM` names the raw snapshot without its extensions; the default
+uses the character, zone and UTC time.
+
+Results include `analysis.json`, `report.html`, `playbook.html`, the optional
+package, and `snapshot/STEM.zip` with its `.entries` and `.sha256` companions.
+Read **Live acquisition coverage** in either page before interpreting results.
+An overall #1 comparison stays unknown when that fight was not acquired.
+The points summary describes an account-wide change between observed readings;
+it can include other activity and stays unknown when the accounting period
+cannot be established.
+
+| Exit status | Result and next step |
+|---|---|
+| `0` | Report written with complete requested acquisition coverage |
+| `4` | Report written with partial coverage; inspect the boss coverage notes |
+| `2` | A partition choice is needed; repeat with one of the listed IDs |
+| `3` | Finalization stopped before a snapshot or report was written; fetched data remains in the cache for a later run |
+| `1` | Input, authentication, acquisition or output failure; follow the printed error |
+
+A report with complete acquisition coverage can still contain unknown analysis
+values. If report generation fails after saving the snapshot, the command prints
+its path and an offline recovery command. Keep the snapshot and its manifest
+together. Replaying it requires no WCL credentials or network access; the pages
+do not update their rankings while you read them.
 
 ## Sign out
 

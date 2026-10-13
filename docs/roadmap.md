@@ -16,9 +16,9 @@ personal use and `necropsy resolve` looks up a character URL. Acquisition
 orchestration is available as a library alongside benchmark selection, report/event
 fetching and the immutable cache. The library can finalize acquired report bundles
 and write a snapshot v1 for the existing offline analysis and rendering commands.
-Live analysis from a character URL is not connected
-to a CLI workflow yet. Callers supply an explicit cache directory; there is
-no default cache location until the CLI is wired.
+`necropsy analyze URL --cache DIR --out DIR` connects these pieces into one
+workflow, with explicit cache and output paths, requested-boss coverage, partial
+report exit statuses and offline recovery from a saved snapshot.
 Same-faction comparisons, encounter context, and evidence-linked recommendations
 are implemented. [Try the sample](getting-started.md).
 
@@ -26,16 +26,15 @@ are implemented. [Try the sample](getting-started.md).
 
 | Milestone | Intended result | Dependency |
 |---|---|---|
-| A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | Offline analyzer, report, playbook and package available; live fetching remains |
+| A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | CLI integration implemented; authenticated live validation remains |
 | B — Desktop app | Paste a URL, authenticate, choose raid/partition, follow acquisition progress, inspect bosses, export, and open cached analyses | Stable analysis JSON; public-client authentication before distribution |
 | C — Broader classification | Class/spec/role taxonomy and build clusters; Druid and Warrior role resolution with confidence and overrides | Milestone A shipped |
 | D — More class plugins | Druid, Warrior, Rogue, Mage, Warlock, then healers | Classification foundation |
 | E — More raids and variants | Other Classic Era raids, then Fresh/SoD/other sites | Stable analyzer contracts |
 
-The proposed `necropsy analyze <url>` command is future work.
-[Sign-in and character resolution](warcraft-logs.md) are available today;
-the end-to-end CLI workflow remains planned. Snapshot v1 integration is verified
-with synthetic responses; authenticated live acquisition still needs validation.
+[Sign-in, resolution and acquisition](warcraft-logs.md) are implemented for
+personal use. Snapshot v1 and end-to-end CLI integration are verified with
+synthetic responses; authenticated live acquisition still needs validation.
 
 ## Authentication and distribution
 

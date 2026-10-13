@@ -14,11 +14,11 @@ from necropsy.report.publish import PublishError
 from necropsy.report.render import RenderError
 from necropsy.snapshot.archive import ArchiveError, load_entries_manifest
 from necropsy.snapshot.model import SnapshotError
-from necropsy.wcl.cli import auth_app, resolve_command
+from necropsy.wcl.cli import analyze_command, auth_app, resolve_command
 
 app = typer.Typer(
     name="necropsy",
-    help="Local-first Warcraft Logs forensics. Analyze saved Classic Era Hunter/Naxxramas logs.",
+    help="Local-first Warcraft Logs forensics. Acquire Hunter/Naxxramas logs or replay a snapshot.",
     epilog="Start here: necropsy offline SNAPSHOT.zip --out workspace/analysis, then open "
     "report.html.",
     no_args_is_help=True,
@@ -53,12 +53,14 @@ def root(
         ),
     ] = False,
 ) -> None:
-    """Analyze a supported saved export offline. Run a command with --help for its options."""
+    """Acquire supported logs or replay a snapshot. Use COMMAND --help for options."""
 
 
 @app.command("ingest")
 def ingest_command(
-    snapshot: Annotated[Path, typer.Argument(help="v6 Hunter deep-export ZIP or fixture subset.")],
+    snapshot: Annotated[
+        Path, typer.Argument(help="v6 export, fixture subset, or live snapshot ZIP.")
+    ],
     db: Annotated[Path, typer.Option("--db", help="Save the analysis database at this path.")],
     sha256: Annotated[
         str | None, typer.Option(help="Refuse the archive unless its SHA-256 matches.")
@@ -94,7 +96,9 @@ def ingest_command(
 
 @app.command("offline")
 def offline_command(
-    snapshot: Annotated[Path, typer.Argument(help="v6 Hunter deep-export ZIP or fixture subset.")],
+    snapshot: Annotated[
+        Path, typer.Argument(help="v6 export, fixture subset, or live snapshot ZIP.")
+    ],
     out: Annotated[
         Path, typer.Option("--out", help="Write analysis.json, the report and playbook here.")
     ],
@@ -170,6 +174,7 @@ def render_command(
 
 app.add_typer(auth_app, name="auth")
 app.command("resolve")(resolve_command)
+app.command("analyze")(analyze_command)
 
 
 def main() -> None:

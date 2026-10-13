@@ -21,12 +21,22 @@ implemented in the development checkout; they are not a published release.
 
 ### Added
 
+- **Character-URL acquisition workflow.** `necropsy analyze URL --cache DIR
+  --out DIR` acquires Classic Era Hunter/Naxxramas data, saves a verified snapshot
+  v1 and writes the offline report, playbook and package. It refuses earlier
+  outputs, keeps one endpoint throughout, and distinguishes partial reports from
+  finalization stops. Live pages show every requested boss and keep metadata-only
+  rows out of event medians. Schema 2 databases are rebuilt from the same raw
+  archive; historical JSON remains renderable. Integration tests use synthetic
+  responses; authenticated live validation remains pending.
+  [Connection and recovery](docs/warcraft-logs.md).
+
 - **Warcraft Logs sign-in and character lookup (personal use).** `necropsy auth
   login | status | logout` signs in with your own confidential WCL client: the
   client secret is entered at a hidden prompt and, with your token, stored only in
   the OS credential store (never a file). `necropsy resolve <character URL>` shows
   the character, faction, raid and partition, refusing non-Warcraft Logs and not yet
-  supported sites. Live acquisition comes next; a public PKCE client is required
+  supported sites. A public PKCE client is required
   before any distribution.
 - **Offline report and playbook.** Every `necropsy offline` run also writes
   `report.html` (findings first, then execution, comparisons and evidence) and

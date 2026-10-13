@@ -4,7 +4,9 @@
 
 Start with a runnable sample, then choose how far into the evidence you want to go.
 Necropsy currently writes JSON from saved Classic Era Hunter/Naxxramas exports.
-Each run also writes an offline HTML report and playbook. Live acquisition is planned.
+Each run also writes an offline HTML report and playbook. `necropsy analyze`
+connects character-URL acquisition to those outputs; authenticated live validation
+remains pending.
 
 ## Run and understand
 
@@ -12,7 +14,7 @@ Each run also writes an offline HTML report and playbook. Live acquisition is pl
 |---|---|
 | [Getting started](getting-started.md) | How do I run it, where are my results, and what if a command fails? |
 | [Reading results](reading-results.md) | Which comparisons are fair, and how should I act on findings? |
-| [Warcraft Logs connection](warcraft-logs.md) | How do I sign in, check access, and resolve a character URL? |
+| [Warcraft Logs connection](warcraft-logs.md) | How do I sign in, acquire logs, and recover a stopped run? |
 | [Roadmap](roadmap.md) | What works today and what comes next? |
 
 ## Go deeper
