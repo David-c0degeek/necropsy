@@ -17,3 +17,4 @@
 - 2026-10-13 — Validate a ranking-damage rule against every cohort row, not one boss: "hostile NPC targets" matched Patchwerk but failed KT, where WCL counts damage to mind-controlled players. The rule that holds is "exclude only self and own pets".
 - 2026-10-13 — WCL ability names can differ from community references ("Demoralizing Screech" vs Petopia's "Screech"); keep aliases in rule data, keep raw names in output.
 - 2026-10-13 — A test that resolves every recommendation's evidence path against the emitted document caught a path naming a field that the serializer had renamed (`kill_duration_ms` vs `kill_duration_s`). Cross-references inside one document need a resolution test, not review.
+- 2026-10-13 — Every aggregate (median, projection, ceiling, split) needs a negative test feeding an UNKNOWN or INFERRED input and asserting the output grade; three blocking review findings in one subject were uncertainty silently becoming a confident value.

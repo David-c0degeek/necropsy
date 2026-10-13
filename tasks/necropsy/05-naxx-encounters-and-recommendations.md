@@ -81,8 +81,29 @@ to report rendering.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded (2026-10-13, agent boxes 05.1–05.6)
+- [ ] Verdict is `CLOSE` — agent work CLOSE; subject stays open until 05.7 is adjudicated
+
+**Captain Hindsight — 05 agent boxes (2026-10-13)**
+
+- **Keep:** evidence paths resolved by test against the emitted document (caught a
+  real path bug); per-member references on every aggregate; empirical rules
+  labelled in output and guarded by a standing golden test (90/90); typed
+  document model validated before every write; atomic output with verified reuse.
+- **Fix before closing:** none in code. 05.7 (domain-sme) must adjudicate the
+  disputed facts and heuristics before the subject is DONE.
+- **Record:** D023–D028; lesson on cross-reference resolution tests. Navigator
+  round 1 found three blocking issues the driver's own tests missed (reuse
+  bypassing verification, missing metadata read as foreign, inferred membership
+  upgraded by aggregation) — all were "absence/uncertainty silently becomes a
+  confident value", the same class 03/04 reviews caught. Future subjects should
+  add a negative test per aggregate for "unknown/inferred input in, what grade out".
+- **Risk:** historical cohort is at most five entries; recommendation thresholds
+  are heuristics; the exported JSON Schema does not carry the nested evidence
+  check (documented); Grobbulus raid-speed flag and Gothik weave verdict await
+  review.
+- **Verdict:** `CLOSE` for 05.1–05.6 (commit 3c98b0e, CI run 38363722668 success).
+  Subject 05 remains IN PROGRESS pending 05.7.
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
@@ -90,3 +111,4 @@ to report rendering.
 > `tasks/necropsy/lessons.md` line here too whenever the slice taught something.
 2026-10-13 · slice 1 · 05.1–05.6 · huddle (Codex DESIGN_AGREED), Naxx encounter rules (ranking exclusions reproduce 90/90 recorded fights, Gothik native targets), target-integrity and raid-utility findings, three benchmark views, recommendations-v1, analysis.json v1 + JSON Schema, `necropsy offline`; pet-inactive-v1 rule; facts promoted (176 verified, 4 disputed with resolutions) · ruff, mypy strict, fast + golden suites (399 passed, 4 xfail), acceptance passed, analysis.json byte-identical over repeated runs · not yet committed (awaiting review)
 2026-10-13 · slice 2 · 05.2–05.5 · review round 1 fixes: `--db` reuse verifies archive digest and entries manifest; unclassifiable damage targets make the target split UNKNOWN (D028); inferred faction membership propagates to medians, ranges, ceiling and confidence with per-member refs (D027); raid-speed wording no longer asserts a cause; typed analysis.json schema with nested evidence validation and negative tests; ranking exclusions labelled empirical with a standing golden test · ruff, mypy strict, fast + golden + acceptance suites · not yet committed (awaiting round 2)
+2026-10-13 · slice 3 · 05.2, 05.4, 05.5 · round-2 follow-up: padding confidence carries membership and links cohort target evidence; docs state the JSON Schema/pydantic validation difference · navigator AGREE round 2 · commit 3c98b0e pushed; CI run 38363722668 success; Hindsight CLOSE for agent boxes
