@@ -1,0 +1,196 @@
+"""Headless-browser checks of the rendered report and playbook (uv run pytest -m browser).
+
+Needs Playwright's Chromium (`uv run playwright install chromium`); without it
+these tests are skipped with that reason.
+"""
+
+from __future__ import annotations
+
+import json
+from collections.abc import Iterator
+from pathlib import Path
+from typing import Any
+
+import pytest
+
+from necropsy.report.offline import run_offline
+from necropsy.report.package import write_outputs
+from tests.analysis_db import subset_db
+from tests.fixture_paths import subset_path
+
+pytestmark = pytest.mark.browser
+
+sync_api = pytest.importorskip("playwright.sync_api")
+
+DESKTOP = {"width": 1400, "height": 900}
+MOBILE = {"width": 390, "height": 844}
+
+
+@pytest.fixture(scope="module")
+def site(tmp_path_factory: pytest.TempPathFactory) -> Path:
+    out = tmp_path_factory.mktemp("site")
+    run_offline(subset_path(), out, db=subset_db(), package=False)
+    return out
+
+
+@pytest.fixture(scope="module")
+def hostile_site(site: Path, tmp_path_factory: pytest.TempPathFactory) -> Path:
+    document = json.loads((site / "analysis.json").read_bytes())
+    long_name = "Ünïcødé名" + "W" * 80 + "</script><img src=x>"
+    document["subject"]["name"] = long_name
+    boss = document["bosses"][0]
+    boss["boss"] = long_name
+    boss["cohort"][0]["player"] = long_name
+    for rec in boss["recommendations"]:
+        rec["finding"] = long_name
+    out = tmp_path_factory.mktemp("hostile-site")
+    write_outputs(json.dumps(document, sort_keys=True).encode("utf-8"), out, include_package=False)
+    return out
+
+
+@pytest.fixture(scope="module")
+def browser() -> Iterator[Any]:
+    with sync_api.sync_playwright() as p:
+        try:
+            chromium = p.chromium.launch()
+        except Exception as exc:  # Chromium not installed
+            pytest.skip(f"Chromium unavailable: {exc}")
+        yield chromium
+        chromium.close()
+
+
+class _Watch:
+    def __init__(self, page: Any) -> None:
+        self.errors: list[str] = []
+        self.requests: list[str] = []
+        page.on("console", lambda m: self.errors.append(m.text) if m.type == "error" else None)
+        page.on("pageerror", lambda e: self.errors.append(str(e)))
+        page.on("request", lambda r: self.requests.append(r.url))
+
+    def check(self) -> None:
+        assert self.errors == []
+        assert [u for u in self.requests if not u.startswith("file:")] == []
+
+
+@pytest.fixture
+def page(browser: Any) -> Iterator[Any]:
+    context = browser.new_context(viewport=DESKTOP)
+    yield context.new_page()
+    context.close()
+
+
+def test_desktop_navigation_between_report_and_playbook(page: Any, site: Path) -> None:
+    watch = _Watch(page)
+    page.goto((site / "report.html").as_uri())
+    assert page.locator("section.boss").count() == 4
+    assert page.locator("nav.sidenav").is_visible()
+    page.locator("nav.sidenav a", has_text="Gothik").click()
+    assert page.url.endswith("#boss-51109")
+    page.locator("nav.switch a", has_text="Playbook").click()
+    assert page.url.endswith("playbook.html")
+    assert page.locator("h1").inner_text().endswith("playbook")
+    page.locator("nav.switch a", has_text="Report").click()
+    assert page.url.endswith("report.html")
+    watch.check()
+
+
+def test_keyboard_skip_link_and_disclosures(page: Any, site: Path) -> None:
+    page.goto((site / "report.html").as_uri())
+    page.keyboard.press("Tab")
+    assert page.evaluate("document.activeElement.className") == "skip"
+    page.keyboard.press("Enter")
+    assert page.evaluate("document.activeElement.id") == "main"
+    summary = page.locator("main details > summary").first
+    details = page.locator("main details").first
+    summary.focus()
+    assert not details.evaluate("d => d.open")
+    page.keyboard.press("Enter")
+    assert details.evaluate("d => d.open")
+
+
+def test_theme_toggle_cycles_and_persists(page: Any, site: Path) -> None:
+    page.goto((site / "report.html").as_uri())
+    button = page.locator("#theme-toggle")
+    assert button.inner_text() == "Theme: system"
+    button.click()
+    assert page.evaluate("document.documentElement.dataset.theme") == "dark"
+    page.reload()
+    assert page.evaluate("document.documentElement.dataset.theme") == "dark"
+    button.click()
+    button.click()
+    assert page.evaluate("document.documentElement.dataset.theme") is None
+    assert button.inner_text() == "Theme: system"
+
+
+def test_review_marks_persist_and_reset(page: Any, site: Path) -> None:
+    page.goto((site / "playbook.html").as_uri())
+    box = page.locator("input[data-review-key]").first
+    box.check()
+    page.reload()
+    assert page.locator("input[data-review-key]").first.is_checked()
+    assert "only in this browser" in page.locator("#review-status").inner_text()
+    page.locator("#reset-reviews").click()
+    page.reload()
+    assert not page.locator("input[data-review-key]").first.is_checked()
+
+
+def test_print_opens_disclosures_and_restores_them(page: Any, site: Path) -> None:
+    page.goto((site / "report.html").as_uri())
+    first = page.locator("main details").first
+    first.evaluate("d => { d.open = true; }")
+    page.evaluate("window.dispatchEvent(new Event('beforeprint'))")
+    assert page.evaluate("[...document.querySelectorAll('details')].every(d => d.open)")
+    page.evaluate("window.dispatchEvent(new Event('afterprint'))")
+    states = page.evaluate("[...document.querySelectorAll('main details')].map(d => d.open)")
+    assert states[0] is True and not any(states[1:])
+    page.emulate_media(media="print")
+    assert not page.locator("#theme-toggle").is_visible()
+
+
+def test_compact_picker_works_without_a_select(browser: Any, site: Path) -> None:
+    context = browser.new_context(viewport=MOBILE)
+    page = context.new_page()
+    watch = _Watch(page)
+    page.goto((site / "report.html").as_uri())
+    assert not page.locator("nav.sidenav").is_visible()
+    page.locator("#boss-picker > summary").click()
+    page.locator("#boss-picker a", has_text="Kel'Thuzad").click()
+    assert page.url.endswith("#boss-51114")
+    assert not page.locator("#boss-picker").evaluate("d => d.open")
+    page.wait_for_function("document.activeElement.id === 'boss-51114-title'")
+    watch.check()
+    context.close()
+
+
+def test_side_navigation_marks_the_current_boss(page: Any, site: Path) -> None:
+    page.goto((site / "report.html").as_uri() + "#boss-51109")
+    current = page.locator(".sidenav a[aria-current='location']")
+    assert current.count() == 1 and "Gothik" in current.inner_text()
+    assert page.locator(".sidenav .sr").first.inner_text().strip().startswith("finding")
+
+
+@pytest.mark.parametrize("width", [320, 390, 768])
+@pytest.mark.parametrize("name", ["report.html", "playbook.html"])
+def test_no_horizontal_page_scroll(browser: Any, hostile_site: Path, width: int, name: str) -> None:
+    context = browser.new_context(viewport={"width": width, "height": 800})
+    page = context.new_page()
+    page.goto((hostile_site / name).as_uri())
+    page.evaluate("document.querySelectorAll('details').forEach(d => { d.open = true; })")
+    overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
+    assert overflow <= 1, (name, width, overflow)
+    context.close()
+
+
+def test_storage_blocked_still_works(browser: Any, site: Path) -> None:
+    context = browser.new_context(viewport=DESKTOP)
+    context.add_init_script(
+        "Object.defineProperty(window, 'localStorage', {get() { throw new Error('blocked'); }});"
+    )
+    page = context.new_page()
+    watch = _Watch(page)
+    page.goto((site / "playbook.html").as_uri())
+    assert "does not allow saving" in page.locator("#review-status").inner_text()
+    page.locator("input[data-review-key]").first.check()
+    page.locator("#theme-toggle").click()
+    watch.check()
+    context.close()

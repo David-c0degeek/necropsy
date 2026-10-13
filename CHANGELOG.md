@@ -9,6 +9,15 @@ implemented in the development checkout; they are not a published release.
 
 ### Added
 
+- **Offline report and playbook.** Every `necropsy offline` run also writes
+  `report.html` (findings first, then execution, comparisons and evidence) and
+  `playbook.html` (a per-boss review list with local review marks), both
+  self-contained, offline, keyboard- and print-friendly, in light and dark themes,
+  plus a deterministic package with CSV tables, per-boss evidence and a checksum
+  manifest. `necropsy render` rebuilds them from an existing `analysis.json`, and
+  `--no-package` skips the ZIP. Outputs are built before the output folder
+  changes and are replaced together, with rollback and a recoverable backup if
+  replacing fails. [Getting started](docs/getting-started.md).
 - **Offline boss analysis.** `necropsy offline` writes deterministic, versioned
   `analysis.json` with same-faction medians, a best-ranked ceiling, optional
   cross-faction context, encounter findings, and evidence-linked recommendations.

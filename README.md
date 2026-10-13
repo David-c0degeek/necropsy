@@ -16,10 +16,11 @@ Necropsy turns a saved Warcraft Logs export into boss-by-boss analysis: what
 happened, how comparable Hunters played, and which improvements deserve a closer
 look. Each finding keeps its evidence and uncertainty visible.
 
-**Available today:** a local command-line workflow that writes `analysis.json`
-from the v6 Hunter deep-export format or the included fixture subset.
-**Planned:** paste a WCL character URL, acquire the logs, and open a browsable
-report and playbook. See the [roadmap](docs/roadmap.md).
+**Available today:** a local command-line workflow that turns the v6 Hunter
+deep-export format (or the included fixture subset) into an offline HTML report,
+a boss-by-boss playbook, `analysis.json`, and a shareable package.
+**Planned:** paste a WCL character URL and let Necropsy acquire the logs. See the
+[roadmap](docs/roadmap.md).
 
 ## Your first analysis
 
@@ -30,13 +31,14 @@ uv sync --locked
 uv run necropsy offline tests/fixtures/haplina_naxx_subset.zip --out workspace/demo
 ```
 
-Your results are in **`workspace/demo/analysis.json`**. This small sample covers
-four bosses and runs without WCL credentials or the full Git LFS fixture.
-The analysis command makes no network requests; dependency installation can.
+Open **`workspace/demo/report.html`** in your browser; `playbook.html` next to it
+is the review list. This small sample covers four bosses and runs without WCL
+credentials or the full Git LFS fixture. The analysis command and the pages make
+no network requests; dependency installation can.
 
 For your own supported export, substitute its ZIP path.
 [Getting started](docs/getting-started.md) explains the format, database reuse,
-and common errors. The output is JSON today; HTML reports are planned.
+and common errors.
 
 ## What you get
 

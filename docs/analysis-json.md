@@ -69,7 +69,7 @@ afterwards. The file is written atomically: a failed run leaves no partial file.
 |---|---|
 | `encounter_id`, `boss` | the encounter |
 | `rules` | encounter rules applied: ranking exclusions with the rule's `basis` (`empirical` — found from recorded rankings, not documented by WCL) and validation, and native targets |
-| `subject` | the subject's selected kill: ranking damage (with `by_target`: every damaged target as `counted`, `excluded`, `own` or `unclassifiable` — no target ID, or no game ID while encounter exclusions apply, which also makes the ranked total unknown), Raptor Strike casts by target role (`raptor_roles`; a cast on anything but a proven hostile NPC makes it unknown), environment profile, Hunter analysis |
+| `subject` | the subject's selected kill: ranking damage (with `by_target`: every damaged target as `counted`, `excluded`, `own` or `unclassifiable` — no target ID, or no game ID while encounter exclusions apply, which also makes the ranked total unknown), whether the export listed the Hunter's pets (`pets_listed`; missing or null means unknown, so "no pet took part" is never assumed), Raptor Strike casts by target role (`raptor_roles`; a cast on anything but a proven hostile NPC makes it unknown), environment profile, Hunter analysis |
 | `cohort` | the same structure for each comparison entry (same faction only, unless `--cross-faction`) |
 | `benchmarks.baseline` | same-faction medians (Auto/Aimed/Multi per minute, Hunter-pet DPS, kill time, first Rapid Fire), shot-target ranges, weave adoption, talent / Darkmoon / item / trinket distributions, explosive and Rapid Fire use |
 | `benchmarks.ceiling` | best-ranked same-faction entry inside the recorded top five, with its `membership` evidence |

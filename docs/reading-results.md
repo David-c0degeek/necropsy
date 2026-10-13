@@ -4,7 +4,8 @@
 
 Check the subject and snapshot, then the boss's comparison sample, then its
 recommendations. Use the evidence to decide how much weight to give a finding.
-This guide describes `analysis.json`; the visual report is planned.
+`report.html` and `playbook.html` show the same content; this guide names the
+`analysis.json` fields behind each part.
 
 ## Choose a fair comparison
 

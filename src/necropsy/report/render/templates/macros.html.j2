@@ -1,0 +1,61 @@
+{% macro val(v) -%}
+{%- if v.known -%}{{ v.text }}<span class="level">{{ v.level_label }}</span>{% if v.note and (v.level == "inferred" or v.show_note) %}<span class="why">{{ v.note }}</span>{% endif %}
+{%- else -%}<span class="unknown">Unknown</span>{% if v.note %}<span class="why">{{ v.note }}</span>{% endif %}
+{%- endif -%}
+{%- endmacro %}
+
+{% macro evidence(ev) -%}
+<details>
+  <summary>Evidence: {{ ev.label }}</summary>
+  <div>
+  <p class="muted">From <code>{{ ev.path }}</code> in analysis.json.</p>
+  {% for part in ev.parts %}
+    <div class="ev-part">
+      <dl class="kv">
+        <dt>Field</dt><dd><code>{{ part.path }}</code></dd>
+        <dt>Value</dt><dd>{{ part.value }}</dd>
+        <dt>How known</dt><dd>{{ part.level }} · {{ part.claim }} claim{% if part.rule %} · rule <code>{{ part.rule }}</code>{% endif %}</dd>
+        {% if part.note %}<dt>Note</dt><dd>{{ part.note }}</dd>{% endif %}
+        {% for k, v in part.params %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}
+      </dl>
+      {% if part.refs %}
+      <p class="muted">Sources ({{ part.refs|length }}{% if part.ref_total > part.refs|length %} of {{ part.ref_total }}{% endif %}):</p>
+      <ul>{% for r in part.refs %}<li>{{ r }}</li>{% endfor %}</ul>
+      {% endif %}
+      {% if part.coverage %}
+      <p class="muted">Coverage:</p>
+      <ul>{% for c in part.coverage %}<li>{{ c }}</li>{% endfor %}</ul>
+      {% endif %}
+    </div>
+  {% else %}
+    <p class="muted">No evidence objects at this path.</p>
+  {% endfor %}
+  {% if ev.omitted %}<p class="muted">{{ ev.omitted }} more fields at this path are in <code>analysis.json</code>.</p>{% endif %}
+  </div>
+</details>
+{%- endmacro %}
+
+{% macro card(c, review=False) -%}
+<article class="card" id="{{ c.anchor }}">
+  <h3>{{ c.heading }}</h3>
+  <ul class="badges" aria-label="Classification">
+    <li class="badge sev-{{ c.severity }}">Severity: <b>{{ c.severity }}</b></li>
+    <li class="badge conf-{{ c.confidence }}">Confidence: <b>{{ c.confidence }}</b></li>
+    <li class="badge">Who can act: <b>{{ c.controllability }}</b></li>
+    {% if c.small_sample %}<li class="badge small">{{ c.small_sample }}</li>{% endif %}
+  </ul>
+  <p class="finding">{{ c.finding }}</p>
+  <p class="action">{{ c.action }}</p>
+  {% if c.benchmark %}
+  <details>
+    <summary>Comparison used</summary>
+    <div><dl class="kv">{% for k, v in c.benchmark %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}</dl></div>
+  </details>
+  {% endif %}
+  {% for ev in c.evidence %}{{ evidence(ev) }}{% endfor %}
+  <ul class="limitations">{% for l in c.limitations %}<li>{{ l }}</li>{% endfor %}</ul>
+  {% if review %}
+  <label class="review"><input type="checkbox" data-review-key="{{ c.review_key }}"> Reviewed</label>
+  {% endif %}
+</article>
+{%- endmacro %}

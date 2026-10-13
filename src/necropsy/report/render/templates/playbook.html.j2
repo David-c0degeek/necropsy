@@ -1,0 +1,57 @@
+{% extends "base.html.j2" %}
+{% from "macros.html.j2" import val, card %}
+{% block title %}Playbook · {{ doc.title }} · Necropsy{% endblock %}
+{% block main %}
+<section id="overview" aria-labelledby="overview-title">
+  <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} playbook</h1>
+  <p class="lede">A boss-by-boss review list built only from findings the evidence supports.</p>
+  <p class="caveat">Compared with players of your faction inside the recorded top five per boss. Advice is a prompt to investigate, not a promise of extra DPS.</p>
+  <div class="disclosures">
+    <details>
+      <summary>How to use this playbook</summary>
+      <div><ul>
+        <li><b>Things to review</b>: a rule found a gap; read the finding and its evidence first.</li>
+        <li><b>No change flagged</b>: the data is known and no rule found a gap.</li>
+        <li><b>Partial evidence — no change flagged</b>: some data is known and no rule fired; the unknown rows say what is missing.</li>
+        <li><b>Insufficient evidence</b>: the data needed for this group is missing.</li>
+      </ul></div>
+    </details>
+    <details>
+      <summary>How this comparison was formed</summary>
+      <div><ul>{% for l in doc.limitations %}<li>{{ l }}</li>{% endfor %}</ul></div>
+    </details>
+  </div>
+  <p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span>
+    <button type="button" id="reset-reviews">Clear review marks</button></p>
+</section>
+
+{% for boss in doc.bosses %}
+<section class="boss" id="{{ boss.anchor }}" aria-labelledby="{{ boss.anchor }}-title">
+  <div class="boss-head">
+    <h2 id="{{ boss.anchor }}-title" tabindex="-1">{{ boss.name }}</h2>
+    <span class="facts">Kill {{ boss.kill_s }} · <a href="report.html#{{ boss.anchor }}">Full report</a></span>
+  </div>
+  {% if not boss.has_subject %}
+  <p class="muted">No kill for this character in the snapshot.</p>
+  {% else %}
+  {% for g in boss.playbook %}
+  <section class="group" aria-labelledby="{{ boss.anchor }}-{{ g.key }}">
+    <div class="group-head">
+      <h3 id="{{ boss.anchor }}-{{ g.key }}">{{ g.title }}</h3>
+      <span class="status status-{{ g.status }}">{{ g.status_text }}</span>
+    </div>
+    {% if g.facts %}
+    <div class="table-wrap" role="region" aria-label="{{ g.title }}: recorded data" tabindex="0">
+      <table class="stack">
+        <thead><tr><th scope="col">Recorded</th><th scope="col">You</th><th scope="col">Same faction</th></tr></thead>
+        <tbody>{% for f in g.facts %}<tr><th scope="row">{{ f.label }}</th><td data-label="You">{{ val(f.yours) }}</td><td data-label="Same faction">{% if f.typical %}{{ val(f.typical) }}{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    {% endif %}
+    {% if g.cards %}<div class="cards">{% for c in g.cards %}{{ card(c, review=True) }}{% endfor %}</div>{% endif %}
+  </section>
+  {% endfor %}
+  {% endif %}
+</section>
+{% endfor %}
+{% endblock %}

@@ -2,8 +2,9 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Next: reading results](reading-results.md)
 
-Run the included sample first. It produces a real `analysis.json` without WCL
-credentials and without downloading the full golden fixture.
+Run the included sample first. It produces a real report, playbook and
+`analysis.json` without WCL credentials and without downloading the full golden
+fixture.
 
 ## 1. Set up the project
 
@@ -30,9 +31,22 @@ Kel'Thuzad. It demonstrates the workflow, rather than a full Naxxramas run.
 Expect smaller comparison samples and more unknown benchmarks than in the full
 fixture.
 
-The command prints the result path and the boss and recommendation counts.
-Open **`workspace/demo/analysis.json`** in your editor. The output is JSON today;
-a browsable HTML report and playbook are planned.
+The command prints the boss and recommendation counts and every file it wrote:
+
+| File | What it is |
+|---|---|
+| `report.html` | The full report: findings first, then execution, comparisons and evidence |
+| `playbook.html` | A per-boss review list with local "Reviewed" checkboxes |
+| `analysis.json` | The complete, versioned result the pages are built from |
+| `necropsy-<character id>-<zone id>.zip` | A package: both pages, `analysis.json`, CSV tables, evidence files and a checksum manifest |
+
+Open **`workspace/demo/report.html`** in your browser. The pages work straight from
+disk, load nothing from the network, and follow your system's light or dark theme.
+Review marks in the playbook are saved only in that browser, for that exact
+analysis. Use `--no-package` to skip the ZIP (an older package of the same name is
+then removed so it never looks current). The package holds derived analysis of
+real players' logs and is not anonymised: share it only where those logs may be
+shared.
 
 By default the analysis database is temporary and removed afterwards.
 `workspace/` is ignored by Git, keeping generated results out of your changes.
@@ -71,6 +85,13 @@ The archive is verified on every run. A database is reused when its archive hash
 and schema version match; otherwise it is rebuilt under ingest's replacement
 rules. If it belongs to another archive, choose a new database path or add
 `--replace`. Keep the database closed during building or replacement.
+
+Rebuild the pages and package from an existing `analysis.json`, without the
+archive or a database:
+
+```sh
+uv run necropsy render workspace/my-analysis/analysis.json --out workspace/my-analysis
+```
 
 Build just the database for inspection with:
 
@@ -112,8 +133,25 @@ uv run necropsy ingest --help
 | Golden export is a tiny pointer file | Run `git lfs pull` with authorized access; see [Contributing](../CONTRIBUTING.md) |
 | A benchmark is `unknown` | Read its `note` and cohort size; missing evidence or fewer than three known values may explain it |
 
-A failed run exits with an error and does not write a partial `analysis.json`.
-A previous successful file in that output directory can remain; check the
-command's exit status and result message before using it.
+Every output is built before anything in the output folder changes. If building
+fails, the folder is left exactly as it was. The new files then replace the old
+ones one at a time; if a replacement fails, the old files are put back and the
+command reports the error.
+
+Two cases need your attention:
+
+- **The error says the previous files could not all be restored.** The message
+  names a `.necropsy-backup-*` folder inside the output folder; it holds the old
+  versions of the files that were moved. Compare it with the output folder, copy
+  back the old files you want, and delete the backup folder only once you have
+  checked the result.
+- **The process was killed while files were being replaced** (a crash, power
+  loss, or closing the terminal). The output folder can hold a mix of old and new
+  files until you recover it, and a `.necropsy-backup-*` folder may remain.
+  Restore from the backup folder as above, or simply run the command again.
+
+Necropsy only replaces `analysis.json`, `report.html`, `playbook.html` and its own
+package file; it refuses to touch a folder or link that has one of those names.
+Check the command's exit status and message before using the output.
 
 [Read your results →](reading-results.md)

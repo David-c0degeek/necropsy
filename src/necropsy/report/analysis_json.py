@@ -179,6 +179,9 @@ class EntrySection(_Strict):
     ranking: EvidenceTree
     raptor_roles: EvidenceTree
     hunter: EvidenceTree
+    pets_listed: bool | None = None
+    """Whether the export listed this Hunter's pets; None in documents written before
+    this field existed (read as unknown)."""
 
 
 class Ceiling(_Strict):
@@ -305,6 +308,7 @@ def _entry(e: Entry, names: dict[int, str], detail: bool) -> dict[str, Any]:
         "environment": env,
         "ranking": {**to_data(e.ranking), "ranked_dps": None if dps is None else round(dps, 6)},
         "raptor_roles": to_data(e.raptor_roles),
+        "pets_listed": e.pets_listed,
         "hunter": hunter,
     }
 

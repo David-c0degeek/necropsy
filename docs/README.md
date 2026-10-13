@@ -4,7 +4,7 @@
 
 Start with a runnable sample, then choose how far into the evidence you want to go.
 Necropsy currently writes JSON from saved Classic Era Hunter/Naxxramas exports.
-The browser report and live acquisition are planned.
+Each run also writes an offline HTML report and playbook. Live acquisition is planned.
 
 ## Run and understand
 

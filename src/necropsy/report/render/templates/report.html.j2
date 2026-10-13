@@ -1,0 +1,210 @@
+{% extends "base.html.j2" %}
+{% from "macros.html.j2" import val, card %}
+{% block title %}Report · {{ doc.title }} · Necropsy{% endblock %}
+{% block main %}
+<section id="overview" aria-labelledby="overview-title">
+  <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} report</h1>
+  <p class="lede">{{ doc.realm }} · {{ doc.mode }} mode · {{ doc.scope }} snapshot · {{ doc.total_cards }} findings across {{ doc.bosses|length }} bosses</p>
+  <p class="caveat">Compared with players of your faction inside the recorded top five per boss — a small sample, not a full leaderboard.</p>
+  <div class="disclosures">
+    <details>
+      <summary>How this comparison was formed</summary>
+      <div><ul>{% for l in doc.limitations %}<li>{{ l }}</li>{% endfor %}</ul></div>
+    </details>
+    <details>
+      <summary>Snapshot and coverage</summary>
+      <div><dl class="kv">
+        <dt>Archive SHA-256</dt><dd><code>{{ doc.archive_sha }}</code></dd>
+        <dt>Cross-faction view</dt><dd>{{ "included" if doc.cross_faction else "not included" }}</dd>
+        {% for k, v in doc.coverage %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}
+      </dl></div>
+    </details>
+  </div>
+  <h2 class="section-title">Bosses at a glance</h2>
+  <div class="table-wrap" role="region" aria-label="Bosses at a glance" tabindex="0">
+    <table class="overview-table stack">
+      <caption>What to review per boss, who can act on it, and what the data could not compare.</caption>
+      <thead><tr><th scope="col">Boss</th><th scope="col">To review</th><th scope="col">Data notes</th></tr></thead>
+      <tbody>
+      {% for boss in doc.bosses %}
+        <tr>
+          <th scope="row"><a href="#{{ boss.anchor }}">{{ boss.name }}</a></th>
+          <td data-label="To review">{% if boss.cards %}<b>{{ boss.cards|length }}</b> — {% for name, n in boss.counts_by_control %}{{ name }} {{ n }}{% if not loop.last %} · {% endif %}{% endfor %}{% else %}Nothing flagged{% endif %}</td>
+          <td data-label="Data notes">{{ boss.limit_summary }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% for boss in doc.bosses %}
+<section class="boss" id="{{ boss.anchor }}" aria-labelledby="{{ boss.anchor }}-title">
+  <div class="boss-head">
+    <h2 id="{{ boss.anchor }}-title" tabindex="-1">{{ boss.name }}</h2>
+    <span class="facts">Kill {{ boss.kill_s }} · ranked DPS {{ boss.ranked_dps }}</span>
+  </div>
+  {% if boss.limits %}
+  <div class="panel limits"><h3>Data limits</h3><ul>{% for l in boss.limits %}<li>{{ l }}</li>{% endfor %}</ul></div>
+  {% endif %}
+
+  <h3 class="section-title">Findings</h3>
+  {% if boss.cards %}
+  <div class="cards">{% for c in boss.cards %}{{ card(c) }}{% endfor %}</div>
+  {% elif boss.has_subject %}
+  <p class="muted">No finding passed its rule on this boss. That is not proof nothing could improve; see the comparisons below.</p>
+  {% endif %}
+
+  {% if boss.has_subject %}
+  <h3 class="section-title">Execution</h3>
+  <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Execution: shot rates" tabindex="0">
+    <table>
+      <caption>Your shot rate against the same-faction median, and the shot count that median implies at your kill length.</caption>
+      <thead><tr><th scope="col">Shot</th><th scope="col">You</th><th scope="col">Median</th><th scope="col">Target at your kill length</th><th scope="col">Sample</th></tr></thead>
+      <tbody>
+      {% for r in boss.execution %}
+        <tr><th scope="row">{{ r.label }}</th><td>{{ val(r.yours) }}</td><td>{{ val(r.baseline) }}</td><td>{% if r.target %}{{ val(r.target) }}{% else %}—{% endif %}</td><td>{{ r.sample }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="grid-2">
+    <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Cooldowns and consumables" tabindex="0">
+      <table>
+        <caption>Cooldowns and consumables</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">You</th><th scope="col">Same faction</th></tr></thead>
+        <tbody>{% for f in boss.cooldowns %}<tr><th scope="row">{{ f.label }}</th><td>{{ val(f.yours) }}</td><td>{% if f.typical %}{{ val(f.typical) }}{% else %}—{% endif %}</td></tr>{% endfor %}
+        <tr><th scope="row">Long Auto Shot gaps</th><td>{{ val(boss.auto_gap) }}</td><td>—</td></tr></tbody>
+      </table>
+    </div>
+    <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Pet" tabindex="0">
+      <table>
+        <caption>Pet</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">You</th><th scope="col">Same-faction median</th></tr></thead>
+        <tbody>{% for f in boss.pets %}<tr><th scope="row">{{ f.label }}</th><td>{{ val(f.yours) }}</td><td>{% if f.typical %}{{ val(f.typical) }}{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </div>
+  <details>
+    <summary>Cast timeline ({{ boss.timeline_total }} casts)</summary>
+    <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Cast timeline" tabindex="0">
+      <table>
+        <caption>Seconds from the pull.{% if boss.timeline_total > boss.timeline|length %} First {{ boss.timeline|length }} shown; the rest are in analysis.json.{% endif %}</caption>
+        <thead><tr><th scope="col" class="num">Time (s)</th><th scope="col">Cast</th></tr></thead>
+        <tbody>{% for c in boss.timeline %}<tr><td class="num">{{ c.t_s }}</td><td>{{ c.kind }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </details>
+
+  <h3 class="section-title">Comparison</h3>
+  <div class="grid-2">
+    <section class="panel">
+      <h4>Kill time</h4>
+      {% if boss.raid_speed %}
+      <p>{% if boss.raid_speed.flagged %}<span class="flag">Flagged</span>{% else %}<span class="ok">Not flagged</span>{% endif %} — your kill {{ boss.raid_speed.subject_s }}.</p>
+      <dl class="kv">
+        <dt>Same-faction median</dt><dd>{{ val(boss.raid_speed.median.reference_s) }}</dd>
+        <dt>Your kill / median</dt><dd>{{ val(boss.raid_speed.median.ratio) }}</dd>
+        <dt>Kill times known</dt><dd>{{ boss.raid_speed.median.n_known }}{% if boss.raid_speed.median.n_known < 4 %} · small sample{% endif %}</dd>
+      </dl>
+      <p class="muted">{{ boss.raid_speed.basis }} The ratio does not identify a cause.</p>
+      {% if boss.raid_speed.fastest %}
+      <details>
+        <summary>Fastest same-faction kill</summary>
+        <div><dl class="kv">
+          <dt>Player</dt><dd>{{ boss.raid_speed.fastest.reference }}</dd>
+          <dt>Kill</dt><dd>{{ val(boss.raid_speed.fastest.reference_s) }}</dd>
+          <dt>Your kill / fastest</dt><dd>{{ val(boss.raid_speed.fastest.ratio) }}</dd>
+          <dt>Faction proof</dt><dd>{{ boss.raid_speed.fastest.membership }}</dd>
+        </dl></div>
+      </details>
+      {% endif %}
+      {% else %}<p class="muted">No same-faction kill times to compare.</p>{% endif %}
+    </section>
+    <section class="panel">
+      <h4>Best-ranked same-faction entry</h4>
+      {% if boss.ceiling %}<dl class="kv">{% for k, v in boss.ceiling %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}</dl>
+      <p class="muted">The highest ranked entry of your faction in the recorded top five; not the fastest kill.</p>
+      {% else %}<p class="muted">No same-faction entry in the recorded sample.</p>{% endif %}
+    </section>
+  </div>
+  {% if boss.fill %}
+  <section class="panel limits">
+    {% if boss.fill.applied %}
+    <h4>Tauren fill (fallback comparison)</h4>
+    <p>Used because the same faction has too few values for: {{ boss.fill.needed_for|join(", ") }}. Advice that uses it is low confidence.</p>
+    {% else %}
+    <h4>Tauren fill considered — not used</h4>
+    <p>The same faction has too few values for: {{ boss.fill.needed_for|join(", ") }}.
+    {% if boss.fill.eligible %}Qualifying entries were still too few for a median{% else %}No other-faction entry qualified{% endif %}, so these comparisons stay unknown.</p>
+    {% endif %}
+    <dl class="kv">
+      <dt>Eligible entries</dt><dd>{{ boss.fill.eligible|join(", ") or "none — the medians stay unknown" }}</dd>
+      <dt>Left out</dt><dd>{{ boss.fill.excluded|join("; ") or "none" }}</dd>
+    </dl>
+  </section>
+  {% endif %}
+  {% if boss.cross_faction %}<p class="muted">Cross-faction context: {{ boss.cross_faction }}</p>{% endif %}
+  {% if boss.excluded_counts %}<p class="muted">{{ boss.excluded_counts }}</p>{% endif %}
+
+  {% if boss.weave %}
+  <h3 class="section-title">Raptor Strike weaving</h3>
+  <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Raptor Strike weaving" tabindex="0">
+    <table>
+      <caption>Same-faction entries using Raptor Strike, judged separately on the boss and on other NPCs.</caption>
+      <thead><tr><th scope="col">Where</th><th scope="col">You</th><th scope="col">Same faction</th><th scope="col">Verdict</th></tr></thead>
+      <tbody>{% for w in boss.weave %}<tr><th scope="row">{{ w.label }}</th><td>{{ val(w.yours) }}</td><td>{{ val(w.adoption) }}</td><td>{{ val(w.verdict) }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  {% endif %}
+
+  <h3 class="section-title">What counts toward the parse</h3>
+  {% if boss.shares %}
+  <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Ranked damage by target" tabindex="0">
+    <table>
+      <caption>Share of ranked damage per target: same-faction median and yours. {{ boss.rules_note }}</caption>
+      <thead><tr><th scope="col">Target</th><th scope="col">Median share</th><th scope="col">Your share</th><th scope="col">Sample</th></tr></thead>
+      <tbody>{% for s in boss.shares %}<tr><th scope="row">{{ s.name }}{% if s.aliases %}<span class="why">also: {{ s.aliases }}</span>{% endif %}</th><td>{{ val(s.median) }}</td><td>{{ val(s.yours) }}</td><td>{{ s.sample }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  {% else %}<p class="muted">No target shares available. {{ boss.rules_note }}</p>{% endif %}
+  {% if boss.excluded_targets %}<p class="muted">Not counted by the encounter rule: {{ boss.excluded_targets|join(", ") }}.</p>{% endif %}
+  {% if boss.integrity %}
+  <section class="panel">
+    <h4>Encounter units vs extra targets (your damage)</h4>
+    <dl class="kv">
+      <dt>Encounter units</dt><dd>{{ val(boss.integrity.native) }}</dd>
+      <dt>Start-of-fight trash</dt><dd>{{ val(boss.integrity.start_trash) }}</dd>
+      <dt>Extra (foreign) targets</dt><dd>{{ val(boss.integrity.foreign) }}</dd>
+      <dt>Foreign share</dt><dd>{{ val(boss.integrity.foreign_share) }}</dd>
+      <dt>Same-faction median foreign share</dt><dd>{{ val(boss.integrity.cohort_median) }}</dd>
+      {% if boss.integrity.foreign_targets %}<dt>Foreign targets</dt><dd>{{ boss.integrity.foreign_targets|join(", ") }}</dd>{% endif %}
+      {% if boss.integrity.unclassified %}<dt>Unidentified targets</dt><dd>{{ boss.integrity.unclassified|join(", ") }}</dd>{% endif %}
+    </dl>
+  </section>
+  {% endif %}
+  {% if boss.targets %}
+  <details>
+    <summary>Every target you damaged ({{ boss.targets|length }})</summary>
+    <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Every target you damaged" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">Target</th><th scope="col">Type</th><th scope="col">Ranking</th><th scope="col" class="num">Damage</th></tr></thead>
+        <tbody>{% for t in boss.targets %}<tr><td>{{ t.name }}</td><td>{{ t.kind }}</td><td>{{ t.category }}</td><td class="num">{{ t.damage }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </details>
+  {% endif %}
+
+  <details>
+    <summary>Comparison entries ({{ boss.cohort|length }})</summary>
+    <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Comparison entries" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">Player</th><th scope="col">Rank</th><th scope="col">Faction</th><th scope="col">Kill</th><th scope="col" class="num">Ranked DPS</th><th scope="col">Talents</th></tr></thead>
+        <tbody>{% for e in boss.cohort %}<tr><td>{{ e.player }}</td><td>{{ e.position }}</td><td>{{ e.faction }}</td><td>{{ e.kill_s }}</td><td class="num">{{ e.ranked_dps }}</td><td>{{ e.talents }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </details>
+  {% endif %}
+</section>
+{% endfor %}
+{% endblock %}

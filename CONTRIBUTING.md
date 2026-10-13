@@ -28,6 +28,7 @@ Try the user workflow in [Getting started](docs/getting-started.md).
 | Fast | `uv run pytest -m "not golden and not live and not acceptance"` | Unit and integration behavior with small fixtures |
 | Golden | `uv run pytest -m golden` | Full export and registered facts against raw evidence |
 | Acceptance | `uv run pytest -m acceptance` | The fact register's verification and resolution status |
+| Browser | `uv run playwright install chromium` once, then `uv run pytest -m browser` | The rendered report and playbook in headless Chromium: navigation, keyboard, themes, review marks, print, narrow screens, no network requests; skipped when Chromium is not installed |
 | Live | `uv run pytest -m live` | Reserved marker for manual API checks; live acquisition is not implemented yet |
 
 Before the golden suite:

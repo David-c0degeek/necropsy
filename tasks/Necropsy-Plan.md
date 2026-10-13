@@ -293,6 +293,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | D032 | 2026-10-13 | Raid speed v2 | Flag basis is the same-faction median kill time (>=3 known, 1.5x), else the fastest same-faction kill (2.0x); both comparisons always in `analysis.json`; report UX for the secondary view is navigator-led | Grobbulus 1.57x of the fastest but 1.27x of the median; user prefers the median with the fastest shown separately and assigned UX/UI to Codex | 05.4, 06; `benchmark.py::raid_speed` |
 | D033 | 2026-10-13 | Ranked damage by target | Every damaged target carries a ranking category (counted / excluded / own / unclassifiable); per boss, same-faction median share per counted target (>=3 known, membership graded) and the subject's share | User asked which mobs count toward the parse per boss | 05.5; `targets.py::RankedTarget`, `benchmark.py::ranked_target_shares` |
 | D034 | 2026-10-13 | Navigator leads UI, UX and docs | Codex leads all UI/UX and documentation work — HTML report/playbook, CLI help and output wording, README, docs/, CHANGELOG and GitHub-facing material — and takes write ownership via handoff for UI/docs-only units; Claude reviews for code and evidence accuracy. Behaviour-changing code still ships its factual doc update in the same checkpoint | User: "super user friendly experience, layout and documentations ... Codex leads on those" | 06; all doc surfaces |
+| D035 | 2026-10-13 | Package scope | The package holds report, playbook, exact analysis.json bytes, manifest (sha256 per member), CSV tables and per-boss evidence; it is named from numeric IDs only. Including the raw snapshot or the DuckDB file is deferred until a user needs it | Keeps the package small and avoids shipping raw logs; adding either later is a new opt-in member in `package.build_outputs` | 06.3; `docs/getting-started.md` |
 | D011 | 2026-10-12 | Tool installs approved | User approved all installs named in the plan: uv, git-lfs, secret scanner (gitleaks or equivalent), and LFS storage for the 80 MB fixture on the personal account | Explicit user approval in session | 00.7, 00.9, 01.3; `manual-actions.md` |
 
 ---
@@ -338,7 +339,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | [x] | 03 | `tasks/necropsy/03-evidence-model-and-generic-analyzers.md` | DONE | agent: 6 | n/a |
 | [x] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | DONE | agent: 7; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | IN PROGRESS | agent: 6; domain-sme: 1 | yes |
-| [ ] | 06 | `tasks/necropsy/06-report-and-package.md` | TODO | agent: 5; product-owner: 2 | yes |
+| [ ] | 06 | `tasks/necropsy/06-report-and-package.md` | IN PROGRESS | agent: 5; product-owner: 2 | yes |
 | [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | TODO | agent: 8; product-owner: 1; release-engineer: 1 | yes |
 
 ---

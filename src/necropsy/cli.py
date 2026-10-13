@@ -9,13 +9,17 @@ import typer
 from necropsy import __version__
 from necropsy.normalize.ingest import IngestError, ingest
 from necropsy.report.offline import run_offline
+from necropsy.report.package import REPORT_FILE, write_outputs
+from necropsy.report.publish import PublishError
+from necropsy.report.render import RenderError
 from necropsy.snapshot.archive import ArchiveError, load_entries_manifest
 from necropsy.snapshot.model import SnapshotError
 
 app = typer.Typer(
     name="necropsy",
     help="Local-first Warcraft Logs forensics. Analyze saved Classic Era Hunter/Naxxramas logs.",
-    epilog="Start here: necropsy offline SNAPSHOT.zip --out workspace/analysis",
+    epilog="Start here: necropsy offline SNAPSHOT.zip --out workspace/analysis, then open "
+    "report.html.",
     no_args_is_help=True,
     add_completion=False,
 )
@@ -90,7 +94,9 @@ def ingest_command(
 @app.command("offline")
 def offline_command(
     snapshot: Annotated[Path, typer.Argument(help="v6 Hunter deep-export ZIP or fixture subset.")],
-    out: Annotated[Path, typer.Option("--out", help="Write analysis.json in this directory.")],
+    out: Annotated[
+        Path, typer.Option("--out", help="Write analysis.json, the report and playbook here.")
+    ],
     db: Annotated[
         Path | None,
         typer.Option(help="Keep/reuse a matching database here. Default: temporary database."),
@@ -113,8 +119,12 @@ def offline_command(
         bool,
         typer.Option("--replace", help="Replace a --db from another archive. Keep it closed."),
     ] = False,
+    package: Annotated[
+        bool,
+        typer.Option("--package/--no-package", help="Also write the shareable ZIP package."),
+    ] = True,
 ) -> None:
-    """Analyze bosses, comparisons and recommendations. Write analysis.json offline."""
+    """Analyze bosses, comparisons and recommendations. Write the report offline."""
     try:
         manifest = load_entries_manifest(entries) if entries else None
         result = run_offline(
@@ -125,14 +135,36 @@ def offline_command(
             expected_sha256=sha256,
             entries=manifest,
             replace=replace,
+            package=package,
         )
-    except (ArchiveError, SnapshotError, IngestError) as exc:
+    except (ArchiveError, SnapshotError, IngestError, PublishError, RenderError, OSError) as exc:
         typer.echo(f"offline analysis failed: {exc}", err=True)
         raise typer.Exit(code=1) from exc
-    typer.echo(f"analysis:         {result.analysis}")
     typer.echo(f"bosses:           {result.bosses}")
     typer.echo(f"recommendations:  {result.recommendations}")
-    typer.echo("Next: open analysis.json in your editor. Result guide: docs/reading-results.md")
+    for path in result.files:
+        typer.echo(f"wrote:            {path}")
+    typer.echo(f"Next: open {out / REPORT_FILE} in your browser.")
+
+
+@app.command("render")
+def render_command(
+    analysis: Annotated[Path, typer.Argument(help="An analysis.json written by Necropsy.")],
+    out: Annotated[Path, typer.Option("--out", help="Write the report and playbook here.")],
+    package: Annotated[
+        bool,
+        typer.Option("--package/--no-package", help="Also write the shareable ZIP package."),
+    ] = True,
+) -> None:
+    """Rebuild the report, playbook and package from an existing analysis.json."""
+    try:
+        paths = write_outputs(analysis.read_bytes(), out, include_package=package)
+    except (ValueError, PublishError, OSError) as exc:
+        typer.echo(f"render failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    for path in paths:
+        typer.echo(f"wrote:            {path}")
+    typer.echo(f"Next: open {out / REPORT_FILE} in your browser.")
 
 
 def main() -> None:

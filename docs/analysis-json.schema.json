@@ -503,6 +503,18 @@
           ],
           "title": "Leaderboard Position"
         },
+        "pets_listed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pets Listed"
+        },
         "player": {
           "title": "Player",
           "type": "string"

@@ -9,7 +9,9 @@ comes first, so every screen can explain the evidence behind its advice.
 ## Available now
 
 Classic Era Hunter/Naxxramas analysis from a saved v6 deep-export ZIP:
-`necropsy ingest` builds a database; `necropsy offline` writes `analysis.json`.
+`necropsy ingest` builds a database; `necropsy offline` writes `analysis.json`, an
+offline HTML report and playbook, and a package; `necropsy render` rebuilds the
+pages from an existing `analysis.json`.
 Same-faction comparisons, encounter context, and evidence-linked recommendations
 are implemented. [Try the sample](getting-started.md).
 
@@ -17,14 +19,14 @@ are implemented. [Try the sample](getting-started.md).
 
 | Milestone | Intended result | Dependency |
 |---|---|---|
-| A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | Offline analyzer underway; rendering and live fetching remain |
+| A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | Offline analyzer, report, playbook and package available; live fetching remains |
 | B — Desktop app | Paste a URL, authenticate, choose raid/partition, follow acquisition progress, inspect bosses, export, and open cached analyses | Stable analysis JSON; public-client authentication before distribution |
 | C — Broader classification | Class/spec/role taxonomy and build clusters; Druid and Warrior role resolution with confidence and overrides | Milestone A shipped |
 | D — More class plugins | Druid, Warrior, Rogue, Mage, Warlock, then healers | Classification foundation |
 | E — More raids and variants | Other Classic Era raids, then Fresh/SoD/other sites | Stable analyzer contracts |
 
 The proposed `necropsy analyze <url>` command is future work. No live or auth
-command exists today. HTML report and package generation are also planned.
+command exists today.
 
 ## Authentication and distribution
 
