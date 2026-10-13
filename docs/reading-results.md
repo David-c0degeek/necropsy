@@ -9,7 +9,8 @@ recommendations. Use the evidence to decide how much weight to give a finding.
 
 Both pages retain the same boss review structure: metric tiles, benchmark
 context, loadout and execution plans, **Do not**, **Raid ask**, your full gear,
-the recorded overall top-five table, and full gear cards for those Hunters.
+the comparison cohort table, and full gear cards for those Hunters. Historical
+exports show the recorded overall top five; live snapshots show acquired Hunters.
 The report adds execution, target-share, raid-speed and evidence drilldowns;
 the playbook adds the review checklist. Overall rows remain context, while
 same-faction data drives the primary comparison.
@@ -28,6 +29,19 @@ Top-level `subject`, `zone`, and `snapshot` identify the character, raid, and
 archive. `snapshot.scope` distinguishes a full export from a selected subset.
 The historical fixture records the overall top five per boss, not a separately
 fetched same-faction top five.
+
+For a live snapshot, start with **Live acquisition coverage**. It lists every
+requested boss, including ones without an acquired fight or not attempted after
+a stop. Deep-event coverage is the sample used for event comparisons; metadata
+coverage includes those deep entries and adds context. Metadata-only rows do not
+increase a median's sample. A partial snapshot can still contain useful results.
+Only bosses with acquired fights have detailed analysis sections.
+
+Live acquisition seeks five verified same-faction event samples per boss and up
+to 25 metadata entries. The same-faction ceiling is limited to the acquired
+sample. An acquired row's position is its recorded overall leaderboard position;
+the overall rank-one comparison stays unknown when that fight was not acquired.
+Neither live mode nor **Current %** refreshes while you read the saved pages.
 
 | View | How to use it |
 |---|---|

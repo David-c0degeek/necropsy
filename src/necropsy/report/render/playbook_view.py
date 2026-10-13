@@ -208,7 +208,8 @@ def _sequence(raw: Any) -> str:
     )
 
 
-def _cooldown(raw: Mapping[str, Any], label: str) -> tuple[dict[str, Any], ...]:
+def _cooldown(raw: Mapping[str, Any], label: str, live: bool = False) -> tuple[dict[str, Any], ...]:
+    comparison = "acquired-cohort" if live else "overall-top-five"
     used = raw.get("subject_used")
     mine = (
         "Unknown"
@@ -241,7 +242,7 @@ def _cooldown(raw: Mapping[str, Any], label: str) -> tuple[dict[str, Any], ...]:
             f"{label}"
             ": "
             f"{mine}"
-            " · overall-top-five median: "
+            f" · {comparison} median: "
             f"{aggregate(raw.get('overall_first_s'), 's')}"
             " (context only)."
         ),
@@ -360,6 +361,7 @@ def boss_view(
     sha: str,
     document: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
+    live = (document or {}).get("mode") == "live"
     subject = boss.get("subject")
     plan = boss.get("playbook")
     overall = boss.get("overall_cohort")
@@ -425,7 +427,7 @@ def boss_view(
             ),
         ),
         (
-            f"{faction} comparator in overall top five",
+            f"{faction} comparator in " + ("acquired cohort" if live else "overall top five"),
             Value(comparator, member if ceiling else "unknown"),
         ),
     )
@@ -574,7 +576,9 @@ def boss_view(
                 ),
             }
         )
-        execution.append({"label": "Rapid Fire", "lines": _cooldown(plan["rapid_fire"], "RF")})
+        execution.append(
+            {"label": "Rapid Fire", "lines": _cooldown(plan["rapid_fire"], "RF", live)}
+        )
         execution.append(
             {
                 "label": "Refocus",
@@ -592,7 +596,7 @@ def boss_view(
                             "trinket mandatory."
                         ),
                     ),
-                    *_cooldown(plan["refocus"], "Refocus"),
+                    *_cooldown(plan["refocus"], "Refocus", live),
                 ),
             }
         )
@@ -776,15 +780,8 @@ def boss_view(
             )
             for timing in encounter.get("timings") or []:
                 facts.append(line(str(timing["text"]), timing.get("note") or "", links))
-        context_text = (
-            f"{mix_text}"
-            " inside the recorded overall top five. Primary "
-            f"{faction}"
-            " comparator: "
-            f"{comparator}"
-            "."
-            f"{weak}"
-        )
+        scope_text = "in the acquired cohort" if live else "inside the recorded overall top five"
+        context_text = f"{mix_text} {scope_text}. Primary {faction} comparator: {comparator}.{weak}"
     else:
         weave = "Unknown — structured playbook not recorded in this analysis"
         context_text = (
@@ -855,6 +852,10 @@ def boss_view(
         "gear": gear(subject),
         "cohort": rows,
         "cohort_complete": overall is not None,
+        "cohort_title": "Acquired comparison cohort" if live else "Current overall top five",
+        "gear_title": "Full 17-slot gear for each acquired Hunter"
+        if live
+        else "Full 17-slot gear for each top-five Hunter",
         "review_key": f"necropsy:boss:{sha}:{boss['encounter_id']}",
         "limits": tuple(plan.get("limitations") or ()) if plan else (),
     }
@@ -866,7 +867,42 @@ def _tally(raw: Mapping[str, Any]) -> str:
     return (text or "Unknown") + f" · {raw['unknown']} unknown"
 
 
+def acquisition_view(document: Mapping[str, Any]) -> tuple[dict[str, Any], ...]:
+    """Show the recorded outcome of every requested boss, including unavailable fights."""
+    raw = document.get("acquisition") or {}
+    rows = []
+    analysed = {b["encounter_id"] for b in document["bosses"]}
+    for boss in raw.get("bosses") or []:
+        coverage = boss.get("coverage") or {}
+        status = (
+            "Not attempted"
+            if boss.get("attempted") is False
+            else "Complete"
+            if coverage.get("complete") is True
+            else "Partial"
+            if coverage.get("complete") is False
+            else "Unknown"
+        )
+        rows.append(
+            {
+                "boss": str(boss.get("boss") or "Unknown boss"),
+                "status": status,
+                "anchor": f"boss-{boss['encounter_id']}"
+                if boss.get("encounter_id") in analysed
+                else None,
+                "deep": f"{number(coverage.get('usable_deep'))}/{number(coverage.get('target'))}",
+                "metadata": (
+                    f"{number(coverage.get('metadata'))}/{number(coverage.get('metadata_target'))}"
+                ),
+                "reasons": tuple(str(r) for r in coverage.get("reasons") or []),
+            }
+        )
+    return tuple(rows)
+
+
 def overview_view(document: Mapping[str, Any]) -> dict[str, Any]:
+    live = document.get("mode") == "live"
+    acquisition = acquisition_view(document) if live else ()
     raw = document.get("overview")
     if not raw:
         return {
@@ -895,6 +931,7 @@ def overview_view(document: Mapping[str, Any]) -> dict[str, Any]:
             "pet_profiles": (),
             "pet_facts": {},
             "pet_family_sources": (),
+            "acquisition": acquisition,
             "faction_label": "Faction-aware",
         }
     setup = raw["setup"]
@@ -905,7 +942,8 @@ def overview_view(document: Mapping[str, Any]) -> dict[str, Any]:
         else ""
     )
     badges = (
-        f"{raw['recorded_entries']} recorded top-five rows",
+        f"{raw['recorded_entries']} "
+        + ("acquired comparator rows" if live else "recorded top-five rows"),
         " / ".join(f"{r['count']} {r['key']}" for r in raw["by_faction"]),
         f"{raw['inferred_faction_entries']} inferred faction entries",
         "Faction-normalized shot targets",
@@ -1102,6 +1140,7 @@ def overview_view(document: Mapping[str, Any]) -> dict[str, Any]:
     )
     return {
         "badges": badges,
+        "acquisition": acquisition,
         "faction_label": f"{faction}-normalized"
         + (" (inferred)" if setup["faction_level"] == "inferred" else ""),
         "setup": tuple(rows),

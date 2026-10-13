@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 @dataclass(frozen=True)
@@ -45,6 +45,9 @@ SNAPSHOT_META = Table(
         ("source_fight_count", "INTEGER"),
         ("source_errors", "JSON"),
         ("necropsy_version", "VARCHAR"),
+        ("mode", "VARCHAR"),
+        ("limitations", "JSON"),
+        ("acquisition", "JSON"),
     ),
 )
 

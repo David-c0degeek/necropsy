@@ -6,7 +6,7 @@
   <div class="eyebrow">Hunter parse playbook · faction-aware comparisons</div>
   <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} playbook</h1>
   <p class="lede">A boss-by-boss review list built only from findings the evidence supports.</p>
-  <p class="caveat">Compared with players of your faction inside the recorded top five per boss. Advice is a prompt to investigate, not a promise of extra DPS.</p>
+  <p class="caveat">{% if doc.mode == "live" %}Live snapshot: compared with acquired players of your faction. Metadata-only rows are context, not complete event analyses.{% else %}Compared with players of your faction inside the recorded top five per boss.{% endif %} Advice is a prompt to investigate, not a promise of extra DPS.</p>
   <div class="badges">{% for badge in doc.reference.badges %}<span class="badge">{{ badge }}</span>{% endfor %}</div>
 </section>
 {% include "reference-overview.html.j2" %}

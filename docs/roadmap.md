@@ -14,7 +14,9 @@ offline HTML report and playbook, and a package; `necropsy render` rebuilds the
 pages from an existing `analysis.json`. `necropsy auth` signs in to Warcraft Logs for
 personal use and `necropsy resolve` looks up a character URL. Acquisition
 orchestration is available as a library alongside benchmark selection, report/event
-fetching and the immutable cache. Live analysis from a character URL is not connected
+fetching and the immutable cache. The library can finalize acquired report bundles
+and write a snapshot v1 for the existing offline analysis and rendering commands.
+Live analysis from a character URL is not connected
 to a CLI workflow yet. Callers supply an explicit cache directory; there is
 no default cache location until the CLI is wired.
 Same-faction comparisons, encounter context, and evidence-linked recommendations
@@ -32,7 +34,8 @@ are implemented. [Try the sample](getting-started.md).
 
 The proposed `necropsy analyze <url>` command is future work.
 [Sign-in and character resolution](warcraft-logs.md) are available today;
-acquiring reports and building an analysis from a URL remain planned.
+the end-to-end CLI workflow remains planned. Snapshot v1 integration is verified
+with synthetic responses; authenticated live acquisition still needs validation.
 
 ## Authentication and distribution
 

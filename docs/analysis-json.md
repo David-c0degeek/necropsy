@@ -54,7 +54,8 @@ afterwards. The file is written atomically: a failed run leaves no partial file.
 | Key | Content |
 |---|---|
 | `schema_id`, `schema_version`, `necropsy_version` | document identity |
-| `mode` | `historical` for a snapshot replay |
+| `mode` | `historical` for a recorded export; `live` for a snapshot Necropsy acquired (`cohort.limitations` then holds the live description and every acquisition coverage line) |
+| `acquisition` | live snapshots only: every requested boss (including ones with no acquired fight or not attempted after a stop) with its coverage, the cohort key, subject pick, entries, dropped and metadata rows, plus the run's endpoint, opt-in cross-faction choice and stop reason |
 | `options` | `cross_faction` |
 | `snapshot` | archive SHA-256, export format, scope (`full`/`subset`), fight counts, database schema version |
 | `subject` | the analyzed character (name, server, region, class) |
@@ -74,7 +75,7 @@ afterwards. The file is written atomically: a failed run leaves no partial file.
 | `subject` | the subject's selected kill: ranking damage (with `rank_percent` for the subject: WCL's historical `percent` and `today_percent` at export time, total parses and bracket, observed from the matching ranking row or unknown; and `by_target`: every damaged target as `counted`, `excluded`, `own` or `unclassifiable` — no target ID, or no game ID while encounter exclusions apply, which also makes the ranked total unknown), gear with display names (`name_source`: `wcl-rankings-gear` from the snapshot's ranking rows, `game-client-data` from the pinned client tables, `rules-items` fallback, `conflict` when ranking rows disagree, with the reason in `name_note`, or `none`; permanent and temporary enchant names from the client tables; `set_pieces`: item sets worn with two or more pieces; `set_armor`: the same sets split into armor-slot pieces and other members such as the set ring, with their slots), whether the export listed the Hunter's pets (`pets_listed`; missing or null means unknown, so "no pet took part" is never assumed), Raptor Strike casts by target role (`raptor_roles`; a cast on anything but a proven hostile NPC makes it unknown), environment profile, Hunter analysis |
 | `cohort` | the same structure for each comparison entry (same faction only, unless `--cross-faction`) |
 | `benchmarks.baseline` | same-faction medians (Auto/Aimed/Multi per minute, Hunter-pet DPS, kill time, first Rapid Fire), shot-target ranges, weave adoption, talent / Darkmoon / item / trinket distributions, explosive and Rapid Fire use |
-| `benchmarks.ceiling` | best-ranked same-faction entry inside the recorded top five, with its `membership` evidence |
+| `benchmarks.ceiling` | best-ranked same-faction entry inside the acquired sample (historical exports: recorded top five), with its `membership` evidence |
 | `benchmarks.raid_speed` | the subject's kill time against the same-faction median kill time (`vs_median`) and the fastest same-faction kill (`vs_fastest`), both always reported; `basis` names which one decides `flagged` (median at 1.5x when at least 3 kill times are known, else fastest at 2.0x) |
 | `benchmarks.baseline.tauren_fill` | only when a same-faction median has too few values: the same metrics recomputed with other-faction entries proven Tauren with Windfury proven absent (`eligible`, `excluded` with reasons, `needed_for`). Separate from the same-faction baseline and from `--cross-faction`; kill time and weave adoption are never filled |
 | `benchmarks.overall_top` | the recorded leaderboard rank 1 of any faction (player, faction evidence, ranked DPS, kill time); `null` when rank 1 is not in the snapshot |
@@ -116,3 +117,18 @@ A snapshot replay can only use what was recorded: the cohort is the overall top
 five per boss, the same-faction ceiling is the best entry of the subject's faction
 inside it, and medians come from at most five entries. `cohort.limitations` states
 this in every document.
+
+## Live snapshot limitations
+
+A Necropsy snapshot v1 replays through the same offline commands as a v6 export.
+`mode: live` describes its acquisition origin; it does not make rendering contact
+Warcraft Logs. `acquisition.bosses` preserves requested scope, including bosses
+with no acquired fight, whereas `bosses` contains detailed analyses for acquired
+fights. Use both fields when presenting coverage.
+
+Live event comparisons use acquired fights, with a target of five verified
+same-faction samples. The metadata target is 25 and includes the deep sample;
+metadata-only entries do not contribute to event medians. A median still needs
+three known values. Raw leaderboard positions remain overall positions, and
+overall rank one is unknown if its fight is absent. Missing pet discovery remains
+unknown rather than establishing that no pet participated.

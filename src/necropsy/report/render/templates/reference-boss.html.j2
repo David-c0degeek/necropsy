@@ -26,10 +26,10 @@
 {% if ref.facts %}<details><summary>Encounter knowledge and sources</summary><div>{{ prose(ref.facts) }}</div></details>{% endif %}
 <details class="full-gear"><summary>Your full logged gear for this selected best parse</summary><div>{{ equipment(ref.gear) }}</div></details>
 <details class="cohort-details" open>
-  <summary>Current overall top five — faction / race evidence / Windfury / gear / pet</summary>
+  <summary>{{ ref.cohort_title }} — faction / race evidence / Windfury / gear / pet</summary>
   <div>
-    {% if not ref.cohort_complete %}<p class="notice">This older analysis contains only its comparison rows; rebuild from the archive for the complete recorded overall top five.</p>{% endif %}
-    <div class="table-wrap cohort-table-wrap" role="region" aria-label="{{ boss.name }}: Current overall top five" tabindex="0">
+    {% if not ref.cohort_complete %}<p class="notice">This older analysis contains only its comparison rows; rebuild from the archive for the {% if doc.mode == "live" %}acquired comparison cohort{% else %}complete recorded overall top five{% endif %}.</p>{% endif %}
+    <div class="table-wrap cohort-table-wrap" role="region" aria-label="{{ boss.name }}: {{ ref.cohort_title }}" tabindex="0">
       <table class="cohort-table stack">
         <thead><tr><th scope="col">#</th><th scope="col">Hunter</th><th scope="col">Faction</th><th scope="col">Race evidence</th><th scope="col">WF procs</th><th scope="col">DPS</th><th scope="col">Spec</th><th scope="col">Trinkets</th><th scope="col">Weapons</th><th scope="col">Raptor</th><th scope="col">White</th><th scope="col">Pet</th><th scope="col">Pet DPS</th></tr></thead>
         <tbody>{% for e in ref.cohort %}<tr class="{{ e.class }}">
@@ -46,7 +46,7 @@
     <p class="table-note">All recorded rows are shown. Faction colors indicate the returned faction; its evidence label still applies. Family inference stays qualified. Raptor/white counts need complete streams. Gear is the recorded pull snapshot, not proof of in-fight swaps.</p>
   </div>
 </details>
-<details class="hunter-gear"><summary>Full 17-slot gear for each top-five Hunter</summary><div class="hunter-cards">
+<details class="hunter-gear"><summary>{{ ref.gear_title }}</summary><div class="hunter-cards">
   {% for e in ref.cohort %}<article class="hunter-card {{ e.class }}">
     <div class="hunter-title"><div><strong>#{{ e.rank if e.rank is not none else "?" }} {{ e.player }}</strong><span>{{ e.faction.text }} · {{ e.dps }} DPS · {{ e.spec.text }}</span></div>
       <div class="mini-badges"><em>Raptor {{ e.raptor.text }}</em><em>White {{ e.white.text }}</em><em>WF procs {{ e.wf.text }}</em></div>

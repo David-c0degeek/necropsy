@@ -151,6 +151,11 @@ def _is_link(path: Path) -> bool:
     return bool(getattr(info, "st_file_attributes", 0) & _REPARSE)
 
 
+def is_link(path: Path) -> bool:
+    """True for a symlink, junction or other reparse point (never followed)."""
+    return os.path.lexists(path) and _is_link(path)
+
+
 def _present(path: Path) -> bool:
     """True when anything (a dangling link included) exists at `path`; links are refused."""
     if not os.path.lexists(path):
@@ -366,6 +371,14 @@ class _PageCheck:
             raise CacheCorrupt("the stream ended without an explicit terminal page")
 
 
+def check_pages(identity: Mapping[str, Any], pages: Iterable[Any]) -> None:
+    """Raise CacheCorrupt unless `pages` paginate `identity` to an explicit terminal page."""
+    check = _PageCheck(identity)
+    for page in pages:
+        check.page(page)
+    check.finish()
+
+
 _PAGE = re.compile(r"page_\d{3}\.json")
 _OWNED_TEMP = re.compile(r"\.(page_\d{3}\.json|stream\.json)\.\d+\.[0-9a-f]{8}\.tmp")
 
@@ -415,6 +428,45 @@ class Cache:
             raise CacheCorrupt(f"{path} is not a report object")
         return value
 
+    # -- combined report sets ---------------------------------------------------
+
+    def _report_set_path(self, key: FightKey, fight_ids: tuple[int, ...]) -> Path:
+        ids = tuple(sorted(set(fight_ids)))
+        if not ids or ids != tuple(fight_ids):
+            raise UnsafeKey("fight ids must be a non-empty, sorted, duplicate-free tuple")
+        for fid in ids:
+            _positive(fid, "fight id")
+        digest = hashlib.sha256(",".join(str(i) for i in ids).encode()).hexdigest()
+        folder = _contained(self.root, *key.parts[:3], create=True)
+        return folder / f"report_set_{digest}.json"
+
+    def put_report_set(
+        self, key: FightKey, fight_ids: tuple[int, ...], endpoint: str, report: Mapping[str, Any]
+    ) -> str:
+        """Publish one combined report answer for exactly `fight_ids` of this revision.
+
+        `key.fight` must be one of the fight ids (it only locates the revision).
+        """
+        if key.fight not in fight_ids:
+            raise UnsafeKey("the locating fight is not in the report set")
+        path = self._report_set_path(key, fight_ids)
+        record = {"fight_ids": list(fight_ids), "endpoint": endpoint, "report": dict(report)}
+        with item_lock(path.with_name(f".{path.stem}.lock")):
+            return publish(path, canonical_bytes(record))
+
+    def get_report_set(self, key: FightKey, fight_ids: tuple[int, ...]) -> dict[str, Any] | None:
+        """The combined report for exactly this fight set, or None when not cached."""
+        path = self._report_set_path(key, fight_ids)
+        if not _present(path):
+            return None
+        record = json.loads(_read(path))
+        if not isinstance(record, dict) or record.get("fight_ids") != list(fight_ids):
+            raise CacheCorrupt(f"{path.name} is not the report set for {list(fight_ids)}")
+        report = record.get("report")
+        if not isinstance(report, dict):
+            raise CacheCorrupt(f"{path.name} has no report object")
+        return record
+
     # -- event streams ----------------------------------------------------------
 
     def _stream_dir(self, key: StreamKey, create: bool) -> Path:
@@ -428,6 +480,22 @@ class Cache:
         if not _present(marker):
             return None
         return self._verified(folder, marker, wanted)
+
+    def page_bytes(self, key: StreamKey, identity: Mapping[str, Any]) -> list[bytes]:
+        """The exact published bytes of a completed stream's pages, after verification."""
+        wanted = check_identity(key, identity)
+        folder = self._stream_dir(key, create=False)
+        marker = folder / "stream.json"
+        if not _present(marker):
+            raise CacheCorrupt(f"{key.name} is not complete")
+        done = self._verified(folder, marker, wanted)
+        out = []
+        for n in range(1, len(done.pages) + 1):
+            data = _read(folder / f"page_{n:03d}.json")
+            if json.loads(data) != done.pages[n - 1]:
+                raise CacheCorrupt(f"{key.name} page {n} changed while reading")
+            out.append(data)
+        return out
 
     def _verified(self, folder: Path, marker: Path, identity: dict[str, Any]) -> StreamPages:
         try:
@@ -531,6 +599,8 @@ __all__ = [
     "UnsafeKey",
     "canonical_bytes",
     "check_identity",
+    "check_pages",
+    "is_link",
     "item_lock",
     "publish",
     "valid_report_code",

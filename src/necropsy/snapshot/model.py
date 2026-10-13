@@ -87,6 +87,12 @@ class SnapshotDescriptor(_Frozen):
     fights: tuple[SelectedFight, ...]
     source_fight_count: int
     source_errors: tuple[dict[str, Any], ...]
+    mode: Literal["historical", "live"] = "historical"
+    """`historical` for a recorded export; `live` for a snapshot Necropsy acquired."""
+    limitations: tuple[str, ...] = ()
+    """Format-specific limits of the comparison (live snapshots: acquisition coverage)."""
+    acquisition: dict[str, Any] | None = None
+    """Live snapshots: requested bosses with coverage, cohort keys and provenance."""
 
 
 class StreamRef(_Frozen):

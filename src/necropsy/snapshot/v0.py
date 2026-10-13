@@ -114,7 +114,14 @@ def _fight_dir(report_code: str, fight_id: int) -> str:
 
 
 class V0Snapshot:
-    """`SnapshotReader` over an open `VerifiedArchive` in the v6 export layout."""
+    """`SnapshotReader` over an open `VerifiedArchive` in the v6 export layout.
+
+    Subclasses for other top-level formats override `_top_level`,
+    `_build_descriptor` and `_ranking_scope`; everything below the top level is
+    read the same way.
+    """
+
+    _top_level: frozenset[str] = frozenset(_TOP_LEVEL)
 
     def __init__(self, archive: VerifiedArchive) -> None:
         self._archive = archive
@@ -225,8 +232,12 @@ class V0Snapshot:
                 continue
             yield report
 
+    def _ranking_scope(self) -> set[str]:
+        """Boss names whose ranking documents are in scope."""
+        return {p.boss for f in self._descriptor.fights for p in f.participants}
+
     def rankings(self) -> Iterator[tuple[str, dict[str, Any]]]:
-        bosses = {p.boss for f in self._descriptor.fights for p in f.participants}
+        bosses = self._ranking_scope()
         for name in self._names:
             if not name.startswith(("leaderboards/", "user_rankings/")):
                 continue
@@ -439,7 +450,7 @@ class V0Snapshot:
         in_scope = {_fight_dir(f.report_code, f.fight_id) for f in self._descriptor.fights}
         listed = {p.rsplit("/", 1)[0] + "/" for p in self._prefixes.values()}
         for name in self._names:
-            if name in _TOP_LEVEL:
+            if name in self._top_level:
                 continue
             if not any(p.match(name) for p in _KNOWN):
                 self._issues.append(f"unrecognised member: {name}")

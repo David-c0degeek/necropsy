@@ -43,6 +43,9 @@ class Player:
     pet_list: bool = True
     extra_same_name: bool = False
     subtype: str = "Hunter"
+    report: str | None = None
+    """Shared report code (default: one report per player)."""
+    fight: int = 3
 
 
 @dataclass
@@ -63,7 +66,7 @@ class FakeWcl:
     event_counts: dict[str, int] = field(default_factory=dict)
 
     def code(self, p: Player) -> str:
-        return f"R{p.name}"
+        return p.report or f"R{p.name}"
 
     def __call__(self, request: httpx.Request) -> httpx.Response:
         body = json.loads(request.content)
@@ -89,10 +92,11 @@ class FakeWcl:
                 }
             )
         player = next(p for p in [*self.players, self.subject] if self.code(p) == var["code"])
+        wanted = var.get("fightIDs") or [player.fight]
         if "NecropsyReport" in query:
             if var["code"] in self.forbidden:
                 return httpx.Response(403)
-            return self._ok({"reportData": {"report": self._report(player)}})
+            return self._ok({"reportData": {"report": self._report(player, wanted)}})
         if "NecropsyEvents" in query:
             if var["code"] in self.stream_forbidden:
                 return httpx.Response(403)
@@ -122,7 +126,7 @@ class FakeWcl:
             "amount": amount,
             "hardModeLevel": 0,
             "size": 40,
-            "report": {"code": self.code(p), "fightID": 3},
+            "report": {"code": self.code(p), "fightID": p.fight},
             "server": {"name": p.server, "region": "US"},
         }
         if p is self.subject:
@@ -131,47 +135,60 @@ class FakeWcl:
             row["guild"] = {"id": 1, "name": "g", "faction": p.guild}
         return row
 
-    def _report(self, p: Player) -> dict[str, Any]:
+    def _report(self, p: Player, wanted: list[int] | None = None) -> dict[str, Any]:
         code = self.code(p)
         limit = self.drift_after_events.get(code)
         if limit is not None and self.event_counts.get(code, 0) > limit:
             return _drifted_report(self, p)
-        actors = [
-            {
-                "id": p.actor_id,
-                "name": p.name,
-                "type": "Player",
-                "subType": p.subtype,
-                "server": p.server,
-            }
-        ] + [{"id": pid, "name": "Pet", "type": "Pet", "petOwner": p.actor_id} for pid in p.pets]
-        if p.extra_same_name:
+        group = [q for q in [*self.players, self.subject] if self.code(q) == code]
+        fight_ids = sorted({q.fight for q in group} & set(wanted or [p.fight]))
+        actors: list[dict[str, Any]] = []
+        dps: list[dict[str, Any]] = []
+        for q in group:
             actors.append(
                 {
-                    "id": 99,
-                    "name": p.name,
+                    "id": q.actor_id,
+                    "name": q.name,
                     "type": "Player",
-                    "subType": "Hunter",
-                    "server": p.server,
+                    "subType": q.subtype,
+                    "server": q.server,
                 }
             )
-        fight: dict[str, Any] = {
-            "id": 3,
-            "encounterID": PATCHWERK,
-            "startTime": 1000,
-            "endTime": 9000,
-        }
-        if p.pet_list:
-            fight["friendlyPets"] = [{"id": pid, "petOwner": p.actor_id} for pid in p.pets]
-        info = {} if p.faction_code is None else {"factionID": p.faction_code}
-        details = {
-            "dps": [{"id": p.actor_id, "name": p.name, "type": "Hunter", "combatantInfo": info}]
-        }
+            actors += [
+                {"id": pid, "name": "Pet", "type": "Pet", "petOwner": q.actor_id} for pid in q.pets
+            ]
+            if q.extra_same_name:
+                actors.append(
+                    {
+                        "id": 99,
+                        "name": q.name,
+                        "type": "Player",
+                        "subType": "Hunter",
+                        "server": q.server,
+                    }
+                )
+            info = {} if q.faction_code is None else {"factionID": q.faction_code}
+            dps.append({"id": q.actor_id, "name": q.name, "type": "Hunter", "combatantInfo": info})
+        fights = []
+        for fid in fight_ids:
+            fight: dict[str, Any] = {
+                "id": fid,
+                "encounterID": PATCHWERK,
+                "startTime": 1000,
+                "endTime": 9000,
+            }
+            members = [q for q in group if q.fight == fid]
+            if all(q.pet_list for q in members):
+                fight["friendlyPets"] = [
+                    {"id": pid, "petOwner": q.actor_id} for q in members for pid in q.pets
+                ]
+            fights.append(fight)
+        details = {"dps": dps}
         # The report bundle's revision consumes the code's revision sequence.
         return {
             "code": self.code(p),
             "revision": self._revision(self.code(p)),
-            "fights": [fight],
+            "fights": fights,
             "masterData": {"actors": actors},
             "playerDetails": {"data": {"playerDetails": details}},
         }

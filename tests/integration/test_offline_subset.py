@@ -191,7 +191,7 @@ def _break(document: dict[str, Any], path: str, value: Any) -> dict[str, Any]:
     ("path", "value"),
     [
         ("schema_version", 2),
-        ("mode", "live"),
+        ("mode", "estimated"),
         ("snapshot.archive_sha256", "nothex"),
         ("bosses.0.recommendations.0.confidence", "impossible"),
         ("bosses.0.recommendations.0.evidence", 17),

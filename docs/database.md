@@ -21,6 +21,12 @@ the ingest fails. A program that opens the target in the instant between that
 last check and the swap is not detected on every platform. `snapshot_meta.schema_version` records the schema; any schema
 change means a rebuild.
 
+Schema 2 reads both historical v6 exports and Necropsy live snapshot v1. A schema
+1 database for the same verified archive is rebuilt atomically; it is not reused
+with missing columns. Existing historical `analysis.json` files remain renderable
+without rebuilding their database. Live provenance records requested boss
+coverage separately from the acquired fights available for detailed analysis.
+
 ## Event identity
 
 The v6 export stores, per selected Hunter and per pet, every event the actor
@@ -61,7 +67,7 @@ boss target time, other players' actions) are not in the data.
 
 | Table | Contents |
 |---|---|
-| `snapshot_meta` | Schema version, snapshot format and SHA-256, scope (`full`/`subset`), subject, zone, partition, cohort, source errors |
+| `snapshot_meta` | Schema version, snapshot format and SHA-256, scope (`full`/`subset`), subject, zone, partition, cohort, source errors; schema 2 adds `mode` (`historical`/`live`), `limitations` and the live `acquisition` provenance |
 | `snapshot_issues` | Members the reader did not recognise or could not place |
 | `benchmark_participants` | Why each fight is present: the subject's fight or a cohort entry (boss, position, player, server) |
 | `reports`, `fights` | Report metadata and the selected fights |

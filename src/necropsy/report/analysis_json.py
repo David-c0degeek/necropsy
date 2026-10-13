@@ -275,7 +275,7 @@ class AnalysisDocument(_Strict):
     schema_id: Literal["necropsy.analysis"]
     schema_version: Literal[1]
     necropsy_version: str
-    mode: Literal["historical"]
+    mode: Literal["historical", "live"]
     options: Options
     snapshot: Snapshot
     subject: Subject
@@ -287,6 +287,9 @@ class AnalysisDocument(_Strict):
     """Zone-wide summaries (rule set overview-v1); absent in older documents."""
     game_data: dict[str, Any] | None = None
     """Where the static item/set/enchant data comes from (game client build)."""
+    acquisition: dict[str, Any] | None = None
+    """Live snapshots: every requested boss with its acquisition coverage, the run's
+    endpoint, stop reason and cohort provenance. Absent for historical snapshots."""
 
 
 Names = dict[int, ItemName]
@@ -536,12 +539,16 @@ def _integrity(con: duckdb.DuckDBPyConnection, boss: BossData, entry: Entry) -> 
     )
 
 
+def _json(value: Any) -> Any:
+    return json.loads(value) if isinstance(value, str) else value
+
+
 def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) -> dict[str, Any]:
     meta = con.execute(
         """SELECT archive_sha256, scope, format, source_fight_count, selected_fights,
                   subject_id, subject_name, subject_server, subject_region,
                   subject_class_id, zone_id, zone_name, partition_id, cohort, top_n,
-                  schema_version FROM snapshot_meta"""
+                  schema_version, mode, limitations, acquisition FROM snapshot_meta"""
     ).fetchone()
     assert meta is not None
     cov = con.execute(
@@ -550,6 +557,11 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
                   (SELECT count(*) FROM snapshot_issues) FROM stream_coverage"""
     ).fetchone()
     assert cov is not None
+    mode = "live" if meta[16] == "live" else "historical"
+    limitations = (
+        list(HISTORICAL_LIMITATIONS) if mode == "historical" else list(_json(meta[17]) or [])
+    )
+    acquisition = _json(meta[18]) if mode == "live" else None
     names = item_catalog(con)
     boss_data = load_bosses(con, GAME, ZONE)
     bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
@@ -557,7 +569,7 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
         "schema_id": SCHEMA_ID,
         "schema_version": SCHEMA_VERSION,
         "necropsy_version": __version__,
-        "mode": "historical",
+        "mode": mode,
         "options": {"cross_faction": cross_faction},
         "snapshot": {
             "archive_sha256": meta[0],
@@ -578,7 +590,7 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
         "cohort": {
             "kind": meta[13],
             "top_n": meta[14],
-            "limitations": list(HISTORICAL_LIMITATIONS),
+            "limitations": limitations,
         },
         "coverage": {
             "streams": cov[0],
@@ -590,6 +602,8 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
         "overview": to_data(build_overview(boss_data)),
         "game_data": gamedata.source(),
     }
+    if acquisition is not None:
+        document["acquisition"] = acquisition
     AnalysisDocument.model_validate(document)
     return document
 

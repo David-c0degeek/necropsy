@@ -5,8 +5,8 @@
 <section id="overview" class="hero" aria-labelledby="overview-title">
   <div class="eyebrow">Hunter forensics · faction-aware comparisons</div>
   <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} report</h1>
-  <p class="lede">{{ doc.realm }} · {{ doc.mode }} mode · {{ doc.scope }} snapshot · {{ doc.total_cards }} findings across {{ doc.bosses|length }} bosses</p>
-  <p class="caveat">Compared with players of your faction inside the recorded top five per boss — a small sample, not a full leaderboard.</p>
+  <p class="lede">{{ doc.realm }} · {{ doc.mode }} mode · {% if doc.mode == "live" %}recorded{% else %}{{ doc.scope }}{% endif %} snapshot · {{ doc.total_cards }} findings across {{ doc.bosses|length }} {% if doc.mode == "live" %}analysed {% endif %}bosses</p>
+  <p class="caveat">{% if doc.mode == "live" %}Compared with acquired players of your faction. Deep-event comparisons use up to five fights per boss; metadata-only rows are context.{% else %}Compared with players of your faction inside the recorded top five per boss — a small sample, not a full leaderboard.{% endif %}</p>
   <div class="badges">{% for badge in doc.reference.badges %}<span class="badge">{{ badge }}</span>{% endfor %}</div>
 </section>
 {% include "reference-overview.html.j2" %}
@@ -127,7 +127,7 @@
     <section class="panel">
       <h4>Best-ranked same-faction entry</h4>
       {% if boss.ceiling %}<dl class="kv">{% for k, v in boss.ceiling %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}</dl>
-      <p class="muted">The highest ranked entry of your faction in the recorded top five; not the fastest kill.</p>
+      <p class="muted">The highest ranked entry of your faction {% if doc.mode == "live" %}in the acquired comparison cohort{% else %}in the recorded top five{% endif %}; not the fastest kill.</p>
       {% else %}<p class="muted">No same-faction entry in the recorded sample.</p>{% endif %}
     </section>
   </div>

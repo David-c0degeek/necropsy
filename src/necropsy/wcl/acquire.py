@@ -49,6 +49,7 @@ from necropsy.wcl.cohort import (
 )
 from necropsy.wcl.context import CharacterContext
 from necropsy.wcl.fetch import (
+    REPORT_QUERY,
     Bundle,
     ReportInaccessible,
     RevisionChanged,
@@ -598,13 +599,42 @@ def _coverage(boss: BossAcquisition, stopped: str | None) -> dict[str, Any]:
     }
 
 
+@dataclass(frozen=True)
+class ReportSet:
+    """One combined report answer covering every complete entry's fight in a report."""
+
+    key: FightKey
+    """Locates the revision (its fight is the first of `fight_ids`)."""
+    fight_ids: tuple[int, ...]
+    endpoint: Endpoint
+    report: dict[str, Any]
+
+
+class MixedRevision(Exception):
+    """Entries of one report come from different revisions; nothing can be published."""
+
+
 @dataclass
 class Acquisition:
     endpoint: Endpoint
     cross_faction: bool
+    context: CharacterContext | None = None
+    """The resolved character the run was for (identity comes from here, not names)."""
+    requested: tuple[int, ...] = ()
+    """Every encounter the run was asked for, in order; all stay in the coverage."""
     bosses: list[BossAcquisition] = field(default_factory=list)
     stopped: str | None = None
     """Set when points or rate limits ended the run early; later bosses are absent."""
+    reports: dict[str, ReportSet] = field(default_factory=dict)
+    """Filled by `finalize_reports`: the combined report per code, for the snapshot."""
+
+    def complete_entries(self) -> list[tuple[BossAcquisition, Entry]]:
+        out = []
+        for boss in self.bosses:
+            for e in [boss.subject, *boss.cohort, boss.cross_faction]:
+                if e is not None and e.status == "complete":
+                    out.append((boss, e))
+        return out
 
 
 def _quota_stop(selection: Selection) -> bool:
@@ -718,8 +748,9 @@ def acquire(
 ) -> Acquisition:
     """Acquire every supported boss (or `encounters`), stopping cleanly on point limits."""
     run = Run(client, store, site, endpoint)
-    out = Acquisition(endpoint, cross_faction)
-    for encounter in encounters or boss_order():
+    requested = tuple(encounters or boss_order())
+    out = Acquisition(endpoint, cross_faction, context, requested)
+    for encounter in requested:
         boss = BossAcquisition(encounter)
         out.bosses.append(boss)
         try:
@@ -732,12 +763,96 @@ def acquire(
     return out
 
 
+def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]:
+    """Fetch one combined report per code over the exact fight set of its complete entries.
+
+    Network acquisition finalization (never part of the offline writer). Every
+    entry of a code must share one revision and the combined answer must have it
+    too, contain every selected fight with its encounter, and list each entry's
+    player and pet actors with the same identity; otherwise `MixedRevision` or
+    `InvalidResponse`, and nothing is recorded. Points or rate limits raise
+    `RunStopped`.
+    """
+    by_code: dict[str, list[tuple[BossAcquisition, Entry]]] = {}
+    for boss, entry in acquisition.complete_entries():
+        by_code.setdefault(entry.report_code, []).append((boss, entry))
+    sets: dict[str, ReportSet] = {}
+    for code in sorted(by_code):
+        items = by_code[code]
+        keys = {e.bundle_key for _, e in items if e.bundle_key is not None}
+        revisions = {k.revision for k in keys}
+        if len(revisions) != 1 or len(keys) != len({e.fight_id for _, e in items}):
+            raise MixedRevision(f"report {code} entries span revisions {sorted(revisions)}")
+        revision = revisions.pop()
+        encounters: dict[int, int] = {}
+        for boss, e in items:
+            if encounters.setdefault(e.fight_id, boss.encounter_id) != boss.encounter_id:
+                raise InvalidResponse(f"{code} fight {e.fight_id} is claimed by two bosses")
+        fight_ids = tuple(sorted(encounters))
+        locate = FightKey(run.site, code, revision, fight_ids[0])
+        cached = run.store.get_report_set(locate, fight_ids)
+        if cached is not None and cached.get("endpoint") == run.endpoint:
+            report = cached["report"]
+        else:
+            run.stage = f"combined report {code} fights {list(fight_ids)}"
+            try:
+                run.client.ensure_budget(None)
+                result = run.client.query(
+                    REPORT_QUERY, {"code": code, "fightIDs": list(fight_ids)}, endpoint=run.endpoint
+                )
+            except _STOPS as error:
+                raise RunStopped(f"{type(error).__name__} during {run.stage}: {error}") from error
+            report = (result.data.get("reportData") or {}).get("report")
+            if not isinstance(report, dict) or report.get("code") != code:
+                raise ReportInaccessible(f"WCL returned no usable combined report {code}")
+        if _int(report.get("revision")) != revision:
+            raise MixedRevision(
+                f"combined report {code} is revision {report.get('revision')!r}, "
+                f"entries are {revision}"
+            )
+        _check_report_set(report, code, encounters, [e for _, e in items])
+        run.store.put_report_set(locate, fight_ids, run.endpoint, report)
+        sets[code] = ReportSet(locate, fight_ids, run.endpoint, report)
+    acquisition.reports = sets
+    return sets
+
+
+def _check_report_set(
+    report: dict[str, Any], code: str, encounters: dict[int, int], entries: list[Entry]
+) -> None:
+    fights = report.get("fights")
+    found: dict[int, dict[str, Any]] = {}
+    for f in fights or ():
+        fid = _int(f.get("id")) if isinstance(f, dict) else None
+        if fid is not None:
+            found[fid] = f
+    if set(found) != set(encounters):
+        raise InvalidResponse(
+            f"combined report {code} fights {sorted(found)} != {sorted(encounters)}"
+        )
+    for fid, encounter in encounters.items():
+        if _int(found[fid].get("encounterID")) != encounter:
+            raise InvalidResponse(f"combined report {code} fight {fid} is another encounter")
+    for e in entries:
+        actor, why = player_actor(report, e.name, e.server)
+        if actor != e.actor_id:
+            raise InvalidResponse(
+                f"combined report {code}: {e.name} is not actor {e.actor_id} ({why})"
+            )
+        if e.pets is not None and e.actor_id is not None:
+            pets, _ = fight_pets(report, found[e.fight_id], e.actor_id)
+            if pets != e.pets:
+                raise InvalidResponse(f"combined report {code}: pets of {e.name} differ")
+
+
 __all__ = [
     "SUBJECT_QUERY",
     "Acquisition",
     "BossAcquisition",
     "Dropped",
     "Entry",
+    "MixedRevision",
+    "ReportSet",
     "Run",
     "RunStopped",
     "StreamRecord",
@@ -747,6 +862,7 @@ __all__ = [
     "boss_order",
     "faction_verdict",
     "fight_pets",
+    "finalize_reports",
     "pick_subject",
     "player_actor",
     "subject_rankings",

@@ -38,7 +38,10 @@ class EntryOrigin(StrEnum):
     """Byte-identical copy of a member of the original WCL export."""
 
     GENERATED = "generated"
-    """Written by Necropsy tooling (for example a subset descriptor)."""
+    """Written by Necropsy tooling (for example a subset descriptor or a wrapper)."""
+
+    ACQUIRED = "acquired"
+    """An API response Necropsy fetched itself, as published in its verified cache."""
 
 
 @dataclass(frozen=True, slots=True)

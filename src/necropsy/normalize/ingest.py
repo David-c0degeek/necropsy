@@ -28,7 +28,7 @@ from necropsy.snapshot.archive import EntryDigest, VerifiedArchive
 from necropsy.snapshot.canonical import canonical_json, event_uid
 from necropsy.snapshot.model import SnapshotDescriptor, StreamRead, StreamRef
 from necropsy.snapshot.reader import SnapshotReader
-from necropsy.snapshot.v0 import V0Snapshot
+from necropsy.snapshot.v1 import open_snapshot
 
 
 class IngestError(Exception):
@@ -197,6 +197,9 @@ def _describe(loader: _Loader, d: SnapshotDescriptor, issues: list[str]) -> None
                 "source_fight_count": d.source_fight_count,
                 "source_errors": list(d.source_errors),
                 "necropsy_version": __version__,
+                "mode": d.mode,
+                "limitations": list(d.limitations),
+                "acquisition": d.acquisition,
             }
         ],
     )
@@ -560,7 +563,7 @@ def ingest(
     """
     db_path = db_path.resolve()
     with VerifiedArchive(snapshot, expected_sha256=expected_sha256, entries=entries) as archive:
-        reader = V0Snapshot(archive)
+        reader = open_snapshot(archive)
         descriptor = reader.descriptor()
         _check_target(db_path, descriptor, replace)
         before = _target_state(db_path)

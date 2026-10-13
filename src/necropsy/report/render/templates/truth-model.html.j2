@@ -13,7 +13,7 @@
     <article>
       <h3>What is deliberately NOT overclaimed</h3>
       <ul>
-        <li>The same-faction comparator is inside the recorded overall top five, rather than a separately fetched faction leaderboard.</li>
+        <li>{% if doc.mode == "live" %}The same-faction cohort is selected from ranking pages and verified against the acquired reports. Metadata-only rows are context. The other-faction overall #1 is optional and stays outside the primary baseline.{% else %}The same-faction comparator is inside the recorded overall top five, rather than a separately fetched faction leaderboard.{% endif %}</li>
         <li>Zero detected Windfury procs requires trusted coverage and does not prove a totem was unavailable.</li>
         <li>Pet-family inference stays qualified; compatible abilities can leave several families possible.</li>
         <li>Projected shot targets are comparison benchmarks, not guaranteed opportunities or promised DPS.</li>

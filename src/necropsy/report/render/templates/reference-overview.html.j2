@@ -1,5 +1,20 @@
 {% from "reference-macros.html.j2" import prose, plans %}
 {% from "macros.html.j2" import val %}
+{% if doc.mode == "live" %}
+<section class="global" aria-labelledby="acquisition-title">
+  <h2 id="acquisition-title">Live acquisition coverage</h2>
+  <p>Every requested boss is listed below. Detailed analysis uses acquired fights; a missing or unattempted boss has no measured event results. A recorded snapshot can have partial acquisition coverage.</p>
+  <div class="table-wrap" role="region" aria-label="Live acquisition coverage" tabindex="0"><table class="stack">
+    <thead><tr><th scope="col">Boss</th><th scope="col">Status</th><th scope="col">Deep fights</th><th scope="col">Metadata rows</th><th scope="col">Coverage notes</th></tr></thead>
+    <tbody>{% for row in doc.reference.acquisition %}<tr>
+      <th scope="row">{% if row.anchor %}<a href="#{{ row.anchor }}">{{ row.boss }}</a>{% else %}{{ row.boss }}{% endif %}</th>
+      <td data-label="Status">{{ row.status }}</td><td data-label="Deep fights">{{ row.deep }}</td><td data-label="Metadata rows">{{ row.metadata }}</td>
+      <td data-label="Coverage notes">{% if row.reasons %}<ul>{% for reason in row.reasons %}<li>{{ reason }}</li>{% endfor %}</ul>{% else %}No acquisition shortfall recorded.{% endif %}</td>
+    </tr>{% else %}<tr><td colspan="5">Acquisition coverage was not recorded in this analysis.</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="table-note">Medians require three known values. Metadata counts include deep entries; they do not extend the event-analysis sample. The overall #1 metric is unknown when that player was not acquired. Reopen the saved snapshot offline without contacting Warcraft Logs.</p>
+</section>
+{% endif %}
 <section class="global" aria-labelledby="global-setup-title">
   <h2 id="global-setup-title">Global setup</h2>
   <ul class="global-setup">{% for row in doc.reference.setup %}<li><b>{{ row.label }}:</b> {{ prose(row.lines) }}</li>{% endfor %}</ul>
@@ -32,7 +47,7 @@
 <section class="global" aria-labelledby="raid-sheet-title">
   <h2 id="raid-sheet-title">At-a-glance raid sheet</h2>
   <div class="table-wrap raid-sheet" role="region" aria-label="At-a-glance raid sheet" tabindex="0">
-    <table class="stack"><thead><tr><th scope="col">Boss</th><th scope="col">Your %</th><th scope="col">Your DPS</th><th scope="col">Your kill</th><th scope="col">Overall #1</th><th scope="col">Same-faction comparator in overall top five</th><th scope="col">A/H</th><th scope="col">Normalized Auto/Aimed/Multi target</th><th scope="col">Weave verdict</th></tr></thead>
+    <table class="stack"><thead><tr><th scope="col">Boss</th><th scope="col">Your %</th><th scope="col">Your DPS</th><th scope="col">Your kill</th><th scope="col">Overall #1</th><th scope="col">Same-faction comparator {% if doc.mode == "live" %}in acquired cohort{% else %}in overall top five{% endif %}</th><th scope="col">A/H</th><th scope="col">Normalized Auto/Aimed/Multi target</th><th scope="col">Weave verdict</th></tr></thead>
     <tbody>{% for b in doc.bosses %}<tr>
       <th scope="row"><a href="#{{ b.anchor }}">{{ b.name }}</a></th>
       <td data-label="Your %">{{ val(b.reference.percent) }}</td><td data-label="Your DPS">{{ b.ranked_dps }}</td><td data-label="Your kill">{{ b.reference.metrics[2][1].text }}</td>
