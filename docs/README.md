@@ -5,8 +5,8 @@
 Start with a runnable sample, then choose how far into the evidence you want to go.
 Necropsy currently writes JSON from saved Classic Era Hunter/Naxxramas exports.
 Each run also writes an offline HTML report and playbook. `necropsy analyze`
-connects character-URL acquisition to those outputs; authenticated live validation
-remains pending.
+connects character-URL acquisition to those outputs. An authenticated Windows
+run is verified with explicit partial pet coverage; see [live validation](live-validation.md).
 
 ## Run and understand
 

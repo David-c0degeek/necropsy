@@ -3,8 +3,8 @@
 [Home](../README.md) · [Documentation](README.md) · [Getting started](getting-started.md)
 
 Necropsy can sign in, resolve a Warcraft Logs character URL, and acquire a snapshot
-for a report and playbook. The CLI flow is verified with synthetic responses;
-authenticated live validation remains pending. The [offline sample](getting-started.md)
+for a report and playbook. The CLI flow has synthetic tests and an observed signed-in Windows run with
+explicit partial pet coverage; see [live validation](live-validation.md). The [offline sample](getting-started.md)
 already produces a report and playbook without signing in.
 
 The current connection supports **Classic Era on `vanilla.warcraftlogs.com`**
@@ -176,7 +176,8 @@ uses the character, zone and UTC time.
 Results include `analysis.json`, `report.html`, `playbook.html`, the optional
 package, and `snapshot/STEM.zip` with its `.entries` and `.sha256` companions.
 Read **Live acquisition coverage** in either page before interpreting results.
-An overall #1 comparison stays unknown when that fight was not acquired.
+Overall #1 DPS can use verified saved leaderboard metadata without an acquired
+event sample; detailed event comparisons still require acquired evidence.
 The points summary describes an account-wide change between observed readings;
 it can include other activity and stays unknown when the accounting period
 cannot be established.

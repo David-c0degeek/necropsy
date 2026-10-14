@@ -7,8 +7,9 @@ WCL data or reads a saved snapshot, normalizes it into a derived DuckDB database
 and produces one versioned analysis document. The report, playbook and package
 are built from that document alone.
 
-Offline analysis and synthetic acquisition integration are verified. Authenticated
-live acquisition and real credential-store acceptance still need validation.
+Offline analysis, synthetic integration and an authenticated Windows user-endpoint
+run are verified; the run retained partial pet coverage. See
+[observed live validation](live-validation.md) for scope and limits.
 A desktop shell, more game/class support and public-client PKCE authentication
 are future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
 is design history; this page describes the current implementation.
@@ -102,8 +103,9 @@ is null, never zero. Medians require three known values. Encounter rules, game
 client tables and guide knowledge stay distinct from log observations.
 
 Historical exports contain the recorded overall top five. Live event comparisons
-contain acquired players, and the overall rank-one metric stays unknown if that
-fight was not acquired. Every requested live boss remains in acquisition coverage,
+contain acquired players. Overall rank-one DPS can also use verified saved
+leaderboard metadata, with its source and acquisition status kept separate from
+event evidence; metadata never contributes to execution medians. Every requested live boss remains in acquisition coverage,
 even without a detailed analysis section. [Reading results](reading-results.md)
 explains these limits in the pages.
 
@@ -142,4 +144,3 @@ and a checksum manifest. It does not contain the raw snapshot or DuckDB database
 | Analysis and contract | [Analysis modules](../src/necropsy/analysis), [JSON builder/model](../src/necropsy/report/analysis_json.py), [JSON reference](analysis-json.md) |
 | Presentation and package | [Renderers](../src/necropsy/report/render), [package](../src/necropsy/report/package.py), [publisher](../src/necropsy/report/publish.py) |
 | Verification | [Synthetic CLI tests](../tests/integration/test_analyze_cli.py), [snapshot tests](../tests/integration/test_live_snapshot.py), [historical tests](../tests/golden) |
-

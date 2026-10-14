@@ -29,9 +29,10 @@ records but do not turn the credential backend into a transactional database.
 
 A confidential secret belongs to a user's own client setup. This decision does
 not authorize distributing a shared secret. A public PKCE client must replace
-the confidential-client flow before application distribution. Real-store and
-authenticated live acceptance remain pending.
+the confidential-client flow before application distribution. The personal flow was
+observed with Windows WinVault and the authenticated user API on 2026-10-14;
+see [live validation](../live-validation.md) for coverage and limits. Other real
+credential stores and public-client PKCE remain unverified.
 
 Implementation: [credentials](../../src/necropsy/wcl/credentials.py),
 [auth](../../src/necropsy/wcl/auth.py), [commands](../../src/necropsy/wcl/cli.py).
-

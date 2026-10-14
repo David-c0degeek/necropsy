@@ -1,0 +1,27 @@
+# 05 — Class-aware reports and playbooks
+
+## Goal
+Expose Druid roles and useful class-specific details through the existing report and package.
+
+## Integration analysis
+- **Existing code found:** `report/analysis_json.py, report/render/playbook_view.py, view.py, templates, assets, report/package.py`. This is the initial prior-art map; subject 00 and this subject reconfirm symbols/callers before implementation.
+- **Behaviour to preserve:** historical/live Hunter replay, exact evidence grades, fixed cohort dimensions, coverage-aware absence, raw archive immutability and existing offline commands.
+- **Reuse / extend:** extend the named seams and current CLI→snapshot→ingest→analysis→render pipeline.
+- **Do not duplicate:** no second credential store, acquisition cache, normalizer, evidence model, package publisher or parallel report pipeline.
+- **Integration point + why:** the named existing modules already own this behavior; any new module must have a stated responsibility and real caller.
+- **Vision fit:** `docs/roadmap.md` and accepted ADRs; explicit scope in master §1. Record any durable deviation before code.
+- **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
+
+## Boxes
+- [ ] **05.1** (agent) Extend analysis JSON with explicitly versioned/compatible class-specific metrics; preserve legacy hunter fields/readers where required and synchronize the generated JSON schema.
+- [ ] **05.2** (agent) Reuse shared rendering and evidence components with class-aware labels, role-specific summaries, KISS cards and full supporting detail. Show talent/build versus observed role, overrides, hybrid phases and unknowns clearly.
+- [ ] **05.3** (agent) Extend package CSV/evidence exports and user/developer docs; verify old Hunter pages and desktop/mobile layouts remain complete without new class terms leaking into historical outputs.
+
+## Hindsight checkpoint
+Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
+
+- [ ] Captain Hindsight review recorded
+- [ ] Verdict is `CLOSE`
+
+## Progress log
+TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.

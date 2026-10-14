@@ -40,7 +40,9 @@ Only bosses with acquired fights have detailed analysis sections.
 Live acquisition seeks five verified same-faction event samples per boss and up
 to 25 metadata entries. The same-faction ceiling is limited to the acquired
 sample. An acquired row's position is its recorded overall leaderboard position;
-the overall rank-one comparison stays unknown when that fight was not acquired.
+overall rank-one DPS can also come from verified saved leaderboard metadata.
+That scalar has its source/capture limitation shown and does not supply an event
+comparison or increase a median sample.
 Neither live mode nor **Current %** refreshes while you read the saved pages.
 
 | View | How to use it |

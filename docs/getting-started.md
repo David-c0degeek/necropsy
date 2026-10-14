@@ -116,8 +116,8 @@ uses the network, saves a raw snapshot under `snapshot/`, and writes the same
 report, playbook and package as offline analysis. Check the printed exit status:
 `4` means a partial report was written; `2` needs a partition choice; `3` means
 finalization stopped with no new snapshot or report. Other failures use `1`.
-The CLI has synthetic integration tests; authenticated live validation remains
-pending. [Read coverage and recovery details](warcraft-logs.md#acquire-an-analysis).
+The CLI has synthetic integration tests and an observed authenticated Windows
+run with explicit partial coverage; see [live validation](live-validation.md). [Read coverage and recovery details](warcraft-logs.md#acquire-an-analysis).
 
 ## Choose your context and integrity checks
 

@@ -68,13 +68,14 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
       interrupt.
 - [x] **07.6** (agent) Snapshot v1 writer + reader on the 02.1 contract; offline
       pipeline consumes v1 unchanged.
-- [ ] **07.7** (agent) Manual live end-to-end (`-m live`) on Haplina's URL:
-      package produced, coverage and cohort provenance recorded, API points used
-      reported; divergences from historical mode recorded and explained.
-      Harness and procedure prepared in unit 19, awaiting independent review;
-      actual authenticated run remains pending. `--run-live` and a configured URL
-      are both required; ordinary tests remain offline. Receipt wording limits
-      complete/partial to acquisition coverage and separates scanner status.
+- [x] **07.7** (agent) Manual live end-to-end executed on Haplina's URL:
+      original snapshot/receipt retained; artifact and secret checks passed;
+      all 15 bosses attempted with 5 usable deep + 25 metadata each; 11 complete,
+      4 partial due unassigned pets. Exit 4 is recorded, not promoted to 0.
+      All subject selections match history; cohort differences are explained.
+      One observed reset wait took 3240.989 s; cross-period account cost unknown.
+      Functional execution is complete; acceptance of remaining coverage limits
+      is explicitly pending 07.11 (D046), so subject/final CLOSE is not claimed.
 - [x] **07.8** (agent) Docs: README quickstart, `docs/auth.md` (personal-only
       warning), `docs/architecture.md`, ADRs promoted from §4.
       Completed with independent factual review: auth/architecture references
@@ -95,6 +96,11 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
       `DEFERRED — see manual-actions`: never ticked in Milestone A; does not
       block closing this subject (§5 Done rule); remains an open blocker for
       any distribution.
+
+- [ ] **07.11** (product-owner) Accept or reject the proposed personal-use live
+      acceptance boundary: exit-4 output with all requested bosses/minimum samples
+      and explicit unknown pet ownership, rather than requiring complete pet
+      coverage. Concrete evidence/questions in `review-packet.md`; D046.
 
 ## Hindsight checkpoint
 > Run after all boxes in this subject are complete and before marking
@@ -164,3 +170,39 @@ including fresh revision drift during the wait (all outputs refused). Navigator
 AGREE round 1 on runtime; optional shared-factory policy concern resolved with a
 dataclass copy and a passing two-run isolation regression. Ruff/format/mypy clean.
 Full changed-file documentation/record review and actual live receipt remain open.
+
+
+2026-10-14 · slice 27 · 07.7 / closing preparation · real original receipt and
+verified archive inspected; actual run completed 15:57:33 UTC, user endpoint,
+partition 1, all 15 requested bosses / 5 usable deep / 25 metadata, 11 complete
+and 4 partial due ownerless pet actors. All subject fight choices match history;
+artifact/secret checks passed and account-wide cross-period points remain unknown.
+Subsequent archive replay restores 15 headlines without changing primary analyses;
+runtime/schema checkpoints 713aa63/0224f91 and Linux/Windows CI green. PM outcomes
+calibrated, shipped docs reconciled, proposed partial-live acceptance mirrored as
+07.11; broader mechanics and final signoff remain open. Claude review and record
+checkpoint pending; no credentials or additional network acquisition required.
+
+### Captain Hindsight — live execution close-out preparation
+
+**Keep:** One endpoint and verified same-faction deep samples; immutable original
+archive/receipt; fresh revision-bound finalization; explicit partial ownerless-pet
+coverage; bounded observed reset wait; offline replay through one shared pipeline.
+
+**Fix before closing:** Obtain the explicit product-owner decision on 07.11.
+This review cannot replace the plan's acceptance of partial coverage. Existing
+partial reasons are evidence limitations, not a reason to invent pet owners.
+
+**Record:** Actual live receipt and hashes, comparison differences, Windows-only
+real-store evidence, unknown cross-period cost, all remaining PM calibrations,
+current docs and durable lessons. Original pending-run entries remain chronology.
+
+**Risk:** Four bosses retain incomplete ownership evidence. Other real credential
+stores, future WCL drift and public distribution are not validated by this run.
+PKCE remains deferred and is owned by the new distribution plan.
+
+**Verdict:** DO NOT CLOSE subject 07 pending 07.11. Agent box 07.7 execution and
+artifact verification are complete; coverage is still partial. Current mechanics
+review and final plan signoff remain independent human actions.
+
+Latest independent replay at 0224f91: 229 passed / 4 expected failures / 823 deselected in 270.13 s, exit 0. Build passed; plan/human mirrors/relative links verified. Final record/plan peer review pending.

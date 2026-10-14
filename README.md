@@ -20,8 +20,8 @@ look. Each finding keeps its evidence and uncertainty visible.
 deep-export format (or the included fixture subset) into an offline HTML report,
 a boss-by-boss playbook, `analysis.json`, and a shareable package.
 `necropsy analyze` also accepts a supported character URL, acquires a saved
-snapshot, and writes the same results. This flow is tested with synthetic API
-responses; authenticated live validation remains pending. See the
+snapshot, and writes the same results. Synthetic integration tests and a real signed-in Windows run are verified;
+the live run retained explicit partial pet coverage. See [observed live validation](docs/live-validation.md). See the
 [connection guide](docs/warcraft-logs.md) and [roadmap](docs/roadmap.md).
 
 ## Your first analysis

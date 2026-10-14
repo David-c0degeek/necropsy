@@ -8,9 +8,9 @@ distribution.** That flow is deferred; it is not implemented by the current CLI.
 
 For client setup, the callback URI, sign-in commands and troubleshooting, follow
 the [Warcraft Logs guide](warcraft-logs.md). This page describes what the local
-implementation stores and which boundaries it enforces. Authentication logic has
-synthetic tests; authenticated live acquisition and real credential-store
-acceptance remain pending.
+implementation stores and which boundaries it enforces. Authentication has synthetic tests and an observed signed-in Windows WinVault
+run; see [live validation](live-validation.md). Other real credential backends and
+public-client authentication remain unverified.
 
 ## Credentials and tokens
 
@@ -63,4 +63,3 @@ Fetched logs and exported results can still contain player information.
 - [Sign-in and acquisition commands](../src/necropsy/wcl/cli.py)
 - [HTTP client](../src/necropsy/wcl/client.py), [URL parsing](../src/necropsy/wcl/urls.py)
 - [Authentication decision](decisions/0001-personal-authentication.md)
-

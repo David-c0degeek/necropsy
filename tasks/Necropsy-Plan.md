@@ -43,7 +43,7 @@
 | Field | Value |
 |---|---|
 | Mode | `coordinated` |
-| Primary owner | agent pair: Claude Code (driver) + Codex (navigator) via the pair-programming mailbox; one write owner at a time |
+| Primary owner | Codex lead; Claude navigator on explicit design/review requests via the mailbox; one write owner at a time |
 | Coordinator | same as Primary owner |
 | Resume safety | required |
 | Parallel branches | `no` |
@@ -305,6 +305,8 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | D043 | 2026-10-13 | Live subject fight and verified deep entries | The subject's fight per boss is its highest-amount Hunter ranking (ties: higher rankPercent, earlier startTime, missing after present, then code and fight; conflicting duplicate rows excluded) — rule `subject-fight-v1`, which reproduces the recorded export's choice on 15 of 15 bosses. Every deep entry (subject, cohort, optional cross-faction #1) is acquired as one generation — bundle, exact Hunter player actor by name and realm, observed faction from playerDetails combatantInfo.factionID, pets from the fight's friendlyPets, then player and pet streams — and a revision change restarts the whole entry once. An attempted check without an observed faction discards the guild inference; only observed same-faction entries count, replacements come from the same-faction metadata in order, and coverage counts completed entries (target 5 and minimum 3 kept apart) | A deep comparator must be the right person, faction and report generation, and a short cohort must say so | 07.5; `wcl/acquire.py`; benchmarks.yaml `subject_fight`; [0003-immutable-generations](../docs/decisions/0003-immutable-generations.md) |
 | D044 | 2026-10-13 | Live snapshot v1 | A live snapshot keeps the v6 member layout for reports, events and rankings and replaces profile/manifest/selection with one strict `necropsy-snapshot.json` (subject from the resolved context, zone and partition, requested bosses with acquisition coverage, cohort key dimensions, verdicts and dropped rows, stream identities and page digests). Each report's bundle is one combined same-revision query over the exact selected fight set, fetched while finalizing acquisition; a revision mismatch refuses the snapshot. The reader reuses the v6 reader through two seams and never falls back to it for a malformed live descriptor. The derived DB schema moves to version 2 (mode, limitations, acquisition) and an older DB is rebuilt from the same verified archive. analysis.json mode is `historical` or `live` | Live data must reach the unchanged offline pipeline with its provenance and limits intact (PM-6, PM-7) | 07.6; `snapshot/v1.py`, `snapshot/v1_writer.py`, `wcl/acquire.py::finalize_reports`; [0004-snapshots-and-derived-outputs](../docs/decisions/0004-snapshots-and-derived-outputs.md) |
 | D011 | 2026-10-12 | Tool installs approved | User approved all installs named in the plan: uv, git-lfs, secret scanner (gitleaks or equivalent), and LFS storage for the 80 MB fixture on the personal account | Explicit user approval in session | 00.7, 00.9, 01.3; `manual-actions.md` |
+| D045 | 2026-10-14 | Lead and follow-up plans | Codex leads; Claude remains dormant except requested design/reviews. Create template-derived Distribution and ClassExpansion plans; Druid first includes feral DPS, balance, restoration, tank and hybrid. | Explicit user leadership, pairing and new-plan direction. | tasks/Distribution-Plan.md; tasks/ClassExpansion-Plan.md; pair unit 25 |
+| D046 | 2026-10-14 | Proposed partial-live acceptance boundary | Actual live execution and artifact checks are recorded as complete work, but personal-use milestone acceptance of exit-4 pet-ownership limitations is proposed for explicit product-owner acceptance; no subject/final CLOSE inferred from a partial receipt. | The gate says completes; receipt proves useful output but does not prove complete coverage. | 07.7; new 07.11; review-packet.md; §8 pending |
 
 ---
 
@@ -350,7 +352,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | [x] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | DONE | agent: 7; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | IN PROGRESS | agent: 6; domain-sme: 1 | yes |
 | [x] | 06 | `tasks/necropsy/06-report-and-package.md` | DONE | agent: 7; product-owner: 2 | yes |
-| [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | IN PROGRESS | agent: 8; product-owner: 1; release-engineer: 1 | yes |
+| [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | IN PROGRESS | agent: 8; product-owner: 2; release-engineer: 1 | yes |
 
 ---
 
@@ -440,12 +442,55 @@ the authenticated live package is checked separately by its acceptance harness.
 Whole-repository cleanup findings are triaged in `cleanup-audit-2026-10-14.md`;
 lasting lessons are in `tasks/lessons.md`. Live acceptance, subject close-out,
 broader human mechanics review and §8 sign-off remain open.
+
+2026-10-14 close-out reconciliation: real live acceptance now exists and is
+verified in `docs/live-validation.md` and `tasks/necropsy/review-packet.md`.
+The preceding pending-run notes are retained as chronology, not current status.
+Latest runtime checkpoint `0224f91` has green Linux/Windows CI. Updated live
+artifact verification reports 15/15 known overall scores and unchanged primary
+analysis records. Subject 07 remains open solely for proposed partial-live
+acceptance (07.11) and its dependent closing Hindsight; 05.7 and §8 remain human-owned.
 Historical replay is verified, but the complete historical acceptance gate stays
 open for explicit domain-sme resolution of `sapphiron.weave-verdict`: its current
 exclusion cites the three-entry rule without human-review attribution. The other
 three disputed fact resolutions already cite user review on 2026-10-13. Confirm
 the remaining exclusion in the existing broader 05.7 review; passing the automated
 register check does not replace the plan's human requirement.
+
+
+### Current engineering preflight / final Hindsight preparation (2026-10-14)
+
+Latest-commit independent clone at `0224f91`: 229 golden/acceptance checks passed,
+4 expected failures, 823 deselected, 270.13 s; exit 0 and JUnit/log retained in
+`workspace/kiss-qa-20261014/current-golden*`. Latest Windows/Linux CI passed fast
+suite, lint, format and types. Current `uv build` passed. New planning records pass
+subject/dependency/owner/manual-action checks; 148 relative links resolve; all
+11 original PM prediction fields are preserved, with terminal resolutions and
+observable/horizon-limited calibration. Actual live archive and updated output
+checks are recorded above. Gate checkboxes that require completed subjects remain
+open until the human decisions are resolved; these preflight results do not invent
+§8 approval.
+
+**Keep:** Verified immutable evidence, one shared offline analysis pipeline,
+explicit unknowns/partial coverage, independent current replay and source-bounded
+leaderboard context; additive KISS presentation retains detail.
+
+**Fix before closing:** 05.7 domain review (including explicit historical Sapphiron
+adjudication), 07.11 proposed partial-live acceptance, their dependent subject
+CLOSE reviews and final §8 sign-off. No new feature work is needed merely to hide
+source unknowns. Claude's full record/plan review and publication are required for
+this checkpoint; final gate is then ready for the remaining human decisions.
+
+**Record:** Completed real Windows/user-endpoint receipt; scoped PM calibrations;
+current documentation; exact clean-clone result; reviewer packet and human mirrors;
+template-derived future plans. PKCE is carried forward, not marked implemented.
+
+**Risk:** Unknown pet ownership and the Classic Era race-field limitation remain;
+other credential backends, future server changes and distribution are outside the
+observed run. Four xfails remain the recorded accepted test exceptions, not new passes.
+
+**Verdict:** DO NOT CLOSE Milestone A until the listed human reviews and dependent
+closing gates resolve. Plan archival/deletion remains human-owned after sign-off.
 
 ---
 
