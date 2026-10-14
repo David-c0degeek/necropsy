@@ -2,6 +2,14 @@
 
 ## Evidence and analysis
 
+- Preserve the distinction between reported scalar metadata and acquired event
+  evidence. A leaderboard score can remain known while event damage/pet totals
+  are unknown. Reconcile identity across sources; never add metadata-only rows to
+  event baselines/advice or invent a capture time for an older saved response.
+- Summaries should label sampled opening patterns and retain timing/non-use/unknown
+  distinctions and sourced phase conditions. A median among recorded casts is not
+  a universal or optimal pull script; keep the detailed evidence available.
+
 - Keep frozen raw exports and historical oracles unchanged. Resolve disagreements
   against raw data and record the result; an oracle is not automatically right.
 - Fact probes need the same actor/target filters as production analysis. A pet

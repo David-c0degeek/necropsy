@@ -12,8 +12,13 @@
 <div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div>
 <article class="truth-card">
   <h3>Benchmark context</h3><p>{{ ref.context_text }}</p>
-  <p class="tiny">Race is named only with racial-cast evidence. WF counts detected extra-attack events; non-observation is not proof of totem unavailability. Other-faction rows below are context.</p>
+  <p class="tiny">Race is confirmed here by an observed racial cast. Classic Era's current character gameData API does not supply race; no racial cast leaves race unknown, rather than guessing from faction or non-use. WF counts detected extra-attack events; non-observation is not proof of totem unavailability. Other-faction rows below are context.</p>
   {% for limit in ref.limits %}<p class="tiny">{{ limit }}</p>{% endfor %}
+</article>
+<article class="quick-plan">
+  <div class="eyebrow">Quick plan · KISS</div>
+  <h3>Opening cycle and notes</h3>
+  {{ plans(ref.quick_plan) }}
 </article>
 <div class="grid two">
   <article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article>
@@ -36,7 +41,7 @@
           <td data-label="Rank">{{ e.rank if e.rank is not none else "Unknown" }}</td>
           <th scope="row">{{ e.player }}<span class="why">Recorded overall leaderboard · {{ e.kill }} kill</span></th>
           <td data-label="Faction">{{ val(e.faction) }}</td><td data-label="Race evidence">{{ val(e.race) }}{% if e.race_note %}<span class="why">{{ e.race_note }}</span>{% endif %}</td>
-          <td data-label="WF procs">{{ val(e.wf) }}<span class="why">{{ e.wf_status }}</span></td><td data-label="DPS">{{ e.dps }}</td><td data-label="Spec">{{ val(e.spec) }}</td>
+          <td data-label="WF procs">{{ val(e.wf) }}<span class="why">{{ e.wf_status }}</span></td><td data-label="DPS">{{ e.dps }}{% if e.dps_note %}<span class="why">{{ e.dps_note }}</span>{% endif %}</td><td data-label="Spec">{{ val(e.spec) }}</td>
           <td data-label="Trinkets">{{ val(e.trinkets) }}</td><td data-label="Weapons">{% for weapon in e.weapons %}{{ val(weapon) }}{% if not loop.last %}<br>{% endif %}{% endfor %}</td>
           <td data-label="Raptor">{{ val(e.raptor) }}</td><td data-label="White">{{ val(e.white) }}</td>
           <td data-label="Pet">{{ e.pet.name }}{% for f in e.pet.family %}{{ val(f) }}{% endfor %}<span class="why">{{ e.pet.abilities }}</span></td><td data-label="Pet DPS">{{ val(e.pet.dps) }}</td>

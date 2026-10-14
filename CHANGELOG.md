@@ -9,6 +9,15 @@ implemented in the development checkout; they are not a published release.
 
 ### Changed
 
+- **Quick opening plan.** Added a KISS card to every boss in both pages, with a
+  simple comparator-based ranged opening, recorded Rapid Fire timing and usage,
+  and sourced encounter notes. Detailed timelines, execution/loadout plans,
+  equipment and evidence remain. Overall-#1 DPS can use observed saved leaderboard
+  metadata when an event calculation is unavailable, with source/capture context
+  and no changes to same-faction benchmarks; missing values explain acquisition
+  scope or its recorded failure. Race availability explains the Classic Era
+  metadata limitation without guessing race from missing casts.
+
 - **Optional hourly reset wait.** `analyze --wait-for-reset` can wait once, at
   most one hour, using an observed reset countdown while preserving its selection
   and fresh finalization. The default still stops promptly on insufficient budget.

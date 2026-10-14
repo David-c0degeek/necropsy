@@ -52,6 +52,71 @@ def _players() -> tuple[list[Player], Player]:
     return cohort, subject
 
 
+def test_saved_overall_score_does_not_create_a_foreign_event_sample(tmp_path: Path) -> None:
+    (tmp_path / "cache").mkdir()
+    (tmp_path / "saved").mkdir()
+    cohort, subject = _players()
+    cohort.insert(0, Player("HordeFirst", faction_code=0, guild=1))
+    acquisition, store, run = _acquire(tmp_path, FakeWcl(cohort, subject))
+    finalize_reports(run, acquisition)
+    saved = write_snapshot(acquisition, store, tmp_path / "saved", stem="context")
+    db = tmp_path / "context.duckdb"
+    ingest(
+        saved.archive,
+        db,
+        expected_sha256=saved.sha256,
+        entries=load_entries_manifest(saved.entries),
+    )
+    with duckdb.connect(str(db), read_only=True) as con:
+        doc = build_document(con)
+    boss = next(b for b in doc["bosses"] if b["encounter_id"] == PATCHWERK)
+    top = boss["benchmarks"]["overall_top"]
+    assert top["player"] == "HordeFirst" and top["ranked_dps"] == 2000
+    assert top["ranked_dps_evidence"]["level"] == "observed"
+    assert top["basis"] == "leaderboard-metadata" and top["captured_at"]
+    assert top["event_sample_acquired"] is False
+    assert len(boss["cohort"]) == 5 and all(e["player"] != "HordeFirst" for e in boss["cohort"])
+    assert boss["playbook"]["rapid_fire"]["rank_one"] is None
+
+
+@pytest.mark.parametrize("partition", [True, 99, "malformed-json"])
+def test_live_leaderboard_partition_is_bound_to_the_archive(
+    written: Any, tmp_path: Path, partition: Any
+) -> None:
+    changed = tmp_path / "wrong-leaderboard.zip"
+    with zipfile.ZipFile(written[2].archive) as source, zipfile.ZipFile(changed, "w") as target:
+        for info in source.infolist():
+            raw = source.read(info)
+            if info.filename.startswith("leaderboards/"):
+                data = json.loads(raw)
+                if partition == "malformed-json":
+                    data["pages"][0]["characterRankings"] = "{"
+                else:
+                    data["partition"] = partition
+                raw = json.dumps(data).encode()
+            target.writestr(info, raw)
+    with pytest.raises(SnapshotError, match="leaderboard"):
+        ingest(changed, tmp_path / "wrong.duckdb")
+
+
+def test_live_json_scalar_leaderboard_pages_remain_readable(written: Any, tmp_path: Path) -> None:
+    changed = tmp_path / "encoded-leaderboards.zip"
+    with zipfile.ZipFile(written[2].archive) as source, zipfile.ZipFile(changed, "w") as target:
+        for info in source.infolist():
+            raw = source.read(info)
+            if info.filename.startswith("leaderboards/"):
+                data = json.loads(raw)
+                for page in data["pages"]:
+                    page["characterRankings"] = json.dumps(page["characterRankings"])
+                raw = json.dumps(data).encode()
+            target.writestr(info, raw)
+    db = tmp_path / "encoded.duckdb"
+    ingest(changed, db)
+    with duckdb.connect(str(db), read_only=True) as con:
+        row = con.execute("SELECT count(*) FROM rankings WHERE kind='leaderboard'").fetchone()
+        assert row is not None and row[0] > 0
+
+
 def _acquire(tmp: Path, fake: FakeWcl) -> tuple[Any, Cache, Run]:
     store = Cache(tmp / "cache")
     client = _client(fake)

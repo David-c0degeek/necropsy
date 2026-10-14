@@ -304,7 +304,9 @@ def compare_with_history(live: dict[str, Any], history: dict[str, Any] | None) -
                 if e and e.get("status") == "complete" and e.get("pets") is None
             ],
             "overall_first_acquired": bool(
-                section and (section.get("benchmarks") or {}).get("overall_top")
+                section
+                and (section.get("benchmarks") or {}).get("overall_top")
+                and (section["benchmarks"]["overall_top"].get("event_sample_acquired", True))
             ),
         }
         if base is None:

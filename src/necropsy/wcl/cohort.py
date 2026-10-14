@@ -315,7 +315,11 @@ def fetch_page(
             raise InvalidResponse(f"page {page} is not for encounter {key.encounter.value}")
         if raw_pages is not None:
             raw_pages.append(
-                {"page": page, "characterRankings": encounter.get("characterRankings")}
+                {
+                    "page": page,
+                    "characterRankings": encounter.get("characterRankings"),
+                    "captured_at": client.clock.now().isoformat(),
+                }
             )
         return page_items(encounter.get("characterRankings"), page)
 

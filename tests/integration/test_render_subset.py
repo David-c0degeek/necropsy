@@ -304,6 +304,59 @@ def test_unknown_values_never_render_as_numbers(analysis: bytes) -> None:
     assert kt.raid_speed.fastest is not None and kt.raid_speed.fastest.ratio.known
 
 
+def test_quick_plan_adds_simple_steps_without_removing_evidence(analysis: bytes) -> None:
+    view = document_view(*load_document(analysis))
+    for render in (render_report, render_playbook):
+        html = render(view)
+        assert html.count('class="quick-plan"') == len(view.bosses)
+        for heading in (
+            "Recommended opener",
+            "Your full logged gear for this selected best parse",
+            "Execution plan",
+            "Loadout plan",
+        ):
+            assert heading in html
+        assert "Recorded opening:" in html and "Same-faction comparator:" in html
+        assert "Observed cast timing" in html
+
+
+def test_quick_plan_keeps_missing_and_inferred_evidence_visible(analysis: bytes) -> None:
+    from necropsy.report.render.playbook_view import _quick_plan
+
+    document = json.loads(analysis)
+    plan = document["bosses"][0]["playbook"]
+    plan["opener"]["comparator_sequence"] = None
+    plan["rapid_fire"]["same_faction_first_s"].update(
+        value=None, n_values=1, n_without=2, n_unknown=1, level="inferred"
+    )
+    rows = _quick_plan(plan, {}, {}, {})
+    text = " ".join(part["text"] + " " + part["note"] for row in rows for part in row["lines"])
+    assert "no comparator ranged opening" in text and "timing unknown" in text
+    assert "2 had no RF cast recorded" in text and "1 unknown" in text
+    assert "membership is inferred" in text
+
+
+def test_overall_unknown_reason_preserves_failed_requested_context(analysis: bytes) -> None:
+    from necropsy.report.render.playbook_view import _overall_reason
+
+    document = json.loads(analysis)
+    boss = document["bosses"][0]
+    boss["benchmarks"]["overall_top"] = None
+    assert "--cross-faction" in _overall_reason(boss, {}, True)
+    document["acquisition"] = {
+        "cross_faction": True,
+        "bosses": [
+            {
+                "encounter_id": boss["encounter_id"],
+                "cross_faction_reason": "archived report inaccessible",
+            }
+        ],
+    }
+    assert "archived report inaccessible" in _overall_reason(boss, document, True)
+    boss["benchmarks"]["overall_top"] = {"player": "Recorded", "ranked_dps": None}
+    assert "ranked DPS is unavailable" in _overall_reason(boss, document, True)
+
+
 def test_inferred_membership_shows_in_the_playbook(analysis: bytes) -> None:
     document = json.loads(analysis)
     document["bosses"][0]["benchmarks"]["baseline"]["membership"]["level"] = "inferred"

@@ -78,7 +78,8 @@ afterwards. The file is written atomically: a failed run leaves no partial file.
 | `benchmarks.ceiling` | best-ranked same-faction entry inside the acquired sample (historical exports: recorded top five), with its `membership` evidence |
 | `benchmarks.raid_speed` | the subject's kill time against the same-faction median kill time (`vs_median`) and the fastest same-faction kill (`vs_fastest`), both always reported; `basis` names which one decides `flagged` (median at 1.5x when at least 3 kill times are known, else fastest at 2.0x) |
 | `benchmarks.baseline.tauren_fill` | only when a same-faction median has too few values: the same metrics recomputed with other-faction entries proven Tauren with Windfury proven absent (`eligible`, `excluded` with reasons, `needed_for`). Separate from the same-faction baseline and from `--cross-faction`; kill time and weave adoption are never filled |
-| `benchmarks.overall_top` | the recorded leaderboard rank 1 of any faction (player, faction evidence, ranked DPS, kill time); `null` when rank 1 is not in the snapshot |
+| `benchmarks.overall_top` | recorded rank 1 of any faction; an acquired event calculation when available, otherwise observed scalar context from the verified saved leaderboard. Metadata fallback carries `ranked_dps_evidence`, `basis`, `source_member`, optional `captured_at`, and an `event_sample_acquired` flag. Its score does not enter event medians or advice; an already-acquired matching entry retains its faction/kill evidence. `null` when rank-one identity is missing, invalid or ambiguous |
+| `benchmarks.overall_top_unavailable_reason` | optional explicit explanation when the acquired rank-one entry conflicts with the saved leaderboard identity; the headline stays unknown instead of choosing one source |
 | `benchmarks.faction_mix` | recorded entries by faction, how many factions are inferred, and the same/other/unknown split |
 | `benchmarks.cross_faction` | `null` unless `--cross-faction`; never merged into the baseline |
 | `benchmarks.excluded` | entries left out of the baseline, by reason |
@@ -130,7 +131,9 @@ Live event comparisons use acquired fights, with a target of five verified
 same-faction samples. The metadata target is 25 and includes the deep sample;
 metadata-only entries do not contribute to event medians. A median still needs
 three known values. Raw leaderboard positions remain overall positions, and
-overall rank one is unknown if its fight is absent. Missing pet discovery remains
+overall rank-one event context is unknown if its fight is absent; its saved
+leaderboard DPS may still be displayed as observed metadata. Old archives without
+leaderboard capture times explicitly report that time as unavailable. Missing pet discovery remains
 unknown rather than establishing that no pet participated.
 
 Acquisition entries can carry a `bundle_generation` digest identifying the cached

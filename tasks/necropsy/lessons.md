@@ -2,6 +2,9 @@
 
 > Append as they happen. Durable lessons migrate to `tasks/lessons.md` at the §7 gate.
 
+- 2026-10-14 — A missing event-derived value does not mean all evidence is absent. Verified saved leaderboards can supply an observed reported-DPS scalar while event damage, pet ownership and actor samples stay unknown or partial. Keep the scalar out of event medians/advice, reconcile rank-one identity across sources, retain old known identity, and state when capture time was never recorded.
+- 2026-10-14 — A simple execution card must identify a comparator pattern as a practice basis, not turn a first-cast median into an optimal universal script. Preserve known non-casts/unknowns and phase conditions, and keep the detailed evidence alongside the summary.
+
 - 2026-10-14 — Separate measured request/account deltas from conservative budget reserves when diagnosing retries. A stop before the first finalization request is not evidence that finalization consumed the budget. Cache progress alone cannot prove a full run fits one window; preserve the same acquisition across an explicitly bounded reset wait when fresh selection costs dominate.
 
 - 2026-10-14 — A WCL report revision does not freeze all returned metadata: rankings and archive status can change at the same revision. Preserve endpoint-specific full-digest observations and bind each run to the exact generation it fetched; finalize combined reports fresh instead of choosing an arbitrary cached generation.

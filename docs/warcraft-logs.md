@@ -112,6 +112,21 @@ from an API ID. Same-faction acquisition cannot use an unknown faction.
 
 ## Acquire an analysis
 
+Race availability differs by game. During Classic Era validation on 2026-10-14,
+the Character API exposed `gameData`, but Haplina's response returned
+`This game does not support cached game data.` The saved report/player-details
+payloads also contained no race field. Necropsy therefore names race from an
+observed racial cast; absence of a cast does not identify a race. This limitation
+does not imply the same API behavior for other Warcraft Logs game sites.
+
+Overall-#1 DPS uses an acquired event calculation when available; otherwise it
+can show an observed scalar from the verified saved leaderboard. That scalar is
+metadata-only context, never a member of the same-faction event sample or its
+medians. Its source and capture time are shown; older captures explicitly say
+when the time was not recorded. Missing or invalid evidence stays unknown.
+Use `--cross-faction` with a fresh output directory to request separately verified
+event context. Permission or identity failures can still leave it unavailable.
+
 After signing in, run:
 
 ```sh

@@ -88,7 +88,16 @@ export package.
       EVERYTHING." and "you can add to it, but do not take away from it" — the
       template is the floor; Necropsy's extra views are additions.*
 
+- [x] **06.9** (agent) User follow-up, 2026-10-14: add a KISS opening/notes card
+      without removing any detailed content; explain unknown race/DPS, verify
+      Rapid Fire timings, and preserve saved overall-rank-one metadata as separate
+      observed context. Implemented and reviewed (AGREE round 2). Race investigation:
+      Classic Era Character.gameData returns unsupported; all 785 saved JSON
+      members lack race fields. No absence-based race guessing added.
+
 ## Hindsight checkpoint
+
+The previous CLOSE covers the earlier scope; 06.9 requires a follow-up review and closing checkpoint.
 
 The [definitive-playbook parity inventory](06-8-parity-inventory.md) maps every
 reference section, column and advice type to existing analysis data or an
@@ -153,3 +162,58 @@ owned gap. It is the implementation and content acceptance checklist for 06.8.
 2026-10-13 · slice 8 · 06.8 (final review requested) · source-based guidance integrated with conditional/unknown states, unchanged valid280TP profile, separate armor/ring counts, default-dark reference theme with persisted light/system choice, safe source links and long-name overflow checks across added sections; KT encounter clock explicitly separated from logged fight start · full suite727 passed/4 known xfailed; final focused presentation51 passed, source/test secret scans clean, docs links and full15boss desktop/mobile expanded overflow checked · uncommitted; peer review pending
 
 2026-10-13 · slice 9 · 06.8 complete · peer round1 corrections preserve rank-one known non-use, explain known non-users in insufficient timing samples, and attach specific citations once per profile section and only to declared advice dependencies; peer AGREE round2 (0 blocking/0 important), Captain Hindsight CLOSE with integration/decision/lesson/manual-action review · peer full728 passed/4 known xfailed; Codex62 focused checks, ruff/format/mypy clean; full15boss/75row preview plus actual CLI rerender verified byte-identical JSON/HTML/ZIP; desktop/mobile timing/citation/overflow checks passed · implementation cd64345 committed and pushed; Linux/Windows CI run38417517143 success; record-only close-out follows in the same checkpoint sequence
+
+2026-10-14 · slice 10 · 06.9 · KISS card added to both pages, preserving detailed
+timelines/loadout/execution/gear/evidence. Simplified ranged comparator pattern,
+observed Rapid Fire cast timing/counts and sourced encounter guidance remain
+distinct; actual medians include Loatheb 40.096 s and Thaddius 81.8685 s, not a
+universal pull cast. Saved overall-rank-one scores were already in verified raw
+leaderboards but ignored when event calculations were absent. New scalar fallback
+is observed metadata, with exact first-row/context guards and source/capture
+provenance; it never alters same-faction medians or advice. Existing captured
+actor identity remains when matching; legacy capture time is explicitly unknown.
+Future acquisitions record UTC page capture time. Live-reader partition/page
+binding, acceptance deep-sample flag and docs reconciled. Race profile API and all
+saved JSON checked; no direct race metadata found, racial casts remain observed
+evidence. Real verified offline rebuild fills all 15 headline DPS values; all 15
+recommendation/playbook/subject/cohort/baseline records unchanged. Targeted 180
+passed before final identity retention, followed by 18 guard/replay checks;
+actual live/historical browser pages inspected at desktop and narrow widths.
+Review, close-out and checkpoint publication pending.
+
+### Captain Hindsight — additive opening and metadata follow-up (2026-10-14)
+
+**Keep:** The KISS card supplements every existing detailed section. It presents
+an observed comparator pattern for practice, cast timing rather than a universal
+Rapid Fire pull prescription, and cited encounter guidance. Saved rank-one scalar
+metadata is reused through existing normalization/analysis; no extra network
+acquisition or parallel reporting path is needed. Known event calculations and
+all same-faction samples, medians, advice and actor identity stay intact.
+
+**Fix before closing:** None required after the round-1 identity-conflict correction
+and typed malformed-JSON guard. Browser assertions now separately verify the seven
+existing plan labels and three added labels. Multi-Shot spelling and practice-pattern
+wording were tightened after the optional review notes.
+
+**Record:** PM-10/PM-11 calibrated and lessons promoted. User-requested
+"Recommended opener" label retained, with explicit comparator practice basis;
+this does not claim an optimal rotation. Classic Era race availability is documented
+from the actual API response and all 785 saved JSON members. Reported score source,
+legacy capture-time absence, future capture timestamps and metadata/deep-sample
+distinction are documented in the JSON/usage contracts and changelog.
+
+**Risk:** Racial casts remain the available affirmative race evidence in this
+acquisition. Unassigned pet owners still legitimately limit event-derived damage
+and pet calculations. Legacy leaderboards have no capture timestamp; that time is
+explicitly unknown. Domain mechanics review and the broader live-subject close-out
+are separate and remain open.
+
+**Verdict:** CLOSE 06.9. Evidence: verified live archive replay fills all 15 headline
+scores, while all 15 recommendation/playbook/subject/cohort/baseline records are
+unchanged. Live and historical pages retain their sections/gear/evidence and passed
+desktop/mobile checks; actual screenshots inspected. Broad suite: 1,044 passed,
+one deliberately skipped live test, four expected failures, two obsolete label-count
+assertions subsequently fixed and both reruns passed. Follow-up 103 checks plus 22
+latest identity/JSON/replay guards and two quick-card checks passed; ruff/format/mypy,
+build and source secret scan clean. Final record/writing review follows; publication
+will be recorded with the checkpoint commit.

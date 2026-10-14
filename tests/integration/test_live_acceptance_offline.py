@@ -137,6 +137,16 @@ def test_without_history_the_comparison_is_not_performed(run: Any) -> None:
     assert report["bosses"][1]["coverage"]["complete"] is False
 
 
+def test_metadata_rank_one_does_not_claim_acquired_event_context(run: Any) -> None:
+    _, out = run
+    live = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    top = {"player": "MetadataOnly", "ranked_dps": 2000, "event_sample_acquired": False}
+    live["bosses"][0]["benchmarks"]["overall_top"] = top
+    assert compare_with_history(live, None)["bosses"][0]["overall_first_acquired"] is False
+    del top["event_sample_acquired"]  # earlier documents only contained acquired rank-one entries
+    assert compare_with_history(live, None)["bosses"][0]["overall_first_acquired"] is True
+
+
 def test_history_must_match_the_character_zone_and_partition(run: Any, tmp_path: Path) -> None:
     _, out = run
     live = json.loads((out / "analysis.json").read_text(encoding="utf-8"))

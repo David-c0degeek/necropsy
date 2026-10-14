@@ -186,6 +186,14 @@ def cohort(entry: Mapping[str, Any], names: Mapping[str, str]) -> dict[str, Any]
         "wf": value_of(env["windfury"]["procs"]),
         "wf_status": str(env["windfury"]["status"]),
         "dps": number(entry["ranking"].get("ranked_dps")),
+        "dps_note": (
+            str(
+                (entry["ranking"].get("external") or {}).get("note")
+                or "Event-derived ranked DPS is unavailable."
+            )
+            if entry["ranking"].get("ranked_dps") is None
+            else ""
+        ),
         "spec": value_of(env["talents"]),
         "trinkets": value_of(
             hunter["gear"]["trinkets"], lambda v: _items([i["item_id"] for i in v], names)
@@ -205,6 +213,118 @@ def _sequence(raw: Any) -> str:
     return (
         " → ".join(f"{str(kind).replace('_', ' ').title()} {number(t, 2, 's')}" for t, kind in raw)
         or "No casts recorded"
+    )
+
+
+def _quick_plan(
+    plan: Mapping[str, Any] | None,
+    static: Mapping[str, Any],
+    game: Mapping[str, Any],
+    pet_facts: Mapping[str, Any],
+) -> tuple[dict[str, Any], ...]:
+    if not plan:
+        return (
+            {
+                "label": "Recommended opener",
+                "lines": (line("Unknown: opening evidence unavailable."),),
+            },
+            {"label": "Rapid Fire", "lines": (line("Unknown: cooldown evidence unavailable."),)},
+            {
+                "label": "Notes",
+                "lines": (line("Review the evidence limits before choosing an opening."),),
+            },
+        )
+    sequence = plan["opener"].get("comparator_sequence")
+    ranged_names = {
+        "auto_shot": "Auto Shot",
+        "aimed_shot": "Aimed Shot",
+        "multi_shot": "Multi-Shot",
+    }
+    shots = (
+        []
+        if sequence is None
+        else [
+            ranged_names[str(kind)]
+            for _time, kind in sequence
+            if kind in {"auto_shot", "aimed_shot", "multi_shot"}
+        ][:5]
+    )
+    pattern = " → ".join(shots) if shots else "Unknown: no comparator ranged opening recorded."
+    member = str(plan["context"].get("membership_level", "unknown"))
+    basis = "Practice pattern from the same-faction comparator; detailed timestamps remain below."
+    if member == "inferred":
+        basis += " Comparator membership is inferred."
+    rapid = plan["rapid_fire"]["same_faction_first_s"]
+    usage = (
+        f"{rapid['n_values']} cast RF / {rapid['n_values'] + rapid['n_without']} known; "
+        f"{rapid['n_without']} had no RF cast recorded; {rapid['n_unknown']} unknown."
+    )
+    timing = (
+        f"First-use median: {number(rapid['value'], 1, 's')} after fight start."
+        if rapid.get("value") is not None
+        else "First-use timing unknown: insufficient recorded evidence."
+    )
+    encounter_static = {
+        **static,
+        "guidance": {
+            "items": [
+                item
+                for item in (static.get("guidance") or {}).get("items") or []
+                if item.get("scope") == "encounter"
+            ]
+        },
+    }
+    notes = tuple(
+        advice for _destination, advice in _guidance_lines(encounter_static, game, pet_facts)
+    )
+    return (
+        {"label": "Recommended opener", "lines": (line(pattern, basis),)},
+        {
+            "label": "Rapid Fire",
+            "lines": (
+                line(
+                    timing,
+                    usage
+                    + " Observed cast timing, not a mandatory pull timing."
+                    + (
+                        " Comparison membership is inferred."
+                        if rapid.get("level") == "inferred"
+                        else ""
+                    ),
+                ),
+            ),
+        },
+        {
+            "label": "Notes",
+            "lines": notes
+            or (line("Review your cooldown window against the detailed execution plan below."),),
+        },
+    )
+
+
+def _overall_reason(boss: Mapping[str, Any], document: Mapping[str, Any] | None, live: bool) -> str:
+    if boss["benchmarks"].get("overall_top_unavailable_reason"):
+        return str(boss["benchmarks"]["overall_top_unavailable_reason"])
+    if boss["benchmarks"].get("overall_top"):
+        return "Overall #1 was acquired, but its ranked DPS is unavailable."
+    if not live:
+        return "Overall #1 is absent from this recorded export."
+    acquisition = (document or {}).get("acquisition") or {}
+    if acquisition.get("cross_faction"):
+        record: Mapping[str, Any] = next(
+            (
+                b
+                for b in acquisition.get("bosses") or []
+                if b.get("encounter_id") == boss["encounter_id"]
+            ),
+            {},
+        )
+        entry = record.get("cross_faction") or {}
+        reason = entry.get("reason") or record.get("cross_faction_reason")
+        return "Overall #1 was not acquired: " + str(reason or "see recorded acquisition coverage")
+    return (
+        "Overall #1 was not acquired in this same-faction run. "
+        "Add --cross-faction and use a fresh output directory to request separate context."
     )
 
 
@@ -401,6 +521,14 @@ def boss_view(
         )
     )
     top = boss["benchmarks"].get("overall_top")
+    top_level = str(((top or {}).get("ranked_dps_evidence") or {}).get("level", "derived"))
+    top_note = None
+    metadata_top = (top or {}).get("basis") == "leaderboard-metadata"
+    if metadata_top:
+        captured = top.get("captured_at")
+        top_note = "Saved WCL leaderboard DPS; metadata-only context. " + (
+            f"Captured {captured}." if captured else "Capture time not recorded in this archive."
+        )
     metrics = (
         (
             "Your DPS",
@@ -423,7 +551,11 @@ def boss_view(
             "Overall #1 DPS",
             Value(
                 number(None if not top else top.get("ranked_dps")),
-                "derived" if top and top.get("ranked_dps") is not None else "unknown",
+                top_level if top and top.get("ranked_dps") is not None else "unknown",
+                top_note
+                if top and top.get("ranked_dps") is not None
+                else _overall_reason(boss, document, live),
+                metadata_top,
             ),
         ),
         (
@@ -834,6 +966,7 @@ def boss_view(
         ),
         "loadout": tuple(loadout),
         "execution": tuple(execution),
+        "quick_plan": _quick_plan(plan, static, game, pet_facts),
         "dont": tuple(dont)
         or (
             line(

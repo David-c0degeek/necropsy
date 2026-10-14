@@ -8,7 +8,9 @@ deterministic: the same snapshot and options always produce the same bytes
 from __future__ import annotations
 
 import json
+import math
 import statistics
+from datetime import datetime
 from typing import Annotated, Any, Literal
 
 import duckdb
@@ -28,7 +30,7 @@ from necropsy.analysis.benchmark import (
     split_by_faction,
 )
 from necropsy.analysis.encounters.findings import raid_utility, target_integrity
-from necropsy.analysis.evidence import Claim, EvidenceLevel
+from necropsy.analysis.evidence import Claim, EvidenceLevel, EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog, rank_percent
 from necropsy.analysis.overview import build as build_overview
 from necropsy.analysis.playbook import build as build_playbook
@@ -218,6 +220,7 @@ class Benchmarks(_Strict):
     excluded: Excluded | None
     overall_top: EvidenceTree | None = None
     """Recorded leaderboard rank 1, any faction (absent in older documents)."""
+    overall_top_unavailable_reason: str | None = None
     faction_mix: dict[str, Any] | None = None
 
 
@@ -336,19 +339,146 @@ def _set_armor(e: Entry) -> list[dict[str, Any]] | None:
     return [to_data(s) for s in gamedata.set_armor(g.item_id for g in gear if g.item_id)]
 
 
-def _overall_top(boss: BossData) -> dict[str, Any] | None:
+def _leaderboard_top(con: duckdb.DuckDBPyConnection, boss: BossData) -> dict[str, Any] | None:
+    meta = con.execute("SELECT mode, partition_id, acquisition FROM snapshot_meta").fetchone()
+    if meta is None or meta[0] != "live":
+        return None
+    acquisition = _json(meta[2]) or {}
+    record: dict[str, Any] = next(
+        (r for r in acquisition.get("bosses") or [] if r.get("encounter_id") == boss.encounter_id),
+        {},
+    )
+    key = record.get("key") or {}
+    if set(key) != {
+        "site",
+        "game",
+        "zone",
+        "partition",
+        "encounter",
+        "role",
+        "class_name",
+        "difficulty",
+        "faction",
+        "size",
+        "spec",
+    }:
+        return None
+    required = {
+        "site": "vanilla.warcraftlogs.com",
+        "game": GAME,
+        "zone": 2006,
+        "partition": meta[1],
+        "encounter": boss.encounter_id,
+        "role": "dps",
+        "class_name": "Hunter",
+        "difficulty": 0,
+    }
+    for name, value in required.items():
+        dim = key.get(name) or {}
+        if (
+            type(dim.get("value")) is not type(value)
+            or dim.get("value") != value
+            or dim.get("status") != "enforced"
+        ):
+            return None
+    size, spec = key.get("size") or {}, key.get("spec") or {}
+    if (
+        size.get("value") is not None
+        or size.get("status") != "recorded"
+        or spec.get("value") != "all Hunter specs"
+        or spec.get("status") != "recorded"
+    ):
+        return None
+    rows = con.execute(
+        """SELECT source, raw FROM rankings WHERE kind = 'leaderboard'
+           AND encounter_id = ? AND page = 1 AND row_index = 0
+           AND starts_with(source, 'leaderboards/')""",
+        [boss.encounter_id],
+    ).fetchall()
+    if len(rows) != 1:
+        return None
+    source_member, raw = rows[0]
+    row = _json(raw)
+    amount, difficulty = row.get("amount"), row.get("hardModeLevel")
+    if (
+        type(amount) not in (int, float)
+        or not math.isfinite(amount)
+        or amount < 0
+        or not (
+            row.get("class") == "Hunter" or (type(row.get("class")) is int and row["class"] == 3)
+        )
+        or type(difficulty) is not int
+        or difficulty != 0
+        or not isinstance(row.get("name"), str)
+        or not row["name"].strip()
+    ):
+        return None
+    for ordering in ("rank", "position"):
+        if ordering in row and (type(row[ordering]) is not int or row[ordering] != 1):
+            return None
+    report = row.get("report") or {}
+    code = report.get("code") if isinstance(report, dict) else None
+    fight = report.get("fightID") if isinstance(report, dict) else None
+    ref = EvidenceRef(
+        code if isinstance(code, str) else "",
+        fight if type(fight) is int else None,
+        None,
+        "leaderboard",
+        detail=f"{source_member}, page 1 row 0; Hunter DPS; partition {meta[1]}",
+    )
+    captured = (record.get("selection") or {}).get("leaderboard_captured_at")
+    if captured is not None:
+        try:
+            if datetime.fromisoformat(captured).utcoffset() is None:
+                captured = None
+        except TypeError, ValueError:
+            captured = None
+    return {
+        "player": row["name"],
+        "leaderboard_position": 1,
+        "ranked_dps": float(amount),
+        "ranked_dps_evidence": to_data(observed(float(amount), ref)),
+        "faction": to_data(unknown("character faction is not proven by ranking metadata", ref)),
+        "kill_duration_s": row["duration"] / 1000.0
+        if type(row.get("duration")) is int and row["duration"] > 0
+        else None,
+        "basis": "leaderboard-metadata",
+        "source_member": source_member,
+        "captured_at": captured,
+        "event_sample_acquired": False,
+    }
+
+
+def _overall_top(
+    con: duckdb.DuckDBPyConnection, boss: BossData
+) -> tuple[dict[str, Any] | None, str | None]:
     """Rank 1 of the recorded leaderboard, whatever its faction; None if not recorded."""
     first = [e for e in boss.cohort if e.participant.leaderboard_position == 1]
     if len(first) != 1:
-        return None
+        return _leaderboard_top(con, boss), None
     e = first[0]
-    return {
+    if e.ranked_dps is None:
+        metadata = _leaderboard_top(con, boss)
+        if metadata is not None:
+            ref = metadata["ranked_dps_evidence"]["refs"][0]
+            if (
+                metadata["player"] == e.participant.player
+                and ref["report"] == e.participant.report_code
+                and ref["fight"] == e.participant.fight_id
+            ):
+                metadata["faction"] = to_data(e.profile.faction)
+                metadata["kill_duration_s"] = e.participant.duration_ms / 1000.0
+                metadata["event_sample_acquired"] = True
+                return metadata, None
+            return None, "Rank-one identity conflicts between acquired entry and saved leaderboard."
+    result = {
         "player": e.participant.player,
         "leaderboard_position": 1,
         "faction": to_data(e.profile.faction),
         "ranked_dps": None if e.ranked_dps is None else round(e.ranked_dps, 6),
         "kill_duration_s": e.participant.duration_ms / 1000.0,
     }
+    return result, None
 
 
 def _faction_mix(boss: BossData, split: Any) -> dict[str, Any]:
@@ -425,15 +555,18 @@ def _boss(
         "raid_utility": None,
         "cohort_target_integrity": [],
     }
+    top, top_reason = _overall_top(con, boss)
     benchmarks: dict[str, Any] = {
         "ceiling": None,
         "baseline": None,
         "raid_speed": None,
         "cross_faction": None,
         "excluded": None,
-        "overall_top": _overall_top(boss),
+        "overall_top": top,
         "faction_mix": _faction_mix(boss, split),
     }
+    if top_reason is not None:
+        benchmarks["overall_top_unavailable_reason"] = top_reason
     recommendations: list[dict[str, Any]] = []
     cohort_rows: list[Entry] = []
     playbook: Any = None

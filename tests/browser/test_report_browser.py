@@ -269,7 +269,12 @@ def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, na
             "Raid ask",
         ):
             assert section.get_by_role("heading", name=heading, exact=True).count() == 1
-        assert section.locator(".plan-lines > dt").all_text_contents() == [
+        assert section.locator(".quick-plan .plan-lines > dt").all_text_contents() == [
+            "Recommended opener",
+            "Rapid Fire",
+            "Notes",
+        ]
+        assert section.locator(".grid.two .plan-lines > dt").all_text_contents() == [
             "Weapons",
             "Trinkets",
             "Pet",

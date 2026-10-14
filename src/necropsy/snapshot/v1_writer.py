@@ -477,6 +477,9 @@ def _boss_record(boss: BossAcquisition, name: str) -> dict[str, Any]:
         "selection": None
         if sel is None
         else {
+            "leaderboard_captured_at": next(
+                (p.get("captured_at") for p in sel.raw_pages if p.get("page") == 1), None
+            ),
             "stop": sel.stop,
             "pages": [{"page": p.page, "rows": p.rows} for p in sel.pages],
             "other_faction": sel.other_faction,

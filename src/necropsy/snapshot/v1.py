@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Iterator
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
@@ -304,6 +305,42 @@ class V1Snapshot(V0Snapshot):
     def _ranking_scope(self) -> set[str]:
         """Every requested boss, including those with no acquired fight."""
         return {str(b.get("boss")) for b in self._file().bosses if b.get("boss")}
+
+    def rankings(self) -> Iterator[tuple[str, dict[str, Any]]]:
+        live = self._file()
+        expected = {b["encounter_id"]: b["boss"] for b in live.bosses}
+        for source, document in super().rankings():
+            if source.startswith("leaderboards/"):
+                encounter = document.get("encounter") or {}
+                eid, partition = encounter.get("id"), document.get("partition")
+                if (
+                    type(eid) is not int
+                    or expected.get(eid) != encounter.get("name")
+                    or type(partition) is not int
+                    or partition != live.zone.partition
+                ):
+                    raise SnapshotError(
+                        f"{source}: leaderboard encounter/partition differs from snapshot"
+                    )
+                for page in document.get("pages") or []:
+                    if type(page.get("page")) is not int or page["page"] < 1:
+                        raise SnapshotError(f"{source}: leaderboard has an invalid page number")
+                    ranking = page.get("characterRankings")
+                    if isinstance(ranking, str):
+                        try:
+                            ranking = json.loads(ranking)
+                        except ValueError:
+                            raise SnapshotError(
+                                f"{source}: leaderboard ranking JSON is malformed"
+                            ) from None
+                        page["characterRankings"] = ranking
+                    if not isinstance(ranking, dict):
+                        raise SnapshotError(f"{source}: leaderboard ranking page is not an object")
+                    if "page" in ranking and (
+                        type(ranking["page"]) is not int or ranking["page"] != page["page"]
+                    ):
+                        raise SnapshotError(f"{source}: leaderboard response is another page")
+            yield source, document
 
     def _check_stream_identity(
         self, key: tuple[str, int, str, int, str], proof: LiveStream, names: list[str]
