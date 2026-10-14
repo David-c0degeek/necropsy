@@ -224,6 +224,8 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | ID | Date | Title | Decision | Rationale | Refs (box IDs / files / ADR#) |
 |---|---|---|---|---|---|
 | D001 | 2026-10-14 | Execution boundary | Finish Milestone A engineering close-out and keep human acceptance explicit before starting implementation; scaffold now without claiming readiness. | User authorized follow-up plans; planning does not imply old or new sign-off. | 00.1–00.9; previous plan §8 |
+| D003 | 2026-10-14 | Readiness and baseline | Start implementation after successful build/static checks, 75 focused cohort/evidence tests and Hunter subset replay; broad baseline remains running and must finish before acceptance. Use existing approved tools only. | Slow acquisition/fixture checks need not block independent contract work; no baseline failure observed or accepted. | 00.3; readiness.md; PM-1–PM-3 |
+| D004 | 2026-10-14 | Verified WCL taxonomy | WCL Druid class ID 2; Balance/Feral/Guardian use DPS category scores, Restoration uses HPS. Tank DPS is a category score, never a survivability or threat score. Mixed/uncertain has no aggregate ranking cohort. | Authenticated gameData and Patchwerk ranking probes on the supplied character and all four categories; Guardian is the API slug for Tank. | 01.2–01.3; 02.1; readiness.md |
 | D002 | 2026-10-14 | Scope and collaboration | Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope. Coordinated mode with Codex lead and requested Claude reviews; no parallel workers. | User direction in this session. | §1; subjects 01–06 |
 
 ---
@@ -255,7 +257,7 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
-| [ ] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | TODO | agent: 9 | n/a |
+| [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
 | [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | TODO | agent: 3; domain-sme: 1 | yes |
 | [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | TODO | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | TODO | agent: 3; domain-sme: 1 | yes |

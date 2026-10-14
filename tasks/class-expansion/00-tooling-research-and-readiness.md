@@ -12,25 +12,25 @@ later subjects can execute with the right context already in place.
 > or waived by decision. A failing Build/Test baseline from 00.3 blocks
 > implementation subjects unless a §4 Decision-log row accepts it.
 
-- [ ] **00.1** (agent) Read repo instructions and authoritative project docs —
+- [x] **00.1** (agent) Read repo instructions and authoritative project docs —
       including any vision, ADR, roadmap, planning, and lessons docs; list
       applicable constraints, clean-room/provenance rules, existing conventions,
       and the intended architectural direction so later subjects can flag drift.
-- [ ] **00.2** (agent) Inventory language, framework, runtime, package manager,
+- [x] **00.2** (agent) Inventory language, framework, runtime, package manager,
       CI, existing commands, and repo structure; identify the implementation
       surfaces this plan will touch and map where each belongs in the current
       architecture and what similar functionality already exists (prior-art
       map), so implementation subjects reuse or extend before adding new code.
-- [ ] **00.3** (agent) Run baseline build/test/lint commands and confirm or
+- [x] **00.3** (agent) Run baseline build/test/lint commands and confirm or
       correct the plan's §2 Verification-commands table, or record exact
       blockers and the command output needed to reproduce them.
-- [ ] **00.4** (agent) Research current best practices for the detected
+- [x] **00.4** (agent) Research current best practices for the detected
       language/framework/runtime/testing stack using official or primary
       sources; record only findings that affect this plan.
-- [ ] **00.5** (agent) Research APIs, libraries, providers, or standards this
+- [x] **00.5** (agent) Research APIs, libraries, providers, or standards this
       plan depends on using official or primary sources; record links,
       versions, and date-sensitive notes.
-- [ ] **00.6** (agent) Discover existing capabilities before building any. Run
+- [x] **00.6** (agent) Discover existing capabilities before building any. Run
       all five rungs, widest last: (1) skills, tools, and MCP servers already
       loaded this session; (2) installed-but-unloaded skill directories — user,
       project, and plugin-bundled; (3) the plugin/marketplace registry this
@@ -44,7 +44,7 @@ later subjects can execute with the right context already in place.
       install/config command, and setup cost. Record the result even when
       nothing is found; stopping at rung 1 is the default failure, not a
       finding.
-- [ ] **00.7** (agent) Set up only approved local tooling/config needed before
+- [x] **00.7** (agent) Set up only approved local tooling/config needed before
       coding — approved means confirmed by the user or already allowed by
       project config; the `adopt` classification from 00.6 is a recommendation,
       not approval. Installing anything that adds credentials, network-reachable
@@ -52,7 +52,7 @@ later subjects can execute with the right context already in place.
       human-owned box mirrored into `tasks/class-expansion/manual-actions.md`. Record
       install/config/provenance; never commit secrets; keep security-sensitive
       permissions out of repo config unless narrowly justified.
-- [ ] **00.8** (agent) Bake adopted findings into the plan: update the §2
+- [x] **00.8** (agent) Bake adopted findings into the plan: update the §2
       Verification-commands table, §6 cross-cutting principles, §7 gates,
       subject boxes, §4 decisions, and
       `tasks/class-expansion/lessons.md` as needed. Inventory the doc surfaces this plan
@@ -62,7 +62,7 @@ later subjects can execute with the right context already in place.
       artefact is not complete; either bake in the finding or record why it was
       rejected/deferred. End with an implementation-readiness summary.
 
-- [ ] **00.9** (agent) Perform a change-specific pre-mortem before contract/auth/refactor work; persist retained original predictions, concrete box owners, gate obligations and the calibration check into this plan. If no material risk survives, record that verdict rather than creating an empty artifact.
+- [x] **00.9** (agent) Perform a change-specific pre-mortem before contract/auth/refactor work; persist retained original predictions, concrete box owners, gate obligations and the calibration check into this plan. If no material risk survives, record that verdict rather than creating an empty artifact.
 
 ## Hindsight checkpoint
 > Run after all boxes in this subject are complete and before marking
@@ -76,10 +76,20 @@ later subjects can execute with the right context already in place.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
 > shipped · how verified · checkpoint commit/push status. Append a
 > `tasks/class-expansion/lessons.md` line here too whenever the slice taught something.
+
+2026-10-14 · 1 · 00.1–00.9 · Readiness and retained predictions recorded in `readiness.md` and `pre-mortem.md`; build/Ruff/format/mypy pass; 75 cohort/evidence baseline tests pass (0.24s); Hunter subset end-to-end yields 4 bosses / 12 recommendations. Broad baseline remains running under D003. Authenticated character and four category queries verify actual class/spec/metric; no new tool installation. Checkpoint publication pending.
+
+## Closing Hindsight
+
+Keep: existing pipeline, immutable archives and explicit human gates.
+Fix before closing: none for readiness; broad regression result is a required final gate under D003.
+Record: WCL class IDs differ from game class IDs; Guardian category uses DPS scores.
+Risk: real feral/tank/mixed evidence and domain acceptance remain outstanding, mirrored in manual actions.
+Verdict: CLOSE for tooling readiness; implementation and acceptance remain open.
