@@ -350,7 +350,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | [x] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | DONE | agent: 7; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | IN PROGRESS | agent: 6; domain-sme: 1 | yes |
 | [x] | 06 | `tasks/necropsy/06-report-and-package.md` | DONE | agent: 6; product-owner: 2 | yes |
-| [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | TODO | agent: 8; product-owner: 1; release-engineer: 1 | yes |
+| [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | IN PROGRESS | agent: 8; product-owner: 1; release-engineer: 1 | yes |
 
 ---
 
@@ -399,7 +399,7 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 
 - [ ] All §5 subjects done (or explicitly `ABANDONED` with a §4 row), applying the §5 Done rule for `DEFERRED` human boxes
 - [ ] Subject 00 completed, or explicitly waived/abandoned with a §4 row
-- [ ] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings (ruff + type checker clean)
+- [x] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings (ruff + type checker clean)
 - [ ] Fast and golden test commands from the §2 Verification-commands table pass; coverage gate met if the repo enforces one
 - [ ] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
 - [ ] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
@@ -417,14 +417,35 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 - [ ] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/necropsy/`, `Necropsy-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
 - [ ] Branch names and public PR titles/descriptions are plan-agnostic if used
 - [ ] `tasks/necropsy/manual-actions.md` — every human-owned box resolved or explicitly deferred
-- [ ] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see the Disposable note). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
-- [ ] `tasks/necropsy/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/necropsy/` folder is deleted (see Disposable note)
+- [x] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see the Disposable note). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
+- [x] `tasks/necropsy/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/necropsy/` folder is deleted (see Disposable note)
 - [ ] **Historical-mode acceptance:** clean-clone replay of the full fixture produces a package against which the golden-fact register passes, where: (a) the set of `mandatory: true` facts is non-empty and covers at least every spec §11 fact plus one fact per boss; (b) every mandatory fact has status `verified-against-raw` and passes within tolerance; (c) every `oracle-only` fact is either promoted to `verified-against-raw` and passes, or carries a recorded exclusion reason; (d) every `disputed` fact carries a recorded `domain-sme` resolution (corrected value or exclusion). No fact passes silently by status alone
 - [ ] **Live-mode acceptance:** `necropsy analyze https://vanilla.warcraftlogs.com/character/id/86583560` completes against live WCL, produces a same-faction package with recorded coverage, cohort provenance, and no silent faction/partition substitution
-- [ ] **Secret scan:** repo history, fixtures, and a generated package contain no client secret or token
+- [x] **Secret scan:** repo history, fixtures, and a generated package contain no client secret or token
 - [ ] **PKCE distribution gate** (07.10) remains `[ ]` with status `DEFERRED` in manual-actions and is listed in §8 notes as an open blocker for any binary distribution
 - [ ] If tasks/necropsy/pre-mortem.md exists, every PM-* risk has a terminal Resolution; Captain Hindsight calibration is recorded for every risk whose outcome is observable; unelapsed observation horizons are Inconclusive rather than false positives; every CH-MISS-* row has a future lesson.
 - [ ] Plan handed to reviewer for §8 sign-off
+
+Independent final-gate evidence, 2026-10-14: `uv build`, ruff check/format and
+mypy passed. Fresh remote clone at `8aa4988` with full Git LFS fixture and locked
+sync: `uv run pytest -m 'golden or acceptance'` passed 229 tests, with four
+recorded expected failures and 791 deselected, in 353.81 seconds. This includes
+registered raw-evidence facts, fact-register acceptance and full report/package
+generation. Its actual four output artifacts and hashes are retained under
+`workspace/clean-clone-replay-artifacts-20261014T1258Z/verification.json`.
+Gitleaks redacted scans found no matches in repository history, fixture archives
+(nested depth 2; about 2.13 GB expanded) or that generated package (about 43.77 MB
+expanded). These are pattern-scan results, not proof against every possible secret;
+the authenticated live package is checked separately by its acceptance harness.
+Whole-repository cleanup findings are triaged in `cleanup-audit-2026-10-14.md`;
+lasting lessons are in `tasks/lessons.md`. Live acceptance, subject close-out,
+broader human mechanics review and §8 sign-off remain open.
+Historical replay is verified, but the complete historical acceptance gate stays
+open for explicit domain-sme resolution of `sapphiron.weave-verdict`: its current
+exclusion cites the three-entry rule without human-review attribution. The other
+three disputed fact resolutions already cite user review on 2026-10-13. Confirm
+the remaining exclusion in the existing broader 05.7 review; passing the automated
+register check does not replace the plan's human requirement.
 
 ---
 
