@@ -194,6 +194,7 @@ def run_analyze(
     tokens: TokenSource,
     client_factory: ClientFactory,
     resolver: Resolver | None = None,
+    before_acquire: Callable[[CharacterContext], None] | None = None,
 ) -> Outcome:
     ref, cache_dir, out_dir = check_inputs(url, cache, out, partition, endpoint, name)
     chosen: Endpoint = "user" if endpoint == "user" else "client"
@@ -214,6 +215,7 @@ def run_analyze(
                 name,
                 package,
                 resolver,
+                before_acquire=before_acquire,
             )
         finally:
             client.close()
@@ -230,6 +232,7 @@ def _run(
     name: str | None,
     package: bool,
     resolver: Resolver,
+    before_acquire: Callable[[CharacterContext], None] | None = None,
 ) -> Outcome:
     context = resolver(client, ref, partition=partition, endpoint=endpoint)
     if context.ambiguity:
@@ -248,6 +251,8 @@ def _run(
         raise AnalyzeError(f"the character's faction is unknown: {context.faction.note}")
     if context.class_id.value != HUNTER_CLASS_ID:
         raise AnalyzeError("only Hunters can be analysed for now")
+    if before_acquire is not None:
+        before_acquire(context)  # last chance to refuse before any acquisition request
     store = Cache(cache_dir)
     before = Reading(client.last_rate, client.last_rate_at)
     acquisition = acquire(

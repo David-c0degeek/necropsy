@@ -159,7 +159,14 @@ its path and an offline recovery command. Keep the snapshot and its manifest
 together. Replaying it requires no WCL credentials or network access; the pages
 do not update their rankings while you read them.
 
-## Sign out
+## Verify a live acquisition
+
+For an explicit authenticated acquisition check, follow the
+[manual live procedure](live-acceptance.md). It verifies saved artifacts and
+records coverage and optional historical comparisons; its offline tests do not
+complete live acceptance.
+
+## Sign out of the selected client
 
 ```sh
 uv run necropsy auth logout

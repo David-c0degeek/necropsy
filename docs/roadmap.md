@@ -35,6 +35,8 @@ are implemented. [Try the sample](getting-started.md).
 [Sign-in, resolution and acquisition](warcraft-logs.md) are implemented for
 personal use. Snapshot v1 and end-to-end CLI integration are verified with
 synthetic responses; authenticated live acquisition still needs validation.
+An [opt-in manual live harness](live-acceptance.md) is prepared for that check.
+Preparing it does not establish authenticated or credential-store acceptance.
 
 ## Authentication and distribution
 

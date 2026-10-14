@@ -71,6 +71,10 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 - [ ] **07.7** (agent) Manual live end-to-end (`-m live`) on Haplina's URL:
       package produced, coverage and cohort provenance recorded, API points used
       reported; divergences from historical mode recorded and explained.
+      Harness and procedure prepared in unit 19, awaiting independent review;
+      actual authenticated run remains pending. `--run-live` and a configured URL
+      are both required; ordinary tests remain offline. Receipt wording limits
+      complete/partial to acquisition coverage and separates scanner status.
 - [x] **07.8** (agent) Docs: README quickstart, `docs/auth.md` (personal-only
       warning), `docs/architecture.md`, ADRs promoted from §4.
       Completed with independent factual review: auth/architecture references
@@ -131,3 +135,5 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 2026-10-13 · slice 20 · 07.8 · auth.md, current architecture/source map and four accepted ADRs shipped in f3964595d3bb6d2008a109e858f4c48d219f21bf; README/docs/WCL/roadmap navigation reconciled; navigator AGREE round 1 on all 12 file fingerprints; 155 relative links verified and CLI help compared; decision-log rows now link the durable ADR records. CI 38462789103 passed on ubuntu-latest and windows-latest.
 
 Documentation checkpoint close-out: Keep — operational guides and boundary references are separate, evidence/source links resolve, historical/live and personal/distributed status are explicit. Fix before closing — none. Record — implemented auth/acquisition/cache/snapshot choices promoted with plan traceability. Risk — authenticated WCL and actual credential-store behavior are still unverified and cannot be established by these docs. Verdict — CLOSE 07.8 only; subject 07 remains open for 07.7/07.9, distribution gate deferred as recorded.
+2026-10-13 · slice 20 · 07.7 (preparation) · opt-in live acceptance harness: `wcl/acceptance.py` (snapshot re-open, analysis/pages/package checks incl. the package's own checksum manifest, credential-field structure check, gitleaks scan when available, history comparison only for a matching historical analysis, no-clobber receipt) and `tests/live/test_live_acceptance.py` (needs both `--run-live` and NECROPSY_LIVE_URL; same code path as `necropsy analyze`) · 8 offline tests incl. a configured shell without the option touching nothing · 07.7 stays open until a signed-in run produces a receipt; procedure wording handed to Codex
+2026-10-14 · slice 21 · 07.7 (preparation) · review fixes (resolved-context baseline hook, artifact bindings, same-faction realm-normalised comparison with recorded faction basis, package duplicate/malformed refusal, scanner states) and Codex's docs/live-acceptance.md · navigator AGREE round 1 on the harness and procedure only; 07.7 and 07.9 stay open until a real signed-in run produces a receipt · committed and pushed (see git log)
