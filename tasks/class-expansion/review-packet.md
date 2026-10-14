@@ -59,7 +59,9 @@ Restoration/HPS capture supplies your actual healing example.
 - Gitleaks found no leaks in 169,740,861 initial extracted bytes or 62,401,552
   added extracted bytes. Raw ZIPs stay immutable.
 - Claude core round 1 approved with an incidental-duty finding subsequently
-  fixed; output round 2 approved without findings. Final targeted review and
-  current-tip CI are recorded at the engineering checkpoint.
+  fixed; output round 2 approved without findings. Final targeted round 3 approved with zero blocking/important findings; its
+  exclusions remain explicit in the subject receipts. Linux/Windows CI db89d3a
+  passed. Agent implementation and verification are complete; the decisions
+  above remain yours.
 
 Agent checks never substitute for your domain decision.

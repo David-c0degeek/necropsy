@@ -2,6 +2,11 @@
 
 Mirror non-agent boxes exactly. TODO stays open; deferral needs an explicit rationale and scope decision.
 
+2026-10-15: all agent implementation/verification boxes are complete. The
+[review packet](review-packet.md) supplies six real examples, exact questions and
+limits. David's domain/product answer is pending; no accepted finding or deferred
+role is inferred from fixture authorization or successful engineering checks.
+
 | Box ID | Owner | Action | Source subject | Status | Deferral rationale |
 |---|---|---|---|---|---|
 | 01.4 | domain-sme | Review the Druid role taxonomy and success criteria, including hybrid responsibilities, overhealing/assignment limits, tank survivability/threat limits and what combat logs cannot prove. | 01 | TODO | |

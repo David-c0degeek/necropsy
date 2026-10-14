@@ -1,6 +1,6 @@
 # ClassExpansion-Plan.md — Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Subject 00 readiness is complete. Druid implementation is in progress; human/domain gates remain explicit.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Agent implementation and verification are complete. Subjects 00/02/05 are closed; taxonomy, findings and product acceptance await David. Human/domain gates remain explicit.
 >
 > **Disposable.** The plan and its `tasks/class-expansion/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -267,10 +267,10 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
 | [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
+| [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
+| [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
 | [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
@@ -397,3 +397,10 @@ Return exactly these sections:
 If the verdict is DO NOT CLOSE, list the smallest concrete actions needed before
 the work can be closed.
 ```
+
+
+## Engineering handoff — 2026-10-15
+
+Claude mail 180: AGREE round=3 blocking=0 important=0 at db89d3a; 92 independent focused tests pass. It reviewed the changed roles/cohort/acquire/analyze/snapshot-reader/document/Druid analyzer-report/base-template code, and explicitly excluded remaining views/offline/writer/CLI/export/schema/docs/plan/raw-fact surfaces from that round. Earlier scoped rounds plus lead inspection, six real artifact/package replays, schema tests and 24 browser cases cover those paths; no claim of blanket independent review is made. Optional CohortKey.metric storage nit retained as-is: the property preserves Hunter's serialized key bytes, all supported combinations are tested, and unsupported combinations fail canonical policy. Future categories must extend that policy and query tests together. Linux and Windows CI db89d3a passed: https://github.com/David-c0degeek/necropsy/actions/runs/38646145402. This is a record-only close-out; no runtime or test edits follow the reviewed code.
+
+All agent boxes are checked. Required human boxes 01.4/03.4/04.4/06.3 remain open and mirrored in manual-actions.md; the concrete review packet is tasks/class-expansion/review-packet.md. As required by its own entry condition, §7 is not run until §5 is fully ticked. §8 and pair-unit completion remain open. No requested role has been deferred.

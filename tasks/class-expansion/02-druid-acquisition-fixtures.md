@@ -22,7 +22,7 @@ Acquire identity-verified role-comparable Druid evidence and establish real vali
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 02.1 02.2 02.4 · WCL live taxonomy and metric/category filters verified; raw snapshots frozen for Balance/Restoration/Feral/Guardian with five deep samples and 25 metadata rows per Patchwerk run. Four real fixture replays pass independent arithmetic and package hashes. Raw/member digests and installed gitleaks scan recorded. Hunter subset JSON/HTML/ZIP byte-identical; full Hunter golden 229 pass / 4 expected xfails. Raw hybrid evidence and approved domain facts still required for 02.3; user authorized public fixture handling. Checkpoint commit/push follows this record.
@@ -38,7 +38,7 @@ Retain six immutable real captures, hashes and independent arithmetic; old Hunte
 
 ### Fix before closing
 
-Resolve final Claude review and current-tip CI. No engineering defect is currently known; never mark the remaining human-owned boxes accepted from agent checks.
+Final Claude review and current-tip CI passed. No engineering defect is currently known; never mark the remaining human-owned boxes accepted from agent checks.
 
 ### Record
 
@@ -50,4 +50,7 @@ Role thresholds are provisional. Exact-build samples can be sparse; resource/for
 
 ### Verdict
 
-DO NOT CLOSE — final Claude review and current-tip CI. The smallest next actions are the named review/CI or human decisions; do not expand acquisition or rerun already-passing checks without a new reason.
+CLOSE — all subject boxes and engineering checks pass. Cross-subject domain acceptance remains open in its explicitly owned boxes; no domain approval is inferred here.
+
+
+2026-10-15 · engineering review receipt · Claude mail 180: AGREE round=3 blocking=0 important=0 at db89d3a; 92 independent focused tests pass. It reviewed the changed roles/cohort/acquire/analyze/snapshot-reader/document/Druid analyzer-report/base-template code, and explicitly excluded remaining views/offline/writer/CLI/export/schema/docs/plan/raw-fact surfaces from that round. Earlier scoped rounds plus lead inspection, six real artifact/package replays, schema tests and 24 browser cases cover those paths; no claim of blanket independent review is made. Optional CohortKey.metric storage nit retained as-is: the property preserves Hunter's serialized key bytes, all supported combinations are tested, and unsupported combinations fail canonical policy. Future categories must extend that policy and query tests together. Linux and Windows CI db89d3a passed: https://github.com/David-c0degeek/necropsy/actions/runs/38646145402. This is a record-only close-out; no runtime or test edits follow the reviewed code.
