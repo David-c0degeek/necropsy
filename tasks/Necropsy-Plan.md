@@ -509,6 +509,21 @@ closing gates resolve. Plan archival/deletion remains human-owned after sign-off
 |---|---|---|---|
 | | | | |
 
+### Sign-off scope and open distribution boundary
+
+Final user signature is pending. The three domain/partial-live decisions were
+accepted on 2026-10-14; they are recorded separately from this final signature.
+Acceptance is for personal Classic Era Hunter/Naxxramas use with explicit unknown
+race/guardian ownership and recorded partial coverage, not universal accuracy.
+Engineering/trinket guardians remain eligible Hunter tools; missing individual
+owner evidence is not filled from that eligibility.
+
+07.10 stays unticked DEFERRED: public-client PKCE registration and implementation
+are carried to Distribution 01.3/02/03 and remain a blocker for application
+or binary distribution. No shared secret, public release, new class support or
+plan archival/deletion is approved by the current engineering gate.
+
+
 ---
 
 ## Appendix: Captain Hindsight Prompt
