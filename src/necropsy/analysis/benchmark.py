@@ -26,7 +26,9 @@ from dataclasses import dataclass
 
 import duckdb
 
-from necropsy.analysis.classes.classic_era.hunter import Cast, HunterAnalysis, HunterClassicEra
+from necropsy.analysis.classes import plugin_for
+from necropsy.analysis.classes.classic_era.druid import DruidAnalysis
+from necropsy.analysis.classes.classic_era.hunter import Cast, HunterAnalysis
 from necropsy.analysis.context import ParticipantFight, participant_fights, pet_listing_known
 from necropsy.analysis.encounters import EncounterRules, encounter_rules
 from necropsy.analysis.evidence import (
@@ -45,6 +47,7 @@ from necropsy.analysis.evidence import (
 from necropsy.analysis.generic import cohort
 from necropsy.analysis.generic.environment import EnvironmentProfile, environment_profile
 from necropsy.analysis.generic.targets import RankedTarget, RankingDamage, ranking_damage
+from necropsy.analysis.roles import CLASS_NAMES, RoleOverride
 from necropsy.rules import load_rules
 
 MIN_BASELINE = 3
@@ -69,10 +72,22 @@ class Entry:
 
     participant: ParticipantFight
     profile: EnvironmentProfile
-    hunter: HunterAnalysis
+    class_analysis: HunterAnalysis | DruidAnalysis
     ranking: RankingDamage
     pets_listed: bool
     raptor_roles: Evidenced[RaptorRoles]
+
+    @property
+    def hunter(self) -> HunterAnalysis:
+        if not isinstance(self.class_analysis, HunterAnalysis):
+            raise TypeError("Hunter-only analysis requested for another class")
+        return self.class_analysis
+
+    @property
+    def druid(self) -> DruidAnalysis:
+        if not isinstance(self.class_analysis, DruidAnalysis):
+            raise TypeError("Druid-only analysis requested for another class")
+        return self.class_analysis
 
     @property
     def ranked_dps(self) -> float | None:
@@ -145,28 +160,78 @@ def raptor_roles(
 
 
 def analyze_entry(
-    con: duckdb.DuckDBPyConnection, pf: ParticipantFight, rules: EncounterRules
+    con: duckdb.DuckDBPyConnection,
+    pf: ParticipantFight,
+    rules: EncounterRules,
+    override: RoleOverride | None = None,
 ) -> Entry:
     profile = environment_profile(con, pf)
-    hunter = HunterClassicEra().analyze(con, pf, profile)
+    row = con.execute(
+        "SELECT sub_type FROM actors WHERE report_code = ? AND actor_id = ?",
+        [pf.report_code, pf.actor_id],
+    ).fetchone()
+    class_id = next((cid for cid, name in CLASS_NAMES.items() if row and name == row[0]), None)
+    plugin = None if class_id is None else plugin_for("classic_era", class_id)
+    if plugin is None:
+        raise ValueError(f"unsupported participant class: {None if row is None else row[0]}")
+    result = plugin.analyze(con, pf, profile)
+    if override is not None:
+        from dataclasses import replace
+
+        if not isinstance(result, DruidAnalysis):
+            raise ValueError("role overrides are supported only for Druid subject fights")
+        result = replace(result, override=override, selected_role=override.role)
+    if not isinstance(result, HunterAnalysis | DruidAnalysis):
+        raise TypeError("class plugin returned an unsupported analysis contract")
+    ranking = (
+        ranking_damage(con, pf, rules.excluded_from_ranking, rules.exclusion_rule)
+        if isinstance(result, HunterAnalysis)
+        else RankingDamage(
+            unknown("Druid event damage is distinct from a WCL category score"),
+            unknown("Hunter ranking rules do not apply to Druid"),
+            unknown("Hunter ranking rules do not apply to Druid"),
+            (pf.actor_id,),
+            unknown("see Druid damage targets"),
+        )
+    )
     return Entry(
         participant=pf,
         profile=profile,
-        hunter=hunter,
-        ranking=ranking_damage(con, pf, rules.excluded_from_ranking, rules.exclusion_rule),
+        class_analysis=result,
+        ranking=ranking,
         pets_listed=pet_listing_known(con, pf),
-        raptor_roles=raptor_roles(con, pf, rules, hunter.shots["raptor_strike"].casts),
+        raptor_roles=raptor_roles(con, pf, rules, result.shots["raptor_strike"].casts)
+        if isinstance(result, HunterAnalysis)
+        else unknown("not a Hunter ability"),
     )
 
 
-def load_bosses(con: duckdb.DuckDBPyConnection, game: str, zone: str) -> list[BossData]:
+def load_bosses(
+    con: duckdb.DuckDBPyConnection,
+    game: str,
+    zone: str,
+    role_overrides: dict[tuple[str, int], RoleOverride] | None = None,
+) -> list[BossData]:
+    overrides = role_overrides or {}
     by_encounter: dict[int, list[ParticipantFight]] = {}
-    for pf in participant_fights(con):
+    participants = participant_fights(con)
+    subject_keys = {(p.report_code, p.fight_id) for p in participants if p.kind == "you"}
+    if set(overrides) - subject_keys:
+        raise ValueError("role overrides must identify acquired subject fights")
+    for pf in participants:
         by_encounter.setdefault(pf.encounter_id, []).append(pf)
     bosses: list[BossData] = []
     for encounter_id, pfs in by_encounter.items():
         rules = encounter_rules(game, zone, encounter_id)
-        entries = [analyze_entry(con, pf, rules) for pf in pfs]
+        entries = [
+            analyze_entry(
+                con,
+                pf,
+                rules,
+                overrides.get((pf.report_code, pf.fight_id)) if pf.kind == "you" else None,
+            )
+            for pf in pfs
+        ]
         subject = next((e for e in entries if e.participant.kind == "you"), None)
         top = tuple(
             sorted(

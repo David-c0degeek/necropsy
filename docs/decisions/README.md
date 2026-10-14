@@ -12,3 +12,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Bounded acquisition and fair cohorts](0002-bounded-acquisition.md) | Fixed endpoint, explicit context, graded faction and bounded comparison samples |
 | [Immutable revision generations](0003-immutable-generations.md) | No-clobber cache, verified completion and whole-entry restarts |
 | [Snapshots and derived outputs](0004-snapshots-and-derived-outputs.md) | Strict live archive, shared offline pipeline, rebuildable database and explicit output replacement |
+
+| [Classes and encounter duties](0005-class-and-encounter-duties.md) | Separate class/build/category/duty/override evidence and compatible class sections |

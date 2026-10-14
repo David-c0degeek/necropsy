@@ -27,6 +27,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from necropsy.analysis.roles import CLASS_NAMES
 from necropsy.rules import load_rules
 from necropsy.snapshot.archive import (
     ArchiveError,
@@ -198,8 +199,8 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
     context = acquisition.context
     if context is None:
         raise WriteError("the acquisition has no resolved character context")
-    if context.class_id.value != HUNTER_CLASS_ID or context.zone_id != SUPPORTED_ZONE_ID:
-        raise WriteError("the acquisition is not for a supported Hunter zone")
+    if context.class_id.value not in CLASS_NAMES or context.zone_id != SUPPORTED_ZONE_ID:
+        raise WriteError("the acquisition is not for a supported class and zone")
     if context.partition is None or context.faction.level != "observed":
         raise WriteError("the acquisition context has no partition or observed faction")
     requested = list(acquisition.requested)
@@ -239,7 +240,10 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             raise WriteError(f"entry {e.name}'s exact report generation is missing")
         # Refuse a generation reference that no longer describes this verified entry.
         source_report = original["report"]
-        if player_actor(source_report, e.name, e.server)[0] != e.actor_id:
+        if (
+            player_actor(source_report, e.name, e.server, CLASS_NAMES[context.class_id.value])[0]
+            != e.actor_id
+        ):
             raise WriteError(f"entry {e.name}'s report generation has another actor")
         source_fight = next(
             (f for f in source_report.get("fights") or [] if f.get("id") == e.fight_id), None
@@ -249,7 +253,8 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             or source_fight is None
             or source_fight.get("encounterID") != boss.encounter_id
             or fight_pets(source_report, source_fight, e.actor_id)[0] != e.pets
-            or faction_verdict(source_report, e.actor_id) != e.verdict
+            or faction_verdict(source_report, e.actor_id, CLASS_NAMES[context.class_id.value])
+            != e.verdict
         ):
             raise WriteError(f"entry {e.name}'s report generation differs from its evidence")
         _check_binding(acquisition, boss, e)
@@ -391,6 +396,11 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             "server": context.server.value,
             "region": context.region.value,
             "faction": context.faction.value.value,
+            **(
+                {"ranking_category": context.ranking_category}
+                if context.class_id.value == 2
+                else {}
+            ),
         },
         "zone": {
             "id": context.zone_id,
@@ -444,7 +454,10 @@ def _boss_record(boss: BossAcquisition, name: str) -> dict[str, Any]:
         if boss.key is None
         else {
             k: {"value": getattr(boss.key, k).value, "status": getattr(boss.key, k).status}
-            for k in boss.key.__dataclass_fields__
+            for k in (
+                *boss.key.__dataclass_fields__,
+                *(("metric",) if boss.key.class_name.value == "Druid" else ()),
+            )
         },
         "subject_pick": None
         if boss.subject_pick is None

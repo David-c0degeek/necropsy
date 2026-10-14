@@ -109,3 +109,10 @@ implemented in the development checkout; they are not a published release.
   command names, options, version output, and error exit behavior are preserved.
 - README and roadmap distinguish the implemented offline JSON workflow from
   planned live acquisition, HTML reports, and the desktop app.
+
+### Druid analysis
+
+- Add explicit Balance/Feral/Guardian/Restoration acquisition categories and class-aware snapshot validation.
+- Add Druid action-based duty inference, damage/healing/incoming metrics, mixed activity spans, reasoned offline assignment overrides and exact applicable cohorts.
+- Render Druid reports/playbooks and role/metric/timeline exports through the existing output pipeline; preserve Hunter output compatibility.
+- Real-log validation and domain acceptance limits are documented in `docs/druid-validation.md`.

@@ -58,6 +58,8 @@ def _value(ev: Any) -> Any:
 
 
 def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
+    if document["subject"]["class_id"] == 2:
+        return _druid_tables(document)
     recs, cohort, shares, execution = [], [], [], []
     for boss in document["bosses"]:
         name = boss["boss"]
@@ -162,6 +164,93 @@ def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
         "tables/execution.csv": _csv(
             ["encounter_id", "boss", "shot", "per_minute", "same_faction_median", "n_known"],
             execution,
+        ),
+    }
+
+
+def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
+    metrics_rows, roles, timeline, recommendations = [], [], [], []
+    for boss in document["bosses"]:
+        for rec in boss["recommendations"]:
+            recommendations.append(
+                [
+                    boss["encounter_id"],
+                    boss["boss"],
+                    rec["rule"],
+                    rec["finding"],
+                    rec["recommendation"],
+                ]
+            )
+        entries = ([boss["subject"]] if boss["subject"] else []) + boss["overall_cohort"]
+        for entry in entries:
+            druid = entry["druid"]
+            prefix = [
+                boss["encounter_id"],
+                entry["player"],
+                entry["report_code"],
+                entry["fight_id"],
+            ]
+            roles.append(
+                [
+                    *prefix,
+                    _value(druid["build"]),
+                    _value(druid["ranking_category"]),
+                    _value(druid["role"]),
+                    druid["role"]["level"],
+                    druid["selected_role"],
+                    (druid["override"] or {}).get("reason"),
+                ]
+            )
+            for metric, ev in druid["metrics"].items():
+                metrics_rows.append([*prefix, metric, _value(ev), ev["level"], ev.get("note")])
+            for event in druid["timeline"]:
+                timeline.append(
+                    [
+                        *prefix,
+                        event["t_s"],
+                        event["kind"],
+                        event["name"],
+                        event["source_id"],
+                        event["target_id"],
+                        event["amount"],
+                        event["uid"],
+                        event["copy"],
+                    ]
+                )
+    identity = ["encounter_id", "player", "report", "fight"]
+    return {
+        "tables/roles.csv": _csv(
+            [
+                *identity,
+                "build",
+                "ranking_category",
+                "observed_role",
+                "role_evidence",
+                "selected_role",
+                "override_reason",
+            ],
+            roles,
+        ),
+        "tables/metrics.csv": _csv(
+            [*identity, "metric", "value", "evidence", "note"], metrics_rows
+        ),
+        "tables/timeline.csv": _csv(
+            [
+                *identity,
+                "seconds",
+                "event",
+                "ability",
+                "source",
+                "target",
+                "amount",
+                "event_uid",
+                "copy",
+            ],
+            timeline,
+        ),
+        "tables/recommendations.csv": _csv(
+            ["encounter_id", "boss", "rule", "finding", "recommendation"],
+            recommendations,
         ),
     }
 

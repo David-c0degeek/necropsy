@@ -535,6 +535,19 @@
     "EntrySection": {
       "additionalProperties": false,
       "properties": {
+        "druid": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Druid"
+        },
         "environment": {
           "additionalProperties": true,
           "title": "Environment",
@@ -545,9 +558,17 @@
           "type": "integer"
         },
         "hunter": {
-          "additionalProperties": true,
-          "title": "Hunter",
-          "type": "object"
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hunter"
         },
         "kill_duration_s": {
           "exclusiveMinimum": 0,
@@ -653,8 +674,7 @@
         "kill_duration_s",
         "environment",
         "ranking",
-        "raptor_roles",
-        "hunter"
+        "raptor_roles"
       ],
       "title": "EntrySection",
       "type": "object"

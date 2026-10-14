@@ -189,6 +189,10 @@ def analyze_command(
     name: Annotated[
         str | None, typer.Option(help="Snapshot stem, without .zip (default: character-zone-UTC).")
     ] = None,
+    category: Annotated[
+        str | None,
+        typer.Option(help="Druid WCL category: Balance, Feral, Guardian or Restoration."),
+    ] = None,
     package: Annotated[
         bool,
         typer.Option("--package/--no-package", help="Also write the shareable ZIP package."),
@@ -201,7 +205,7 @@ def analyze_command(
         ),
     ] = False,
 ) -> None:
-    """Acquire a Classic Era Hunter's Naxxramas logs and write a report.
+    """Acquire a Classic Era Hunter or Druid's Naxxramas logs and write a report.
 
     Uses saved WCL credentials and the network. Exit 0: complete report;
     4: partial report; 2: choose a partition; 3: finalization stopped, no report;
@@ -217,6 +221,7 @@ def analyze_command(
             cross_faction=cross_faction,
             name=name,
             package=package,
+            category=category,
             wait_for_reset=wait_for_reset,
             tokens=_tokens,
             client_factory=_client,

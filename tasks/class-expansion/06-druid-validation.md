@@ -25,4 +25,4 @@ Before marking DONE: request Claude's scoped review, then record Keep / Fix befo
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.
+2026-10-14 · 1 · 06.1–06.4 · Readiness baseline 822 pass. Intermediate expanded fast suite 832 pass; latest full suite running after additional changes. Hunter golden 229 pass / 4 known xfails; four new real Druid fixture replays pass; installed scanner no leaks over 169.74 MB extracted raw members. Raw hybrid fixture, final latest verification/CI, scoped Claude review and human acceptance remain open. A dedicated tank acquisition stopped on the hourly-budget guard before fresh finalization; no snapshot fabricated. Bounded mixed-duty retry waits on the original reset. Checkpoint commit/push follows this record.

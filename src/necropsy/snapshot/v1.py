@@ -20,6 +20,7 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from necropsy.analysis.evidence import Faction
+from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.rules import load_rules
 from necropsy.snapshot.archive import VerifiedArchive
 from necropsy.snapshot.model import (
@@ -68,6 +69,7 @@ class LiveSubject(_Strict):
     server: str = Field(min_length=1)
     region: str = Field(min_length=1)
     faction: Literal["Alliance", "Horde"]
+    ranking_category: str | None = None
 
 
 class LiveZone(_Strict):
@@ -157,8 +159,8 @@ class V1Snapshot(V0Snapshot):
 
     def _canonical(self, live: LiveSnapshotFile) -> None:
         """The snapshot must describe the supported Hunter cohort it claims to be."""
-        if live.subject.class_id != HUNTER_CLASS_ID:
-            raise SnapshotError("the live snapshot subject is not a Hunter")
+        if live.subject.class_id not in CLASS_NAMES:
+            raise SnapshotError("the live snapshot subject class is unsupported")
         if live.zone.id != SUPPORTED_ZONE_ID:
             raise SnapshotError(f"zone {live.zone.id} is not supported")
         if live.cohort != COHORT:
@@ -176,6 +178,43 @@ class V1Snapshot(V0Snapshot):
             encounter = b.get("encounter_id")
             if not isinstance(encounter, int) or names.get(encounter) != b.get("boss"):
                 raise SnapshotError(f"boss record {b.get('boss')!r} is not a supported encounter")
+        if live.subject.class_id == 2:
+            self._check_druid_categories(live)
+
+    def _check_druid_categories(self, live: LiveSnapshotFile) -> None:
+        category = live.subject.ranking_category
+        if category is None:
+            categories = {
+                ((b.get("key") or {}).get("spec") or {}).get("value")
+                for b in live.bosses
+                if b.get("key")
+            }
+            if len(categories) == 1:
+                category = categories.pop()
+        try:
+            policy = ranking_policy(2, category)
+        except ValueError as error:
+            raise SnapshotError(str(error)) from None
+        expected = {
+            "class_name": "Druid",
+            "spec": policy.category,
+            "role": policy.role,
+            "metric": policy.metric,
+        }
+        for boss in live.bosses:
+            key = boss.get("key")
+            if key is None:
+                continue
+            for name, value in expected.items():
+                if name == "metric" and name not in key:
+                    # Early category snapshots encode metric through the verified category.
+                    continue
+                dimension = key.get(name) or {}
+                if dimension.get("value") != value or dimension.get("status") != "enforced":
+                    raise SnapshotError(f"Druid snapshot has incompatible {name} dimension")
+        for fight in live.fights:
+            if any(p.spec != policy.category for p in fight.participants):
+                raise SnapshotError("Druid participant category differs from snapshot selection")
 
     def _bundle(self, code: str) -> dict[str, Any]:
         member = f"reports/{code}/bundle.json"
@@ -222,10 +261,12 @@ class V1Snapshot(V0Snapshot):
                 for p in f.participants:
                     if fights[f.fightID].get("encounterID") != p.encounterID:
                         raise SnapshotError(f"{code} fight {f.fightID} is another encounter")
-                    actor, why = player_actor(report, p.player, p.server)
+                    actor, why = player_actor(
+                        report, p.player, p.server, CLASS_NAMES[live.subject.class_id]
+                    )
                     if actor is None:
                         raise SnapshotError(f"{p.player} in {code} fight {f.fightID}: {why}")
-                    verdict = faction_verdict(report, actor)
+                    verdict = faction_verdict(report, actor, CLASS_NAMES[live.subject.class_id])
                     if verdict.status != "observed" or verdict.faction is None:
                         raise SnapshotError(
                             f"{p.player}'s faction is not observed: {verdict.reason}"
@@ -403,7 +444,9 @@ class V1Snapshot(V0Snapshot):
             base = f"events/{f.reportID}/fight_{f.fightID}/"
             dirs = self._dirs_under(base)
             for p in f.participants:
-                actor_id, why = player_actor(report, p.player, p.server)
+                actor_id, why = player_actor(
+                    report, p.player, p.server, CLASS_NAMES[live.subject.class_id]
+                )
                 if actor_id is None:
                     raise SnapshotError(f"{p.player}: {why}")
                 mine = [d for d in dirs if d.startswith(f"player_{actor_id}_")]

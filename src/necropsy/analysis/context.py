@@ -17,7 +17,7 @@ class ContextError(Exception):
 
 @dataclass(frozen=True, slots=True)
 class ParticipantFight:
-    """One selected Hunter in one fight: the subject's own fight or a cohort entry."""
+    """One selected player in one fight: the subject's own fight or a cohort entry."""
 
     report_code: str
     fight_id: int
@@ -31,6 +31,7 @@ class ParticipantFight:
     start_time: int
     end_time: int
     kill: bool | None
+    difficulty: int | None = None
 
     @property
     def duration_ms(self) -> int:
@@ -89,14 +90,27 @@ def participant_fights(con: duckdb.DuckDBPyConnection) -> list[ParticipantFight]
     rows = con.execute(
         """
         SELECT p.report_code, p.fight_id, p.player, p.server, p.kind, p.boss, p.encounter_id,
-               p.leaderboard_position, f.start_time, f.end_time, f.kill
+               p.leaderboard_position, f.start_time, f.end_time, f.kill, f.difficulty
         FROM benchmark_participants p
         JOIN fights f ON f.report_code = p.report_code AND f.fight_id = p.fight_id
         ORDER BY p.encounter_id, p.kind DESC, p.leaderboard_position NULLS FIRST, p.player
         """
     ).fetchall()
     result: list[ParticipantFight] = []
-    for code, fight, player, server, kind, boss, encounter, position, start, end, kill in rows:
+    for (
+        code,
+        fight,
+        player,
+        server,
+        kind,
+        boss,
+        encounter,
+        position,
+        start,
+        end,
+        kill,
+        diff,
+    ) in rows:
         result.append(
             ParticipantFight(
                 report_code=code,
@@ -111,6 +125,7 @@ def participant_fights(con: duckdb.DuckDBPyConnection) -> list[ParticipantFight]
                 start_time=int(start),
                 end_time=int(end),
                 kill=kill,
+                difficulty=diff,
             )
         )
     return result

@@ -95,6 +95,8 @@ class CharacterContext:
     """The chosen partition, or None when the choice is ambiguous or impossible."""
     ambiguity: str | None = None
     notes: tuple[str, ...] = field(default_factory=tuple)
+    ranking_category: str | None = None
+    """Explicit WCL selection category; neither talents nor observed fight duty."""
 
     @property
     def same_faction_ready(self) -> bool:

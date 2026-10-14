@@ -2,7 +2,7 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Architecture decisions](decisions/README.md)
 
-Necropsy is a local Python CLI for Classic Era Hunters in Naxxramas. It acquires
+Necropsy is a local Python CLI for Classic Era Hunters and Druids in Naxxramas. It acquires
 WCL data or reads a saved snapshot, normalizes it into a derived DuckDB database,
 and produces one versioned analysis document. The report, playbook and package
 are built from that document alone.
@@ -10,7 +10,7 @@ are built from that document alone.
 Offline analysis, synthetic integration and an authenticated Windows user-endpoint
 run are verified; the run retained partial pet coverage. See
 [observed live validation](live-validation.md) for scope and limits.
-A desktop shell, more game/class support and public-client PKCE authentication
+A desktop shell, further game/class support and public-client PKCE authentication
 are future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
 is design history; this page describes the current implementation.
 
@@ -144,3 +144,5 @@ and a checksum manifest. It does not contain the raw snapshot or DuckDB database
 | Analysis and contract | [Analysis modules](../src/necropsy/analysis), [JSON builder/model](../src/necropsy/report/analysis_json.py), [JSON reference](analysis-json.md) |
 | Presentation and package | [Renderers](../src/necropsy/report/render), [package](../src/necropsy/report/package.py), [publisher](../src/necropsy/report/publish.py) |
 | Verification | [Synthetic CLI tests](../tests/integration/test_analyze_cli.py), [snapshot tests](../tests/integration/test_live_snapshot.py), [historical tests](../tests/golden) |
+
+Druid class plugins are selected through the existing registry. Category/metric checks, duty inference, compatible class sections and role-specific comparison boundaries are described in [the class contract](decisions/0005-class-and-encounter-duties.md). Hunter shot/pet rules remain class-specific. See [Druid validation](druid-validation.md) for observed support and remaining review gates.

@@ -13,9 +13,9 @@ Deliver distinct observed execution and recommendations for feral DPS and balanc
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **03.1** (agent) Implement a registered Classic Era Druid analyzer with pinned rule/spell data; identify forms, relevant attacks/casts, resources and cooldown sequences from affirmative evidence, with coverage-aware absence claims.
-- [ ] **03.2** (agent) Analyze feral DPS execution and balance DPS cast/resource/cooldown patterns against comparable same-role/build samples; distinguish fight duration, target roles, movement/assignment and external buffs from controllable execution.
-- [ ] **03.3** (agent) Produce evidence-linked class-specific recommendations and a concise practice opener/notes view; preserve full timelines and avoid universal optimal rotations derived from tiny samples.
+- [x] **03.1** (agent) Implement a registered Classic Era Druid analyzer with pinned rule/spell data; identify forms, relevant attacks/casts, resources and cooldown sequences from affirmative evidence, with coverage-aware absence claims.
+- [x] **03.2** (agent) Analyze feral DPS execution and balance DPS cast/resource/cooldown patterns against comparable same-role/build samples; distinguish fight duration, target roles, movement/assignment and external buffs from controllable execution.
+- [x] **03.3** (agent) Produce evidence-linked class-specific recommendations and a concise practice opener/notes view; preserve full timelines and avoid universal optimal rotations derived from tiny samples.
 - [ ] **03.4** (domain-sme) Adjudicate representative feral and balance findings against raw evidence and the stated encounter assignment; record exclusions and corrections rather than forcing agreement with a guide.
 
 ## Hindsight checkpoint
@@ -25,4 +25,4 @@ Before marking DONE: request Claude's scoped review, then record Keep / Fix befo
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.
+2026-10-14 · 1 · 03.1 03.2 03.3 · Registered Druid analysis covers forms, casts, resources, cooldown/utility sequences, raw actor damage and target detail. Exact build/category/role medians, action cadence, evidence-linked findings and role-specific practice notes run through production document/report/package. Haplina balance: 68,395 damage, 535.272665 event DPS, 40 qualifying casts, build 37/0/14; two same-build samples correctly leave median unknown. Feral Stinkface saved replay passes. Domain damage review remains open. Checkpoint commit/push follows this record.

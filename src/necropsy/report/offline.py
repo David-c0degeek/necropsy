@@ -8,6 +8,7 @@ from pathlib import Path
 
 import duckdb
 
+from necropsy.analysis.roles import RoleOverride
 from necropsy.normalize.ingest import IngestError, ingest
 from necropsy.normalize.schema import SCHEMA_VERSION
 from necropsy.report.analysis_json import build_document, dumps
@@ -58,10 +59,16 @@ def _verified_sha256(
         return archive.sha256
 
 
-def _analyze(db: Path, out_dir: Path, cross_faction: bool, package: bool) -> OfflineResult:
+def _analyze(
+    db: Path,
+    out_dir: Path,
+    cross_faction: bool,
+    package: bool,
+    role_overrides: dict[tuple[str, int], RoleOverride] | None = None,
+) -> OfflineResult:
     con = duckdb.connect(str(db), read_only=True)
     try:
-        document = build_document(con, cross_faction=cross_faction)
+        document = build_document(con, cross_faction=cross_faction, role_overrides=role_overrides)
     finally:
         con.close()
     paths = write_outputs(dumps(document).encode("utf-8"), out_dir, include_package=package)
@@ -83,6 +90,7 @@ def run_offline(
     entries: dict[str, EntryDigest] | None = None,
     replace: bool = False,
     package: bool = True,
+    role_overrides: dict[tuple[str, int], RoleOverride] | None = None,
 ) -> OfflineResult:
     """Analyze a snapshot offline and write analysis.json, the report, the playbook
     and (unless `package` is False) the export package into `out_dir`.
@@ -98,11 +106,11 @@ def run_offline(
     if db is not None:
         if not _reusable(db, _verified_sha256(snapshot, expected_sha256, entries)):
             ingest(snapshot, db, expected_sha256=expected_sha256, entries=entries, replace=replace)
-        return _analyze(db, out_dir, cross_faction, package)
+        return _analyze(db, out_dir, cross_faction, package, role_overrides)
     with tempfile.TemporaryDirectory(prefix="necropsy-offline-") as work:
         temp_db = Path(work) / "analysis.duckdb"
         ingest(snapshot, temp_db, expected_sha256=expected_sha256, entries=entries)
-        return _analyze(temp_db, out_dir, cross_faction, package)
+        return _analyze(temp_db, out_dir, cross_faction, package, role_overrides)
 
 
 __all__ = ["ANALYSIS_FILE", "IngestError", "OfflineResult", "run_offline"]

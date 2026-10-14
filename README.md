@@ -3,7 +3,7 @@
 </p>
 
 <p align="center"><strong>Understand the log. Find the next improvement.</strong><br>
-Offline forensics for Classic Era Hunters in Naxxramas.</p>
+Offline forensics for Classic Era Hunters and Druids in Naxxramas.</p>
 
 <p align="center">
 <a href="docs/getting-started.md">Get started</a> ·
@@ -49,7 +49,7 @@ then use an output directory without earlier results:
 uv run necropsy analyze "YOUR_CHARACTER_URL" --cache workspace/wcl-cache --out workspace/my-run
 ```
 
-Acquisition uses the network and requires a Classic Era Hunter URL on
+Acquisition uses the network and requires a supported Classic Era character URL on
 `vanilla.warcraftlogs.com`. Check its coverage summary: exit 4 means a report
 was written with partial coverage. The saved snapshot and pages work offline.
 
@@ -85,3 +85,5 @@ This is a private development project. The full golden fixture contains real
 player logs and is available to authorized collaborators. Its
 [provenance record](tests/golden/haplina_naxx/PROVENANCE.md) documents the source
 files. Keep credentials and private exports out of issues and patches.
+
+Druids select `--category Balance`, `Feral`, `Guardian` or `Restoration`; [Druid analysis](docs/druid-analysis.md) explains role inference, appropriate comparisons and assignment overrides. [Validation](docs/druid-validation.md) distinguishes observed runs from remaining domain acceptance.

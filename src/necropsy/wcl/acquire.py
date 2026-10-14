@@ -27,6 +27,7 @@ from typing import Any
 
 from necropsy.analysis.context import realm_key
 from necropsy.analysis.evidence import Faction
+from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.rules import load_rules
 from necropsy.wcl.cache import Cache, FightKey, StreamPages, valid_report_code
 from necropsy.wcl.client import (
@@ -49,13 +50,13 @@ from necropsy.wcl.cohort import (
 )
 from necropsy.wcl.context import CharacterContext
 from necropsy.wcl.fetch import (
-    REPORT_QUERY,
     Bundle,
     ReportInaccessible,
     RevisionChanged,
     fetch_bundle,
     fetch_stream,
     report_query,
+    report_query_for_metric,
 )
 from necropsy.wcl.sites import Site
 
@@ -137,11 +138,17 @@ def _is_hunter(value: Any) -> bool:
     return (type(value) is int and value == HUNTER_CLASS_ID) or value == "Hunter"
 
 
-def _subject_row(row: Any) -> tuple[str, int, float] | str:
+def _subject_row(
+    row: Any, class_id: int = 3, category: str | None = None
+) -> tuple[str, int, float] | str:
     if not isinstance(row, dict):
         return "row is not an object"
-    if not _is_hunter(row.get("class")):
-        return f"class {row.get('class')!r} is not Hunter"
+    class_name = CLASS_NAMES[class_id]
+    value = row.get("class")
+    if not ((type(value) is int and value == class_id) or value == class_name):
+        return f"class {value!r} is not {class_name}"
+    if category is not None and row.get("spec") != category:
+        return f"spec {row.get('spec')!r} is not {category}"
     report = row.get("report")
     code = report.get("code") if isinstance(report, dict) else None
     fight = _int(report.get("fightID")) if isinstance(report, dict) else None
@@ -154,7 +161,9 @@ def _subject_row(row: Any) -> tuple[str, int, float] | str:
     return code, fight, amount
 
 
-def pick_subject(rows: list[Any], notes: tuple[str, ...] = ()) -> SubjectPick:
+def pick_subject(
+    rows: list[Any], notes: tuple[str, ...] = (), *, class_id: int = 3, category: str | None = None
+) -> SubjectPick:
     """Highest amount; then higher rankPercent, earlier startTime (missing after present).
 
     On the recorded Naxxramas fixture this reproduces the export's chosen subject
@@ -166,7 +175,7 @@ def pick_subject(rows: list[Any], notes: tuple[str, ...] = ()) -> SubjectPick:
     valid: dict[tuple[str, int], dict[str, Any]] = {}
     conflicting: set[tuple[str, int]] = set()
     for row in rows:
-        checked = _subject_row(row)
+        checked = _subject_row(row, class_id, category)
         if isinstance(checked, str):
             out.append(f"excluded: {checked}")
             continue
@@ -215,7 +224,9 @@ def subject_rankings(
     """(raw encounterRankings document, ranking rows, notes on why rows are unavailable)."""
     client.ensure_budget(None)
     result = client.query(
-        SUBJECT_QUERY,
+        SUBJECT_QUERY.replace("metric: dps", "metric: hps")
+        if key.role.value == "restoration"
+        else SUBJECT_QUERY,
         {
             "id": context.character_id.value,
             "encounter": key.encounter.value,
@@ -239,8 +250,10 @@ def subject_rankings(
 # -- identity checks from a report bundle -------------------------------------------
 
 
-def player_actor(report: dict[str, Any], name: str, server: str | None) -> tuple[int | None, str]:
-    """The one Hunter player actor with this name and realm, or None with why not."""
+def player_actor(
+    report: dict[str, Any], name: str, server: str | None, class_name: str = "Hunter"
+) -> tuple[int | None, str]:
+    """The one player actor of the expected class with this name and realm, or None with why not."""
     actors = (report.get("masterData") or {}).get("actors")
     if not isinstance(actors, list):
         return None, "report has no actor list"
@@ -258,8 +271,8 @@ def player_actor(report: dict[str, Any], name: str, server: str | None) -> tuple
     actor_id = _int(actor.get("id"))
     if actor_id is None or actor_id <= 0:
         return None, "the player actor has no valid id"
-    if actor.get("subType") != "Hunter":
-        return None, f"the player actor is a {actor.get('subType')!r}, not a Hunter"
+    if actor.get("subType") != class_name:
+        return None, f"the player actor is a {actor.get('subType')!r}, not a {class_name}"
     return actor_id, "matched by name and realm"
 
 
@@ -278,13 +291,13 @@ def _details(report: dict[str, Any], actor_id: int) -> list[dict[str, Any]]:
     ]
 
 
-def faction_verdict(report: dict[str, Any], actor_id: int) -> Verdict:
+def faction_verdict(report: dict[str, Any], actor_id: int, class_name: str = "Hunter") -> Verdict:
     """Observed faction from playerDetails combatantInfo.factionID; else unknown with why."""
     entries = _details(report, actor_id)
     if not entries:
         return Verdict("unknown", None, "the actor has no player details")
-    if any(e.get("type") != "Hunter" for e in entries):
-        return Verdict("unknown", None, "player details do not describe a Hunter")
+    if any(e.get("type") != class_name for e in entries):
+        return Verdict("unknown", None, f"player details do not describe a {class_name}")
     codes = []
     for e in entries:
         info = e.get("combatantInfo")
@@ -418,16 +431,31 @@ class Run:
     """One acquisition run: shared client, cache, endpoint, bundle memo and stage."""
 
     def __init__(
-        self, client: WclClient, store: Cache, site: Site, endpoint: Endpoint = "client"
+        self,
+        client: WclClient,
+        store: Cache,
+        site: Site,
+        endpoint: Endpoint = "client",
+        *,
+        class_id: int = 3,
+        category: str | None = None,
     ) -> None:
         self.client, self.store, self.site, self.endpoint = client, store, site, endpoint
+        self.policy = ranking_policy(class_id, category)
         self._bundles: dict[tuple[str, int], Bundle] = {}
         self.stage = "starting"
 
     def bundle(self, code: str, fight: int, encounter: int, *, fresh: bool = False) -> Bundle:
         if fresh or (code, fight) not in self._bundles:
             self._bundles[(code, fight)] = fetch_bundle(
-                self.client, self.store, self.site, code, fight, encounter, endpoint=self.endpoint
+                self.client,
+                self.store,
+                self.site,
+                code,
+                fight,
+                encounter,
+                endpoint=self.endpoint,
+                metric=self.policy.metric,
             )
         found = self._bundles[(code, fight)]
         if _int(found.fight.get("encounterID")) != encounter:
@@ -450,10 +478,10 @@ class Run:
                 return Verdict("inaccessible", None, f"{type(error).__name__}: {error}")
             except InvalidResponse as error:
                 return Verdict("unknown", None, f"invalid report data: {error}")
-            actor, why = player_actor(bundle.report, c.name, c.server)
+            actor, why = player_actor(bundle.report, c.name, c.server, self.policy.class_name)
             if actor is None:
                 return Verdict("unknown", None, why)
-            return faction_verdict(bundle.report, actor)
+            return faction_verdict(bundle.report, actor, self.policy.class_name)
 
         return check
 
@@ -496,12 +524,12 @@ class Run:
         bundle = self.bundle(entry.report_code, entry.fight_id, encounter, fresh=fresh)
         entry.bundle_key = bundle.key
         entry.bundle_sha256 = bundle.sha256
-        actor, why = player_actor(bundle.report, entry.name, entry.server)
+        actor, why = player_actor(bundle.report, entry.name, entry.server, self.policy.class_name)
         if actor is None:
             entry.status, entry.reason = "unknown", why
             return
         entry.actor_id = actor
-        entry.verdict = faction_verdict(bundle.report, actor)
+        entry.verdict = faction_verdict(bundle.report, actor, self.policy.class_name)
         if entry.verdict.status != "observed" or entry.verdict.faction is None:
             entry.status, entry.reason = "unknown", entry.verdict.reason
             return
@@ -663,7 +691,9 @@ def acquire_boss(
     except _STOPS as error:
         raise RunStopped(f"{type(error).__name__} during {run.stage}: {error}") from error
     boss.subject_raw = raw
-    boss.subject_pick = pick_subject(rows, notes)
+    boss.subject_pick = pick_subject(
+        rows, notes, class_id=context.class_id.value, category=context.ranking_category
+    )
     pick = boss.subject_pick
     if pick.report_code is not None and pick.fight_id is not None:
         server = context.server.value
@@ -754,7 +784,14 @@ def acquire(
     encounters: tuple[int, ...] | None = None,
 ) -> Acquisition:
     """Acquire every supported boss (or `encounters`), stopping cleanly on point limits."""
-    run = Run(client, store, site, endpoint)
+    run = Run(
+        client,
+        store,
+        site,
+        endpoint,
+        class_id=context.class_id.value,
+        category=context.ranking_category,
+    )
     requested = tuple(encounters or boss_order())
     out = Acquisition(endpoint, cross_faction, context, requested)
     for encounter in requested:
@@ -804,7 +841,7 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
             run.client.ensure_budget(None)
             result = report_query(
                 run.client,
-                REPORT_QUERY,
+                report_query_for_metric(run.policy.metric),
                 {"code": code, "fightIDs": list(fight_ids)},
                 run.endpoint,
             )
@@ -818,7 +855,7 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
                 f"combined report {code} is revision {report.get('revision')!r}, "
                 f"entries are {revision}"
             )
-        _check_report_set(report, code, encounters, [e for _, e in items])
+        _check_report_set(report, code, encounters, [e for _, e in items], run.policy.class_name)
         digest = run.store.put_report_set(locate, fight_ids, run.endpoint, report)
         sets[code] = ReportSet(locate, fight_ids, run.endpoint, report, digest)
     acquisition.reports = sets
@@ -826,7 +863,11 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
 
 
 def _check_report_set(
-    report: dict[str, Any], code: str, encounters: dict[int, int], entries: list[Entry]
+    report: dict[str, Any],
+    code: str,
+    encounters: dict[int, int],
+    entries: list[Entry],
+    class_name: str = "Hunter",
 ) -> None:
     fights = report.get("fights")
     found: dict[int, dict[str, Any]] = {}
@@ -842,7 +883,7 @@ def _check_report_set(
         if _int(found[fid].get("encounterID")) != encounter:
             raise InvalidResponse(f"combined report {code} fight {fid} is another encounter")
     for e in entries:
-        actor, why = player_actor(report, e.name, e.server)
+        actor, why = player_actor(report, e.name, e.server, class_name)
         if actor != e.actor_id:
             raise InvalidResponse(
                 f"combined report {code}: {e.name} is not actor {e.actor_id} ({why})"

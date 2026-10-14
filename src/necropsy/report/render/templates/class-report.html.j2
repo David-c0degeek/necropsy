@@ -1,0 +1,74 @@
+{% extends "base.html.j2" %}
+{% macro ev(e) -%}
+{% if e and e.value is not none %}{{ e.value }} <span class="level">{{ e.level }}</span>{% else %}<span class="unknown">Unknown</span>{% if e and e.note %} <span class="why">{{ e.note }}</span>{% endif %}{% endif %}
+{%- endmacro %}
+{% block title %}{{ doc.title }} · Druid {{ page }}{% endblock %}
+{% block main %}
+<section id="overview" class="hero">
+  <h1 tabindex="-1">{{ doc.character }} · Druid {{ page|title }}</h1>
+  <p>{{ doc.realm }} · {{ doc.zone }} · {{ doc.mode }} · {{ doc.scope }}</p>
+  <p>Build, WCL ranking category and observed encounter duties are separate. Each finding retains its evidence and limits.</p>
+  <p><a href="analysis.json">Full analysis JSON</a> · <a href="{{ 'report.html' if page == 'playbook' else 'playbook.html' }}">{{ 'Full report' if page == 'playbook' else 'Practice playbook' }}</a></p>
+  <details><summary>Coverage and acquisition limits</summary>
+  <dl class="kv">{% for label, value in doc.coverage %}<dt>{{ label }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>
+  {% for limit in doc.limitations %}<p class="muted">{{ limit }}</p>{% endfor %}
+  </details>
+</section>
+<section id="truth-model" class="notice">
+  <details><summary>Evidence and comparison limits</summary><h2 tabindex="-1">Evidence and comparison limits</h2>
+  <p>Role is inferred from repeated actions. Talents, form and leaderboard labels alone never prove assigned duties. Unknown values remain unknown.</p>
+  <p>Only the same faction, build, category, role, metric, partition and encounter qualify for a baseline. Three known values are required. Mixed, uncertain and overridden duties have no whole-fight baseline.</p>
+  <p>Healing is shaped by assignments, incoming damage and other healers. Guardian category DPS does not measure survival or threat. Raw event damage and healing remain separate from WCL category scores.</p>
+  </details>
+</section>
+{% for boss in doc.class_document.bosses %}
+<section id="boss-{{ boss.encounter_id }}" data-boss-name="{{ boss.boss|lower }}" class="boss-section">
+  <h2 tabindex="-1">{{ boss.boss }}</h2>
+  {% if not boss.subject %}<p>No acquired fight for this character.</p>{% else %}
+  {% set s = boss.subject %}{% set d = s.druid %}
+  <div class="quick-plan">
+    <h3>Your practice notes</h3>
+    <dl class="kv"><dt>Observed duty</dt><dd>{{ ev(d.role) }}</dd><dt>Build</dt><dd>{{ ev(d.build) }}</dd><dt>WCL category</dt><dd>{{ ev(d.ranking_category) }}</dd><dt>Fight duration</dt><dd>{{ s.kill_duration_s }} s</dd><dt>Assignment</dt><dd>{{ ev(d.assignment) }}</dd></dl>
+    {% if d.override %}<p>User override: <strong>{{ d.override.role }}</strong> · {{ d.override.reason }}. Observed evidence above is retained; override excluded from aggregate comparisons.</p>{% endif %}
+    <p>{{ boss.playbook.guidance }}</p>
+    <p>{% for e in d.opener %}{{ ' → ' if not loop.first else '' }}{{ e.t_s }}s {{ e.name or e.ability_id }}{% else %}No recorded opener casts; this does not establish absence without complete coverage.{% endfor %}</p>
+    {% if boss.recommendations %}{% for r in boss.recommendations %}<article class="card"><h4>{{ r.finding }}</h4><p>{{ r.recommendation }}</p><p class="muted">Confidence {{ r.confidence }} · {{ r.controllability }} · evidence: {{ r.evidence|join(', ') }}</p></article>{% endfor %}{% else %}<p>No evidence-supported execution change to recommend. Review assignments and compare the detailed timeline.</p>{% endif %}
+  </div>
+  <h3>Your measurements</h3>
+  <p>{{ boss.benchmarks.baseline.entries }} comparable entries; {{ boss.benchmarks.baseline.excluded_incompatible }} incompatible entries excluded. {{ boss.benchmarks.baseline.note }}</p>
+  <div class="table-wrap"><table><thead><tr><th>Measurement</th><th>Yours</th><th>Comparable median</th><th>Known / unknown</th></tr></thead><tbody>
+  {% for name, measurement in d.metrics.items() %}{% if page == 'report' or name in boss.playbook.get("primary_metrics", []) %}{% set median = boss.benchmarks.baseline.medians.get(name) %}
+  <tr><th>{{ name|replace('_', ' ') }}</th><td>{{ ev(measurement) }}</td><td>{{ ev(median.value if median else none) }}</td><td>{{ median.n_known if median else 0 }} / {{ median.n_unknown if median else 0 }}</td></tr>{% endif %}{% endfor %}
+  </tbody></table></div>
+  <p>Saved WCL category score: {{ s.ranking.category_score if s.ranking.category_score is not none else 'Unknown' }} {{ s.ranking.metric or '' }} · {{ s.ranking.note }}</p>
+  <details{% if page == 'report' %} open{% endif %}><summary>Observed roles, forms, resources and full timeline</summary>
+    {% if page == 'playbook' %}<h3>All measurements</h3><dl class="kv">{% for name, value in d.metrics.items() %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(value) }}</dd>{% endfor %}</dl>{% endif %}
+    <h3>Observed activity spans</h3><ul>{% for span in d.activity_spans %}<li>{{ span.role }}: {{ span.first_action_s }}–{{ span.last_action_s }} s; {{ span.casts_observed }} recorded casts</li>{% else %}<li>No supported activity spans.</li>{% endfor %}</ul>
+    <h3>Form intervals (report timestamps, ms)</h3><dl class="kv">{% for name, intervals in d.forms.items() %}<dt>{{ name }}</dt><dd>{{ ev(intervals) }}</dd>{% endfor %}</dl>
+    <h3>Spell use</h3><p>{{ ev(d.casts) }}</p>
+    <h3>Effective healing by spell</h3><p>{{ ev(d.get("healing_spells")) }}</p>
+    <h3>Defensive aura uptime (s)</h3><dl class="kv">{% for name, value in d.get("defensive_uptime_s", {}).items() %}<dt>{{ name }}</dt><dd>{{ ev(value) }}</dd>{% endfor %}</dl>
+    <h3>Targets and support</h3><dl class="kv"><dt>Effective healing by target actor</dt><dd>{{ ev(d.healing_targets) }}</dd><dt>Damage by target actor</dt><dd>{{ ev(d.damage_targets) }}</dd><dt>Deaths</dt><dd>{{ ev(d.deaths.deaths) }}</dd><dt>Threat</dt><dd>{{ ev(d.threat) }}</dd></dl>
+    <h3>Resource observations</h3><ul>{% for r in d.resources %}<li>{{ r.t_s }} s · {{ r.reading }} · event {{ r.event_uid }}</li>{% else %}<li>No actor-resolved resource readings. Resource availability remains unknown.</li>{% endfor %}</ul>
+    <h3>Cooldown and utility casts</h3><ul>{% for e in d.cooldowns %}<li>{{ e.t_s }} s · {{ e.name }} · target {{ e.target_id }} · event {{ e.uid }}/{{ e.copy }}</li>{% else %}<li>No recorded cooldown casts. Check source coverage before claiming non-use.</li>{% endfor %}</ul>
+    <h3>Full event timeline</h3><div class="table-wrap"><table><thead><tr><th>Time (s)</th><th>Event / ability</th><th>Source → target</th><th>Amount</th><th>Event identity</th></tr></thead><tbody>{% for e in d.timeline %}<tr><td>{{ e.t_s }}</td><td>{{ e.kind }} · {{ e.name or e.ability_id }}</td><td>{{ e.source_id }} → {{ e.target_id }}</td><td>{{ e.amount if e.amount is not none else 'Unknown' }}</td><td>{{ e.uid }}/{{ e.copy }}</td></tr>{% endfor %}</tbody></table></div>
+  </details>
+  <details><summary>All recorded cohort entries and evidence</summary>
+    <div class="table-wrap"><table><thead><tr><th>Player</th><th>Build</th><th>WCL category</th><th>Observed role</th><th>Fight</th></tr></thead><tbody>{% for e in boss.overall_cohort %}<tr><td>{{ e.player }}</td><td>{{ ev(e.druid.build) }}</td><td>{{ ev(e.druid.ranking_category) }}</td><td>{{ ev(e.druid.role) }}</td><td>{{ e.report_code }}/{{ e.fight_id }}</td></tr>{% endfor %}</tbody></table></div>
+    <p>Full evidence references and coverage proofs are retained in <a href="analysis.json">analysis.json</a> and the package.</p>
+    <pre>{{ d.role|tojson(indent=2) }}</pre>
+    {% for e in boss.overall_cohort %}
+    <details><summary>{{ e.player }} · supporting detail</summary>
+      <dl class="kv">{% for name, value in e.druid.metrics.items() %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(value) }}</dd>{% endfor %}</dl>
+      <p>Spell counts: {{ ev(e.druid.casts) }}</p>
+      <p>Roles: {{ ev(e.druid.observed_roles) }} · assignment: {{ ev(e.druid.assignment) }}</p>
+      <dl class="kv">{% for form, windows in e.druid.forms.items() %}<dt>{{ form }} intervals</dt><dd>{{ ev(windows) }}</dd>{% endfor %}</dl>
+      <div class="table-wrap"><table><thead><tr><th>Time (s)</th><th>Event / ability</th><th>Source → target</th><th>Amount</th><th>Event identity</th></tr></thead><tbody>{% for row in e.druid.timeline %}<tr><td>{{ row.t_s }}</td><td>{{ row.kind }} · {{ row.name or row.ability_id }}</td><td>{{ row.source_id }} → {{ row.target_id }}</td><td>{{ row.amount if row.amount is not none else 'Unknown' }}</td><td>{{ row.uid }}/{{ row.copy }}</td></tr>{% endfor %}</tbody></table></div>
+    </details>
+    {% endfor %}
+  </details>
+  <ul class="limitations">{% for limit in d.limitations %}<li>{{ limit }}</li>{% endfor %}</ul>
+  {% endif %}
+</section>
+{% endfor %}
+{% endblock %}

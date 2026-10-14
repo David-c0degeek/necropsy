@@ -43,8 +43,9 @@ checks; domain correctness and product acceptance remain separate.
 The next implementation scopes are public-client PKCE with an installable local
 CLI, followed by class-aware analysis with Druid first: feral DPS, balance DPS,
 restoration healing, feral tanking and hybrid/mixed encounter duties. Role-specific
-comparisons and preserved Hunter compatibility are required. These scopes are
-planned, not implemented; the personal Hunter/Naxxramas milestone is signed off.
+comparisons and preserved Hunter compatibility are required. Druid class/category acquisition, duty analysis and reports are implemented with
+[documented validation limits](druid-validation.md); domain acceptance remains open.
+Public-client distribution remains planned; the personal Hunter/Naxxramas milestone is signed off.
 They do not imply the desktop UI or broader class support is available.
 
 ## Authentication and distribution

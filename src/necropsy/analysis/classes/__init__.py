@@ -1,8 +1,7 @@
 """Class plugins: class-specific forensics on top of the generic analyzers.
 
-A plugin is registered for one game and one WCL class ID. Only the Classic Era
-Hunter exists so far; other classes are added as plugins, not as branches in
-shared code.
+A plugin is registered for one game and one WCL class ID. Classic Era Hunter
+and Druid implementations share the evidence and output pipeline.
 """
 
 from __future__ import annotations
@@ -43,4 +42,4 @@ def plugin_for(game: str, class_id: int) -> ClassPlugin | None:
 
 def _load_builtin() -> None:
     # Imported for its registration side effect.
-    from necropsy.analysis.classes.classic_era import hunter  # noqa: F401
+    from necropsy.analysis.classes.classic_era import druid, hunter  # noqa: F401

@@ -234,3 +234,7 @@ separate records.
 | Unsupported site | Use a Classic Era character URL on `vanilla.warcraftlogs.com`; fresh and other game families are not supported yet |
 
 [Return to the offline workflow →](getting-started.md)
+
+## Druid categories
+
+Live acquisition also accepts Classic Era Druids with explicit `--category Balance`, `Feral`, `Guardian` or `Restoration`. Restoration queries HPS; Guardian remains a DPS ranking category and never a tank-quality score. Rows and actor class are checked throughout finalization and snapshot readback. Missing category asks for a choice before acquisition. See [Druid analysis](druid-analysis.md).

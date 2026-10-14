@@ -45,6 +45,8 @@ class SnapshotSpec:
     extra_abilities: list[dict[str, Any]] = field(default_factory=list)
     friendly_players: list[int] | None = None
     enemy_npcs: list[int] = field(default_factory=list)
+    class_id: int = 3
+    class_name: str = "Hunter"
 
 
 def page(events: list[dict[str, Any]], next_ts: float | None = None) -> dict[str, Any]:
@@ -79,7 +81,7 @@ def build(path: Path, spec: SnapshotSpec) -> Path:
                     "id": 99,
                     "canonicalID": 99,
                     "name": "Subject",
-                    "classID": 3,
+                    "classID": spec.class_id,
                     "level": 60,
                     "hidden": False,
                     "server": {
@@ -145,7 +147,7 @@ def build(path: Path, spec: SnapshotSpec) -> Path:
                                 "id": aid,
                                 "name": n,
                                 "type": "Player",
-                                "subType": "Hunter",
+                                "subType": spec.class_name,
                                 "server": "Realm",
                                 "gameID": aid,
                                 "petOwner": None,

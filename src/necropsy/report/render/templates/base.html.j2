@@ -12,7 +12,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <aside class="sidebar" aria-label="Playbook navigation">
   <header class="topbar">
-    <div class="brand">{{ doc.character }} Definitive Parse Book
+    <div class="brand">{{ doc.character }} {% if doc.class_document %}Druid Field Notes{% else %}Definitive Parse Book{% endif %}
       <p>{{ doc.zone }} · Classic Era · {{ doc.reference.faction_label }}</p>
     </div>
   </header>
@@ -22,7 +22,7 @@
     <ol>
       <li><a class="nav-special" href="#overview"><span class="nav-number">00</span><span>Overview</span></a></li>
       <li><a class="nav-special" href="#truth-model"><span class="nav-number">★</span><span>Truth model</span></a></li>
-      {% for boss in doc.bosses %}
+      {% for boss in doc.navigation %}
       <li data-boss-name="{{ boss.name|lower }}"><a href="#{{ boss.anchor }}"><span class="nav-number">{{ "%02d"|format(loop.index) }}</span><span>{{ boss.name }}</span><span class="sr">finding{{ "" if boss.cards|length == 1 else "s" }}: {{ boss.cards|length }}</span></a></li>
       {% endfor %}
     </ol>
@@ -41,7 +41,7 @@
     <ol>
       <li><a href="#overview">Overview</a></li>
       <li><a href="#truth-model">★ Truth model</a></li>
-      {% for boss in doc.bosses %}
+      {% for boss in doc.navigation %}
       <li data-boss-name="{{ boss.name|lower }}"><a href="#{{ boss.anchor }}">{{ "%02d"|format(loop.index) }} {{ boss.name }} <span class="sr">finding{{ "" if boss.cards|length == 1 else "s" }}: {{ boss.cards|length }}</span></a></li>
       {% endfor %}
     </ol>

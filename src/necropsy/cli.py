@@ -7,6 +7,7 @@ from typing import Annotated
 import typer
 
 from necropsy import __version__
+from necropsy.analysis.roles import load_overrides
 from necropsy.normalize.ingest import IngestError, ingest
 from necropsy.report.offline import run_offline
 from necropsy.report.package import REPORT_FILE, write_outputs
@@ -128,6 +129,9 @@ def offline_command(
         bool,
         typer.Option("--package/--no-package", help="Also write the shareable ZIP package."),
     ] = True,
+    role_overrides: Annotated[
+        Path | None, typer.Option(help="JSON report/fight role overrides with explicit reasons.")
+    ] = None,
 ) -> None:
     """Analyze bosses, comparisons and recommendations. Write the report offline."""
     try:
@@ -141,8 +145,17 @@ def offline_command(
             entries=manifest,
             replace=replace,
             package=package,
+            role_overrides=load_overrides(role_overrides) if role_overrides else None,
         )
-    except (ArchiveError, SnapshotError, IngestError, PublishError, RenderError, OSError) as exc:
+    except (
+        ArchiveError,
+        SnapshotError,
+        IngestError,
+        PublishError,
+        RenderError,
+        OSError,
+        ValueError,
+    ) as exc:
         typer.echo(f"offline analysis failed: {exc}", err=True)
         raise typer.Exit(code=1) from exc
     typer.echo(f"bosses:           {result.bosses}")

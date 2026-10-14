@@ -39,3 +39,6 @@ explains why it exists. These are historical design inputs; the guides above
 describe the current implementation.
 
 [Changelog](../CHANGELOG.md) · [Fixture provenance](../tests/golden/haplina_naxx/PROVENANCE.md)
+
+- [Druid analysis](druid-analysis.md): explicit WCL categories, encounter duties, role-specific measurements and assignment overrides.
+- [Druid validation](druid-validation.md): observed real-log scope and remaining acceptance gates.

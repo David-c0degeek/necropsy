@@ -123,3 +123,7 @@ probability. Severity is a separate tier. Recommendations do not estimate a
 guaranteed DPS gain.
 
 [Explore the output fields and schema →](analysis-json.md)
+
+## Druid roles
+
+Druid pages separate build, ranking category, observed activity and inferred fight duty. Their practice opener is a recorded example, not an optimal rotation. Exact role/build/category comparisons require three known values; mixed/uncertain duties decline aggregate comparisons. Overheal/HPS never establishes healing quality; tank category DPS never establishes survival or threat. See [Druid analysis](druid-analysis.md) for measurement and assignment limits.

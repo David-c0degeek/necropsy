@@ -26,6 +26,7 @@ from typing import Any
 from necropsy.analysis.context import realm_key
 from necropsy.analysis.encounters import zone_encounters
 from necropsy.analysis.evidence import Faction
+from necropsy.analysis.roles import ranking_policy
 from necropsy.rules import load_rules
 from necropsy.wcl.client import (
     RATE_FIELDS,
@@ -66,6 +67,16 @@ query NecropsyLeaderboard($encounter: Int!, $partition: Int!, $page: Int!) {{
 """
 """Shape ported from the recorded exporter and exercised by authenticated live runs."""
 
+
+def leaderboard_query(key: CohortKey) -> str:
+    if key.class_name.value == "Hunter":
+        return LEADERBOARD_QUERY
+    policy = ranking_policy(2, key.spec.value)
+    return LEADERBOARD_QUERY.replace("metric: dps", f"metric: {policy.metric}").replace(
+        'className: "Hunter"', f'className: "Druid"\n        specName: "{policy.category}"'
+    )
+
+
 _FACTIONS = {"Alliance": Faction.ALLIANCE, "Horde": Faction.HORDE}
 
 
@@ -100,6 +111,15 @@ class CohortKey:
     role: Dimension
     faction: Dimension
 
+    @property
+    def metric(self) -> Dimension:
+        policy = (
+            ranking_policy(2, self.spec.value)
+            if self.class_name.value == "Druid"
+            else ranking_policy(3)
+        )
+        return Dimension(policy.metric, "enforced", "ranking query metric")
+
 
 def _ready(context: CharacterContext) -> None:
     if context.zone_id != SUPPORTED_ZONE_ID:
@@ -108,8 +128,12 @@ def _ready(context: CharacterContext) -> None:
         raise CohortRefused(context.ambiguity or "no partition chosen")
     if context.faction.level != "observed" or not isinstance(context.faction.value, Faction):
         raise CohortRefused("the character's faction is unknown; same-faction selection needs it")
-    if context.class_id.level != "observed" or context.class_id.value != HUNTER_CLASS_ID:
-        raise CohortRefused("the character is not an observed Hunter")
+    if context.class_id.level != "observed":
+        raise CohortRefused("the character class is not observed")
+    try:
+        ranking_policy(context.class_id.value, context.ranking_category)
+    except ValueError as error:
+        raise CohortRefused(str(error)) from None
 
 
 def _supported_encounter(encounter_id: Any) -> int:
@@ -129,6 +153,7 @@ def cohort_key(site: Site, context: CharacterContext, encounter_id: int) -> Coho
     _supported_encounter(encounter_id)
     assert context.partition is not None
     faction: Faction = context.faction.value
+    policy = ranking_policy(context.class_id.value, context.ranking_category)
     return CohortKey(
         site=Dimension(site.host, "enforced"),
         game=Dimension(GAME, "enforced", "site family vanilla; ranking rows carry no game build"),
@@ -141,13 +166,15 @@ def cohort_key(site: Site, context: CharacterContext, encounter_id: int) -> Coho
             "recorded",
             "row size is attendance, not the raid format; kept per row, never filtered",
         ),
-        class_name=Dimension(HUNTER, "enforced", "query className and each row's class"),
+        class_name=Dimension(policy.class_name, "enforced", "query className and each row's class"),
         spec=Dimension(
-            "all Hunter specs",
-            "recorded",
-            "no spec filter is applied; each row's spec is kept",
+            policy.category or "all Hunter specs",
+            "enforced" if policy.category else "recorded",
+            "query specName and each row's spec"
+            if policy.category
+            else "no spec filter is applied; each row's spec is kept",
         ),
-        role=Dimension("dps", "enforced", "metric dps"),
+        role=Dimension(policy.role, "enforced", f"metric {policy.metric}"),
         faction=Dimension(faction.value, "enforced", "subject's observed faction"),
     )
 
@@ -306,7 +333,7 @@ def fetch_page(
     def fetch(page: int) -> tuple[list[Any], Any, Any]:
         client.ensure_budget(None)
         result = client.query(
-            LEADERBOARD_QUERY,
+            leaderboard_query(key),
             {"encounter": key.encounter.value, "partition": key.partition.value, "page": page},
             endpoint=endpoint,
         )
@@ -377,9 +404,11 @@ def _is_subject(c: Candidate, context: CharacterContext) -> bool:
     return context.region.value is None or _norm(c.region) == _norm(context.region.value)
 
 
-def _matches_key(c: Candidate) -> str | None:
-    if c.raw.get("class") != HUNTER:
+def _matches_key(c: Candidate, key: CohortKey) -> str | None:
+    if c.raw.get("class") != key.class_name.value:
         return f"class {c.raw.get('class')!r}"
+    if key.spec.status == "enforced" and c.spec != key.spec.value:
+        return f"spec {c.spec!r}"
     level = c.raw.get("hardModeLevel")
     if not isinstance(level, int) or isinstance(level, bool) or level != 0:
         return f"hardModeLevel {level!r} (must be the integer 0)"
@@ -448,7 +477,7 @@ def select(
                 out.duplicates += 1
                 continue
             seen.add(identity)
-            if _matches_key(c) is not None:
+            if _matches_key(c, key) is not None:
                 out.key_mismatch.append(c)
                 continue
             if c.report_code is None or c.fight_id is None:

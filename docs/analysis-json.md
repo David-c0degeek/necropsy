@@ -140,3 +140,7 @@ Acquisition entries can carry a `bundle_generation` digest identifying the cache
 report used to verify that entry. Live snapshot report sets can carry an optional
 `cache_sha256` for the exact endpoint/fight-set/content record. These additions do
 not change the analysis schema version or prevent replay of older v1 archives.
+
+## Druid entry sections
+
+Schema 1 adds optional `druid` entry data; `hunter` remains unchanged for Hunter documents and may be absent for other classes. Druid data includes separate class/build/category/role/assignment evidence, an optional reasoned override, selected role, role-specific metrics, forms, activity spans, resources and full event timelines. `ranking.category_score` is saved metadata with an explicit metric; it is distinct from event DPS/HPS. Baseline keys include exact comparison dimensions and remain null for inapplicable duties. Existing Hunter JSON continues to validate/render. See [the class contract](decisions/0005-class-and-encounter-duties.md).

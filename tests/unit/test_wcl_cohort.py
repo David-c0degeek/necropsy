@@ -78,6 +78,39 @@ def _key() -> Any:
     return cohort_key(VANILLA, _context(), ENCOUNTER)
 
 
+@pytest.mark.parametrize(
+    ("category", "metric", "role"),
+    [
+        ("Balance", "dps", "balance-dps"),
+        ("Feral", "dps", "feral-dps"),
+        ("Guardian", "dps", "feral-tank"),
+        ("Restoration", "hps", "restoration"),
+    ],
+)
+def test_druid_selection_enforces_category_and_metric(
+    category: str, metric: str, role: str
+) -> None:
+    from necropsy.wcl.acquire import pick_subject
+    from necropsy.wcl.cohort import leaderboard_query
+    from necropsy.wcl.fetch import report_query_for_metric
+
+    context = _context(class_id=Field(2, "observed", "t"), ranking_category=category)
+    key = cohort_key(VANILLA, context, ENCOUNTER)
+    rows = [
+        _row(1, **{"class": "Druid", "spec": "Marksmanship"}),
+        _row(2, **{"class": "Hunter", "spec": category}),
+        _row(3, **{"class": "Druid", "spec": category}),
+    ]
+    chosen = select(_stream(rows), key, context)
+    assert [c.name for c in chosen.metadata] == ["Hunter3"]
+    assert key.role.value == role and key.metric.value == metric
+    assert f"metric: {metric}" in leaderboard_query(key)
+    assert f'specName: "{category}"' in leaderboard_query(key)
+    assert f"playerMetric: {metric}" in report_query_for_metric(metric)
+    pick = pick_subject(rows, class_id=2, category=category)
+    assert pick.row is rows[2]
+
+
 def test_key_records_every_dimension_with_how_it_is_applied() -> None:
     key = _key()
     assert key.difficulty.status == "enforced" and key.size.status == "recorded"

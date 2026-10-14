@@ -370,6 +370,20 @@ class DocumentView:
     total_cards: int
     controls: tuple[str, ...] = field(default_factory=tuple)
     reference: Mapping[str, Any] | None = None
+    class_document: Mapping[str, Any] | None = None
+
+    @property
+    def navigation(self) -> tuple[Any, ...]:
+        if self.class_document is None:
+            return self.bosses
+        return tuple(
+            {
+                "name": b["boss"],
+                "anchor": f"boss-{b['encounter_id']}",
+                "cards": b["recommendations"],
+            }
+            for b in self.class_document["bosses"]
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -1135,7 +1149,12 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
     from necropsy.report.render.playbook_view import overview_view
 
     names = _item_names(document)
-    bosses = tuple(_boss(document, b, analysis_sha, names) for b in document["bosses"])
+    is_druid = document["subject"]["class_id"] == 2
+    bosses = (
+        ()
+        if is_druid
+        else tuple(_boss(document, b, analysis_sha, names) for b in document["bosses"])
+    )
     subject = document["subject"]
     snapshot = document["snapshot"]
     coverage = document["coverage"]
@@ -1161,7 +1180,10 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
         ),
         bosses=bosses,
         total_cards=sum(len(b.cards) for b in bosses),
-        reference=overview_view(document),
+        reference={"faction_label": "Druid encounter roles"}
+        if is_druid
+        else overview_view(document),
+        class_document=document if is_druid else None,
     )
 
 

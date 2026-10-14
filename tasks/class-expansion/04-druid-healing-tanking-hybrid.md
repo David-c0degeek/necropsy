@@ -13,9 +13,9 @@ Evaluate healing, tanking and mixed duties with appropriate observed metrics and
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **04.1** (agent) Analyze restoration effective healing, overhealing, spell use, resource/cooldown timing and target/assignment context where observable; do not rank quality from raw HPS alone.
-- [ ] **04.2** (agent) Analyze feral tank incoming damage, deaths, mitigation/form/cooldown coverage and tanking windows; use threat only when actually available and retain healing support/assignment uncertainty. Do not treat low DPS as a tank failure.
-- [ ] **04.3** (agent) Represent hybrid/mixed responsibilities as explicit phases or multiple evidenced roles per fight; preserve transitions and uncertainty. Define benchmark applicability per phase/role and decline unsupported aggregates.
+- [x] **04.1** (agent) Analyze restoration effective healing, overhealing, spell use, resource/cooldown timing and target/assignment context where observable; do not rank quality from raw HPS alone.
+- [x] **04.2** (agent) Analyze feral tank incoming damage, deaths, mitigation/form/cooldown coverage and tanking windows; use threat only when actually available and retain healing support/assignment uncertainty. Do not treat low DPS as a tank failure.
+- [x] **04.3** (agent) Represent hybrid/mixed responsibilities as explicit phases or multiple evidenced roles per fight; preserve transitions and uncertainty. Define benchmark applicability per phase/role and decline unsupported aggregates.
 - [ ] **04.4** (domain-sme) Review healing, tank and hybrid examples and acceptance facts; confirm practical advice respects assignments and cannot infer causality from unavailable raid-wide evidence.
 
 ## Hindsight checkpoint
@@ -25,4 +25,4 @@ Before marking DONE: request Claude's scoped review, then record Keep / Fix befo
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.
+2026-10-14 · 1 · 04.1 04.2 04.3 · Effective healing/overheal/spell/target data, incoming damage/support, available mitigation, defensive/form coverage and deaths implemented. Hybrid activity spans preserve multiple roles and decline unsupported aggregate benchmarks. Restoration Haplina 43,558 effective healing / 339.189210 HPS; missing overheal remains unknown. Guardian cohort Harryjam has 211,627 incoming damage and repeated bear-only actions; Suncat category alone does not prove tank duty. Synthetic hybrid/direct-hit/AoE tests pass; real mixed-duty run pending API reset; no claim of domain approval. Checkpoint commit/push follows this record.

@@ -35,6 +35,7 @@ from necropsy.analysis.generic.catalog import ItemName, item_catalog, rank_perce
 from necropsy.analysis.overview import build as build_overview
 from necropsy.analysis.playbook import build as build_playbook
 from necropsy.analysis.recommendations import Controllability, Tier, recommend
+from necropsy.analysis.roles import RoleOverride
 from necropsy.report.serialize import to_data
 
 SCHEMA_ID = "necropsy.analysis"
@@ -183,7 +184,8 @@ class EntrySection(_Strict):
     environment: EvidenceTree
     ranking: EvidenceTree
     raptor_roles: EvidenceTree
-    hunter: EvidenceTree
+    hunter: EvidenceTree | None = None
+    druid: EvidenceTree | None = None
     pets_listed: bool | None = None
     set_pieces: list[dict[str, Any]] | None = None
     set_armor: list[dict[str, Any]] | None = None
@@ -676,7 +678,11 @@ def _json(value: Any) -> Any:
     return json.loads(value) if isinstance(value, str) else value
 
 
-def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) -> dict[str, Any]:
+def build_document(
+    con: duckdb.DuckDBPyConnection,
+    cross_faction: bool = False,
+    role_overrides: dict[tuple[str, int], RoleOverride] | None = None,
+) -> dict[str, Any]:
     meta = con.execute(
         """SELECT archive_sha256, scope, format, source_fight_count, selected_fights,
                   subject_id, subject_name, subject_server, subject_region,
@@ -696,8 +702,13 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
     )
     acquisition = _json(meta[18]) if mode == "live" else None
     names = item_catalog(con)
-    boss_data = load_bosses(con, GAME, ZONE)
-    bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
+    boss_data = load_bosses(con, GAME, ZONE, role_overrides)
+    if meta[9] == 2:
+        from necropsy.report.druid import boss_section
+
+        bosses = [boss_section(con, b, meta[12]) for b in boss_data]
+    else:
+        bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     document = {
         "schema_id": SCHEMA_ID,
         "schema_version": SCHEMA_VERSION,
@@ -732,7 +743,7 @@ def build_document(con: duckdb.DuckDBPyConnection, cross_faction: bool = False) 
             "snapshot_issues": cov[3],
         },
         "bosses": bosses,
-        "overview": to_data(build_overview(boss_data)),
+        "overview": to_data(build_overview(boss_data)) if meta[9] == 3 else None,
         "game_data": gamedata.source(),
     }
     if acquisition is not None:

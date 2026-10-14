@@ -16,6 +16,9 @@ REPO = Path(__file__).resolve().parents[2]
 PROBE = (
     "import necropsy.rules as r, sys; "
     "assert 'site-packages' in r.__file__, r.__file__; "
+    "assert r.load_rules('classic_era', 'druid')['minimum_role_actions'] == 3; "
+    "from necropsy.analysis.classes import plugin_for; "
+    "assert plugin_for('classic_era', 2).name == 'Druid'; "
     "print(r.load_rules('classic_era', 'racials')['racials'][0]['race'])"
 )
 
@@ -38,6 +41,8 @@ def test_rules_load_from_an_installed_wheel(tmp_path: Path) -> None:
     wheel = next(dist.glob("necropsy-*.whl"))
     with zipfile.ZipFile(wheel) as zf:
         assert "necropsy/rules/classic_era/racials.yaml" in zf.namelist()
+        assert "necropsy/rules/classic_era/druid.yaml" in zf.namelist()
+        assert "necropsy/report/render/templates/class-report.html.j2" in zf.namelist()
     venv = tmp_path / "venv"
     subprocess.run(
         ["uv", "venv", str(venv), "--python", sys.executable], check=True, capture_output=True

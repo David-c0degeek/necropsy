@@ -61,6 +61,17 @@ query NecropsyReport($code: String!, $fightIDs: [Int]) {{
 """
 """Shape ported from the recorded exporter and exercised by authenticated live runs."""
 
+
+def report_query_for_metric(metric: str = "dps") -> str:
+    if metric not in ("dps", "hps"):
+        raise ValueError("unsupported report ranking metric")
+    return (
+        REPORT_QUERY
+        if metric == "dps"
+        else REPORT_QUERY.replace("playerMetric: dps", "playerMetric: hps")
+    )
+
+
 EVENTS_QUERY = f"""
 query NecropsyEvents($code: String!, $fightIDs: [Int], $sourceID: Int, $targetID: Int,
                      $startTime: Float, $endTime: Float) {{
@@ -157,6 +168,7 @@ def fetch_bundle(
     encounter_id: int,
     *,
     endpoint: Endpoint = "client",
+    metric: str = "dps",
 ) -> Bundle:
     """Fetch (and publish) the report bundle for one fight, validated before writing."""
     if not valid_report_code(code):
@@ -165,7 +177,9 @@ def fetch_bundle(
             "(including anonymized reports); candidate skipped"
         )
     client.ensure_budget(None)
-    result = report_query(client, REPORT_QUERY, {"code": code, "fightIDs": [fight_id]}, endpoint)
+    result = report_query(
+        client, report_query_for_metric(metric), {"code": code, "fightIDs": [fight_id]}, endpoint
+    )
     report = _report(result.data, code)
     if report.get("code") != code:
         raise InvalidResponse(f"asked for report {code}, got {report.get('code')!r}")

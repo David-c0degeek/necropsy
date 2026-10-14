@@ -177,3 +177,7 @@ package file; it refuses to touch a folder or link that has one of those names.
 Check the command's exit status and message before using the output.
 
 [Read your results →](reading-results.md)
+
+## Druids
+
+Use `analyze URL --category Balance` (or `Feral`, `Guardian`, `Restoration`) with the existing cache/output options. Each category needs a separate output directory. Saved Druid snapshots use the same `offline` command. See [Druid analysis](druid-analysis.md) for evidence, override examples and validation limits.

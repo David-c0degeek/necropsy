@@ -24,6 +24,7 @@ from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from pathlib import Path
 
+from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.report.offline import run_offline
 from necropsy.report.package import ANALYSIS_FILE, PLAYBOOK_FILE, REPORT_FILE
 from necropsy.snapshot.archive import load_entries_manifest
@@ -197,6 +198,7 @@ def run_analyze(
     client_factory: ClientFactory,
     resolver: Resolver | None = None,
     before_acquire: Callable[[CharacterContext], None] | None = None,
+    category: str | None = None,
 ) -> Outcome:
     ref, cache_dir, out_dir = check_inputs(url, cache, out, partition, endpoint, name)
     chosen: Endpoint = "user" if endpoint == "user" else "client"
@@ -219,6 +221,7 @@ def run_analyze(
                 package,
                 resolver,
                 before_acquire=before_acquire,
+                category=category,
             )
         finally:
             client.close()
@@ -236,6 +239,7 @@ def _run(
     package: bool,
     resolver: Resolver,
     before_acquire: Callable[[CharacterContext], None] | None = None,
+    category: str | None = None,
 ) -> Outcome:
     context = resolver(client, ref, partition=partition, endpoint=endpoint)
     if context.ambiguity:
@@ -252,8 +256,13 @@ def _run(
         raise AnalyzeError("choose a partition with --partition", code=2, lines=tuple(lines))
     if context.faction.level != "observed":
         raise AnalyzeError(f"the character's faction is unknown: {context.faction.note}")
-    if context.class_id.value != HUNTER_CLASS_ID:
-        raise AnalyzeError("only Hunters can be analysed for now")
+    if context.class_id.value not in CLASS_NAMES:
+        raise AnalyzeError("only Hunters and Druids can be analysed")
+    try:
+        ranking_policy(context.class_id.value, category)
+    except ValueError as error:
+        raise AnalyzeError(str(error)) from None
+    context = replace(context, ranking_category=category)
     if before_acquire is not None:
         before_acquire(context)  # last chance to refuse before any acquisition request
     store = Cache(cache_dir)
@@ -262,7 +271,17 @@ def _run(
         client, store, ref.site, context, endpoint=endpoint, cross_faction=cross_faction
     )
     try:
-        finalize_reports(Run(client, store, ref.site, endpoint), acquisition)
+        finalize_reports(
+            Run(
+                client,
+                store,
+                ref.site,
+                endpoint,
+                class_id=context.class_id.value,
+                category=category,
+            ),
+            acquisition,
+        )
     except RunStopped as stop:
         raise AnalyzeError(
             f"stopped while finalizing reports: {stop}; no snapshot or report was written "

@@ -1,6 +1,6 @@
 # ClassExpansion-Plan.md — Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Subject 00 readiness and implementation remain TODO.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Subject 00 readiness is complete. Druid implementation is in progress; human/domain gates remain explicit.
 >
 > **Disposable.** The plan and its `tasks/class-expansion/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -224,9 +224,13 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | ID | Date | Title | Decision | Rationale | Refs (box IDs / files / ADR#) |
 |---|---|---|---|---|---|
 | D001 | 2026-10-14 | Execution boundary | Finish Milestone A engineering close-out and keep human acceptance explicit before starting implementation; scaffold now without claiming readiness. | User authorized follow-up plans; planning does not imply old or new sign-off. | 00.1–00.9; previous plan §8 |
+| D002 | 2026-10-14 | Scope and collaboration | Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope. Coordinated mode with Codex lead and requested Claude reviews; no parallel workers. | User direction in this session. | §1; subjects 01–06 |
 | D003 | 2026-10-14 | Readiness and baseline | Start implementation after successful build/static checks, 75 focused cohort/evidence tests and Hunter subset replay; broad baseline remains running and must finish before acceptance. Use existing approved tools only. | Slow acquisition/fixture checks need not block independent contract work; no baseline failure observed or accepted. | 00.3; readiness.md; PM-1–PM-3 |
 | D004 | 2026-10-14 | Verified WCL taxonomy | WCL Druid class ID 2; Balance/Feral/Guardian use DPS category scores, Restoration uses HPS. Tank DPS is a category score, never a survivability or threat score. Mixed/uncertain has no aggregate ranking cohort. | Authenticated gameData and Patchwerk ranking probes on the supplied character and all four categories; Guardian is the API slug for Tank. | 01.2–01.3; 02.1; readiness.md |
-| D002 | 2026-10-14 | Scope and collaboration | Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope. Coordinated mode with Codex lead and requested Claude reviews; no parallel workers. | User direction in this session. | §1; subjects 01–06 |
+| D005 | 2026-10-14 | Compatible class sections | Preserve Hunter schema-1 output bytes; optional Druid entry sections, category-aware snapshot v1 metadata and shared class registry/render/package dispatch. No database schema migration. | ADR 0005 records durable behavior; included Hunter output set is byte-identical. | 01.1; 02.4; 05.1; docs/decisions/0005-class-and-encounter-duties.md |
+| D006 | 2026-10-14 | Real fixtures and domain boundary | David supplied character 110733843 for balance/restoration and explicitly selected public logs for feral/tank fixtures. Freeze raw captures in Git LFS with hashes/provenance. Domain facts/advice and final sign-off remain pending; no role is deferred. | Explicit user replies during implementation; no inferred acceptance. | 02.2–02.3; 03.4; 04.4; 06.3 |
+| D007 | 2026-10-14 | Tank action evidence | Require repeated bear-only actions plus direct encounter melee/Hateful Strike hits; form alone and raid AoE cannot establish tank duty. Missing form intervals remain unknown despite affirmative tank actions. | Public Guardian top entries include cat/bear damage without tank hits; Harryjam has tank hits and bear casts but no form aura interval. | 01.2; 04.2; druid-actions-v1 |
+| D008 | 2026-10-14 | Scoped live validation | Validate one-boss production acquisitions first, preserving partial ownership and hourly-budget stops; use existing bounded reset wait for additional mixed-duty evidence. Full-raid/all-role acceptance remains open. | Four category snapshots replay; hourly budget stopped fresh tank finalization. | 02.3; 06.1–06.2 |
 
 ---
 
@@ -258,12 +262,12 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
-| [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | TODO | agent: 3; domain-sme: 1 | yes |
-| [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | TODO | agent: 3; product-owner: 1 | yes |
-| [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | TODO | agent: 3; domain-sme: 1 | yes |
-| [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | TODO | agent: 3; domain-sme: 1 | yes |
-| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | TODO | agent: 3 | n/a |
-| [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | TODO | agent: 3; product-owner: 1 | yes |
+| [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
+| [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
+| [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
+| [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
+| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
+| [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
 

@@ -79,11 +79,13 @@ def _render(template: str, view: DocumentView, page: str) -> str:
 
 
 def render_report(view: DocumentView) -> str:
-    return _render("report.html.j2", view, "report")
+    template = "class-report.html.j2" if view.class_document else "report.html.j2"
+    return _render(template, view, "report")
 
 
 def render_playbook(view: DocumentView) -> str:
-    return _render("playbook.html.j2", view, "playbook")
+    template = "class-report.html.j2" if view.class_document else "playbook.html.j2"
+    return _render(template, view, "playbook")
 
 
 __all__ = [

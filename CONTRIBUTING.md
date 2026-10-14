@@ -80,3 +80,5 @@ Describe the trigger, resulting behavior, checks actually run, and relevant
 limits. For a rule, include evidence and a regression that catches its failure.
 For docs, run examples and check links. Templates provide prompts, not a
 substitute for judgment. Leave historical source documents intact.
+
+Druid contracts are documented in [Druid analysis](docs/druid-analysis.md). Extend the existing class registry and shared output pipeline; do not apply Hunter ranking rules to another class. Keep real fixture provenance and independently checked facts distinct from synthetic tests. Role inference and raw HPS/DPS do not replace domain review.
