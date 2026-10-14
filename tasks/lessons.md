@@ -20,6 +20,11 @@
 
 ## Acquisition and storage
 
+- Diagnose hourly-budget failures using actual stage and observed account deltas.
+  An unknown-cost reserve is not a measured query charge. Repeated fresh selection
+  can dominate a run even while event caches grow; a bounded opt-in reset wait can
+  preserve acquisition state without weakening fresh finalization or budget limits.
+
 - A report revision does not freeze all metadata. Preserve endpoint-specific
   full-digest observations, bind each run to its exact generation and finalize
   combined report sets fresh rather than choosing an arbitrary cached generation.

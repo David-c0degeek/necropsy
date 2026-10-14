@@ -156,3 +156,11 @@ an agent rule-based exclusion, without explicit domain-sme attribution. The
 other three disputed resolutions already record user review on 2026-10-13.
 Carry the remaining exclusion into the existing 05.7 human review; do not weaken
 the acceptance criterion or manufacture approval.
+
+2026-10-14 · slice 26 · 07.7 acquisition budget liveness · observed-reset attempt 134918Z added 45 complete streams / 91 pages (cache now 285 streams / 435 pages) but stopped before the first combined-report request at 1,459.23/1,800 points. No report-set generation existed, disproving the suggested repeated-finalization diagnosis. Measured account deltas inside the new stream intervals sum to 112.8 points; about 1,346.43 points were outside them, so repeating fresh acquisition does not establish end-to-end convergence. Cancelled the next plain retry. Design agreed with navigator; PM-9 recorded before code. Explicit `analyze --wait-for-reset` reuses the existing policy with one run-level wait allowance, observed source, one-hour cap, at-most-30-second chunks, cancellation propagation and recorded elapsed wait; selection remains in memory and combined reports stay fresh. Default stop behavior unchanged. Manual acceptance forwards an explicit environment opt-in and records wait evidence. Targeted client/CLI/offline-acceptance checks passed (79 before the final revision-drift regression); ruff/format/mypy/help clean. Docs/ADR/acceptance procedure updated; verification/review/publication and actual live receipt pending.
+
+Reset-wait verification: latest targeted suite 80 passed in 75.31 seconds,
+including fresh revision drift during the wait (all outputs refused). Navigator
+AGREE round 1 on runtime; optional shared-factory policy concern resolved with a
+dataclass copy and a passing two-run isolation regression. Ruff/format/mypy clean.
+Full changed-file documentation/record review and actual live receipt remain open.

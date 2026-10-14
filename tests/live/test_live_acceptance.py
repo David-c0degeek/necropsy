@@ -35,6 +35,7 @@ def live_settings(config: pytest.Config) -> dict[str, Any] | None:
         "endpoint": os.environ.get("NECROPSY_LIVE_ENDPOINT", "client"),
         "partition": None if partition is None else int(partition),
         "history": os.environ.get("NECROPSY_LIVE_HISTORY"),
+        "wait_for_reset": os.environ.get("NECROPSY_LIVE_WAIT_FOR_RESET") == "1",
     }
 
 
@@ -65,6 +66,7 @@ def test_live_analyze_acceptance(request: pytest.FixtureRequest) -> None:
         out=settings["out"],
         partition=settings["partition"],
         endpoint=settings["endpoint"],
+        wait_for_reset=settings["wait_for_reset"],
         tokens=wcl_cli._tokens,
         client_factory=wcl_cli._client,
         before_acquire=None
@@ -95,6 +97,8 @@ def test_live_analyze_acceptance(request: pytest.FixtureRequest) -> None:
         ],
         "exit_code": outcome.code,
         "endpoint": settings["endpoint"],
+        "wait_for_reset": settings["wait_for_reset"],
+        "reset_wait": outcome.reset_wait,
         "partition": checked["document"]["zone"]["partition"],
         "snapshot_sha256": written.sha256,
         "package_sha256": checked["package_sha256"],

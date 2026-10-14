@@ -193,6 +193,13 @@ def analyze_command(
         bool,
         typer.Option("--package/--no-package", help="Also write the shareable ZIP package."),
     ] = True,
+    wait_for_reset: Annotated[
+        bool,
+        typer.Option(
+            "--wait-for-reset",
+            help="Allow one observed hourly reset wait (at most one hour) during this run.",
+        ),
+    ] = False,
 ) -> None:
     """Acquire a Classic Era Hunter's Naxxramas logs and write a report.
 
@@ -210,6 +217,7 @@ def analyze_command(
             cross_faction=cross_faction,
             name=name,
             package=package,
+            wait_for_reset=wait_for_reset,
             tokens=_tokens,
             client_factory=_client,
         )

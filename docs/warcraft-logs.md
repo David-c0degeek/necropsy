@@ -118,6 +118,13 @@ After signing in, run:
 uv run necropsy analyze "YOUR_CHARACTER_URL" --cache workspace/wcl-cache --out workspace/my-run
 ```
 
+Add `--wait-for-reset` to allow one wait based on an observed hourly reset,
+at most one hour, while retaining the acquisition in memory. The default stops
+without waiting. The budget share and fresh report verification stay unchanged;
+a second budget stop ends normally. Cancellation interrupts the wait. The output
+lock remains held, and a wait inside an event fetch can also hold that stream's
+lock. A second run using the same output or locked stream is refused.
+
 Both directories can be created by the command. Reuse the cache across runs;
 choose an output directory without earlier analysis files or snapshots. The
 command refuses existing results before accessing credentials or making requests.

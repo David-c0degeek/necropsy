@@ -47,6 +47,9 @@ def test_the_live_test_needs_both_the_option_and_the_url(monkeypatch: pytest.Mon
     monkeypatch.setenv("NECROPSY_LIVE_URL", URL)
     settings = live_settings(_config(True))
     assert settings is not None and settings["url"] == URL
+    monkeypatch.setenv("NECROPSY_LIVE_WAIT_FOR_RESET", "1")
+    settings = live_settings(_config(True))
+    assert settings is not None and settings["wait_for_reset"] is True
 
 
 def test_a_configured_shell_without_the_option_touches_nothing(

@@ -9,6 +9,12 @@ implemented in the development checkout; they are not a published release.
 
 ### Changed
 
+- **Optional hourly reset wait.** `analyze --wait-for-reset` can wait once, at
+  most one hour, using an observed reset countdown while preserving its selection
+  and fresh finalization. The default still stops promptly on insufficient budget.
+  Live acceptance records the wait source and duration; cross-reset account usage
+  remains unknown rather than an exact run charge.
+
 - **Acquisition cache format 2.** Endpoint streams coexist, and changing report
   metadata is stored as full-digest generations rather than conflicting at one
   revision. Finalization binds a fresh combined report. Older cache directories

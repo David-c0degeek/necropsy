@@ -20,7 +20,7 @@ import shlex
 import stat
 import sys
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -66,6 +66,7 @@ class Outcome:
     lines: list[str] = field(default_factory=list)
     snapshot: Written | None = None
     acquisition: Acquisition | None = None
+    reset_wait: dict[str, float | int] | None = None
 
 
 TokenSource = Callable[[], Callable[[str], str]]
@@ -191,6 +192,7 @@ def run_analyze(
     cross_faction: bool = False,
     name: str | None = None,
     package: bool = True,
+    wait_for_reset: bool = False,
     tokens: TokenSource,
     client_factory: ClientFactory,
     resolver: Resolver | None = None,
@@ -203,6 +205,7 @@ def run_analyze(
         if earlier_outputs(out_dir):
             raise AnalyzeError(f"{out_dir} gained an analysis; choose a new output directory")
         client = client_factory(ref.site, tokens())
+        client.policy = replace(client.policy, wait_for_reset=wait_for_reset)
         try:
             return _run(
                 ref,
@@ -314,6 +317,11 @@ def _run(
     if acquisition.stopped:
         lines.append(f"stopped early: {acquisition.stopped}")
     lines.append(_points(before, after, client))
+    if client.reset_wait is not None:
+        lines.append(
+            f"hourly reset wait: {client.reset_wait['elapsed_wait_s']:g} seconds "
+            f"(observed reset countdown: {client.reset_wait['observed_reset_in_s']} seconds)"
+        )
     lines.append(f"snapshot: {written.archive}")
     lines += [f"wrote: {p}" for p in result.files]
     lines.append(f"Next: open {out_dir / REPORT_FILE} in your browser.")
@@ -321,7 +329,7 @@ def _run(
         b.coverage.get("complete") for b in acquisition.bosses
     )
     complete = complete and len(acquisition.bosses) == len(acquisition.requested)
-    return Outcome(0 if complete else 4, lines, written, acquisition)
+    return Outcome(0 if complete else 4, lines, written, acquisition, client.reset_wait)
 
 
 __all__ = [

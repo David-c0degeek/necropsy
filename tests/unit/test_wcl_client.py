@@ -147,11 +147,52 @@ def test_budget_waits_once_for_the_reset_only_when_allowed() -> None:
     clock = FakeClock()
     client = _client(Script(), clock, wait_for_reset=True)
     client.last_rate = c.RateLimit(3600, 3200.0, 900)
+    client.last_rate_at = clock.monotonic()
     client.ensure_budget(100.0)
-    assert clock.sleeps == [901.0]
-    client.last_rate = c.RateLimit(3600, 3200.0, 7200)
-    with pytest.raises(c.BudgetExceeded):
+    assert sum(clock.sleeps) == 901.0 and max(clock.sleeps) <= 30
+    assert client.last_rate_at is None  # reset is assumed, never observed
+    assert client.reset_wait is not None and client.reset_wait["elapsed_wait_s"] == 901
+    client.last_rate = c.RateLimit(3600, 3200.0, 900)
+    client.last_rate_at = clock.monotonic()
+    with pytest.raises(c.BudgetExceeded, match="already used"):
         client.ensure_budget(100.0)
+
+
+def test_reset_wait_requires_an_observed_reading() -> None:
+    clock = FakeClock()
+    client = _client(Script(), clock, wait_for_reset=True)
+    client.last_rate = c.RateLimit(3600, 3200, 900)
+    with pytest.raises(c.BudgetExceeded):
+        client.ensure_budget(100)
+    assert clock.sleeps == [] and client.reset_wait is None
+
+
+def test_reset_wait_subtracts_the_readings_age() -> None:
+    clock = FakeClock()
+    client = _client(Script(), clock, wait_for_reset=True)
+    client.last_rate = c.RateLimit(3600, 3200, 90)
+    client.last_rate_at = 0
+    clock.t = 60
+    client.ensure_budget(100)
+    assert sum(clock.sleeps) == 31
+    assert client.reset_wait is not None and client.reset_wait["reading_age_s"] == 60
+
+
+def test_cancelling_a_reset_wait_does_not_assume_a_reset() -> None:
+    class CancelClock(FakeClock):
+        def sleep(self, seconds: float) -> None:
+            super().sleep(seconds)
+            raise KeyboardInterrupt
+
+    clock = CancelClock()
+    client = _client(Script(), clock, wait_for_reset=True)
+    original = c.RateLimit(3600, 3200, 90)
+    client.last_rate = original
+    client.last_rate_at = 0
+    with pytest.raises(KeyboardInterrupt):
+        client.ensure_budget(100)
+    assert client.last_rate == original and client.last_rate_at == 0
+    assert client.reset_wait is not None and client.reset_wait["elapsed_wait_s"] == 30
 
 
 def test_no_budget_without_a_rate_reading() -> None:
@@ -211,6 +252,7 @@ def test_reset_wait_must_fit_the_cap_including_the_extra_second() -> None:
     clock = FakeClock()
     client = _client(Script(), clock, wait_for_reset=True, max_reset_wait_s=900)
     client.last_rate = c.RateLimit(3600, 3500.0, 900)
+    client.last_rate_at = clock.monotonic()
     with pytest.raises(c.BudgetExceeded):
         client.ensure_budget(100.0)
     assert clock.sleeps == []

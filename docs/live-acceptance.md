@@ -43,6 +43,7 @@ Optional settings:
 | `NECROPSY_LIVE_ENDPOINT` | `client` by default, or `user` for the entire run |
 | `NECROPSY_LIVE_PARTITION` | A positive partition ID when the choice is ambiguous |
 | `NECROPSY_LIVE_HISTORY` | Path to matching historical `analysis.json` |
+| `NECROPSY_LIVE_WAIT_FOR_RESET` | Set exactly `1` to allow one bounded observed reset wait |
 
 Set optional values before running, for example:
 
@@ -64,6 +65,18 @@ deliberate configuration choice, not an automatic fallback. Choose a new output
 directory for that attempt too.
 
 ## Read the result
+
+For a run whose fresh acquisition and finalization span an hourly budget,
+set `NECROPSY_LIVE_WAIT_FOR_RESET=1` explicitly. This uses the same option as
+`necropsy analyze --wait-for-reset`: one observed reset wait, at most one hour,
+with cancellation available. The same selection stays in memory and combined
+reports are still finalized fresh. The output lock remains held during the wait;
+another run targeting that output is refused. Stream locks are held only during
+their own fetch, so a wait inside a fetch can keep that stream locked. No second
+wait is allowed; another budget stop retains the cache and needs a fresh output.
+The default remains immediate stopping. The receipt records the opt-in, whether
+a wait occurred, its observed countdown, reading age and elapsed duration. An
+assumed post-reset counter is not an observed reading or an exact accounting bill.
 
 If either opt-in requirement is missing, the test skips before using credentials.
 The cache/output defaults are `necropsy-live-cache` and `necropsy-live-out`; set

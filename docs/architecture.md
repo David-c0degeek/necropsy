@@ -116,6 +116,10 @@ pages. Exit `0` means a report with complete requested acquisition coverage;
 finalization stopped before a snapshot/report; `1` means failure. Complete
 acquisition can still yield unknown analysis values.
 
+Its opt-in `--wait-for-reset` keeps the same acquisition and output lock through
+at most one observed hourly reset wait. Default runs stop without waiting; the
+option does not relax the budget share or fresh finalization checks.
+
 When a snapshot was saved but report generation fails, the command retains it and
 prints an offline recovery command. `offline` and `render` intentionally replace
 their derived output set, with staged writes, backups and best-effort rollback;

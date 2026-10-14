@@ -40,3 +40,10 @@ Implementation: [client](../../src/necropsy/wcl/client.py),
 [cohort](../../src/necropsy/wcl/cohort.py),
 [acquisition](../../src/necropsy/wcl/acquire.py).
 
+An explicit `analyze --wait-for-reset` permits one observed hourly reset wait per
+run, capped at one hour and interruptible. It keeps the acquisition in memory
+and the output lock held rather than repeating fresh candidate verification.
+Default runs still stop without waiting. Combined reports stay fresh and revision
+checks still refuse changed evidence after the wait. The receipt/summary records
+the wait, while cross-reset account-point attribution stays unknown.
+

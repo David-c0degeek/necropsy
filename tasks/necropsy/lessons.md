@@ -2,6 +2,8 @@
 
 > Append as they happen. Durable lessons migrate to `tasks/lessons.md` at the §7 gate.
 
+- 2026-10-14 — Separate measured request/account deltas from conservative budget reserves when diagnosing retries. A stop before the first finalization request is not evidence that finalization consumed the budget. Cache progress alone cannot prove a full run fits one window; preserve the same acquisition across an explicitly bounded reset wait when fresh selection costs dominate.
+
 - 2026-10-14 — A WCL report revision does not freeze all returned metadata: rankings and archive status can change at the same revision. Preserve endpoint-specific full-digest observations and bind each run to the exact generation it fetched; finalize combined reports fresh instead of choosing an arbitrary cached generation.
 - 2026-10-14 — WCL can return anonymized report identifiers such as `a:...` in rankings. Treat unsupported identifiers as inaccessible candidates before HTTP/cache writes, retaining their reason and using the existing replacement path; do not weaken safe path identities.
 - 2026-10-14 — A resumable cache does not remove the need to budget fresh ranking, metadata and finalization requests. Honor the observed account-wide reset and retry with the same cache plus a new output directory; never relax the budget guard to manufacture an acceptance result.

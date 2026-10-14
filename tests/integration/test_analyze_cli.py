@@ -48,6 +48,7 @@ def fake(monkeypatch: pytest.MonkeyPatch) -> dict[str, Any]:
             rng=random.Random(0),
         )
         made.last_rate = c.RateLimit(36000, 10.0, 1800)
+        state["client"] = made
         return made
 
     def resolver(client: Any, ref: Any, *, partition: Any, endpoint: str) -> Any:
@@ -92,6 +93,27 @@ def test_the_user_endpoint_is_used_everywhere(tmp_path: Path, fake: dict[str, An
     assert result.exit_code == 0, result.output
     assert fake["endpoints"] == ["user"]
     assert fake["server"].urls and all("/api/v2/user" in u for u in fake["server"].urls)
+
+
+def test_reset_wait_option_does_not_change_a_shared_factory_policy(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    original = wcl_cli._client
+    shared = c.Policy()
+
+    def factory(site: Any, provider: Any) -> c.WclClient:
+        made = original(site, provider)
+        made.policy = shared
+        return made
+
+    monkeypatch.setattr(wcl_cli, "_client", factory)
+    first = _run(tmp_path, "--wait-for-reset")
+    first_client = fake["client"]
+    assert first.exit_code == 0 and first_client.policy.wait_for_reset
+    assert not shared.wait_for_reset
+    second = _run(tmp_path, out="out-second")
+    assert second.exit_code == 0 and not fake["client"].policy.wait_for_reset
+    assert first_client.policy.wait_for_reset and not shared.wait_for_reset
 
 
 def test_a_needed_partition_choice_exits_2_and_writes_nothing(
@@ -205,6 +227,35 @@ def test_a_mixed_revision_exits_1(
     assert result.exit_code == 1 and "rerun" in result.output
 
 
+@pytest.mark.parametrize("wait", [False, True])
+def test_finalization_can_wait_once_then_publish_verified_outputs(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch, wait: bool
+) -> None:
+    original = acquire_mod.finalize_reports
+
+    def near_budget(run: Any, acquisition: Any) -> Any:
+        run.client.last_rate = c.RateLimit(36000, 32000, 2)
+        run.client.last_rate_at = run.client.clock.monotonic()
+        return original(run, acquisition)
+
+    monkeypatch.setattr(analyze_mod, "finalize_reports", near_budget)
+    result = _run(tmp_path, "--endpoint", "user", *(("--wait-for-reset",) if wait else ()))
+    client = fake["client"]
+    if wait:
+        assert result.exit_code == 0, result.output
+        assert (tmp_path / "out" / "report.html").exists()
+        assert list((tmp_path / "out" / "snapshot").glob("*.zip"))
+        assert client.reset_wait["elapsed_wait_s"] == 3
+        assert "hourly reset wait: 3 seconds" in result.output
+        assert sum("NecropsySubject" in r["query"] for r in fake["server"].requests) == 1
+        assert sum("NecropsyLeaderboard" in r["query"] for r in fake["server"].requests) == 1
+        assert all("/api/v2/user" in url for url in fake["server"].urls)
+    else:
+        assert result.exit_code == 3 and "no snapshot or report" in result.output
+        assert client.reset_wait is None
+        assert not (tmp_path / "out" / "report.html").exists()
+
+
 def test_a_report_failure_keeps_the_snapshot_and_prints_recovery(
     tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -217,6 +268,31 @@ def test_a_report_failure_keeps_the_snapshot_and_prints_recovery(
     assert (tmp_path / "out dir" / "snapshot" / "live.zip").exists()
     assert "finish offline with: necropsy offline" in result.output
     assert '"' in result.output or "'" in result.output  # the path with a space is quoted
+
+
+def test_a_revision_change_during_reset_wait_refuses_all_outputs(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    original = acquire_mod.finalize_reports
+
+    def near_budget(run: Any, acquisition: Any) -> Any:
+        run.client.last_rate = c.RateLimit(36000, 32000, 2)
+        run.client.last_rate_at = run.client.clock.monotonic()
+        sleep = run.client.clock.sleep
+
+        def revised(seconds: float) -> None:
+            sleep(seconds)
+            fake["server"].revisions["RAlly1"] = [5]
+
+        monkeypatch.setattr(run.client.clock, "sleep", revised)
+        return original(run, acquisition)
+
+    monkeypatch.setattr(analyze_mod, "finalize_reports", near_budget)
+    result = _run(tmp_path, "--wait-for-reset", "--endpoint", "user")
+    assert result.exit_code == 1 and "revision" in result.output and "rerun" in result.output
+    assert fake["client"].reset_wait["elapsed_wait_s"] == 3
+    assert not (tmp_path / "out" / "report.html").exists()
+    assert not list((tmp_path / "out").glob("snapshot/*.zip"))
 
 
 def test_cross_faction_reaches_the_analysis(tmp_path: Path, fake: dict[str, Any]) -> None:

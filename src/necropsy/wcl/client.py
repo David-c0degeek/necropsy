@@ -191,6 +191,8 @@ class WclClient:
     last_rate: RateLimit | None = None
     last_rate_at: float | None = None
     """Monotonic time `last_rate` was read from a response; None when not observed."""
+    reset_wait: dict[str, float | int] | None = field(default=None, init=False)
+    """One reset wait's observed source and elapsed duration; None before any wait."""
 
     def __post_init__(self) -> None:
         require_supported(self.site)
@@ -308,13 +310,34 @@ class WclClient:
         left = cap - rate.points_spent
         if need <= left:
             return
-        if not self.policy.wait_for_reset or rate.reset_in_s + 1 > self.policy.max_reset_wait_s:
+        if self.reset_wait is not None:
+            raise BudgetExceeded("the one allowed hourly reset wait was already used", rate)
+        if (
+            not self.policy.wait_for_reset
+            or self.last_rate_at is None
+            or rate.reset_in_s < 0
+            or rate.reset_in_s + 1 > self.policy.max_reset_wait_s
+        ):
             raise BudgetExceeded(
                 f"{left:.0f} of {cap:.0f} allowed points left this hour; need about "
                 f"{need:.0f}" + (" (estimate unknown)" if estimate is None else ""),
                 rate,
             )
-        self.clock.sleep(float(rate.reset_in_s) + 1.0)
+        started = self.clock.monotonic()
+        elapsed = max(0.0, started - self.last_rate_at)
+        duration = max(0.0, float(rate.reset_in_s) - elapsed) + 1.0
+        self.reset_wait = {
+            "observed_reset_in_s": rate.reset_in_s,
+            "reading_age_s": elapsed,
+            "planned_wait_s": duration,
+            "elapsed_wait_s": 0.0,
+        }
+        until = started + duration
+        try:
+            while self.clock.monotonic() < until:
+                self.clock.sleep(min(30.0, until - self.clock.monotonic()))
+        finally:
+            self.reset_wait["elapsed_wait_s"] = self.clock.monotonic() - started
         self.last_rate = RateLimit(rate.limit_per_hour, 0.0, 3600)
         self.last_rate_at = None  # assumed after the reset, not observed
 
