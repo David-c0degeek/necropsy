@@ -76,6 +76,7 @@ class DruidAnalysis:
     healing_spells: Evidenced[dict[str, int]]
     damage_targets: Evidenced[dict[int, int]]
     defensive_uptime_s: dict[str, Evidenced[float]]
+    actor_catalog: Evidenced[dict[int, dict[str, Any]]]
     resources: tuple[dict[str, Any], ...]
     deaths: DeathsFinding
     threat: Evidenced[float]
@@ -178,7 +179,6 @@ def _duties(
     con: duckdb.DuckDBPyConnection,
     pf: ParticipantFight,
     events: list[DruidEvent],
-    forms: dict[str, Evidenced[tuple[tuple[int, int], ...]]],
     rules: dict[str, Any],
 ) -> tuple[Evidenced[tuple[FightRole, ...]], Evidenced[FightRole], tuple[dict[str, Any], ...]]:
     candidates: dict[FightRole, list[DruidEvent]] = defaultdict(list)
@@ -354,8 +354,28 @@ class DruidClassicEra:
     ) -> DruidAnalysis:
         rules = load_rules(self.game, "druid")
         events = _events(con, pf)
+        actor_ids = sorted(
+            {
+                aid
+                for e in events
+                for aid in (e.source_id, e.target_id)
+                if aid is not None and aid > 0
+            }
+        )
+        actors = con.execute(
+            """SELECT actor_id, name, type, sub_type, game_id FROM actors
+               WHERE report_code = ? AND actor_id IN (SELECT unnest(?::BIGINT[]))""",
+            [pf.report_code, actor_ids],
+        ).fetchall()
+        actor_catalog = observed(
+            {
+                int(aid): {"name": name, "type": kind, "sub_type": sub, "game_id": game_id}
+                for aid, name, kind, sub, game_id in actors
+            },
+            EvidenceRef(pf.report_code, None, None, "actors", detail="report actor catalog"),
+        )
         forms = _form_windows(con, pf, profile, rules)
-        signals, role, spans = _duties(con, pf, events, forms, rules)
+        signals, role, spans = _duties(con, pf, events, rules)
         totals, heals, damage = _totals(con, pf, events)
         casts = [e for e in events if e.kind == "cast" and e.source_id == pf.actor_id]
         source_coverage = [coverage(con, pf, pf.actor_id, Direction.SOURCE)]
@@ -399,6 +419,8 @@ class DruidClassicEra:
         for event in events:
             raw = event.raw
             side = raw.get("resourceActor")
+            if type(side) is not int:
+                continue
             resource_actor = (
                 event.source_id if side == 1 else event.target_id if side == 2 else None
             )
@@ -447,6 +469,7 @@ class DruidClassicEra:
             healing_spells,
             damage,
             defensive_uptime,
+            actor_catalog,
             tuple(resources),
             metrics.deaths(con, pf, pf.actor_id),
             unknown("no verified threat measurement was acquired"),

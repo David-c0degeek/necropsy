@@ -43,7 +43,6 @@ from necropsy.wcl.client import (
 from necropsy.wcl.context import SUPPORTED_ZONE_ID, CharacterContext
 from necropsy.wcl.sites import SITES, Site, UnsupportedSite, require_supported
 
-HUNTER_CLASS_ID = 3
 HUNTER = "Hunter"
 GAME = "classic_era"
 ZONE = "naxxramas"
@@ -567,7 +566,7 @@ def select_boss(
     endpoint: Endpoint = "client",
     deep_needs_observed: bool = False,
 ) -> Selection:
-    """Page one boss's Hunter rankings until the same-faction targets are met."""
+    """Page one boss's declared class/category until same-faction targets are met."""
     key = cohort_key(site, context, encounter_id)
     raw: list[dict[str, Any]] = []
     fetch = fetch_page(client, key, endpoint=endpoint, raw_pages=raw)

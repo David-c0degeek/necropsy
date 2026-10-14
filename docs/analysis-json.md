@@ -144,3 +144,5 @@ not change the analysis schema version or prevent replay of older v1 archives.
 ## Druid entry sections
 
 Schema 1 adds optional `druid` entry data; `hunter` remains unchanged for Hunter documents and may be absent for other classes. Druid data includes separate class/build/category/role/assignment evidence, an optional reasoned override, selected role, role-specific metrics, forms, activity spans, resources and full event timelines. `ranking.category_score` is saved metadata with an explicit metric; it is distinct from event DPS/HPS. Baseline keys include exact comparison dimensions and remain null for inapplicable duties. Existing Hunter JSON continues to validate/render. See [the class contract](decisions/0005-class-and-encounter-duties.md).
+
+Druid details also retain a source-referenced actor catalog for readable target/source names. Saved ranking category scores have their own metadata evidence; event metrics and comparison medians remain separate. Resource readings display their evidence grade, and a zero/missing capacity stays unknown even when the raw payload is retained.

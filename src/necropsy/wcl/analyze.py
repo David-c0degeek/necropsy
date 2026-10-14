@@ -49,7 +49,6 @@ SNAPSHOT_DIR = "snapshot"
 LOCK = ".necropsy-analyze.lock"
 _NAME = re.compile(r"[A-Za-z0-9_-][A-Za-z0-9_.-]{0,79}")
 _LINK_TAGS = {0xA000000C, 0xA0000003}  # Windows symlink and junction (mount point)
-HUNTER_CLASS_ID = 3
 
 
 class AnalyzeError(Exception):

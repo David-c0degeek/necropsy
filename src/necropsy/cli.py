@@ -19,7 +19,7 @@ from necropsy.wcl.cli import analyze_command, auth_app, resolve_command
 
 app = typer.Typer(
     name="necropsy",
-    help="Local-first Warcraft Logs forensics. Acquire Hunter/Naxxramas logs or replay a snapshot.",
+    help="Local-first Warcraft Logs forensics. Acquire supported Naxxramas logs or replay a snapshot.",
     epilog="Start here: necropsy offline SNAPSHOT.zip --out workspace/analysis, then open "
     "report.html.",
     no_args_is_help=True,

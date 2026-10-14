@@ -169,8 +169,28 @@ def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
 
 
 def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
-    metrics_rows, roles, timeline, recommendations = [], [], [], []
+    metrics_rows, roles, timeline, recommendations, comparisons = [], [], [], [], []
     for boss in document["bosses"]:
+        baseline = boss["benchmarks"]["baseline"]
+        for metric, median in baseline["medians"].items():
+            value = (
+                None
+                if boss["subject"] is None
+                else _value(boss["subject"]["druid"]["metrics"][metric])
+            )
+            comparisons.append(
+                [
+                    boss["encounter_id"],
+                    boss["boss"],
+                    metric,
+                    value,
+                    _value(median["value"]),
+                    median["value"]["level"],
+                    median["n_known"],
+                    median["n_unknown"],
+                    json.dumps(baseline["key"], sort_keys=True),
+                ]
+            )
         for rec in boss["recommendations"]:
             recommendations.append(
                 [
@@ -219,6 +239,20 @@ def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
                 )
     identity = ["encounter_id", "player", "report", "fight"]
     return {
+        "tables/comparisons.csv": _csv(
+            [
+                "encounter_id",
+                "boss",
+                "metric",
+                "subject_value",
+                "same_key_median",
+                "median_evidence",
+                "n_known",
+                "n_unknown",
+                "comparison_key",
+            ],
+            comparisons,
+        ),
         "tables/roles.csv": _csv(
             [
                 *identity,

@@ -51,7 +51,6 @@ from necropsy.wcl.cache import Cache, StreamKey, canonical_bytes, is_link, item_
 from necropsy.wcl.context import SUPPORTED_ZONE_ID
 
 GAME, ZONE = "classic_era", "naxxramas"
-HUNTER_CLASS_ID = 3
 COHORT = "same-faction-deep"
 _ZIP_TIME = (1980, 1, 1, 0, 0, 0)
 

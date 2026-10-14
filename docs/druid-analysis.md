@@ -58,7 +58,8 @@ recommendations use the matching primary cohort only.
 ## Measurements and practice notes
 
 Feral and balance detail includes cast counts and the full timestamped event
-timeline, targets, form intervals, resource observations and cooldown/utility
+timeline with source/target names, faction and external-buff context, form intervals,
+resource observations and cooldown/utility
 casts. A recorded first-ten-seconds sequence is a practice example; a short or
 specialized parse does not establish an optimal rotation. Event damage is the
 actor's raw damage across targets, separately labelled from WCL's category score.
@@ -102,7 +103,7 @@ snapshots, talents, WCL category or observed evidence.
 ## Outputs and validation limits
 
 Both offline pages retain unknowns, practical notes and full supporting detail.
-The ZIP exports roles, metrics and full event timelines as CSV, plus analysis JSON
+The ZIP exports roles, metrics, exact-key comparisons and full event timelines as CSV, plus analysis JSON
 and recommendation evidence. Logs and derived outputs contain player identities;
 share only where the source data may be shared.
 

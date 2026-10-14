@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import math
 from typing import Any
 
 import duckdb
 
 from necropsy.analysis.benchmark import BossData, Entry, median_of
 from necropsy.analysis.classes.classic_era.druid import LIMITATIONS
-from necropsy.analysis.evidence import Evidenced, EvidenceLevel
+from necropsy.analysis.evidence import Evidenced, EvidenceLevel, EvidenceRef, observed, unknown
 from necropsy.analysis.roles import DRUID_CATEGORIES, ComparisonKey, FightRole
 from necropsy.report.serialize import to_data
 
@@ -52,11 +53,30 @@ def _ranking(con: duckdb.DuckDBPyConnection, entry: Entry) -> dict[str, Any]:
     ).fetchall()
     category = entry.druid.ranking_category.value
     metric = DRUID_CATEGORIES[category][0] if category else None
-    amounts = {r[0] for r in rows}
+    amounts = {r[0] for r in rows if math.isfinite(r[0]) and r[0] >= 0}
+    score = (
+        next(iter(amounts))
+        if (
+            category is not None and len(amounts) == 1 and len(amounts) == len({r[0] for r in rows})
+        )
+        else None
+    )
+    ref = EvidenceRef(
+        entry.participant.report_code,
+        entry.participant.fight_id,
+        entry.participant.actor_id,
+        "benchmark_participants",
+        detail=f"saved {category} {metric} ranking amount",
+    )
     return {
         "category": category,
         "metric": metric,
-        "category_score": next(iter(amounts)) if len(amounts) == 1 else None,
+        "category_score": score,
+        "category_score_evidence": to_data(
+            observed(score, ref)
+            if score is not None
+            else unknown("missing or invalid category score", ref)
+        ),
         "basis": "saved-ranking-metadata",
         "note": "A WCL category score; never an event baseline or a quality score.",
     }

@@ -1,6 +1,6 @@
 # Readiness evidence
 
-2026-10-14. Starting tree `main`, clean, Milestone A personally approved. The
+2026-10-14. Starting tree `main` at `36933179af356ea9bf91e375308e928fe448932e`, clean, Milestone A personally approved. The
 existing pair session continues with Codex owning writes; Claude agreed the design
 in mail 177 and is dormant until requested reviews. No notifier or subagents.
 
@@ -81,3 +81,5 @@ architecture, roadmap, reading-results, analysis-json/schema, Druid guide,
 developer contribution notes as applicable. Existing Hunter guide remains valid.
 No new dependency/service/tool installation. Real-role acceptance and human
 domain review remain open until evidence exists; missing evidence is never zero.
+
+Additional primary-source verification: [WCL resource fields](https://www.warcraftlogs.com/help/pins) defines the resource actor separately from event source/target. Authenticated filters `resources.actor = source AND source != target` and the target equivalent returned raw side flags 1 and 2 respectively; these are not report actor IDs. Saved raw report catalogs confirm Swiftmend 18562, Hurricane 16914/17402, Ravage 9867 and Pounce 9827 labels for the class rule data.

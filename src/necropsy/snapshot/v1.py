@@ -48,7 +48,6 @@ from necropsy.wcl.fetch import EVENTS_LIMIT, QUERY_VERSION
 from necropsy.wcl.sites import VANILLA
 
 GAME, ZONE = "classic_era", "naxxramas"
-HUNTER_CLASS_ID = 3
 COHORT = "same-faction-deep"
 _FACTIONS = {"Alliance": Faction.ALLIANCE, "Horde": Faction.HORDE}
 MARKER = "necropsy-snapshot.json"
@@ -158,7 +157,7 @@ class V1Snapshot(V0Snapshot):
         return self._live
 
     def _canonical(self, live: LiveSnapshotFile) -> None:
-        """The snapshot must describe the supported Hunter cohort it claims to be."""
+        """The snapshot must describe the supported class and cohort it claims to be."""
         if live.subject.class_id not in CLASS_NAMES:
             raise SnapshotError("the live snapshot subject class is unsupported")
         if live.zone.id != SUPPORTED_ZONE_ID:

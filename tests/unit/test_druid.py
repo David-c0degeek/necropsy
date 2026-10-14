@@ -25,8 +25,11 @@ from tests.snapshot_builder import ENCOUNTER, FIGHT
     ("names", "role"),
     [
         (["Starfire"] * 3, "balance-dps"),
+        (["Hurricane"] * 3, "balance-dps"),
         (["Shred"] * 3, "feral-dps"),
+        (["Ravage"] * 3, "feral-dps"),
         (["Healing Touch"] * 3, "restoration"),
+        (["Swiftmend"] * 3, "restoration"),
         (["Shred"] * 3 + ["Healing Touch"] * 3, "hybrid"),
         (["Maul"] * 3, None),
         ([], None),
@@ -109,6 +112,17 @@ def test_older_druid_optional_detail_fields_still_render(tmp_path: Path) -> None
     assert outputs["report.html"] and outputs["playbook.html"]
 
 
+def test_non_finite_saved_category_score_stays_unknown(tmp_path: Path) -> None:
+    snapshot = _snapshot(tmp_path, ["Starfire"] * 3)
+    db = tmp_path / "analysis.duckdb"
+    ingest(snapshot, db)
+    with duckdb.connect(str(db)) as con:
+        con.execute("UPDATE benchmark_participants SET total = 'Infinity'::DOUBLE")
+        doc = build_document(con)
+    assert doc["bosses"][0]["subject"]["ranking"]["category_score"] is None
+    assert "Infinity" not in dumps(doc)
+
+
 def test_cohort_dimensions_cannot_mix_roles_or_metrics() -> None:
     key = ComparisonKey(
         2, ENCOUNTER, "Alliance", "0/0/51", "Restoration", FightRole.HEALER, "hps", 1
@@ -126,6 +140,47 @@ def test_cohort_dimensions_cannot_mix_roles_or_metrics() -> None:
     assert ranking_policy(2, "Restoration").metric == "hps"
     with pytest.raises(ValueError, match="category"):
         ranking_policy(2)
+
+
+def test_exact_druid_baseline_needs_three_members_and_retains_inferred_membership(
+    tmp_path: Path,
+) -> None:
+    from necropsy.report.druid import boss_section
+
+    archive = _snapshot(tmp_path, ["Healing Touch"] * 3)
+    db = tmp_path / "analysis.duckdb"
+    ingest(archive, db)
+    with duckdb.connect(str(db), read_only=True) as con:
+        boss = load_bosses(con, "classic_era", "naxxramas")[0]
+        entry = boss.subject
+        assert entry is not None
+        # Use an explicit incompatible build; the observed healing values still exist.
+        from necropsy.analysis.evidence import observed
+
+        incompatible = replace(
+            entry,
+            class_analysis=replace(
+                entry.druid,
+                build=observed("1/0/50", *entry.profile.talents.refs),
+            ),
+        )
+        cohort = tuple(
+            replace(
+                entry,
+                participant=replace(
+                    entry.participant,
+                    player=f"Healer {n}",
+                    kind="top",
+                ),
+            )
+            for n in range(3)
+        )
+        result = boss_section(con, replace(boss, cohort=(*cohort, incompatible)), 1)
+        median = result["benchmarks"]["baseline"]["medians"]["effective_healing_per_second"]
+        assert median["n_known"] == 3
+        assert median["value"]["value"] == 3
+        assert median["value"]["level"] == "inferred"
+        assert result["benchmarks"]["baseline"]["excluded_incompatible"] == 1
 
 
 def test_registry_selects_druid_and_keeps_hunter_guard(tmp_path: Path) -> None:

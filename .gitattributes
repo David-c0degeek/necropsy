@@ -8,7 +8,7 @@
 # recorded SHA-256 digests must match the checked-out bytes.
 tests/golden/haplina_naxx/oracle/** -text
 
-# Only the full raw WCL export lives in Git LFS. The subset fixture is a plain
+# Full raw exports and Druid captures live in Git LFS. The Hunter subset is a plain
 # blob so ordinary CI never fetches LFS objects.
 tests/golden/haplina_naxx/raw/*.zip filter=lfs diff=lfs merge=lfs -text
 tests/golden/druid/raw/*.zip filter=lfs diff=lfs merge=lfs -text

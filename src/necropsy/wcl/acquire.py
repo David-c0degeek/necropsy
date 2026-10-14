@@ -62,7 +62,6 @@ from necropsy.wcl.sites import Site
 
 GAME = "classic_era"
 ZONE = "naxxramas"
-HUNTER_CLASS_ID = 3
 
 SUBJECT_QUERY = f"""
 query NecropsySubject($id: Int!, $encounter: Int!, $partition: Int!) {{
@@ -132,10 +131,6 @@ class SubjectPick:
     rule: str
     notes: tuple[str, ...]
     """Why rows were excluded, why rankings were unavailable, and ties on missing fields."""
-
-
-def _is_hunter(value: Any) -> bool:
-    return (type(value) is int and value == HUNTER_CLASS_ID) or value == "Hunter"
 
 
 def _subject_row(
