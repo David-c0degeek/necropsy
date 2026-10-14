@@ -30,6 +30,8 @@
 
 | ID | Failure | Observed impact | Actual detection | Why Pre-Mortem missed it | Future lesson | Evidence / refs |
 |---|---|---|---|---|---|---|
+| CH-MISS-1 | Same-revision report metadata changed, conflicting with a single immutable bundle path; endpoints also shared that path. | Authenticated retry stopped before producing an artifact; completed evidence was retained, not corrupted. | Actual client/user attempts and cache conflict on the user retry. | PM-4 covered revision/query identity mixing but did not distinguish mutable metadata observations from report revision. | Preserve exact endpoint-specific full-digest report generations; fresh-finalize each run and bind its writer to those digests. | 8aa4988; cache generation/coexistence tests; local live-check-run1/run2 logs; docs/decisions/0003-immutable-generations.md |
+| CH-MISS-2 | A legitimate anonymized ranking report ID used the unsupported `a:...` form. | First format-2 live run stopped at safe-path validation instead of replacing the candidate; cache remained intact. | Actual user-endpoint run at 2026-10-14T121023Z. | PM-5 anticipated hostile keys and protected containment, but not a legitimate API ID outside the intentionally supported identity format. | Classify unsupported IDs before requests/cache access and use the existing inaccessible-candidate replacement path; retain its reason without weakening containment. | 8aa4988; fetch/acquisition unsupported-ID tests; local live-check-v2-user-20261014T121023Z.log |
 
 ## Calibration questions
 

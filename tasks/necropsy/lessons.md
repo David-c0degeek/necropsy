@@ -2,6 +2,10 @@
 
 > Append as they happen. Durable lessons migrate to `tasks/lessons.md` at the §7 gate.
 
+- 2026-10-14 — A WCL report revision does not freeze all returned metadata: rankings and archive status can change at the same revision. Preserve endpoint-specific full-digest observations and bind each run to the exact generation it fetched; finalize combined reports fresh instead of choosing an arbitrary cached generation.
+- 2026-10-14 — WCL can return anonymized report identifiers such as `a:...` in rankings. Treat unsupported identifiers as inaccessible candidates before HTTP/cache writes, retaining their reason and using the existing replacement path; do not weaken safe path identities.
+- 2026-10-14 — A resumable cache does not remove the need to budget fresh ranking, metadata and finalization requests. Honor the observed account-wide reset and retry with the same cache plus a new output directory; never relax the budget guard to manufacture an acceptance result.
+
 - 2026-10-12 — Plan was first written with the template's guidance text shortened (§6 bodies, subject-file guidance blocks, §7 wording). An agent resuming cold relies on that text; copy the template verbatim and only splice plan content at its extension points.
 - 2026-10-13 — WCL documentation hosts return HTTP 403 to the WebFetch tool (bot check). The vanilla schema pages fetch fine with `curl -A <browser UA>`; `www.warcraftlogs.com/api/docs` still needs a human browser.
 - 2026-10-13 — Exporter JSON is pretty-printed and compresses ~20x. Size budgets for committed fixtures must be stated for the compressed archive, never for raw JSON (subset: ~290 MB raw vs ~12.8 MB compressed).

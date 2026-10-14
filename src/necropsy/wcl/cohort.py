@@ -1,6 +1,6 @@
 """Choose the same-faction comparison cohort for one boss from WCL ranking pages.
 
-Library only for now: acquisition code drives it, and no CLI command uses it yet.
+The analyze CLI uses this selector through acquisition orchestration.
 
 The cohort key keeps every comparison dimension with how it is applied:
 `enforced` (rows that do not match are excluded), `recorded` (kept per row, not
@@ -10,8 +10,8 @@ faction number, so a row's faction is INFERRED from the guild rule at best; a
 A row whose faction stays unknown is never counted as same-faction, and a short
 cohort is reported as partial with its reason, never filled from other rows.
 
-The query shape is the one the recorded exporter used; it is not yet checked
-against WCL's current schema (that happens in the live end-to-end run).
+The query shape was ported from the recorded exporter and exercised by
+authenticated live runs. End-to-end acceptance is recorded separately.
 """
 
 from __future__ import annotations
@@ -64,7 +64,7 @@ query NecropsyLeaderboard($encounter: Int!, $partition: Int!, $page: Int!) {{
   {RATE_FIELDS}
 }}
 """
-"""Shape copied from the recorded exporter; unverified against the current schema."""
+"""Shape ported from the recorded exporter and exercised by authenticated live runs."""
 
 _FACTIONS = {"Alliance": Faction.ALLIANCE, "Horde": Faction.HORDE}
 

@@ -1,6 +1,6 @@
 """Acquire one character's Naxxramas data: subject fights, cohorts, deep event streams.
 
-Library only for now: the snapshot writer and CLI that use it come next.
+The analyze CLI passes the acquired data to the snapshot writer and offline pipeline.
 
 Per supported boss: the subject's own fight is chosen from its rankings
 (rule `subject-fight-v1`), the same-faction cohort is chosen by the benchmark
@@ -74,7 +74,7 @@ query NecropsySubject($id: Int!, $encounter: Int!, $partition: Int!) {{
   {RATE_FIELDS}
 }}
 """
-"""Shape copied from the recorded exporter; unverified against the current schema."""
+"""Shape ported from the recorded exporter and exercised by authenticated live runs."""
 
 _FACTIONS = {"Alliance": Faction.ALLIANCE, "Horde": Faction.HORDE}
 _UNREACHABLE = (ReportInaccessible, PermissionDenied, NotFound)

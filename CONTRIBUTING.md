@@ -29,7 +29,7 @@ Try the user workflow in [Getting started](docs/getting-started.md).
 | Golden | `uv run pytest -m golden` | Full export and registered facts against raw evidence |
 | Acceptance | `uv run pytest -m acceptance` | The fact register's verification and resolution status |
 | Browser | `uv run playwright install chromium` once, then `uv run pytest -m browser` | The rendered report and playbook in headless Chromium: navigation, keyboard, themes, review marks, print, narrow screens, no network requests; skipped when Chromium is not installed |
-| Live | `uv run pytest -m live` | Reserved marker for manual API checks; live acquisition is not implemented yet |
+| Live | `uv run pytest -m live --run-live -s tests/live/test_live_acceptance.py` | Deliberate authenticated acquisition and artifact checks; requires the environment settings in [live acceptance](docs/live-acceptance.md) |
 
 Before the golden suite:
 
@@ -69,7 +69,9 @@ and subset rebuilding, separate from the CLI.
 Keep credentials, tokens, private exports, and identifying player details out
 of issues and attachments. Use a sanitized reproduction or reference the
 authorized fixture. Put generated analyses in Git-ignored `workspace/`.
-Live authentication and any distributed client remain future work; do not add
+Personal live authentication is implemented; see [authentication](docs/auth.md).
+Full live acceptance is recorded separately from offline tests. A distributed
+client remains future work and requires public-client PKCE; do not add
 credential-sharing instructions.
 
 ## Make a change easy to review

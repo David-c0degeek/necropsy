@@ -84,8 +84,12 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
       Validation: 155 relative source/navigation links checked, CLI help compared,
       no plan IDs in new shipped docs; navigator AGREE round 1. Authenticated live
       and real-store acceptance remain open in 07.7/07.9.
-- [ ] **07.9** (product-owner) Run `necropsy auth login` once to move the user
+- [x] **07.9** (product-owner) Run `necropsy auth login` once to move the user
       token into the keyring; confirm redirect URI 8765 is registered.
+      User reported successful login on 2026-10-14. Local `auth status` confirms
+      signed-in through Windows WinVault, and authenticated user-endpoint queries
+      have succeeded. Successful callback completes the registered redirect check;
+      no credential values were printed or copied into project artifacts.
 - [ ] **07.10** (release-engineer) Before ANY distribution: register a WCL
       public PKCE client and replace confidential-client auth.
       `DEFERRED — see manual-actions`: never ticked in Milestone A; does not
@@ -139,3 +143,7 @@ Documentation checkpoint close-out: Keep — operational guides and boundary ref
 2026-10-14 · slice 21 · 07.7 (preparation) · review fixes (resolved-context baseline hook, artifact bindings, same-faction realm-normalised comparison with recorded faction basis, package duplicate/malformed refusal, scanner states) and Codex's docs/live-acceptance.md · navigator AGREE round 1 on the harness and procedure only; 07.7 and 07.9 stay open until a real signed-in run produces a receipt · committed and pushed (see git log)
 
 2026-10-14 · slice 22 · 07.7 live findings / cache format 2 · user sign-in confirmed (WinVault); live context Haplina/Ashbringer/EU/Alliance/Naxxramas partition S0 id 1. Client attempt selected the historical Patchwerk fight but an archived events page failed; user-endpoint retry collided with format-1 cache data. Codex now drives at user request. PM-8 persisted before implementation. Endpoint-specific streams; full-digest bundle/report-set generations with exact read binding and fresh finalization; optional v1 generation provenance; recognized archive-only errors inaccessible, mixed errors invalid. Format 1 refused without changes, pre-generation v1 replay fixture retained. Offline checks and review pending; actual live acceptance remains open.
+
+2026-10-14 · slice 23 · 07.7/07.9 · cache format 2 and unsupported/anonymized report-ID rejection shipped in 8aa4988f762f05fd46ca5a7d3e3a1cd04126fcb4; navigator AGREE rounds 1–2 on every changed-file fingerprint. Full suite 1,018 passed / one deliberately disabled live check / four xfailed before the localized ID guard; 70 fetch/acquisition checks passed after it. CI 38564860073 passed Linux and Windows. First user run discovered an anonymized report ID; second stopped conservatively during fresh finalization at 1,462.31 of 1,800 account points, before publishing a snapshot/report. Cache preserved; new run started after the observed reset at 12:48:54 UTC using the same cache and a new output directory. 07.9 synchronized with successful human login, WinVault status and authenticated queries; 07.7 stays open pending a verified receipt.
+
+2026-10-14 · slice 24 · contributor documentation / final-gate preparation · report-only whole-repo cleanup audit emitted at `cleanup-audit-2026-10-14.md`; all candidates triaged (C1 fix now; C2/C3 retained). C1 contributor instructions and acquisition/query module comments corrected afterward, without runtime changes or a claim of completed live acceptance. Ruff check/format, mypy, relative links and both opt-in safeguard tests passed. Fresh remote clone with full LFS fixture began the independent golden/acceptance replay; review and checkpoint publication pending.

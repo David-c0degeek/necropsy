@@ -59,7 +59,7 @@ query NecropsyReport($code: String!, $fightIDs: [Int]) {{
   {RATE_FIELDS}
 }}
 """
-"""Shape copied from the recorded exporter; unverified against the current schema."""
+"""Shape ported from the recorded exporter and exercised by authenticated live runs."""
 
 EVENTS_QUERY = f"""
 query NecropsyEvents($code: String!, $fightIDs: [Int], $sourceID: Int, $targetID: Int,
