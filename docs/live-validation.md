@@ -33,6 +33,13 @@ Desktop/mobile checks retained the detailed sections and added a quick opening p
 
 These results establish this run's authentication, acquisition and output behavior.
 They do not establish game-mechanics correctness, full pet coverage, product
-acceptance or distribution readiness. Domain review and final milestone sign-off
-remain separate human decisions. Pattern scans with no findings do not prove
+acceptance or distribution readiness. On 2026-10-14 the domain reviewer accepted
+the mechanics, historical Sapphiron exclusion and documented partial-live scope
+for personal use, conditional on supported accuracy improvements. Final milestone
+sign-off remains separate. Pattern scans with no findings do not prove
 that every possible secret is absent.
+
+A saved-source accuracy audit found no exact summon-owner mapping for the ownerless
+Battle Chicken/Arcanite Dragonling instances. These and vanquished tentacles can be
+Hunter tools; that eligibility does not prove individual ownership. The partial
+classification and unknown attribution remain unchanged.

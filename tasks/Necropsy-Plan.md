@@ -161,8 +161,11 @@ simulation, Polars unless a measured need appears (D007).
 | Python 3.14 wheel gaps on Windows | Blocked setup | Retired risk: 00.3 smoke run green on CPython 3.14.6; fallback 3.13 by decision if a new dependency lacks wheels |
 | Actor-scoped coverage (only selected Hunters + `petOwner` actors have streams) | Threat, boss-target time, raid composition unknowable from v0 data | Those fields are `UNKNOWN` with coverage refs, never inferred; live acquisition may add streams later by decision |
 
-Rollback: greenfield repo, no consumers. Each subject is a set of pushed
-checkpoint commits; revert by `git revert` of the subject's commits.
+Rollback: personal-use source changes can be reverted with `git revert` of the
+relevant pushed checkpoint. Preserve raw snapshots/manifests, prior cache
+generations and OS credential records. A reverted tool may require a new derived
+DB/cache directory rather than reusing a newer format; do not relabel or delete
+existing evidence to make it compatible. Saved report packages remain usable.
 
 ---
 
@@ -307,6 +310,9 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | D011 | 2026-10-12 | Tool installs approved | User approved all installs named in the plan: uv, git-lfs, secret scanner (gitleaks or equivalent), and LFS storage for the 80 MB fixture on the personal account | Explicit user approval in session | 00.7, 00.9, 01.3; `manual-actions.md` |
 | D045 | 2026-10-14 | Lead and follow-up plans | Codex leads; Claude remains dormant except requested design/reviews. Create template-derived Distribution and ClassExpansion plans; Druid first includes feral DPS, balance, restoration, tank and hybrid. | Explicit user leadership, pairing and new-plan direction. | tasks/Distribution-Plan.md; tasks/ClassExpansion-Plan.md; pair unit 25 |
 | D046 | 2026-10-14 | Proposed partial-live acceptance boundary | Actual live execution and artifact checks are recorded as complete work, but personal-use milestone acceptance of exit-4 pet-ownership limitations is proposed for explicit product-owner acceptance; no subject/final CLOSE inferred from a partial receipt. | The gate says completes; receipt proves useful output but does not prove complete coverage. | 07.7; new 07.11; review-packet.md; §8 pending |
+| D047 | 2026-10-14 | Explicit domain and partial-live acceptance | David: "Accepted all 3, unless we can ACTUALLY refine and improve their accuracy". Accepted mechanics review including batched 01.7/04.8, historical Sapphiron exclusion and personal-use exit-4 live scope. Interpretation: pursue affirmative refinements, preserve unsupported unknowns; saved owner audit found no exact correction. | Explicit user decision plus conditional evidence audit; final §8 separate. | 05.7; 07.11; review-packet.md; tests/golden/haplina_naxx/facts.yaml |
+| D048 | 2026-10-14 | Hunter guardian eligibility | David: "Correct, vanquished tentacle, battle chicken, dragonlings, all can be part of the hunters toolkit". Treat these as eligible Hunter toolkit actors; no individual ownership from eligibility/name alone. | Prevent false exclusion of engineering/trinket guardians while retaining source proof. | accuracy audit; subject 07; review-packet.md |
+| D049 | 2026-10-14 | Deferred distribution carry-over | 07.10 stays unticked DEFERRED under the existing explicit §5 Done rule; subject closure excludes this documented human deferral. Carry registration to Distribution 01.3 and PKCE/acquisition to 02/03; no retired/ticked box or public release implied. | Preserve the current exception and open distribution blocker while closing personal-use work. | §5 Done rule; 07.10; manual-actions.md; tasks/Distribution-Plan.md |
 
 ---
 
@@ -350,9 +356,9 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 | [x] | 02 | `tasks/necropsy/02-snapshot-ingest-and-normalize.md` | DONE | agent: 6 | n/a |
 | [x] | 03 | `tasks/necropsy/03-evidence-model-and-generic-analyzers.md` | DONE | agent: 6 | n/a |
 | [x] | 04 | `tasks/necropsy/04-hunter-classic-era-plugin.md` | DONE | agent: 7; domain-sme: 1 | yes |
-| [ ] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | IN PROGRESS | agent: 6; domain-sme: 1 | yes |
+| [x] | 05 | `tasks/necropsy/05-naxx-encounters-and-recommendations.md` | DONE | agent: 6; domain-sme: 1 | yes |
 | [x] | 06 | `tasks/necropsy/06-report-and-package.md` | DONE | agent: 7; product-owner: 2 | yes |
-| [ ] | 07 | `tasks/necropsy/07-live-acquisition.md` | IN PROGRESS | agent: 8; product-owner: 2; release-engineer: 1 | yes |
+| [x] | 07 | `tasks/necropsy/07-live-acquisition.md` | DONE | agent: 8; product-owner: 2; release-engineer: 1 | yes |
 
 ---
 
@@ -399,34 +405,34 @@ checkpoint commits; revert by `git revert` of the subject's commits.
 > Run only when §5 is fully ticked. §7 is the engineering gate the agent
 > ticks; §8 is human acceptance that follows it.
 
-- [ ] All §5 subjects done (or explicitly `ABANDONED` with a §4 row), applying the §5 Done rule for `DEFERRED` human boxes
-- [ ] Subject 00 completed, or explicitly waived/abandoned with a §4 row
+- [x] All §5 subjects done (or explicitly `ABANDONED` with a §4 row), applying the §5 Done rule for `DEFERRED` human boxes
+- [x] Subject 00 completed, or explicitly waived/abandoned with a §4 row
 - [x] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings (ruff + type checker clean)
-- [ ] Fast and golden test commands from the §2 Verification-commands table pass; coverage gate met if the repo enforces one
-- [ ] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
-- [ ] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
-- [ ] §1 Risks-and-rollback table reviewed; rollback steps still accurate for what actually shipped
-- [ ] Cross-cutting principles from §6 reviewed; any plan-specific architecture tests/rules hold
-- [ ] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication or new parallel code where an existing surface fit (see §6.17)
-- [ ] New public surface added by this plan is wired to a non-test caller, or is explicitly disclosed as library-only/unwired (in the docs or a §4 decision) — no undisclosed dead surface shipped (see §6.17 "Wire or delete")
-- [ ] Every non-abandoned subject has a recorded Captain Hindsight checkpoint with verdict `CLOSE`
-- [ ] Every ticked box has a Progress-log entry and is covered by a pushed checkpoint commit
-- [ ] Durable architecture decisions promoted to the project's decision log / ADR file (see §4 ADR promotion)
-- [ ] Documentation-impact review done for every shipped box — user- and developer-facing docs updated to match shipped behaviour (see §6.16 for scope), or recorded `n/a` with a one-line reason
-- [ ] Current plan/integration branch is pushed (or the no-remote note from the Checkpoint gate applies); `git status --short` has no uncommitted plan/code changes except explicitly deferred or ignored artefacts
-- [ ] If Collaboration mode is `parallel`, the Parallel work tracker has no stale active owners, unmerged subject branches, or unresolved handoff notes
-- [ ] Shipped code/tests/comments/identifiers are plan-agnostic — grep the repo **excluding `tasks/`** for box IDs (`\b\d\d\.\d+\b`), decision IDs (`\bD\d{3}\b`), the literal `tasks/necropsy/`, the plan filename `Necropsy-Plan.md`, and `\bslices?\b`; zero hits after triaging false positives (version strings can match the box-ID pattern; "slice" may be a legit domain term). See §6.11
-- [ ] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/necropsy/`, `Necropsy-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
-- [ ] Branch names and public PR titles/descriptions are plan-agnostic if used
-- [ ] `tasks/necropsy/manual-actions.md` — every human-owned box resolved or explicitly deferred
+- [x] Fast and golden test commands from the §2 Verification-commands table pass; coverage gate met if the repo enforces one
+- [x] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
+- [x] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
+- [x] §1 Risks-and-rollback table reviewed; rollback steps still accurate for what actually shipped
+- [x] Cross-cutting principles from §6 reviewed; any plan-specific architecture tests/rules hold
+- [x] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication or new parallel code where an existing surface fit (see §6.17)
+- [x] New public surface added by this plan is wired to a non-test caller, or is explicitly disclosed as library-only/unwired (in the docs or a §4 decision) — no undisclosed dead surface shipped (see §6.17 "Wire or delete")
+- [x] Every non-abandoned subject has a recorded Captain Hindsight checkpoint with verdict `CLOSE`
+- [x] Every ticked box has a Progress-log entry and is covered by a pushed checkpoint commit
+- [x] Durable architecture decisions promoted to the project's decision log / ADR file (see §4 ADR promotion)
+- [x] Documentation-impact review done for every shipped box — user- and developer-facing docs updated to match shipped behaviour (see §6.16 for scope), or recorded `n/a` with a one-line reason
+- [x] Current plan/integration branch is pushed (or the no-remote note from the Checkpoint gate applies); `git status --short` has no uncommitted plan/code changes except explicitly deferred or ignored artefacts
+- [x] If Collaboration mode is `parallel`, the Parallel work tracker has no stale active owners, unmerged subject branches, or unresolved handoff notes
+- [x] Shipped code/tests/comments/identifiers are plan-agnostic — grep the repo **excluding `tasks/`** for box IDs (`\b\d\d\.\d+\b`), decision IDs (`\bD\d{3}\b`), the literal `tasks/necropsy/`, the plan filename `Necropsy-Plan.md`, and `\bslices?\b`; zero hits after triaging false positives (version strings can match the box-ID pattern; "slice" may be a legit domain term). See §6.11
+- [x] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/necropsy/`, `Necropsy-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
+- [x] Branch names and public PR titles/descriptions are plan-agnostic if used
+- [x] `tasks/necropsy/manual-actions.md` — every human-owned box resolved or explicitly deferred
 - [x] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see the Disposable note). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
 - [x] `tasks/necropsy/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/necropsy/` folder is deleted (see Disposable note)
-- [ ] **Historical-mode acceptance:** clean-clone replay of the full fixture produces a package against which the golden-fact register passes, where: (a) the set of `mandatory: true` facts is non-empty and covers at least every spec §11 fact plus one fact per boss; (b) every mandatory fact has status `verified-against-raw` and passes within tolerance; (c) every `oracle-only` fact is either promoted to `verified-against-raw` and passes, or carries a recorded exclusion reason; (d) every `disputed` fact carries a recorded `domain-sme` resolution (corrected value or exclusion). No fact passes silently by status alone
-- [ ] **Live-mode acceptance:** `necropsy analyze https://vanilla.warcraftlogs.com/character/id/86583560` completes against live WCL, produces a same-faction package with recorded coverage, cohort provenance, and no silent faction/partition substitution
+- [x] **Historical-mode acceptance:** clean-clone replay of the full fixture produces a package against which the golden-fact register passes, where: (a) the set of `mandatory: true` facts is non-empty and covers at least every spec §11 fact plus one fact per boss; (b) every mandatory fact has status `verified-against-raw` and passes within tolerance; (c) every `oracle-only` fact is either promoted to `verified-against-raw` and passes, or carries a recorded exclusion reason; (d) every `disputed` fact carries a recorded `domain-sme` resolution (corrected value or exclusion). No fact passes silently by status alone
+- [x] **Live-mode acceptance:** `necropsy analyze https://vanilla.warcraftlogs.com/character/id/86583560` completes against live WCL, produces a same-faction package with recorded coverage, cohort provenance, and no silent faction/partition substitution
 - [x] **Secret scan:** repo history, fixtures, and a generated package contain no client secret or token
-- [ ] **PKCE distribution gate** (07.10) remains `[ ]` with status `DEFERRED` in manual-actions and is listed in §8 notes as an open blocker for any binary distribution
-- [ ] If tasks/necropsy/pre-mortem.md exists, every PM-* risk has a terminal Resolution; Captain Hindsight calibration is recorded for every risk whose outcome is observable; unelapsed observation horizons are Inconclusive rather than false positives; every CH-MISS-* row has a future lesson.
-- [ ] Plan handed to reviewer for §8 sign-off
+- [x] **PKCE distribution gate** (07.10) remains `[ ]` with status `DEFERRED` in manual-actions and is listed in §8 notes as an open blocker for any binary distribution
+- [x] If tasks/necropsy/pre-mortem.md exists, every PM-* risk has a terminal Resolution; Captain Hindsight calibration is recorded for every risk whose outcome is observable; unelapsed observation horizons are Inconclusive rather than false positives; every CH-MISS-* row has a future lesson.
+- [x] Plan handed to reviewer for §8 sign-off
 
 Independent final-gate evidence, 2026-10-14: `uv build`, ruff check/format and
 mypy passed. Fresh remote clone at `8aa4988` with full Git LFS fixture and locked
@@ -547,3 +553,31 @@ Return exactly these sections:
 If the verdict is DO NOT CLOSE, list the smallest concrete actions needed before
 the work can be closed.
 ```
+
+Latest acceptance reconciliation (2026-10-14): the three review-packet human decisions are now explicit and recorded (D047/D048); earlier pending statements are chronology. Source audit supports no ownership/race/sample rewrite. CI38632042327 on docs/planning checkpoint765bf72 is green on both systems. Subject05/07 closing reviews and final engineering gate follow; §8 remains pending.
+
+
+### Final engineering gate review (2026-10-14)
+
+All subjects 00–07 are DONE under §5, with the explicit deferred-human exception
+for 07.10 preserved. David's three acceptance decisions are recorded and their
+source-bounded accuracy audit is complete. All required PM fields retain original
+predictions; terminal resolutions and observed/Inconclusive calibration recorded.
+Rollback updated for retained evidence/credentials and version compatibility.
+Integration/callers/docs/ADRs/cleanup/lessons are reviewed; source/commit scans have
+no actual plan leaks (JavaScript slice methods, versions and numeric literals are
+triaged false hits). All human boxes resolved or explicitly deferred; no parallel
+workers/branches. Latest build, clean-clone 229 golden/acceptance checks (4 xfails),
+11 fact-attribution checks, green Windows/Linux CI, original live receipt, updated
+artifact checks, repository-history/output/fact secret scans and local link checks
+are recorded. Current reviewed records are committed/pushed before checkpoint
+completion; §7 publication/clean-tree evidence is verified at that checkpoint.
+
+**Keep:** One verified analysis pipeline and evidence-preserving outputs.
+**Fix before closing:** Separate final §8 personal-use sign-off only.
+**Record:** Subject05/07 closing Hindsight; explicit user decisions and guardian
+limits; all engineering gates and published checkpoint; future implementation plans.
+**Risk:** Partial source coverage, unavailable Classic Era race data, tiny historical
+samples and future server/platform drift remain explicit; PKCE distribution blocked.
+**Verdict:** CLOSE the engineering gate; DO NOT CLOSE/archive the whole plan until
+David supplies final §8 sign-off. Packet is handed to the user for that decision.

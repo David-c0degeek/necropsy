@@ -61,7 +61,7 @@ the Hunter-specific forensics behind the Haplina findings.
 - [x] **04.7** (agent) Golden: Patchwerk Raptor counts; Haplina Patchwerk Aimed
       timestamps (10.91 → 75.47); Gothik Aimed gap; KT 38.97 s Aimed gap;
       Patchwerk pet DPS; 24/24 Renataki → Refocus (historical mode).
-- [ ] **04.8** (domain-sme) Review one boss's Hunter output for mechanics
+- [x] **04.8** (domain-sme) Review one boss's Hunter output for mechanics
       correctness.
       `DEFERRED — see manual-actions`: batched with the 05.7 review (D017 pattern),
       when per-boss output exists to review.
@@ -99,3 +99,5 @@ the Hunter-specific forensics behind the Haplina findings.
 2026-10-13 · slice 3 · 04.3, 04.5 · review round 2 fixes: target-less damage detected by row count (zero-amount crash fixed), target-side-v1 (event flag / fight friendly lists / fight enemy list, also via pet owner; actor type never decides; side provenance recorded), WCL Environment placeholder (-1) = no unit target · regressions added; fast suite green; golden 84 + 2 xfail; KT friendly CC complete (Reckless 102.51, Scatter 115.32) · commit pending pair review
 2026-10-13 · slice 4 · 04.5 · in-round fix: missing target ID stays undecided; Environment placeholder is no-unit-target only for ground-placed abilities (Freezing Trap) · navigator AGREE round 3
 2026-10-13 · slice 5 · Hindsight · commit pushed; CI run 38327193624 success; Hindsight CLOSE
+
+2026-10-14 · user acceptance · 04.8 · David: "Accepted all 3, unless we can ACTUALLY refine and improve their accuracy". This covers the three concrete review-packet items, including batched fact/Hunter mechanics review. Interpretation: current evidence-bounded results accepted; pursue only affirmative accuracy improvements, preserve unsupported unknowns. Owner audit found no exact summon link for 13 ownerless engineering guardian actor/fight cases; no runtime correction supported. Domain clarification: "Correct, vanquished tentacle, battle chicken, dragonlings, all can be part of the hunters toolkit". Attribution is still individual-source evidence, not toolkit eligibility. Closing peer/Hindsight checkpoint follows; final §8 signoff not implied.

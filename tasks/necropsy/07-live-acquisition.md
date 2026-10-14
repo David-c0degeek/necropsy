@@ -95,9 +95,10 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
       public PKCE client and replace confidential-client auth.
       `DEFERRED — see manual-actions`: never ticked in Milestone A; does not
       block closing this subject (§5 Done rule); remains an open blocker for
-      any distribution.
+      any distribution. Carried forward to Distribution 01.3 (public-client registration)
+      and 02/03 (PKCE/acquisition); see D049. Never tick this deferred box.
 
-- [ ] **07.11** (product-owner) Accept or reject the proposed personal-use live
+- [x] **07.11** (product-owner) Accept or reject the proposed personal-use live
       acceptance boundary: exit-4 output with all requested bosses/minimum samples
       and explicit unknown pet ownership, rather than requiring complete pet
       coverage. Concrete evidence/questions in `review-packet.md`; D046.
@@ -115,8 +116,8 @@ resumable cache and snapshot v1, then reuse the offline pipeline unchanged.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded (2026-10-14, after requested peer review)
+- [x] Verdict is `CLOSE` — 07.10 remains unticked DEFERRED under the explicit master §5 Done rule.
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
@@ -206,3 +207,39 @@ artifact verification are complete; coverage is still partial. Current mechanics
 review and final plan signoff remain independent human actions.
 
 Latest independent replay at 0224f91: 229 passed / 4 expected failures / 823 deselected in 270.13 s, exit 0. Build passed; plan/human mirrors/relative links verified. Final record/plan peer review pending.
+
+2026-10-14 · user acceptance · 07.11 · David: "Accepted all 3, unless we can ACTUALLY refine and improve their accuracy". This covers the three concrete review-packet items, including batched fact/Hunter mechanics review. Interpretation: current evidence-bounded results accepted; pursue only affirmative accuracy improvements, preserve unsupported unknowns. Owner audit found no exact summon link for 13 ownerless engineering guardian actor/fight cases; no runtime correction supported. Domain clarification: "Correct, vanquished tentacle, battle chicken, dragonlings, all can be part of the hunters toolkit". Attribution is still individual-source evidence, not toolkit eligibility. Closing peer/Hindsight checkpoint follows; final §8 signoff not implied.
+
+
+### Final Captain Hindsight — Live acquisition (2026-10-14)
+
+**Keep:** Verified user-endpoint acquisition, exact actor/faction selection and
+revision-bound immutable generations; one observed bounded reset wait; original
+exit-4 receipt/snapshot and reproducible offline output. Partial guardian ownership
+remains explicit. The earlier live close-out preparation records the actual
+endpoint/wait/generation evidence in detail. No runtime or computed output changed.
+
+**Fix before closing:** None in this subject after David's three accepted decisions
+and the bounded source audit. Final §8 acceptance is a separate whole-plan action.
+
+**Record:** David's acceptance and conditional accuracy request are verbatim in the
+subject/decision/manual records. Historical Sapphiron exclusion is now explicitly
+domain-sme attributed. Toolkit clarification and 13 ownerless guardian instances
+with zero exact summon-owner links are recorded; all longer/source-limited horizons
+remain qualified. Peer AGREE round1 preceded this closing review; its PKCE-box
+premise is resolved by the master plan's existing explicit §5 deferred-human rule.
+
+**Risk:** The observed run proves this Windows/user-endpoint workflow, not future
+WCL availability, other real credential stores or complete guardian ownership.
+Pre-pull/other-player evidence is unavailable, and cross-period API cost remains
+unknown. Future distribution is still blocked by unticked DEFERRED 07.10,
+carried to the Distribution plan; no shared secret or public release approved.
+
+**Verdict:** CLOSE this subject under the current master §5 Done rule. All required
+agent and non-deferred human boxes resolved. Latest runtime clean-clone golden/
+acceptance replay: 229 passed with 4 explicit xfails; current fact-attribution
+checks: 11 passed; observed live receipt/artifact checks and both-OS CI verified.
+Closing records receive final peer review and a pushed checkpoint before considered
+complete. No final §8 approval or plan deletion/archival inferred.
+
+2026-10-14 · final closing record · all non-deferred boxes resolved, requested peer review preceded Hindsight CLOSE; final-record review/pushed checkpoint follows. Main plan §8 remains the user's separate sign-off.

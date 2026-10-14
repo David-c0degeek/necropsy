@@ -65,7 +65,7 @@ to report rendering.
 - [x] **05.6** (agent) Golden: Haplina historical-mode recommendations match the
       definitive playbook's per-boss conclusions (spec, DMF, pet, weave matrix,
       RF timing, KT assignment, Gothik padding) as structured facts, not prose.
-- [ ] **05.7** (domain-sme) Review weave matrix and per-boss recommendations vs
+- [x] **05.7** (domain-sme) Review weave matrix and per-boss recommendations vs
       the definitive playbook; adjudicate differences.
 
 ## Hindsight checkpoint
@@ -82,7 +82,7 @@ to report rendering.
 > and rerun this checkpoint after the fixes.
 
 - [x] Captain Hindsight review recorded (2026-10-13, agent boxes 05.1–05.6)
-- [ ] Verdict is `CLOSE` — agent work CLOSE; subject stays open until 05.7 is adjudicated
+- [x] Verdict is `CLOSE` — final domain review accepted on 2026-10-14; final plan §8 remains separate.
 
 **Captain Hindsight — 05 agent boxes (2026-10-13)**
 
@@ -114,3 +114,36 @@ to report rendering.
 2026-10-13 · slice 3 · 05.2, 05.4, 05.5 · round-2 follow-up: padding confidence carries membership and links cohort target evidence; docs state the JSON Schema/pydantic validation difference · navigator AGREE round 2 · commit 3c98b0e pushed; CI run 38363722668 success; Hindsight CLOSE for agent boxes
 2026-10-13 · slice 4 · 05.2–05.5, 05.7 · user review decisions: weave per target role (D029), start trash (D030), Tauren-only fill (D031), raid speed v2 with both comparisons (D032), ranked damage by target (D033); probe evidence/05-gothik-and-parse-targets.{py,txt}; navigator DESIGN_AGREED after one challenge · ruff, mypy strict, fast + golden suites · awaiting review
 2026-10-13 · slice 5 · 05.2–05.5 · review round 1 fixes (game-ID-only exclusions, NPC-only Raptor roles, stable NPC identity with aliases and player/pet category rows, COMPLETE zero shares with n_unknown, phase claim removed) · navigator AGREE round 2 · commit 636eb52 pushed; CI run 38371784179 success
+
+2026-10-14 · user acceptance · 05.7 · David: "Accepted all 3, unless we can ACTUALLY refine and improve their accuracy". This covers the three concrete review-packet items, including batched fact/Hunter mechanics review. Interpretation: current evidence-bounded results accepted; pursue only affirmative accuracy improvements, preserve unsupported unknowns. Owner audit found no exact summon link for 13 ownerless engineering guardian actor/fight cases; no runtime correction supported. Domain clarification: "Correct, vanquished tentacle, battle chicken, dragonlings, all can be part of the hunters toolkit". Attribution is still individual-source evidence, not toolkit eligibility. Closing peer/Hindsight checkpoint follows; final §8 signoff not implied.
+
+
+### Final Captain Hindsight — Hunter encounter recommendations (2026-10-14)
+
+**Keep:** Source-graded observations, explicit unknowns and fixed comparison
+scope; no forced oracle matching or guessed guardian ownership. Detailed evidence
+and additive simple guidance remain. Existing data and computed outputs unchanged.
+
+**Fix before closing:** None in this subject after David's three accepted decisions
+and the bounded source audit. Final §8 acceptance is a separate whole-plan action.
+
+**Record:** David's acceptance and conditional accuracy request are verbatim in the
+subject/decision/manual records. Historical Sapphiron exclusion is now explicitly
+domain-sme attributed. Toolkit clarification and 13 ownerless guardian instances
+with zero exact summon-owner links are recorded; all longer/source-limited horizons
+remain qualified. Peer AGREE round1 preceded this closing review; its PKCE-box
+premise is resolved by the master plan's existing explicit §5 deferred-human rule.
+
+**Risk:** Mechanics guidance remains evidence-bounded, not proof of optimality.
+Unknown race, pet ownership, tiny historical samples and unavailable raid-wide
+signals remain. Future distribution is still blocked by unticked DEFERRED 07.10,
+carried to the Distribution plan; no shared secret or public release approved.
+
+**Verdict:** CLOSE this subject under the current master §5 Done rule. All required
+agent and non-deferred human boxes resolved. Latest runtime clean-clone golden/
+acceptance replay: 229 passed with 4 explicit xfails; current fact-attribution
+checks: 11 passed; observed live receipt/artifact checks and both-OS CI verified.
+Closing records receive final peer review and a pushed checkpoint before considered
+complete. No final §8 approval or plan deletion/archival inferred.
+
+2026-10-14 · final closing record · all non-deferred boxes resolved, requested peer review preceded Hindsight CLOSE; final-record review/pushed checkpoint follows. Main plan §8 remains the user's separate sign-off.

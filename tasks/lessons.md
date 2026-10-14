@@ -68,3 +68,5 @@
 - After a long/manual verification run, reconcile its actual receipt with both planning records and user-facing docs. A valid partial artifact proves execution, not complete coverage or product acceptance; mirror acceptance decisions explicitly and retain original evidence.
 
 - After the final typed output-model change, regenerate the committed schema and run its exact currency check. Earlier broad test results cannot cover a later contract edit; CI caught this omission before final verification.
+
+- Engineering/trinket guardians (including Battle Chickens, dragonlings and vanquished tentacles) may belong to Hunters. Toolkit eligibility, NPC name or temporal proximity never proves which player owns an actor; use exact same-report/fight ownership evidence and preserve unknowns when it is missing.
