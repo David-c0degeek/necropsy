@@ -6,12 +6,15 @@
 {% block main %}
 <section id="overview" class="hero">
   <h1 tabindex="-1">{{ doc.character }} · Druid {{ page|title }}</h1>
-  <p>{{ doc.realm }} · {{ doc.zone }} · {{ doc.mode }} · {{ doc.scope }}</p>
+  <p>{{ doc.realm }} · {{ doc.zone }} · {{ doc.mode }} · {{ doc.navigation|length }} analyzed encounters</p>
   <p>Build, WCL ranking category and observed encounter duties are separate. Each finding retains its evidence and limits.</p>
   <p><a href="analysis.json">Full analysis JSON</a> · <a href="{{ 'report.html' if page == 'playbook' else 'playbook.html' }}">{{ 'Full report' if page == 'playbook' else 'Practice playbook' }}</a></p>
   <details><summary>Coverage and acquisition limits</summary>
   <dl class="kv">{% for label, value in doc.coverage %}<dt>{{ label }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>
   {% for limit in doc.limitations %}<p class="muted">{{ limit }}</p>{% endfor %}
+  {% if doc.class_document.get('acquisition') %}
+  <div class="table-wrap"><table><thead><tr><th>Requested encounter</th><th>Attempted</th><th>Deep samples</th><th>Coverage</th></tr></thead><tbody>{% for record in doc.class_document.acquisition.bosses %}{% set coverage = record.get('coverage') or {} %}<tr><th>{{ record.boss }}</th><td>{{ record.get('attempted', true) }}</td><td>{{ coverage.get('usable_deep', 'Unknown') }}</td><td>{{ 'Complete' if coverage.get('complete') else 'Partial / not acquired' }}</td></tr>{% endfor %}</tbody></table></div>
+  {% endif %}
   </details>
 </section>
 <section id="truth-model" class="notice">
@@ -26,9 +29,10 @@
   <h2 tabindex="-1">{{ boss.boss }}</h2>
   {% if not boss.subject %}<p>No acquired fight for this character.</p>{% else %}
   {% set s = boss.subject %}{% set d = s.druid %}
+  <p><a href="https://vanilla.warcraftlogs.com/reports/{{ s.report_code }}#fight={{ s.fight_id }}" rel="noreferrer">Source report {{ s.report_code }} / fight {{ s.fight_id }}</a> · source opens online when followed</p>
   <div class="quick-plan">
     <h3>Your practice notes</h3>
-    <dl class="kv"><dt>Observed duty</dt><dd>{{ ev(d.role) }}</dd><dt>Build</dt><dd>{{ ev(d.build) }}</dd><dt>WCL category</dt><dd>{{ ev(d.ranking_category) }}</dd><dt>Fight duration</dt><dd>{{ s.kill_duration_s }} s</dd><dt>Assignment</dt><dd>{{ ev(d.assignment) }}</dd></dl>
+    <dl class="kv"><dt>Inferred encounter duty</dt><dd>{{ ev(d.role) }}</dd><dt>Build</dt><dd>{{ ev(d.build) }}</dd><dt>WCL category</dt><dd>{{ ev(d.ranking_category) }}</dd><dt>Fight duration</dt><dd>{{ s.kill_duration_s }} s</dd><dt>Assignment</dt><dd>{{ ev(d.assignment) }}</dd></dl>
     {% if d.override %}<p>User override: <strong>{{ d.override.role }}</strong> · {{ d.override.reason }}. Observed evidence above is retained; override excluded from aggregate comparisons.</p>{% endif %}
     <p>{{ boss.playbook.guidance }}</p>
     <p>{% for e in d.opener %}{{ ' → ' if not loop.first else '' }}{{ e.t_s }}s {{ e.name or e.ability_id }}{% else %}No recorded opener casts; this does not establish absence without complete coverage.{% endfor %}</p>

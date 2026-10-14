@@ -17,7 +17,7 @@ absence. Source archives and derived outputs remain separate.
 |---|---|---|
 | Balance | Haplina, `WzGF9BjdrHCk8N1X/36` | 40 balance casts; build 37/0/14; event damage 68,395 / 127.776 s = 535.272665 DPS; two exact-build samples leave the median unknown |
 | Restoration | Haplina, `D98c7ZTvA1VRKXMW/33` | Effective healing 43,558 / 128.418 s = 339.189210 HPS; missing overheal remains unknown |
-| Feral | Stinkface, public Feral category | Saved production acquisition and report; exact source/facts are recorded with frozen fixture provenance |
+| Feral | Stinkface, `maHpk8K4hvLQzFRf/35` | 166,047 actor damage over 108.1 s; feral duty inferred from recorded attacks, separately from the ranking category |
 | Tank category | Suncat, `YhxTZy3BDQN7nkcV/34` | Cat and bear attacks, no incoming damage: category alone does not prove tank duty |
 | Tank duty | Harryjam, `vmfnP98zbcVNQpGh/67`, acquired Guardian cohort | 77 Maul + 67 Swipe (Bear), 211,627 incoming damage and 204,209 healing received; missing form aura interval does not become zero tank activity |
 
