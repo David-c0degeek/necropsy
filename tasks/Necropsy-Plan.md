@@ -1,5 +1,8 @@
 # Necropsy-Plan.md — Milestone A: Headless Hunter/Naxx Forensics
 
+> **Status: CLOSED — personal-use milestone approved by David on 2026-10-14.**
+> Retained for traceability; archival/deletion remains human-owned.
+
 > **Disposable.** The plan and its `tasks/necropsy/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
 > archiving the folder is human-owned and happens only after §8 sign-off; the
@@ -507,12 +510,13 @@ closing gates resolve. Plan archival/deletion remains human-owned after sign-off
 
 | Date | Reviewer | Result | Notes |
 |---|---|---|---|
-| | | | |
+| 2026-10-14 | David (product-owner / domain-sme) | APPROVED — personal-use Milestone A | Explicit reply: "approved" to final personal Hunter/Naxxramas sign-off. Mechanics, historical Sapphiron exclusion and partial-live scope previously accepted. Accuracy audit and reviewed engineering gates complete; source unknowns retained. PKCE remains an open application-distribution blocker. |
 
 ### Sign-off scope and open distribution boundary
 
-Final user signature is pending. The three domain/partial-live decisions were
-accepted on 2026-10-14; they are recorded separately from this final signature.
+Final user sign-off was explicitly approved on 2026-10-14 (reply: "approved").
+The three domain/partial-live decisions were accepted earlier that day and are
+recorded separately from this final signature.
 Acceptance is for personal Classic Era Hunter/Naxxramas use with explicit unknown
 race/guardian ownership and recorded partial coverage, not universal accuracy.
 Engineering/trinket guardians remain eligible Hunter tools; missing individual
@@ -596,3 +600,31 @@ limits; all engineering gates and published checkpoint; future implementation pl
 samples and future server/platform drift remain explicit; PKCE distribution blocked.
 **Verdict:** CLOSE the engineering gate; DO NOT CLOSE/archive the whole plan until
 David supplies final §8 sign-off. Packet is handed to the user for that decision.
+
+
+### Final whole-plan Captain Hindsight — after explicit sign-off (2026-10-14)
+
+**Keep:** Immutable original evidence, one analysis pipeline, graded claims,
+explicit source unknowns/partial coverage and independently verified outputs.
+Detailed evidence and simple guidance remain additive; guardian eligibility is
+not ownership. All eight subjects and the engineering gate have reviewed CLOSE.
+
+**Fix before closing:** None in this personal-use milestone. David explicitly
+approved final §8 sign-off after the three domain/partial-live decisions and
+source accuracy audit. Earlier pending verdicts are retained as chronology.
+
+**Record:** Exact final reply "approved", accepted scope and limitations in §8;
+prior source/runtime/artifact verification and Claude engineering reviews;
+scoped PM calibration and promoted durable lessons. Follow-up Distribution and
+ClassExpansion plans are created, not implemented; their subject 00 readiness
+and future human release/domain gates remain TODO.
+
+**Risk:** Personal Classic Era Hunter/Naxxramas scope only; unknown race and
+individual guardian ownership remain; four live bosses retain accepted partial
+coverage. PKCE 07.10 stays unticked DEFERRED and blocks application distribution.
+Other platforms, classes and future WCL drift are not certified by this milestone.
+
+**Verdict:** CLOSE Milestone A for the approved personal-use scope. Final approval
+is explicit, required engineering gates have evidence, and no non-deferred human
+action remains. Retain plans and raw evidence; archival/deletion is human-owned.
+This sign-off record receives scoped Claude review and a pushed checkpoint.

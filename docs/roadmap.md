@@ -26,7 +26,7 @@ are implemented. [Try the sample](getting-started.md).
 
 | Milestone | Intended result | Dependency |
 |---|---|---|
-| A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | CLI and authenticated Windows run verified; domain/product sign-off remains |
+| A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | Personal-use milestone signed off; accepted source/coverage limitations remain |
 | B — Desktop app | Paste a URL, authenticate, choose raid/partition, follow acquisition progress, inspect bosses, export, and open cached analyses | Stable analysis JSON; public-client authentication before distribution |
 | C — Broader classification | Class/spec/role taxonomy and build clusters; Druid and Warrior role resolution with confidence and overrides | Milestone A shipped |
 | D — More class plugins | Druid, Warrior, Rogue, Mage, Warlock, then healers | Classification foundation |
@@ -44,7 +44,8 @@ The next implementation scopes are public-client PKCE with an installable local
 CLI, followed by class-aware analysis with Druid first: feral DPS, balance DPS,
 restoration healing, feral tanking and hybrid/mixed encounter duties. Role-specific
 comparisons and preserved Hunter compatibility are required. These scopes are
-planned, not implemented; they do not imply the desktop UI is available.
+planned, not implemented; the personal Hunter/Naxxramas milestone is signed off.
+They do not imply the desktop UI or broader class support is available.
 
 ## Authentication and distribution
 

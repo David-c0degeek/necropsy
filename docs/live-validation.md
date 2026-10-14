@@ -35,8 +35,9 @@ These results establish this run's authentication, acquisition and output behavi
 They do not establish game-mechanics correctness, full pet coverage, product
 acceptance or distribution readiness. On 2026-10-14 the domain reviewer accepted
 the mechanics, historical Sapphiron exclusion and documented partial-live scope
-for personal use, conditional on supported accuracy improvements. Final milestone
-sign-off remains separate. Pattern scans with no findings do not prove
+for personal use, conditional on supported accuracy improvements. Final personal-use
+milestone sign-off was explicitly approved later that day after the accuracy audit
+and engineering close-out. Application distribution remains gated on PKCE. Pattern scans with no findings do not prove
 that every possible secret is absent.
 
 A saved-source accuracy audit found no exact summon-owner mapping for the ownerless
