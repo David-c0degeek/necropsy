@@ -132,3 +132,8 @@ metadata-only entries do not contribute to event medians. A median still needs
 three known values. Raw leaderboard positions remain overall positions, and
 overall rank one is unknown if its fight is absent. Missing pet discovery remains
 unknown rather than establishing that no pet participated.
+
+Acquisition entries can carry a `bundle_generation` digest identifying the cached
+report used to verify that entry. Live snapshot report sets can carry an optional
+`cache_sha256` for the exact endpoint/fight-set/content record. These additions do
+not change the analysis schema version or prevent replay of older v1 archives.

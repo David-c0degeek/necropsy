@@ -1,12 +1,12 @@
 """Immutable on-disk cache of Warcraft Logs report data, safe to resume.
 
-Library only for now: callers pass an explicit cache directory; no CLI uses it yet.
+Callers, including the analyze CLI, pass an explicit cache directory.
 
 Layout under the root (format version in `cache-format.json`):
 
-    <family>/<reportCode>/r<revision>/fight_<id>/report.json
-    <family>/<reportCode>/r<revision>/fight_<id>/<role>_<actorId>_<direction>/page_NNN.json
-    <family>/<reportCode>/r<revision>/fight_<id>/<role>_<actorId>_<direction>/stream.json
+    <family>/<reportCode>/r<revision>/fight_<id>/report_<endpoint>_<sha256>.json
+    <family>/<reportCode>/r<revision>/fight_<id>/<endpoint>_<role>_<actorId>_<direction>/page_NNN.json
+    <family>/<reportCode>/r<revision>/fight_<id>/<endpoint>_<role>_<actorId>_<direction>/stream.json
 
 Guarantees, and their limits:
 
@@ -49,7 +49,7 @@ from typing import Any
 
 from necropsy.wcl.sites import SITES, Site
 
-CACHE_FORMAT = 1
+CACHE_FORMAT = 2
 _CODE = re.compile(r"[A-Za-z0-9]{1,32}")
 _ROLES = frozenset({"player", "pet"})
 _DIRECTIONS = frozenset({"source", "target"})
@@ -131,6 +131,7 @@ class StreamKey:
     role: str
     actor_id: int
     direction: str
+    endpoint: str = "client"
 
     def __post_init__(self) -> None:
         if self.role not in _ROLES:
@@ -138,10 +139,11 @@ class StreamKey:
         if self.direction not in _DIRECTIONS:
             raise UnsafeKey(f"direction {self.direction!r} is not source or target")
         _positive(self.actor_id, "actor id")
+        _endpoint(self.endpoint)
 
     @property
     def name(self) -> str:
-        return f"{self.role}_{self.actor_id}_{self.direction}"
+        return f"{self.endpoint}_{self.role}_{self.actor_id}_{self.direction}"
 
 
 def _is_link(path: Path) -> bool:
@@ -274,6 +276,20 @@ def item_lock(path: Path) -> Iterator[None]:
 # -- stream requests and pages ------------------------------------------------
 
 ENDPOINTS = frozenset({"client", "user"})
+
+
+def _endpoint(value: Any) -> str:
+    if not isinstance(value, str) or value not in ENDPOINTS:
+        raise UnsafeKey(f"endpoint {value!r} is not client or user")
+    return value
+
+
+def _digest(value: str) -> str:
+    if not isinstance(value, str) or re.fullmatch(r"[0-9a-f]{64}", value) is None:
+        raise UnsafeKey("a generation digest must be a full lowercase SHA-256")
+    return value
+
+
 IDENTITY_FIELDS: dict[str, type | tuple[type, ...]] = {
     "site": str,
     "code": str,
@@ -322,6 +338,7 @@ def check_identity(key: StreamKey, identity: Mapping[str, Any]) -> dict[str, Any
         "actor_id": key.actor_id,
         "role": key.role,
         "direction": key.direction,
+        "endpoint": key.endpoint,
     }
     for name, value in expected.items():
         if found[name] != value:
@@ -407,7 +424,10 @@ class Cache:
                 self.root / "cache-format.json", canonical_bytes({"cache_format": CACHE_FORMAT})
             )
         except CacheConflict:
-            raise CacheError(f"{root} holds a cache of another format") from None
+            raise CacheError(
+                f"{root} holds a cache of another format; use a new cache directory "
+                "and keep the existing cache unchanged"
+            ) from None
 
     def _fight_dir(self, key: FightKey, create: bool) -> Path:
         return _contained(self.root, *key.parts, create=create)
@@ -415,30 +435,75 @@ class Cache:
     # -- report bundles -------------------------------------------------------
 
     def put_bundle(self, key: FightKey, bundle: Mapping[str, Any]) -> str:
+        """Publish a report generation; return its full content digest, never a latest pointer."""
+        endpoint = _endpoint(bundle.get("endpoint"))
+        report = bundle.get("report")
+        if not isinstance(report, dict):
+            raise UnsafeKey("a bundle must contain a report object")
+        self._bound_report(key, report, (key.fight,))
+        data = canonical_bytes(bundle)
+        digest = hashlib.sha256(data).hexdigest()
         folder = self._fight_dir(key, create=True)
         with item_lock(folder / ".report.lock"):
-            return publish(folder / "report.json", canonical_bytes(bundle))
+            publish(folder / f"report_{endpoint}_{digest}.json", data)
+        return digest
 
-    def get_bundle(self, key: FightKey) -> dict[str, Any] | None:
-        path = self._fight_dir(key, create=False) / "report.json"
+    def get_bundle(self, key: FightKey, endpoint: str, digest: str) -> dict[str, Any] | None:
+        endpoint, digest = _endpoint(endpoint), _digest(digest)
+        path = self._fight_dir(key, create=False) / f"report_{endpoint}_{digest}.json"
         if not _present(path):
             return None
-        value = json.loads(_read(path))
+        value = self._generation(path, digest)
+        if value.get("endpoint") != endpoint or not isinstance(value.get("report"), dict):
+            raise CacheCorrupt(f"{path.name} is not the requested bundle")
+        self._bound_report(key, value["report"], (key.fight,))
+        return value
+
+    @staticmethod
+    def _bound_report(key: FightKey, report: Mapping[str, Any], ids: tuple[int, ...]) -> None:
+        if (
+            report.get("code") != key.code
+            or type(report.get("revision")) is not int
+            or report.get("revision") != key.revision
+        ):
+            raise CacheCorrupt("report generation does not match its code/revision key")
+        fights = report.get("fights")
+        if not isinstance(fights, list) or any(
+            not isinstance(f, dict) or type(f.get("id")) is not int for f in fights
+        ):
+            raise CacheCorrupt("report generation has no typed fight set")
+        found = [f["id"] for f in fights]
+        if len(found) != len(set(found)) or sorted(found) != list(ids):
+            raise CacheCorrupt("report generation does not match its fight set")
+
+    def _generation(self, path: Path, digest: str) -> dict[str, Any]:
+        data = _read(path)
+        if hashlib.sha256(data).hexdigest() != digest:
+            raise CacheCorrupt(f"{path.name} differs from its generation digest")
+        try:
+            value = json.loads(data)
+        except ValueError:
+            raise CacheCorrupt(f"{path.name} is not valid JSON") from None
         if not isinstance(value, dict):
-            raise CacheCorrupt(f"{path} is not a report object")
+            raise CacheCorrupt(f"{path.name} is not an object")
         return value
 
     # -- combined report sets ---------------------------------------------------
 
-    def _report_set_path(self, key: FightKey, fight_ids: tuple[int, ...]) -> Path:
+    def _report_set_path(
+        self, key: FightKey, fight_ids: tuple[int, ...], endpoint: str, digest: str
+    ) -> Path:
+        endpoint, digest = _endpoint(endpoint), _digest(digest)
         ids = tuple(sorted(set(fight_ids)))
         if not ids or ids != tuple(fight_ids):
             raise UnsafeKey("fight ids must be a non-empty, sorted, duplicate-free tuple")
         for fid in ids:
             _positive(fid, "fight id")
-        digest = hashlib.sha256(",".join(str(i) for i in ids).encode()).hexdigest()
+        if key.fight not in ids:
+            raise UnsafeKey("the locating fight is not in the report set")
         folder = _contained(self.root, *key.parts[:3], create=True)
-        return folder / f"report_set_{digest}.json"
+        # The full record digest also covers the fight set. No second hash is needed.
+        return folder / f"report_set_{endpoint}_{digest}.json"
 
     def put_report_set(
         self, key: FightKey, fight_ids: tuple[int, ...], endpoint: str, report: Mapping[str, Any]
@@ -449,22 +514,29 @@ class Cache:
         """
         if key.fight not in fight_ids:
             raise UnsafeKey("the locating fight is not in the report set")
-        path = self._report_set_path(key, fight_ids)
+        self._bound_report(key, report, fight_ids)
         record = {"fight_ids": list(fight_ids), "endpoint": endpoint, "report": dict(report)}
+        data = canonical_bytes(record)
+        digest = hashlib.sha256(data).hexdigest()
+        path = self._report_set_path(key, fight_ids, endpoint, digest)
         with item_lock(path.with_name(f".{path.stem}.lock")):
-            return publish(path, canonical_bytes(record))
+            publish(path, data)
+        return digest
 
-    def get_report_set(self, key: FightKey, fight_ids: tuple[int, ...]) -> dict[str, Any] | None:
+    def get_report_set(
+        self, key: FightKey, fight_ids: tuple[int, ...], endpoint: str, digest: str
+    ) -> dict[str, Any] | None:
         """The combined report for exactly this fight set, or None when not cached."""
-        path = self._report_set_path(key, fight_ids)
+        path = self._report_set_path(key, fight_ids, endpoint, digest)
         if not _present(path):
             return None
-        record = json.loads(_read(path))
-        if not isinstance(record, dict) or record.get("fight_ids") != list(fight_ids):
+        record = self._generation(path, digest)
+        if record.get("fight_ids") != list(fight_ids) or record.get("endpoint") != endpoint:
             raise CacheCorrupt(f"{path.name} is not the report set for {list(fight_ids)}")
         report = record.get("report")
         if not isinstance(report, dict):
             raise CacheCorrupt(f"{path.name} has no report object")
+        self._bound_report(key, report, fight_ids)
         return record
 
     # -- event streams ----------------------------------------------------------

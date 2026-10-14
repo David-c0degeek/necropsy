@@ -38,7 +38,14 @@ from necropsy.snapshot.archive import (
 )
 from necropsy.snapshot.model import SnapshotError
 from necropsy.snapshot.v1 import FORMAT_VERSION, KIND, MARKER, V1Snapshot
-from necropsy.wcl.acquire import Acquisition, BossAcquisition, Entry
+from necropsy.wcl.acquire import (
+    Acquisition,
+    BossAcquisition,
+    Entry,
+    faction_verdict,
+    fight_pets,
+    player_actor,
+)
 from necropsy.wcl.cache import Cache, StreamKey, canonical_bytes, is_link, item_lock, publish
 from necropsy.wcl.context import SUPPORTED_ZONE_ID
 
@@ -121,6 +128,14 @@ def _coverage_entry(e: Entry | None) -> dict[str, Any] | None:
         "pets": e.pets,
         "pets_reason": e.pets_reason,
         "generations": e.generations,
+        "bundle_generation": None
+        if e.bundle_key is None or e.bundle_sha256 is None
+        else {
+            "sha256": e.bundle_sha256,
+            "report": e.bundle_key.code,
+            "fight": e.bundle_key.fight,
+            "revision": e.bundle_key.revision,
+        },
         "verdict": None
         if e.verdict is None
         else {
@@ -204,7 +219,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
     if codes != set(acquisition.reports):
         raise WriteError("combined reports are missing; finalize the acquisition first")
     for code, rset in sorted(acquisition.reports.items()):
-        cached = store.get_report_set(rset.key, rset.fight_ids)
+        cached = store.get_report_set(rset.key, rset.fight_ids, rset.endpoint, rset.sha256)
         if cached is None or cached["report"] != rset.report:
             raise WriteError(f"the combined report {code} is not the cached one")
         members[f"reports/{code}/bundle.json"] = (
@@ -212,8 +227,31 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             EntryOrigin.GENERATED,
         )
     for boss, e in complete:
-        if boss.key is None or e.bundle_key is None or e.actor_id is None:
+        if (
+            boss.key is None
+            or e.bundle_key is None
+            or e.bundle_sha256 is None
+            or e.actor_id is None
+        ):
             raise WriteError(f"entry {e.name} has no key")
+        original = store.get_bundle(e.bundle_key, acquisition.endpoint, e.bundle_sha256)
+        if original is None:
+            raise WriteError(f"entry {e.name}'s exact report generation is missing")
+        # Refuse a generation reference that no longer describes this verified entry.
+        source_report = original["report"]
+        if player_actor(source_report, e.name, e.server)[0] != e.actor_id:
+            raise WriteError(f"entry {e.name}'s report generation has another actor")
+        source_fight = next(
+            (f for f in source_report.get("fights") or [] if f.get("id") == e.fight_id), None
+        )
+        if (
+            source_report.get("revision") != e.bundle_key.revision
+            or source_fight is None
+            or source_fight.get("encounterID") != boss.encounter_id
+            or fight_pets(source_report, source_fight, e.actor_id)[0] != e.pets
+            or faction_verdict(source_report, e.actor_id) != e.verdict
+        ):
+            raise WriteError(f"entry {e.name}'s report generation differs from its evidence")
         _check_binding(acquisition, boss, e)
         rset = acquisition.reports[e.report_code]
         if e.bundle_key.revision != rset.key.revision or e.fight_id not in rset.fight_ids:
@@ -253,7 +291,13 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                     raise WriteError(f"stream {stream_key} has two different identities")
                 continue
             pages = store.page_bytes(
-                StreamKey(e.bundle_key, record.role, record.actor_id, record.direction),
+                StreamKey(
+                    e.bundle_key,
+                    record.role,
+                    record.actor_id,
+                    record.direction,
+                    acquisition.endpoint,
+                ),
                 record.identity,
             )
             digests = []
@@ -380,6 +424,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                 "fight_ids": list(rset.fight_ids),
                 "endpoint": rset.endpoint,
                 "sha256": hashlib.sha256(canonical_bytes(rset.report)).hexdigest(),
+                "cache_sha256": rset.sha256,
             }
             for code, rset in sorted(acquisition.reports.items())
         ],

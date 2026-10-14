@@ -18,9 +18,10 @@ import pytest
 
 from necropsy.analysis.evidence import Faction
 from necropsy.wcl import client as c
-from necropsy.wcl.acquire import acquire, fight_pets, pick_subject
+from necropsy.wcl.acquire import Run, acquire, fight_pets, finalize_reports, pick_subject
 from necropsy.wcl.cache import Cache
 from necropsy.wcl.context import SUPPORTED_ZONE_ID, CharacterContext, Field, Partition
+from necropsy.wcl.fetch import ReportInaccessible
 from necropsy.wcl.sites import VANILLA
 from tests.wcl_fakes import FakeClock
 
@@ -269,6 +270,70 @@ def _run_with(tmp_path: Path, handler: Any, **kw: Any) -> Any:
 
 def _cohort(n: int, **over: Any) -> list[Player]:
     return [Player(f"Ally{i}", **over) for i in range(1, n + 1)]
+
+
+def _archive_answer() -> httpx.Response:
+    return httpx.Response(
+        200,
+        json={
+            "data": {"reportData": {"report": None}, "rateLimitData": _rate()},
+            "errors": [{"message": "This report has been archived. Subscriber access required."}],
+        },
+    )
+
+
+def test_archived_stream_entry_is_replaced_from_later_candidates(tmp_path: Path) -> None:
+    fake = FakeWcl(_cohort(30), Player("Haplina"))
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        body = json.loads(request.content)
+        if "NecropsyEvents" in body["query"] and body["variables"]["code"] == "RAlly1":
+            return _archive_answer()
+        return fake(request)
+
+    result = _run_with(tmp_path, handler)
+    boss = result.bosses[0]
+    complete = [e.name for e in boss.cohort if e.status == "complete"]
+    assert complete == [f"Ally{i}" for i in range(2, 7)]
+    assert any(d.candidate.name == "Ally1" and "archived" in d.reason for d in boss.dropped)
+
+
+def test_combined_reports_finalize_fresh_and_archive_errors_are_typed(tmp_path: Path) -> None:
+    fake = FakeWcl(_cohort(5), Player("Haplina"))
+    state = {"title": "first", "archived": False}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        body = json.loads(request.content)
+        if "NecropsyReport" in body["query"]:
+            if state["archived"]:
+                return _archive_answer()
+            response = fake(request)
+            payload = response.json()
+            payload["data"]["reportData"]["report"]["title"] = state["title"]
+            return httpx.Response(200, json=payload)
+        return fake(request)
+
+    client = c.WclClient(
+        VANILLA,
+        lambda e: "synthetic-token",
+        transport=httpx.MockTransport(handler),
+        clock=FakeClock(),
+        rng=random.Random(0),
+    )
+    client.last_rate = c.RateLimit(36000, 10.0, 1800)
+    store = Cache(tmp_path)
+    acquisition = acquire(client, store, VANILLA, _context(), encounters=(PATCHWERK,))
+    first = finalize_reports(Run(client, store, VANILLA), acquisition)
+    state["title"] = "later metadata, same revision"
+    second = finalize_reports(Run(client, store, VANILLA), acquisition)
+    assert set(first) == set(second)
+    for code, old in first.items():
+        new = second[code]
+        assert old.sha256 != new.sha256
+        assert store.get_report_set(old.key, old.fight_ids, old.endpoint, old.sha256) is not None
+    state["archived"] = True
+    with pytest.raises(ReportInaccessible, match="archived"):
+        finalize_reports(Run(client, store, VANILLA), acquisition)
 
 
 def _ops(fake: FakeWcl, name: str) -> int:
@@ -523,8 +588,8 @@ def test_drift_after_completed_streams_discards_the_old_generation(tmp_path: Pat
     assert first.actor_id == 15 and first.pets == [17]
     assert {(s.actor_id, s.identity["revision"]) for s in first.streams} == {(15, 5), (17, 5)}
     old = tmp_path / "vanilla" / "RAlly1" / "r4" / "fight_3"
-    assert (old / "player_5_source" / "stream.json").exists()
-    assert (old / "player_5_target" / "stream.json").exists()
+    assert (old / "client_player_5_source" / "stream.json").exists()
+    assert (old / "client_player_5_target" / "stream.json").exists()
 
 
 @pytest.mark.golden

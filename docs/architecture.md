@@ -67,12 +67,19 @@ accounting period; they may include other activity. Unknown cost stays unknown.
 ## Raw evidence, integrity and derived state
 
 The cache stores API data by site family, report code, revision and fight, with
-separate actor/direction streams. Canonical request identities include endpoint,
+separate endpoint/actor/direction streams. Canonical request identities include endpoint,
 bounds, filters and query version. Pages and markers publish without replacing
 existing data. OS advisory locks release when a process dies; stream completion
 requires verified pages and an explicit null terminal cursor. Reads recheck
 identity, page hashes and pagination. Durability is limited by the filesystem's
 fsync and hard-link support; unsupported publication fails explicitly.
+
+Format 2 report bundles and combined report sets use full content-digest
+generations per endpoint. Metadata can change at the same report revision, so
+each run fetches a fresh combined report and binds its exact generation. Local
+event-cache reuse preserves recorded fetch provenance; it does not promise current
+server data. An older cache format requires a new directory, leaving previous
+cache data untouched. Already-written live snapshots remain readable.
 
 Live snapshot v1 reuses the historical report/event/rankings member layout and
 adds a strict `necropsy-snapshot.json` marker. Acquisition finalization fetches one

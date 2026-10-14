@@ -113,6 +113,8 @@ class LiveReportSet(_Strict):
     fight_ids: tuple[int, ...] = Field(min_length=1)
     endpoint: Literal["client", "user"]
     sha256: str
+    cache_sha256: str | None = None
+    """Optional full digest of the exact cached generation (older v1 archives omit it)."""
     """SHA-256 of the canonical acquired report object wrapped in reports/<code>/bundle.json."""
 
 
@@ -194,6 +196,16 @@ class V1Snapshot(V0Snapshot):
         subject_faction = _FACTIONS[live.subject.faction]
         for code, rset in sets.items():
             report = self._bundle(code)
+            if rset.endpoint != live.endpoint:
+                raise SnapshotError(f"report {code} was acquired through another endpoint")
+            if rset.cache_sha256 is not None:
+                record = {
+                    "endpoint": rset.endpoint,
+                    "fight_ids": list(rset.fight_ids),
+                    "report": report,
+                }
+                if hashlib.sha256(canonical_bytes(record)).hexdigest() != rset.cache_sha256:
+                    raise SnapshotError(f"report {code} differs from its cached generation")
             if (
                 canonical_bytes(report)
                 and hashlib.sha256(canonical_bytes(report)).hexdigest() != rset.sha256
@@ -304,7 +316,9 @@ class V1Snapshot(V0Snapshot):
             raise SnapshotError(f"stream {key} has no report set")
         try:
             fight_key = FightKey(VANILLA, code, rset.revision, fight)
-            canon = check_identity(StreamKey(fight_key, role, actor, direction), proof.identity)
+            canon = check_identity(
+                StreamKey(fight_key, role, actor, direction, live.endpoint), proof.identity
+            )
         except CacheError as error:
             raise SnapshotError(f"stream {key} identity is invalid: {error}") from None
         bounds = self._fight(code, fight)

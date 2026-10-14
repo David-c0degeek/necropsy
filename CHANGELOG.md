@@ -9,6 +9,13 @@ implemented in the development checkout; they are not a published release.
 
 ### Changed
 
+- **Acquisition cache format 2.** Endpoint streams coexist, and changing report
+  metadata is stored as full-digest generations rather than conflicting at one
+  revision. Finalization binds a fresh combined report. Older cache directories
+  are refused untouched with instructions to use a new path; saved snapshots
+  remain readable. Archived candidate failures stay visible and can be replaced,
+  while mixed GraphQL errors remain invalid and never trigger endpoint fallback.
+
 - **Definitive playbook layout and content.** Both pages use the requested dark
   reference layout: searchable numbered sidebar, overview and Truth model,
   metric tiles, benchmark context, loadout and execution plans, Do not and Raid

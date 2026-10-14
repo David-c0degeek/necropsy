@@ -1,9 +1,7 @@
 """Fetch one fight's report bundle and event streams into the immutable cache.
 
-Library only for now: acquisition orchestration calls these; no CLI uses them yet.
-
-The query shapes copy the recorded exporter's working queries; they are not yet
-checked against WCL's current schema (that happens in the live end-to-end run).
+Acquisition orchestration and the analyze CLI use these query shapes, initially
+ported from the recorded exporter and checked by the manual live run.
 Every events request also asks for the report's revision, and a page is accepted
 only when it equals the bundle's revision, so pages of a revised report are never
 filed with an older bundle. A stream is complete only on an explicit `null`
@@ -17,13 +15,15 @@ from collections.abc import Iterator, Mapping
 from dataclasses import dataclass
 from typing import Any
 
-from necropsy.wcl.cache import Cache, FightKey, StreamKey, StreamPages
+from necropsy.wcl.cache import Cache, FightKey, StreamKey, StreamPages, valid_report_code
 from necropsy.wcl.client import (
     RATE_FIELDS,
     Endpoint,
     InvalidResponse,
     PageBudgetExhausted,
+    PartialResponse,
     RateLimit,
+    Result,
     WclClient,
     WclError,
 )
@@ -84,6 +84,35 @@ class ReportInaccessible(WclError):
     """WCL returned no report for this code (private, deleted or archived)."""
 
 
+def report_query(
+    client: WclClient, query: str, variables: dict[str, Any], endpoint: Endpoint
+) -> Result:
+    """One report query; WCL's partial answers become typed errors, never a crash.
+
+    An archived report answers with partial data and an "archived" error: its content
+    is readable only through the user endpoint (for subscribers). That is an
+    unreachable report for this run, named as such; any other partial answer is an
+    invalid response.
+    """
+    try:
+        return client.query(query, variables, endpoint=endpoint)
+    except PartialResponse as error:
+        text = str(error)
+        if error.errors and all(
+            isinstance(item, dict)
+            and isinstance(item.get("message"), str)
+            and item["message"].casefold().startswith("this report has been archived.")
+            for item in error.errors
+        ):
+            where = (
+                "it is readable only through the user endpoint (subscribers)"
+                if endpoint == "client"
+                else "the signed-in account cannot read it"
+            )
+            raise ReportInaccessible(f"report archived; {where}", error.rate) from None
+        raise InvalidResponse(f"partial answer: {text}", error.rate) from None
+
+
 class RevisionChanged(WclError):
     """The report's revision changed during the fetch; restart with a fresh bundle."""
 
@@ -106,6 +135,8 @@ class Bundle:
     start: float
     end: float
     endpoint: Endpoint
+    sha256: str
+    """The exact cached report generation, including its endpoint wrapper."""
 
 
 def _report(result_data: Mapping[str, Any], code: str) -> dict[str, Any]:
@@ -128,8 +159,13 @@ def fetch_bundle(
     endpoint: Endpoint = "client",
 ) -> Bundle:
     """Fetch (and publish) the report bundle for one fight, validated before writing."""
+    if not valid_report_code(code):
+        raise ReportInaccessible(
+            "report identifier is unsupported for identity-verified acquisition "
+            "(including anonymized reports); candidate skipped"
+        )
     client.ensure_budget(None)
-    result = client.query(REPORT_QUERY, {"code": code, "fightIDs": [fight_id]}, endpoint=endpoint)
+    result = report_query(client, REPORT_QUERY, {"code": code, "fightIDs": [fight_id]}, endpoint)
     report = _report(result.data, code)
     if report.get("code") != code:
         raise InvalidResponse(f"asked for report {code}, got {report.get('code')!r}")
@@ -150,8 +186,8 @@ def fetch_bundle(
     start, end = _number(fight.get("startTime")), _number(fight.get("endTime"))
     if start is None or end is None or start < 0 or end <= start:
         raise InvalidResponse(f"fight {fight_id} has no valid time bounds")
-    cache.put_bundle(key, {"endpoint": endpoint, "report": report})
-    return Bundle(key, report, fight, start, end, endpoint)
+    digest = cache.put_bundle(key, {"endpoint": endpoint, "report": report})
+    return Bundle(key, report, fight, start, end, endpoint, digest)
 
 
 def stream_identity(bundle: Bundle, role: str, actor_id: int, direction: str) -> dict[str, Any]:
@@ -181,7 +217,8 @@ def _pages(
     start = bundle.start
     for n in range(1, max_pages + 1):
         client.ensure_budget(None)
-        result = client.query(
+        result = report_query(
+            client,
             EVENTS_QUERY,
             {
                 "code": bundle.key.code,
@@ -191,7 +228,7 @@ def _pages(
                 "startTime": start,
                 "endTime": bundle.end,
             },
-            endpoint=bundle.endpoint,
+            bundle.endpoint,
         )
         report = _report(result.data, bundle.key.code)
         revision = _int(report.get("revision"))
@@ -234,7 +271,7 @@ def fetch_stream(
     Any failure (revision change, bad cursor, budget, permission) propagates and
     leaves the stream without a marker, so it is never reported complete.
     """
-    key = StreamKey(bundle.key, role, actor_id, direction)
+    key = StreamKey(bundle.key, role, actor_id, direction, bundle.endpoint)
     identity = stream_identity(bundle, role, actor_id, direction)
     cached = cache.read_stream(key, identity)
     if cached is not None:

@@ -57,6 +57,12 @@ supplied history is an error. If partition resolution needs a choice, resolve th
 URL first and use one of the returned partition IDs. Keep permission failures on
 the selected endpoint; do not treat an endpoint change as a successful retry.
 
+If an older cache format is refused, set `NECROPSY_LIVE_CACHE` to a new directory
+and retain the old cache. Archived content may require
+`$env:NECROPSY_LIVE_ENDPOINT = 'user'` and subscription archive access; this is a
+deliberate configuration choice, not an automatic fallback. Choose a new output
+directory for that attempt too.
+
 ## Read the result
 
 If either opt-in requirement is missing, the test skips before using credentials.

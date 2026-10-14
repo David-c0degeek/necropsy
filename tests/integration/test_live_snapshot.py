@@ -208,6 +208,24 @@ def test_unfinalized_or_mixed_revision_acquisitions_are_refused(tmp_path: Path) 
     assert result.reports == {}
 
 
+def test_pre_generation_live_snapshot_remains_readable(tmp_path: Path) -> None:
+    base = Path(__file__).parents[1] / "fixtures" / "live_v1_format1"
+    archive = base / "live-synthetic.zip"
+    ingest(
+        archive,
+        tmp_path / "legacy-live.duckdb",
+        entries=load_entries_manifest(base / "live-synthetic.entries"),
+        expected_sha256=(base / "live-synthetic.sha256").read_text().split()[0],
+    )
+    con = duckdb.connect(str(tmp_path / "legacy-live.duckdb"), read_only=True)
+    try:
+        document = build_document(con)
+    finally:
+        con.close()
+    assert document["mode"] == "live"
+    assert len(document["acquisition"]["bosses"]) == 2
+
+
 def _rewrite_marker(out: Any, dest: Path, change: Any) -> Path:
     with zipfile.ZipFile(out.archive) as src, zipfile.ZipFile(dest, "w") as dst:
         for info in src.infolist():

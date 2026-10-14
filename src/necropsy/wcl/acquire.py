@@ -55,6 +55,7 @@ from necropsy.wcl.fetch import (
     RevisionChanged,
     fetch_bundle,
     fetch_stream,
+    report_query,
 )
 from necropsy.wcl.sites import Site
 
@@ -390,6 +391,8 @@ class Entry:
     reason: str | None = None
     verdict: Verdict | None = None
     bundle_key: FightKey | None = None
+    bundle_sha256: str | None = None
+    """Full digest of the report generation used to verify this entry."""
     actor_id: int | None = None
     pets: list[int] | None = None
     """None means pet ownership could not be proven (unknown), never "no pets"."""
@@ -464,6 +467,7 @@ class Run:
             entry.generations = generation
             entry.streams, entry.pets, entry.pets_reason = [], None, None
             entry.actor_id, entry.bundle_key = None, None
+            entry.bundle_sha256 = None
             try:
                 self._generation(entry, encounter, want, fresh=generation > 1)
                 return entry
@@ -491,6 +495,7 @@ class Run:
         self.stage = f"report bundle for {where}"
         bundle = self.bundle(entry.report_code, entry.fight_id, encounter, fresh=fresh)
         entry.bundle_key = bundle.key
+        entry.bundle_sha256 = bundle.sha256
         actor, why = player_actor(bundle.report, entry.name, entry.server)
         if actor is None:
             entry.status, entry.reason = "unknown", why
@@ -608,6 +613,8 @@ class ReportSet:
     fight_ids: tuple[int, ...]
     endpoint: Endpoint
     report: dict[str, Any]
+    sha256: str
+    """Full digest of this exact cached combined-report record."""
 
 
 class MixedRevision(Exception):
@@ -790,29 +797,30 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
                 raise InvalidResponse(f"{code} fight {e.fight_id} is claimed by two bosses")
         fight_ids = tuple(sorted(encounters))
         locate = FightKey(run.site, code, revision, fight_ids[0])
-        cached = run.store.get_report_set(locate, fight_ids)
-        if cached is not None and cached.get("endpoint") == run.endpoint:
-            report = cached["report"]
-        else:
-            run.stage = f"combined report {code} fights {list(fight_ids)}"
-            try:
-                run.client.ensure_budget(None)
-                result = run.client.query(
-                    REPORT_QUERY, {"code": code, "fightIDs": list(fight_ids)}, endpoint=run.endpoint
-                )
-            except _STOPS as error:
-                raise RunStopped(f"{type(error).__name__} during {run.stage}: {error}") from error
-            report = (result.data.get("reportData") or {}).get("report")
-            if not isinstance(report, dict) or report.get("code") != code:
-                raise ReportInaccessible(f"WCL returned no usable combined report {code}")
+        # Rankings/archive access metadata can change without a report revision.
+        # Finalize afresh, then bind this run to the exact content-addressed answer.
+        run.stage = f"combined report {code} fights {list(fight_ids)}"
+        try:
+            run.client.ensure_budget(None)
+            result = report_query(
+                run.client,
+                REPORT_QUERY,
+                {"code": code, "fightIDs": list(fight_ids)},
+                run.endpoint,
+            )
+        except _STOPS as error:
+            raise RunStopped(f"{type(error).__name__} during {run.stage}: {error}") from error
+        report = (result.data.get("reportData") or {}).get("report")
+        if not isinstance(report, dict) or report.get("code") != code:
+            raise ReportInaccessible(f"WCL returned no usable combined report {code}")
         if _int(report.get("revision")) != revision:
             raise MixedRevision(
                 f"combined report {code} is revision {report.get('revision')!r}, "
                 f"entries are {revision}"
             )
         _check_report_set(report, code, encounters, [e for _, e in items])
-        run.store.put_report_set(locate, fight_ids, run.endpoint, report)
-        sets[code] = ReportSet(locate, fight_ids, run.endpoint, report)
+        digest = run.store.put_report_set(locate, fight_ids, run.endpoint, report)
+        sets[code] = ReportSet(locate, fight_ids, run.endpoint, report, digest)
     acquisition.reports = sets
     return sets
 

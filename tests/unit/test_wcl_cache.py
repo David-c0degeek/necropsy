@@ -19,6 +19,7 @@ from necropsy.wcl.cache import (
     CacheBusy,
     CacheConflict,
     CacheCorrupt,
+    CacheError,
     CacheUnsupported,
     FightKey,
     StreamKey,
@@ -60,7 +61,7 @@ def _page(n: int, cursor: Any = None) -> dict[str, Any]:
 
 @pytest.mark.parametrize(
     "code",
-    ["../x", "a/b", "C:", "a\\b", "", "x" * 33, "abc\0", "ab cd", "ä", 5, "AbC123\n", "Ab\tC"],
+    ["../x", "a/b", "C:", "a\\b", "", "x" * 33, "abc\0", "ab cd", "ÃƒÂ¤", 5, "AbC123\n", "Ab\tC"],
 )
 def test_hostile_report_codes_are_refused(code: Any) -> None:
     with pytest.raises(UnsafeKey):
@@ -135,7 +136,7 @@ def test_a_failing_fetch_leaves_no_marker_and_a_retry_completes(tmp_path: Path) 
     assert store.read_stream(_key(), IDENTITY) is None
     done = store.write_stream(_key(), IDENTITY, [_page(3)])
     assert [len(p["data"]) for p in done.pages] == [3]
-    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "player_3_source"
+    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "client_player_3_source"
     assert sorted(p.name for p in folder.iterdir()) == ["page_001.json", "stream.json"]
 
 
@@ -161,7 +162,15 @@ def test_a_crash_before_the_marker_link_publishes_nothing_partial(
 def test_tampered_pages_are_detected_on_read(tmp_path: Path) -> None:
     store = Cache(tmp_path)
     store.write_stream(_key(), IDENTITY, [_page(2)])
-    page = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "player_3_source" / "page_001.json"
+    page = (
+        tmp_path
+        / "vanilla"
+        / "AbC123"
+        / "r4"
+        / "fight_7"
+        / "client_player_3_source"
+        / "page_001.json"
+    )
     page.write_bytes(page.read_bytes().replace(b"cast", b"heal"))
     with pytest.raises(CacheCorrupt):
         store.read_stream(_key(), IDENTITY)
@@ -170,7 +179,7 @@ def test_tampered_pages_are_detected_on_read(tmp_path: Path) -> None:
 def test_a_malformed_marker_is_never_complete(tmp_path: Path) -> None:
     store = Cache(tmp_path)
     store.write_stream(_key(), IDENTITY, [_page(1)])
-    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "player_3_source"
+    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "client_player_3_source"
     marker = folder / "stream.json"
     record = json.loads(marker.read_bytes())
     marker.unlink()
@@ -183,22 +192,77 @@ def test_a_malformed_marker_is_never_complete(tmp_path: Path) -> None:
         store.read_stream(_key(), IDENTITY)
 
 
-def test_bundles_are_immutable_per_revision(tmp_path: Path) -> None:
+def _bundle_record(revision: int = 4, **over: Any) -> dict[str, Any]:
+    return {
+        "endpoint": "client",
+        "report": {"code": "AbC123", "revision": revision, "fights": [{"id": 7}], **over},
+    }
+
+
+def test_report_generations_change_without_replacing_prior_bytes(tmp_path: Path) -> None:
     store = Cache(tmp_path)
     key = FightKey(VANILLA, "AbC123", 4, 7)
-    assert store.put_bundle(key, {"report": {"revision": 4}}) == "published"
-    assert store.put_bundle(key, {"report": {"revision": 4}}) == "reused"
-    with pytest.raises(CacheConflict):
-        store.put_bundle(key, {"report": {"revision": 4, "title": "changed"}})
+    first = store.put_bundle(key, _bundle_record())
+    assert store.put_bundle(key, _bundle_record()) == first
+    second = store.put_bundle(key, _bundle_record(title="changed"))
+    assert first != second
     newer = FightKey(VANILLA, "AbC123", 5, 7)
-    store.put_bundle(newer, {"report": {"revision": 5}})
-    assert store.get_bundle(key) == {"report": {"revision": 4}}
+    store.put_bundle(newer, _bundle_record(5))
+    assert store.get_bundle(key, "client", first) == _bundle_record()
+    assert store.get_bundle(key, "client", second) == _bundle_record(title="changed")
+
+
+def test_endpoint_namespaces_coexist_and_are_bound_to_identities(tmp_path: Path) -> None:
+    store = Cache(tmp_path)
+    client_key, user_key = _key(), _key(endpoint="user")
+    store.write_stream(client_key, IDENTITY, [_page(1)])
+    user_identity = {**IDENTITY, "endpoint": "user"}
+    store.write_stream(user_key, user_identity, [_page(2)])
+    assert len(store.read_stream(client_key, IDENTITY).pages[0]["data"]) == 1  # type: ignore[union-attr]
+    assert len(store.read_stream(user_key, user_identity).pages[0]["data"]) == 2  # type: ignore[union-attr]
+    with pytest.raises(UnsafeKey):
+        store.read_stream(user_key, IDENTITY)
+    with pytest.raises(UnsafeKey):
+        _key(endpoint="../user")
+    first = store.put_bundle(client_key.fight, _bundle_record())
+    user_record = {**_bundle_record(), "endpoint": "user"}
+    second = store.put_bundle(user_key.fight, user_record)
+    assert store.get_bundle(client_key.fight, "client", first) == _bundle_record()
+    assert store.get_bundle(user_key.fight, "user", second) == user_record
+
+
+def test_old_cache_format_is_refused_without_modifying_it(tmp_path: Path) -> None:
+    marker = tmp_path / "cache-format.json"
+    marker.write_text('{"cache_format":1}', encoding="utf-8")
+    data = tmp_path / "old-data.json"
+    data.write_bytes(b"retained")
+    before = {p.name: p.read_bytes() for p in tmp_path.iterdir()}
+    with pytest.raises(CacheError, match="use a new cache directory"):
+        Cache(tmp_path)
+    assert {p.name: p.read_bytes() for p in tmp_path.iterdir()} == before
+
+
+def test_report_set_reads_require_the_exact_generation(tmp_path: Path) -> None:
+    store = Cache(tmp_path)
+    key = _key().fight
+    report = _bundle_record()["report"]
+    first = store.put_report_set(key, (7,), "client", report)
+    second = store.put_report_set(key, (7,), "client", {**report, "title": "new"})
+    assert first != second
+    assert store.get_report_set(key, (7,), "client", first)["report"] == report  # type: ignore[index]
+    assert store.get_report_set(key, (7,), "user", first) is None
+    path = next(tmp_path.rglob(f"report_set_client_{first}.json"))
+    path.unlink()
+    path.write_text("{}", encoding="utf-8")
+    with pytest.raises(CacheCorrupt, match="generation digest"):
+        store.get_report_set(key, (7,), "client", first)
+    assert store.get_report_set(key, (7,), "client", second) is not None
 
 
 def test_cache_files_hold_no_credentials(tmp_path: Path) -> None:
     store = Cache(tmp_path)
     store.write_stream(_key(), IDENTITY, [_page(1)])
-    store.put_bundle(FightKey(VANILLA, "AbC123", 4, 7), {"report": {"code": "AbC123"}})
+    store.put_bundle(FightKey(VANILLA, "AbC123", 4, 7), _bundle_record())
     blob = b"".join(p.read_bytes() for p in tmp_path.rglob("*") if p.is_file())
     for sentinel in (b"Bearer", b"Authorization", b"access_token", b"client_secret"):
         assert sentinel not in blob
@@ -267,7 +331,7 @@ def test_a_killed_writer_releases_its_lock(tmp_path: Path) -> None:
 def test_page_hashes_cover_exact_published_bytes(tmp_path: Path) -> None:
     store = Cache(tmp_path)
     store.write_stream(_key(), IDENTITY, [_page(1)])
-    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "player_3_source"
+    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "client_player_3_source"
     record = json.loads((folder / "stream.json").read_bytes())
     data = (folder / "page_001.json").read_bytes()
     assert record["pages"][0]["sha256"] == hashlib.sha256(data).hexdigest()
@@ -341,7 +405,7 @@ def test_identity_needs_every_field_and_no_extras(tmp_path: Path) -> None:
 def test_a_reread_marker_is_compared_type_sensitively(tmp_path: Path) -> None:
     store = Cache(tmp_path)
     store.write_stream(_key(), IDENTITY, [_page(1)])
-    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "player_3_source"
+    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "client_player_3_source"
     marker = folder / "stream.json"
     record = json.loads(marker.read_bytes())
     record["identity"]["start_time"] = 0  # int where the request has 0.0
@@ -353,7 +417,7 @@ def test_a_reread_marker_is_compared_type_sensitively(tmp_path: Path) -> None:
 
 def test_cleanup_removes_only_its_own_files(tmp_path: Path) -> None:
     store = Cache(tmp_path)
-    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "player_3_source"
+    folder = tmp_path / "vanilla" / "AbC123" / "r4" / "fight_7" / "client_player_3_source"
     folder.mkdir(parents=True)
     keep = ["page_notes.txt", "notes.tmp", ".stream.json.tmp", "page_1.json"]
     for name in keep:
@@ -382,12 +446,12 @@ def test_lock_files_that_are_links_are_refused(tmp_path: Path, which: str) -> No
     store = Cache(root)
     fight = root / "vanilla" / "AbC123" / "r4" / "fight_7"
     fight.mkdir(parents=True)
-    lock = fight / (".report.lock" if which == "bundle" else ".player_3_source.lock")
+    lock = fight / (".report.lock" if which == "bundle" else ".client_player_3_source.lock")
     if not _file_link(lock, outside):
         pytest.skip("cannot create a file symlink here")
     with pytest.raises(UnsafeKey):
         if which == "bundle":
-            store.put_bundle(FightKey(VANILLA, "AbC123", 4, 7), {"report": {}})
+            store.put_bundle(FightKey(VANILLA, "AbC123", 4, 7), _bundle_record())
         else:
             store.write_stream(_key(), IDENTITY, [_page(1)])
     assert not outside.exists()

@@ -130,6 +130,20 @@ If several partitions are possible, read the listed choices and repeat with
 Every request uses `--endpoint client` by default; `--endpoint user` selects the
 user API for the whole run. Permission failures never switch endpoints.
 
+Archived report content requires user authentication with archive access.
+When the selected endpoint cannot read an archived candidate, it is recorded as
+inaccessible and later candidates can replace it. To deliberately use the user
+API, select `--endpoint user`; Necropsy never makes that switch automatically.
+Anonymized report identifiers are currently unsupported for identity-verified
+acquisition. They stay visible as inaccessible candidates and do not become
+deep samples; later eligible candidates can replace them.
+[WCL archive-status schema](https://ru.warcraftlogs.com/v2-api-docs/warcraft/reportarchivestatus.doc.html).
+
+Cache format 2 separates endpoint streams and preserves report metadata as exact
+content generations. If an older cache is refused, choose a new `--cache` path;
+retain the old directory and any saved snapshots. Do not edit its format marker
+to make it appear compatible. Saved snapshots can still be analyzed offline.
+
 Acquisition seeks five verified same-faction event samples and up to 25 metadata
 entries per boss. Metadata-only rows are context, not extra event samples.
 `--cross-faction` adds the verified other-faction overall #1 as separate context;
