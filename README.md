@@ -13,7 +13,7 @@ Offline forensics for Classic Era Hunters and Druids in Naxxramas.</p>
 </p>
 
 Necropsy turns Warcraft Logs data into boss-by-boss analysis: what
-happened, how comparable Hunters played, and which improvements deserve a closer
+happened, how comparable players played, and which improvements deserve a closer
 look. Each finding keeps its evidence and uncertainty visible.
 
 **Available today:** a local command-line workflow that turns the v6 Hunter

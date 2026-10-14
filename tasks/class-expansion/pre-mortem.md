@@ -35,3 +35,17 @@ does not establish feral/tank coverage or domain acceptance.
 
 PROCEED WITH GUARDRAILS. Calibrate each original prediction at final Hindsight;
 leave real-evidence and human gates open until actually satisfied.
+
+## Interim calibration
+
+| Risk | Outcome / detection | Current disposition |
+|---|---|---|
+| PM-1 | Prevented Prediction: real Restoration HPS and Guardian DPS queries/category checks plus negative row tests; no role/metric pooling. | Mitigated by canonical policy and exact comparison keys; domain review remains separate. |
+| PM-2 | Prevented Prediction: Hunter subset JSON/both pages/ZIP remain byte-identical; 229 Hunter golden checks pass with four retained expected failures. | Mitigated; latest CI and final replay still required after remaining changes. |
+| PM-3 | Confirmed Prediction: top Guardian rows have no tank hits; actual tank Harryjam has no usable form aura interval. Scoped peer review also caught incidental three-cast signals forcing hybrid. | Mitigated by direct-hit/action evidence, explicit unknown intervals and secondary cast-share guard; real mixed-duty evidence and human review remain open. |
+
+CH-MISS-1: an additive Druid detail field can be missing from a saved document
+while the class section still passes the free-form evidence envelope. Renderer
+optional access and an older-detail regression now preserve readability. The
+broad test caught this during concurrent code/template verification; run the final
+suite only after sources stabilize, and never count a previous run for later edits.

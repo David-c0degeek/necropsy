@@ -55,7 +55,7 @@ in provenance and may be replaced by later eligible entries. The subject's fight
 uses the highest ranking `amount`, with deterministic tie rules. Optional
 other-faction overall #1 context stays separate from the primary baseline.
 
-Each entry acquires its bundle, exact Hunter actor by name and realm, pet
+Each entry acquires its bundle, exact player actor of the expected class by name and realm, pet
 ownership and player/pet streams as one generation. A revision change restarts
 the whole entry once. Unresolved pet ownership, including ownerless engineering
 pets, remains unknown. It never proves that no pet participated.

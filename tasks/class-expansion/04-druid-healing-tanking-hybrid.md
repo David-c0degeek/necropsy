@@ -26,3 +26,5 @@ Before marking DONE: request Claude's scoped review, then record Keep / Fix befo
 
 ## Progress log
 2026-10-14 · 1 · 04.1 04.2 04.3 · Effective healing/overheal/spell/target data, incoming damage/support, available mitigation, defensive/form coverage and deaths implemented. Hybrid activity spans preserve multiple roles and decline unsupported aggregate benchmarks. Restoration Haplina 43,558 effective healing / 339.189210 HPS; missing overheal remains unknown. Guardian cohort Harryjam has 211,627 incoming damage and repeated bear-only actions; Suncat category alone does not prove tank duty. Synthetic hybrid/direct-hit/AoE tests pass; real mixed-duty run pending API reset; no claim of domain approval. Checkpoint commit/push follows this record.
+
+2026-10-14 · 2 · Scoped Claude core review AGREE round 1 / blocking 0; 86 independent tests passed. Addressed important incidental-duty finding with explicit 20% secondary cast-share heuristic and regression cases; preserved minor actions. Role taxonomy/domain gates remain open. Reporting/docs are requested in a separate bounded final review because the first review explicitly did not read those line by line.

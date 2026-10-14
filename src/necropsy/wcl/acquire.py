@@ -225,7 +225,7 @@ def subject_rankings(
     client.ensure_budget(None)
     result = client.query(
         SUBJECT_QUERY.replace("metric: dps", "metric: hps")
-        if key.role.value == "restoration"
+        if key.metric.value == "hps"
         else SUBJECT_QUERY,
         {
             "id": context.character_id.value,

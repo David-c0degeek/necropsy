@@ -224,10 +224,18 @@ def _duties(
         refs.append(
             _ref(pf, tank_hits, "encounter enemy damage alongside repeated bear-only actions")
         )
-    roles = tuple(sorted(repeated, key=lambda r: r.value))
+    signals = tuple(sorted(repeated, key=lambda r: r.value))
+    total_actions = sum(len(es) for es in candidates.values())
+    minimum_share = float(rules["minimum_secondary_cast_share"])
+    roles = tuple(
+        r
+        for r in signals
+        if r is FightRole.TANK or len(repeated[r]) / total_actions >= minimum_share
+    )
+    params = {"minimum_casts": minimum, "minimum_secondary_cast_share": minimum_share}
     observed_roles: Evidenced[tuple[FightRole, ...]] = (
-        inferred(roles, *refs, rule_id="druid-duty-signals-v1", params={"minimum_casts": minimum})
-        if roles
+        inferred(signals, *refs, rule_id="druid-duty-signals-v2", params=params)
+        if signals
         else unknown("insufficient repeated actions to distinguish encounter duties")
     )
     cov = [coverage(con, pf, pf.actor_id, d) for d in (Direction.SOURCE, Direction.TARGET)]
@@ -239,8 +247,8 @@ def _duties(
         resolved_role = inferred(
             roles[0] if len(roles) == 1 else FightRole.HYBRID,
             *refs,
-            rule_id="druid-duty-signals-v1",
-            params={"minimum_casts": minimum},
+            rule_id="druid-duty-signals-v2",
+            params=params,
         )
     spans = tuple(
         {
@@ -248,6 +256,8 @@ def _duties(
             "first_action_s": es[0].t_s,
             "last_action_s": es[-1].t_s,
             "casts_observed": len(es),
+            "cast_share": len(es) / total_actions,
+            "qualifies_as_duty": r in roles,
             "evidence": observed(tuple((e.uid, e.copy) for e in es), _ref(pf, es, r.value)),
         }
         for r, es in sorted(repeated.items(), key=lambda item: item[1][0].timestamp)

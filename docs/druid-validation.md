@@ -30,3 +30,7 @@ Local output examples are under `workspace/druid-balance`, `druid-restoration`,
 `druid-feral` and `druid-guardian`. These are machine-local review artifacts;
 portable raw evidence and checks must live in the test fixtures before acceptance.
 This page does not claim full-raid or all-role live acceptance.
+
+Portable fixtures and independent arithmetic checks now live in `tests/golden/druid/`; all four frozen snapshots replay through ingest, analysis, HTML and package verification. The existing acceptance artifact checker also passed all four one-boss outputs, and gitleaks passed over both extracted raw members and output directories. Browser checks passed at 1400px and 390px for both pages (16 real cases), including navigation/search/theme and zero automatic remote requests; four synthetic browser cases additionally verify HTML escaping.
+
+The versioned role heuristic also requires a non-tank secondary signal to account for at least 20% of categorized duty casts. Minor signals are retained in activity spans and observed-role evidence, even when they do not change the primary inferred duty. This threshold remains provisional pending domain adjudication. Direct evidenced tank duty is never suppressed solely by this share threshold.

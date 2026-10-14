@@ -232,6 +232,9 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | D007 | 2026-10-14 | Tank action evidence | Require repeated bear-only actions plus direct encounter melee/Hateful Strike hits; form alone and raid AoE cannot establish tank duty. Missing form intervals remain unknown despite affirmative tank actions. | Public Guardian top entries include cat/bear damage without tank hits; Harryjam has tank hits and bear casts but no form aura interval. | 01.2; 04.2; druid-actions-v1 |
 | D008 | 2026-10-14 | Scoped live validation | Validate one-boss production acquisitions first, preserving partial ownership and hourly-budget stops; use existing bounded reset wait for additional mixed-duty evidence. Full-raid/all-role acceptance remains open. | Four category snapshots replay; hourly budget stopped fresh tank finalization. | 02.3; 06.1–06.2 |
 
+| D009 | 2026-10-14 | Secondary duty guard | Require at least 20% of categorized duty casts as well as three casts for a non-tank duty. Preserve minor action signals/spans; direct tank evidence is not suppressed by cast share. Threshold is provisional pending 01.4/04.4 domain review. | Claude review identified three incidental off-heals or damage casts forcing hybrid and removing a valid comparison. Relative-share and incidental-cast regression cases now pin the rule. | 01.2; 04.3; druid-duty-signals-v2 |
+| D010 | 2026-10-14 | Cleanup review scope | Reuse the whole-repo audit from the same day and waive a second whole-repo teardown; review only new class surfaces for duplication/dead exports. C1 was fixed; C2/C3 remain intentionally retained. | Existing cleanup-audit-2026-10-14.md is fresh, triaged and no dependency/auth/storage replacement was added. | 06.4; cleanup-audit-2026-10-14.md |
+
 ---
 
 ## 5. Master progress tracker

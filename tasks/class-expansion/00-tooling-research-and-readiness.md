@@ -93,3 +93,5 @@ Fix before closing: none for readiness; broad regression result is a required fi
 Record: WCL class IDs differ from game class IDs; Guardian category uses DPS scores.
 Risk: real feral/tank/mixed evidence and domain acceptance remain outstanding, mirrored in manual actions.
 Verdict: CLOSE for tooling readiness; implementation and acceptance remain open.
+
+2026-10-14 · 2 · Baseline broad run completed: 822 passed / 234 deselected, 225.63 s. D003 pending-baseline condition resolved with no accepted failure.

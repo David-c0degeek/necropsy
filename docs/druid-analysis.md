@@ -33,7 +33,11 @@ WCL uses class ID 2 for Druid, independently of Blizzard class IDs.
 The report keeps the actor's class, observed talent points, WCL category, inferred
 fight role, assigned duty and any user override separate. Repeated class casts
 provide affirmative signals: three feral, balance or healing casts qualify as
-a duty signal under the versioned heuristic. Tank inference additionally needs
+an action signal. A non-tank signal also needs at least 20% of the categorized
+duty casts to qualify as an inferred duty; three incidental off-heals or damage
+casts therefore do not automatically make the fight hybrid. These provisional
+thresholds use cast share, not active-time share, and need domain review. All
+minor signals and activity spans remain in the evidence. Tank inference additionally needs
 three recorded direct encounter-enemy melee/Hateful Strike hits alongside
 repeated bear-only actions. Raid AoE, bear form or talents alone do not establish
 tanking. This is an inference to review, not a statement of the raid's assignment.

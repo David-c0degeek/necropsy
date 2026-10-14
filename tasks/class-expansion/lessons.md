@@ -6,3 +6,6 @@ TBD — no implementation findings or outcomes claimed. Consult permanent `tasks
 
 - 2026-10-14: Top Guardian category parses can have cat/bear attacks without tank hits. Exact ranking taxonomy is not encounter assignment. Conversely a real tank can have repeated Maul/Swipe and incoming melee with no recorded form aura; preserve both affirmative actions and unknown intervals.
 - 2026-10-14: WCL resourceActor is a side flag, not an actor ID. Official resource filter probes with unequal source/target returned 1 for source and 2 for target; zero resource capacity is unusable, not a real empty resource pool.
+
+- 2026-10-14: Count secondary duty share as well as affirmative casts; preserve incidental actions without forcing a hybrid aggregate. Retain direct tank evidence even when its cast share is small; domain review must adjudicate thresholds.
+- 2026-10-14: Free-form class sections do not guarantee every optional nested display field exists. Render optional details as unknown/absent and test older saved class documents.

@@ -90,7 +90,7 @@ def _key() -> Any:
 def test_druid_selection_enforces_category_and_metric(
     category: str, metric: str, role: str
 ) -> None:
-    from necropsy.wcl.acquire import pick_subject
+    from necropsy.wcl.acquire import pick_subject, subject_rankings
     from necropsy.wcl.cohort import leaderboard_query
     from necropsy.wcl.fetch import report_query_for_metric
 
@@ -109,6 +109,12 @@ def test_druid_selection_enforces_category_and_metric(
     assert f"playerMetric: {metric}" in report_query_for_metric(metric)
     pick = pick_subject(rows, class_id=2, category=category)
     assert pick.row is rows[2]
+    script = Script(ok({"characterData": {"character": {"encounterRankings": {"ranks": rows}}}}))
+    client = c.WclClient(VANILLA, lambda e: "t", transport=script.transport, clock=FakeClock())
+    client.last_rate = c.RateLimit(3600, 10, 1200)
+    subject_rankings(client, context, key, "client")
+    assert f"metric: {metric}" in script.bodies()[0]["query"]
+    client.close()
 
 
 def test_key_records_every_dimension_with_how_it_is_applied() -> None:

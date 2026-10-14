@@ -43,7 +43,7 @@
   <p>Saved WCL category score: {{ s.ranking.category_score if s.ranking.category_score is not none else 'Unknown' }} {{ s.ranking.metric or '' }} · {{ s.ranking.note }}</p>
   <details{% if page == 'report' %} open{% endif %}><summary>Observed roles, forms, resources and full timeline</summary>
     {% if page == 'playbook' %}<h3>All measurements</h3><dl class="kv">{% for name, value in d.metrics.items() %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(value) }}</dd>{% endfor %}</dl>{% endif %}
-    <h3>Observed activity spans</h3><ul>{% for span in d.activity_spans %}<li>{{ span.role }}: {{ span.first_action_s }}–{{ span.last_action_s }} s; {{ span.casts_observed }} recorded casts</li>{% else %}<li>No supported activity spans.</li>{% endfor %}</ul>
+    <h3>Observed activity spans</h3><ul>{% for span in d.activity_spans %}<li>{{ span.role }}: {{ span.first_action_s }}–{{ span.last_action_s }} s; {{ span.casts_observed }} recorded casts · {{ (span.get("cast_share", 1) * 100)|round(1) }}% of categorized casts · {{ 'qualifying duty' if span.get("qualifies_as_duty", true) else 'minor action signal; assignment unproven' }}</li>{% else %}<li>No supported activity spans.</li>{% endfor %}</ul>
     <h3>Form intervals (report timestamps, ms)</h3><dl class="kv">{% for name, intervals in d.forms.items() %}<dt>{{ name }}</dt><dd>{{ ev(intervals) }}</dd>{% endfor %}</dl>
     <h3>Spell use</h3><p>{{ ev(d.casts) }}</p>
     <h3>Effective healing by spell</h3><p>{{ ev(d.get("healing_spells")) }}</p>

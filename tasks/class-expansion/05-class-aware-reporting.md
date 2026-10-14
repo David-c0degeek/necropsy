@@ -25,3 +25,5 @@ Before marking DONE: request Claude's scoped review, then record Keep / Fix befo
 
 ## Progress log
 2026-10-14 · 1 · 05.1 05.2 05.3 · Shared report/package pipeline dispatches class sections and templates; legacy Hunter pages and bytes preserved. Druid practice notes, role-specific measurements, full source timeline, forms/resources/targets and all cohort detail exported as CSV/JSON. Browser inspection covered 16 real page/viewport combinations (1400/390), no overflow, remote requests or JS errors; dedicated synthetic browser cases additionally check escaping/search/theme. README, user/developer docs, schema, ADR and validation limits updated. Closing peer review pending. Checkpoint commit/push follows this record.
+
+2026-10-14 · 2 · Scoped Claude core review AGREE round 1 / blocking 0; 86 independent tests passed. Addressed important incidental-duty finding with explicit 20% secondary cast-share heuristic and regression cases; preserved minor actions. Role taxonomy/domain gates remain open. Reporting/docs are requested in a separate bounded final review because the first review explicitly did not read those line by line.

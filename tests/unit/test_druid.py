@@ -53,6 +53,27 @@ def test_partial_stream_never_proves_complete_role_or_healing(tmp_path: Path) ->
     assert len(d["timeline"]) >= 6
 
 
+@pytest.mark.parametrize(
+    ("primary", "secondary", "expected"),
+    [
+        ("Starfire", "Healing Touch", "balance-dps"),
+        ("Shred", "Healing Touch", "feral-dps"),
+        ("Healing Touch", "Moonfire", "restoration"),
+    ],
+)
+def test_incidental_secondary_casts_are_preserved_without_forcing_hybrid(
+    tmp_path: Path,
+    primary: str,
+    secondary: str,
+    expected: str,
+) -> None:
+    doc = _document(tmp_path, [primary] * 20 + [secondary] * 3)
+    d = doc["bosses"][0]["subject"]["druid"]
+    assert d["role"]["value"] == expected
+    assert len(d["observed_roles"]["value"]) == 2
+    assert sum(span["qualifies_as_duty"] for span in d["activity_spans"]) == 1
+
+
 def test_healing_amount_excludes_overheal_and_outputs_work(tmp_path: Path) -> None:
     doc = _document(tmp_path, ["Healing Touch"] * 3)
     boss = doc["bosses"][0]
@@ -76,6 +97,16 @@ def test_healing_amount_excludes_overheal_and_outputs_work(tmp_path: Path) -> No
         assert "tables/roles.csv" in zf.namelist()
         assert "tables/timeline.csv" in zf.namelist()
         assert json.loads(zf.read("analysis.json"))["subject"]["class_id"] == 2
+
+
+def test_older_druid_optional_detail_fields_still_render(tmp_path: Path) -> None:
+    doc = _document(tmp_path, ["Healing Touch"] * 3)
+    boss = doc["bosses"][0]
+    boss["subject"]["druid"].pop("healing_spells")
+    boss["subject"]["druid"].pop("defensive_uptime_s")
+    boss["playbook"].pop("primary_metrics")
+    outputs = build_outputs(dumps(doc).encode())
+    assert outputs["report.html"] and outputs["playbook.html"]
 
 
 def test_cohort_dimensions_cannot_mix_roles_or_metrics() -> None:

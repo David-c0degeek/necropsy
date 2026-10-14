@@ -26,3 +26,5 @@ Before marking DONE: request Claude's scoped review, then record Keep / Fix befo
 
 ## Progress log
 2026-10-14 · 1 · 01.1 01.2 01.3 · Class registry dispatch, separate build/category/observed role/assignment override, exact role-keyed cohorts and optional schema-1 fields implemented. 14 Druid behavior tests cover role signals, uncertainty, overrides, resources and negative tank/AoE cases; four category selection cases reject cross-class/spec rows. Domain taxonomy review remains open. Checkpoint commit/push follows this record.
+
+2026-10-14 · 2 · Scoped Claude core review AGREE round 1 / blocking 0; 86 independent tests passed. Addressed important incidental-duty finding with explicit 20% secondary cast-share heuristic and regression cases; preserved minor actions. Role taxonomy/domain gates remain open. Reporting/docs are requested in a separate bounded final review because the first review explicitly did not read those line by line.
