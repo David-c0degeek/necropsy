@@ -11,3 +11,5 @@ Consult permanent `tasks/lessons.md` before work.
 - 2026-10-14: Free-form class sections do not guarantee every optional nested display field exists. Render optional details as unknown/absent and test older saved class documents.
 
 - 2026-10-15: Verify category/metric combinations independently. A Balance ranking category can contain a healing performance; category defaults must not erase explicit HPS or an encounter healing assignment.
+
+- 2026-10-15: Compare all four saved Hunter artifacts, not just JSON. Jinja control-block trimming changed a brand newline; an inline expression restored both HTML and package bytes.

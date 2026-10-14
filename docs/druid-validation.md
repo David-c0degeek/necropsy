@@ -20,17 +20,35 @@ absence. Source archives and derived outputs remain separate.
 | Feral | Stinkface, `maHpk8K4hvLQzFRf/35` | 166,047 actor damage over 108.1 s; feral duty inferred from recorded attacks, separately from the ranking category |
 | Tank category | Suncat, `YhxTZy3BDQN7nkcV/34` | Cat and bear attacks, no incoming damage: category alone does not prove tank duty |
 | Tank duty | Harryjam, `vmfnP98zbcVNQpGh/67`, acquired Guardian cohort | 77 Maul + 67 Swipe (Bear), 211,627 incoming damage and 204,209 healing received; missing form aura interval does not become zero tank activity |
+| Tank subject | Suncat, `ZKbwBpmxnHvFC2DT/19`, Four Horsemen | 169 bear actions, 107,140 incoming damage; tank duty inferred separately from category |
+| Mixed duty | Mìlfurion, `HYjBacLFMqrzCmy8/25`, Four Horsemen Guardian cohort | 24 feral and 92 tank casts plus direct hits; hybrid role, 79,548 incoming damage; excluded from aggregate single-role cohorts |
+| Own healing assignment | Haplina, `arYtVP9kgnjBJp7K/48`, Sapphiron | User reports mostly healing; 66 healing casts, 84,631 effective healing / 174.912 s, zero actor damage, build 24/0/27; inferred healer agrees with the stated assignment |
 
 The API's hourly budget stopped a later dedicated tank acquisition before fresh
 finalization. No snapshot was fabricated from that stopped run. Original
 acquisition coverage and budget limits remain intact; a bounded reset-wait run
-is recorded separately when it completes.
+completed after the observed reset on 2026-10-15 and produced the Four Horsemen
+capture above. The waiting process had imported older analyzer code; its raw
+snapshot was preserved and successfully replayed with current code.
 
 Local output examples are under `workspace/druid-balance`, `druid-restoration`,
-`druid-feral` and `druid-guardian`. These are machine-local review artifacts;
+`druid-feral`, `druid-guardian`, `druid-mixed` and `druid-sapphiron-restoration`.
+These are machine-local review artifacts;
 portable raw evidence and checks must live in the test fixtures before acceptance.
 This page does not claim full-raid or all-role live acceptance.
 
-Portable fixtures and independent arithmetic checks now live in `tests/golden/druid/`; all four frozen snapshots replay through ingest, analysis, HTML and package verification. The existing acceptance artifact checker also passed all four one-boss outputs, and gitleaks passed over both extracted raw members and output directories. Browser checks passed at 1400px and 390px for both pages (16 real cases), including navigation/search/theme and zero automatic remote requests; four synthetic browser cases additionally verify HTML escaping.
+Portable fixtures and independent arithmetic checks live in `tests/golden/druid/`;
+six raw snapshots cover all requested roles across three bosses. Initial four
+one-boss outputs passed the existing acceptance artifact checker and output
+scans. Gitleaks also passed over all extracted members of both added captures.
+Browser checks passed at 1400px and 390px for both pages (16 initial real cases),
+including navigation/search/theme and zero automatic remote requests; synthetic
+browser cases additionally verify HTML escaping. Latest verification and review
+receipts are recorded separately; human domain acceptance remains pending.
+
+The explicit Balance/HPS Sapphiron query also returned five public deep entries,
+but no matching personal Balance row: the subject remains absent with the
+exclusion recorded. The separate Restoration/HPS query acquired David's actual
+healing performance. Neither metric choice nor a leaderboard category proves duty.
 
 The versioned role heuristic also requires a non-tank secondary signal to account for at least 20% of categorized duty casts. Minor signals are retained in activity spans and observed-role evidence, even when they do not change the primary inferred duty. This threshold remains provisional pending domain adjudication. Direct evidenced tank duty is never suppressed solely by this share threshold.

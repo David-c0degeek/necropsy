@@ -49,3 +49,18 @@ while the class section still passes the free-form evidence envelope. Renderer
 optional access and an older-detail regression now preserve readability. The
 broad test caught this during concurrent code/template verification; run the final
 suite only after sources stabilize, and never count a previous run for later edits.
+
+## Final engineering calibration (2026-10-15; domain horizon remains open)
+
+| Risk | Outcome, impact and detection | Mitigation and severity |
+|---|---|---|
+| PM-1 | Prevented Prediction for cross-role/metric pooling: actual HPS Balance rows preserve metric and decline incompatible observed duties. User's Sapphiron clarification exposed an over-restrictive category→metric default; explicit Balance/HPS now survives production acquisition and replay. | Exact keys plus strict reader conflicts are effective. High severity remains justified; human taxonomy review pending. |
+| PM-2 | Confirmed Prediction at formatting level: final byte replay detected a Jinja block trimming the Hunter brand newline. JSON was unchanged; fixed with an expression and all four artifacts now match baseline bytes. | Golden suite plus byte comparison caught the gap before closure. Medium realized impact; compatibility guard effective after correction. |
+| PM-3 | Confirmed Prediction: actual Guardian category without tank hits; tank actions without form intervals; real hybrid 24 cat/92 bear casts; incidental actions requiring the share guard. Own Sapphiron log agrees with user-stated healing assignment. | Six real fixtures and coverage-aware inference are effective engineering guards. Human findings/advice/threshold acceptance remains inconclusive; high severity still justified. |
+
+CH-MISS-2: shared-template control blocks can break promised byte compatibility
+through whitespace alone. JSON equality and semantic browser tests missed it;
+the final four-artifact comparison detected it. Use expressions for inline labels
+and retain rendered/package byte checks at the compatibility boundary. This is
+also the concrete realization of PM-2; recorded separately because the mechanism
+was not predicted.

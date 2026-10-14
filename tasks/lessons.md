@@ -70,3 +70,11 @@
 - After the final typed output-model change, regenerate the committed schema and run its exact currency check. Earlier broad test results cannot cover a later contract edit; CI caught this omission before final verification.
 
 - Engineering/trinket guardians (including Battle Chickens, dragonlings and vanquished tentacles) may belong to Hunters. Toolkit eligibility, NPC name or temporal proximity never proves which player owns an actor; use exact same-report/fight ownership evidence and preserve unknowns when it is missing.
+
+- Verify ranking category, query metric and observed encounter duty independently.
+  A Balance-category character can have healing rankings; a Guardian-category
+  parse can lack tank duty. Carry explicit metric selection through replay and
+  reject incompatible comparison dimensions.
+- When a shared template promises byte compatibility, compare both rendered
+  pages and the package with the saved baseline. Conditional template blocks can
+  change whitespace even when analysis JSON is identical.

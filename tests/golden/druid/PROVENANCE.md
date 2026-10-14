@@ -19,7 +19,19 @@ the snapshot marker and member manifests. Player names remain identifiable.
 
 The expected arithmetic and role cases in `facts.json` are independently checked
 against raw events. Role and practical-advice domain review is **pending**.
-These fixtures do not certify all-raid, hybrid or final product acceptance.
+These fixtures do not certify all-raid or final product acceptance.
+
+Two additional captures on 2026-10-15 cover Four Horsemen Guardian (Suncat
+subject plus five deep entries, including mixed cat/tank Mìlfurion) and David's
+Sapphiron Restoration performance. Both have complete acquisition coverage with
+25 metadata rows and five deep entries. David states he mostly heals on Sapphiron;
+the selected performance contains healing actions and no actor damage. His
+assignment statement is user provenance, separate from inferred duty.
+
+The extra ZIPs are byte-identical to writer outputs, renamed for distinct fixture
+identities; their checksum sidecars name the new basenames. Original basenames
+are recorded in `provenance.json`. Gitleaks scanned all 62,401,552 extracted bytes
+of these two captures on 2026-10-15, exit 0, no leaks found.
 
 Do not rewrite these archives when analysis changes. Regenerate derived outputs;
 add a new captured archive with its own provenance for later evidence.

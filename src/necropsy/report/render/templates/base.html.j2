@@ -12,7 +12,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <aside class="sidebar" aria-label="Playbook navigation">
   <header class="topbar">
-    <div class="brand">{{ doc.character }} {% if doc.class_document %}Druid Field Notes{% else %}Definitive Parse Book{% endif %}
+    <div class="brand">{{ doc.character }} {{ "Druid Field Notes" if doc.class_document else "Definitive Parse Book" }}
       <p>{{ doc.zone }} · Classic Era · {{ doc.reference.faction_label }}</p>
     </div>
   </header>

@@ -9,6 +9,10 @@ implemented in the development checkout; they are not a published release.
 
 ### Changed
 
+- **Druid ranking selection.** `--category Balance --metric hps` selects
+  Balance-category healing performances while preserving build and observed duty.
+  Default category metrics and Hunter DPS selection remain unchanged.
+
 - **Quick opening plan.** Added a KISS card to every boss in both pages, with a
   simple comparator-based ranged opening, recorded Rapid Fire timing and usage,
   and sourced encounter notes. Detailed timelines, execution/loadout plans,

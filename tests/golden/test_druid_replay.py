@@ -46,7 +46,9 @@ def _raw_total(path: Path, report: str, fight: int, player: str, metric: str) ->
         )
 
 
-@pytest.mark.parametrize("category", ["balance", "restoration", "feral", "guardian"])
+@pytest.mark.parametrize(
+    "category", ["balance", "restoration", "feral", "guardian", "mixed", "sapphiron-restoration"]
+)
 def test_real_druid_snapshot_replays_with_separate_role_evidence(
     tmp_path: Path, category: str
 ) -> None:
@@ -73,6 +75,7 @@ def test_real_druid_snapshot_replays_with_separate_role_evidence(
     assert doc["subject"]["class_id"] == 2
     assert len(boss["overall_cohort"]) == 5
     assert all("hunter" not in e for e in entries)
+    assert all(e["druid"]["role"]["value"] != "hybrid" for e in boss["cohort"])
     with zipfile.ZipFile(out / f"necropsy-{doc['subject']['id']}-2006.zip") as zf:
         manifest = json.loads(zf.read("manifest.json"))
         for record in manifest["files"]:
