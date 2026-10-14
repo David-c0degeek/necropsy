@@ -138,6 +138,8 @@ def test_cohort_dimensions_cannot_mix_roles_or_metrics() -> None:
             replace(key, **changes)
     assert ranking_policy(2, "Guardian").metric == "dps"
     assert ranking_policy(2, "Restoration").metric == "hps"
+    assert ranking_policy(2, "Balance", "hps").role == "restoration"
+    assert replace(key, category="Balance").metric == "hps"
     with pytest.raises(ValueError, match="category"):
         ranking_policy(2)
 

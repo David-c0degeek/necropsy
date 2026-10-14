@@ -27,7 +27,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from necropsy.analysis.roles import CLASS_NAMES
+from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.rules import load_rules
 from necropsy.snapshot.archive import (
     ArchiveError,
@@ -396,7 +396,12 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             "region": context.region.value,
             "faction": context.faction.value.value,
             **(
-                {"ranking_category": context.ranking_category}
+                {
+                    "ranking_category": context.ranking_category,
+                    "ranking_metric": ranking_policy(
+                        2, context.ranking_category, context.ranking_metric
+                    ).metric,
+                }
                 if context.class_id.value == 2
                 else {}
             ),

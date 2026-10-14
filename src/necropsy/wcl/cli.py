@@ -193,6 +193,10 @@ def analyze_command(
         str | None,
         typer.Option(help="Druid WCL category: Balance, Feral, Guardian or Restoration."),
     ] = None,
+    metric: Annotated[
+        str | None,
+        typer.Option(help="Ranking metric; use hps for Balance-category healing logs."),
+    ] = None,
     package: Annotated[
         bool,
         typer.Option("--package/--no-package", help="Also write the shareable ZIP package."),
@@ -222,6 +226,7 @@ def analyze_command(
             name=name,
             package=package,
             category=category,
+            metric=metric,
             wait_for_reset=wait_for_reset,
             tokens=_tokens,
             client_factory=_client,

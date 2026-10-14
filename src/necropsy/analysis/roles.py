@@ -40,18 +40,27 @@ DRUID_CATEGORIES = {
 }
 
 
-def ranking_policy(class_id: int, category: str | None = None) -> RankingPolicy:
+def ranking_policy(
+    class_id: int,
+    category: str | None = None,
+    metric: str | None = None,
+) -> RankingPolicy:
     """Only verified Classic Era WCL categories; never infer one from talents."""
     if type(class_id) is not int or class_id not in CLASS_NAMES:
         raise ValueError("only Classic Era Hunter and Druid are supported")
     if class_id == 3:
-        if category is not None:
+        if category is not None or metric not in (None, "dps"):
             raise ValueError("Hunter selection retains its all-spec DPS policy")
         return RankingPolicy(3, None, "dps", "dps")
     if category not in DRUID_CATEGORIES:
         raise ValueError("choose a Druid --category: Balance, Feral, Guardian or Restoration")
-    metric, role = DRUID_CATEGORIES[category]
-    return RankingPolicy(2, category, metric, role.value)
+    default_metric, role = DRUID_CATEGORIES[category]
+    selected = metric or default_metric
+    if selected == "hps" and category == "Balance":
+        role = FightRole.HEALER
+    elif selected != default_metric:
+        raise ValueError("unsupported category/metric combination")
+    return RankingPolicy(2, category, selected, role.value)
 
 
 @dataclass(frozen=True, slots=True)
@@ -105,11 +114,9 @@ class ComparisonKey:
     hard_mode: int = 0
 
     def __post_init__(self) -> None:
-        policy = ranking_policy(self.class_id, self.category)
-        expected = DRUID_CATEGORIES.get(self.category)
+        policy = ranking_policy(self.class_id, self.category, self.metric)
         if (
-            expected is None
-            or self.role != expected[1]
+            self.role.value != policy.role
             or self.metric != policy.metric
             or not self.build.strip()
             or self.faction not in ("Alliance", "Horde")

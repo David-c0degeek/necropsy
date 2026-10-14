@@ -706,7 +706,11 @@ def build_document(
     if meta[9] == 2:
         from necropsy.report.druid import boss_section
 
-        bosses = [boss_section(con, b, meta[12]) for b in boss_data]
+        selections = {
+            b["encounter_id"]: ((b.get("key") or {}).get("metric") or {}).get("value")
+            for b in (acquisition or {}).get("bosses", [])
+        }
+        bosses = [boss_section(con, b, meta[12], selections.get(b.encounter_id)) for b in boss_data]
     else:
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     document = {

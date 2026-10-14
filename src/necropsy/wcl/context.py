@@ -97,6 +97,7 @@ class CharacterContext:
     notes: tuple[str, ...] = field(default_factory=tuple)
     ranking_category: str | None = None
     """Explicit WCL selection category; neither talents nor observed fight duty."""
+    ranking_metric: str | None = None
 
     @property
     def same_faction_ready(self) -> bool:

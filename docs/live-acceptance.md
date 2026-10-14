@@ -41,6 +41,7 @@ Optional settings:
 | Variable | Meaning |
 |---|---|
 | `NECROPSY_LIVE_CATEGORY` | Druid WCL category: `Balance`, `Feral`, `Guardian` or `Restoration`; omit for Hunter |
+| `NECROPSY_LIVE_METRIC` | Optional ranking metric; `hps` selects Balance-category healing performances |
 | `NECROPSY_LIVE_ENDPOINT` | `client` by default, or `user` for the entire run |
 | `NECROPSY_LIVE_PARTITION` | A positive partition ID when the choice is ambiguous |
 | `NECROPSY_LIVE_HISTORY` | Path to matching historical `analysis.json` |

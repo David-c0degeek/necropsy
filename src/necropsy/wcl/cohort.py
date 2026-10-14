@@ -70,7 +70,7 @@ query NecropsyLeaderboard($encounter: Int!, $partition: Int!, $page: Int!) {{
 def leaderboard_query(key: CohortKey) -> str:
     if key.class_name.value == "Hunter":
         return LEADERBOARD_QUERY
-    policy = ranking_policy(2, key.spec.value)
+    policy = ranking_policy(2, key.spec.value, key.metric.value)
     return LEADERBOARD_QUERY.replace("metric: dps", f"metric: {policy.metric}").replace(
         'className: "Hunter"', f'className: "Druid"\n        specName: "{policy.category}"'
     )
@@ -112,12 +112,8 @@ class CohortKey:
 
     @property
     def metric(self) -> Dimension:
-        policy = (
-            ranking_policy(2, self.spec.value)
-            if self.class_name.value == "Druid"
-            else ranking_policy(3)
-        )
-        return Dimension(policy.metric, "enforced", "ranking query metric")
+        metric = "hps" if self.role.value == "restoration" else "dps"
+        return Dimension(metric, "enforced", "ranking query metric")
 
 
 def _ready(context: CharacterContext) -> None:
@@ -130,7 +126,7 @@ def _ready(context: CharacterContext) -> None:
     if context.class_id.level != "observed":
         raise CohortRefused("the character class is not observed")
     try:
-        ranking_policy(context.class_id.value, context.ranking_category)
+        ranking_policy(context.class_id.value, context.ranking_category, context.ranking_metric)
     except ValueError as error:
         raise CohortRefused(str(error)) from None
 
@@ -152,7 +148,9 @@ def cohort_key(site: Site, context: CharacterContext, encounter_id: int) -> Coho
     _supported_encounter(encounter_id)
     assert context.partition is not None
     faction: Faction = context.faction.value
-    policy = ranking_policy(context.class_id.value, context.ranking_category)
+    policy = ranking_policy(
+        context.class_id.value, context.ranking_category, context.ranking_metric
+    )
     return CohortKey(
         site=Dimension(site.host, "enforced"),
         game=Dimension(GAME, "enforced", "site family vanilla; ranking rows carry no game build"),

@@ -82,6 +82,7 @@ def _key() -> Any:
     ("category", "metric", "role"),
     [
         ("Balance", "dps", "balance-dps"),
+        ("Balance", "hps", "restoration"),
         ("Feral", "dps", "feral-dps"),
         ("Guardian", "dps", "feral-tank"),
         ("Restoration", "hps", "restoration"),
@@ -94,7 +95,9 @@ def test_druid_selection_enforces_category_and_metric(
     from necropsy.wcl.cohort import leaderboard_query
     from necropsy.wcl.fetch import report_query_for_metric
 
-    context = _context(class_id=Field(2, "observed", "t"), ranking_category=category)
+    context = _context(
+        class_id=Field(2, "observed", "t"), ranking_category=category, ranking_metric=metric
+    )
     key = cohort_key(VANILLA, context, ENCOUNTER)
     rows = [
         _row(1, **{"class": "Druid", "spec": "Marksmanship"}),

@@ -198,6 +198,7 @@ def run_analyze(
     resolver: Resolver | None = None,
     before_acquire: Callable[[CharacterContext], None] | None = None,
     category: str | None = None,
+    metric: str | None = None,
 ) -> Outcome:
     ref, cache_dir, out_dir = check_inputs(url, cache, out, partition, endpoint, name)
     chosen: Endpoint = "user" if endpoint == "user" else "client"
@@ -221,6 +222,7 @@ def run_analyze(
                 resolver,
                 before_acquire=before_acquire,
                 category=category,
+                metric=metric,
             )
         finally:
             client.close()
@@ -239,6 +241,7 @@ def _run(
     resolver: Resolver,
     before_acquire: Callable[[CharacterContext], None] | None = None,
     category: str | None = None,
+    metric: str | None = None,
 ) -> Outcome:
     context = resolver(client, ref, partition=partition, endpoint=endpoint)
     if context.ambiguity:
@@ -258,10 +261,10 @@ def _run(
     if context.class_id.value not in CLASS_NAMES:
         raise AnalyzeError("only Hunters and Druids can be analysed")
     try:
-        ranking_policy(context.class_id.value, category)
+        ranking_policy(context.class_id.value, category, metric)
     except ValueError as error:
         raise AnalyzeError(str(error)) from None
-    context = replace(context, ranking_category=category)
+    context = replace(context, ranking_category=category, ranking_metric=metric)
     if before_acquire is not None:
         before_acquire(context)  # last chance to refuse before any acquisition request
     store = Cache(cache_dir)
@@ -278,6 +281,7 @@ def _run(
                 endpoint,
                 class_id=context.class_id.value,
                 category=category,
+                metric=metric,
             ),
             acquisition,
         )

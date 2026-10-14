@@ -181,3 +181,6 @@ Check the command's exit status and message before using the output.
 ## Druids
 
 Use `analyze URL --category Balance` (or `Feral`, `Guardian`, `Restoration`) with the existing cache/output options. Each category needs a separate output directory. Saved Druid snapshots use the same `offline` command. See [Druid analysis](druid-analysis.md) for evidence, override examples and validation limits.
+
+Balance healing assignments can select `--category Balance --metric hps`; use a
+separate output directory for each category/metric selection.

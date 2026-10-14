@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import random
 import zipfile
+from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
@@ -25,9 +26,58 @@ from necropsy.snapshot.v1_writer import LIVE_DESCRIPTION, WriteError, write_snap
 from necropsy.wcl import client as c
 from necropsy.wcl.acquire import MixedRevision, Run, acquire, finalize_reports
 from necropsy.wcl.cache import Cache
+from necropsy.wcl.context import Field
 from necropsy.wcl.sites import VANILLA
 from tests.unit.test_wcl_acquire import PATCHWERK, FakeWcl, Player, _context
 from tests.wcl_fakes import FakeClock
+
+
+def test_balance_healing_metric_survives_acquisition_and_replay(tmp_path: Path) -> None:
+    class DruidWcl(FakeWcl):
+        def _rank(self, p: Player, amount: float) -> dict[str, Any]:
+            return {**super()._rank(p, amount), "class": "Druid", "spec": "Balance"}
+
+        def _report(self, p: Player, wanted: list[int] | None = None) -> dict[str, Any]:
+            report = super()._report(p, wanted)
+            for row in report["playerDetails"]["data"]["playerDetails"]["dps"]:
+                row["type"] = "Druid"
+            return report
+
+    fake = DruidWcl(
+        [Player(f"Ally{i}", subtype="Druid") for i in range(5)],
+        Player("Haplina", subtype="Druid"),
+    )
+    context = replace(
+        _context(),
+        class_id=Field(2, "observed", "test"),
+        ranking_category="Balance",
+        ranking_metric="hps",
+    )
+    (tmp_path / "cache").mkdir()
+    (tmp_path / "saved").mkdir()
+    store = Cache(tmp_path / "cache")
+    client = _client(fake)
+    result = acquire(client, store, VANILLA, context, encounters=(PATCHWERK,))
+    finalize_reports(
+        Run(client, store, VANILLA, class_id=2, category="Balance", metric="hps"), result
+    )
+    written = write_snapshot(result, store, tmp_path / "saved", "druid")
+    db = tmp_path / "druid.duckdb"
+    ingest(written.archive, db)
+    with duckdb.connect(str(db), read_only=True) as con:
+        subject = build_document(con)["bosses"][0]["subject"]
+    assert subject["ranking"]["category"] == "Balance"
+    assert subject["ranking"]["metric"] == "hps"
+    assert subject["ranking"]["category_score"] == 1500
+    assert subject["druid"]["role"]["value"] is None
+    queries = [request["query"] for request in fake.requests]
+    assert all("metric: hps" in q for q in queries if "NecropsySubject" in q)
+    assert all("playerMetric: hps" in q for q in queries if "NecropsyReport" in q)
+    broken = _rewrite_marker(
+        written, tmp_path / "wrong.zip", lambda d: d["subject"].update(ranking_metric="dps")
+    )
+    with pytest.raises(SnapshotError, match="incompatible"):
+        ingest(broken, tmp_path / "wrong.duckdb")
 
 
 def _client(fake: FakeWcl) -> c.WclClient:

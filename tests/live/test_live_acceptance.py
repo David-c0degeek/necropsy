@@ -37,6 +37,7 @@ def live_settings(config: pytest.Config) -> dict[str, Any] | None:
         "history": os.environ.get("NECROPSY_LIVE_HISTORY"),
         "wait_for_reset": os.environ.get("NECROPSY_LIVE_WAIT_FOR_RESET") == "1",
         "category": os.environ.get("NECROPSY_LIVE_CATEGORY"),
+        "metric": os.environ.get("NECROPSY_LIVE_METRIC"),
     }
 
 
@@ -69,6 +70,7 @@ def test_live_analyze_acceptance(request: pytest.FixtureRequest) -> None:
         endpoint=settings["endpoint"],
         wait_for_reset=settings["wait_for_reset"],
         category=settings["category"],
+        metric=settings["metric"],
         tokens=wcl_cli._tokens,
         client_factory=wcl_cli._client,
         before_acquire=None
@@ -103,6 +105,7 @@ def test_live_analyze_acceptance(request: pytest.FixtureRequest) -> None:
         "reset_wait": outcome.reset_wait,
         "partition": checked["document"]["zone"]["partition"],
         "category": settings["category"],
+        "metric": settings["metric"],
         "snapshot_sha256": written.sha256,
         "package_sha256": checked["package_sha256"],
         "summary": outcome.lines,

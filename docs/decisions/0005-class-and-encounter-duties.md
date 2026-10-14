@@ -10,8 +10,10 @@ different measurements through those same entry points.
 
 Build, WCL category, observed action signals, inferred encounter duty and user
 assignment override are distinct. Talents alone never establish duty. Categories
-are verified against WCL's game data: Druid Balance/Feral/Guardian use DPS and
-Restoration uses HPS. Guardian DPS is a ranking category score, never tank quality.
+are verified against WCL's game data: Druid Balance/Feral/Guardian default to DPS
+and Restoration uses HPS. Balance also supports explicitly selected HPS, as
+observed in character rankings. A Balance build can have a healing assignment.
+Guardian DPS is a ranking category score, never tank quality.
 
 Druid primary baselines require exact known class, encounter, faction, build,
 category, duty, ranking metric and partition. Mixed, unknown or overridden duties
@@ -21,7 +23,8 @@ silently filling the sample. Three known values are required.
 
 Snapshot v1 remains readable for Hunter. Optional Druid category metadata and
 explicit metric dimensions preserve its query semantics; a category-only key can
-derive its metric solely from the verified category policy. The reader rejects
+derive its default metric from the verified category policy. Explicit metric
+selection is retained in new Druid snapshot subjects and comparison keys. The reader rejects
 conflicting participant/category/metric data. Raw member bytes, report-generation
 digests, page proofs and provenance remain verified. No database table changes
 are needed: existing normalized events and retained raw payloads contain the data.

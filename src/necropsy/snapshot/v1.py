@@ -69,6 +69,7 @@ class LiveSubject(_Strict):
     region: str = Field(min_length=1)
     faction: Literal["Alliance", "Horde"]
     ranking_category: str | None = None
+    ranking_metric: str | None = None
 
 
 class LiveZone(_Strict):
@@ -190,8 +191,17 @@ class V1Snapshot(V0Snapshot):
             }
             if len(categories) == 1:
                 category = categories.pop()
+        metric = live.subject.ranking_metric
+        if metric is None:
+            metrics = {
+                ((b.get("key") or {}).get("metric") or {}).get("value")
+                for b in live.bosses
+                if b.get("key") and "metric" in b["key"]
+            }
+            if len(metrics) == 1:
+                metric = metrics.pop()
         try:
-            policy = ranking_policy(2, category)
+            policy = ranking_policy(2, category, metric)
         except ValueError as error:
             raise SnapshotError(str(error)) from None
         expected = {

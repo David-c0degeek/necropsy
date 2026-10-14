@@ -234,6 +234,7 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 
 | D009 | 2026-10-14 | Secondary duty guard | Require at least 20% of categorized duty casts as well as three casts for a non-tank duty. Preserve minor action signals/spans; direct tank evidence is not suppressed by cast share. Threshold is provisional pending 01.4/04.4 domain review. | Claude review identified three incidental off-heals or damage casts forcing hybrid and removing a valid comparison. Relative-share and incidental-cast regression cases now pin the rule. | 01.2; 04.3; druid-duty-signals-v2 |
 | D010 | 2026-10-14 | Cleanup review scope | Reuse the whole-repo audit from the same day and waive a second whole-repo teardown; review only new class surfaces for duplication/dead exports. C1 was fixed; C2/C3 remain intentionally retained. | Existing cleanup-audit-2026-10-14.md is fresh, triaged and no dependency/auth/storage replacement was added. | 06.4; cleanup-audit-2026-10-14.md |
+| D011 | 2026-10-15 | Category and ranking metric independence | Balance defaults to DPS but explicitly supports HPS; preserve metric through acquisition, snapshot replay and exact comparison keys. Other verified defaults remain. | User confirms mostly healing on Sapphiron; earlier authenticated HPS character rankings contained Balance rows. New synthetic production acquisition→snapshot→report regression checks HPS labels and conflicting-metric refusal. Actual Sapphiron acquisition follows the observed reset. | 01–02; 04; 06; ADR 0005 |
 
 ---
 

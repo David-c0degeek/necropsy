@@ -434,9 +434,10 @@ class Run:
         *,
         class_id: int = 3,
         category: str | None = None,
+        metric: str | None = None,
     ) -> None:
         self.client, self.store, self.site, self.endpoint = client, store, site, endpoint
-        self.policy = ranking_policy(class_id, category)
+        self.policy = ranking_policy(class_id, category, metric)
         self._bundles: dict[tuple[str, int], Bundle] = {}
         self.stage = "starting"
 
@@ -786,6 +787,7 @@ def acquire(
         endpoint,
         class_id=context.class_id.value,
         category=context.ranking_category,
+        metric=context.ranking_metric,
     )
     requested = tuple(encounters or boss_order())
     out = Acquisition(endpoint, cross_faction, context, requested)

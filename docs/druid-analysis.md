@@ -20,6 +20,7 @@ An opt-in `--wait-for-reset` permits one bounded hourly reset wait.
 | WCL category | Ranking metric | Possible encounter duty |
 |---|---|---|
 | `Balance` | DPS | Balance damage |
+| `Balance --metric hps` | HPS | Healing in a Balance category/build |
 | `Feral` | DPS | Feral damage |
 | `Guardian` | DPS | Feral tank or other evidenced duties |
 | `Restoration` | HPS | Healing |
@@ -27,6 +28,13 @@ An opt-in `--wait-for-reset` permits one bounded hourly reset wait.
 Guardian's DPS score is a category ranking, never a tank survival or threat score.
 The taxonomy was checked against the live WCL game-data and ranking endpoints.
 WCL uses class ID 2 for Druid, independently of Blizzard class IDs.
+
+For Balance-category healing assignments, select `--category Balance --metric hps`
+in a separate output directory. Category, metric and inferred encounter duty stay
+separate: healing on Sapphiron does not require relabelling the build Restoration.
+The other categories retain the metrics above; unsupported combinations fail
+before acquisition. Metric selection chooses the saved ranking performance, not
+an assignment override.
 
 ## Duties and comparisons
 

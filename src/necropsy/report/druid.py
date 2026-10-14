@@ -14,7 +14,11 @@ from necropsy.analysis.roles import DRUID_CATEGORIES, ComparisonKey, FightRole
 from necropsy.report.serialize import to_data
 
 
-def comparison_key(entry: Entry, partition: int | None) -> ComparisonKey | None:
+def comparison_key(
+    entry: Entry,
+    partition: int | None,
+    metric: str | None = None,
+) -> ComparisonKey | None:
     analysis = entry.druid
     category, role = analysis.ranking_category.value, analysis.role.value
     if (
@@ -36,7 +40,7 @@ def comparison_key(entry: Entry, partition: int | None) -> ComparisonKey | None:
             analysis.build.value,
             category,
             role,
-            DRUID_CATEGORIES[category][0],
+            metric or DRUID_CATEGORIES[category][0],
             partition,
             difficulty=entry.participant.difficulty,
         )
@@ -44,7 +48,11 @@ def comparison_key(entry: Entry, partition: int | None) -> ComparisonKey | None:
         return None
 
 
-def _ranking(con: duckdb.DuckDBPyConnection, entry: Entry) -> dict[str, Any]:
+def _ranking(
+    con: duckdb.DuckDBPyConnection,
+    entry: Entry,
+    metric: str | None = None,
+) -> dict[str, Any]:
     """A saved WCL amount stays metadata; event throughput is a separate value."""
     rows = con.execute(
         """SELECT total FROM benchmark_participants WHERE report_code = ?
@@ -52,7 +60,7 @@ def _ranking(con: duckdb.DuckDBPyConnection, entry: Entry) -> dict[str, Any]:
         [entry.participant.report_code, entry.participant.fight_id, entry.participant.player],
     ).fetchall()
     category = entry.druid.ranking_category.value
-    metric = DRUID_CATEGORIES[category][0] if category else None
+    metric = metric or (DRUID_CATEGORIES[category][0] if category else None)
     amounts = {r[0] for r in rows if math.isfinite(r[0]) and r[0] >= 0}
     score = (
         next(iter(amounts))
@@ -82,7 +90,11 @@ def _ranking(con: duckdb.DuckDBPyConnection, entry: Entry) -> dict[str, Any]:
     }
 
 
-def entry_section(con: duckdb.DuckDBPyConnection, entry: Entry) -> dict[str, Any]:
+def entry_section(
+    con: duckdb.DuckDBPyConnection,
+    entry: Entry,
+    metric: str | None = None,
+) -> dict[str, Any]:
     pf = entry.participant
     env = to_data(entry.profile)
     env.pop("participant", None)
@@ -95,7 +107,7 @@ def entry_section(con: duckdb.DuckDBPyConnection, entry: Entry) -> dict[str, Any
         "fight_id": pf.fight_id,
         "kill_duration_s": pf.duration_ms / 1000,
         "environment": env,
-        "ranking": _ranking(con, entry),
+        "ranking": _ranking(con, entry, metric),
         "raptor_roles": to_data(entry.raptor_roles),
         "druid": to_data(entry.druid),
     }
@@ -176,12 +188,15 @@ def _recommendations(subject: Entry, medians: dict[str, Any]) -> list[dict[str, 
 
 
 def boss_section(
-    con: duckdb.DuckDBPyConnection, boss: BossData, partition: int | None
+    con: duckdb.DuckDBPyConnection,
+    boss: BossData,
+    partition: int | None,
+    metric: str | None = None,
 ) -> dict[str, Any]:
     subject = boss.subject
-    key = None if subject is None else comparison_key(subject, partition)
+    key = None if subject is None else comparison_key(subject, partition, metric)
     applicable = tuple(
-        e for e in boss.cohort if key is not None and comparison_key(e, partition) == key
+        e for e in boss.cohort if key is not None and comparison_key(e, partition, metric) == key
     )
     medians: dict[str, Any] = {}
     if subject is not None:
@@ -192,13 +207,13 @@ def boss_section(
         )
         for name in subject.druid.metrics:
 
-            def metric(entry: Entry, metric_name: str = name) -> Evidenced[float]:
+            def metric_value(entry: Entry, metric_name: str = name) -> Evidenced[float]:
                 return entry.druid.metrics[metric_name]
 
             medians[name] = to_data(
                 median_of(
                     applicable,
-                    metric,
+                    metric_value,
                     name,
                     inferred_membership=inferred_members,
                 )
@@ -245,9 +260,9 @@ def boss_section(
                 "validation": None,
             },
         },
-        "subject": None if subject is None else entry_section(con, subject),
-        "cohort": [entry_section(con, e) for e in applicable],
-        "overall_cohort": [entry_section(con, e) for e in boss.cohort],
+        "subject": None if subject is None else entry_section(con, subject, metric),
+        "cohort": [entry_section(con, e, metric) for e in applicable],
+        "overall_cohort": [entry_section(con, e, metric) for e in boss.cohort],
         "benchmarks": {
             "ceiling": None,
             "baseline": baseline,

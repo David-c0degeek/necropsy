@@ -238,3 +238,6 @@ separate records.
 ## Druid categories
 
 Live acquisition also accepts Classic Era Druids with explicit `--category Balance`, `Feral`, `Guardian` or `Restoration`. Restoration queries HPS; Guardian remains a DPS ranking category and never a tank-quality score. Rows and actor class are checked throughout finalization and snapshot readback. Missing category asks for a choice before acquisition. See [Druid analysis](druid-analysis.md).
+
+`--category Balance --metric hps` selects a Balance-category healing performance.
+The selected ranking metric is preserved separately from build and observed duty.
