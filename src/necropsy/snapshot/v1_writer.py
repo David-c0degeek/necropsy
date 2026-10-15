@@ -415,6 +415,11 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
         "top_n": int(load_rules(GAME, "benchmarks")["live_cohort"]["deep"]),
         "endpoint": acquisition.endpoint,
         "cross_faction": acquisition.cross_faction,
+        **(
+            {"comparison_order": list(acquisition.comparison_order)}
+            if acquisition.comparison_order
+            else {}
+        ),
         "stopped": acquisition.stopped,
         "fights": [fights[k] for k in sorted(fights)],
         "bosses": bosses,

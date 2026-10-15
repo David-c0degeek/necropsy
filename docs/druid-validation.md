@@ -52,3 +52,21 @@ exclusion recorded. The separate Restoration/HPS query acquired David's actual
 healing performance. Neither metric choice nor a leaderboard category proves duty.
 
 The versioned role heuristic also requires a non-tank secondary signal to account for at least 20% of categorized duty casts. Minor signals are retained in activity spans and observed-role evidence, even when they do not change the primary inferred duty. This threshold remains provisional pending domain adjudication. Direct evidenced tank duty is never suppressed solely by this share threshold.
+
+Selected-spec validation now includes a separate Guardian acquisition for David's
+own character on Patchwerk. No matching personal Guardian ranking was found;
+the view shows insufficient personal Tank data. Harryjam's evidenced tank fight
+is shown as a learning example at its actual leaderboard position **4**. Suncat's
+overall #1 Guardian score remains separately labelled category metadata, without
+promoting its non-tank fight to a tank example. The seventh frozen capture is
+`tests/golden/druid/raw/druid-tank-view.zip`; independent raw-event arithmetic and
+its 32,499,807 extracted bytes passed checks and gitleaks. The earlier Guardian
+fixture likewise keeps Suncat's incompatible subject in audit data instead of
+grading it as personal tank performance.
+
+The full selected Balance view is being acquired through the normal CLI with
+personal-first multi-boss ordering. The first attempt spent the hourly allowance
+on early-boss comparisons; it was cancelled and its cache retained. A replacement
+run waits once for the observed reset, then collects personal selected-spec
+encounters before comparison depth. No full-raid live success is claimed until
+the snapshot, view and package have actually been checked.

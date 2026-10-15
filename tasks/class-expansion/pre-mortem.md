@@ -64,3 +64,29 @@ the final four-artifact comparison detected it. Use expressions for inline label
 and retain rendered/package byte checks at the compatibility boundary. This is
 also the concrete realization of PM-2; recorded separately because the mechanism
 was not predicted.
+
+## Selected-spec correction — 2026-10-15
+
+CH-MISS-3: validating one example per role did not establish the intended selected
+spec view. The user clarified that every boss stays visible, only matching
+personal spec/duty is graded, and absent personal data gets separately labelled
+top-player learning examples. A Guardian ranking with feral actions must not be
+personal Tank analysis. D012 and ADR 0005 now state that contract; new empty-view,
+role-mismatch, partial-coverage and reference-only tests pin it. The brief
+mixed-category/pinned-raid proposal was removed before shipping.
+
+PM-3 remains Confirmed Prediction: the new personal eligibility filter closes
+another category-as-duty path; neither learning examples nor rank-one metadata
+become personal baselines. Domain review of heuristics/advice remains separate.
+PM-1 remains Prevented Prediction: selected spec aliases canonicalize before
+querying and conflicting flags are refused before credentials are read.
+PM-2 remains mitigated: Hunter four-artifact bytes and all 26 recorded mock HTTP
+request bodies/endpoints match the 72744c5 baseline; the two-boss ordering test
+also keeps Hunter's original personal/comparison interleaving.
+
+Acquisition-order miss: fetching a deep cohort boss by boss exhausted the live
+budget before personal raid coverage. D013 records personal-first ordering,
+subject-less comparison priority, planned-order provenance and a conservative
+finalization reserve restored in finally. Pagination still pays against each
+request's guarded allowance. The replacement live run retains one bounded,
+observed reset wait; unacquired comparisons remain explicit.

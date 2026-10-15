@@ -9,6 +9,13 @@ implemented in the development checkout; they are not a published release.
 
 ### Changed
 
+- **Selected Druid spec views.** `--spec Balance`, `Restoration`, `Feral` or
+  `Tank` filters personal analysis by category and evidenced duty while keeping
+  every requested boss visible. Missing personal encounters can show eligible
+  top-player learning examples, separately from rank-one metadata and personal
+  comparisons. Multi-boss acquisition gets personal fights first, prioritizes
+  examples for subject-less bosses and reserves budget for fresh finalization.
+
 - **Druid ranking selection.** `--category Balance --metric hps` selects
   Balance-category healing performances while preserving build and observed duty.
   Default category metrics and Hunter DPS selection remain unchanged.

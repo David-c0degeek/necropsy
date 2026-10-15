@@ -29,6 +29,7 @@ from necropsy.analysis.benchmark import (
     ranked_target_shares,
     split_by_faction,
 )
+from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.encounters.findings import raid_utility, target_integrity
 from necropsy.analysis.evidence import Claim, EvidenceLevel, EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog, rank_percent
@@ -37,6 +38,7 @@ from necropsy.analysis.playbook import build as build_playbook
 from necropsy.analysis.recommendations import Controllability, Tier, recommend
 from necropsy.analysis.roles import RoleOverride
 from necropsy.report.serialize import to_data
+from necropsy.rules import load_rules
 
 SCHEMA_ID = "necropsy.analysis"
 SCHEMA_VERSION = 1
@@ -706,11 +708,38 @@ def build_document(
     if meta[9] == 2:
         from necropsy.report.druid import boss_section
 
-        selections = {
-            b["encounter_id"]: ((b.get("key") or {}).get("metric") or {}).get("value")
-            for b in (acquisition or {}).get("bosses", [])
+        records = {b["encounter_id"]: b for b in (acquisition or {}).get("bosses", [])}
+        categories = {
+            ((r.get("key") or {}).get("spec") or {}).get("value") for r in records.values()
+        } - {None}
+        category = (acquisition or {}).get("selected_category")
+        if category is None and len(categories) == 1:
+            category = next(iter(categories))
+        if acquisition is not None:
+            acquisition["selected_category"] = category
+        present = {b.encounter_id for b in boss_data}
+        boss_data += [
+            BossData(eid, r["boss"], encounter_rules(GAME, ZONE, eid), None, ())
+            for eid, r in records.items()
+            if eid not in present
+        ]
+        order = {
+            int(e["id"]): i for i, e in enumerate(load_rules(GAME, f"zones/{ZONE}")["encounters"])
         }
-        bosses = [boss_section(con, b, meta[12], selections.get(b.encounter_id)) for b in boss_data]
+        boss_data.sort(key=lambda b: order.get(b.encounter_id, 999))
+        bosses = [
+            boss_section(
+                con,
+                b,
+                meta[12],
+                ((records.get(b.encounter_id, {}).get("key") or {}).get("metric") or {}).get(
+                    "value"
+                ),
+                category,
+                records.get(b.encounter_id),
+            )
+            for b in boss_data
+        ]
     else:
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     document = {

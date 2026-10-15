@@ -2,9 +2,10 @@
 
 Mirror non-agent boxes exactly. TODO stays open; deferral needs an explicit rationale and scope decision.
 
-2026-10-15: all agent implementation/verification boxes are complete. The
+2026-10-15: David confirmed the selected-spec view model; the related agent
+acquisition/reporting verification is reopened. The
 [review packet](review-packet.md) supplies six real examples, exact questions and
-limits. David's domain/product answer is pending; no accepted finding or deferred
+limits. Threshold/finding/advice acceptance is still pending; no accepted finding or deferred
 role is inferred from fixture authorization or successful engineering checks.
 
 | Box ID | Owner | Action | Source subject | Status | Deferral rationale |

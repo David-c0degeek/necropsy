@@ -47,7 +47,8 @@ def _raw_total(path: Path, report: str, fight: int, player: str, metric: str) ->
 
 
 @pytest.mark.parametrize(
-    "category", ["balance", "restoration", "feral", "guardian", "mixed", "sapphiron-restoration"]
+    "category",
+    ["balance", "restoration", "feral", "guardian", "mixed", "sapphiron-restoration", "tank-view"],
 )
 def test_real_druid_snapshot_replays_with_separate_role_evidence(
     tmp_path: Path, category: str
@@ -62,7 +63,15 @@ def test_real_druid_snapshot_replays_with_separate_role_evidence(
     run_offline(archive, out)
     doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
     boss = doc["bosses"][0]
-    entries: list[dict[str, Any]] = [boss["subject"], *boss["overall_cohort"]]
+    entries: list[dict[str, Any]] = [
+        e
+        for e in [
+            boss["subject"],
+            boss["playbook"].get("excluded_subject"),
+            *boss["overall_cohort"],
+        ]
+        if e is not None
+    ]
     facts = json.loads((ROOT / "facts.json").read_text(encoding="utf-8"))
     for case in (c for c in facts["cases"] if c["fixture"] == category):
         entry = next(e for e in entries if e["player"] == case["player"])
@@ -76,6 +85,15 @@ def test_real_druid_snapshot_replays_with_separate_role_evidence(
     assert len(boss["overall_cohort"]) == 5
     assert all("hunter" not in e for e in entries)
     assert all(e["druid"]["role"]["value"] != "hybrid" for e in boss["cohort"])
+    if category == "guardian":
+        assert boss["subject"] is None  # A Guardian ranking did not establish personal tank duty.
+        assert boss["playbook"]["reference"]["druid"]["role"]["value"] == "feral-tank"
+    if category == "tank-view":
+        assert doc["subject"]["name"] == "Haplina" and boss["subject"] is None
+        assert boss["playbook"]["reference"]["player"] == "Harryjam"
+        assert boss["playbook"]["reference"]["leaderboard_position"] == 4
+        assert boss["benchmarks"]["baseline"]["medians"] == {}
+        assert boss["recommendations"] == []
     with zipfile.ZipFile(out / f"necropsy-{doc['subject']['id']}-2006.zip") as zf:
         manifest = json.loads(zf.read("manifest.json"))
         for record in manifest["files"]:

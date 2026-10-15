@@ -184,3 +184,7 @@ Use `analyze URL --category Balance` (or `Feral`, `Guardian`, `Restoration`) wit
 
 Balance healing assignments can select `--category Balance --metric hps`; use a
 separate output directory for each category/metric selection.
+
+The user-facing `--spec` option accepts Balance (or boomkin), Feral, Restoration
+and Tank. Each report keeps every requested boss, shows matching personal data,
+and separates missing personal data from top-player learning examples.

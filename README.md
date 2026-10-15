@@ -89,3 +89,7 @@ files. Keep credentials and private exports out of issues and patches.
 Druids select `--category Balance`, `Feral`, `Guardian` or `Restoration`; [Druid analysis](docs/druid-analysis.md) explains role inference, appropriate comparisons and assignment overrides. [Validation](docs/druid-validation.md) distinguishes observed runs from remaining domain acceptance.
 
 Use `--category Balance --metric hps` for Balance-category healing performances.
+
+Choose `--spec Balance`, `Restoration`, `Feral` or `Tank` to view that spec across
+all bosses. Missing personal encounters remain visible with an explanation and
+eligible top-player learning examples; examples never become personal grades.

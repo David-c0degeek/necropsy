@@ -13,10 +13,10 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [x] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
-- [x] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
+- [ ] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
+- [ ] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
 - [ ] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
-- [x] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
+- [ ] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
@@ -58,3 +58,43 @@ DO NOT CLOSE — 06.3 product review. The smallest next actions are the named re
 
 
 2026-10-15 · engineering review receipt · Claude mail 180: AGREE round=3 blocking=0 important=0 at db89d3a; 92 independent focused tests pass. It reviewed the changed roles/cohort/acquire/analyze/snapshot-reader/document/Druid analyzer-report/base-template code, and explicitly excluded remaining views/offline/writer/CLI/export/schema/docs/plan/raw-fact surfaces from that round. Earlier scoped rounds plus lead inspection, six real artifact/package replays, schema tests and 24 browser cases cover those paths; no claim of blanket independent review is made. Optional CohortKey.metric storage nit retained as-is: the property preserves Hunter's serialized key bytes, all supported combinations are tested, and unsupported combinations fail canonical policy. Future categories must extend that policy and query tests together. Linux and Windows CI db89d3a passed: https://github.com/David-c0degeek/necropsy/actions/runs/38646145402. This is a record-only close-out; no runtime or test edits follow the reviewed code.
+
+
+2026-10-15 · selected-spec correction · D012/D013 reopen the affected agent boxes.
+User confirmed one selected spec view with all bosses visible, matching personal
+data only, and separately labelled top-player examples when personal data is
+missing. Implemented CLI aliases/conflict refusal, role eligibility, requested
+empty bosses, exemplar/metadata separation, coverage/learning CSVs, personal-first
+Druid acquisition and finalization reserve with policy restoration. Hunter26
+recorded request bodies/endpoints and all four saved artifacts match72744c5.
+Latest broad run:877 fast pass; subsequently added the multi-boss snapshot-order
+regression (passes) and conflict checks. Native DuckDB failed during overlapping
+large replays (malformed JSON/native access violation); isolated Guardian replay
+passed. Serial full golden/acceptance rerun is pending; no normalizer change was
+made without a reproducible cause. Tank-view real fixture and32,499,807 extracted
+bytes passed arithmetic/secret checks. Full Balance run is waiting once on the
+observed reset, after cancelling the old acquisition and retaining its cache.
+
+## Captain Hindsight — selected-spec correction
+
+### Keep
+Keep spec/category/observed-duty separation, personal eligibility and explicitly
+labelled learning examples. Retain all requested bosses and guard unknowns.
+
+### Fix before closing
+Finish latest serial golden/browser checks, current CI, independent scoped review
+and actual multi-boss live view verification. Do not count the old close-out as
+approval of these new behaviors.
+
+### Record
+D012/D013 and ADR0005 describe the clarified view and acquisition order. PM/CH
+calibration records the missed view contract and budget-order issue. User's yes
+confirms the view model only; domain heuristic/advice gates remain open.
+
+### Risk
+API budget limits comparison depth; native bulk-loader failures during concurrent
+verification need a clean serial result before claiming latest replay success.
+No source log or ranking category alone proves a selected encounter duty.
+
+### Verdict
+DO NOT CLOSE — latest verification, live capture and scoped review are pending.

@@ -191,7 +191,11 @@ def analyze_command(
     ] = None,
     category: Annotated[
         str | None,
-        typer.Option(help="Druid WCL category: Balance, Feral, Guardian or Restoration."),
+        typer.Option(help="WCL category: Balance, Feral, Guardian or Restoration."),
+    ] = None,
+    spec: Annotated[
+        str | None,
+        typer.Option(help="Druid view: Balance (boomkin), Feral, Restoration or Tank (Guardian)."),
     ] = None,
     metric: Annotated[
         str | None,
@@ -226,6 +230,7 @@ def analyze_command(
             name=name,
             package=package,
             category=category,
+            spec=spec,
             metric=metric,
             wait_for_reset=wait_for_reset,
             tokens=_tokens,

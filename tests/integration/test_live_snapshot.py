@@ -65,7 +65,9 @@ def test_balance_healing_metric_survives_acquisition_and_replay(tmp_path: Path) 
     db = tmp_path / "druid.duckdb"
     ingest(written.archive, db)
     with duckdb.connect(str(db), read_only=True) as con:
-        subject = build_document(con)["bosses"][0]["subject"]
+        boss = build_document(con)["bosses"][0]
+    assert boss["subject"] is None  # The synthetic stream cannot establish a healing duty.
+    subject = boss["playbook"]["excluded_subject"]
     assert subject["ranking"]["category"] == "Balance"
     assert subject["ranking"]["metric"] == "hps"
     assert subject["ranking"]["category_score"] == 1500
@@ -78,6 +80,72 @@ def test_balance_healing_metric_survives_acquisition_and_replay(tmp_path: Path) 
     )
     with pytest.raises(SnapshotError, match="incompatible"):
         ingest(broken, tmp_path / "wrong.duckdb")
+
+
+def test_druid_personal_first_snapshot_retains_empty_boss_and_comparison_order(
+    tmp_path: Path,
+) -> None:
+    class DruidWcl(FakeWcl):
+        def __call__(self, request: httpx.Request) -> httpx.Response:
+            body = json.loads(request.content)
+            if body["variables"].get("encounter") == 51119:
+                self.requests.append(body)
+                if "NecropsySubject" in body["query"]:
+                    return self._ok(
+                        {"characterData": {"character": {"encounterRankings": {"ranks": []}}}}
+                    )
+                return self._ok(
+                    {
+                        "worldData": {
+                            "encounter": {
+                                "id": 51119,
+                                "characterRankings": {"rankings": [], "hasMorePages": False},
+                            }
+                        }
+                    }
+                )
+            return super().__call__(request)
+
+        def _rank(self, p: Player, amount: float) -> dict[str, Any]:
+            return {**super()._rank(p, amount), "class": "Druid", "spec": "Balance"}
+
+        def _report(self, p: Player, wanted: list[int] | None = None) -> dict[str, Any]:
+            report = super()._report(p, wanted)
+            for row in report["playerDetails"]["data"]["playerDetails"]["dps"]:
+                row["type"] = "Druid"
+            return report
+
+    (tmp_path / "cache").mkdir()
+    (tmp_path / "saved").mkdir()
+    fake = DruidWcl(
+        [Player(f"Ally{i}", subtype="Druid") for i in range(5)], Player("Haplina", subtype="Druid")
+    )
+    client, store = _client(fake), Cache(tmp_path / "cache")
+    context = replace(_context(), class_id=Field(2, "observed", "test"), ranking_category="Balance")
+    acquired = acquire(client, store, VANILLA, context, encounters=(PATCHWERK, 51119))
+    assert acquired.comparison_order == (51119, PATCHWERK)
+    requests = [
+        r
+        for r in fake.requests
+        if "NecropsySubject" in r["query"] or "NecropsyLeaderboard" in r["query"]
+    ]
+    assert [r["variables"]["encounter"] for r in requests] == [PATCHWERK, 51119, 51119, PATCHWERK]
+    finalize_reports(Run(client, store, VANILLA, class_id=2, category="Balance"), acquired)
+    written = write_snapshot(acquired, store, tmp_path / "saved", "druid-order")
+    db = tmp_path / "view.duckdb"
+    ingest(written.archive, db)
+    with duckdb.connect(str(db), read_only=True) as con:
+        doc = build_document(con)
+    assert [b["encounter_id"] for b in doc["bosses"]] == [PATCHWERK, 51119]
+    assert doc["acquisition"]["comparison_order"] == [51119, PATCHWERK]
+    assert doc["bosses"][1]["playbook"]["personal_data"]["status"] == "insufficient-data"
+    broken = _rewrite_marker(
+        written,
+        tmp_path / "wrong-order.zip",
+        lambda d: d.update(comparison_order=[PATCHWERK, 51119]),
+    )
+    with pytest.raises(SnapshotError, match="comparison order"):
+        ingest(broken, tmp_path / "wrong-order.duckdb")
 
 
 def _client(fake: FakeWcl) -> c.WclClient:

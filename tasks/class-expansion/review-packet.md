@@ -1,6 +1,6 @@
 # Druid review packet
 
-Implementation is on `main`; domain acceptance is pending. These reports are
+Selected-spec view correction is under verification; domain acceptance is pending. These reports are
 generated local artifacts. Portable raw snapshots, manifests, provenance and
 independent arithmetic checks live in `tests/golden/druid/`.
 
@@ -14,6 +14,7 @@ independent arithmetic checks live in `tests/golden/druid/`.
 | Tank and mixed Four Horsemen | [Playbook](../../workspace/druid-mixed/playbook.html) | [Report](../../workspace/druid-mixed/report.html) | Suncat tank: 107,140 incoming damage; Mìlfurion cohort: 24 cat + 92 bear casts and direct hits, hybrid, excluded from aggregate single-role comparisons |
 | Your Sapphiron assignment | [Playbook](../../workspace/druid-sapphiron-restoration/playbook.html) | [Report](../../workspace/druid-sapphiron-restoration/report.html) | `arYtVP9kgnjBJp7K/48`; 24/0/27; 66 healing casts; 84,631 effective healing in 174.912 s; zero actor damage |
 | Category is not duty | [Playbook](../../workspace/druid-guardian/playbook.html) | [Report](../../workspace/druid-guardian/report.html) | Suncat's Guardian Patchwerk parse has no tank hits; Harryjam's cohort entry has tank hits despite missing usable form intervals |
+| Your Tank view with no personal tank data | [Playbook](../../workspace/druid-tank-view/playbook.html) | [Report](../../workspace/druid-tank-view/report.html) | Haplina has no matching personal Guardian row; Harryjam is a tank learning example at leaderboard #4; rank #1 Guardian metadata remains separate |
 
 For another checkout, run `git lfs pull`, then
 `uv run necropsy offline tests/golden/druid/raw/NAME.zip --out workspace/EXAMPLE`.
@@ -63,5 +64,19 @@ Restoration/HPS capture supplies your actual healing example.
   exclusions remain explicit in the subject receipts. Linux/Windows CI db89d3a
   passed. Agent implementation and verification are complete; the decisions
   above remain yours.
+
+## Selected-spec correction
+
+David explicitly confirmed one spec/role per view, with all bosses visible.
+Personal grading now requires matching category and evidenced duty. Missing data
+gets an explanation plus an eligible learning example, without a fabricated
+personal grade, median or gap. `--spec Balance`, `Restoration`, `Feral` and `Tank`
+canonicalize to WCL categories; conflicting legacy category flags fail early.
+
+Multi-boss personal-first acquisition and the full Balance view are under final
+verification. The old completion receipt above describes the earlier checkpoint;
+it does not close the new acquisition/renderer changes. The replacement live
+Balance run retains the observed hourly reset wait. Existing reports in the
+table are real examples, not a claim of complete Balance raid coverage.
 
 Agent checks never substitute for your domain decision.

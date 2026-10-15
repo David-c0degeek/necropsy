@@ -36,6 +36,15 @@ of these two captures on 2026-10-15, exit 0, no leaks found.
 Do not rewrite these archives when analysis changes. Regenerate derived outputs;
 add a new captured archive with its own provenance for later evidence.
 
+The 2026-10-15 `druid-tank-view.zip` capture uses David's own character in the
+Guardian/DPS selection. No personal Guardian row was found. Its five acquired
+deep entries support a labelled Harryjam tank learning example at leaderboard
+position 4, while overall #1 Guardian metadata remains separate. This is the
+selected-spec missing-personal-data case, not a fabricated personal tank fight.
+The raw writer ZIP is unchanged; the basename and checksum-sidecar name were
+changed for the distinct fixture. Gitleaks scanned all 32,499,807 extracted bytes
+with unlimited target size on 2026-10-15, exit 0, no leaks found.
+
 Secret scan: installed gitleaks scanned all extracted members (169,740,861 bytes)
 with `gitleaks dir workspace/druid-scan --redact --max-target-megabytes 0` on
 2026-10-14; exit 0, no leaks found. This heuristic scan is not proof of absence.

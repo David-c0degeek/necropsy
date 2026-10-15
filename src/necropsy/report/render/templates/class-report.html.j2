@@ -9,7 +9,12 @@
 {% block main %}
 <section id="overview" class="hero">
   <h1 tabindex="-1">{{ doc.character }} · Druid {{ page|title }}</h1>
-  <p>{{ doc.realm }} · {{ doc.zone }} · {{ doc.mode }} · {{ doc.navigation|length }} analyzed encounters</p>
+  {% set selected = doc.class_document.get('acquisition', {}).get('selected_category') %}
+  {% set personal_count = doc.class_document.bosses|selectattr('subject')|list|length %}
+  <p>{{ doc.realm }} · {{ doc.zone }} · {{ doc.mode }} · {{ doc.navigation|length }} encounters in this view</p>
+  {% if selected %}<h2>Selected spec: {{ 'Tank (Guardian category)' if selected == 'Guardian' else selected }}</h2>{% endif %}
+  <p>{{ personal_count }} encounters with your matching data · {{ doc.navigation|length - personal_count }} without personal analysis.</p>
+  {% if selected and personal_count == 0 %}<p class="notice">Not enough personal data in {{ 'Tank' if selected == 'Guardian' else selected }} in the acquired logs. Eligible top-player examples are shown for learning where available.</p>{% endif %}
   <p>Build, WCL ranking category and observed encounter duties are separate. Each finding retains its evidence and limits.</p>
   <p><a href="analysis.json">Full analysis JSON</a> · <a href="{{ 'report.html' if page == 'playbook' else 'playbook.html' }}">{{ 'Full report' if page == 'playbook' else 'Practice playbook' }}</a></p>
   <details><summary>Coverage and acquisition limits</summary>
@@ -30,7 +35,12 @@
 {% for boss in doc.class_document.bosses %}
 <section id="boss-{{ boss.encounter_id }}" data-boss-name="{{ boss.boss|lower }}" class="boss-section">
   <h2 tabindex="-1">{{ boss.boss }}</h2>
-  {% if not boss.subject %}<p>No acquired fight for this character.</p>{% else %}
+  {% if not boss.subject %}
+  <div class="notice"><p>{{ boss.playbook.get('personal_data', {}).get('message', 'Not enough personal data in this spec for this encounter.') }}</p>
+  <p>Your performance is not assessed for this boss in the selected spec.</p>
+  {% set excluded = boss.playbook.get('personal_data', {}).get('excluded_fight') %}{% if excluded %}<p>The acquired fight {{ excluded.report }}/{{ excluded.fight }} has inferred duty {{ excluded.inferred_role or 'unknown' }} and is excluded from personal analysis in this view.</p>{% endif %}
+  {% if boss.playbook.get('personal_data', {}).get('reasons') %}<details><summary>Why personal data is unavailable</summary><ul>{% for reason in boss.playbook.personal_data.reasons %}<li>{{ reason }}</li>{% endfor %}</ul></details>{% endif %}</div>
+  {% else %}
   {% set s = boss.subject %}{% set d = s.druid %}
   <p><a href="https://vanilla.warcraftlogs.com/reports/{{ s.report_code }}#fight={{ s.fight_id }}" rel="noreferrer">Source report {{ s.report_code }} / fight {{ s.fight_id }}</a> · source opens online when followed</p>
   <div class="quick-plan">
@@ -42,6 +52,7 @@
     {% if boss.recommendations %}{% for r in boss.recommendations %}<article class="card"><h4>{{ r.finding }}</h4><p>{{ r.recommendation }}</p><p class="muted">Confidence {{ r.confidence }} · {{ r.controllability }} · evidence: {{ r.evidence|join(', ') }}</p></article>{% endfor %}{% else %}<p>No evidence-supported execution change to recommend. Review assignments and compare the detailed timeline.</p>{% endif %}
   </div>
   <h3>Your measurements</h3>
+  {% if boss.benchmarks.baseline.entries < 3 %}<p>No personal baseline: not enough comparable data in this spec. Your recorded measurements remain available.</p>{% endif %}
   <p>{{ boss.benchmarks.baseline.entries }} comparable entries; {{ boss.benchmarks.baseline.excluded_incompatible }} incompatible entries excluded. {{ boss.benchmarks.baseline.note }}</p>
   <div class="table-wrap"><table><thead><tr><th>Measurement</th><th>Yours</th><th>Comparable median</th><th>Known / unknown</th></tr></thead><tbody>
   {% for name, measurement in d.metrics.items() %}{% if page == 'report' or name in boss.playbook.get("primary_metrics", []) %}{% set median = boss.benchmarks.baseline.medians.get(name) %}
@@ -61,10 +72,27 @@
     <h3>Cooldown and utility casts</h3><ul>{% for e in d.cooldowns %}<li>{{ e.t_s }} s · {{ e.name }} · target {{ e.target_id }} · event {{ e.uid }}/{{ e.copy }}</li>{% else %}<li>No recorded cooldown casts. Check source coverage before claiming non-use.</li>{% endfor %}</ul>
     <h3>Full event timeline</h3><div class="table-wrap"><table><thead><tr><th>Time (s)</th><th>Event / ability</th><th>Source → target</th><th>Amount</th><th>Event identity</th></tr></thead><tbody>{% for e in d.timeline %}<tr><td>{{ e.t_s }}</td><td>{{ e.kind }} · {{ e.name or e.ability_id }}</td><td>{{ actor(d, e.source_id) }} → {{ actor(d, e.target_id) }}</td><td>{{ e.amount if e.amount is not none else 'Unknown' }}</td><td>{{ e.uid }}/{{ e.copy }}</td></tr>{% endfor %}</tbody></table></div>
   </details>
+  {% endif %}
+  {% set reference = boss.playbook.get('reference') %}
+  <div class="quick-plan learning-example">
+    <h3>Learn from top players in this spec</h3>
+    {% if reference %}{% set rd = reference.druid %}
+    <p><strong>{{ reference.player }}</strong> · {{ 'Rank #1 recorded example' if reference.leaderboard_position == 1 else 'Top acquired example · leaderboard #' ~ reference.leaderboard_position }}.</p>
+    <p>{{ boss.playbook.reference_note }}</p>
+    <dl class="kv"><dt>Inferred duty</dt><dd>{{ ev(rd.role) }}</dd><dt>Build</dt><dd>{{ ev(rd.build) }}</dd><dt>Faction</dt><dd>{{ ev(reference.environment.faction) }}</dd><dt>Fight duration</dt><dd>{{ reference.kill_duration_s }} s</dd></dl>
+    <p>{{ boss.playbook.guidance }}</p>
+    <p>Recorded opening example: {% for e in rd.opener %}{{ ' → ' if not loop.first else '' }}{{ e.t_s }}s {{ e.name or e.ability_id }}{% else %}Unknown{% endfor %}</p>
+    <dl class="kv">{% for name in boss.playbook.primary_metrics %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(rd.metrics.get(name)) }}</dd>{% endfor %}</dl>
+    <p><a href="https://vanilla.warcraftlogs.com/reports/{{ reference.report_code }}#fight={{ reference.fight_id }}" rel="noreferrer">Example source report / fight {{ reference.fight_id }}</a></p>
+    {% else %}<p>No eligible event example was acquired in the selected spec. Unknown duty, incomplete coverage and incompatible categories do not become learning examples.</p>{% endif %}
+    {% set top = boss.benchmarks.get('overall_top') %}
+    {% if top %}<p>Saved overall #1 {{ top.category }} ranking: {{ top.player }} · {{ ev(top.category_score) }} {{ top.metric }}. {{ top.note }}</p>{% if not reference or reference.leaderboard_position != 1 %}<p>Overall #1 event example: unknown (not acquired or not eligible). Cross-faction acquisition can supply another-faction #1 when accessible.</p>{% endif %}
+    {% else %}<p>Overall #1 ranking metadata: unknown (not acquired).</p>{% endif %}
+  </div>
   <details><summary>All recorded cohort entries and evidence</summary>
     <div class="table-wrap"><table><thead><tr><th>Player</th><th>Faction</th><th>Build</th><th>WCL category</th><th>Observed role</th><th>Fight</th></tr></thead><tbody>{% for e in boss.overall_cohort %}<tr><td>{{ e.player }}</td><td>{{ ev(e.environment.faction) }}</td><td>{{ ev(e.druid.build) }}</td><td>{{ ev(e.druid.ranking_category) }}</td><td>{{ ev(e.druid.role) }}</td><td>{{ e.report_code }}/{{ e.fight_id }}</td></tr>{% endfor %}</tbody></table></div>
     <p>Full evidence references and coverage proofs are retained in <a href="analysis.json">analysis.json</a> and the package.</p>
-    <pre>{{ d.role|tojson(indent=2) }}</pre>
+    {% if boss.subject %}<pre>{{ boss.subject.druid.role|tojson(indent=2) }}</pre>{% endif %}
     {% for e in boss.overall_cohort %}
     <details><summary>{{ e.player }} · supporting detail</summary>
       <dl class="kv">{% for name, value in e.druid.metrics.items() %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(value) }}</dd>{% endfor %}</dl>
@@ -75,8 +103,7 @@
     </details>
     {% endfor %}
   </details>
-  <ul class="limitations">{% for limit in d.limitations %}<li>{{ limit }}</li>{% endfor %}</ul>
-  {% endif %}
+  <ul class="limitations">{% for limit in boss.playbook.limitations %}<li>{{ limit }}</li>{% endfor %}</ul>
 </section>
 {% endfor %}
 {% endblock %}

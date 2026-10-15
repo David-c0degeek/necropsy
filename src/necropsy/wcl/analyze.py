@@ -24,7 +24,7 @@ from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from pathlib import Path
 
-from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
+from necropsy.analysis.roles import CLASS_NAMES, ranking_policy, selected_spec
 from necropsy.report.offline import run_offline
 from necropsy.report.package import ANALYSIS_FILE, PLAYBOOK_FILE, REPORT_FILE
 from necropsy.snapshot.archive import load_entries_manifest
@@ -199,8 +199,17 @@ def run_analyze(
     before_acquire: Callable[[CharacterContext], None] | None = None,
     category: str | None = None,
     metric: str | None = None,
+    spec: str | None = None,
 ) -> Outcome:
     ref, cache_dir, out_dir = check_inputs(url, cache, out, partition, endpoint, name)
+    try:
+        category = selected_spec(category)
+        selected = selected_spec(spec)
+        if category is not None and selected is not None and category != selected:
+            raise ValueError("--spec and --category select different Druid categories")
+        category = selected or category
+    except ValueError as error:
+        raise AnalyzeError(str(error)) from None
     chosen: Endpoint = "user" if endpoint == "user" else "client"
     resolver = resolver or resolve
     with item_lock(out_dir / LOCK):

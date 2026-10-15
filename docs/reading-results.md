@@ -127,3 +127,9 @@ guaranteed DPS gain.
 ## Druid roles
 
 Druid pages separate build, ranking category, observed activity and inferred fight duty. Their practice opener is a recorded example, not an optimal rotation. Exact role/build/category comparisons require three known values; mixed/uncertain duties decline aggregate comparisons. Overheal/HPS never establishes healing quality; tank category DPS never establishes survival or threat. See [Druid analysis](druid-analysis.md) for measurement and assignment limits.
+
+The selected spec filters personal analysis across all requested bosses. Missing
+personal data is labelled; unqueried bosses say not assessed. A separate learning
+card can show an eligible top player's recorded opening and measurements. Its
+leaderboard position is shown exactly, and it does not create a personal grade,
+gap or baseline. Rank-one category metadata alone cannot supply execution advice.

@@ -82,6 +82,18 @@
         "usable_deep": 5
       },
       "original_filename": "druid-restoration.zip"
+    },
+    {
+      "category": "tank-view",
+      "path": "raw/druid-tank-view.zip",
+      "sha256": "db3a29631344a142507dac9ac6f5128c2695ab5817b54af4a7af324b57a251fb",
+      "bytes": 2084779,
+      "captured": "2026-10-15",
+      "source": "production Guardian/DPS acquisition for Haplina 110733843, partition1 Patchwerk user endpoint",
+      "approval": "David explicitly requested selected-role views and authorized public fixtures",
+      "domain_status": "pending review",
+      "coverage": "no matching personal Guardian ranking; five public deep entries and25 metadata rows; pet ownership gaps retained",
+      "original_filename": "druid-guardian.zip"
     }
   ],
   "secret_scan": {
@@ -96,6 +108,14 @@
     "tool": "gitleaks",
     "scope": "all extracted mixed and Sapphiron snapshot members",
     "bytes_scanned": 62401552,
+    "exit_code": 0,
+    "result": "no leaks found",
+    "date": "2026-10-15"
+  },
+  "tank_view_secret_scan": {
+    "tool": "gitleaks",
+    "scope": "all extracted tank-view members",
+    "bytes_scanned": 32499807,
     "exit_code": 0,
     "result": "no leaks found",
     "date": "2026-10-15"

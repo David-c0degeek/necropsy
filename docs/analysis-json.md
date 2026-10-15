@@ -146,3 +146,12 @@ not change the analysis schema version or prevent replay of older v1 archives.
 Schema 1 adds optional `druid` entry data; `hunter` remains unchanged for Hunter documents and may be absent for other classes. Druid data includes separate class/build/category/role/assignment evidence, an optional reasoned override, selected role, role-specific metrics, forms, activity spans, resources and full event timelines. `ranking.category_score` is saved metadata with an explicit metric; it is distinct from event DPS/HPS. Baseline keys include exact comparison dimensions and remain null for inapplicable duties. Existing Hunter JSON continues to validate/render. See [the class contract](decisions/0005-class-and-encounter-duties.md).
 
 Druid details also retain a source-referenced actor catalog for readable target/source names. Saved ranking category scores have their own metadata evidence; event metrics and comparison medians remain separate. Resource readings display their evidence grade, and a zero/missing capacity stays unknown even when the raw payload is retained.
+
+Selected Druid views retain `acquisition.selected_category`/`selected_metric` and
+optional planned `comparison_order`. Boss `playbook.personal_data` distinguishes
+available, insufficient-data and not-assessed. An incompatible acquired subject
+is retained as `playbook.excluded_subject` for audit and is absent from personal
+grading. `playbook.reference` is an eligible learning example; it never fills a
+missing subject or baseline. `benchmarks.overall_top` is separately scoped saved
+category metadata. Older documents may omit these optional nested details.
+Packages add `tables/personal-coverage.csv` and `tables/learning-examples.csv`.

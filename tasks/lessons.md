@@ -78,3 +78,11 @@
 - When a shared template promises byte compatibility, compare both rendered
   pages and the package with the saved baseline. Conditional template blocks can
   change whitespace even when analysis JSON is identical.
+
+- Establish what the selected view means before validating isolated role examples.
+  A spec filter applies to personal encounter duty; a category label alone does
+  not establish it. Keep missing personal data separate from labelled learning
+  examples, and do not convert an exemplar into a personal median or grade.
+- Under an acquisition budget, gather the user's coverage before comparison
+  depth. Keep budget for fresh finalization and restore temporary policy changes
+  on every exception path. Record fetch priority independently of report order.

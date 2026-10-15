@@ -21,7 +21,7 @@ from __future__ import annotations
 import json
 import math
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from functools import cache
 from typing import Any
 
@@ -438,11 +438,14 @@ class Run:
     ) -> None:
         self.client, self.store, self.site, self.endpoint = client, store, site, endpoint
         self.policy = ranking_policy(class_id, category, metric)
+        self.report_points_bound = 6.0
+        """Conservative floor; observed account-wide report costs may only increase it."""
         self._bundles: dict[tuple[str, int], Bundle] = {}
         self.stage = "starting"
 
     def bundle(self, code: str, fight: int, encounter: int, *, fresh: bool = False) -> Bundle:
         if fresh or (code, fight) not in self._bundles:
+            before = self.client.last_rate
             self._bundles[(code, fight)] = fetch_bundle(
                 self.client,
                 self.store,
@@ -453,6 +456,15 @@ class Run:
                 endpoint=self.endpoint,
                 metric=self.policy.metric,
             )
+            after = self.client.last_rate
+            if (
+                before is not None
+                and after is not None
+                and after.points_spent >= before.points_spent
+            ):
+                self.report_points_bound = max(
+                    self.report_points_bound, after.points_spent - before.points_spent
+                )
         found = self._bundles[(code, fight)]
         if _int(found.fight.get("encounterID")) != encounter:
             raise InvalidResponse(
@@ -657,6 +669,8 @@ class Acquisition:
     stopped: str | None = None
     """Set when points or rate limits ended the run early; later bosses are absent."""
     reports: dict[str, ReportSet] = field(default_factory=dict)
+    comparison_order: tuple[int, ...] = ()
+    """Planned comparison fetch order; report and snapshot remain in requested order."""
     """Filled by `finalize_reports`: the combined report per code, for the snapshot."""
 
     def complete_entries(self) -> list[tuple[BossAcquisition, Entry]]:
@@ -672,7 +686,7 @@ def _quota_stop(selection: Selection) -> bool:
     return selection.stop.startswith(tuple(f"{e.__name__}:" for e in _STOPS))
 
 
-def acquire_boss(
+def _acquire_subject(
     run: Run, context: CharacterContext, boss: BossAcquisition, cross_faction: bool
 ) -> None:
     """Fill `boss` step by step, so a RunStopped leaves everything acquired in place."""
@@ -701,6 +715,16 @@ def acquire_boss(
             pick.fight_id,
         )
         run.entry(boss.subject, encounter, want)
+
+
+def _acquire_comparisons(
+    run: Run,
+    context: CharacterContext,
+    boss: BossAcquisition,
+    cross_faction: bool,
+) -> None:
+    encounter = boss.encounter_id
+    want: Faction = context.faction.value
     run.stage = "leaderboard selection"
     boss.selection = select_boss(
         run.client,
@@ -769,6 +793,70 @@ def acquire_boss(
         run.entry(boss.cross_faction, encounter, verdict.faction)
 
 
+def acquire_boss(
+    run: Run,
+    context: CharacterContext,
+    boss: BossAcquisition,
+    cross_faction: bool,
+) -> None:
+    """Preserve the original per-boss flow for Hunter and single-boss acquisitions."""
+    _acquire_subject(run, context, boss, cross_faction)
+    _acquire_comparisons(run, context, boss, cross_faction)
+
+
+def _acquire_druid_view(run: Run, context: CharacterContext, out: Acquisition) -> Acquisition:
+    """Personal spec coverage precedes examples; absent personal fights get examples first."""
+    for encounter in out.requested:
+        boss = BossAcquisition(encounter)
+        out.bosses.append(boss)
+        try:
+            _acquire_subject(run, context, boss, out.cross_faction)
+        except RunStopped as stop:
+            out.stopped = f"personal data, encounter {encounter}: {stop}"
+            break
+    if out.stopped is None:
+        order = {encounter: i for i, encounter in enumerate(boss_order())}
+        comparisons = sorted(
+            out.bosses,
+            key=lambda b: (
+                b.subject is not None and b.subject.status == "complete",
+                order[b.encounter_id],
+            ),
+        )
+        out.comparison_order = tuple(b.encounter_id for b in comparisons)
+        original_policy = run.client.policy
+        try:
+            for boss in comparisons:
+                rate = run.client.last_rate
+                if rate is None:
+                    raise RunStopped("no budget reading available for comparisons")
+                fights = {(e.report_code, e.fight_id) for _, e in out.complete_entries()}
+                prospective = len(fights) + int(_live()["deep"]) + int(out.cross_faction)
+                reserve = 2 * run.report_points_bound * prospective
+                # Lowering the comparison budget cannot spend the finalization reserve.
+                # Event pagination still pays against this guard on every request.
+                run.client.policy = replace(
+                    original_policy,
+                    wait_for_reset=False,
+                    budget_share=max(
+                        0.01, original_policy.budget_share - reserve / rate.limit_per_hour
+                    ),
+                )
+                try:
+                    _acquire_comparisons(run, context, boss, out.cross_faction)
+                except RunStopped as stop:
+                    out.stopped = (
+                        f"comparisons, encounter {boss.encounter_id}: {stop}; "
+                        "budget reserve kept for fresh report finalization"
+                    )
+                    break
+        finally:
+            run.client.policy = original_policy
+    for boss in out.bosses:
+        boss.coverage = _coverage(boss, out.stopped)
+    return out
+
+
 def acquire(
     client: WclClient,
     store: Cache,
@@ -791,6 +879,8 @@ def acquire(
     )
     requested = tuple(encounters or boss_order())
     out = Acquisition(endpoint, cross_faction, context, requested)
+    if context.class_id.value == 2 and len(requested) > 1:
+        return _acquire_druid_view(run, context, out)
     for encounter in requested:
         boss = BossAcquisition(encounter)
         out.bosses.append(boss)

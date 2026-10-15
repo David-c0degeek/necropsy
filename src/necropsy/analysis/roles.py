@@ -40,6 +40,18 @@ DRUID_CATEGORIES = {
 }
 
 
+def selected_spec(value: str | None) -> str | None:
+    """User-facing spec names map to WCL categories without assigning encounter duty."""
+    if value is None:
+        return None
+    names = {name.casefold(): name for name in DRUID_CATEGORIES}
+    names.update({"tank": "Guardian", "boomkin": "Balance"})
+    category = names.get(value.strip().casefold())
+    if category is None:
+        raise ValueError("choose a Druid spec: Balance, Feral, Restoration or Tank")
+    return category
+
+
 def ranking_policy(
     class_id: int,
     category: str | None = None,

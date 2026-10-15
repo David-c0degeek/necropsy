@@ -21,6 +21,19 @@ do not have a whole-fight single-role baseline. Inferred duty membership cannot
 produce an observed/confirmed median. Different builds remain visible without
 silently filling the sample. Three known values are required.
 
+A Druid view selects one spec/category and ranking metric for every requested
+boss. Personal grading requires matching inferred duty as well as category.
+Absent/incompatible personal data stays absent; every requested boss still
+renders, including empty and unattempted bosses. Compatible top-player examples
+are a separate learning surface, never substitutes for the subject or baseline.
+Rank-one saved metadata does not establish an eligible event example.
+
+Multi-boss Druid acquisition gathers personal fights before comparisons, then
+prioritizes subject-less bosses in stable encounter order. A conservative reserve
+based on observed report-fetch account points protects fresh finalization;
+comparison collection cannot wait on that reduced allowance. The original policy
+is restored even on exceptions. Hunter's request order and serialization remain.
+
 Snapshot v1 remains readable for Hunter. Optional Druid category metadata and
 explicit metric dimensions preserve its query semantics; a category-only key can
 derive its default metric from the verified category policy. Explicit metric

@@ -241,3 +241,8 @@ Live acquisition also accepts Classic Era Druids with explicit `--category Balan
 
 `--category Balance --metric hps` selects a Balance-category healing performance.
 The selected ranking metric is preserved separately from build and observed duty.
+
+`--spec Tank` selects the Guardian category and requires evidenced tank duty for
+personal grading. `--spec Balance` selects the Balance view. Personal fights are
+collected across bosses before deep comparison samples in multi-boss Druid runs;
+comparison gaps remain explicit when the finalization reserve stops acquisition.

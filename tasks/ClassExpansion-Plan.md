@@ -1,6 +1,6 @@
 # ClassExpansion-Plan.md — Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Agent implementation and verification are complete. Subjects 00/02/05 are closed; taxonomy, findings and product acceptance await David. Human/domain gates remain explicit.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Selected-spec view correction is under verification following David's clarification. Acquisition/reporting close-outs are reopened for the new behavior. Human/domain gates remain explicit.
 >
 > **Disposable.** The plan and its `tasks/class-expansion/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -235,6 +235,8 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | D009 | 2026-10-14 | Secondary duty guard | Require at least 20% of categorized duty casts as well as three casts for a non-tank duty. Preserve minor action signals/spans; direct tank evidence is not suppressed by cast share. Threshold is provisional pending 01.4/04.4 domain review. | Claude review identified three incidental off-heals or damage casts forcing hybrid and removing a valid comparison. Relative-share and incidental-cast regression cases now pin the rule. | 01.2; 04.3; druid-duty-signals-v2 |
 | D010 | 2026-10-14 | Cleanup review scope | Reuse the whole-repo audit from the same day and waive a second whole-repo teardown; review only new class surfaces for duplication/dead exports. C1 was fixed; C2/C3 remain intentionally retained. | Existing cleanup-audit-2026-10-14.md is fresh, triaged and no dependency/auth/storage replacement was added. | 06.4; cleanup-audit-2026-10-14.md |
 | D011 | 2026-10-15 | Category and ranking metric independence | Balance defaults to DPS but explicitly supports HPS; preserve metric through acquisition, snapshot replay and exact comparison keys. Other verified defaults remain. | User confirms mostly healing on Sapphiron; earlier authenticated HPS character rankings contained Balance rows. New synthetic production acquisition→snapshot→report regression checks HPS labels and conflicting-metric refusal. Actual Sapphiron acquisition follows the observed reset. | 01–02; 04; 06; ADR 0005 |
+| D012 | 2026-10-15 | Selected spec is a view filter | User clarified and confirmed one selected spec/role per view, all requested bosses visible. Only matching category and evidenced duty get personal analysis. Missing personal data shows eligible top-player examples, without personal grades or fabricated gaps. Tank view must not imply personal tanking from a Guardian ranking. | User states Balance on other bosses and no Sapphiron DPS; selects Restoration or Tank independently. The briefly proposed uncommitted mixed-category/pinned-raid flow was removed before shipping. Claude agrees corrected design (182). | 01; 03–06; ADR 0005 |
+| D013 | 2026-10-15 | Personal coverage before comparison depth | Multi-boss Druid acquisition collects subject fights across the raid first, then comparisons, subject-less bosses first in stable encounter order. Lower the comparison allowance to reserve fresh finalization; restore original policy even on errors. Hunter query order stays unchanged. | Live default acquisition spent the hourly budget on early-boss samples. Existing data remains cached; one bounded observed-reset run now uses personal-first ordering. Claude agreed guardrails (184). | 02; 06; ADR 0005 |
 
 ---
 
@@ -267,10 +269,10 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
 | [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
+| [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
+| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
 | [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---

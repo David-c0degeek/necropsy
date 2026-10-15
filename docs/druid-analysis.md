@@ -3,11 +3,12 @@
 [Documentation](README.md) · [Connection guide](warcraft-logs.md) · [Reading results](reading-results.md)
 
 Classic Era Naxxramas Druids use the same acquisition, snapshot, evidence,
-report and package pipeline as Hunters. Select a WCL ranking category explicitly:
+report and package pipeline as Hunters. Select the spec or role you want to view:
 
 ```sh
-uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --category Balance --endpoint user --cache workspace/druid-cache --out workspace/balance
-uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --category Restoration --endpoint user --cache workspace/druid-cache --out workspace/restoration
+uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --spec Balance --cross-faction --endpoint user --cache workspace/druid-cache --out workspace/balance
+uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --spec Restoration --endpoint user --cache workspace/druid-cache --out workspace/restoration
+uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --spec Tank --endpoint user --cache workspace/druid-cache --out workspace/tank
 ```
 
 These commands use saved personal WCL credentials and acquire all supported
@@ -16,6 +17,35 @@ may need the user endpoint and an eligible WCL account. Existing budget, revisio
 identity, faction, pet ownership and partial-output rules still apply. Exit 4
 means written partial coverage; complete pagination does not imply domain approval.
 An opt-in `--wait-for-reset` permits one bounded hourly reset wait.
+
+The selected spec filters the whole view. Every requested boss remains visible.
+Your personal analysis uses only a matching ranking category and evidenced
+encounter duty. If you heal Sapphiron, the Balance view leaves your Sapphiron
+performance unassessed and shows an eligible Balance player's recorded example.
+Restoration shows your healing performances. Tank shows no personal tank data
+where none was established, alongside eligible tank examples for learning.
+The report says **not enough personal data in this spec**; it never grades your
+healing as Balance DPS or turns a Guardian ranking into proof that you tanked.
+
+`--category` remains supported. `Tank` maps to WCL `Guardian`; `boomkin` maps to
+`Balance`. Names are case-insensitive. Conflicting `--spec`/`--category` selections
+are refused. Use a separate output directory for each view.
+
+Learning examples require matching category, metric, partition and inferred duty,
+known build/faction/difficulty, complete actor source/target streams, and no
+assignment override. They are labelled with their actual leaderboard position.
+The highest acquired example may be #4; it is never relabelled #1. Saved overall
+#1 category metadata is separate from acquired event evidence. `--cross-faction`
+can acquire a global #1 from another faction when accessible. No example creates
+a personal median, gap or recommendation when your selected-spec data is missing.
+
+For multi-boss Druid views, acquisition fetches personal encounters first, then
+comparison samples, prioritizing bosses without personal data. It keeps budget
+for fresh report finalization and records comparison order and partial targets.
+The original reset policy applies while collecting personal data; comparison
+collection stops when its reserved allowance is exhausted. A boss not queried
+because acquisition stopped says **not assessed**, rather than asserting that you
+never played the role. Missing comparisons leave personal baselines unknown.
 
 | WCL category | Ranking metric | Possible encounter duty |
 |---|---|---|

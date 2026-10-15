@@ -79,6 +79,24 @@ def test_a_complete_run_writes_snapshot_and_pages(tmp_path: Path, fake: dict[str
     assert fake["endpoints"] == ["client"]
 
 
+@pytest.mark.parametrize(
+    "args",
+    [
+        ["--spec", "Tank", "--category", "Balance"],
+        ["--spec", "invalid"],
+    ],
+)
+def test_spec_selection_is_validated_before_credentials(
+    tmp_path: Path,
+    fake: dict[str, Any],
+    args: list[str],
+) -> None:
+    result = _run(tmp_path, *args)
+    assert result.exit_code == 1
+    assert fake["tokens"] == 0
+    assert "different Druid categories" in result.output or "choose a Druid spec" in result.output
+
+
 def test_partial_coverage_exits_4_with_the_report_written(
     tmp_path: Path, fake: dict[str, Any]
 ) -> None:

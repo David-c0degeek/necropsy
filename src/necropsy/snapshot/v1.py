@@ -130,6 +130,7 @@ class LiveSnapshotFile(_Strict):
     top_n: int = Field(gt=0)
     endpoint: Literal["client", "user"]
     cross_faction: bool
+    comparison_order: tuple[int, ...] = ()
     stopped: str | None
     fights: tuple[LiveFight, ...]
     bosses: tuple[dict[str, Any], ...]
@@ -180,6 +181,22 @@ class V1Snapshot(V0Snapshot):
                 raise SnapshotError(f"boss record {b.get('boss')!r} is not a supported encounter")
         if live.subject.class_id == 2:
             self._check_druid_categories(live)
+        if live.comparison_order:
+            order = {eid: i for i, eid in enumerate(names)}
+            expected = tuple(
+                b["encounter_id"]
+                for b in sorted(
+                    (b for b in live.bosses if b.get("attempted") is not False),
+                    key=lambda b: (
+                        (b.get("subject") or {}).get("status") == "complete",
+                        order[b["encounter_id"]],
+                    ),
+                )
+            )
+            if live.subject.class_id != 2 or live.comparison_order != expected:
+                raise SnapshotError(
+                    "comparison order differs from the Druid view acquisition policy"
+                )
 
     def _check_druid_categories(self, live: LiveSnapshotFile) -> None:
         category = live.subject.ranking_category
@@ -349,6 +366,19 @@ class V1Snapshot(V0Snapshot):
                 "subject_faction": subject.faction,
                 "subject_canonical_id": subject.canonical_id,
                 "bosses": [dict(b) for b in live.bosses],
+                **(
+                    {"comparison_order": list(live.comparison_order)}
+                    if live.comparison_order
+                    else {}
+                ),
+                **(
+                    {
+                        "selected_category": subject.ranking_category,
+                        "selected_metric": subject.ranking_metric,
+                    }
+                    if subject.class_id == 2
+                    else {}
+                ),
             },
         )
 

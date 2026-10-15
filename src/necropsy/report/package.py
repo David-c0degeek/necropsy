@@ -170,7 +170,35 @@ def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
 
 def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
     metrics_rows, roles, timeline, recommendations, comparisons = [], [], [], [], []
+    coverage_rows, examples = [], []
     for boss in document["bosses"]:
+        playbook = boss.get("playbook") or {}
+        personal = playbook.get("personal_data") or {}
+        coverage_rows.append(
+            [
+                boss["encounter_id"],
+                boss["boss"],
+                playbook.get("selected_category"),
+                personal.get("status"),
+                personal.get("message"),
+            ]
+        )
+        reference = playbook.get("reference")
+        if reference is not None:
+            for name, value in reference["druid"]["metrics"].items():
+                examples.append(
+                    [
+                        boss["encounter_id"],
+                        reference["player"],
+                        reference["leaderboard_position"],
+                        reference["report_code"],
+                        reference["fight_id"],
+                        name,
+                        _value(value),
+                        value["level"],
+                        "learning-example",
+                    ]
+                )
         baseline = boss["benchmarks"]["baseline"]
         for metric, median in baseline["medians"].items():
             value = (
@@ -239,6 +267,24 @@ def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
                 )
     identity = ["encounter_id", "player", "report", "fight"]
     return {
+        "tables/personal-coverage.csv": _csv(
+            ["encounter_id", "boss", "selected_spec", "personal_status", "explanation"],
+            coverage_rows,
+        ),
+        "tables/learning-examples.csv": _csv(
+            [
+                "encounter_id",
+                "player",
+                "leaderboard_position",
+                "report",
+                "fight",
+                "metric",
+                "value",
+                "evidence",
+                "purpose",
+            ],
+            examples,
+        ),
         "tables/comparisons.csv": _csv(
             [
                 "encounter_id",
