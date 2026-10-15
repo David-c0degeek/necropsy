@@ -65,3 +65,17 @@ def test_ranking_category_does_not_override_missing_tank_duty_or_mixed_actions(
     excluded = boss["playbook"]["excluded_subject"]["combat"]
     assert excluded["role"]["value"] == ("hybrid" if mixed else None)
     assert boss["playbook"]["reference"]["player"] == "Leader"
+
+
+@pytest.mark.parametrize(("category", "role"), [("Holy", "healer"), ("Retribution", "dps")])
+def test_dual_use_holy_shock_uses_its_recorded_effect_to_infer_duty(
+    tmp_path: Path,
+    category: str,
+    role: str,
+) -> None:
+    archive = snapshot(tmp_path, 6, category, "Holy Shock", role)
+    out = tmp_path / "out"
+    run_offline(archive, out)
+    boss = json.loads((out / "analysis.json").read_text(encoding="utf-8"))["bosses"][0]
+    assert boss["subject"] is not None
+    assert boss["subject"]["combat"]["role"]["value"] == role

@@ -1,0 +1,253 @@
+{
+  "captured": "2026-10-15",
+  "fixtures": [
+    {
+      "label": "mage-fire",
+      "class_id": 4,
+      "category": "Fire",
+      "path": "raw/class-mage-fire.zip",
+      "sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "bytes": 2357854,
+      "kind": "event-capture",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Ljhart",
+      "coverage": {
+        "below_minimum": false,
+        "complete": false,
+        "metadata": 25,
+        "metadata_inferred": 17,
+        "metadata_observed": 8,
+        "metadata_target": 25,
+        "reasons": [
+          "pets unknown for Ljhart: pet 87 has no valid owner",
+          "pets unknown for Tremelin: pet 87 has no valid owner",
+          "pets unknown for Maithanet: pet 61 has no valid owner",
+          "pets unknown for Maibae: pet 61 has no valid owner",
+          "pets unknown for Koldskaal: pet 105 has no valid owner",
+          "pets unknown for Linnt: pet 109 has no valid owner"
+        ],
+        "target": 5,
+        "usable_deep": 5
+      },
+      "stop": null,
+      "personal": true,
+      "reference": true
+    },
+    {
+      "label": "paladin-holy",
+      "class_id": 6,
+      "category": "Holy",
+      "path": "raw/class-paladin-holy.zip",
+      "sha256": "c2b581ff7b66de387cf92d80a5211da2030081a8b330a617cab5adf216c2cc19",
+      "bytes": 2636611,
+      "kind": "event-capture",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Stimorol",
+      "coverage": {
+        "below_minimum": false,
+        "complete": false,
+        "metadata": 25,
+        "metadata_inferred": 11,
+        "metadata_observed": 14,
+        "metadata_target": 25,
+        "reasons": [
+          "pets unknown for Stimorol: pet 127 has no valid owner",
+          "pets unknown for Whosyourmama: pet 144 has no valid owner",
+          "pets unknown for Gua: pet 94 has no valid owner"
+        ],
+        "target": 5,
+        "usable_deep": 5
+      },
+      "stop": null,
+      "personal": true,
+      "reference": true
+    },
+    {
+      "label": "priest-holy",
+      "class_id": 7,
+      "category": "Holy",
+      "path": "raw/class-priest-holy.zip",
+      "sha256": "821a5b0765c5eb8659312181f4aacd497020b49ac38e6cb5d74a42e455be99ea",
+      "bytes": 1099,
+      "kind": "budget-only",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Maoainai",
+      "coverage": {
+        "below_minimum": true,
+        "complete": false,
+        "metadata": 0,
+        "metadata_inferred": 0,
+        "metadata_observed": 0,
+        "metadata_target": 25,
+        "reasons": [
+          "subject fight not acquired: no subject fight",
+          "0 of 5 same-faction deep entries",
+          "below the minimum of 3 same-faction entries",
+          "0 of 25 same-faction metadata rows",
+          "run stopped: encounter 51118: BudgetExceeded during subject rankings: 143 of 1440 allowed points left this hour; need about 144 (estimate unknown)"
+        ],
+        "target": 5,
+        "usable_deep": 0
+      },
+      "stop": "encounter 51118: BudgetExceeded during subject rankings: 143 of 1440 allowed points left this hour; need about 144 (estimate unknown)",
+      "personal": false,
+      "reference": false
+    },
+    {
+      "label": "priest-shadow",
+      "class_id": 7,
+      "category": "Shadow",
+      "path": "raw/class-priest-shadow.zip",
+      "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "bytes": 3067915,
+      "kind": "event-capture",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Ywfvniefjioe",
+      "coverage": {
+        "below_minimum": false,
+        "complete": false,
+        "metadata": 25,
+        "metadata_inferred": 12,
+        "metadata_observed": 13,
+        "metadata_target": 25,
+        "reasons": [
+          "pets unknown for Peve: pet 136 has no valid owner",
+          "pets unknown for Frighten: pet 159 has no valid owner"
+        ],
+        "target": 5,
+        "usable_deep": 5
+      },
+      "stop": null,
+      "personal": true,
+      "reference": true
+    },
+    {
+      "label": "rogue-assassination",
+      "class_id": 8,
+      "category": "Assassination",
+      "path": "raw/class-rogue-assassination.zip",
+      "sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "bytes": 2651794,
+      "kind": "event-capture",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Noitaredeef",
+      "coverage": {
+        "below_minimum": false,
+        "complete": false,
+        "metadata": 25,
+        "metadata_inferred": 9,
+        "metadata_observed": 16,
+        "metadata_target": 25,
+        "reasons": [
+          "pets unknown for Noitaredeef: pet 78 has no valid owner",
+          "pets unknown for 南开卡米: pet 80 has no valid owner",
+          "pets unknown for Awo: pet 64 has no valid owner"
+        ],
+        "target": 5,
+        "usable_deep": 5
+      },
+      "stop": null,
+      "personal": true,
+      "reference": true
+    },
+    {
+      "label": "shaman-restoration",
+      "class_id": 9,
+      "category": "Restoration",
+      "path": "raw/class-shaman-restoration.zip",
+      "sha256": "398cb1c160cb385183c7d60831ab6935d724a1095a721056feec32b44627a8e7",
+      "bytes": 2898795,
+      "kind": "event-capture",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Nebzy",
+      "coverage": {
+        "below_minimum": false,
+        "complete": false,
+        "metadata": 25,
+        "metadata_inferred": 6,
+        "metadata_observed": 19,
+        "metadata_target": 25,
+        "reasons": [
+          "pets unknown for Skalarwelle: pet 149 has no valid owner",
+          "pets unknown for 汝能奈吾何也: pet 158 has no valid owner",
+          "pets unknown for Tollmann: pet 196 has no valid owner"
+        ],
+        "target": 5,
+        "usable_deep": 5
+      },
+      "stop": null,
+      "personal": true,
+      "reference": true
+    },
+    {
+      "label": "warlock-destruction",
+      "class_id": 10,
+      "category": "Destruction",
+      "path": "raw/class-warlock-destruction.zip",
+      "sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "bytes": 2237908,
+      "kind": "event-capture",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Sobr",
+      "coverage": {
+        "below_minimum": false,
+        "complete": true,
+        "metadata": 25,
+        "metadata_inferred": 12,
+        "metadata_observed": 13,
+        "metadata_target": 25,
+        "reasons": [],
+        "target": 5,
+        "usable_deep": 5
+      },
+      "stop": null,
+      "personal": true,
+      "reference": true
+    },
+    {
+      "label": "warrior-protection",
+      "class_id": 11,
+      "category": "Protection",
+      "path": "raw/class-warrior-protection.zip",
+      "sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "bytes": 2582161,
+      "kind": "event-capture",
+      "source": "production bounded user-endpoint acquire/finalize/snapshot/offline, Classic Era Naxxramas Patchwerk51118 partition1",
+      "authorization": "User requested remaining classes and authorized public-log fixtures; no domain approval implied",
+      "domain_status": "pending review",
+      "character": "Alianthus",
+      "coverage": {
+        "below_minimum": false,
+        "complete": false,
+        "metadata": 25,
+        "metadata_inferred": 13,
+        "metadata_observed": 12,
+        "metadata_target": 25,
+        "reasons": [
+          "pets unknown for 克瑞斯: pet 89 has no valid owner",
+          "pets unknown for Kajiki: pet 84 has no valid owner",
+          "pets unknown for Suinchi: pet 162 has no valid owner"
+        ],
+        "target": 5,
+        "usable_deep": 5
+      },
+      "stop": null,
+      "personal": true,
+      "reference": true
+    }
+  ]
+}

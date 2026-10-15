@@ -65,8 +65,25 @@ def _duty(
     actions: dict[str, Any],
 ) -> tuple[Evidenced[tuple[str, ...]], Evidenced[str]]:
     casts = [e for e in events if e.kind == "cast" and e.source_id == pf.actor_id]
+    ambiguous = set(actions["damage"]) & set(actions["healing"])
+
+    def matches(event: combat.CombatEvent, role: str, group: str) -> bool:
+        if event.name not in actions[group]:
+            return False
+        if event.name not in ambiguous:
+            return True
+        kind = "heal" if role == "healer" else "damage"
+        return any(
+            effect.kind == kind
+            and effect.source_id == pf.actor_id
+            and effect.name == event.name
+            and effect.target_id == event.target_id
+            and abs(effect.timestamp - event.timestamp) <= 1000
+            for effect in events
+        )
+
     groups = {
-        role: [e for e in casts if e.name in actions[key]]
+        role: [e for e in casts if matches(e, role, key)]
         for role, key in (("dps", "damage"), ("healer", "healing"), ("tank", "tanking"))
     }
     rules = encounter_rules("classic_era", "naxxramas", pf.encounter_id)

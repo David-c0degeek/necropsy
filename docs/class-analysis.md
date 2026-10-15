@@ -76,3 +76,13 @@ synthetic offline and desktop/mobile checks. Public real-log validation receipts
 are recorded separately as they complete; synthetic checks do not approve domain
 advice or product limits. Existing [Druid validation](druid-validation.md) and
 [Hunter validation](live-validation.md) keep their original scope.
+
+
+Real public Patchwerk captures now cover all seven added classes: Mage Fire,
+Paladin Holy, Priest Shadow, Rogue Assassination, Shaman Restoration, Warlock
+Destruction and Warrior Protection. Each has six actor entries and independent
+raw amount checks. Warrior captures retain DPS-duty Protection entries separately
+from tank comparisons. [Provenance](../tests/golden/classes/PROVENANCE.md) records
+hashes, coverage and the additional budget-only Priest Holy snapshot. Real Holy
+Priest event validation is still unavailable; synthetic checks and verified HPS
+ranking metadata are not presented as a completed live healing fixture.
