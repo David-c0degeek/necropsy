@@ -535,6 +535,17 @@
     "EntrySection": {
       "additionalProperties": false,
       "properties": {
+        "ability_use": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Evidence"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "druid": {
           "anyOf": [
             {

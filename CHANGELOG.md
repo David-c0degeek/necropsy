@@ -9,6 +9,13 @@ implemented in the development checkout; they are not a published release.
 
 ### Changed
 
+- **Shared playbook layout and ability comparisons.** Druid pages now use the
+  Hunter playbook's boss panels, metric cards, raid sheet, setup/execution cards,
+  review controls and full gear/enchants components. Both classes show
+  **Ability use vs [player]**, including recorded spells, shots, melee abilities
+  and cooldowns as counts and uses per minute. Passive ticks and pet actions are
+  separate; incomplete streams remain unknown. Packages include ability-use CSV.
+
 - **Faction and spec choices.** Interactive character lookup asks for faction and
   spec; `--faction` and `--spec` support scripts, including Classic Era Hunter
   Marksmanship. Main playbooks use faction leaders even without a personal

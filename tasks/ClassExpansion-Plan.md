@@ -238,6 +238,7 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | D012 | 2026-10-15 | Selected spec is a view filter | User clarified and confirmed one selected spec/role per view, all requested bosses visible. Only matching category and evidenced duty get personal analysis. Missing personal data shows eligible top-player examples, without personal grades or fabricated gaps. Tank view must not imply personal tanking from a Guardian ranking. | User states Balance on other bosses and no Sapphiron DPS; selects Restoration or Tank independently. The briefly proposed uncommitted mixed-category/pinned-raid flow was removed before shipping. Claude agrees corrected design (182). | 01; 03–06; ADR 0005 |
 | D013 | 2026-10-15 | Personal coverage before comparison depth | Multi-boss Druid acquisition collects subject fights across the raid first, then comparisons, subject-less bosses first in stable encounter order. Lower the comparison allowance to reserve fresh finalization; restore original policy even on errors. Hunter query order stays unchanged. | Live default acquisition spent the hourly budget on early-boss samples. Existing data remains cached; one bounded observed-reset run now uses personal-first ordering. Claude agreed guardrails (184). | 02; 06; ADR 0005 |
 | D014 | 2026-10-15 | Faction/spec leaders and useful sparse comparisons | Interactive lookup asks for faction/spec; main practice/comparison uses faction leaders even without personal encounters. One/two event sources show individual values with n; differing known builds remain context. Capture all-boss ranking references before deep sampling. Overall top is separately collapsed with faction caveats. Explicit Hunter Marksmanship selection shares the flow; legacy `all` remains. | User corrected exact-build/median suppression and requested the KISS rule across classes/races/specs. Live API faction-filter probes returned mixed rows, so local preselection is explicit, with guild inference retained. Claude 189 agrees after legacy prompt fix. | 02; 05; 06; ADR 0005 |
+| D015 | 2026-10-15 | Shared presentation and ability use | Reuse Hunter playbook components for Druid; expose role-specific evidence through the same hierarchy. Add optional common actor ability-use evidence, counts/rates table and CSV for both supported classes. Preserve old saved Hunter document output. | User identified visual/data divergence and requested skill/spell/ability use respective to each class. Existing guidance is reused without new rotation claims; unsupported evidence stays unknown. Claude 190 agreed design. | 05; 06; ADR 0005 |
 
 ---
 
@@ -273,7 +274,7 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
+| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
 | [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
@@ -506,3 +507,18 @@ findings/advice and product acceptance remain open.
 Linux/Windows source CI 0b58043 passed: https://github.com/David-c0degeek/necropsy/actions/runs/38717484080.
 
 All agent boxes are checked; human01.4/03.4/04.4/06.3 remain open. Section7 is unrun under its entry condition; section8 and pair completion remain open. User clarification is not domain acceptance.
+
+
+## Shared playbook presentation correction
+
+D015: user identified visual/data divergence from Hunter and approved retaining
+and extending the useful ability comparison across classes. Reuse Hunter CSS,
+Value/plan/equipment components and a thin Druid view adapter. Show raid sheet,
+metric cards, KISS opener, loadout/execution, Do not/Raid ask, review marks,
+cohort/source gear and buffs. Advice rephrases existing guidance and limitations;
+no new class mechanics or rotation claims are introduced. New common optional
+ability_use evidence counts actor cast events; generic metrics preserve coverage,
+normalized multiplicity and unknowns. Shared ability comparison uses counts and
+uses/min; passive ticks and pets remain separate. Hunter new replay JSON/pages/
+package intentionally gain the requested feature; old saved documents remain
+readable and old-document rendering is guarded. No API acquisition changes.

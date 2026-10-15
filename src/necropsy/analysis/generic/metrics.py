@@ -1,4 +1,4 @@
-"""Generic fight metrics for one actor (a Hunter or one of its pets).
+"""Generic fight metrics for one player or pet actor.
 
 Whole-fight totals, counts, cadences and absences are COMPLETE claims: they
 need trusted coverage of the stream they read, otherwise they are UNKNOWN.
@@ -136,6 +136,37 @@ def cast_times(
         _coverage(con, pf, [actor_id], Direction.SOURCE),
         ref,
         params={"abilities": tuple(ability_ids)},
+    )
+
+
+def ability_counts(
+    con: duckdb.DuckDBPyConnection,
+    pf: ParticipantFight,
+) -> Evidenced[dict[str, int]]:
+    """All recorded actor casts, including spells, melee skills, shots and items.
+
+    Uses normalized event occurrences, so repeated page copies are not new uses.
+    A missing action means zero only with trusted actor source coverage.
+    """
+    rows = _rows(
+        con,
+        """
+        SELECT a.name, e.ability_game_id, e.event_uid, e.copy_index FROM events e
+        LEFT JOIN abilities a ON a.report_code=e.report_code AND a.game_id=e.ability_game_id
+        WHERE e.report_code=? AND e.fight_id=? AND e.source_id=? AND e.type='cast'
+        ORDER BY e.timestamp, e.event_uid, e.copy_index
+    """,
+        [pf.report_code, pf.fight_id, pf.actor_id],
+    )
+    counts: dict[str, int] = defaultdict(int)
+    for name, ability, _, _ in rows:
+        counts[name or f"Ability {ability} (name unknown)"] += 1
+    return complete_or_unknown(
+        dict(sorted(counts.items())),
+        _coverage(con, pf, [pf.actor_id], Direction.SOURCE),
+        _ref(pf, pf.actor_id, rows, 2, 3, "actor ability-use counts"),
+        note="Recorded cast events; excludes passive damage ticks, "
+        "swings without cast events and pet actions.",
     )
 
 

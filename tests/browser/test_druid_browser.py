@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
@@ -28,6 +29,10 @@ def test_druid_pages_preserve_roles_and_evidence_offline(
     doc["subject"]["name"] = "<script>window.injected=true</script>"
     if not missing:
         boss = doc["bosses"][0]
+        leader = deepcopy(boss["subject"])
+        leader["player"] = "Sparse healer"
+        leader["leaderboard_position"] = 1
+        boss["playbook"]["reference"] = leader
         boss["playbook"]["comparisons"] = [
             {
                 "player": "Sparse healer",
@@ -90,8 +95,19 @@ def test_druid_pages_preserve_roles_and_evidence_offline(
                 text = page.locator("main").inner_text()
                 assert "Limited sample: only 1 source" in text
                 assert "Sparse healer" in text and "-50.0%" in text
-                assert "Your casts/min" in text and "1.80" in text
+                assert "Your uses/min" in text
             assert page.locator("#boss-51118").count() == 1
+            assert page.locator("section.boss .boss-head .metrics").count() == 1
+            assert page.locator("#raid-sheet").count() == 1
+            assert (
+                page.locator("section.boss .grid.two article h3", has_text="Loadout plan").count()
+                == 1
+            )
+            assert (
+                page.locator("section.boss .grid.two article h3", has_text="Execution plan").count()
+                == 1
+            )
+            assert page.locator("input[data-review-key]").count() == 1
             assert page.locator("details.overall-comparison[open]").count() == 0
             assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
             assert page.evaluate("window.injected === undefined")

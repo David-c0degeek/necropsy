@@ -57,9 +57,69 @@ def _value(ev: Any) -> Any:
     return ev.get("value") if isinstance(ev, dict) else None
 
 
+def _ability_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
+    records = []
+    seen = set()
+    present = False
+    for boss in document["bosses"]:
+        for entry in ([boss["subject"]] if boss["subject"] else []) + boss.get(
+            "overall_cohort", boss["cohort"]
+        ):
+            evidence = entry.get("ability_use")
+            if evidence is None:
+                continue
+            identity = (
+                boss["encounter_id"],
+                entry["report_code"],
+                entry["fight_id"],
+                entry["player"],
+            )
+            if identity in seen:
+                continue
+            seen.add(identity)
+            present = True
+            counts = evidence.get("value")
+            if counts is None:
+                records.append(
+                    [*identity, None, None, None, evidence["level"], evidence.get("note")]
+                )
+            else:
+                for name, count in counts.items():
+                    records.append(
+                        [
+                            *identity,
+                            name,
+                            count,
+                            count * 60 / entry["kill_duration_s"],
+                            evidence["level"],
+                            evidence.get("note"),
+                        ]
+                    )
+    return (
+        {
+            "tables/ability-use.csv": _csv(
+                [
+                    "encounter_id",
+                    "report",
+                    "fight",
+                    "player",
+                    "ability",
+                    "uses",
+                    "uses_per_minute",
+                    "evidence",
+                    "note",
+                ],
+                records,
+            )
+        }
+        if present
+        else {}
+    )
+
+
 def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
     if document["subject"]["class_id"] == 2:
-        return _druid_tables(document)
+        return {**_druid_tables(document), **_ability_tables(document)}
     recs, cohort, shares, execution = [], [], [], []
     for boss in document["bosses"]:
         name = boss["boss"]
@@ -121,6 +181,7 @@ def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
                     ]
                 )
     return {
+        **_ability_tables(document),
         "tables/recommendations.csv": _csv(
             [
                 "encounter_id",

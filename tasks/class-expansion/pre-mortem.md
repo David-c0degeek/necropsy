@@ -162,3 +162,29 @@ Final verification: nine immutable fixtures replay in the complete serial
 Balance/Guardian browser and artifact checks pass. Linux/Windows source CI and
 scoped independent review passed. PM-1/2/3 calibration above remains accurate;
 CH-MISS-5 has concrete runtime evidence. Required human decisions remain open.
+
+
+## Shared presentation and ability use — pre-implementation guardrails
+
+The design huddle and source reads identified these failed futures: visual parity
+is superficial while Druid data stays buried; a shared cast counter inflates uses
+with damage ticks/pets; partial absence becomes zero; gear names are invented;
+new panels lose source context or leak Hunter-only advice; old optional JSON
+breaks or unchanged old Hunter documents reformat. Evidence: class-report's raw
+serialization, existing Hunter gear/plan components, generic source coverage,
+normalized cast identities and package/schema rules.
+
+Codex owns detection: shared plan/gear and ability components; no new domain
+advice; actor-only cast query with complete_or_unknown and refs; partial/zero
+unit cases; actual Balance/Restoration/Tank/Hunter replay and 16 browser cases;
+review marks/theme/search/overflow/escaping; old-document byte guard; source
+schema currency and ability CSV sanitization. Claude190 agreed the design, then
+was notified of the user-requested shared ability extension. New Hunter analysis
+bytes are intentionally additive; old saved documents retain compatibility.
+
+CH-MISS-6: the Druid implementation passed data/replay checks while presenting a
+raw detail dump instead of the established product. The user detected the gap.
+Future class expansion needs a real side-by-side page/data inventory, shared
+visual components, prominent meaningful comparisons and parity checks before
+engineering closure. Existing whole-repo cleanup reuse still applies; no new
+pipeline or dependency is introduced.

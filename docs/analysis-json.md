@@ -175,3 +175,17 @@ Hunter archives retain their original behavior. `playbook.overall_reference` and
 `overall_comparison` are optional Druid event context, shown in a closed disclosure;
 `reference` is the main same-faction learning example. Neither fills a missing
 subject. Interactive faction/spec choices are CLI inputs, not inferred duties.
+
+Every class entry may carry optional `ability_use` evidence: recorded actor cast
+counts keyed by ability name. Counts require complete actor-source coverage;
+unknown input never supplies zeros. Rendering compares each count and uses per
+minute with the same-faction reference through a shared component. Passive damage
+ticks, cast-less swings and pet actions do not become actor ability uses. New
+Hunter and Druid packages add `tables/ability-use.csv`, retaining evidence grade
+and source identity. Older documents omit the field and remain valid; replay raw
+snapshots to populate it. Existing analysis schema version stays 1 with the
+optional addition reflected in the committed generated JSON schema.
+
+Druid gear now uses the same item/enchant name resolver as Hunter. Catalog
+conflicts and unavailable names remain explicit with IDs. These are presentation
+additions; raw archives, event multiplicity and role eligibility are unchanged.

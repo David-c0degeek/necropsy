@@ -33,10 +33,12 @@ from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.encounters.findings import raid_utility, target_integrity
 from necropsy.analysis.evidence import Claim, EvidenceLevel, EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog, rank_percent
+from necropsy.analysis.generic.metrics import ability_counts
 from necropsy.analysis.overview import build as build_overview
 from necropsy.analysis.playbook import build as build_playbook
 from necropsy.analysis.recommendations import Controllability, Tier, recommend
 from necropsy.analysis.roles import RoleOverride
+from necropsy.report.equipment import enrich_gear
 from necropsy.report.serialize import to_data
 from necropsy.rules import load_rules
 
@@ -188,6 +190,7 @@ class EntrySection(_Strict):
     raptor_roles: EvidenceTree
     hunter: EvidenceTree | None = None
     druid: EvidenceTree | None = None
+    ability_use: Evidence | None = None
     pets_listed: bool | None = None
     set_pieces: list[dict[str, Any]] | None = None
     set_armor: list[dict[str, Any]] | None = None
@@ -300,30 +303,6 @@ class AnalysisDocument(_Strict):
 
 
 Names = dict[int, ItemName]
-
-
-def _gear(items: Any, names: Names) -> Any:
-    if not isinstance(items, list):
-        return items
-    out = []
-    for g in items:
-        if not isinstance(g, dict):
-            out.append(g)
-            continue
-        found = names.get(int(g["item_id"]))
-        out.append(
-            {
-                **g,
-                "name": None if found is None else found.name,
-                "name_source": "none" if found is None else found.source,
-                "name_note": None if found is None else found.note,
-                "enchant_name": gamedata.enchant_names().get(int(g.get("permanent_enchant") or 0)),
-                "temporary_enchant_name": gamedata.enchant_names().get(
-                    int(g.get("temporary_enchant") or 0)
-                ),
-            }
-        )
-    return out
 
 
 def _set_pieces(e: Entry) -> list[dict[str, Any]] | None:
@@ -504,14 +483,16 @@ def _faction_mix(boss: BossData, split: Any) -> dict[str, Any]:
     }
 
 
-def _entry(e: Entry, names: Names, detail: bool, percent: Any = None) -> dict[str, Any]:
+def _entry(
+    con: duckdb.DuckDBPyConnection, e: Entry, names: Names, detail: bool, percent: Any = None
+) -> dict[str, Any]:
     pf = e.participant
     hunter = to_data(e.hunter)
     hunter.pop("participant", None)
     if not detail:
         hunter.pop("auto_intervals", None)
     gear = to_data(e.profile.gear)
-    gear["value"] = _gear(gear["value"], names)
+    gear["value"] = enrich_gear(gear["value"], names)
     env = to_data(e.profile)
     env.pop("participant", None)
     env["gear"] = gear
@@ -535,6 +516,7 @@ def _entry(e: Entry, names: Names, detail: bool, percent: Any = None) -> dict[st
         "set_pieces": _set_pieces(e),
         "set_armor": _set_armor(e),
         "hunter": hunter,
+        "ability_use": to_data(ability_counts(con, pf)),
     }
 
 
@@ -658,13 +640,15 @@ def _boss(
         "rules": rules,
         "subject": None
         if subject is None
-        else _entry(subject, names, detail=True, percent=rank_percent(con, subject.participant)),
+        else _entry(
+            con, subject, names, detail=True, percent=rank_percent(con, subject.participant)
+        ),
         "benchmarks": benchmarks,
         "encounter": encounter,
-        "cohort": [_entry(e, names, detail=False) for e in cohort_rows],
+        "cohort": [_entry(con, e, names, detail=False) for e in cohort_rows],
         # Every recorded leaderboard row, any faction: context only. Baselines,
         # ceilings and recommendations still use the same-faction cohort.
-        "overall_cohort": [_entry(e, names, detail=False) for e in boss.cohort],
+        "overall_cohort": [_entry(con, e, names, detail=False) for e in boss.cohort],
         "playbook": to_data(playbook),
         "recommendations": recommendations,
     }

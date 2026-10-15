@@ -1,4 +1,7 @@
 {% extends "base.html.j2" %}
+{% from "reference-macros.html.j2" import plans, equipment, prose %}
+{% from "macros.html.j2" import val %}
+{% from "ability-use.html.j2" import ability_use %}
 {% macro ev(e) -%}
 {% if e and e.value is not none %}{{ e.value }} <span class="level">{{ e.level }}</span>{% else %}<span class="unknown">Unknown</span>{% if e and e.note %} <span class="why">{{ e.note }}</span>{% endif %}{% endif %}
 {%- endmacro %}
@@ -8,7 +11,8 @@
 {% block title %}{{ doc.title }} · Druid {{ page }}{% endblock %}
 {% block main %}
 <section id="overview" class="hero">
-  <h1 tabindex="-1">{{ doc.character }} · Druid {{ page|title }}</h1>
+  <div class="eyebrow">Druid parse playbook · faction-aware comparisons</div>
+  <h1 tabindex="-1">{{ doc.character }} — {{ doc.zone }} {{ page }}</h1>
   {% set selected = doc.class_document.get('acquisition', {}).get('selected_category') %}
   {% set personal_count = doc.class_document.bosses|selectattr('subject')|list|length %}
   <p>{{ doc.realm }} · {{ doc.zone }} · {{ doc.mode }} · {{ doc.navigation|length }} encounters in this view</p>
@@ -27,16 +31,31 @@
   {% endif %}
   </details>
 </section>
-<section id="truth-model" class="notice">
+<section id="truth-model" class="global truth-model">
   <details><summary>Evidence and comparison limits</summary><h2 tabindex="-1">Evidence and comparison limits</h2>
   <p>Role is inferred from repeated actions. Talents, form and leaderboard labels alone never prove assigned duties. Unknown values remain unknown.</p>
   <p>The main comparison uses the same faction, category, role, metric, partition and encounter. Builds are shown per player rather than used to hide sources. One or two sources still provide individual comparisons, clearly labelled as a limited sample; medians require three known values. Mixed, uncertain and overridden duties have no whole-fight baseline.</p>
   <p>Healing is shaped by assignments, incoming damage and other healers. Guardian category DPS does not measure survival or threat. Raw event damage and healing remain separate from WCL category scores.</p>
   </details>
 </section>
+<section id="raid-sheet" class="global"><h2>At-a-glance raid sheet</h2>
+  <div class="table-wrap raid-sheet"><table class="stack"><thead><tr><th>Boss</th><th>Your encounter</th><th>Your throughput</th><th>Faction leader</th><th>Leader throughput</th><th>Event sources</th></tr></thead><tbody>
+  {% for b in doc.class_document.bosses %}{% set ref = doc.class_views[b.encounter_id] %}<tr><th scope="row"><a href="#boss-{{ b.encounter_id }}">{{ b.boss }}</a></th><td data-label="Your encounter">{{ 'Available' if b.subject else 'No personal data in this spec' }}</td><td data-label="Your throughput">{{ val(ref.metrics[0][1]) }}</td><td data-label="Faction leader">{{ b.playbook.reference.player if b.playbook.get('reference') else 'Event example not acquired' }}</td><td data-label="Leader throughput">{{ val(ref.metrics[1][1]) }}</td><td data-label="Event sources">{{ val(ref.metrics[3][1]) }}</td></tr>{% endfor %}</tbody></table></div>
+  <p class="table-note">Throughput is role-specific: damage, effective healing or incoming damage per second. Incoming damage and HPS are not quality scores. One or two sources remain labelled individual comparisons.</p>
+</section>
+<section class="global"><h2>Global setup</h2><p>Selected spec: {{ selected or 'Unknown' }} · selected faction: {{ doc.class_document.get('acquisition', {}).get('subject_faction') or 'Unknown' }}. Pull gear, enchants and world buffs are shown per encounter because your setup can change.</p><p>Faction leaders supply practice references when personal data is absent. Race, build, external buffs and assignments remain context. Unfiltered overall leaders are in closed optional comparisons.</p><p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span> <button type="button" id="reset-reviews">Clear review marks</button></p></section>
 {% for boss in doc.class_document.bosses %}
-<section id="boss-{{ boss.encounter_id }}" data-boss-name="{{ boss.boss|lower }}" class="boss-section">
-  <h2 tabindex="-1">{{ boss.boss }}</h2>
+<section id="boss-{{ boss.encounter_id }}" data-boss-name="{{ boss.boss|lower }}" class="boss boss-section" aria-labelledby="boss-{{ boss.encounter_id }}-title">
+  {% set ref = doc.class_views[boss.encounter_id] %}
+  <div class="boss-head"><div><div class="eyebrow">Boss {{ '%02d'|format(loop.index) }} · {{ boss.boss }}</div><h2 id="boss-{{ boss.encounter_id }}-title" tabindex="-1">{{ boss.boss }}</h2><div class="metrics">{% for label, value in ref.metrics %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endfor %}</div></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.boss }}</span></label></div>
+  <div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div>
+  <article class="truth-card"><h3>Benchmark context</h3><p>{{ boss.benchmarks.baseline.note }}</p><p class="tiny">{{ boss.benchmarks.baseline.entries }} comparable event sources · {{ 'Limited sample' if boss.benchmarks.baseline.entries < 3 else 'Source counts retained per measurement' }}. Build, race, faction buffs, fight length and assignments can affect comparisons. Ranking scores remain separate from event metrics.</p></article>
+  <article class="quick-plan"><div class="eyebrow">Quick plan · KISS</div><h3>Opening cycle and notes</h3>{{ plans(ref.quick_plan) }}{{ ability_use(ref.abilities) }}</article>
+  <div class="grid two"><article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article><article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article></div>
+  <div class="grid two warnings"><article class="dont"><h3>Do not</h3>{{ prose(ref.dont) }}</article><article class="ask"><h3>Raid ask</h3>{{ prose(ref.asks) }}</article></div>
+  <details class="full-gear"><summary>Your full logged gear for this selected encounter</summary><div>{{ equipment(ref.gear) }}</div></details>
+  {% if ref.encounter_facts %}<details><summary>Encounter knowledge and sources</summary><div>{{ prose(ref.encounter_facts) }}</div></details>{% endif %}
+  <details class="leader-gear"><summary>Faction leader's full logged gear and enchants</summary><div>{{ equipment(ref.leader_gear) }}</div></details>
   {% if not boss.subject %}
   <div class="notice"><p>{{ boss.playbook.get('personal_data', {}).get('message', 'Not enough personal data in this spec for this encounter.') }}</p>
   <p>Your performance is not assessed for this boss in the selected spec.</p>
@@ -45,14 +64,7 @@
   {% else %}
   {% set s = boss.subject %}{% set d = s.druid %}
   <p><a href="https://vanilla.warcraftlogs.com/reports/{{ s.report_code }}#fight={{ s.fight_id }}" rel="noreferrer">Source report {{ s.report_code }} / fight {{ s.fight_id }}</a> · source opens online when followed</p>
-  <div class="quick-plan">
-    <h3>Your practice notes</h3>
-    <dl class="kv"><dt>Inferred encounter duty</dt><dd>{{ ev(d.role) }}</dd><dt>Build</dt><dd>{{ ev(d.build) }}</dd><dt>WCL category</dt><dd>{{ ev(d.ranking_category) }}</dd><dt>Fight duration</dt><dd>{{ s.kill_duration_s }} s</dd><dt>Assignment</dt><dd>{{ ev(d.assignment) }}</dd></dl>
-    {% if d.override %}<p>User override: <strong>{{ d.override.role }}</strong> · {{ d.override.reason }}. Observed evidence above is retained; override excluded from aggregate comparisons.</p>{% endif %}
-    <p>{{ boss.playbook.guidance }}</p>
-    <p>{% for e in d.opener %}{{ ' → ' if not loop.first else '' }}{{ e.t_s }}s {{ e.name or e.ability_id }}{% else %}No recorded opener casts; this does not establish absence without complete coverage.{% endfor %}</p>
-    {% if boss.recommendations %}{% for r in boss.recommendations %}<article class="card"><h4>{{ r.finding }}</h4><p>{{ r.recommendation }}</p><p class="muted">Confidence {{ r.confidence }} · {{ r.controllability }} · evidence: {{ r.evidence|join(', ') }}</p></article>{% endfor %}{% else %}<p>No evidence-supported execution change to recommend. Review assignments and compare the detailed timeline.</p>{% endif %}
-  </div>
+  {% if d.override %}<p class="notice">User override: {{ d.override.role }} · {{ d.override.reason }}. Observed evidence is retained; override is excluded from aggregate comparison.</p>{% endif %}
   <h3>Your measurements</h3>
   {% set comparisons = boss.playbook.get('comparisons') or [] %}
   {% if comparisons %}
@@ -68,10 +80,6 @@
   <tr><th><a href="https://vanilla.warcraftlogs.com/reports/{{ comparison.report_code }}#fight={{ comparison.fight_id }}" rel="noreferrer">{{ comparison.player }} · leaderboard #{{ comparison.leaderboard_position }}</a></th><td>{{ ev(comparison.build) }} · {{ comparison.kill_duration_s }} s</td><td>{{ name|replace('_', ' ') }}</td><td>{{ values.yours if values.yours is not none else 'Unknown' }}</td><td>{{ values.reference if values.reference is not none else 'Unknown' }}</td><td>{% if values.difference is not none %}{{ '%+.2f'|format(values.difference) }}{% if values.difference_pct is not none %} ({{ '%+.1f'|format(values.difference_pct) }}%){% endif %}{% else %}Unknown{% endif %}</td></tr>
   {% endif %}{% endfor %}{% endfor %}</tbody></table></div>
   </details>
-  {% set best = comparisons[0] %}
-  <h4>Spell use vs {{ best.player }} · leaderboard #{{ best.leaderboard_position }}</h4>
-  <p>Counts and casts per minute describe these fights. Different fight lengths and assignments can change the useful spell mix; these are observations to review.</p>
-  <div class="table-wrap"><table><thead><tr><th>Spell</th><th>Your casts</th><th>{{ best.player }} casts</th><th>Your casts/min</th><th>{{ best.player }} casts/min</th></tr></thead><tbody>{% for spell in best.get('spells', []) %}<tr><th>{{ spell.spell }}</th><td>{{ spell.counts.yours if spell.counts.yours is not none else 'Unknown' }}</td><td>{{ spell.counts.reference if spell.counts.reference is not none else 'Unknown' }}</td><td>{{ '%.2f'|format(spell.per_minute.yours) if spell.per_minute.yours is not none else 'Unknown' }}</td><td>{{ '%.2f'|format(spell.per_minute.reference) if spell.per_minute.reference is not none else 'Unknown' }}</td></tr>{% endfor %}</tbody></table></div>
   {% else %}<p>No matching event samples were acquired; see the saved #1 ranking comparison below where available.</p>{% endif %}
   {% if boss.benchmarks.baseline.entries < 3 %}<p>Fewer than three event sources: the individual comparisons above remain usable; a cohort median is not shown.</p>{% endif %}
   <p>{{ boss.benchmarks.baseline.entries }} comparable entries; {{ boss.benchmarks.baseline.excluded_incompatible }} incompatible entries excluded. {{ boss.benchmarks.baseline.note }}</p>
@@ -128,6 +136,8 @@
     {% set overall = boss.playbook.get('overall_reference') %}{% if overall %}<p>Highest-ranked acquired eligible event example across factions: {{ overall.player }} · leaderboard #{{ overall.leaderboard_position }} · faction {{ ev(overall.environment.faction) }} · build {{ ev(overall.druid.build) }}.</p><p>Recorded opening: {% for e in overall.druid.opener %}{{ ' → ' if not loop.first else '' }}{{ e.t_s }}s {{ e.name or e.ability_id }}{% else %}Unknown{% endfor %}</p>{% endif %}
     {% set overall_comparison = boss.playbook.get('overall_comparison') %}{% if overall_comparison %}<dl class="kv">{% for name in boss.playbook.primary_metrics %}{% set values = overall_comparison.metrics.get(name) %}{% if values %}<dt>{{ name|replace('_', ' ') }}</dt><dd>You: {{ values.yours if values.yours is not none else 'Unknown' }} · {{ overall_comparison.player }}: {{ values.reference if values.reference is not none else 'Unknown' }} · difference {{ '%.2f'|format(values.difference) if values.difference is not none else 'Unknown' }}</dd>{% endif %}{% endfor %}</dl>{% endif %}
   </details>
+  <details class="cohort-details" open><summary>Faction comparison cohort — build / race / buffs / gear</summary><div class="table-wrap cohort-table-wrap"><table class="cohort-table stack"><thead><tr><th>#</th><th>Druid</th><th>Faction</th><th>Race evidence</th><th>Build</th><th>Duty</th><th>Kill</th><th>Starting world buffs</th></tr></thead><tbody>{% for row in ref.cohort %}{% set e = row.entry %}<tr class="{{ row.row_class }}"><td data-label="Rank">{{ e.leaderboard_position or 'Unknown' }}</td><th scope="row"><a href="https://vanilla.warcraftlogs.com/reports/{{ e.report_code }}#fight={{ e.fight_id }}" rel="noreferrer">{{ e.player }}</a></th><td data-label="Faction">{{ ev(e.environment.faction) }}</td><td data-label="Race">{{ ev(e.environment.race.race) }}</td><td data-label="Build">{{ ev(e.druid.build) }}</td><td data-label="Duty">{{ ev(e.druid.role) }}</td><td data-label="Kill">{{ e.kill_duration_s }} s</td><td data-label="World buffs">{{ (e.environment.world_buffs.value or [])|join(', ') if e.environment.world_buffs.value is not none else 'Unknown' }}</td></tr>{% else %}<tr><td colspan="8">No same-faction event sources acquired. Saved ranking context remains separate.</td></tr>{% endfor %}</tbody></table></div></details>
+  <details class="hunter-gear"><summary>Full logged gear for each faction source</summary><div class="hunter-cards">{% for row in ref.cohort %}<article class="hunter-card {{ row.row_class }}"><div class="hunter-title"><strong>#{{ row.entry.leaderboard_position or '?' }} {{ row.entry.player }}</strong><span>{{ ev(row.entry.druid.build) }}</span></div>{{ equipment(row.gear) }}</article>{% endfor %}</div></details>
   <details><summary>All recorded cohort entries and evidence</summary>
     <div class="table-wrap"><table><thead><tr><th>Player</th><th>Faction</th><th>Build</th><th>WCL category</th><th>Observed role</th><th>Fight</th></tr></thead><tbody>{% for e in boss.overall_cohort %}<tr><td>{{ e.player }}</td><td>{{ ev(e.environment.faction) }}</td><td>{{ ev(e.druid.build) }}</td><td>{{ ev(e.druid.ranking_category) }}</td><td>{{ ev(e.druid.role) }}</td><td>{{ e.report_code }}/{{ e.fight_id }}</td></tr>{% endfor %}</tbody></table></div>
     <p>Full evidence references and coverage proofs are retained in <a href="analysis.json">analysis.json</a> and the package.</p>

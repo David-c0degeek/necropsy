@@ -10,6 +10,7 @@ from collections.abc import Mapping
 from typing import Any
 from urllib.parse import urlsplit
 
+from necropsy.report.abilities import comparison as ability_comparison
 from necropsy.report.render.view import Value, value_of
 
 SLOTS = (
@@ -508,6 +509,18 @@ def boss_view(
         )
     )
     ceiling = boss["benchmarks"].get("ceiling")
+    selected_faction = acquisition.get("subject_faction") or (
+        ((subject or {}).get("environment") or {}).get("faction") or {}
+    ).get("value")
+    ability_reference = next(
+        (
+            e
+            for e in boss.get("overall_cohort", boss["cohort"])
+            if e["environment"]["faction"].get("value") == selected_faction
+            and (ceiling is None or e["player"] == ceiling["player"])
+        ),
+        None,
+    )
     comparator = who(ceiling)
     faction = "Unknown" if not subject else value_of(subject["environment"]["faction"]).text
     mix = boss["benchmarks"].get("faction_mix") or {}
@@ -962,6 +975,7 @@ def boss_view(
     return {
         "metrics": metrics,
         "leader_practice": leader_practice,
+        "ability_use": ability_comparison(subject, ability_reference),
         "percent": percent,
         "comparator": comparator,
         "target": target,

@@ -9,11 +9,16 @@ from typing import Any
 
 import duckdb
 
+from necropsy.analysis import gamedata
 from necropsy.analysis.benchmark import BossData, Entry, median_of
 from necropsy.analysis.classes.classic_era.druid import LIMITATIONS
 from necropsy.analysis.context import coverage
 from necropsy.analysis.evidence import Evidenced, EvidenceLevel, EvidenceRef, observed, unknown
+from necropsy.analysis.generic.catalog import ItemName, item_catalog
 from necropsy.analysis.roles import DRUID_CATEGORIES, ComparisonKey, FightRole, ranking_policy
+from necropsy.report.abilities import difference as _difference
+from necropsy.report.abilities import rows as ability_rows
+from necropsy.report.equipment import enrich_gear
 from necropsy.report.serialize import to_data
 from necropsy.snapshot.model import Direction
 from necropsy.wcl.cohort import guild_faction
@@ -99,10 +104,14 @@ def entry_section(
     con: duckdb.DuckDBPyConnection,
     entry: Entry,
     metric: str | None = None,
+    names: dict[int, ItemName] | None = None,
 ) -> dict[str, Any]:
     pf = entry.participant
     env = to_data(entry.profile)
     env.pop("participant", None)
+    env["gear"]["value"] = enrich_gear(
+        env["gear"]["value"], names if names is not None else item_catalog(con)
+    )
     return {
         "player": pf.player,
         "server": pf.server,
@@ -115,18 +124,7 @@ def entry_section(
         "ranking": _ranking(con, entry, metric),
         "raptor_roles": to_data(entry.raptor_roles),
         "druid": to_data(entry.druid),
-    }
-
-
-def _difference(yours: float | None, reference: float | None) -> dict[str, Any]:
-    """Descriptive arithmetic only; a difference never proves an execution error."""
-    return {
-        "yours": yours,
-        "reference": reference,
-        "difference": None if yours is None or reference is None else yours - reference,
-        "difference_pct": None
-        if yours is None or reference is None or reference == 0
-        else 100 * (yours - reference) / reference,
+        "ability_use": to_data(entry.druid.casts),
     }
 
 
@@ -135,25 +133,12 @@ def _event_comparison(subject: Entry, example: Entry) -> dict[str, Any]:
         name: _difference(value.value, example.druid.metrics[name].value)
         for name, value in subject.druid.metrics.items()
     }
-    yours, theirs = subject.druid.casts.value, example.druid.casts.value
-    spells = []
-    for name in sorted(set(yours or {}) | set(theirs or {})):
-        your_count = None if yours is None else yours.get(name, 0)
-        their_count = None if theirs is None else theirs.get(name, 0)
-        spells.append(
-            {
-                "spell": name,
-                "counts": _difference(your_count, their_count),
-                "per_minute": _difference(
-                    None
-                    if your_count is None
-                    else your_count * 60000 / subject.participant.duration_ms,
-                    None
-                    if their_count is None
-                    else their_count * 60000 / example.participant.duration_ms,
-                ),
-            }
-        )
+    spells = ability_rows(
+        subject.druid.casts.value,
+        example.druid.casts.value,
+        subject.participant.duration_ms / 1000,
+        example.participant.duration_ms / 1000,
+    )
     return {
         "player": example.participant.player,
         "leaderboard_position": example.participant.leaderboard_position,
@@ -390,6 +375,11 @@ def boss_section(
     selected_category: str | None = None,
     acquisition: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    names = item_catalog(con)
+
+    def section(entry: Entry) -> dict[str, Any]:
+        return entry_section(con, entry, metric, names)
+
     subject = boss.subject
     policy = ranking_policy(2, selected_category, metric) if selected_category else None
     excluded = None
@@ -567,9 +557,9 @@ def boss_section(
                 "validation": None,
             },
         },
-        "subject": None if subject is None else entry_section(con, subject, metric),
-        "cohort": [entry_section(con, e, metric) for e in applicable],
-        "overall_cohort": [entry_section(con, e, metric) for e in boss.cohort],
+        "subject": None if subject is None else section(subject),
+        "cohort": [section(e) for e in applicable],
+        "overall_cohort": [section(e) for e in boss.cohort],
         "benchmarks": {
             "ceiling": None,
             "baseline": baseline,
@@ -585,16 +575,15 @@ def boss_section(
         },
         "recommendations": [] if subject is None else _recommendations(subject, medians),
         "playbook": {
-            "excluded_subject": entry_section(con, boss.subject, metric)
+            "encounter_facts": to_data(gamedata.encounter_facts("naxxramas", boss.encounter_id)),
+            "excluded_subject": section(boss.subject)
             if excluded is not None and boss.subject is not None
             else None,
             "selected_category": selected_category,
             "selected_metric": policy.metric if policy else metric,
             "personal_data": personal,
-            "reference": None if reference is None else entry_section(con, reference, metric),
-            "overall_reference": None
-            if overall_reference is None
-            else entry_section(con, overall_reference, metric),
+            "reference": None if reference is None else section(reference),
+            "overall_reference": None if overall_reference is None else section(overall_reference),
             "selected_faction": selected_faction,
             "comparisons": []
             if subject is None

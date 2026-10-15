@@ -1,0 +1,201 @@
+"""Present Druid evidence through the same playbook components as Hunter."""
+
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Any
+
+from necropsy.report.abilities import comparison
+from necropsy.report.render.playbook_view import gear, line, number, source
+from necropsy.report.render.view import Value, value_of
+
+
+def _opener(entry: Any) -> str:
+    if not entry:
+        return "Unknown — no eligible recorded encounter."
+    return (
+        " → ".join(
+            f"{number(e['t_s'], 2, 's')} {e.get('name') or e['ability_id']}"
+            for e in entry["druid"].get("opener", [])
+        )
+        or "No opening casts recorded."
+    )
+
+
+def _buffs(entry: Any) -> str:
+    raw = (entry or {}).get("environment", {}).get("world_buffs") or {}
+    if raw.get("value") is None:
+        return "Unknown — starting world-buff evidence is unavailable."
+    return ", ".join(raw["value"]) or "No starting world buffs recorded."
+
+
+def _loadout(entry: Any) -> str:
+    raw = (entry or {}).get("environment", {}).get("gear") or {}
+    if raw.get("value") is None:
+        return "Unknown — pull gear was not recorded."
+    selected = [g for g in raw["value"] if g["slot"] in (12, 13, 15, 16)]
+    return (
+        "; ".join(str(g.get("name") or f"Item {g['item_id']} (name unknown)") for g in selected)
+        or "No trinket/weapon slots recorded."
+    )
+
+
+def _gear(entry: Any) -> tuple[dict[str, Any], ...]:
+    return tuple(
+        {**row, "label": "Relic" if row["label"] == "Ranged" else row["label"]}
+        for row in gear(entry)
+    )
+
+
+def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
+    result = {}
+    for boss in document["bosses"]:
+        play = boss.get("playbook") or {}
+        subject = boss.get("subject")
+        leader = play.get("reference")
+        basis = subject or leader
+        role = ((basis or {}).get("druid", {}).get("role") or {}).get("value")
+        metric = "effective_healing_per_second" if role == "restoration" else "damage_per_second"
+        if role == "feral-tank":
+            metric = "incoming_damage_per_second"
+
+        def measurement(entry: Any, metric_name: str = metric) -> Value:
+            raw = (entry or {}).get("druid", {}).get("metrics", {}).get(metric_name)
+            return value_of(raw, lambda v: number(v, 1)) if raw else Value("Unknown", "unknown")
+
+        n = max(len(play.get("comparisons") or []), int(leader is not None))
+        same = [
+            e
+            for e in boss.get("overall_cohort", [])
+            if (e["environment"]["faction"] or {}).get("value") == play.get("selected_faction")
+        ]
+        recs = boss.get("recommendations") or []
+        context = [
+            ("Selected spec", play.get("selected_category") or "Unknown"),
+            ("Faction", play.get("selected_faction") or "Unknown"),
+            ("Build", value_of((basis or {}).get("druid", {}).get("build")).text),
+            ("Encounter duty", role or "Unknown"),
+        ]
+        quick = [
+            {"label": "Your recorded opener", "lines": (line(_opener(subject)),)},
+            {
+                "label": "Faction leader opener",
+                "lines": (
+                    line(
+                        _opener(leader),
+                        "Recorded example; not proof of an optimal opener or assigned duty.",
+                    ),
+                ),
+            },
+            {
+                "label": "Practice focus",
+                "lines": (
+                    line(
+                        play.get("guidance")
+                        or "Not measured for this role: no supported practice guidance is recorded."
+                    ),
+                ),
+            },
+        ]
+        encounter = play.get("encounter_facts") or {}
+        encounter_lines = tuple(
+            line(
+                t["text"],
+                t.get("note") or "Pinned encounter facts, not an observed event or class rotation.",
+                (source(encounter.get("source"), "Encounter source"),),
+            )
+            for t in encounter.get("timings", [])
+        )
+        if encounter_lines:
+            quick.append({"label": "Encounter notes", "lines": encounter_lines})
+        loadout = [
+            {"label": "Your pull loadout", "lines": (line(_loadout(subject)),)},
+            {
+                "label": "Faction leader loadout",
+                "lines": (line(_loadout(leader), "Recorded equipment; not a required gear list."),),
+            },
+            {"label": "Your world buffs", "lines": (line(_buffs(subject)),)},
+            {"label": "Leader world buffs", "lines": (line(_buffs(leader)),)},
+        ]
+        cooldowns = []
+        for label, entry in (("You", subject), ("Faction leader", leader)):
+            recorded = (entry or {}).get("druid", {}).get("cooldowns")
+            cooldowns.append(
+                {
+                    "label": label + " cooldowns / utility",
+                    "lines": (
+                        line(
+                            "Unknown — no eligible encounter."
+                            if entry is None
+                            else "; ".join(
+                                f"{number(e['t_s'], 2, 's')} {e.get('name') or e['ability_id']}"
+                                for e in recorded or []
+                            )
+                            or "No cooldown casts recorded; coverage determines "
+                            "whether absence is known."
+                        ),
+                    ),
+                }
+            )
+        execution = [
+            *cooldowns,
+            *[
+                {
+                    "label": r["finding"],
+                    "lines": (line(r["recommendation"], "Confidence " + r["confidence"]),),
+                }
+                for r in recs
+            ],
+        ]
+        limits = list(play.get("limitations") or [])
+        result[boss["encounter_id"]] = {
+            "review_key": f"necropsy:boss:{sha}:{boss['encounter_id']}",
+            "metrics": (
+                ("Your " + metric.replace("_", " "), measurement(subject)),
+                ("Faction leader", measurement(leader)),
+                (
+                    "Your kill",
+                    Value(
+                        "Unknown"
+                        if subject is None
+                        else number(subject["kill_duration_s"], 1, "s"),
+                        "observed" if subject else "unknown",
+                    ),
+                ),
+                ("Event sources", Value(str(n), "inferred", "Limited sample" if n < 3 else None)),
+            ),
+            "context": context,
+            "quick_plan": quick,
+            "loadout": loadout,
+            "execution": execution,
+            "encounter_facts": encounter_lines,
+            "gear": _gear(subject),
+            "leader_gear": _gear(leader),
+            "abilities": comparison(subject, leader),
+            "cohort": [
+                {
+                    "entry": e,
+                    "gear": _gear(e),
+                    "row_class": "alliance-row"
+                    if e["environment"]["faction"].get("value") == "Alliance"
+                    else "horde-row"
+                    if e["environment"]["faction"].get("value") == "Horde"
+                    else "unknown-row",
+                }
+                for e in same
+            ],
+            "dont": tuple(line(x) for x in limits[:3])
+            or (line("Not measured for this role: no supported warnings recorded."),),
+            "asks": tuple(
+                line(r["recommendation"])
+                for r in recs
+                if r.get("controllability") == "raid-assignment"
+            )
+            or (
+                line(
+                    "Assigned encounter duties remain unknown; check assignments "
+                    "before copying a leader's decisions."
+                ),
+            ),
+        }
+    return result

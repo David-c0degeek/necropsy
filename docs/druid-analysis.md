@@ -120,6 +120,21 @@ differences are descriptive and do not trigger the median-based damage rule.
 
 ## Measurements and practice notes
 
+Druid uses the same visual hierarchy and components as the Hunter playbook:
+raid sheet, boss metric cards, benchmark context, KISS opener, loadout/execution,
+Do not/Raid ask, full named pull gear with enchants, and faction cohort details.
+World buffs and cooldown timing are recorded per encounter. Role-specific numbers
+replace Hunter-specific measurements; missing evidence remains visible as unknown.
+Review marks and keyboard navigation work through the shared page controls.
+
+**Ability use vs [player]** is shared across classes. It shows recorded spells,
+shots, melee skills and cooldown/item casts as counts and uses per minute. These
+are actor cast events, excluding passive damage ticks and pet actions. Whole-fight
+counts need trusted source coverage; an unobserved action is zero only with that
+coverage. Different fight lengths and assignments can explain differences. New
+packages export `tables/ability-use.csv`. Older saved documents still render;
+replay their raw snapshots to populate the new common entry data.
+
 Feral and balance detail includes cast counts and the full timestamped event
 timeline with source/target names, faction and external-buff context, form intervals,
 resource observations and cooldown/utility

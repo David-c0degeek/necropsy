@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import dataclasses
+import io
 import json
 import shutil
 import zipfile
@@ -49,6 +50,25 @@ def test_document_validates_against_the_schema(document: dict[str, Any]) -> None
 def test_committed_json_schema_is_current() -> None:
     committed = json.loads((REPO / "docs/analysis-json.schema.json").read_text(encoding="utf-8"))
     assert committed == json_schema()
+
+
+def test_hunter_ability_use_counts_and_shared_panel_are_in_the_document(
+    document: dict[str, Any],
+) -> None:
+    from necropsy.report.analysis_json import dumps
+    from necropsy.report.package import build_outputs
+
+    subject = document["bosses"][0]["subject"]
+    assert subject["ability_use"]["value"]["Auto Shot"] == len(
+        subject["hunter"]["shots"]["auto_shot"]["casts"]["value"]
+    )
+    outputs = build_outputs(dumps(document).encode())
+    page = outputs["playbook.html"]
+    package_bytes = outputs["necropsy-86583560-2006.zip"]
+    assert page is not None and package_bytes is not None
+    assert b"Ability use vs" in page
+    with zipfile.ZipFile(io.BytesIO(package_bytes)) as package:
+        assert "tables/ability-use.csv" in package.namelist()
 
 
 def test_default_document_has_no_cross_faction_detail(document: dict[str, Any]) -> None:
@@ -237,10 +257,10 @@ def test_documents_without_the_new_fields_still_validate(document: dict[str, Any
 
 def test_conflicting_item_names_keep_their_note() -> None:
     from necropsy.analysis.generic.catalog import ItemName
-    from necropsy.report.analysis_json import _gear
+    from necropsy.report.equipment import enrich_gear
 
     names = {1: ItemName(1, None, "conflict", "ranking rows name this item differently: A, B")}
-    [item] = _gear([{"item_id": 1, "slot": 0}], names)
+    [item] = enrich_gear([{"item_id": 1, "slot": 0}], names)
     assert item["name"] is None and item["name_source"] == "conflict"
     assert "A, B" in item["name_note"]
 

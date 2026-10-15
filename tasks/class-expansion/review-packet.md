@@ -126,3 +126,10 @@ focused passes; scoped review AGREE round2 with exclusions retained in subject
 records. Eight latest real Balance/Guardian page cases pass, including the
 closed overall disclosure and no-personal Guardian guidance. Four saved Hunter
 artifacts remain byte-identical. Latest source CI passed: https://github.com/David-c0degeek/necropsy/actions/runs/38717484080.
+
+Presentation update: Balance, Restoration and missing-personal Tank now use the
+same metric cards, raid overview, plan panels, review marks and named gear layout
+as Hunter. All supported classes share Ability use vs player, with counts and
+uses/minute from recorded actor casts. [Hunter example](../../workspace/hunter-ability-use/playbook.html).
+Missing personal/coverage values remain unknown. Latest engineering verification
+is recorded after the scoped review and CI complete.

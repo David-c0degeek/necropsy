@@ -13,10 +13,10 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [x] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
+- [ ] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
 - [x] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
 - [ ] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
-- [x] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
+- [ ] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
@@ -230,3 +230,6 @@ human-owned. No ignored server filter or unsupported class analyzer is claimed.
 
 ### Verdict
 DO NOT CLOSE — only the product-owned review remains; record its actual outcome before closing.
+
+
+2026-10-15 · presentation parity correction · User identified that Druid was a visually and structurally inferior raw-detail view, and explicitly requested class-neutral Ability use vsX for Hunter and future classes. Reopened affected engineering boxes; existing user-facing components and gear resolver are reused. Generic source-qualified cast counts, optional entry evidence/schema and shared ability CSV/table are added. Old saved documents remain renderable; regenerated Hunter outputs intentionally add the requested section. Final shared desktop/mobile/raw checks, scoped review and CI remain pending.

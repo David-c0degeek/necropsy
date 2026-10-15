@@ -373,6 +373,7 @@ class DocumentView:
     class_document: Mapping[str, Any] | None = None
     selected_spec: str | None = None
     selected_faction: str | None = None
+    class_views: Mapping[int, Any] = field(default_factory=dict)
 
     @property
     def navigation(self) -> tuple[Any, ...]:
@@ -1148,6 +1149,7 @@ def _boss(
 
 
 def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentView:
+    from necropsy.report.render.druid_view import bosses as druid_bosses
     from necropsy.report.render.playbook_view import overview_view
 
     names = _item_names(document)
@@ -1186,6 +1188,7 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
         if is_druid
         else overview_view(document),
         class_document=document if is_druid else None,
+        class_views=druid_bosses(document, analysis_sha) if is_druid else {},
         selected_spec=(document.get("acquisition") or {}).get("selected_category"),
         selected_faction=(document.get("acquisition") or {}).get("subject_faction"),
     )

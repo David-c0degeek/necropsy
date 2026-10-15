@@ -78,3 +78,11 @@ Role overrides are explicit, reasoned subject-fight assignments. They survive in
 the analysis document, preserve conflicting evidence and disable aggregate role
 comparison. Missing resource/mitigation/threat/form/assignment data stays unknown;
 synthetic tests do not substitute for real logs or domain review.
+
+Presentation reuses the established playbook hierarchy and components across
+supported classes. Class adapters supply evidence and labels, keeping absent
+personal encounters ungraded. Common optional ability-use evidence counts actor
+cast events with trusted source coverage, separate from passive ticks and pets.
+Counts and uses per minute are descriptive comparisons, never rotation grades.
+New Hunter replays include the shared table and CSV; old saved documents retain
+their compatible rendering. No additional class analyzer is implied.
