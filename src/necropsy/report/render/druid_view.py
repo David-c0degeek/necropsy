@@ -6,6 +6,7 @@ from collections.abc import Mapping
 from typing import Any
 
 from necropsy.report.abilities import comparison
+from necropsy.report.render.execution_view import execution as execution_plan
 from necropsy.report.render.playbook_view import gear, line, number, source
 from necropsy.report.render.view import Value, value_of
 
@@ -29,14 +30,14 @@ def _buffs(entry: Any) -> str:
     return ", ".join(raw["value"]) or "No starting world buffs recorded."
 
 
-def _loadout(entry: Any) -> str:
+def _loadout(entry: Any, slots: tuple[int, ...]) -> str:
     raw = (entry or {}).get("environment", {}).get("gear") or {}
     if raw.get("value") is None:
         return "Unknown — pull gear was not recorded."
-    selected = [g for g in raw["value"] if g["slot"] in (12, 13, 15, 16)]
+    selected = [g for g in raw["value"] if g["slot"] in slots and g["item_id"]]
     return (
         "; ".join(str(g.get("name") or f"Item {g['item_id']} (name unknown)") for g in selected)
-        or "No trinket/weapon slots recorded."
+        or "No items recorded for these slots."
     )
 
 
@@ -109,44 +110,47 @@ def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
         if encounter_lines:
             quick.append({"label": "Encounter notes", "lines": encounter_lines})
         loadout = [
-            {"label": "Your pull loadout", "lines": (line(_loadout(subject)),)},
             {
-                "label": "Faction leader loadout",
-                "lines": (line(_loadout(leader), "Recorded equipment; not a required gear list."),),
-            },
-            {"label": "Your world buffs", "lines": (line(_buffs(subject)),)},
-            {"label": "Leader world buffs", "lines": (line(_buffs(leader)),)},
-        ]
-        cooldowns = []
-        for label, entry in (("You", subject), ("Faction leader", leader)):
-            recorded = (entry or {}).get("druid", {}).get("cooldowns")
-            cooldowns.append(
-                {
-                    "label": label + " cooldowns / utility",
-                    "lines": (
-                        line(
-                            "Unknown — no eligible encounter."
-                            if entry is None
-                            else "; ".join(
-                                f"{number(e['t_s'], 2, 's')} {e.get('name') or e['ability_id']}"
-                                for e in recorded or []
-                            )
-                            or "No cooldown casts recorded; coverage determines "
-                            "whether absence is known."
-                        ),
+                "label": label,
+                "lines": (
+                    line("You: " + _loadout(subject, slots)),
+                    line(
+                        "Faction leader: " + _loadout(leader, slots),
+                        "Recorded pull equipment; review the full gear and enchants below.",
                     ),
-                }
-            )
-        execution = [
-            *cooldowns,
-            *[
-                {
-                    "label": r["finding"],
-                    "lines": (line(r["recommendation"], "Confidence " + r["confidence"]),),
-                }
-                for r in recs
-            ],
+                ),
+            }
+            for label, slots in (("Weapons", (15, 16)), ("Trinkets", (12, 13)), ("Relic", (17,)))
         ]
+        loadout.append(
+            {
+                "label": "World buffs",
+                "lines": (
+                    line("You: " + _buffs(subject)),
+                    line("Faction leader: " + _buffs(leader)),
+                ),
+            }
+        )
+        core = {
+            "Balance": ("Starfire", "Wrath", "Moonfire", "Insect Swarm", "Hurricane"),
+            "Restoration": (
+                "Healing Touch",
+                "Rejuvenation",
+                "Regrowth",
+                "Tranquility",
+                "Swiftmend",
+            ),
+            "Feral": ("Shred", "Claw", "Rake", "Rip", "Ferocious Bite", "Ravage", "Pounce"),
+            "Guardian": ("Maul", "Swipe", "Swipe (Bear)", "Growl", "Challenging Roar"),
+        }.get(str(play.get("selected_category") or ""), ())
+        execution = execution_plan(subject, leader, "druid", core)
+        execution.extend(
+            {
+                "label": r["finding"],
+                "lines": (line(r["recommendation"], "Confidence " + r["confidence"]),),
+            }
+            for r in recs
+        )
         limits = list(play.get("limitations") or [])
         result[boss["encounter_id"]] = {
             "review_key": f"necropsy:boss:{sha}:{boss['encounter_id']}",

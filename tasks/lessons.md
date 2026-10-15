@@ -94,3 +94,5 @@
 - 2026-10-15: A supported website filter may not be a dedicated API filter. Inspect the live schema and compare actual opposite-filter responses; a successful response can silently ignore an unsupported filter.
 - 2026-10-15: Class expansion must preserve the established product hierarchy, not just expose raw JSON in HTML. Reuse shared plans, metrics, equipment and interaction components with class-specific evidence adapters. Validate actual pages alongside the original class at desktop and mobile sizes.
 - 2026-10-15: Name cross-class comparisons by the common action (ability use). Count recorded actor casts separately from damage/healing ticks and pets, preserve coverage-aware unknowns, and show counts plus duration-normalized rates without implying optimal play.
+
+- 2026-10-15: Heading parity does not establish playbook parity. Verify execution-row content and per-action evidence alongside the established class; test first-use timing against actor ownership to avoid counting incoming casts.

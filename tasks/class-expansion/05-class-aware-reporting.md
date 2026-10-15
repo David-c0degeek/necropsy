@@ -279,3 +279,6 @@ and Druid analyzers exist; shared components support future class adapters.
 ### Verdict
 DO NOT CLOSE — scoped independent review is outstanding; human-owned gates are
 also outstanding where applicable. Implementation and lead verification are complete.
+
+
+2026-10-15 · user-ended pairing; solo execution correction · Replaced aggregate cooldown dump with shared structured execution rows for opener, core abilities, individual utility/cooldowns, targets and resources. Loadout rows now Weapons/Trinkets/Relic/World buffs. Source-qualified personal/leader values preserve incomplete/missing unknowns and distinguish incoming casts. 27 focused checks and 16 actual refreshed page cases passed; lint/types pass. Prior final Claude requirement is explicitly waived by the user, never represented as peer agreement. Human domain/product acceptance remains open.

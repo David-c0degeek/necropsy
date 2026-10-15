@@ -148,3 +148,5 @@ implemented in the development checkout; they are not a published release.
 - Add Druid action-based duty inference, damage/healing/incoming metrics, mixed activity spans, reasoned offline assignment overrides and exact applicable cohorts.
 - Render Druid reports/playbooks and role/metric/timeline exports through the existing output pipeline; preserve Hunter output compatibility.
 - Real-log validation and domain acceptance limits are documented in `docs/druid-validation.md`.
+
+Druid execution plans now use the same labelled plan rows as Hunter: opener, individual core abilities and recorded cooldowns, first-use timing, counts/cadence, target context and resource review. Weapons/trinkets/relic/world buffs share the same loadout hierarchy. Each comparison retains source fights; incomplete or missing personal streams stay unknown.

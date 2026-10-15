@@ -191,3 +191,5 @@ ownership keeps acquisition partial. Real tank/mixed examples, independent fact
 checks and domain acceptance are tracked separately; implementing a role is not
 the same as validating it across every Naxxramas encounter. See
 [Druid validation](druid-validation.md) for the current evidence.
+
+Druid execution plans now use the same labelled plan rows as Hunter: opener, individual core abilities and recorded cooldowns, first-use timing, counts/cadence, target context and resource review. Weapons/trinkets/relic/world buffs share the same loadout hierarchy. Each comparison retains source fights; incomplete or missing personal streams stay unknown.

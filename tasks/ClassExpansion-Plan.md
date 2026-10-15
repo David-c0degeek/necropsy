@@ -38,12 +38,12 @@
 
 | Field | Value |
 |---|---|
-| Mode | `coordinated` |
-| Primary owner | Codex lead; Claude navigator on explicit design/review requests only |
+| Mode | `solo` |
+| Primary owner | Codex |
 | Coordinator | Codex |
 | Resume safety | required |
 | Parallel branches | `no` |
-| Notes | User retains product/domain/release decisions; one writer; notifier disabled; mailbox peek/watch during requested reviews. No proactive subagents. |
+| Notes | User explicitly ended pairing after Claude exhausted usage on 2026-10-15. Solo implementation/review; previous pair review requirement is waived by that instruction. No proactive subagents. |
 
 Mode rules:
 
@@ -544,3 +544,8 @@ review request is still unread; no final independent verdict is claimed.
 Human taxonomy/findings/product boxes remain open.
 
 05 implementation boxes are verified, but its CLOSE gate remains open. 06.4 remains open for scoped independent review, and 06.3 remains product-owned. Human01.4/03.4/04.4 also remain open; section7/8 and pair completion are not claimed.
+
+
+## User correction: execution parity and solo continuation
+
+User explicitly ended pairing; outstanding Claude review is superseded, not completed. Druid still lacked the substantive per-ability execution plan of Hunter. Reopen reporting/validation for opener, per-ability timing/count/cadence, target and resource context using existing evidence and shared plan rows. Finish this correction before remaining Classic Era classes. No Hunter mechanics or optimal-rotation claims are copied.

@@ -210,3 +210,22 @@ review request is still unread; no final independent verdict is claimed.
 Human taxonomy/findings/product boxes remain open.
 
 CH-MISS-6 is mitigated by the actual paired class pages and shared components, with independent review still pending. Two integration misses were caught by CI and fixed before this handoff; no root cause beyond the observed omissions is inferred.
+
+
+## Execution parity correction — before implementation
+
+PM-4 · High · It shipped with identical headings but a cooldown dump instead of
+an execution plan; tests checked headings and missed the user-visible content gap.
+Evidence: render/druid_view.py cooldown aggregation versus playbook_view.py's
+Opener/Rapid Fire/Refocus rows; actual user feedback. Predicted detection: silent
+under heading-only tests. Guardrail: structured per-ability rows, personal and
+leader counts/rates/first-use timings with source links, opener and target/resource
+context; actual row-content checks on real Balance/Restoration/Tank pages.
+Owner: Codex; Plan refs: 05.2/06.1/06.4. Resolution: Pending.
+
+PM-5 · Medium · Shared rows invent timing/absence for incomplete streams or imply
+an optimal rotation. Evidence: complete_or_unknown ability counts and Druid timeline
+can retain partial events. Guardrail: count and first-use unknown without trusted
+cast evidence; no personal values for missing selected-spec encounters; label
+recorded examples and assignment uncertainty. Owner: Codex; Plan refs: 05.2/06.1.
+Resolution: Pending. Rollback: revert presentation-only change, immutable raw unchanged.

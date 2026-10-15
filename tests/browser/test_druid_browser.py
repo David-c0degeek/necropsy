@@ -108,6 +108,11 @@ def test_druid_pages_preserve_roles_and_evidence_offline(
                 == 1
             )
             assert page.locator("input[data-review-key]").count() == 1
+            execution = page.locator("section.boss .grid.two").first.locator("article").nth(1)
+            assert "Opener" in execution.locator("dt").all_text_contents()
+            assert "Healing Touch" in execution.locator("dt").all_text_contents()
+            assert "first use" in execution.inner_text()
+            assert "Faction leader:" in execution.inner_text()
             assert page.locator("details.overall-comparison[open]").count() == 0
             assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
             assert page.evaluate("window.injected === undefined")
