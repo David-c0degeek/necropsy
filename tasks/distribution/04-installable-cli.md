@@ -34,3 +34,6 @@ Record: Windows real-store evidence and artifact hashes; D007 public metadata de
 Risk: real public-client/independent-account release gates remain external to package evidence.
 Verdict: CLOSE engineering subject per D004.
 
+
+Checkpoint disposition: engineering commit 0cfdab0 pushed to origin/main; final
+local golden/browser checks pass and exact evidence is in verification.md.

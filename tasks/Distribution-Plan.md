@@ -263,7 +263,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | [x] | 02 | `tasks/distribution/02-pkce-sign-in.md` | DONE | agent: 3 | n/a |
 | [ ] | 03 | `tasks/distribution/03-authorized-acquisition.md` | LIVE GATE PENDING | agent: 3 | n/a |
 | [x] | 04 | `tasks/distribution/04-installable-cli.md` | DONE | agent: 4 | n/a |
-| [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | IN PROGRESS | agent: 2; product-owner: 1; release-engineer: 1 | yes |
+| [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | HUMAN GATES PENDING | agent: 2; product-owner: 1; release-engineer: 1 | yes |
 
 ---
 
@@ -403,4 +403,7 @@ and machine, publication and §8 sign-off remain human-owned and unperformed.
 The package contains no verified app ID yet: pass --client-id or the existing
 client-ID environment variable. No release, desktop shell or additional platform
 support is claimed. Preserve the plan and raw evidence. Final golden/browser
-checks and review are recorded as they complete.
+checks pass with the same four known xfails; solo review is recorded. All agent
+implementation work is complete; dependent live validation remains open.
+Engineering checkpoint 0cfdab0 is pushed. §7/§8 cannot close until the recorded
+registration, real public-account and human acceptance/publication obligations pass.

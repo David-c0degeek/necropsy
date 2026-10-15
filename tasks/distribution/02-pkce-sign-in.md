@@ -33,3 +33,6 @@ Record: D004/D006, ADR0007; PM-1/PM-2 mitigations verified before merge.
 Risk: registered app/live refresh is not certified by synthetic tests; tracked in 01/03/05.
 Verdict: CLOSE engineering subject per D004.
 
+
+Checkpoint disposition: engineering commit 0cfdab0 pushed to origin/main; final
+local golden/browser checks pass and exact evidence is in verification.md.

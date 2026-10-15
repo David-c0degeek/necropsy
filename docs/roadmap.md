@@ -8,15 +8,16 @@ comes first, so every screen can explain the evidence behind its advice.
 
 ## Available now
 
-Classic Era Hunter/Naxxramas analysis from a saved v6 deep-export ZIP:
+All nine Classic Era classes in Naxxramas from live snapshots, plus saved
+Hunter v6 deep-export ZIP analysis:
 `necropsy ingest` builds a database; `necropsy offline` writes `analysis.json`, an
 offline HTML report and playbook, and a package; `necropsy render` rebuilds the
-pages from an existing `analysis.json`. `necropsy auth` signs in to Warcraft Logs for
-personal use and `necropsy resolve` looks up a character URL. Acquisition
+pages from an existing `analysis.json`. `necropsy auth` supports public PKCE and
+personal confidential clients; `necropsy resolve` looks up a character URL. Acquisition
 orchestration is available as a library alongside benchmark selection, report/event
 fetching and the immutable cache. The library can finalize acquired report bundles
 and write a snapshot v1 for the existing offline analysis and rendering commands.
-`necropsy analyze URL --cache DIR --out DIR` connects these pieces into one
+`necropsy analyze URL --endpoint user --cache DIR --out DIR` connects these pieces into one
 workflow, with explicit cache and output paths, requested-boss coverage, partial
 report exit statuses and offline recovery from a saved snapshot.
 Same-faction comparisons, encounter context, and evidence-linked recommendations
@@ -40,14 +41,14 @@ checks; domain correctness and product acceptance remain separate.
 
 ## Authorized next work
 
-The next implementation scopes are public-client PKCE with an installable local
-CLI, followed by class-aware analysis with Druid first: feral DPS, balance DPS,
-restoration healing, feral tanking and hybrid/mixed encounter duties. Role-specific
-comparisons and preserved Hunter compatibility are required. Druid class/category acquisition, duty analysis and reports are implemented with
-[documented validation limits](druid-validation.md); domain acceptance remains open.
-Public PKCE and installable-wheel engineering are implemented; registration,
-independent account/machine acceptance and publishing remain pending; the personal Hunter/Naxxramas milestone is signed off.
-All nine Classic Era classes now have [shared class reports](class-analysis.md), including supported healing/tank categories. This does not imply desktop UI or additional game/raid support.
+Public PKCE and installable-wheel engineering are implemented. Registration,
+live public-account permissions/refresh, independent account/machine acceptance
+and publishing remain pending. The personal Hunter/Naxxramas milestone is signed
+off. All nine Classic Era classes have [shared class reports](class-analysis.md),
+including supported healing/tank categories. Druid role analysis has
+[documented validation limits](druid-validation.md); engineering checks do not
+replace domain acceptance. Desktop UI and additional game/raid support remain
+outside this delivery.
 
 ## Authentication and distribution
 

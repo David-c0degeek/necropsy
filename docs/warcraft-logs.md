@@ -197,8 +197,8 @@ complete live acceptance.
 uv run necropsy auth logout
 ```
 
-This removes the selected client's saved user token and keeps its client
-secret for your next sign-in. To remove that client's record and saved ID too:
+This removes the selected mode/client's saved user tokens. Personal mode keeps
+its confidential secret for your next sign-in; public mode has no secret. To remove that client's record and saved ID too:
 
 ```sh
 uv run necropsy auth logout --forget-secret

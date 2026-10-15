@@ -15,15 +15,36 @@ Prove another person can install, authorize and produce a correctly scoped repor
 ## Boxes
 - [x] **05.1** (agent) Prepare an opt-in real-account acceptance procedure and receipt covering installation, sign-in/refresh, supported acquisition, output/package integrity, permissions, quota limitations and secret scanning.
 - [ ] **05.2** (product-owner) Run or observe the documented flow on another person/account and machine; confirm no developer secret is requested, outputs and uncertainty are understandable, and declared platform behavior is acceptable.
-- [ ] **05.3** (agent) Run the latest fast/golden/acceptance/browser and build checks, complete documentation/cleanup/lessons/PM calibration and solo Codex review; carry any unsupported platform or permission limit explicitly into the release notes.
+- [x] **05.3** (agent) Run the latest fast/golden/acceptance/browser and build checks, complete documentation/cleanup/lessons/PM calibration and solo Codex review; carry any unsupported platform or permission limit explicitly into the release notes.
 - [ ] **05.4** (release-engineer) Approve and publish the reviewed package only after the public-client and independent-user gates pass; record the exact version, artifact hash and supported platforms.
 
 ## Hindsight checkpoint
 Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
-- [ ] Captain Hindsight review recorded
+- [x] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-2026-10-15 · 1 · 05.1/05.3 · Extended existing live-acceptance procedure with another account/machine installation, consent/cancel/refresh, ranking/report/archive/quota checks, output/package integrity, offline replay, unlimited extracted scans, logout/removal and explicit product/publication receipt. No second harness or acquisition pipeline introduced. User is creating the public app; no second-person acceptance or release approval inferred. Final verification and review in progress; manual gates stay open. Documentation only for 05.1; verified against actual CLI help, installed probe and existing acceptance harness. Pushed checkpoint follows.
+2026-10-15 · 1 · 05.1/05.3 · Extended existing live-acceptance procedure with another account/machine installation, consent/cancel/refresh, ranking/report/archive/quota checks, output/package integrity, offline replay, unlimited extracted scans, logout/removal and explicit product/publication receipt. No second harness or acquisition pipeline introduced. User confirms no public client exists; registration instructions supplied; no second-person acceptance or release approval inferred. Final verification and review in progress; manual gates stay open. Documentation only for 05.1; verified against actual CLI help, installed probe and existing acceptance harness. Pushed checkpoint follows.
 
+
+2026-10-15 · 2 · 05.3 · Final local fast regression 974 pass plus 11 subsequently
+added artifact-boundary checks; golden/acceptance 246 pass with the same four
+accepted xfails; browser 41 pass; build/lint/format/types/lock checks pass.
+Windows clean wheel/public mock/offline replay/package integrity and real WinVault
+probe pass; wheel/sdist reproducible and extracted/output scans pass. Ubuntu CI
+for 0cfdab0 passes final complete fast collection; Windows CI still running at this
+record. Final solo review and PM calibration in verification.md/pre-mortem.md;
+no unresolved engineering defect. Docs updated, cleanup waived by D007, lasting
+lessons promoted. Implementation checkpoint 0cfdab0 pushed; documentation receipt
+checkpoint follows. No publication or independent tester acceptance claimed.
+
+## Final review
+Keep: extend existing live harness and retain actual artifact/account scope.
+Fix before closing: 05.2 independent account/machine and 05.4 publication approval
+remain required; public registration/live permissions remain prerequisites.
+Record: verification.md and package-receipt.json contain commands, hashes and scope;
+PM-1/PM-2 prevented/mitigated, PM-3 mitigated with live horizon Inconclusive.
+Risk: registered public-account/refresh/archive support remains unobserved.
+Verdict: DO NOT CLOSE subject 05; all agent implementation/review work is complete,
+required independent and release human actions remain open.

@@ -6,7 +6,13 @@ The Python wheel is an installable CLI, including all class rules and report
 templates/assets. It requires Python **3.14 or newer**. Windows is the first
 engineering verification target. Public release, registered-client validation
 and independent user/machine acceptance are pending; no PyPI availability is
-claimed. macOS/Linux installation and real credential stores remain unverified.
+claimed. The platform evidence is:
+
+| Platform | Installation evidence | Real credential store / public account |
+|---|---|---|
+| Windows | Clean Python 3.14.6 wheel install, public mock flow and offline replay | WinVault chunked probe passed; registered public-account acceptance pending |
+| Linux (Ubuntu CI) | Installed wheel, public mock flow and offline replay passed | Real desktop credential store and user-account flow unverified; no end-user support claim |
+| macOS | Unverified | Unverified |
 
 ## Install and run
 

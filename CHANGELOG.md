@@ -1,17 +1,19 @@
 # Changelog
 
-- Public S256 PKCE login, separate mode-tagged OS-store records, explicit user
-  acquisition and an isolated wheel/sdist installation audit are implemented.
-  Personal clients use `auth login --mode personal`. Public registration, live
-  public-account acceptance and publication remain pending. See
-  [installation](docs/installation.md).
-
 [Home](README.md) · [Documentation](docs/README.md) · [Roadmap](docs/roadmap.md)
 
 Notable user-facing and developer changes. Entries under **Unreleased** are
 implemented in the development checkout; they are not a published release.
 
 ## [Unreleased]
+
+### Added
+
+- Public S256 PKCE login, separate mode-tagged OS-store records, explicit user
+  acquisition and an isolated wheel/sdist installation audit are implemented.
+  Personal clients use `auth login --mode personal`. Public registration, live
+  public-account acceptance and publication remain pending. See
+  [installation](docs/installation.md).
 
 ### Changed
 
