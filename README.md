@@ -3,7 +3,7 @@
 </p>
 
 <p align="center"><strong>Understand the log. Find the next improvement.</strong><br>
-Offline forensics for Classic Era Hunters and Druids in Naxxramas.</p>
+Offline forensics for all Classic Era classes in Naxxramas.</p>
 
 <p align="center">
 <a href="docs/getting-started.md">Get started</a> ·
@@ -93,3 +93,5 @@ Use `--category Balance --metric hps` for Balance-category healing performances.
 Choose `--spec Balance`, `Restoration`, `Feral` or `Tank` to view that spec across
 all bosses. Missing personal encounters remain visible with an explanation and
 eligible top-player learning examples; examples never become personal grades.
+
+See [class analysis](docs/class-analysis.md) for supported ranking categories, role selection and class-specific execution/ability comparisons.

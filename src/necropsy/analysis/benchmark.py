@@ -27,6 +27,7 @@ from dataclasses import dataclass
 import duckdb
 
 from necropsy.analysis.classes import plugin_for
+from necropsy.analysis.classes.classic_era.combat import CombatAnalysis
 from necropsy.analysis.classes.classic_era.druid import DruidAnalysis
 from necropsy.analysis.classes.classic_era.hunter import Cast, HunterAnalysis
 from necropsy.analysis.context import ParticipantFight, participant_fights, pet_listing_known
@@ -72,7 +73,7 @@ class Entry:
 
     participant: ParticipantFight
     profile: EnvironmentProfile
-    class_analysis: HunterAnalysis | DruidAnalysis
+    class_analysis: HunterAnalysis | DruidAnalysis | CombatAnalysis
     ranking: RankingDamage
     pets_listed: bool
     raptor_roles: Evidenced[RaptorRoles]
@@ -87,6 +88,12 @@ class Entry:
     def druid(self) -> DruidAnalysis:
         if not isinstance(self.class_analysis, DruidAnalysis):
             raise TypeError("Druid-only analysis requested for another class")
+        return self.class_analysis
+
+    @property
+    def combat(self) -> CombatAnalysis:
+        if not isinstance(self.class_analysis, CombatAnalysis):
+            raise TypeError("Common combat analysis requested for a different class")
         return self.class_analysis
 
     @property
@@ -181,17 +188,17 @@ def analyze_entry(
         if not isinstance(result, DruidAnalysis):
             raise ValueError("role overrides are supported only for Druid subject fights")
         result = replace(result, override=override, selected_role=override.role)
-    if not isinstance(result, HunterAnalysis | DruidAnalysis):
+    if not isinstance(result, HunterAnalysis | DruidAnalysis | CombatAnalysis):
         raise TypeError("class plugin returned an unsupported analysis contract")
     ranking = (
         ranking_damage(con, pf, rules.excluded_from_ranking, rules.exclusion_rule)
         if isinstance(result, HunterAnalysis)
         else RankingDamage(
-            unknown("Druid event damage is distinct from a WCL category score"),
-            unknown("Hunter ranking rules do not apply to Druid"),
-            unknown("Hunter ranking rules do not apply to Druid"),
+            unknown(f"{plugin.name} event damage is distinct from a WCL category score"),
+            unknown(f"Hunter ranking rules do not apply to {plugin.name}"),
+            unknown(f"Hunter ranking rules do not apply to {plugin.name}"),
             (pf.actor_id,),
-            unknown("see Druid damage targets"),
+            unknown(f"see {plugin.name} damage targets"),
         )
     )
     return Entry(

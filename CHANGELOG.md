@@ -150,3 +150,5 @@ implemented in the development checkout; they are not a published release.
 - Real-log validation and domain acceptance limits are documented in `docs/druid-validation.md`.
 
 Druid execution plans now use the same labelled plan rows as Hunter: opener, individual core abilities and recorded cooldowns, first-use timing, counts/cadence, target context and resource review. Weapons/trinkets/relic/world buffs share the same loadout hierarchy. Each comparison retains source fights; incomplete or missing personal streams stay unknown.
+
+All Classic Era classes now support class/category selection, evidence-qualified duties, faction leaders, sparse comparisons and the shared playbook/execution/ability layout. Other classes use additive schema1 combat data and common exports. Supported API ranking labels remain distinct from talent builds; missing personal data stays ungraded.

@@ -189,3 +189,5 @@ optional addition reflected in the committed generated JSON schema.
 Druid gear now uses the same item/enchant name resolver as Hunter. Catalog
 conflicts and unavailable names remain explicit with IDs. These are presentation
 additions; raw archives, event multiplicity and role eligibility are unchanged.
+
+Schema1 also adds optional `combat` entry evidence for Mage, Paladin, Priest, Rogue, Shaman, Warlock and Warrior. It retains class/build/category/duty, metrics, actor casts/opener/cooldowns/timeline, targets, resources, deaths and separate pet evidence. Existing `hunter` and `druid` contracts remain. All supported classes use the shared ability comparison and CSV; non-Hunter class metrics/roles/timeline and source comparisons share exports. See [class analysis](class-analysis.md).

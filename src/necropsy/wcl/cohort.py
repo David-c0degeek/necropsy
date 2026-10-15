@@ -26,7 +26,7 @@ from typing import Any
 from necropsy.analysis.context import realm_key
 from necropsy.analysis.encounters import zone_encounters
 from necropsy.analysis.evidence import Faction
-from necropsy.analysis.roles import ranking_policy
+from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.rules import load_rules
 from necropsy.wcl.client import (
     RATE_FIELDS,
@@ -76,9 +76,11 @@ def leaderboard_query(key: CohortKey) -> str:
             if key.spec.status == "enforced" and key.spec.value == "Marksmanship"
             else LEADERBOARD_QUERY
         )
-    policy = ranking_policy(2, key.spec.value, key.metric.value)
+    class_id = next(cid for cid, name in CLASS_NAMES.items() if name == key.class_name.value)
+    policy = ranking_policy(class_id, key.spec.value, key.metric.value)
     return LEADERBOARD_QUERY.replace("metric: dps", f"metric: {policy.metric}").replace(
-        'className: "Hunter"', f'className: "Druid"\n        specName: "{policy.category}"'
+        'className: "Hunter"',
+        f'className: "{policy.class_name}"\n        specName: "{policy.category}"',
     )
 
 
@@ -118,7 +120,7 @@ class CohortKey:
 
     @property
     def metric(self) -> Dimension:
-        metric = "hps" if self.role.value == "restoration" else "dps"
+        metric = "hps" if self.role.value in ("restoration", "healer") else "dps"
         return Dimension(metric, "enforced", "ranking query metric")
 
 

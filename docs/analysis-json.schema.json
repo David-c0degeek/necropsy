@@ -546,6 +546,19 @@
           ],
           "default": null
         },
+        "combat": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Combat"
+        },
         "druid": {
           "anyOf": [
             {

@@ -190,6 +190,7 @@ class EntrySection(_Strict):
     raptor_roles: EvidenceTree
     hunter: EvidenceTree | None = None
     druid: EvidenceTree | None = None
+    combat: EvidenceTree | None = None
     ability_use: Evidence | None = None
     pets_listed: bool | None = None
     set_pieces: list[dict[str, Any]] | None = None
@@ -689,8 +690,13 @@ def build_document(
     acquisition = _json(meta[18]) if mode == "live" else None
     names = item_catalog(con)
     boss_data = load_bosses(con, GAME, ZONE, role_overrides)
-    if meta[9] == 2:
-        from necropsy.report.druid import boss_section
+    if meta[9] != 3:
+        from functools import partial
+
+        from necropsy.report.combat import boss_section as combat_boss
+        from necropsy.report.druid import boss_section as druid_boss
+
+        make_boss = druid_boss if meta[9] == 2 else partial(combat_boss, class_id=meta[9])
 
         records = {b["encounter_id"]: b for b in (acquisition or {}).get("bosses", [])}
         categories = {
@@ -699,6 +705,14 @@ def build_document(
         category = (acquisition or {}).get("selected_category")
         if category is None and len(categories) == 1:
             category = next(iter(categories))
+        if category is None and meta[9] != 2:
+            categories = {
+                e.combat.ranking_category.value
+                for b in boss_data
+                for e in ((b.subject,) if b.subject else ()) + b.cohort
+            } - {None}
+            if len(categories) == 1:
+                category = next(iter(categories))
         if acquisition is not None:
             acquisition = {**acquisition, "selected_category": category}
         present = {b.encounter_id for b in boss_data}
@@ -712,7 +726,7 @@ def build_document(
         }
         boss_data.sort(key=lambda b: order.get(b.encounter_id, 999))
         bosses = [
-            boss_section(
+            make_boss(
                 con,
                 b,
                 meta[12],

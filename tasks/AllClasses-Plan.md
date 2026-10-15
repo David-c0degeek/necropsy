@@ -254,11 +254,11 @@ Extend Classic Era Naxxramas support from Hunter/Druid to Mage, Paladin, Priest,
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/all-classes/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
-| [ ] | 01 | `tasks/all-classes/01-class-spec-catalog.md` | TODO | agent: 2 | n/a |
-| [ ] | 02 | `tasks/all-classes/02-shared-class-analysis.md` | TODO | agent: 2 | n/a |
-| [ ] | 03 | `tasks/all-classes/03-role-comparisons.md` | TODO | agent: 2 | n/a |
-| [ ] | 04 | `tasks/all-classes/04-shared-playbooks.md` | TODO | agent: 2 | n/a |
-| [ ] | 05 | `tasks/all-classes/05-class-validation.md` | TODO | agent: 3; product-owner: 1 | yes |
+| [ ] | 01 | `tasks/all-classes/01-class-spec-catalog.md` | IN PROGRESS | agent: 2 | n/a |
+| [ ] | 02 | `tasks/all-classes/02-shared-class-analysis.md` | IN PROGRESS | agent: 2 | n/a |
+| [ ] | 03 | `tasks/all-classes/03-role-comparisons.md` | IN PROGRESS | agent: 2 | n/a |
+| [ ] | 04 | `tasks/all-classes/04-shared-playbooks.md` | IN PROGRESS | agent: 2 | n/a |
+| [ ] | 05 | `tasks/all-classes/05-class-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
 
@@ -383,3 +383,8 @@ Return exactly these sections:
 If the verdict is DO NOT CLOSE, list the smallest concrete actions needed before
 the work can be closed.
 ```
+
+
+## Implementation checkpoint
+
+All nine classes are wired through the existing pipeline; shared class combat evidence uses ADR0006. Fourteen added category contracts pass offline/package and56browser page cases. Remaining real captures, source CI and full serial golden verification are in progress. Human product review remains open; no pair review is required after the explicit user instruction.

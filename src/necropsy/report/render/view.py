@@ -374,6 +374,8 @@ class DocumentView:
     selected_spec: str | None = None
     selected_faction: str | None = None
     class_views: Mapping[int, Any] = field(default_factory=dict)
+    class_name: str = "Hunter"
+    analysis_key: str = "hunter"
 
     @property
     def navigation(self) -> tuple[Any, ...]:
@@ -1149,14 +1151,17 @@ def _boss(
 
 
 def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentView:
-    from necropsy.report.render.druid_view import bosses as druid_bosses
+    from necropsy.analysis.class_catalog import CLASS_NAMES
+    from necropsy.report.render.class_view import bosses as class_bosses
     from necropsy.report.render.playbook_view import overview_view
 
     names = _item_names(document)
-    is_druid = document["subject"]["class_id"] == 2
+    is_class = document["subject"]["class_id"] != 3
+    class_id = document["subject"]["class_id"]
+    analysis_key = "druid" if class_id == 2 else "combat"
     bosses = (
         ()
-        if is_druid
+        if is_class
         else tuple(_boss(document, b, analysis_sha, names) for b in document["bosses"])
     )
     subject = document["subject"]
@@ -1184,13 +1189,25 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
         ),
         bosses=bosses,
         total_cards=sum(len(b.cards) for b in bosses),
-        reference={"faction_label": "Druid encounter roles"}
-        if is_druid
+        reference={"faction_label": CLASS_NAMES[class_id] + " encounter roles"}
+        if is_class
         else overview_view(document),
-        class_document=document if is_druid else None,
-        class_views=druid_bosses(document, analysis_sha) if is_druid else {},
-        selected_spec=(document.get("acquisition") or {}).get("selected_category"),
-        selected_faction=(document.get("acquisition") or {}).get("subject_faction"),
+        class_document=document if is_class else None,
+        class_views=class_bosses(document, analysis_sha, analysis_key) if is_class else {},
+        class_name=CLASS_NAMES[class_id],
+        analysis_key=analysis_key if is_class else "hunter",
+        selected_spec=(document.get("acquisition") or {}).get("selected_category")
+        or (
+            (document["bosses"][0].get("playbook") or {}).get("selected_category")
+            if is_class and document["bosses"]
+            else None
+        ),
+        selected_faction=(document.get("acquisition") or {}).get("subject_faction")
+        or (
+            (document["bosses"][0].get("playbook") or {}).get("selected_faction")
+            if is_class and document["bosses"]
+            else None
+        ),
     )
 
 

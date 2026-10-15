@@ -3,7 +3,7 @@
 [Home](../README.md) · [Get started](getting-started.md) · [Read the results](reading-results.md)
 
 Start with a runnable sample, then choose how far into the evidence you want to go.
-Necropsy currently writes JSON from saved Classic Era Hunter/Naxxramas exports.
+Necropsy writes analysis JSON and reports for all Classic Era classes in Naxxramas.
 Each run also writes an offline HTML report and playbook. `necropsy analyze`
 connects character-URL acquisition to those outputs. An authenticated Windows
 run is verified with explicit partial pet coverage; see [live validation](live-validation.md).
@@ -42,3 +42,5 @@ describe the current implementation.
 
 - [Druid analysis](druid-analysis.md): explicit WCL categories, encounter duties, role-specific measurements and assignment overrides.
 - [Druid validation](druid-validation.md): observed real-log scope and remaining acceptance gates.
+
+- [All class analysis](class-analysis.md): supported ranking categories, roles and shared execution/ability comparisons.

@@ -29,7 +29,7 @@ are implemented. [Try the sample](getting-started.md).
 | A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | Personal-use milestone signed off; accepted source/coverage limitations remain |
 | B — Desktop app | Paste a URL, authenticate, choose raid/partition, follow acquisition progress, inspect bosses, export, and open cached analyses | Stable analysis JSON; public-client authentication before distribution |
 | C — Broader classification | Class/spec/role taxonomy and build clusters; Druid and Warrior role resolution with confidence and overrides | Milestone A shipped |
-| D — More class plugins | Druid, Warrior, Rogue, Mage, Warlock, then healers | Classification foundation |
+| D — Class plugins | All nine Classic Era classes implemented; domain acceptance remains explicit | Shared category/duty/evidence contracts |
 | E — More raids and variants | Other Classic Era raids, then Fresh/SoD/other sites | Stable analyzer contracts |
 
 [Sign-in, resolution and acquisition](warcraft-logs.md) are implemented for
@@ -46,7 +46,7 @@ restoration healing, feral tanking and hybrid/mixed encounter duties. Role-speci
 comparisons and preserved Hunter compatibility are required. Druid class/category acquisition, duty analysis and reports are implemented with
 [documented validation limits](druid-validation.md); domain acceptance remains open.
 Public-client distribution remains planned; the personal Hunter/Naxxramas milestone is signed off.
-They do not imply the desktop UI or broader class support is available.
+All nine Classic Era classes now have [shared class reports](class-analysis.md), including supported healing/tank categories. This does not imply desktop UI or additional game/raid support.
 
 ## Authentication and distribution
 

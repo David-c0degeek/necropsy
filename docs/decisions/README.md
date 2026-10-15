@@ -14,3 +14,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Snapshots and derived outputs](0004-snapshots-and-derived-outputs.md) | Strict live archive, shared offline pipeline, rebuildable database and explicit output replacement |
 
 | [Classes and encounter duties](0005-class-and-encounter-duties.md) | Separate class/build/category/duty/override evidence and compatible class sections |
+
+| [Shared class combat evidence](0006-shared-class-combat-evidence.md) | Verified ranking categories, common combat plugins and shared execution views |

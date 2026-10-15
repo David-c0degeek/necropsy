@@ -192,11 +192,15 @@ def analyze_command(
     ] = None,
     category: Annotated[
         str | None,
-        typer.Option(help="WCL category: Balance, Feral, Guardian or Restoration."),
+        typer.Option(
+            help="Classic Era WCL ranking category for this class (e.g. Fire, Holy, Fury)."
+        ),
     ] = None,
     spec: Annotated[
         str | None,
-        typer.Option(help="Spec: Balance, Feral, Restoration, Tank or Hunter Marksmanship."),
+        typer.Option(
+            help="Classic Era spec/category; Tank, Healer and DPS aliases resolve by class."
+        ),
     ] = None,
     faction: Annotated[
         str | None,
@@ -218,7 +222,7 @@ def analyze_command(
         ),
     ] = False,
 ) -> None:
-    """Acquire a Classic Era Hunter or Druid's Naxxramas logs and write a report.
+    """Acquire any Classic Era class's Naxxramas logs and write a report.
 
     Uses saved WCL credentials and the network. Exit 0: complete report;
     4: partial report; 2: choose a partition; 3: finalization stopped, no report;
@@ -229,7 +233,7 @@ def analyze_command(
             faction = typer.prompt("Character faction (Alliance/Horde)")
         if spec is None and category is None:
             spec = typer.prompt(
-                "Spec (Balance/Feral/Tank/Restoration/Marksmanship; all for legacy Hunter)",
+                "Spec/category (e.g. Balance, Fire, Holy, Fury; all for legacy Hunter)",
                 default="all",
             )
     try:

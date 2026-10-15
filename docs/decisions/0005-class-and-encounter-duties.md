@@ -8,8 +8,8 @@ The chosen faction is verified against the character before deep acquisition.
 Missing personal encounters retain a leader-based practice playbook without
 personal grading. Race and talent-point builds remain context. Unfiltered overall
 leaders appear in a separate, collapsed disclosure with faction-difference
-caveats. Apply this rule to every supported class plugin; current analyzers are
-Hunter and Druid. Classic Era's game-data response exposes Hunter's Marksmanship
+caveats. Apply this rule to every supported class plugin; current analyzers cover
+all nine Classic Era classes (see ADR0006 and class-analysis.md). Classic Era's game-data response exposes Hunter's Marksmanship
 ranking category; explicit Hunter spec selection uses it rather than inventing
 additional categories. Existing unselected Hunter archives retain their format.
 

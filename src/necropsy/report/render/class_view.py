@@ -1,4 +1,4 @@
-"""Present Druid evidence through the same playbook components as Hunter."""
+"""Present class evidence through the same playbook components as Hunter."""
 
 from __future__ import annotations
 
@@ -11,13 +11,13 @@ from necropsy.report.render.playbook_view import gear, line, number, source
 from necropsy.report.render.view import Value, value_of
 
 
-def _opener(entry: Any) -> str:
+def _opener(entry: Any, key: str) -> str:
     if not entry:
         return "Unknown — no eligible recorded encounter."
     return (
         " → ".join(
             f"{number(e['t_s'], 2, 's')} {e.get('name') or e['ability_id']}"
-            for e in entry["druid"].get("opener", [])
+            for e in entry[key].get("opener", [])
         )
         or "No opening casts recorded."
     )
@@ -41,30 +41,40 @@ def _loadout(entry: Any, slots: tuple[int, ...]) -> str:
     )
 
 
-def _gear(entry: Any) -> tuple[dict[str, Any], ...]:
+def _gear(entry: Any, relic: bool) -> tuple[dict[str, Any], ...]:
     return tuple(
-        {**row, "label": "Relic" if row["label"] == "Ranged" else row["label"]}
+        {**row, "label": "Relic" if relic and row["label"] == "Ranged" else row["label"]}
         for row in gear(entry)
     )
 
 
-def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
+def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[int, dict[str, Any]]:
     result = {}
+    relic = document["subject"]["class_id"] in (2, 6, 9)
     for boss in document["bosses"]:
         play = boss.get("playbook") or {}
         subject = boss.get("subject")
         leader = play.get("reference")
         basis = subject or leader
-        role = ((basis or {}).get("druid", {}).get("role") or {}).get("value")
-        metric = "effective_healing_per_second" if role == "restoration" else "damage_per_second"
-        if role == "feral-tank":
+        role = ((basis or {}).get(key, {}).get("role") or {}).get("value")
+        metric = (
+            "effective_healing_per_second"
+            if role in ("restoration", "healer") or play.get("selected_metric") == "hps"
+            else "damage_per_second"
+        )
+        if role in ("feral-tank", "tank") or play.get("selected_category") in (
+            "Guardian",
+            "Protection",
+        ):
             metric = "incoming_damage_per_second"
 
         def measurement(entry: Any, metric_name: str = metric) -> Value:
-            raw = (entry or {}).get("druid", {}).get("metrics", {}).get(metric_name)
+            raw = (entry or {}).get(key, {}).get("metrics", {}).get(metric_name)
             return value_of(raw, lambda v: number(v, 1)) if raw else Value("Unknown", "unknown")
 
-        n = max(len(play.get("comparisons") or []), int(leader is not None))
+        n = play.get(
+            "n_event_sources", max(len(play.get("comparisons") or []), int(leader is not None))
+        )
         same = [
             e
             for e in boss.get("overall_cohort", [])
@@ -74,16 +84,16 @@ def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
         context = [
             ("Selected spec", play.get("selected_category") or "Unknown"),
             ("Faction", play.get("selected_faction") or "Unknown"),
-            ("Build", value_of((basis or {}).get("druid", {}).get("build")).text),
+            ("Build", value_of((basis or {}).get(key, {}).get("build")).text),
             ("Encounter duty", role or "Unknown"),
         ]
         quick = [
-            {"label": "Your recorded opener", "lines": (line(_opener(subject)),)},
+            {"label": "Your recorded opener", "lines": (line(_opener(subject, key)),)},
             {
                 "label": "Faction leader opener",
                 "lines": (
                     line(
-                        _opener(leader),
+                        _opener(leader, key),
                         "Recorded example; not proof of an optimal opener or assigned duty.",
                     ),
                 ),
@@ -120,7 +130,11 @@ def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
                     ),
                 ),
             }
-            for label, slots in (("Weapons", (15, 16)), ("Trinkets", (12, 13)), ("Relic", (17,)))
+            for label, slots in (
+                ("Weapons", (15, 16)),
+                ("Trinkets", (12, 13)),
+                ("Relic" if relic else "Ranged", (17,)),
+            )
         ]
         loadout.append(
             {
@@ -131,6 +145,30 @@ def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
                 ),
             }
         )
+        if key == "combat" and (
+            document["subject"]["class_id"] == 10
+            or any(((e or {}).get(key) or {}).get("pets") for e in (subject, leader))
+        ):
+            pet_lines = []
+            for label, entry in (("You", subject), ("Faction leader", leader)):
+                data = (entry or {}).get(key) or {}
+                if not data.get("pets_known"):
+                    text = "Unknown — owned-pet listing is incomplete."
+                else:
+                    text = (
+                        "; ".join(
+                            f"{p['name']}: {number(p['dps'].get('value'), 1)} DPS"
+                            for p in data.get("pets", [])
+                        )
+                        or "No owned pet/summon participation recorded."
+                    )
+                pet_lines.append(
+                    line(
+                        label + ": " + text,
+                        "Pet and summon actions are separate from actor ability use.",
+                    )
+                )
+            loadout.append({"label": "Pet / summons", "lines": tuple(pet_lines)})
         core = {
             "Balance": ("Starfire", "Wrath", "Moonfire", "Insect Swarm", "Hurricane"),
             "Restoration": (
@@ -143,7 +181,8 @@ def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
             "Feral": ("Shred", "Claw", "Rake", "Rip", "Ferocious Bite", "Ravage", "Pounce"),
             "Guardian": ("Maul", "Swipe", "Swipe (Bear)", "Growl", "Challenging Roar"),
         }.get(str(play.get("selected_category") or ""), ())
-        execution = execution_plan(subject, leader, "druid", core)
+        core = tuple(((basis or {}).get(key) or {}).get("core_abilities") or core)
+        execution = execution_plan(subject, leader, key, core)
         execution.extend(
             {
                 "label": r["finding"],
@@ -173,13 +212,13 @@ def bosses(document: Mapping[str, Any], sha: str) -> dict[int, dict[str, Any]]:
             "loadout": loadout,
             "execution": execution,
             "encounter_facts": encounter_lines,
-            "gear": _gear(subject),
-            "leader_gear": _gear(leader),
+            "gear": _gear(subject, relic),
+            "leader_gear": _gear(leader, relic),
             "abilities": comparison(subject, leader),
             "cohort": [
                 {
                     "entry": e,
-                    "gear": _gear(e),
+                    "gear": _gear(e, relic),
                     "row_class": "alliance-row"
                     if e["environment"]["faction"].get("value") == "Alliance"
                     else "horde-row"

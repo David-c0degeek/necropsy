@@ -207,7 +207,7 @@ def run_analyze(
         category = selected_spec(category)
         selected = selected_spec(spec)
         if category is not None and selected is not None and category != selected:
-            raise ValueError("--spec and --category select different Druid categories")
+            raise ValueError("--spec and --category select different ranking categories")
         category = selected or category
         if faction is not None:
             faction = faction.strip().capitalize()
@@ -280,12 +280,12 @@ def _run(
             f"{context.faction.value.value}; choose the character's faction for the main list"
         )
     if context.class_id.value not in CLASS_NAMES:
-        raise AnalyzeError("only Hunters and Druids can be analysed")
+        raise AnalyzeError("only Classic Era classes can be analysed")
     try:
-        ranking_policy(context.class_id.value, category, metric)
+        policy = ranking_policy(context.class_id.value, category, metric)
     except ValueError as error:
         raise AnalyzeError(str(error)) from None
-    context = replace(context, ranking_category=category, ranking_metric=metric)
+    context = replace(context, ranking_category=policy.category, ranking_metric=metric)
     if before_acquire is not None:
         before_acquire(context)  # last chance to refuse before any acquisition request
     store = Cache(cache_dir)

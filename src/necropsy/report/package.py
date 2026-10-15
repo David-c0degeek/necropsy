@@ -118,8 +118,8 @@ def _ability_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
 
 
 def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
-    if document["subject"]["class_id"] == 2:
-        return {**_druid_tables(document), **_ability_tables(document)}
+    if document["subject"]["class_id"] != 3:
+        return {**_class_tables(document), **_ability_tables(document)}
     recs, cohort, shares, execution = [], [], [], []
     for boss in document["bosses"]:
         name = boss["boss"]
@@ -229,7 +229,8 @@ def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
     }
 
 
-def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
+def _class_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
+    key = "druid" if document["subject"]["class_id"] == 2 else "combat"
     metrics_rows, roles, timeline, recommendations, comparisons = [], [], [], [], []
     coverage_rows, examples = [], []
     individual_rows, ranking_rows = [], []
@@ -284,7 +285,7 @@ def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
         )
         reference = playbook.get("reference")
         if reference is not None:
-            for name, value in reference["druid"]["metrics"].items():
+            for name, value in reference[key]["metrics"].items():
                 examples.append(
                     [
                         boss["encounter_id"],
@@ -301,9 +302,7 @@ def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
         baseline = boss["benchmarks"]["baseline"]
         for metric, median in baseline["medians"].items():
             value = (
-                None
-                if boss["subject"] is None
-                else _value(boss["subject"]["druid"]["metrics"][metric])
+                None if boss["subject"] is None else _value(boss["subject"][key]["metrics"][metric])
             )
             comparisons.append(
                 [
@@ -330,7 +329,7 @@ def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
             )
         entries = ([boss["subject"]] if boss["subject"] else []) + boss["overall_cohort"]
         for entry in entries:
-            druid = entry["druid"]
+            druid = entry[key]
             prefix = [
                 boss["encounter_id"],
                 entry["player"],

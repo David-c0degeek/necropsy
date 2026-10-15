@@ -7,6 +7,9 @@ from dataclasses import dataclass
 from enum import StrEnum
 from pathlib import Path
 
+from necropsy.analysis.class_catalog import CATEGORIES, category_for
+from necropsy.analysis.class_catalog import CLASS_NAMES as CLASS_NAMES
+
 
 class FightRole(StrEnum):
     FERAL = "feral-dps"
@@ -15,9 +18,6 @@ class FightRole(StrEnum):
     TANK = "feral-tank"
     HYBRID = "hybrid"
     UNCERTAIN = "uncertain"
-
-
-CLASS_NAMES = {2: "Druid", 3: "Hunter"}
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,6 +47,8 @@ def selected_spec(value: str | None) -> str | None:
     if value.strip().casefold() in ("", "all"):
         return None
     names = {name.casefold(): name for name in DRUID_CATEGORIES}
+    names.update({name.casefold(): name for cats in CATEGORIES.values() for name in cats})
+    names.update({"dps": "DPS", "healer": "Healer"})
     names.update(
         {
             "tank": "Guardian",
@@ -57,7 +59,7 @@ def selected_spec(value: str | None) -> str | None:
     )
     category = names.get(value.strip().casefold())
     if category is None:
-        raise ValueError("choose Balance, Feral, Restoration, Tank or Hunter Marksmanship")
+        raise ValueError("choose a supported Classic Era WCL spec/category for this class")
     return category
 
 
@@ -68,7 +70,18 @@ def ranking_policy(
 ) -> RankingPolicy:
     """Only verified Classic Era WCL categories; never infer one from talents."""
     if type(class_id) is not int or class_id not in CLASS_NAMES:
-        raise ValueError("only Classic Era Hunter and Druid are supported")
+        raise ValueError("only Classic Era classes are supported")
+    if class_id in CATEGORIES:
+        category = category_for(class_id, category)
+        choices = CATEGORIES[class_id]
+        if category not in choices:
+            raise ValueError(f"choose a {CLASS_NAMES[class_id]} category: {', '.join(choices)}")
+        default_metric, role = choices[category]
+        if metric not in (None, default_metric):
+            raise ValueError(
+                f"{CLASS_NAMES[class_id]} {category} uses ranking metric {default_metric}"
+            )
+        return RankingPolicy(class_id, category, default_metric, role)
     if class_id == 3:
         if category not in (None, "Marksmanship") or metric not in (None, "dps"):
             raise ValueError("Classic Era Hunter supports the WCL Marksmanship category and DPS")

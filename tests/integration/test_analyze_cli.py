@@ -174,7 +174,9 @@ def test_spec_selection_is_validated_before_credentials(
     result = _run(tmp_path, *args)
     assert result.exit_code == 1
     assert fake["tokens"] == 0
-    assert "different Druid categories" in result.output or "choose Balance" in result.output
+    assert (
+        "different ranking categories" in result.output or "supported Classic Era" in result.output
+    )
 
 
 def test_partial_coverage_exits_4_with_the_report_written(

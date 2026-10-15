@@ -254,7 +254,7 @@ or `Horde` and `--spec Balance`, `Feral`, `Tank`, `Restoration` or Hunter
 `Marksmanship` in scripts. The faction is checked against the resolved character;
 it never silently changes the character's identity. The spec prompt's `all`
 default retains the legacy Hunter all-spec lookup. Current supported analyzers
-are Hunter and Druid; the same faction/spec display contract applies to future
+include all nine Classic Era classes; the same faction/spec display contract applies to future
 class plugins without inventing unsupported class analysis.
 
 The main comparison cohort is your faction. Ranking requests select class and,
@@ -272,3 +272,5 @@ claimed as faction rank #1 when earlier identities are unresolved.
 Multi-boss selected-spec views collect personal encounters, then first-page ranking
 references across the raid before deep examples. One or two acquired event
 sources still provide individual comparisons, with limited-sample labels.
+
+Supported class/category choices and role aliases are listed in [class analysis](class-analysis.md). Non-Hunter selected categories retain metric/class/spec/role identity through acquisition and snapshot replay; healer queries use HPS, with ranking scores separate from event throughput.

@@ -42,4 +42,4 @@ def plugin_for(game: str, class_id: int) -> ClassPlugin | None:
 
 def _load_builtin() -> None:
     # Imported for its registration side effect.
-    from necropsy.analysis.classes.classic_era import druid, hunter  # noqa: F401
+    from necropsy.analysis.classes.classic_era import combat, druid, hunter  # noqa: F401
