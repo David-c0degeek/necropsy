@@ -2,6 +2,12 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Reading results](reading-results.md)
 
+In the application, start with the raid priorities and boss actions. **Your next
+pull** collects the existing opener and cooldown guidance; **Compared with your
+faction** shows shot rates with numeric values and known-sample labels. Full pet,
+gear, weaving, target and timeline evidence remains available in disclosures.
+These are Hunter-specific measurements within the shared class-neutral shell.
+
 The Hunter plugin (`necropsy.analysis.classes.classic_era.hunter`) analyzes one
 Hunter in one fight on top of the generic environment profile. Every value
 follows the evidence model in [`evidence-model.md`](evidence-model.md); rule

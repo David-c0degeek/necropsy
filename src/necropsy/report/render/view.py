@@ -343,6 +343,12 @@ class BossView:
     reference: Mapping[str, Any] | None = None
 
     @property
+    def ordered_cards(self) -> tuple[Card, ...]:
+        """Stable severity ordering; original card anchors/review keys are retained."""
+        order = {"high": 0, "medium": 1, "low": 2}
+        return tuple(sorted(self.cards, key=lambda c: order.get(c.severity, 9)))
+
+    @property
     def limit_summary(self) -> str:
         if not self.limits:
             return "Baseline available"
@@ -376,6 +382,7 @@ class DocumentView:
     class_views: Mapping[int, Any] = field(default_factory=dict)
     class_name: str = "Hunter"
     analysis_key: str = "hunter"
+    experience: Mapping[str, Any] = field(default_factory=dict)
 
     @property
     def navigation(self) -> tuple[Any, ...]:
@@ -441,11 +448,11 @@ def plain_value(raw: Any, fmt: Any = None, suffix: str = "") -> Value:
 
 
 def _sample(n_known: int, n_unknown: int = 0) -> str:
-    text = f"n={n_known}"
+    text = f"{n_known} known measurements"
     if n_unknown:
         text += f" (+{n_unknown} unknown)"
     if n_known < SMALL_SAMPLE:
-        text += " · small sample"
+        text += " · limited sample"
     return text
 
 
@@ -597,11 +604,8 @@ def _card(
     elif bench.get("view") == "same-faction-fastest":
         small = "Single fastest kill: no median available"
     elif isinstance(n, int) and n < SMALL_SAMPLE:
-        small = f"Small sample: {n} known value{'s' if n != 1 else ''}"
-    limitations = (
-        *tuple(rec.get("limitations") or ()),
-        "Based only on the recorded evidence; check it before changing anything.",
-    )
+        small = f"Limited sample: {n} known value{'s' if n != 1 else ''}"
+    limitations = tuple(rec.get("limitations") or ())
     rule = str(rec["rule"])
     return Card(
         anchor=f"boss-{encounter_id}-finding-{index + 1}",
@@ -1153,6 +1157,7 @@ def _boss(
 def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentView:
     from necropsy.analysis.class_catalog import CLASS_NAMES
     from necropsy.report.render.class_view import bosses as class_bosses
+    from necropsy.report.render.experience import experience
     from necropsy.report.render.playbook_view import overview_view
 
     names = _item_names(document)
@@ -1196,6 +1201,7 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
         class_views=class_bosses(document, analysis_sha, analysis_key) if is_class else {},
         class_name=CLASS_NAMES[class_id],
         analysis_key=analysis_key if is_class else "hunter",
+        experience=experience(document, CLASS_NAMES[class_id]),
         selected_spec=(document.get("acquisition") or {}).get("selected_category")
         or (
             (document["bosses"][0].get("playbook") or {}).get("selected_category")

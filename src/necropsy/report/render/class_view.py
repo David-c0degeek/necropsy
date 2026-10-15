@@ -8,7 +8,39 @@ from typing import Any
 from necropsy.report.abilities import comparison
 from necropsy.report.render.execution_view import execution as execution_plan
 from necropsy.report.render.playbook_view import gear, line, number, source
-from necropsy.report.render.view import Value, value_of
+from necropsy.report.render.view import CONTROLLABILITY, Value, evidence_view, value_of
+
+METRIC_LABELS = {
+    "damage_per_second": "Damage per second",
+    "effective_healing_per_second": "Effective healing per second",
+    "incoming_damage_per_second": "Incoming damage per second",
+}
+
+
+def _comparison_rows(play: Mapping[str, Any]) -> tuple[dict[str, Any], ...]:
+    """Format the saved primary comparison without deriving new analysis."""
+    comparisons = play.get("comparisons") or []
+    if not comparisons:
+        return ()
+    reference = comparisons[0]
+    rows = []
+    for name in play.get("primary_metrics") or []:
+        values = reference.get("metrics", {}).get(name)
+        if not values:
+            continue
+        difference = values.get("difference")
+        percent = values.get("difference_pct")
+        rows.append(
+            {
+                "label": METRIC_LABELS.get(name, name.replace("_", " ").capitalize()),
+                "yours": number(values.get("yours"), 2),
+                "reference": number(values.get("reference"), 2),
+                "player": reference["player"],
+                "difference": "Unknown" if difference is None else f"{difference:+.2f}",
+                "percent": None if percent is None else f"{percent:+.1f}%",
+            }
+        )
+    return tuple(rows)
 
 
 def _opener(entry: Any, key: str) -> str:
@@ -183,18 +215,11 @@ def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[in
         }.get(str(play.get("selected_category") or ""), ())
         core = tuple(((basis or {}).get(key) or {}).get("core_abilities") or core)
         execution = execution_plan(subject, leader, key, core)
-        execution.extend(
-            {
-                "label": r["finding"],
-                "lines": (line(r["recommendation"], "Confidence " + r["confidence"]),),
-            }
-            for r in recs
-        )
         limits = list(play.get("limitations") or [])
         result[boss["encounter_id"]] = {
             "review_key": f"necropsy:boss:{sha}:{boss['encounter_id']}",
             "metrics": (
-                ("Your " + metric.replace("_", " "), measurement(subject)),
+                ("Your " + METRIC_LABELS[metric].lower(), measurement(subject)),
                 ("Faction leader", measurement(leader)),
                 (
                     "Your kill",
@@ -208,6 +233,19 @@ def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[in
                 ("Event sources", Value(str(n), "inferred", "Limited sample" if n < 3 else None)),
             ),
             "context": context,
+            "actions": tuple(
+                {
+                    **r,
+                    "control_label": CONTROLLABILITY.get(
+                        r.get("controllability", ""), r.get("controllability") or "Unknown"
+                    ),
+                    "evidence_views": tuple(evidence_view(boss, p) for p in r.get("evidence", [])),
+                }
+                for r in sorted(
+                    recs, key=lambda r: {"high": 0, "medium": 1, "low": 2}.get(r["severity"], 9)
+                )
+            ),
+            "comparison_rows": _comparison_rows(play),
             "quick_plan": quick,
             "loadout": loadout,
             "execution": execution,

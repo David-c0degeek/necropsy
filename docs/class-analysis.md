@@ -34,9 +34,9 @@ verified on 2026-10-15 against the vanilla API; new categories require evidence.
 `Tank`, `Healer` and `DPS` aliases resolve by class where unambiguous. For example:
 
 ```sh
-uv run necropsy analyze CHARACTER_URL --faction Alliance --spec Fire --cache workspace/cache --out workspace/mage
-uv run necropsy analyze CHARACTER_URL --faction Alliance --spec Healer --cache workspace/cache --out workspace/paladin-healer
-uv run necropsy analyze CHARACTER_URL --faction Horde --spec Tank --cache workspace/cache --out workspace/warrior-tank
+uv run necropsy analyze CHARACTER_URL --faction Alliance --spec Fire --endpoint user --cache workspace/cache --out workspace/mage
+uv run necropsy analyze CHARACTER_URL --faction Alliance --spec Healer --endpoint user --cache workspace/cache --out workspace/paladin-healer
+uv run necropsy analyze CHARACTER_URL --faction Horde --spec Tank --endpoint user --cache workspace/cache --out workspace/warrior-tank
 ```
 
 Use the actual character faction. Explicit incompatible categories/metrics are
@@ -45,8 +45,12 @@ comparison fetching; unknown factions are verified, not guessed from class/race.
 
 ## Read the playbook
 
-The shared layout presents a raid overview, context and metric cards, opener,
-loadout, execution plan, Do not/Raid ask, full gear/enchants and evidence detail.
+The shared overview identifies your class/category, faction evidence, coverage,
+priorities and encounters needing review. **Playbook** leads toward **Your next
+pull**; **Report** emphasizes comparisons. Bosses show actions, confidence and
+control before expandable loadout, execution, gear and source evidence.
+**Raid help** separates coordination from personal execution. Class color is
+identity only; it does not communicate a rating or analytical confidence.
 Execution rows use the class's recorded core abilities and cooldowns, comparing
 counts, uses per minute and actor-owned first-use timing with source links.
 **Ability use vs player** includes all recorded actor cast abilities, items and

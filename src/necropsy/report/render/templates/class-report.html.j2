@@ -1,6 +1,6 @@
 {% extends "base.html.j2" %}
 {% from "reference-macros.html.j2" import plans, equipment, prose %}
-{% from "macros.html.j2" import val %}
+{% from "macros.html.j2" import val, evidence %}
 {% from "ability-use.html.j2" import ability_use %}
 {% macro ev(e) -%}
 {% if e and e.value is not none %}{{ e.value }} <span class="level">{{ e.level }}</span>{% else %}<span class="unknown">Unknown</span>{% if e and e.note %} <span class="why">{{ e.note }}</span>{% endif %}{% endif %}
@@ -8,26 +8,53 @@
 {% macro actor(d, id) -%}
 {% set catalog = (d.get('actor_catalog') or {}).get('value') or {} %}{% set found = catalog.get(id|string) or {} %}{{ found.get('name') or ('Unresolved actor ' ~ id) }}{% if found.get('type') %} ({{ found.type }}){% endif %}
 {%- endmacro %}
+{% macro coaching(ref, boss, page) %}
+<section id="boss-{{ boss.encounter_id }}-plan" class="next-pull" aria-labelledby="boss-{{ boss.encounter_id }}-plan-title">
+  <div class="eyebrow">{{ 'Prepare for your next attempt' if page == 'playbook' else 'Turn the analysis into practice' }}</div>
+  <h3 id="boss-{{ boss.encounter_id }}-plan-title" tabindex="-1">Your next pull</h3>
+  <article class="quick-plan"><h4>Opening cycle and encounter notes</h4>{{ plans(ref.quick_plan) }}</article>
+  <details class="preparation-details"{% if page == 'playbook' %} open{% endif %}>
+    <summary>Loadout and execution plan</summary>
+    <div class="grid two"><article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article><article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article></div>
+  </details>
+  <div class="grid two warnings"><article class="dont"><h4>Keep in mind</h4>{{ prose(ref.dont) }}</article><article class="ask"><h4>Raid help</h4>{{ prose(ref.asks) }}</article></div>
+</section>
+{% endmacro %}
+{% macro comparison_snapshot(ref, boss) %}
+<section id="boss-{{ boss.encounter_id }}-comparison" class="comparison-snapshot" aria-labelledby="boss-{{ boss.encounter_id }}-comparison-title">
+  <div class="eyebrow">Understand the difference</div>
+  <h3 id="boss-{{ boss.encounter_id }}-comparison-title" tabindex="-1">Compared with your faction</h3>
+  {% set comparisons = boss.playbook.get('comparisons') or [] %}
+  {% if comparisons %}
+    <p>{{ comparisons|length }} matching event source{{ 's' if comparisons|length != 1 else '' }}.{% if comparisons|length < 3 %} <strong>Limited sample: only {{ comparisons|length }} source{{ 's' if comparisons|length != 1 else '' }}; compare individual fights, not a population baseline.</strong>{% endif %}</p>
+    {% for row in ref.comparison_rows %}
+    <div class="comparison-row">
+      <h4>{{ row.label }}</h4>
+      <div class="comparison-values"><div><span>You</span><strong>{{ row.yours }}</strong></div><div><span>{{ row.player }} · individual reference</span><strong>{{ row.reference }}</strong></div><div><span>You minus reference</span><strong>{{ row.difference }}{% if row.percent %} <small>({{ row.percent }})</small>{% endif %}</strong></div></div>
+    </div>
+    {% endfor %}
+    <p class="table-note">Fight length, assignments, buffs and targets can explain differences. Incoming damage and healing throughput are not quality scores.</p>
+  {% else %}
+    <p>{{ 'No matching event samples were acquired. Your measurements remain available below.' if boss.subject else 'Your performance is not assessed for this boss in the selected spec.' }}</p>
+  {% endif %}
+  {{ ability_use(ref.abilities) }}
+</section>
+{% endmacro %}
 {% block title %}{{ doc.title }} · {{ doc.class_name }} {{ page }}{% endblock %}
 {% block main %}
-<section id="overview" class="hero">
-  <div class="eyebrow">{{ doc.class_name }} parse playbook · faction-aware comparisons</div>
-  <h1 tabindex="-1">{{ doc.character }} — {{ doc.zone }} {{ page }}</h1>
-  {% set selected = doc.selected_spec %}
-  {% set personal_count = doc.class_document.bosses|selectattr('subject')|list|length %}
-  <p>{{ doc.realm }} · {{ doc.zone }} · {{ doc.mode }} · {{ doc.navigation|length }} encounters in this view</p>
-  {% if selected %}<h2>Selected spec: {{ 'Tank (Guardian category)' if selected == 'Guardian' else selected }}</h2>{% endif %}
-  <p>Selected faction: {{ doc.selected_faction or 'Unknown' }}. Main examples use this faction; overall comparisons are optional below.</p>
+{% include "overview.html.j2" %}
+{% set selected = doc.selected_spec %}
+{% set personal_count = doc.class_document.bosses|selectattr('subject')|list|length %}
+<section class="global analysis-context" aria-label="Analysis context">
+  <details><summary>How complete is this analysis?</summary>
+  <p>Selected spec: {{ 'Tank (Guardian category)' if selected == 'Guardian' else selected or 'Unknown' }} · selected faction: {{ doc.selected_faction or 'Unknown' }}.</p>
   <p>{{ personal_count }} encounters with your matching data · {{ doc.navigation|length - personal_count }} without personal analysis.</p>
   {% if selected and personal_count == 0 %}<p class="notice">Not enough personal data in {{ 'Tank' if selected == 'Guardian' else selected }} in the acquired logs. Eligible top-player examples are shown for learning where available.</p>{% endif %}
-  <p>Build, WCL ranking category and observed encounter duties are separate. Each finding retains its evidence and limits.</p>
-  <p><a href="analysis.json">Full analysis JSON</a> · <a href="{{ 'report.html' if page == 'playbook' else 'playbook.html' }}">{{ 'Full report' if page == 'playbook' else 'Practice playbook' }}</a></p>
-  <details><summary>Coverage and acquisition limits</summary>
   <dl class="kv">{% for label, value in doc.coverage %}<dt>{{ label }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>
   {% for limit in doc.limitations %}<p class="muted">{{ limit }}</p>{% endfor %}
   {% if doc.class_document.get('acquisition') %}
   {% if doc.class_document.acquisition.get('stopped') %}<p>Acquisition stopped: {{ doc.class_document.acquisition.stopped }}. Unacquired examples and baselines remain unknown; this does not establish that personal spec data never existed.</p>{% endif %}
-  <div class="table-wrap"><table><thead><tr><th>Requested encounter</th><th>Attempted</th><th>Deep samples</th><th>Coverage</th></tr></thead><tbody>{% for record in doc.class_document.acquisition.bosses %}{% set coverage = record.get('coverage') or {} %}<tr><th>{{ record.boss }}</th><td>{{ record.get('attempted', true) }}</td><td>{{ coverage.get('usable_deep', 'Unknown') }}</td><td>{{ 'Complete' if coverage.get('complete') else 'Partial / not acquired' }}</td></tr>{% endfor %}</tbody></table></div>
+  <div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Requested encounter</th><th>Attempted</th><th>Deep samples</th><th>Coverage</th></tr></thead><tbody>{% for record in doc.class_document.acquisition.bosses %}{% set coverage = record.get('coverage') or {} %}<tr><th>{{ record.boss }}</th><td>{{ record.get('attempted', true) }}</td><td>{{ coverage.get('usable_deep', 'Unknown') }}</td><td>{{ 'Complete' if coverage.get('complete') else 'Partial / not acquired' }}</td></tr>{% endfor %}</tbody></table></div>
   {% endif %}
   </details>
 </section>
@@ -38,21 +65,37 @@
   <p>Healing is shaped by assignments, incoming damage and other healers. Tank-category DPS does not measure survival or threat. Raw event damage and healing remain separate from WCL category scores.</p>
   </details>
 </section>
-<section id="raid-sheet" class="global"><h2>At-a-glance raid sheet</h2>
+<section id="raid-sheet" class="global"><details><summary>Raid measurements · all encounters</summary>
   <div class="table-wrap raid-sheet"><table class="stack"><thead><tr><th>Boss</th><th>Your encounter</th><th>Your throughput</th><th>Faction leader</th><th>Leader throughput</th><th>Event sources</th></tr></thead><tbody>
   {% for b in doc.class_document.bosses %}{% set ref = doc.class_views[b.encounter_id] %}<tr><th scope="row"><a href="#boss-{{ b.encounter_id }}">{{ b.boss }}</a></th><td data-label="Your encounter">{{ 'Available' if b.subject else 'No personal data in this spec' }}</td><td data-label="Your throughput">{{ val(ref.metrics[0][1]) }}</td><td data-label="Faction leader">{{ b.playbook.reference.player if b.playbook.get('reference') else 'Event example not acquired' }}</td><td data-label="Leader throughput">{{ val(ref.metrics[1][1]) }}</td><td data-label="Event sources">{{ val(ref.metrics[3][1]) }}</td></tr>{% endfor %}</tbody></table></div>
   <p class="table-note">Throughput is role-specific: damage, effective healing or incoming damage per second. Incoming damage and HPS are not quality scores. One or two sources remain labelled individual comparisons.</p>
-</section>
-<section class="global"><h2>Global setup</h2><p>Selected spec: {{ selected or 'Unknown' }} · selected faction: {{ doc.selected_faction or 'Unknown' }}. Pull gear, enchants and world buffs are shown per encounter because your setup can change.</p><p>Faction leaders supply practice references when personal data is absent. Race, build, external buffs and assignments remain context. Unfiltered overall leaders are in closed optional comparisons.</p><p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span> <button type="button" id="reset-reviews">Clear review marks</button></p></section>
+</details></section>
+<p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span> <button type="button" id="reset-reviews">Clear review marks</button></p>
 {% for boss in doc.class_document.bosses %}
-<section id="boss-{{ boss.encounter_id }}" data-boss-name="{{ boss.boss|lower }}" class="boss boss-section" aria-labelledby="boss-{{ boss.encounter_id }}-title">
+<section id="boss-{{ boss.encounter_id }}" class="boss boss-section" aria-labelledby="boss-{{ boss.encounter_id }}-title">
   {% set ref = doc.class_views[boss.encounter_id] %}
+  {% set triage = doc.experience.bosses[loop.index0] %}
   <div class="boss-head"><div><div class="eyebrow">Boss {{ '%02d'|format(loop.index) }} · {{ boss.boss }}</div><h2 id="boss-{{ boss.encounter_id }}-title" tabindex="-1">{{ boss.boss }}</h2><div class="metrics">{% for label, value in ref.metrics %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endfor %}</div></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.boss }}</span></label></div>
-  <div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div>
-  <article class="truth-card"><h3>Benchmark context</h3><p>{{ boss.benchmarks.baseline.note }}</p><p class="tiny">{{ boss.benchmarks.baseline.entries }} comparable event sources · {{ 'Limited sample' if boss.benchmarks.baseline.entries < 3 else 'Source counts retained per measurement' }}. Build, race, faction buffs, fight length and assignments can affect comparisons. Ranking scores remain separate from event metrics.</p></article>
-  <article class="quick-plan"><div class="eyebrow">Quick plan · KISS</div><h3>Opening cycle and notes</h3>{{ plans(ref.quick_plan) }}{{ ability_use(ref.abilities) }}</article>
-  <div class="grid two"><article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article><article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article></div>
-  <div class="grid two warnings"><article class="dont"><h3>Do not</h3>{{ prose(ref.dont) }}</article><article class="ask"><h3>Raid ask</h3>{{ prose(ref.asks) }}</article></div>
+  <details class="role-context"><summary>Role, category and coverage context</summary><div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div></details>
+  <div class="quality-strip"><strong>{{ 'Not assessed · no matching personal data' if not boss.subject else triage.quality }}</strong><span>{{ triage.sources }} comparable event sources{% if triage.membership_label %} · {{ triage.membership_label }}{% endif %} · source counts vary by measurement</span></div>
+  <nav class="boss-jumps" aria-label="{{ boss.boss }} sections"><a href="#boss-{{ boss.encounter_id }}-actions">What to work on</a><a href="#boss-{{ boss.encounter_id }}-plan">Next pull</a><a href="#boss-{{ boss.encounter_id }}-comparison">Compare</a><a href="#boss-{{ boss.encounter_id }}-evidence">Evidence</a></nav>
+  <section id="boss-{{ boss.encounter_id }}-actions" class="boss-actions" aria-labelledby="boss-{{ boss.encounter_id }}-actions-title">
+    <h3 id="boss-{{ boss.encounter_id }}-actions-title" tabindex="-1">What to work on</h3>
+    {% for action in ref.actions %}
+    <article class="card action-card">
+      <h4>{{ action.recommendation }}</h4>
+      <ul class="badges" aria-label="Finding classification"><li class="badge sev-{{ action.severity }}">Severity: {{ action.severity }}</li><li class="badge conf-{{ action.confidence }}">{{ action.confidence|capitalize }} confidence</li><li class="badge">{{ action.control_label }}</li></ul>
+      <p class="finding">{{ action.finding }}</p>
+      <details><summary>Why this was flagged · evidence and limits</summary>
+        {% for item in action.evidence_views %}{{ evidence(item) }}{% endfor %}
+        <ul class="limitations">{% for limit in action.limitations %}<li>{{ limit }}</li>{% endfor %}</ul>
+      </details>
+    </article>
+    {% else %}<p>{{ 'No personal finding is available. The recorded example below is for learning, not an assessment of your performance.' if not boss.subject else 'No supported recommendation was generated. This does not establish that every aspect of the fight was assessed; review comparisons and coverage below.' }}</p>{% endfor %}
+  </section>
+  {% if page == 'playbook' %}{{ coaching(ref, boss, page) }}{{ comparison_snapshot(ref, boss) }}{% else %}{{ comparison_snapshot(ref, boss) }}{{ coaching(ref, boss, page) }}{% endif %}
+  <h3 id="boss-{{ boss.encounter_id }}-evidence" tabindex="-1">Evidence and details</h3>
+  <details><summary>Who are you being compared with?</summary><p>{{ boss.benchmarks.baseline.note }}</p><p>{{ boss.benchmarks.baseline.entries }} comparable event sources. Build, race, faction buffs, fight length and assignments can affect comparisons. Ranking scores remain separate from event metrics.</p></details>
   <details class="full-gear"><summary>Your full logged gear for this selected encounter</summary><div>{{ equipment(ref.gear) }}</div></details>
   {% if ref.encounter_facts %}<details><summary>Encounter knowledge and sources</summary><div>{{ prose(ref.encounter_facts) }}</div></details>{% endif %}
   <details class="leader-gear"><summary>Faction leader's full logged gear and enchants</summary><div>{{ equipment(ref.leader_gear) }}</div></details>
@@ -70,6 +113,7 @@
   {% set s = boss.subject %}{% set d = s[doc.analysis_key] %}
   <p><a href="https://vanilla.warcraftlogs.com/reports/{{ s.report_code }}#fight={{ s.fight_id }}" target="_blank" rel="noopener noreferrer">Source report {{ s.report_code }} / fight {{ s.fight_id }}</a> · source opens online when followed</p>
   {% if d.override %}<p class="notice">User override: {{ d.override.role }} · {{ d.override.reason }}. Observed evidence is retained; override is excluded from aggregate comparison.</p>{% endif %}
+  <details class="measurements"><summary>Your measurements · full comparisons and event detail</summary><div>
   <h3>Your measurements</h3>
   {% set comparisons = boss.playbook.get('comparisons') or [] %}
   {% if comparisons %}
@@ -79,8 +123,8 @@
   {% set best = comparisons[0] %}<h4>Direct comparison: {{ best.player }} · leaderboard #{{ best.leaderboard_position }}</h4>
   <p>Build {{ ev(best.build) }} · {{ best.kill_duration_s }} s fight.</p>
   <dl class="kv">{% for name in boss.playbook.primary_metrics %}{% set values = best.metrics.get(name) %}{% if values %}<dt>{{ name|replace('_', ' ') }}</dt><dd>You: {{ '%.2f'|format(values.yours) if values.yours is not none else 'Unknown' }} · {{ best.player }}: {{ '%.2f'|format(values.reference) if values.reference is not none else 'Unknown' }}<br>You minus source: {{ '%+.2f'|format(values.difference) if values.difference is not none else 'Unknown' }}{% if values.difference_pct is not none %} ({{ '%+.1f'|format(values.difference_pct) }}%){% endif %}</dd>{% endif %}{% endfor %}</dl>
-  <details{% if page == 'report' %} open{% endif %}><summary>All {{ comparisons|length }} individual event-source comparisons</summary>
-  <div class="table-wrap"><table><thead><tr><th>Source</th><th>Build / fight</th><th>Measurement</th><th>You</th><th>Top player</th><th>You minus source</th></tr></thead><tbody>
+  <details><summary>All {{ comparisons|length }} individual event-source comparisons</summary>
+  <div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Source</th><th>Build / fight</th><th>Measurement</th><th>You</th><th>Top player</th><th>You minus source</th></tr></thead><tbody>
   {% for comparison in comparisons %}{% for name, values in comparison.metrics.items() %}{% if page == 'report' or name in boss.playbook.primary_metrics %}
   <tr><th><a href="https://vanilla.warcraftlogs.com/reports/{{ comparison.report_code }}#fight={{ comparison.fight_id }}" target="_blank" rel="noopener noreferrer">{{ comparison.player }} · leaderboard #{{ comparison.leaderboard_position }}</a></th><td>{{ ev(comparison.build) }} · {{ comparison.kill_duration_s }} s</td><td>{{ name|replace('_', ' ') }}</td><td>{{ values.yours if values.yours is not none else 'Unknown' }}</td><td>{{ values.reference if values.reference is not none else 'Unknown' }}</td><td>{% if values.difference is not none %}{{ '%+.2f'|format(values.difference) }}{% if values.difference_pct is not none %} ({{ '%+.1f'|format(values.difference_pct) }}%){% endif %}{% else %}Unknown{% endif %}</td></tr>
   {% endif %}{% endfor %}{% endfor %}</tbody></table></div>
@@ -88,12 +132,12 @@
   {% else %}<p>No matching event samples were acquired; see the saved #1 ranking comparison below where available.</p>{% endif %}
   {% if boss.benchmarks.baseline.entries < 3 %}<p>Fewer than three event sources: the individual comparisons above remain usable; a cohort median is not shown.</p>{% endif %}
   <p>{{ boss.benchmarks.baseline.entries }} comparable entries; {{ boss.benchmarks.baseline.excluded_incompatible }} incompatible entries excluded. {{ boss.benchmarks.baseline.note }}</p>
-  <div class="table-wrap"><table><thead><tr><th>Measurement</th><th>Yours</th><th>Comparable median</th><th>Known / unknown</th></tr></thead><tbody>
+  <div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Measurement</th><th>Yours</th><th>Comparable median</th><th>Known / unknown</th></tr></thead><tbody>
   {% for name, measurement in d.metrics.items() %}{% if page == 'report' or name in boss.playbook.get("primary_metrics", []) %}{% set median = boss.benchmarks.baseline.medians.get(name) %}
   <tr><th>{{ name|replace('_', ' ') }}</th><td>{{ ev(measurement) }}</td><td>{{ ev(median.value if median else none) }}</td><td>{{ median.n_known if median else 0 }} / {{ median.n_unknown if median else 0 }}</td></tr>{% endif %}{% endfor %}
   </tbody></table></div>
   <p>Saved WCL category score: {{ s.ranking.category_score if s.ranking.category_score is not none else 'Unknown' }} {{ s.ranking.metric or '' }} · {{ s.ranking.note }}</p>
-  <details{% if page == 'report' %} open{% endif %}><summary>Observed roles, forms, resources and full timeline</summary>
+  <details><summary>Observed roles, forms, resources and full timeline</summary>
     {% if page == 'playbook' %}<h3>All measurements</h3><dl class="kv">{% for name, value in d.metrics.items() %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(value) }}</dd>{% endfor %}</dl>{% endif %}
     <h3>Observed activity spans</h3><ul>{% for span in d.activity_spans %}<li>{{ span.role }}: {{ span.first_action_s }}–{{ span.last_action_s }} s; {{ span.casts_observed }} recorded casts · {{ (span.get("cast_share", 1) * 100)|round(1) }}% of categorized casts · {{ 'qualifying duty' if span.get("qualifies_as_duty", true) else 'minor action signal; assignment unproven' }}</li>{% else %}<li>No supported activity spans.</li>{% endfor %}</ul>
     {% if doc.analysis_key == "druid" %}<h3>Form intervals (report timestamps, ms)</h3><dl class="kv">{% for name, intervals in d.forms.items() %}<dt>{{ name }}</dt><dd>{{ ev(intervals) }}</dd>{% endfor %}</dl>
@@ -104,8 +148,9 @@
     <h3>Targets and support</h3><dl class="kv"><dt>Effective healing by target</dt><dd>{% if d.healing_targets.value is not none %}{% for id, amount in d.healing_targets.value.items() %}{{ actor(d, id) }}: {{ amount }}{{ '; ' if not loop.last else '' }}{% else %}No recorded healing targets{% endfor %}{% else %}{{ ev(d.healing_targets) }}{% endif %}</dd><dt>Damage by target</dt><dd>{% if d.damage_targets.value is not none %}{% for id, amount in d.damage_targets.value.items() %}{{ actor(d, id) }}: {{ amount }}{{ '; ' if not loop.last else '' }}{% else %}No recorded damage targets{% endfor %}{% else %}{{ ev(d.damage_targets) }}{% endif %}</dd><dt>Deaths</dt><dd>{{ ev(d.deaths.deaths) }}</dd><dt>Threat</dt><dd>{{ ev(d.threat) }}</dd></dl>
     <h3>Resource observations</h3><ul>{% for r in d.resources %}<li>{{ r.t_s }} s · {{ ev(r.get("evidence")) }} · raw payload: {{ r.reading }} · event {{ r.event_uid }}</li>{% else %}<li>No actor-resolved resource readings. Resource availability remains unknown.</li>{% endfor %}</ul>
     <h3>Cooldown and utility casts</h3><ul>{% for e in d.cooldowns %}<li>{{ e.t_s }} s · {{ e.name }} · target {{ e.target_id }} · event {{ e.uid }}/{{ e.copy }}</li>{% else %}<li>No recorded cooldown casts. Check source coverage before claiming non-use.</li>{% endfor %}</ul>
-    <h3>Full event timeline</h3><div class="table-wrap"><table><thead><tr><th>Time (s)</th><th>Event / ability</th><th>Source → target</th><th>Amount</th><th>Event identity</th></tr></thead><tbody>{% for e in d.timeline %}<tr><td>{{ e.t_s }}</td><td>{{ e.kind }} · {{ e.name or e.ability_id }}</td><td>{{ actor(d, e.source_id) }} → {{ actor(d, e.target_id) }}</td><td>{{ e.amount if e.amount is not none else 'Unknown' }}</td><td>{{ e.uid }}/{{ e.copy }}</td></tr>{% endfor %}</tbody></table></div>
+    <h3>Full event timeline</h3><div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Time (s)</th><th>Event / ability</th><th>Source → target</th><th>Amount</th><th>Event identity</th></tr></thead><tbody>{% for e in d.timeline %}<tr><td>{{ e.t_s }}</td><td>{{ e.kind }} · {{ e.name or e.ability_id }}</td><td>{{ actor(d, e.source_id) }} → {{ actor(d, e.target_id) }}</td><td>{{ e.amount if e.amount is not none else 'Unknown' }}</td><td>{{ e.uid }}/{{ e.copy }}</td></tr>{% endfor %}</tbody></table></div>
   </details>
+  </div></details>
   {% endif %}
   {% set reference = boss.playbook.get('reference') %}
   {% set ranking_comparison = boss.playbook.get('ranking_comparison') %}
@@ -118,7 +163,7 @@
   <p>Saved WCL ranking scores are compared with WCL ranking scores. This does not establish an event-metric gap, an optimal rotation or player fault. Guardian DPS is not tank quality; HPS depends on healing assignments.</p></div>
   {% if ranking_comparison.get('report_code') and ranking_comparison.get('fight_id') %}<p><a href="https://vanilla.warcraftlogs.com/reports/{{ ranking_comparison.report_code }}#fight={{ ranking_comparison.fight_id }}" target="_blank" rel="noopener noreferrer">Ranking reference source / fight {{ ranking_comparison.fight_id }}</a></p>{% endif %}
   {% endif %}
-  <div class="quick-plan learning-example">
+  <details class="learning-example"{% if not boss.subject %} open{% endif %}><summary>Learn from the recorded faction example</summary><div class="quick-plan">
     <h3>{{ 'Your practice playbook from faction leaders' if not boss.subject else 'Learn from top players in your spec and faction' }}</h3>
     {% if reference %}{% set rd = reference[doc.analysis_key] %}
     <p><strong>{{ reference.player }}</strong> · {{ 'Rank #1 recorded example' if reference.leaderboard_position == 1 else 'Top acquired example · leaderboard #' ~ reference.leaderboard_position }}.</p>
@@ -130,7 +175,7 @@
     <dl class="kv">{% for name in boss.playbook.primary_metrics %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(rd.metrics.get(name)) }}</dd>{% endfor %}</dl>
     <p><a href="https://vanilla.warcraftlogs.com/reports/{{ reference.report_code }}#fight={{ reference.fight_id }}" target="_blank" rel="noopener noreferrer">Example source report / fight {{ reference.fight_id }}</a></p>
     {% else %}<p>No eligible event example was acquired in the selected spec. Unknown duty, incomplete coverage and incompatible categories do not become learning examples.</p>{% endif %}
-  </div>
+  </div></details>
   <details class="overall-comparison"><summary>Optional: overall top across factions</summary>
     <p>This comparison is unfiltered by faction. Race, faction-specific buffs, assignments and fight duration may differ; use it as additional context.</p>
     {% set top = boss.benchmarks.get('overall_top') %}
@@ -141,10 +186,10 @@
     {% set overall = boss.playbook.get('overall_reference') %}{% if overall %}<p>Highest-ranked acquired eligible event example across factions: {{ overall.player }} · leaderboard #{{ overall.leaderboard_position }} · faction {{ ev(overall.environment.faction) }} · build {{ ev(overall[doc.analysis_key].build) }}.</p><p>Recorded opening: {% for e in overall[doc.analysis_key].opener %}{{ ' → ' if not loop.first else '' }}{{ e.t_s }}s {{ e.name or e.ability_id }}{% else %}Unknown{% endfor %}</p>{% endif %}
     {% set overall_comparison = boss.playbook.get('overall_comparison') %}{% if overall_comparison %}<dl class="kv">{% for name in boss.playbook.primary_metrics %}{% set values = overall_comparison.metrics.get(name) %}{% if values %}<dt>{{ name|replace('_', ' ') }}</dt><dd>You: {{ values.yours if values.yours is not none else 'Unknown' }} · {{ overall_comparison.player }}: {{ values.reference if values.reference is not none else 'Unknown' }} · difference {{ '%.2f'|format(values.difference) if values.difference is not none else 'Unknown' }}</dd>{% endif %}{% endfor %}</dl>{% endif %}
   </details>
-  <details class="cohort-details" open><summary>Faction comparison cohort — build / race / buffs / gear</summary><div class="table-wrap cohort-table-wrap"><table class="cohort-table stack"><thead><tr><th>#</th><th>{{ doc.class_name }}</th><th>Faction</th><th>Race evidence</th><th>Build</th><th>Duty</th><th>Kill</th><th>Starting world buffs</th></tr></thead><tbody>{% for row in ref.cohort %}{% set e = row.entry %}<tr class="{{ row.row_class }}"><td data-label="Rank">{{ e.leaderboard_position or 'Unknown' }}</td><th scope="row"><a href="https://vanilla.warcraftlogs.com/reports/{{ e.report_code }}#fight={{ e.fight_id }}" target="_blank" rel="noopener noreferrer">{{ e.player }}</a></th><td data-label="Faction">{{ ev(e.environment.faction) }}</td><td data-label="Race">{{ ev(e.environment.race.race) }}</td><td data-label="Build">{{ ev(e[doc.analysis_key].build) }}</td><td data-label="Duty">{{ ev(e[doc.analysis_key].role) }}</td><td data-label="Kill">{{ e.kill_duration_s }} s</td><td data-label="World buffs">{{ (e.environment.world_buffs.value or [])|join(', ') if e.environment.world_buffs.value is not none else 'Unknown' }}</td></tr>{% else %}<tr><td colspan="8">No same-faction event sources acquired. Saved ranking context remains separate.</td></tr>{% endfor %}</tbody></table></div></details>
+  <details class="cohort-details"><summary>Faction comparison cohort — build / race / buffs / gear</summary><div class="table-wrap cohort-table-wrap"><table class="cohort-table stack"><thead><tr><th>#</th><th>{{ doc.class_name }}</th><th>Faction</th><th>Race evidence</th><th>Build</th><th>Duty</th><th>Kill</th><th>Starting world buffs</th></tr></thead><tbody>{% for row in ref.cohort %}{% set e = row.entry %}<tr class="{{ row.row_class }}"><td data-label="Rank">{{ e.leaderboard_position or 'Unknown' }}</td><th scope="row"><a href="https://vanilla.warcraftlogs.com/reports/{{ e.report_code }}#fight={{ e.fight_id }}" target="_blank" rel="noopener noreferrer">{{ e.player }}</a></th><td data-label="Faction">{{ ev(e.environment.faction) }}</td><td data-label="Race">{{ ev(e.environment.race.race) }}</td><td data-label="Build">{{ ev(e[doc.analysis_key].build) }}</td><td data-label="Duty">{{ ev(e[doc.analysis_key].role) }}</td><td data-label="Kill">{{ e.kill_duration_s }} s</td><td data-label="World buffs">{{ (e.environment.world_buffs.value or [])|join(', ') if e.environment.world_buffs.value is not none else 'Unknown' }}</td></tr>{% else %}<tr><td colspan="8">No same-faction event sources acquired. Saved ranking context remains separate.</td></tr>{% endfor %}</tbody></table></div></details>
   <details class="hunter-gear"><summary>Full logged gear for each faction source</summary><div class="hunter-cards">{% for row in ref.cohort %}<article class="hunter-card {{ row.row_class }}"><div class="hunter-title"><strong>#{{ row.entry.leaderboard_position or '?' }} {{ row.entry.player }}</strong><span>{{ ev(row.entry[doc.analysis_key].build) }}</span></div>{{ equipment(row.gear) }}</article>{% endfor %}</div></details>
   <details><summary>All recorded cohort entries and evidence</summary>
-    <div class="table-wrap"><table><thead><tr><th>Player</th><th>Faction</th><th>Build</th><th>WCL category</th><th>Observed role</th><th>Fight</th></tr></thead><tbody>{% for e in boss.overall_cohort %}<tr><td>{{ e.player }}</td><td>{{ ev(e.environment.faction) }}</td><td>{{ ev(e[doc.analysis_key].build) }}</td><td>{{ ev(e[doc.analysis_key].ranking_category) }}</td><td>{{ ev(e[doc.analysis_key].role) }}</td><td>{{ e.report_code }}/{{ e.fight_id }}</td></tr>{% endfor %}</tbody></table></div>
+    <div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Player</th><th>Faction</th><th>Build</th><th>WCL category</th><th>Observed role</th><th>Fight</th></tr></thead><tbody>{% for e in boss.overall_cohort %}<tr><td>{{ e.player }}</td><td>{{ ev(e.environment.faction) }}</td><td>{{ ev(e[doc.analysis_key].build) }}</td><td>{{ ev(e[doc.analysis_key].ranking_category) }}</td><td>{{ ev(e[doc.analysis_key].role) }}</td><td>{{ e.report_code }}/{{ e.fight_id }}</td></tr>{% endfor %}</tbody></table></div>
     <p>Full evidence references and coverage proofs are retained in <a href="analysis.json">analysis.json</a> and the package.</p>
     {% if boss.subject %}<pre>{{ boss.subject[doc.analysis_key].role|tojson(indent=2) }}</pre>{% endif %}
     {% for e in boss.overall_cohort %}
@@ -153,7 +198,7 @@
       <p>Spell counts: {{ ev(e[doc.analysis_key].casts) }}</p><p>Faction: {{ ev(e.environment.faction) }}</p>
       <p>Roles: {{ ev(e[doc.analysis_key].observed_roles) }} · assignment: {{ ev(e[doc.analysis_key].assignment) }}</p>
       <dl class="kv">{% for form, windows in e[doc.analysis_key].forms.items() %}<dt>{{ form }} intervals</dt><dd>{{ ev(windows) }}</dd>{% endfor %}</dl>
-      <div class="table-wrap"><table><thead><tr><th>Time (s)</th><th>Event / ability</th><th>Source → target</th><th>Amount</th><th>Event identity</th></tr></thead><tbody>{% for row in e[doc.analysis_key].timeline %}<tr><td>{{ row.t_s }}</td><td>{{ row.kind }} · {{ row.name or row.ability_id }}</td><td>{{ actor(e[doc.analysis_key], row.source_id) }} → {{ actor(e[doc.analysis_key], row.target_id) }}</td><td>{{ row.amount if row.amount is not none else 'Unknown' }}</td><td>{{ row.uid }}/{{ row.copy }}</td></tr>{% endfor %}</tbody></table></div>
+      <div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Time (s)</th><th>Event / ability</th><th>Source → target</th><th>Amount</th><th>Event identity</th></tr></thead><tbody>{% for row in e[doc.analysis_key].timeline %}<tr><td>{{ row.t_s }}</td><td>{{ row.kind }} · {{ row.name or row.ability_id }}</td><td>{{ actor(e[doc.analysis_key], row.source_id) }} → {{ actor(e[doc.analysis_key], row.target_id) }}</td><td>{{ row.amount if row.amount is not none else 'Unknown' }}</td><td>{{ row.uid }}/{{ row.copy }}</td></tr>{% endfor %}</tbody></table></div>
     </details>
     {% endfor %}
   </details>

@@ -1,6 +1,6 @@
 # Necropsy
 
-Local Warcraft Logs forensics for all nine Classic Era classes in Naxxramas.
+A Warcraft performance coach backed by combat-log forensics for all nine Classic Era classes in Naxxramas.
 Requires Python 3.14 or newer. Includes class rules, offline report templates
 and assets. Windows is the first verified installation/credential-store target;
 macOS and Linux remain unverified.
@@ -32,7 +32,7 @@ Replay your saved supported snapshot without credentials or network:
 necropsy offline .\snapshot.zip --out .\offline-analysis
 ```
 
-Open report.html and playbook.html in the output directory. Unknown evidence
+Open playbook.html for priorities and your next-pull plan; use report.html to investigate comparisons and evidence. Both are self-contained offline pages. Unknown evidence
 stays unknown; exit 4 from acquisition means partial coverage. Read the coverage
 notes. Keep your snapshots and reports private unless sharing is authorized.
 

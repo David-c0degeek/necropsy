@@ -1,49 +1,57 @@
-# Documentation
+# Necropsy documentation
 
-[Home](../README.md) · [Get started](getting-started.md) · [Read the results](reading-results.md)
+[Product home](../README.md)
 
-Start with a runnable sample, then choose how far into the evidence you want to go.
-Necropsy writes analysis JSON and reports for all Classic Era classes in Naxxramas.
-Each run also writes an offline HTML report and playbook. `necropsy analyze`
-connects character-URL acquisition to those outputs. An authenticated Windows
-run is verified with explicit partial pet coverage; see [live validation](live-validation.md).
+Get a working analysis, decide what to change, then inspect as much evidence as
+you need. Necropsy supports all nine Classic Era classes in Naxxramas; the saved
+Playbook and Report work offline.
 
-## Run and understand
+## Start here
 
-| Guide | What it answers |
+1. [Getting started](getting-started.md) — install from a checkout, run the sample
+   and open your first analysis.
+2. [Connect Warcraft Logs](warcraft-logs.md) — sign in and analyze your character.
+3. [Reading your results](reading-results.md) — overview → priority → boss → action
+   → explanation → evidence.
+
+For a standalone installation, upgrades or removal, use
+[Install the CLI](installation.md).
+
+## Understand your analysis
+
+| Question | Guide |
 |---|---|
-| [Getting started](getting-started.md) | How do I run it, where are my results, and what if a command fails? |
-| [Reading results](reading-results.md) | Which comparisons are fair, and how should I act on findings? |
-| [Warcraft Logs connection](warcraft-logs.md) | How do I sign in, acquire logs, and recover a stopped run? |
-| [Manual live check](live-acceptance.md) | How do I deliberately verify authenticated acquisition and inspect its receipt? |
-| [Roadmap](roadmap.md) | What works today and what comes next? |
+| When should I use Playbook or Report? | [Choose your view](reading-results.md#choose-your-view) |
+| What does limited sample, inferred or unknown mean? | [Read the quality labels](reading-results.md#read-the-quality-labels) |
+| Why these comparison players? | [Choose a fair comparison](reading-results.md#choose-a-fair-comparison) |
+| Which class/spec/category can I select? | [Classic Era class analysis](class-analysis.md) |
+| What do the Hunter rules measure? | [Hunter analysis](hunter-analysis.md) |
+| How do Druid categories and assignments work? | [Druid analysis](druid-analysis.md) |
+| What is supported and what is still planned? | [Roadmap](roadmap.md) |
 
-## Go deeper
+## Advanced users and reference
 
-| Reference | Use it when… |
+| Reference | Use it to… |
 |---|---|
-| [Analysis JSON](analysis-json.md) | You are consuming the output or looking up a field |
-| [Evidence model](evidence-model.md) | You need to distinguish facts, calculations, inferences, and unknown data |
-| [Hunter analysis](hunter-analysis.md) | You want the shot, pet, gear, and weaving rules |
-| [Database](database.md) | You are inspecting normalized events, coverage, or provenance |
-| [Authentication boundaries](auth.md) | You need the credential-storage and public/personal contract |
-| [Current architecture](architecture.md) | You want the implemented flows, module map and operational limits |
-| [Architecture decisions](decisions/README.md) | You need the reasons behind the accepted acquisition and storage contracts |
-| [Contributing](../CONTRIBUTING.md) | You want to run checks, change code, or review a pull request |
+| [Evidence model](evidence-model.md) | Distinguish recorded facts, calculations, inferences and coverage-backed absence |
+| [Analysis JSON](analysis-json.md) | Locate exact values and consume the versioned analytical output |
+| [Database](database.md) | Inspect normalized events, coverage and provenance |
+| [Authentication boundaries](auth.md) | Understand credential storage and public/personal client behavior |
+| [Observed live validation](live-validation.md) | Check what was actually verified on authenticated logs |
+| [Druid validation](druid-validation.md) | Understand the scope and limits of Druid acceptance |
+| [Manual live check](live-acceptance.md) | Run an intentional authenticated acquisition check |
 
-## Background and history
+## Developers
 
-The [architecture specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
-describes the intended product. The [original investigation](origin/Haplina%20Analysis.md)
-explains why it exists. These are historical design inputs; the guides above
-describe the current implementation.
+- [Contributing](../CONTRIBUTING.md): development setup, checks and review.
+- [Architecture](architecture.md): implemented data flows, rendering and operational limits.
+- [Product design](product-design.md): theme tokens, presentation boundaries and screenshot regeneration.
+- [Architecture decisions](decisions/README.md): reasons behind the contracts.
+- [Changelog](../CHANGELOG.md): user-facing and engineering changes.
+- [Fixture provenance](../tests/golden/haplina_naxx/PROVENANCE.md): recorded inputs.
 
-[Changelog](../CHANGELOG.md) · [Fixture provenance](../tests/golden/haplina_naxx/PROVENANCE.md)
+## Design history
 
-- [Druid analysis](druid-analysis.md): explicit WCL categories, encounter duties, role-specific measurements and assignment overrides.
-- [Druid validation](druid-validation.md): observed real-log scope and remaining acceptance gates.
-
-- [All class analysis](class-analysis.md): supported ranking categories, roles and shared execution/ability comparisons.
-
-[Install the CLI](installation.md): Python/OS requirements, public login, upgrades,
-logout/uninstall, recovery and isolated artifact checks.
+The [original architecture specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
+and [original investigation](origin/Haplina%20Analysis.md) explain the project's
+origins. They are historical inputs; use the guides above for current behavior.

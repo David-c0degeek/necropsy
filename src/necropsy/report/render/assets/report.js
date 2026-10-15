@@ -7,14 +7,29 @@
   var root = document.documentElement;
 
   var search = document.getElementById("boss-search");
-  if (search) {
-    search.addEventListener("input", function () {
-      var query = search.value.toLocaleLowerCase().trim();
-      Array.prototype.forEach.call(document.querySelectorAll("[data-boss-name]"), function (row) {
-        row.hidden = row.getAttribute("data-boss-name").indexOf(query) < 0;
-      });
-    });
+  var filter = document.getElementById("boss-filter");
+  function isReviewed(id) {
+    var boss = document.getElementById(id);
+    var box = boss && boss.querySelector(".done input[data-review-key]");
+    return !!(box && box.checked);
   }
+  function filterBosses() {
+    var query = search ? search.value.toLocaleLowerCase().trim() : "";
+    var mode = filter ? filter.value : "all";
+    Array.prototype.forEach.call(document.querySelectorAll("li[data-boss-name]"), function (row) {
+      var reviewed = isReviewed(row.getAttribute("data-boss-anchor"));
+      var matches = mode === "all" || (mode === "reviewed" && reviewed) ||
+        (mode === "unreviewed" && !reviewed) || row.getAttribute("data-" + mode) === "true";
+      row.hidden = !matches || row.getAttribute("data-boss-name").indexOf(query) < 0;
+    });
+    var result = document.getElementById("nav-results");
+    if (result) {
+      var count = document.querySelectorAll(".sidenav li[data-boss-name]:not([hidden])").length;
+      result.textContent = count === 0 ? "No matching bosses. Clear search or choose All encounters." : "";
+    }
+  }
+  if (search) { search.addEventListener("input", filterBosses); }
+  if (filter) { filter.addEventListener("change", filterBosses); }
 
   // Start with the reference's dark theme; readers can choose light or system.
   var themeButton = document.getElementById("theme-toggle");
@@ -43,15 +58,42 @@
   function focusSection(id) {
     var section = document.getElementById(id);
     if (!section) { return; }
-    var heading = section.querySelector("h1, h2");
-    if (heading) { heading.focus({ preventScroll: true }); }
+    var heading = section.matches("h1,h2,h3,h4") ? section : section.querySelector("h1, h2, h3");
+    if (heading) {
+      var parent = heading.parentElement;
+      while (parent) {
+        if (parent.tagName === "DETAILS") { parent.open = true; }
+        parent = parent.parentElement;
+      }
+      if (!heading.hasAttribute("tabindex")) { heading.setAttribute("tabindex", "-1"); }
+      heading.focus({ preventScroll: true });
+    }
+  }
+  function revealTarget(id) {
+    var target = document.getElementById(id);
+    if (!target) { return; }
+    var node = target;
+    while (node) {
+      if (node.tagName === "DETAILS") { node.open = true; }
+      node = node.parentElement;
+    }
   }
   document.addEventListener("click", function (event) {
     var link = event.target && event.target.closest ? event.target.closest("a[href^='#']") : null;
     if (!link) { return; }
     var id = link.getAttribute("href").slice(1);
+    revealTarget(id);
     if (picker && picker.contains(link)) { picker.open = false; }
     if (id === "overview" || id === "truth-model" || id.indexOf("boss-") === 0) { window.setTimeout(function () { focusSection(id); }, 0); }
+  });
+  if (window.location.hash) { revealTarget(window.location.hash.slice(1)); }
+  window.addEventListener("hashchange", function () { revealTarget(window.location.hash.slice(1)); });
+  Array.prototype.forEach.call(document.querySelectorAll(".switch a"), function (link) {
+    link.addEventListener("click", function () {
+      var current = document.querySelector(".sidenav a[aria-current='location']");
+      var hash = current ? current.getAttribute("href") : window.location.hash;
+      if (hash && /^#boss-\d+$/.test(hash)) { link.href = link.getAttribute("href").split("#")[0] + hash; }
+    });
   });
 
   // Wide screens: mark the boss currently on screen in the side navigation.
@@ -72,14 +114,22 @@
 
   // Review marks: local annotations, never part of the analysis.
   var boxes = Array.prototype.slice.call(document.querySelectorAll("input[data-review-key]"));
+  function updateReviewStates() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-review-for]"), function (label) {
+      label.textContent = isReviewed(label.getAttribute("data-review-for")) ? "Reviewed locally" : "";
+    });
+    filterBosses();
+  }
   boxes.forEach(function (box) {
     var key = box.getAttribute("data-review-key");
     if (storage) { try { box.checked = storage.getItem(key) === "1"; } catch (e) {} }
     box.addEventListener("change", function () {
+      updateReviewStates();
       if (!storage) { return; }
       try { if (box.checked) { storage.setItem(key, "1"); } else { storage.removeItem(key); } } catch (e) {}
     });
   });
+  updateReviewStates();
   var status = document.getElementById("review-status");
   if (status) {
     status.textContent = storage
@@ -93,6 +143,7 @@
         box.checked = false;
         if (storage) { try { storage.removeItem(box.getAttribute("data-review-key")); } catch (e) {} }
       });
+      updateReviewStates();
     });
   }
 

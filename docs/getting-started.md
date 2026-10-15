@@ -2,192 +2,177 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Next: reading results](reading-results.md)
 
-Run the included sample first. It produces a real report, playbook and
-`analysis.json` without WCL credentials and without downloading the full golden
-fixture.
+Your first success is an offline analysis of four Naxxramas bosses. No Warcraft
+Logs account or credentials are needed for the demo.
 
-## 1. Set up the project
+## 1. Prerequisites and install
 
-You need a repository checkout and [uv](https://docs.astral.sh/uv/).
-The project requires Python 3.14 or newer; the tested baseline is Python 3.14.
-Run from the repository root:
+You need [uv](https://docs.astral.sh/uv/), Git and access to this repository.
+Necropsy requires Python 3.14 or newer; uv can provision the project's Python.
+From a checkout of the repository, run:
 
 ```sh
 uv sync --locked
 uv run necropsy --version
 ```
 
-Dependency setup may use the network. Analyzing a saved archive is offline.
-Authorized access is required to clone this private repository.
+Dependency installation may use the network. If you want the released CLI
+outside a checkout, follow [installation](installation.md). The included sample
+lives in the repository, not in the installed wheel.
 
-## 2. Try the sample
+## 2. Run the included offline demo
 
 ```sh
 uv run necropsy offline tests/fixtures/haplina_naxx_subset.zip --out workspace/demo
 ```
 
-The subset includes selected fights for Patchwerk, Grobbulus, Gothik, and
-Kel'Thuzad. It demonstrates the workflow, rather than a full Naxxramas run.
-Expect smaller comparison samples and more unknown benchmarks than in the full
-fixture.
+The sample includes Patchwerk, Grobbulus, Gothik and Kel'Thuzad for a Hunter.
+It demonstrates actual output with small comparison samples and some unknown
+benchmarks. It does not require the full Git LFS fixture.
 
-The command prints the boss and recommendation counts and every file it wrote:
+## 3. Open the result
 
-| File | What it is |
+Open **`workspace/demo/playbook.html`** in your browser. Start with the raid's
+priorities, choose a boss and read its actions and next-pull plan.
+Switch to **Report** to inspect comparisons and supporting evidence.
+
+| Output | Purpose |
 |---|---|
-| `report.html` | The full report: findings first, then execution, comparisons and evidence |
-| `playbook.html` | A per-boss review list with local "Reviewed" checkboxes |
-| `analysis.json` | The complete, versioned result the pages are built from |
-| `necropsy-<character id>-<zone id>.zip` | A package: both pages, `analysis.json`, CSV tables, evidence files and a checksum manifest |
+| `playbook.html` | What to work on next, with practical boss guidance and local review marks |
+| `report.html` | Investigate what happened, compare players and verify the evidence |
+| `analysis.json` | The complete, versioned analytical source of truth |
+| `necropsy-<character id>-<zone id>.zip` | Both pages, analysis JSON, CSV tables, evidence and checksum manifest |
 
-Open **`workspace/demo/report.html`** in your browser. The pages work straight from
-disk and load nothing from the network automatically. They start in the reference's
-dark theme; the Theme button offers light and system modes and remembers your choice.
-Review marks in the playbook are saved only in that browser, for that exact
-analysis. Use `--no-package` to skip the ZIP (an older package of the same name is
-then removed so it never looks current). The package holds derived analysis of
-real players' logs and is not anonymised: share it only where those logs may be
-shared.
+Both pages work directly from disk with no server and no automatic network
+requests. WCL source links need a connection only when you follow them.
+Use the theme control for dark, light or system preference. Review marks belong
+to this browser and this exact analysis; they do not change the findings.
 
-By default the analysis database is temporary and removed afterwards.
-`workspace/` is ignored by Git, keeping generated results out of your changes.
+The default analysis database is temporary. `workspace/` is ignored by Git.
+Add `--no-package` to skip the ZIP; a prior ZIP with the same generated name is
+removed to prevent presenting it as current. Packages contain player identities
+and are not anonymized.
 
-## 3. Use your own supported export
+[Learn how to read your results →](reading-results.md)
 
-Necropsy reads the **v6 Hunter deep-export ZIP** from the existing
-`wcl_hunter_deep_export.py` exporter, plus its own fixture-subset and live
-snapshot v1 formats.
-A WCL page, a URL, and an arbitrary ZIP of log files are not that format.
-The ZIP contains profile and manifest data, report bundles, and paginated event
-streams; see the [database reference](database.md).
+## 4. Analyze your own character
 
-The exporter is separate tooling and is not shipped with this CLI. If you do
-not already have a supported ZIP, use the included sample or
-[acquire your own logs](#acquire-your-own-logs).
+Necropsy supports all nine Classic Era classes in **Naxxramas**. Use a character
+URL on `vanilla.warcraftlogs.com`, for example the URL format
+`https://vanilla.warcraftlogs.com/character/eu/REALM/CHARACTER`.
 
-Assuming your export is saved as `export.zip`:
+Sign in once, then acquire into a fresh output directory:
 
 ```sh
-uv run necropsy offline export.zip --out workspace/my-analysis
+uv run necropsy auth login
+uv run necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache workspace/wcl-cache --out workspace/my-run
 ```
 
-Supported analysis is Classic Era Hunter in Naxxramas. You can now
-[sign in to WCL and acquire logs from a character URL](warcraft-logs.md).
-No WCL credentials are needed for this offline command.
+Replace `YOUR_CHARACTER_URL` with the actual character URL. Keep the terminal
+open while authorizing Necropsy in the browser. Public sign-in is built in and
+needs no shared client secret. It requires `--endpoint user` for acquisition.
 
-## Repeat an analysis faster
-
-Keep a database for repeat runs on the same archive:
+An interactive terminal asks for faction and spec/category. For scripts, supply
+the actual faction and supported selection explicitly, for example:
 
 ```sh
-uv run necropsy offline export.zip --out workspace/my-analysis --db workspace/analysis.duckdb
+uv run necropsy analyze "YOUR_CHARACTER_URL" --faction Horde --spec Marksmanship --endpoint user --cache workspace/wcl-cache --out workspace/hunter
 ```
 
-The archive is verified on every run. A database is reused when its archive hash
-and schema version match; otherwise it is rebuilt under ingest's replacement
-rules. If it belongs to another archive, choose a new database path or add
-`--replace`. Keep the database closed during building or replacement.
+Use [class analysis](class-analysis.md) to choose another class/category.
+Druids can use `--spec Balance`, `Feral`, `Restoration` or `Tank`.
+Each category/metric selection needs its own output directory. A selected view
+keeps missing personal encounters visible; learning examples are not personal
+grades.
 
-Rebuild the pages and package from an existing `analysis.json`, without the
-archive or a database:
+Acquisition uses the network, saves a snapshot under `snapshot/`, and writes
+the same offline outputs as the demo. Reuse the cache across runs and choose a
+fresh result directory each time.
 
-```sh
-uv run necropsy render workspace/my-analysis/analysis.json --out workspace/my-analysis
-```
-
-Build just the database for inspection with:
-
-```sh
-uv run necropsy ingest export.zip --db workspace/analysis.duckdb
-```
-
-## Acquire your own logs
-
-For a Classic Era Hunter's Naxxramas logs, follow the
-[WCL connection guide](warcraft-logs.md) to configure public PKCE or a personal client and
-sign in, then run:
-
-```sh
-uv run necropsy analyze "YOUR_CHARACTER_URL" --cache workspace/wcl-cache --out workspace/my-run
-```
-
-Reuse the cache; use an output directory without earlier results. Acquisition
-uses the network, saves a raw snapshot under `snapshot/`, and writes the same
-report, playbook and package as offline analysis. Check the printed exit status:
-`4` means a partial report was written; `2` needs a partition choice; `3` means
-finalization stopped with no new snapshot or report. Other failures use `1`.
-The CLI has synthetic integration tests and an observed authenticated Windows
-run with explicit partial coverage; see [live validation](live-validation.md). [Read coverage and recovery details](warcraft-logs.md#acquire-an-analysis).
-
-## Choose your context and integrity checks
-
-| Option | Use it for |
+| Exit status | Meaning |
 |---|---|
-| `--cross-faction` | A separate view of all recorded cohort entries; the same-faction baseline stays separate |
-| `--sha256 DIGEST` | Refusing an archive whose SHA-256 differs from your expected digest |
-| `--entries MANIFEST` | Checking every archive member against a member manifest |
-| `--replace` | Explicitly replacing a database associated with another archive |
+| `0` | Outputs written with complete requested acquisition coverage |
+| `4` | Outputs written with partial coverage; read the coverage notes |
+| `2` | Choose one of the listed partitions and repeat with `--partition ID` |
+| `3` | Finalization stopped without new outputs; retain the cache for another run |
+| `1` | Follow the printed input, authentication, acquisition or output error |
 
-Integrity and replacement options apply to both `ingest` and `offline`.
-The member manifest is a text file with one member per line and two spaces
-between fields: `SHA256  BYTE_COUNT  ORIGIN  MEMBER_NAME`. `ORIGIN` is `source`
-for preserved export bytes, `generated` for descriptors and wrappers, or
-`acquired` for API event pages copied from the verified acquisition cache.
-The fixture's [provenance record](../tests/golden/haplina_naxx/PROVENANCE.md)
-lists the provided manifests. This is different from the export's internal
-`manifest.json`.
+Complete acquisition can still leave individual measurements unknown.
+[Warcraft Logs connection](warcraft-logs.md) covers permissions, endpoint
+selection, quota stops, saved snapshots and recovery.
+
+## 5. Reuse a saved snapshot
+
+Replay a Necropsy live snapshot, the included fixture subset, or a supported
+**v6 Hunter deep-export ZIP** without login or network access:
 
 ```sh
-uv run necropsy --help
-uv run necropsy offline --help
-uv run necropsy ingest --help
+uv run necropsy offline snapshot.zip --out workspace/replayed
 ```
 
-## When something goes wrong
+An arbitrary ZIP or downloaded WCL page is not a supported snapshot.
+The historical `wcl_hunter_deep_export.py` exporter is separate tooling and is
+not shipped in this CLI. New users should acquire through `analyze`.
+
+Rebuild only the pages and package from existing analytical output:
+
+```sh
+uv run necropsy render workspace/replayed/analysis.json --out workspace/replayed
+```
+
+Rendering uses saved values; it does not refresh rankings or fetch missing events.
+
+## Common problems
 
 | What you see | What to do |
 |---|---|
 | Archive not found | Check the ZIP path and current directory; quote paths containing spaces |
-| Digest or member mismatch | Confirm the archive and manifest belong together; investigate the failed check |
-| Database belongs to another snapshot | Use a new database path, or `--replace` if replacement is intended |
-| A `.duckdb.wal` blocks ingest | Close the database in the program using it; after a crash, recover and close it there before retrying |
-| Golden export is a tiny pointer file | Run `git lfs pull` with authorized access; see [Contributing](../CONTRIBUTING.md) |
-| A benchmark is `unknown` | Read its `note` and cohort size; missing evidence or fewer than three known values may explain it |
+| `necropsy` is not recognized | In a checkout use `uv run necropsy`; after tool installation run `uv tool update-shell` and reopen the terminal |
+| Public login with the wrong endpoint | Include `--endpoint user` on `analyze` and `resolve` |
+| Results already exist | Use a new directory for `analyze`; offline/render intentionally replace their own outputs |
+| An unknown or limited comparison | Read the coverage and sample notes; missing evidence is not zero |
+| Golden export is a tiny pointer file | The small demo needs no LFS download; for the full fixture see [Contributing](../CONTRIBUTING.md) |
+| Sign-in, permissions or quota failure | Follow [connection troubleshooting](warcraft-logs.md#when-sign-in-needs-attention) |
 
-For `offline` and `render`, every output is built before anything in the output
-folder changes. If building
-fails, the folder is left exactly as it was. The new files then replace the old
-ones one at a time; if a replacement fails, the old files are put back and the
-command reports the error.
+## Advanced reuse and integrity
 
-Two cases need your attention:
+Keep a database to speed up repeat analysis:
 
-- **The error says the previous files could not all be restored.** The message
-  names a `.necropsy-backup-*` folder inside the output folder; it holds the old
-  versions of the files that were moved. Compare it with the output folder, copy
-  back the old files you want, and delete the backup folder only once you have
-  checked the result.
-- **The process was killed while files were being replaced** (a crash, power
-  loss, or closing the terminal). The output folder can hold a mix of old and new
-  files until you recover it, and a `.necropsy-backup-*` folder may remain.
-  Restore from the backup folder as above, or simply run the command again.
+```sh
+uv run necropsy offline snapshot.zip --out workspace/replayed --db workspace/analysis.duckdb
+```
 
-Those commands only replace `analysis.json`, `report.html`, `playbook.html` and their own
-package file; it refuses to touch a folder or link that has one of those names.
-Check the command's exit status and message before using the output.
+The archive is verified each time. The database is reused only when its archive
+hash and schema match; otherwise it is rebuilt under the ingest replacement
+rules. For a different archive, use a new database path or explicitly
+`--replace`. Keep the database closed during replacement. A leftover
+`.duckdb.wal` requires recovery and closure in the program using it.
 
-[Read your results →](reading-results.md)
+`--cross-faction` adds separate context without replacing the same-faction
+baseline. `--sha256 DIGEST` verifies a whole archive; `--entries MANIFEST`
+verifies individual members. These integrity options also apply to `ingest`.
+The member manifest uses `SHA256  BYTE_COUNT  ORIGIN  MEMBER_NAME` with two spaces
+between fields, distinct from the export's internal `manifest.json`.
+See [database and provenance](database.md) for the detailed formats.
 
-## Druids
+```sh
+uv run necropsy ingest snapshot.zip --db workspace/analysis.duckdb
+uv run necropsy offline --help
+```
 
-Use `analyze URL --category Balance` (or `Feral`, `Guardian`, `Restoration`) with the existing cache/output options. Each category needs a separate output directory. Saved Druid snapshots use the same `offline` command. See [Druid analysis](druid-analysis.md) for evidence, override examples and validation limits.
+## Output recovery
 
-Balance healing assignments can select `--category Balance --metric hps`; use a
-separate output directory for each category/metric selection.
+For `offline` and `render`, all outputs are built before existing files change.
+A build failure leaves the output folder unchanged. Publication then replaces
+files one at a time and attempts to restore previous versions on failure.
 
-The user-facing `--spec` option accepts Balance (or boomkin), Feral, Restoration
-and Tank. Each report keeps every requested boss, shows matching personal data,
-and separates missing personal data from top-player learning examples.
+If restoration fails, the error names a `.necropsy-backup-*` directory holding
+previous files. Compare it with the output folder and restore the files you need
+before deleting that backup. A crash during replacement can also leave mixed
+versions; restore the backup or rerun the command.
 
-For installation outside the checkout and public account authorization, see
-[installation](installation.md). Public acquisition needs `--endpoint user`.
+Only `analysis.json`, `report.html`, `playbook.html` and the command's own ZIP
+are replaced. A folder or link occupying one of those paths is refused.
+Check the exit status before treating results as current.
+
+[Read your results](reading-results.md) · [Documentation home](README.md)

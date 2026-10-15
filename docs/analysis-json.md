@@ -19,6 +19,18 @@ the usual `ingest` safety rules (`--replace` is needed to overwrite a database b
 from another snapshot). Without `--db`, a temporary database is created and removed
 afterwards. The file is written atomically: a failed run leaves no partial file.
 
+## From the interface to the exact value
+
+Open **Why this was flagged** on a finding, then its evidence disclosure. Paths
+refer to the containing boss in `analysis.json`. The overview is a presentation
+summary of saved recommendations, ordered by severity with one representative
+per rule; it adds no analytical field or score. Boss review marks, navigation
+filters and theme preferences are browser state and are never written to JSON.
+
+The HTML can change independently of the analytical schema. Rendering the same
+JSON with the same Necropsy version remains deterministic. See
+[reading results](reading-results.md) for the player-facing vocabulary.
+
 ## Guarantees
 
 - **Deterministic.** The same snapshot and options give byte-identical output: no

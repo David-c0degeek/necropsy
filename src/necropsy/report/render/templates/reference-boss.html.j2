@@ -1,38 +1,60 @@
 {% from "reference-macros.html.j2" import prose, equipment, plans %}
-{% from "macros.html.j2" import val %}
+{% from "macros.html.j2" import val, card %}
 {% from "ability-use.html.j2" import ability_use %}
 {% set ref = boss.reference %}
 <div class="boss-head">
   <div>
     <div class="eyebrow">Boss {{ "%02d"|format(boss_number) }} · {{ boss.name }}</div>
     <h2 id="{{ boss.anchor }}-title" tabindex="-1">{{ boss.name }}</h2>
-    <div class="metrics">{% for label, value in ref.metrics %}{% if not doc.selected_spec or label != 'Overall #1 DPS' %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endif %}{% endfor %}</div>
+    <div class="metrics">{% for label, value in ref.metrics %}{% if label != 'Overall #1 DPS' %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endif %}{% endfor %}</div>
   </div>
   <label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.name }}</span></label>
 </div>
+{% set triage = doc.experience.bosses[boss_number - 1] %}
+<div class="quality-strip"><strong>{{ triage.quality }}</strong><span>{{ triage.sources }} comparable sources{% if triage.membership_label %} · {{ triage.membership_label }}{% endif %} · {{ boss.cards|length }} findings</span>{% if boss.limits %}<span>Comparison limits apply</span>{% endif %}</div>
+<nav class="boss-jumps" aria-label="{{ boss.name }} sections"><a href="#{{ boss.anchor }}-actions">What to work on</a><a href="#{{ boss.anchor }}-plan">Next pull</a><a href="#{{ boss.anchor }}-comparison">Compare</a><a href="#{{ boss.anchor }}-evidence">Evidence</a></nav>
+<div class="boss-actions" id="{{ boss.anchor }}-actions">
+  <h3 class="section-title">What to work on</h3>
+  {% if boss.cards %}{% set ordered = boss.ordered_cards %}<div class="cards">{% for c in ordered[:2] %}{{ card(c, review=True) }}{% endfor %}</div>{% if ordered|length > 2 %}<details class="more-actions"><summary>{{ ordered|length - 2 }} more findings · all priorities and controls</summary><div class="cards">{% for c in ordered[2:] %}{{ card(c, review=True) }}{% endfor %}</div></details>{% endif %}
+  {% else %}<p class="muted">{{ 'No supported finding was generated. Check comparison and coverage limits before drawing conclusions.' if boss.has_subject else 'No personal fight in this snapshot; your performance is not assessed.' }}</p>{% endif %}
+</div>
+{% if page == 'report' %}{% if boss.execution %}<section class="comparison-snapshot" id="{{ boss.anchor }}-comparison"><h3>Compared with your faction</h3>
+{% for r in boss.execution %}<div class="comparison-row"><h4>{{ r.label }}</h4><div class="comparison-values"><div><span>You</span><strong>{{ val(r.yours) }}</strong></div><div><span>Comparable median</span><strong>{{ val(r.baseline) }}</strong></div></div><p class="table-note">{{ r.sample }}</p></div>{% endfor %}
+</section>{% endif %}
+{% endif %}
+<article class="quick-plan" id="{{ boss.anchor }}-plan">
+  <div class="eyebrow">Prepare for your next attempt</div>
+  <h3>Your next pull</h3>{{ '\n' }}{% if doc.selected_spec and ref.leader_practice %}{% set leader = ref.leader_practice %}<p>No personal {{ doc.selected_spec }} encounter was found in the acquired logs. Use this faction leader's recorded ability mix as a practice reference: {{ leader.player }} · leaderboard #{{ leader.leaderboard_position }} · {{ leader.kill_duration_s }} s fight.</p><dl class="kv">{% for spell, shot in leader.hunter.shots.items() %}<dt>{{ spell|replace('_', ' ') }}</dt><dd>{{ shot.casts.value|length if shot.casts.value is not none else 'Unknown' }} recorded casts</dd>{% endfor %}</dl><p>Check assignments, gear and fight duration before copying this example. It is a learning reference, not a grade of your performance.</p>{% endif %}
+  {{ plans(ref.quick_plan) }}<details><summary>Compare ability use with the reference player</summary>{{ ability_use(ref.ability_use) if ref.ability_use else "" }}</details>
+</article>
+<details class="preparation-details"{% if page == "playbook" %} open{% endif %}><summary>Loadout and execution plan</summary>
+<div class="grid two">
+  <article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article>
+  <article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article>
+</div>
+</details>
+<div class="grid two warnings">
+  <article class="dont"><h3>Do not</h3>{{ prose(ref.dont) }}</article>
+  <article class="ask"><h3>Raid help</h3>{{ prose(ref.asks) }}</article>
+</div>
+{% if page == 'playbook' %}{% if boss.execution %}<section class="comparison-snapshot" id="{{ boss.anchor }}-comparison"><h3>Compared with your faction</h3>
+{% for r in boss.execution %}<div class="comparison-row"><h4>{{ r.label }}</h4><div class="comparison-values"><div><span>You</span><strong>{{ val(r.yours) }}</strong></div><div><span>Comparable median</span><strong>{{ val(r.baseline) }}</strong></div></div><p class="table-note">{{ r.sample }}</p></div>{% endfor %}
+</section>{% endif %}
+{% endif %}
+<h3 id="{{ boss.anchor }}-evidence" tabindex="-1">Evidence and details</h3>
+<details class="comparison-context"><summary>Who are you being compared with?</summary><div>
 <div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div>
-{% if doc.selected_spec %}<p>Selected spec: {{ doc.selected_spec }} · faction: {{ doc.selected_faction or 'Unknown' }}. Main comparisons use this faction.</p><details class="overall-comparison"><summary>Optional: overall top across factions</summary><p>This comparison is unfiltered by faction. Different races, faction-specific buffs, assignments and fight duration can affect it.</p>{% for label, value in ref.metrics %}{% if label == 'Overall #1 DPS' %}<p>{{ label }}: {{ val(value) }}</p>{% endif %}{% endfor %}{% set first = ref.cohort|selectattr('rank', 'equalto', 1)|list %}{% if first %}<p>{{ first[0].player }} · faction {{ val(first[0].faction) }}. Your selected faction: {{ doc.selected_faction or 'Unknown' }}.</p>{% else %}<p>Overall leader faction is unknown in the acquired data.</p>{% endif %}</details>{% endif %}
+<p>Selected spec: {{ doc.selected_spec or 'Not selected' }} · faction: {{ doc.experience.faction }}. Main comparisons use this faction.</p><details class="overall-comparison"><summary>Optional: overall top across factions</summary><p>This comparison is unfiltered by faction. Different races, faction-specific buffs, assignments and fight duration can affect it.</p>{% for label, value in ref.metrics %}{% if label == 'Overall #1 DPS' %}<p>{{ label }}: {{ val(value) }}</p>{% endif %}{% endfor %}{% set first = ref.cohort|selectattr('rank', 'equalto', 1)|list %}{% if first %}<p>{{ first[0].player }} · faction {{ val(first[0].faction) }}. Your selected faction: {{ doc.selected_faction or 'Unknown' }}.</p>{% else %}<p>Overall leader faction is unknown in the acquired data.</p>{% endif %}</details>
 <article class="truth-card">
   <h3>Benchmark context</h3><p>{{ ref.context_text }}</p>
   <p class="tiny">Race is confirmed here by an observed racial cast. Classic Era's current character gameData API does not supply race; no racial cast leaves race unknown, rather than guessing from faction or non-use. WF counts detected extra-attack events; non-observation is not proof of totem unavailability. Other-faction rows below are context.</p>
   {% for limit in ref.limits %}<p class="tiny">{{ limit }}</p>{% endfor %}
 </article>
-<article class="quick-plan">
-  <div class="eyebrow">Quick plan · KISS</div>
-  <h3>Opening cycle and notes</h3>{{ '\n' }}{% if doc.selected_spec and ref.leader_practice %}{% set leader = ref.leader_practice %}<p>No personal {{ doc.selected_spec }} encounter was found in the acquired logs. Use this faction leader's recorded ability mix as a practice reference: {{ leader.player }} · leaderboard #{{ leader.leaderboard_position }} · {{ leader.kill_duration_s }} s fight.</p><dl class="kv">{% for spell, shot in leader.hunter.shots.items() %}<dt>{{ spell|replace('_', ' ') }}</dt><dd>{{ shot.casts.value|length if shot.casts.value is not none else 'Unknown' }} recorded casts</dd>{% endfor %}</dl><p>Check assignments, gear and fight duration before copying this example. It is a learning reference, not a grade of your performance.</p>{% endif %}
-  {{ plans(ref.quick_plan) }}{{ ability_use(ref.ability_use) if ref.ability_use else '' }}
-</article>
-<div class="grid two">
-  <article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article>
-  <article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article>
-</div>
-<div class="grid two warnings">
-  <article class="dont"><h3>Do not</h3>{{ prose(ref.dont) }}</article>
-  <article class="ask"><h3>Raid ask</h3>{{ prose(ref.asks) }}</article>
-</div>
+
+</div></details>
 {% if ref.facts %}<details><summary>Encounter knowledge and sources</summary><div>{{ prose(ref.facts) }}</div></details>{% endif %}
 <details class="full-gear"><summary>Your full logged gear for this selected best parse</summary><div>{{ equipment(ref.gear) }}</div></details>
-<details class="cohort-details" open>
+<details class="cohort-details">
   <summary>{{ ref.cohort_title }} — faction / race evidence / Windfury / gear / pet</summary>
   <div>
     {% if not ref.cohort_complete %}<p class="notice">This older analysis contains only its comparison rows; rebuild from the archive for the {% if doc.mode == "live" %}acquired comparison cohort{% else %}complete recorded overall top five{% endif %}.</p>{% endif %}

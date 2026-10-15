@@ -14,6 +14,21 @@ refused with an explanation before Necropsy accesses saved credentials.
 For storage, token lifecycle and distribution limits, see
 [Authentication boundaries](auth.md).
 
+## What needs a connection?
+
+Sign-in, character resolution and acquisition contact Warcraft Logs. Acquisition
+saves the selected fights, ranking context and coverage as a snapshot. The
+resulting Playbook and Report are **saved analyses**, not live dashboards.
+
+Opening the HTML, changing theme, reviewing bosses, inspecting evidence and
+printing make no automatic network requests. WCL and source-document links go
+online only when followed. To refresh rankings or acquire missing evidence,
+run a new analysis into a fresh directory; reopening the HTML does not fetch it.
+
+Start with the overview's **How complete is this analysis?** disclosure. A
+coverage warning can coexist with usable findings. Requested-boss acquisition
+status and source-specific limitations remain in the detailed coverage sections.
+
 ## Public application sign-in
 
 For an installed CLI, follow [installation](installation.md). The application

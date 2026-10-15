@@ -2,6 +2,12 @@
 
 [Documentation](README.md) · [Connection guide](warcraft-logs.md) · [Reading results](reading-results.md)
 
+Druid shares the same character overview, class accent, boss triage and review
+workflow as other classes. **Playbook** leads to practical preparation;
+**Report** emphasizes role-appropriate comparisons. Expand **Role, category and
+coverage context** or **Your measurements** to inspect the inference and its
+limits. Orange class identity never implies a specific spec or duty.
+
 Classic Era Naxxramas Druids use the same acquisition, snapshot, evidence,
 report and package pipeline as Hunters. Select the spec or role you want to view:
 

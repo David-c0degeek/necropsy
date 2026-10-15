@@ -85,6 +85,10 @@ def test_druid_pages_preserve_roles_and_evidence_offline(
             page.on("request", lambda r: requests.append(r.url))
             page.on("pageerror", lambda error: errors.append(error))
             page.goto((out / f"{page_name}.html").as_uri())
+            preparation = page.locator("details.preparation-details")
+            if not preparation.evaluate("d => d.open"):
+                preparation.locator(":scope > summary").click()
+            page.locator("details.role-context > summary").click()
             assert "restoration" in page.locator("main").inner_text()
             if missing:
                 text = page.locator("main").inner_text()

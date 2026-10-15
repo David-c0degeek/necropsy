@@ -23,21 +23,16 @@ report exit statuses and offline recovery from a saved snapshot.
 Same-faction comparisons, encounter context, and evidence-linked recommendations
 are implemented. [Try the sample](getting-started.md).
 
-## Planned milestones
+## Current delivery and future work
 
-| Milestone | Intended result | Dependency |
+| Area | State | Boundary |
 |---|---|---|
-| A — Hunter/Naxxramas analysis | A browsable offline report and playbook, then live acquisition from a character URL | Personal-use milestone signed off; accepted source/coverage limitations remain |
-| B — Desktop app | Paste a URL, authenticate, choose raid/partition, follow acquisition progress, inspect bosses, export, and open cached analyses | Stable analysis JSON; public-client authentication before distribution |
-| C — Broader classification | Class/spec/role taxonomy and build clusters; Druid and Warrior role resolution with confidence and overrides | Milestone A shipped |
-| D — Class plugins | All nine Classic Era classes implemented; domain acceptance remains explicit | Shared category/duty/evidence contracts |
-| E — More raids and variants | Other Classic Era raids, then Fresh/SoD/other sites | Stable analyzer contracts |
-
-[Sign-in, resolution and acquisition](warcraft-logs.md) are implemented for
-personal use. Snapshot v1 and end-to-end CLI integration have synthetic tests and an
-[observed authenticated Windows run](live-validation.md), with explicit partial
-pet coverage. The [opt-in live harness](live-acceptance.md) records repeatable
-checks; domain correctness and product acceptance remain separate.
+| Hunter/Naxxramas analysis and live acquisition | Implemented | Personal-use milestone accepted; source and coverage limits remain |
+| All nine Classic Era classes | Implemented | Category/duty-aware reports; see [validation boundaries](class-analysis.md#contracts-and-validation) |
+| Browser application experience | Implemented in current development | Priority overview, boss triage, Playbook/Report, class themes, responsive offline output; see [Unreleased](../CHANGELOG.md#unreleased) |
+| Native desktop launcher | Planned | Authentication, acquisition progress and cached-analysis management in a desktop shell |
+| More raids and game variants | Planned | Raid styling tokens are not analytical support for additional raids |
+| Further domain validation | Ongoing | Engineering tests do not replace real-log validation for every class and encounter |
 
 ## Authorized next work
 

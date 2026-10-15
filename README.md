@@ -1,115 +1,139 @@
-<p align="center">
-  <img src="docs/assets/necropsy-banner.svg" alt="Necropsy — Warcraft Logs, with context." width="960">
-</p>
+# Necropsy
 
-<p align="center"><strong>Understand the log. Find the next improvement.</strong><br>
-Offline forensics for all Classic Era classes in Naxxramas.</p>
+**Know what to change next raid. Know why.**
 
-<p align="center">
-<a href="docs/getting-started.md">Get started</a> ·
-<a href="docs/reading-results.md">Read the results</a> ·
-<a href="docs/README.md">Documentation</a> ·
-<a href="CONTRIBUTING.md">Contribute</a>
-</p>
+Necropsy is a performance coach for **World of Warcraft Classic Era**, backed by
+a combat-log forensics engine. Turn Warcraft Logs into a clear set of priorities,
+a boss-by-boss plan, and the evidence behind every finding.
 
-Necropsy turns Warcraft Logs data into boss-by-boss analysis: what
-happened, how comparable players played, and which improvements deserve a closer
-look. Each finding keeps its evidence and uncertainty visible.
+[Try the offline demo](docs/getting-started.md) ·
+[Read your results](docs/reading-results.md) ·
+[Documentation](docs/README.md) · [Install the CLI](docs/installation.md)
 
-**Available today:** a local command-line workflow that turns the v6 Hunter
-deep-export format (or the included fixture subset) into an offline HTML report,
-a boss-by-boss playbook, `analysis.json`, and a shareable package.
-`necropsy analyze` also accepts a supported character URL, acquires a saved
-snapshot, and writes the same results. Synthetic integration tests and a real signed-in Windows run are verified;
-the live run retained explicit partial pet coverage. See [observed live validation](docs/live-validation.md). See the
-[connection guide](docs/warcraft-logs.md) and [roadmap](docs/roadmap.md).
+![Necropsy raid overview showing character identity, priorities, comparison quality and boss navigation](docs/images/overview.png)
 
-An installable Python CLI with public PKCE sign-in is available in the
-[repository release](https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0)
-for authorized collaborators. See [installation](docs/installation.md).
+For players improving after a raid, raid leaders reviewing assignments, and
+parsers who want to inspect the exact numbers. Start with what deserves attention;
+open the evidence when you want to investigate.
 
-## Install with one command
+## From a log to your next pull
 
-With [uv](https://docs.astral.sh/uv/getting-started/installation/) and
-[Git](https://git-scm.com/downloads) installed, paste this into PowerShell:
+| Your question | Where to start |
+|---|---|
+| What should I work on first? | The raid overview brings existing findings to the front, ordered by severity |
+| What should I do on this boss? | **Playbook** puts actions and your next-pull plan before supporting detail |
+| Is this under my control? | Findings distinguish execution, gear/build, pets, raid assignments and external context |
+| How do appropriate players compare? | **Report** exposes same-faction comparisons, class/category context and individual sources |
+| How certain is this? | Confidence, limited samples, unknown values and coverage remain visible |
+| Why was this flagged? | Expand the explanation and evidence; inspect exact measurements and WCL source links |
 
-```powershell
-uv tool install --python 3.14 "git+https://github.com/David-c0degeek/necropsy.git@v0.1.0"
-```
+![Necropsy Playbook showing practical boss guidance with supporting evidence available below](docs/images/playbook.png)
 
-Git must be signed in to a GitHub account with access to this private repository.
-Then run `necropsy auth login` to connect your Warcraft Logs account.
-If `necropsy` is not recognized, run `uv tool update-shell` and open a new terminal.
-See [installation](docs/installation.md) for setup and troubleshooting.
+The generated pages work directly from disk, with no server or automatic network
+requests. Dark and light themes, restrained class identity, boss search and local
+review marks make repeat review practical on desktop and mobile. Following a WCL
+source link opens the online source deliberately.
 
-## Your first analysis
+## Try it in two commands
 
-From the repository root, with [uv](https://docs.astral.sh/uv/) installed:
+From a repository checkout, with [uv](https://docs.astral.sh/uv/) installed:
 
 ```sh
 uv sync --locked
 uv run necropsy offline tests/fixtures/haplina_naxx_subset.zip --out workspace/demo
 ```
 
-Open **`workspace/demo/report.html`** in your browser; `playbook.html` next to it
-is the review list. This small sample covers four bosses and runs without WCL
-credentials or the full Git LFS fixture. This sample command and the pages make
-no network requests; dependency installation can.
+Open **`workspace/demo/playbook.html`** to plan improvements, or
+**`workspace/demo/report.html`** to investigate. The included Hunter sample covers
+four Naxxramas bosses. It needs no WCL login, no full Git LFS fixture and no network
+after dependency installation. Small samples and unknown values are part of the
+real output.
 
-For your own supported export, substitute its ZIP path.
-[Getting started](docs/getting-started.md) explains the format, database reuse,
-and common errors.
+Python 3.14 or newer is required; uv can provision it. Repository access is
+required for this private development project. For installation outside a
+checkout, use the [released CLI installation guide](docs/installation.md).
+The screenshots on this branch show the current redesign; an older tagged
+release may have the previous interface.
 
-To acquire your own logs, first [configure and sign in to WCL](docs/warcraft-logs.md),
-then use an output directory without earlier results:
+## Analyze your character
+
+Sign in with your own Warcraft Logs account, then use a fresh output directory:
 
 ```sh
+uv run necropsy auth login
 uv run necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache workspace/wcl-cache --out workspace/my-run
 ```
 
-Acquisition uses the network and requires a supported Classic Era character URL on
-`vanilla.warcraftlogs.com`. Check its coverage summary: exit 4 means a report
-was written with partial coverage. The saved snapshot and pages work offline.
+Use a Classic Era character URL on `vanilla.warcraftlogs.com`. An interactive
+terminal asks for faction and spec/category; scripts can pass `--faction` and
+`--spec` explicitly. Public sign-in requires `--endpoint user`.
+[Connection and recovery](docs/warcraft-logs.md) explains permissions and coverage.
 
-## What you get
+Acquisition uses the network and saves a snapshot. The resulting **Playbook**,
+**Report**, **`analysis.json`** and optional ZIP package remain useful offline.
+Exit status `4` means results were written with partial coverage; read those
+limitations before interpreting findings. These are saved analyses, not live
+dashboards.
 
-| Question | Where Necropsy helps |
+## Supported today
+
+**Classic Era · Naxxramas · all nine classes.** Analysis follows the selected WCL
+ranking category and evidenced encounter duty. Category labels are not talent
+diagnoses, and healing or tanking numbers are not universal quality scores.
+
+| Class | WCL ranking categories |
 |---|---|
-| How does my execution compare? | Same-faction shot cadence, pet DPS, build and gear comparisons |
-| Does this leaderboard make a fair target? | Cohort size, inferred faction membership, and separate cross-faction context |
-| What happened on this boss? | Cast timelines, pet activity, crowd control, and damage by target |
-| Why is the kill-time gap so large? | Median and fastest same-faction comparisons, with the flag's basis shown |
-| What should I investigate next? | Recommendations grouped by what you control, with confidence and evidence links |
+| Druid | Balance, Feral, Guardian (Tank), Restoration |
+| Hunter | Marksmanship; legacy all-category exports |
+| Mage | Fire, Frost |
+| Paladin | Holy, Protection, Retribution |
+| Priest | Holy, Shadow |
+| Rogue | Assassination |
+| Shaman | Elemental, Enhancement, Restoration |
+| Warlock | Destruction |
+| Warrior | Fury, Protection |
 
-An unknown value stays unknown. A small comparison sample stays visible.
-Heuristic advice is a prompt to investigate, not a promise of extra DPS.
-[Learn how to read the results →](docs/reading-results.md)
+Hunter has dedicated shot, pet and weaving analysis. Druid and other class views
+include role-aware measurements, ability use and recorded practice examples.
+The exact [class support and validation boundaries](docs/class-analysis.md)
+distinguish synthetic checks from real-log evidence, including the outstanding
+real Holy Priest healing fixture. A supported category does not imply every
+rotation or assignment has been independently validated.
 
-## Find your way
+Windows is the verified end-user installation target. Linux has automated
+installation/offline checks; real credential-store support there and macOS
+remain unverified. Other raids, game variants and a native desktop launcher are
+[future work](docs/roadmap.md).
 
-| I want to… | Start here |
+## Trust the evidence, including its limits
+
+Unknown stays unknown. A median needs at least three known measurements;
+individual sources remain useful without becoming an authoritative baseline.
+Inferred faction or duty stays labelled. Cross-faction context never replaces the
+appropriate same-faction comparison. Recommendations retain their evidence and
+do not promise a DPS/HPS gain or invent an overall player score.
+
+[How to read a finding](docs/reading-results.md) ·
+[Evidence model](docs/evidence-model.md)
+
+## Explore further
+
+| I want to… | Guide |
 |---|---|
-| Run an analysis or solve a setup problem | [Getting started](docs/getting-started.md) |
-| Understand benchmarks and recommendations | [Reading results](docs/reading-results.md) |
-| Sign in to WCL or resolve a character URL | [Warcraft Logs connection](docs/warcraft-logs.md) |
-| Consume the JSON output | [Analysis JSON](docs/analysis-json.md) |
-| Inspect events, coverage, or evidence | [Evidence model](docs/evidence-model.md) · [Database](docs/database.md) |
-| Understand authentication and system design | [Auth boundaries](docs/auth.md) · [Architecture](docs/architecture.md) · [Decisions](docs/decisions/README.md) |
-| Understand Hunter-specific rules | [Hunter analysis](docs/hunter-analysis.md) |
-| Develop or review a change | [Contributing](CONTRIBUTING.md) |
-| See what is coming next | [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md) |
+| Get my first working analysis | [Getting started](docs/getting-started.md) |
+| Understand comparisons, confidence or missing data | [Reading results](docs/reading-results.md) |
+| Connect my account or recover acquisition | [Warcraft Logs connection](docs/warcraft-logs.md) |
+| Select a class, category or encounter role | [Class analysis](docs/class-analysis.md) |
+| Consume the data or verify a finding | [Analysis JSON](docs/analysis-json.md) · [Evidence model](docs/evidence-model.md) |
+| Develop or review a change | [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md) |
 
-This is a private development project. The full golden fixture contains real
-player logs and is available to authorized collaborators. Its
-[provenance record](tests/golden/haplina_naxx/PROVENANCE.md) documents the source
-files. Keep credentials and private exports out of issues and patches.
+Under the surface, Python performs analysis, `analysis.json` preserves the result,
+and Jinja renders self-contained HTML with local CSS and JavaScript. The browser
+does not recompute analytical truth. Snapshots and packages retain source
+provenance; [the architecture guide](docs/architecture.md) describes the contracts.
 
-Druids select `--category Balance`, `Feral`, `Guardian` or `Restoration`; [Druid analysis](docs/druid-analysis.md) explains role inference, appropriate comparisons and assignment overrides. [Validation](docs/druid-validation.md) distinguishes observed runs from remaining domain acceptance.
+Logs and generated output can contain real player identities. The full golden
+fixture is available to authorized collaborators; its
+[provenance record](tests/golden/haplina_naxx/PROVENANCE.md) identifies the inputs.
 
-Use `--category Balance --metric hps` for Balance-category healing performances.
-
-Choose `--spec Balance`, `Restoration`, `Feral` or `Tank` to view that spec across
-all bosses. Missing personal encounters remain visible with an explanation and
-eligible top-player learning examples; examples never become personal grades.
-
-See [class analysis](docs/class-analysis.md) for supported ranking categories, role selection and class-specific execution/ability comparisons.
+[Documentation home](docs/README.md) · [Changelog](CHANGELOG.md) · [Roadmap](docs/roadmap.md)

@@ -2,134 +2,184 @@
 
 [Home](../README.md) · [Documentation](README.md) · [JSON reference](analysis-json.md)
 
-Check the subject and snapshot, then the boss's comparison sample, then its
-recommendations. Use the evidence to decide how much weight to give a finding.
-`report.html` and `playbook.html` show the same content; this guide names the
-`analysis.json` fields behind each part.
+Start with **what to change**, then ask **why**. Necropsy keeps the measurements,
+comparison players and source evidence behind each finding so you can decide
+whether the advice fits your raid.
 
-Both pages retain the same boss review structure: metric tiles, benchmark
-context, loadout and execution plans, **Do not**, **Raid ask**, your full gear,
-the comparison cohort table, and full gear cards for those Hunters. Historical
-exports show the recorded overall top five; live snapshots show acquired Hunters.
-The report adds execution, target-share, raid-speed and evidence drilldowns;
-the playbook adds the review checklist. Overall rows remain context, while
-same-faction data drives the primary comparison.
+The useful path is: **overview → priority → boss → action → explanation → evidence**.
 
-The overview includes global setup, faction corrections, the Truth model and
-an at-a-glance raid sheet. **Current %** is the percentile against the rankings
-at export time (`today_percent`), rather than a live update. **Ammo** and cited
-encounter knowledge are general game advice; they do not establish what this
-Hunter equipped or which phase a log event belongs to. Source links open online
-only when you follow them; rendering and browsing the pages make no automatic
-network requests.
+## Choose your view
+
+| View | Your question | How to use it |
+|---|---|---|
+| **Playbook** | What should I work on next? | Read the priorities, choose a boss, use the practical plan and mark your review locally |
+| **Report** | What happened, and why was it flagged? | Investigate comparisons, execution, equipment, targets, timelines and detailed evidence |
+
+Both pages describe the same saved `analysis.json`. They organize it for different
+tasks; switching views does not rerun analysis or update rankings. The same
+character and boss context stays visible.
+
+![Necropsy overview with character identity, actionable priorities and boss triage](images/overview.png)
+
+## Start with the overview
+
+Confirm the character, class/category, raid and saved snapshot. Check whether
+acquisition or comparison data is incomplete before treating any result as a
+raid-wide conclusion.
+
+The leading priorities summarize existing recommendations in severity order.
+One representative per finding type keeps repeated rules from occupying every slot.
+They are a starting point for review, not a predicted gain or an overall score.
+A high-severity finding with limited evidence still needs investigation.
+
+Use the boss overview and navigation to find an encounter. Boss state describes
+the available analysis: a flagged issue deserves attention, while partial or
+missing data limits what can be concluded. A boss without flagged findings has
+not been certified perfect. A review mark records your workflow, not improved
+performance.
+
+## Read a boss in a few seconds
+
+First check your available performance and comparison context. Then read the
+leading actions and **Next pull** guidance. Class-specific advice may include
+recorded openers, ability priorities, cooldown timing, loadout notes and encounter
+reminders.
+
+A recorded opener is an example of what a comparison player did, not proof of
+an optimal rotation. General encounter advice does not establish which mechanics
+or assignments your own log recorded.
+
+For each recommendation:
+
+1. **Action:** what to try or investigate.
+2. **Finding:** what was observed or inferred.
+3. **Severity and confidence:** priority and strength of evidence are separate.
+4. **Control:** whether this concerns execution, gear/build, pet management,
+   assignments, the raid environment, faction/external differences or RNG.
+5. **Explanation and evidence:** the values, limitations and sources behind it.
+
+Use **Raid help** for changes that need raid coordination. A kill-time gap,
+external buff or assignment is not automatically a personal execution failure.
+Recommendations never guarantee a DPS/HPS increase.
+
+![Your next pull: opening cycle, loadout and execution guidance from the actual sample](images/next-pull.png)
+
+## Read the quality labels
+
+| Label or concept | Meaning |
+|---|---|
+| **High / medium / low confidence** | The finding's heuristic evidence-quality tier, not a probability |
+| **Severity** | How strongly the existing rule prioritizes review, independent of confidence |
+| **Limited sample** | Few usable comparison sources; one or two can show individual values but cannot supply a median |
+| **Partial data / coverage incomplete** | Some requested inputs are missing or untrusted; read which streams or bosses are affected |
+| **Inferred** | A named rule suggests a value or identity; it was not directly recorded |
+| **Unknown / unavailable** | The available evidence cannot support a value; it is not zero |
+| **Not assessed** | There is no supported personal assessment for this boss/selection |
+| **Reviewed** | You marked the encounter in this browser; analytical findings are unchanged |
+
+A median requires **at least three known values for that particular measurement**.
+A three-value median still has a limited-sample label.
+Five names in a comparison table do not necessarily mean five usable event
+samples. Technical evidence calls this count `n_known`; `n_unknown` identifies
+entries whose value could not be established.
+
+In the detailed evidence, `observed` means recorded by an event or API field;
+`derived` means calculated from recorded values; `inferred` names a rule that
+can be wrong; `unknown` carries a null value and an explanation.
+[The evidence model](evidence-model.md) defines these precisely.
 
 ## Choose a fair comparison
 
-Top-level `subject`, `zone`, and `snapshot` identify the character, raid, and
-archive. `snapshot.scope` distinguishes a full export from a selected subset.
-The historical fixture records the overall top five per boss, not a separately
-fetched same-faction top five.
+The primary comparison uses the appropriate **same-faction** sample. Class,
+ranking category, metric and evidenced duty matter where the class analysis
+requires them. Known talent-build differences remain visible context.
 
-For a live snapshot, start with **Live acquisition coverage**. It lists every
-requested boss, including ones without an acquired fight or not attempted after
-a stop. Deep-event coverage is the sample used for event comparisons; metadata
-coverage includes those deep entries and adds context. Metadata-only rows do not
-increase a median's sample. A partial snapshot can still contain useful results.
-Only bosses with acquired fights have detailed analysis sections.
-
-Live acquisition seeks five verified same-faction event samples per boss and up
-to 25 metadata entries. The same-faction ceiling is limited to the acquired
-sample. An acquired row's position is its recorded overall leaderboard position;
-overall rank-one DPS can also come from verified saved leaderboard metadata.
-That scalar has its source/capture limitation shown and does not supply an event
-comparison or increase a median sample.
-Neither live mode nor **Current %** refreshes while you read the saved pages.
-
-| View | How to use it |
+| Comparison | What it tells you |
 |---|---|
-| Same-faction baseline | Median execution and adoption among your faction in the recorded cohort |
-| Same-faction ceiling | The best-ranked entry of that faction inside the recorded sample |
-| Tauren fill | A separate fallback for unavailable execution medians; advice using it has low confidence |
-| Cross-faction | Optional context from `--cross-faction`; it does not replace the baseline |
+| Same-faction median | The middle known measurement in the eligible acquired sample, when at least three values exist |
+| Best-ranked same-faction reference | A recorded comparison player; it is not automatically faction rank #1 |
+| Individual sources | Concrete examples, including when the sample is too small for a median |
+| Overall / cross-faction context | A separately labelled broader reference; it never replaces the primary sample |
+| Metadata-only ranking score | A saved leaderboard value, not event evidence or an extra median sample |
 
-A median needs **at least three known values**. Check `n_known` before comparing
-numbers. Tauren fill requires a proven Tauren race and trusted, complete
-`not-observed` Windfury evidence. It never fills kill time or weaving; only Aimed
-cadence and pet-DPS recommendations consume it. This fallback is independent of
-the optional cross-faction view. No logged Windfury proc does not establish that
-the buff could never have been available.
+Historical Hunter exports contain the recorded overall top five, with the
+same-faction group selected from those rows. Live acquisition seeks five verified
+same-faction event sources and up to 25 metadata entries per boss; it may obtain
+fewer. Deep-event coverage and metadata coverage therefore answer different
+questions.
 
-Faction can be inferred. That uncertainty carries through membership, medians,
-projected shot ranges, and the ceiling, and lowers recommendation confidence.
+Faction can be inferred. That uncertainty carries into membership, medians and
+recommendations; it must not be read as directly observed identity.
+Hunter's separately labelled **Tauren fill** can support limited Aimed cadence
+or pet-DPS advice at low confidence under its documented rules. It never fills
+kill time or weaving and is not a replacement for the primary baseline.
+[Hunter analysis](hunter-analysis.md) explains the limits.
 
-## Know what a value means
+Percentiles and **Current %** refer to saved ranking context at export time.
+They do not update while the page is open.
 
-| JSON level | Plain-language reading |
-|---|---|
-| `observed` | A log event or API field records it |
-| `derived` | Necropsy calculated it from recorded data |
-| `inferred` | A named rule suggests it; the rule can be wrong |
-| `unknown` | The available data cannot support an answer |
+## Investigate without losing the plan
 
-Unknown is **not zero**: `value` is `null`, with a `note` explaining why.
-Incomplete pet streams can prevent reliable DPS; a small sample can prevent a
-median.
+Open the relevant detail when a finding needs checking:
 
-`claim` adds another distinction. A `value` claim describes what is present.
-A `complete` claim depends on complete, trusted coverage, including statements
-that something did not happen. A subject's 0% target share is coverage-backed
-absence of damage, rather than missing data.
-[The evidence model](evidence-model.md) defines the exact contract.
+- **Execution and ability use:** exact counts, uses per minute and recorded
+  cooldown timing. Passive ticks and pet actions stay separate from actor casts.
+- **Gear and loadout:** your recorded equipment versus the reference, with
+  missing slots or enchants left explicit.
+- **Targets and timelines:** when and where events occurred, including
+  encounter target classifications.
+- **Comparison players:** complete recorded sources, sample limits and WCL links.
+- **Evidence and coverage:** claim levels, source paths, acquisition limitations
+  and the exact supporting facts.
 
-## Read the boss context first
+A positive or zero value has different implications from absence of data.
+Whole-fight counts and claims that something did not happen require trusted,
+complete coverage. A partial event stream can still show an event that did happen.
+The technical `claim` values are `value` and `complete`.
 
-**Kill time.** `benchmarks.raid_speed` compares with both the same-faction median
-and the fastest same-faction kill. A flag uses the median at 1.5× when at least
-three kill times are known; otherwise it uses the fastest kill at 2.0×. Fastest
-means shortest duration, separate from the best-ranked DPS ceiling. Both views
-remain present when no flag fires. The ratio does not identify a cause.
+Report-specific analysis includes Hunter Auto Shot gap signals, ranked target
+shares and raid-speed context. An Auto Shot gap is not a diagnosed clip.
+A kill-time ratio does not establish its cause. Target-share zero requires
+coverage-backed absence; missing targets are not automatically zero.
 
-**Weaving.** Adoption has separate `boss` and `non_boss` roles. Non-boss means
-other hostile NPCs, including encounter adds and trash. Counts matter: two out
-of five using Raptor Strike does not meet the 50% heuristic threshold. Unresolved
-identity or side, or a non-NPC target, makes role counts unknown.
+For exact fields and evidence paths, open [analysis.json reference](analysis-json.md).
+The file is the analytical source of truth; the interface only presents it.
 
-**Damage targets.** `ranking.by_target` retains individual targets and their
-`counted`, `excluded`, `own`, or `unclassifiable` ranking categories.
-`encounter.ranked_target_shares` compares stable NPC identities, retains alternate
-labels as aliases, and groups player and pet damage into clearly named categories.
-Check `n_known` and `n_unknown`; incomplete fights do not contribute invented
-zeros. Ranking exclusions are empirical rules validated against recorded
-rankings, rather than documented WCL guarantees.
+## Class, category and role are different
 
-**Gothik's trash.** Target integrity separates native units, start trash, and
-foreign targets. Spirit of Naxxramas is start trash in the recorded classification
-and does not count as foreign padding. Missing identity makes the split unknown.
+WCL category labels select ranking context; they do not diagnose a talent tree
+or prove an assignment. Druids keep build, category, observed activity and
+inferred duty separate. Other class views follow the same conservative boundary.
 
-**Assignments and pets.** Friendly crowd control can provide context for lost shot
-windows. Pet death or an early end to damage deserves a review of mechanics and
-assignments. An Auto Shot gap is an advisory signal, not a diagnosed clip.
+A selected-spec view keeps requested bosses visible. Missing personal data can
+be accompanied by an eligible player's recorded learning example. That example
+does not create your own grade, performance gap or baseline. An unqueried boss
+says not assessed rather than claiming you never played that role.
 
-## Turn recommendations into a review list
+HPS and overheal do not establish healing quality. Tank-category DPS does not
+establish survival or threat. Mixed, uncertain or incomplete duties can prevent
+an aggregate comparison. See [class analysis](class-analysis.md) and
+[Druid analysis](druid-analysis.md).
 
-Each recommendation includes a finding, a suggested action, confidence,
-limitations, and `evidence` paths into the same boss section. Follow those paths
-before deciding what to change.
+## Review, return and share
 
-`controllability` separates execution, gear/build, pets, raid assignments,
-raid speed/environment, faction/racial/external differences, and RNG context.
-Confidence (`high`, `medium`, `low`) is a heuristic evidence-quality tier, not a
-probability. Severity is a separate tier. Recommendations do not estimate a
-guaranteed DPS gain.
+<img src="images/mobile.png" alt="The same Necropsy overview on a narrow phone screen, with compact boss navigation and readable priorities" width="390">
 
-[Explore the output fields and schema →](analysis-json.md)
+Use boss search and the encounter filter (**With findings**, **Limited comparisons**,
+**Reviewed**, **Not reviewed**) to narrow navigation. Filters leave the analytical
+sections intact. The view switcher keeps the current boss context. The two leading
+Hunter actions are visible; **more findings** exposes every remaining action.
+Boss shortcuts jump directly to **Next pull**, comparison and evidence. Review marks
+are local to the browser and this exact analysis. Theme preference is also local;
+neither setting changes `analysis.json`. Browser storage restrictions or clearing
+site data can remove those preferences.
 
-## Druid roles
+The pages are offline snapshots. Opening them makes no automatic remote
+requests; following an external source link is a deliberate online action.
+Print expands the supporting detail and removes unnecessary controls.
 
-Druid pages separate build, ranking category, observed activity and inferred fight duty. Their practice opener is a recorded example, not an optimal rotation. Exact role/build/category comparisons require three known values; mixed/uncertain duties decline aggregate comparisons. Overheal/HPS never establishes healing quality; tank category DPS never establishes survival or threat. See [Druid analysis](druid-analysis.md) for measurement and assignment limits.
+The ZIP includes both pages, analysis JSON, evidence and CSV tables. It contains
+player identities, so share it only where the source logs may be shared.
 
-The selected spec filters personal analysis across all requested bosses. Missing
-personal data is labelled; unqueried bosses say not assessed. A separate learning
-card can show an eligible top player's recorded opening and measurements. Its
-leaderboard position is shown exactly, and it does not create a personal grade,
-gap or baseline. Rank-one category metadata alone cannot supply execution advice.
+[Connect Warcraft Logs](warcraft-logs.md) · [Evidence model](evidence-model.md) ·
+[Documentation home](README.md)

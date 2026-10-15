@@ -2,46 +2,11 @@
 {% from "macros.html.j2" import val, card %}
 {% block title %}Report · {{ doc.title }} · Necropsy{% endblock %}
 {% block main %}
-<section id="overview" class="hero" aria-labelledby="overview-title">
-  <div class="eyebrow">Hunter forensics · faction-aware comparisons</div>
-  <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} report</h1>
-  <p class="lede">{{ doc.realm }} · {{ doc.mode }} mode · {% if doc.mode == "live" %}recorded{% else %}{{ doc.scope }}{% endif %} snapshot · {{ doc.total_cards }} findings across {{ doc.bosses|length }} {% if doc.mode == "live" %}analysed {% endif %}bosses</p>
-  <p class="caveat">{% if doc.mode == "live" %}Compared with acquired players of your faction. Deep-event comparisons use up to five fights per boss; metadata-only rows are context.{% else %}Compared with players of your faction inside the recorded top five per boss — a small sample, not a full leaderboard.{% endif %}</p>
-  <div class="badges">{% for badge in doc.reference.badges %}<span class="badge">{{ badge }}</span>{% endfor %}</div>
-</section>
+{% include "overview.html.j2" %}
+<details class="raid-reference"><summary>Raid preparation, faction context and full raid measurements</summary><div>
 {% include "reference-overview.html.j2" %}
-<section class="global" aria-label="Snapshot and review overview">
-  <div class="disclosures">
-    <details>
-      <summary>How this comparison was formed</summary>
-      <div><ul>{% for l in doc.limitations %}<li>{{ l }}</li>{% endfor %}</ul></div>
-    </details>
-    <details>
-      <summary>Snapshot and coverage</summary>
-      <div><dl class="kv">
-        <dt>Archive SHA-256</dt><dd><code>{{ doc.archive_sha }}</code></dd>
-        <dt>Cross-faction view</dt><dd>{{ "included" if doc.cross_faction else "not included" }}</dd>
-        {% for k, v in doc.coverage %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}
-      </dl></div>
-    </details>
-  </div>
-  <h2 class="section-title">Bosses at a glance</h2>
-  <div class="table-wrap" role="region" aria-label="Bosses at a glance" tabindex="0">
-    <table class="overview-table stack">
-      <caption>What to review per boss, who can act on it, and what the data could not compare.</caption>
-      <thead><tr><th scope="col">Boss</th><th scope="col">To review</th><th scope="col">Data notes</th></tr></thead>
-      <tbody>
-      {% for boss in doc.bosses %}
-        <tr>
-          <th scope="row"><a href="#{{ boss.anchor }}">{{ boss.name }}</a></th>
-          <td data-label="To review">{% if boss.cards %}<b>{{ boss.cards|length }}</b> — {% for name, n in boss.counts_by_control %}{{ name }} {{ n }}{% if not loop.last %} · {% endif %}{% endfor %}{% else %}Nothing flagged{% endif %}</td>
-          <td data-label="Data notes">{{ boss.limit_summary }}</td>
-        </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</section>
+</div></details>
+<p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span> <button type="button" id="reset-reviews">Clear review marks</button></p>
 
 {% for boss in doc.bosses %}
 <section class="boss" id="{{ boss.anchor }}" aria-labelledby="{{ boss.anchor }}-title">
@@ -51,14 +16,8 @@
   <div class="panel limits"><h3>Data limits</h3><ul>{% for l in boss.limits %}<li>{{ l }}</li>{% endfor %}</ul></div>
   {% endif %}
 
-  <h3 class="section-title">Findings</h3>
-  {% if boss.cards %}
-  <div class="cards">{% for c in boss.cards %}{{ card(c) }}{% endfor %}</div>
-  {% elif boss.has_subject %}
-  <p class="muted">No finding passed its rule on this boss. That is not proof nothing could improve; see the comparisons below.</p>
-  {% endif %}
-
   {% if boss.has_subject %}
+  <details class="forensic-details"><summary>Investigate execution, targets and comparisons</summary><div>
   <h3 class="section-title">Execution</h3>
   <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Execution: shot rates" tabindex="0">
     <table>
@@ -207,6 +166,7 @@
       </table>
     </div>
   </details>
+  </div></details>
   {% endif %}
 </section>
 {% endfor %}

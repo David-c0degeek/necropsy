@@ -139,6 +139,13 @@ and a checksum manifest. It does not contain the raw snapshot or DuckDB database
 
 ## Source map
 
+The browser experience keeps Python/Jinja rendering and embeds CSS/JavaScript in
+each page. `render/experience.py` supplies conservative overview/triage summaries
+of saved findings; class and Hunter views supply their existing specialized
+evidence. Templates present actions, comparisons and native disclosures.
+JavaScript handles navigation, theme, local reviews and print expansion only.
+See [product design](product-design.md) for tokens, components and screenshot upkeep.
+
 | Responsibility | Implementation |
 |---|---|
 | Commands and workflow | [CLI](../src/necropsy/cli.py), [live orchestration](../src/necropsy/wcl/analyze.py) |

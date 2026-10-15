@@ -5,6 +5,24 @@
 Notable user-facing and developer changes. Versioned entries describe repository
 releases; future development changes appear under **Unreleased** when present.
 
+## Unreleased
+
+### Changed
+
+- Rebuilt the generated application around character identity, a severity-ordered
+  shortlist of existing findings, boss triage and an action → explanation → evidence
+  workflow. Playbook emphasizes preparation; Report emphasizes investigation.
+- Added composable class, faction and raid styling, an original geometric brand,
+  intentionally designed dark/light surfaces and compact mobile navigation.
+  No remote assets, fonts, dependencies or automatic requests were added.
+- Added encounter filters for findings, limited comparisons and local review state.
+  View switching retains the current boss; evidence jumps reveal nested details.
+  Full cohorts, gear, timelines, analytical limitations and print expansion remain.
+- Reworked the product README, onboarding, documentation navigation and result-reading
+  guide with screenshots captured from actual generated sample output.
+
+Analytical rules, JSON schema, saved evidence and output filenames are unchanged.
+
 ## [0.1.0] - 2026-10-15
 
 ### Added

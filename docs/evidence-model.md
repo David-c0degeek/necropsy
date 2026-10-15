@@ -33,6 +33,26 @@ Rules:
   coverage decisions (`has_complete_coverage`, see `docs/database.md`). Events
   seen in an incomplete stream are still reported as a partial VALUE claim.
 
+## How the interface names these concepts
+
+| Player-facing label | Technical meaning |
+|---|---|
+| Calculated | `derived`; a deterministic calculation, not an observation |
+| Inferred faction | The subject's faction evidence is inferred; a colored badge does not upgrade it |
+| Limited sample | A small comparison group; the overview flags fewer than four entries, while each metric has its own `n_known` |
+| No reliable comparison | No eligible baseline entries; this does not erase observed personal data |
+| Some comparisons unavailable | At least one saved median is unknown despite available entries |
+| Coverage needs review | Incomplete streams, snapshot issues, anomalies or acquisition shortfalls are recorded; inspect the actual causes |
+| Not assessed | No matching personal encounter in the selected view |
+| No finding flagged | No saved recommendation, not proof of complete assessment or perfect execution |
+| Reviewed locally | A browser annotation keyed to the analysis, not analytical evidence |
+
+A median still requires **three known measurements**. A three-value median can
+be displayed while remaining a limited sample. Comparison entry counts are not
+interchangeable with metric-specific known counts. The overview groups existing
+recommendations by rule and orders by their existing severity, preserving
+confidence, control and limitations. It does not assign a player score.
+
 ## Faction
 
 OBSERVED from the `combatantinfo` event or the report's `combatantInfo.factionID`

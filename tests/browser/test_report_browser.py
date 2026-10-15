@@ -93,10 +93,10 @@ def test_desktop_navigation_between_report_and_playbook(page: Any, site: Path) -
     page.locator("nav.sidenav a", has_text="Gothik").click()
     assert page.url.endswith("#boss-51109")
     page.locator("nav.switch a", has_text="Playbook").click()
-    assert page.url.endswith("playbook.html")
-    assert page.locator("h1").inner_text().endswith("playbook")
+    assert page.url.endswith("playbook.html#boss-51109")
+    assert page.locator("h1").inner_text().lower().endswith("playbook")
     page.locator("nav.switch a", has_text="Report").click()
-    assert page.url.endswith("report.html")
+    assert page.url.endswith("report.html#boss-51109")
     watch.check()
 
 
@@ -156,6 +156,9 @@ def test_print_opens_disclosures_and_restores_them(page: Any, site: Path) -> Non
     assert states == before
     page.emulate_media(media="print")
     assert not page.locator("#theme-toggle").is_visible()
+    assert page.locator(".severity-label").first.evaluate(
+        "el => getComputedStyle(el).color"
+    ) == "rgb(34, 34, 34)"
 
 
 def test_compact_picker_works_without_a_select(browser: Any, site: Path) -> None:
@@ -237,6 +240,7 @@ def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, na
     document = json.loads((site / "analysis.json").read_bytes())
     watch = _Watch(page)
     page.goto((site / name).as_uri())
+    page.locator("details.raid-reference > summary").click()
     for heading in (
         "Global setup",
         "Corrections that matter after faction normalization",
@@ -261,12 +265,14 @@ def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, na
     ]
     for boss in document["bosses"]:
         section = page.locator(f"#boss-{boss['encounter_id']}")
+        # Detailed contracts remain available through native disclosures.
+        section.evaluate("s => s.querySelectorAll('details').forEach(d => d.open = true)")
         for heading in (
             "Benchmark context",
             "Loadout plan",
             "Execution plan",
             "Do not",
-            "Raid ask",
+            "Raid help",
         ):
             assert section.get_by_role("heading", name=heading, exact=True).count() == 1
         assert section.locator(".quick-plan .plan-lines > dt").all_text_contents() == [
@@ -291,3 +297,105 @@ def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, na
         for card in cards.all():
             assert card.locator(".gear-grid > div").count() == 17
     watch.check()
+
+
+def test_product_priorities_filters_and_boss_review(page: Any, site: Path) -> None:
+    page.goto((site / "playbook.html").as_uri())
+    assert page.locator("html").get_attribute("data-class") == "hunter"
+    assert page.locator("html").get_attribute("data-raid") == "naxxramas"
+    assert page.locator(".priority-list > li").count() == 3
+    assert page.locator(".raid-reference").evaluate("d => !d.open")
+    assert page.locator(".cohort-details[open]").count() == 0
+    first_boss = page.locator("section.boss").first
+    assert first_boss.locator(".boss-actions > .cards > .card").count() == 2
+    first_boss.locator(".done input").check()
+    page.locator("#boss-filter").select_option("reviewed")
+    assert page.locator(".sidenav li[data-boss-name]:visible").count() == 1
+    assert "Reviewed locally" in page.locator(".triage-row").first.inner_text()
+    page.reload()
+    assert first_boss.locator(".done input").is_checked()
+    page.locator("#boss-filter").select_option("unreviewed")
+    assert page.locator(".sidenav li[data-boss-name]:visible").count() == 3
+    page.locator("#boss-filter").select_option("limited")
+    assert page.locator(".sidenav li[data-boss-name]:visible").count() == 3
+    page.locator("#boss-search").fill("no such boss")
+    assert "No matching bosses" in page.locator("#nav-results").inner_text()
+    assert page.locator("section.boss").count() == 4  # Filters never remove evidence.
+
+
+@pytest.mark.parametrize("width", [390, 900, 1280, 1440])
+def test_product_light_reduced_motion_and_expanded_layout(
+    browser: Any, site: Path, width: int
+) -> None:
+    context = browser.new_context(viewport={"width": width, "height": 900}, reduced_motion="reduce")
+    page = context.new_page()
+    watch = _Watch(page)
+    page.goto((site / "report.html").as_uri())
+    page.locator("#theme-toggle").click()
+    assert page.locator("html").get_attribute("data-theme") == "light"
+    assert page.locator(".character-name").is_visible()
+    assert page.evaluate("matchMedia('(prefers-reduced-motion: reduce)').matches")
+    page.evaluate("document.querySelectorAll('details').forEach(d => d.open = true)")
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+    watch.check()
+    context.close()
+
+
+def test_no_javascript_preserves_coaching_and_native_evidence(browser: Any, site: Path) -> None:
+    context = browser.new_context(java_script_enabled=False, viewport=MOBILE)
+    page = context.new_page()
+    page.goto((site / "playbook.html").as_uri())
+    assert page.locator(".priority-list").is_visible()
+    boss = page.locator("section.boss").first
+    disclosure = boss.locator(".action-evidence").first
+    disclosure.locator(":scope > summary").click()
+    assert disclosure.get_attribute("open") is not None
+    assert boss.locator(".quick-plan").is_visible()
+    assert page.locator(".switch a").count() == 2
+    context.close()
+
+
+def test_keyboard_reveals_nested_evidence_destination(page: Any, site: Path) -> None:
+    page.goto((site / "report.html").as_uri())
+    link = page.locator(".sidenav a[href='#truth-model']")
+    link.focus()
+    page.keyboard.press("Enter")
+    assert page.locator(".raid-reference").evaluate("d => d.open")
+    assert page.locator("#truth-model-title").is_visible()
+    assert page.evaluate("document.activeElement.id") == "truth-model-title"
+    action_link = page.locator(".boss-jumps a[href$='-actions']").first
+    action_link.focus()
+    page.keyboard.press("Enter")
+    assert page.locator(".boss-actions h3").first.evaluate(
+        "el => document.activeElement === el"
+    )
+
+
+def test_all_class_accents_have_readable_dark_and_light_contrast(page: Any, site: Path) -> None:
+    page.goto((site / "report.html").as_uri())
+    ratios = page.evaluate("""() => {
+      const root = document.documentElement;
+      const probe = document.createElement('span');
+      probe.style.background = 'var(--surface-panel)';
+      document.body.appendChild(probe);
+      function luminance(color) {
+        const values = color.match(/[\\d.]+/g).slice(0,3).map(Number).map(v => {
+          v /= 255; return v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4;
+        });
+        return values[0] * .2126 + values[1] * .7152 + values[2] * .0722;
+      }
+      const results = [];
+      for (const mode of ['dark','light']) {
+        root.dataset.theme = mode;
+        for (const cls of ['hunter','druid','mage','warrior','paladin','priest',
+                           'shaman','rogue','warlock','unrecognized']) {
+          root.dataset.class = cls;
+          const character = document.querySelector('.character-name');
+          const foreground = luminance(getComputedStyle(character).color);
+          const background = luminance(getComputedStyle(probe).backgroundColor);
+          results.push([mode,cls,(Math.max(foreground,background)+.05)/(Math.min(foreground,background)+.05)]);
+        }
+      }
+      probe.remove(); return results;
+    }""")
+    assert all(ratio >= 4.5 for _, _, ratio in ratios), ratios

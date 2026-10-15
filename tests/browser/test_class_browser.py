@@ -41,6 +41,9 @@ def test_class_pages_have_ability_execution_sources_and_shared_interactions(
                 )
                 page.goto((out / (name + ".html")).as_uri())
                 boss = page.locator("section.boss")
+                preparation = boss.locator("details.preparation-details")
+                if not preparation.evaluate("d => d.open"):
+                    preparation.locator(":scope > summary").click()
                 execution = boss.locator(".grid.two").first.locator("article").nth(1)
                 assert "Opener" in execution.locator("dt").all_text_contents()
                 assert ability in execution.locator("dt").all_text_contents()

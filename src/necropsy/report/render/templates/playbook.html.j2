@@ -2,34 +2,11 @@
 {% from "macros.html.j2" import val, card %}
 {% block title %}Playbook · {{ doc.title }} · Necropsy{% endblock %}
 {% block main %}
-<section id="overview" class="hero" aria-labelledby="overview-title">
-  <div class="eyebrow">Hunter parse playbook · faction-aware comparisons</div>
-  <h1 id="overview-title" tabindex="-1">{{ doc.character }} — {{ doc.zone }} playbook</h1>
-  <p class="lede">A boss-by-boss review list built only from findings the evidence supports.</p>
-  <p class="caveat">{% if doc.mode == "live" %}Live snapshot: compared with acquired players of your faction. Metadata-only rows are context, not complete event analyses.{% else %}Compared with players of your faction inside the recorded top five per boss.{% endif %} Advice is a prompt to investigate, not a promise of extra DPS.</p>
-  <div class="badges">{% for badge in doc.reference.badges %}<span class="badge">{{ badge }}</span>{% endfor %}</div>
-</section>
+{% include "overview.html.j2" %}
+<details class="raid-reference"><summary>Raid preparation, faction context and full raid measurements</summary><div>
 {% include "reference-overview.html.j2" %}
-<section class="global" aria-label="How to review">
-  <div class="disclosures">
-    <details>
-      <summary>How to use this playbook</summary>
-      <div><ul>
-        <li><b>Things to review</b>: a rule found a gap; read the finding and its evidence first.</li>
-        <li><b>No change flagged</b>: the data is known and no rule found a gap.</li>
-        <li><b>Partial evidence — no change flagged</b>: some data is known and no rule fired; the unknown rows say what is missing.</li>
-        <li><b>Insufficient evidence</b>: the data needed for this group is missing.</li>
-      </ul></div>
-    </details>
-    <details>
-      <summary>How this comparison was formed</summary>
-      <div><ul>{% for l in doc.limitations %}<li>{{ l }}</li>{% endfor %}</ul></div>
-    </details>
-  </div>
-  <p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span>
-    <button type="button" id="reset-reviews">Clear review marks</button></p>
-</section>
-
+</div></details>
+<p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span> <button type="button" id="reset-reviews">Clear review marks</button></p>
 {% for boss in doc.bosses %}
 {% set boss_number = loop.index %}
 <section class="boss" id="{{ boss.anchor }}" aria-labelledby="{{ boss.anchor }}-title">
@@ -53,7 +30,7 @@
       </table>
     </div>
     {% endif %}
-    {% if g.cards %}<div class="cards">{% for c in g.cards %}{{ card(c, review=True) }}{% endfor %}</div>{% endif %}
+
   </section>
   {% endfor %}
   </div></details>
