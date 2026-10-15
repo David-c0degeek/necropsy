@@ -10,7 +10,7 @@ No Git, GitHub account or Python experience is required.
 Windows PowerShell:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
+& { $ErrorActionPreference = 'Stop'; $setup = Join-Path $env:TEMP ('necropsy-setup-' + [guid]::NewGuid() + '.ps1'); Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 -OutFile $setup -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File $setup; if ($LASTEXITCODE -ne 0) { throw 'Necropsy setup failed. See the message above.' } }
 ```
 
 macOS Terminal:
@@ -38,8 +38,8 @@ used. Private/archived WCL reports still depend on your account's permissions.
 
 Setup creates an app shortcut/launcher. Next time open it, or run `necropsy`.
 Repeating setup updates the app while preserving saved data and sign-in.
-Version 0.2.0 includes the TUI and installers. The v0.1.0 release predates the
-redesign; locally built 0.1.1 added CLI resume/progress. Published artifacts are
+Version 0.2.1 corrects the Windows setup command; 0.2.0 introduced the TUI and
+installers. The v0.1.0 release predates the redesign; locally built 0.1.1 added CLI resume/progress. Published artifacts are
 listed on the [releases page](https://github.com/David-c0degeek/necropsy/releases).
 
 Advanced CLI commands remain available through `necropsy --help`, including

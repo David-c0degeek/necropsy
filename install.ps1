@@ -14,7 +14,7 @@ if ($PSVersionTable.PSVersion.Major -lt 6) {
     # Load the host's own security module so Astral's policy check works there.
     Import-Module (Join-Path $PSHOME 'Modules\Microsoft.PowerShell.Security') -Force
 }
-$necropsyVersion = '0.2.0'
+$necropsyVersion = '0.2.1'
 $releaseBase = "https://github.com/David-c0degeek/necropsy/releases/download/v$necropsyVersion"
 $wheelName = "necropsy-$necropsyVersion-py3-none-any.whl"
 $uvVersion = '0.11.21'

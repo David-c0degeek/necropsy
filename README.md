@@ -43,7 +43,7 @@ Git, Python, uv, a GitHub account or an administrator account to get started.
 **Windows** — press Start, type **PowerShell**, open it and paste:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
+& { $ErrorActionPreference = 'Stop'; $setup = Join-Path $env:TEMP ('necropsy-setup-' + [guid]::NewGuid() + '.ps1'); Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 -OutFile $setup -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File $setup; if ($LASTEXITCODE -ne 0) { throw 'Necropsy setup failed. See the message above.' } }
 ```
 
 **macOS** — press Command+Space, type **Terminal**, open it and paste:
