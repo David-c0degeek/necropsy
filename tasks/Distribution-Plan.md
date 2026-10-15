@@ -1,6 +1,6 @@
 # Distribution-Plan.md — Public-client PKCE and installable CLI first; no desktop UI in this plan
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Engineering implementation is in progress; real public registration, independent acceptance and publication remain explicit gates.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Completed and approved on 2026-10-15; v0.1.0 published through the existing private GitHub release channel. Retain this plan until human-owned archival.
 >
 > **Disposable.** The plan and its `tasks/distribution/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -264,7 +264,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | [x] | 02 | `tasks/distribution/02-pkce-sign-in.md` | DONE | agent: 3 | n/a |
 | [x] | 03 | `tasks/distribution/03-authorized-acquisition.md` | DONE | agent: 3 | n/a |
 | [x] | 04 | `tasks/distribution/04-installable-cli.md` | DONE | agent: 4 | n/a |
-| [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | PUBLICATION IN PROGRESS | agent: 2; product-owner: 1; release-engineer: 1 | yes |
+| [x] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | DONE | agent: 2; product-owner: 1; release-engineer: 1 | yes |
 
 ---
 
@@ -308,33 +308,33 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 > Run only when §5 is fully ticked. §7 is the engineering gate the agent
 > ticks; §8 is human acceptance that follows it.
 
-- [ ] All §5 subjects done (or explicitly `ABANDONED` with a §4 row)
-- [ ] Subject 00 completed, or explicitly waived/abandoned with a §4 row
-- [ ] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings
-- [ ] Test command from the §2 Verification-commands table passes; coverage gate met if the repo enforces one
-- [ ] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
-- [ ] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
-- [ ] §1 Risks-and-rollback table reviewed; rollback steps still accurate for what actually shipped
-- [ ] Cross-cutting principles from §6 reviewed; any plan-specific architecture tests/rules hold
-- [ ] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication or new parallel code where an existing surface fit (see §6.17)
-- [ ] New public surface added by this plan is wired to a non-test caller, or is explicitly disclosed as library-only/unwired (in the docs or a §4 decision) — no undisclosed dead surface shipped (see §6.17 "Wire or delete")
-- [ ] Every non-abandoned subject has a recorded Captain Hindsight checkpoint with verdict `CLOSE`
-- [ ] Every ticked box has a Progress-log entry and is covered by a pushed checkpoint commit
-- [ ] Durable architecture decisions promoted to the project's decision log / ADR file (see §4 ADR promotion)
-- [ ] Documentation-impact review done for every shipped box — user- and developer-facing docs updated to match shipped behaviour (see §6.16 for scope), or recorded `n/a` with a one-line reason
-- [ ] Current plan/integration branch is pushed (or the no-remote note from the Checkpoint gate applies); `git status --short` has no uncommitted plan/code changes except explicitly deferred or ignored artefacts
-- [ ] If Collaboration mode is `parallel`, the Parallel work tracker has no stale active owners, unmerged subject branches, or unresolved handoff notes
-- [ ] Shipped code/tests/comments/identifiers are plan-agnostic — grep the repo **excluding `tasks/`** for box IDs (`\b\d\d\.\d+\b`), decision IDs (`\bD\d{3}\b`), the literal `tasks/distribution/`, the plan filename `Distribution-Plan.md`, and `\bslices?\b`; zero hits after triaging false positives (version strings can match the box-ID pattern; "slice" may be a legit domain term). See §6.11
-- [ ] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/distribution/`, `Distribution-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
-- [ ] Branch names and public PR titles/descriptions are plan-agnostic if used
-- [ ] `tasks/distribution/manual-actions.md` — every human-owned box resolved or explicitly deferred
-- [ ] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see Purpose). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
-- [ ] `tasks/distribution/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/distribution/` folder is deleted (see Disposable note)
-- [ ] Official PKCE requirements and the registered public client are verified; no shared secret in source/config/artifacts.
-- [ ] Another account/machine installs and acquires using its own authorization; declared limitations and platform scope are accepted.
-- [ ] Hunter snapshot/JSON compatibility and offline no-credential workflows pass; public release has explicit human approval.
-- [ ] If subject 00 retains material PM risks, persist original predictions with owners before implementation; require terminal resolutions and observable Hindsight calibration before sign-off.
-- [ ] Plan handed to reviewer for §8 sign-off
+- [x] All §5 subjects done (or explicitly `ABANDONED` with a §4 row)
+- [x] Subject 00 completed, or explicitly waived/abandoned with a §4 row
+- [x] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings
+- [x] Test command from the §2 Verification-commands table passes; coverage gate met if the repo enforces one
+- [x] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
+- [x] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
+- [x] §1 Risks-and-rollback table reviewed; rollback steps still accurate for what actually shipped
+- [x] Cross-cutting principles from §6 reviewed; any plan-specific architecture tests/rules hold
+- [x] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication or new parallel code where an existing surface fit (see §6.17)
+- [x] New public surface added by this plan is wired to a non-test caller, or is explicitly disclosed as library-only/unwired (in the docs or a §4 decision) — no undisclosed dead surface shipped (see §6.17 "Wire or delete")
+- [x] Every non-abandoned subject has a recorded Captain Hindsight checkpoint with verdict `CLOSE`
+- [x] Every ticked box has a Progress-log entry and is covered by a pushed checkpoint commit
+- [x] Durable architecture decisions promoted to the project's decision log / ADR file (see §4 ADR promotion)
+- [x] Documentation-impact review done for every shipped box — user- and developer-facing docs updated to match shipped behaviour (see §6.16 for scope), or recorded `n/a` with a one-line reason
+- [x] Current plan/integration branch is pushed (or the no-remote note from the Checkpoint gate applies); `git status --short` has no uncommitted plan/code changes except explicitly deferred or ignored artefacts
+- [x] If Collaboration mode is `parallel`, the Parallel work tracker has no stale active owners, unmerged subject branches, or unresolved handoff notes
+- [x] Shipped code/tests/comments/identifiers are plan-agnostic — grep the repo **excluding `tasks/`** for box IDs (`\b\d\d\.\d+\b`), decision IDs (`\bD\d{3}\b`), the literal `tasks/distribution/`, the plan filename `Distribution-Plan.md`, and `\bslices?\b`; zero hits after triaging false positives (version strings can match the box-ID pattern; "slice" may be a legit domain term). See §6.11
+- [x] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/distribution/`, `Distribution-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
+- [x] Branch names and public PR titles/descriptions are plan-agnostic if used
+- [x] `tasks/distribution/manual-actions.md` — every human-owned box resolved or explicitly deferred
+- [x] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see Purpose). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
+- [x] `tasks/distribution/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/distribution/` folder is deleted (see Disposable note)
+- [x] Official PKCE requirements and the registered public client are verified; no shared secret in source/config/artifacts.
+- [x] Another account/machine installs and acquires using its own authorization; declared limitations and platform scope are accepted.
+- [x] Hunter snapshot/JSON compatibility and offline no-credential workflows pass; public release has explicit human approval.
+- [x] If subject 00 retains material PM risks, persist original predictions with owners before implementation; require terminal resolutions and observable Hindsight calibration before sign-off.
+- [x] Plan handed to reviewer for §8 sign-off
 
 ---
 
@@ -345,7 +345,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 
 | Date | Reviewer | Result | Notes |
 |---|---|---|---|
-| | | | |
+| 2026-10-15 | David (product owner / release owner) | APPROVED | User said Approved and explicitly confirmed Independent test passed. Engineering gates and publication verified; version0.1.0, Windows scope, private GitHub channel. Exact artifacts in release-receipt.json. |
 
 ---
 
@@ -405,6 +405,11 @@ and archived report content/events are verified. Subjects01 and03 now CLOSE.
 See public-auth-receipt.json for credential-free evidence. Observed app rate limit
 is 1800/hour; permissions remain account-specific. Newly built wheel/sdist hashes
 are in package-receipt.json. Public login now needs no client-ID option.
-Another person/account and machine, publication and §8 sign-off remain human-owned
-and unperformed. Subject05 and master §7/§8 stay open. No publication or other
-platform end-user support is claimed; plans/raw evidence are retained.
+Owner replied Approved and explicitly confirmed Independent test passed. Independent
+OS/raw receipt was not supplied; evidence is attestation, not agent observation.
+Version0.1.0 is published at https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0 .
+All uploaded files match local hashes; release/source/hash/platform details are in
+release-receipt.json. Existing repository stays private; no PyPI/visibility change.
+All subjects, §7 and §8 are complete. Final solo Hindsight CLOSE and terminal PM
+calibration are recorded. Retain plans and raw evidence; archival/deletion remains
+human-owned. No implementation or human release action remains for accepted scope.

@@ -16,13 +16,13 @@ Prove another person can install, authorize and produce a correctly scoped repor
 - [x] **05.1** (agent) Prepare an opt-in real-account acceptance procedure and receipt covering installation, sign-in/refresh, supported acquisition, output/package integrity, permissions, quota limitations and secret scanning.
 - [x] **05.2** (product-owner) Run or observe the documented flow on another person/account and machine; confirm no developer secret is requested, outputs and uncertainty are understandable, and declared platform behavior is acceptable.
 - [x] **05.3** (agent) Run the latest fast/golden/acceptance/browser and build checks, complete documentation/cleanup/lessons/PM calibration and solo Codex review; carry any unsupported platform or permission limit explicitly into the release notes.
-- [ ] **05.4** (release-engineer) Approve and publish the reviewed package only after the public-client and independent-user gates pass; record the exact version, artifact hash and supported platforms.
+- [x] **05.4** (release-engineer) Approve and publish the reviewed package only after the public-client and independent-user gates pass; record the exact version, artifact hash and supported platforms.
 
 ## Hindsight checkpoint
 Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-15 · 1 · 05.1/05.3 · Extended existing live-acceptance procedure with another account/machine installation, consent/cancel/refresh, ranking/report/archive/quota checks, output/package integrity, offline replay, unlimited extracted scans, logout/removal and explicit product/publication receipt. No second harness or acquisition pipeline introduced. User confirms no public client exists; registration instructions supplied; no second-person acceptance or release approval inferred. Final verification and review in progress; manual gates stay open. Documentation only for 05.1; verified against actual CLI help, installed probe and existing acceptance harness. Pushed checkpoint follows.
@@ -64,3 +64,24 @@ scope remains. Publication approved for reviewed CLI; use the existing private
 GitHub repository (no PyPI target configured and no visibility change authorized).
 Release artifact documentation updated; package rebuild/verification and publication
 are in progress. Receipt: independent-acceptance.json. Checkpoint follows.
+
+
+2026-10-15 · 5 · 05.4 · Published v0.1.0 through existing private GitHub repository,
+target62d1e9404b5704f56ca247f45417dcd1f65430ec. Wheel/sdist/SHA256SUMS uploaded,
+downloaded and compared byte-for-byte before publication; published GitHub digests
+and sizes match local artifacts. Code CI cbb04f5 passes Windows and Ubuntu; release
+metadata-only delta passes 67 focused auth/package checks and isolated installed
+artifact/replay/store/scans. Exact version/hash/platform/URL in release-receipt.json.
+User approval and independent acceptance are explicit; no PyPI or public visibility
+change performed. Final record commit/push follows.
+
+## Closing review after publication
+Keep: one pipeline, public-client identity, approved OS store, explicit endpoint,
+scoped platform/permission limitations, verified released artifact hashes.
+Fix before closing: none. Human independent acceptance is explicitly owner-attested,
+not relabelled as agent-observed OS/raw receipt. Publication is complete.
+Record: independent-acceptance.json, package-receipt.json, public-auth-receipt.json,
+release-receipt.json, PM calibration, durable docs and permanent lessons.
+Risk: Windows release scope only; account quota/privacy/archive permissions vary;
+four known golden xfails and evidence/coverage limitations remain accepted.
+Verdict: CLOSE subject05; supersedes earlier interim DO NOT CLOSE reviews.

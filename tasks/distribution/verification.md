@@ -144,3 +144,47 @@ Repeated wheel/sdist build byte comparison passes. Runtime code is unchanged
 from the registered public-client checkpoint; updated PACKAGE.md is the artifact
 content delta. SHA256SUMS prepared from the final artifacts. Remote upload hash
 verification and publication will be recorded after they complete.
+
+
+## Published release and final gate — 2026-10-15
+
+Release: https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0 .
+Target:62d1e9404b5704f56ca247f45417dcd1f65430ec; published18:02:33UTC.
+Wheel SHA256:76caf08eb623a8d10d8b18d1eb0a4425da192445ef7defabff58f907cc1beda1.
+Sdist SHA256:ee39f6b8efbf39e8182fd910feb396f4cbea49f8fa4279d9d91fa2719ba64a27.
+All three uploaded assets downloaded and compared byte-for-byte; published asset
+hashes/sizes rechecked through GitHub. Tag resolves to the prepared source commit.
+Version0.1.0, Windows/Python>=3.14; repo remains private and PyPI unmodified.
+
+Code CI https://github.com/David-c0degeek/necropsy/actions/runs/38780815673
+completed success on Windows and Ubuntu for cbb04f5 (public configured client).
+Release-preparation delta only changes documentation/package metadata and human
+acceptance records. Its wheel passes isolated default-login/public API mock,
+offline replay/source digest and package integrity; WinVault and unlimited extracted
+scans pass. 67 focused tests pass after final metadata, with lint/format/mypy pass.
+Earlier full golden246+4 known xfails and browser41 remain valid unchanged analysis
+regression evidence. No additional runtime change requires repeating those suites.
+
+Keep: existing architecture and all nine class/offline contracts, graded evidence,
+separate auth modes and explicit user endpoint. Runtime behavior exercised across
+synthetic complete flow, real public auth/refresh/query probes and owner-attested
+independent installation/sign-in/report generation. Hash-verified immutable release.
+
+Fix before closing: none. All owner boxes resolved. Master risk/rollback remains
+accurate: use personal mode before downgrade, retain snapshots, withdraw a bad
+release rather than weakening credential or cache boundaries. No new migration.
+
+Record: user approval applies to reviewed release; independent test passed confirmed
+separately, with OS/raw receipt unreported. ADR0007, D004–D008, release receipt and
+permanent lessons current. Cleanup waiver D007 applies. No concurrent owners/branches
+(coordinated mode); all public surfaces have real callers. Disposable-plan search
+has only pre-existing JS slice/design-history/version false positives, no new leak.
+Release title/notes/tag and checkpoint messages are plan-agnostic. Final record is
+committed and pushed; no raw evidence or task folder deleted.
+
+Risk: accepted explicit Windows/account-permission/coverage limits; four known
+xfails retained. Other real credential stores and private-report entitlements are
+not generalized from these checks. No unresolved release gate or unaccepted scope.
+
+Verdict: CLOSE subject05 and the distribution plan. User approval and test
+confirmation are durable human evidence; engineering and publication gates pass.

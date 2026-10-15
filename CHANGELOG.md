@@ -2,8 +2,8 @@
 
 [Home](README.md) · [Documentation](docs/README.md) · [Roadmap](docs/roadmap.md)
 
-Notable user-facing and developer changes. Entries under **Unreleased** are
-implemented in the development checkout; they are not a published release.
+Notable user-facing and developer changes. Versioned entries describe repository
+releases; future development changes appear under **Unreleased** when present.
 
 ## [0.1.0] - 2026-10-15
 

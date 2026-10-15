@@ -77,9 +77,10 @@ probe and unlimited-size extracted/output secret scans. The real login above ran
 from the checkout; installed authentication has synthetic evidence. No real
 tokens, authorization codes or refresh values are included in these records.
 
-Independent installation/authorization/acquisition on **another account and
-machine**, and publication approval, remain required. These observations do not
-close those gates or establish macOS/Linux credential-store support.
+These observations alone do not establish independent installation/authorization/
+acquisition on another account and machine or publication approval. The later
+owner attestation below records those decisions; macOS/Linux credential-store
+support remains unverified.
 
 
 ## Independent acceptance and release approval — 2026-10-15

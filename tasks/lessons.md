@@ -133,3 +133,12 @@
   replay outside the checkout. Use a unique synthetic service for real OS-store
   probes. Keep package metadata free of developer sample paths; local engineering
   checks cannot stand in for registered-app or independent-user acceptance.
+
+
+- 2026-10-15: Record human acceptance at its actual evidence level. An owner can
+  attest that an independent test passed without giving raw outputs; record the
+  attestation and missing details rather than inventing OS/artifact facts or
+  repeatedly requesting the same approval. Preserve the declared platform scope.
+- 2026-10-15: A public OAuth client does not imply public repository hosting.
+  Publish approved artifacts through the configured channel and preserve existing
+  repository visibility unless the user separately requests a visibility change.

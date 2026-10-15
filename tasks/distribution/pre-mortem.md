@@ -80,3 +80,17 @@ for the engineering artifact boundary and owner-attested before-release acceptan
 No failure observed/reported. Independent OS/raw receipt/hash were not supplied,
 so do not upgrade attestation into agent-observed evidence or broaden platforms.
 Publication remains gated on successful artifact/CI checks and remote hash verification.
+
+
+### Final release calibration
+
+PM-1: Prevented; Prevented Prediction. Same-ID public/personal isolation, staged
+writes and no-fallback boundary are tested and live public endpoint use is observed.
+PM-2: Mitigated; Prevented Prediction. Fresh S256/state and bounded consumed
+attempts are tested; actual callback and public refresh rotation pass.
+PM-3: Mitigated; Prevented Prediction for the release boundary. Independent test
+is owner-attested passed, publication approved, uploaded assets byte-verified,
+and v0.1.0 published to the existing private repository. Independent OS/raw receipt
+was not supplied and remains explicitly unobserved by the agent. No broader
+platform/privacy claim or material runtime miss was introduced. All predictions
+retain their original text; no retained risk has an unresolved release obligation.
