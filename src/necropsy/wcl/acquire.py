@@ -46,6 +46,7 @@ from necropsy.wcl.cohort import (
     Selection,
     Verdict,
     cohort_key,
+    prefetch_boss,
     select_boss,
 )
 from necropsy.wcl.context import CharacterContext
@@ -672,6 +673,8 @@ class Acquisition:
     """Filled by `finalize_reports`: the combined report per code, for the snapshot."""
     comparison_order: tuple[int, ...] = ()
     """Planned comparison fetch order; report and snapshot remain in requested order."""
+    metadata_order: tuple[int, ...] = ()
+    """Completed first-page ranking prefetches, in requested encounter order."""
 
     def complete_entries(self) -> list[tuple[BossAcquisition, Entry]]:
         out = []
@@ -734,6 +737,7 @@ def _acquire_comparisons(
         run.verify(encounter),
         endpoint=run.endpoint,
         deep_needs_observed=True,
+        **({"prefetched": boss.selection} if boss.selection is not None else {}),
     )
     selection = boss.selection
     boss.metadata = list(selection.metadata)
@@ -804,7 +808,7 @@ def acquire_boss(
     _acquire_comparisons(run, context, boss, cross_faction)
 
 
-def _acquire_druid_view(run: Run, context: CharacterContext, out: Acquisition) -> Acquisition:
+def _acquire_spec_view(run: Run, context: CharacterContext, out: Acquisition) -> Acquisition:
     """Personal spec coverage precedes examples; absent personal fights get examples first."""
     for encounter in out.requested:
         boss = BossAcquisition(encounter)
@@ -826,12 +830,13 @@ def _acquire_druid_view(run: Run, context: CharacterContext, out: Acquisition) -
         out.comparison_order = tuple(b.encounter_id for b in comparisons)
         original_policy = run.client.policy
         try:
-            for boss in comparisons:
+
+            def reserve_policy(extra_fights: int) -> None:
                 rate = run.client.last_rate
                 if rate is None:
                     raise RunStopped("no budget reading available for comparisons")
                 fights = {(e.report_code, e.fight_id) for _, e in out.complete_entries()}
-                prospective = len(fights) + int(_live()["deep"]) + int(out.cross_faction)
+                prospective = len(fights) + extra_fights
                 reserve = 2 * run.report_points_bound * prospective
                 # Lowering the comparison budget cannot spend the finalization reserve.
                 # Event pagination still pays against this guard on every request.
@@ -842,7 +847,21 @@ def _acquire_druid_view(run: Run, context: CharacterContext, out: Acquisition) -
                         0.01, original_policy.budget_share - reserve / rate.limit_per_hour
                     ),
                 )
+
+            for boss in out.bosses:
                 try:
+                    reserve_policy(0)
+                    _acquire_rankings(run, context, boss)
+                    out.metadata_order += (boss.encounter_id,)
+                except (*_STOPS, RunStopped) as stop:
+                    out.stopped = (
+                        f"ranking metadata, encounter {boss.encounter_id}: {stop}; "
+                        "budget reserve kept for fresh report finalization"
+                    )
+                    break
+            for boss in comparisons if out.stopped is None else ():
+                try:
+                    reserve_policy(int(_live()["deep"]) + int(out.cross_faction))
                     _acquire_comparisons(run, context, boss, out.cross_faction)
                 except RunStopped as stop:
                     out.stopped = (
@@ -855,6 +874,15 @@ def _acquire_druid_view(run: Run, context: CharacterContext, out: Acquisition) -
     for boss in out.bosses:
         boss.coverage = _coverage(boss, out.stopped)
     return out
+
+
+def _acquire_rankings(run: Run, context: CharacterContext, boss: BossAcquisition) -> None:
+    """Keep ranking references across the raid before spending on deep event samples."""
+    run.stage = f"ranking metadata, encounter {boss.encounter_id}"
+    boss.selection = prefetch_boss(
+        run.client, run.site, context, boss.encounter_id, endpoint=run.endpoint
+    )
+    boss.metadata = list(boss.selection.metadata)
 
 
 def acquire(
@@ -879,8 +907,8 @@ def acquire(
     )
     requested = tuple(encounters or boss_order())
     out = Acquisition(endpoint, cross_faction, context, requested)
-    if context.class_id.value == 2 and len(requested) > 1:
-        return _acquire_druid_view(run, context, out)
+    if (context.class_id.value == 2 or context.ranking_category is not None) and len(requested) > 1:
+        return _acquire_spec_view(run, context, out)
     for encounter in requested:
         boss = BossAcquisition(encounter)
         out.bosses.append(boss)

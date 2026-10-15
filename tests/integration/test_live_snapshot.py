@@ -129,7 +129,8 @@ def test_druid_personal_first_snapshot_retains_empty_boss_and_comparison_order(
         for r in fake.requests
         if "NecropsySubject" in r["query"] or "NecropsyLeaderboard" in r["query"]
     ]
-    assert [r["variables"]["encounter"] for r in requests] == [PATCHWERK, 51119, 51119, PATCHWERK]
+    assert [r["variables"]["encounter"] for r in requests] == [PATCHWERK, 51119, PATCHWERK, 51119]
+    assert acquired.metadata_order == (PATCHWERK, 51119)
     finalize_reports(Run(client, store, VANILLA, class_id=2, category="Balance"), acquired)
     written = write_snapshot(acquired, store, tmp_path / "saved", "druid-order")
     db = tmp_path / "view.duckdb"
@@ -138,6 +139,7 @@ def test_druid_personal_first_snapshot_retains_empty_boss_and_comparison_order(
         doc = build_document(con)
     assert [b["encounter_id"] for b in doc["bosses"]] == [PATCHWERK, 51119]
     assert doc["acquisition"]["comparison_order"] == [51119, PATCHWERK]
+    assert doc["acquisition"]["metadata_order"] == [PATCHWERK, 51119]
     assert doc["bosses"][1]["playbook"]["personal_data"]["status"] == "insufficient-data"
     broken = _rewrite_marker(
         written,
@@ -146,6 +148,13 @@ def test_druid_personal_first_snapshot_retains_empty_boss_and_comparison_order(
     )
     with pytest.raises(SnapshotError, match="comparison order"):
         ingest(broken, tmp_path / "wrong-order.duckdb")
+    broken_metadata = _rewrite_marker(
+        written,
+        tmp_path / "wrong-metadata-order.zip",
+        lambda d: d.update(metadata_order=[51119, PATCHWERK]),
+    )
+    with pytest.raises(SnapshotError, match="metadata order"):
+        ingest(broken_metadata, tmp_path / "wrong-metadata-order.duckdb")
 
 
 def test_empty_druid_view_writes_all_requested_bosses_without_fights(tmp_path: Path) -> None:

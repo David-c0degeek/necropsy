@@ -15,6 +15,7 @@ from typing import Any
 
 import httpx
 import pytest
+import typer
 from typer.testing import CliRunner
 
 from necropsy.cli import app
@@ -79,6 +80,67 @@ def test_a_complete_run_writes_snapshot_and_pages(tmp_path: Path, fake: dict[str
     assert fake["endpoints"] == ["client"]
 
 
+def test_explicit_hunter_spec_and_faction_select_the_main_lookup(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    result = _run(tmp_path, "--spec", "Marksmanship", "--faction", "Alliance")
+    assert result.exit_code == 0, result.output
+    doc = json.loads((tmp_path / "out/analysis.json").read_text(encoding="utf-8"))
+    assert doc["acquisition"]["selected_category"] == "Marksmanship"
+    leaderboards = [r for r in fake["server"].requests if "NecropsyLeaderboard" in r["query"]]
+    assert leaderboards and all('specName: "Marksmanship"' in r["query"] for r in leaderboards)
+
+
+def test_wrong_faction_is_refused_before_acquiring_reports(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    result = _run(tmp_path, "--spec", "Marksmanship", "--faction", "Horde")
+    assert result.exit_code == 1 and "differs from the character" in result.output
+    assert not fake["server"].requests
+
+
+def test_selected_hunter_without_personal_fights_keeps_a_faction_leader_playbook(
+    tmp_path: Path,
+    fake: dict[str, Any],
+) -> None:
+    class NoPersonalWcl(FakeWcl):
+        def __call__(self, request: httpx.Request) -> httpx.Response:
+            body = json.loads(request.content)
+            if "NecropsySubject" in body["query"]:
+                self.requests.append(body)
+                return self._ok(
+                    {"characterData": {"character": {"encounterRankings": {"ranks": []}}}}
+                )
+            return super().__call__(request)
+
+    fake["server"] = NoPersonalWcl([Player(f"Ally{i}") for i in range(1, 31)], Player("Haplina"))
+    result = _run(tmp_path, "--spec", "Marksmanship", "--faction", "Alliance")
+    assert result.exit_code == 4, result.output
+    doc = json.loads((tmp_path / "out/analysis.json").read_text(encoding="utf-8"))
+    assert doc["bosses"][0]["subject"] is None and not doc["bosses"][0]["recommendations"]
+    page = (tmp_path / "out/playbook.html").read_text(encoding="utf-8")
+    assert "No personal Marksmanship encounter" in page and "Ally1" in page
+    assert '<details class="overall-comparison">' in page
+
+
+def test_interactive_lookup_asks_for_faction_and_spec(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from types import SimpleNamespace
+
+    questions = []
+
+    def prompt(question: str) -> str:
+        questions.append(question)
+        return "Alliance" if "faction" in question else "Marksmanship"
+
+    monkeypatch.setattr(wcl_cli, "sys", SimpleNamespace(stdin=SimpleNamespace(isatty=lambda: True)))
+    monkeypatch.setattr(typer, "prompt", prompt)
+    result = _run(tmp_path)
+    assert result.exit_code == 0, result.output
+    assert len(questions) == 2 and "faction" in questions[0] and "Spec" in questions[1]
+
+
 @pytest.mark.parametrize(
     "args",
     [
@@ -94,7 +156,7 @@ def test_spec_selection_is_validated_before_credentials(
     result = _run(tmp_path, *args)
     assert result.exit_code == 1
     assert fake["tokens"] == 0
-    assert "different Druid categories" in result.output or "choose a Druid spec" in result.output
+    assert "different Druid categories" in result.output or "choose Balance" in result.output
 
 
 def test_partial_coverage_exits_4_with_the_report_written(

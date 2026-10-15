@@ -69,7 +69,13 @@ query NecropsyLeaderboard($encounter: Int!, $partition: Int!, $page: Int!) {{
 
 def leaderboard_query(key: CohortKey) -> str:
     if key.class_name.value == "Hunter":
-        return LEADERBOARD_QUERY
+        return (
+            LEADERBOARD_QUERY.replace(
+                'className: "Hunter"', 'className: "Hunter"\n        specName: "Marksmanship"'
+            )
+            if key.spec.status == "enforced" and key.spec.value == "Marksmanship"
+            else LEADERBOARD_QUERY
+        )
     policy = ranking_policy(2, key.spec.value, key.metric.value)
     return LEADERBOARD_QUERY.replace("metric: dps", f"metric: {policy.metric}").replace(
         'className: "Hunter"', f'className: "Druid"\n        specName: "{policy.category}"'
@@ -260,6 +266,7 @@ class Selection:
     """Why paging stopped: `targets met`, `no more pages`, `page budget` or a typed error."""
     rate: RateLimit | None = None
     rule_set: str = ""
+    endpoint: Endpoint | None = None
 
     @property
     def partial_reasons(self) -> tuple[str, ...]:
@@ -444,7 +451,8 @@ def select(
     """Walk ranking rows in leaderboard order and pick same-faction candidates.
 
     Without `deep_needs_observed`, `verify` (when given) checks every row, as before.
-    With it, only rows that could take a deep slot and guildless rows are checked,
+    With it, same-faction rows that could take a deep slot and guildless rows are checked;
+    known other-faction guild rows are excluded before report acquisition.
     and a deep slot accepts only an observed same-faction verdict; other rows keep
     their guild inference and may fill metadata only. An attempted check that finds
     no usable faction discards the guild inference.
@@ -481,7 +489,9 @@ def select(
                 out.inaccessible.append(c)
                 continue
             wanted_check = verify is not None and (
-                not deep_needs_observed or len(out.deep) < deep_n or c.faction.level == "unknown"
+                not deep_needs_observed
+                or c.faction.level == "unknown"
+                or (c.faction.value == key.faction.value and len(out.deep) < deep_n)
             )
             verdict = _verdict(verify(c)) if wanted_check and verify is not None else None
             if verdict is not None:
@@ -563,16 +573,49 @@ def select_boss(
     *,
     endpoint: Endpoint = "client",
     deep_needs_observed: bool = False,
+    prefetched: Selection | None = None,
 ) -> Selection:
     """Page one boss's declared class/category until same-faction targets are met."""
     key = cohort_key(site, context, encounter_id)
     raw: list[dict[str, Any]] = []
-    fetch = fetch_page(client, key, endpoint=endpoint, raw_pages=raw)
+    network_fetch = fetch_page(client, key, endpoint=endpoint, raw_pages=raw)
+
+    def fetch(page: int) -> tuple[list[Any], Any, Any]:
+        if prefetched is not None:
+            if prefetched.key != key or prefetched.endpoint != endpoint:
+                raise CohortRefused("prefetched leaderboard query identity differs")
+            saved = [p for p in prefetched.raw_pages if p.get("page") == page]
+            if len(saved) == 1:
+                raw.append(saved[0])
+                return page_items(saved[0]["characterRankings"], page)
+        return network_fetch(page)
+
     rows = pages(fetch, max_pages=int(_cfg()["max_pages"]))
     selection = select(rows, key, context, verify, deep_needs_observed=deep_needs_observed)
     selection.raw_pages = raw
+    selection.endpoint = endpoint
     if selection.rate is None:
         selection.rate = client.last_rate
+    return selection
+
+
+def prefetch_boss(
+    client: WclClient,
+    site: Site,
+    context: CharacterContext,
+    encounter_id: int,
+    *,
+    endpoint: Endpoint = "client",
+) -> Selection:
+    """Capture ranking context before deep samples consume the raid's allowance."""
+    key = cohort_key(site, context, encounter_id)
+    raw: list[dict[str, Any]] = []
+    rows, _, _ = fetch_page(client, key, endpoint=endpoint, raw_pages=raw)(1)
+    selection = select(iter(rows), key, context, deep_needs_observed=True)
+    selection.raw_pages = raw
+    selection.endpoint = endpoint
+    selection.stop = "ranking metadata prefetched; deep samples not yet acquired"
+    selection.rate = client.last_rate
     return selection
 
 

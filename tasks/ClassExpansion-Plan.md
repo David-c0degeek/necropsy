@@ -269,10 +269,10 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
 | [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
+| [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
+| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
 | [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
@@ -445,3 +445,20 @@ Only fixture/test and close-out records follow that source checkpoint.
 Human taxonomy/findings/advice/product boxes remain open; no role is deferred.
 
 All agent boxes are checked; human boxes 01.4/03.4/04.4/06.3 remain open. The review packet now opens the full Balance view first. Section 7 remains unrun under its explicit entry condition; section 8 and pair completion remain open. No human approval is inferred from the confirmed view model.
+
+## Useful comparison correction — 2026-10-15
+
+D014 supersedes the exact-build comparison restriction: David explicitly requires
+useful comparisons even with one or two sources, and spec/faction as the main
+group, including faction preselection for Hunter. Known different talent-point
+builds are context, not a reason to suppress same-spec comparisons. Individual
+values/gaps retain source counts; medians and their rule still require three.
+Saved WCL scores compare only to saved WCL scores; no personal gap without a
+matching subject. First-page ranking references across all Druid bosses precede
+deep sampling. Known other-faction guild candidates are filtered before deep
+report acquisition for both classes; guildless rows still need verification.
+API schema introspection has no faction argument; tested equal/dot faction filter
+strings returned identical mixed rows, so none is misrepresented as enforced.
+Global #1 and best recorded same-faction sources remain separately scoped.
+ADR 0005 and user docs are updated. Affected engineering boxes are reopened until
+latest real replay, scoped review and CI pass. Existing human gates remain open.

@@ -10,7 +10,7 @@ import duckdb
 import pytest
 
 from necropsy.analysis.benchmark import load_bosses
-from necropsy.analysis.evidence import observed
+from necropsy.analysis.evidence import Faction, observed, unknown
 from necropsy.analysis.roles import FightRole, selected_spec
 from necropsy.normalize.ingest import ingest
 from necropsy.report.analysis_json import build_document, dumps
@@ -54,6 +54,95 @@ def test_missing_personal_data_keeps_a_labelled_example_without_a_baseline(tmp_p
     assert section["benchmarks"]["baseline"]["key"] is None
     assert section["benchmarks"]["baseline"]["medians"] == {}
     assert section["recommendations"] == []
+
+
+@pytest.mark.parametrize("n", [1, 2])
+def test_sparse_comparisons_show_individual_values_and_builds_without_a_median(
+    tmp_path: Path,
+    n: int,
+) -> None:
+    with _database(tmp_path) as con:
+        boss = load_bosses(con, "classic_era", "naxxramas")[0]
+        assert boss.subject is not None
+        source = boss.subject
+        example = replace(
+            source,
+            participant=replace(
+                source.participant, player="Top healer", kind="top", leaderboard_position=1
+            ),
+            class_analysis=replace(
+                source.druid,
+                build=observed("1/0/50", *source.druid.build.refs),
+                metrics={
+                    **source.druid.metrics,
+                    "effective_healing_per_second": replace(
+                        source.druid.metrics["effective_healing_per_second"], value=6.0
+                    ),
+                },
+                casts=replace(source.druid.casts, value={"Healing Touch": 6, "Innervate": 1}),
+            ),
+        )
+        enemy = replace(
+            example,
+            profile=replace(
+                example.profile,
+                faction=observed(
+                    Faction.HORDE
+                    if source.profile.faction.value is Faction.ALLIANCE
+                    else Faction.ALLIANCE,
+                    *source.profile.faction.refs,
+                ),
+            ),
+        )
+        examples = tuple(
+            replace(
+                example,
+                participant=replace(
+                    example.participant, player=f"Top {i}", leaderboard_position=i + 1
+                ),
+            )
+            for i in range(n)
+        )
+        section = boss_section(
+            con, replace(boss, cohort=(*examples, enemy)), 1, "hps", "Restoration"
+        )
+    assert section["benchmarks"]["baseline"]["entries"] == n
+    assert section["benchmarks"]["baseline"]["builds_differing"] == n
+    assert (
+        section["benchmarks"]["baseline"]["medians"]["effective_healing_per_second"]["value"][
+            "value"
+        ]
+        is None
+    )
+    assert len(section["playbook"]["comparisons"]) == n
+    comparison = section["playbook"]["comparisons"][0]
+    assert comparison["metrics"]["effective_healing_per_second"] == {
+        "yours": 3.0,
+        "reference": 6.0,
+        "difference": -3.0,
+        "difference_pct": -50.0,
+    }
+    innervate = next(s for s in comparison["spells"] if s["spell"] == "Innervate")
+    assert innervate["counts"]["yours"] == 0 and innervate["counts"]["reference"] == 1
+    assert not any(r["rule"] == "druid-damage-review-v1" for r in section["recommendations"])
+
+
+def test_individual_comparison_keeps_unknowns_and_zero_reference_percentage_unknown(
+    tmp_path: Path,
+) -> None:
+    with _database(tmp_path) as con:
+        boss = load_bosses(con, "classic_era", "naxxramas")[0]
+        assert boss.subject is not None
+        entry = boss.subject
+        example = replace(
+            entry,
+            participant=replace(entry.participant, leaderboard_position=1),
+            class_analysis=replace(entry.druid, casts=unknown("incomplete source")),
+        )
+        section = boss_section(con, replace(boss, cohort=(example,)), 1)
+    comparison = section["playbook"]["comparisons"][0]
+    assert comparison["metrics"]["damage"]["difference_pct"] is None
+    assert all(s["counts"]["reference"] is None for s in comparison["spells"])
 
 
 @pytest.mark.parametrize("role", [FightRole.HYBRID, FightRole.TANK])
@@ -205,3 +294,55 @@ def test_saved_rank_one_metadata_is_scoped_and_never_creates_personal_data(
         assert top["basis"] == "saved-ranking-metadata"
     assert section["playbook"]["reference"] is None
     assert section["subject"] is None and section["recommendations"] == []
+
+
+def test_ranking_comparison_uses_same_faction_scores_not_event_healing(tmp_path: Path) -> None:
+    with _database(tmp_path) as con:
+        boss = load_bosses(con, "classic_era", "naxxramas")[0]
+        assert boss.subject is not None
+        faction = boss.subject.profile.faction.value
+        assert faction is not None
+        from necropsy.wcl.cohort import guild_faction
+
+        same = next(
+            code
+            for code in (0, 1)
+            if guild_faction({"guild": {"faction": code}}).value == faction.value
+        )
+        con.execute("DELETE FROM rankings WHERE kind='leaderboard'")
+        for index, guild in enumerate((1 - same, same)):
+            row = {
+                "name": f"Rank {index + 1}",
+                "class": "Druid",
+                "spec": "Restoration",
+                "amount": 500 - 100 * index,
+                "hardModeLevel": 0,
+                "guild": {"faction": guild},
+                "report": {"code": "Example", "fightID": 2},
+            }
+            con.execute(
+                "INSERT INTO rankings(source,kind,encounter_id,page,row_index,raw) "
+                "VALUES ('leaderboards/test.json','leaderboard',?,1,?,?)",
+                [ENCOUNTER, index, json.dumps(row)],
+            )
+        record = {
+            "key": {
+                k: {"value": v, "status": "enforced"}
+                for k, v in {
+                    "class_name": "Druid",
+                    "spec": "Restoration",
+                    "partition": 1,
+                    "encounter": ENCOUNTER,
+                    "role": "restoration",
+                    "metric": "hps",
+                    "faction": faction.value,
+                }.items()
+            }
+        }
+        section = boss_section(con, boss, 1, "hps", "Restoration", record)
+    comparison = section["playbook"]["ranking_comparison"]
+    assert comparison["reference"] == 400 and comparison["yours"] == 123
+    assert comparison["difference"] == -277
+    assert comparison["leaderboard_position"] == 2
+    assert comparison["scope"] == "same-faction-recorded"
+    assert section["benchmarks"]["overall_top"]["player"] == "Rank 1"

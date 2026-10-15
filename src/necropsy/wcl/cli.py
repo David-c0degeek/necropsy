@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 import webbrowser
 from collections.abc import Callable
 from datetime import UTC, datetime
@@ -195,7 +196,11 @@ def analyze_command(
     ] = None,
     spec: Annotated[
         str | None,
-        typer.Option(help="Druid view: Balance (boomkin), Feral, Restoration or Tank (Guardian)."),
+        typer.Option(help="Spec: Balance, Feral, Restoration, Tank or Hunter Marksmanship."),
+    ] = None,
+    faction: Annotated[
+        str | None,
+        typer.Option(help="Your faction: Alliance or Horde; checked against the character."),
     ] = None,
     metric: Annotated[
         str | None,
@@ -219,6 +224,11 @@ def analyze_command(
     4: partial report; 2: choose a partition; 3: finalization stopped, no report;
     1: failure. Saved snapshots can be replayed with offline.
     """
+    if sys.stdin.isatty():
+        if faction is None:
+            faction = typer.prompt("Character faction (Alliance/Horde)")
+        if spec is None and category is None:
+            spec = typer.prompt("Spec (Balance/Feral/Tank/Restoration/Marksmanship)")
     try:
         outcome = run_analyze(
             url,
@@ -231,6 +241,7 @@ def analyze_command(
             package=package,
             category=category,
             spec=spec,
+            faction=faction,
             metric=metric,
             wait_for_reset=wait_for_reset,
             tokens=_tokens,

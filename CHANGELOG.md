@@ -9,6 +9,20 @@ implemented in the development checkout; they are not a published release.
 
 ### Changed
 
+- **Faction and spec choices.** Interactive character lookup asks for faction and
+  spec; `--faction` and `--spec` support scripts, including Classic Era Hunter
+  Marksmanship. Main playbooks use faction leaders even without a personal
+  encounter. Overall-top comparisons are separately collapsed by default with
+  faction context. Existing noninteractive commands remain compatible.
+
+- **Useful sparse Druid comparisons.** One or two same-spec/faction sources now
+  show individual measurements and differences, with limited-sample labels.
+  Talent-point builds remain visible instead of excluding same-spec players.
+  Playbooks add direct spell-count/cast-rate comparisons and separate WCL-score
+  comparisons. Multi-boss acquisition captures ranking references across the raid
+  before deep sampling. Both Hunter and Druid skip known other-faction guild rows
+  before fetching deep reports; unknown factions still receive checks.
+
 - **Selected Druid spec views.** `--spec Balance`, `Restoration`, `Feral` or
   `Tank` filters personal analysis by category and evidenced duty while keeping
   every requested boss visible. Missing personal encounters can show eligible

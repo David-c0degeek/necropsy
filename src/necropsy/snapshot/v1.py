@@ -131,6 +131,7 @@ class LiveSnapshotFile(_Strict):
     endpoint: Literal["client", "user"]
     cross_faction: bool
     comparison_order: tuple[int, ...] = ()
+    metadata_order: tuple[int, ...] = ()
     stopped: str | None
     fights: tuple[LiveFight, ...]
     bosses: tuple[dict[str, Any], ...]
@@ -179,8 +180,24 @@ class V1Snapshot(V0Snapshot):
             encounter = b.get("encounter_id")
             if not isinstance(encounter, int) or names.get(encounter) != b.get("boss"):
                 raise SnapshotError(f"boss record {b.get('boss')!r} is not a supported encounter")
-        if live.subject.class_id == 2:
-            self._check_druid_categories(live)
+        if live.subject.class_id == 2 or live.subject.ranking_category is not None:
+            self._check_selected_category(live)
+        if live.metadata_order:
+            expected_metadata = tuple(b["encounter_id"] for b in live.bosses)[
+                : len(live.metadata_order)
+            ]
+            if (
+                live.subject.class_id != 2 and live.subject.ranking_category is None
+            ) or live.metadata_order != expected_metadata:
+                raise SnapshotError("metadata order differs from requested spec encounter order")
+            sources = {
+                document["encounter"]["id"]
+                for source, document in self.rankings()
+                if source.startswith("leaderboards/")
+                and any(p.get("page") == 1 for p in document.get("pages", []))
+            }
+            if not set(live.metadata_order) <= sources:
+                raise SnapshotError("metadata prefetch provenance has no saved ranking rows")
         if live.comparison_order:
             order = {eid: i for i, eid in enumerate(names)}
             expected = tuple(
@@ -193,12 +210,14 @@ class V1Snapshot(V0Snapshot):
                     ),
                 )
             )
-            if live.subject.class_id != 2 or live.comparison_order != expected:
+            if (
+                live.subject.class_id != 2 and live.subject.ranking_category is None
+            ) or live.comparison_order != expected:
                 raise SnapshotError(
-                    "comparison order differs from the Druid view acquisition policy"
+                    "comparison order differs from the selected-spec acquisition policy"
                 )
 
-    def _check_druid_categories(self, live: LiveSnapshotFile) -> None:
+    def _check_selected_category(self, live: LiveSnapshotFile) -> None:
         category = live.subject.ranking_category
         if category is None:
             categories = {
@@ -218,11 +237,11 @@ class V1Snapshot(V0Snapshot):
             if len(metrics) == 1:
                 metric = metrics.pop()
         try:
-            policy = ranking_policy(2, category, metric)
+            policy = ranking_policy(live.subject.class_id, category, metric)
         except ValueError as error:
             raise SnapshotError(str(error)) from None
         expected = {
-            "class_name": "Druid",
+            "class_name": policy.class_name,
             "spec": policy.category,
             "role": policy.role,
             "metric": policy.metric,
@@ -237,10 +256,10 @@ class V1Snapshot(V0Snapshot):
                     continue
                 dimension = key.get(name) or {}
                 if dimension.get("value") != value or dimension.get("status") != "enforced":
-                    raise SnapshotError(f"Druid snapshot has incompatible {name} dimension")
+                    raise SnapshotError(f"selected-spec snapshot has incompatible {name} dimension")
         for fight in live.fights:
             if any(p.spec != policy.category for p in fight.participants):
-                raise SnapshotError("Druid participant category differs from snapshot selection")
+                raise SnapshotError("participant category differs from snapshot selection")
 
     def _bundle(self, code: str) -> dict[str, Any]:
         member = f"reports/{code}/bundle.json"
@@ -371,12 +390,13 @@ class V1Snapshot(V0Snapshot):
                     if live.comparison_order
                     else {}
                 ),
+                **({"metadata_order": list(live.metadata_order)} if live.metadata_order else {}),
                 **(
                     {
                         "selected_category": subject.ranking_category,
                         "selected_metric": subject.ranking_metric,
                     }
-                    if subject.class_id == 2
+                    if subject.class_id == 2 or subject.ranking_category is not None
                     else {}
                 ),
             },

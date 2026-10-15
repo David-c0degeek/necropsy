@@ -6,9 +6,9 @@ Classic Era Naxxramas Druids use the same acquisition, snapshot, evidence,
 report and package pipeline as Hunters. Select the spec or role you want to view:
 
 ```sh
-uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --spec Balance --cross-faction --endpoint user --cache workspace/druid-cache --out workspace/balance
-uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --spec Restoration --endpoint user --cache workspace/druid-cache --out workspace/restoration
-uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --spec Tank --endpoint user --cache workspace/druid-cache --out workspace/tank
+uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --faction Alliance --spec Balance --cross-faction --endpoint user --cache workspace/druid-cache --out workspace/balance
+uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --faction Alliance --spec Restoration --endpoint user --cache workspace/druid-cache --out workspace/restoration
+uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --faction Alliance --spec Tank --endpoint user --cache workspace/druid-cache --out workspace/tank
 ```
 
 These commands use saved personal WCL credentials and acquire all supported
@@ -17,6 +17,13 @@ may need the user endpoint and an eligible WCL account. Existing budget, revisio
 identity, faction, pet ownership and partial-output rules still apply. Exit 4
 means written partial coverage; complete pagination does not imply domain approval.
 An opt-in `--wait-for-reset` permits one bounded hourly reset wait.
+
+An interactive terminal asks for faction and spec when absent. Scripts can pass
+the flags explicitly; old noninteractive commands remain readable and usable.
+The chosen faction is checked against the character before report acquisition.
+The main list uses that faction and selected spec. The same selection flow also
+supports Hunter's Classic Era WCL category, `--spec Marksmanship` (`MM`). Race and
+talent-point builds are context, not extra selection requirements.
 
 The selected spec filters the whole view. Every requested boss remains visible.
 Your personal analysis uses only a matching ranking category and evidenced
@@ -38,14 +45,20 @@ The highest acquired example may be #4; it is never relabelled #1. Saved overall
 #1 category metadata is separate from acquired event evidence. `--cross-faction`
 can acquire a global #1 from another faction when accessible. No example creates
 a personal median, gap or recommendation when your selected-spec data is missing.
+With no personal fights, the main practice playbook still shows the faction
+leader's recorded opener, ability counts/rates and role-specific measurements.
+The unfiltered overall-top comparison is **collapsed by default**, with faction,
+race, buffs and assignment caveats. It does not replace the faction leader.
 
 For multi-boss Druid views, acquisition fetches personal encounters first, then
-comparison samples, prioritizing bosses without personal data. It keeps budget
+first-page ranking references for every boss before deep comparison samples,
+prioritizing bosses without personal data for deep examples. It keeps budget
 for fresh report finalization and records comparison order and partial targets.
 The original reset policy applies while collecting personal data; comparison
 collection stops when its reserved allowance is exhausted. A boss not queried
 because acquisition stopped says **not assessed**, rather than asserting that you
-never played the role. Missing comparisons leave personal baselines unknown.
+never played the role. Missing event samples do not hide a saved ranking-score
+comparison. Missing ranking metadata remains unknown rather than fabricated.
 
 | WCL category | Ranking metric | Possible encounter duty |
 |---|---|---|
@@ -85,13 +98,23 @@ insufficient signals leave the aggregate role unknown. The activity spans show
 the first and last qualifying casts; they are not continuous assignment windows.
 No whole-fight benchmark is offered for mixed, uncertain or overridden duties.
 
-A primary comparison needs exact known class, encounter, faction, build, WCL
-category, role, metric and partition, within Classic Era Naxxramas. Different
-builds remain visible in the full cohort but never fill a sparse exact-build
-median. Three known metric values are required. Role-based membership is inferred;
-that uncertainty carries into its medians. Metadata-only rankings never enlarge
-event baselines. Cross-faction acquisition remains separate context; Druid
-recommendations use the matching primary cohort only.
+A primary comparison uses the same known class, encounter, faction, WCL category,
+duty, metric, difficulty and partition, within Classic Era Naxxramas. Different
+known talent-point builds remain in this selected-spec group, with each build
+shown and the number of differing builds disclosed. **One or two event sources
+still provide direct comparisons**, labelled as a limited sample with individual
+measurements, signed differences and source links. Medians summarize three or more
+known metric values. Unknown measurements stay unknown; a percentage difference
+from zero is undefined. Role-based membership remains inferred.
+
+The playbook compares your spell counts and casts per minute with the best-ranked
+acquired same-faction source. Its saved WCL score is compared separately with the
+best recorded same-faction WCL score. Global #1 is separate, optional context.
+Unresolved earlier players
+prevent claiming faction rank #1. Metadata never fills event metrics or increases
+the event sample size. Global #1 remains separately labelled. No personal data
+means no personal gap, even when a reference score is available. Sparse individual
+differences are descriptive and do not trigger the median-based damage rule.
 
 ## Measurements and practice notes
 

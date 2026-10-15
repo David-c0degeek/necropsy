@@ -13,10 +13,10 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [x] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
-- [x] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
+- [ ] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
+- [ ] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
 - [ ] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
-- [x] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
+- [ ] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
@@ -158,3 +158,10 @@ cause; serial verification passed. Missing signals remain unknown.
 
 ### Verdict
 DO NOT CLOSE — only 06.3 product acceptance remains; review the concrete packet and record the human decision.
+
+2026-10-15 · user comparison correction · Reopened affected agent boxes.
+The earlier receipts describe the prior behavior; they do not close the sparse
+comparison and faction preselection changes. D014 records the corrected contract.
+Live capture has 15 ranking references and 14 personal Balance fights; seven
+personal bosses have five event sources. Current-code replay/browser, broad
+regression, independent review and current CI remain under verification.

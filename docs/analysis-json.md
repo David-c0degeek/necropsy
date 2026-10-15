@@ -155,3 +155,23 @@ grading. `playbook.reference` is an eligible learning example; it never fills a
 missing subject or baseline. `benchmarks.overall_top` is separately scoped saved
 category metadata. Older documents may omit these optional nested details.
 Packages add `tables/personal-coverage.csv` and `tables/learning-examples.csv`.
+
+Druid `playbook.comparisons` retains individual same-spec/faction event sources,
+builds, fight lengths, measurements and signed differences, including samples of
+one or two. `spells` contains cast counts and casts per minute. Baseline
+`build_policy` records that talent points are context rather than an equality
+filter; `builds_differing` and source counts disclose variation. Aggregate medians
+still require three known values. `playbook.ranking_comparison` compares saved
+WCL scores separately, with scope, faction evidence, source and sample count;
+`same_faction_top` retains the best recorded same-faction score. No metadata score
+enters event metrics. Packages add `tables/individual-comparisons.csv` and
+`tables/ranking-comparisons.csv`. New snapshot `metadata_order` records completed
+first-page prefetches; older archives omit it and remain readable.
+
+Explicit selected-spec Hunter snapshots also retain `selected_category` and
+`selected_metric`, enforce participant category, and use the same optional
+prefetch/comparison order provenance for multi-boss lookup. Unselected historical
+Hunter archives retain their original behavior. `playbook.overall_reference` and
+`overall_comparison` are optional Druid event context, shown in a closed disclosure;
+`reference` is the main same-faction learning example. Neither fills a missing
+subject. Interactive faction/spec choices are CLI inputs, not inferred duties.

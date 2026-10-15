@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import math
+from dataclasses import replace
 from typing import Any
 
 import duckdb
@@ -15,6 +16,7 @@ from necropsy.analysis.evidence import Evidenced, EvidenceLevel, EvidenceRef, ob
 from necropsy.analysis.roles import DRUID_CATEGORIES, ComparisonKey, FightRole, ranking_policy
 from necropsy.report.serialize import to_data
 from necropsy.snapshot.model import Direction
+from necropsy.wcl.cohort import guild_faction
 
 
 def comparison_key(
@@ -113,6 +115,55 @@ def entry_section(
         "ranking": _ranking(con, entry, metric),
         "raptor_roles": to_data(entry.raptor_roles),
         "druid": to_data(entry.druid),
+    }
+
+
+def _difference(yours: float | None, reference: float | None) -> dict[str, Any]:
+    """Descriptive arithmetic only; a difference never proves an execution error."""
+    return {
+        "yours": yours,
+        "reference": reference,
+        "difference": None if yours is None or reference is None else yours - reference,
+        "difference_pct": None
+        if yours is None or reference is None or reference == 0
+        else 100 * (yours - reference) / reference,
+    }
+
+
+def _event_comparison(subject: Entry, example: Entry) -> dict[str, Any]:
+    metrics = {
+        name: _difference(value.value, example.druid.metrics[name].value)
+        for name, value in subject.druid.metrics.items()
+    }
+    yours, theirs = subject.druid.casts.value, example.druid.casts.value
+    spells = []
+    for name in sorted(set(yours or {}) | set(theirs or {})):
+        your_count = None if yours is None else yours.get(name, 0)
+        their_count = None if theirs is None else theirs.get(name, 0)
+        spells.append(
+            {
+                "spell": name,
+                "counts": _difference(your_count, their_count),
+                "per_minute": _difference(
+                    None
+                    if your_count is None
+                    else your_count * 60000 / subject.participant.duration_ms,
+                    None
+                    if their_count is None
+                    else their_count * 60000 / example.participant.duration_ms,
+                ),
+            }
+        )
+    return {
+        "player": example.participant.player,
+        "leaderboard_position": example.participant.leaderboard_position,
+        "report_code": example.participant.report_code,
+        "fight_id": example.participant.fight_id,
+        "build": to_data(example.druid.build),
+        "build_matches": example.druid.build.value == subject.druid.build.value,
+        "kill_duration_s": example.participant.duration_ms / 1000,
+        "metrics": metrics,
+        "spells": spells,
     }
 
 
@@ -224,6 +275,7 @@ def _top_metadata(
     category: str | None,
     metric: str | None,
     acquisition: dict[str, Any] | None,
+    faction: str | None = None,
 ) -> dict[str, Any] | None:
     """A saved first leaderboard row is a category score, never a proven duty."""
     if category is None or acquisition is None:
@@ -247,13 +299,45 @@ def _top_metadata(
     if "metric" in key and key["metric"].get("value") != policy.metric:
         return None
     rows = con.execute(
-        "SELECT source, raw FROM rankings WHERE kind = 'leaderboard' AND encounter_id = ? "
-        "AND page = 1 AND row_index = 0 AND starts_with(source, 'leaderboards/')",
+        "SELECT source, raw, row_index FROM rankings WHERE kind = 'leaderboard' "
+        "AND encounter_id = ? AND page = 1 AND starts_with(source, 'leaderboards/') "
+        "ORDER BY row_index",
         [boss.encounter_id],
     ).fetchall()
-    if len(rows) != 1:
+    if not rows or rows[0][2] != 0 or len({r[0] for r in rows}) != 1:
         return None
-    source, raw = rows[0]
+    selected = None
+    faction_evidence = None
+    for source, raw, index in rows:
+        row = json.loads(raw) if isinstance(raw, str) else raw
+        proof = guild_faction(row)
+        report = row.get("report") or {}
+        observed_entry = next(
+            (
+                e
+                for e in boss.cohort
+                if e.participant.report_code == report.get("code")
+                and e.participant.fight_id == report.get("fightID")
+                and e.participant.player == row.get("name")
+            ),
+            None,
+        )
+        recorded_faction = (
+            observed_entry.profile.faction.value.value
+            if observed_entry is not None and observed_entry.profile.faction.value is not None
+            else proof.value
+        )
+        if faction is None or recorded_faction == faction:
+            selected = source, raw, index
+            faction_evidence = (
+                observed_entry.profile.faction.level.value
+                if observed_entry is not None
+                else proof.level
+            )
+            break
+    if selected is None:
+        return None
+    source, raw, index = selected
     row = json.loads(raw) if isinstance(raw, str) else raw
     amount = row.get("amount")
     if (
@@ -267,7 +351,7 @@ def _top_metadata(
         or not isinstance(row.get("name"), str)
         or not row["name"].strip()
         or any(
-            name in row and (type(row[name]) is not int or row[name] != 1)
+            name in row and (type(row[name]) is not int or row[name] != index + 1)
             for name in ("rank", "position")
         )
     ):
@@ -279,11 +363,15 @@ def _top_metadata(
         fight if type(fight) is int else None,
         None,
         "leaderboard",
-        detail=f"{source}: page 1 row 0; {category} {policy.metric}",
+        detail=f"{source}: page 1 row {index}; {category} {policy.metric}",
     )
     return {
         "player": row["name"],
-        "leaderboard_position": 1,
+        "leaderboard_position": index + 1,
+        "scope": "overall" if faction is None else "same-faction-recorded",
+        "faction": faction,
+        "player_faction": recorded_faction,
+        "faction_evidence": faction_evidence,
         "category": category,
         "metric": policy.metric,
         "category_score": to_data(observed(float(amount), ref)),
@@ -322,7 +410,13 @@ def boss_section(
         }
         subject = None
     personal = _personal_data(subject, selected_category, acquisition, excluded)
+    selected_faction = (
+        subject.profile.faction.value.value
+        if subject is not None and subject.profile.faction.value is not None
+        else (((acquisition or {}).get("key") or {}).get("faction") or {}).get("value")
+    )
     reference = None
+    overall_reference = None
     if policy is not None:
         eligible = [
             e
@@ -337,12 +431,31 @@ def boss_section(
                 for d in (Direction.SOURCE, Direction.TARGET)
             )
         ]
-        reference = min(
+        overall_reference = min(
             eligible, key=lambda e: e.participant.leaderboard_position or math.inf, default=None
         )
+        reference = min(
+            (
+                e
+                for e in eligible
+                if selected_faction is None
+                or (
+                    e.profile.faction.value is not None
+                    and e.profile.faction.value.value == selected_faction
+                )
+            ),
+            key=lambda e: e.participant.leaderboard_position or math.inf,
+            default=None,
+        )
     key = None if subject is None else comparison_key(subject, partition, metric)
+    # Talent-point distributions are context, not a spec filter. Keep all other
+    # dimensions exact and retain every source's build in the comparison rows.
     applicable = tuple(
-        e for e in boss.cohort if key is not None and comparison_key(e, partition, metric) == key
+        e
+        for e in boss.cohort
+        if key is not None
+        and (other := comparison_key(e, partition, metric)) is not None
+        and replace(other, build=key.build) == key
     )
     medians: dict[str, Any] = {}
     if subject is not None:
@@ -364,15 +477,59 @@ def boss_section(
                     inferred_membership=inferred_members,
                 )
             )
+    baseline_key = to_data(key)
+    if baseline_key is not None:
+        baseline_key.pop("build")
+        baseline_key["build_policy"] = "recorded-per-entry; not filtered"
     baseline = {
-        "key": to_data(key),
+        "key": baseline_key,
         "entries": len(applicable),
         "medians": medians,
         "excluded_incompatible": len(boss.cohort) - len(applicable),
-        "note": "Exact class, encounter, faction, build, WCL category, role, metric and partition; "
-        "three known values required. Hybrid/uncertain/overridden duties "
+        "builds_differing": sum(
+            e.druid.build.value != subject.druid.build.value for e in applicable
+        )
+        if subject is not None
+        else 0,
+        "build_policy": "recorded-per-entry; not filtered",
+        "limited_sample": len(applicable) < 3,
+        "note": "Same class, encounter, faction, WCL category, duty, metric and partition. "
+        "Builds are shown per source. Individual comparisons remain available with one or two "
+        "sources; medians summarize three or more known values. Hybrid/uncertain/overridden duties "
         "have no aggregate baseline.",
     }
+    top = _top_metadata(con, boss, partition, selected_category, metric, acquisition)
+    subject_faction = (
+        subject.profile.faction.value.value
+        if subject is not None and subject.profile.faction.value is not None
+        else ((acquisition or {}).get("key") or {}).get("faction", {}).get("value")
+    )
+    faction_top = (
+        _top_metadata(con, boss, partition, selected_category, metric, acquisition, subject_faction)
+        if subject_faction in ("Alliance", "Horde")
+        else None
+    )
+    ranking = None if subject is None else _ranking(con, subject, metric)
+    ranking_comparison = None
+    ranking_reference = faction_top
+    if ranking_reference is not None:
+        ranking_comparison = {
+            "player": ranking_reference["player"],
+            "metric": ranking_reference["metric"],
+            "scope": ranking_reference["scope"],
+            "faction": ranking_reference["faction"],
+            "faction_evidence": ranking_reference["faction_evidence"],
+            "leaderboard_position": ranking_reference["leaderboard_position"],
+            "report_code": ranking_reference["report_code"],
+            "fight_id": ranking_reference["fight_id"],
+            "reference_evidence": ranking_reference["category_score"],
+            "basis": "saved-ranking-metadata",
+            "n_sources": 1,
+            **_difference(
+                None if ranking is None else ranking["category_score"],
+                ranking_reference["category_score"]["value"],
+            ),
+        }
     role = (
         (FightRole(policy.role) if policy else FightRole.UNCERTAIN)
         if subject is None
@@ -393,6 +550,8 @@ def boss_section(
         role, "Confirm encounter assignments and review the observed activity before changing play."
     )
     primary = {
+        FightRole.BALANCE: ["damage", "damage_per_second"],
+        FightRole.FERAL: ["damage", "damage_per_second"],
         FightRole.HEALER: ["effective_healing", "effective_healing_per_second", "overhealing_pct"],
         FightRole.TANK: ["incoming_damage", "incoming_damage_per_second", "healing_received"],
     }.get(role, ["damage", "damage_per_second", "effective_healing", "incoming_damage"])
@@ -417,9 +576,7 @@ def boss_section(
             "raid_speed": None,
             "cross_faction": None,
             "excluded": None,
-            "overall_top": _top_metadata(
-                con, boss, partition, selected_category, metric, acquisition
-            ),
+            "overall_top": top,
         },
         "encounter": {
             "target_integrity": None,
@@ -435,9 +592,22 @@ def boss_section(
             "selected_metric": policy.metric if policy else metric,
             "personal_data": personal,
             "reference": None if reference is None else entry_section(con, reference, metric),
-            "reference_note": "Highest-ranked acquired eligible example in this spec; "
-            "its build, faction, fight duration and assignments may differ. "
-            "This example does not establish an optimal rotation or a personal performance gap.",
+            "overall_reference": None
+            if overall_reference is None
+            else entry_section(con, overall_reference, metric),
+            "selected_faction": selected_faction,
+            "comparisons": []
+            if subject is None
+            else [_event_comparison(subject, e) for e in applicable],
+            "ranking_comparison": ranking_comparison,
+            "overall_comparison": None
+            if subject is None or overall_reference is None
+            else _event_comparison(subject, overall_reference),
+            "same_faction_top": faction_top,
+            "reference_note": "Highest-ranked acquired eligible example "
+            "in your selected spec and faction; "
+            "its build, race, buffs, fight duration and assignments may differ. "
+            "Recorded differences do not establish their cause or an optimal rotation.",
             "guidance": practice + " Use the recorded first ten seconds as a practice example, "
             "not a universal optimal opener. Check assignments before copying it.",
             "primary_metrics": primary,

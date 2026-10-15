@@ -45,10 +45,17 @@ def selected_spec(value: str | None) -> str | None:
     if value is None:
         return None
     names = {name.casefold(): name for name in DRUID_CATEGORIES}
-    names.update({"tank": "Guardian", "boomkin": "Balance"})
+    names.update(
+        {
+            "tank": "Guardian",
+            "boomkin": "Balance",
+            "marksmanship": "Marksmanship",
+            "mm": "Marksmanship",
+        }
+    )
     category = names.get(value.strip().casefold())
     if category is None:
-        raise ValueError("choose a Druid spec: Balance, Feral, Restoration or Tank")
+        raise ValueError("choose Balance, Feral, Restoration, Tank or Hunter Marksmanship")
     return category
 
 
@@ -61,9 +68,9 @@ def ranking_policy(
     if type(class_id) is not int or class_id not in CLASS_NAMES:
         raise ValueError("only Classic Era Hunter and Druid are supported")
     if class_id == 3:
-        if category is not None or metric not in (None, "dps"):
-            raise ValueError("Hunter selection retains its all-spec DPS policy")
-        return RankingPolicy(3, None, "dps", "dps")
+        if category not in (None, "Marksmanship") or metric not in (None, "dps"):
+            raise ValueError("Classic Era Hunter supports the WCL Marksmanship category and DPS")
+        return RankingPolicy(3, category, "dps", "dps")
     if category not in DRUID_CATEGORIES:
         raise ValueError("choose a Druid --category: Balance, Feral, Guardian or Restoration")
     default_metric, role = DRUID_CATEGORIES[category]

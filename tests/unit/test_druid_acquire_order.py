@@ -39,8 +39,13 @@ def test_personal_first_is_druid_only_and_fetch_order_is_recorded(
         calls.append(("comparison", boss.encounter_id))
         original_policies.append(run.client.policy)
 
+    def rankings(run: Any, context: Any, boss: Any) -> None:
+        calls.append(("metadata", boss.encounter_id))
+        original_policies.append(run.client.policy)
+
     monkeypatch.setattr(module, "_acquire_subject", subject)
     monkeypatch.setattr(module, "_acquire_comparisons", comparisons)
+    monkeypatch.setattr(module, "_acquire_rankings", rankings)
     context = replace(
         _context(),
         class_id=Field(class_id, "observed", "test"),
@@ -53,10 +58,13 @@ def test_personal_first_is_druid_only_and_fetch_order_is_recorded(
         assert calls == [
             ("personal", PATCHWERK),
             ("personal", SAPPHIRON),
+            ("metadata", PATCHWERK),
+            ("metadata", SAPPHIRON),
             ("comparison", SAPPHIRON),
             ("comparison", PATCHWERK),
         ]
         assert out.comparison_order == (SAPPHIRON, PATCHWERK)
+        assert out.metadata_order == (PATCHWERK, SAPPHIRON)
         assert all(p.budget_share < original.budget_share for p in original_policies)
         assert all(p.wait_for_reset is False for p in original_policies)
     else:

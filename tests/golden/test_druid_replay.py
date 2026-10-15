@@ -153,3 +153,37 @@ def test_full_selected_balance_view_has_fourteen_personal_bosses_and_a_sapphiron
             and r["purpose"] == "learning-example"
             for r in examples
         )
+
+
+def test_balance_comparison_capture_has_ranking_references_for_every_boss(tmp_path: Path) -> None:
+    provenance = json.loads((ROOT / "provenance.json").read_text(encoding="utf-8"))
+    record = next(r for r in provenance["fixtures"] if r["category"] == "balance-comparisons")
+    archive = ROOT / record["path"]
+    if is_lfs_pointer(archive):
+        pytest.skip("Druid Git LFS fixture needed: git lfs pull")
+    assert hashlib.sha256(archive.read_bytes()).hexdigest() == record["sha256"]
+    out = tmp_path / "comparisons"
+    run_offline(archive, out)
+    doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    assert len(doc["bosses"]) == 15 and len(doc["acquisition"]["metadata_order"]) == 15
+    assert sum(b["subject"] is not None for b in doc["bosses"]) == 14
+    by_id = {b["encounter_id"]: b for b in doc["bosses"]}
+    facts = json.loads((ROOT / "facts.json").read_text(encoding="utf-8"))
+    for case in facts["ranking_cases"]:
+        top = by_id[case["encounter_id"]]["benchmarks"]["overall_top"]
+        assert top["player"] == case["player"]
+        assert top["category_score"]["value"] == case["amount"]
+        assert top["basis"] == "saved-ranking-metadata"
+    for boss in doc["bosses"]:
+        assert boss["playbook"]["ranking_comparison"] is not None
+        if boss["subject"] is None:
+            assert boss["playbook"]["ranking_comparison"]["difference"] is None
+            assert not boss["recommendations"]
+    assert len(by_id[51118]["playbook"]["comparisons"]) == 5
+    assert by_id[51118]["benchmarks"]["baseline"]["builds_differing"] > 0
+    with zipfile.ZipFile(out / "necropsy-110733843-2006.zip") as package:
+        assert "tables/individual-comparisons.csv" in package.namelist()
+        rows = list(
+            csv.DictReader(io.StringIO(package.read("tables/ranking-comparisons.csv").decode()))
+        )
+        assert len(rows) == 15

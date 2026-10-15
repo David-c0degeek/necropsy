@@ -107,3 +107,28 @@ and malformed-NDJSON error. Isolated replay and a complete serial golden run
 passed without recurrence. The cause is unconfirmed; avoid overlapping heavy
 native-loader checks when collecting acceptance receipts and retain failures
 without inventing a library or memory diagnosis. Durable lessons are promoted.
+
+## Sparse comparison pre-mortem — 2026-10-15
+
+Failed future: a one-source score gap is presented as a reliable population
+benchmark; a guild inference is labelled faction #1; a zero or unknown denominator
+produces a fabricated percentage; prefetched rankings from the wrong spec or
+endpoint enter the snapshot; Hunter historical output changes through a shared
+template. Repository evidence: median_of's minimum3, exact-build Druid key,
+select_boss's deep verification and the existing first-row metadata path.
+
+Guardrails owned by Codex: individual values and n for sparse samples, no median
+recommendation below3; per-source builds/differing counts; exact non-build key;
+metadata and event arithmetic separate; unknown/zero percentage tests; explicit
+global versus best-recorded-faction labels; complete prefetch key+endpoint check,
+validated optional metadata_order; reserve/finally policy; Hunter replay bytes.
+Claude186 agreed the Druid design; user subsequently broadened faction priority
+to Hunter and Claude was notified. No speculative API filter ships: authenticated
+schema plus live equal/dot filter probes were inspected, and all returned mixed
+factions. Local faction filtering is explicit. Outcomes remain under verification.
+
+CH-MISS-5: strict exact-build equality and a three-member median threshold hid
+useful comparisons in a product that must teach from one top player. The user
+found this by reading the actual playbook. Favor explicit sample size, individual
+source comparisons and context differences over withholding useful observations.
+The UI's faction filter is not proof of an equivalent API argument.

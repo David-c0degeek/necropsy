@@ -89,3 +89,6 @@
 
 - 2026-10-15: Large JSON files can exceed a secret scanner's default per-file cap. Explicitly scan all extracted raw members and generated outputs with an unlimited target size, recording byte counts separately.
 - 2026-10-15: If native ingestion fails during overlapping large replays, serialize verification and retain the observed failure and successful rerun. Do not claim a root cause or change the normalizer without reproduction.
+
+- 2026-10-15: Keep individual top-player comparisons useful with one or two sources and disclose n. Do not let exact talent-point equality hide same-spec/faction players. Separate recorded differences from population baselines and causal advice.
+- 2026-10-15: A supported website filter may not be a dedicated API filter. Inspect the live schema and compare actual opposite-filter responses; a successful response can silently ignore an unsupported filter.

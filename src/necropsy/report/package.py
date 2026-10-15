@@ -171,8 +171,46 @@ def tables(document: Mapping[str, Any]) -> dict[str, bytes]:
 def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
     metrics_rows, roles, timeline, recommendations, comparisons = [], [], [], [], []
     coverage_rows, examples = [], []
+    individual_rows, ranking_rows = [], []
     for boss in document["bosses"]:
         playbook = boss.get("playbook") or {}
+        for comparison in playbook.get("comparisons", []):
+            for metric, values in comparison["metrics"].items():
+                individual_rows.append(
+                    [
+                        boss["encounter_id"],
+                        comparison["player"],
+                        comparison["leaderboard_position"],
+                        comparison["report_code"],
+                        comparison["fight_id"],
+                        _value(comparison["build"]),
+                        comparison["kill_duration_s"],
+                        metric,
+                        values["yours"],
+                        values["reference"],
+                        values["difference"],
+                        values["difference_pct"],
+                        len(playbook["comparisons"]),
+                    ]
+                )
+        ranking = playbook.get("ranking_comparison")
+        if ranking is not None:
+            ranking_rows.append(
+                [
+                    boss["encounter_id"],
+                    ranking["player"],
+                    ranking["scope"],
+                    ranking["faction"],
+                    ranking["leaderboard_position"],
+                    ranking["metric"],
+                    ranking["yours"],
+                    ranking["reference"],
+                    ranking["difference"],
+                    ranking["difference_pct"],
+                    ranking["n_sources"],
+                    ranking["basis"],
+                ]
+            )
         personal = playbook.get("personal_data") or {}
         coverage_rows.append(
             [
@@ -267,6 +305,41 @@ def _druid_tables(document: Mapping[str, Any]) -> dict[str, bytes]:
                 )
     identity = ["encounter_id", "player", "report", "fight"]
     return {
+        "tables/individual-comparisons.csv": _csv(
+            [
+                "encounter_id",
+                "player",
+                "leaderboard_position",
+                "report",
+                "fight",
+                "build",
+                "kill_s",
+                "metric",
+                "subject_value",
+                "reference_value",
+                "difference",
+                "difference_pct",
+                "event_sources",
+            ],
+            individual_rows,
+        ),
+        "tables/ranking-comparisons.csv": _csv(
+            [
+                "encounter_id",
+                "player",
+                "scope",
+                "faction",
+                "leaderboard_position",
+                "metric",
+                "subject_score",
+                "reference_score",
+                "difference",
+                "difference_pct",
+                "ranking_sources",
+                "basis",
+            ],
+            ranking_rows,
+        ),
         "tables/personal-coverage.csv": _csv(
             ["encounter_id", "boss", "selected_spec", "personal_status", "explanation"],
             coverage_rows,

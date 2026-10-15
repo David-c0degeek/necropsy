@@ -399,10 +399,10 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                 {
                     "ranking_category": context.ranking_category,
                     "ranking_metric": ranking_policy(
-                        2, context.ranking_category, context.ranking_metric
+                        context.class_id.value, context.ranking_category, context.ranking_metric
                     ).metric,
                 }
-                if context.class_id.value == 2
+                if context.class_id.value == 2 or context.ranking_category is not None
                 else {}
             ),
         },
@@ -415,6 +415,11 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
         "top_n": int(load_rules(GAME, "benchmarks")["live_cohort"]["deep"]),
         "endpoint": acquisition.endpoint,
         "cross_faction": acquisition.cross_faction,
+        **(
+            {"metadata_order": list(acquisition.metadata_order)}
+            if acquisition.metadata_order
+            else {}
+        ),
         **(
             {"comparison_order": list(acquisition.comparison_order)}
             if acquisition.comparison_order

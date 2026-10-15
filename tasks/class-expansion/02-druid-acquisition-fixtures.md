@@ -13,7 +13,7 @@ Acquire identity-verified role-comparable Druid evidence and establish real vali
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [x] **02.1** (agent) Generalize existing context/cohort/acquire code and snapshot v1 class guards using the declared class/role contract; verify actual WCL category/metric/spec filters. Unsupported categories remain explicit; never substitute DPS samples for healers or tanks.
+- [ ] **02.1** (agent) Generalize existing context/cohort/acquire code and snapshot v1 class guards using the declared class/role contract; verify actual WCL category/metric/spec filters. Unsupported categories remain explicit; never substitute DPS samples for healers or tanks.
 - [x] **02.2** (product-owner) Provide or authorize accessible Classic Era Naxxramas Druid reports covering all requested roles and hybrid/uncertain cases; confirm player-data handling and a domain reviewer.
 - [x] **02.3** (agent) Freeze approved raw fixtures with hashes/provenance and a role-specific golden-fact register. Acquire evidence streams required for healing, incoming damage, forms, buffs/debuffs and any available threat; unavailable signals stay unknown.
 - [x] **02.4** (agent) Prove old Hunter v0/v1 snapshots and JSON remain readable and unchanged in meaning. No format/schema bump unless an ADR explains necessity and the compatibility/rebuild route.
@@ -22,7 +22,7 @@ Acquire identity-verified role-comparable Druid evidence and establish real vali
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [x] Verdict is `CLOSE`
+- [ ] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 02.1 02.2 02.4 · WCL live taxonomy and metric/category filters verified; raw snapshots frozen for Balance/Restoration/Feral/Guardian with five deep samples and 25 metadata rows per Patchwerk run. Four real fixture replays pass independent arithmetic and package hashes. Raw/member digests and installed gitleaks scan recorded. Hunter subset JSON/HTML/ZIP byte-identical; full Hunter golden 229 pass / 4 expected xfails. Raw hybrid evidence and approved domain facts still required for 02.3; user authorized public fixture handling. Checkpoint commit/push follows this record.
@@ -154,3 +154,10 @@ cause; serial verification passed. Missing signals remain unknown.
 
 ### Verdict
 CLOSE — every subject-owned action is complete; cross-subject domain gates remain explicitly open.
+
+2026-10-15 · user comparison correction · Reopened affected agent boxes.
+The earlier receipts describe the prior behavior; they do not close the sparse
+comparison and faction preselection changes. D014 records the corrected contract.
+Live capture has 15 ranking references and 14 personal Balance fights; seven
+personal bosses have five event sources. Current-code replay/browser, broad
+regression, independent review and current CI remain under verification.

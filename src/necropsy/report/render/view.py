@@ -371,6 +371,8 @@ class DocumentView:
     controls: tuple[str, ...] = field(default_factory=tuple)
     reference: Mapping[str, Any] | None = None
     class_document: Mapping[str, Any] | None = None
+    selected_spec: str | None = None
+    selected_faction: str | None = None
 
     @property
     def navigation(self) -> tuple[Any, ...]:
@@ -1184,6 +1186,8 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
         if is_druid
         else overview_view(document),
         class_document=document if is_druid else None,
+        selected_spec=(document.get("acquisition") or {}).get("selected_category"),
+        selected_faction=(document.get("acquisition") or {}).get("subject_faction"),
     )
 
 

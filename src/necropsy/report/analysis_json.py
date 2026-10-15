@@ -741,6 +741,19 @@ def build_document(
             for b in boss_data
         ]
     else:
+        if acquisition is not None and acquisition.get("selected_category"):
+            present = {b.encounter_id for b in boss_data}
+            boss_data += [
+                BossData(
+                    r["encounter_id"],
+                    r["boss"],
+                    encounter_rules(GAME, ZONE, r["encounter_id"]),
+                    None,
+                    (),
+                )
+                for r in acquisition.get("bosses", [])
+                if r["encounter_id"] not in present
+            ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     document = {
         "schema_id": SCHEMA_ID,

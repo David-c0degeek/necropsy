@@ -18,3 +18,6 @@ Consult permanent `tasks/lessons.md` before work.
 - 2026-10-15: Under a shared API budget, acquire personal raid coverage before deep comparisons; prioritize missing-personal encounters for examples and reserve finalization. Verify that order against a real complete raid capture.
 - 2026-10-15: Large JSON files can exceed a secret scanner's default per-file cap. Explicitly scan all extracted raw members and generated outputs with an unlimited target size, recording byte counts separately.
 - 2026-10-15: If native ingestion fails during overlapping large replays, serialize verification and retain the observed failure and successful rerun. Do not claim a root cause or change the normalizer without reproduction.
+
+- 2026-10-15: A sparse sample is a disclosure requirement, not a reason to hide individual comparisons. Spec and faction select Druid peers; talent points remain explicit context. Separate descriptive one-player differences from population summaries and causal advice.
+- 2026-10-15: Verify actual API filtering, not just successful responses. Unsupported advanced filters may silently return the same unfiltered rows; use documented arguments and verify results before claiming faction-specific #1.

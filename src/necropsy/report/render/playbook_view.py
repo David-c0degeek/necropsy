@@ -483,6 +483,17 @@ def boss_view(
 ) -> dict[str, Any]:
     live = (document or {}).get("mode") == "live"
     subject = boss.get("subject")
+    acquisition = (document or {}).get("acquisition") or {}
+    leader_practice = None
+    if subject is None and acquisition.get("selected_category"):
+        leader_practice = next(
+            (
+                e
+                for e in boss.get("overall_cohort", [])
+                if e["environment"]["faction"]["value"] == acquisition.get("subject_faction")
+            ),
+            None,
+        )
     plan = boss.get("playbook")
     overall = boss.get("overall_cohort")
     rows = tuple(cohort(e, names) for e in (overall if overall is not None else boss["cohort"]))
@@ -572,6 +583,7 @@ def boss_view(
     document = document or {}
     game = document.get("game_data") or {}
     pet_facts = ((document.get("overview") or {}).get("setup") or {}).get("pet_facts") or {}
+    static: Mapping[str, Any] = {}
     if plan:
         context = plan["context"]
         member = context["membership_level"]
@@ -949,6 +961,7 @@ def boss_view(
             )
     return {
         "metrics": metrics,
+        "leader_practice": leader_practice,
         "percent": percent,
         "comparator": comparator,
         "target": target,

@@ -26,6 +26,33 @@ def test_druid_pages_preserve_roles_and_evidence_offline(
 ) -> None:
     doc = document(tmp_path, ["Healing Touch"] * 3)
     doc["subject"]["name"] = "<script>window.injected=true</script>"
+    if not missing:
+        boss = doc["bosses"][0]
+        boss["playbook"]["comparisons"] = [
+            {
+                "player": "Sparse healer",
+                "leaderboard_position": 1,
+                "report_code": "REPORT1",
+                "fight_id": 7,
+                "build": {"value": "1/0/50", "level": "observed"},
+                "kill_duration_s": 100,
+                "metrics": {
+                    "effective_healing_per_second": {
+                        "yours": 3,
+                        "reference": 6,
+                        "difference": -3,
+                        "difference_pct": -50,
+                    }
+                },
+                "spells": [
+                    {
+                        "spell": "Healing Touch",
+                        "counts": {"yours": 3, "reference": 6},
+                        "per_minute": {"yours": 1.8, "reference": 3.6},
+                    }
+                ],
+            }
+        ]
     if missing:
         boss = doc["bosses"][0]
         reference = boss["subject"]
@@ -59,7 +86,13 @@ def test_druid_pages_preserve_roles_and_evidence_offline(
                 assert "Example healer" in text and "leaderboard #2" in text
                 assert "Your measurements" not in text
                 assert "Rank #1 recorded example" not in text
+            else:
+                text = page.locator("main").inner_text()
+                assert "Limited sample: only 1 source" in text
+                assert "Sparse healer" in text and "-50.0%" in text
+                assert "Your casts/min" in text and "1.80" in text
             assert page.locator("#boss-51118").count() == 1
+            assert page.locator("details.overall-comparison[open]").count() == 0
             assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
             assert page.evaluate("window.injected === undefined")
             assert not errors

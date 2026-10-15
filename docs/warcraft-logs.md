@@ -246,3 +246,21 @@ The selected ranking metric is preserved separately from build and observed duty
 personal grading. `--spec Balance` selects the Balance view. Personal fights are
 collected across bosses before deep comparison samples in multi-boss Druid runs;
 comparison gaps remain explicit when the finalization reserve stops acquisition.
+
+### Faction comparison lists
+
+The main comparison cohort is your faction. Ranking requests select class and,
+for Druids, spec and metric. The authenticated Classic Era Encounter API schema
+does not expose a dedicated faction argument. Live probes of `faction=1`/`2`
+and dot variants in the advanced filter returned identical mixed-faction rows;
+Necropsy does not claim those strings enforce a faction filter. It selects
+same-faction candidates locally **before deep report acquisition**: known
+other-faction guild rows are skipped, while guildless/unknown candidates and
+selected deep entries retain their report faction checks. Guild faction remains
+an inference, separately labelled from observed character faction. Global #1 is
+separate context, and a best recorded same-faction source is not automatically
+claimed as faction rank #1 when earlier identities are unresolved.
+
+Multi-boss Druid views collect personal encounters, then first-page ranking
+references across the raid before deep examples. One or two acquired event
+sources still provide individual comparisons, with limited-sample labels.

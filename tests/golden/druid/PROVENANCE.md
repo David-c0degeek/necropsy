@@ -61,3 +61,13 @@ the replay; the dedicated full-view golden test passes. Unlimited-size gitleaks
 scans passed over 266,125,045 extracted raw bytes and 35,283,900 derived-output
 bytes. The derived-output scan is separate from the immutable raw archive.
 Thresholds, practical advice and final product acceptance remain human-owned.
+
+The ninth capture, `druid-balance-comparisons.zip`, preserves a new production CLI
+run on 2026-10-15, with first-page ranking references for all 15 bosses collected
+before deep samples. All 14 personal Balance encounters remain; Sapphiron has no
+personal DPS grade. Deep event sampling is partial after the reserved allowance.
+No reset wait was requested. The raw writer ZIP is unchanged (SHA-256
+`1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57`).
+Fifteen raw first-row ranking identities/amounts are recorded independently in
+`facts.json`; metadata remains separate from event evidence and duty inference.
+Unlimited-size gitleaks scanned 268,170,221 extracted bytes without findings.

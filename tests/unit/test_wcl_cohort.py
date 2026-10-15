@@ -21,6 +21,7 @@ from necropsy.wcl.cohort import (
     cohort_key,
     guild_faction,
     page_items,
+    prefetch_boss,
     select,
     select_boss,
 )
@@ -259,6 +260,39 @@ def test_select_boss_pages_until_done_and_records_the_rate() -> None:
     sent = script.bodies()
     assert [b["variables"]["page"] for b in sent] == [1, 2]
     assert all(b["variables"]["partition"] == 3 for b in sent)
+
+
+def test_ranking_prefetch_is_reused_only_for_the_exact_query_and_endpoint() -> None:
+    script = Script(_page([_row(i) for i in range(1, 30)], False))
+    client = _client(script)
+    first = prefetch_boss(client, VANILLA, _context(), ENCOUNTER)
+    selected = select_boss(client, VANILLA, _context(), ENCOUNTER, prefetched=first)
+    assert len(script.requests) == 1
+    assert selected.raw_pages == first.raw_pages and len(selected.metadata) == 25
+    with pytest.raises(CohortRefused, match="query identity"):
+        select_boss(client, VANILLA, _context(), ENCOUNTER, endpoint="user", prefetched=first)
+    with pytest.raises(CohortRefused, match="query identity"):
+        select_boss(client, VANILLA, _context(), 51119, prefetched=first)
+
+
+def test_live_selection_prefilters_other_faction_before_deep_report_checks() -> None:
+    checked = []
+
+    def verify(candidate: Any) -> Faction:
+        checked.append(candidate.name)
+        return Faction.ALLIANCE
+
+    selection = select(
+        _stream([_row(1, guild=1), _row(2, guild=0), _row(3, guild=None)]),
+        _key(),
+        _context(),
+        verify,
+        deep_needs_observed=True,
+    )
+    assert checked == ["Hunter2", "Hunter3"]
+    assert selection.other_faction == 1
+    assert [e.name for e in selection.deep] == ["Hunter2", "Hunter3"]
+    assert selection.overall_first is not None and selection.overall_first.name == "Hunter1"
 
 
 def test_page_budget_is_a_partial_result_not_a_failure(monkeypatch: pytest.MonkeyPatch) -> None:

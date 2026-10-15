@@ -200,6 +200,7 @@ def run_analyze(
     category: str | None = None,
     metric: str | None = None,
     spec: str | None = None,
+    faction: str | None = None,
 ) -> Outcome:
     ref, cache_dir, out_dir = check_inputs(url, cache, out, partition, endpoint, name)
     try:
@@ -208,6 +209,10 @@ def run_analyze(
         if category is not None and selected is not None and category != selected:
             raise ValueError("--spec and --category select different Druid categories")
         category = selected or category
+        if faction is not None:
+            faction = faction.strip().capitalize()
+            if faction not in ("Alliance", "Horde"):
+                raise ValueError("choose --faction Alliance or Horde")
     except ValueError as error:
         raise AnalyzeError(str(error)) from None
     chosen: Endpoint = "user" if endpoint == "user" else "client"
@@ -232,6 +237,7 @@ def run_analyze(
                 before_acquire=before_acquire,
                 category=category,
                 metric=metric,
+                faction=faction,
             )
         finally:
             client.close()
@@ -251,6 +257,7 @@ def _run(
     before_acquire: Callable[[CharacterContext], None] | None = None,
     category: str | None = None,
     metric: str | None = None,
+    faction: str | None = None,
 ) -> Outcome:
     context = resolver(client, ref, partition=partition, endpoint=endpoint)
     if context.ambiguity:
@@ -267,6 +274,11 @@ def _run(
         raise AnalyzeError("choose a partition with --partition", code=2, lines=tuple(lines))
     if context.faction.level != "observed":
         raise AnalyzeError(f"the character's faction is unknown: {context.faction.note}")
+    if faction is not None and context.faction.value.value != faction:
+        raise AnalyzeError(
+            f"selected faction {faction} differs from the character's observed faction "
+            f"{context.faction.value.value}; choose the character's faction for the main list"
+        )
     if context.class_id.value not in CLASS_NAMES:
         raise AnalyzeError("only Hunters and Druids can be analysed")
     try:

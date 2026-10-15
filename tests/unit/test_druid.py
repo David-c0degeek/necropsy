@@ -144,7 +144,7 @@ def test_cohort_dimensions_cannot_mix_roles_or_metrics() -> None:
         ranking_policy(2)
 
 
-def test_exact_druid_baseline_needs_three_members_and_retains_inferred_membership(
+def test_druid_baseline_includes_different_builds_and_retains_inferred_membership(
     tmp_path: Path,
 ) -> None:
     from necropsy.report.druid import boss_section
@@ -156,7 +156,7 @@ def test_exact_druid_baseline_needs_three_members_and_retains_inferred_membershi
         boss = load_bosses(con, "classic_era", "naxxramas")[0]
         entry = boss.subject
         assert entry is not None
-        # Use an explicit incompatible build; the observed healing values still exist.
+        # Different talent points remain useful within the selected spec and faction.
         from necropsy.analysis.evidence import observed
 
         incompatible = replace(
@@ -179,10 +179,11 @@ def test_exact_druid_baseline_needs_three_members_and_retains_inferred_membershi
         )
         result = boss_section(con, replace(boss, cohort=(*cohort, incompatible)), 1)
         median = result["benchmarks"]["baseline"]["medians"]["effective_healing_per_second"]
-        assert median["n_known"] == 3
+        assert median["n_known"] == 4
         assert median["value"]["value"] == 3
         assert median["value"]["level"] == "inferred"
-        assert result["benchmarks"]["baseline"]["excluded_incompatible"] == 1
+        assert result["benchmarks"]["baseline"]["excluded_incompatible"] == 0
+        assert result["benchmarks"]["baseline"]["builds_differing"] == 1
 
 
 def test_registry_selects_druid_and_keeps_hunter_guard(tmp_path: Path) -> None:
