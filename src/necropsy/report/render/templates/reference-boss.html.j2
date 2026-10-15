@@ -18,7 +18,7 @@
 </article>
 <article class="quick-plan">
   <div class="eyebrow">Quick plan · KISS</div>
-  <h3>Opening cycle and notes</h3>{% if doc.selected_spec and ref.leader_practice %}{% set leader = ref.leader_practice %}<p>No personal {{ doc.selected_spec }} encounter was found in the acquired logs. Use this faction leader's recorded ability mix as a practice reference: {{ leader.player }} · leaderboard #{{ leader.leaderboard_position }} · {{ leader.kill_duration_s }} s fight.</p><dl class="kv">{% for spell, shot in leader.hunter.shots.items() %}<dt>{{ spell|replace('_', ' ') }}</dt><dd>{{ shot.casts.value|length if shot.casts.value is not none else 'Unknown' }} recorded casts</dd>{% endfor %}</dl><p>Check assignments, gear and fight duration before copying this example. It is a learning reference, not a grade of your performance.</p>{% endif %}
+  <h3>Opening cycle and notes</h3>{{ '\n' }}{% if doc.selected_spec and ref.leader_practice %}{% set leader = ref.leader_practice %}<p>No personal {{ doc.selected_spec }} encounter was found in the acquired logs. Use this faction leader's recorded ability mix as a practice reference: {{ leader.player }} · leaderboard #{{ leader.leaderboard_position }} · {{ leader.kill_duration_s }} s fight.</p><dl class="kv">{% for spell, shot in leader.hunter.shots.items() %}<dt>{{ spell|replace('_', ' ') }}</dt><dd>{{ shot.casts.value|length if shot.casts.value is not none else 'Unknown' }} recorded casts</dd>{% endfor %}</dl><p>Check assignments, gear and fight duration before copying this example. It is a learning reference, not a grade of your performance.</p>{% endif %}
   {{ plans(ref.quick_plan) }}
 </article>
 <div class="grid two">
