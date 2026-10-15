@@ -58,10 +58,18 @@ def test_hunter_ability_use_counts_and_shared_panel_are_in_the_document(
     from necropsy.report.analysis_json import dumps
     from necropsy.report.package import build_outputs
 
-    subject = document["bosses"][0]["subject"]
-    assert subject["ability_use"]["value"]["Auto Shot"] == len(
-        subject["hunter"]["shots"]["auto_shot"]["casts"]["value"]
-    )
+    for boss in document["bosses"]:
+        entries = ([boss["subject"]] if boss["subject"] else []) + boss["cohort"]
+        for entry in entries:
+            counts = entry["ability_use"]["value"]
+            for key, shot in entry["hunter"]["shots"].items():
+                casts = shot["casts"]["value"]
+                if counts is None:
+                    assert casts is None
+                else:
+                    assert casts is not None
+                    name = "Multi-Shot" if key == "multi_shot" else key.replace("_", " ").title()
+                    assert counts.get(name, 0) == len(casts)
     outputs = build_outputs(dumps(document).encode())
     page = outputs["playbook.html"]
     package_bytes = outputs["necropsy-86583560-2006.zip"]

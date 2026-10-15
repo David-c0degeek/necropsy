@@ -57,6 +57,8 @@ def comparison(subject: Any, reference: Any) -> dict[str, Any] | None:
         "report": reference["report_code"],
         "fight": reference["fight_id"],
         "personal": subject is not None,
+        "your_seconds": (subject or {}).get("kill_duration_s"),
+        "reference_seconds": reference["kill_duration_s"],
         "rows": rows(
             mine.get("value"),
             theirs.get("value"),
