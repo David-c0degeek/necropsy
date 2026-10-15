@@ -1,6 +1,6 @@
 # Distribution-Plan.md — Public-client PKCE and installable CLI first; no desktop UI in this plan
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Subject 00 readiness and implementation remain TODO.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Engineering implementation is in progress; real public registration, independent acceptance and publication remain explicit gates.
 >
 > **Disposable.** The plan and its `tasks/distribution/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -161,8 +161,8 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | Golden/acceptance | `uv run pytest -m "golden or acceptance"` | Full Git LFS fixture required; retain known xfails explicitly |
 | Browser | `uv run pytest -m browser` | Existing approved Playwright/Chromium |
 | Lint/format/types | `uv run ruff check .`; `uv run ruff format --check .`; `uv run mypy` | Existing project configuration |
-| Live/manual acceptance | TBD in subject 00 | Explicit opt-in; real-account evidence is not replaced by synthetic tests |
-| Package/secret checks | TBD in subject 00 | Current acceptance harness and approved scanner; unavailable scan is not clean |
+| Live/manual acceptance | `uv run pytest -m live --run-live -s tests/live/test_live_acceptance.py` | Explicit opt-in; real-account evidence is not replaced by synthetic tests |
+| Package/secret checks | `uv build`; `uv run python scripts/check_distribution.py --snapshot tests/fixtures/haplina_naxx_subset.zip --receipt workspace/distribution-check.json --probe-os-store` | Current acceptance harness and approved scanner; unavailable scan is not clean |
 
 ---
 
@@ -227,6 +227,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | D004 | 2026-10-15 | Engineering proceeds with explicit live gates | Complete all agent implementation and synthetic/installed verification while public registration and independent-account acceptance remain pending. Subject dependencies require prior engineering contract, not fabricated human completion; keep subjects with human/live requirements open. No publication. | User requests full implementation; registered client ID is unavailable and no second person can be impersonated. | 01.3; 02–05; manual-actions.md |
 | D005 | 2026-10-15 | Baseline verification scope | Accept build/lint/format/types and 47 focused auth/store tests as implementation baseline; broad fast suite runs concurrently and remains a final gate. Initial duplicate broad run cancelled to avoid contention. | No failing baseline observed; broad replay suite takes substantial time and does not require blocking unrelated authentication changes. | 00.3; 05.3; readiness.md |
 | D006 | 2026-10-15 | Public mode compatibility | Default new login to explicit public PKCE; retain personal login via --mode personal and unchanged legacy record names. Public records use separate names and a tagged active selection. Acquisition endpoint remains explicit; public users select --endpoint user. | Avoid silent endpoint changes and preserve existing library/default cache behavior. | 01.2; 02.1–02.3; 03.1; ADR0007 |
+| D007 | 2026-10-15 | Scoped close-out and package metadata | Waive whole-repo cleanup audit for this focused auth/package change; review changed surfaces directly and preserve unrelated analysis. Use PACKAGE.md as distribution metadata so public artifacts do not carry repository sample paths or player names. | No analysis refactor; broad cruft work would expand the authorized distribution scope. | 04.3; 05.3; §7 cleanup gate |
 
 ---
 
@@ -258,11 +259,11 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/distribution/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
-| [ ] | 01 | `tasks/distribution/01-public-auth-contract.md` | TODO | agent: 2; release-engineer: 1 | yes |
-| [ ] | 02 | `tasks/distribution/02-pkce-sign-in.md` | TODO | agent: 3 | n/a |
-| [ ] | 03 | `tasks/distribution/03-authorized-acquisition.md` | TODO | agent: 3 | n/a |
-| [ ] | 04 | `tasks/distribution/04-installable-cli.md` | TODO | agent: 4 | n/a |
-| [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | TODO | agent: 2; product-owner: 1; release-engineer: 1 | yes |
+| [ ] | 01 | `tasks/distribution/01-public-auth-contract.md` | LIVE GATE PENDING | agent: 2; release-engineer: 1 | yes |
+| [x] | 02 | `tasks/distribution/02-pkce-sign-in.md` | DONE | agent: 3 | n/a |
+| [ ] | 03 | `tasks/distribution/03-authorized-acquisition.md` | LIVE GATE PENDING | agent: 3 | n/a |
+| [x] | 04 | `tasks/distribution/04-installable-cli.md` | DONE | agent: 4 | n/a |
+| [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | IN PROGRESS | agent: 2; product-owner: 1; release-engineer: 1 | yes |
 
 ---
 
@@ -391,4 +392,15 @@ the work can be closed.
 
 ## Current handoff — 2026-10-15
 
-The Hunter milestone and both class-expansion plans are complete for accepted scope. This is the remaining prepared distribution plan; readiness and implementation have not started. Preserve all nine implemented Classic Era classes and current offline behavior. Existing wheel/sdist builds and an isolated real Mage replay provide preliminary packaging evidence only; they do not complete distribution acceptance. Next work is subject00 readiness, verified public-client PKCE requirements, registered client/callback, secure token lifecycle, authorized acquisition, clean installation and independent account/machine validation. Public registration, independent-user acceptance and publishing remain explicit human-owned gates. Additional product refinement requested by David is not yet a separate supplied plan. No desktop UI, bundled executable, auto-update or hosted service is included.
+Public PKCE engineering and installable CLI are implemented. Readiness, token
+lifecycle and package engineering subjects are complete. Public/personal records
+remain separate, legacy records readable, and public acquisition requires explicit
+user endpoint. All nine class/offline pipelines remain unchanged. See
+`tasks/distribution/verification.md` and `package-receipt.json` for exact evidence.
+User confirms there is no public client yet; registration instructions supplied.
+01.1/01.3 and live permission portion of 03.1 remain open. Another person/account
+and machine, publication and §8 sign-off remain human-owned and unperformed.
+The package contains no verified app ID yet: pass --client-id or the existing
+client-ID environment variable. No release, desktop shell or additional platform
+support is claimed. Preserve the plan and raw evidence. Final golden/browser
+checks and review are recorded as they complete.

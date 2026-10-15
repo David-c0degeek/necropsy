@@ -71,3 +71,8 @@ Fix before closing: broad baseline must finish or receive explicit disposition.
 Record: original PM-1–PM-3 in pre-mortem; subsequent registered-app validation
 cannot be fabricated. Risk: no public client ID/registration evidence supplied.
 Verdict: DO NOT CLOSE until baseline finishes; research and guardrails complete.
+
+Subsequent disposition: full baseline completed with 948 passed, 251 deselected.
+Updated implementation regression completed with 974 passed, 251 deselected;
+11 subsequently added artifact-boundary tests also pass. Readiness is CLOSE;
+the initial interim verdict above is retained as historical evidence.

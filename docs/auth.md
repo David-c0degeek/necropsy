@@ -2,15 +2,14 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Sign-in guide](warcraft-logs.md)
 
-**The current connection is for personal use with your own confidential WCL
-client. A distributed application requires a public-client flow with PKCE before
-distribution.** That flow is deferred; it is not implemented by the current CLI.
-
-For client setup, the callback URI, sign-in commands and troubleshooting, follow
-the [Warcraft Logs guide](warcraft-logs.md). This page describes what the local
-implementation stores and which boundaries it enforces. Authentication has synthetic tests and an observed signed-in Windows WinVault
-run; see [live validation](live-validation.md). Other real credential backends and
-public-client authentication remain unverified.
+Public S256 PKCE is the default new sign-in. Each person authorizes their own
+account without a shared client secret. The registered app, live public-client
+permissions/refresh and independent-user release acceptance remain pending.
+Personal confidential clients remain supported with `auth login --mode personal`.
+See [installation](installation.md), [the connection guide](warcraft-logs.md), and
+[the public authentication decision](decisions/0007-public-client-authentication.md).
+The older [live validation](live-validation.md) records personal-client Windows
+evidence only; it does not certify public registration.
 
 ## Credentials and tokens
 
@@ -20,8 +19,10 @@ uses the concrete backend class. Reads, writes and deletes go directly to that
 instance, rather than through a chaining facade. File, plaintext, null and
 unrecognized backends are refused. There is no credentials-file fallback.
 
-The confidential client secret and user-token state share one record per client
-ID. Values are chunked under a fresh generation, with the head pointer written
+Public records carry an explicit mode and no secret, under separate public-client
+keys. Personal confidential secrets and user-token state share a personal record
+per client ID. Legacy untagged personal records remain readable. The active
+selection identifies both mode and client; it is committed last. Values are chunked under a fresh generation, with the head pointer written
 last; a failed write preserves the previous readable generation. Sign-in stages
 new credentials until token exchange succeeds. A cancelled or failed sign-in
 preserves the previous working record.
@@ -41,7 +42,10 @@ through the command option, environment, saved ID or prompt.
 
 The registered callback is `http://localhost:8765/callback`. The listener is bound
 before the authorization browser opens, checks the returned state and has a
-bounded wait. The secret prompt is hidden. Sign-out removes the selected client's
+bounded wait. Each public attempt creates fresh S256 verifier/challenge and state. The verifier
+stays in memory; attempts expire after five minutes and are consumed before exchange.
+Public token and refresh requests carry client_id without Basic authorization.
+Personal mode alone uses a hidden secret prompt. Sign-out removes the selected client's
 user-token state; `--forget-secret` also removes that client's record and saved
 selection. Other client records remain separate.
 
@@ -49,7 +53,8 @@ Supported character URLs use HTTPS and the allowed Warcraft Logs host/path
 formats. Acquisition currently supports Classic Era on
 `vanilla.warcraftlogs.com`. `analyze` validates its inputs and refuses earlier
 outputs before accessing credentials. One endpoint serves the whole acquisition:
-`client` by default, or `user` when selected. Permission errors do not switch the
+`client` by default, or `user` when selected. Public-mode resolve/analyze require
+explicit `--endpoint user`; a client request fails before HTTP. Permission errors do not switch the
 endpoint. HTTP requests do not automatically follow redirects.
 
 Saved snapshot analysis and HTML rendering need no WCL credentials or network.

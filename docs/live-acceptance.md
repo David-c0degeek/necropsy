@@ -10,10 +10,12 @@ mechanics or prove every recommendation correct.
 
 ## Before the run
 
-Register `http://localhost:8765/callback` for your personal confidential WCL client
-and complete `uv run necropsy auth login` interactively. Follow the
+Register `http://localhost:8765/callback` for the intended public client and
+complete `uv run necropsy auth login --client-id PUBLIC_CLIENT_ID` interactively.
+For personal confidential-client validation, instead use `auth login --mode personal`. Follow the
 [sign-in guide](warcraft-logs.md); do not put secrets in environment variables,
-commands or the receipt. Public-client PKCE remains required before distribution.
+commands or the receipt. Public-client registration and independent acceptance
+remain required before distribution.
 
 Choose a supported Classic Era Hunter character URL, a reusable cache and an output
 directory without prior results. An optional historical comparison requires a saved
@@ -29,6 +31,7 @@ From the repository root, in PowerShell:
 $env:NECROPSY_LIVE_URL = 'YOUR_CHARACTER_URL'
 $env:NECROPSY_LIVE_CACHE = 'workspace/wcl-cache'
 $env:NECROPSY_LIVE_OUT = 'workspace/live-check'
+$env:NECROPSY_LIVE_ENDPOINT = 'user'
 uv run pytest -m live --run-live -s tests/live/test_live_acceptance.py
 ```
 
@@ -121,3 +124,67 @@ integrity. Sign-in prerequisites and domain review are tracked separately; the
 harness does not silently close them. If report generation fails after the raw
 snapshot is saved, follow the printed offline recovery command and retain its
 member manifest. Read the error before rerunning acquisition.
+
+
+## Independent installed public-client acceptance
+
+This is a human-observed gate on **another account and machine**. Do not infer it
+from repository tests, the developer's own login, or the installation audit.
+
+1. Release engineer registers a separate public Necropsy client, with exact
+   callback `http://localhost:8765/callback`. Record app name, public ID, callback,
+   public-client setting and date privately; no secret or callback query strings.
+2. Give the tester only the reviewed wheel, SHA-256 and public ID. Follow
+   [installation](installation.md) outside the checkout, using Python >=3.14.
+   Record OS/Python/CLI version and wheel digest. Confirm no developer secret is
+   requested and the consent screen identifies the intended app/account.
+3. Run `auth login --client-id PUBLIC_CLIENT_ID`, `auth status --check` and
+   `resolve URL --endpoint user`. Record successful authorization and supported
+   query permissions. Cancel a separate attempt and confirm the prior login still
+   works. Do not save the browser URL or token response in the receipt.
+4. Exercise expiry and refresh if WCL issues a refresh token; record only
+   issued/not-issued and success/failure. If refresh is absent, verify re-login.
+   Refresh rotation and a failed-refresh re-login must be observed before claiming
+   provider lifecycle support. Synthetic cases remain separate evidence.
+5. Acquire `analyze URL --endpoint user --cache CACHE --out NEW_DIRECTORY`.
+   Record actual ranking/report/archive availability and missing permissions,
+   hourly-budget behavior, exit code, coverage notes and output hashes. Archive
+   access depends on the account; unsupported permission scope is a release limit.
+6. Reuse `necropsy.wcl.acceptance.check_run` and `check_package` for integrity,
+   and the opt-in live harness above when developer tools are available. For an
+   installed-only run, use the emitted snapshot .sha256/.entries companions and
+   compare replayed outputs with the same commands. Open both pages, review
+   uncertainty and replay the saved snapshot offline without signing in.
+7. Run gitleaks on all outputs and **extracted** raw/package members with
+   `--redact --max-target-megabytes 0`; no findings, unavailable or failed scanner
+   is silently treated as clean. Keep the full receipt and raw logs private.
+8. Verify `auth logout --forget-secret`, then `uv tool uninstall necropsy`.
+   Tokens are removed locally; WCL revocation is separate. Tester confirms the
+   experience and platform limits; product owner accepts or records failures.
+   Release engineer approves publication only after all required gates pass.
+
+Receipt fields (record observations, never populate from expectations):
+
+```json
+{
+  "date": "YYYY-MM-DD",
+  "tester": "private receipt reference",
+  "different_account_and_machine": false,
+  "os_python_version": "pending",
+  "cli_version_and_artifact_sha256": "pending",
+  "public_client_registration_verified": false,
+  "callback_verified": false,
+  "no_developer_secret_requested": false,
+  "login_cancel_refresh_logout": "pending",
+  "user_ranking_report_archive_permissions": "pending",
+  "quota_and_coverage_limits": "pending",
+  "snapshot_output_package_integrity": "pending",
+  "offline_replay": "pending",
+  "unlimited_extracted_secret_scan": "pending",
+  "product_acceptance": "pending",
+  "publication_approval": "pending"
+}
+```
+
+Publication records the exact package version, artifact SHA-256 and supported
+platforms. Prepared instructions or an unsigned receipt are not acceptance.

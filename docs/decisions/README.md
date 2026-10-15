@@ -16,3 +16,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Classes and encounter duties](0005-class-and-encounter-duties.md) | Separate class/build/category/duty/override evidence and compatible class sections |
 
 | [Shared class combat evidence](0006-shared-class-combat-evidence.md) | Verified ranking categories, common combat plugins and shared execution views |
+
+| [Public-client PKCE](0007-public-client-authentication.md) | Separate tagged modes, secret-free user endpoint, installed verification and explicit live release gates |

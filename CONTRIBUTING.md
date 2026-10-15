@@ -82,3 +82,11 @@ For docs, run examples and check links. Templates provide prompts, not a
 substitute for judgment. Leave historical source documents intact.
 
 Druid contracts are documented in [Druid analysis](docs/druid-analysis.md). Extend the existing class registry and shared output pipeline; do not apply Hunter ranking rules to another class. Keep real fixture provenance and independently checked facts distinct from synthetic tests. Role inference and raw HPS/DPS do not replace domain review.
+
+## Verify distribution artifacts
+
+Follow [the isolated package check](docs/installation.md#build-verification-for-contributors).
+Build through the sdist, scan all extracted members with unlimited-size gitleaks,
+and test the installed entry point, public flow and offline replay outside the
+checkout. A real OS-store probe uses disposable synthetic credentials. CI does
+not establish independent-user acceptance or approval to publish.

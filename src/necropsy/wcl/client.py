@@ -238,7 +238,14 @@ class WclClient:
                 status = response.status_code
                 if status in (401, 403):
                     raise (AuthenticationError if status == 401 else PermissionDenied)(
-                        f"WCL answered HTTP {status}", self.last_rate
+                        f"WCL answered HTTP {status}; "
+                        + (
+                            "sign in again with necropsy auth login"
+                            if status == 401
+                            else "check this account's report/archive permissions; "
+                            "the selected endpoint will not change"
+                        ),
+                        self.last_rate,
                     ) from None
                 if status == 404:
                     raise NotFound("WCL answered HTTP 404", self.last_rate) from None

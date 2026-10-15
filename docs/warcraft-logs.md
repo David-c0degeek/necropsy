@@ -14,60 +14,48 @@ refused with an explanation before Necropsy accesses saved credentials.
 For storage, token lifecycle and distribution limits, see
 [Authentication boundaries](auth.md).
 
-## Set up your personal API client
+## Public application sign-in
 
-This sign-in flow uses your own confidential Warcraft Logs API client on your
-own computer. In your Warcraft Logs API client settings, register this exact
-redirect URL:
-
-```text
-http://localhost:8765/callback
-```
-
-Keep your client ID and client secret available. The ID identifies the client;
-the secret is entered at a hidden prompt. Follow the
-[Warcraft Logs API documentation](https://www.warcraftlogs.com/api/docs)
-for client setup. The current confidential-client flow is for personal use;
-a distributed application needs a public-client flow with PKCE first.
-
-## Sign in
-
-From the repository root:
+For an installed CLI, follow [installation](installation.md). The application
+owner creates a separate public Necropsy client in [WCL client management](https://www.warcraftlogs.com/api/clients),
+registering exactly `http://localhost:8765/callback` and enabling the public-client
+option. Keep confidential personal clients separate. Public registration and
+account permissions must be verified before release; no shared secret is shipped.
 
 ```sh
-uv run necropsy auth login
+uv run necropsy auth login --client-id PUBLIC_CLIENT_ID
 ```
 
-On your first sign-in, enter your client ID and secret when prompted. Necropsy
-opens the authorization page in your browser and waits up to five minutes.
-After you authorize access, the browser asks you to return to Necropsy.
-The terminal confirms success once the token is received and saved:
+Use the app owner's public ID, or set `NECROPSY_WCL_CLIENT_ID`. A verified
+packaged public ID is used when available; otherwise the CLI prompts for the ID.
+It never prompts for a secret in public mode. Your own browser authorization
+permits account access; the application ID alone does not authorize a user.
 
-```text
-Signed in to vanilla.warcraftlogs.com; token valid until … UTC.
-```
+The listener binds loopback before the browser opens. Authorize within five
+minutes, then return to the terminal. `--no-browser` prints the URL for manual
+opening on the same machine. Wrong state, denied access, expired/consumed attempts
+and token failures preserve the previous selected sign-in. Retry with a fresh
+login; do not reuse a callback code.
 
-Your client secret and sign-in token are saved in your operating system's
-credential store: Windows Credential Locker, macOS Keychain, Secret Service,
-or KWallet. Necropsy selects one approved store and uses it directly.
-It does not fall back to a credentials file or print the token.
+Tokens live only in one approved OS credential store, with no file fallback.
+`auth status` shows the active mode. A received refresh token is reused/rotated;
+without one, sign in again at expiry. Public-client refresh and archived access
+remain live acceptance checks, not guarantees from synthetic tests.
 
-Subsequent sign-ins reuse the saved client ID and secret. To enter a replacement
-secret, use:
+## Personal confidential client compatibility
+
+For your own existing confidential client, register the same callback and use:
 
 ```sh
-uv run necropsy auth login --new-secret
+uv run necropsy auth login --mode personal --client-id YOUR_PERSONAL_CLIENT_ID
+uv run necropsy auth login --mode personal --new-secret
 ```
 
-The replacement is retained only when sign-in succeeds. A cancelled sign-in
-or failed token exchange preserves the previous working credentials.
-To switch clients, add `--client-id YOUR_CLIENT_ID`; the secret is still prompted
-for privately. The client ID can also come from `NECROPSY_WCL_CLIENT_ID`.
-Selection order is the command option, environment variable, saved ID, then prompt.
-
-If the browser does not open automatically, run `auth login --no-browser` and
-open the printed URL yourself on the same computer. Keep the terminal running
-while you authorize access.
+Personal mode alone prompts privately for a missing/replacement secret. Existing
+personal records remain readable and separate from public-mode records, including
+when both use the same client ID. New credentials save only after exchange
+succeeds. Client selection uses the option, environment, packaged public ID
+(public mode only), saved selection of the same mode, then a prompt.
 
 ## Check the connection
 
@@ -91,7 +79,7 @@ current account reading, rather than an exact cost for a future analysis.
 ## Resolve a character URL
 
 ```sh
-uv run necropsy resolve "https://vanilla.warcraftlogs.com/character/eu/REALM/CHARACTER"
+uv run necropsy resolve "https://vanilla.warcraftlogs.com/character/eu/REALM/CHARACTER" --endpoint user
 ```
 
 Replace `REALM` and `CHARACTER` with the values in your WCL character URL.
@@ -130,7 +118,7 @@ event context. Permission or identity failures can still leave it unavailable.
 After signing in, run:
 
 ```sh
-uv run necropsy analyze "YOUR_CHARACTER_URL" --cache workspace/wcl-cache --out workspace/my-run
+uv run necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache workspace/wcl-cache --out workspace/my-run
 ```
 
 Add `--wait-for-reset` to allow one wait based on an observed hourly reset,
@@ -148,7 +136,7 @@ It also refuses paths through symlinks or junctions and prevents simultaneous
 their existing replacement behavior.
 
 If several partitions are possible, read the listed choices and repeat with
-`--partition ID`. Only an observed faction and Hunter character are supported.
+`--partition ID`. An observed faction and a supported Classic Era class/category are required.
 Every request uses `--endpoint client` by default; `--endpoint user` selects the
 user API for the whole run. Permission failures never switch endpoints.
 
@@ -274,3 +262,8 @@ references across the raid before deep examples. One or two acquired event
 sources still provide individual comparisons, with limited-sample labels.
 
 Supported class/category choices and role aliases are listed in [class analysis](class-analysis.md). Non-Hunter selected categories retain metric/class/spec/role identity through acquisition and snapshot replay; healer queries use HPS, with ranking scores separate from event throughput.
+
+Public PKCE users must include `--endpoint user` on every `analyze` and `resolve`
+command. The default `client` route is retained for confidential personal clients;
+permission/expiry errors never trigger endpoint fallback. See
+[installation and recovery](installation.md) for upgrade, logout and uninstall.

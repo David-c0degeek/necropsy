@@ -24,6 +24,9 @@ snapshot, and writes the same results. Synthetic integration tests and a real si
 the live run retained explicit partial pet coverage. See [observed live validation](docs/live-validation.md). See the
 [connection guide](docs/warcraft-logs.md) and [roadmap](docs/roadmap.md).
 
+An installable Python CLI with public PKCE sign-in is implemented; public release
+and independent-account validation are pending. See [installation](docs/installation.md).
+
 ## Your first analysis
 
 From the repository root, with [uv](https://docs.astral.sh/uv/) installed:
@@ -46,7 +49,7 @@ To acquire your own logs, first [configure and sign in to WCL](docs/warcraft-log
 then use an output directory without earlier results:
 
 ```sh
-uv run necropsy analyze "YOUR_CHARACTER_URL" --cache workspace/wcl-cache --out workspace/my-run
+uv run necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache workspace/wcl-cache --out workspace/my-run
 ```
 
 Acquisition uses the network and requires a supported Classic Era character URL on

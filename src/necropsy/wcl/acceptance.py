@@ -192,7 +192,17 @@ def secret_scan(out: Path) -> dict[str, str]:
         return {"status": "unavailable", "note": "gitleaks not found on PATH", "limit": SCAN_LIMIT}
     try:
         run = subprocess.run(  # noqa: S603 - fixed tool path from PATH, list argv, no shell
-            [tool, "dir", str(out), "--redact", "--no-banner", "--exit-code", "1"],
+            [
+                tool,
+                "dir",
+                str(out),
+                "--redact",
+                "--no-banner",
+                "--exit-code",
+                "1",
+                "--max-target-megabytes",
+                "0",
+            ],
             capture_output=True,
             text=True,
             check=False,

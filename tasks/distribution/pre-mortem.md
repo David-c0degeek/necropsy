@@ -44,3 +44,18 @@ registration or independent acceptance. No publication before those gates.
 Pending implementation; retain the predictions above unchanged. Record terminal
 resolution and observed detection in the closing review; live unobserved horizons
 remain Inconclusive.
+
+
+## Engineering calibration — 2026-10-15
+
+| ID | Resolution | Calibration | Observed impact / detection | Remaining horizon |
+|---|---|---|---|---|
+| PM-1 | Prevented | Prevented Prediction | Cross-mode same-ID tests preserve legacy JSON; failed exchange and four partial-write points preserve personal selection. Public client request refuses before HTTP; synthetic CLI acquisition uses only user. Detected before merge. | Live WCL permission matrix still open in 03.1. |
+| PM-2 | Mitigated | Prevented Prediction | RFC S256 vector, fresh independent attempts, expiry/consume checks and existing real callback denial/state/timeout tests pass. Token and verifier never appear in output/reprs. Detected before merge. | Provider invalid_grant/replay and actual registered callback remain live acceptance work. |
+| PM-3 | Mitigated | Inconclusive | Isolated Windows wheel install, public CLI/user-API mock, real offline replay/package integrity, unlimited extracted gitleaks and real WinVault chunked probe pass. Public metadata omits player sample references; no fixtures/caches/plans ship. | Another person/machine has not run; registration unpublished. Release is gated, not approved. |
+
+Mitigations are effective for observed engineering behavior; original severity
+remains appropriate. Provider/account permissions and independent acceptance
+cannot be disproven by local tests. No material unpredicted runtime failure found.
+The Windows ZIP-normalization test initially expected a raw separator to survive
+Python normalization; corrected the test to exercise traversal, not spelling.

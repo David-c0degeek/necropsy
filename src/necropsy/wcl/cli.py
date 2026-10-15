@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 import webbrowser
 from collections.abc import Callable
@@ -13,7 +14,17 @@ import typer
 
 from necropsy.snapshot.v1_writer import WriteError
 from necropsy.wcl.analyze import AnalyzeError, run_analyze
-from necropsy.wcl.auth import Auth, AuthError, AuthState, CallbackListener, new_state
+from necropsy.wcl.auth import (
+    CLIENT_ID_ENV,
+    PUBLIC_CLIENT_ID,
+    Auth,
+    AuthError,
+    AuthMode,
+    AuthState,
+    CallbackListener,
+    PkceAttempt,
+    new_state,
+)
 from necropsy.wcl.cache import CacheError
 from necropsy.wcl.client import RATE_FIELDS, WclClient, WclError
 from necropsy.wcl.context import describe, resolve
@@ -22,7 +33,7 @@ from necropsy.wcl.sites import VANILLA, Site, UnsupportedSite, require_supported
 from necropsy.wcl.urls import BadCharacterUrl, parse_character_url
 
 auth_app = typer.Typer(
-    help="Sign in to Warcraft Logs for personal use (credentials stay in the OS store).",
+    help="Sign in to Warcraft Logs (authorization stays in the OS credential store).",
     no_args_is_help=True,
 )
 
@@ -44,6 +55,9 @@ def _when(epoch: float) -> str:
 
 @auth_app.command("login")
 def login(
+    mode: Annotated[
+        AuthMode, typer.Option(help="Public PKCE (no shared secret), or your personal client.")
+    ] = AuthMode.PUBLIC,
     client_id: Annotated[
         str | None, typer.Option(help="Your WCL API client id (not secret).")
     ] = None,
@@ -58,23 +72,39 @@ def login(
         bool, typer.Option("--browser/--no-browser", help="Open the sign-in page.")
     ] = True,
 ) -> None:
-    """Sign in once: saves the client secret and your token in your OS credential store."""
+    """Authorize your WCL account in a browser; save tokens in the OS store."""
     try:
+        if mode is AuthMode.PUBLIC and new_secret:
+            raise AuthError("--new-secret requires --mode personal")
         auth = _auth()
-        cid = client_id or auth.client_id() or typer.prompt("WCL client id")
-        existing = auth.record(cid)
+        saved_id = auth.client_id() if mode is auth.mode() else None
+        cid = (
+            client_id
+            or os.environ.get(CLIENT_ID_ENV)
+            or (PUBLIC_CLIENT_ID if mode is AuthMode.PUBLIC else None)
+            or saved_id
+            or typer.prompt("WCL public client id" if mode is AuthMode.PUBLIC else "WCL client id")
+        )
+        if not cid.strip():
+            raise AuthError("a registered WCL client id is required")
+        existing = auth.record(cid, mode=mode)
         secret = None
-        if new_secret or existing is None:
+        if mode is AuthMode.PERSONAL and (new_secret or existing is None):
             secret = typer.prompt("WCL client secret (hidden)", hide_input=True)
-        state = new_state()
-        url = auth.authorize_url(cid, state)
+        attempt = PkceAttempt(cid) if mode is AuthMode.PUBLIC else None
+        state = attempt.state if attempt else new_state()
+        url = auth.authorize_url(cid, state, challenge=attempt.challenge if attempt else None)
         with CallbackListener(state) as listener:  # bound before the browser opens
             typer.echo("Sign in to Warcraft Logs in your browser:")
             typer.echo(f"  {url}")
             if browser:
                 webbrowser.open(url)
             code = listener.wait()
-        token = auth.complete_sign_in(cid, secret, code)
+        token = (
+            auth.complete_public_sign_in(attempt, code)
+            if attempt
+            else auth.complete_sign_in(cid, secret, code)
+        )
     except (AuthError, CredentialStoreError) as exc:
         raise _fail("auth failed", exc) from None
     typer.echo(f"Signed in to {VANILLA.host}; token valid until {_when(token.expires_at)}.")
@@ -90,6 +120,7 @@ def status(
     try:
         auth = _auth()
         state = auth.state()
+        mode = auth.mode()
         token = auth.stored_token() if state is not AuthState.LOGIN_NEEDED else None
         has_client = auth.client_id() is not None
         rate = None
@@ -102,6 +133,7 @@ def status(
     except (AuthError, CredentialStoreError, WclError) as exc:
         raise _fail("auth failed", exc) from None
     typer.echo(f"site:             {VANILLA.host}")
+    typer.echo(f"auth mode:        {mode.value}")
     typer.echo(f"credential store: {auth.store.backend_name}")
     typer.echo(f"client id:        {'set' if has_client else 'not set'}")
     typer.echo(f"sign-in:          {state.value}")
@@ -133,15 +165,25 @@ def resolve_command(
     partition: Annotated[
         int | None, typer.Option(help="Partition id when several hold rankings.")
     ] = None,
+    endpoint: Annotated[
+        str, typer.Option(help="Use client or user; public PKCE requires user.")
+    ] = "client",
 ) -> None:
     """Show who a character URL points to: character, faction, zone and partition."""
     try:
+        if endpoint not in {"client", "user"}:
+            raise AuthError("endpoint must be client or user")
         ref = parse_character_url(url)
         require_supported(ref.site)
         auth = _auth()
         client = WclClient(ref.site, auth.token_for)
         try:
-            context = resolve(client, ref, partition=partition)
+            context = resolve(
+                client,
+                ref,
+                partition=partition,
+                endpoint="user" if endpoint == "user" else "client",
+            )
         finally:
             client.close()
     except (BadCharacterUrl, UnsupportedSite, AuthError, CredentialStoreError, WclError) as exc:

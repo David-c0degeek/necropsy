@@ -328,7 +328,9 @@ def test_login_prompts_for_the_secret_without_echo(monkeypatch: pytest.MonkeyPat
     )
     _cli_auth(monkeypatch, auth)
     monkeypatch.setattr(wcl_cli, "CallbackListener", _Listener(CODE))
-    result = CliRunner().invoke(app, ["auth", "login", "--client-id", "cid"], input=f"{SECRET}\n")
+    result = CliRunner().invoke(
+        app, ["auth", "login", "--mode", "personal", "--client-id", "cid"], input=f"{SECRET}\n"
+    )
     assert result.exit_code == 0, result.output
     assert "Signed in to vanilla.warcraftlogs.com" in result.output
     _clean(result.output)
@@ -345,7 +347,9 @@ def test_cancelled_login_with_a_new_secret_changes_nothing(
     monkeypatch.setattr(
         wcl_cli, "CallbackListener", _Listener(AuthError("sign-in failed (access_denied)"))
     )
-    result = CliRunner().invoke(app, ["auth", "login", "--new-secret"], input=f"{NEW_SECRET}\n")
+    result = CliRunner().invoke(
+        app, ["auth", "login", "--mode", "personal", "--new-secret"], input=f"{NEW_SECRET}\n"
+    )
     assert result.exit_code == 1
     assert "auth failed: sign-in failed (access_denied)" in result.output
     assert memory.data == before

@@ -104,7 +104,7 @@ uv run necropsy ingest export.zip --db workspace/analysis.duckdb
 ## Acquire your own logs
 
 For a Classic Era Hunter's Naxxramas logs, follow the
-[WCL connection guide](warcraft-logs.md) to configure your personal client and
+[WCL connection guide](warcraft-logs.md) to configure public PKCE or a personal client and
 sign in, then run:
 
 ```sh
@@ -188,3 +188,6 @@ separate output directory for each category/metric selection.
 The user-facing `--spec` option accepts Balance (or boomkin), Feral, Restoration
 and Tank. Each report keeps every requested boss, shows matching personal data,
 and separates missing personal data from top-player learning examples.
+
+For installation outside the checkout and public account authorization, see
+[installation](installation.md). Public acquisition needs `--endpoint user`.

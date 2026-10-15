@@ -1,0 +1,44 @@
+{
+  "version": "necropsy 0.1.0",
+  "platform": "win32",
+  "python": "3.14.6",
+  "artifacts": [
+    {
+      "file": "necropsy-0.1.0-py3-none-any.whl",
+      "sha256": "5ab003e0eab7f56d002df1d627bc2416556a76e5897efd37a573e8b270119c4a",
+      "bytes": 291878,
+      "members": 98,
+      "extracted_bytes": 940537,
+      "secret_scan": {
+        "status": "passed",
+        "note": "",
+        "limit": "Pattern-based scan of the written output; finding nothing does not prove that no secret is present."
+      }
+    },
+    {
+      "file": "necropsy-0.1.0.tar.gz",
+      "sha256": "eac720d224c3c4ed26a4507d45309509bd9f26047a34801cb3dcc88140917981",
+      "bytes": 241075,
+      "members": 97,
+      "extracted_bytes": 935611,
+      "secret_scan": {
+        "status": "passed",
+        "note": "",
+        "limit": "Pattern-based scan of the written output; finding nothing does not prove that no secret is present."
+      }
+    }
+  ],
+  "installed_public_auth": "installed public CLI + synthetic user API: passed",
+  "installed_offline_replay": "passed",
+  "replay_secret_scan": {
+    "status": "passed",
+    "note": "",
+    "limit": "Pattern-based scan of the written output; finding nothing does not prove that no secret is present."
+  },
+  "snapshot_sha256": "cba1f62b57f5369434dfe31b318e72d3925f91b0a1a4c568e8be43688cf10c8e",
+  "installed_package_integrity": "passed",
+  "credential_backend_probe": "keyring.backends.Windows.WinVaultKeyring",
+  "live_public_account": "not performed",
+  "independent_user": "not performed",
+  "replay_output_lines": 7
+}

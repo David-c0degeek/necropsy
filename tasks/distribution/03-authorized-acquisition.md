@@ -14,14 +14,22 @@ Acquire with the authorized user token through a researched, explicitly selected
 
 ## Boxes
 - [ ] **03.1** (agent) Use the existing WclClient and analyze orchestration with an explicit PKCE/user endpoint route; verify which public and archived ranking/report queries the token permits. Do not attempt client_credentials without a secret or silently switch endpoints.
-- [ ] **03.2** (agent) Preserve fixed endpoint cache identities, revision checks, partial coverage, bounded budgets and offline replay. Verify missing permission and expiry are clear failures or typed coverage limitations.
-- [ ] **03.3** (agent) Exercise the installed public-mode CLI with synthetic OAuth/WCL responses and replay existing Hunter snapshots unchanged; reconcile JSON schema, help, auth/usage/troubleshooting docs and ADRs.
+- [x] **03.2** (agent) Preserve fixed endpoint cache identities, revision checks, partial coverage, bounded budgets and offline replay. Verify missing permission and expiry are clear failures or typed coverage limitations.
+- [x] **03.3** (agent) Exercise the installed public-mode CLI with synthetic OAuth/WCL responses and replay existing Hunter snapshots unchanged; reconcile JSON schema, help, auth/usage/troubleshooting docs and ADRs.
 
 ## Hindsight checkpoint
 Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
-- [ ] Captain Hindsight review recorded
+- [x] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.
+2026-10-15 · 1 · 03.1–03.3 · Resolve now accepts explicit endpoint; public tokens reject client_credentials before HTTP. Existing cache identity/revision/budget/offline code reused unchanged. Synthetic public Auth→CLI analyze→snapshot/report passes on user route; permission denial never falls back. Installed wheel public login plus synthetic user API and unchanged Hunter snapshot replay pass outside checkout. 130 focused checks pass. Analysis schema is unaffected. Docs updated in auth/connection/install/architecture/live acceptance/ADR0007. Real public ranking/report/archive permission verification remains open in 03.1. Pushed checkpoint follows.
+
+## Interim review
+Keep: fixed endpoint and shared acquisition/offline pipeline, actionable 401/403 errors.
+Fix before closing: observe registered public token with actual ranking/report/archive queries.
+Record: installed receipt and scope in verification.md; no schema migration.
+Risk: endpoint contract does not establish every account's permissions.
+Verdict: DO NOT CLOSE; only live portion of 03.1 remains.
+

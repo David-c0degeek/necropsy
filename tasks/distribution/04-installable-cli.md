@@ -13,16 +13,24 @@ Ship a reproducible local CLI package that can be installed without this reposit
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **04.1** (agent) Build the existing Python wheel with its rule/template/assets data; verify clean-environment installation and entry points from outside the repository. Document Python/OS requirements and one simple install/run path.
-- [ ] **04.2** (agent) Declare the supported platform matrix based on actual clean-install and approved credential-store evidence. Windows is the first personal acceptance target; CI or simulated keychains alone do not prove real-store behavior on other systems.
-- [ ] **04.3** (agent) Verify wheel/sdist and generated samples contain no secrets, tokens, private caches, developer-local paths or personal identifiers in public documentation/samples; include integrity/version information and a reproducible package check.
-- [ ] **04.4** (agent) Publish installation, sign-in, upgrades, uninstall/logout and permission/budget recovery documentation; keep desktop UI, bundled executables, auto-update and hosted services outside this plan.
+- [x] **04.1** (agent) Build the existing Python wheel with its rule/template/assets data; verify clean-environment installation and entry points from outside the repository. Document Python/OS requirements and one simple install/run path.
+- [x] **04.2** (agent) Declare the supported platform matrix based on actual clean-install and approved credential-store evidence. Windows is the first personal acceptance target; CI or simulated keychains alone do not prove real-store behavior on other systems.
+- [x] **04.3** (agent) Verify wheel/sdist and generated samples contain no secrets, tokens, private caches, developer-local paths or personal identifiers in public documentation/samples; include integrity/version information and a reproducible package check.
+- [x] **04.4** (agent) Publish installation, sign-in, upgrades, uninstall/logout and permission/budget recovery documentation; keep desktop UI, bundled executables, auto-update and hosted services outside this plan.
 
 ## Hindsight checkpoint
 Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded
+- [x] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.
+2026-10-15 · 1 · 04.1–04.4 · Added reproducible extracted-artifact/isolated-install check and PACKAGE.md metadata. Windows Python3.14.6: wheel command version/help, public login with synthetic OAuth/user API and real Hunter subset offline replay pass outside repository. Actual WinVault probe round-trips chunked synthetic values, replaces and removes them under a unique service; existing WCL records never accessed. Both extracted artifacts and generated outputs pass gitleaks with unlimited target size. Unexpected/private archive paths and unavailable scanner are refused. Wheel includes existing rules/templates/assets; sdist omits tests/raw exports/caches/workspace/plans. No generated player sample is distributed. Matrix declares Windows engineering evidence only; macOS/Linux unverified and public acceptance pending. Install/auth/upgrade/logout/uninstall/permissions/quota docs updated. Final artifact hashes recorded in verification.md. Pushed checkpoint follows.
+
+## Closing review
+Keep: minimal wheel/sdist, existing entry point/resources, one isolated checker.
+Fix before closing: none for engineering installation/artifact boundary.
+Record: Windows real-store evidence and artifact hashes; D007 public metadata decision.
+Risk: real public-client/independent-account release gates remain external to package evidence.
+Verdict: CLOSE engineering subject per D004.
+

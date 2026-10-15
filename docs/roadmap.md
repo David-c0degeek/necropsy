@@ -45,14 +45,16 @@ CLI, followed by class-aware analysis with Druid first: feral DPS, balance DPS,
 restoration healing, feral tanking and hybrid/mixed encounter duties. Role-specific
 comparisons and preserved Hunter compatibility are required. Druid class/category acquisition, duty analysis and reports are implemented with
 [documented validation limits](druid-validation.md); domain acceptance remains open.
-Public-client distribution remains planned; the personal Hunter/Naxxramas milestone is signed off.
+Public PKCE and installable-wheel engineering are implemented; registration,
+independent account/machine acceptance and publishing remain pending; the personal Hunter/Naxxramas milestone is signed off.
 All nine Classic Era classes now have [shared class reports](class-analysis.md), including supported healing/tank categories. This does not imply desktop UI or additional game/raid support.
 
 ## Authentication and distribution
 
-The current WCL connection is for personal use with a confidential OAuth
-client. Credentials stay in the selected operating system credential store.
-A PKCE public-client flow must replace it before any distributed desktop client.
+Public S256 PKCE is the default sign-in; personal confidential clients remain
+explicitly supported. Both use the selected operating system credential store.
+Public acquisition requires `--endpoint user`. [Installation](installation.md)
+documents package verification and pending live release gates.
 Offline analysis of a saved export needs no WCL credentials.
 
 The [original architecture specification](origin/WCL_Forensics_App_Architecture_v0.1.md)

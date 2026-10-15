@@ -26,7 +26,7 @@ run is verified with explicit partial pet coverage; see [live validation](live-v
 | [Evidence model](evidence-model.md) | You need to distinguish facts, calculations, inferences, and unknown data |
 | [Hunter analysis](hunter-analysis.md) | You want the shot, pet, gear, and weaving rules |
 | [Database](database.md) | You are inspecting normalized events, coverage, or provenance |
-| [Authentication boundaries](auth.md) | You need the credential-storage and personal-use contract |
+| [Authentication boundaries](auth.md) | You need the credential-storage and public/personal contract |
 | [Current architecture](architecture.md) | You want the implemented flows, module map and operational limits |
 | [Architecture decisions](decisions/README.md) | You need the reasons behind the accepted acquisition and storage contracts |
 | [Contributing](../CONTRIBUTING.md) | You want to run checks, change code, or review a pull request |
@@ -44,3 +44,6 @@ describe the current implementation.
 - [Druid validation](druid-validation.md): observed real-log scope and remaining acceptance gates.
 
 - [All class analysis](class-analysis.md): supported ranking categories, roles and shared execution/ability comparisons.
+
+[Install the CLI](installation.md): Python/OS requirements, public login, upgrades,
+logout/uninstall, recovery and isolated artifact checks.

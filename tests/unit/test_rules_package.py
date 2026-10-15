@@ -11,6 +11,7 @@ from pathlib import Path
 import pytest
 
 from necropsy.rules import RuleError, load_rules
+from scripts.check_distribution import PUBLIC_PROBE
 
 REPO = Path(__file__).resolve().parents[2]
 PROBE = (
@@ -60,3 +61,38 @@ def test_rules_load_from_an_installed_wheel(tmp_path: Path) -> None:
         [str(python), "-c", PROBE], cwd=outside, check=True, capture_output=True, text=True, env=env
     )
     assert result.stdout.strip() == "Orc"
+    public = subprocess.run(
+        [str(python), "-c", PUBLIC_PROBE],
+        cwd=outside,
+        check=True,
+        capture_output=True,
+        text=True,
+        env=env,
+    )
+    assert "installed public CLI + synthetic user API: passed" in public.stdout
+    command = python.with_name("necropsy.exe" if sys.platform == "win32" else "necropsy")
+    version = subprocess.run(
+        [str(command), "--version"],
+        cwd=outside,
+        check=True,
+        capture_output=True,
+        text=True,
+        env=env,
+    )
+    assert version.stdout.startswith("necropsy ")
+    subprocess.run(
+        [
+            str(command),
+            "offline",
+            str(REPO / "tests/fixtures/haplina_naxx_subset.zip"),
+            "--out",
+            str(outside / "replay"),
+        ],
+        cwd=outside,
+        check=True,
+        capture_output=True,
+        text=True,
+        env=env,
+    )
+    assert (outside / "replay/report.html").is_file()
+    assert (outside / "replay/playbook.html").is_file()

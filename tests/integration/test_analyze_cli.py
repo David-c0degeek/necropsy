@@ -80,6 +80,43 @@ def test_a_complete_run_writes_snapshot_and_pages(tmp_path: Path, fake: dict[str
     assert fake["endpoints"] == ["client"]
 
 
+def test_public_sign_in_drives_user_acquisition(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from necropsy.wcl.auth import PkceAttempt
+    from tests.unit.test_wcl_auth import CODE, _auth, _token_ok
+    from tests.wcl_fakes import Script
+
+    script = Script(_token_ok())
+    auth, _ = _auth(script)
+    auth.complete_public_sign_in(PkceAttempt("synthetic-app"), CODE)
+    monkeypatch.setattr(wcl_cli, "_tokens", lambda: auth.token_for)
+    result = _run(tmp_path, "--endpoint", "user", "--name", "public")
+    assert result.exit_code == 0, result.output
+    assert fake["endpoints"] == ["user"]
+    assert len(script.requests) == 1  # never mints a confidential client token
+    assert (tmp_path / "out/snapshot/public.zip").is_file()
+    assert (tmp_path / "out/report.html").is_file()
+    document = json.loads((tmp_path / "out/analysis.json").read_text(encoding="utf-8"))
+    assert document["acquisition"]["endpoint"] == "user"
+
+
+def test_public_sign_in_refuses_client_acquisition(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from necropsy.wcl.auth import PkceAttempt
+    from tests.unit.test_wcl_auth import CODE, _auth, _token_ok
+    from tests.wcl_fakes import Script
+
+    script = Script(_token_ok())
+    auth, _ = _auth(script)
+    auth.complete_public_sign_in(PkceAttempt("synthetic-app"), CODE)
+    monkeypatch.setattr(wcl_cli, "_tokens", lambda: auth.token_for)
+    result = _run(tmp_path)
+    assert result.exit_code == 1 and "--endpoint user" in result.output
+    assert not fake["server"].requests and len(script.requests) == 1
+
+
 def test_explicit_hunter_spec_and_faction_select_the_main_lookup(
     tmp_path: Path, fake: dict[str, Any]
 ) -> None:

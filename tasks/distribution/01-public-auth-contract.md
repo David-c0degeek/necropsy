@@ -14,14 +14,22 @@ Define a distributable authentication contract and validate the registered WCL p
 
 ## Boxes
 - [ ] **01.1** (agent) Verify current official WCL PKCE requirements, registered loopback redirect support, scopes, endpoint access, refresh behavior and public-client configuration; retain dated primary-source evidence. Do not assume existing confidential-client settings can be reused.
-- [ ] **01.2** (agent) Record an ADR for public-client mode, compatibility with personal confidential-client records, callback/state/challenge handling and supported platforms; include a pre-mortem before behavior changes.
+- [x] **01.2** (agent) Record an ADR for public-client mode, compatibility with personal confidential-client records, callback/state/challenge handling and supported platforms; include a pre-mortem before behavior changes.
 - [ ] **01.3** (release-engineer) Register/configure the public Necropsy WCL client and approved callback URI after the researched requirements are known. Supply only the public client ID to package configuration; never supply a shared secret.
 
 ## Hindsight checkpoint
 Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
-- [ ] Captain Hindsight review recorded
+- [x] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.
+2026-10-15 · 1 · 01.1/01.2 · Official WCL indexed primary documentation confirms S256, client_id+verifier form without Basic auth and /api/v2/user. ADR0007 records mode/store/callback/platform contract and original pre-mortem. Public scope defaults, loopback registration and provider refresh remain live-unverified. User confirms no public client exists; creation instructions supplied. 01.1 stays open for registration-specific verification and 01.3 stays human-owned. Documentation: ADR0007, auth, connection and install guides. Pushed checkpoint follows.
+
+## Interim review
+Keep: primary contract, separate credentials and explicit user route.
+Fix before closing: register public app and verify callback/scopes/refresh/permissions.
+Record: readiness.md, ADR0007 and manual-actions.md.
+Risk: general PKCE docs cannot certify this app or every query.
+Verdict: DO NOT CLOSE.
+

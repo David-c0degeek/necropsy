@@ -124,3 +124,12 @@
 - 2026-10-15: Verify actual API filtering, not just successful responses. Unsupported advanced filters may silently return the same unfiltered rows; use documented arguments and verify results before claiming faction-specific #1.
 
 - Record explicit product acceptance separately from evidence adjudication. When the owner accepts limits and retires additional review, reconcile subject boxes, manual actions, current verdicts and final gates together; never claim an unperformed review or leave contradictory current trackers.
+
+
+- 2026-10-15: Credential mode belongs in identity. Preserve legacy personal
+  records and separate public PKCE records even for the same client ID; commit
+  selection last and reject incompatible endpoints before HTTP.
+- 2026-10-15: Distribution proof requires installed CLI behavior and actual
+  replay outside the checkout. Use a unique synthetic service for real OS-store
+  probes. Keep package metadata free of developer sample paths; local engineering
+  checks cannot stand in for registered-app or independent-user acceptance.

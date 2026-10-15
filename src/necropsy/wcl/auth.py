@@ -1,23 +1,17 @@
-"""Personal-use Warcraft Logs sign-in with a confidential client.
+"""WCL public PKCE and personal authentication through one approved OS store.
 
-The client secret and the user token live only in the selected OS credential
-store (see `credentials`), together in one record per client id, so a single
-write switches both. Sign-in is staged: a new client id or secret is used for
-the browser authorization and the token exchange first, and is saved only when
-the whole sign-in succeeds. A failed or cancelled sign-in leaves the previous
-working credentials untouched.
-
-Nothing secret is ever printed, logged, put in an exception message or kept in
-an exception chain: token-endpoint failures report only a recognised OAuth
-error code, and reprs are redacted. This flow is for the account owner's own
-machine; a distributed app must use a public PKCE client instead.
+Sign-in is staged until exchange succeeds. Public and legacy personal records
+remain separate; the active selection is committed last. Errors and reprs never
+include secrets, tokens, authorization codes or PKCE verifiers.
 """
 
 from __future__ import annotations
 
 import base64
+import hashlib
 import http.server
 import json
+import math
 import os
 import secrets
 import time
@@ -33,6 +27,9 @@ from necropsy.wcl.credentials import CredentialStore
 from necropsy.wcl.sites import Site, require_supported
 
 CLIENT_ID_ENV = "NECROPSY_WCL_CLIENT_ID"
+# Set only after the application owner verifies public registration and callback.
+# A client ID is public application identity; never put a client secret here.
+PUBLIC_CLIENT_ID: str | None = None
 REDIRECT_HOST = "127.0.0.1"
 REDIRECT_PORT = 8765
 REDIRECT_URI = f"http://localhost:{REDIRECT_PORT}/callback"
@@ -54,8 +51,36 @@ OAUTH_ERRORS = frozenset(
 _POINTER = "client-id"
 
 
-def _record_name(client_id: str) -> str:
-    return f"client:{client_id}"
+class AuthMode(StrEnum):
+    PUBLIC = "public"
+    PERSONAL = "personal"
+
+
+def _record_name(client_id: str, mode: AuthMode = AuthMode.PERSONAL) -> str:
+    prefix = "public-client" if mode is AuthMode.PUBLIC else "client"
+    return f"{prefix}:{client_id}"
+
+
+@dataclass
+class PkceAttempt:
+    """One short-lived browser transaction; sensitive material stays in memory."""
+
+    client_id: str
+    state: str = field(default_factory=lambda: secrets.token_urlsafe(24), repr=False)
+    verifier: str = field(default_factory=lambda: secrets.token_urlsafe(64), repr=False)
+    started_at: float = field(default_factory=time.monotonic, repr=False)
+    consumed: bool = field(default=False, init=False)
+
+    @property
+    def challenge(self) -> str:
+        digest = hashlib.sha256(self.verifier.encode("ascii")).digest()
+        return base64.urlsafe_b64encode(digest).rstrip(b"=").decode("ascii")
+
+    def consume(self) -> str:
+        if self.consumed or time.monotonic() - self.started_at >= 300:
+            raise AuthError("sign-in attempt expired or already used; start sign-in again")
+        self.consumed = True
+        return self.verifier
 
 
 class AuthError(Exception):
@@ -92,7 +117,13 @@ class Token:
     @classmethod
     def from_dict(cls, data: Any) -> Token:
         try:
-            return cls(str(data["access"]), data.get("refresh"), float(data["expires_at"]))
+            access, refresh = data["access"], data.get("refresh")
+            expiry = float(data["expires_at"])
+            if not isinstance(access, str) or not access or not math.isfinite(expiry):
+                raise ValueError
+            if refresh is not None and (not isinstance(refresh, str) or not refresh):
+                raise ValueError
+            return cls(access, refresh, expiry)
         except KeyError, TypeError, ValueError, AttributeError:
             raise LoginNeeded(
                 "the stored sign-in is unreadable; run `necropsy auth login`"
@@ -101,15 +132,20 @@ class Token:
 
 @dataclass(frozen=True)
 class ClientRecord:
-    """What is stored for one client id: its secret and, after sign-in, the token."""
+    """A tagged public or personal record; only personal records contain a secret."""
 
     client_id: str
-    secret: str = field(repr=False)
+    secret: str | None = field(repr=False)
     token: Token | None = None
+    mode: AuthMode = AuthMode.PERSONAL
 
     def to_json(self) -> str:
         return json.dumps(
-            {"secret": self.secret, "token": None if self.token is None else self.token.as_dict()}
+            {
+                "mode": self.mode.value,
+                "secret": self.secret,
+                "token": None if self.token is None else self.token.as_dict(),
+            }
         )
 
 
@@ -129,25 +165,63 @@ class Auth:
         require_supported(self.site)
 
     # -- stored values ----------------------------------------------------
-    def client_id(self) -> str | None:
-        return os.environ.get(CLIENT_ID_ENV) or self.store.get(_POINTER)
+    def _selection(self) -> tuple[AuthMode, str | None]:
+        pointer = self.store.get(_POINTER)
+        if pointer and pointer.startswith("{"):
+            try:
+                selected = json.loads(pointer)
+                cid = selected["client_id"]
+                if not isinstance(cid, str) or not cid:
+                    raise ValueError
+                return AuthMode(selected["mode"]), cid
+            except ValueError, KeyError, TypeError:
+                raise LoginNeeded("stored client selection is unreadable; sign in again") from None
+        return AuthMode.PERSONAL, pointer
 
-    def record(self, client_id: str | None = None) -> ClientRecord | None:
+    def client_id(self) -> str | None:
+        return os.environ.get(CLIENT_ID_ENV) or self._selection()[1]
+
+    def mode(self) -> AuthMode:
+        return self._selection()[0]
+
+    def record(
+        self, client_id: str | None = None, *, mode: AuthMode | None = None
+    ) -> ClientRecord | None:
+        chosen = mode or self.mode()
         cid = client_id or self.client_id()
         if not cid:
             return None
-        text = self.store.get(_record_name(cid))
+        text = self.store.get(_record_name(cid, chosen))
         if text is None:
             return None
         try:
             data = json.loads(text)
-            secret = str(data["secret"])
+            stored_mode = AuthMode(data.get("mode", "personal"))
+            secret = data["secret"]
+            if stored_mode is not chosen:
+                raise ValueError
+            if chosen is AuthMode.PERSONAL and (not isinstance(secret, str) or not secret):
+                raise ValueError
+            if chosen is AuthMode.PUBLIC and secret is not None:
+                raise ValueError
             token = None if data.get("token") is None else Token.from_dict(data["token"])
-        except ValueError, KeyError, TypeError:
+        except ValueError, KeyError, TypeError, AttributeError:
             raise LoginNeeded(
                 "the stored sign-in is unreadable; run `necropsy auth login`"
             ) from None
-        return ClientRecord(cid, secret, token)
+        return ClientRecord(cid, secret, token, chosen)
+
+    def _save(self, record: ClientRecord, *, select: bool = False) -> None:
+        self.store.set(_record_name(record.client_id, record.mode), record.to_json())
+        if select:
+            pointer = (
+                json.dumps({"mode": record.mode.value, "client_id": record.client_id})
+                if record.mode is AuthMode.PUBLIC
+                else record.client_id
+            )
+            if self.store.get(_POINTER) != pointer:
+                self.store.set(_POINTER, pointer)
+            self._client_token = None
 
     def stored_token(self) -> Token | None:
         found = self.record()
@@ -169,24 +243,27 @@ class Auth:
         if current is None:
             return
         if forget_secret:
-            self.store.delete(_record_name(current.client_id))
+            self.store.delete(_record_name(current.client_id, current.mode))
             self.store.delete(_POINTER)
         else:
             self.store.set(
-                _record_name(current.client_id),
-                ClientRecord(current.client_id, current.secret).to_json(),
+                _record_name(current.client_id, current.mode),
+                ClientRecord(current.client_id, current.secret, mode=current.mode).to_json(),
             )
 
     # -- token endpoint ---------------------------------------------------
-    def _token_request(self, client_id: str, secret: str, form: dict[str, str]) -> Token:
-        basic = base64.b64encode(f"{client_id}:{secret}".encode()).decode("ascii")
+    def _token_request(self, client_id: str, secret: str | None, form: dict[str, str]) -> Token:
+        headers = {}
+        if secret is None:
+            form = {**form, "client_id": client_id}
+        else:
+            basic = base64.b64encode(f"{client_id}:{secret}".encode()).decode("ascii")
+            headers["Authorization"] = f"Basic {basic}"
         try:
             with httpx.Client(
                 transport=self.transport, timeout=30.0, follow_redirects=False
             ) as http:
-                response = http.post(
-                    self.site.token_url, data=form, headers={"Authorization": f"Basic {basic}"}
-                )
+                response = http.post(self.site.token_url, data=form, headers=headers)
         except httpx.HTTPError:
             raise AuthError("could not reach the WCL sign-in service") from None
         try:
@@ -201,15 +278,33 @@ class Auth:
                 )
             raise AuthError(f"WCL sign-in failed (HTTP {response.status_code}, {code})")
         try:
+            access = body["access_token"]
             expires_in = float(body.get("expires_in", 3600))
+            refresh = body.get("refresh_token")
+            if not isinstance(access, str) or not access:
+                raise ValueError
+            if not math.isfinite(expires_in) or expires_in <= 0:
+                raise ValueError
+            if refresh is not None and (not isinstance(refresh, str) or not refresh):
+                raise ValueError
         except TypeError, ValueError:
-            expires_in = 3600.0
-        refresh = body.get("refresh_token")
-        return Token(
-            str(body["access_token"]),
-            str(refresh) if isinstance(refresh, str) and refresh else None,
-            self.now() + expires_in,
+            raise AuthError("WCL returned an invalid token response; sign in again") from None
+        return Token(access, refresh, self.now() + expires_in)
+
+    def complete_public_sign_in(self, attempt: PkceAttempt, code: str) -> Token:
+        verifier = attempt.consume()
+        token = self._token_request(
+            attempt.client_id,
+            None,
+            {
+                "grant_type": "authorization_code",
+                "code": code,
+                "redirect_uri": REDIRECT_URI,
+                "code_verifier": verifier,
+            },
         )
+        self._save(ClientRecord(attempt.client_id, None, token, AuthMode.PUBLIC), select=True)
+        return token
 
     def complete_sign_in(
         self, client_id: str, secret: str | None, code: str, redirect_uri: str = REDIRECT_URI
@@ -221,7 +316,7 @@ class Auth:
         a failure at any step leaves the previous working sign-in in place.
         """
         if secret is None:
-            existing = self.record(client_id)
+            existing = self.record(client_id, mode=AuthMode.PERSONAL)
             if existing is None:
                 raise LoginNeeded("no client secret saved for this client id; enter it to sign in")
             secret = existing.secret
@@ -230,9 +325,7 @@ class Auth:
             secret,
             {"grant_type": "authorization_code", "code": code, "redirect_uri": redirect_uri},
         )
-        self.store.set(_record_name(client_id), ClientRecord(client_id, secret, token).to_json())
-        if self.store.get(_POINTER) != client_id:
-            self.store.set(_POINTER, client_id)
+        self._save(ClientRecord(client_id, secret, token), select=True)
         return token
 
     def refresh(self) -> Token:
@@ -246,10 +339,7 @@ class Auth:
         )
         if new.refresh_token is None:
             new = Token(new.access_token, current.token.refresh_token, new.expires_at)
-        self.store.set(
-            _record_name(current.client_id),
-            ClientRecord(current.client_id, current.secret, new).to_json(),
-        )
+        self._save(ClientRecord(current.client_id, current.secret, new, current.mode))
         return new
 
     # -- tokens for the API client ------------------------------------------
@@ -262,6 +352,11 @@ class Auth:
         return token.access_token
 
     def client_token(self) -> str:
+        if self.mode() is AuthMode.PUBLIC:
+            raise AuthError(
+                "public sign-in requires --endpoint user; client credentials need a "
+                "personal client (auth login --mode personal)"
+            )
         token = self._client_token
         if token is None or token.expires_at - EXPIRY_MARGIN_S <= self.now():
             current = self.record()
@@ -274,18 +369,27 @@ class Auth:
         return token.access_token
 
     def token_for(self, endpoint: str) -> str:
+        if endpoint not in {"client", "user"}:
+            raise AuthError("endpoint must be client or user")
         return self.user_token() if endpoint == "user" else self.client_token()
 
-    def authorize_url(self, client_id: str, state: str, redirect_uri: str = REDIRECT_URI) -> str:
-        query = urllib.parse.urlencode(
-            {
-                "client_id": client_id,
-                "state": state,
-                "redirect_uri": redirect_uri,
-                "response_type": "code",
-            }
-        )
-        return f"{self.site.authorize_url}?{query}"
+    def authorize_url(
+        self,
+        client_id: str,
+        state: str,
+        redirect_uri: str = REDIRECT_URI,
+        *,
+        challenge: str | None = None,
+    ) -> str:
+        params = {
+            "client_id": client_id,
+            "state": state,
+            "redirect_uri": redirect_uri,
+            "response_type": "code",
+        }
+        if challenge is not None:
+            params.update(code_challenge=challenge, code_challenge_method="S256")
+        return f"{self.site.authorize_url}?{urllib.parse.urlencode(params)}"
 
 
 # -- local callback -----------------------------------------------------------
@@ -308,10 +412,12 @@ class _Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
             return
-        params = urllib.parse.parse_qs(parsed.query)
+        params = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
         state = params.get("state", [""])[0]
         expected: str = self.server.expected_state  # type: ignore[attr-defined]
-        if not secrets.compare_digest(state.encode(), expected.encode()):
+        if any(len(values) != 1 for values in params.values()):
+            outcome, message = "error:invalid-response", "Sign-in failed: ambiguous response."
+        elif not secrets.compare_digest(state.encode(), expected.encode()):
             outcome, message = "error:state", "Sign-in failed: the response did not match."
         elif "error" in params:
             outcome = f"error:{_safe_code(params['error'][0])}"
@@ -326,6 +432,8 @@ class _Handler(http.server.BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Referrer-Policy", "no-referrer")
         self.end_headers()
         self.wfile.write(body)
 
@@ -376,13 +484,16 @@ def new_state() -> str:
 __all__ = [
     "CLIENT_ID_ENV",
     "OAUTH_ERRORS",
+    "PUBLIC_CLIENT_ID",
     "REDIRECT_URI",
     "Auth",
     "AuthError",
+    "AuthMode",
     "AuthState",
     "CallbackListener",
     "ClientRecord",
     "LoginNeeded",
+    "PkceAttempt",
     "Token",
     "new_state",
     "wait_for_code",

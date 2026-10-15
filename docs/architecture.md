@@ -10,7 +10,11 @@ are built from that document alone.
 Offline analysis, synthetic integration and an authenticated Windows user-endpoint
 run are verified; the run retained partial pet coverage. See
 [observed live validation](live-validation.md) for scope and limits.
-A desktop shell, further game/raid support and public-client PKCE authentication
+Public PKCE and personal confidential authentication share one OS store and
+client; mode-tagged records stay separate. Public acquisition explicitly uses the
+user endpoint. Registered-app and independent-user acceptance remain pending.
+See [ADR0007](decisions/0007-public-client-authentication.md) and
+[installation](installation.md). A desktop shell and further game/raid support
 are future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
 is design history; this page describes the current implementation.
 

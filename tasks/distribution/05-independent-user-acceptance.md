@@ -13,7 +13,7 @@ Prove another person can install, authorize and produce a correctly scoped repor
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **05.1** (agent) Prepare an opt-in real-account acceptance procedure and receipt covering installation, sign-in/refresh, supported acquisition, output/package integrity, permissions, quota limitations and secret scanning.
+- [x] **05.1** (agent) Prepare an opt-in real-account acceptance procedure and receipt covering installation, sign-in/refresh, supported acquisition, output/package integrity, permissions, quota limitations and secret scanning.
 - [ ] **05.2** (product-owner) Run or observe the documented flow on another person/account and machine; confirm no developer secret is requested, outputs and uncertainty are understandable, and declared platform behavior is acceptable.
 - [ ] **05.3** (agent) Run the latest fast/golden/acceptance/browser and build checks, complete documentation/cleanup/lessons/PM calibration and solo Codex review; carry any unsupported platform or permission limit explicitly into the release notes.
 - [ ] **05.4** (release-engineer) Approve and publish the reviewed package only after the public-client and independent-user gates pass; record the exact version, artifact hash and supported platforms.
@@ -25,4 +25,5 @@ Before marking DONE: Codex performs solo review and records Keep / Fix before cl
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation has not started. Record date, per-subject slice number, box IDs, observed behavior, verification, documentation impact, and pushed checkpoint.
+2026-10-15 · 1 · 05.1/05.3 · Extended existing live-acceptance procedure with another account/machine installation, consent/cancel/refresh, ranking/report/archive/quota checks, output/package integrity, offline replay, unlimited extracted scans, logout/removal and explicit product/publication receipt. No second harness or acquisition pipeline introduced. User is creating the public app; no second-person acceptance or release approval inferred. Final verification and review in progress; manual gates stay open. Documentation only for 05.1; verified against actual CLI help, installed probe and existing acceptance harness. Pushed checkpoint follows.
+
