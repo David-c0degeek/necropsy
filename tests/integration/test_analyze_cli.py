@@ -130,7 +130,7 @@ def test_interactive_lookup_asks_for_faction_and_spec(
 
     questions = []
 
-    def prompt(question: str) -> str:
+    def prompt(question: str, **kwargs: Any) -> str:
         questions.append(question)
         return "Alliance" if "faction" in question else "Marksmanship"
 
@@ -139,6 +139,24 @@ def test_interactive_lookup_asks_for_faction_and_spec(
     result = _run(tmp_path)
     assert result.exit_code == 0, result.output
     assert len(questions) == 2 and "faction" in questions[0] and "Spec" in questions[1]
+
+
+def test_interactive_hunter_can_keep_legacy_all_spec_lookup(
+    tmp_path: Path,
+    fake: dict[str, Any],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from types import SimpleNamespace
+
+    def prompt(question: str, **kwargs: Any) -> str:
+        return "Alliance" if "faction" in question else kwargs["default"]
+
+    monkeypatch.setattr(wcl_cli, "sys", SimpleNamespace(stdin=SimpleNamespace(isatty=lambda: True)))
+    monkeypatch.setattr(typer, "prompt", prompt)
+    result = _run(tmp_path)
+    assert result.exit_code == 0, result.output
+    leaderboards = [r for r in fake["server"].requests if "NecropsyLeaderboard" in r["query"]]
+    assert leaderboards and all("specName:" not in r["query"] for r in leaderboards)
 
 
 @pytest.mark.parametrize(

@@ -228,7 +228,10 @@ def analyze_command(
         if faction is None:
             faction = typer.prompt("Character faction (Alliance/Horde)")
         if spec is None and category is None:
-            spec = typer.prompt("Spec (Balance/Feral/Tank/Restoration/Marksmanship)")
+            spec = typer.prompt(
+                "Spec (Balance/Feral/Tank/Restoration/Marksmanship; all for legacy Hunter)",
+                default="all",
+            )
     try:
         outcome = run_analyze(
             url,

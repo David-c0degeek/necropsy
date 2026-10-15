@@ -44,6 +44,8 @@ def selected_spec(value: str | None) -> str | None:
     """User-facing spec names map to WCL categories without assigning encounter duty."""
     if value is None:
         return None
+    if value.strip().casefold() in ("", "all"):
+        return None
     names = {name.casefold(): name for name in DRUID_CATEGORIES}
     names.update(
         {
