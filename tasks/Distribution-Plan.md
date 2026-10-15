@@ -259,9 +259,9 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/distribution/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
-| [ ] | 01 | `tasks/distribution/01-public-auth-contract.md` | LIVE GATE PENDING | agent: 2; release-engineer: 1 | yes |
+| [x] | 01 | `tasks/distribution/01-public-auth-contract.md` | DONE | agent: 2; release-engineer: 1 | yes |
 | [x] | 02 | `tasks/distribution/02-pkce-sign-in.md` | DONE | agent: 3 | n/a |
-| [ ] | 03 | `tasks/distribution/03-authorized-acquisition.md` | LIVE GATE PENDING | agent: 3 | n/a |
+| [x] | 03 | `tasks/distribution/03-authorized-acquisition.md` | DONE | agent: 3 | n/a |
 | [x] | 04 | `tasks/distribution/04-installable-cli.md` | DONE | agent: 4 | n/a |
 | [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | HUMAN GATES PENDING | agent: 2; product-owner: 1; release-engineer: 1 | yes |
 
@@ -397,13 +397,13 @@ lifecycle and package engineering subjects are complete. Public/personal records
 remain separate, legacy records readable, and public acquisition requires explicit
 user endpoint. All nine class/offline pipelines remain unchanged. See
 `tasks/distribution/verification.md` and `package-receipt.json` for exact evidence.
-User confirms there is no public client yet; registration instructions supplied.
-01.1/01.3 and live permission portion of 03.1 remain open. Another person/account
-and machine, publication and §8 sign-off remain human-owned and unperformed.
-The package contains no verified app ID yet: pass --client-id or the existing
-client-ID environment variable. No release, desktop shell or additional platform
-support is claimed. Preserve the plan and raw evidence. Final golden/browser
-checks pass with the same four known xfails; solo review is recorded. All agent
-implementation work is complete; dependent live validation remains open.
-Engineering checkpoint 0cfdab0 is pushed. §7/§8 cannot close until the recorded
-registration, real public-account and human acceptance/publication obligations pass.
+User supplied registered public ID 01a140aa-1ee3-7323-99dc-5efc7a767af7, now
+included in package configuration. Actual Windows CLI S256 login and callback,
+user API status/character lookup, public refresh/rotation, leaderboards, current
+and archived report content/events are verified. Subjects01 and03 now CLOSE.
+See public-auth-receipt.json for credential-free evidence. Observed app rate limit
+is 1800/hour; permissions remain account-specific. Newly built wheel/sdist hashes
+are in package-receipt.json. Public login now needs no client-ID option.
+Another person/account and machine, publication and §8 sign-off remain human-owned
+and unperformed. Subject05 and master §7/§8 stay open. No publication or other
+platform end-user support is claimed; plans/raw evidence are retained.

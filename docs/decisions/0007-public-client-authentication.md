@@ -1,6 +1,7 @@
 # Public PKCE alongside personal authentication
 
-Status: Implemented engineering contract; registered-app acceptance pending.
+Status: Implemented; registered public sign-in/refresh and API probes observed.
+Independent account/machine and publication acceptance remain pending.
 Date: 2026-10-15
 
 Necropsy now defaults new sign-ins to public S256 PKCE. The application client
@@ -47,3 +48,9 @@ Other saved clients/modes must be logged out separately.
 Primary contracts: [WCL OAuth](https://www.warcraftlogs.com/api/docs),
 [RFC7636](https://www.rfc-editor.org/rfc/rfc7636),
 [RFC8252](https://www.rfc-editor.org/rfc/rfc8252).
+
+On 2026-10-15 the owner registered the public client and supplied its public ID.
+The packaged default completed S256 browser/loopback sign-in and public refresh
+rotation on Windows. User API character lookup, leaderboard, current/archived
+report bundles and an event page passed without extra requested scopes. See
+[live validation](../live-validation.md) for scope and remaining acceptance.

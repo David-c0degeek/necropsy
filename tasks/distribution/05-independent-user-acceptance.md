@@ -48,3 +48,8 @@ PM-1/PM-2 prevented/mitigated, PM-3 mitigated with live horizon Inconclusive.
 Risk: registered public-account/refresh/archive support remains unobserved.
 Verdict: DO NOT CLOSE subject 05; all agent implementation/review work is complete,
 required independent and release human actions remain open.
+
+2026-10-15 · 3 · 05.3 · Registered public default and live login/refresh/query
+observations recorded; subjects01/03 now CLOSE. New package/default-login
+check and scans pass; prior Windows/Ubuntu CI completed green. Only independent
+05.2 and publication05.4 remain; no second person/account/machine is inferred.

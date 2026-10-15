@@ -4,13 +4,13 @@
 
 The Python wheel is an installable CLI, including all class rules and report
 templates/assets. It requires Python **3.14 or newer**. Windows is the first
-engineering verification target. Public release, registered-client validation
+engineering verification target. Public release
 and independent user/machine acceptance are pending; no PyPI availability is
 claimed. The platform evidence is:
 
 | Platform | Installation evidence | Real credential store / public account |
 |---|---|---|
-| Windows | Clean Python 3.14.6 wheel install, public mock flow and offline replay | WinVault chunked probe passed; registered public-account acceptance pending |
+| Windows | Clean Python 3.14.6 wheel install, public mock flow and offline replay | WinVault, public sign-in/callback, refresh rotation and query access observed; independent acceptance pending |
 | Linux (Ubuntu CI) | Installed wheel, public mock flow and offline replay passed | Real desktop credential store and user-account flow unverified; no end-user support claim |
 | macOS | Unverified | Unverified |
 
@@ -23,14 +23,16 @@ digest before installation, for example in PowerShell:
 Get-FileHash .\necropsy-0.1.0-py3-none-any.whl -Algorithm SHA256
 uv tool install --python 3.14 .\necropsy-0.1.0-py3-none-any.whl
 necropsy --version
-necropsy auth login --client-id PUBLIC_CLIENT_ID
+necropsy auth login
 necropsy auth status --check
 necropsy resolve "YOUR_CHARACTER_URL" --endpoint user
 necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache .\wcl-cache --out .\analysis
 ```
 
-Use the application owner's registered **public** ID. Until a verified ID is
-included in the package, supply it as above or with `NECROPSY_WCL_CLIENT_ID`.
+The package includes Necropsy's registered public client ID. `auth login` uses it
+automatically. For another app registration, override with `--client-id` or
+`NECROPSY_WCL_CLIENT_ID`. [Live validation](live-validation.md) records the
+registered callback and account-specific query/refresh observations.
 The ID identifies the app; your browser authorization identifies your account.
 Public login never asks for a shared secret. If it is cancelled or rejected, the
 previous successful sign-in stays selected. Keep the terminal open during login.
@@ -57,7 +59,7 @@ unless their owners authorize sharing. They are not included in the CLI wheel.
 - Expired access refreshes using the saved refresh token when issued. Without a
   refresh token, or if WCL rejects it, run `auth login` again. Refresh rotation
   is saved through the OS store. WCL's actual public-client refresh behavior
-  still needs a live receipt.
+  has an observed Windows receipt; other accounts retain their own permissions.
 - HTTP 401: sign in again. HTTP 403: verify account access, report privacy and
   archive subscription. The CLI keeps the requested endpoint. It cannot grant
   permissions your WCL account lacks.

@@ -12,11 +12,11 @@ availability is claimed. With uv installed:
 ```powershell
 uv tool install --python 3.14 .\necropsy-0.1.0-py3-none-any.whl
 necropsy --version
-necropsy auth login --client-id PUBLIC_CLIENT_ID
+necropsy auth login
 necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache .\cache --out .\analysis
 ```
 
-The public application ID comes from the app owner. Each person grants their
+The registered public application ID is included in the package. Each person grants their
 own browser authorization. Public login uses S256 PKCE and requests no shared
 client secret. Tokens are stored only in an approved OS credential backend.
 Owners of confidential personal clients can use `auth login --mode personal`.

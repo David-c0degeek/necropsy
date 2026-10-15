@@ -3,13 +3,14 @@
 [Home](../README.md) · [Documentation](README.md) · [Sign-in guide](warcraft-logs.md)
 
 Public S256 PKCE is the default new sign-in. Each person authorizes their own
-account without a shared client secret. The registered app, live public-client
-permissions/refresh and independent-user release acceptance remain pending.
+account without a shared client secret. Registered public-client S256 sign-in, callback, refresh rotation and representative
+user-endpoint queries are observed on Windows. Independent-user release
+acceptance remains pending.
 Personal confidential clients remain supported with `auth login --mode personal`.
 See [installation](installation.md), [the connection guide](warcraft-logs.md), and
 [the public authentication decision](decisions/0007-public-client-authentication.md).
-The older [live validation](live-validation.md) records personal-client Windows
-evidence only; it does not certify public registration.
+[Live validation](live-validation.md) separates the earlier personal acquisition
+from the registered public-client observations and their account-specific limits.
 
 ## Credentials and tokens
 

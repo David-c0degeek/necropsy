@@ -12,7 +12,8 @@ run are verified; the run retained partial pet coverage. See
 [observed live validation](live-validation.md) for scope and limits.
 Public PKCE and personal confidential authentication share one OS store and
 client; mode-tagged records stay separate. Public acquisition explicitly uses the
-user endpoint. Registered-app and independent-user acceptance remain pending.
+user endpoint. Registered public sign-in, refresh and representative API queries
+are observed on Windows; independent-user acceptance remains pending.
 See [ADR0007](decisions/0007-public-client-authentication.md) and
 [installation](installation.md). A desktop shell and further game/raid support
 are future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)

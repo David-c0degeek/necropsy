@@ -95,3 +95,34 @@ unverified. Windows local proof and Ubuntu synthetic CI do not replace those gat
 
 Verdict: DO NOT CLOSE the whole plan. Engineering is implemented and verified;
 remaining registration/live/independent/publication obligations are explicit.
+
+
+## Registered public-client follow-up — 2026-10-15
+
+User created public client 01a140aa-1ee3-7323-99dc-5efc7a767af7. This public ID
+is now the packaged default; no secret value is stored/distributed. Actual CLI
+S256 browser/loopback login succeeded, WinVault public record has no secret,
+status --check and Hunter resolve use user API successfully. Real public refresh
+succeeded and rotated refresh token. Production leaderboard, current report bundle,
+one-second event page and archived report bundle passed on user endpoint without
+extra requested scopes. Observed limit 1800/hour; reading after probes 61.02.
+Safe dated public-auth-receipt.json contains only statuses/public metadata.
+A first fixture-probe selection assumed the subject was in the first sorted
+report and stopped before HTTP; corrected it to select a recorded friendly player
+from that report's own fight. No product code or raw fixture changed.
+
+54 focused auth/PKCE checks pass, including configured default and explicit ID.
+The rebuilt wheel passes installed default-login synthetic/user API + offline
+replay/package integrity and real WinVault probe. Unlimited-size extracted scans
+pass; wheel/sdist are byte-identical across repeated builds. Updated hashes in
+package-receipt.json supersede the prior artifact receipt. Lint/format/mypy pass.
+Full prior matrix CI for 0cfdab0 is green on Ubuntu AND Windows; prior golden246+4
+known xfails and browser41 remain the analysis-regression baseline. This follow-up
+changes public identity/default login documentation, not analysis/schema behavior.
+
+Closing solo review: Keep configured public identity and observed secret-free
+callback/refresh/query contracts. Fix before closing whole plan: only independent
+05.2 and explicit publication05.4, with master §7/§8, remain. Record 01/03 CLOSE,
+01.3 manual action done, PM calibration and current docs. Risk: account-specific
+permissions and other machines/stores remain unverified. Verdict: CLOSE subjects01
+and03; DO NOT CLOSE subject05 or whole plan. No public release performed.

@@ -25,7 +25,7 @@ from typer.testing import CliRunner
 import necropsy
 from necropsy.cli import app
 from necropsy.wcl import cli
-from necropsy.wcl.auth import Auth, AuthMode
+from necropsy.wcl.auth import Auth, AuthMode, PUBLIC_CLIENT_ID
 from necropsy.wcl.credentials import CredentialStore
 from necropsy.wcl.client import WclClient, RATE_FIELDS
 from necropsy.wcl.sites import VANILLA
@@ -42,7 +42,7 @@ def respond(request):
         form = parse_qs(request.content.decode())
         assert 'authorization' not in request.headers
         assert 'client_secret' not in form
-        assert form['client_id'] == ['synthetic-public-app']
+        assert PUBLIC_CLIENT_ID and form['client_id'] == [PUBLIC_CLIENT_ID]
         assert 43 <= len(form['code_verifier'][0]) <= 128
         return httpx.Response(200, json={
             'access_token': 'synthetic-user-token', 'expires_in': 3600})
@@ -60,7 +60,7 @@ class Listener:
     def wait(self): return 'synthetic-code'
 cli.CallbackListener = Listener
 result = CliRunner().invoke(app, [
-    'auth', 'login', '--client-id', 'synthetic-public-app', '--no-browser'])
+    'auth', 'login', '--no-browser'])
 assert result.exit_code == 0, result.output
 assert 'secret' not in result.output.lower()
 assert auth.mode() is AuthMode.PUBLIC

@@ -13,7 +13,7 @@ Acquire with the authorized user token through a researched, explicitly selected
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **03.1** (agent) Use the existing WclClient and analyze orchestration with an explicit PKCE/user endpoint route; verify which public and archived ranking/report queries the token permits. Do not attempt client_credentials without a secret or silently switch endpoints.
+- [x] **03.1** (agent) Use the existing WclClient and analyze orchestration with an explicit PKCE/user endpoint route; verify which public and archived ranking/report queries the token permits. Do not attempt client_credentials without a secret or silently switch endpoints.
 - [x] **03.2** (agent) Preserve fixed endpoint cache identities, revision checks, partial coverage, bounded budgets and offline replay. Verify missing permission and expiry are clear failures or typed coverage limitations.
 - [x] **03.3** (agent) Exercise the installed public-mode CLI with synthetic OAuth/WCL responses and replay existing Hunter snapshots unchanged; reconcile JSON schema, help, auth/usage/troubleshooting docs and ADRs.
 
@@ -21,7 +21,7 @@ Acquire with the authorized user token through a researched, explicitly selected
 Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-15 · 1 · 03.1–03.3 · Resolve now accepts explicit endpoint; public tokens reject client_credentials before HTTP. Existing cache identity/revision/budget/offline code reused unchanged. Synthetic public Auth→CLI analyze→snapshot/report passes on user route; permission denial never falls back. Installed wheel public login plus synthetic user API and unchanged Hunter snapshot replay pass outside checkout. 130 focused checks pass. Analysis schema is unaffected. Docs updated in auth/connection/install/architecture/live acceptance/ADR0007. Real public ranking/report/archive permission verification remains open in 03.1. Pushed checkpoint follows.
@@ -33,3 +33,30 @@ Record: installed receipt and scope in verification.md; no schema migration.
 Risk: endpoint contract does not establish every account's permissions.
 Verdict: DO NOT CLOSE; only live portion of 03.1 remains.
 
+
+
+2026-10-15 · 2 · Registered-client follow-up · User created the public application
+and supplied ID 01a140aa-1ee3-7323-99dc-5efc7a767af7. Packaged as default; no
+secret supplied/used. Actual CLI browser S256 login completed at registered
+localhost:8765/callback and persisted public-mode tokens in WinVault. Real public
+refresh succeeded and rotated refresh token; no Basic auth/client secret. CLI
+status user-API budget and Hunter resolution passed. Existing leaderboard,
+REPORT_QUERY (current and archived content) and EVENTS_QUERY shapes passed on
+user endpoint. No extra OAuth scopes requested; this proves those tested reads
+for this account, not arbitrary account/private-report permissions. Observed
+limit 1800/hour and 61.02 points spent after probes. No full-raid public acquisition
+or independent-user acceptance claimed. Safe evidence in public-auth-receipt.json.
+54 focused auth/PKCE tests and clean installed default-login/replay/package/store
+check pass; rebuilt artifacts are byte-reproducible and scans clean. Docs updated
+in this checkpoint. Commit/push follows.
+
+## Closing registered-client review
+Keep: registered public identity, secret-free S256 and refresh, fixed user route,
+legacy records and graded offline pipeline. Actual reads match the expected contract.
+Fix before closing: none for this subject; independent account/machine and release
+approval remain required in subject05.
+Record: public-auth-receipt.json, updated ADR0007 and live-validation.md;
+no credentials or private report identities in committed receipts.
+Risk: permission scope is account-specific; rate limit is the observed 1800/hour.
+No other platform or private-report guarantee is inferred.
+Verdict: CLOSE; supersedes the earlier interim review, with its history retained.

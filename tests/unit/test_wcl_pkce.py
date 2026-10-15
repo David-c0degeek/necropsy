@@ -13,7 +13,7 @@ from typer.testing import CliRunner
 
 from necropsy.cli import app
 from necropsy.wcl import cli as wcl_cli
-from necropsy.wcl.auth import AuthError, AuthMode, LoginNeeded, PkceAttempt, Token
+from necropsy.wcl.auth import PUBLIC_CLIENT_ID, AuthError, AuthMode, LoginNeeded, PkceAttempt, Token
 from necropsy.wcl.client import RATE_FIELDS, PermissionDenied, WclClient
 from necropsy.wcl.credentials import CredentialStoreError
 from necropsy.wcl.sites import VANILLA
@@ -194,17 +194,28 @@ def test_malformed_token_cannot_commit(body: dict[str, object]) -> None:
     assert before == memory.data
 
 
-def test_cli_public_login_never_prompts_for_secret(monkeypatch: pytest.MonkeyPatch) -> None:
+@pytest.mark.parametrize("explicit_id", [None, "app"])
+def test_cli_public_login_never_prompts_for_secret(
+    monkeypatch: pytest.MonkeyPatch,
+    explicit_id: str | None,
+) -> None:
     script = Script(_token_ok())
     auth, _ = _auth(script)
     _cli_auth(monkeypatch, auth)
     monkeypatch.setattr(wcl_cli, "CallbackListener", _Listener(CODE))
-    result = CliRunner().invoke(app, ["auth", "login", "--client-id", "app"])
+    monkeypatch.delenv("NECROPSY_WCL_CLIENT_ID", raising=False)
+    args = ["auth", "login"]
+    if explicit_id:
+        args += ["--client-id", explicit_id]
+    result = CliRunner().invoke(app, args)
     assert result.exit_code == 0, result.output
     assert "secret" not in result.output.lower()
     assert "code_challenge_method=S256" in result.output
     _clean(result.output)
     assert auth.mode() is AuthMode.PUBLIC
+    assert parse_qs(script.requests[0].content.decode())["client_id"] == [
+        explicit_id or PUBLIC_CLIENT_ID
+    ]
 
 
 @pytest.mark.parametrize(

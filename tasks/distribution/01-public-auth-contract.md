@@ -13,15 +13,15 @@ Define a distributable authentication contract and validate the registered WCL p
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **01.1** (agent) Verify current official WCL PKCE requirements, registered loopback redirect support, scopes, endpoint access, refresh behavior and public-client configuration; retain dated primary-source evidence. Do not assume existing confidential-client settings can be reused.
+- [x] **01.1** (agent) Verify current official WCL PKCE requirements, registered loopback redirect support, scopes, endpoint access, refresh behavior and public-client configuration; retain dated primary-source evidence. Do not assume existing confidential-client settings can be reused.
 - [x] **01.2** (agent) Record an ADR for public-client mode, compatibility with personal confidential-client records, callback/state/challenge handling and supported platforms; include a pre-mortem before behavior changes.
-- [ ] **01.3** (release-engineer) Register/configure the public Necropsy WCL client and approved callback URI after the researched requirements are known. Supply only the public client ID to package configuration; never supply a shared secret.
+- [x] **01.3** (release-engineer) Register/configure the public Necropsy WCL client and approved callback URI after the researched requirements are known. Supply only the public client ID to package configuration; never supply a shared secret.
 
 ## Hindsight checkpoint
 Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-15 · 1 · 01.1/01.2 · Official WCL indexed primary documentation confirms S256, client_id+verifier form without Basic auth and /api/v2/user. ADR0007 records mode/store/callback/platform contract and original pre-mortem. Public scope defaults, loopback registration and provider refresh remain live-unverified. User confirms no public client exists; creation instructions supplied. 01.1 stays open for registration-specific verification and 01.3 stays human-owned. Documentation: ADR0007, auth, connection and install guides. Pushed checkpoint follows.
@@ -33,3 +33,30 @@ Record: readiness.md, ADR0007 and manual-actions.md.
 Risk: general PKCE docs cannot certify this app or every query.
 Verdict: DO NOT CLOSE.
 
+
+
+2026-10-15 · 2 · Registered-client follow-up · User created the public application
+and supplied ID 01a140aa-1ee3-7323-99dc-5efc7a767af7. Packaged as default; no
+secret supplied/used. Actual CLI browser S256 login completed at registered
+localhost:8765/callback and persisted public-mode tokens in WinVault. Real public
+refresh succeeded and rotated refresh token; no Basic auth/client secret. CLI
+status user-API budget and Hunter resolution passed. Existing leaderboard,
+REPORT_QUERY (current and archived content) and EVENTS_QUERY shapes passed on
+user endpoint. No extra OAuth scopes requested; this proves those tested reads
+for this account, not arbitrary account/private-report permissions. Observed
+limit 1800/hour and 61.02 points spent after probes. No full-raid public acquisition
+or independent-user acceptance claimed. Safe evidence in public-auth-receipt.json.
+54 focused auth/PKCE tests and clean installed default-login/replay/package/store
+check pass; rebuilt artifacts are byte-reproducible and scans clean. Docs updated
+in this checkpoint. Commit/push follows.
+
+## Closing registered-client review
+Keep: registered public identity, secret-free S256 and refresh, fixed user route,
+legacy records and graded offline pipeline. Actual reads match the expected contract.
+Fix before closing: none for this subject; independent account/machine and release
+approval remain required in subject05.
+Record: public-auth-receipt.json, updated ADR0007 and live-validation.md;
+no credentials or private report identities in committed receipts.
+Risk: permission scope is account-specific; rate limit is the observed 1800/hour.
+No other platform or private-report guarantee is inferred.
+Verdict: CLOSE; supersedes the earlier interim review, with its history retained.

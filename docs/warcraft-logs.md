@@ -23,11 +23,11 @@ option. Keep confidential personal clients separate. Public registration and
 account permissions must be verified before release; no shared secret is shipped.
 
 ```sh
-uv run necropsy auth login --client-id PUBLIC_CLIENT_ID
+uv run necropsy auth login
 ```
 
-Use the app owner's public ID, or set `NECROPSY_WCL_CLIENT_ID`. A verified
-packaged public ID is used when available; otherwise the CLI prompts for the ID.
+Necropsy includes its registered public client ID. Override it with `--client-id`
+or `NECROPSY_WCL_CLIENT_ID` only when intentionally using a different registration.
 It never prompts for a secret in public mode. Your own browser authorization
 permits account access; the application ID alone does not authorize a user.
 
@@ -39,8 +39,9 @@ login; do not reuse a callback code.
 
 Tokens live only in one approved OS credential store, with no file fallback.
 `auth status` shows the active mode. A received refresh token is reused/rotated;
-without one, sign in again at expiry. Public-client refresh and archived access
-remain live acceptance checks, not guarantees from synthetic tests.
+without one, sign in again at expiry. Public refresh rotation and representative
+current/archived query access are observed on Windows; see
+[live validation](live-validation.md). Permissions remain account-specific.
 
 ## Personal confidential client compatibility
 

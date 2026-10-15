@@ -27,9 +27,8 @@ from necropsy.wcl.credentials import CredentialStore
 from necropsy.wcl.sites import Site, require_supported
 
 CLIENT_ID_ENV = "NECROPSY_WCL_CLIENT_ID"
-# Set only after the application owner verifies public registration and callback.
 # A client ID is public application identity; never put a client secret here.
-PUBLIC_CLIENT_ID: str | None = None
+PUBLIC_CLIENT_ID: str | None = "01a140aa-1ee3-7323-99dc-5efc7a767af7"
 REDIRECT_HOST = "127.0.0.1"
 REDIRECT_PORT = 8765
 REDIRECT_URI = f"http://localhost:{REDIRECT_PORT}/callback"

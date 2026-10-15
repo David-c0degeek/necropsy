@@ -59,3 +59,14 @@ remains appropriate. Provider/account permissions and independent acceptance
 cannot be disproven by local tests. No material unpredicted runtime failure found.
 The Windows ZIP-normalization test initially expected a raw separator to survive
 Python normalization; corrected the test to exercise traversal, not spelling.
+
+
+### Registered-app observation
+
+Actual registered S256 browser/callback and public refresh rotation passed on
+Windows; saved public record has no secret. User API lookup, leaderboard,
+current/archived REPORT_QUERY and event query passed for this account without
+extra requested scopes. PM-1 and PM-2 remain Prevented Prediction/Mitigated:
+provider observations now support the synthetic boundary checks. PM-3 remains
+Mitigated/Inconclusive for independent-user horizon; only another account/person
+and machine plus publication approval can close it. No silent endpoint fallback.

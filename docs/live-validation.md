@@ -44,3 +44,39 @@ A saved-source accuracy audit found no exact summon-owner mapping for the ownerl
 Battle Chicken/Arcanite Dragonling instances. These and vanquished tentacles can be
 Hunter tools; that eligibility does not prove individual ownership. The partial
 classification and unknown attribution remain unchanged.
+
+
+## Registered public-client observations — 2026-10-15
+
+The owner registered Necropsy's public client. Its public ID is packaged, so
+`necropsy auth login` now needs no client-ID option. The default CLI completed
+actual S256 browser sign-in through `http://localhost:8765/callback` on Windows.
+The selected WinVault record is public mode with no client secret. The `-` shown
+by WCL for the public registration is never used as a secret.
+
+`necropsy auth status --check` queried the user API; `necropsy resolve` with
+`--endpoint user` resolved the existing Hunter character and Naxxramas context.
+A real public refresh succeeded and rotated the refresh token; only the public
+client ID was supplied to the token endpoint, without Basic authentication.
+
+Existing production query shapes also passed through the user endpoint:
+leaderboard page, current report bundle (including rankings/player details),
+a one-second bounded event page (eight returned events), and an archived report
+bundle with `archiveStatus.isArchived=true`. No additional OAuth scopes were
+requested. These observations establish those tested reads for this account,
+not access to every private report or another account's archive entitlement.
+
+The observed application budget was 1800 points/hour, with 61.02 points spent
+after the probes. Other app activity may contribute to that reading. Existing
+bounded acquisition policy remains unchanged. No full-raid acquisition with
+this public client is claimed by these query probes.
+
+The rebuilt wheel passed clean installation, default public login with synthetic
+OAuth/user API responses, offline Hunter replay and package integrity, WinVault
+probe and unlimited-size extracted/output secret scans. The real login above ran
+from the checkout; installed authentication has synthetic evidence. No real
+tokens, authorization codes or refresh values are included in these records.
+
+Independent installation/authorization/acquisition on **another account and
+machine**, and publication approval, remain required. These observations do not
+close those gates or establish macOS/Linux credential-store support.
