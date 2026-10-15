@@ -16,7 +16,7 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 - [x] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
 - [x] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
 - [ ] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
-- [ ] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
+- [x] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and solo review (user explicitly ended Claude pairing) before final sign-off.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
@@ -283,3 +283,21 @@ also outstanding where applicable. Implementation and lead verification are comp
 
 
 2026-10-15 · user-ended pairing; solo execution correction · Replaced aggregate cooldown dump with shared structured execution rows for opener, core abilities, individual utility/cooldowns, targets and resources. Loadout rows now Weapons/Trinkets/Relic/World buffs. Source-qualified personal/leader values preserve incomplete/missing unknowns and distinguish incoming casts. 27 focused checks and 16 actual refreshed page cases passed; lint/types pass. Prior final Claude requirement is explicitly waived by the user, never represented as peer agreement. Human domain/product acceptance remains open.
+
+
+## Final solo review — after execution correction and shared expansion
+
+### Keep
+Druid contracts and immutable raw replay are preserved through the extracted common event helpers. Real Balance/Restoration/no-personal Tank/Hunter pages pass16refreshed page/viewports, actual structured execution rows retain source links and trusted timing, and saved Hunter artifacts remain byte-identical. Full golden/acceptance246pass/four retained xfails and source c016c4b Linux/Windows CI pass.
+
+### Fix before closing
+06.3 and original human taxonomy/findings gates remain open. Engineering06.4 is complete; the user explicitly superseded the outstanding Claude requirement, not its independent agreement.
+
+### Record
+PM-4/5 and CH-MISS-6 calibration is appended; reporting05 is CLOSE. Cleanup reuse/waiver and shared class ADR0006 are explicit. Current receipts and concrete pages are linked in tasks/all-classes/review-packet.md.
+
+### Risk
+Assignment and gameplay correctness require human domain review. Available logs and heuristic duty signals cannot establish optimal play or prove a player has never played a role.
+
+### Verdict
+DO NOT CLOSE — only required human acceptance remains for this subject. No additional pairing is required.

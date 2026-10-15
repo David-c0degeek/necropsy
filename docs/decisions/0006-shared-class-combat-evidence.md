@@ -21,5 +21,5 @@ are separate; missing listing/streams do not establish zero participation.
 Record verification sources in class documentation; new category/action claims
 need observed primary evidence and contract checks. Preserve immutable archives
 and old saved Hunter rendering. Rollback is reverting additive adapters/contracts;
-no destructive data migration occurs. Solo review follows the user's explicit
-end to the exhausted Claude pairing; no peer agreement is implied.
+no destructive data migration occurs. Domain and product acceptance remain
+separate from automated or agent engineering verification.

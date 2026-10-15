@@ -274,7 +274,7 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
+| [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
 | [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
@@ -549,3 +549,11 @@ Human taxonomy/findings/product boxes remain open.
 ## User correction: execution parity and solo continuation
 
 User explicitly ended pairing; outstanding Claude review is superseded, not completed. Druid still lacked the substantive per-ability execution plan of Hunter. Reopen reporting/validation for opener, per-ability timing/count/cadence, target and resource context using existing evidence and shared plan rows. Finish this correction before remaining Classic Era classes. No Hunter mechanics or optimal-rotation claims are copied.
+
+
+## Solo engineering continuation — 2026-10-15
+
+The latest user instruction ends pairing and supersedes the outstanding Claude requirement. Reporting subject05 is now CLOSE after solo review of the substantive execution correction and shared class expansion. Human01.4/03.4/04.4/06.3 remain open; §7/8 are not falsely marked complete. Current source verification and expanded class review receipts are in tasks/all-classes/review-packet.md. No role implementation is deferred; real Holy Priest fixture limits belong to the follow-up class validation.
+
+
+Final engineering receipt: source c016c4b passes Linux/Windows CI; full serial golden/acceptance246pass/four retained xfails; refreshed16real Hunter/Druid page/viewports and four saved Hunter byte guards pass. 06.4 is complete under the explicit solo continuation. Human01.4/03.4/04.4/06.3 remain open; no whole-plan acceptance is claimed. The expanded review packet is tasks/all-classes/review-packet.md.

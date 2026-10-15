@@ -72,9 +72,8 @@ new optional field. Common metrics/roles/timeline/comparison and ability CSVs us
 the same sanitized package path. The full analysis JSON retains detailed evidence.
 
 All fourteen added category contracts and missing-personal/partial cases have
-synthetic offline and desktop/mobile checks. Public real-log validation receipts
-are recorded separately as they complete; synthetic checks do not approve domain
-advice or product limits. Existing [Druid validation](druid-validation.md) and
+synthetic offline and desktop/mobile checks. Public real-log validation boundaries
+are recorded below; synthetic checks do not approve domain advice or product limits. Existing [Druid validation](druid-validation.md) and
 [Hunter validation](live-validation.md) keep their original scope.
 
 

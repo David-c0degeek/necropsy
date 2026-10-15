@@ -96,3 +96,7 @@
 - 2026-10-15: Name cross-class comparisons by the common action (ability use). Count recorded actor casts separately from damage/healing ticks and pets, preserve coverage-aware unknowns, and show counts plus duration-normalized rates without implying optimal play.
 
 - 2026-10-15: Heading parity does not establish playbook parity. Verify execution-row content and per-action evidence alongside the established class; test first-use timing against actor ownership to avoid counting incoming casts.
+
+- Verify ranking filters independently of game-data talent labels: Classic Era generic DPS/Healer metadata and ranking categories differ. Keep actual builds visible.
+- Classify dual-purpose casts using matching actor/target effects; Holy Shock demonstrates why an ability name alone cannot establish duty.
+- Budget-only snapshots prove honest empty handling, not role behavior. Record raw actor/event coverage independently of synthetic contracts or successful output generation.

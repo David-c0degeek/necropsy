@@ -21,7 +21,7 @@ Expose Druid roles and useful class-specific details through the existing report
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 05.1 05.2 05.3 · Shared report/package pipeline dispatches class sections and templates; legacy Hunter pages and bytes preserved. Druid practice notes, role-specific measurements, full source timeline, forms/resources/targets and all cohort detail exported as CSV/JSON. Browser inspection covered 16 real page/viewport combinations (1400/390), no overflow, remote requests or JS errors; dedicated synthetic browser cases additionally check escaping/search/theme. README, user/developer docs, schema, ADR and validation limits updated. Closing peer review pending. Checkpoint commit/push follows this record.
@@ -282,3 +282,21 @@ also outstanding where applicable. Implementation and lead verification are comp
 
 
 2026-10-15 · user-ended pairing; solo execution correction · Replaced aggregate cooldown dump with shared structured execution rows for opener, core abilities, individual utility/cooldowns, targets and resources. Loadout rows now Weapons/Trinkets/Relic/World buffs. Source-qualified personal/leader values preserve incomplete/missing unknowns and distinguish incoming casts. 27 focused checks and 16 actual refreshed page cases passed; lint/types pass. Prior final Claude requirement is explicitly waived by the user, never represented as peer agreement. Human domain/product acceptance remains open.
+
+
+## Solo Captain Hindsight — execution correction
+
+### Keep
+Shared Hunter plan hierarchy now includes actual opener, class ability cadence, first-use times, per-fight rates, target/resource context and recorded source links. The shared class view supports subsequent classes without a second report pipeline.
+
+### Fix before closing
+None for reporting. Human taxonomy/findings/product actions remain separately tracked. The user explicitly ended pairing; Claude review is superseded rather than completed.
+
+### Record
+Execution correction 8425ce5 preceded the remaining-class work. Nineteen latest category integration checks, 16 refreshed real Hunter/Druid page/viewports and four unchanged saved Hunter artifacts support the presentation contract. Actor-owned timing and incomplete stream regressions pass.
+
+### Risk
+Recorded examples cannot establish optimal play or assignments. Human acceptance is not implied by these checks.
+
+### Verdict
+CLOSE for reporting engineering. No independent peer approval is claimed.

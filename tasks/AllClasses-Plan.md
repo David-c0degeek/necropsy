@@ -1,6 +1,6 @@
 # AllClasses-Plan.md — All remaining Classic Era classes, shared playbooks, solo execution
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-15. Subject 00 readiness and implementation remain TODO.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-15. Implementation is shipped; engineering verification is complete and human acceptance is tracked below.
 >
 > **Disposable.** The plan and its `tasks/all-classes/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -223,6 +223,9 @@ Extend Classic Era Naxxramas support from Hunter/Druid to Mage, Paladin, Priest,
 |---|---|---|---|---|---|
 | D001 | 2026-10-15 | Execution boundary | Begin after Druid execution parity checkpoint 8425ce5; keep prior human gates separate. | User authorized follow-up plans; planning does not imply old or new sign-off. | 00.1–00.9; previous plan §8 |
 | D002 | 2026-10-15 | Scope and collaboration | All remaining Classic Era classes, shared playbooks, solo execution. Solo mode as explicitly requested; no parallel workers. | User direction in this session. | §1; subjects 01–05 |
+| D003 | 2026-10-15 | Cleanup review | Waive a repeated whole-repo cleanup sweep; reuse the recent Druid sweep and perform scoped reuse/duplication review here. | No dependency/auth/cache/publisher additions; shared helpers replace duplicated Druid event analysis. Prior sweep remains in original plan; scoped review found no fix-now duplication. | 05.3; §7 |
+| D004 | 2026-10-15 | Ranking categories | Support verified WCL ranking categories and class-aware aliases rather than treating every talent tree as a ranking filter. | Live filtered probes and metadata differ; documented in ADR0006 and class guide. | 01; 04 |
+| D005 | 2026-10-15 | Real fixture boundary | Keep seven real class event captures plus a budget-only Holy Priest snapshot; disclose real Holy healing validation as unavailable. | Budget guard stopped further collection. No runtime category is deferred; fourteen categories have synthetic production-path validation. Human acceptance remains open. | 05.2; 05.4 |
 
 ---
 
@@ -254,10 +257,10 @@ Extend Classic Era Naxxramas support from Hunter/Druid to Mage, Paladin, Priest,
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/all-classes/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
-| [ ] | 01 | `tasks/all-classes/01-class-spec-catalog.md` | IN PROGRESS | agent: 2 | n/a |
-| [ ] | 02 | `tasks/all-classes/02-shared-class-analysis.md` | IN PROGRESS | agent: 2 | n/a |
-| [ ] | 03 | `tasks/all-classes/03-role-comparisons.md` | IN PROGRESS | agent: 2 | n/a |
-| [ ] | 04 | `tasks/all-classes/04-shared-playbooks.md` | IN PROGRESS | agent: 2 | n/a |
+| [x] | 01 | `tasks/all-classes/01-class-spec-catalog.md` | DONE | agent: 2 | n/a |
+| [x] | 02 | `tasks/all-classes/02-shared-class-analysis.md` | DONE | agent: 2 | n/a |
+| [x] | 03 | `tasks/all-classes/03-role-comparisons.md` | DONE | agent: 2 | n/a |
+| [x] | 04 | `tasks/all-classes/04-shared-playbooks.md` | DONE | agent: 2 | n/a |
 | [ ] | 05 | `tasks/all-classes/05-class-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
@@ -387,4 +390,11 @@ the work can be closed.
 
 ## Implementation checkpoint
 
-All nine classes are wired through the existing pipeline; shared class combat evidence uses ADR0006. Fourteen added category contracts pass offline/package and56browser page cases. Remaining real captures, source CI and full serial golden verification are in progress. Human product review remains open; no pair review is required after the explicit user instruction.
+All nine classes are wired through the existing pipeline; shared class combat evidence uses ADR0006. Fourteen added category contracts pass offline/package and56browser page cases. Seven added classes have frozen real event captures; source CI and full serial golden verification pass. Human product review remains open; no pair review is required after the explicit user instruction.
+
+
+## Final solo engineering handoff
+
+All agent boxes00–05 are complete and pushed;01–04 are CLOSE. Validation subject05 remains DO NOT CLOSE solely for human05.4, mirrored in manual-actions.md. The §7 entry condition is not met while §5 includes that required human box; §7/8 are deliberately unclaimed. No request for renewed Claude pairing or repeat authorization is outstanding.
+
+Source c016c4b passed [Linux/Windows CI](https://github.com/David-c0degeek/necropsy/actions/runs/38748441029). Local full golden/acceptance246passed with four retained xfails;19integration checks;56synthetic and48real browser page/viewports; lint/format, strict types, build and isolated installed-wheel real Mage replay pass. Four saved Hunter artifacts remain byte-identical. Seven real classes have42actor entries with independent raw amount checks; budget-only Holy Priest is explicitly not live healing validation. [Review packet](all-classes/review-packet.md) links generated outputs and portable reproduction instructions. No unresolved engineering defect is known; assignment/domain acceptance and long-term observation remain separate.

@@ -13,14 +13,42 @@ Verify every class end to end and disclose real/synthetic validation boundaries.
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **05.1** (agent) Exercise all class/category contracts, partial streams, healing/tank/mixed duties, missing personal data, snapshot replay, packages and desktop/mobile pages; preserve Hunter/Druid fixtures.
-- [ ] **05.2** (agent) Acquire bounded public examples when accessible, record provenance/scans and observed versus expected facts; run lint/types/build, complete fast/golden checks and source CI.
-- [ ] **05.3** (agent) Run solo Captain Hindsight, reconcile PM risks and durable lessons, docs and current plans.
+- [x] **05.1** (agent) Exercise all class/category contracts, partial streams, healing/tank/mixed duties, missing personal data, snapshot replay, packages and desktop/mobile pages; preserve Hunter/Druid fixtures.
+- [x] **05.2** (agent) Acquire bounded public examples when accessible, record provenance/scans and observed versus expected facts; run lint/types/build, complete fast/golden checks and source CI.
+- [x] **05.3** (agent) Run solo Captain Hindsight, reconcile PM risks and durable lessons, docs and current plans.
 - [ ] **05.4** (product-owner) Review class playbooks and accept documented evidence limits; no synthetic or automated check substitutes for domain/product approval.
 
 ## Hindsight checkpoint
-- [ ] Captain Hindsight review recorded: Keep / Fix before closing / Record / Risk / Verdict.
+- [x] Captain Hindsight review recorded: Keep / Fix before closing / Record / Risk / Verdict.
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
-TBD — implementation not started.
+2026-10-15 · engineering verification follows; product 05.4 remains open.
+
+
+## Final engineering verification — 2026-10-15
+
+- Latest Ruff lint/format and strict mypy pass (184 formatted files;148 typed source files). Nineteen class integration checks pass.
+- Full serial golden/acceptance:246 passed,949 deselected, four retained xfails in475.56seconds. This includes the eight newly frozen class snapshots and existing Hunter/Druid regression facts.
+- Fourteen added category browser contracts cover56page/viewports. Latest real class outputs pass32page/viewports, including honest empty budget output; refreshed real Hunter/Balance/Restoration/missing-personal Tank add16. Themes, review persistence, source links, closed overall disclosure, absence of overflow/remote requests/JS errors are observed.
+- Four saved legacy Hunter artifacts are byte-identical. Wheel/sdist build passes; an isolated installed wheel replays the real Mage fixture into analysis, both pages and package.
+- Unlimited secret scans:286,126,988 extracted class raw bytes and420,932,059 generated/retained class output bytes, no findings. The new four-commit source range scan passes. Provenance/hash/member/package checks pass through golden tests.
+- Public seven-class captures have42actor entries; independent raw damage, effective healing and incoming sums match. Real Warrior DPS-duty Protection actors remain excluded from tank comparison. Holy Priest real event coverage remains unavailable; only budget-only and synthetic evidence is claimed.
+- Source CI c016c4b passed on Linux (907 passed,41 skipped) and Windows (908 passed,40 skipped),251 deselected on each: https://github.com/David-c0degeek/necropsy/actions/runs/38748441029.
+
+## Solo Captain Hindsight
+
+### Keep
+Shared pipeline, source coverage, generic combat helpers and class adapters; sparse faction-leader comparisons and all-boss visibility. Validate actual execution content and raw arithmetic separately from role-regression expectations.
+
+### Fix before closing
+Product-owner 05.4 must review the generated pages and accept/correct evidence limits. No agent test grants domain approval. All engineering checks, including both source-CI jobs, are complete.
+
+### Record
+ADR0006, decisions D003-D005, PM calibration, dual-purpose ability miss and permanent lessons are recorded. The recent cleanup sweep is explicitly reused/waived; scoped integration review found no new parallel infrastructure or unneeded dependency. Review packet links concrete generated results.
+
+### Risk
+Heuristics do not prove assignments or optimal play; real captures cover seven added categories rather than all 14. Holy Priest real healing fixture is absent. Long-term production behavior and human acceptance remain unobserved.
+
+### Verdict
+DO NOT CLOSE — product 05.4 remains human-owned. Engineering implementation is shipped and independently repeatable from committed snapshots.

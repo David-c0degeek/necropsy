@@ -221,11 +221,16 @@ Opener/Rapid Fire/Refocus rows; actual user feedback. Predicted detection: silen
 under heading-only tests. Guardrail: structured per-ability rows, personal and
 leader counts/rates/first-use timings with source links, opener and target/resource
 context; actual row-content checks on real Balance/Restoration/Tank pages.
-Owner: Codex; Plan refs: 05.2/06.1/06.4. Resolution: Pending.
+Owner: Codex; Plan refs: 05.2/06.1/06.4. Resolution: Mitigated.
 
 PM-5 · Medium · Shared rows invent timing/absence for incomplete streams or imply
 an optimal rotation. Evidence: complete_or_unknown ability counts and Druid timeline
 can retain partial events. Guardrail: count and first-use unknown without trusted
 cast evidence; no personal values for missing selected-spec encounters; label
 recorded examples and assignment uncertainty. Owner: Codex; Plan refs: 05.2/06.1.
-Resolution: Pending. Rollback: revert presentation-only change, immutable raw unchanged.
+Resolution: Mitigated. Rollback: revert presentation-only change, immutable raw unchanged.
+
+
+## Solo execution correction calibration
+
+PM-4: Confirmed Prediction in the preceding presentation; corrected by structured per-ability execution rows, then guarded by actual row-content checks and refreshed 16page/viewports. No heading-only parity claim remains. PM-5: Prevented Prediction in this correction; actor-owned first-use, unknown incomplete counts and missing-personal tests prevent invented timing or grades. Source 8425ce5 and latest shared class changes retain these invariants. Observation is development verification, not human gameplay approval. CH-MISS-6 no longer waits on Claude after explicit user cancellation; product acceptance remains human-owned.
