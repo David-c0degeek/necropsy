@@ -428,3 +428,11 @@ def test_forget_secret_does_not_claim_success_when_removal_fails(
     assert "Signed out" not in result.output
     assert memory.data == before
     _clean(result.output)
+
+
+def test_browser_wait_can_be_cancelled_without_waiting_for_timeout() -> None:
+    with (
+        CallbackListener("cancelled-test", port=0) as listener,
+        pytest.raises(AuthError, match="cancelled"),
+    ):
+        listener.wait(timeout_s=300, cancelled=lambda: True)

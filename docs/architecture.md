@@ -2,7 +2,8 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Architecture decisions](decisions/README.md)
 
-Necropsy is a local Python CLI for all Classic Era classes in Naxxramas. It acquires
+Necropsy is a local Python application with a guided terminal UI and advanced
+CLI for all Classic Era classes in Naxxramas. It acquires
 WCL data or reads a saved snapshot, normalizes it into a derived DuckDB database,
 and produces one versioned analysis document. The report, playbook and package
 are built from that document alone.
@@ -16,15 +17,18 @@ user endpoint. Registered public sign-in, refresh and representative API queries
 are observed on Windows; independent-user acceptance and release approval
 are confirmed by the product owner.
 See [ADR0007](decisions/0007-public-client-authentication.md) and
-[installation](installation.md). A desktop shell and further game/raid support
-are future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
+[installation](installation.md). The default TUI handles browser sign-in, character/spec selection, saved runs,
+progress, cooperative stop and repeated quota waits. Native graphical shells
+and further game/raid support remain future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
 is design history; this page describes the current implementation.
 
-## Two entry paths, one analysis pipeline
+## Guided and advanced entry paths, one analysis pipeline
 
 ```mermaid
 flowchart TD
-    URL[Character URL] --> Resolve[Resolve character and partition]
+    TUI[Guided TUI and saved-run library] --> URL[Character URL]
+    CLI[Advanced analyze command] --> URL
+    URL --> Resolve[Resolve character and partition]
     Resolve --> Acquire[Select cohort and acquire report/event streams]
     Acquire --> Finalize[Finalize combined reports at one revision]
     Finalize --> Live[Verified live snapshot v1]
@@ -83,7 +87,11 @@ fsync and hard-link support; unsupported publication fails explicitly.
 
 Format 2 report bundles and combined report sets use full content-digest
 generations per endpoint. Metadata can change at the same report revision, so
-each run fetches a fresh combined report and binds its exact generation. Local
+each new acquisition fetches a fresh combined report and binds its exact
+generation. Checkpoint-backed continuation reuses successfully finalized answers
+for the exact same fight set; report revision mismatches invalidate that report's
+saved requests. A resumed capture spans attempts and is not a global point-in-time
+view. Replayed leaderboards retain their original capture timestamps. Local
 event-cache reuse preserves recorded fetch provenance; it does not promise current
 server data. An older cache format requires a new directory, leaving previous
 cache data untouched. Already-written live snapshots remain readable.

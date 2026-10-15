@@ -20,6 +20,7 @@ from typing import Any, Literal, Protocol
 
 import httpx
 
+from necropsy.wcl.checkpoint import Journal
 from necropsy.wcl.sites import Site, require_supported
 
 Endpoint = Literal["client", "user"]
@@ -96,6 +97,7 @@ class Result:
     rate: RateLimit
     partial: bool = False
     errors: tuple[Any, ...] = ()
+    captured_at: str | None = None
 
 
 class Clock(Protocol):
@@ -194,6 +196,10 @@ class WclClient:
     reset_wait: dict[str, float | int] | None = field(default=None, init=False)
     """One reset wait's observed source and elapsed duration; None before any wait."""
 
+    progress: Callable[[str], None] | None = None
+    """Optional activity observer; no query contents or credentials are emitted."""
+    journal: Journal | None = None
+
     def __post_init__(self) -> None:
         require_supported(self.site)
         self._http = httpx.Client(transport=self.transport, timeout=30.0, follow_redirects=False)
@@ -215,6 +221,16 @@ class WclClient:
         """Run one GraphQL query; the query must select `rateLimitData`."""
         if "rateLimitData" not in query:
             raise InvalidRequest("queries must select rateLimitData")
+        identity = None
+        if self.journal is not None:
+            identity = self.journal.identity(self.site.host, endpoint, query, variables)
+            cached = self.journal.read(identity)
+            if cached is not None:
+                # Historical response data must never reset the live account budget.
+                rate = _rate(cached)
+                if rate is None:
+                    raise InvalidResponse("saved request has no rateLimitData")
+                return Result(cached, rate, captured_at=self.journal.captured_at)
         url = self.site.client_api if endpoint == "client" else self.site.user_api
         deadline = self.clock.monotonic() + self.policy.call_deadline_s
         attempt = 0
@@ -262,13 +278,22 @@ class WclClient:
                 elif status != 200:
                     raise InvalidRequest(f"WCL answered HTTP {status}", self.last_rate) from None
                 else:
-                    return self._result(response, allow_partial)
+                    result = self._result(response, allow_partial)
+                    if self.journal is not None and identity is not None and not result.partial:
+                        self.journal.write(identity, result.data, result.captured_at)
+                    return result
             if attempt >= self.policy.max_attempts:
                 raise failure
             pause = self._backoff(attempt) if wait is None else wait
             if self.clock.monotonic() + pause > deadline:
                 raise failure
+            if self.progress is not None:
+                self.progress(
+                    f"Retrying Warcraft Logs request in {pause:g}s (attempt {attempt + 1})"
+                )
             self.clock.sleep(pause)
+            if self.progress is not None:
+                self.progress("Requesting Warcraft Logs data after retry wait")
 
     def _result(self, response: httpx.Response, allow_partial: bool) -> Result:
         try:
@@ -285,6 +310,8 @@ class WclClient:
             self.last_rate_at = self.clock.monotonic()
         if errors and not isinstance(errors, list):
             raise InvalidResponse("errors is not a list", self.last_rate)
+        if errors and _classify(errors) is RateLimited:
+            raise RateLimited(_error_summary(errors), self.last_rate)
         if errors and not data:
             raise _classify(errors)(_error_summary(errors), self.last_rate)
         if not isinstance(data, dict):
@@ -296,8 +323,14 @@ class WclClient:
                 raise PartialResponse(
                     "WCL returned partial data: " + _error_summary(errors), data, errors, rate
                 )
-            return Result(data, rate, partial=True, errors=tuple(errors))
-        return Result(data, rate)
+            return Result(
+                data,
+                rate,
+                partial=True,
+                errors=tuple(errors),
+                captured_at=self.clock.now().isoformat(),
+            )
+        return Result(data, rate, captured_at=self.clock.now().isoformat())
 
     def ensure_budget(self, estimate: float | None) -> None:
         """Refuse work whose estimated points would exceed the allowed share.
@@ -342,11 +375,16 @@ class WclClient:
         until = started + duration
         try:
             while self.clock.monotonic() < until:
-                self.clock.sleep(min(30.0, until - self.clock.monotonic()))
+                remaining = until - self.clock.monotonic()
+                if self.progress is not None:
+                    self.progress(f"Waiting for Warcraft Logs hourly reset: {remaining:.0f}s left")
+                self.clock.sleep(min(30.0, remaining))
         finally:
             self.reset_wait["elapsed_wait_s"] = self.clock.monotonic() - started
         self.last_rate = RateLimit(rate.limit_per_hour, 0.0, 3600)
         self.last_rate_at = None  # assumed after the reset, not observed
+        if self.progress is not None:
+            self.progress("Continuing Warcraft Logs acquisition after hourly reset")
 
 
 def pages(

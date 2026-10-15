@@ -3,9 +3,50 @@
 [Home](README.md) · [Documentation](docs/README.md) · [Roadmap](docs/roadmap.md)
 
 Notable user-facing and developer changes. Versioned entries describe repository
-releases; future development changes appear under **Unreleased** when present.
+versions; the published GitHub release is listed on the releases page.
+Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
+
+No additional changes beyond 0.2.0 below.
+
+## 0.2.0 - 2026-10-15
+
+### Added
+
+- Default guided Textual TUI: character-link entry, browser sign-in, automatic
+  faction/endpoint/path choices and class-appropriate spec/partition controls.
+- Saved-run library with status, offline report opening, checkpoint continuation
+  and older CLI-run import/recovery. Stop safely, close and return later.
+- Automatic repeated quota waits with a visible countdown. Successful requests,
+  interrupted stream pages and finalized reports are reused across attempts.
+  Sparse or inaccessible data does not cause endless quota retries.
+- Windows/macOS/Linux bootstrap scripts install private uv and managed Python,
+  verify the wheel checksum/version and create OS launchers. No Git, GitHub
+  login or preinstalled Python/uv is needed. Existing data/sign-in is preserved.
+- Fresh bootstrap and failed-upgrade checks; headless TUI and supervisor tests.
+  CI now covers all three OS families.
+
+### Changed
+
+- All active onboarding now leads with one install command and guided controls.
+  Advanced CLI commands and saved snapshot/cache formats remain compatible.
+- Public distribution replaces the old private-repository installation barrier.
+  Real account/vault validation remains distinct from synthetic platform checks.
+
+## 0.1.1 — built locally, not published as a GitHub release
+
+### Added
+
+- Live terminal activity, phase/boss progress and retry/reset-wait messages.
+- Durable per-run request checkpoints and `analyze --resume`, including event
+  pages from interrupted streams and completed finalization responses.
+- Resume validates run options, character context and output digests, retains
+  earlier snapshots and preserves original leaderboard capture times.
+- Small-quota acquisition keeps comparison headroom when finalization can span
+  attempts. Rate-limit errors with response data stop cleanly for recovery.
+- Clean-installed artifact checks verify the current design and exact embedded
+  CSS/JavaScript, alongside package integrity and synthetic public sign-in.
 
 ### Changed
 

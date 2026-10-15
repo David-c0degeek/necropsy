@@ -78,7 +78,9 @@ with cancellation available. The same selection stays in memory and combined
 reports are still finalized fresh. The output lock remains held during the wait;
 another run targeting that output is refused. Stream locks are held only during
 their own fetch, so a wait inside a fetch can keep that stream locked. No second
-wait is allowed; another budget stop retains the cache and needs a fresh output.
+wait is allowed in this manual acceptance harness. Normal 0.1.1+ `analyze`
+runs keep their output checkpoint and can continue with `--resume`; the harness
+itself retains its separate no-overwrite receipt/output contract.
 The default remains immediate stopping. The receipt records the opt-in, whether
 a wait occurred, its observed countdown, reading age and elapsed duration. An
 assumed post-reset counter is not an observed reading or an exact accounting bill.

@@ -1,122 +1,145 @@
-# Install the local CLI
+# Install and open Necropsy
 
-[Documentation](README.md) · [Sign in](warcraft-logs.md) · [Live acceptance](live-acceptance.md)
+[Home](../README.md) · [First analysis](getting-started.md) · [Connect Warcraft Logs](warcraft-logs.md)
 
-The Python wheel is an installable CLI, including all class rules and report
-templates/assets. It requires Python **3.14 or newer**. Windows is the first
-supported release target. Version0.1.0 is available through the private
-[GitHub release](https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0)
-to authorized collaborators; no PyPI availability is claimed. The product owner
-confirmed an independent account/machine test passed and approved publication. The platform evidence is:
+## One command
 
-| Platform | Installation evidence | Real credential store / public account |
-|---|---|---|
-| Windows | Clean Python 3.14.6 wheel install, public mock flow and offline replay | WinVault, public sign-in/callback, refresh rotation and query access observed; independent account/machine acceptance confirmed by product owner |
-| Linux (Ubuntu CI) | Installed wheel, public mock flow and offline replay passed | Real desktop credential store and user-account flow unverified; no end-user support claim |
-| macOS | Unverified | Unverified |
+Run the command for your computer. It installs a private uv runtime, a managed
+Python 3.14 environment and the versioned Necropsy wheel, verifies the download
+checksum and installed version, creates a launcher and opens the guided TUI.
+No Git, GitHub account, preinstalled Python or uv is needed. Downloads are public.
+You need an internet connection, a terminal and a normal desktop session.
 
-## Install and run
-
-For a one-command install, with uv and Git installed and Git authenticated to an
-account with access to this private repository, run this in PowerShell:
+**Windows** — press Start, type **PowerShell** and open it. Paste and press Enter.
 
 ```powershell
-uv tool install --python 3.14 "git+https://github.com/David-c0degeek/necropsy.git@v0.1.0"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
 ```
 
-This builds and installs the tagged release in uv's tool environment. If GitHub
-refuses access, sign in through Git Credential Manager, or use `gh auth login`
-followed by `gh auth setup-git` when using GitHub CLI. If `necropsy` is not on your
-PATH after installation, run `uv tool update-shell` and open a new terminal.
+**macOS** — press Command+Space, type **Terminal** and open it. Paste and press Return.
 
-To install the prebuilt wheel instead, follow these steps:
-
-Download the wheel and SHA256SUMS from the release above. Compare its
-digest before installation, for example in PowerShell:
-
-```powershell
-Get-FileHash .\necropsy-0.1.0-py3-none-any.whl -Algorithm SHA256
-uv tool install --python 3.14 .\necropsy-0.1.0-py3-none-any.whl
-necropsy --version
-necropsy auth login
-necropsy auth status --check
-necropsy resolve "YOUR_CHARACTER_URL" --endpoint user
-necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache .\wcl-cache --out .\analysis
+```sh
+curl -fsSL https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh | sh
 ```
 
-The package includes Necropsy's registered public client ID. `auth login` uses it
-automatically. For another app registration, override with `--client-id` or
-`NECROPSY_WCL_CLIENT_ID`. [Live validation](live-validation.md) records the
-registered callback and account-specific query/refresh observations.
-The ID identifies the app; your browser authorization identifies your account.
-Public login never asks for a shared secret. If it is cancelled or rejected, the
-previous successful sign-in stays selected. Keep the terminal open during login.
+**Linux desktop** — open **Terminal** from the applications menu, paste and press Enter.
+The command chooses curl or wget automatically.
 
-The default API endpoint remains `client` for compatibility with personal
-clients. Public sign-in always requires explicit `--endpoint user`. An incorrect
-choice fails before an API request; Necropsy never silently switches endpoints.
-Public login is the default; owners of confidential personal clients instead use
-`necropsy auth login --mode personal --client-id YOUR_PERSONAL_CLIENT_ID`.
-
-For a saved supported snapshot, no login or network is needed:
-
-```powershell
-necropsy offline .\snapshot.zip --out .\offline-analysis
+```sh
+sh -c 'u=https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh; if command -v curl >/dev/null; then curl -fsSL "$u"; else wget -qO- "$u"; fi' | sh
 ```
 
-Open `report.html` and `playbook.html` under the output directory. `analysis.json`
-and the shareable ZIP retain evidence and coverage limits. Raw logs, snapshots,
-caches and generated reports can contain player identities; keep them private
-unless their owners authorize sharing. They are not included in the CLI wheel.
+Linux desktops need at least one standard HTTPS downloader (curl or wget).
+A stripped-down/headless system may require its package manager to provide one;
+there is no portable way for a shell without any downloader to fetch an installer.
+The app and Python dependencies install per-user and need no administrator rights.
 
-## Recovery and removal
+## Next time
 
-- Expired access refreshes using the saved refresh token when issued. Without a
-  refresh token, or if WCL rejects it, run `auth login` again. Refresh rotation
-  is saved through the OS store. WCL's actual public-client refresh behavior
-  has an observed Windows receipt; other accounts retain their own permissions.
-- HTTP 401: sign in again. HTTP 403: verify account access, report privacy and
-  archive subscription. The CLI keeps the requested endpoint. It cannot grant
-  permissions your WCL account lacks.
-- Quota stop: retain the cache and retry into a fresh output directory after the
-  observed hourly reset, or explicitly allow one bounded `--wait-for-reset` wait.
-  Exit 4 means partial output; read the coverage notes before using advice.
-- Port 8765 in use: close the conflicting application and retry. Without a
-  browser launch, use `auth login --no-browser` and open the printed URL on the
-  same computer. Incorrect state or denied authorization requires a new attempt.
-- An unavailable/unapproved credential store is an error. No plaintext fallback
-  exists. Only Windows WinVault has current real-store evidence.
-- Upgrade from a newly reviewed wheel with
-  `uv tool install --force --python 3.14 .\necropsy-VERSION-py3-none-any.whl`.
-  Keep raw snapshots; use fresh result directories. Before downgrading to a
-  version without PKCE support, select your personal client again with
-  `auth login --mode personal`.
-- Run `necropsy auth logout --forget-secret` **before**
-  `uv tool uninstall necropsy`. This removes the active mode/client record and
-  selection. Other saved clients/modes require separate logout. Normal logout
-  removes only the active user tokens; personal client secrets remain available.
-  Local logout is not server revocation: revoke app access in WCL account settings
-  if required. Uninstall leaves your caches, snapshots and reports for you to keep
-  or remove deliberately.
+| Computer | Open Necropsy |
+|---|---|
+| Windows | Desktop or Start menu **Necropsy** shortcut |
+| macOS | `Applications/Necropsy.command` in your home folder |
+| Linux desktop | **Necropsy** in your applications menu |
+| Any supported terminal | `necropsy` (in a new terminal after setup) |
 
-## Build verification for contributors
+The first launch needs no shell restart: setup opens the app directly.
+Tab moves between controls; Enter activates a control; the mouse also works.
+Ctrl+C stops and saves an active operation. Ctrl+Q saves/stops and quits.
+An in-flight network request can take up to 30 seconds to stop. Report generation
+may finish its current offline stage before stopping. Closing the terminal
+abruptly still retains requests already checkpointed to disk.
 
-```powershell
-uv build
-uv run python scripts/check_distribution.py --snapshot tests/fixtures/haplina_naxx_subset.zip --receipt workspace/distribution-check.json --probe-os-store
+## Sign in and analyze
+
+Paste your character link, choose **Find my character** and authorize Necropsy
+in your browser. Return to the app, choose a spec and **Analyze my character**.
+The app checks the observed faction and offers a partition choice only when WCL
+needs one. It uses the user endpoint automatically. Tokens stay in your OS vault.
+The report opens automatically; **Open report** opens it again later.
+
+An unlocked OS password vault is required: Windows Credential Manager, macOS
+Keychain, or a desktop Secret Service/KWallet on Linux. Linux needs a running
+user D-Bus/password-wallet session; a bare server or locked/unavailable vault
+cannot securely save a sign-in. Necropsy explains this in the app and never
+falls back to plaintext credentials. An OS vault prompt is part of sign-in.
+
+## Saved analyses and automatic continuation
+
+**Your saved analyses** shows prior runs and their status. Select a run to
+**Continue analysis** or **Open report**. Add an analysis saved elsewhere using
+**Find an older analysis saved elsewhere** and its containing folder. CLI runs
+with `.necropsy-run/run.json` can resume in place. Older live runs recover completed
+cached streams into a new run, preserving the old report/snapshots.
+
+Quota exhaustion saves the current request/page checkpoint and displays a
+countdown. The app sleeps and retries after WCL's observed reset, repeating as
+needed until done or stopped. Partial coverage caused by inaccessible/missing
+logs finishes with coverage notes; it does not trigger endless quota retries.
+A subscription is not needed to retain progress across hourly resets; private
+or subscription-gated archived reports still require WCL permission.
+
+Data lives in your per-user application-data folder: `%LOCALAPPDATA%\Necropsy`
+on Windows, `~/Library/Application Support/Necropsy` on macOS, and
+`$XDG_DATA_HOME/Necropsy` (usually `~/.local/share/Necropsy`) on Linux. The
+`runs` folder holds sessions, snapshots, reports and `.necropsy-run` checkpoints.
+Keep the cache and run folder together for continuation. Existing
+`~/necropsy/wcl-cache` is reused when present; older runs under `~/necropsy` are
+automatically listed by the default app. Reports may contain player identities.
+
+## Updates and older versions
+
+Run the same install command again to update. The installer switches the launcher
+only after the new environment starts successfully. A failed download or checksum
+check preserves the previous launcher, sign-in and saved analyses. Existing HTML
+pages keep their original design until regenerated from their snapshot/JSON.
+
+Version 0.1.0 predates the redesigned report. Version 0.1.1 added progress and
+CLI checkpoints and was built locally. Version 0.2.0 adds the guided app and
+cross-platform bootstrap. See [releases](https://github.com/David-c0degeek/necropsy/releases)
+for published artifacts; historical release receipts describe their own versions.
+
+## Advanced CLI and contributor installation
+
+The guided app is the default; `necropsy tui` opens it explicitly. All advanced
+commands remain available through `necropsy --help`. Scripted `analyze` still
+uses explicit `--cache`, `--out` and `--endpoint user`; after a quota stop repeat
+with `--resume`. Its optional `--wait-for-reset` permits one bounded wait per
+invocation. The TUI supervisor supports repeated quota windows.
+
+From a checkout:
+
+```sh
+uv sync --locked
+uv run necropsy
 ```
 
-The script scans every extracted wheel/sdist member with the installed gitleaks
-tool (unlimited member size), creates a temporary clean environment outside the
-checkout, installs the wheel, exercises the entry point and synthetic public
-CLI/user API flow, and replays the supplied snapshot. `--probe-os-store` writes
-and removes synthetic chunked values under a unique temporary OS-store service;
-it never reads or modifies your saved WCL credentials. Omit the flag on machines
-without an approved credential backend. The receipt records skipped probes and
-does not certify live WCL access or another person/machine.
+Build a wheel with `uv build`. Manual wheel users can use
+`uv tool install --force --python 3.14 dist/necropsy-0.2.0-py3-none-any.whl`.
+This path assumes uv exists; it is not the normal first-time install path.
+Saved snapshots replay offline with `necropsy offline SNAPSHOT.zip --out FOLDER`.
+Rendering existing JSON uses `necropsy render analysis.json --out FOLDER`.
 
-Keep only the current wheel/sdist pair in `dist` for the command. Installation
-can fetch dependencies; subsequent offline replay does not. The built artifacts
-exclude tests, private fixtures, workspace, caches and plans. Package metadata uses PACKAGE.md with generic installed commands; repository
-samples and player-specific references are excluded. Repository documentation
-is intentionally not bundled in the minimal sdist. A clean heuristic scan is a gate, not proof that no secret exists.
+## Verification and removal
+
+Automation verifies the TUI, bootstrap/private runtime, installed version,
+checksum refusal, preservation of the launcher after a failed upgrade, offline
+report generation and current embedded assets. Real WCL account/vault validation
+is recorded separately in [live validation](live-validation.md); synthetic tests
+and CI do not certify every desktop/password-wallet configuration.
+
+For maintainers:
+
+```sh
+uv run python scripts/build_release.py --out workspace/release
+uv run python scripts/check_bootstrap.py --bundle workspace/release --receipt workspace/bootstrap.json
+uv run python scripts/check_distribution.py --dist workspace/release --snapshot tests/fixtures/haplina_naxx_subset.zip --receipt workspace/distribution.json
+```
+
+Before uninstalling, use `necropsy auth logout --forget-secret` to remove the
+active saved sign-in. Other saved personal clients/modes need their own logout.
+The bootstrap installs into a per-user app directory, not uv's global tool list.
+Remove its app directory and launcher/shortcuts to uninstall; retain the separate
+run/cache data if you want to keep reports. A manual `uv tool install` is removed
+with `uv tool uninstall necropsy`. Local logout/uninstall does not revoke WCL's
+server-side browser grant.

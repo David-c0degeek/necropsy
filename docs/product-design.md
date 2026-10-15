@@ -101,3 +101,22 @@ data, sparse comparisons, hostile names, keyboard navigation, local persistence,
 light mode, reduced motion, no-JavaScript use, print and zero remote requests.
 Screenshots are maintained product illustrations rather than pixel-perfect CI
 baselines, avoiding platform-font snapshot noise.
+
+## Guided terminal entry
+
+`necropsy` opens the Textual app; advanced commands remain explicit subcommands.
+The same dark surfaces and restrained gold accent frame a short flow: character
+link, browser authorization, class-appropriate spec, Analyze. Faction/endpoint
+and storage paths are automatic. The worker uses the existing acquisition and
+offline-report services; the terminal never recomputes analytical findings.
+
+Activity stays visible while work runs. Quota waits show a live countdown and
+retry automatically until completion or cooperative Stop. The saved-run library
+lists previous analyses, opens reports offline, resumes checkpoints and imports
+older CLI output folders. Tab/Enter, mouse and Ctrl+C/Ctrl+Q are supported.
+The scrolling layout supports small terminals; status text carries meaning
+alongside the spinner and button colors. Authentication URLs stay transient;
+tokens remain exclusively in the approved OS vault.
+
+Regenerate the terminal screenshot with `uv run python scripts/capture_tui.py`.
+The capture uses an isolated empty library and blocks remote font/network requests.

@@ -156,9 +156,10 @@ def test_print_opens_disclosures_and_restores_them(page: Any, site: Path) -> Non
     assert states == before
     page.emulate_media(media="print")
     assert not page.locator("#theme-toggle").is_visible()
-    assert page.locator(".severity-label").first.evaluate(
-        "el => getComputedStyle(el).color"
-    ) == "rgb(34, 34, 34)"
+    assert (
+        page.locator(".severity-label").first.evaluate("el => getComputedStyle(el).color")
+        == "rgb(34, 34, 34)"
+    )
 
 
 def test_compact_picker_works_without_a_select(browser: Any, site: Path) -> None:
@@ -366,9 +367,8 @@ def test_keyboard_reveals_nested_evidence_destination(page: Any, site: Path) -> 
     action_link = page.locator(".boss-jumps a[href$='-actions']").first
     action_link.focus()
     page.keyboard.press("Enter")
-    assert page.locator(".boss-actions h3").first.evaluate(
-        "el => document.activeElement === el"
-    )
+    # Focus is moved by the scheduled in-page navigation handler.
+    sync_api.expect(page.locator(".boss-actions h3").first).to_be_focused()
 
 
 def test_all_class_accents_have_readable_dark_and_light_contrast(page: Any, site: Path) -> None:

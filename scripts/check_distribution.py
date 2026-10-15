@@ -185,6 +185,17 @@ def main() -> None:
         for name in ("analysis.json", "report.html", "playbook.html"):
             if not (output / name).is_file():
                 raise RuntimeError(f"installed replay missing {name}")
+        # A valid old report is still the wrong installation: verify the current
+        # shell and the exact embedded assets from this source tree.
+        assets = Path(__file__).resolve().parents[1] / "src/necropsy/report/render/assets"
+        for name in ("report.html", "playbook.html"):
+            html = (output / name).read_text(encoding="utf-8")
+            for marker in ('data-theme="dark"', 'data-class="hunter"', "Next-pull clarity."):
+                if marker not in html:
+                    raise RuntimeError(f"installed {name} lacks current design: {marker}")
+            for asset in ("report.css", "report.js"):
+                if (assets / asset).read_text(encoding="utf-8") not in html:
+                    raise RuntimeError(f"installed {name} has outdated {asset}")
         document = json.loads((output / "analysis.json").read_text(encoding="utf-8"))
         snapshot_digest = hashlib.sha256(snapshot.read_bytes()).hexdigest()
         if document["snapshot"]["archive_sha256"] != snapshot_digest:

@@ -457,10 +457,12 @@ class CallbackListener:
     def __exit__(self, *_exc: object) -> None:
         self._server.server_close()
 
-    def wait(self, timeout_s: float = 300.0) -> str:
+    def wait(self, timeout_s: float = 300.0, *, cancelled: Callable[[], bool] | None = None) -> str:
         result: dict[str, str] = self._server.result  # type: ignore[attr-defined]
         deadline = time.monotonic() + timeout_s
         while "outcome" not in result and time.monotonic() < deadline:
+            if cancelled is not None and cancelled():
+                raise AuthError("sign-in cancelled")
             self._server.handle_request()
         outcome = result.get("outcome")
         if outcome is None:

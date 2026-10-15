@@ -481,3 +481,224 @@ def test_recovery_commands_are_posix_safe() -> None:
 
     args = ["necropsy", "offline", "/tmp/it's $HOME/x.zip"]
     assert shlex.split(analyze_mod.shell_command(args, windows=False)) == args
+
+
+def test_progress_is_visible_before_network_and_in_phase_order(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    stages: list[str] = []
+    original_update = wcl_cli._Activity.update
+    server: FakeWcl = fake["server"]
+
+    def update(activity: Any, message: str) -> None:
+        stages.append(message)
+        original_update(activity, message)
+
+    def checked(request: httpx.Request) -> httpx.Response:
+        assert "Resolving character, faction and partition" in stages
+        assert any("Patchwerk" in stage for stage in stages)
+        return server(request)
+
+    monkeypatch.setattr(wcl_cli._Activity, "update", update)
+    fake["server"] = checked
+    result = _run(tmp_path)
+    assert result.exit_code == 0, result.output
+    assert stages[0] == "Loading Warcraft Logs credentials"
+    assert stages[-3:] == [
+        "Finalizing acquired reports",
+        "Writing snapshot",
+        "Analyzing snapshot and writing report, playbook and package",
+    ]
+    assert "(1/1 bosses)" in result.stderr
+    assert "\x1b" not in result.stderr
+
+
+def test_resume_keeps_partial_output_and_reuses_successful_requests(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    original = acquire_mod.finalize_reports
+
+    def stop_after_acquiring(run: Any, acquisition: Any) -> Any:
+        acquisition.stopped = "BudgetExceeded: quota reached"
+        return original(run, acquisition)
+
+    monkeypatch.setattr(analyze_mod, "finalize_reports", stop_after_acquiring)
+    first = _run(tmp_path, "--spec", "Marksmanship", "--faction", "Alliance", "--name", "saved")
+    assert first.exit_code == 4, first.output
+    assert "--resume" in first.output
+    old_snapshot = tmp_path / "out/snapshot/saved.zip"
+    old_bytes = old_snapshot.read_bytes()
+    before = len(fake["server"].requests)
+    monkeypatch.setattr(analyze_mod, "finalize_reports", original)
+    # Interactive selections and the snapshot name are restored without prompting.
+    second = _run(tmp_path, "--resume")
+    assert second.exit_code == 0, second.output
+    assert "reused" in second.output
+    assert len(fake["server"].requests) == before
+    assert old_snapshot.read_bytes() == old_bytes
+    assert len(list((tmp_path / "out/.necropsy-run/snapshots").glob("*/*.zip"))) == 1
+    assert SECRET not in "".join(
+        p.read_text() for p in (tmp_path / "out/.necropsy-run/requests").glob("*.json")
+    )
+
+
+def test_resume_after_quota_stop_partway_through_event_pagination(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    server: FakeWcl = fake["server"]
+    blocked = True
+    successful_first_pages = 0
+
+    def paginated(request: httpx.Request) -> httpx.Response:
+        nonlocal successful_first_pages
+        body = json.loads(request.content)
+        var = body["variables"]
+        if "NecropsyEvents" in body["query"] and var["code"] == "RHaplina":
+            if var["startTime"] == 1000:
+                successful_first_pages += 1
+                return server._ok(
+                    {
+                        "reportData": {
+                            "report": {
+                                "revision": 4,
+                                "events": {
+                                    "data": [{"timestamp": 1500, "type": "cast"}],
+                                    "nextPageTimestamp": 2000,
+                                },
+                            }
+                        }
+                    }
+                )
+            if blocked:
+                return httpx.Response(
+                    200,
+                    json={
+                        "data": {
+                            "rateLimitData": {
+                                "limitPerHour": 36000,
+                                "pointsSpentThisHour": 36000,
+                                "pointsResetIn": 20,
+                            }
+                        },
+                        "errors": [{"message": "rate limit exceeded"}],
+                    },
+                )
+        return server(request)
+
+    fake["server"] = paginated
+    first = _run(tmp_path)
+    assert first.exit_code == 4, first.output
+    assert "RateLimited" in first.output
+    assert successful_first_pages == 1
+    assert (tmp_path / "out/report.html").exists()
+    blocked = False  # the next invocation has a fresh hourly reading
+    second = _run(tmp_path, "--resume")
+    assert second.exit_code == 0, second.output
+    # Source and target each fetch page one once; the interrupted source page is reused.
+    assert successful_first_pages == 2
+    assert (tmp_path / "out/report.html").is_file()
+
+
+def test_resume_refuses_changed_options_or_modified_outputs_before_credentials(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    first = _run(tmp_path)
+    assert first.exit_code == 0, first.output
+    tokens = fake["tokens"]
+    changed = _run(tmp_path, "--resume", "--cross-faction")
+    assert changed.exit_code == 1 and "options differ" in changed.output
+    assert fake["tokens"] == tokens
+    report = tmp_path / "out/report.html"
+    report.write_text("user edits")
+    modified = _run(tmp_path, "--resume")
+    assert modified.exit_code == 1 and "saved output changed" in modified.output
+    assert report.read_text() == "user edits"
+    assert fake["tokens"] == tokens
+
+
+def test_resume_recovers_after_interrupted_publication(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from necropsy.report.offline import run_offline
+
+    original = run_offline
+
+    def broken(*args: Any, **kwargs: Any) -> Any:
+        raise OSError("disk full")
+
+    monkeypatch.setattr(analyze_mod, "run_offline", broken)
+    first = _run(tmp_path)
+    assert first.exit_code == 1
+    old_snapshots = list((tmp_path / "out/snapshot").glob("*.zip"))
+    assert len(old_snapshots) == 1
+    before = len(fake["server"].requests)
+    monkeypatch.setattr(analyze_mod, "run_offline", original)
+    second = _run(tmp_path, "--resume")
+    assert second.exit_code == 0, second.output
+    assert len(fake["server"].requests) == before
+    assert old_snapshots[0].is_file()
+
+
+def test_resume_reuses_reports_finalized_before_a_quota_stop(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    original = acquire_mod.finalize_reports
+    finalized: list[str] = []
+
+    def interrupted(run: Any, acquisition: Any) -> Any:
+        query = run.client.query
+
+        def limited(text: str, variables: Any = None, **kwargs: Any) -> Any:
+            if finalized:
+                raise c.BudgetExceeded("hourly quota reached")
+            result = query(text, variables, **kwargs)
+            finalized.append(variables["code"])
+            return result
+
+        run.client.query = limited
+        return original(run, acquisition)
+
+    monkeypatch.setattr(analyze_mod, "finalize_reports", interrupted)
+    first = _run(tmp_path)
+    assert first.exit_code == 3, first.output
+    before = len(fake["server"].requests)
+    monkeypatch.setattr(analyze_mod, "finalize_reports", original)
+    second = _run(tmp_path, "--resume")
+    assert second.exit_code == 0, second.output
+    new_requests = fake["server"].requests[before:]
+    assert new_requests
+    assert all("NecropsyReport" in request["query"] for request in new_requests)
+    assert all(request["variables"]["code"] != finalized[0] for request in new_requests)
+
+
+def test_refused_context_can_be_corrected_without_a_resume(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    wrong = _run(tmp_path, "--faction", "Horde")
+    assert wrong.exit_code == 1
+    corrected = _run(tmp_path, "--faction", "Alliance")
+    assert corrected.exit_code == 0, corrected.output
+
+
+def test_interruption_saves_requests_and_cleans_up_the_activity_display(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    server: FakeWcl = fake["server"]
+    interrupted = False
+
+    def cancel(request: httpx.Request) -> httpx.Response:
+        nonlocal interrupted
+        if "NecropsyEvents" in json.loads(request.content)["query"]:
+            interrupted = True
+            raise KeyboardInterrupt
+        return server(request)
+
+    fake["server"] = cancel
+    first = _run(tmp_path)
+    assert interrupted and first.exit_code == 130, first.output
+    assert "--resume" in first.output
+    before = len(server.requests)
+    fake["server"] = server
+    second = _run(tmp_path, "--resume")
+    assert second.exit_code == 0, second.output
+    assert not any("NecropsySubject" in r["query"] for r in server.requests[before:])

@@ -21,9 +21,8 @@ app = typer.Typer(
     name="necropsy",
     help="Local-first Warcraft Logs forensics. "
     "Acquire supported Naxxramas logs or replay a snapshot.",
-    epilog="Start here: necropsy offline SNAPSHOT.zip --out workspace/analysis, then open "
-    "report.html.",
-    no_args_is_help=True,
+    epilog="Run necropsy for the guided terminal app. Advanced commands remain available below.",
+    no_args_is_help=False,
     add_completion=False,
 )
 
@@ -43,8 +42,9 @@ def _version_callback(value: bool) -> None:
         raise typer.Exit
 
 
-@app.callback()
+@app.callback(invoke_without_command=True)
 def root(
+    ctx: typer.Context,
     version: Annotated[
         bool,
         typer.Option(
@@ -55,7 +55,9 @@ def root(
         ),
     ] = False,
 ) -> None:
-    """Acquire supported logs or replay a snapshot. Use COMMAND --help for options."""
+    """Run the guided app, or use COMMAND --help for advanced options."""
+    if ctx.invoked_subcommand is None:
+        tui_command()
 
 
 @app.command("ingest")
@@ -184,6 +186,21 @@ def render_command(
     for path in paths:
         typer.echo(f"wrote:            {path}")
     typer.echo(f"Next: open {out / REPORT_FILE} in your browser.")
+
+
+@app.command("tui")
+def tui_command() -> None:
+    """Open the guided app: sign in, analyze, view saved reports and continue runs."""
+    if not sys.stdin.isatty() or not sys.stdout.isatty():
+        typer.echo(
+            "The guided app needs an interactive terminal. Open Necropsy from its shortcut "
+            "or run necropsy in your terminal. Use --help for scripted commands.",
+            err=True,
+        )
+        raise typer.Exit(code=1)
+    from necropsy.tui.app import launch
+
+    launch()
 
 
 app.add_typer(auth_app, name="auth")
