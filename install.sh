@@ -69,10 +69,10 @@ setup() {
         UV_INSTALL_DIR="$uv_root" UV_NO_MODIFY_PATH=1 sh "$work_root/uv-install.sh"
     fi
     environment_root=$(mktemp -d "$app_root/versions-$version-XXXXXXXX")
-    "$uv" venv --python 3.14 --managed-python "$environment_root"
+    "$uv" --quiet venv --python 3.14 --managed-python "$environment_root"
     python="$environment_root/bin/python"
     printf '%s\n' '[3/4] Installing Necropsy...'
-    "$uv" pip install --python "$python" "$work_root/$wheel_name"
+    "$uv" --quiet pip install --python "$python" "$work_root/$wheel_name"
     installed=$("$python" -m necropsy --version)
     if [ "$installed" != "necropsy $version" ]; then
         printf '%s\n' 'The app could not start. Your previous launcher has been preserved.' >&2

@@ -75,10 +75,10 @@ try {
         }
     }
     $environmentRoot = Join-Path $appRoot ('versions\' + $necropsyVersion + '-' + [guid]::NewGuid().ToString('N'))
-    Invoke-Checked $uv @('venv', '--python', '3.14', '--managed-python', $environmentRoot)
+    Invoke-Checked $uv @('--quiet', 'venv', '--python', '3.14', '--managed-python', $environmentRoot)
     $python = Join-Path $environmentRoot 'Scripts\python.exe'
     Write-Host '[3/4] Installing Necropsy...'
-    Invoke-Checked $uv @('pip', 'install', '--python', $python, $wheel)
+    Invoke-Checked $uv @('--quiet', 'pip', 'install', '--python', $python, $wheel)
     $installed = & $python -m necropsy --version
     if ($LASTEXITCODE -ne 0 -or $installed.Trim() -ne "necropsy $necropsyVersion") {
         throw 'The app could not start. Your previous launcher has been preserved.'
