@@ -141,3 +141,19 @@ def test_stop_interrupts_long_retry_sleep_immediately() -> None:
     stop.set()
     with pytest.raises(Stopped):
         StopClock(stop).sleep(3600)
+
+
+def test_explicit_library_is_isolated_but_default_library_reuses_legacy_cache(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    home = tmp_path / "home"
+    old_cache = home / "necropsy/wcl-cache"
+    old_cache.mkdir(parents=True)
+    monkeypatch.setattr(Path, "home", classmethod(lambda cls: home))
+    monkeypatch.setattr("necropsy.tui.service.user_data_path", lambda *a, **kw: tmp_path / "app")
+    isolated = RunLibrary(tmp_path / "isolated")
+    assert isolated.cache == isolated.root / "cache"
+    assert isolated.discover() == []
+    normal = RunLibrary()
+    assert normal.cache == old_cache
+    assert not list(old_cache.iterdir())

@@ -118,7 +118,7 @@ try {
 } catch {
     Write-Host "Necropsy setup could not finish: $($_.Exception.Message)" -ForegroundColor Red
     Write-Host 'Check your internet connection and run the same setup command again. Your reports and sign-in are preserved.'
-    throw
+    exit 1
 } finally {
     if ($workRoot -and (Test-Path -LiteralPath $workRoot)) {
         $checkedRoot = [IO.Path]::GetFullPath($appRoot).TrimEnd('\') + '\'

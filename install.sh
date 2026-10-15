@@ -20,8 +20,16 @@ failed() {
     printf '%s\n' 'Setup could not finish. Check your connection and run the same command again.' \
         'Your reports and sign-in are preserved.' >&2
 }
-trap cleanup EXIT
-trap 'failed; exit 1' HUP INT TERM
+finish() {
+    setup_status=$?
+    cleanup
+    if [ "$setup_status" -ne 0 ]; then failed; fi
+    trap - EXIT
+    exit "$setup_status"
+}
+trap finish EXIT
+trap 'exit 130' INT
+trap 'exit 1' HUP TERM
 download() {
     if command -v curl >/dev/null 2>&1; then
         curl --fail --location --silent --show-error --proto '=https' --tlsv1.2 "$1" -o "$2"

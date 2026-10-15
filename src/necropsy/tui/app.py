@@ -324,11 +324,16 @@ class NecropsyApp(App[None]):
         selector = self.query_one("#spec", Select)
         selector.set_options(choices)
         selector.value = choices[0][1]
-        for widget_id in ("spec", "spec-label", "analyze"):
-            self.query_one(f"#{widget_id}").display = True
+        for widget_id in ("spec", "spec-label"):
+            self.query_one(f"#{widget_id}").display = len(choices) > 1
+        self.query_one("#analyze").display = True
         self.query_one("#partition").display = False
         self.query_one("#partition-label").display = False
-        self.show_progress("Character found. Choose your spec, then Analyze my character.")
+        self.show_progress(
+            "Character found. Choose your spec, then Analyze my character."
+            if len(choices) > 1
+            else "Character found. Choose Analyze my character to begin."
+        )
 
     def completed(self, run: SavedRun, code: int) -> None:
         self.show_progress(

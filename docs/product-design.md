@@ -117,3 +117,6 @@ older CLI output folders. Tab/Enter, mouse and Ctrl+C/Ctrl+Q are supported.
 The scrolling layout supports small terminals; status text carries meaning
 alongside the spinner and button colors. Authentication URLs stay transient;
 tokens remain exclusively in the approved OS vault.
+
+Regenerate the terminal screenshot with `uv run python scripts/capture_tui.py`.
+The capture uses an isolated empty library and blocks remote font/network requests.

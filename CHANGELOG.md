@@ -8,9 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
-No additional changes beyond the 0.2.0 candidate below.
+No additional changes beyond 0.2.0 below.
 
-## 0.2.0 — release candidate
+## 0.2.0 - 2026-10-15
 
 ### Added
 

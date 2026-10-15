@@ -130,10 +130,9 @@ and CI do not certify every desktop/password-wallet configuration.
 For maintainers:
 
 ```sh
-uv build --out-dir workspace/dist
-# Add SHA256SUMS for the wheel before the bootstrap check.
-uv run python scripts/check_bootstrap.py --bundle workspace/dist --receipt workspace/bootstrap.json
-uv run python scripts/check_distribution.py --dist workspace/dist --snapshot tests/fixtures/haplina_naxx_subset.zip --receipt workspace/distribution.json
+uv run python scripts/build_release.py --out workspace/release
+uv run python scripts/check_bootstrap.py --bundle workspace/release --receipt workspace/bootstrap.json
+uv run python scripts/check_distribution.py --dist workspace/release --snapshot tests/fixtures/haplina_naxx_subset.zip --receipt workspace/distribution.json
 ```
 
 Before uninstalling, use `necropsy auth logout --forget-secret` to remove the
