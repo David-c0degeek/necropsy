@@ -94,6 +94,25 @@
       "domain_status": "pending review",
       "coverage": "no matching personal Guardian ranking; five public deep entries and25 metadata rows; pet ownership gaps retained",
       "original_filename": "druid-guardian.zip"
+    },
+    {
+      "category": "balance-view",
+      "path": "raw/druid-balance-view.zip",
+      "sha256": "934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078",
+      "bytes": 17302450,
+      "captured": "2026-10-15",
+      "original_filename": "haplina-balance-view.zip",
+      "source": "production analyze --spec Balance --cross-faction for Haplina110733843, ClassicEra Naxxramas partition1 user endpoint",
+      "approval": "David explicitly requested selected-spec views and authorized own/public log fixtures",
+      "domain_status": "pending threshold/advice review; user confirms Balance except Sapphiron",
+      "coverage": {
+        "requested_bosses": 15,
+        "personal_bosses": 14,
+        "sapphiron_personal": false,
+        "sapphiron_example": "Alyrian #1",
+        "comparisons": "partial; finalization reserve kept",
+        "reset_wait_seconds": 1712.99
+      }
     }
   ],
   "secret_scan": {
@@ -116,6 +135,24 @@
     "tool": "gitleaks",
     "scope": "all extracted tank-view members",
     "bytes_scanned": 32499807,
+    "exit_code": 0,
+    "result": "no leaks found",
+    "date": "2026-10-15"
+  },
+  "balance_view_secret_scan": {
+    "tool": "gitleaks",
+    "scope": "all extracted balance-view members",
+    "bytes_scanned": 266125045,
+    "max_target_megabytes": 0,
+    "exit_code": 0,
+    "result": "no leaks found",
+    "date": "2026-10-15"
+  },
+  "balance_view_output_secret_scan": {
+    "tool": "gitleaks",
+    "scope": "all generated balance-view output files",
+    "bytes_scanned": 35283900,
+    "max_target_megabytes": 0,
     "exit_code": 0,
     "result": "no leaks found",
     "date": "2026-10-15"

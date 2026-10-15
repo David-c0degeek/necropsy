@@ -64,9 +64,22 @@ its 32,499,807 extracted bytes passed checks and gitleaks. The earlier Guardian
 fixture likewise keeps Suncat's incompatible subject in audit data instead of
 grading it as personal tank performance.
 
-The full selected Balance view is being acquired through the normal CLI with
-personal-first multi-boss ordering. The first attempt spent the hourly allowance
-on early-boss comparisons; it was cancelled and its cache retained. A replacement
-run waits once for the observed reset, then collects personal selected-spec
-encounters before comparison depth. No full-raid live success is claimed until
-the snapshot, view and package have actually been checked.
+The full selected Balance view completed through the normal CLI on 2026-10-15.
+All 15 bosses remain visible; 14 have matching personal Balance performances.
+Sapphiron has no personal Balance grade and shows Alyrian's acquired #1 Balance
+fight as a learning example. The first attempt spent the hourly allowance on
+early comparisons and was cancelled with its cache retained. The replacement
+waited once for 1,712.99 seconds, then collected personal encounters first.
+Comparison acquisition remains partial after the finalization-reserve guard;
+complete personal coverage does not mean complete comparison coverage.
+
+The eighth frozen archive is `tests/golden/druid/raw/druid-balance-view.zip`.
+All 15 actor-damage facts (14 personal plus the Sapphiron example) match independent
+raw-event arithmetic. Its replay, package checks and four desktop/mobile browser
+cases passed, bringing real-artifact browser verification to 32 cases across
+eight outputs. Unlimited-size gitleaks scans covered 266,125,045 extracted raw
+bytes and 35,283,900 generated-output bytes without findings. The serial full
+golden/acceptance run passed 236 tests with four existing expected failures;
+the subsequently added full-view golden test also passed. A native loader failure
+occurred during overlapping large replays; its cause remains unconfirmed and it
+did not recur in serial verification. Domain acceptance remains pending.

@@ -90,3 +90,20 @@ subject-less comparison priority, planned-order provenance and a conservative
 finalization reserve restored in finally. Pagination still pays against each
 request's guarded allowance. The replacement live run retains one bounded,
 observed reset wait; unacquired comparisons remain explicit.
+
+## Final live calibration — 2026-10-15
+
+The real replacement run confirms the acquisition-order mitigation: all 15 bosses
+remain visible and 14 personal Balance fights are retained before comparison
+depth. Sapphiron uses Alyrian #1 without personal grading. The bounded wait was
+1,712.99 seconds; finalization succeeded with comparisons explicitly partial.
+PM-1 remains Prevented Prediction, PM-2 mitigated/Confirmed Prediction and PM-3
+Confirmed Prediction with human threshold/advice acceptance still inconclusive.
+CH-MISS-3 is closed at the engineering level by full-view raw replay, independent
+facts, CSV and actual browser checks; human acceptance remains separate.
+
+CH-MISS-4: concurrent large verification replays produced a native loader failure
+and malformed-NDJSON error. Isolated replay and a complete serial golden run
+passed without recurrence. The cause is unconfirmed; avoid overlapping heavy
+native-loader checks when collecting acceptance receipts and retain failures
+without inventing a library or memory diagnosis. Durable lessons are promoted.

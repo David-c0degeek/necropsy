@@ -13,3 +13,8 @@ Consult permanent `tasks/lessons.md` before work.
 - 2026-10-15: Verify category/metric combinations independently. A Balance ranking category can contain a healing performance; category defaults must not erase explicit HPS or an encounter healing assignment.
 
 - 2026-10-15: Compare all four saved Hunter artifacts, not just JSON. Jinja control-block trimming changed a brand newline; an inline expression restored both HTML and package bytes.
+
+- 2026-10-15: Establish the selected view contract before validating isolated role examples. Keep every requested encounter, separate personal eligibility from learning examples, and show acquired rank accurately when #1 lacks duty evidence.
+- 2026-10-15: Under a shared API budget, acquire personal raid coverage before deep comparisons; prioritize missing-personal encounters for examples and reserve finalization. Verify that order against a real complete raid capture.
+- 2026-10-15: Large JSON files can exceed a secret scanner's default per-file cap. Explicitly scan all extracted raw members and generated outputs with an unlimited target size, recording byte counts separately.
+- 2026-10-15: If native ingestion fails during overlapping large replays, serialize verification and retain the observed failure and successful rerun. Do not claim a root cause or change the normalizer without reproduction.

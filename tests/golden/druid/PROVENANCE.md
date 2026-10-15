@@ -48,3 +48,16 @@ with unlimited target size on 2026-10-15, exit 0, no leaks found.
 Secret scan: installed gitleaks scanned all extracted members (169,740,861 bytes)
 with `gitleaks dir workspace/druid-scan --redact --max-target-megabytes 0` on
 2026-10-14; exit 0, no leaks found. This heuristic scan is not proof of absence.
+
+The eighth capture, `druid-balance-view.zip`, preserves the complete selected
+Balance acquisition for Haplina on 2026-10-15: 15 requested bosses, 14 matching
+personal performances, and Alyrian's acquired #1 Balance Sapphiron example.
+The writer archive is byte-identical, SHA-256
+`934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078`.
+The replacement run waited once for 1,712.99 seconds after the observed reset
+deadline. Personal coverage is complete; comparison acquisition is partial after
+the finalization-reserve guard. Fifteen independent raw actor-damage facts match
+the replay; the dedicated full-view golden test passes. Unlimited-size gitleaks
+scans passed over 266,125,045 extracted raw bytes and 35,283,900 derived-output
+bytes. The derived-output scan is separate from the immutable raw archive.
+Thresholds, practical advice and final product acceptance remain human-owned.

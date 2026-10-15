@@ -14,14 +14,14 @@ Expose Druid roles and useful class-specific details through the existing report
 
 ## Boxes
 - [x] **05.1** (agent) Extend analysis JSON with explicitly versioned/compatible class-specific metrics; preserve legacy hunter fields/readers where required and synchronize the generated JSON schema.
-- [ ] **05.2** (agent) Reuse shared rendering and evidence components with class-aware labels, role-specific summaries, KISS cards and full supporting detail. Show talent/build versus observed role, overrides, hybrid phases and unknowns clearly.
-- [ ] **05.3** (agent) Extend package CSV/evidence exports and user/developer docs; verify old Hunter pages and desktop/mobile layouts remain complete without new class terms leaking into historical outputs.
+- [x] **05.2** (agent) Reuse shared rendering and evidence components with class-aware labels, role-specific summaries, KISS cards and full supporting detail. Show talent/build versus observed role, overrides, hybrid phases and unknowns clearly.
+- [x] **05.3** (agent) Extend package CSV/evidence exports and user/developer docs; verify old Hunter pages and desktop/mobile layouts remain complete without new class terms leaking into historical outputs.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 05.1 05.2 05.3 · Shared report/package pipeline dispatches class sections and templates; legacy Hunter pages and bytes preserved. Druid practice notes, role-specific measurements, full source timeline, forms/resources/targets and all cohort detail exported as CSV/JSON. Browser inspection covered 16 real page/viewport combinations (1400/390), no overflow, remote requests or JS errors; dedicated synthetic browser cases additionally check escaping/search/theme. README, user/developer docs, schema, ADR and validation limits updated. Closing peer review pending. Checkpoint commit/push follows this record.
@@ -97,3 +97,63 @@ No source log or ranking category alone proves a selected encounter duty.
 
 ### Verdict
 DO NOT CLOSE — latest verification, live capture and scoped review are pending.
+
+2026-10-15 · selected-spec verification complete · All 15 Balance bosses are
+visible, with 14 matching personal performances and no personal Sapphiron grade.
+Alyrian's acquired #1 Balance Sapphiron fight is separately labelled learning
+evidence. Snapshot SHA-256 934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078;
+package SHA-256 efe380c6832a2873b1eb8b132738560c564827cc53423f9a3c213b18d4441656.
+Eight portable immutable captures now cover all requested behavior cases.
+Full serial golden/acceptance: 236 passed / four retained expected failures;
+new full-view golden: one passed / seven deselected in 43.88 seconds, including
+15 independently summed actor-damage facts and coverage/learning CSV checks.
+Latest broad local run: 877 fast passes, with two subsequently added integration
+cases also passing. Ruff lint/format, strict mypy (132 files) and build passed.
+All eight real artifacts pass artifact/package/output checks and 32 browser
+page/viewport cases (1400/390 pixels), with no overflow, JS errors or automatic
+remote requests. Hunter JSON/both pages/ZIP and 26 recorded request bodies plus
+endpoints match the saved baseline. Raw/output unlimited scans covered
+266,125,045 / 35,283,900 additional bytes without findings.
+The production run waited once for 1,712.99 seconds, retained all personal fights,
+then stopped comparison acquisition under the finalization reserve; later boss
+comparisons remain partial. Finalized raw evidence and all outputs were checked.
+Native loader failures occurred during overlapping large replays; serial full
+verification passed without recurrence. Cause remains unconfirmed; no speculative
+normalizer change was made.
+Claude mail 185: AGREE round=1 blocking=0 important=0 after the user clarification,
+against c983993; 18 independent focused tests passed. Review covered selected-spec
+eligibility, exact-key learning examples/metadata, acquisition order/reserve,
+snapshot provenance, CLI and HTML escaping/CSV sanitizer paths. Explicit exclusions:
+docs/ADR/plan/records, raw fixtures/manifests, most tests, template body beyond
+escaping check, CSV columns, writer beyond fingerprint and broad/live/browser
+receipts. Those are lead-verified, not blanket independently approved. Optional
+docstring/local-copy nits were addressed at e8fed3e with focused checks passing.
+Linux/Windows source CI e8fed3e passed:
+https://github.com/David-c0degeek/necropsy/actions/runs/38704628831.
+Only fixture/test and close-out records follow that source checkpoint.
+Human taxonomy/findings/advice/product boxes remain open; no role is deferred.
+
+## Captain Hindsight — verified selected-spec view
+
+### Keep
+Keep the existing pipeline, one selected spec per view, all requested bosses,
+personal eligibility and separately sourced learning examples. Real full-view
+replay and browser evidence confirm the clarified behavior, including missing
+personal data and honest leaderboard positions.
+
+### Fix before closing
+None within this subject; no human acceptance is inferred for other subjects.
+
+### Record
+The verification receipt above supersedes earlier pending engineering receipts.
+D012/D013, ADR 0005, PM calibration and permanent lessons capture the view model,
+budget priority and compatibility guards. Eight immutable fixtures retain raw
+provenance; domain approval is separate from fixture authorization.
+
+### Risk
+Comparison depth remains budget-limited; role thresholds and practical advice
+await domain acceptance. The concurrent native loader failure has an unconfirmed
+cause; serial verification passed. Missing signals remain unknown.
+
+### Verdict
+CLOSE — every subject-owned action is complete; cross-subject domain gates remain explicitly open.

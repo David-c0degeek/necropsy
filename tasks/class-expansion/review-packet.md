@@ -1,6 +1,6 @@
 # Druid review packet
 
-Selected-spec view correction is under verification; domain acceptance is pending. These reports are
+Selected-spec implementation is verified; domain acceptance is pending. These reports are
 generated local artifacts. Portable raw snapshots, manifests, provenance and
 independent arithmetic checks live in `tests/golden/druid/`.
 
@@ -8,7 +8,7 @@ independent arithmetic checks live in `tests/golden/druid/`.
 
 | Example | Practice page | Full evidence | Facts to review |
 |---|---|---|---|
-| Your Balance Patchwerk | [Playbook](../../workspace/druid-balance/playbook.html) | [Report](../../workspace/druid-balance/report.html) | 37/0/14; 68,395 damage; 40 balance casts; only two exact-build comparators, so median stays unknown |
+| Your full Balance view | [Playbook](../../workspace/druid-balance-view/playbook.html) | [Report](../../workspace/druid-balance-view/report.html) | All 15 bosses visible; 14 matching personal Balance fights; Sapphiron has no personal grade and shows Alyrian's acquired #1 Balance example; later comparison coverage remains partial |
 | Public Feral Patchwerk | [Playbook](../../workspace/druid-feral/playbook.html) | [Report](../../workspace/druid-feral/report.html) | Stinkface; 166,047 damage over 108.1 s; form/resources/cast cadence and targets retain evidence limits |
 | Your Restoration Patchwerk | [Playbook](../../workspace/druid-restoration/playbook.html) | [Report](../../workspace/druid-restoration/report.html) | 43,558 effective healing; missing overheal stays unknown; HPS is not healing quality |
 | Tank and mixed Four Horsemen | [Playbook](../../workspace/druid-mixed/playbook.html) | [Report](../../workspace/druid-mixed/report.html) | Suncat tank: 107,140 incoming damage; Mìlfurion cohort: 24 cat + 92 bear casts and direct hits, hybrid, excluded from aggregate single-role comparisons |
@@ -18,7 +18,9 @@ independent arithmetic checks live in `tests/golden/druid/`.
 
 For another checkout, run `git lfs pull`, then
 `uv run necropsy offline tests/golden/druid/raw/NAME.zip --out workspace/EXAMPLE`.
-Use `druid-mixed.zip` for Four Horsemen and
+Use `druid-balance-view.zip` for the full selected Balance view,
+`druid-tank-view.zip` for your missing-personal Tank example,
+`druid-mixed.zip` for Four Horsemen and
 `druid-sapphiron-restoration.zip` for your Sapphiron example.
 
 ## Decisions David owns
@@ -40,8 +42,8 @@ did not approve the resulting findings.
    overheal/resources/threat/form intervals, low-confidence practice notes, and
    no whole-fight hybrid comparison. Activity spans are first/last action
    evidence, not continuous assignment phases. No requested role is deferred.
-   Selected fights across three bosses do not certify full-raid live acceptance
-   or universal optimal rotations.
+   Full Balance personal coverage does not certify complete comparison coverage,
+   all-role raid coverage or universal optimal rotations.
 
 Balance/HPS Sapphiron acquisition found public rows but no matching personal
 Balance-category row; the subject correctly stays absent. The separate
@@ -49,21 +51,27 @@ Restoration/HPS capture supplies your actual healing example.
 
 ## Engineering evidence
 
-- Fast suite: 855 passed. Full Hunter-plus-initial-Druid golden/acceptance:
-  233 passed, four existing expected failures. Expanded six-Druid replay:
-  six passed with independent arithmetic and package member hashes.
-- Browser suite: 23 passed. Final real-artifact checks: 24 page/viewport cases,
-  zero automatic remote requests, no overflow or script errors; all six outputs
+- Latest broad local suite: 877 passed, with two subsequently added integration
+  cases also passing. Serial golden/acceptance: 236 passed, four existing expected
+  failures. The subsequently added full Balance golden also passed, checking
+  all 15 independent actor-damage facts and personal/learning CSVs.
+- Real-artifact checks: 32 page/viewport cases across eight outputs,
+  zero automatic remote requests, no overflow or script errors; all eight outputs
   passed the existing acceptance artifact checker and output secret scans.
 - Ruff lint/format, strict mypy and wheel/sdist build passed. Hunter JSON, both
-  pages and shareable ZIP match the saved baseline byte for byte.
+  pages and shareable ZIP match the saved baseline byte for byte. All 26 recorded
+  Hunter request bodies/endpoints also match the baseline.
 - Gitleaks found no leaks in 169,740,861 initial extracted bytes or 62,401,552
-  added extracted bytes. Raw ZIPs stay immutable.
-- Claude core round 1 approved with an incidental-duty finding subsequently
-  fixed; output round 2 approved without findings. Final targeted round 3 approved with zero blocking/important findings; its
-  exclusions remain explicit in the subject receipts. Linux/Windows CI db89d3a
-  passed. Agent implementation and verification are complete; the decisions
-  above remain yours.
+  added extracted bytes, plus 32,499,807 Tank-view and 266,125,045 full Balance
+  extracted bytes. The Balance output's 35,283,900 bytes were separately scanned
+  without a per-file size cap. Raw ZIPs stay immutable.
+- Claude mail 185 approved the corrected selected-spec runtime paths with zero
+  blocking/important findings and 18 independent focused passes. Review exclusions
+  (including docs, raw fixtures, most tests and broad/live/browser receipts)
+  remain explicit in subject records; those are lead-verified. Optional nits
+  were addressed at e8fed3e. Linux/Windows [source CI passed](https://github.com/David-c0degeek/necropsy/actions/runs/38704628831).
+- Overlapping large replays produced a native loader failure; the full serial
+  run passed without recurrence. Root cause remains unconfirmed.
 
 ## Selected-spec correction
 
@@ -73,10 +81,14 @@ gets an explanation plus an eligible learning example, without a fabricated
 personal grade, median or gap. `--spec Balance`, `Restoration`, `Feral` and `Tank`
 canonicalize to WCL categories; conflicting legacy category flags fail early.
 
-Multi-boss personal-first acquisition and the full Balance view are under final
-verification. The old completion receipt above describes the earlier checkpoint;
-it does not close the new acquisition/renderer changes. The replacement live
-Balance run retains the observed hourly reset wait. Existing reports in the
-table are real examples, not a claim of complete Balance raid coverage.
+The production CLI collected personal fights first, then learning comparisons,
+prioritizing missing-personal bosses. The replacement run waited once for
+1,712.99 seconds at the observed hourly reset. All 14 personal Balance fights were
+retained; Sapphiron has Alyrian's acquired #1 example. Later comparison acquisition
+stopped under the finalization reserve and stays explicitly partial. The snapshot,
+replay, package, raw arithmetic and desktop/mobile pages were checked.
+
+Source snapshot SHA-256:
+`934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078`.
 
 Agent checks never substitute for your domain decision.

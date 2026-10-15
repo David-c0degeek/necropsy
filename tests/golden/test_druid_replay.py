@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import csv
 import hashlib
+import io
 import json
 import zipfile
 from collections import Counter, defaultdict
@@ -100,3 +102,54 @@ def test_real_druid_snapshot_replays_with_separate_role_evidence(
             assert hashlib.sha256(zf.read(record["path"])).hexdigest() == record["sha256"]
         assert "tables/roles.csv" in zf.namelist()
         assert "tables/timeline.csv" in zf.namelist()
+
+
+def test_full_selected_balance_view_has_fourteen_personal_bosses_and_a_sapphiron_example(
+    tmp_path: Path,
+) -> None:
+    provenance = json.loads((ROOT / "provenance.json").read_text(encoding="utf-8"))
+    record = next(r for r in provenance["fixtures"] if r["category"] == "balance-view")
+    archive = ROOT / record["path"]
+    if is_lfs_pointer(archive):
+        pytest.skip("Druid Git LFS fixture needed: git lfs pull")
+    assert hashlib.sha256(archive.read_bytes()).hexdigest() == record["sha256"]
+    out = tmp_path / "view"
+    run_offline(archive, out)
+    doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    assert len(doc["bosses"]) == 15
+    assert sum(b["subject"] is not None for b in doc["bosses"]) == 14
+    assert doc["acquisition"]["selected_category"] == "Balance"
+    assert doc["acquisition"]["comparison_order"][0] == 51119
+    by_id = {b["encounter_id"]: b for b in doc["bosses"]}
+    sapphiron = by_id[51119]
+    assert sapphiron["subject"] is None and sapphiron["recommendations"] == []
+    assert sapphiron["benchmarks"]["baseline"]["medians"] == {}
+    assert sapphiron["playbook"]["reference"]["player"] == "Alyrian"
+    assert sapphiron["playbook"]["reference"]["leaderboard_position"] == 1
+    facts = json.loads((ROOT / "facts.json").read_text(encoding="utf-8"))
+    for case in (c for c in facts["cases"] if c["fixture"] == "balance-view"):
+        boss = by_id[case["encounter_id"]]
+        entry = boss["subject"] if case["purpose"] == "personal" else boss["playbook"]["reference"]
+        assert entry["player"] == case["player"]
+        assert entry["druid"]["role"]["value"] == "balance-dps"
+        assert entry["druid"]["metrics"]["damage"]["value"] == case["amount"]
+        assert (
+            _raw_total(archive, case["report"], case["fight"], case["player"], "damage")
+            == case["amount"]
+        )
+    with zipfile.ZipFile(out / "necropsy-110733843-2006.zip") as zf:
+        coverage_rows = list(
+            csv.DictReader(io.StringIO(zf.read("tables/personal-coverage.csv").decode()))
+        )
+        row = next(r for r in coverage_rows if r["encounter_id"] == "51119")
+        assert row["personal_status"] == "insufficient-data"
+        examples = list(
+            csv.DictReader(io.StringIO(zf.read("tables/learning-examples.csv").decode()))
+        )
+        assert any(
+            r["encounter_id"] == "51119"
+            and r["player"] == "Alyrian"
+            and r["leaderboard_position"] == "1"
+            and r["purpose"] == "learning-example"
+            for r in examples
+        )

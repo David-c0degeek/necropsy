@@ -13,7 +13,7 @@ Acquire identity-verified role-comparable Druid evidence and establish real vali
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **02.1** (agent) Generalize existing context/cohort/acquire code and snapshot v1 class guards using the declared class/role contract; verify actual WCL category/metric/spec filters. Unsupported categories remain explicit; never substitute DPS samples for healers or tanks.
+- [x] **02.1** (agent) Generalize existing context/cohort/acquire code and snapshot v1 class guards using the declared class/role contract; verify actual WCL category/metric/spec filters. Unsupported categories remain explicit; never substitute DPS samples for healers or tanks.
 - [x] **02.2** (product-owner) Provide or authorize accessible Classic Era Naxxramas Druid reports covering all requested roles and hybrid/uncertain cases; confirm player-data handling and a domain reviewer.
 - [x] **02.3** (agent) Freeze approved raw fixtures with hashes/provenance and a role-specific golden-fact register. Acquire evidence streams required for healing, incoming damage, forms, buffs/debuffs and any available threat; unavailable signals stay unknown.
 - [x] **02.4** (agent) Prove old Hunter v0/v1 snapshots and JSON remain readable and unchanged in meaning. No format/schema bump unless an ADR explains necessity and the compatibility/rebuild route.
@@ -22,7 +22,7 @@ Acquire identity-verified role-comparable Druid evidence and establish real vali
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 02.1 02.2 02.4 · WCL live taxonomy and metric/category filters verified; raw snapshots frozen for Balance/Restoration/Feral/Guardian with five deep samples and 25 metadata rows per Patchwerk run. Four real fixture replays pass independent arithmetic and package hashes. Raw/member digests and installed gitleaks scan recorded. Hunter subset JSON/HTML/ZIP byte-identical; full Hunter golden 229 pass / 4 expected xfails. Raw hybrid evidence and approved domain facts still required for 02.3; user authorized public fixture handling. Checkpoint commit/push follows this record.
@@ -94,3 +94,63 @@ No source log or ranking category alone proves a selected encounter duty.
 
 ### Verdict
 DO NOT CLOSE — latest verification, live capture and scoped review are pending.
+
+2026-10-15 · selected-spec verification complete · All 15 Balance bosses are
+visible, with 14 matching personal performances and no personal Sapphiron grade.
+Alyrian's acquired #1 Balance Sapphiron fight is separately labelled learning
+evidence. Snapshot SHA-256 934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078;
+package SHA-256 efe380c6832a2873b1eb8b132738560c564827cc53423f9a3c213b18d4441656.
+Eight portable immutable captures now cover all requested behavior cases.
+Full serial golden/acceptance: 236 passed / four retained expected failures;
+new full-view golden: one passed / seven deselected in 43.88 seconds, including
+15 independently summed actor-damage facts and coverage/learning CSV checks.
+Latest broad local run: 877 fast passes, with two subsequently added integration
+cases also passing. Ruff lint/format, strict mypy (132 files) and build passed.
+All eight real artifacts pass artifact/package/output checks and 32 browser
+page/viewport cases (1400/390 pixels), with no overflow, JS errors or automatic
+remote requests. Hunter JSON/both pages/ZIP and 26 recorded request bodies plus
+endpoints match the saved baseline. Raw/output unlimited scans covered
+266,125,045 / 35,283,900 additional bytes without findings.
+The production run waited once for 1,712.99 seconds, retained all personal fights,
+then stopped comparison acquisition under the finalization reserve; later boss
+comparisons remain partial. Finalized raw evidence and all outputs were checked.
+Native loader failures occurred during overlapping large replays; serial full
+verification passed without recurrence. Cause remains unconfirmed; no speculative
+normalizer change was made.
+Claude mail 185: AGREE round=1 blocking=0 important=0 after the user clarification,
+against c983993; 18 independent focused tests passed. Review covered selected-spec
+eligibility, exact-key learning examples/metadata, acquisition order/reserve,
+snapshot provenance, CLI and HTML escaping/CSV sanitizer paths. Explicit exclusions:
+docs/ADR/plan/records, raw fixtures/manifests, most tests, template body beyond
+escaping check, CSV columns, writer beyond fingerprint and broad/live/browser
+receipts. Those are lead-verified, not blanket independently approved. Optional
+docstring/local-copy nits were addressed at e8fed3e with focused checks passing.
+Linux/Windows source CI e8fed3e passed:
+https://github.com/David-c0degeek/necropsy/actions/runs/38704628831.
+Only fixture/test and close-out records follow that source checkpoint.
+Human taxonomy/findings/advice/product boxes remain open; no role is deferred.
+
+## Captain Hindsight — verified selected-spec view
+
+### Keep
+Keep the existing pipeline, one selected spec per view, all requested bosses,
+personal eligibility and separately sourced learning examples. Real full-view
+replay and browser evidence confirm the clarified behavior, including missing
+personal data and honest leaderboard positions.
+
+### Fix before closing
+None within this subject; no human acceptance is inferred for other subjects.
+
+### Record
+The verification receipt above supersedes earlier pending engineering receipts.
+D012/D013, ADR 0005, PM calibration and permanent lessons capture the view model,
+budget priority and compatibility guards. Eight immutable fixtures retain raw
+provenance; domain approval is separate from fixture authorization.
+
+### Risk
+Comparison depth remains budget-limited; role thresholds and practical advice
+await domain acceptance. The concurrent native loader failure has an unconfirmed
+cause; serial verification passed. Missing signals remain unknown.
+
+### Verdict
+CLOSE — every subject-owned action is complete; cross-subject domain gates remain explicitly open.

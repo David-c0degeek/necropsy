@@ -86,3 +86,6 @@
 - Under an acquisition budget, gather the user's coverage before comparison
   depth. Keep budget for fresh finalization and restore temporary policy changes
   on every exception path. Record fetch priority independently of report order.
+
+- 2026-10-15: Large JSON files can exceed a secret scanner's default per-file cap. Explicitly scan all extracted raw members and generated outputs with an unlimited target size, recording byte counts separately.
+- 2026-10-15: If native ingestion fails during overlapping large replays, serialize verification and retain the observed failure and successful rerun. Do not claim a root cause or change the normalizer without reproduction.

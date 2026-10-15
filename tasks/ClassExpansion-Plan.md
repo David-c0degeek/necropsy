@@ -1,6 +1,6 @@
 # ClassExpansion-Plan.md — Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Selected-spec view correction is under verification following David's clarification. Acquisition/reporting close-outs are reopened for the new behavior. Human/domain gates remain explicit.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Selected-spec implementation is verified against a 15-boss live Balance capture (14 personal encounters plus a Sapphiron learning example). Acquisition/reporting engineering close-outs are complete. Human/domain gates remain explicit.
 >
 > **Disposable.** The plan and its `tasks/class-expansion/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -269,10 +269,10 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
 | [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
+| [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
+| [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
 | [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
@@ -406,3 +406,42 @@ the work can be closed.
 Claude mail 180: AGREE round=3 blocking=0 important=0 at db89d3a; 92 independent focused tests pass. It reviewed the changed roles/cohort/acquire/analyze/snapshot-reader/document/Druid analyzer-report/base-template code, and explicitly excluded remaining views/offline/writer/CLI/export/schema/docs/plan/raw-fact surfaces from that round. Earlier scoped rounds plus lead inspection, six real artifact/package replays, schema tests and 24 browser cases cover those paths; no claim of blanket independent review is made. Optional CohortKey.metric storage nit retained as-is: the property preserves Hunter's serialized key bytes, all supported combinations are tested, and unsupported combinations fail canonical policy. Future categories must extend that policy and query tests together. Linux and Windows CI db89d3a passed: https://github.com/David-c0degeek/necropsy/actions/runs/38646145402. This is a record-only close-out; no runtime or test edits follow the reviewed code.
 
 All agent boxes are checked. Required human boxes 01.4/03.4/04.4/06.3 remain open and mirrored in manual-actions.md; the concrete review packet is tasks/class-expansion/review-packet.md. As required by its own entry condition, §7 is not run until §5 is fully ticked. §8 and pair-unit completion remain open. No requested role has been deferred.
+
+## Selected-spec engineering handoff — 2026-10-15
+
+2026-10-15 · selected-spec verification complete · All 15 Balance bosses are
+visible, with 14 matching personal performances and no personal Sapphiron grade.
+Alyrian's acquired #1 Balance Sapphiron fight is separately labelled learning
+evidence. Snapshot SHA-256 934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078;
+package SHA-256 efe380c6832a2873b1eb8b132738560c564827cc53423f9a3c213b18d4441656.
+Eight portable immutable captures now cover all requested behavior cases.
+Full serial golden/acceptance: 236 passed / four retained expected failures;
+new full-view golden: one passed / seven deselected in 43.88 seconds, including
+15 independently summed actor-damage facts and coverage/learning CSV checks.
+Latest broad local run: 877 fast passes, with two subsequently added integration
+cases also passing. Ruff lint/format, strict mypy (132 files) and build passed.
+All eight real artifacts pass artifact/package/output checks and 32 browser
+page/viewport cases (1400/390 pixels), with no overflow, JS errors or automatic
+remote requests. Hunter JSON/both pages/ZIP and 26 recorded request bodies plus
+endpoints match the saved baseline. Raw/output unlimited scans covered
+266,125,045 / 35,283,900 additional bytes without findings.
+The production run waited once for 1,712.99 seconds, retained all personal fights,
+then stopped comparison acquisition under the finalization reserve; later boss
+comparisons remain partial. Finalized raw evidence and all outputs were checked.
+Native loader failures occurred during overlapping large replays; serial full
+verification passed without recurrence. Cause remains unconfirmed; no speculative
+normalizer change was made.
+Claude mail 185: AGREE round=1 blocking=0 important=0 after the user clarification,
+against c983993; 18 independent focused tests passed. Review covered selected-spec
+eligibility, exact-key learning examples/metadata, acquisition order/reserve,
+snapshot provenance, CLI and HTML escaping/CSV sanitizer paths. Explicit exclusions:
+docs/ADR/plan/records, raw fixtures/manifests, most tests, template body beyond
+escaping check, CSV columns, writer beyond fingerprint and broad/live/browser
+receipts. Those are lead-verified, not blanket independently approved. Optional
+docstring/local-copy nits were addressed at e8fed3e with focused checks passing.
+Linux/Windows source CI e8fed3e passed:
+https://github.com/David-c0degeek/necropsy/actions/runs/38704628831.
+Only fixture/test and close-out records follow that source checkpoint.
+Human taxonomy/findings/advice/product boxes remain open; no role is deferred.
+
+All agent boxes are checked; human boxes 01.4/03.4/04.4/06.3 remain open. The review packet now opens the full Balance view first. Section 7 remains unrun under its explicit entry condition; section 8 and pair completion remain open. No human approval is inferred from the confirmed view model.
