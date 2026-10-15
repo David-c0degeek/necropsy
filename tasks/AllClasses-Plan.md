@@ -398,3 +398,8 @@ All nine classes are wired through the existing pipeline; shared class combat ev
 All agent boxes00–05 are complete and pushed;01–04 are CLOSE. Validation subject05 remains DO NOT CLOSE solely for human05.4, mirrored in manual-actions.md. The §7 entry condition is not met while §5 includes that required human box; §7/8 are deliberately unclaimed. No request for renewed Claude pairing or repeat authorization is outstanding.
 
 Source c016c4b passed [Linux/Windows CI](https://github.com/David-c0degeek/necropsy/actions/runs/38748441029). Local full golden/acceptance246passed with four retained xfails;19integration checks;56synthetic and48real browser page/viewports; lint/format, strict types, build and isolated installed-wheel real Mage replay pass. Four saved Hunter artifacts remain byte-identical. Seven real classes have42actor entries with independent raw amount checks; budget-only Holy Priest is explicitly not live healing validation. [Review packet](all-classes/review-packet.md) links generated outputs and portable reproduction instructions. No unresolved engineering defect is known; assignment/domain acceptance and long-term observation remain separate.
+
+
+## Explicit product approval — 2026-10-15
+
+David: "Approved. ill have another plan to make this proper." Product acceptance of the delivered implementation and disclosed evidence limits is recorded in the subject/manual-action files. Further refinement is separately scoped by the user. No new raw-finding adjudication or rerun of the formal §7 close-out is claimed by this approval record.

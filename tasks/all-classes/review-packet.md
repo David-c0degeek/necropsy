@@ -27,3 +27,8 @@ All fourteen added ranking-category contracts have synthetic production-path off
 ## Engineering receipts
 
 Current receipts: 246 golden/acceptance tests passed with four existing xfails; 19 class integration checks; 56 synthetic and 48 real page/viewports. Ruff, mypy, build and isolated-wheel real Mage replay passed. Four legacy Hunter artifacts remain byte-identical. Unlimited scans covered 286,126,988 extracted raw bytes and 420,932,059 class output bytes, no findings. Source CI: [c016c4b](https://github.com/David-c0degeek/necropsy/actions/runs/38748441029), passed on Linux (907 tests) and Windows (908 tests), with platform/browser skips explicit in the job logs. Workspace receipts retain individual page/viewports and scans; source tests, provenance and arithmetic facts are committed for replay.
+
+
+## Product approval
+
+2026-10-15: David explicitly approved the delivered implementation and disclosed limits; further refinement will use another plan. Earlier pending-review statements above describe the verification handoff before this approval.

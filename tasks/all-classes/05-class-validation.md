@@ -16,7 +16,7 @@ Verify every class end to end and disclose real/synthetic validation boundaries.
 - [x] **05.1** (agent) Exercise all class/category contracts, partial streams, healing/tank/mixed duties, missing personal data, snapshot replay, packages and desktop/mobile pages; preserve Hunter/Druid fixtures.
 - [x] **05.2** (agent) Acquire bounded public examples when accessible, record provenance/scans and observed versus expected facts; run lint/types/build, complete fast/golden checks and source CI.
 - [x] **05.3** (agent) Run solo Captain Hindsight, reconcile PM risks and durable lessons, docs and current plans.
-- [ ] **05.4** (product-owner) Review class playbooks and accept documented evidence limits; no synthetic or automated check substitutes for domain/product approval.
+- [x] **05.4** (product-owner) Review class playbooks and accept documented evidence limits; no synthetic or automated check substitutes for domain/product approval.
 
 ## Hindsight checkpoint
 - [x] Captain Hindsight review recorded: Keep / Fix before closing / Record / Risk / Verdict.
@@ -52,3 +52,6 @@ Heuristics do not prove assignments or optimal play; real captures cover seven a
 
 ### Verdict
 DO NOT CLOSE — product 05.4 remains human-owned. Engineering implementation is shipped and independently repeatable from committed snapshots.
+
+
+2026-10-15 · Product approval · David explicitly said "Approved" after the implementation/validation handoff and stated further refinement will use another plan. Record acceptance of the shipped implementation and disclosed limits, including the missing real Holy Priest healing fixture. This does not manufacture additional raw-evidence adjudication or erase earlier verification history.

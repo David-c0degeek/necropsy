@@ -557,3 +557,8 @@ The latest user instruction ends pairing and supersedes the outstanding Claude r
 
 
 Final engineering receipt: source c016c4b passes Linux/Windows CI; full serial golden/acceptance246pass/four retained xfails; refreshed16real Hunter/Druid page/viewports and four saved Hunter byte guards pass. 06.4 is complete under the explicit solo continuation. Human01.4/03.4/04.4/06.3 remain open; no whole-plan acceptance is claimed. The expanded review packet is tasks/all-classes/review-packet.md.
+
+
+## Explicit product approval — 2026-10-15
+
+David: "Approved. ill have another plan to make this proper." Product acceptance of the delivered implementation and disclosed evidence limits is recorded in the subject/manual-action files. Further refinement is separately scoped by the user. No new raw-finding adjudication or rerun of the formal §7 close-out is claimed by this approval record.

@@ -15,7 +15,7 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 ## Boxes
 - [x] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
 - [x] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
-- [ ] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
+- [x] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
 - [x] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and solo review (user explicitly ended Claude pairing) before final sign-off.
 
 ## Hindsight checkpoint
@@ -301,3 +301,6 @@ Assignment and gameplay correctness require human domain review. Available logs 
 
 ### Verdict
 DO NOT CLOSE — only required human acceptance remains for this subject. No additional pairing is required.
+
+
+2026-10-15 · Product approval · David explicitly said "Approved" after the implementation/validation handoff and stated further refinement will use another plan. Record acceptance of the shipped implementation and disclosed limits, including the missing real Holy Priest healing fixture. This does not manufacture additional raw-evidence adjudication or erase earlier verification history.
