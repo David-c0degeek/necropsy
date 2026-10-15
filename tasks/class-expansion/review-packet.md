@@ -8,7 +8,7 @@ independent arithmetic checks live in `tests/golden/druid/`.
 
 | Example | Practice page | Full evidence | Facts to review |
 |---|---|---|---|
-| Your full Balance view | [Playbook](../../workspace/druid-balance-view/playbook.html) | [Report](../../workspace/druid-balance-view/report.html) | All 15 bosses visible; 14 matching personal Balance fights; Sapphiron has no personal grade and shows Alyrian's acquired #1 Balance example; later comparison coverage remains partial |
+| Your full Balance view | [Playbook](../../workspace/druid-balance-view/playbook.html) | [Report](../../workspace/druid-balance-view/report.html) | All 15 bosses have ranking references; 14 matching personal Balance fights; seven personal bosses have five event sources; Sapphiron has no personal grade; faction leaders drive the main view and overall top is collapsed |
 | Public Feral Patchwerk | [Playbook](../../workspace/druid-feral/playbook.html) | [Report](../../workspace/druid-feral/report.html) | Stinkface; 166,047 damage over 108.1 s; form/resources/cast cadence and targets retain evidence limits |
 | Your Restoration Patchwerk | [Playbook](../../workspace/druid-restoration/playbook.html) | [Report](../../workspace/druid-restoration/report.html) | 43,558 effective healing; missing overheal stays unknown; HPS is not healing quality |
 | Tank and mixed Four Horsemen | [Playbook](../../workspace/druid-mixed/playbook.html) | [Report](../../workspace/druid-mixed/report.html) | Suncat tank: 107,140 incoming damage; Mìlfurion cohort: 24 cat + 92 bear casts and direct hits, hybrid, excluded from aggregate single-role comparisons |
@@ -22,6 +22,17 @@ Use `druid-balance-view.zip` for the full selected Balance view,
 `druid-tank-view.zip` for your missing-personal Tank example,
 `druid-mixed.zip` for Four Horsemen and
 `druid-sapphiron-restoration.zip` for your Sapphiron example.
+
+The latest Balance view uses **`druid-balance-comparisons.zip`** (the ninth raw
+capture). It supersedes the earlier full-view example: all 15 ranking references
+were captured before deep sampling. One or two event sources remain useful
+individual comparisons with sample count; different known builds are context.
+The main practice reference is your faction's eligible leader. If your personal
+performance is absent, the playbook still gives the leader's recorded opener and
+ability use, with no personal grade. Overall top across factions is a separate
+closed disclosure, with faction/race/buff/assignment context. Interactive lookup
+asks for faction and spec; explicit flags support scripts. Classic Era Hunter's
+verified category is Marksmanship, with `all` retained for legacy Hunter lookup.
 
 ## Decisions David owns
 
@@ -92,3 +103,26 @@ Source snapshot SHA-256:
 `934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078`.
 
 Agent checks never substitute for your domain decision.
+
+## Latest comparison capture
+
+Raw SHA-256:
+`1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57`.
+All 15 overall ranking identities and amounts are independently recorded from raw
+first-page rows in the golden register. These scores are compared only with
+saved WCL scores. Individual event comparisons retain their own metrics and
+source count; metadata never enlarges those samples. Later deep-event coverage
+remains partial after the reserved budget allowance. No reset wait was used.
+Unlimited-size raw scan covered 268,170,221 extracted bytes without findings.
+The updated full view passed artifact/package checks and four browser cases
+(1400/390, both pages), including closed overall disclosures, zero remote loads,
+no JS errors or page overflow, and working theme/search. Other receipts above
+describe earlier checkpoints; the latest subject records carry final test/CI
+and scoped review results for this correction.
+
+Final engineering receipt: full serial golden/acceptance 238 passed / four
+existing expected failures; 37 independent CLI passes, following 114 independent
+focused passes; scoped review AGREE round2 with exclusions retained in subject
+records. Eight latest real Balance/Guardian page cases pass, including the
+closed overall disclosure and no-personal Guardian guidance. Four saved Hunter
+artifacts remain byte-identical. Latest source CI passed: https://github.com/David-c0degeek/necropsy/actions/runs/38717484080.

@@ -20,6 +20,8 @@ An opt-in `--wait-for-reset` permits one bounded hourly reset wait.
 
 An interactive terminal asks for faction and spec when absent. Scripts can pass
 the flags explicitly; old noninteractive commands remain readable and usable.
+The spec prompt offers `all` for the legacy Hunter all-spec DPS view; explicit
+`--spec all` also selects that policy. Druids require a supported explicit spec.
 The chosen faction is checked against the character before report acquisition.
 The main list uses that faction and selected spec. The same selection flow also
 supports Hunter's Classic Era WCL category, `--spec Marksmanship` (`MM`). Race and

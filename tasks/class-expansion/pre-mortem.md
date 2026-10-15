@@ -132,3 +132,33 @@ useful comparisons in a product that must teach from one top player. The user
 found this by reading the actual playbook. Favor explicit sample size, individual
 source comparisons and context differences over withholding useful observations.
 The UI's faction filter is not proof of an equivalent API argument.
+
+## Faction/spec selection review calibration
+
+PM-1 remains Prevented Prediction: WCL-score differences and event differences
+are separate, unknowns and zero reference percentages are guarded, and known
+non-build dimensions remain exact. Sparse comparisons have explicit source n;
+the aggregate recommendation still needs three. PM-2 remains Confirmed Prediction:
+the lead byte guard caught another conditional-template newline trim; 421c15e
+restores all four saved Hunter artifacts byte for byte. New selected Hunter query
+shape changes intentionally, while legacy no-spec queries remain unchanged.
+PM-3 remains Confirmed Prediction; main Guardian learning requires evidenced
+tank duty and selected faction, not category DPS. Domain advice acceptance stays
+separate and inconclusive. No claimed faction-specific rank is fabricated from
+unknown earlier ranking identities. CH-MISS-5 is addressed by direct values,
+spell counts/rates, source n, per-build context and a fresh 15-reference raid capture.
+
+Independent review 188 found the new interactive prompt had blocked legacy
+all-spec Hunter lookup. The prompt now defaults to `all`, explicit `--spec all`
+maps to the original policy, and a tty regression passes. Claude 189 agrees
+round 2 with zero blocking/important findings after 37 independent CLI passes.
+Optional unknown-earlier-row counts and inferred-opposite-faction counts are
+deferred: conservative scope labels, evidence levels and caveats already disclose
+the limits. A future API filter requires proved behavior and distinct provenance;
+no ignored faction filter is shipped. Final verification receipts follow.
+
+Final verification: nine immutable fixtures replay in the complete serial
+238-pass/four-known-xfail suite; no native loader failure recurred. Actual final
+Balance/Guardian browser and artifact checks pass. Linux/Windows source CI and
+scoped independent review passed. PM-1/2/3 calibration above remains accurate;
+CH-MISS-5 has concrete runtime evidence. Required human decisions remain open.

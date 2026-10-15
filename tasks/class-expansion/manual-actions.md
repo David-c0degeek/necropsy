@@ -4,7 +4,7 @@ Mirror non-agent boxes exactly. TODO stays open; deferral needs an explicit rati
 
 2026-10-15: David confirmed the selected-spec view model; related agent
 acquisition/reporting verification is complete. The
-[review packet](review-packet.md) supplies the full Balance view and eight real
+[review packet](review-packet.md) supplies the full Balance view and nine real
 captures, exact questions and limits. Threshold/finding/advice acceptance is still pending; no accepted finding or deferred
 role is inferred from fixture authorization or successful engineering checks.
 

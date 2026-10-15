@@ -249,6 +249,14 @@ comparison gaps remain explicit when the finalization reserve stops acquisition.
 
 ### Faction comparison lists
 
+Interactive character lookup asks for faction and spec. Pass `--faction Alliance`
+or `Horde` and `--spec Balance`, `Feral`, `Tank`, `Restoration` or Hunter
+`Marksmanship` in scripts. The faction is checked against the resolved character;
+it never silently changes the character's identity. The spec prompt's `all`
+default retains the legacy Hunter all-spec lookup. Current supported analyzers
+are Hunter and Druid; the same faction/spec display contract applies to future
+class plugins without inventing unsupported class analysis.
+
 The main comparison cohort is your faction. Ranking requests select class and,
 for Druids, spec and metric. The authenticated Classic Era Encounter API schema
 does not expose a dedicated faction argument. Live probes of `faction=1`/`2`
@@ -261,6 +269,6 @@ an inference, separately labelled from observed character faction. Global #1 is
 separate context, and a best recorded same-faction source is not automatically
 claimed as faction rank #1 when earlier identities are unresolved.
 
-Multi-boss Druid views collect personal encounters, then first-page ranking
+Multi-boss selected-spec views collect personal encounters, then first-page ranking
 references across the raid before deep examples. One or two acquired event
 sources still provide individual comparisons, with limited-sample labels.

@@ -237,6 +237,7 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | D011 | 2026-10-15 | Category and ranking metric independence | Balance defaults to DPS but explicitly supports HPS; preserve metric through acquisition, snapshot replay and exact comparison keys. Other verified defaults remain. | User confirms mostly healing on Sapphiron; earlier authenticated HPS character rankings contained Balance rows. New synthetic production acquisition→snapshot→report regression checks HPS labels and conflicting-metric refusal. Actual Sapphiron acquisition follows the observed reset. | 01–02; 04; 06; ADR 0005 |
 | D012 | 2026-10-15 | Selected spec is a view filter | User clarified and confirmed one selected spec/role per view, all requested bosses visible. Only matching category and evidenced duty get personal analysis. Missing personal data shows eligible top-player examples, without personal grades or fabricated gaps. Tank view must not imply personal tanking from a Guardian ranking. | User states Balance on other bosses and no Sapphiron DPS; selects Restoration or Tank independently. The briefly proposed uncommitted mixed-category/pinned-raid flow was removed before shipping. Claude agrees corrected design (182). | 01; 03–06; ADR 0005 |
 | D013 | 2026-10-15 | Personal coverage before comparison depth | Multi-boss Druid acquisition collects subject fights across the raid first, then comparisons, subject-less bosses first in stable encounter order. Lower the comparison allowance to reserve fresh finalization; restore original policy even on errors. Hunter query order stays unchanged. | Live default acquisition spent the hourly budget on early-boss samples. Existing data remains cached; one bounded observed-reset run now uses personal-first ordering. Claude agreed guardrails (184). | 02; 06; ADR 0005 |
+| D014 | 2026-10-15 | Faction/spec leaders and useful sparse comparisons | Interactive lookup asks for faction/spec; main practice/comparison uses faction leaders even without personal encounters. One/two event sources show individual values with n; differing known builds remain context. Capture all-boss ranking references before deep sampling. Overall top is separately collapsed with faction caveats. Explicit Hunter Marksmanship selection shares the flow; legacy `all` remains. | User corrected exact-build/median suppression and requested the KISS rule across classes/races/specs. Live API faction-filter probes returned mixed rows, so local preselection is explicit, with guild inference retained. Claude 189 agrees after legacy prompt fix. | 02; 05; 06; ADR 0005 |
 
 ---
 
@@ -269,10 +270,10 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
 | [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
+| [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
 | [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | IN PROGRESS | agent: 3 | n/a |
+| [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
 | [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
 
 ---
@@ -462,3 +463,46 @@ strings returned identical mixed rows, so none is misrepresented as enforced.
 Global #1 and best recorded same-faction sources remain separately scoped.
 ADR 0005 and user docs are updated. Affected engineering boxes are reopened until
 latest real replay, scoped review and CI pass. Existing human gates remain open.
+
+## Final faction/spec engineering handoff
+
+2026-10-15 · final faction/spec engineering verification · Runtime checkpoint
+0b58043 retains the interactive legacy Hunter choice after independent review.
+The product flow is character → faction/spec → faction leaders. Missing personal
+encounters show no personal grade while retaining leader opener/ability practice.
+Overall top is a closed optional disclosure with faction/race/buff caveats.
+One/two event sources show individual comparisons and n; known builds are context.
+The live Balance capture has 15 ranking references and 14 personal performances;
+seven personal bosses have five event sources, later event sampling stays partial.
+Raw SHA-256 1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57;
+package 4222a515c171f04de83200da35f89e5583140af4eac828563dede65e6805de74.
+Nine immutable raw fixtures replay. Full serial golden/acceptance: 238 passed,
+four retained expected failures, 891 deselected, in 392.17 seconds. Ruff lint and
+format, strict mypy (132 files), and uv build pass. Independently scoped Claude
+review 189: AGREE round2 blocking0 important0 at 0b58043; 37 CLI tests pass,
+following 114 focused independent passes in round1. Review exclusions remain
+explicit: CSV column details, view/template bodies beyond dispatch, snapshot
+metadata_order details, docs/ADR/plan/records, raw fixtures, most tests and broad
+live/browser/scan/CI receipts are lead-owned. No blanket review is claimed.
+Lead verified the new snapshot provenance roundtrip/tamper and prefetch identity,
+sparse/unknown/zero/build/faction cases, Hunter missing-personal flow, and HTML
+escaping. All four saved legacy Hunter artifacts are byte-identical. Explicit
+selected Hunter lookup intentionally adds specName and staged acquisition;
+legacy no-spec query remains unchanged. Faction preselection changes live report
+checks intentionally for both classes; guild inference and unknowns stay explicit.
+Actual Balance and no-personal Guardian outputs pass artifact/package checks and
+eight latest real page/viewport cases (1400/390, both pages), zero remote requests,
+overflow or JS errors. Balance theme/search and closed disclosures pass; Guardian
+shows Harryjam #4 Alliance and recorded Maul/Swipe guidance without personal grade.
+Raw scan: 268,170,221 extracted bytes, unlimited target size, no findings. The
+full Balance output-directory scan covered 48,800,516 bytes including retained
+snapshot files, also clean; this is not a claim that all bytes are derived output.
+API typed schema/probes do not establish a faction query argument: local selection
+is explicit rather than claiming an ignored filter worked. Optional review nits
+(unknown earlier faction row counts and inferred-opposite-faction skip counts)
+are deferred with conservative scope labels and limits. Current source CI receipt
+is recorded below. No runtime changes follow these records; human taxonomy,
+findings/advice and product acceptance remain open.
+Linux/Windows source CI 0b58043 passed: https://github.com/David-c0degeek/necropsy/actions/runs/38717484080.
+
+All agent boxes are checked; human01.4/03.4/04.4/06.3 remain open. Section7 is unrun under its entry condition; section8 and pair completion remain open. User clarification is not domain acceptance.

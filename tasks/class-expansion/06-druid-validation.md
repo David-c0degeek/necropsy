@@ -13,10 +13,10 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
-- [ ] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
+- [x] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
+- [x] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
 - [ ] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
-- [ ] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
+- [x] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
@@ -165,3 +165,68 @@ comparison and faction preselection changes. D014 records the corrected contract
 Live capture has 15 ranking references and 14 personal Balance fights; seven
 personal bosses have five event sources. Current-code replay/browser, broad
 regression, independent review and current CI remain under verification.
+
+2026-10-15 · final faction/spec engineering verification · Runtime checkpoint
+0b58043 retains the interactive legacy Hunter choice after independent review.
+The product flow is character → faction/spec → faction leaders. Missing personal
+encounters show no personal grade while retaining leader opener/ability practice.
+Overall top is a closed optional disclosure with faction/race/buff caveats.
+One/two event sources show individual comparisons and n; known builds are context.
+The live Balance capture has 15 ranking references and 14 personal performances;
+seven personal bosses have five event sources, later event sampling stays partial.
+Raw SHA-256 1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57;
+package 4222a515c171f04de83200da35f89e5583140af4eac828563dede65e6805de74.
+Nine immutable raw fixtures replay. Full serial golden/acceptance: 238 passed,
+four retained expected failures, 891 deselected, in 392.17 seconds. Ruff lint and
+format, strict mypy (132 files), and uv build pass. Independently scoped Claude
+review 189: AGREE round2 blocking0 important0 at 0b58043; 37 CLI tests pass,
+following 114 focused independent passes in round1. Review exclusions remain
+explicit: CSV column details, view/template bodies beyond dispatch, snapshot
+metadata_order details, docs/ADR/plan/records, raw fixtures, most tests and broad
+live/browser/scan/CI receipts are lead-owned. No blanket review is claimed.
+Lead verified the new snapshot provenance roundtrip/tamper and prefetch identity,
+sparse/unknown/zero/build/faction cases, Hunter missing-personal flow, and HTML
+escaping. All four saved legacy Hunter artifacts are byte-identical. Explicit
+selected Hunter lookup intentionally adds specName and staged acquisition;
+legacy no-spec query remains unchanged. Faction preselection changes live report
+checks intentionally for both classes; guild inference and unknowns stay explicit.
+Actual Balance and no-personal Guardian outputs pass artifact/package checks and
+eight latest real page/viewport cases (1400/390, both pages), zero remote requests,
+overflow or JS errors. Balance theme/search and closed disclosures pass; Guardian
+shows Harryjam #4 Alliance and recorded Maul/Swipe guidance without personal grade.
+Raw scan: 268,170,221 extracted bytes, unlimited target size, no findings. The
+full Balance output-directory scan covered 48,800,516 bytes including retained
+snapshot files, also clean; this is not a claim that all bytes are derived output.
+API typed schema/probes do not establish a faction query argument: local selection
+is explicit rather than claiming an ignored filter worked. Optional review nits
+(unknown earlier faction row counts and inferred-opposite-faction skip counts)
+are deferred with conservative scope labels and limits. Current source CI receipt
+is recorded below. No runtime changes follow these records; human taxonomy,
+findings/advice and product acceptance remain open.
+Linux/Windows source CI 0b58043 passed: https://github.com/David-c0degeek/necropsy/actions/runs/38717484080.
+
+## Captain Hindsight — faction/spec comparison correction
+
+### Keep
+Keep faction/spec as the main lookup choice, leaders as practice references with
+no personal grade when absent, sparse source counts and direct comparisons, and
+the separate closed overall-top disclosure. Existing acquisition/evidence/render
+and publication seams carry the behavior; no parallel pipeline was introduced.
+
+### Fix before closing
+Resolve product-owned 06.3 in the review packet; tests cannot approve the advice or product limits.
+
+### Record
+D014, ADR0005 and permanent lessons capture the corrected user contract. PM-1
+remains prevented, PM-2 was confirmed at whitespace level and repaired, and PM-3
+is confirmed with domain acceptance inconclusive. CH-MISS-5 is mitigated by actual
+individual comparisons and the 15-reference live capture. Independent review
+caught the interactive legacy option regression, fixed and tested before closure.
+
+### Risk
+Deep event coverage remains partial, guild faction can be inferred, unknown
+earlier players limit faction-rank claims, and role/advice acceptance remains
+human-owned. No ignored server filter or unsupported class analyzer is claimed.
+
+### Verdict
+DO NOT CLOSE — only the product-owned review remains; record its actual outcome before closing.

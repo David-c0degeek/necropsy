@@ -83,3 +83,15 @@ golden/acceptance run passed 236 tests with four existing expected failures;
 the subsequently added full-view golden test also passed. A native loader failure
 occurred during overlapping large replays; its cause remains unconfirmed and it
 did not recur in serial verification. Domain acceptance remains pending.
+
+The subsequent comparison capture, `druid-balance-comparisons.zip`, contains
+ranking references for every boss before deep event sampling. Current replay
+has all 15 references, 14 personal Balance encounters, and five same-spec/faction
+event sources for each of seven personal bosses. Known differing builds remain
+context; one/two sources still provide labelled individual comparisons.
+Overall top is a closed optional disclosure. Missing personal Guardian data
+shows an Alliance tank practice example with Harryjam's recorded ability use.
+Both final outputs passed artifact/package checks and eight real desktop/mobile
+page cases. Full serial golden/acceptance: 238 passed, four retained expected
+failures. The nine raw fixtures remain immutable. Linux/Windows source CI and
+scoped independent review passed; domain/product acceptance remains outstanding.
