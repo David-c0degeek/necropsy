@@ -716,7 +716,7 @@ def build_document(
         if category is None and len(categories) == 1:
             category = next(iter(categories))
         if acquisition is not None:
-            acquisition["selected_category"] = category
+            acquisition = {**acquisition, "selected_category": category}
         present = {b.encounter_id for b in boss_data}
         boss_data += [
             BossData(eid, r["boss"], encounter_rules(GAME, ZONE, eid), None, ())

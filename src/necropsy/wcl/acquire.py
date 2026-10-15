@@ -667,11 +667,11 @@ class Acquisition:
     """Every encounter the run was asked for, in order; all stay in the coverage."""
     bosses: list[BossAcquisition] = field(default_factory=list)
     stopped: str | None = None
-    """Set when points or rate limits ended the run early; later bosses are absent."""
+    """Collection stopped; Druid personal data may already cover later comparison gaps."""
     reports: dict[str, ReportSet] = field(default_factory=dict)
+    """Filled by `finalize_reports`: the combined report per code, for the snapshot."""
     comparison_order: tuple[int, ...] = ()
     """Planned comparison fetch order; report and snapshot remain in requested order."""
-    """Filled by `finalize_reports`: the combined report per code, for the snapshot."""
 
     def complete_entries(self) -> list[tuple[BossAcquisition, Entry]]:
         out = []
