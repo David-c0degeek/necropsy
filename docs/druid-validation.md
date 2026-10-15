@@ -98,3 +98,8 @@ scoped independent review passed; domain/product acceptance remains outstanding.
 
 
 Shared presentation verification now covers Balance, Restoration, missing-personal Tank and Hunter: four actual raw replays and sixteen refreshed desktop/mobile page cases. Golden/acceptance remains 238 passed/four expected failures. Linux/Windows CI passed on ad833d8 after the source-link and package-test corrections. Old saved Hunter document artifacts remain byte-identical; new replays add the shared ability table and CSV. Scoped final independent review and human domain/product acceptance remain pending.
+
+
+## Accepted validation boundary
+
+On 2026-10-15 David approved the delivered implementation and instructed final closure after the remaining domain-review requirements were disclosed. Additional standalone Druid SME adjudication was retired by product-owner decision; no new per-finding review is claimed. The accepted scope retains conservative duty heuristics, assignment/coverage unknowns and the missing real Holy Priest healing fixture. Arithmetic and automated role-regression checks are engineering evidence, not universal rotation, quality or assignment certification. Earlier pending handoff records are historical. Further refinement is separately scoped.

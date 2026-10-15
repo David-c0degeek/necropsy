@@ -32,3 +32,8 @@ A class expansion shipped with a familiar shell but wrong spec filters, falsely 
 CH-MISS-1 · Dual-purpose Holy Shock was initially classified by its name in only the healing set. Solo review found the ability can also deal damage; matching source/target/name/time effect resolves duty, with two regression cases. No shipped user report failure is established. Future lesson: identify dual-purpose actions before selecting class role signals (c016c4b).
 
 These resolutions cover observed development verification, not an unelapsed long-term production observation window. Domain acceptance remains inconclusive and human-owned.
+
+
+## Terminal acceptance — 2026-10-15
+
+PM-1/2/3 remain Mitigated / Prevented Prediction within observed development verification; original predictions are unchanged. David accepted the documented limits and instructed final completion. Prior pending product-acceptance statements are superseded. Independent assignment adjudication and an unelapsed production horizon remain unknown, not falsely validated. Holy Shock correction and its two regressions resolve CH-MISS-1. No remaining engineering obligation blocks this accepted scope.

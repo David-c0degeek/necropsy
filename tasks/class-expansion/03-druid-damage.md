@@ -1,5 +1,7 @@
 # 03 — Feral and balance damage analysis
 
+> Current status: COMPLETE — latest final Captain Hindsight below supersedes earlier pending review records.
+
 ## Goal
 Deliver distinct observed execution and recommendations for feral DPS and balance DPS.
 
@@ -16,13 +18,13 @@ Deliver distinct observed execution and recommendations for feral DPS and balanc
 - [x] **03.1** (agent) Implement a registered Classic Era Druid analyzer with pinned rule/spell data; identify forms, relevant attacks/casts, resources and cooldown sequences from affirmative evidence, with coverage-aware absence claims.
 - [x] **03.2** (agent) Analyze feral DPS execution and balance DPS cast/resource/cooldown patterns against comparable same-role/build samples; distinguish fight duration, target roles, movement/assignment and external buffs from controllable execution.
 - [x] **03.3** (agent) Produce evidence-linked class-specific recommendations and a concise practice opener/notes view; preserve full timelines and avoid universal optimal rotations derived from tiny samples.
-- [ ] **03.4** (domain-sme) Adjudicate representative feral and balance findings against raw evidence and the stated encounter assignment; record exclusions and corrections rather than forcing agreement with a guide.
+- [x] ~~**03.4** (domain-sme) Adjudicate representative feral and balance findings against raw evidence and the stated encounter assignment; record exclusions and corrections rather than forcing agreement with a guide.~~ ABANDONED; additional SME-review requirement retired by product-owner acceptance, see D017.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 03.1 03.2 03.3 · Registered Druid analysis covers forms, casts, resources, cooldown/utility sequences, raw actor damage and target detail. Exact build/category/role medians, action cadence, evidence-linked findings and role-specific practice notes run through production document/report/package. Haplina balance: 68,395 damage, 535.272665 event DPS, 40 qualifying casts, build 37/0/14; two same-build samples correctly leave median unknown. Feral Stinkface saved replay passes. Domain damage review remains open. Checkpoint commit/push follows this record.
@@ -54,3 +56,21 @@ DO NOT CLOSE — 03.4 damage-domain review. The smallest next actions are the na
 
 
 2026-10-15 · engineering review receipt · Claude mail 180: AGREE round=3 blocking=0 important=0 at db89d3a; 92 independent focused tests pass. It reviewed the changed roles/cohort/acquire/analyze/snapshot-reader/document/Druid analyzer-report/base-template code, and explicitly excluded remaining views/offline/writer/CLI/export/schema/docs/plan/raw-fact surfaces from that round. Earlier scoped rounds plus lead inspection, six real artifact/package replays, schema tests and 24 browser cases cover those paths; no claim of blanket independent review is made. Optional CohortKey.metric storage nit retained as-is: the property preserves Hunter's serialized key bytes, all supported combinations are tested, and unsupported combinations fail canonical policy. Future categories must extend that policy and query tests together. Linux and Windows CI db89d3a passed: https://github.com/David-c0degeek/necropsy/actions/runs/38646145402. This is a record-only close-out; no runtime or test edits follow the reviewed code.
+
+
+## Final Captain Hindsight — approved close-out, 2026-10-15
+
+### Keep
+Retain the shared acquisition/snapshot/event/evidence/render/package pipeline, verified selection dimensions, sparse comparisons, all-boss personal eligibility, actor-owned ability timing and immutable raw fixtures. Existing source verification and actual report/browser/raw arithmetic receipts remain the evidence, rather than the checklist itself.
+
+### Fix before closing
+None for the accepted scope. David approved the delivered implementation and instructed reconciliation and completion. Additional standalone Druid SME adjudication is explicitly retired by the product owner; no unperformed review is claimed. The user ended Claude pairing, so no Claude completion gate remains.
+
+### Record
+Master decisions, manual-action statuses, terminal PM resolutions, durable lessons and final acceptance are reconciled together. Source c016c4b has green Windows/Linux CI and 246 golden/acceptance passes with four retained expected failures. Subsequent commits change documentation/tracking only. Current close-out checks and the final gate review are recorded in the master plans.
+
+### Risk
+Duty thresholds remain heuristics; assignments, threat, quality and optimal play cannot be inferred from missing evidence. Role-regression labels are not independently adjudicated ground truth. Real Holy Priest healing validation is unavailable and accepted as a disclosed limitation. Long-term observation remains inconclusive, with future refinement separately scoped.
+
+### Verdict
+CLOSE — implementation, verification and accepted product scope are complete. Earlier pending verdicts remain historical; this is the current verdict.

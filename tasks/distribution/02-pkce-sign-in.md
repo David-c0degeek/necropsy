@@ -18,7 +18,7 @@ Users authorize their own WCL account without entering or receiving a shared cli
 - [ ] **02.3** (agent) Wire the CLI sign-in path and actionable errors; document the difference between public app identity and personal user authorization, with no mandatory secret prompt for distributed mode.
 
 ## Hindsight checkpoint
-Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
+Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [ ] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`

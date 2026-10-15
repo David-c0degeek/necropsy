@@ -18,7 +18,7 @@ Acquire with the authorized user token through a researched, explicitly selected
 - [ ] **03.3** (agent) Exercise the installed public-mode CLI with synthetic OAuth/WCL responses and replay existing Hunter snapshots unchanged; reconcile JSON schema, help, auth/usage/troubleshooting docs and ADRs.
 
 ## Hindsight checkpoint
-Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
+Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [ ] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`

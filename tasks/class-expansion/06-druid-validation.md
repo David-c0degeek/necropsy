@@ -1,5 +1,7 @@
 # 06 — Druid end-to-end and regression acceptance
 
+> Current status: COMPLETE — latest final Captain Hindsight below supersedes earlier pending review records.
+
 ## Goal
 Prove all requested Druid roles end to end while retaining the verified Hunter experience.
 
@@ -22,7 +24,7 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 06.1–06.4 · Readiness baseline 822 pass. Intermediate expanded fast suite 832 pass; latest full suite running after additional changes. Hunter golden 229 pass / 4 known xfails; four new real Druid fixture replays pass; installed scanner no leaks over 169.74 MB extracted raw members. Raw hybrid fixture, final latest verification/CI, scoped Claude review and human acceptance remain open. A dedicated tank acquisition stopped on the hourly-budget guard before fresh finalization; no snapshot fabricated. Bounded mixed-duty retry waits on the original reset. Checkpoint commit/push follows this record.
@@ -304,3 +306,21 @@ DO NOT CLOSE — only required human acceptance remains for this subject. No add
 
 
 2026-10-15 · Product approval · David explicitly said "Approved" after the implementation/validation handoff and stated further refinement will use another plan. Record acceptance of the shipped implementation and disclosed limits, including the missing real Holy Priest healing fixture. This does not manufacture additional raw-evidence adjudication or erase earlier verification history.
+
+
+## Final Captain Hindsight — approved close-out, 2026-10-15
+
+### Keep
+Retain the shared acquisition/snapshot/event/evidence/render/package pipeline, verified selection dimensions, sparse comparisons, all-boss personal eligibility, actor-owned ability timing and immutable raw fixtures. Existing source verification and actual report/browser/raw arithmetic receipts remain the evidence, rather than the checklist itself.
+
+### Fix before closing
+None for the accepted scope. David approved the delivered implementation and instructed reconciliation and completion. Additional standalone Druid SME adjudication is explicitly retired by the product owner; no unperformed review is claimed. The user ended Claude pairing, so no Claude completion gate remains.
+
+### Record
+Master decisions, manual-action statuses, terminal PM resolutions, durable lessons and final acceptance are reconciled together. Source c016c4b has green Windows/Linux CI and 246 golden/acceptance passes with four retained expected failures. Subsequent commits change documentation/tracking only. Current close-out checks and the final gate review are recorded in the master plans.
+
+### Risk
+Duty thresholds remain heuristics; assignments, threat, quality and optimal play cannot be inferred from missing evidence. Role-regression labels are not independently adjudicated ground truth. Real Holy Priest healing validation is unavailable and accepted as a disclosed limitation. Long-term observation remains inconclusive, with future refinement separately scoped.
+
+### Verdict
+CLOSE — implementation, verification and accepted product scope are complete. Earlier pending verdicts remain historical; this is the current verdict.

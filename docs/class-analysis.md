@@ -85,3 +85,8 @@ from tank comparisons. [Provenance](../tests/golden/classes/PROVENANCE.md) recor
 hashes, coverage and the additional budget-only Priest Holy snapshot. Real Holy
 Priest event validation is still unavailable; synthetic checks and verified HPS
 ranking metadata are not presented as a completed live healing fixture.
+
+
+## Accepted validation boundary
+
+On 2026-10-15 David approved the delivered implementation and instructed final closure after the remaining domain-review requirements were disclosed. Additional standalone Druid SME adjudication was retired by product-owner decision; no new per-finding review is claimed. The accepted scope retains conservative duty heuristics, assignment/coverage unknowns and the missing real Holy Priest healing fixture. Arithmetic and automated role-regression checks are engineering evidence, not universal rotation, quality or assignment certification. Earlier pending handoff records are historical. Further refinement is separately scoped.

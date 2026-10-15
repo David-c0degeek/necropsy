@@ -1,5 +1,7 @@
 # 04 — Restoration, tank and hybrid analysis
 
+> Current status: COMPLETE — latest final Captain Hindsight below supersedes earlier pending review records.
+
 ## Goal
 Evaluate healing, tanking and mixed duties with appropriate observed metrics and limitations.
 
@@ -16,13 +18,13 @@ Evaluate healing, tanking and mixed duties with appropriate observed metrics and
 - [x] **04.1** (agent) Analyze restoration effective healing, overhealing, spell use, resource/cooldown timing and target/assignment context where observable; do not rank quality from raw HPS alone.
 - [x] **04.2** (agent) Analyze feral tank incoming damage, deaths, mitigation/form/cooldown coverage and tanking windows; use threat only when actually available and retain healing support/assignment uncertainty. Do not treat low DPS as a tank failure.
 - [x] **04.3** (agent) Represent hybrid/mixed responsibilities as explicit phases or multiple evidenced roles per fight; preserve transitions and uncertainty. Define benchmark applicability per phase/role and decline unsupported aggregates.
-- [ ] **04.4** (domain-sme) Review healing, tank and hybrid examples and acceptance facts; confirm practical advice respects assignments and cannot infer causality from unavailable raid-wide evidence.
+- [x] ~~**04.4** (domain-sme) Review healing, tank and hybrid examples and acceptance facts; confirm practical advice respects assignments and cannot infer causality from unavailable raid-wide evidence.~~ ABANDONED; additional SME-review requirement retired by product-owner acceptance, see D017.
 
 ## Hindsight checkpoint
 Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
 
 - [x] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 2026-10-14 · 1 · 04.1 04.2 04.3 · Effective healing/overheal/spell/target data, incoming damage/support, available mitigation, defensive/form coverage and deaths implemented. Hybrid activity spans preserve multiple roles and decline unsupported aggregate benchmarks. Restoration Haplina 43,558 effective healing / 339.189210 HPS; missing overheal remains unknown. Guardian cohort Harryjam has 211,627 incoming damage and repeated bear-only actions; Suncat category alone does not prove tank duty. Synthetic hybrid/direct-hit/AoE tests pass; real mixed-duty run pending API reset; no claim of domain approval. Checkpoint commit/push follows this record.
@@ -56,3 +58,21 @@ DO NOT CLOSE — 04.4 healing/tank/hybrid domain review. The smallest next actio
 
 
 2026-10-15 · engineering review receipt · Claude mail 180: AGREE round=3 blocking=0 important=0 at db89d3a; 92 independent focused tests pass. It reviewed the changed roles/cohort/acquire/analyze/snapshot-reader/document/Druid analyzer-report/base-template code, and explicitly excluded remaining views/offline/writer/CLI/export/schema/docs/plan/raw-fact surfaces from that round. Earlier scoped rounds plus lead inspection, six real artifact/package replays, schema tests and 24 browser cases cover those paths; no claim of blanket independent review is made. Optional CohortKey.metric storage nit retained as-is: the property preserves Hunter's serialized key bytes, all supported combinations are tested, and unsupported combinations fail canonical policy. Future categories must extend that policy and query tests together. Linux and Windows CI db89d3a passed: https://github.com/David-c0degeek/necropsy/actions/runs/38646145402. This is a record-only close-out; no runtime or test edits follow the reviewed code.
+
+
+## Final Captain Hindsight — approved close-out, 2026-10-15
+
+### Keep
+Retain the shared acquisition/snapshot/event/evidence/render/package pipeline, verified selection dimensions, sparse comparisons, all-boss personal eligibility, actor-owned ability timing and immutable raw fixtures. Existing source verification and actual report/browser/raw arithmetic receipts remain the evidence, rather than the checklist itself.
+
+### Fix before closing
+None for the accepted scope. David approved the delivered implementation and instructed reconciliation and completion. Additional standalone Druid SME adjudication is explicitly retired by the product owner; no unperformed review is claimed. The user ended Claude pairing, so no Claude completion gate remains.
+
+### Record
+Master decisions, manual-action statuses, terminal PM resolutions, durable lessons and final acceptance are reconciled together. Source c016c4b has green Windows/Linux CI and 246 golden/acceptance passes with four retained expected failures. Subsequent commits change documentation/tracking only. Current close-out checks and the final gate review are recorded in the master plans.
+
+### Risk
+Duty thresholds remain heuristics; assignments, threat, quality and optimal play cannot be inferred from missing evidence. Role-regression labels are not independently adjudicated ground truth. Real Holy Priest healing validation is unavailable and accepted as a disclosed limitation. Long-term observation remains inconclusive, with future refinement separately scoped.
+
+### Verdict
+CLOSE — implementation, verification and accepted product scope are complete. Earlier pending verdicts remain historical; this is the current verdict.

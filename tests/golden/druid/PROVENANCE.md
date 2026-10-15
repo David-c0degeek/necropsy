@@ -18,7 +18,7 @@ medians. Raw API responses and generated selection/proofs are distinguished by
 the snapshot marker and member manifests. Player names remain identifiable.
 
 The expected arithmetic and role cases in `facts.json` are independently checked
-against raw events. Role and practical-advice domain review is **pending**.
+against raw events. Product acceptance is complete; additional standalone role/advice SME adjudication was waived by the product owner on 2026-10-15. Role-regression labels are not independently adjudicated ground truth.
 These fixtures do not certify all-raid or final product acceptance.
 
 Two additional captures on 2026-10-15 cover Four Horsemen Guardian (Suncat

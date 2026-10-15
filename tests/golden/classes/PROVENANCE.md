@@ -23,7 +23,7 @@ Warrior Protection includes two actors inferred as DPS duty, correctly excluded
 from tank comparisons. Complete pet-listing coverage was obtained for Warlock;
 other fixtures retain specific unowned-pet/listing limits. `facts.json` records
 independently counted raw amount sums; role_regression pins current inferred
-behavior and does not claim approved domain truth. Domain review is pending.
+behavior and does not claim approved domain truth. Product acceptance is complete (2026-10-15); role-regression labels remain unadjudicated. Historical machine-readable domain-status markers describe capture-time review status, not an open release requirement.
 
 The extra Priest Holy attempt exhausted the conservative collection budget before
 finalization. A later bounded retry produced a budget-only snapshot with no event

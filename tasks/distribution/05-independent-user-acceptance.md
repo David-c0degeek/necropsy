@@ -15,11 +15,11 @@ Prove another person can install, authorize and produce a correctly scoped repor
 ## Boxes
 - [ ] **05.1** (agent) Prepare an opt-in real-account acceptance procedure and receipt covering installation, sign-in/refresh, supported acquisition, output/package integrity, permissions, quota limitations and secret scanning.
 - [ ] **05.2** (product-owner) Run or observe the documented flow on another person/account and machine; confirm no developer secret is requested, outputs and uncertainty are understandable, and declared platform behavior is acceptable.
-- [ ] **05.3** (agent) Run the latest fast/golden/acceptance/browser and build checks, complete documentation/cleanup/lessons/PM calibration and Claude review; carry any unsupported platform or permission limit explicitly into the release notes.
+- [ ] **05.3** (agent) Run the latest fast/golden/acceptance/browser and build checks, complete documentation/cleanup/lessons/PM calibration and solo Codex review; carry any unsupported platform or permission limit explicitly into the release notes.
 - [ ] **05.4** (release-engineer) Approve and publish the reviewed package only after the public-client and independent-user gates pass; record the exact version, artifact hash and supported platforms.
 
 ## Hindsight checkpoint
-Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
+Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [ ] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`

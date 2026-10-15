@@ -19,7 +19,7 @@ Ship a reproducible local CLI package that can be installed without this reposit
 - [ ] **04.4** (agent) Publish installation, sign-in, upgrades, uninstall/logout and permission/budget recovery documentation; keep desktop UI, bundled executables, auto-update and hosted services outside this plan.
 
 ## Hindsight checkpoint
-Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
+Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [ ] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`

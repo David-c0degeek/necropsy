@@ -39,11 +39,11 @@
 | Field | Value |
 |---|---|
 | Mode | `coordinated` |
-| Primary owner | Codex lead; Claude navigator on explicit design/review requests only |
+| Primary owner | Codex; solo implementation and review |
 | Coordinator | Codex |
 | Resume safety | required |
 | Parallel branches | `no` |
-| Notes | User retains product/domain/release decisions; one writer; notifier disabled; mailbox peek/watch during requested reviews. No proactive subagents. |
+| Notes | User retains product/domain/release decisions; Codex works solo after the user ended Claude pairing. No mailbox waits or subagents. |
 
 Mode rules:
 
@@ -223,6 +223,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 |---|---|---|---|---|---|
 | D001 | 2026-10-14 | Execution boundary | Finish Milestone A engineering close-out and keep human acceptance explicit before starting implementation; scaffold now without claiming readiness. | User authorized follow-up plans; planning does not imply old or new sign-off. | 00.1–00.9; previous plan §8 |
 | D002 | 2026-10-14 | Scope and collaboration | Public-client PKCE and installable CLI first; no desktop UI in this plan. Coordinated mode with Codex lead and requested Claude reviews; no parallel workers. | User direction in this session. | §1; subjects 01–05 |
+| D003 | 2026-10-15 | Current handoff and review mode | Retain coordinated human release gates; Codex implements/reviews solo. Prior class plans are complete; distribution subjects00–05 remain TODO. Supersede Claude review requirements in all subjects. | User ended pairing, approved class delivery and requested closure before confirming this next plan. | collaboration model; subjects00–05; §7 |
 
 ---
 
@@ -383,3 +384,8 @@ Return exactly these sections:
 If the verdict is DO NOT CLOSE, list the smallest concrete actions needed before
 the work can be closed.
 ```
+
+
+## Current handoff — 2026-10-15
+
+The Hunter milestone and both class-expansion plans are complete for accepted scope. This is the remaining prepared distribution plan; readiness and implementation have not started. Preserve all nine implemented Classic Era classes and current offline behavior. Existing wheel/sdist builds and an isolated real Mage replay provide preliminary packaging evidence only; they do not complete distribution acceptance. Next work is subject00 readiness, verified public-client PKCE requirements, registered client/callback, secure token lifecycle, authorized acquisition, clean installation and independent account/machine validation. Public registration, independent-user acceptance and publishing remain explicit human-owned gates. Additional product refinement requested by David is not yet a separate supplied plan. No desktop UI, bundled executable, auto-update or hosted service is included.

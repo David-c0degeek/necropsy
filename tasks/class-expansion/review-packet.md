@@ -1,3 +1,5 @@
+> Current status: COMPLETE — David approved the delivered implementation/limits and instructed final closure on 2026-10-15. Additional standalone Druid SME review was retired explicitly; unperformed adjudication is not claimed. Earlier pending passages are historical.
+
 # Druid review packet
 
 Selected-spec implementation is verified; domain acceptance is pending. These reports are

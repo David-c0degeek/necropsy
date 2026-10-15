@@ -18,7 +18,7 @@ Define a distributable authentication contract and validate the registered WCL p
 - [ ] **01.3** (release-engineer) Register/configure the public Necropsy WCL client and approved callback URI after the researched requirements are known. Supply only the public client ID to package configuration; never supply a shared secret.
 
 ## Hindsight checkpoint
-Before marking DONE: request Claude's scoped review, then record Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt. No CLOSE while a required human action or observable risk remains unresolved.
+Before marking DONE: Codex performs solo review and records Keep / Fix before closing / Record / Risk / Verdict using the embedded Captain Hindsight prompt (master D003; user ended Claude pairing). No CLOSE while a required human action or observable risk remains unresolved.
 
 - [ ] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`

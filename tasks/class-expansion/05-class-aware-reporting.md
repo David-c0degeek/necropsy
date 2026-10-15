@@ -1,5 +1,7 @@
 # 05 — Class-aware reports and playbooks
 
+> Current status: COMPLETE — latest final Captain Hindsight below supersedes earlier pending review records.
+
 ## Goal
 Expose Druid roles and useful class-specific details through the existing report and package.
 
@@ -300,3 +302,21 @@ Recorded examples cannot establish optimal play or assignments. Human acceptance
 
 ### Verdict
 CLOSE for reporting engineering. No independent peer approval is claimed.
+
+
+## Final Captain Hindsight — approved close-out, 2026-10-15
+
+### Keep
+Retain the shared acquisition/snapshot/event/evidence/render/package pipeline, verified selection dimensions, sparse comparisons, all-boss personal eligibility, actor-owned ability timing and immutable raw fixtures. Existing source verification and actual report/browser/raw arithmetic receipts remain the evidence, rather than the checklist itself.
+
+### Fix before closing
+None for the accepted scope. David approved the delivered implementation and instructed reconciliation and completion. Additional standalone Druid SME adjudication is explicitly retired by the product owner; no unperformed review is claimed. The user ended Claude pairing, so no Claude completion gate remains.
+
+### Record
+Master decisions, manual-action statuses, terminal PM resolutions, durable lessons and final acceptance are reconciled together. Source c016c4b has green Windows/Linux CI and 246 golden/acceptance passes with four retained expected failures. Subsequent commits change documentation/tracking only. Current close-out checks and the final gate review are recorded in the master plans.
+
+### Risk
+Duty thresholds remain heuristics; assignments, threat, quality and optimal play cannot be inferred from missing evidence. Role-regression labels are not independently adjudicated ground truth. Real Holy Priest healing validation is unavailable and accepted as a disclosed limitation. Long-term observation remains inconclusive, with future refinement separately scoped.
+
+### Verdict
+CLOSE — implementation, verification and accepted product scope are complete. Earlier pending verdicts remain historical; this is the current verdict.

@@ -1,6 +1,8 @@
 # ClassExpansion-Plan.md — Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Selected-spec implementation is verified against a 15-boss live Balance capture (14 personal encounters plus a Sapphiron learning example). Acquisition is verified; the latest shared reporting implementation and lead verification are complete, with scoped independent review outstanding. Human/domain gates remain explicit.
+> **Current status: COMPLETE.** Approved by David; final gate and acceptance receipt below supersede historical pending handoffs. Plans are retained for traceability.
+
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Selected-spec implementation is verified against a 15-boss live Balance capture (14 personal encounters plus a Sapphiron learning example). Acquisition, shared reporting and verification are complete. David approved the delivered scope and instructed closure; additional standalone SME review is explicitly retired, and source/evidence limitations remain documented.
 >
 > **Disposable.** The plan and its `tasks/class-expansion/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -68,7 +70,7 @@ rationale, affected subjects, and branch/ownership impact.
 
 | Subject | Owner | Branch | Dependencies | Conflict-risk files | Status | Handoff notes |
 |---|---|---|---|---|---|---|
-n/a — coordinated mode; no concurrent implementation subjects.
+n/a — solo implementation; no concurrent workers.
 
 ### Checkpoint gate
 
@@ -239,6 +241,9 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | D013 | 2026-10-15 | Personal coverage before comparison depth | Multi-boss Druid acquisition collects subject fights across the raid first, then comparisons, subject-less bosses first in stable encounter order. Lower the comparison allowance to reserve fresh finalization; restore original policy even on errors. Hunter query order stays unchanged. | Live default acquisition spent the hourly budget on early-boss samples. Existing data remains cached; one bounded observed-reset run now uses personal-first ordering. Claude agreed guardrails (184). | 02; 06; ADR 0005 |
 | D014 | 2026-10-15 | Faction/spec leaders and useful sparse comparisons | Interactive lookup asks for faction/spec; main practice/comparison uses faction leaders even without personal encounters. One/two event sources show individual values with n; differing known builds remain context. Capture all-boss ranking references before deep sampling. Overall top is separately collapsed with faction caveats. Explicit Hunter Marksmanship selection shares the flow; legacy `all` remains. | User corrected exact-build/median suppression and requested the KISS rule across classes/races/specs. Live API faction-filter probes returned mixed rows, so local preselection is explicit, with guild inference retained. Claude 189 agrees after legacy prompt fix. | 02; 05; 06; ADR 0005 |
 | D015 | 2026-10-15 | Shared presentation and ability use | Reuse Hunter playbook components for Druid; expose role-specific evidence through the same hierarchy. Add optional common actor ability-use evidence, counts/rates table and CSV for both supported classes. Preserve old saved Hunter document output. | User identified visual/data divergence and requested skill/spell/ability use respective to each class. Existing guidance is reused without new rotation claims; unsupported evidence stays unknown. Claude 190 agreed design. | 05; 06; ADR 0005 |
+| D016 | 2026-10-15 | Solo close-out | Codex completes final review without Claude; prior unreceived Claude requests are superseded. | User explicitly ended pairing and authorized solo completion. | 05; 06.4; collaboration model |
+| D017 | 2026-10-15 | Additional domain review retired | Retire additional standalone SME requirements 01.4/03.4/04.4 for the accepted product scope; retain raw role-regression/assignment limits and do not claim adjudication. | User approved delivery, was told exactly which domain boxes remained, then instructed reconciliation and completion. | 01.4; 03.4; 04.4; manual-actions.md; §8 |
+| D018 | 2026-10-15 | Accepted validation boundary | Close on independently recounted raw arithmetic, role-regression checks and explicit uncertainty, with owner acceptance replacing further SME adjudication. No requested role implementation is deferred. | Real five-behavior Druid examples and all-class validation exist; statistical/causal certainty and optimal play are not claimed. | §7 Druid facts/domain gates; §8; docs/druid-validation.md |
 
 ---
 
@@ -270,12 +275,12 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/class-expansion/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
-| [ ] | 01 | `tasks/class-expansion/01-class-role-contract.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
+| [x] | 01 | `tasks/class-expansion/01-class-role-contract.md` | DONE | agent: 3; domain-sme: 1 | yes |
 | [x] | 02 | `tasks/class-expansion/02-druid-acquisition-fixtures.md` | DONE | agent: 3; product-owner: 1 | yes |
-| [ ] | 03 | `tasks/class-expansion/03-druid-damage.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
-| [ ] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | IN PROGRESS | agent: 3; domain-sme: 1 | yes |
+| [x] | 03 | `tasks/class-expansion/03-druid-damage.md` | DONE | agent: 3; domain-sme: 1 | yes |
+| [x] | 04 | `tasks/class-expansion/04-druid-healing-tanking-hybrid.md` | DONE | agent: 3; domain-sme: 1 | yes |
 | [x] | 05 | `tasks/class-expansion/05-class-aware-reporting.md` | DONE | agent: 3 | n/a |
-| [ ] | 06 | `tasks/class-expansion/06-druid-validation.md` | IN PROGRESS | agent: 3; product-owner: 1 | yes |
+| [x] | 06 | `tasks/class-expansion/06-druid-validation.md` | DONE | agent: 3; product-owner: 1 | yes |
 
 ---
 
@@ -320,33 +325,33 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 > Run only when §5 is fully ticked. §7 is the engineering gate the agent
 > ticks; §8 is human acceptance that follows it.
 
-- [ ] All §5 subjects done (or explicitly `ABANDONED` with a §4 row)
-- [ ] Subject 00 completed, or explicitly waived/abandoned with a §4 row
-- [ ] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings
-- [ ] Test command from the §2 Verification-commands table passes; coverage gate met if the repo enforces one
-- [ ] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
-- [ ] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
-- [ ] §1 Risks-and-rollback table reviewed; rollback steps still accurate for what actually shipped
-- [ ] Cross-cutting principles from §6 reviewed; any plan-specific architecture tests/rules hold
-- [ ] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication or new parallel code where an existing surface fit (see §6.17)
-- [ ] New public surface added by this plan is wired to a non-test caller, or is explicitly disclosed as library-only/unwired (in the docs or a §4 decision) — no undisclosed dead surface shipped (see §6.17 "Wire or delete")
-- [ ] Every non-abandoned subject has a recorded Captain Hindsight checkpoint with verdict `CLOSE`
-- [ ] Every ticked box has a Progress-log entry and is covered by a pushed checkpoint commit
-- [ ] Durable architecture decisions promoted to the project's decision log / ADR file (see §4 ADR promotion)
-- [ ] Documentation-impact review done for every shipped box — user- and developer-facing docs updated to match shipped behaviour (see §6.16 for scope), or recorded `n/a` with a one-line reason
-- [ ] Current plan/integration branch is pushed (or the no-remote note from the Checkpoint gate applies); `git status --short` has no uncommitted plan/code changes except explicitly deferred or ignored artefacts
-- [ ] If Collaboration mode is `parallel`, the Parallel work tracker has no stale active owners, unmerged subject branches, or unresolved handoff notes
-- [ ] Shipped code/tests/comments/identifiers are plan-agnostic — grep the repo **excluding `tasks/`** for box IDs (`\b\d\d\.\d+\b`), decision IDs (`\bD\d{3}\b`), the literal `tasks/class-expansion/`, the plan filename `ClassExpansion-Plan.md`, and `\bslices?\b`; zero hits after triaging false positives (version strings can match the box-ID pattern; "slice" may be a legit domain term). See §6.11
-- [ ] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/class-expansion/`, `ClassExpansion-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
-- [ ] Branch names and public PR titles/descriptions are plan-agnostic if used
-- [ ] `tasks/class-expansion/manual-actions.md` — every human-owned box resolved or explicitly deferred
-- [ ] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see Purpose). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
-- [ ] `tasks/class-expansion/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/class-expansion/` folder is deleted (see Disposable note)
-- [ ] All five requested Druid role/behavior cases have raw evidence, approved golden facts and actual report/package replay.
-- [ ] Domain reviewer accepts role taxonomy and damage/healing/tanking/hybrid findings; unsupported signals remain explicit.
-- [ ] Hunter replay remains compatible; old JSON renders, schemas are current and desktop/mobile evidence remains accessible.
-- [ ] If subject 00 retains material PM risks, persist original predictions with owners before implementation; require terminal resolutions and observable Hindsight calibration before sign-off.
-- [ ] Plan handed to reviewer for §8 sign-off
+- [x] All §5 subjects done (or explicitly `ABANDONED` with a §4 row)
+- [x] Subject 00 completed, or explicitly waived/abandoned with a §4 row
+- [x] Build command from the §2 Verification-commands table passes with 0 errors and 0 new warnings
+- [x] Test command from the §2 Verification-commands table passes; coverage gate met if the repo enforces one
+- [x] Behaviour verification done for every box that changed runtime behaviour — the changed flow was exercised end-to-end with observed-vs-expected output recorded, not closed on a green build/test exit code alone (see the Checkpoint gate)
+- [x] Remaining §2 Verification-commands rows (lint/format, plan-specific gates) pass or are recorded `n/a`
+- [x] §1 Risks-and-rollback table reviewed; rollback steps still accurate for what actually shipped
+- [x] Cross-cutting principles from §6 reviewed; any plan-specific architecture tests/rules hold
+- [x] Every implementation subject recorded an `## Integration analysis`; no unjustified duplication or new parallel code where an existing surface fit (see §6.17)
+- [x] New public surface added by this plan is wired to a non-test caller, or is explicitly disclosed as library-only/unwired (in the docs or a §4 decision) — no undisclosed dead surface shipped (see §6.17 "Wire or delete")
+- [x] Every non-abandoned subject has a recorded Captain Hindsight checkpoint with verdict `CLOSE`
+- [x] Every ticked box has a Progress-log entry and is covered by a pushed checkpoint commit
+- [x] Durable architecture decisions promoted to the project's decision log / ADR file (see §4 ADR promotion)
+- [x] Documentation-impact review done for every shipped box — user- and developer-facing docs updated to match shipped behaviour (see §6.16 for scope), or recorded `n/a` with a one-line reason
+- [x] Current plan/integration branch is pushed (or the no-remote note from the Checkpoint gate applies); `git status --short` has no uncommitted plan/code changes except explicitly deferred or ignored artefacts
+- [x] If Collaboration mode is `parallel`, the Parallel work tracker has no stale active owners, unmerged subject branches, or unresolved handoff notes
+- [x] Shipped code/tests/comments/identifiers are plan-agnostic — grep the repo **excluding `tasks/`** for box IDs (`\b\d\d\.\d+\b`), decision IDs (`\bD\d{3}\b`), the literal `tasks/class-expansion/`, the plan filename `ClassExpansion-Plan.md`, and `\bslices?\b`; zero hits after triaging false positives (version strings can match the box-ID pattern; "slice" may be a legit domain term). See §6.11
+- [x] Commit messages are plan-agnostic — `git log main..HEAD` mentions no box IDs, decision IDs, `tasks/class-expansion/`, `ClassExpansion-Plan.md`, or `slice`/`slices` (apply the same false-positive triage; file grep does not cover commit messages)
+- [x] Branch names and public PR titles/descriptions are plan-agnostic if used
+- [x] `tasks/class-expansion/manual-actions.md` — every human-owned box resolved or explicitly deferred
+- [x] Run the `cleanup-audit` teardown review (whole-repo sweep) before sign-off, **or** waive it with a §4 Decision-log row (e.g. a sweep ran recently, or the repo is too young to have accrued cruft). Triage every finding: fix-now / fold into a *new* plan / won't-fix with a reason. Findings that warrant real work open a **new** plan — never this one, which is disposable and about to be deleted (see Purpose). Report-only: a non-empty report does not block sign-off, but an un-run (un-waived) or un-triaged audit does. Distinct from the per-subject Captain Hindsight checkpoints — this is the one whole-repo pass
+- [x] `tasks/class-expansion/lessons.md` reconciled; lasting lessons migrated to the permanent `tasks/lessons.md` (create it if missing) before the `tasks/class-expansion/` folder is deleted (see Disposable note)
+- [x] All five requested Druid role/behavior cases have raw evidence, independently checked engineering facts and actual report/package replay; product owner accepts disclosed limits under D018.
+- [x] Product owner accepts the disclosed role/finding limits; additional standalone SME adjudication is retired under D017; unsupported signals remain explicit.
+- [x] Hunter replay remains compatible; old JSON renders, schemas are current and desktop/mobile evidence remains accessible.
+- [x] If subject 00 retains material PM risks, persist original predictions with owners before implementation; require terminal resolutions and observable Hindsight calibration before sign-off.
+- [x] Plan handed to reviewer for §8 sign-off
 
 ---
 
@@ -357,7 +362,7 @@ Generalize only the class/spec/role seams needed to deliver Classic Era Naxxrama
 
 | Date | Reviewer | Result | Notes |
 |---|---|---|---|
-| | | | |
+| 2026-10-15 | David (product owner; recorded by Codex) | APPROVED / COMPLETE | Explicit approval followed by instruction to reconcile and complete everything. Accepted evidence limits; additional Druid SME adjudication retired, not performed. Further product refinement is separately scoped. |
 
 ---
 
@@ -562,3 +567,35 @@ Final engineering receipt: source c016c4b passes Linux/Windows CI; full serial g
 ## Explicit product approval — 2026-10-15
 
 David: "Approved. ill have another plan to make this proper." Product acceptance of the delivered implementation and disclosed evidence limits is recorded in the subject/manual-action files. Further refinement is separately scoped by the user. No new raw-finding adjudication or rerun of the formal §7 close-out is claimed by this approval record.
+
+
+## Final gate receipt — 2026-10-15
+
+All subjects and manual actions are reconciled before the final gate. The product owner explicitly approved the delivered scope and then instructed completion after the outstanding domain boxes were disclosed. Three additional Druid SME-review requirements are retired under D017; no role implementation or raw evidence is discarded, and no unperformed adjudication is recorded as fact. All thirteen subject files across the two class plans have resolved boxes and current CLOSE verdicts. The original Hunter milestone is already signed off.
+
+Verification evidence:
+
+- Runtime source c016c4b: [Windows/Linux CI](https://github.com/David-c0degeek/necropsy/actions/runs/38748441029) passed (908/907 tests respectively; platform/browser skips and 251 deselections retained). Subsequent tracking/documentation checkpoints include green 29cec75 CI 38750106386. No runtime code, rule, schema or dependency changed during close-out.
+- Full serial golden/acceptance at that source:246 passed, 949 deselected, four existing expected failures,475.56 seconds. Nineteen class integration cases, raw arithmetic, fixture/member hashes, packages and source coverage were verified. Real and synthetic coverage are explicitly separated in provenance and user guides.
+- Current close-out rerun: Ruff check and format pass (185 files); strict mypy passes 148 source files; wheel/sdist build succeeds; `uv run pytest -m browser -q --tb=short`:41 passed, 1158 deselected in 124.89 seconds. Recorded real-output checks additionally cover 48 page/viewports. The isolated installed wheel previously replayed the real Mage fixture successfully; four saved legacy Hunter artifacts remain byte-identical.
+- Existing unlimited secret scans covered 286,126,988 extracted class raw bytes and 420,932,059 class output bytes; prior Druid/Hunter scans remain recorded. Raw archives are unchanged. The final documentation checkpoint receives a commit-range secret scan.
+- Source/commit reference scans found no class-plan filename/path/decision-ID leaks. Numeric matches are values, dates, versions or timing examples; JavaScript `.slice()` and the historical design document's ordinary word “slice” are legitimate false positives. Main is the branch; no PR/public branch metadata is used.
+- Risks and rollback reviewed: revert additive source changes and rebuild derived artifacts; preserve immutable raw/cache evidence. Class/category/duty/metric remain distinct; one/two-source disclosure and no-personal ungraded behavior remain invariant. Shared helpers/views have actual registry, document, rendering, CLI and export callers; no parallel auth/cache/normalizer/publisher or new dependency was introduced.
+- Cleanup decision: reuse the triaged root `cleanup-audit-2026-10-14.md` under original D010/follow-up D003; C1 was corrected, C2/C3 intentionally retained. Scoped new-class integration review found no fix-now duplicate infrastructure. Documentation and ADR 0005/0006 are current; every retained per-plan lesson is migrated into permanent tasks/lessons.md.
+- Collaboration is one Codex implementation/reviewer; user explicitly ended pairing. No stale active agent or Claude approval requirement remains. Human acceptance is supplied by David, not inferred from tests. Plans are retained, with archival/deletion left to the owner.
+- This gate, acceptance and handoff receive one coherent pushed documentation checkpoint. Post-push validation confirms clean working tree and matching main/origin; distribution readiness remains unstarted.
+
+### Keep
+The shared offline evidence pipeline, immutable fixtures, selected faction/spec views, conservative eligibility, structured class execution/loadout rows and explicit uncertainty meet the accepted scope. Verification includes observed report behavior, raw arithmetic and installed output, not only test exit codes.
+
+### Fix before closing
+None. Subject/manual-action tracking, final gates, acceptance, lessons and PM resolutions are reconciled. Detailed standalone SME adjudication is explicitly retired for this product scope, not falsely reported as completed.
+
+### Record
+David's explicit approval and reconciliation/completion instruction are the acceptance source. Original predictions and historical handoffs remain intact; terminal resolutions and current CLOSE verdicts supersede prior pending statuses. Distribution is the next prepared plan and uses solo Codex review with separate human registration/independent-user/publication gates.
+
+### Risk
+Real Holy Priest healing evidence is unavailable; role labels and thresholds are not independently adjudicated ground truth. Assignments, threat, quality, optimal play and unelapsed production outcomes remain unproven. These are accepted disclosed limits, with further refinement separately scoped; they are not open engineering blockers for this delivery.
+
+### Verdict
+CLOSE — both class-expansion plans are complete for the explicitly approved scope. All agent work, accepted human requirements, documentation and gate records are resolved. Distribution is not implemented or released by this closure.
