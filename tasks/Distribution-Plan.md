@@ -224,6 +224,9 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | D001 | 2026-10-14 | Execution boundary | Finish Milestone A engineering close-out and keep human acceptance explicit before starting implementation; scaffold now without claiming readiness. | User authorized follow-up plans; planning does not imply old or new sign-off. | 00.1–00.9; previous plan §8 |
 | D002 | 2026-10-14 | Scope and collaboration | Public-client PKCE and installable CLI first; no desktop UI in this plan. Coordinated mode with Codex lead and requested Claude reviews; no parallel workers. | User direction in this session. | §1; subjects 01–05 |
 | D003 | 2026-10-15 | Current handoff and review mode | Retain coordinated human release gates; Codex implements/reviews solo. Prior class plans are complete; distribution subjects00–05 remain TODO. Supersede Claude review requirements in all subjects. | User ended pairing, approved class delivery and requested closure before confirming this next plan. | collaboration model; subjects00–05; §7 |
+| D004 | 2026-10-15 | Engineering proceeds with explicit live gates | Complete all agent implementation and synthetic/installed verification while public registration and independent-account acceptance remain pending. Subject dependencies require prior engineering contract, not fabricated human completion; keep subjects with human/live requirements open. No publication. | User requests full implementation; registered client ID is unavailable and no second person can be impersonated. | 01.3; 02–05; manual-actions.md |
+| D005 | 2026-10-15 | Baseline verification scope | Accept build/lint/format/types and 47 focused auth/store tests as implementation baseline; broad fast suite runs concurrently and remains a final gate. Initial duplicate broad run cancelled to avoid contention. | No failing baseline observed; broad replay suite takes substantial time and does not require blocking unrelated authentication changes. | 00.3; 05.3; readiness.md |
+| D006 | 2026-10-15 | Public mode compatibility | Default new login to explicit public PKCE; retain personal login via --mode personal and unchanged legacy record names. Public records use separate names and a tagged active selection. Acquisition endpoint remains explicit; public users select --endpoint user. | Avoid silent endpoint changes and preserve existing library/default cache behavior. | 01.2; 02.1–02.3; 03.1; ADR0007 |
 
 ---
 
@@ -254,7 +257,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
-| [ ] | 00 | `tasks/distribution/00-tooling-research-and-readiness.md` | TODO | agent: 9 | n/a |
+| [x] | 00 | `tasks/distribution/00-tooling-research-and-readiness.md` | DONE | agent: 9 | n/a |
 | [ ] | 01 | `tasks/distribution/01-public-auth-contract.md` | TODO | agent: 2; release-engineer: 1 | yes |
 | [ ] | 02 | `tasks/distribution/02-pkce-sign-in.md` | TODO | agent: 3 | n/a |
 | [ ] | 03 | `tasks/distribution/03-authorized-acquisition.md` | TODO | agent: 3 | n/a |
