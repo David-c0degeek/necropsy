@@ -3,36 +3,96 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import os
+import re
 import subprocess
 import tempfile
+import threading
+from collections.abc import Iterator
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 from necropsy import __version__
 
 
+def documented_command(repository: Path) -> str:
+    commands = []
+    for name in ("README.md", "PACKAGE.md", "docs/installation.md"):
+        text = (repository / name).read_text(encoding="utf-8")
+        match = re.search(r"```powershell\n([^\n]+)\n```", text)
+        if match is None:
+            raise ValueError(f"missing Windows setup command in {name}")
+        commands.append(match[1])
+    if len(set(commands)) != 1:
+        raise ValueError("Windows setup commands differ between installation guides")
+    command = commands[0]
+    if "-File $setup" not in command or "iex" in command.lower() or "bypass" in command.lower():
+        raise ValueError("Windows setup must run a saved file without IEX or Bypass")
+    return command
+
+
+@contextlib.contextmanager
+def downloaded_setup(repository: Path, content: bytes) -> Iterator[str]:
+    """Substitute only the download origin; keep the advertised PowerShell syntax."""
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self) -> None:
+            if self.path != "/install.ps1":
+                self.send_error(404)
+                return
+            self.send_response(200)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.send_header("Content-Length", str(len(content)))
+            self.end_headers()
+            self.wfile.write(content)
+
+        def log_message(self, format: str, *args: object) -> None:
+            pass
+
+    command = documented_command(repository)
+    with ThreadingHTTPServer(("127.0.0.1", 0), Handler) as server:
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        try:
+            yield command.replace(
+                "https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1",
+                f"http://127.0.0.1:{server.server_port}/install.ps1",
+            )
+        finally:
+            server.shutdown()
+            thread.join()
+
+
 def check(bundle: Path, receipt: Path) -> None:
     repository = Path(__file__).resolve().parents[1]
-    with tempfile.TemporaryDirectory(prefix="necropsy-bootstrap-") as temporary:
+    with (
+        tempfile.TemporaryDirectory(prefix="necropsy-bootstrap-") as temporary,
+        contextlib.ExitStack() as stack,
+    ):
         root = Path(temporary) / "fresh app with spaces"
         env = {k: v for k, v in os.environ.items() if not k.startswith("NECROPSY_")}
         env["UV_PYTHON_INSTALL_DIR"] = str(root / "runtime/python")
         if os.name == "nt":
+            env.update(
+                TEMP=temporary,
+                NECROPSY_TEST_ROOT=str(root),
+                NECROPSY_TEST_BUNDLE=str(bundle),
+            )
+            expression = stack.enter_context(
+                downloaded_setup(repository, (repository / "install.ps1").read_bytes())
+            ).replace(
+                "-File $setup",
+                "-File $setup -InstallRoot $env:NECROPSY_TEST_ROOT "
+                "-BundleDirectory $env:NECROPSY_TEST_BUNDLE "
+                "-NoLaunch -NoShortcuts -NoPathChange",
+            )
             command = [
-                "powershell",
+                "powershell.exe",
                 "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                str(repository / "install.ps1"),
-                "-InstallRoot",
-                str(root),
-                "-BundleDirectory",
-                str(bundle),
-                "-NoLaunch",
-                "-NoShortcuts",
-                "-NoPathChange",
+                "-Command",
+                expression,
             ]
             launcher = root / "necropsy.cmd"
         else:
@@ -71,8 +131,8 @@ def check(bundle: Path, receipt: Path) -> None:
         (bad / wheel_name).write_bytes(b"damaged download")
         (bad / "SHA256SUMS").write_bytes((bundle / "SHA256SUMS").read_bytes())
         if os.name == "nt":
-            failed_command = command.copy()
-            failed_command[failed_command.index("-BundleDirectory") + 1] = str(bad)
+            failed_command = command
+            env["NECROPSY_TEST_BUNDLE"] = str(bad)
         else:
             failed_command = command
             env["NECROPSY_BUNDLE_DIR"] = str(bad)
@@ -91,6 +151,7 @@ def check(bundle: Path, receipt: Path) -> None:
             launcher="passed",
             checksum_refusal="passed",
             failed_upgrade_preserves_launcher="passed",
+            documented_windows_download_command="passed" if os.name == "nt" else "not applicable",
         )
     receipt.parent.mkdir(parents=True, exist_ok=True)
     receipt.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")

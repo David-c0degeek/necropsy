@@ -89,3 +89,29 @@ focus timing assertion. That assertion now waits for the scheduled focus change;
 all 87 browser/auth/TUI cases subsequently passed. Ruff and strict mypy pass.
 The terminal screenshot is captured from an empty isolated app; no real account,
 private history or network-dependent font is included in the documentation image.
+
+## Windows setup follow-up (0.2.1)
+
+The initial bootstrap gate tested a saved script with `-File`, while the published
+Windows command used `irm | iex`. A user reported a `CmdletBinding` parser error
+and Defender detected that command line as `Trojan:Win32/Commando.A!ml`. Local
+Defender history reports successful removal, inactive status, and no execution;
+its affected item is the command line, not an identified downloaded file. This
+does not certify the package as malware-free. A custom scan of the saved installer
+completed without a new detection. Protection and exclusions were not changed.
+
+The reported parser error was not reproduced by the isolated parameter-header
+probes on Windows PowerShell 5.1 or PowerShell 7. Rather than claim a proven
+parser cause, the replacement command saves a unique inspectable script and runs
+it with `-File`, `-NoProfile`, and `RemoteSigned`. It removes in-memory expression
+evaluation and `Bypass`. Existing PSReadLine profile errors are documented
+separately; setup does not edit user profiles.
+
+TUI-PM-3 was incompletely mitigated: a file-level bootstrap check did not validate
+the advertised invocation. The strengthened gate reads the actual command from
+all three installation guides, requires them to agree, and substitutes only a
+loopback HTTP origin for an isolated bootstrap. Tests exercise the pasted syntax
+from both available Windows PowerShell hosts, with spaced temporary paths and
+failed downloads. A failed download must not execute a file, and a failed child
+installer must propagate failure. Fresh setup, damaged-package refusal and
+launcher preservation also run through the documented download command.

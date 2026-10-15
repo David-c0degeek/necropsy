@@ -13,7 +13,7 @@ You need an internet connection, a terminal and a normal desktop session.
 **Windows** — press Start, type **PowerShell** and open it. Paste and press Enter.
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
+& { $ErrorActionPreference = 'Stop'; $setup = Join-Path $env:TEMP ('necropsy-setup-' + [guid]::NewGuid() + '.ps1'); Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 -OutFile $setup -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File $setup; if ($LASTEXITCODE -ne 0) { throw 'Necropsy setup failed. See the message above.' } }
 ```
 
 **macOS** — press Command+Space, type **Terminal** and open it. Paste and press Return.
@@ -33,6 +33,25 @@ Linux desktops need at least one standard HTTPS downloader (curl or wget).
 A stripped-down/headless system may require its package manager to provide one;
 there is no portable way for a shell without any downloader to fetch an installer.
 The app and Python dependencies install per-user and need no administrator rights.
+
+## Windows setup errors and security alerts
+
+The Windows command saves a uniquely named `necropsy-setup-*.ps1` in your
+Windows temporary folder, then runs that file in a profile-free Windows
+PowerShell process. It does not use `Invoke-Expression` or the `Bypass`
+execution policy. The saved script remains available for inspection.
+
+The previous `irm ... | iex` command has been withdrawn after a reported
+`CmdletBinding` parser error and a Defender command-line detection. Use the
+command above. If Defender blocks setup, leave protection enabled and record
+its threat name and affected item from **Windows Security → Virus & threat
+protection → Protection history**. Do not allow a detection or add an exclusion
+to finish installation. Share those details in a bug report; a command-line
+detection alone does not establish whether a downloaded file is malicious.
+
+A `PSReadLine` error mentioning `PredictionViewStyle` and
+`Microsoft.PowerShell_profile.ps1` comes from your existing terminal profile.
+The installer child process uses `-NoProfile`; setup does not edit your profile.
 
 ## Next time
 
@@ -115,7 +134,7 @@ uv run necropsy
 ```
 
 Build a wheel with `uv build`. Manual wheel users can use
-`uv tool install --force --python 3.14 dist/necropsy-0.2.0-py3-none-any.whl`.
+`uv tool install --force --python 3.14 dist/necropsy-0.2.1-py3-none-any.whl`.
 This path assumes uv exists; it is not the normal first-time install path.
 Saved snapshots replay offline with `necropsy offline SNAPSHOT.zip --out FOLDER`.
 Rendering existing JSON uses `necropsy render analysis.json --out FOLDER`.

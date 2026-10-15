@@ -1,7 +1,7 @@
 #!/bin/sh
 # Per-user macOS/Linux setup. No Python, uv, Git, shell restart or sudo required.
 set -eu
-version=0.2.0
+version=0.2.1
 uv_version=0.11.21
 release="https://github.com/David-c0degeek/necropsy/releases/download/v$version"
 wheel_name="necropsy-$version-py3-none-any.whl"
