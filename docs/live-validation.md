@@ -80,3 +80,19 @@ tokens, authorization codes or refresh values are included in these records.
 Independent installation/authorization/acquisition on **another account and
 machine**, and publication approval, remain required. These observations do not
 close those gates or establish macOS/Linux credential-store support.
+
+
+## Independent acceptance and release approval — 2026-10-15
+
+The product owner replied “Approved” to the completed engineering/public-client
+work and publication gate, then explicitly confirmed “Independent test passed”
+when asked whether another WCL account on another machine completed installation,
+sign-in and report generation. This is owner-attested acceptance; the agent did
+not observe the independent machine or receive its OS, raw outputs or detailed
+receipt. Do not describe those missing details as independently inspected.
+
+The supported release target remains Windows with Python >=3.14, backed by the
+local install/live WinVault evidence above. Linux has synthetic CI installation
+coverage; real Linux/macOS credential-store support is not certified. Version0.1.0
+is distributed through the private repository's GitHub release for authorized
+collaborators. No public package-index availability is implied.

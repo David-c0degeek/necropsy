@@ -1,7 +1,8 @@
 # Public PKCE alongside personal authentication
 
 Status: Implemented; registered public sign-in/refresh and API probes observed.
-Independent account/machine and publication acceptance remain pending.
+Independent account/machine acceptance and publication approval confirmed by owner
+on 2026-10-15.
 Date: 2026-10-15
 
 Necropsy now defaults new sign-ins to public S256 PKCE. The application client

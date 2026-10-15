@@ -70,3 +70,13 @@ extra requested scopes. PM-1 and PM-2 remain Prevented Prediction/Mitigated:
 provider observations now support the synthetic boundary checks. PM-3 remains
 Mitigated/Inconclusive for independent-user horizon; only another account/person
 and machine plus publication approval can close it. No silent endpoint fallback.
+
+
+### Independent acceptance and publication authorization
+
+User explicitly confirms the independent account/machine test passed and approves
+publication. PM-3 resolution remains Mitigated; calibration is Prevented Prediction
+for the engineering artifact boundary and owner-attested before-release acceptance.
+No failure observed/reported. Independent OS/raw receipt/hash were not supplied,
+so do not upgrade attestation into agent-observed evidence or broaden platforms.
+Publication remains gated on successful artifact/CI checks and remote hash verification.

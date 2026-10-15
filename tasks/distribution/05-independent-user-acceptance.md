@@ -14,7 +14,7 @@ Prove another person can install, authorize and produce a correctly scoped repor
 
 ## Boxes
 - [x] **05.1** (agent) Prepare an opt-in real-account acceptance procedure and receipt covering installation, sign-in/refresh, supported acquisition, output/package integrity, permissions, quota limitations and secret scanning.
-- [ ] **05.2** (product-owner) Run or observe the documented flow on another person/account and machine; confirm no developer secret is requested, outputs and uncertainty are understandable, and declared platform behavior is acceptable.
+- [x] **05.2** (product-owner) Run or observe the documented flow on another person/account and machine; confirm no developer secret is requested, outputs and uncertainty are understandable, and declared platform behavior is acceptable.
 - [x] **05.3** (agent) Run the latest fast/golden/acceptance/browser and build checks, complete documentation/cleanup/lessons/PM calibration and solo Codex review; carry any unsupported platform or permission limit explicitly into the release notes.
 - [ ] **05.4** (release-engineer) Approve and publish the reviewed package only after the public-client and independent-user gates pass; record the exact version, artifact hash and supported platforms.
 
@@ -53,3 +53,14 @@ required independent and release human actions remain open.
 observations recorded; subjects01/03 now CLOSE. New package/default-login
 check and scans pass; prior Windows/Ubuntu CI completed green. Only independent
 05.2 and publication05.4 remain; no second person/account/machine is inferred.
+
+
+2026-10-15 · 4 · 05.2/05.4 · User replied “Approved”, then explicitly answered
+“Independent test passed” to the question about another WCL account and machine
+completing installation, sign-in and report generation. This resolves product-owner
+acceptance by attestation, not agent-observed raw evidence. OS and tested artifact
+hash were not supplied; do not invent them. Existing supported Windows/Python3.14
+scope remains. Publication approved for reviewed CLI; use the existing private
+GitHub repository (no PyPI target configured and no visibility change authorized).
+Release artifact documentation updated; package rebuild/verification and publication
+are in progress. Receipt: independent-acceptance.json. Checkpoint follows.

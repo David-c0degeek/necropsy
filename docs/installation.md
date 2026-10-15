@@ -4,19 +4,20 @@
 
 The Python wheel is an installable CLI, including all class rules and report
 templates/assets. It requires Python **3.14 or newer**. Windows is the first
-engineering verification target. Public release
-and independent user/machine acceptance are pending; no PyPI availability is
-claimed. The platform evidence is:
+supported release target. Version0.1.0 is available through the private
+[GitHub release](https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0)
+to authorized collaborators; no PyPI availability is claimed. The product owner
+confirmed an independent account/machine test passed and approved publication. The platform evidence is:
 
 | Platform | Installation evidence | Real credential store / public account |
 |---|---|---|
-| Windows | Clean Python 3.14.6 wheel install, public mock flow and offline replay | WinVault, public sign-in/callback, refresh rotation and query access observed; independent acceptance pending |
+| Windows | Clean Python 3.14.6 wheel install, public mock flow and offline replay | WinVault, public sign-in/callback, refresh rotation and query access observed; independent account/machine acceptance confirmed by product owner |
 | Linux (Ubuntu CI) | Installed wheel, public mock flow and offline replay passed | Real desktop credential store and user-account flow unverified; no end-user support claim |
 | macOS | Unverified | Unverified |
 
 ## Install and run
 
-Obtain the reviewed wheel and its SHA-256 from the release owner. Compare its
+Download the wheel and SHA256SUMS from the release above. Compare its
 digest before installation, for example in PowerShell:
 
 ```powershell

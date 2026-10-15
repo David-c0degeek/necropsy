@@ -126,3 +126,21 @@ callback/refresh/query contracts. Fix before closing whole plan: only independen
 01.3 manual action done, PM calibration and current docs. Risk: account-specific
 permissions and other machines/stores remain unverified. Verdict: CLOSE subjects01
 and03; DO NOT CLOSE subject05 or whole plan. No public release performed.
+
+
+## Accepted release preparation — 2026-10-15
+
+Owner supplied “Approved”, then explicitly confirmed “Independent test passed”
+for another account/machine installation, sign-in and report generation. Evidence
+is owner attestation, not agent-observed raw results; OS/hash details were not
+supplied. Receipt independent-acceptance.json preserves that distinction. No
+broader platform support is inferred. Existing private GitHub origin is the
+release channel; no PyPI publisher or visibility change configured/authorized.
+
+Release metadata updated; rebuilt exact version0.1.0 artifacts pass the isolated
+installed default login/user API mock, offline replay/source digest, package
+integrity, WinVault synthetic service and unlimited extracted/output gitleaks.
+Repeated wheel/sdist build byte comparison passes. Runtime code is unchanged
+from the registered public-client checkpoint; updated PACKAGE.md is the artifact
+content delta. SHA256SUMS prepared from the final artifacts. Remote upload hash
+verification and publication will be recorded after they complete.

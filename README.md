@@ -24,8 +24,9 @@ snapshot, and writes the same results. Synthetic integration tests and a real si
 the live run retained explicit partial pet coverage. See [observed live validation](docs/live-validation.md). See the
 [connection guide](docs/warcraft-logs.md) and [roadmap](docs/roadmap.md).
 
-An installable Python CLI with public PKCE sign-in is implemented; public release
-and independent-account validation are pending. See [installation](docs/installation.md).
+An installable Python CLI with public PKCE sign-in is available in the
+[repository release](https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0)
+for authorized collaborators. See [installation](docs/installation.md).
 
 ## Your first analysis
 

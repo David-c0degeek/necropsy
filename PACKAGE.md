@@ -5,8 +5,9 @@ Requires Python 3.14 or newer. Includes class rules, offline report templates
 and assets. Windows is the first verified installation/credential-store target;
 macOS and Linux remain unverified.
 
-Public release and independent-account/machine acceptance are pending. Obtain a
-reviewed wheel and its SHA-256 from the application owner; no package-index
+Version 0.1.0 is distributed as a reviewed wheel and source archive through the
+[repository releases](https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0).
+Repository access is required. Download the wheel and SHA256SUMS; no PyPI
 availability is claimed. With uv installed:
 
 ```powershell

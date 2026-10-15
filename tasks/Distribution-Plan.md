@@ -228,6 +228,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | D005 | 2026-10-15 | Baseline verification scope | Accept build/lint/format/types and 47 focused auth/store tests as implementation baseline; broad fast suite runs concurrently and remains a final gate. Initial duplicate broad run cancelled to avoid contention. | No failing baseline observed; broad replay suite takes substantial time and does not require blocking unrelated authentication changes. | 00.3; 05.3; readiness.md |
 | D006 | 2026-10-15 | Public mode compatibility | Default new login to explicit public PKCE; retain personal login via --mode personal and unchanged legacy record names. Public records use separate names and a tagged active selection. Acquisition endpoint remains explicit; public users select --endpoint user. | Avoid silent endpoint changes and preserve existing library/default cache behavior. | 01.2; 02.1–02.3; 03.1; ADR0007 |
 | D007 | 2026-10-15 | Scoped close-out and package metadata | Waive whole-repo cleanup audit for this focused auth/package change; review changed surfaces directly and preserve unrelated analysis. Use PACKAGE.md as distribution metadata so public artifacts do not carry repository sample paths or player names. | No analysis refactor; broad cruft work would expand the authorized distribution scope. | 04.3; 05.3; §7 cleanup gate |
+| D008 | 2026-10-15 | Accepted independent test and release channel | Record user approval and explicit independent-test-passed attestation; publish version0.1.0 wheel/sdist/checksums through the existing private GitHub repository. No PyPI or repository visibility change. OS/raw receipt not supplied; retain Windows support scope. | User confirms the missing human test and approves publication; existing origin is the available distribution channel. | 05.2; 05.4; independent-acceptance.json; §8 |
 
 ---
 
@@ -263,7 +264,7 @@ Deliver public-client PKCE sign-in and an installable local CLI for other users,
 | [x] | 02 | `tasks/distribution/02-pkce-sign-in.md` | DONE | agent: 3 | n/a |
 | [x] | 03 | `tasks/distribution/03-authorized-acquisition.md` | DONE | agent: 3 | n/a |
 | [x] | 04 | `tasks/distribution/04-installable-cli.md` | DONE | agent: 4 | n/a |
-| [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | HUMAN GATES PENDING | agent: 2; product-owner: 1; release-engineer: 1 | yes |
+| [ ] | 05 | `tasks/distribution/05-independent-user-acceptance.md` | PUBLICATION IN PROGRESS | agent: 2; product-owner: 1; release-engineer: 1 | yes |
 
 ---
 

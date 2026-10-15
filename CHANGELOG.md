@@ -5,14 +5,15 @@
 Notable user-facing and developer changes. Entries under **Unreleased** are
 implemented in the development checkout; they are not a published release.
 
-## [Unreleased]
+## [0.1.0] - 2026-10-15
 
 ### Added
 
 - Public S256 PKCE login, separate mode-tagged OS-store records, explicit user
   acquisition and an isolated wheel/sdist installation audit are implemented.
-  Personal clients use `auth login --mode personal`. Public registration, live
-  public-account acceptance and publication remain pending. See
+  Personal clients use `auth login --mode personal`. Registered public login,
+  refresh rotation and query access are verified; independent-user acceptance
+  and publication are approved by the product owner. See
   [installation](docs/installation.md).
 
 ### Changed

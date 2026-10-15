@@ -43,8 +43,8 @@ checks; domain correctness and product acceptance remain separate.
 
 Public PKCE and installable-wheel engineering are implemented. Registered
 public-client sign-in/callback, refresh rotation and current/archived query access
-are observed on Windows. Independent account/machine acceptance and publishing
-remain pending. The personal Hunter/Naxxramas milestone is signed
+are observed on Windows. The product owner confirmed independent account/machine
+acceptance and approved the version0.1.0 repository release. The personal Hunter/Naxxramas milestone is signed
 off. All nine Classic Era classes have [shared class reports](class-analysis.md),
 including supported healing/tank categories. Druid role analysis has
 [documented validation limits](druid-validation.md); engineering checks do not
