@@ -40,19 +40,19 @@ Copy the command for your computer into a terminal. Setup installs Necropsy,
 Python and its runtime automatically and opens the guided app. You do not need
 Git, Python, uv, a GitHub account or an administrator account to get started.
 
-**Windows** — open PowerShell and paste:
+**Windows** — press Start, type **PowerShell**, open it and paste:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
 ```
 
-**macOS** — open Terminal and paste:
+**macOS** — press Command+Space, type **Terminal**, open it and paste:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh | sh
 ```
 
-**Linux desktop** — open a terminal and paste:
+**Linux desktop** — open **Terminal** from your applications menu and paste:
 
 ```sh
 sh -c 'u=https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh; if command -v curl >/dev/null; then curl -fsSL "$u"; else wget -qO- "$u"; fi' | sh

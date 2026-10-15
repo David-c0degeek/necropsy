@@ -157,3 +157,17 @@ def test_explicit_library_is_isolated_but_default_library_reuses_legacy_cache(
     normal = RunLibrary()
     assert normal.cache == old_cache
     assert not list(old_cache.iterdir())
+
+
+def test_stop_as_offline_stage_finishes_does_not_auto_open_a_report(tmp_path: Path) -> None:
+    _, run = new_run(tmp_path)
+    stop = threading.Event()
+
+    class StopAtEnd(Scripted):
+        def attempt(self, run: SavedRun, stop: threading.Event, notify: module.Notify) -> Outcome:
+            stop.set()
+            return Outcome(0)
+
+    with pytest.raises(Stopped):
+        StopAtEnd([]).run(run, stop, lambda _: None, lambda _: None, lambda _: None)
+    assert run.status == "Stopped — ready to continue"

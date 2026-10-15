@@ -10,19 +10,20 @@ checksum and installed version, creates a launcher and opens the guided TUI.
 No Git, GitHub account, preinstalled Python or uv is needed. Downloads are public.
 You need an internet connection, a terminal and a normal desktop session.
 
-**Windows (PowerShell)**
+**Windows** — press Start, type **PowerShell** and open it. Paste and press Enter.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
 ```
 
-**macOS (Terminal)**
+**macOS** — press Command+Space, type **Terminal** and open it. Paste and press Return.
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh | sh
 ```
 
-**Linux desktop (curl or wget is selected automatically)**
+**Linux desktop** — open **Terminal** from the applications menu, paste and press Enter.
+The command chooses curl or wget automatically.
 
 ```sh
 sh -c 'u=https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh; if command -v curl >/dev/null; then curl -fsSL "$u"; else wget -qO- "$u"; fi' | sh

@@ -374,6 +374,7 @@ class AnalysisService:
                 run.store("Running")
                 try:
                     outcome = self.attempt(run, stop, progress)
+                    self.check(stop)
                     quota = bool(outcome.acquisition and outcome.acquisition.stopped)
                 except AnalyzeError as error:
                     if error.code != 3 or not any(
