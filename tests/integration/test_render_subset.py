@@ -204,6 +204,7 @@ def test_package_contents_and_manifest(analysis: bytes) -> None:
             "tables/cohort.csv",
             "tables/target_shares.csv",
             "tables/execution.csv",
+            "tables/ability-use.csv",
         }
         assert zf.read("analysis.json") == analysis
         assert zf.read("report.html") == outputs["report.html"]
