@@ -18,7 +18,7 @@ independent arithmetic checks live in `tests/golden/druid/`.
 
 For another checkout, run `git lfs pull`, then
 `uv run necropsy offline tests/golden/druid/raw/NAME.zip --out workspace/EXAMPLE`.
-Use `druid-balance-view.zip` for the full selected Balance view,
+Use `druid-balance-comparisons.zip` for the latest full selected Balance view,
 `druid-tank-view.zip` for your missing-personal Tank example,
 `druid-mixed.zip` for Four Horsemen and
 `druid-sapphiron-restoration.zip` for your Sapphiron example.
@@ -133,3 +133,23 @@ as Hunter. All supported classes share Ability use vs player, with counts and
 uses/minute from recorded actor casts. [Hunter example](../../workspace/hunter-ability-use/playbook.html).
 Missing personal/coverage values remain unknown. Latest engineering verification
 is recorded after the scoped review and CI complete.
+
+
+Latest shared presentation receipt:
+
+Source ad833d8 is pushed. CI passed on Linux (867 passed, 27 skipped) and
+Windows (868 passed, 26 skipped): https://github.com/David-c0degeek/necropsy/actions/runs/38727937515. Both deselected 243 tests.
+Full serial golden/acceptance: 238 passed, four existing xfails, 895 deselected
+in 386.84 s; the subsequent source-link-only correction passed all 27 report/
+package integration checks. Latest raw replay and refreshed outputs for Balance,
+Restoration, missing-personal Tank and Hunter passed all 16 desktop/mobile page
+cases, artifact/package checks, theme/search/review persistence, no overflow,
+remote requests or JS errors. All four saved legacy Hunter artifacts are byte
+identical. New Hunter replays intentionally add ability evidence, table and CSV.
+All existing shot counters match the generic counts across subset encounters.
+Unlimited output-directory secret scans passed: Balance 50,093,915 bytes, Tank
+53,215,139, Restoration 59,476,356, Hunter 3,398,300 (includes retained snapshots,
+not only derived output). New commit-range scan also passed. Raw fixtures unchanged.
+Claude190 agreed the design and191 supplied incorporated guardrails. Latest scoped
+review request is still unread; no final independent verdict is claimed.
+Human taxonomy/findings/product boxes remain open.

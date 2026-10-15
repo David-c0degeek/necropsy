@@ -1,6 +1,6 @@
 # ClassExpansion-Plan.md — Druid first: feral DPS, balance DPS, restoration, feral tank and hybrid; user selected this scope
 
-> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Selected-spec implementation is verified against a 15-boss live Balance capture (14 personal encounters plus a Sapphiron learning example). Acquisition/reporting engineering close-outs are complete. Human/domain gates remain explicit.
+> **Purpose.** Authorized follow-up plan created from the bundled c0degeek planning template on 2026-10-14. Selected-spec implementation is verified against a 15-boss live Balance capture (14 personal encounters plus a Sapphiron learning example). Acquisition is verified; the latest shared reporting implementation and lead verification are complete, with scoped independent review outstanding. Human/domain gates remain explicit.
 >
 > **Disposable.** The plan and its `tasks/class-expansion/` folder are deleted (or
 > archived out of the repo) once the subject ships to production. Deleting or
@@ -522,3 +522,25 @@ normalized multiplicity and unknowns. Shared ability comparison uses counts and
 uses/min; passive ticks and pets remain separate. Hunter new replay JSON/pages/
 package intentionally gain the requested feature; old saved documents remain
 readable and old-document rendering is guarded. No API acquisition changes.
+
+
+## Shared presentation verification handoff
+
+Source ad833d8 is pushed. CI passed on Linux (867 passed, 27 skipped) and
+Windows (868 passed, 26 skipped): https://github.com/David-c0degeek/necropsy/actions/runs/38727937515. Both deselected 243 tests.
+Full serial golden/acceptance: 238 passed, four existing xfails, 895 deselected
+in 386.84 s; the subsequent source-link-only correction passed all 27 report/
+package integration checks. Latest raw replay and refreshed outputs for Balance,
+Restoration, missing-personal Tank and Hunter passed all 16 desktop/mobile page
+cases, artifact/package checks, theme/search/review persistence, no overflow,
+remote requests or JS errors. All four saved legacy Hunter artifacts are byte
+identical. New Hunter replays intentionally add ability evidence, table and CSV.
+All existing shot counters match the generic counts across subset encounters.
+Unlimited output-directory secret scans passed: Balance 50,093,915 bytes, Tank
+53,215,139, Restoration 59,476,356, Hunter 3,398,300 (includes retained snapshots,
+not only derived output). New commit-range scan also passed. Raw fixtures unchanged.
+Claude190 agreed the design and191 supplied incorporated guardrails. Latest scoped
+review request is still unread; no final independent verdict is claimed.
+Human taxonomy/findings/product boxes remain open.
+
+05 implementation boxes are verified, but its CLOSE gate remains open. 06.4 remains open for scoped independent review, and 06.3 remains product-owned. Human01.4/03.4/04.4 also remain open; section7/8 and pair completion are not claimed.

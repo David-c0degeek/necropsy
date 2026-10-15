@@ -13,7 +13,7 @@ Prove all requested Druid roles end to end while retaining the verified Hunter e
 - **Risks:** incomplete prior-art inventory, schema/old-output regressions, unsupported server fields, and evidence being promoted beyond its source.
 
 ## Boxes
-- [ ] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
+- [x] **06.1** (agent) Run real saved-fixture ingest→analysis→report→package for each Druid role, mixed/uncertain cases and Hunter regressions; cross-check golden facts, coverage, role-specific cohorts, hashes and secret scans.
 - [x] **06.2** (agent) Prepare and execute opt-in live Druid acceptance only with authorized accessible reports and credentials; record inaccessible data, metadata/event separation, budget waits and limitations rather than claiming full coverage.
 - [ ] **06.3** (product-owner) Review the Druid report/playbook for all requested roles and accept remaining documented limits; authorize any explicitly deferred role or reduced scope before closure.
 - [ ] **06.4** (agent) Complete latest CI/build/browser checks, cleanup triage, documentation, durable lessons, PM calibration, subject Hindsight and independent Claude review before final sign-off.
@@ -233,3 +233,50 @@ DO NOT CLOSE — only the product-owned review remains; record its actual outcom
 
 
 2026-10-15 · presentation parity correction · User identified that Druid was a visually and structurally inferior raw-detail view, and explicitly requested class-neutral Ability use vsX for Hunter and future classes. Reopened affected engineering boxes; existing user-facing components and gear resolver are reused. Generic source-qualified cast counts, optional entry evidence/schema and shared ability CSV/table are added. Old saved documents remain renderable; regenerated Hunter outputs intentionally add the requested section. Final shared desktop/mobile/raw checks, scoped review and CI remain pending.
+
+
+2026-10-15 · shared presentation verification ·
+
+Source ad833d8 is pushed. CI passed on Linux (867 passed, 27 skipped) and
+Windows (868 passed, 26 skipped): https://github.com/David-c0degeek/necropsy/actions/runs/38727937515. Both deselected 243 tests.
+Full serial golden/acceptance: 238 passed, four existing xfails, 895 deselected
+in 386.84 s; the subsequent source-link-only correction passed all 27 report/
+package integration checks. Latest raw replay and refreshed outputs for Balance,
+Restoration, missing-personal Tank and Hunter passed all 16 desktop/mobile page
+cases, artifact/package checks, theme/search/review persistence, no overflow,
+remote requests or JS errors. All four saved legacy Hunter artifacts are byte
+identical. New Hunter replays intentionally add ability evidence, table and CSV.
+All existing shot counters match the generic counts across subset encounters.
+Unlimited output-directory secret scans passed: Balance 50,093,915 bytes, Tank
+53,215,139, Restoration 59,476,356, Hunter 3,398,300 (includes retained snapshots,
+not only derived output). New commit-range scan also passed. Raw fixtures unchanged.
+Claude190 agreed the design and191 supplied incorporated guardrails. Latest scoped
+review request is still unread; no final independent verdict is claimed.
+Human taxonomy/findings/product boxes remain open.
+
+## Captain Hindsight — shared presentation and ability use
+
+### Keep
+Shared Value/plan/equipment/ability components and thin class evidence adapters.
+Class-specific labels and actual recorded counts are visible in the established
+product hierarchy. Existing guidance and pinned encounter facts retain caveats.
+
+### Fix before closing
+Obtain the outstanding scoped independent review; record actual findings/verdict.
+For validation, also retain the separately owned product acceptance gate.
+
+### Record
+The first CI exposed a missing standard external-link attribute and an outdated
+exact package member assertion; both fixed, 27 integration checks and latest CI
+pass. No new domain mechanics were invented. Durable decisions and lessons are
+updated. PM-1/2/3 calibration remains as previously recorded; CH-MISS-6 now has
+actual shared page/data evidence, while human acceptance remains inconclusive.
+
+### Risk
+Cast coverage, assignments and available exemplars limit inference. Ability-use
+rates describe recorded fights and cannot establish optimal play. Only Hunter
+and Druid analyzers exist; shared components support future class adapters.
+
+### Verdict
+DO NOT CLOSE — scoped independent review is outstanding; human-owned gates are
+also outstanding where applicable. Implementation and lead verification are complete.

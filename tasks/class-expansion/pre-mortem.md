@@ -188,3 +188,25 @@ Future class expansion needs a real side-by-side page/data inventory, shared
 visual components, prominent meaningful comparisons and parity checks before
 engineering closure. Existing whole-repo cleanup reuse still applies; no new
 pipeline or dependency is introduced.
+
+
+Latest presentation verification:
+
+Source ad833d8 is pushed. CI passed on Linux (867 passed, 27 skipped) and
+Windows (868 passed, 26 skipped): https://github.com/David-c0degeek/necropsy/actions/runs/38727937515. Both deselected 243 tests.
+Full serial golden/acceptance: 238 passed, four existing xfails, 895 deselected
+in 386.84 s; the subsequent source-link-only correction passed all 27 report/
+package integration checks. Latest raw replay and refreshed outputs for Balance,
+Restoration, missing-personal Tank and Hunter passed all 16 desktop/mobile page
+cases, artifact/package checks, theme/search/review persistence, no overflow,
+remote requests or JS errors. All four saved legacy Hunter artifacts are byte
+identical. New Hunter replays intentionally add ability evidence, table and CSV.
+All existing shot counters match the generic counts across subset encounters.
+Unlimited output-directory secret scans passed: Balance 50,093,915 bytes, Tank
+53,215,139, Restoration 59,476,356, Hunter 3,398,300 (includes retained snapshots,
+not only derived output). New commit-range scan also passed. Raw fixtures unchanged.
+Claude190 agreed the design and191 supplied incorporated guardrails. Latest scoped
+review request is still unread; no final independent verdict is claimed.
+Human taxonomy/findings/product boxes remain open.
+
+CH-MISS-6 is mitigated by the actual paired class pages and shared components, with independent review still pending. Two integration misses were caught by CI and fixed before this handoff; no root cause beyond the observed omissions is inferred.

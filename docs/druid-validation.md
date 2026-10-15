@@ -95,3 +95,6 @@ Both final outputs passed artifact/package checks and eight real desktop/mobile
 page cases. Full serial golden/acceptance: 238 passed, four retained expected
 failures. The nine raw fixtures remain immutable. Linux/Windows source CI and
 scoped independent review passed; domain/product acceptance remains outstanding.
+
+
+Shared presentation verification now covers Balance, Restoration, missing-personal Tank and Hunter: four actual raw replays and sixteen refreshed desktop/mobile page cases. Golden/acceptance remains 238 passed/four expected failures. Linux/Windows CI passed on ad833d8 after the source-link and package-test corrections. Old saved Hunter document artifacts remain byte-identical; new replays add the shared ability table and CSV. Scoped final independent review and human domain/product acceptance remain pending.
