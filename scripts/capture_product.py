@@ -46,9 +46,7 @@ def main() -> None:
                 boss = page.locator("section.boss").first
                 boss_id = boss.get_attribute("id")
                 page.goto(page.url + "#" + str(boss_id))
-                page.locator(
-                    f".sidenav a[href='#{boss_id}'][aria-current='location']"
-                ).wait_for()
+                page.locator(f".sidenav a[href='#{boss_id}'][aria-current='location']").wait_for()
                 page.screenshot(path=str(args.out / "playbook.png"))
                 evidence = boss.locator(".action-evidence > summary").first
                 if evidence.count():

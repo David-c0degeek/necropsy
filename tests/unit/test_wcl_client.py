@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import random
+from pathlib import Path
 from typing import Any
 
 import httpx
@@ -256,3 +257,66 @@ def test_reset_wait_must_fit_the_cap_including_the_extra_second() -> None:
     with pytest.raises(c.BudgetExceeded):
         client.ensure_budget(100.0)
     assert clock.sleeps == []
+
+
+def test_request_checkpoint_does_not_rewind_the_live_budget(tmp_path: Path) -> None:
+    from necropsy.wcl.checkpoint import Journal
+
+    journal = Journal(tmp_path / "requests")
+    first = _client(Script(ok({"x": 1})))
+    first.journal = journal
+    captured = first.query(Q).captured_at
+    script = Script()
+    second = _client(script)
+    second.journal = Journal(journal.root)
+    second.last_rate = c.RateLimit(3600, 2000, 300)
+    second.last_rate_at = 99.0
+    second.clock.sleep(3600)
+    replayed = second.query(Q)
+    assert replayed.data["x"] == 1
+    assert replayed.captured_at == captured
+    assert replayed.captured_at != second.clock.now().isoformat()
+    assert not script.requests
+    assert second.last_rate.points_spent == 2000
+    assert second.last_rate_at == 99.0
+    first.close()
+    second.close()
+
+
+def test_checkpoint_separates_finalization_and_drops_changed_report(tmp_path: Path) -> None:
+    from necropsy.wcl.checkpoint import Journal
+
+    journal = Journal(tmp_path / "requests")
+    identity = journal.identity(VANILLA.host, "user", Q, {"code": "Test"})
+    journal.write(identity, {"value": 1})
+    journal.scope = "finalization"
+    final = journal.identity(VANILLA.host, "user", Q, {"code": "Test"})
+    assert journal.read(final) is None
+    journal.write(final, {"value": 2})
+    journal.forget_report("Test")
+    assert journal.read(identity) is None and journal.read(final) is None
+
+
+def test_partial_rate_limit_response_is_not_saved(tmp_path: Path) -> None:
+    from necropsy.wcl.checkpoint import Journal
+
+    script = Script(ok({"x": None}, errors=[{"message": "rate limit exceeded"}]))
+    client = _client(script)
+    client.journal = Journal(tmp_path / "requests")
+    with pytest.raises(c.RateLimited):
+        client.query(Q)
+    assert not list(client.journal.root.glob("*.json"))
+    client.close()
+
+
+def test_corrupt_saved_response_is_refused(tmp_path: Path) -> None:
+    from necropsy.wcl.cache import CacheCorrupt
+    from necropsy.wcl.checkpoint import Journal
+
+    journal = Journal(tmp_path / "requests")
+    identity = journal.identity(VANILLA.host, "user", Q, None)
+    journal.write(identity, {"x": 1})
+    path = next(journal.root.glob("*.json"))
+    path.write_text(path.read_text().replace('"x":1', '"x":2'))
+    with pytest.raises(CacheCorrupt, match="digest differs"):
+        journal.read(identity)

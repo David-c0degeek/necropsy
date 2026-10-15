@@ -8,7 +8,7 @@ a boss-by-boss plan, and the evidence behind every finding.
 
 [Try the offline demo](docs/getting-started.md) ·
 [Read your results](docs/reading-results.md) ·
-[Documentation](docs/README.md) · [Install the CLI](docs/installation.md)
+[Documentation](docs/README.md) · [Install and open](docs/installation.md)
 
 ![Necropsy raid overview showing character identity, priorities, comparison quality and boss navigation](docs/images/overview.png)
 
@@ -34,46 +34,56 @@ requests. Dark and light themes, restrained class identity, boss search and loca
 review marks make repeat review practical on desktop and mobile. Following a WCL
 source link opens the online source deliberately.
 
-## Try it in two commands
+## Install and open
 
-From a repository checkout, with [uv](https://docs.astral.sh/uv/) installed:
+Copy the command for your computer into a terminal. Setup installs Necropsy,
+Python and its runtime automatically and opens the guided app. You do not need
+Git, Python, uv, a GitHub account or an administrator account to get started.
 
-```sh
-uv sync --locked
-uv run necropsy offline tests/fixtures/haplina_naxx_subset.zip --out workspace/demo
+**Windows** — open PowerShell and paste:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
 ```
 
-Open **`workspace/demo/playbook.html`** to plan improvements, or
-**`workspace/demo/report.html`** to investigate. The included Hunter sample covers
-four Naxxramas bosses. It needs no WCL login, no full Git LFS fixture and no network
-after dependency installation. Small samples and unknown values are part of the
-real output.
-
-Python 3.14 or newer is required; uv can provision it. Repository access is
-required for this private development project. For installation outside a
-checkout, use the [released CLI installation guide](docs/installation.md).
-The screenshots on this branch show the current redesign; an older tagged
-release may have the previous interface.
-
-## Analyze your character
-
-Sign in with your own Warcraft Logs account, then use a fresh output directory:
+**macOS** — open Terminal and paste:
 
 ```sh
-uv run necropsy auth login
-uv run necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache workspace/wcl-cache --out workspace/my-run
+curl -fsSL https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh | sh
 ```
 
-Use a Classic Era character URL on `vanilla.warcraftlogs.com`. An interactive
-terminal asks for faction and spec/category; scripts can pass `--faction` and
-`--spec` explicitly. Public sign-in requires `--endpoint user`.
-[Connection and recovery](docs/warcraft-logs.md) explains permissions and coverage.
+**Linux desktop** — open a terminal and paste:
 
-Acquisition uses the network and saves a snapshot. The resulting **Playbook**,
-**Report**, **`analysis.json`** and optional ZIP package remain useful offline.
-Exit status `4` means results were written with partial coverage; read those
-limitations before interpreting findings. These are saved analyses, not live
-dashboards.
+```sh
+sh -c 'u=https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh; if command -v curl >/dev/null; then curl -fsSL "$u"; else wget -qO- "$u"; fi' | sh
+```
+
+Windows gets a desktop/Start menu shortcut; macOS gets
+`Applications/Necropsy.command`; Linux gets an applications-menu launcher.
+You can also run `necropsy` in a new terminal. Repeating setup updates the app
+and preserves your sign-in, saved runs and reports.
+
+## Your first analysis
+
+1. Paste your Warcraft Logs character link and choose **Find my character**.
+2. Sign in through your browser when asked, then return to Necropsy.
+3. Choose your spec and **Analyze my character**. Your faction, account endpoint,
+   cache and output folder are handled for you.
+4. Watch the live activity. The Playbook opens in your browser when ready.
+
+When Warcraft Logs reaches its hourly allowance, Necropsy saves progress,
+shows a countdown and automatically continues after the reset. You can choose
+**Stop and save**, close the app and return later. Select the run under
+**Your saved analyses** and choose **Continue analysis**. **Open report** opens
+an existing report without contacting Warcraft Logs. Older CLI analyses can be
+added from their saved folder; pre-checkpoint runs recover cached data into a
+new run while preserving the original files.
+
+A normal desktop password vault is needed for sign-in: Windows Credential
+Manager, macOS Keychain, or Secret Service/KWallet on Linux. Private and archived
+WCL reports still depend on your account permissions. See
+[installation and recovery](docs/installation.md) for details and
+[developer setup](CONTRIBUTING.md) for the sample and advanced CLI.
 
 ## Supported today
 
@@ -100,10 +110,10 @@ distinguish synthetic checks from real-log evidence, including the outstanding
 real Holy Priest healing fixture. A supported category does not imply every
 rotation or assignment has been independently validated.
 
-Windows is the verified end-user installation target. Linux has automated
-installation/offline checks; real credential-store support there and macOS
-remain unverified. Other raids, game variants and a native desktop launcher are
-[future work](docs/roadmap.md).
+Installers and the guided terminal app target Windows, macOS and Linux desktop.
+Windows has real account/password-vault validation; platform automation and
+real-account evidence are distinguished in [installation](docs/installation.md).
+More raids and game variants remain [future work](docs/roadmap.md).
 
 ## Trust the evidence, including its limits
 

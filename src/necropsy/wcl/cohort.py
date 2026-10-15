@@ -351,7 +351,7 @@ def fetch_page(
                 {
                     "page": page,
                     "characterRankings": encounter.get("characterRankings"),
-                    "captured_at": client.clock.now().isoformat(),
+                    "captured_at": result.captured_at,
                 }
             )
         return page_items(encounter.get("characterRankings"), page)

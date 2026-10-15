@@ -8,14 +8,14 @@ Playbook and Report work offline.
 
 ## Start here
 
-1. [Getting started](getting-started.md) — install from a checkout, run the sample
-   and open your first analysis.
+1. [Getting started](getting-started.md) — one-command install, guided sign-in,
+   first report and continuation of saved analyses.
 2. [Connect Warcraft Logs](warcraft-logs.md) — sign in and analyze your character.
 3. [Reading your results](reading-results.md) — overview → priority → boss → action
    → explanation → evidence.
 
 For a standalone installation, upgrades or removal, use
-[Install the CLI](installation.md).
+[Install and open Necropsy](installation.md).
 
 ## Understand your analysis
 

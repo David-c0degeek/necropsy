@@ -9,7 +9,9 @@ coverage context** or **Your measurements** to inspect the inference and its
 limits. Orange class identity never implies a specific spec or duty.
 
 Classic Era Naxxramas Druids use the same acquisition, snapshot, evidence,
-report and package pipeline as Hunters. Select the spec or role you want to view:
+report and package pipeline as Hunters. In the TUI, paste your character link,
+choose Balance, Feral, Tank or Restoration and start the analysis. The following
+commands are the equivalent advanced CLI examples:
 
 ```sh
 uv run necropsy analyze "https://vanilla.warcraftlogs.com/character/id/110733843" --faction Alliance --spec Balance --cross-faction --endpoint user --cache workspace/druid-cache --out workspace/balance

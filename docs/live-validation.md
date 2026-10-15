@@ -92,8 +92,10 @@ sign-in and report generation. This is owner-attested acceptance; the agent did
 not observe the independent machine or receive its OS, raw outputs or detailed
 receipt. Do not describe those missing details as independently inspected.
 
-The supported release target remains Windows with Python >=3.14, backed by the
-local install/live WinVault evidence above. Linux has synthetic CI installation
-coverage; real Linux/macOS credential-store support is not certified. Version0.1.0
-is distributed through the private repository's GitHub release for authorized
-collaborators. No public package-index availability is implied.
+For the original 0.1.0 acceptance, Windows/Python >=3.14 was the supported
+release target, backed by the local install/live WinVault evidence above. That
+release was published while the repository was private. The repository is now
+public. The 0.2.0 guided app and bootstrap target Windows, macOS and Linux desktop;
+[installation](installation.md) records current engineering checks. Real
+Linux/macOS WCL account/vault behavior is not certified by the historical
+Windows receipt or synthetic CI. No public package-index availability is implied.

@@ -11,6 +11,8 @@ from pathlib import Path
 from typing import Annotated
 
 import typer
+from rich.console import Console
+from rich.status import Status
 
 from necropsy.snapshot.v1_writer import WriteError
 from necropsy.wcl.analyze import AnalyzeError, run_analyze
@@ -207,6 +209,29 @@ def _tokens() -> Callable[[str], str]:
     return _auth().token_for
 
 
+class _Activity:
+    """Animate on terminals; emit durable, immediately flushed stages in logs."""
+
+    def __init__(self) -> None:
+        self.console = Console(stderr=True)
+        self.status: Status | None = None
+
+    def __enter__(self) -> _Activity:
+        if self.console.is_terminal:
+            self.status = self.console.status("Starting analysis", spinner="line")
+            self.status.start()
+        return self
+
+    def update(self, message: str) -> None:
+        if self.status is not None:
+            self.status.update(message)
+        self.console.print(message, markup=False, highlight=False)
+
+    def __exit__(self, *args: object) -> None:
+        if self.status is not None:
+            self.status.stop()
+
+
 def analyze_command(
     url: Annotated[str, typer.Argument(help="A Warcraft Logs character URL.")],
     cache: Annotated[
@@ -214,7 +239,10 @@ def analyze_command(
         typer.Option("--cache", help="Keep fetched API data here for later runs. Required."),
     ],
     out: Annotated[
-        Path, typer.Option("--out", help="Write results here. Refuses earlier analysis outputs.")
+        Path,
+        typer.Option(
+            "--out", help="Write results here. Use --resume to continue a saved analysis."
+        ),
     ],
     partition: Annotated[
         int | None, typer.Option(help="Partition id when several hold rankings.")
@@ -256,6 +284,12 @@ def analyze_command(
         bool,
         typer.Option("--package/--no-package", help="Also write the shareable ZIP package."),
     ] = True,
+    resume: Annotated[
+        bool,
+        typer.Option(
+            "--resume", help="Continue this output directory after a quota stop or interruption."
+        ),
+    ] = False,
     wait_for_reset: Annotated[
         bool,
         typer.Option(
@@ -270,7 +304,7 @@ def analyze_command(
     4: partial report; 2: choose a partition; 3: finalization stopped, no report;
     1: failure. Saved snapshots can be replayed with offline.
     """
-    if sys.stdin.isatty():
+    if sys.stdin.isatty() and not resume:
         if faction is None:
             faction = typer.prompt("Character faction (Alliance/Horde)")
         if spec is None and category is None:
@@ -279,23 +313,31 @@ def analyze_command(
                 default="all",
             )
     try:
-        outcome = run_analyze(
-            url,
-            cache=cache,
-            out=out,
-            partition=partition,
-            endpoint=endpoint,
-            cross_faction=cross_faction,
-            name=name,
-            package=package,
-            category=category,
-            spec=spec,
-            faction=faction,
-            metric=metric,
-            wait_for_reset=wait_for_reset,
-            tokens=_tokens,
-            client_factory=_client,
+        with _Activity() as activity:
+            outcome = run_analyze(
+                url,
+                cache=cache,
+                out=out,
+                partition=partition,
+                endpoint=endpoint,
+                cross_faction=cross_faction,
+                name=name,
+                package=package,
+                category=category,
+                spec=spec,
+                faction=faction,
+                metric=metric,
+                wait_for_reset=wait_for_reset,
+                tokens=_tokens,
+                client_factory=_client,
+                progress=activity.update,
+                resume=resume,
+            )
+    except KeyboardInterrupt:
+        typer.echo(
+            "Interrupted. Keep the cache and output directory; continue with --resume.", err=True
         )
+        raise typer.Exit(code=130) from None
     except AnalyzeError as exc:
         for line in exc.lines:
             typer.echo(line, err=True)

@@ -17,7 +17,7 @@ uv run mypy
 uv run pytest -m "not golden and not live and not acceptance"
 ```
 
-These match ordinary CI on Linux and Windows with Python 3.14. The fast suite
+These match ordinary CI on Linux, Windows and macOS with Python 3.14. The fast suite
 uses the committed subset without the full Git LFS export.
 Try the user workflow in [Getting started](docs/getting-started.md).
 
@@ -70,9 +70,8 @@ Keep credentials, tokens, private exports, and identifying player details out
 of issues and attachments. Use a sanitized reproduction or reference the
 authorized fixture. Put generated analyses in Git-ignored `workspace/`.
 Personal live authentication is implemented; see [authentication](docs/auth.md).
-Full live acceptance is recorded separately from offline tests. A distributed
-client remains future work and requires public-client PKCE; do not add
-credential-sharing instructions.
+Full live acceptance is recorded separately from offline tests. The guided app and public installers use the registered PKCE client; never add
+shared-secret or credential-sharing instructions.
 
 ## Make a change easy to review
 
@@ -85,7 +84,9 @@ Druid contracts are documented in [Druid analysis](docs/druid-analysis.md). Exte
 
 ## Verify distribution artifacts
 
-Follow [the isolated package check](docs/installation.md#build-verification-for-contributors).
+Follow [the isolated package check](docs/installation.md#verification-and-removal).
+Build the installer bundle with `uv run python scripts/build_release.py --out workspace/release`.
+Run `scripts/check_bootstrap.py` on each target OS with a fresh managed-Python path.
 Build through the sdist, scan all extracted members with unlimited-size gitleaks,
 and test the installed entry point, public flow and offline replay outside the
 checkout. A real OS-store probe uses disposable synthetic credentials. CI does

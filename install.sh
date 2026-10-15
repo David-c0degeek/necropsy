@@ -1,0 +1,127 @@
+#!/bin/sh
+# Per-user macOS/Linux setup. No Python, uv, Git, shell restart or sudo required.
+set -eu
+version=0.2.0
+uv_version=0.11.21
+release="https://github.com/David-c0degeek/necropsy/releases/download/v$version"
+wheel_name="necropsy-$version-py3-none-any.whl"
+platform=$(uname -s)
+case "$platform" in
+    Darwin) default_root="$HOME/Library/Application Support/Necropsy/app" ;;
+    Linux) default_root="${XDG_DATA_HOME:-$HOME/.local/share}/necropsy/app" ;;
+    *) printf '%s\n' 'Please use the Windows installer on Windows.' >&2; exit 1 ;;
+esac
+app_root=${NECROPSY_INSTALL_ROOT:-$default_root}
+mkdir -p "$app_root"
+app_root=$(cd "$app_root" && pwd -P)
+work_root=$(mktemp -d "$app_root/.setup-XXXXXXXX")
+cleanup() { rm -f "$work_root"/*; rmdir "$work_root" 2>/dev/null || true; }
+failed() {
+    printf '%s\n' 'Setup could not finish. Check your connection and run the same command again.' \
+        'Your reports and sign-in are preserved.' >&2
+}
+trap cleanup EXIT
+trap 'failed; exit 1' HUP INT TERM
+download() {
+    if command -v curl >/dev/null 2>&1; then
+        curl --fail --location --silent --show-error --proto '=https' --tlsv1.2 "$1" -o "$2"
+    elif command -v wget >/dev/null 2>&1; then
+        wget --https-only --quiet "$1" -O "$2"
+    else
+        printf '%s\n' 'This computer needs curl or wget to download the app.' >&2; return 1
+    fi
+}
+setup() {
+    printf '%s\n' 'Necropsy setup - getting everything ready for you.' '[1/4] Getting the app...'
+    if [ -n "${NECROPSY_BUNDLE_DIR:-}" ]; then
+        cp "$NECROPSY_BUNDLE_DIR/$wheel_name" "$work_root/$wheel_name"
+        cp "$NECROPSY_BUNDLE_DIR/SHA256SUMS" "$work_root/SHA256SUMS"
+    else
+        download "$release/$wheel_name" "$work_root/$wheel_name"
+        download "$release/SHA256SUMS" "$work_root/SHA256SUMS"
+    fi
+    expected=$(awk -v name="$wheel_name" '$2 == name { print $1 }' "$work_root/SHA256SUMS")
+    if [ "${#expected}" -ne 64 ]; then
+        printf '%s\n' 'The app checksum is missing or ambiguous.' >&2; return 1
+    fi
+    if command -v sha256sum >/dev/null 2>&1; then
+        actual=$(sha256sum "$work_root/$wheel_name" | awk '{ print $1 }')
+    else
+        actual=$(shasum -a 256 "$work_root/$wheel_name" | awk '{ print $1 }')
+    fi
+    if [ "$actual" != "$expected" ]; then
+        printf '%s\n' 'The app download was damaged. Nothing was installed. Please retry setup.' >&2
+        return 1
+    fi
+    printf '%s\n' '[2/4] Preparing the app runtime (no Python installation required)...'
+    uv_root="$app_root/runtime/uv"
+    uv="$uv_root/uv"
+    if [ ! -x "$uv" ]; then
+        download "https://astral.sh/uv/$uv_version/install.sh" "$work_root/uv-install.sh"
+        UV_INSTALL_DIR="$uv_root" UV_NO_MODIFY_PATH=1 sh "$work_root/uv-install.sh"
+    fi
+    environment_root=$(mktemp -d "$app_root/versions-$version-XXXXXXXX")
+    "$uv" venv --python 3.14 --managed-python "$environment_root"
+    python="$environment_root/bin/python"
+    printf '%s\n' '[3/4] Installing Necropsy...'
+    "$uv" pip install --python "$python" "$work_root/$wheel_name"
+    installed=$("$python" -m necropsy --version)
+    if [ "$installed" != "necropsy $version" ]; then
+        printf '%s\n' 'The app could not start. Your previous launcher has been preserved.' >&2
+        return 1
+    fi
+    printf '%s\n' '[4/4] Making it easy to open next time...'
+    # Store the interpreter as data; never interpolate a home directory into shell code.
+    printf '%s\n' "$python" > "$work_root/python-path"
+    mv "$work_root/python-path" "$app_root/python-path"
+    cat > "$work_root/necropsy" <<'LAUNCHER'
+#!/bin/sh
+set -eu
+target=$0
+while [ -L "$target" ]; do
+    link=$(readlink "$target")
+    case "$link" in /*) target=$link ;; *) target=$(dirname "$target")/$link ;; esac
+done
+app_root=$(CDPATH='' cd -- "$(dirname -- "$target")" && pwd -P)
+python=$(cat "$app_root/python-path")
+exec "$python" -m necropsy "$@"
+LAUNCHER
+    chmod 755 "$work_root/necropsy"
+    mv "$work_root/necropsy" "$app_root/necropsy"
+    if [ "${NECROPSY_NO_SHORTCUTS:-0}" != 1 ]; then
+        mkdir -p "$HOME/.local/bin"
+        ln -sfn "$app_root/necropsy" "$HOME/.local/bin/necropsy"
+        if [ "$platform" = Darwin ]; then
+            mkdir -p "$HOME/Applications"
+            ln -sfn "$app_root/necropsy" "$HOME/Applications/Necropsy.command"
+        else
+            applications="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+            mkdir -p "$applications"
+            # Desktop Exec quoted paths require backslash, quote, backtick and dollar escaping.
+            desktop_exec=$(printf '%s' "$app_root/necropsy" | sed 's/[\\"`$]/\\&/g; s/%/%%/g')
+            printf '%s\n' '[Desktop Entry]' 'Type=Application' 'Name=Necropsy' \
+                'Comment=Analyze Warcraft Logs and continue saved analyses' \
+                "Exec=\"$desktop_exec\"" 'Terminal=true' 'Icon=utilities-terminal' \
+                'Categories=Game;Utility;' > "$applications/necropsy.desktop"
+            chmod 755 "$applications/necropsy.desktop"
+        fi
+        if [ "${NECROPSY_NO_PATH_CHANGE:-0}" != 1 ]; then
+            case "${SHELL:-sh}" in
+                */zsh) profile="$HOME/.zshrc" ;;
+                */bash) profile="$HOME/.bashrc" ;;
+                *) profile="$HOME/.profile" ;;
+            esac
+            path_line='export PATH="$HOME/.local/bin:$PATH" # Necropsy launcher'
+            if ! grep -Fq '# Necropsy launcher' "$profile" 2>/dev/null; then
+                printf '\n%s\n' "$path_line" >> "$profile"
+            fi
+        fi
+    fi
+    printf '%s\n' 'Ready! Next time, open Necropsy from Applications, or type necropsy in a new terminal.'
+}
+# Keep errexit active inside setup; an unchecked failed command must never publish a launcher.
+setup
+if [ "${NECROPSY_NO_LAUNCH:-0}" != 1 ]; then
+    # A piped installer consumes stdin. Reconnect the TUI to the terminal.
+    "$app_root/necropsy" tui </dev/tty
+fi

@@ -445,6 +445,8 @@ class Run:
         self.stage = "starting"
 
     def bundle(self, code: str, fight: int, encounter: int, *, fresh: bool = False) -> Bundle:
+        if fresh and self.client.journal is not None:
+            self.client.journal.forget_report(code)
         if fresh or (code, fight) not in self._bundles:
             before = self.client.last_rate
             self._bundles[(code, fight)] = fetch_bundle(
@@ -808,9 +810,30 @@ def acquire_boss(
     _acquire_comparisons(run, context, boss, cross_faction)
 
 
-def _acquire_spec_view(run: Run, context: CharacterContext, out: Acquisition) -> Acquisition:
+def _boss_progress(
+    progress: Callable[[str], None] | None,
+    encounter: int,
+    requested: tuple[int, ...],
+    stage: str,
+) -> None:
+    if progress is not None:
+        encounters = load_rules(GAME, f"zones/{ZONE}")["encounters"]
+        names = {int(e["id"]): str(e["name"]) for e in encounters}
+        progress(
+            f"{stage}: {names.get(encounter, encounter)} "
+            f"({requested.index(encounter) + 1}/{len(requested)} bosses)"
+        )
+
+
+def _acquire_spec_view(
+    run: Run,
+    context: CharacterContext,
+    out: Acquisition,
+    progress: Callable[[str], None] | None = None,
+) -> Acquisition:
     """Personal spec coverage precedes examples; absent personal fights get examples first."""
     for encounter in out.requested:
+        _boss_progress(progress, encounter, out.requested, "Fetching personal logs")
         boss = BossAcquisition(encounter)
         out.bosses.append(boss)
         try:
@@ -838,6 +861,11 @@ def _acquire_spec_view(run: Run, context: CharacterContext, out: Acquisition) ->
                 fights = {(e.report_code, e.fight_id) for _, e in out.complete_entries()}
                 prospective = len(fights) + extra_fights
                 reserve = 2 * run.report_points_bound * prospective
+                if run.client.journal is not None:
+                    # Finalization can now span quota windows. Reserving the
+                    # whole raid can otherwise consume a small account's entire
+                    # allowance and prevent any further acquisition on resume.
+                    reserve = min(reserve, original_policy.budget_share * rate.limit_per_hour / 2)
                 # Lowering the comparison budget cannot spend the finalization reserve.
                 # Event pagination still pays against this guard on every request.
                 run.client.policy = replace(
@@ -849,6 +877,7 @@ def _acquire_spec_view(run: Run, context: CharacterContext, out: Acquisition) ->
                 )
 
             for boss in out.bosses:
+                _boss_progress(progress, boss.encounter_id, out.requested, "Fetching rankings")
                 try:
                     reserve_policy(0)
                     _acquire_rankings(run, context, boss)
@@ -860,6 +889,7 @@ def _acquire_spec_view(run: Run, context: CharacterContext, out: Acquisition) ->
                     )
                     break
             for boss in comparisons if out.stopped is None else ():
+                _boss_progress(progress, boss.encounter_id, out.requested, "Fetching comparisons")
                 try:
                     reserve_policy(int(_live()["deep"]) + int(out.cross_faction))
                     _acquire_comparisons(run, context, boss, out.cross_faction)
@@ -894,6 +924,7 @@ def acquire(
     endpoint: Endpoint = "client",
     cross_faction: bool = False,
     encounters: tuple[int, ...] | None = None,
+    progress: Callable[[str], None] | None = None,
 ) -> Acquisition:
     """Acquire every supported boss (or `encounters`), stopping cleanly on point limits."""
     run = Run(
@@ -908,8 +939,9 @@ def acquire(
     requested = tuple(encounters or boss_order())
     out = Acquisition(endpoint, cross_faction, context, requested)
     if (context.class_id.value == 2 or context.ranking_category is not None) and len(requested) > 1:
-        return _acquire_spec_view(run, context, out)
+        return _acquire_spec_view(run, context, out, progress)
     for encounter in requested:
+        _boss_progress(progress, encounter, requested, "Fetching personal logs and comparisons")
         boss = BossAcquisition(encounter)
         out.bosses.append(boss)
         try:
@@ -966,6 +998,8 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
         if not isinstance(report, dict) or report.get("code") != code:
             raise ReportInaccessible(f"WCL returned no usable combined report {code}")
         if _int(report.get("revision")) != revision:
+            if run.client.journal is not None:
+                run.client.journal.forget_report(code)
             raise MixedRevision(
                 f"combined report {code} is revision {report.get('revision')!r}, "
                 f"entries are {revision}"

@@ -14,6 +14,20 @@ refused with an explanation before Necropsy accesses saved credentials.
 For storage, token lifecycle and distribution limits, see
 [Authentication boundaries](auth.md).
 
+## Guided sign-in and recovery
+
+Open **Necropsy**, paste your character link and choose **Find my character**.
+Sign in in your browser when prompted. The user endpoint, cache and output
+folder are selected for you. Choose a spec and **Analyze my character**.
+
+The app saves each successful request/page. Hourly quota exhaustion shows a
+countdown and sleeps until it can automatically continue. **Stop and save**
+returns you to your saved runs; select one and **Continue analysis** later.
+Missing permissions/archived data finish with coverage notes rather than waiting
+indefinitely. **Open report** needs no connection. See [first analysis](getting-started.md).
+
+The commands below are for advanced CLI users and application maintainers.
+
 ## What needs a connection?
 
 Sign-in, character resolution and acquisition contact Warcraft Logs. Acquisition
@@ -23,7 +37,8 @@ resulting Playbook and Report are **saved analyses**, not live dashboards.
 Opening the HTML, changing theme, reviewing bosses, inspecting evidence and
 printing make no automatic network requests. WCL and source-document links go
 online only when followed. To refresh rankings or acquire missing evidence,
-run a new analysis into a fresh directory; reopening the HTML does not fetch it.
+start a new analysis or continue an incomplete saved run; reopening the HTML
+does not fetch anything.
 
 Start with the overview's **How complete is this analysis?** disclosure. A
 coverage warning can coexist with usable findings. Requested-boss acquisition
@@ -34,8 +49,8 @@ status and source-specific limitations remain in the detailed coverage sections.
 For an installed CLI, follow [installation](installation.md). The application
 owner creates a separate public Necropsy client in [WCL client management](https://www.warcraftlogs.com/api/clients),
 registering exactly `http://localhost:8765/callback` and enabling the public-client
-option. Keep confidential personal clients separate. Public registration and
-account permissions must be verified before release; no shared secret is shipped.
+option. Keep confidential personal clients separate. The registered public client is included; normal users do not register an
+application or enter an API secret. Account permissions remain WCL's decision.
 
 ```sh
 uv run necropsy auth login
@@ -139,14 +154,23 @@ uv run necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache workspace/w
 
 Add `--wait-for-reset` to allow one wait based on an observed hourly reset,
 at most one hour, while retaining the acquisition in memory. The default stops
-without waiting. The budget share and fresh report verification stay unchanged;
-a second budget stop ends normally. Cancellation interrupts the wait. The output
+without waiting. Successful API requests are checkpointed to disk, including
+event pages from incomplete streams. A second budget stop ends normally. Cancellation interrupts the wait. The output
 lock remains held, and a wait inside an event fetch can also hold that stream's
 lock. A second run using the same output or locked stream is refused.
 
 Both directories can be created by the command. Reuse the cache across runs;
-choose an output directory without earlier analysis files or snapshots. The
-command refuses existing results before accessing credentials or making requests.
+choose an output directory without earlier analysis files or snapshots for a new
+analysis. After a quota reset or interruption, repeat the command with `--resume`
+and the same output directory. Keep `.necropsy-run` alongside the outputs. Saved
+spec/faction choices are restored and completed requests cost no new API points.
+Finalization is separate from acquisition: each report is verified once for its
+exact fight set, with successfully finalized answers retained across attempts.
+A report revision change discards that report's saved requests before retrying.
+Snapshots from earlier attempts are preserved. Resume validates options and
+owned output digests before credentials are accessed; unrelated/modified files
+are refused. Pre-0.1.1 runs have no checkpoint: retain their cache and choose a
+fresh output directory once to start the new resumable run.
 It also refuses paths through symlinks or junctions and prevents simultaneous
 `analyze` runs in one output directory. The offline and render commands retain
 their existing replacement behavior.

@@ -111,3 +111,42 @@ def test_comparison_stop_or_exception_restores_budget_policy(
         assert "reserve kept" in str(result.stopped)
         assert all(not b.coverage["complete"] for b in result.bosses)
     assert client.policy is original
+
+
+@pytest.mark.parametrize("resumable", [False, True])
+def test_small_quota_keeps_room_for_comparisons_when_finalization_can_resume(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, resumable: bool
+) -> None:
+    from necropsy.wcl.checkpoint import Journal
+    from necropsy.wcl.client import BudgetExceeded, RateLimit
+
+    comparisons_done: list[int] = []
+
+    def subject(run: Any, context: Any, boss: Any, cross: bool) -> None:
+        boss.key = cohort_key(VANILLA, context, boss.encounter_id)
+        # The estimated full-raid finalization cost exceeds this account's quota.
+        run.report_points_bound = 1000
+
+    def comparisons(run: Any, context: Any, boss: Any, cross: bool) -> None:
+        try:
+            run.client.ensure_budget(None)
+        except BudgetExceeded as error:
+            raise RunStopped(str(error)) from error
+        comparisons_done.append(boss.encounter_id)
+
+    monkeypatch.setattr(module, "_acquire_subject", subject)
+    monkeypatch.setattr(module, "_acquire_rankings", lambda *args: None)
+    monkeypatch.setattr(module, "_acquire_comparisons", comparisons)
+    context = replace(_context(), class_id=Field(2, "observed", "test"), ranking_category="Balance")
+    client = _client(FakeWcl([], Player("Haplina")))
+    client.last_rate = RateLimit(1200, 100, 1800)
+    if resumable:
+        client.journal = Journal(tmp_path / "requests")
+    result = acquire(client, Cache(tmp_path), VANILLA, context, encounters=(PATCHWERK, SAPPHIRON))
+    if resumable:
+        assert result.stopped is None
+        assert comparisons_done == [PATCHWERK, SAPPHIRON]
+    else:
+        assert result.stopped is not None
+        assert not comparisons_done
+    client.close()

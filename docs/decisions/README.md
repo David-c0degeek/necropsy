@@ -18,3 +18,7 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Shared class combat evidence](0006-shared-class-combat-evidence.md) | Verified ranking categories, common combat plugins and shared execution views |
 
 | [Public-client PKCE](0007-public-client-authentication.md) | Separate tagged modes, secret-free user endpoint, installed verification and explicit live release gates |
+
+| [Resumable acquisition and current installs](0008-analysis-resume.md) | Saved requests, owned-output checks, quota recovery and versioned design verification |
+
+| [Guided terminal and installation](0009-guided-terminal-and-installation.md) | TUI lifecycle, saved-run library, quota supervisor and private bootstrap runtime |

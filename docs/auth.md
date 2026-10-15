@@ -6,7 +6,10 @@ Public S256 PKCE is the default new sign-in. Each person authorizes their own
 account without a shared client secret. Registered public-client S256 sign-in, callback, refresh rotation and representative
 user-endpoint queries are observed on Windows. The product owner confirmed
 independent account/machine acceptance and approved version0.1.0 publication.
-Personal confidential clients remain supported with `auth login --mode personal`.
+The TUI guides browser sign-in and chooses the user endpoint automatically.
+It waits in a cancellable background worker and uses the same PKCE/OS-vault
+implementation as the CLI. Personal confidential clients remain supported with
+`auth login --mode personal`.
 See [installation](installation.md), [the connection guide](warcraft-logs.md), and
 [the public authentication decision](decisions/0007-public-client-authentication.md).
 [Live validation](live-validation.md) separates the earlier personal acquisition

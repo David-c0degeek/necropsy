@@ -1,46 +1,53 @@
 # Necropsy
 
-A Warcraft performance coach backed by combat-log forensics for all nine Classic Era classes in Naxxramas.
-Requires Python 3.14 or newer. Includes class rules, offline report templates
-and assets. Windows is the first verified installation/credential-store target;
-macOS and Linux remain unverified.
+A Warcraft performance coach for all nine Classic Era classes in Naxxramas.
 
-Version 0.1.0 is distributed as a reviewed wheel and source archive through the
-[repository releases](https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0).
-Repository access is required. Download the wheel and SHA256SUMS; no PyPI
-availability is claimed. With uv installed:
+## Install and open
 
-```powershell
-uv tool install --python 3.14 .\necropsy-0.1.0-py3-none-any.whl
-necropsy --version
-necropsy auth login
-necropsy analyze "YOUR_CHARACTER_URL" --endpoint user --cache .\cache --out .\analysis
-```
+The installer handles uv, Python and the app, then opens the guided terminal UI.
+No Git, GitHub account or Python experience is required.
 
-The registered public application ID is included in the package. Each person grants their
-own browser authorization. Public login uses S256 PKCE and requests no shared
-client secret. Tokens are stored only in an approved OS credential backend.
-Owners of confidential personal clients can use `auth login --mode personal`.
-Public-mode acquisition and resolution require explicit `--endpoint user`;
-permission failures never switch endpoints. Archived/private access depends on
-your account. Expired tokens refresh when a refresh token is issued; otherwise
-sign in again. Use `COMMAND --help` for options.
-
-Replay your saved supported snapshot without credentials or network:
+Windows PowerShell:
 
 ```powershell
-necropsy offline .\snapshot.zip --out .\offline-analysis
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.ps1 | iex"
 ```
 
-Open playbook.html for priorities and your next-pull plan; use report.html to investigate comparisons and evidence. Both are self-contained offline pages. Unknown evidence
-stays unknown; exit 4 from acquisition means partial coverage. Read the coverage
-notes. Keep your snapshots and reports private unless sharing is authorized.
+macOS Terminal:
 
-For an upgrade, install the newly reviewed wheel using `uv tool install --force`.
-Before uninstalling, run `necropsy auth logout --forget-secret`, then
-`uv tool uninstall necropsy`. Logout removes the active client/mode only;
-other saved clients require separate sign-out. Local removal does not revoke
-authorization on WCL. Caches, snapshots and reports remain yours to retain/remove.
+```sh
+curl -fsSL https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh | sh
+```
 
-This package is a local CLI. Desktop UI, hosted services, bundled executables
-and automatic updates are outside its current scope.
+Linux desktop:
+
+```sh
+sh -c 'u=https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.sh; if command -v curl >/dev/null; then curl -fsSL "$u"; else wget -qO- "$u"; fi' | sh
+```
+
+Paste your Warcraft Logs character link, sign in in your browser and choose your
+spec. The app handles paths and connection settings and opens the Playbook.
+When the hourly API allowance is exhausted, it saves, sleeps and retries after
+the reset. Stop whenever needed; choose a previous run and Continue later.
+Saved reports open offline. New analyses use the redesigned coaching interface.
+
+The app uses Windows Credential Manager, macOS Keychain or Linux Secret
+Service/KWallet. Linux needs a normal desktop/user D-Bus and password-vault
+session and curl or wget for the download. No plaintext credential fallback is
+used. Private/archived WCL reports still depend on your account's permissions.
+
+Setup creates an app shortcut/launcher. Next time open it, or run `necropsy`.
+Repeating setup updates the app while preserving saved data and sign-in.
+Version 0.2.0 includes the TUI and installers. The v0.1.0 release predates the
+redesign; locally built 0.1.1 added CLI resume/progress. Published artifacts are
+listed on the [releases page](https://github.com/David-c0degeek/necropsy/releases).
+
+Advanced CLI commands remain available through `necropsy --help`, including
+`analyze --resume`, offline snapshot replay and rendering from saved JSON.
+Public login uses the included registered PKCE app and no shared client secret.
+Tokens are stored only in an approved OS vault. Reports/caches may contain
+player identities; retain them privately unless sharing is authorized.
+
+See the [installation guide](https://github.com/David-c0degeek/necropsy/blob/main/docs/installation.md)
+for data locations, recovery, manual wheel installation and removal. Local
+logout/uninstall does not revoke the server-side WCL authorization.

@@ -3,8 +3,8 @@
 [Home](../README.md) · [Documentation](README.md) · [Changelog](../CHANGELOG.md)
 
 The intended experience is simple: paste a Warcraft Logs character URL, select
-the raid, and get a report and a practical boss-by-boss playbook. The analyzer
-comes first, so every screen can explain the evidence behind its advice.
+the raid, and get a report and a practical boss-by-boss playbook. The guided terminal app now provides that entry path, saved-run history and
+automatic quota continuation, backed by the same evidence-preserving analyzer.
 
 ## Available now
 
@@ -29,8 +29,10 @@ are implemented. [Try the sample](getting-started.md).
 |---|---|---|
 | Hunter/Naxxramas analysis and live acquisition | Implemented | Personal-use milestone accepted; source and coverage limits remain |
 | All nine Classic Era classes | Implemented | Category/duty-aware reports; see [validation boundaries](class-analysis.md#contracts-and-validation) |
-| Browser application experience | Implemented in current development | Priority overview, boss triage, Playbook/Report, class themes, responsive offline output; see [Unreleased](../CHANGELOG.md#unreleased) |
-| Native desktop launcher | Planned | Authentication, acquisition progress and cached-analysis management in a desktop shell |
+| Browser application experience | Implemented in current development | Priority overview, boss triage, Playbook/Report, class themes, responsive offline output; see [Changelog](../CHANGELOG.md) |
+| Guided TUI and OS launchers | Implemented | Browser sign-in, saved analyses, safe stop/resume and automatic quota waiting |
+| One-command bootstrap | Implemented | Windows, macOS and Linux scripts provision uv/Python/app and open the TUI |
+| Native graphical desktop shell | Planned | Authentication, acquisition progress and cached-analysis management in a desktop shell |
 | More raids and game variants | Planned | Raid styling tokens are not analytical support for additional raids |
 | Further domain validation | Ongoing | Engineering tests do not replace real-log validation for every class and encounter |
 
@@ -43,15 +45,16 @@ acceptance and approved the version0.1.0 repository release. The personal Hunter
 off. All nine Classic Era classes have [shared class reports](class-analysis.md),
 including supported healing/tank categories. Druid role analysis has
 [documented validation limits](druid-validation.md); engineering checks do not
-replace domain acceptance. Desktop UI and additional game/raid support remain
-outside this delivery.
+replace domain acceptance. A native graphical desktop shell and additional game/raid support remain
+outside this delivery. The guided terminal app and per-OS launchers are implemented.
 
 ## Authentication and distribution
 
 Public S256 PKCE is the default sign-in; personal confidential clients remain
 explicitly supported. Both use the selected operating system credential store.
-Public acquisition requires `--endpoint user`. [Installation](installation.md)
-documents package verification and pending live release gates.
+The TUI selects the public user endpoint automatically; advanced CLI public
+acquisition uses `--endpoint user`. [Installation](installation.md)
+documents bootstrap, updates, recovery and platform verification boundaries.
 Offline analysis of a saved export needs no WCL credentials.
 
 The [original architecture specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
