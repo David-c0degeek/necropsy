@@ -21,6 +21,7 @@
   <dl class="kv">{% for label, value in doc.coverage %}<dt>{{ label }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>
   {% for limit in doc.limitations %}<p class="muted">{{ limit }}</p>{% endfor %}
   {% if doc.class_document.get('acquisition') %}
+  {% if doc.class_document.acquisition.get('stopped') %}<p>Acquisition stopped: {{ doc.class_document.acquisition.stopped }}. Unacquired examples and baselines remain unknown; this does not establish that personal spec data never existed.</p>{% endif %}
   <div class="table-wrap"><table><thead><tr><th>Requested encounter</th><th>Attempted</th><th>Deep samples</th><th>Coverage</th></tr></thead><tbody>{% for record in doc.class_document.acquisition.bosses %}{% set coverage = record.get('coverage') or {} %}<tr><th>{{ record.boss }}</th><td>{{ record.get('attempted', true) }}</td><td>{{ coverage.get('usable_deep', 'Unknown') }}</td><td>{{ 'Complete' if coverage.get('complete') else 'Partial / not acquired' }}</td></tr>{% endfor %}</tbody></table></div>
   {% endif %}
   </details>

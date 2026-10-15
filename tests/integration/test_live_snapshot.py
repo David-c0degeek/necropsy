@@ -148,6 +148,29 @@ def test_druid_personal_first_snapshot_retains_empty_boss_and_comparison_order(
         ingest(broken, tmp_path / "wrong-order.duckdb")
 
 
+def test_empty_druid_view_writes_all_requested_bosses_without_fights(tmp_path: Path) -> None:
+    (tmp_path / "cache").mkdir()
+    (tmp_path / "saved").mkdir()
+    # Hunter rows cannot become personal Druid data or examples.
+    client = _client(FakeWcl([Player("Hunter")], Player("Haplina")))
+    store = Cache(tmp_path / "cache")
+    context = replace(
+        _context(), class_id=Field(2, "observed", "test"), ranking_category="Guardian"
+    )
+    acquired = acquire(client, store, VANILLA, context, encounters=(PATCHWERK, 51119))
+    finalize_reports(Run(client, store, VANILLA, class_id=2, category="Guardian"), acquired)
+    assert acquired.complete_entries() == []
+    written = write_snapshot(acquired, store, tmp_path / "saved", "empty-tank-view")
+    db = tmp_path / "empty-view.duckdb"
+    ingest(written.archive, db)
+    with duckdb.connect(str(db), read_only=True) as con:
+        doc = build_document(con)
+    assert len(doc["bosses"]) == 2
+    assert doc["acquisition"]["selected_category"] == "Guardian"
+    assert all(b["subject"] is None and b["playbook"]["reference"] is None for b in doc["bosses"])
+    assert all("Tank" in b["playbook"]["personal_data"]["message"] for b in doc["bosses"])
+
+
 def _client(fake: FakeWcl) -> c.WclClient:
     client = c.WclClient(
         VANILLA,
