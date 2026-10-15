@@ -17,6 +17,20 @@ confirmed an independent account/machine test passed and approved publication. T
 
 ## Install and run
 
+For a one-command install, with uv and Git installed and Git authenticated to an
+account with access to this private repository, run this in PowerShell:
+
+```powershell
+uv tool install --python 3.14 "git+https://github.com/David-c0degeek/necropsy.git@v0.1.0"
+```
+
+This builds and installs the tagged release in uv's tool environment. If GitHub
+refuses access, sign in through Git Credential Manager, or use `gh auth login`
+followed by `gh auth setup-git` when using GitHub CLI. If `necropsy` is not on your
+PATH after installation, run `uv tool update-shell` and open a new terminal.
+
+To install the prebuilt wheel instead, follow these steps:
+
 Download the wheel and SHA256SUMS from the release above. Compare its
 digest before installation, for example in PowerShell:
 

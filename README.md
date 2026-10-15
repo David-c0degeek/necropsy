@@ -28,6 +28,20 @@ An installable Python CLI with public PKCE sign-in is available in the
 [repository release](https://github.com/David-c0degeek/necropsy/releases/tag/v0.1.0)
 for authorized collaborators. See [installation](docs/installation.md).
 
+## Install with one command
+
+With [uv](https://docs.astral.sh/uv/getting-started/installation/) and
+[Git](https://git-scm.com/downloads) installed, paste this into PowerShell:
+
+```powershell
+uv tool install --python 3.14 "git+https://github.com/David-c0degeek/necropsy.git@v0.1.0"
+```
+
+Git must be signed in to a GitHub account with access to this private repository.
+Then run `necropsy auth login` to connect your Warcraft Logs account.
+If `necropsy` is not recognized, run `uv tool update-shell` and open a new terminal.
+See [installation](docs/installation.md) for setup and troubleshooting.
+
 ## Your first analysis
 
 From the repository root, with [uv](https://docs.astral.sh/uv/) installed:
