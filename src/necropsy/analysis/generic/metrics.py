@@ -8,6 +8,7 @@ explicitly partial observation.
 
 from __future__ import annotations
 
+import itertools
 from collections import defaultdict
 from collections.abc import Iterable
 from dataclasses import dataclass
@@ -261,6 +262,62 @@ def aura_intervals(
     return complete_or_unknown(
         tuple(_merge(intervals)), cov, ref, params={"auras": tuple(aura_ids)}
     )
+
+
+def aura_states(
+    con: duckdb.DuckDBPyConnection,
+    pf: ParticipantFight,
+    actor_id: int,
+    aura_ids: list[int],
+    active_at_start: frozenset[int] | None,
+) -> Evidenced[tuple[tuple[int, int, bool | None], ...]]:
+    """Union of active, inactive and uncertain windows, without guessing missing state.
+
+    A known active member proves the union active even if another is uncertain.
+    A definitive apply/remove event settles subsequent state. Contradictory
+    refreshes invalidate the preceding segment and remain uncertain until a
+    definitive transition. Existing whole-fight uptime calculations stay separate.
+    """
+    rows = _rows(con, _AURA_SQL, [pf.report_code, pf.fight_id, actor_id, aura_ids])
+    cov = [coverage(con, pf, actor_id, Direction.TARGET)]
+    ref = _ref(pf, actor_id, rows, 3, 4, f"three-state aura windows {aura_ids}")
+    timelines = []
+    for aura in aura_ids:
+        events = [(int(ts), kind) for ability, ts, kind, _, _ in rows if ability == aura]
+        state: bool | None = (
+            aura in active_at_start
+            if active_at_start is not None
+            else events[0][1] not in _ON
+            if events
+            else None
+        )
+        start = pf.start_time
+        segments = []
+        for ts, kind in events:
+            ts = min(max(ts, pf.start_time), pf.end_time)
+            previous = state
+            if kind in _ON:
+                state = True
+            elif kind in _OFF:
+                state = False
+            elif state is False:
+                previous, state = None, None
+            if start < ts:
+                segments.append((start, ts, previous))
+            start = ts
+        if start < pf.end_time:
+            segments.append((start, pf.end_time, state))
+        timelines.append(segments)
+    boundaries = sorted(
+        {pf.start_time, pf.end_time}
+        | {t for segments in timelines for lo, hi, _ in segments for t in (lo, hi)}
+    )
+    result = []
+    for lo, hi in itertools.pairwise(boundaries):
+        states = [state for segments in timelines for a, b, state in segments if a <= lo < b]
+        union = True if True in states else None if None in states else False
+        result.append((lo, hi, union))
+    return complete_or_unknown(tuple(result), cov, ref, rule_id="aura-state-windows-v1")
 
 
 def aura_uptime(

@@ -171,3 +171,51 @@ def pet_listing_known(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> b
         [pf.report_code, pf.fight_id, pf.actor_id],
     ).fetchone()
     return row is not None and row[0] == 0
+
+
+def hunter_pet_listing_known(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> bool:
+    """A proven Hunter-pet roster may coexist with unattributed engineering pets.
+
+    This never establishes a complete all-pet damage total. Every possible
+    Hunter pet must have consistent ownership and its own exported streams.
+    """
+    if pet_listing_known(con, pf):
+        return True
+    import json
+
+    from necropsy.rules import load_rules
+
+    row = con.execute(
+        "SELECT friendly_pets FROM fights WHERE report_code=? AND fight_id=?",
+        [pf.report_code, pf.fight_id],
+    ).fetchone()
+    listed = None if row is None else row[0]
+    listed = json.loads(listed) if isinstance(listed, str) else listed
+    if not isinstance(listed, list):
+        return False
+    non_hunter = {int(p["game_id"]) for p in load_rules("classic_era", "hunter")["non_hunter_pets"]}
+    actors = {
+        aid: (kind, game, owner)
+        for aid, kind, game, owner in con.execute(
+            "SELECT actor_id,type,game_id,pet_owner FROM actors WHERE report_code=?",
+            [pf.report_code],
+        ).fetchall()
+    }
+    needed = set()
+    owners: dict[int, int] = {}
+    for p in listed:
+        if not isinstance(p, dict) or type(p.get("id")) is not int:
+            return False
+        actor = actors.get(p["id"])
+        if actor is None or actor[0] != "Pet":
+            return False
+        if actor[1] in non_hunter:
+            continue  # Its ownership cannot change the Hunter-pet roster.
+        owner = p.get("petOwner")
+        if type(owner) is not int or owner <= 0 or actor[2] not in (None, owner):
+            return False
+        if owners.setdefault(p["id"], owner) != owner:
+            return False
+        if owner == pf.actor_id:
+            needed.add(p["id"])
+    return needed <= {p.actor_id for p in owned_pets(con, pf)}

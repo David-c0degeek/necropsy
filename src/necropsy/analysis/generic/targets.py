@@ -186,7 +186,12 @@ def ranking_damage(
     )
     cov = [coverage(con, pf, a, Direction.SOURCE) for a in actor_ids]
     if not pet_listing_known(con, pf):
-        why = "the Hunter's pet listing is missing, so pet damage cannot be attributed"
+        why = (
+            "Some pet-linked ownership is unresolved; confirmed pets are analyzed individually, "
+            "but complete combined damage is unavailable"
+            if pets
+            else "the Hunter's pet listing is missing, so pet damage cannot be attributed"
+        )
         gone: Evidenced[int] = unknown(why, ref, coverage=cov)
         return RankingDamage(gone, gone, gone, tuple(actor_ids), unknown(why, ref, coverage=cov))
     own = set(actor_ids)

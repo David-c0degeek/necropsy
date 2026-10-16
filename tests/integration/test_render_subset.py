@@ -390,6 +390,8 @@ def _no_pets(listed: bool | None) -> Any:
         subject = document["bosses"][0]["subject"]
         subject["hunter"]["hunter_pets"] = []
         subject["hunter"]["pets"] = []
+        subject["hunter"].pop("pet_roster_complete", None)
+        subject["hunter"].pop("total_pet_dps", None)
         if listed is None:
             subject.pop("pets_listed", None)
         else:

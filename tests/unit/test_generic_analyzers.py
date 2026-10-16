@@ -123,7 +123,9 @@ def test_unknowns_without_data(db: duckdb.DuckDBPyConnection) -> None:
     assert profile.talents.level is EvidenceLevel.UNKNOWN
     assert profile.darkmoon_faire.level is EvidenceLevel.UNKNOWN
     assert profile.windfury.status is WindfuryStatus.NOT_OBSERVED
-    assert profile.windfury.attributed_damage.level is EvidenceLevel.UNKNOWN
+    assert profile.windfury.attributed_damage.level is EvidenceLevel.DERIVED
+    assert profile.windfury.attributed_damage.value == 0
+    assert all(c.trusted for c in profile.windfury.attributed_damage.coverage)
 
 
 @pytest.mark.parametrize("db", [_spec([ev(1)], source_complete=False)], indirect=True)

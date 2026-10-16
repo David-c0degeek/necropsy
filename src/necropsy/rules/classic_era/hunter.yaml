@@ -29,6 +29,11 @@ ranged_haste_auras:
   - {spell: 26296, name: Berserking}
   - {spell: 26297, name: Berserking}
 
+# Classic Era Berserking is a Troll self-racial (racials.yaml); an observed
+# Alliance character cannot start with its own Berserking. This does not infer
+# the character's race and is never applied to an inferred faction.
+horde_only_haste_auras: [20554, 26296, 26297]
+
 explosives:
   - {spell: 23063, name: Dense Dynamite}
   - {spell: 13241, name: Goblin Sapper Charge}

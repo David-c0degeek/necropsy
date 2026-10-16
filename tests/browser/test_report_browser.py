@@ -290,7 +290,13 @@ def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, na
             "Rapid Fire",
             "Refocus",
         ]
-        assert section.locator(".cohort-table thead th").all_text_contents() == columns
+        has_race = any(
+            e["environment"]["race"]["race"]["value"] is not None for e in boss["overall_cohort"]
+        )
+        expected_columns = columns if has_race else [c for c in columns if c != "Race evidence"]
+        assert section.locator(".cohort-table thead th").all_text_contents() == expected_columns
+        if not has_race:
+            assert "Race is unproven" in section.inner_text()
         assert section.locator(".cohort-table tbody > tr").count() == len(boss["overall_cohort"])
         assert section.locator(".full-gear .gear-grid > div").count() == 17
         cards = section.locator(".hunter-card")

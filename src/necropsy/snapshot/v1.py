@@ -34,7 +34,7 @@ from necropsy.snapshot.model import (
     Zone,
 )
 from necropsy.snapshot.v0 import V0Snapshot, _StreamKey
-from necropsy.wcl.acquire import faction_verdict, fight_pets, player_actor
+from necropsy.wcl.acquire import discover_pets, faction_verdict, fight_pets, player_actor
 from necropsy.wcl.cache import (
     CacheError,
     FightKey,
@@ -43,6 +43,7 @@ from necropsy.wcl.cache import (
     check_identity,
     check_pages,
 )
+from necropsy.wcl.combatant import validate_context
 from necropsy.wcl.context import SUPPORTED_ZONE_ID
 from necropsy.wcl.fetch import EVENTS_LIMIT, QUERY_VERSION
 from necropsy.wcl.sites import VANILLA
@@ -150,6 +151,120 @@ class V1Snapshot(V0Snapshot):
         super().__init__(archive)
         self._prove_actors()
         self._prove_streams()
+        list(self.scoped_reports())
+        list(self.combatant_contexts())
+
+    def combatant_contexts(self) -> Iterator[tuple[str, dict[str, Any]]]:
+        live = self._file()
+        for boss in live.bosses:
+            for e in [boss.get("subject"), *(boss.get("cohort") or []), boss.get("cross_faction")]:
+                if not e or e.get("status") != "complete":
+                    continue
+                base = f"events/{e['report']}/fight_{e['fight']}/"
+                report = self._bundle(e["report"])
+                servers = {
+                    p.server
+                    for f in live.fights
+                    if (f.reportID, f.fightID) == (e["report"], e["fight"])
+                    for p in f.participants
+                    if p.player == e["player"]
+                    and p.kind == ("you" if e["kind"] == "subject" else "top")
+                }
+                actor, _ = player_actor(
+                    report,
+                    e["player"],
+                    next(iter(servers)) if len(servers) == 1 else None,
+                    CLASS_NAMES[live.subject.class_id],
+                )
+                if actor is None:
+                    raise SnapshotError("combatant context actor cannot be resolved")
+                folders = [d for d in self._dirs_under(base) if d.startswith(f"player_{actor}_")]
+                if len(folders) != 1:
+                    continue
+                member = f"{base}{folders[0]}/combatant_context.json"
+                expected = e.get("combatant_context_sha256")
+                if member not in self._archive:
+                    if expected:
+                        raise SnapshotError("combatant context member is missing")
+                    continue
+                data = self._archive.read_bytes(member)
+                if not expected or hashlib.sha256(data).hexdigest() != expected:
+                    raise SnapshotError("combatant context digest differs from acquisition")
+                context = self._archive.read_json(member)
+                master = (report.get("masterData") or {}).get("actors") or []
+                actor_row = next(a for a in master if a.get("id") == actor)
+                if context.get("target_game_id") != actor_row.get("gameID"):
+                    raise SnapshotError("combatant context game identity differs from actor")
+                fight = next(f for f in report["fights"] if f["id"] == e["fight"])
+                try:
+                    validate_context(
+                        context,
+                        e["report"],
+                        e["fight"],
+                        actor,
+                        report["revision"],
+                        live.endpoint,
+                        fight["startTime"],
+                    )
+                except (ValueError, KeyError, TypeError) as error:
+                    raise SnapshotError(f"{member}: {error}") from error
+                yield member, context
+
+    def scoped_reports(self) -> Iterator[tuple[str, dict[str, Any]]]:
+        """Validate original fight generations before using any scoped metadata."""
+        generations: dict[tuple[str, int], dict[str, Any]] = {}
+        for boss in self._file().bosses:
+            entries = [boss.get("subject"), *(boss.get("cohort") or []), boss.get("cross_faction")]
+            for e in entries:
+                if e and e.get("status") == "complete" and e.get("bundle_generation"):
+                    generation = e["bundle_generation"]
+                    key = (e["report"], e["fight"])
+                    if key in generations and generations[key] != generation:
+                        raise SnapshotError("fight metadata generations disagree")
+                    generations[key] = generation
+        found = set()
+        for fight in self._file().fights:
+            member = f"reports/{fight.reportID}/fight_{fight.fightID}.json"
+            if member not in self._archive:
+                continue
+            generation = generations.get((fight.reportID, fight.fightID))
+            data = self._archive.read_bytes(member)
+            if not generation or hashlib.sha256(data).hexdigest() != generation.get("sha256"):
+                raise SnapshotError(f"{member}: fight metadata digest differs from acquisition")
+            original = self._archive.read_json(member)
+            report = original.get("report") or {}
+            if (
+                original.get("endpoint") != self._file().endpoint
+                or report.get("code") != fight.reportID
+                or report.get("revision") != generation.get("revision")
+                or generation.get("report") != fight.reportID
+                or generation.get("fight") != fight.fightID
+                or [f.get("id") for f in report.get("fights") or []] != [fight.fightID]
+            ):
+                raise SnapshotError(f"{member}: fight metadata identity or scope differs")
+            combined = self._bundle(fight.reportID)
+            original_fight = report["fights"][0]
+            combined_fight = next(f for f in combined["fights"] if f["id"] == fight.fightID)
+            if report.get("revision") != combined.get("revision") or any(
+                original_fight.get(key) != combined_fight.get(key)
+                for key in ("encounterID", "startTime", "endTime")
+            ):
+                raise SnapshotError(f"{member}: original and combined fight bounds/revision differ")
+            for p in fight.participants:
+                actor, _ = player_actor(
+                    report, p.player, p.server, CLASS_NAMES[self._file().subject.class_id]
+                )
+                other, _ = player_actor(
+                    combined, p.player, p.server, CLASS_NAMES[self._file().subject.class_id]
+                )
+                if actor is None or actor != other:
+                    raise SnapshotError(f"{member}: fight metadata actor differs")
+            found.add((fight.reportID, fight.fightID))
+            yield member, report
+        for member, report in super().scoped_reports():
+            fid = report["fights"][0]["id"]
+            if (report["code"], fid) not in found:
+                yield member, report
 
     def _file(self) -> LiveSnapshotFile:
         if self._live is None:
@@ -532,7 +647,20 @@ class V1Snapshot(V0Snapshot):
                         raise SnapshotError(
                             f"{p.player}'s pets are unproven but a pet list is present"
                         )
+                    partial = f"{folder}confirmed_pets.json"
+                    if partial not in self._archive:
+                        continue
+                    confirmed = discover_pets(report, fight, actor_id)
+                    pets = self._archive.read_json(partial)
+                    if (
+                        not isinstance(pets, list)
+                        or [x.get("id") for x in pets] != list(confirmed.confirmed)
+                        or any(x != master.get(x.get("id")) for x in pets)
+                    ):
+                        raise SnapshotError(f"{partial}: confirmed ownership differs from report")
                     continue
+                if f"{folder}confirmed_pets.json" in self._archive:
+                    raise SnapshotError(f"{p.player}: both partial and complete pet lists present")
                 if not listed:
                     raise SnapshotError(f"{p.player}'s proven pet list is missing")
                 pets = self._archive.read_json(f"{folder}pets.json")

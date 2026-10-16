@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 @dataclass(frozen=True)
@@ -144,6 +144,29 @@ PLAYER_DETAILS = Table(
         ("specs", "JSON"),
         ("faction_id", "INTEGER"),
         ("combatant_info", "JSON"),
+    ),
+)
+
+FIGHT_PLAYER_DETAILS = Table(
+    "fight_player_details",
+    (
+        ("report_code", "VARCHAR"),
+        ("fight_id", "INTEGER"),
+        ("actor_id", "INTEGER"),
+        ("combatant_info", "JSON"),
+        ("source", "VARCHAR"),
+        ("sha256", "VARCHAR"),
+    ),
+)
+
+COMBATANT_CONTEXT = Table(
+    "combatant_context",
+    (
+        ("report_code", "VARCHAR"),
+        ("fight_id", "INTEGER"),
+        ("actor_id", "INTEGER"),
+        ("raw", "JSON"),
+        ("source", "VARCHAR"),
     ),
 )
 
@@ -309,6 +332,8 @@ ALL_TABLES: tuple[Table, ...] = (
     ACTORS,
     ABILITIES,
     PLAYER_DETAILS,
+    FIGHT_PLAYER_DETAILS,
+    COMBATANT_CONTEXT,
     REPORT_RANKINGS,
     RANKINGS,
     COMBATANT_INFO,

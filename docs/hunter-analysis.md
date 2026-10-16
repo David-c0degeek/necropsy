@@ -61,6 +61,32 @@ data lives in `src/necropsy/rules/classic_era/hunter.yaml` and `items.yaml`.
 
 ## Ranking damage
 
+When event reconstruction cannot establish ranked DPS, a strictly matching live
+WCL Hunter DPS ranking row supplies the score independently. Its evidence records
+the limitation. Raw/external/ranked damage totals stay unknown when attribution
+is incomplete; a known score never repairs missing pet ownership or events.
+
+Unknown engineering ownership does not erase a positively owned Hunter pet's
+individual analysis. `hunter.pet_roster_complete` separately establishes whether
+every possible Hunter pet is accounted for; `hunter.total_pet_dps` can therefore
+remain known even when the all-pet roster is incomplete. Multiple actual Hunter
+pets retain per-actor results rather than a silently combined baseline.
+
+Family inference can cite positive ability evidence from the same report pet
+actor and proven owner in another acquired fight (`pet-family-report-abilities-v1`).
+Current-fight casts, damage, uptime and deaths are never imported. Conflicting
+abilities remain unknown; ambiguous families show their candidates.
+
+Missing starting snapshots can be recovered from an earlier raw combatant event
+and complete intervening recipient buff changes (`combatant-prelude-auras-v1`).
+Context pages never extend the ranked damage or cadence window. Missing or
+invalid context retains uncertainty while ordinary fight streams remain usable.
+
+`aura-state-windows-v1` retains active, inactive and uncertain haste windows.
+Known active haste establishes overlap even if another aura is uncertain. An
+observed Alliance faction excludes Troll-only self-Berserking; an inferred
+faction does not. This does not identify a character's race.
+
 `necropsy.analysis.generic.targets.ranking_damage` reproduces what WCL ranks:
 damage by the Hunter and every pet-linked actor to anything except the Hunter
 itself and its own pets (`external-damage-v1`). Self-damage from Sapper Charges

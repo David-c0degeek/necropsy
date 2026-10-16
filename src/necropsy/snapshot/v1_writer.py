@@ -43,6 +43,7 @@ from necropsy.wcl.acquire import (
     Acquisition,
     BossAcquisition,
     Entry,
+    discover_pets,
     faction_verdict,
     fight_pets,
     player_actor,
@@ -126,6 +127,11 @@ def _coverage_entry(e: Entry | None) -> dict[str, Any] | None:
         "status": e.status,
         "reason": e.reason,
         "pets": e.pets,
+        "confirmed_pets": e.pet_ids,
+        "combatant_context_reason": e.combatant_context_reason,
+        "combatant_context_sha256": None
+        if e.combatant_context is None
+        else hashlib.sha256(canonical_bytes(e.combatant_context)).hexdigest(),
         "pets_reason": e.pets_reason,
         "generations": e.generations,
         "bundle_generation": None
@@ -161,7 +167,7 @@ def _check_binding(acquisition: Acquisition, boss: BossAcquisition, e: Entry) ->
     if (bundle.code, bundle.fight) != (e.report_code, e.fight_id):
         raise WriteError(f"entry {e.name} bundle is another report or fight")
     need = {("player", e.actor_id, d) for d in ("source", "target")}
-    need |= {("pet", pid, d) for pid in e.pets or () for d in ("source", "target")}
+    need |= {("pet", pid, d) for pid in e.pet_ids for d in ("source", "target")}
     have = [(s.role, s.actor_id, s.direction) for s in e.streams]
     if sorted(have) != sorted(need) or len(have) != len(set(have)):
         raise WriteError(f"entry {e.name} does not have exactly its player and pet streams")
@@ -252,10 +258,15 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             or source_fight is None
             or source_fight.get("encounterID") != boss.encounter_id
             or fight_pets(source_report, source_fight, e.actor_id)[0] != e.pets
+            or list(discover_pets(source_report, source_fight, e.actor_id).confirmed) != e.pet_ids
             or faction_verdict(source_report, e.actor_id, CLASS_NAMES[context.class_id.value])
             != e.verdict
         ):
             raise WriteError(f"entry {e.name}'s report generation differs from its evidence")
+        members[f"reports/{e.report_code}/fight_{e.fight_id}.json"] = (
+            canonical_bytes(original),
+            EntryOrigin.ACQUIRED,
+        )
         _check_binding(acquisition, boss, e)
         rset = acquisition.reports[e.report_code]
         if e.bundle_key.revision != rset.key.revision or e.fight_id not in rset.fight_ids:
@@ -275,11 +286,23 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
         base = f"events/{e.report_code}/fight_{e.fight_id}/"
         key = (e.report_code, e.fight_id, e.actor_id)
         folder = f"{base}player_{e.actor_id}_{safe_name(e.name)}/"
+        if e.combatant_context is not None:
+            members[f"{folder}combatant_context.json"] = (
+                canonical_bytes(e.combatant_context),
+                EntryOrigin.GENERATED,
+            )
         entry_dir = actor_dirs.setdefault(
             key,
-            {"actor": player, "player": e.name, "reasons": [], "folder": folder, "pets": e.pets},
+            {
+                "actor": player,
+                "player": e.name,
+                "reasons": [],
+                "folder": folder,
+                "pets": e.pets,
+                "confirmed_pets": e.pet_ids,
+            },
         )
-        if entry_dir["pets"] != e.pets:
+        if entry_dir["pets"] != e.pets or entry_dir["confirmed_pets"] != e.pet_ids:
             raise WriteError(f"{e.name} in {e.report_code} fight {e.fight_id} has two pet lists")
         entry_dir["reasons"].append(reason)
         for record in e.streams:
@@ -324,10 +347,18 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             ),
             EntryOrigin.GENERATED,
         )
-        if info["pets"] is not None:
+        if info["pets"] is not None or info["confirmed_pets"]:
             actors = (acquisition.reports[code].report.get("masterData") or {}).get("actors") or []
-            pets = [a for a in actors if isinstance(a, dict) and a.get("id") in info["pets"]]
-            members[f"{folder}pets.json"] = (canonical_bytes(pets), EntryOrigin.GENERATED)
+            pets = sorted(
+                [
+                    a
+                    for a in actors
+                    if isinstance(a, dict) and a.get("id") in info["confirmed_pets"]
+                ],
+                key=lambda a: a["id"],
+            )
+            filename = "pets.json" if info["pets"] is not None else "confirmed_pets.json"
+            members[f"{folder}{filename}"] = (canonical_bytes(pets), EntryOrigin.GENERATED)
         _ = fight_id
     bosses = []
     for boss in acquisition.bosses:

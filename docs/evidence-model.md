@@ -105,8 +105,10 @@ UNKNOWN. Race is never inferred from faction or class.
   window and the window holds exactly as many swings as the proc's extra
   attacks. No swing is used twice. The value is *damage among uniquely matched
   candidate swings*, reported with matched / ambiguous / unmatched proc counts.
-  The true total Windfury damage is always UNKNOWN; with no uniquely matched
-  proc the estimate is UNKNOWN rather than 0.
+  With observed procs but no uniquely matched proc, the estimate is UNKNOWN
+  rather than 0. With a complete trusted stream and zero procs, matched proc
+  damage is a complete derived zero (`windfury-no-procs-v1`); this says nothing
+  about whether a totem was available or what would have happened with one.
 
 ## Aura uptime
 

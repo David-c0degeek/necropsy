@@ -881,7 +881,7 @@ def _group_status(cards: list[Card], facts: tuple[Fact, ...]) -> tuple[str, str]
 def _no_hunter_pet(subject: Mapping[str, Any]) -> Value:
     """No Hunter pet in the list: proven only with the export's pet listing present."""
     hunter = subject["hunter"]
-    listed = subject.get("pets_listed")
+    listed = hunter.get("pet_roster_complete", subject.get("pets_listed"))
     if listed is None:
         return Value(
             "Unknown", "unknown", "pet-listing availability was not recorded in this analysis"
@@ -978,7 +978,12 @@ def _boss(
                 else None,
             )
         )
-        pets.append(Fact(f"{pet['name']} family", value_of(pet["family"])))
+        family = value_of(pet["family"])
+        if not family.known and pet.get("family_candidates"):
+            family = Value(
+                "Possible families: " + ", ".join(pet["family_candidates"]), "unknown", family.note
+            )
+        pets.append(Fact(f"{pet['name']} family", family))
         deaths = pet["deaths"]["deaths"]
         pets.append(
             Fact(f"{pet['name']} deaths", value_of(deaths, lambda v: str(len(v)) if v else "none"))
@@ -1050,6 +1055,12 @@ def _boss(
     gap = hunter["auto_gap"]
     flagged = gap["flagged"]
     auto_gap = value_of(flagged, lambda v: f"{len(v)} long gaps (advisory)")
+    if not auto_gap.known and str(flagged.get("note", "")).startswith("only "):
+        auto_gap = Value(
+            f"Insufficient clean intervals ({gap['baseline_count']} of 5 needed)",
+            "unknown",
+            flagged.get("note"),
+        )
     if baseline is None:
         limits.append("No same-faction comparison: the character's faction is unknown.")
     else:

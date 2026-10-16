@@ -21,6 +21,14 @@ class SnapshotReader(Protocol):
         """(source, document) for leaderboard pages and the subject's own rankings in scope."""
         ...
 
+    def scoped_reports(self) -> Iterator[tuple[str, dict[str, Any]]]:
+        """(archive member, report) with validated scope of exactly one fight."""
+        ...
+
+    def combatant_contexts(self) -> Iterator[tuple[str, dict[str, Any]]]:
+        """Validated raw snapshot/prelude evidence, outside ranked event streams."""
+        ...
+
     def expected_streams(self) -> list[StreamRef]:
         """Every stream the snapshot should contain for the selected fights."""
         ...

@@ -20,6 +20,7 @@ from necropsy.analysis.benchmark import (
     Entry,
     Median,
     RaidSpeed,
+    hunter_pet_roster_known,
 )
 from necropsy.analysis.encounters.findings import RaidUtility, TargetIntegrity
 from necropsy.analysis.evidence import Evidenced, EvidenceLevel
@@ -184,7 +185,7 @@ def _trinkets(
 def _pet(boss: BossData, subject: Entry, base: Baseline) -> list[Recommendation]:
     cfg = _cfg()
     pets = subject.hunter.pets
-    if any(p.category.value is None for p in pets) or not subject.pets_listed:
+    if any(p.category.value is None for p in pets) or not hunter_pet_roster_known(subject):
         return []
     hunter_pets = subject.hunter.hunter_pets
     if not hunter_pets:

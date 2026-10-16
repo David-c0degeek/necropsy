@@ -23,6 +23,7 @@ from necropsy.analysis.benchmark import (
     Entry,
     baseline,
     best_entry,
+    hunter_pet_dps,
     load_bosses,
     membership,
     raid_speed,
@@ -31,7 +32,14 @@ from necropsy.analysis.benchmark import (
 )
 from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.encounters.findings import raid_utility, target_integrity
-from necropsy.analysis.evidence import Claim, EvidenceLevel, EvidenceRef, observed, unknown
+from necropsy.analysis.evidence import (
+    Claim,
+    Evidenced,
+    EvidenceLevel,
+    EvidenceRef,
+    observed,
+    unknown,
+)
 from necropsy.analysis.generic.catalog import ItemName, item_catalog, rank_percent
 from necropsy.analysis.generic.metrics import ability_counts
 from necropsy.analysis.overview import build as build_overview
@@ -370,8 +378,10 @@ def _leaderboard_top(con: duckdb.DuckDBPyConnection, boss: BossData) -> dict[str
     if (
         size.get("value") is not None
         or size.get("status") != "recorded"
-        or spec.get("value") != "all Hunter specs"
-        or spec.get("status") != "recorded"
+        or not (
+            (spec.get("value") == "all Hunter specs" and spec.get("status") == "recorded")
+            or (spec.get("value") == "Marksmanship" and spec.get("status") == "enforced")
+        )
     ):
         return None
     rows = con.execute(
@@ -402,6 +412,8 @@ def _leaderboard_top(con: duckdb.DuckDBPyConnection, boss: BossData) -> dict[str
         if ordering in row and (type(row[ordering]) is not int or row[ordering] != 1):
             return None
     report = row.get("report") or {}
+    if spec.get("status") == "enforced" and row.get("spec") != spec.get("value"):
+        return None
     code = report.get("code") if isinstance(report, dict) else None
     fight = report.get("fightID") if isinstance(report, dict) else None
     ref = EvidenceRef(
@@ -411,6 +423,23 @@ def _leaderboard_top(con: duckdb.DuckDBPyConnection, boss: BossData) -> dict[str
         "leaderboard",
         detail=f"{source_member}, page 1 row 0; Hunter DPS; partition {meta[1]}",
     )
+    faction: Evidenced[str] = unknown("character faction is not proven by ranking metadata", ref)
+    verdicts = [
+        v
+        for v in (record.get("selection") or {}).get("verdicts", [])
+        if v.get("position") == 1 and v.get("status") == "observed"
+    ]
+    if len(verdicts) == 1 and verdicts[0].get("faction") in ("Alliance", "Horde"):
+        faction = observed(
+            verdicts[0]["faction"],
+            EvidenceRef(
+                code if isinstance(code, str) else "",
+                fight if type(fight) is int else None,
+                None,
+                "acquisition",
+                detail="rank 1 faction verification: " + str(verdicts[0].get("reason")),
+            ),
+        )
     captured = (record.get("selection") or {}).get("leaderboard_captured_at")
     if captured is not None:
         try:
@@ -423,7 +452,7 @@ def _leaderboard_top(con: duckdb.DuckDBPyConnection, boss: BossData) -> dict[str
         "leaderboard_position": 1,
         "ranked_dps": float(amount),
         "ranked_dps_evidence": to_data(observed(float(amount), ref)),
-        "faction": to_data(unknown("character faction is not proven by ranking metadata", ref)),
+        "faction": to_data(faction),
         "kill_duration_s": row["duration"] / 1000.0
         if type(row.get("duration")) is int and row["duration"] > 0
         else None,
@@ -491,6 +520,8 @@ def _entry(
 ) -> dict[str, Any]:
     pf = e.participant
     hunter = to_data(e.hunter)
+    hunter["total_pet_dps"] = to_data(hunter_pet_dps(e))
+    hunter["pet_roster_complete"] = e.hunter_pets_listed
     hunter.pop("participant", None)
     if not detail:
         hunter.pop("auto_intervals", None)

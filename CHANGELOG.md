@@ -8,7 +8,21 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
-No additional changes beyond 0.3.1 below.
+- Recorded WCL Hunter DPS remains available when event reconstruction is blocked
+  by unresolved pet ownership, with an explicit source and limitation.
+- Acquire confirmed pets independently of ownerless raid guardians. Hunter-pet
+  comparisons can remain complete when only known engineering guardians have
+  unresolved owners; complete combined damage still requires all ownership.
+- Preserve original fight-scoped combatant metadata. Recover missing talent
+  splits and, for encounters such as Kel'Thuzad, reconstruct starting auras from
+  earlier combatant snapshots and the intervening recipient buff events.
+- Reuse qualified family evidence from the same pet and owner in another
+  acquired fight. Ambiguous families show their candidates.
+- Restore optional overall-leader metadata for selected Marksmanship analyses.
+  Show known pet absence, no Windfury procs and insufficient clean shot samples
+  explicitly; omit repeated empty race columns without guessing race.
+- Database schema 3 rebuilds older databases from their verified snapshots.
+  Existing snapshots and analysis documents remain readable.
 
 ## 0.3.1 - 2026-10-16
 

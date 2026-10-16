@@ -1,6 +1,6 @@
 {% macro val(v) -%}
 {%- if v.known -%}{{ v.text }}<span class="level">{{ v.level_label }}</span>{% if v.note and (v.level == "inferred" or v.show_note) %}<span class="why">{{ v.note }}</span>{% endif %}
-{%- else -%}<span class="unknown">Unknown</span>{% if v.note %}<span class="why">{{ v.note }}</span>{% endif %}
+{%- else -%}<span class="unknown">{{ v.text }}</span>{% if v.note %}<span class="why">{{ v.note }}</span>{% endif %}
 {%- endif -%}
 {%- endmacro %}
 

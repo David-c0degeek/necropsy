@@ -23,6 +23,8 @@ from necropsy.analysis.evidence import (
 )
 from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
+from necropsy.wcl.combatant import auras_at_start
+from necropsy.wcl.combatant import snapshot as context_snapshot
 
 GAME = "classic_era"
 
@@ -188,9 +190,65 @@ def race(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> RaceFinding:
 def talents(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> Evidenced[str]:
     rows = [(t, uid) for _f, t, _a, _g, uid in _combatant_rows(con, pf) if t is not None]
     values = {t for t, _ in rows}
+    refs = [_combatant_ref(pf, uid) for _, uid in rows[:1]]
+    for raw, source in _context_rows(con, pf):
+        event = context_snapshot(_json(raw))
+        trees = None if event is None else event.get("talents")
+        if (
+            isinstance(trees, list)
+            and len(trees) == 3
+            and all(
+                isinstance(t, dict) and type(t.get("id")) is int and 0 <= t["id"] <= 51
+                for t in trees
+            )
+            and sum(t["id"] for t in trees) <= 51
+        ):
+            values.add("/".join(str(t["id"]) for t in trees))
+            refs.append(
+                EvidenceRef(
+                    pf.report_code,
+                    pf.fight_id,
+                    pf.actor_id,
+                    "combatant_context",
+                    detail=source + "; raw combatant snapshot talents",
+                )
+            )
+    metadata = con.execute(
+        """SELECT combatant_info, source, sha256 FROM fight_player_details
+           WHERE report_code = ? AND fight_id = ? AND actor_id = ?""",
+        [pf.report_code, pf.fight_id, pf.actor_id],
+    ).fetchall()
+    for info, source, digest in metadata:
+        trees = (_json(info) or {}).get("talents")
+        if trees is None or trees == []:
+            continue
+        if (
+            not isinstance(trees, list)
+            or len(trees) != 3
+            or any(
+                not isinstance(t, dict)
+                or type(t.get("guid")) is not int
+                or not 0 <= t["guid"] <= 51
+                for t in trees
+            )
+            or sum(t["guid"] for t in trees) > 51
+        ):
+            return unknown("fight-scoped talent metadata is malformed", *refs)
+        values.add("/".join(str(t["guid"]) for t in trees))
+        refs.append(
+            EvidenceRef(
+                pf.report_code,
+                pf.fight_id,
+                pf.actor_id,
+                "fight_player_details",
+                detail=f"{source}; report SHA-256 {digest}; combatantInfo.talents tree points",
+            )
+        )
     if len(values) != 1:
-        return unknown("no talent data" if not values else f"conflicting talents {values}")
-    return observed(values.pop(), *(_combatant_ref(pf, uid) for _, uid in rows[:1]))
+        return unknown(
+            "no talent data" if not values else f"conflicting talents {sorted(values)}", *refs
+        )
+    return observed(values.pop(), *refs)
 
 
 def starting_auras(
@@ -198,12 +256,48 @@ def starting_auras(
 ) -> Evidenced[tuple[Aura, ...]]:
     rows = [(a, uid) for _f, _t, a, _g, uid in _combatant_rows(con, pf) if a is not None]
     if not rows:
+        contexts = []
+        refs = []
+        for raw, source in _context_rows(con, pf):
+            parsed_context = auras_at_start(_json(raw))
+            if parsed_context is None:
+                return unknown("combatant prelude aura state could not be reconstructed")
+            contexts.append(tuple(Aura(ability, name) for ability, name in parsed_context))
+            refs.append(
+                EvidenceRef(
+                    pf.report_code,
+                    pf.fight_id,
+                    pf.actor_id,
+                    "combatant_context",
+                    detail=source + "; snapshot and prelude buff changes",
+                )
+            )
+        if contexts:
+            if any(v != contexts[0] for v in contexts):
+                return unknown("combatant contexts disagree on starting auras", *refs)
+            return derived(
+                contexts[0],
+                *refs,
+                rule_id="combatant-prelude-auras-v1",
+                note=(
+                    "Reconstructed at ranked combat start from the earlier snapshot "
+                    "and intervening buff events."
+                ),
+            )
         return unknown("no combatantinfo auras for this fight")
     auras, uid = rows[0]
     parsed = tuple(
         Aura(int(a["ability"]), a.get("name")) for a in _json(auras) or [] if "ability" in a
     )
     return observed(parsed, _combatant_ref(pf, uid))
+
+
+def _context_rows(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> list[tuple[Any, ...]]:
+    return con.execute(
+        """SELECT raw, source FROM combatant_context
+           WHERE report_code=? AND fight_id=? AND actor_id=?""",
+        [pf.report_code, pf.fight_id, pf.actor_id],
+    ).fetchall()
 
 
 def _named_subset(
@@ -276,6 +370,17 @@ def windfury(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> WindfuryFi
     if not cov[0].trusted:
         attributed: Evidenced[int] = unknown(
             "source stream incomplete or untrustworthy", proc_ref, coverage=cov
+        )
+    elif not procs:
+        attributed = complete_or_unknown(
+            0,
+            cov,
+            proc_ref,
+            rule_id="windfury-no-procs-v1",
+            note=(
+                "No Windfury procs observed; no proc damage to attribute. "
+                "This does not prove totem availability."
+            ),
         )
     elif matched == 0:
         attributed = unknown("no Windfury proc has a unique candidate swing", proc_ref)

@@ -16,7 +16,14 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from necropsy.analysis import gamedata, guidance
-from necropsy.analysis.benchmark import Baseline, BossData, Entry, RaidSpeed, hunter_pet_dps
+from necropsy.analysis.benchmark import (
+    Baseline,
+    BossData,
+    Entry,
+    RaidSpeed,
+    hunter_pet_dps,
+    hunter_pet_roster_known,
+)
 from necropsy.analysis.encounters.findings import RaidUtility, TargetIntegrity
 from necropsy.analysis.evidence import EvidenceLevel, WindfuryStatus
 from necropsy.rules import load_rules
@@ -466,7 +473,9 @@ def build(
     # Pet
     pet = subject.hunter.hunter_pets[0] if len(subject.hunter.hunter_pets) == 1 else None
     no_pet: bool | None
-    if not subject.pets_listed or any(p.category.value is None for p in subject.hunter.pets):
+    if not hunter_pet_roster_known(subject) or any(
+        p.category.value is None for p in subject.hunter.pets
+    ):
         no_pet = None
     else:
         no_pet = not subject.hunter.hunter_pets

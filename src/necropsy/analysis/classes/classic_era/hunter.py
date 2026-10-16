@@ -15,7 +15,9 @@ from necropsy.analysis.classes import register
 from necropsy.analysis.context import ParticipantFight, coverage, owned_pets
 from necropsy.analysis.evidence import (
     Evidenced,
+    EvidenceLevel,
     EvidenceRef,
+    Faction,
     complete_or_unknown,
     derived,
     inferred,
@@ -294,13 +296,9 @@ def _id_lists(entries: list[Any]) -> list[int]:
     return [int(e["spell"]) if isinstance(e, dict) else int(e) for e in entries]
 
 
-def _overlaps(intervals: tuple[tuple[int, int], ...], start: int, end: int) -> bool:
-    return any(lo < end and hi > start for lo, hi in intervals)
-
-
 def _auto_intervals(
     casts: Evidenced[tuple[Cast, ...]],
-    haste: Evidenced[tuple[tuple[int, int], ...]],
+    haste: Evidenced[tuple[tuple[int, int, bool | None], ...]],
     pf: ParticipantFight,
 ) -> Evidenced[tuple[AutoInterval, ...]]:
     if casts.value is None:
@@ -320,11 +318,25 @@ def _auto_intervals(
             [(start.event_uid, start.copy_index), (end.event_uid, end.copy_index)],
             detail="auto interval",
         )
+        windows = (
+            []
+            if haste.value is None
+            else [
+                state
+                for lo, hi, state in haste.value
+                if lo < end.timestamp and hi > start.timestamp
+            ]
+        )
+        settled = True if True in windows else None if None in windows else False
         overlap: Evidenced[bool] = (
             unknown("ranged haste aura state unknown", haste_ref, coverage=haste.coverage)
-            if haste.value is None
+            if haste.value is None or settled is None
             else complete_or_unknown(
-                _overlaps(haste.value, start.timestamp, end.timestamp), haste.coverage, haste_ref
+                settled,
+                haste.coverage,
+                haste_ref,
+                *haste.refs,
+                rule_id="hunter-haste-state-v1",
             )
         )
         result.append(
@@ -525,16 +537,64 @@ def _hunter_pet(
         fams = set(families_by_ability[name])
         candidates = fams if candidates is None else candidates & fams
     cand = tuple(sorted(candidates or ()))
+    family_conflict = False
+    if len(cand) > 1:
+        # A report actor with the same proven owner denotes the same pet. Only
+        # positive family evidence is shared; casts/damage remain fight-specific.
+        other = con.execute(
+            """SELECT DISTINCT e.fight_id, a.name, e.event_uid, e.copy_index
+               FROM events e JOIN abilities a ON a.report_code=e.report_code
+                 AND a.game_id=e.ability_game_id
+               WHERE e.report_code=? AND e.source_id=? AND e.fight_id<>?
+                 AND e.type IN ('cast','damage') AND EXISTS (
+                   SELECT 1 FROM stream_coverage c WHERE c.report_code=e.report_code
+                   AND c.fight_id=e.fight_id AND c.actor_id=e.source_id
+                   AND c.role='pet' AND c.owner_actor_id=?)
+               ORDER BY 1,2,3,4""",
+            [pf.report_code, pet.actor_id, pf.fight_id, pf.actor_id],
+        ).fetchall()
+        shared = set(cand)
+        family_refs = []
+        for fid, name, uid, copy in other:
+            canonical = aliases.get(name, name)
+            if canonical in families_by_ability:
+                shared &= set(families_by_ability[canonical])
+                family_refs.append(
+                    EvidenceRef.events(
+                        pf.report_code,
+                        fid,
+                        pet.actor_id,
+                        [(uid, int(copy))],
+                        detail="same report pet actor and owner; family ability in another fight",
+                    )
+                )
+        if family_refs:
+            cand = tuple(sorted(shared))
+            family_conflict = not shared
+        else:
+            family_refs = []
+    else:
+        family_refs = []
     if len(cand) == 1:
         family: Evidenced[str] = inferred(
-            cand[0], ref, rule_id="pet-family-abilities-v1", params={"abilities": tuple(restricted)}
+            cand[0],
+            ref,
+            *family_refs,
+            rule_id="pet-family-report-abilities-v1" if family_refs else "pet-family-abilities-v1",
+            params={"abilities": tuple(restricted)},
+            note="Family also evidenced in another fight by the same pet actor and owner."
+            if family_refs
+            else None,
         )
     else:
         family = unknown(
-            "abilities do not identify a single family"
+            "conflicting family abilities across acquired fights"
+            if family_conflict
+            else "abilities do not identify a single family"
             if restricted
             else "no family-restricted ability seen",
             ref,
+            *family_refs,
         )
     damage_by = metrics.damage_by_ability(con, pf, [pet.actor_id])
     if damage_by.value is None:
@@ -627,7 +687,16 @@ class HunterClassicEra:
         )
         at_start = _starting_aura_ids(profile)
         haste_ids = _id_lists(rules["ranged_haste_auras"])
-        haste = metrics.aura_intervals(con, pf, pf.actor_id, haste_ids, at_start)
+        if (
+            profile.faction.level is EvidenceLevel.OBSERVED
+            and profile.faction.value is Faction.ALLIANCE
+        ):
+            haste_ids = [i for i in haste_ids if i not in rules["horde_only_haste_auras"]]
+        haste = metrics.aura_states(con, pf, pf.actor_id, haste_ids, at_start)
+        if profile.faction.level is EvidenceLevel.OBSERVED:
+            from dataclasses import replace
+
+            haste = replace(haste, refs=(*haste.refs, *profile.faction.refs))
         intervals = _auto_intervals(casts, haste, pf)
         opener_kinds = {*SHOT_KINDS, "rapid_fire", "refocus"}
         if casts.value is None:

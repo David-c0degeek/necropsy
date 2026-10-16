@@ -49,6 +49,7 @@ from necropsy.wcl.cohort import (
     prefetch_boss,
     select_boss,
 )
+from necropsy.wcl.combatant import fetch_context
 from necropsy.wcl.context import CharacterContext
 from necropsy.wcl.fetch import (
     Bundle,
@@ -314,6 +315,72 @@ def faction_verdict(report: dict[str, Any], actor_id: int, class_name: str = "Hu
     return Verdict("observed", values.pop(), "playerDetails combatantInfo.factionID")
 
 
+@dataclass(frozen=True)
+class PetDiscovery:
+    confirmed: tuple[int, ...]
+    complete: bool
+    reasons: tuple[str, ...] = ()
+
+
+def discover_pets(report: dict[str, Any], fight: dict[str, Any], actor_id: int) -> PetDiscovery:
+    """Keep proven ownership even when another raid pet cannot be attributed."""
+    listed = fight.get("friendlyPets")
+    if not isinstance(listed, list):
+        return PetDiscovery((), False, ("the fight lists no friendly pets",))
+    actors = (report.get("masterData") or {}).get("actors")
+    if not isinstance(actors, list):
+        return PetDiscovery((), False, ("report has no actor list",))
+    by_id: dict[int, dict[str, Any]] = {}
+    conflicts = set()
+    for a in actors:
+        aid = _int(a.get("id")) if isinstance(a, dict) else None
+        if aid is None:
+            continue
+        if aid in by_id and by_id[aid] != a:
+            conflicts.add(aid)
+        by_id[aid] = a
+    entries: dict[int, list[int | None]] = {}
+    reasons = []
+    for p in listed:
+        if not isinstance(p, dict):
+            reasons.append("a friendly pet entry is not an object")
+            continue
+        pid, owner = _int(p.get("id")), _int(p.get("petOwner"))
+        if pid is None or pid <= 0:
+            reasons.append("a friendly pet has no valid id")
+            continue
+        entries.setdefault(pid, []).append(owner if owner is not None and owner > 0 else None)
+    mine = []
+    for pid, owners in entries.items():
+        if None in owners:
+            reasons.append(f"pet {pid} has no valid owner")
+            continue
+        if len(set(owners)) != 1:
+            reasons.append(f"pet {pid} is listed with two owners")
+            continue
+        owner = owners[0]
+        actor = by_id.get(pid)
+        if pid in conflicts:
+            reasons.append(f"masterData lists actor {pid} twice with different records")
+            continue
+        if actor is None or actor.get("type") != "Pet":
+            reasons.append(f"pet {pid} is not a pet actor in masterData")
+            continue
+        if actor.get("petOwner") is not None:
+            master_owner = _int(actor["petOwner"])
+            if master_owner is None or master_owner <= 0:
+                reasons.append(f"masterData gives pet {pid} an unusable owner")
+                continue
+            if master_owner != owner:
+                reasons.append(
+                    f"pet {pid}: fight says owner {owner}, masterData says {master_owner}"
+                )
+                continue
+        if owner == actor_id:
+            mine.append(pid)
+    return PetDiscovery(tuple(sorted(mine)), not reasons, tuple(dict.fromkeys(reasons)))
+
+
 def fight_pets(
     report: dict[str, Any], fight: dict[str, Any], actor_id: int
 ) -> tuple[list[int] | None, str]:
@@ -324,49 +391,20 @@ def fight_pets(
     agree (absent pet actor, not a pet, another owner). An empty list is a proven
     absence: a well-formed fight list in which no pet belongs to the player.
     """
-    listed = fight.get("friendlyPets")
-    if not isinstance(listed, list):
-        return None, "the fight lists no friendly pets"
-    owners: dict[int, int] = {}
-    for p in listed:
-        if not isinstance(p, dict):
-            return None, "a friendly pet entry is not an object"
-        pid, owner = _int(p.get("id")), _int(p.get("petOwner"))
-        if pid is None or pid <= 0:
-            return None, "a friendly pet has no valid id"
-        if owner is None or owner <= 0:
-            return None, f"pet {pid} has no valid owner"
-        if owners.get(pid, owner) != owner:
-            return None, f"pet {pid} is listed with two owners"
-        owners[pid] = owner
-    actors = (report.get("masterData") or {}).get("actors")
-    if not isinstance(actors, list):
-        return None, "report has no actor list"
-    by_id: dict[int, dict[str, Any]] = {}
-    for a in actors:
-        aid = _int(a.get("id")) if isinstance(a, dict) else None
-        if aid is None:
-            continue
-        if aid in by_id and by_id[aid] != a:
-            return None, f"masterData lists actor {aid} twice with different records"
-        by_id[aid] = a
-    fight_only = []
-    for pid, owner in owners.items():
-        actor = by_id.get(pid)
-        if actor is None or actor.get("type") != "Pet":
-            return None, f"pet {pid} is not a pet actor in masterData"
-        if "petOwner" not in actor or actor.get("petOwner") is None:
-            fight_only.append(pid)
-            continue
-        master_owner = _int(actor.get("petOwner"))
-        if master_owner is None or master_owner <= 0:
-            return None, f"masterData gives pet {pid} an unusable owner"
-        if master_owner != owner:
-            return None, f"pet {pid}: fight says owner {owner}, masterData says {master_owner}"
-    mine = sorted(pid for pid, owner in owners.items() if owner == actor_id)
+    discovery = discover_pets(report, fight, actor_id)
+    if not discovery.complete:
+        return None, discovery.reasons[0]
+    actors = {
+        a["id"]: a for a in report["masterData"]["actors"] if isinstance(a, dict) and "id" in a
+    }
+    fight_only = sorted(
+        {p["id"] for p in fight["friendlyPets"] if actors[p["id"]].get("petOwner") is None}
+    )
     if fight_only:
-        return mine, f"masterData gives no owner for pets {sorted(fight_only)}; fight list only"
-    return mine, "fight pet list and masterData agree"
+        return list(
+            discovery.confirmed
+        ), f"masterData gives no owner for pets {fight_only}; fight list only"
+    return list(discovery.confirmed), "fight pet list and masterData agree"
 
 
 # -- entries ----------------------------------------------------------------------
@@ -406,8 +444,16 @@ class Entry:
     pets: list[int] | None = None
     """None means pet ownership could not be proven (unknown), never "no pets"."""
     pets_reason: str | None = None
+    confirmed_pets: list[int] = field(default_factory=list)
+    """Proven owned actors when discovery is incomplete; never an exhaustive roster."""
+    combatant_context: dict[str, Any] | None = None
+    combatant_context_reason: str | None = None
     streams: list[StreamRecord] = field(default_factory=list)
     generations: int = 0
+
+    @property
+    def pet_ids(self) -> list[int]:
+        return self.pets if self.pets is not None else self.confirmed_pets
 
 
 def _record(role: str, actor_id: int, direction: str, stream: StreamPages) -> StreamRecord:
@@ -505,6 +551,9 @@ class Run:
         for generation in (1, 2):
             entry.generations = generation
             entry.streams, entry.pets, entry.pets_reason = [], None, None
+            entry.confirmed_pets = []
+            entry.combatant_context = None
+            entry.combatant_context_reason = None
             entry.actor_id, entry.bundle_key = None, None
             entry.bundle_sha256 = None
             try:
@@ -549,12 +598,28 @@ class Run:
             entry.reason = f"observed {entry.verdict.faction.value}, needed {want.value}"
             return
         entry.pets, entry.pets_reason = fight_pets(bundle.report, bundle.fight, actor)
-        targets = [("player", actor)] + [("pet", pid) for pid in entry.pets or ()]
+        discovery = discover_pets(bundle.report, bundle.fight, actor)
+        entry.confirmed_pets = list(discovery.confirmed)
+        targets = [("player", actor)] + [("pet", pid) for pid in entry.pet_ids]
+        player_events = []
         for role, actor_id in targets:
             for direction in ("source", "target"):
                 self.stage = f"{role} {actor_id} {direction} events for {where}"
                 stream = fetch_stream(self.client, self.store, bundle, role, actor_id, direction)
                 entry.streams.append(_record(role, actor_id, direction, stream))
+                if role == "player" and direction == "source":
+                    player_events = [e for p in stream.pages for e in p["data"]]
+        if any(e.get("sourceID") == actor for e in player_events) and not any(
+            e.get("type") == "combatantinfo" and e.get("sourceID") == actor for e in player_events
+        ):
+            self.stage = f"combatant snapshot and prelude for {where}"
+            try:
+                entry.combatant_context = fetch_context(self.client, bundle, actor)
+            except RevisionChanged:
+                raise
+            except (InvalidResponse, *_UNREACHABLE) as error:
+                # Optional enrichment must not discard verified ordinary streams.
+                entry.combatant_context_reason = f"{type(error).__name__}: {error}"
         entry.status = "complete"
         entry.reason = None if entry.pets is not None else f"pets unknown: {entry.pets_reason}"
 
@@ -616,7 +681,16 @@ def _coverage(boss: BossAcquisition, stopped: str | None) -> dict[str, Any]:
         reasons.append(f"{len(boss.metadata)} of {meta_target} same-faction metadata rows")
     for e in [boss.subject, *usable]:
         if e is not None and e.status == "complete" and e.pets is None:
-            reasons.append(f"pets unknown for {e.name}: {e.pets_reason}")
+            reasons.append(
+                f"unresolved pet ownership for {e.name}: {e.pets_reason}; "
+                f"{len(e.pet_ids)} confirmed pet-linked actors acquired"
+                if e.pet_ids
+                else f"pets unknown for {e.name}: {e.pets_reason}"
+            )
+        if e is not None and e.status == "complete" and e.combatant_context_reason:
+            reasons.append(
+                f"combatant context unavailable for {e.name}: {e.combatant_context_reason}"
+            )
     if (
         boss.cross_faction_requested
         and boss.cross_faction_applicable is not False
@@ -1037,9 +1111,10 @@ def _check_report_set(
             raise InvalidResponse(
                 f"combined report {code}: {e.name} is not actor {e.actor_id} ({why})"
             )
-        if e.pets is not None and e.actor_id is not None:
+        if e.actor_id is not None:
             pets, _ = fight_pets(report, found[e.fight_id], e.actor_id)
-            if pets != e.pets:
+            confirmed = discover_pets(report, found[e.fight_id], e.actor_id)
+            if pets != e.pets or list(confirmed.confirmed) != e.pet_ids:
                 raise InvalidResponse(f"combined report {code}: pets of {e.name} differ")
 
 

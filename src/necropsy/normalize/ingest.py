@@ -11,6 +11,7 @@ affected streams as untrustworthy for absence claims.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import tempfile
@@ -227,6 +228,40 @@ def _describe(loader: _Loader, d: SnapshotDescriptor, issues: list[str]) -> None
 
 
 def _load_reports(loader: _Loader, reader: SnapshotReader, wanted: set[tuple[str, int]]) -> None:
+    loader.add(
+        schema.COMBATANT_CONTEXT,
+        (
+            {
+                "report_code": context["report"],
+                "fight_id": context["fight"],
+                "actor_id": context["actor"],
+                "raw": context,
+                "source": source,
+            }
+            for source, context in reader.combatant_contexts()
+            if (context["report"], context["fight"]) in wanted
+        ),
+    )
+    for source, report in reader.scoped_reports():
+        code, fid = report["code"], report["fights"][0]["id"]
+        if (code, fid) not in wanted:
+            continue
+        details = ((report.get("playerDetails") or {}).get("data") or {}).get("playerDetails") or {}
+        loader.add(
+            schema.FIGHT_PLAYER_DETAILS,
+            (
+                {
+                    "report_code": code,
+                    "fight_id": fid,
+                    "actor_id": p.get("id"),
+                    "combatant_info": p.get("combatantInfo"),
+                    "source": source,
+                    "sha256": hashlib.sha256(canonical_json(report).encode("utf-8")).hexdigest(),
+                }
+                for players in details.values()
+                for p in players or []
+            ),
+        )
     for report in reader.reports():
         code = report["code"]
         master = report.get("masterData") or {}

@@ -144,16 +144,41 @@ def _pets(entry: Mapping[str, Any]) -> dict[str, Any]:
     hunter = entry["hunter"]
     pets = hunter["hunter_pets"]
     if not pets:
-        listed = entry.get("pets_listed")
+        listed = hunter.get("pet_roster_complete", entry.get("pets_listed"))
         unclassified = any(p["category"].get("value") is None for p in hunter["pets"])
         text = (
             "No Hunter pet listed" if listed is True and not unclassified else "Unknown pet listing"
         )
-        return {"name": text, "family": (), "abilities": "", "dps": Value("Unknown", "unknown")}
+        dps = entry["hunter"].get("total_pet_dps")
+        return {
+            "name": text,
+            "family": (),
+            "abilities": "",
+            "dps": value_of(dps, lambda v: number(v))
+            if dps
+            else Value(
+                "0" if listed is True and not unclassified else "Unknown",
+                "derived" if listed is True and not unclassified else "unknown",
+                "No Hunter pet listed"
+                if listed is True and not unclassified
+                else "Pet discovery incomplete",
+            ),
+        }
     # Per-actor DPS remains explicit: multiple pets are not silently merged.
     return {
         "name": ", ".join(str(p["name"]) for p in pets),
-        "family": tuple(value_of(p["family"]) for p in pets),
+        "family": tuple(
+            value_of(p["family"])
+            if p["family"].get("value") is not None
+            else Value(
+                "Possible families: " + ", ".join(p["family_candidates"]),
+                "unknown",
+                p["family"].get("note"),
+            )
+            if p.get("family_candidates")
+            else Value("Family unproven", "unknown")
+            for p in pets
+        ),
         "abilities": "; ".join(
             ", ".join(str(a[1]) for a in p["abilities"].get("value") or [])
             if p["abilities"].get("value") is not None
@@ -346,7 +371,13 @@ def _cooldown(raw: Mapping[str, Any], label: str, live: bool = False) -> tuple[d
             rank_timing = "not cast"
         elif rank.get("used") is True or "used" not in rank:
             rank_timing = number(rank.get("first_s"), 2, "s")
-    ranked = "Unknown" if not rank else f"{who(rank['entry'])}: {rank_timing}"
+    ranked = (
+        "Not collected in this same-faction run"
+        if live and not rank
+        else "Not present in this export"
+        if not rank
+        else f"{who(rank['entry'])}: {rank_timing}"
+    )
     return (
         line(
             (
@@ -560,9 +591,13 @@ def boss_view(
             "Your DPS",
             Value(
                 "Unknown" if not subject else number(subject["ranking"].get("ranked_dps")),
-                "derived"
+                str((subject["ranking"].get("ranked_dps_evidence") or {}).get("level", "derived"))
                 if subject and subject["ranking"].get("ranked_dps") is not None
                 else "unknown",
+                None
+                if not subject
+                else (subject["ranking"].get("ranked_dps_evidence") or {}).get("note"),
+                bool(subject and subject["ranking"].get("ranked_dps_evidence")),
             ),
         ),
         ("Current %", percent),
@@ -976,6 +1011,13 @@ def boss_view(
             )
     return {
         "metrics": metrics,
+        "overall_identity": None
+        if top is None
+        else {
+            "player": str(top["player"]),
+            "faction": value_of(top.get("faction")),
+        },
+        "show_race": any(row["race"].known for row in rows),
         "leader_practice": leader_practice,
         "ability_use": ability_comparison(subject, ability_reference),
         "percent": percent,

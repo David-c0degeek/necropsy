@@ -30,7 +30,12 @@ from necropsy.analysis.classes import plugin_for
 from necropsy.analysis.classes.classic_era.combat import CombatAnalysis
 from necropsy.analysis.classes.classic_era.druid import DruidAnalysis
 from necropsy.analysis.classes.classic_era.hunter import Cast, HunterAnalysis
-from necropsy.analysis.context import ParticipantFight, participant_fights, pet_listing_known
+from necropsy.analysis.context import (
+    ParticipantFight,
+    hunter_pet_listing_known,
+    participant_fights,
+    pet_listing_known,
+)
 from necropsy.analysis.encounters import EncounterRules, encounter_rules
 from necropsy.analysis.evidence import (
     Claim,
@@ -79,6 +84,7 @@ class Entry:
     pets_listed: bool
     raptor_roles: Evidenced[RaptorRoles]
     recorded_dps: Evidenced[float] | None = None
+    hunter_pets_listed: bool | None = None
 
     @property
     def hunter(self) -> HunterAnalysis:
@@ -211,6 +217,9 @@ def analyze_entry(
         class_analysis=result,
         ranking=ranking,
         pets_listed=pet_listing_known(con, pf),
+        hunter_pets_listed=hunter_pet_listing_known(con, pf)
+        if isinstance(result, HunterAnalysis)
+        else None,
         recorded_dps=recorded_hunter_dps(con, pf)
         if isinstance(result, HunterAnalysis) and ranking.ranked.value is None
         else None,
@@ -356,10 +365,16 @@ def per_minute(entry: Entry, kind: str) -> Evidenced[float]:
     return entry.hunter.shots[kind].per_minute
 
 
+def hunter_pet_roster_known(entry: Entry) -> bool:
+    return entry.pets_listed or bool(getattr(entry, "hunter_pets_listed", False))
+
+
 def hunter_pet_dps(entry: Entry) -> Evidenced[float]:
     """The Hunter pet's DPS; 0 when it is known that no Hunter pet took part."""
     pets = entry.hunter.hunter_pets
-    if not entry.pets_listed or any(p.category.value is None for p in entry.hunter.pets):
+    if not hunter_pet_roster_known(entry) or any(
+        p.category.value is None for p in entry.hunter.pets
+    ):
         return unknown("pet listing missing or a pet-linked actor is unclassified")
     if not pets:
         note = "no Hunter pet took part in the fight"
@@ -373,8 +388,10 @@ def hunter_pet_dps(entry: Entry) -> Evidenced[float]:
             entry.participant.report_code,
             entry.participant.fight_id,
             entry.participant.actor_id,
-            "stream_coverage",
-            detail="pet listing is empty",
+            "stream_coverage" if entry.pets_listed else "fights",
+            detail="pet listing is empty"
+            if entry.pets_listed
+            else "Hunter-pet roster empty; unresolved actors are proven non-Hunter pets by game ID",
         )
         return derived(0.0, ref, rule_id="no-hunter-pet", note=note)
     if len(pets) != 1:
@@ -742,7 +759,7 @@ def pet_families(entries: Iterable[Entry]) -> PetFamilies:
     for e in entries:
         total += 1
         pets = e.hunter.hunter_pets
-        if not e.pets_listed:
+        if not hunter_pet_roster_known(e):
             missing += 1
         elif any(p.category.value is None for p in e.hunter.pets):
             unclassified += 1

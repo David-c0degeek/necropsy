@@ -48,8 +48,10 @@ SUBSET_FORMAT_VERSION = 1
 _TOP_LEVEL = {"profile.json", "manifest.json", "selection.json", "subset.json"}
 _KNOWN = (
     re.compile(r"^(leaderboards|user_rankings)/[^/]+\.json$"),
-    re.compile(r"^reports/[^/]+/(bundle|selection_reasons)\.json$"),
-    re.compile(r"^events/[^/]+/fight_\d+/player_\d+_[^/]+/(selection|pets)\.json$"),
+    re.compile(r"^reports/[^/]+/(bundle|selection_reasons|fight_\d+)\.json$"),
+    re.compile(
+        r"^events/[^/]+/fight_\d+/player_\d+_[^/]+/(selection|pets|confirmed_pets|combatant_context)\.json$"
+    ),
     re.compile(r"^events/[^/]+/fight_\d+/(player|pet)_\d+_[^/]+/(source|target)_\d{3}\.json$"),
 )
 _PAGE = re.compile(r"^(source|target)_(\d{3})\.json$")
@@ -250,6 +252,14 @@ class V0Snapshot:
     def expected_streams(self) -> list[StreamRef]:
         return list(self._expected)
 
+    def scoped_reports(self) -> Iterator[tuple[str, dict[str, Any]]]:
+        for report in self.reports():
+            if len(report.get("fights") or []) == 1:
+                yield f"reports/{report['code']}/bundle.json", report
+
+    def combatant_contexts(self) -> Iterator[tuple[str, dict[str, Any]]]:
+        return iter(())
+
     def _dirs_under(self, prefix: str) -> list[str]:
         dirs = {n[len(prefix) :].split("/", 1)[0] for n in self._names if n.startswith(prefix)}
         return sorted(d for d in dirs if d and "/" not in d and not d.endswith(".json"))
@@ -341,7 +351,9 @@ class V0Snapshot:
                 direction=Direction.LISTING,
                 owner_actor_id=actor_id,
             )
-            return
+            pets_member = f"{base}{player_dir}/confirmed_pets.json"
+            if pets_member not in self._archive:
+                return
         pet_dirs = self._dirs_under(base)
         for pet in self._archive.read_json(pets_member):
             pet_id = int(pet["id"])

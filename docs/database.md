@@ -21,8 +21,8 @@ the ingest fails. A program that opens the target in the instant between that
 last check and the swap is not detected on every platform. `snapshot_meta.schema_version` records the schema; any schema
 change means a rebuild.
 
-Schema 2 reads both historical v6 exports and Necropsy live snapshot v1. A schema
-1 database for the same verified archive is rebuilt atomically; it is not reused
+Schema 3 reads both historical v6 exports and Necropsy live snapshot v1. A schema
+1 or 2 database for the same verified archive is rebuilt atomically; it is not reused
 with missing columns. Existing historical `analysis.json` files remain renderable
 without rebuilding their database. Live provenance records requested boss
 coverage separately from the acquired fights available for detailed analysis.
@@ -55,6 +55,20 @@ when a participant's `pets.json` is missing. `status` is `complete` only when
 pages run contiguously from `001`, the last page's `nextPageTimestamp` is
 `null`, and the export recorded no error for the stream.
 
+New live snapshots can include `confirmed_pets.json` while retaining the missing
+discovery row. These actors have proven ownership and individually evidenced
+streams; the full pet roster remains incomplete. A separate Hunter-pet roster
+can be complete when every unresolved actor is positively classified as a
+non-Hunter pet by its game ID. This never completes combined all-pet damage.
+
+Original single-fight report generations and optional `combatant_context.json`
+are retained with their acquisition digests. Context contains an earlier raw
+combatant snapshot and fully paginated recipient buff changes up to the ranked
+window. It is stored separately from `events`, so pre-window casts and damage
+cannot enter ranked totals or per-minute rates. Older snapshots without this
+evidence retain their limitations. Updated readers accept the added members;
+old readers may refuse new partial-ownership snapshots safely.
+
 Analyses may treat a missing event as "did not happen" only through
 `necropsy.normalize.coverage.has_complete_coverage`, which also requires zero
 boundary ambiguities and zero multiplicity mismatches. Otherwise the answer is
@@ -73,6 +87,8 @@ boss target time, other players' actions) are not in the data.
 | `reports`, `fights` | Report metadata and the selected fights |
 | `actors`, `abilities` | Report master data, including `pet_owner` |
 | `player_details` | Per-report player role, specs, `faction_id` and raw combatant info |
+| `fight_player_details` | Exact single-fight combatant metadata, source member and report-content digest; no multi-fight aggregate fallback |
+| `combatant_context` | Validated raw earlier snapshot and pre-window buff pages, with actor, fight, revision and source binding |
 | `report_rankings` | Per-fight ranking data embedded in each report |
 | `rankings` | Leaderboard rows and the subject's own rankings |
 | `combatant_info` | `combatantinfo` events: faction, talent points (e.g. `12/33/6`), gear, auras |

@@ -41,6 +41,18 @@ ceiling or overall-top entry that uses it). Event damage totals, pet attribution
 and coverage remain independently evidenced: a known WCL DPS score does not
 make missing pet events complete. Historical snapshot calculations are unchanged.
 
+Hunter entries also expose `hunter.pet_roster_complete` and
+`hunter.total_pet_dps`, separate from the completeness of all pet-linked actors
+(`pets_listed`). Confirmed non-Hunter guardians cannot invalidate an otherwise
+proven Hunter-pet roster. Complete absence gives zero Hunter-pet DPS; unidentified
+possible Hunter pets retain uncertainty. Family inference may cite another
+acquired fight of the same report actor and owner, without importing its metrics.
+
+Recovered starting auras carry `combatant-prelude-auras-v1` with references to the
+raw earlier snapshot and complete intervening recipient buff pages. These pages
+are outside ranked event totals. Recorded metadata talent points use only
+validated single-fight scope. Conflicting sources remain unknown.
+
 - **Deterministic.** The same snapshot and options give byte-identical output: no
   wall-clock time, keys sorted, floats rounded to 6 digits, every list in a defined
   order (chronological lists stay chronological).
