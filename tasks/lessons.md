@@ -142,3 +142,17 @@
 - 2026-10-15: A public OAuth client does not imply public repository hosting.
   Publish approved artifacts through the configured channel and preserve existing
   repository visibility unless the user separately requests a visibility change.
+
+
+## Game identity and ranking categories
+
+- Store WCL display names and slugs separately from game talent-tree identities.
+  A WCL Protection Warrior may have Fury-heavy talent totals; declared build
+  preference does not narrow a category leaderboard.
+- Three tree totals are source-specific evidence, not a full talent allocation.
+  Validate triples, ranges and totals; ignore spell-name decorations and reject
+  leaderboard placeholders. Ties and missing values cannot establish a primary
+  tree or a build match.
+- Exercise optional selector values using the installed widget runtime. Textual
+  empty selections use Select.NULL; build/type checks alone did not catch the
+  obsolete sentinel because it resolved as an inherited boolean.

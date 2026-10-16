@@ -56,7 +56,7 @@ Implement separate Classic Era game talent trees/race validity and WCL ranking c
 
 | # | File | Subject | Depends on |
 |---|---|---|---|
-| 00 | tasks/class-taxonomy/00-tooling-research-and-readiness.md | Tooling research and readiness | â€” |
+| 00 | tasks/class-taxonomy/00-tooling-research-and-readiness.md | Tooling research and readiness | — |
 | 01 | tasks/class-taxonomy/01-catalog-and-evidence.md | Game catalog and evidence | 00 |
 | 02 | tasks/class-taxonomy/02-selection-and-persistence.md | Selection and persistence | 01 |
 | 03 | tasks/class-taxonomy/03-reports-and-comparisons.md | Reports and comparisons | 01, 02 |
@@ -66,10 +66,9 @@ Implement separate Classic Era game talent trees/race validity and WCL ranking c
 
 | ID | Date | Title | Decision | Rationale | Refs |
 |---|---|---|---|---|---|
-| D001 | 2026-10-16 | Research reuse | Reuse completed same-day primary research; no new dependencies or WCL requests required | Evidence already captured/reviewed | 00.4â€“00.7; docs/class-taxonomy-research.md |
-| D002 | 2026-10-16 | Separate selection | Keep --spec/--category as WCL selection; add --talent-tree as declared intent, independent of category and observed talents | Avoid silently remapping ambiguous hybrids and breaking scripts | 02.1; durable ADR to follow |
+| D001 | 2026-10-16 | Research reuse | Reuse completed same-day primary research; no new dependencies or WCL requests required | Evidence already captured/reviewed | 00.4–00.7; docs/class-taxonomy-research.md |
+| D002 | 2026-10-16 | Separate selection | Keep --spec/--category as WCL selection; add --talent-tree as declared intent, independent of category and observed talents | Avoid silently remapping ambiguous hybrids and breaking scripts | 02.1; docs/decisions/0012-game-build-and-wcl-category.md |
 | D003 | 2026-10-16 | Scope review | Waive whole-repo cleanup-audit; inspect changed seams during close-out | A fresh whole-repo teardown is outside this feature | 04.2 |
-
 | D004 | 2026-10-16 | Durable contract | Separate declaration, observed totals and WCL scope; keep archive spec keys unchanged | Backward-readability and truthful provenance | 01–03; docs/decisions/0012-game-build-and-wcl-category.md |
 | D005 | 2026-10-16 | Metadata compatibility | Retain serialized role.status=enforced as legacy category-policy status; expose scope explicitly | Do not reject old keys or imply observed duty | 03.2; ADR0012 |
 
@@ -81,7 +80,7 @@ Implement separate Classic Era game talent trees/race validity and WCL ranking c
 | [x] | 01 | 01-catalog-and-evidence.md | DONE | agent | n/a |
 | [x] | 02 | 02-selection-and-persistence.md | DONE | agent | n/a |
 | [x] | 03 | 03-reports-and-comparisons.md | DONE | agent | n/a |
-| [ ] | 04 | 04-verification-and-documentation.md | TODO | agent | n/a |
+| [x] | 04 | 04-verification-and-documentation.md | DONE | agent | n/a |
 
 ## 6. Cross-cutting principles
 
@@ -97,19 +96,19 @@ Implement separate Classic Era game talent trees/race validity and WCL ranking c
 
 ## 7. Gate review
 
-- [ ] All subjects done, behavior exercised and recorded, commands pass.
-- [ ] Integration analyses show reuse; all new public surfaces have production callers.
-- [ ] Durable selection/evidence decisions recorded in ADR and docs updated.
-- [ ] All PM risks have terminal resolution and observed outcomes calibrated; misses carry lessons.
-- [ ] Captain Hindsight verdict CLOSE for every subject.
-- [ ] Checkpoints pushed and feature branch clean; no plan references leaked into shipped artifacts.
-- [ ] Human actions resolved/deferred; cleanup review waiver recorded; lasting lessons reconciled.
+- [x] All subjects done, behavior exercised and recorded, commands pass.
+- [x] Integration analyses show reuse; all new public surfaces have production callers.
+- [x] Durable selection/evidence decisions recorded in ADR and docs updated.
+- [x] All PM risks have terminal resolution and observed outcomes calibrated; misses carry lessons.
+- [x] Captain Hindsight verdict CLOSE for every subject.
+- [x] Checkpoints pushed and feature branch clean; no plan references leaked into shipped artifacts.
+- [x] Human actions resolved/deferred; cleanup review waiver recorded; lasting lessons reconciled.
 
 ## 8. Acceptance / sign-off
 
 | Date | Reviewer | Result | Notes |
 |---|---|---|---|
-| | | | |
+| 2026-10-16 | agent engineering review | Complete | 1144 broad tests, 17 real replays, targeted regressions, builds/lint/typechecks and historical byte guard pass; not a release or product/domain certification. |
 
 ## Captain Hindsight prompt
 
@@ -129,7 +128,7 @@ Check specifically for:
 - Behaviour closed on a green build alone: a box marked done on a passing build/test exit code without the changed flow exercised end-to-end (observed-vs-expected output).
 - Reuse missed or vision drift: new parallel code where existing code should have been extended, or a change that drifts from the project vision/ADRs (cross-check the subject's Integration analysis).
 - Human-owned actions that need to be mirrored or resolved.
-- Docs that drifted from shipped behaviour â€” user- and developer-facing alike (README, usage/HOWTO guides, CHANGELOG, API/command/config reference, architecture/onboarding docs, troubleshooting, examples, wiki, prompt/skill docs).
+- Docs that drifted from shipped behaviour — user- and developer-facing alike (README, usage/HOWTO guides, CHANGELOG, API/command/config reference, architecture/onboarding docs, troubleshooting, examples, wiki, prompt/skill docs).
 - Plan references that leaked into shipped code, tests, comments, identifiers,
   commit messages, branch names, PR titles, or PR descriptions.
 
@@ -139,7 +138,7 @@ artefacts: rerun the relevant verification command or cite its recorded output.
 Return exactly these sections:
 
 1. Keep: what was correct and should remain.
-2. Fix before closing: concrete issues, missing tests, spec drift, plan hygiene, or design problems â€” cite the file, test, or commit for each item.
+2. Fix before closing: concrete issues, missing tests, spec drift, plan hygiene, or design problems — cite the file, test, or commit for each item.
 3. Record: decisions or lessons that must be added to the plan files.
 4. Risk: anything still uncertain after verification.
 5. Verdict: CLOSE or DO NOT CLOSE.

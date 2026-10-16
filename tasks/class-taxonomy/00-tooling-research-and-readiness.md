@@ -1,4 +1,4 @@
-# 00 â€” Tooling research and readiness
+# 00 — Tooling research and readiness
 
 ## Goal
 

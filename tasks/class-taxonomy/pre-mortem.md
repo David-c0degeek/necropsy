@@ -24,7 +24,6 @@ PROCEED WITH GUARDRAILS.
 
 | PM ID | Outcome | Observed impact | Actual detection | Mitigation effectiveness | Severity calibration | Hindsight note / evidence |
 |---|---|---|---|---|---|---|
-
 | PM-1 | Prevented Prediction | None | Before merge | Effective | Accurate | Query assertions and real offline class examples preserve category slugs while trees differ; reports disclose broad pools. |
 | PM-2 | Prevented Prediction | None | Before merge | Effective | Accurate | Old checkpoint/resume and legacy live fixture checks pass; four historical Hunter artifacts remain byte-identical. |
 | PM-3 | Prevented Prediction | None | Before merge | Effective | Accurate | Placeholder, bool, unknown-match, tied-build and race constraint checks preserve evidence grades. |
@@ -33,5 +32,4 @@ PROCEED WITH GUARDRAILS.
 
 | ID | Failure | Observed impact | Actual detection | Why Pre-Mortem missed it | Future lesson | Evidence / refs |
 |---|---|---|---|---|---|---|
-
 | CH-MISS-1 | Installed Textual uses Select.NULL while old code referenced Select.BLANK | Medium | Before merge | Catalog/data risks did not cover existing UI sentinel drift | Exercise the complete optional/empty selection flow against installed widgets | tests/integration/test_tui.py; corrected all affected sentinel uses |
