@@ -105,6 +105,14 @@ native-window check above. OS vault access, native dialogs, real-account sign-in
 keyboard access, scaling and close/resume still need manual acceptance on each
 target platform; automated packaging checks do not establish those results.
 
+[0.3.1](https://github.com/David-c0degeek/necropsy/releases/tag/v0.3.1)
+passed the same [four-platform native checks](https://github.com/David-c0degeek/necropsy/actions/runs/38895236316)
+and [three-platform Python checks](https://github.com/David-c0degeek/necropsy/actions/runs/38895236311).
+The exact Windows package passed the native-window smoke test and replayed the
+reported Restoration snapshot with the corrected Loatheb and missing-talent
+comparisons. All nine public assets were downloaded and checksum-verified before
+updating the installers on main.
+
 To check a frozen engine outside the checkout, pass its executable to:
 
 ```sh

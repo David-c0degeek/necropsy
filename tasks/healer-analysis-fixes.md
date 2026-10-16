@@ -69,3 +69,29 @@ Proceed with guardrails. Saved snapshots remain immutable; regenerate outputs of
 - Release 0.3.1 authorized by the user. Build and verify all native packages
   on a temporary release branch; publish and verify assets before switching
   main installers. Existing installations are not modified by publication.
+
+
+## Release 0.3.1
+
+Published [v0.3.1](https://github.com/David-c0degeek/necropsy/releases/tag/v0.3.1)
+from `bc1b310dc504468b8f26735c901678b87f5468b0` after:
+
+- [Python CI](https://github.com/David-c0degeek/necropsy/actions/runs/38895236311)
+  passed Windows, macOS and Linux.
+- [Native CI](https://github.com/David-c0degeek/necropsy/actions/runs/38895236316)
+  passed all four platforms, including fresh private installation,
+  GUI/engine readiness, checksum refusal and failed-upgrade recovery.
+- Final assembled wheel/sdist passed unlimited-size gitleaks scans, isolated
+  installed public CLI flow, offline replay and exported-package integrity.
+- Exact Windows CI archive passed the native-window offline example, report
+  navigation, review persistence, saved library and save-before-quit checks.
+- Its frozen 0.3.1 engine independently replayed the original 90-fight snapshot:
+  15 personal encounters, 74 eligible sources, 27 findings. Loatheb retained four
+  sources with no cadence/throughput finding; missing-talent Kel'Thuzad retained
+  five and produced a review finding.
+- All nine public release assets were downloaded without authentication and
+  SHA-256 verified against the assembled bundle before main installers switched.
+
+Local receipts: `workspace/release-0.3.1-distribution-final.json`,
+`workspace/release-0.3.1-public-verification.json`, and per-platform bootstrap
+receipts under `workspace/release-0.3.1-ci/`. Installed user app was not replaced.
