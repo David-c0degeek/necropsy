@@ -12,10 +12,10 @@ Next time, open the Necropsy shortcut/launcher or type `necropsy`.
 
 ## Analyze your character
 
-![The guided terminal app with New analysis and Saved analyses tabs](images/terminal.png)
+![The graphical app with guided character setup and an offline example](images/desktop.png)
 
 1. Copy your character's Warcraft Logs link from your browser.
-2. Paste it into **Your character** and choose **Find my character**.
+2. Paste it into **Warcraft Logs character link** and choose **Find my character**.
 3. Sign in through your browser when asked, then return to Necropsy.
 4. Choose your spec when asked. If asked, choose the raid partition you want to inspect.
 5. Choose **Analyze my character**. Activity and the current boss stay visible.
@@ -32,11 +32,11 @@ When Warcraft Logs reaches its hourly allowance, the app saves its progress and
 shows how long until it can continue. It sleeps and retries automatically.
 Choose **Stop and save** if you prefer to return later. You can then quit.
 
-Your runs remain under **Your saved analyses**. Select the run and choose
-**Continue analysis** to carry on. **Open report** opens a saved report offline.
+Your runs remain under **Your analyses**. Select the run and choose
+**Continue analysis** to carry on. **Open Playbook** opens a saved report offline.
 The app preserves earlier snapshots when it updates a partial report.
 
-An older CLI run can be added with **Find an older analysis saved elsewhere**.
+An older CLI run can be added with **Add folder** in Your analyses.
 Choose its containing folder. Runs with checkpoints resume in place. Runs from
 before 0.1.1 recover their completed cached data into a new run while preserving
 their old files. Keep both the cache and run folders.
@@ -50,10 +50,10 @@ archived/private reports still depend on your WCL account permissions.
 | What you see | What to do |
 |---|---|
 | Password vault unavailable | Unlock your OS password vault; Linux needs a desktop Secret Service/KWallet and user D-Bus session. See [installation](installation.md#sign-in-and-analyze). |
-| Browser did not open | Choose **Open sign-in page** in the app. |
+| Browser did not open | Choose **Open sign-in** in the app. |
 | Hourly allowance reached | Let Necropsy sleep, or **Stop and save** and continue later. |
 | Saved output was edited | Preserve your edits; resume refuses to overwrite modified outputs. Start a new run for a fresh analysis. |
-| A run saved elsewhere is missing | Add its folder through **Find an older analysis saved elsewhere**. |
+| A run saved elsewhere is missing | Use **Add folder** in Your analyses. |
 | An unknown or limited comparison | Read the coverage/sample notes; missing evidence is not zero. |
 | An old report design | Update Necropsy and regenerate from saved JSON/snapshot using the advanced commands below. |
 
@@ -67,8 +67,8 @@ uv sync --locked
 uv run necropsy offline tests/fixtures/haplina_naxx_subset.zip --out workspace/demo
 ```
 
-Open `workspace/demo/playbook.html`. The sample is in the repository and is not
-packaged in the installed app. The full golden export requires Git LFS; see
+Open `workspace/demo/playbook.html`. The same limited sample is bundled in the
+GUI under **Try the example**. The full golden export requires Git LFS; see
 [fixture provenance](../tests/golden/haplina_naxx/PROVENANCE.md).
 
 Advanced commands remain compatible:
@@ -81,7 +81,7 @@ necropsy render ./replayed/analysis.json --out ./replayed
 ```
 
 CLI `analyze` exit codes are 0 complete, 4 partial output, 3 finalization stopped,
-2 choose a partition and 1 failure. The TUI handles these states for you.
+2 choose a partition and 1 failure. The GUI and explicit `necropsy tui` handle these states for you.
 
 ## Advanced reuse and integrity
 

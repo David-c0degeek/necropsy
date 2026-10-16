@@ -96,8 +96,13 @@ Druid contracts are documented in [Druid analysis](docs/druid-analysis.md). Exte
 ## Verify distribution artifacts
 
 Follow [the isolated package check](docs/installation.md#verification-and-removal).
-Build the installer bundle with `uv run python scripts/build_release.py --out workspace/release`.
+After building the native app, run `uv run python scripts/package_desktop.py --out workspace/desktop-bundle`,
+then `uv run python scripts/build_release.py --out workspace/release --desktop-bundles workspace/desktop-bundle`.
 Run `scripts/check_bootstrap.py` on each target OS with a fresh managed-Python path.
+The desktop workflow owns these native bootstrap checks; ordinary CI keeps the
+fast Python tests. Final release assembly uses `--require-all-desktop` to refuse
+missing platform archives. Publish verified assets before merging an installer
+version switch, so existing raw-main one-line commands keep working throughout.
 Build through the sdist, scan all extracted members with unlimited-size gitleaks,
 and test the installed entry point, public flow and offline replay outside the
 checkout. A real OS-store probe uses disposable synthetic credentials. CI does

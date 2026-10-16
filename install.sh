@@ -1,16 +1,28 @@
 #!/bin/sh
 # Per-user macOS/Linux setup. No Python, uv, Git, shell restart or sudo required.
 set -eu
-version=0.2.1
+version=0.3.0
 uv_version=0.11.21
 release="https://github.com/David-c0degeek/necropsy/releases/download/v$version"
 wheel_name="necropsy-$version-py3-none-any.whl"
 platform=$(uname -s)
 case "$platform" in
-    Darwin) default_root="$HOME/Library/Application Support/Necropsy/app" ;;
-    Linux) default_root="${XDG_DATA_HOME:-$HOME/.local/share}/necropsy/app" ;;
+    Darwin)
+        default_root="$HOME/Library/Application Support/Necropsy/app"
+        case "$(uname -m)" in
+            arm64) gui_platform=macos-arm64 ;;
+            x86_64) gui_platform=macos-x86_64 ;;
+            *) printf '%s\n' 'Necropsy needs an Apple Silicon or Intel Mac.' >&2; exit 1 ;;
+        esac ;;
+    Linux)
+        default_root="${XDG_DATA_HOME:-$HOME/.local/share}/necropsy/app"
+        case "$(uname -m)" in
+            x86_64|amd64) gui_platform=linux-x86_64 ;;
+            *) printf '%s\n' 'The Linux desktop build currently needs an x86-64 computer.' >&2; exit 1 ;;
+        esac ;;
     *) printf '%s\n' 'Please use the Windows installer on Windows.' >&2; exit 1 ;;
 esac
+gui_name="necropsy-desktop-$version-$gui_platform.tar.gz"
 app_root=${NECROPSY_INSTALL_ROOT:-$default_root}
 mkdir -p "$app_root"
 app_root=$(cd "$app_root" && pwd -P)
@@ -43,24 +55,28 @@ setup() {
     printf '%s\n' 'Necropsy setup - getting everything ready for you.' '[1/4] Getting the app...'
     if [ -n "${NECROPSY_BUNDLE_DIR:-}" ]; then
         cp "$NECROPSY_BUNDLE_DIR/$wheel_name" "$work_root/$wheel_name"
+        cp "$NECROPSY_BUNDLE_DIR/$gui_name" "$work_root/$gui_name"
         cp "$NECROPSY_BUNDLE_DIR/SHA256SUMS" "$work_root/SHA256SUMS"
     else
         download "$release/$wheel_name" "$work_root/$wheel_name"
+        download "$release/$gui_name" "$work_root/$gui_name"
         download "$release/SHA256SUMS" "$work_root/SHA256SUMS"
     fi
-    expected=$(awk -v name="$wheel_name" '$2 == name { print $1 }' "$work_root/SHA256SUMS")
+    for asset_name in "$wheel_name" "$gui_name"; do
+    expected=$(awk -v name="$asset_name" '$2 == name { print $1 }' "$work_root/SHA256SUMS")
     if [ "${#expected}" -ne 64 ]; then
         printf '%s\n' 'The app checksum is missing or ambiguous.' >&2; return 1
     fi
     if command -v sha256sum >/dev/null 2>&1; then
-        actual=$(sha256sum "$work_root/$wheel_name" | awk '{ print $1 }')
+        actual=$(sha256sum "$work_root/$asset_name" | awk '{ print $1 }')
     else
-        actual=$(shasum -a 256 "$work_root/$wheel_name" | awk '{ print $1 }')
+        actual=$(shasum -a 256 "$work_root/$asset_name" | awk '{ print $1 }')
     fi
     if [ "$actual" != "$expected" ]; then
         printf '%s\n' 'The app download was damaged. Nothing was installed. Please retry setup.' >&2
         return 1
     fi
+    done
     printf '%s\n' '[2/4] Preparing the app runtime (no Python installation required)...'
     uv_root="$app_root/runtime/uv"
     uv="$uv_root/uv"
@@ -78,9 +94,25 @@ setup() {
         printf '%s\n' 'The app could not start. Your previous launcher has been preserved.' >&2
         return 1
     fi
+    gui_root="$environment_root/gui"
+    mkdir -p "$gui_root"
+    tar -xzf "$work_root/$gui_name" -C "$gui_root"
+    if [ "$platform" = Darwin ]; then
+        gui_bundle="$gui_root/Necropsy.app"
+        gui="$gui_bundle/Contents/MacOS/necropsy-desktop"
+    else
+        gui="$gui_root/Necropsy/AppRun"
+    fi
+    gui_version=$("$gui" --check-install)
+    if [ "$gui_version" != "necropsy $version" ]; then
+        printf '%s\n' 'The graphical app could not start. Your previous launcher has been preserved.' >&2
+        return 1
+    fi
     printf '%s\n' '[4/4] Making it easy to open next time...'
     # Store the interpreter as data; never interpolate a home directory into shell code.
     printf '%s\n' "$python" > "$work_root/python-path"
+    printf '%s\n' "$gui" > "$work_root/gui-path"
+    mv "$work_root/gui-path" "$app_root/gui-path"
     mv "$work_root/python-path" "$app_root/python-path"
     cat > "$work_root/necropsy" <<'LAUNCHER'
 #!/bin/sh
@@ -92,6 +124,9 @@ while [ -L "$target" ]; do
 done
 app_root=$(CDPATH='' cd -- "$(dirname -- "$target")" && pwd -P)
 python=$(cat "$app_root/python-path")
+gui=$(cat "$app_root/gui-path")
+if [ "$#" -eq 0 ]; then exec "$gui"; fi
+export NECROPSY_GUI_PATH="$gui"
 exec "$python" -m necropsy "$@"
 LAUNCHER
     chmod 755 "$work_root/necropsy"
@@ -101,15 +136,23 @@ LAUNCHER
         ln -sfn "$app_root/necropsy" "$HOME/.local/bin/necropsy"
         if [ "$platform" = Darwin ]; then
             mkdir -p "$HOME/Applications"
-            ln -sfn "$app_root/necropsy" "$HOME/Applications/Necropsy.command"
+            app_shortcut="$HOME/Applications/Necropsy.app"
+            if [ ! -e "$app_shortcut" ] || [ -L "$app_shortcut" ]; then
+                ln -sfn "$gui_bundle" "$app_shortcut"
+            fi
+            old_shortcut="$HOME/Applications/Necropsy.command"
+            if [ -L "$old_shortcut" ] && [ "$(readlink "$old_shortcut")" = "$app_root/necropsy" ]; then
+                rm -f "$old_shortcut"
+            fi
         else
             applications="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
             mkdir -p "$applications"
             # Desktop Exec quoted paths require backslash, quote, backtick and dollar escaping.
             desktop_exec=$(printf '%s' "$app_root/necropsy" | sed 's/[\\"`$]/\\&/g; s/%/%%/g')
+            cp "$gui_root/Necropsy/necropsy.png" "$app_root/icon.png"
             printf '%s\n' '[Desktop Entry]' 'Type=Application' 'Name=Necropsy' \
                 'Comment=Analyze Warcraft Logs and continue saved analyses' \
-                "Exec=\"$desktop_exec\"" 'Terminal=true' 'Icon=utilities-terminal' \
+                "Exec=\"$desktop_exec\"" 'Terminal=false' "Icon=$app_root/icon.png" \
                 'Categories=Game;Utility;' > "$applications/necropsy.desktop"
             chmod 755 "$applications/necropsy.desktop"
         fi
@@ -130,6 +173,9 @@ LAUNCHER
 # Keep errexit active inside setup; an unchecked failed command must never publish a launcher.
 setup
 if [ "${NECROPSY_NO_LAUNCH:-0}" != 1 ]; then
-    # A piped installer consumes stdin. Reconnect the TUI to the terminal.
-    "$app_root/necropsy" tui </dev/tty
+    if [ "$platform" = Darwin ]; then
+        open "$gui_bundle"
+    else
+        nohup "$app_root/necropsy" </dev/null >/dev/null 2>&1 &
+    fi
 fi

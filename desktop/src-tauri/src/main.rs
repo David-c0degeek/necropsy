@@ -135,6 +135,37 @@ async fn quit_app(app: tauri::AppHandle) -> Result<(), String> {
 }
 
 fn main() {
+    let version = format!("necropsy {}", env!("CARGO_PKG_VERSION"));
+    if std::env::args().any(|arg| arg == "--version") {
+        println!("{version}");
+        return;
+    }
+    if std::env::args().any(|arg| arg == "--check-install") {
+        let result = engine_command().and_then(|mut command| {
+            #[cfg(windows)]
+            {
+                use std::os::windows::process::CommandExt;
+                command.creation_flags(0x08000000);
+            }
+            command
+                .arg("--version")
+                .output()
+                .map_err(|error| error.to_string())
+        });
+        match result {
+            Ok(output)
+                if output.status.success()
+                    && String::from_utf8_lossy(&output.stdout).trim() == version =>
+            {
+                println!("{version}");
+                return;
+            }
+            _ => {
+                eprintln!("Necropsy's desktop engine is missing or has a different version.");
+                std::process::exit(1);
+            }
+        }
+    }
     tauri::Builder::default()
         .manage(Engine::default())
         .plugin(tauri_plugin_dialog::init())

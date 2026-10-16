@@ -2,8 +2,8 @@
 
 [Home](../README.md) · [Documentation](README.md) · [Architecture decisions](decisions/README.md)
 
-Necropsy is a local Python application with a guided terminal UI and advanced
-CLI for all Classic Era classes in Naxxramas. It acquires
+Necropsy is a local Python analysis engine with a graphical desktop app,
+optional terminal UI and advanced CLI for all Classic Era classes in Naxxramas. It acquires
 WCL data or reads a saved snapshot, normalizes it into a derived DuckDB database,
 and produces one versioned analysis document. The report, playbook and package
 are built from that document alone.
@@ -17,9 +17,10 @@ user endpoint. Registered public sign-in, refresh and representative API queries
 are observed on Windows; independent-user acceptance and release approval
 are confirmed by the product owner.
 See [ADR0007](decisions/0007-public-client-authentication.md) and
-[installation](installation.md). The default TUI handles browser sign-in, character/spec selection, saved runs,
-progress, cooperative stop and repeated quota waits. An additive Tauri/React
-[desktop GUI](desktop.md) now reuses this same service through a Python JSON-lines
+[installation](installation.md). The default GUI and explicit `necropsy tui`
+handle browser sign-in, character/spec selection, saved runs, progress,
+cooperative stop and repeated quota waits. The Tauri/React
+[desktop GUI](desktop.md) reuses the same service through a Python JSON-lines
 sidecar. It displays the existing rendered pages in a sandbox, with desktop
 packaging and verification boundaries documented separately. Further game/raid
 support remains future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
@@ -29,7 +30,8 @@ is design history; this page describes the current implementation.
 
 ```mermaid
 flowchart TD
-    TUI[Guided TUI and saved-run library] --> URL[Character URL]
+    GUI[Default desktop GUI] --> URL[Character URL]
+    TUI[Optional terminal UI] --> URL
     CLI[Advanced analyze command] --> URL
     URL --> Resolve[Resolve character and partition]
     Resolve --> Acquire[Select cohort and acquire report/event streams]

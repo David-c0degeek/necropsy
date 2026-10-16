@@ -8,6 +8,16 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+No additional changes beyond 0.3.0 below.
+
+## 0.3.0 - 2026-10-16
+
+- One-line installers, OS shortcuts and bare `necropsy` open the graphical app
+  by default. Explicit `necropsy tui` and advanced commands remain available.
+- Setup checksums the CLI and native GUI packages, verifies GUI/engine readiness
+  before switching launchers, and preserves existing reports, cache and sign-in.
+- Native portable packages for Windows x64, both Mac architectures and Linux x64;
+  Linux installation uses an extracted AppImage runtime without requiring FUSE.
 - Graphical desktop app using Tauri/React and the existing Python service:
   guided character/spec setup, browser sign-in, saved analyses, stop/resume,
   quota countdown and cooperative save-before-quit.

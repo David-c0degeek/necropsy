@@ -14,6 +14,7 @@ import zipfile
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+from necropsy import __version__
 from necropsy.report.package import package_name
 from necropsy.wcl.acceptance import check_package, secret_scan
 
@@ -160,8 +161,8 @@ def main() -> None:
     parser.add_argument("--receipt", type=Path, required=True)
     parser.add_argument("--probe-os-store", action="store_true")
     args = parser.parse_args()
-    (wheel,) = args.dist.resolve().glob("necropsy-*.whl")
-    (sdist,) = args.dist.resolve().glob("necropsy-*.tar.gz")
+    wheel = (args.dist / f"necropsy-{__version__}-py3-none-any.whl").resolve(strict=True)
+    sdist = (args.dist / f"necropsy-{__version__}.tar.gz").resolve(strict=True)
     snapshot = args.snapshot.resolve(strict=True)
     # Isolate from editable imports, client selection and developer credentials.
     env = {
@@ -171,7 +172,7 @@ def main() -> None:
     }
     env["PYTHONUTF8"] = "1"
     with tempfile.TemporaryDirectory(prefix="necropsy-install-") as temporary:
-        work = Path(temporary)
+        work = Path(temporary).resolve()
         artifacts = [audit(path, work / path.name) for path in (wheel, sdist)]
         run(["uv", "venv", str(work / "venv"), "--python", sys.executable], work, env)
         python = work / "venv" / ("Scripts/python.exe" if os.name == "nt" else "bin/python")

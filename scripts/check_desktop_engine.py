@@ -13,7 +13,7 @@ from typing import Any
 
 def check(command: list[str]) -> None:
     with tempfile.TemporaryDirectory(prefix="necropsy-desktop-check-") as directory:
-        root = Path(directory)
+        root = Path(directory).resolve()
         process = subprocess.Popen(
             [*command, "--data-dir", str(root / "library")],
             cwd=root,
