@@ -96,10 +96,14 @@ quota waits, cancellation and checkpoint recovery. A real-account GUI sign-in
 and acquisition is a separate acceptance check; prior terminal acceptance does
 not establish GUI acceptance.
 
-macOS/Linux packaging is configured in CI but has not been executed locally in
-this Windows session. OS vault access, native dialogs, sign-in, keyboard access,
-scaling and close/resume must also be exercised on each target platform before
-calling a desktop release verified.
+For [0.3.0](https://github.com/David-c0degeek/necropsy/releases/tag/v0.3.0),
+[native CI](https://github.com/David-c0degeek/necropsy/actions/runs/38874925377)
+passed on Windows x64, Linux x64 and both Mac architectures: packaging,
+frozen-engine offline replay, fresh installation, GUI/engine readiness and
+damaged-download rollback. The exact published Windows binary also passed the
+native-window check above. OS vault access, native dialogs, real-account sign-in,
+keyboard access, scaling and close/resume still need manual acceptance on each
+target platform; automated packaging checks do not establish those results.
 
 To check a frozen engine outside the checkout, pass its executable to:
 
