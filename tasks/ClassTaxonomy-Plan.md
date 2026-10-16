@@ -1,5 +1,7 @@
 # ClassTaxonomy Plan
 
+> **Current status: CLOSED.** Implementation and verification are complete. David explicitly requested close-out on 2026-10-16. Retained for traceability; merge and release remain outside this plan.
+
 ## Collaboration model
 
 | Field | Value |
@@ -109,6 +111,7 @@ Implement separate Classic Era game talent trees/race validity and WCL ranking c
 | Date | Reviewer | Result | Notes |
 |---|---|---|---|
 | 2026-10-16 | agent engineering review | Complete | 1144 broad tests, 17 real replays, targeted regressions, builds/lint/typechecks and historical byte guard pass; not a release or product/domain certification. |
+| 2026-10-16 | David | Closed | Explicit close-out instruction after fresh verification: 1145 tests passed; lint, formatting, types and Python/desktop builds passed. No merge or publication requested. |
 
 ## Captain Hindsight prompt
 
