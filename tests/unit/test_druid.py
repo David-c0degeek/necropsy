@@ -92,8 +92,12 @@ def test_healing_amount_excludes_overheal_and_outputs_work(tmp_path: Path) -> No
     for name in ("report.html", "playbook.html"):
         html = outputs[name]
         assert html is not None
-        assert b"restoration" in html and b"Same-faction shot" not in html
-        assert b"boss-51118" in html and b"effective healing" in html
+        assert b"Druid" in html and b"Same-faction shot" not in html
+        assert b"boss-51118" in html
+        if name == "report.html":
+            assert b"restoration" in html and b"effective healing" in html
+        else:
+            assert b"During the fight" in html and b"<table" not in html
     package = outputs["necropsy-99-2006.zip"]
     assert package is not None
     archive = tmp_path / "package.zip"

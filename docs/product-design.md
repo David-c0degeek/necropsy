@@ -3,7 +3,7 @@
 [Documentation](README.md) · [Architecture](architecture.md) · [Reading results](reading-results.md)
 
 Necropsy's interface follows **understand → prioritize → act → investigate → verify**.
-Playbook emphasizes preparation; Report emphasizes comparisons and forensic detail.
+Playbook is a boss action sheet; Report owns comparisons and forensic detail.
 Both read the same immutable analytical result and use the same shell.
 
 ## Presentation boundaries
@@ -12,8 +12,8 @@ Both read the same immutable analytical result and use the same shell.
 It sorts saved recommendations by existing severity, keeps stable order for ties,
 and shows one representative per rule in the three-item raid shortlist. It does
 not recompute confidence, invent a score, estimate a gain or change `analysis.json`.
-Boss actions use the same severity order; Hunter actions retain their original
-anchors and review keys. No finding and no personal data are separate states.
+Boss actions use the same severity order; Report retains Hunter finding anchors
+and review keys. No finding and no personal data are separate states.
 
 Comparison counts describe eligible sources. Known samples and missing medians
 remain measurement-specific. Coverage describes acquired inputs, not all possible
@@ -52,14 +52,18 @@ components on the same semantic colors.
 ## Components and interaction
 
 - Overview: character identity, snapshot, coverage, a short priority list and
-  compact linked encounter rows. Priorities expose a short explanation on demand.
-- Actions: action and observed finding, distinct severity/confidence/control,
-  visible meaningful limitations, expandable comparison and evidence paths.
-- Comparisons: aligned numeric groups before full tables. Unknown remains text;
+  compact linked encounter rows. Report exposes explanations on demand;
+  Playbook links to those explanations. Starting order communicates priority.
+- Actions: Playbook shows concise instructions with relevant limitations and
+  tentative-advice warnings. Report keeps the observed finding and places
+  severity/confidence/control classifications inside its explanation.
+- Comparisons in Report: aligned numeric groups before full tables. Unknown remains text;
   an individual reference is never labelled a median.
-- Preparation: a next-pull panel, loadout/execution disclosure and separate raid help.
-- Evidence: native `details` retains complete cohorts, equipment, source links,
-  measurements and timelines. Direct jumps reveal enclosing disclosures.
+- Preparation in Playbook: stacked before-pull, during-fight and raid-coordination
+  sections. Report also separates detailed loadout and execution into stacked sections.
+- Evidence in Report: native `details` retains complete cohorts, equipment, source
+  links, measurements and timelines. Playbook contains no comparison tables.
+  Direct jumps reveal enclosing disclosures and move focus to the destination heading.
 - Navigation: desktop sidebar, sticky compact boss picker below 1050px, search,
   findings/limited/reviewed filters and a view switch that retains the boss.
 - Review: existing analysis-keyed browser marks update navigation and triage.

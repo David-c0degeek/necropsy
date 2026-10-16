@@ -101,7 +101,7 @@ def test_declared_tree_survives_snapshot_replay_without_changing_query_pool(
     run_offline(out / "snapshot/declared.zip", tmp_path / "replay")
     replay = json.loads((tmp_path / "replay/analysis.json").read_text(encoding="utf-8"))
     assert replay["taxonomy"] == original["taxonomy"]
-    page = (tmp_path / "replay/playbook.html").read_text(encoding="utf-8")
+    page = (tmp_path / "replay/report.html").read_text(encoding="utf-8")
     assert "Survival" in page and "does not narrow the leaderboard" in page
     changed = _run(tmp_path, "--resume", "--talent-tree", "Beast Mastery")
     assert changed.exit_code == 1 and "resume options differ" in changed.output
@@ -211,8 +211,11 @@ def test_selected_hunter_without_personal_fights_keeps_a_faction_leader_playbook
     doc = json.loads((tmp_path / "out/analysis.json").read_text(encoding="utf-8"))
     assert doc["bosses"][0]["subject"] is None and not doc["bosses"][0]["recommendations"]
     page = (tmp_path / "out/playbook.html").read_text(encoding="utf-8")
-    assert "No personal Marksmanship encounter" in page and "Ally1" in page
-    assert '<details class="overall-comparison">' in page
+    assert "No matching personal fight" in page and "Ally1" in page
+    assert 'href="report.html#boss-' in page
+    report = (tmp_path / "out/report.html").read_text(encoding="utf-8")
+    assert "No personal Marksmanship encounter" in report
+    assert '<details class="overall-comparison">' in report
 
 
 def test_interactive_lookup_asks_for_faction_and_spec(

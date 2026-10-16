@@ -2,21 +2,20 @@
 {% from "reference-macros.html.j2" import plans, equipment, prose %}
 {% from "macros.html.j2" import val, evidence %}
 {% from "ability-use.html.j2" import ability_use %}
+{% from "pull-sheet.html.j2" import pull_sheet %}
 {% macro ev(e) -%}
 {% if e and e.value is not none %}{{ e.value }} <span class="level">{{ e.level }}</span>{% else %}<span class="unknown">Unknown</span>{% if e and e.note %} <span class="why">{{ e.note }}</span>{% endif %}{% endif %}
 {%- endmacro %}
 {% macro actor(d, id) -%}
 {% set catalog = (d.get('actor_catalog') or {}).get('value') or {} %}{% set found = catalog.get(id|string) or {} %}{{ found.get('name') or ('Unresolved actor ' ~ id) }}{% if found.get('type') %} ({{ found.type }}){% endif %}
 {%- endmacro %}
-{% macro coaching(ref, boss, page) %}
+{% macro coaching(ref, boss) %}
 <section id="boss-{{ boss.encounter_id }}-plan" class="next-pull" aria-labelledby="boss-{{ boss.encounter_id }}-plan-title">
-  <div class="eyebrow">{{ 'Prepare for your next attempt' if page == 'playbook' else 'Turn the analysis into practice' }}</div>
+  <div class="eyebrow">Turn the analysis into practice</div>
   <h3 id="boss-{{ boss.encounter_id }}-plan-title" tabindex="-1">Your next pull</h3>
   <article class="quick-plan"><h4>Opening cycle and encounter notes</h4>{{ plans(ref.quick_plan) }}</article>
-  <details class="preparation-details"{% if page == 'playbook' %} open{% endif %}>
-    <summary>Loadout and execution plan</summary>
-    <div class="grid two"><article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article><article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article></div>
-  </details>
+  <section class="loadout-plan"><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</section>
+  <section class="execution-plan"><h3>Execution plan</h3>{{ plans(ref.execution) }}</section>
   <div class="grid two warnings"><article class="dont"><h4>Keep in mind</h4>{{ prose(ref.dont) }}</article><article class="ask"><h4>Raid help</h4>{{ prose(ref.asks) }}</article></div>
 </section>
 {% endmacro %}
@@ -45,6 +44,7 @@
 {% include "overview.html.j2" %}
 {% set selected = doc.selected_spec %}
 {% set personal_count = doc.class_document.bosses|selectattr('subject')|list|length %}
+{% if page == 'report' %}
 <section class="global analysis-context" aria-label="Analysis context">
   <details><summary>Available data and limitations</summary>
   <p>Coverage describes what the logs can tell us, not sync progress. Missing fights or uncertain pet usage can limit specific results; the notes below explain what is affected.</p>
@@ -71,11 +71,17 @@
   {% for b in doc.class_document.bosses %}{% set ref = doc.class_views[b.encounter_id] %}<tr><th scope="row"><a href="#boss-{{ b.encounter_id }}">{{ b.boss }}</a></th><td data-label="Your encounter">{{ 'Available' if b.subject else 'No personal data in this spec' }}</td><td data-label="Your throughput">{{ val(ref.metrics[0][1]) }}</td><td data-label="Faction leader">{{ b.playbook.reference.player if b.playbook.get('reference') else 'Event example not acquired' }}</td><td data-label="Leader throughput">{{ val(ref.metrics[1][1]) }}</td><td data-label="Event sources">{{ val(ref.metrics[3][1]) }}</td></tr>{% endfor %}</tbody></table></div>
   <p class="table-note">Throughput is role-specific: damage, effective healing or incoming damage per second. Incoming damage and HPS are not quality scores. One or two sources remain labelled individual comparisons.</p>
 </details></section>
+{% endif %}
 <p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span> <button type="button" id="reset-reviews">Clear review marks</button></p>
 {% for boss in doc.class_document.bosses %}
 <section id="boss-{{ boss.encounter_id }}" class="boss boss-section" aria-labelledby="boss-{{ boss.encounter_id }}-title">
   {% set ref = doc.class_views[boss.encounter_id] %}
   {% set triage = doc.experience.bosses[loop.index0] %}
+  {% if page == 'playbook' %}
+  <div class="boss-head"><div><div class="eyebrow">Boss {{ '%02d'|format(loop.index) }}</div><h2 id="boss-{{ boss.encounter_id }}-title" tabindex="-1">{{ boss.boss }}</h2></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.boss }}</span></label></div>
+  {% if triage.limited %}<p class="table-note">{{ triage.quality }}. {{ triage.quality_note or 'Advice may be limited by the available comparisons.' }}</p>{% endif %}
+  {{ pull_sheet(ref, ref.actions, 'boss-' ~ boss.encounter_id, boss.subject is not none) }}
+  {% else %}
   <div class="boss-head"><div><div class="eyebrow">Boss {{ '%02d'|format(loop.index) }} · {{ boss.boss }}</div><h2 id="boss-{{ boss.encounter_id }}-title" tabindex="-1">{{ boss.boss }}</h2><div class="metrics">{% for label, value in ref.metrics %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endfor %}</div></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.boss }}</span></label></div>
   <details class="role-context"><summary>Role, category and coverage context</summary><div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div></details>
   <div class="quality-strip"><strong>{{ 'Not assessed · no matching personal data' if not boss.subject else triage.quality }}</strong><span>{{ triage.sources }} comparable event sources{% if triage.membership_label %} · {{ triage.membership_label }}{% endif %} · source counts vary by measurement</span></div>
@@ -86,9 +92,10 @@
     {% for action in ref.actions %}
     <article class="card action-card">
       <h4>{{ action.recommendation }}</h4>
-      <ul class="badges" aria-label="Finding classification"><li class="badge sev-{{ action.severity }}">Severity: {{ action.severity }}</li><li class="badge conf-{{ action.confidence }}">{{ action.confidence|capitalize }} confidence</li><li class="badge">{{ action.control_label }}</li></ul>
       <p class="finding">{{ action.finding }}</p>
       <details><summary>Why this was flagged · evidence and limits</summary>
+        <p class="table-note">Severity describes the finding; confidence describes its evidence. Starting order does not predict a performance gain.</p>
+      <ul class="badges" aria-label="Finding classification"><li class="badge sev-{{ action.severity }}">Severity: {{ action.severity }}</li><li class="badge conf-{{ action.confidence }}">{{ action.confidence|capitalize }} confidence</li><li class="badge">{{ action.control_label }}</li></ul>
         {% for item in action.evidence_views %}{{ evidence(item) }}{% endfor %}
         <ul class="limitations">{% for limit in action.limitations %}<li>{{ limit }}</li>{% endfor %}</ul>
       </details>
@@ -96,7 +103,7 @@
     {% else %}<p>{{ 'No personal finding is available. The recorded example below is for learning, not an assessment of your performance.' if not boss.subject else 'No supported recommendation was generated. This does not establish that every aspect of the fight was assessed; review comparisons and coverage below.' }}</p>{% endfor %}
     {% if boss.playbook.get('assessment_limits') %}<p>Assessment limits:</p><ul>{% for limit in boss.playbook.assessment_limits %}<li>{{ limit }}</li>{% endfor %}</ul>{% endif %}
   </section>
-  {% if page == 'playbook' %}{{ coaching(ref, boss, page) }}{{ comparison_snapshot(ref, boss) }}{% else %}{{ comparison_snapshot(ref, boss) }}{{ coaching(ref, boss, page) }}{% endif %}
+  {{ comparison_snapshot(ref, boss) }}{{ coaching(ref, boss) }}
   <h3 id="boss-{{ boss.encounter_id }}-evidence" tabindex="-1">Evidence and details</h3>
   <details><summary>Who are you being compared with?</summary><p>{{ boss.benchmarks.baseline.note }}</p><p>{{ boss.benchmarks.baseline.entries }} comparable event sources. Build, race, faction buffs, fight length and assignments can affect comparisons. Ranking scores remain separate from event metrics.</p></details>
   <details class="full-gear"><summary>Your full logged gear for this selected encounter</summary><div>{{ equipment(ref.gear) }}</div></details>
@@ -142,7 +149,6 @@
   </tbody></table></div>
   <p>Saved WCL category score: {{ s.ranking.category_score if s.ranking.category_score is not none else 'Unknown' }} {{ s.ranking.metric or '' }} · {{ s.ranking.note }}</p>
   <details><summary>Observed roles, forms, resources and full timeline</summary>
-    {% if page == 'playbook' %}<h3>All measurements</h3><dl class="kv">{% for name, value in d.metrics.items() %}<dt>{{ name|replace('_', ' ') }}</dt><dd>{{ ev(value) }}</dd>{% endfor %}</dl>{% endif %}
     <h3>Observed activity spans</h3><ul>{% for span in d.activity_spans %}<li>{{ span.role }}: {{ span.first_action_s }}–{{ span.last_action_s }} s; {{ span.casts_observed }} recorded casts · {{ (span.get("cast_share", 1) * 100)|round(1) }}% of categorized casts · {{ 'qualifying duty' if span.get("qualifies_as_duty", true) else 'minor action signal; assignment unproven' }}</li>{% else %}<li>No supported activity spans.</li>{% endfor %}</ul>
     {% if doc.analysis_key == "druid" %}<h3>Form intervals (report timestamps, ms)</h3><dl class="kv">{% for name, intervals in d.forms.items() %}<dt>{{ name }}</dt><dd>{{ ev(intervals) }}</dd>{% endfor %}</dl>
     {% endif %}<h3>Ability use</h3><p>{{ ev(d.casts) }}</p>
@@ -207,6 +213,7 @@
     {% endfor %}
   </details>
   <ul class="limitations">{% for limit in boss.playbook.limitations %}<li>{{ limit }}</li>{% endfor %}</ul>
+  {% endif %}
 </section>
 {% endfor %}
 {% endblock %}

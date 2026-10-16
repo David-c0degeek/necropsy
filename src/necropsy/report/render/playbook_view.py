@@ -1009,6 +1009,40 @@ def boss_view(
                     ),
                 }
             )
+    pull_before = [line("Check your weapons, trinkets, ammunition and pet setup before the pull.")]
+    pull_during = [
+        line(
+            _quick_plan(plan, static, game, pet_facts)[0]["lines"][0]["text"],
+            "Recorded opening example, not a required rotation. Confirm your assignment first."
+            + (
+                " Comparator membership is inferred."
+                if member == "inferred" or (base and base["membership"]["level"] == "inferred")
+                else ""
+            ),
+        )
+    ]
+    for item, (destination, advice) in zip(
+        (static.get("guidance") or {}).get("items") or [],
+        _guidance_lines(static, game, pet_facts),
+        strict=True,
+    ):
+        if item["status"] == "inapplicable":
+            continue
+        condition = item.get("condition") or {}
+        concise = line(
+            advice["text"],
+            (str(condition["level"]) + ": " + str(condition["detail"]))
+            if condition
+            else "General encounter guidance; confirm your raid's strategy.",
+        )
+        (pull_before if destination == "Pet" else pull_during).append(concise)
+    pull_asks = {
+        "raid-speed": "Coordinate cooldowns and encounter timings with the raid leader. "
+        "The recorded kill-time difference does not identify its cause.",
+        "raid-utility": "Confirm your crowd-control assignment before changing your shot plan.",
+        "padding-strategy": "Confirm your target and side assignments, and which targets "
+        "count toward the ranking, before changing your target priorities.",
+    }
     return {
         "metrics": metrics,
         "overall_identity": None
@@ -1037,6 +1071,17 @@ def boss_view(
         ),
         "loadout": tuple(loadout),
         "execution": tuple(execution),
+        "pull_before": tuple(pull_before),
+        "pull_during": tuple(pull_during),
+        "pull_asks": tuple(
+            line(pull_asks[item["kind"]])
+            for item in (plan or {}).get("raid_asks", [])
+            if item["kind"] in pull_asks
+        )
+        or (
+            line("Confirm your positioning, target and utility assignments with the raid leader."),
+        ),
+        "pull_limits": tuple((plan or {}).get("limitations") or ()),
         "quick_plan": _quick_plan(plan, static, game, pet_facts),
         "dont": tuple(dont)
         or (

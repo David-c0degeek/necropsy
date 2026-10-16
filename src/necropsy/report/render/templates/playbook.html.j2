@@ -1,40 +1,17 @@
 {% extends "base.html.j2" %}
-{% from "macros.html.j2" import val, card %}
+{% from "pull-sheet.html.j2" import pull_sheet %}
 {% block title %}Playbook · {{ doc.title }} · Necropsy{% endblock %}
 {% block main %}
 {% include "overview.html.j2" %}
-<details class="raid-reference"><summary>Raid preparation, faction context and full raid measurements</summary><div>
-{% include "reference-overview.html.j2" %}
-</div></details>
 <p class="notice"><span id="review-status">Review marks are saved only in this browser, for this exact analysis.</span> <button type="button" id="reset-reviews">Clear review marks</button></p>
 {% for boss in doc.bosses %}
-{% set boss_number = loop.index %}
+{% set ref = boss.reference %}
 <section class="boss" id="{{ boss.anchor }}" aria-labelledby="{{ boss.anchor }}-title">
-  {% include "reference-boss.html.j2" %}
-  <p class="table-note"><a href="report.html#{{ boss.anchor }}">Open execution, target shares, raid-speed comparisons and evidence in the full report →</a></p>
-  {% if not boss.has_subject %}
-  <p class="muted">No kill for this character in the snapshot.</p>
-  {% else %}
-  <details class="analytical-details"><summary>Findings and recorded comparison details</summary><div>
-  {% for g in boss.playbook %}
-  <section class="group" aria-labelledby="{{ boss.anchor }}-{{ g.key }}">
-    <div class="group-head">
-      <h3 id="{{ boss.anchor }}-{{ g.key }}">{{ g.title }}</h3>
-      <span class="status status-{{ g.status }}">{{ g.status_text }}</span>
-    </div>
-    {% if g.facts %}
-    <div class="table-wrap" role="region" aria-label="{{ g.title }}: recorded data" tabindex="0">
-      <table class="stack">
-        <thead><tr><th scope="col">Recorded</th><th scope="col">You</th><th scope="col">Same faction</th></tr></thead>
-        <tbody>{% for f in g.facts %}<tr><th scope="row">{{ f.label }}</th><td data-label="You">{{ val(f.yours) }}</td><td data-label="Same faction">{% if f.typical %}{{ val(f.typical) }}{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
-      </table>
-    </div>
-    {% endif %}
-
-  </section>
-  {% endfor %}
-  </div></details>
-  {% endif %}
+  <div class="boss-head"><div><div class="eyebrow">Boss {{ "%02d"|format(loop.index) }}</div><h2 id="{{ boss.anchor }}-title" tabindex="-1">{{ boss.name }}</h2></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.name }}</span></label></div>
+  {% set triage = doc.experience.bosses[loop.index0] %}
+  {% if triage.limited %}<p class="table-note">{{ triage.quality }}. Advice may be limited by the available comparisons.</p>{% endif %}
+  {{ pull_sheet(ref, boss.ordered_cards, boss.anchor, boss.has_subject) }}
+  {% if not boss.has_subject and ref.leader_practice %}<p>Recorded faction example: {{ ref.leader_practice.player }}. <a href="report.html#{{ boss.anchor }}">Review the recorded opening and ability use before practicing →</a></p>{% endif %}
 </section>
 {% endfor %}
 {% endblock %}

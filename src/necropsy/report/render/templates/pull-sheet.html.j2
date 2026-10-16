@@ -1,0 +1,25 @@
+{% from "reference-macros.html.j2" import prose %}
+{% macro instruction(c) %}
+<li class="pull-action">
+  <p class="action">{{ c.action if c.action is defined else c.recommendation }}</p>
+  {% if c.confidence == 'low' %}<p class="table-note">Tentative advice: limited evidence. Confirm it fits your assignment before changing your approach.</p>{% endif %}
+  {% if c.small_sample is defined and c.small_sample %}<p class="table-note">{{ c.small_sample }}</p>{% endif %}
+  {% if c.limitations %}<ul class="limitations">{% for limit in c.limitations %}<li>{{ limit }}</li>{% endfor %}</ul>{% endif %}
+</li>
+{% endmacro %}
+{% macro pull_sheet(ref, actions, anchor, has_subject) %}
+<nav class="boss-jumps" aria-label="Next pull sections"><a href="#{{ anchor }}-actions">Focus</a><a href="#{{ anchor }}-before">Before the pull</a><a href="#{{ anchor }}-during">During the fight</a><a href="#{{ anchor }}-raid">Raid coordination</a></nav>
+<section class="boss-actions" id="{{ anchor }}-actions" aria-labelledby="{{ anchor }}-actions-title">
+  <div class="eyebrow">Your next pull</div><h3 id="{{ anchor }}-actions-title" tabindex="-1">{{ 'Start here' if actions else 'Practice focus' }}</h3>
+  {% if not has_subject %}<p class="notice">No matching personal fight is available. This is a practice reference, not an assessment of your performance. Confirm assignments before copying an example.</p>{% endif %}
+  {% if actions %}<ol class="pull-actions">{% for c in actions[:2] %}{{ instruction(c) }}{% endfor %}</ol>
+  {% if actions|length > 2 %}<details class="more-actions"><summary>{{ actions|length - 2 }} more actions</summary><ol class="pull-actions" start="3">{% for c in actions[2:] %}{{ instruction(c) }}{% endfor %}</ol></details>{% endif %}
+  {% elif has_subject %}<p>No supported personal change was identified. Use the encounter guidance below and check the Report's coverage limits; this does not mean every aspect of the fight was assessed.</p>{% endif %}
+</section>
+<div class="pull-plan" id="{{ anchor }}-plan">
+  <section class="pull-step" id="{{ anchor }}-before" aria-labelledby="{{ anchor }}-before-title"><h3 id="{{ anchor }}-before-title" tabindex="-1">Before the pull</h3>{{ prose(ref.pull_before) }}</section>
+  <section class="pull-step" id="{{ anchor }}-during" aria-labelledby="{{ anchor }}-during-title"><h3 id="{{ anchor }}-during-title" tabindex="-1">During the fight</h3>{{ prose(ref.pull_during) }}{% if ref.pull_limits %}<ul class="limitations">{% for limit in ref.pull_limits %}<li>{{ limit }}</li>{% endfor %}</ul>{% endif %}</section>
+  <section class="pull-step" id="{{ anchor }}-raid" aria-labelledby="{{ anchor }}-raid-title"><h3 id="{{ anchor }}-raid-title" tabindex="-1">Coordinate with the raid</h3>{{ prose(ref.pull_asks) }}</section>
+</div>
+<p class="table-note"><a href="report.html#{{ anchor }}">Why these actions? Open this boss's comparisons, loadout and evidence in Report →</a></p>
+{% endmacro %}

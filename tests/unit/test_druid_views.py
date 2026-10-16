@@ -222,12 +222,17 @@ def test_every_requested_boss_renders_when_no_player_entries_exist(tmp_path: Pat
     sapphiron = next(b for b in doc["bosses"] if b["encounter_id"] == 51119)
     assert sapphiron["playbook"]["personal_data"]["status"] == "not-assessed"
     outputs = build_outputs(dumps(doc).encode())
-    page = outputs["playbook.html"]
+    page = outputs["report.html"]
     assert page is not None
     text = page.decode()
     assert 'id="boss-51119"' in text and "WCL comparison category: Healer" in text
     assert "0 encounters with your matching data" in text
     assert "No eligible event example" in text
+    playbook = outputs["playbook.html"]
+    assert playbook is not None
+    assert b'id="boss-51119"' in playbook and b"No matching personal fight" in playbook
+    assert b"Opening unknown: no eligible recorded example" in playbook
+    assert b"<table" not in playbook
 
 
 @pytest.mark.parametrize(

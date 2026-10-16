@@ -197,10 +197,11 @@ def test_boss_search_keeps_overview_and_truth_links(
     page.get_by_role("searchbox", name="Filter bosses").fill("  GoThIk  ")
     assert page.locator(f"{nav} li[data-boss-name]:visible").count() == 1
     assert page.locator(f"{nav} a[href='#overview']").is_visible()
-    truth = page.locator(f"{nav} a[href='#truth-model']")
+    truth = page.locator(f"{nav} a[href='report.html#truth-model']")
     assert truth.is_visible()
     assert page.locator("section.boss").count() == 4
     truth.click()
+    assert page.url.endswith("report.html#truth-model")
     page.wait_for_function("document.activeElement.id === 'truth-model-title'")
     page.get_by_role("searchbox", name="Filter bosses").fill("")
     if viewport == MOBILE:
@@ -236,11 +237,10 @@ def test_storage_blocked_still_works(browser: Any, site: Path) -> None:
     context.close()
 
 
-@pytest.mark.parametrize("name", ["report.html", "playbook.html"])
-def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, name: str) -> None:
+def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path) -> None:
     document = json.loads((site / "analysis.json").read_bytes())
     watch = _Watch(page)
-    page.goto((site / name).as_uri())
+    page.goto((site / "report.html").as_uri())
     page.locator("details.raid-reference > summary").click()
     for heading in (
         "Global setup",
@@ -281,7 +281,9 @@ def test_definitive_sections_full_cohort_and_equipment(page: Any, site: Path, na
             "Rapid Fire",
             "Notes",
         ]
-        assert section.locator(".grid.two .plan-lines > dt").all_text_contents() == [
+        assert section.locator(
+            ".loadout-plan .plan-lines > dt, .execution-plan .plan-lines > dt"
+        ).all_text_contents() == [
             "Weapons",
             "Trinkets",
             "Pet",
@@ -311,10 +313,9 @@ def test_product_priorities_filters_and_boss_review(page: Any, site: Path) -> No
     assert page.locator("html").get_attribute("data-class") == "hunter"
     assert page.locator("html").get_attribute("data-raid") == "naxxramas"
     assert page.locator(".priority-list > li").count() == 3
-    assert page.locator(".raid-reference").evaluate("d => !d.open")
-    assert page.locator(".cohort-details[open]").count() == 0
+    assert page.locator(".raid-reference, .cohort-details, table").count() == 0
     first_boss = page.locator("section.boss").first
-    assert first_boss.locator(".boss-actions > .cards > .card").count() == 2
+    assert first_boss.locator(".boss-actions > .pull-actions > .pull-action").count() == 2
     first_boss.locator(".done input").check()
     page.locator("#boss-filter").select_option("reviewed")
     assert page.locator(".sidenav li[data-boss-name]:visible").count() == 1
@@ -354,10 +355,15 @@ def test_no_javascript_preserves_coaching_and_native_evidence(browser: Any, site
     page.goto((site / "playbook.html").as_uri())
     assert page.locator(".priority-list").is_visible()
     boss = page.locator("section.boss").first
-    disclosure = boss.locator(".action-evidence").first
+    disclosure = boss.locator(".more-actions").first
     disclosure.locator(":scope > summary").click()
     assert disclosure.get_attribute("open") is not None
-    assert boss.locator(".quick-plan").is_visible()
+    assert boss.locator(".pull-plan").is_visible()
+    boss.locator('a[href="report.html#boss-51118"]').click()
+    assert page.url.endswith("report.html#boss-51118")
+    evidence = page.locator("#boss-51118 .action-evidence").first
+    evidence.locator(":scope > summary").click()
+    assert evidence.get_attribute("open") is not None
     assert page.locator(".switch a").count() == 2
     context.close()
 
@@ -405,3 +411,32 @@ def test_all_class_accents_have_readable_dark_and_light_contrast(page: Any, site
       probe.remove(); return results;
     }""")
     assert all(ratio >= 4.5 for _, _, ratio in ratios), ratios
+
+
+@pytest.mark.parametrize("width", [390, 1400])
+def test_playbook_has_stacked_actions_and_links_to_report(
+    browser: Any, site: Path, width: int
+) -> None:
+    context = browser.new_context(viewport={"width": width, "height": 900})
+    page = context.new_page()
+    page.goto((site / "playbook.html").as_uri())
+    boss = page.locator("section.boss").first
+    assert page.locator("table, .comparison-snapshot, .badges").count() == 0
+    steps = boss.locator(".pull-step")
+    assert steps.locator("h3").all_text_contents() == [
+        "Before the pull",
+        "During the fight",
+        "Coordinate with the raid",
+    ]
+    boxes = [step.bounding_box() for step in steps.all()]
+    assert all(box is not None for box in boxes)
+    assert boxes[0]["y"] + boxes[0]["height"] <= boxes[1]["y"]
+    assert boxes[1]["y"] + boxes[1]["height"] <= boxes[2]["y"]
+    assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
+    boss.locator('a[href="report.html#boss-51118"]').click()
+    assert page.url.endswith("report.html#boss-51118")
+    assert page.locator("#boss-51118 .comparison-snapshot").is_visible()
+    loadout = page.locator("#boss-51118 .loadout-plan").bounding_box()
+    execution = page.locator("#boss-51118 .execution-plan").bounding_box()
+    assert loadout["y"] + loadout["height"] <= execution["y"]
+    context.close()

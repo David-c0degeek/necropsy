@@ -48,14 +48,16 @@ def main() -> None:
                 page.goto(page.url + "#" + str(boss_id))
                 page.locator(f".sidenav a[href='#{boss_id}'][aria-current='location']").wait_for()
                 page.screenshot(path=str(args.out / "playbook.png"))
+                page.locator(f"#{boss_id}-plan").evaluate("el => el.scrollIntoView()")
+                page.screenshot(path=str(args.out / "next-pull.png"))
+                page.goto((args.render_out / "report.html").resolve().as_uri() + "#" + str(boss_id))
+                boss = page.locator(f"#{boss_id}")
                 evidence = boss.locator(".action-evidence > summary").first
                 if evidence.count():
                     evidence.click()
                     evidence.locator("..").locator("details > summary").first.click()
                     evidence.scroll_into_view_if_needed()
                     page.screenshot(path=str(args.out / "evidence.png"))
-                page.locator(f"#{boss_id}-plan").evaluate("el => el.scrollIntoView()")
-                page.screenshot(path=str(args.out / "next-pull.png"))
             assert not remote, remote
             page.close()
         browser.close()

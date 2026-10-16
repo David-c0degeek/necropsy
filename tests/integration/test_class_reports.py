@@ -39,7 +39,7 @@ def test_build_category_and_duty_remain_separate_through_offline_report(
     assert identity["race"]["value"] is None
     assert identity["race_class_faction_valid"]["value"] is None
     assert doc["bosses"][0]["subject"] is not None
-    page = (out / "playbook.html").read_text(encoding="utf-8")
+    page = (out / "report.html").read_text(encoding="utf-8")
     assert "does not narrow the leaderboard" in page
     assert "Observed builds, categories, duties and race evidence" in page
 
@@ -75,8 +75,13 @@ def test_class_snapshot_produces_role_aware_execution_and_package(
     assert len(boss["playbook"]["comparisons"]) == 1
     assert boss["benchmarks"]["baseline"]["medians"]["damage_per_second"]["value"]["value"] is None
     page = (out / "playbook.html").read_text(encoding="utf-8")
-    assert "Execution plan" in page and "first use" in page and ability in page
-    assert "Ability use vs Leader" in page
+    assert "During the fight" in page and ability in page
+    assert "Before the pull" in page and "Coordinate with the raid" in page
+    assert "<table" not in page and "Ability use vs Leader" not in page
+    assert "Not proof of an optimal opener" in page
+    report = (out / "report.html").read_text(encoding="utf-8")
+    assert "Execution plan" in report and "first use" in report and ability in report
+    assert "Ability use vs Leader" in report
     assert "Druid" not in page and "Raptor" not in page
     assert list(out.glob("necropsy-*.zip"))
 

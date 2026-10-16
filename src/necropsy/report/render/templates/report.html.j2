@@ -17,6 +17,17 @@
   {% endif %}
 
   {% if boss.has_subject %}
+  <details class="analytical-details"><summary>Findings and recorded comparison details</summary><div>
+    {% for g in boss.playbook %}
+    <section class="group" aria-labelledby="{{ boss.anchor }}-{{ g.key }}">
+      <div class="group-head"><h3 id="{{ boss.anchor }}-{{ g.key }}">{{ g.title }}</h3><span class="status status-{{ g.status }}">{{ g.status_text }}</span></div>
+      {% if g.facts %}<div class="table-wrap" role="region" aria-label="{{ g.title }}: recorded data" tabindex="0"><table class="stack">
+        <thead><tr><th scope="col">Recorded</th><th scope="col">You</th><th scope="col">Same faction</th></tr></thead>
+        <tbody>{% for f in g.facts %}<tr><th scope="row">{{ f.label }}</th><td data-label="You">{{ val(f.yours) }}</td><td data-label="Same faction">{% if f.typical %}{{ val(f.typical) }}{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+      </table></div>{% endif %}
+    </section>
+    {% endfor %}
+  </div></details>
   <details class="forensic-details"><summary>Investigate execution, targets and comparisons</summary><div>
   <h3 class="section-title">Execution</h3>
   <div class="table-wrap" role="region" aria-label="{{ boss.name }}: Execution: shot rates" tabindex="0">

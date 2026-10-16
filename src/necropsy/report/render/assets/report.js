@@ -86,8 +86,21 @@
     if (picker && picker.contains(link)) { picker.open = false; }
     if (id === "overview" || id === "truth-model" || id.indexOf("boss-") === 0) { window.setTimeout(function () { focusSection(id); }, 0); }
   });
-  if (window.location.hash) { revealTarget(window.location.hash.slice(1)); }
-  window.addEventListener("hashchange", function () { revealTarget(window.location.hash.slice(1)); });
+  function followHash() {
+    var id = window.location.hash.slice(1);
+    revealTarget(id);
+    window.setTimeout(function () {
+      var target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView();
+        if (id === "overview" || id === "truth-model" || id.indexOf("boss-") === 0) { focusSection(id); }
+      }
+    }, 0);
+  }
+  window.addEventListener("load", function () {
+    if (window.location.hash) { followHash(); }
+  });
+  window.addEventListener("hashchange", followHash);
   Array.prototype.forEach.call(document.querySelectorAll(".switch a"), function (link) {
     link.addEventListener("click", function () {
       var current = document.querySelector(".sidenav a[aria-current='location']");

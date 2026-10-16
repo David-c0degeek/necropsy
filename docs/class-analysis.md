@@ -73,12 +73,13 @@ comparison fetching; unknown factions are verified, not guessed from class/race.
 ## Read the playbook
 
 The shared overview identifies your class/category, faction evidence, coverage,
-priorities and encounters needing review. **Playbook** leads toward **Your next
-pull**; **Report** emphasizes comparisons. Bosses show actions, confidence and
-control before expandable loadout, execution, gear and source evidence.
-**Raid help** separates coordination from personal execution. Class color is
+priorities and encounters needing review. **Playbook** gives supported actions
+and stacked **Before the pull**, **During the fight** and **Coordinate with the
+raid** sections. Relevant uncertainty stays beside the advice. Boss links open
+the same encounter in **Report** for classifications, comparisons, gear and evidence.
+Class color is
 identity only; it does not communicate a rating or analytical confidence.
-Execution rows use the class's recorded core abilities and cooldowns, comparing
+Report execution rows use the class's recorded core abilities and cooldowns, comparing
 counts, uses per minute and actor-owned first-use timing with source links.
 **Ability use vs player** includes all recorded actor cast abilities, items and
 utility. It excludes passive damage/healing ticks and pet actions; rates use each

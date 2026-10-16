@@ -251,6 +251,29 @@ def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[in
             ),
             "comparison_rows": _comparison_rows(play),
             "quick_plan": quick,
+            "pull_before": (
+                line("Check your weapons, trinkets, enchants and consumables for your assignment."),
+            ),
+            "pull_during": (
+                line(
+                    "Practice this recorded opening: " + _opener(leader, key)
+                    if leader
+                    else "Opening unknown: no eligible recorded example is available.",
+                    f"Example from {leader['player']} · leaderboard "
+                    f"#{leader['leaderboard_position']}. "
+                    "Not proof of an optimal opener or assigned duty."
+                    if leader
+                    else "Confirm your opening with the raid leader; no rotation is prescribed.",
+                ),
+                *encounter_lines,
+                *quick[2]["lines"],
+            ),
+            "pull_asks": (
+                line(
+                    "Confirm your encounter duties before copying a reference player's decisions."
+                ),
+            ),
+            "pull_limits": (*tuple(play.get("assessment_limits") or ()), *limits[:3]),
             "loadout": loadout,
             "execution": execution,
             "encounter_facts": encounter_lines,

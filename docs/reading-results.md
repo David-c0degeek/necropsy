@@ -12,7 +12,7 @@ The useful path is: **overview → priority → boss → action → explanation 
 
 | View | Your question | How to use it |
 |---|---|---|
-| **Playbook** | What should I work on next? | Read the priorities, choose a boss, use the practical plan and mark your review locally |
+| **Playbook** | What should I do next pull? | Read the starting actions, then the separate preparation, fight and raid-coordination sections |
 | **Report** | What happened, and why was it flagged? | Investigate comparisons, execution, equipment, targets, timelines and detailed evidence |
 
 Both pages describe the same saved `analysis.json`. They organize it for different
@@ -40,25 +40,38 @@ performance.
 
 ## Read a boss in a few seconds
 
-First check your available performance and comparison context. Then read the
-leading actions and **Next pull** guidance. Class-specific advice may include
-recorded openers, ability priorities, cooldown timing, loadout notes and encounter
-reminders.
+In **Playbook**, choose a boss and read **Start here**, then follow the stacked
+sections in order:
+
+1. **Before the pull:** check your loadout and any supported preparation advice.
+2. **During the fight:** use the recorded practice opening and encounter guidance.
+3. **Coordinate with the raid:** confirm duties and changes that need raid help.
+
+Actions carry their relevant limitations. Tentative advice needs confirmation
+before changing your approach. When no matching personal fight is available,
+practice references are labelled explicitly; they are not your performance grade.
+
+Each boss links directly to the same boss in **Report**, where measurements,
+loadout comparisons, ability counts, timelines and evidence remain available.
+Loadout and execution details are separate stacked sections there too.
 
 A recorded opener is an example of what a comparison player did, not proof of
 an optimal rotation. General encounter advice does not establish which mechanics
 or assignments your own log recorded.
 
-For each recommendation:
+In **Report**, each recommendation provides:
 
 1. **Action:** what to try or investigate.
 2. **Finding:** what was observed or inferred.
-3. **Severity and confidence:** priority and strength of evidence are separate.
+3. **Severity and confidence:** classifications inside the explanation. Severity
+   describes the finding's review tier; confidence describes the evidence strength.
 4. **Control:** whether this concerns execution, gear/build, pet management,
    assignments, the raid environment, faction/external differences or RNG.
 5. **Explanation and evidence:** the values, limitations and sources behind it.
 
-Use **Raid help** for changes that need raid coordination. A kill-time gap,
+The suggested starting order communicates priority without adding a third badge.
+These labels do not estimate a performance gain. Use **Coordinate with the raid**
+for changes that need raid coordination. A kill-time gap,
 external buff or assignment is not automatically a personal execution failure.
 Recommendations never guarantee a DPS/HPS increase.
 
@@ -71,7 +84,7 @@ Recommendations never guarantee a DPS/HPS increase.
 | **High / medium / low confidence** | The finding's heuristic evidence-quality tier, not a probability |
 | **Severity** | How strongly the existing rule prioritizes review, independent of confidence |
 | **Limited sample** | Few usable comparison sources; one or two can show individual values but cannot supply a median |
-| **Complete — data notes** | Analysis has finished; no restart is required. Open the Playbook to see which results are limited by the available logs |
+| **Complete — data notes** | Analysis has finished; no restart is required. Playbook keeps relevant warnings visible; Report contains full coverage notes |
 | **Data limitations / limited data** | Some inputs are missing or uncertain, such as unavailable fights or unknown pet usage. Coverage notes explain the affected bosses and measurements; these labels do not describe sync progress |
 | **Inferred** | A named rule suggests a value or identity; it was not directly recorded |
 | **Unknown / unavailable** | The available evidence cannot support a value; it is not zero |
@@ -169,8 +182,9 @@ an aggregate comparison. See [class analysis](class-analysis.md) and
 Use boss search and the encounter filter (**With findings**, **Limited comparisons**,
 **Reviewed**, **Not reviewed**) to narrow navigation. Filters leave the analytical
 sections intact. The view switcher keeps the current boss context. The two leading
-Hunter actions are visible; **more findings** exposes every remaining action.
-Boss shortcuts jump directly to **Next pull**, comparison and evidence. Review marks
+Playbook actions are visible; **more actions** exposes the remaining supported actions.
+Playbook shortcuts jump to preparation, fight guidance and raid coordination;
+Report shortcuts reach comparisons and evidence. Review marks
 are local to the browser and this exact analysis. Theme preference is also local;
 neither setting changes `analysis.json`. Browser storage restrictions or clearing
 site data can remove those preferences.

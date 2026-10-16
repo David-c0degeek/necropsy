@@ -38,15 +38,16 @@
 {% macro card(c, review=False) -%}
 <article class="card" id="{{ c.anchor }}">
   <h3>{{ c.heading }}</h3>
+  <p class="action">{{ c.action }}</p>
+  <p class="finding"><b>What happened:</b> {{ c.finding }}</p>
+  <details class="action-evidence"><summary>Why this was flagged · comparison and evidence</summary><div>
   <ul class="badges" aria-label="Classification">
     <li class="badge sev-{{ c.severity }}">Severity: <b>{{ c.severity }}</b></li>
     <li class="badge conf-{{ c.confidence }}">Confidence: <b>{{ c.confidence }}</b></li>
     <li class="badge">Who can act: <b>{{ c.controllability }}</b></li>
     {% if c.small_sample %}<li class="badge small">{{ c.small_sample }}</li>{% endif %}
   </ul>
-  <p class="action">{{ c.action }}</p>
-  <p class="finding"><b>What happened:</b> {{ c.finding }}</p>
-  <details class="action-evidence"><summary>Why this was flagged · comparison and evidence</summary><div>
+<p class="table-note">Severity describes the finding. Confidence describes the strength of its evidence. The order above suggests where to start; it does not predict a performance gain.</p>
   {% if c.benchmark %}
   <details>
     <summary>Comparison used</summary>

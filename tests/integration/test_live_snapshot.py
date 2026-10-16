@@ -347,22 +347,24 @@ def test_live_pages_show_requested_scope_without_claiming_historical_cohort(writ
     missing = document["acquisition"]["bosses"][1]
     missing["attempted"] = False
     missing["coverage"]["reasons"] = ["<script>unsafe</script>"]
-    for render in (render_report, render_playbook):
-        page = render(build_view(document, "synthetic"))
-        assert "Live acquisition coverage" in page
-        assert "Thaddius" in page and "Not attempted" in page
-        assert 'href="#boss-51120"' not in page
-        assert "Acquired comparison cohort" in page
-        assert "recorded overall top five" not in page
-        assert "in overall top five" not in page
-        assert "metadata-only" in page.lower()
-        assert "&lt;script&gt;unsafe&lt;/script&gt;" in page
-        assert "<script>unsafe</script>" not in page
+    page = render_report(build_view(document, "synthetic"))
+    assert "Live acquisition coverage" in page
+    assert "Thaddius" in page and "Not attempted" in page
+    assert 'href="#boss-51120"' not in page
+    assert "Acquired comparison cohort" in page
+    assert "recorded overall top five" not in page
+    assert "in overall top five" not in page
+    assert "metadata-only" in page.lower()
+    assert "&lt;script&gt;unsafe&lt;/script&gt;" in page
+    assert "<script>unsafe</script>" not in page
     # A saved historical document keeps its established presentation.
     document["mode"] = "historical"
-    page = render_playbook(build_view(document, "synthetic"))
+    page = render_report(build_view(document, "synthetic"))
     assert "Live acquisition coverage" not in page
     assert "in overall top five" in page
+    playbook = render_playbook(build_view(document, "synthetic"))
+    assert "<table" not in playbook and "Compared with your faction" not in playbook
+    assert 'href="report.html#analysis-quality"' in playbook
 
 
 def test_rewriting_is_deterministic_and_never_replaces(written: Any) -> None:

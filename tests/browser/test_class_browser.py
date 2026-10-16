@@ -40,20 +40,27 @@ def test_class_pages_have_ability_execution_sources_and_shared_interactions(
                     ),
                 )
                 page.goto((out / (name + ".html")).as_uri())
-                identity = page.locator('[aria-label="Build and comparison scope"]')
-                identity.locator("details > summary").click()
-                assert identity.locator("tbody tr").count() == 2
-                assert "does not narrow the leaderboard" in identity.inner_text()
+                if name == "report":
+                    identity = page.locator('[aria-label="Build and comparison scope"]')
+                    identity.locator("details > summary").click()
+                    assert identity.locator("tbody tr").count() == 2
+                    assert "does not narrow the leaderboard" in identity.inner_text()
                 boss = page.locator("section.boss")
-                preparation = boss.locator("details.preparation-details")
-                if not preparation.evaluate("d => d.open"):
-                    preparation.locator(":scope > summary").click()
-                execution = boss.locator(".grid.two").first.locator("article").nth(1)
-                assert "Opener" in execution.locator("dt").all_text_contents()
-                assert ability in execution.locator("dt").all_text_contents()
-                assert "first use" in execution.inner_text()
-                assert execution.locator('a[href^="https://"]').count() >= 2
-                assert "Ability use vs Leader" in boss.inner_text()
+                if name == "report":
+                    execution = boss.locator(".execution-plan")
+                    assert "Opener" in execution.locator("dt").all_text_contents()
+                    assert ability in execution.locator("dt").all_text_contents()
+                    assert "first use" in execution.inner_text()
+                    assert execution.locator('a[href^="https://"]').count() >= 2
+                    assert "Ability use vs Leader" in boss.inner_text()
+                else:
+                    assert page.locator("table, .comparison-snapshot, .badges").count() == 0
+                    assert ability in boss.locator(".pull-plan").inner_text()
+                    steps = boss.locator(".pull-step")
+                    assert steps.count() == 3
+                    assert steps.nth(0).bounding_box()["y"] < steps.nth(1).bounding_box()["y"]
+                    assert "Not proof of an optimal opener" in steps.nth(1).inner_text()
+                    assert boss.locator('a[href^="report.html#boss-"]').count() >= 1
                 assert boss.locator("details.overall-comparison[open]").count() == 0
                 check = boss.locator("input[data-review-key]")
                 check.check()

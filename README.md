@@ -25,13 +25,13 @@ open the evidence when you want to investigate.
 | Your question | Where to start |
 |---|---|
 | What should I work on first? | The raid overview brings existing findings to the front, ordered by severity |
-| What should I do on this boss? | **Playbook** puts actions and your next-pull plan before supporting detail |
+| What should I do on this boss? | **Playbook** separates before-pull preparation, fight guidance and raid coordination |
 | Is this under my control? | Findings distinguish execution, gear/build, pets, raid assignments and external context |
 | How do appropriate players compare? | **Report** exposes same-faction comparisons, class/category context and individual sources |
-| How certain is this? | Confidence, limited samples, unknown values and coverage remain visible |
-| Why was this flagged? | Expand the explanation and evidence; inspect exact measurements and WCL source links |
+| How certain is this? | Playbook keeps relevant warnings visible; Report explains evidence strength and coverage |
+| Why was this flagged? | Follow the boss link to **Report** for exact measurements, classifications and WCL sources |
 
-![Necropsy Playbook showing practical boss guidance with supporting evidence available below](docs/images/playbook.png)
+![Necropsy Playbook showing boss actions and separate preparation, fight and raid-coordination sections](docs/images/playbook.png)
 
 The generated pages work directly from disk, with no server or automatic network
 requests. Dark and light themes, restrained class identity, boss search and local

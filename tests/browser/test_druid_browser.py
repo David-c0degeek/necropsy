@@ -85,38 +85,40 @@ def test_druid_pages_preserve_roles_and_evidence_offline(
             page.on("request", lambda r: requests.append(r.url))
             page.on("pageerror", lambda error: errors.append(error))
             page.goto((out / f"{page_name}.html").as_uri())
-            preparation = page.locator("details.preparation-details")
-            if not preparation.evaluate("d => d.open"):
-                preparation.locator(":scope > summary").click()
-            page.locator("details.role-context > summary").click()
-            assert "restoration" in page.locator("main").inner_text()
-            if missing:
+            if page_name == "report":
+                page.locator("details.role-context > summary").click()
+                assert "restoration" in page.locator("main").inner_text()
                 text = page.locator("main").inner_text()
-                assert "Example healer" in text and "leaderboard #2" in text
-                assert "Your measurements" not in text
-                assert "Rank #1 recorded example" not in text
+                if missing:
+                    assert "Example healer" in text and "leaderboard #2" in text
+                    assert "Your measurements" not in text
+                    assert "Rank #1 recorded example" not in text
+                else:
+                    assert "Limited sample: only 1 source" in text
+                    assert "Sparse healer" in text and "-50.0%" in text
+                    assert "Your uses/min" in text
+                assert page.locator("section.boss .boss-head .metrics").count() == 1
+                assert page.locator("#raid-sheet").count() == 1
+                assert page.locator(".loadout-plan h3").inner_text() == "Loadout plan"
+                execution = page.locator("section.boss .execution-plan")
+                assert "Opener" in execution.locator("dt").all_text_contents()
+                assert "Healing Touch" in execution.locator("dt").all_text_contents()
+                assert "first use" in execution.inner_text()
+                assert "Faction leader:" in execution.inner_text()
             else:
-                text = page.locator("main").inner_text()
-                assert "Limited sample: only 1 source" in text
-                assert "Sparse healer" in text and "-50.0%" in text
-                assert "Your uses/min" in text
+                assert page.locator("table, .comparison-snapshot, .badges").count() == 0
+                assert page.locator(".pull-step h3").all_text_contents() == [
+                    "Before the pull",
+                    "During the fight",
+                    "Coordinate with the raid",
+                ]
+                text = page.locator("section.boss").inner_text()
+                assert "Healing Touch" in text and "Not proof of an optimal opener" in text
+                assert ("Example healer" if missing else "Sparse healer") in text
+                if missing:
+                    assert "not an assessment of your performance" in text
             assert page.locator("#boss-51118").count() == 1
-            assert page.locator("section.boss .boss-head .metrics").count() == 1
-            assert page.locator("#raid-sheet").count() == 1
-            assert (
-                page.locator("section.boss .grid.two article h3", has_text="Loadout plan").count()
-                == 1
-            )
-            assert (
-                page.locator("section.boss .grid.two article h3", has_text="Execution plan").count()
-                == 1
-            )
             assert page.locator("input[data-review-key]").count() == 1
-            execution = page.locator("section.boss .grid.two").first.locator("article").nth(1)
-            assert "Opener" in execution.locator("dt").all_text_contents()
-            assert "Healing Touch" in execution.locator("dt").all_text_contents()
-            assert "first use" in execution.inner_text()
-            assert "Faction leader:" in execution.inner_text()
             assert page.locator("details.overall-comparison[open]").count() == 0
             assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
             assert page.evaluate("window.injected === undefined")

@@ -529,3 +529,13 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
 .search, #boss-filter, button { border-color: color-mix(in srgb, var(--text-muted) 65%, var(--surface-panel)); }
+
+/* Pull plans follow the order players use them, with no comparison columns. */
+.pull-plan { display: block; }
+.pull-step, .loadout-plan, .execution-plan { border-top: 1px solid var(--border-default); padding: 20px 0; }
+.pull-step h3, .loadout-plan h3, .execution-plan h3 { margin-top: 0; }
+.pull-actions { padding-left: 24px; }
+.pull-action { padding: 4px 0 12px 8px; }
+.pull-action::marker { color: var(--class-text); font-weight: 700; }
+.pull-action .action { margin-top: 0; }
+.pull-step .why { max-width: 80ch; }

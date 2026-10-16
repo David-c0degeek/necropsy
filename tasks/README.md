@@ -12,6 +12,7 @@ Reconciled 2026-10-16 against plan sign-offs, manual-action records, current bra
 | Product UX and desktop shell | Implemented; native/manual acceptance limits remain | [UX](product-ux.md), [desktop](desktop-gui.md) |
 | GUI-first installation | Complete; released | [Installation work](gui-default-install.md) |
 | Healer corrections | Complete; released in 0.3.1 | [Healer corrections](healer-analysis-fixes.md) |
+| Report and Playbook clarity | Complete; verified | [Clarity plan and verification](playbook-clarity.md) |
 | Saved-source unknown recovery | Complete on main | [Recovery record](necropsy/unknown-recovery.md) |
 
 No active implementation plan or unresolved required human action was found. GitHub had no open issues or pull requests at reconciliation. David authorized taxonomy integration into main on 2026-10-16; main fast-forwarded to the verified feature branch without conflicts. A subsequent release remains an outstanding delivery choice, outside its completed implementation scope. Latest published release observed: 0.3.1.

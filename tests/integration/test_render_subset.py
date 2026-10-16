@@ -305,20 +305,43 @@ def test_unknown_values_never_render_as_numbers(analysis: bytes) -> None:
     assert kt.raid_speed.fastest is not None and kt.raid_speed.fastest.ratio.known
 
 
-def test_quick_plan_adds_simple_steps_without_removing_evidence(analysis: bytes) -> None:
+def test_playbook_is_an_action_sheet_and_report_retains_the_detail(analysis: bytes) -> None:
     view = document_view(*load_document(analysis))
-    for render in (render_report, render_playbook):
-        html = render(view)
-        assert html.count('class="quick-plan"') == len(view.bosses)
-        for heading in (
-            "Recommended opener",
-            "Your full logged gear for this selected best parse",
-            "Execution plan",
-            "Loadout plan",
-        ):
-            assert heading in html
-        assert "Recorded opening:" in html and "Same-faction comparator:" in html
-        assert "Observed cast timing" in html
+    report = render_report(view)
+    playbook = render_playbook(view)
+    for heading in (
+        "Recommended opener",
+        "Your full logged gear for this selected best parse",
+        "Execution plan",
+        "Loadout plan",
+    ):
+        assert heading in report
+    assert "Recorded opening:" in report and "Same-faction comparator:" in report
+    assert "Observed cast timing" in report
+    assert not any(tag == "table" for tag, _ in _parse(playbook).tags)
+    assert 'class="comparison-snapshot"' not in playbook
+    assert 'class="action-evidence"' not in playbook
+    assert "Severity:" not in playbook and "High confidence" not in playbook
+    for boss in view.bosses:
+        assert f'href="report.html#{boss.anchor}"' in playbook
+        for group in boss.playbook:
+            assert f'id="{boss.anchor}-{group.key}"' in report
+        for phase in ("before", "during", "raid"):
+            assert f'id="{boss.anchor}-{phase}"' in playbook
+    assert "Before the pull" in playbook and "During the fight" in playbook
+    assert "Coordinate with the raid" in playbook
+    assert "Recorded opening example, not a required rotation" in playbook
+
+
+def test_playbook_keeps_action_affecting_uncertainty(analysis: bytes) -> None:
+    document = json.loads(analysis)
+    rec = document["bosses"][0]["recommendations"][0]
+    rec["confidence"] = "low"
+    rec["limitations"] = ["Confirm the assigned duty before changing this action."]
+    html = _pages(json.dumps(document).encode())["playbook.html"]
+    assert "Tentative advice: limited evidence" in html
+    assert "Confirm the assigned duty before changing this action." in html
+    assert "Conditional advice:" in html
 
 
 def test_quick_plan_keeps_missing_and_inferred_evidence_visible(analysis: bytes) -> None:
@@ -368,7 +391,7 @@ def test_inferred_membership_shows_in_the_playbook(analysis: bytes) -> None:
     talents = next(f for f in gear.facts if f.label == "Talents")
     assert talents.typical is not None and talents.typical.level == "inferred"
     html = render_playbook(view)
-    assert "comparison group rests on an inferred faction" in html
+    assert "Comparator membership is inferred" in html
 
 
 def test_data_notes_never_claim_a_full_comparison(analysis: bytes) -> None:

@@ -157,9 +157,12 @@ def test_missing_talents_keep_medians_individual_comparisons_and_findings(tmp_pa
     doc = build_document_for_section(tmp_path, result)
     outputs = build_outputs(dumps(doc).encode())
     html = outputs["playbook.html"]
-    assert html is not None and b"event comparisons do not require talent data" in html
+    assert html is not None and b"Tentative advice: limited evidence" in html
+    for limit in result["playbook"]["assessment_limits"]:
+        assert limit.encode() in html
     report = outputs["report.html"]
     assert report is not None and b"3 source builds are unknown" in report
+    assert b"event comparisons do not require talent data" in report
 
 
 def build_document_for_section(tmp_path: Path, section: dict[str, Any]) -> dict[str, Any]:

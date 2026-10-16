@@ -135,14 +135,16 @@ differences are descriptive and do not trigger the median-based damage rule.
 
 ## Measurements and practice notes
 
-Druid uses the same visual hierarchy and components as the Hunter playbook:
-raid sheet, boss metric cards, benchmark context, KISS opener, loadout/execution,
-Do not/Raid ask, full named pull gear with enchants, and faction cohort details.
+Druid shares Hunter's Playbook action-sheet structure: supported actions, then
+separate preparation, fight guidance and raid coordination. Recorded openers
+remain practice examples, with assessment limits and relevant caveats visible.
+Report retains the raid sheet, boss metrics, benchmark context, detailed opener,
+stacked loadout and execution plans, full named gear and faction cohort details.
 World buffs and cooldown timing are recorded per encounter. Role-specific numbers
 replace Hunter-specific measurements; missing evidence remains visible as unknown.
 Review marks and keyboard navigation work through the shared page controls.
 
-**Ability use vs [player]** is shared across classes. It shows recorded spells,
+Report's **Ability use vs [player]** is shared across classes. It shows recorded spells,
 shots, melee skills and cooldown/item casts as counts and uses per minute. These
 are actor cast events, excluding passive damage ticks and pet actions. Whole-fight
 counts need trusted source coverage; an unobserved action is zero only with that

@@ -14,7 +14,7 @@ import pytest
 
 from necropsy.normalize.ingest import ingest
 from necropsy.report.analysis_json import build_document
-from necropsy.report.render import build_view, render_playbook
+from necropsy.report.render import build_view, render_report
 from necropsy.snapshot.model import SnapshotError
 from necropsy.snapshot.v1_writer import write_snapshot
 from necropsy.wcl.acquire import Run, acquire, finalize_reports
@@ -126,7 +126,7 @@ def test_partial_pet_ownership_survives_every_pipeline_boundary(tmp_path: Path) 
     assert doc["bosses"][0]["playbook"]["pet"]["no_hunter_pet"] is False
     families = doc["bosses"][0]["benchmarks"]["baseline"]["pet_families"]
     assert families["listing_missing"] == 0
-    html = render_playbook(build_view(doc, "a" * 64))
+    html = render_report(build_view(doc, "a" * 64))
     assert "Unknown pet listing" not in html
     assert "Possible families:" in html
     with zipfile.ZipFile(saved.archive) as archive:
@@ -221,7 +221,7 @@ def test_earlier_snapshot_and_prelude_restore_starting_state_without_damage_leak
     assert subject["ranking"]["raw"]["value"] is None  # Unresolved all-pet ownership persists.
     with duckdb.connect(str(tmp_path / "context.duckdb"), read_only=True) as con:
         assert con.execute("SELECT min(timestamp) FROM events").fetchone() == (2000,)
-    assert "20/31/0" in render_playbook(build_view(doc, "a" * 64))
+    assert "20/31/0" in render_report(build_view(doc, "a" * 64))
     corrupt = tmp_path / "corrupt.zip"
     with zipfile.ZipFile(saved.archive) as source, zipfile.ZipFile(corrupt, "w") as target:
         for info in source.infolist():

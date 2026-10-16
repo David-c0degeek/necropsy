@@ -27,20 +27,12 @@
   <h3>Your next pull</h3>{{ '\n' }}{% if doc.selected_spec and ref.leader_practice %}{% set leader = ref.leader_practice %}<p>No personal {{ doc.selected_spec }} encounter was found in the acquired logs. Use this faction leader's recorded ability mix as a practice reference: {{ leader.player }} · leaderboard #{{ leader.leaderboard_position }} · {{ leader.kill_duration_s }} s fight.</p><dl class="kv">{% for spell, shot in leader.hunter.shots.items() %}<dt>{{ spell|replace('_', ' ') }}</dt><dd>{{ shot.casts.value|length if shot.casts.value is not none else 'Unknown' }} recorded casts</dd>{% endfor %}</dl><p>Check assignments, gear and fight duration before copying this example. It is a learning reference, not a grade of your performance.</p>{% endif %}
   {{ plans(ref.quick_plan) }}<details><summary>Compare ability use with the reference player</summary>{{ ability_use(ref.ability_use) if ref.ability_use else "" }}</details>
 </article>
-<details class="preparation-details"{% if page == "playbook" %} open{% endif %}><summary>Loadout and execution plan</summary>
-<div class="grid two">
-  <article><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</article>
-  <article><h3>Execution plan</h3>{{ plans(ref.execution) }}</article>
-</div>
-</details>
+<section class="loadout-plan"><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</section>
+<section class="execution-plan"><h3>Execution plan</h3>{{ plans(ref.execution) }}</section>
 <div class="grid two warnings">
   <article class="dont"><h3>Do not</h3>{{ prose(ref.dont) }}</article>
   <article class="ask"><h3>Raid help</h3>{{ prose(ref.asks) }}</article>
 </div>
-{% if page == 'playbook' %}{% if boss.execution %}<section class="comparison-snapshot" id="{{ boss.anchor }}-comparison"><h3>Compared with your faction</h3>
-{% for r in boss.execution %}<div class="comparison-row"><h4>{{ r.label }}</h4><div class="comparison-values"><div><span>You</span><strong>{{ val(r.yours) }}</strong></div><div><span>Comparable median</span><strong>{{ val(r.baseline) }}</strong></div></div><p class="table-note">{{ r.sample }}</p></div>{% endfor %}
-</section>{% endif %}
-{% endif %}
 <h3 id="{{ boss.anchor }}-evidence" tabindex="-1">Evidence and details</h3>
 <details class="comparison-context"><summary>Who are you being compared with?</summary><div>
 <div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div>

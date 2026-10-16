@@ -29,7 +29,7 @@
   <nav class="sidenav" aria-label="Bosses">
     <ol>
       <li><a class="nav-special" href="#overview"><span class="nav-number">00</span><span>Overview</span></a></li>
-      <li><a class="nav-special" href="#truth-model"><span class="nav-number">?</span><span>How to read evidence</span></a></li>
+      <li><a class="nav-special" href="{{ 'report.html#truth-model' if page == 'playbook' else '#truth-model' }}"><span class="nav-number">?</span><span>How to read evidence</span></a></li>
       {% for boss in doc.experience.bosses %}
       <li data-boss-name="{{ boss.name|lower }}" data-boss-anchor="{{ boss.anchor }}" data-attention="{{ 'true' if boss.attention else 'false' }}" data-limited="{{ 'true' if boss.limited else 'false' }}"><a href="#{{ boss.anchor }}"><span class="nav-number">{{ "%02d"|format(loop.index) }}</span><span>{{ boss.name }}<small class="nav-state">{{ boss.state }}</small><small class="review-state" data-review-for="{{ boss.anchor }}"></small></span><span class="sr">findings: {{ boss.finding_count }}</span></a></li>
       {% endfor %}
@@ -45,7 +45,7 @@
     <summary>Jump to a boss</summary>
     <ol>
       <li><a href="#overview">Overview</a></li>
-      <li><a href="#truth-model">How to read evidence</a></li>
+      <li><a href="{{ 'report.html#truth-model' if page == 'playbook' else '#truth-model' }}">How to read evidence</a></li>
       {% for boss in doc.experience.bosses %}
       <li data-boss-name="{{ boss.name|lower }}" data-boss-anchor="{{ boss.anchor }}" data-attention="{{ 'true' if boss.attention else 'false' }}" data-limited="{{ 'true' if boss.limited else 'false' }}"><a href="#{{ boss.anchor }}">{{ boss.name }}<small>{{ boss.state }}</small><span class="sr">findings: {{ boss.finding_count }}</span></a></li>
       {% endfor %}

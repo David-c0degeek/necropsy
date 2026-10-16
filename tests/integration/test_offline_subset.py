@@ -71,7 +71,7 @@ def test_hunter_ability_use_counts_and_shared_panel_are_in_the_document(
                     name = "Multi-Shot" if key == "multi_shot" else key.replace("_", " ").title()
                     assert counts.get(name, 0) == len(casts)
     outputs = build_outputs(dumps(document).encode())
-    page = outputs["playbook.html"]
+    page = outputs["report.html"]
     package_bytes = outputs["necropsy-86583560-2006.zip"]
     assert page is not None and package_bytes is not None
     assert b"Ability use vs" in page
