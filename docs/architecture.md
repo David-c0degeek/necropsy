@@ -18,8 +18,11 @@ are observed on Windows; independent-user acceptance and release approval
 are confirmed by the product owner.
 See [ADR0007](decisions/0007-public-client-authentication.md) and
 [installation](installation.md). The default TUI handles browser sign-in, character/spec selection, saved runs,
-progress, cooperative stop and repeated quota waits. Native graphical shells
-and further game/raid support remain future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
+progress, cooperative stop and repeated quota waits. An additive Tauri/React
+[desktop GUI](desktop.md) now reuses this same service through a Python JSON-lines
+sidecar. It displays the existing rendered pages in a sandbox, with desktop
+packaging and verification boundaries documented separately. Further game/raid
+support remains future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
 is design history; this page describes the current implementation.
 
 ## Guided and advanced entry paths, one analysis pipeline
@@ -157,6 +160,7 @@ See [product design](product-design.md) for tokens, components and screenshot up
 | Responsibility | Implementation |
 |---|---|
 | Commands and workflow | [CLI](../src/necropsy/cli.py), [live orchestration](../src/necropsy/wcl/analyze.py) |
+| Desktop workflow and shell | [Python bridge](../src/necropsy/desktop/engine.py), [React interface](../desktop/src/App.tsx), [Tauri host](../desktop/src-tauri/src/main.rs); [desktop boundaries](desktop.md) |
 | Authentication | [Auth](../src/necropsy/wcl/auth.py), [credential store](../src/necropsy/wcl/credentials.py); [boundaries](auth.md) |
 | API and context | [Client](../src/necropsy/wcl/client.py), [URLs](../src/necropsy/wcl/urls.py), [context](../src/necropsy/wcl/context.py) |
 | Selection and acquisition | [Cohort](../src/necropsy/wcl/cohort.py), [acquire](../src/necropsy/wcl/acquire.py), [fetch](../src/necropsy/wcl/fetch.py) |

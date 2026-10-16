@@ -1,0 +1,32 @@
+{
+  "name": "necropsy-desktop",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "format": "prettier --write src vite.config.ts tsconfig.json package.json src-tauri/tauri.conf.json src-tauri/capabilities/main.json",
+    "format:check": "prettier --check src vite.config.ts tsconfig.json package.json src-tauri/tauri.conf.json src-tauri/capabilities/main.json",
+    "tauri": "tauri",
+    "desktop": "tauri dev",
+    "package": "tauri build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.0.0",
+    "@tauri-apps/plugin-dialog": "^2.0.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.0",
+    "vite": "^7.0.0"
+  }
+}

@@ -16,6 +16,7 @@ Playbook and Report work offline.
 
 For a standalone installation, upgrades or removal, use
 [Install and open Necropsy](installation.md).
+For the Windows/macOS/Linux graphical app, use the [Desktop guide](desktop.md).
 
 ## Understand your analysis
 

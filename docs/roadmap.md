@@ -32,7 +32,7 @@ are implemented. [Try the sample](getting-started.md).
 | Browser application experience | Implemented in current development | Priority overview, boss triage, Playbook/Report, class themes, responsive offline output; see [Changelog](../CHANGELOG.md) |
 | Guided TUI and OS launchers | Implemented | Browser sign-in, saved analyses, safe stop/resume and automatic quota waiting |
 | One-command bootstrap | Implemented | Windows, macOS and Linux scripts provision uv/Python/app and open the TUI |
-| Native graphical desktop shell | Planned | Authentication, acquisition progress and cached-analysis management in a desktop shell |
+| Graphical desktop shell | Implemented in current development | Tauri/React + Python sidecar; themed embedded reports, setup, saved analyses, offline example and safe close; [platform verification boundaries](desktop.md#verification-and-platform-boundaries) |
 | More raids and game variants | Planned | Raid styling tokens are not analytical support for additional raids |
 | Further domain validation | Ongoing | Engineering tests do not replace real-log validation for every class and encounter |
 
@@ -45,8 +45,10 @@ acceptance and approved the version0.1.0 repository release. The personal Hunter
 off. All nine Classic Era classes have [shared class reports](class-analysis.md),
 including supported healing/tank categories. Druid role analysis has
 [documented validation limits](druid-validation.md); engineering checks do not
-replace domain acceptance. A native graphical desktop shell and additional game/raid support remain
-outside this delivery. The guided terminal app and per-OS launchers are implemented.
+replace domain acceptance. The graphical desktop shell is additive current
+development; signed distribution and macOS/Linux runtime acceptance remain open.
+Additional game/raid support remains future work. The guided terminal app and
+per-OS launchers are implemented.
 
 ## Authentication and distribution
 

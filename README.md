@@ -10,6 +10,11 @@ a boss-by-boss plan, and the evidence behind every finding.
 [Read your results](docs/reading-results.md) ·
 [Documentation](docs/README.md) · [Install and open](docs/installation.md)
 
+A graphical desktop app for Windows, macOS and Linux is now available in the
+source tree: [desktop guide and build instructions](docs/desktop.md). It brings
+setup, saved analyses and the themed Playbook into one window. The install
+commands below continue to install the guided terminal app.
+
 ![Necropsy raid overview showing character identity, priorities, comparison quality and boss navigation](docs/images/overview.png)
 
 For players improving after a raid, raid leaders reviewing assignments, and

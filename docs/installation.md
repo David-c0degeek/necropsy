@@ -2,6 +2,10 @@
 
 [Home](../README.md) · [First analysis](getting-started.md) · [Connect Warcraft Logs](warcraft-logs.md)
 
+For the graphical desktop application, see the [desktop guide](desktop.md).
+The one-command installers below install the guided terminal application;
+desktop installer builds are separate.
+
 ## One command
 
 Run the command for your computer. It installs a private uv runtime, a managed

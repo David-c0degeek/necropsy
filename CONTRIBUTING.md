@@ -56,6 +56,17 @@ changing facts or rules.
 Read [Evidence](docs/evidence-model.md), [Hunter rules](docs/hunter-analysis.md),
 and [the JSON contract](docs/analysis-json.md) before changing analysis behavior.
 
+## Desktop GUI
+
+The [desktop guide](docs/desktop.md) covers Tauri/React prerequisites, engine
+bundling, native launch and installer builds. Use `npm ci` in `desktop`,
+`npm run build` for TypeScript/Vite verification, and `cargo fmt --check` plus
+`cargo clippy --locked -- -D warnings` in `desktop/src-tauri` for Rust checks.
+The desktop workflow builds and checks the frozen engine on each target OS.
+`scripts/check_desktop_window.py` exercises the actual Windows WebView2 window
+offline with an isolated profile/library. Report review marks are stored only
+in the parent shell and are restricted to keys from the displayed analysis.
+
 ## Handle fixtures carefully
 
 The frozen raw export and oracle files are historical evidence. Do not edit them

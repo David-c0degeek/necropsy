@@ -22,3 +22,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Resumable acquisition and current installs](0008-analysis-resume.md) | Saved requests, owned-output checks, quota recovery and versioned design verification |
 
 | [Guided terminal and installation](0009-guided-terminal-and-installation.md) | TUI lifecycle, saved-run library, quota supervisor and private bootstrap runtime |
+
+| [Graphical desktop](0010-graphical-desktop.md) | Tauri shell, allowlisted process bridge, shared analysis service, sandboxed reports and independent desktop verification |

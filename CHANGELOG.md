@@ -8,7 +8,15 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
-No additional changes beyond 0.2.0 below.
+- Graphical desktop app using Tauri/React and the existing Python service:
+  guided character/spec setup, browser sign-in, saved analyses, stop/resume,
+  quota countdown and cooperative save-before-quit.
+- Embedded Playbook/Report using the existing templates and themes, class
+  accents, persistent local review marks, offline example/snapshot import and
+  package export through native dialogs.
+- Frozen Python engine and Windows/macOS/Linux desktop packaging workflow.
+  Windows offline window/engine checks are separate from real-account and
+  macOS/Linux acceptance; see the desktop guide.
 
 ## 0.2.0 - 2026-10-15
 
