@@ -39,6 +39,12 @@ from necropsy.wcl.urls import parse_character_url
 
 Notify = Callable[[str], None]
 SESSION = "necropsy-session.json"
+COMPLETE_WITH_NOTES = "Complete — data notes"
+DATA_NOTES = (
+    "Analysis finished. Some results are limited by the available logs, such as missing "
+    "fights or uncertain pet usage. No restart is required. See the coverage notes "
+    "in your Playbook for details."
+)
 
 
 class Stopped(Exception):
@@ -63,6 +69,15 @@ class SavedRun:
     updated: str = ""
     detail: str = ""
     legacy: bool = False
+
+    @property
+    def finished(self) -> bool:
+        return self.status in (
+            "Complete",
+            COMPLETE_WITH_NOTES,
+            "Partial — report ready",
+            "Offline report",
+        )
 
     @property
     def when(self) -> str:
@@ -147,6 +162,9 @@ class RunLibrary:
             data = json.loads(session.read_bytes())
             options = saved_options(out) if checkpoint.is_file() else data["options"]
             status = str(data["status"])
+            detail = str(data.get("detail", ""))
+            if status == "Partial — report ready":
+                status, detail = COMPLETE_WITH_NOTES, DATA_NOTES
             if status in ("Running", "Waiting", "Connecting") and out != self.active_run:
                 status = "Interrupted — ready to continue"
             return SavedRun(
@@ -155,7 +173,7 @@ class RunLibrary:
                 str(data["title"]),
                 status,
                 str(data.get("updated", "")),
-                str(data.get("detail", "")),
+                detail,
             )
         if checkpoint.is_file():
             options = saved_options(out)
@@ -385,8 +403,8 @@ class AnalysisService:
                 except RateLimited:
                     outcome, quota = None, True
                 if not quota and outcome is not None:
-                    status = "Complete" if outcome.code == 0 else "Partial — report ready"
-                    run.store(status)
+                    status = "Complete" if outcome.code == 0 else COMPLETE_WITH_NOTES
+                    run.store(status, "" if outcome.code == 0 else DATA_NOTES)
                     return outcome
                 delay = self.reset_delay()
                 run.store(

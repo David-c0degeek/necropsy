@@ -1039,7 +1039,7 @@ def acquisition_view(document: Mapping[str, Any]) -> tuple[dict[str, Any], ...]:
             if boss.get("attempted") is False
             else "Complete"
             if coverage.get("complete") is True
-            else "Partial"
+            else "Limited data"
             if coverage.get("complete") is False
             else "Unknown"
         )

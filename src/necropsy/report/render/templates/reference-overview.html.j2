@@ -3,12 +3,12 @@
 {% if doc.mode == "live" %}
 <section class="global" aria-labelledby="acquisition-title">
   <h2 id="acquisition-title">Live acquisition coverage</h2>
-  <p>Every requested boss is listed below. Detailed analysis uses acquired fights; a missing or unattempted boss has no measured event results. A recorded snapshot can have partial acquisition coverage.</p>
+  <p>Every requested boss is listed below. These labels describe the data available for each boss, not sync progress. Missing fights or uncertain pet usage can limit results; the notes explain what is affected.</p>
   <div class="table-wrap" role="region" aria-label="Live acquisition coverage" tabindex="0"><table class="stack">
-    <thead><tr><th scope="col">Boss</th><th scope="col">Status</th><th scope="col">Deep fights</th><th scope="col">Metadata rows</th><th scope="col">Coverage notes</th></tr></thead>
+    <thead><tr><th scope="col">Boss</th><th scope="col">Data coverage</th><th scope="col">Deep fights</th><th scope="col">Metadata rows</th><th scope="col">Coverage notes</th></tr></thead>
     <tbody>{% for row in doc.reference.acquisition %}<tr>
       <th scope="row">{% if row.anchor %}<a href="#{{ row.anchor }}">{{ row.boss }}</a>{% else %}{{ row.boss }}{% endif %}</th>
-      <td data-label="Status">{{ row.status }}</td><td data-label="Deep fights">{{ row.deep }}</td><td data-label="Metadata rows">{{ row.metadata }}</td>
+      <td data-label="Data coverage">{{ row.status }}</td><td data-label="Deep fights">{{ row.deep }}</td><td data-label="Metadata rows">{{ row.metadata }}</td>
       <td data-label="Coverage notes">{% if row.reasons %}<ul>{% for reason in row.reasons %}<li>{{ reason }}</li>{% endfor %}</ul>{% else %}No acquisition shortfall recorded.{% endif %}</td>
     </tr>{% else %}<tr><td colspan="5">Acquisition coverage was not recorded in this analysis.</td></tr>{% endfor %}</tbody>
   </table></div>

@@ -10,10 +10,41 @@ from typing import Any
 
 import pytest
 
-from necropsy.desktop.engine import DesktopEngine, describe_character, serve
+from necropsy.desktop.engine import DesktopEngine, describe_character, describe_run, serve
 from necropsy.tui.service import AnalysisService, RunLibrary, SavedRun, Stopped
 from necropsy.wcl.analyze import Outcome
 from tests.unit.test_wcl_acquire import _context
+
+
+@pytest.mark.parametrize("status", ["Complete — data notes", "Partial — report ready"])
+def test_finished_analysis_with_data_notes_does_not_offer_resume(
+    tmp_path: Path, status: str
+) -> None:
+    library = RunLibrary(tmp_path)
+    run = library.create(
+        "https://vanilla.warcraftlogs.com/character/id/86583560", "Marksmanship", _context()
+    )
+    run.store(status, "Saved data notes")
+    (run.out / "analysis.json").write_text("{}", encoding="utf-8")
+    loaded = library.load(run.out)
+    payload = describe_run(loaded)
+    assert payload["status"] == "Complete — data notes"
+    assert payload["has_report"]
+    assert not payload["can_resume"]
+    if status == "Partial — report ready":
+        assert "No restart is required" in payload["detail"]
+    else:
+        assert payload["detail"] == "Saved data notes"
+
+
+@pytest.mark.parametrize("status", ["Stopped — ready to continue", "Waiting", "Needs attention"])
+def test_unfinished_analysis_still_offers_resume(tmp_path: Path, status: str) -> None:
+    library = RunLibrary(tmp_path)
+    run = library.create(
+        "https://vanilla.warcraftlogs.com/character/id/86583560", "Marksmanship", _context()
+    )
+    run.store(status)
+    assert describe_run(library.load(run.out))["can_resume"]
 
 
 class BlockingService(AnalysisService):

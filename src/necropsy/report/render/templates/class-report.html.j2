@@ -46,7 +46,8 @@
 {% set selected = doc.selected_spec %}
 {% set personal_count = doc.class_document.bosses|selectattr('subject')|list|length %}
 <section class="global analysis-context" aria-label="Analysis context">
-  <details><summary>How complete is this analysis?</summary>
+  <details><summary>Available data and limitations</summary>
+  <p>Coverage describes what the logs can tell us, not sync progress. Missing fights or uncertain pet usage can limit specific results; the notes below explain what is affected.</p>
   <p>Selected spec: {{ 'Tank (Guardian category)' if selected == 'Guardian' else selected or 'Unknown' }} · selected faction: {{ doc.selected_faction or 'Unknown' }}.</p>
   <p>{{ personal_count }} encounters with your matching data · {{ doc.navigation|length - personal_count }} without personal analysis.</p>
   {% if selected and personal_count == 0 %}<p class="notice">Not enough personal data in {{ 'Tank' if selected == 'Guardian' else selected }} in the acquired logs. Eligible top-player examples are shown for learning where available.</p>{% endif %}
@@ -54,7 +55,7 @@
   {% for limit in doc.limitations %}<p class="muted">{{ limit }}</p>{% endfor %}
   {% if doc.class_document.get('acquisition') %}
   {% if doc.class_document.acquisition.get('stopped') %}<p>Acquisition stopped: {{ doc.class_document.acquisition.stopped }}. Unacquired examples and baselines remain unknown; this does not establish that personal spec data never existed.</p>{% endif %}
-  <div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Requested encounter</th><th>Attempted</th><th>Deep samples</th><th>Coverage</th></tr></thead><tbody>{% for record in doc.class_document.acquisition.bosses %}{% set coverage = record.get('coverage') or {} %}<tr><th>{{ record.boss }}</th><td>{{ record.get('attempted', true) }}</td><td>{{ coverage.get('usable_deep', 'Unknown') }}</td><td>{{ 'Complete' if coverage.get('complete') else 'Partial / not acquired' }}</td></tr>{% endfor %}</tbody></table></div>
+  <div class="table-wrap" role="region" aria-label="Detailed analysis table" tabindex="0"><table><thead><tr><th>Requested encounter</th><th>Attempted</th><th>Deep samples</th><th>Data coverage</th><th>Coverage notes</th></tr></thead><tbody>{% for record in doc.class_document.acquisition.bosses %}{% set coverage = record.get('coverage') or {} %}<tr><th>{{ record.boss }}</th><td>{{ record.get('attempted', true) }}</td><td>{{ coverage.get('usable_deep', 'Unknown') }}</td><td>{{ 'Not attempted' if record.get('attempted') == false else 'Complete' if coverage.get('complete') == true else 'Limited data' if coverage.get('complete') == false else 'Unknown' }}</td><td>{% if coverage.get('reasons') %}<ul>{% for reason in coverage.reasons %}<li>{{ reason }}</li>{% endfor %}</ul>{% else %}No coverage notes recorded.{% endif %}</td></tr>{% endfor %}</tbody></table></div>
   {% endif %}
   </details>
 </section>

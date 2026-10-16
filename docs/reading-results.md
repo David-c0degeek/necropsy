@@ -71,7 +71,8 @@ Recommendations never guarantee a DPS/HPS increase.
 | **High / medium / low confidence** | The finding's heuristic evidence-quality tier, not a probability |
 | **Severity** | How strongly the existing rule prioritizes review, independent of confidence |
 | **Limited sample** | Few usable comparison sources; one or two can show individual values but cannot supply a median |
-| **Partial data / coverage incomplete** | Some requested inputs are missing or untrusted; read which streams or bosses are affected |
+| **Complete — data notes** | Analysis has finished; no restart is required. Open the Playbook to see which results are limited by the available logs |
+| **Data limitations / limited data** | Some inputs are missing or uncertain, such as unavailable fights or unknown pet usage. Coverage notes explain the affected bosses and measurements; these labels do not describe sync progress |
 | **Inferred** | A named rule suggests a value or identity; it was not directly recorded |
 | **Unknown / unavailable** | The available evidence cannot support a value; it is not zero |
 | **Not assessed** | There is no supported personal assessment for this boss/selection |

@@ -39,7 +39,7 @@ def describe_run(run: SavedRun) -> Json:
         "when": run.when,
         "updated": run.updated,
         "has_report": (run.out / "analysis.json").is_file(),
-        "can_resume": run.status not in ("Complete", "Offline report")
+        "can_resume": not run.finished
         and (run.resumable or run.legacy or bool(run.options.get("url"))),
     }
 

@@ -146,7 +146,7 @@ def experience(document: Mapping[str, Any], class_name: str) -> dict[str, Any]:
         "attention_count": sum(r["attention"] for r in rows),
         "personal_count": sum(r["has_subject"] for r in rows),
         "limited_count": sum(r["limited"] for r in rows),
-        "coverage": "Coverage needs review"
+        "coverage": "Data limitations"
         if incomplete
         else (
             "No event streams acquired"
@@ -159,6 +159,7 @@ def experience(document: Mapping[str, Any], class_name: str) -> dict[str, Any]:
             f"{gaps if gaps is not None else 'Unknown'} incomplete streams · "
             f"{issues if issues is not None else 'Unknown'} snapshot issues · "
             f"{anomalies if anomalies is not None else 'Unknown'} event anomalies. "
-            "Completeness applies to acquired data, not every possible fight."
+            "These describe limits in the available evidence, not sync progress. "
+            "See the coverage notes for affected fights and measurements."
         ),
     }

@@ -95,7 +95,9 @@ def test_partial_coverage_without_quota_does_not_sleep(tmp_path: Path) -> None:
         lambda _: pytest.fail("partial coverage must not wait"),
     )
     assert result.code == 4 and service.attempts == 1
-    assert run.status == "Partial — report ready"
+    assert run.status == "Complete — data notes"
+    assert run.finished
+    assert "No restart is required" in run.detail
 
 
 def test_other_errors_are_saved_without_an_automatic_retry(tmp_path: Path) -> None:

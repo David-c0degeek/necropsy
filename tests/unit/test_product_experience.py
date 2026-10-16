@@ -57,7 +57,7 @@ def test_missing_personal_data_is_not_a_clean_result() -> None:
     assert ux["bosses"][0]["state"] == "Not assessed"
     assert ux["bosses"][0]["sources"] == "Unknown"
     assert ux["bosses"][0]["kill"] == "Unknown"
-    assert ux["coverage"] == "Coverage needs review"
+    assert ux["coverage"] == "Data limitations"
 
 
 def test_priority_order_deduplicates_rules_without_inventing_advice() -> None:
@@ -93,6 +93,6 @@ def test_acquisition_shortfall_and_unknown_median_remain_visible() -> None:
     raw["bosses"][0]["benchmarks"]["baseline"]["entries"] = 5
     raw["acquisition"] = {"bosses": [{"coverage": {"complete": False}}]}
     ux = experience(raw, "Priest")
-    assert ux["coverage"] == "Coverage needs review"
+    assert ux["coverage"] == "Data limitations"
     assert ux["bosses"][0]["quality"] == "Some comparisons unavailable"
     assert ux["limited_count"] == 1

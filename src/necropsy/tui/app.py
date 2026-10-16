@@ -336,11 +336,7 @@ class NecropsyApp(App[None]):
         )
 
     def completed(self, run: SavedRun, code: int) -> None:
-        self.show_progress(
-            "Your report is ready."
-            if code == 0
-            else "Your report is ready with partial coverage. Read its coverage notes."
-        )
+        self.show_progress("Your report is ready." if code == 0 else run.detail)
         self.action_refresh(str(run.out))
         if run.report is not None and not self.opener(run.report.as_uri()):
             self.show_progress(
@@ -372,9 +368,7 @@ class NecropsyApp(App[None]):
 
     def update_saved(self) -> None:
         run = self.selected_run()
-        self.query_one("#continue", Button).disabled = (
-            self.busy or run is None or run.status in ("Complete", "Offline report")
-        )
+        self.query_one("#continue", Button).disabled = self.busy or run is None or run.finished
         self.query_one("#report", Button).disabled = run is None or run.report is None
         self.query_one("#saved-detail", Static).update(
             "" if run is None else f"{run.title} · {run.when}\n{run.status}\n{run.detail}"

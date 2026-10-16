@@ -267,10 +267,7 @@ export default function App() {
             "Progress saved. Continue your analysis from the library whenever you are ready.",
           );
         else if (result.run) {
-          if (result.partial)
-            setNotice(
-              "Your analysis is ready with partial coverage. Check the coverage notes in your Playbook.",
-            );
+          if (result.partial) setNotice(result.run.detail);
           await loadReport(result.run);
         }
       }
@@ -1051,7 +1048,10 @@ function RunRow({
   onOpen: () => void;
   onResume: () => void;
 }) {
-  const done = run.status === "Complete" || run.status === "Offline report";
+  const done =
+    run.status === "Complete" ||
+    run.status === "Complete — data notes" ||
+    run.status === "Offline report";
   return (
     <article className="run-row">
       <div className="run-icon">
