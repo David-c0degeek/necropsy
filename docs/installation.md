@@ -11,6 +11,8 @@ Run the command for your computer. It installs a private uv runtime, a managed
 Python 3.14 environment, the CLI wheel and a native graphical package. It verifies
 both download checksums and the GUI/engine version before switching the launcher,
 then opens the GUI. Windows x64, Intel/Apple Silicon macOS and Linux x64 are supported.
+Windows setup also checks for WebView2 and, if absent, verifies and runs
+Microsoft's signed Evergreen bootstrapper. Existing WebView2 installations are reused.
 No Git, GitHub account, preinstalled Python or uv is needed. Downloads are public.
 You need an internet connection, a terminal and a normal desktop session.
 

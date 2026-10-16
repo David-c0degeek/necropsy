@@ -28,6 +28,31 @@ function Invoke-Checked {
     if ($LASTEXITCODE -ne 0) { throw "Setup step failed (exit $LASTEXITCODE). Run this installer again to retry." }
 }
 
+function Test-WebView2 {
+    $client = '{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}'
+    foreach ($key in @("HKLM:\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\$client", "HKCU:\Software\Microsoft\EdgeUpdate\Clients\$client")) {
+        $runtime = Get-ItemProperty -LiteralPath $key -Name pv -ErrorAction SilentlyContinue
+        if ($runtime -and $runtime.pv -and [version]$runtime.pv -gt [version]'0.0.0.0') { return $true }
+    }
+    return $false
+}
+
+function Ensure-WebView2 {
+    param([string]$Directory)
+    if (Test-WebView2) { return }
+    Write-Host 'Preparing the Windows desktop display runtime...'
+    $bootstrapper = Join-Path $Directory 'MicrosoftEdgeWebview2Setup.exe'
+    Invoke-WebRequest -UseBasicParsing 'https://go.microsoft.com/fwlink/p/?LinkId=2124703' -OutFile $bootstrapper
+    $signature = Get-AuthenticodeSignature -LiteralPath $bootstrapper
+    if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'O=Microsoft Corporation(?:,|$)') {
+        throw 'The display runtime download is not trusted. Setup stopped; your previous app is preserved.'
+    }
+    $runtimeSetup = Start-Process -FilePath $bootstrapper -ArgumentList '/silent /install' -Wait -PassThru -WindowStyle Hidden
+    if ($runtimeSetup.ExitCode -ne 0 -or -not (Test-WebView2)) {
+        throw 'Could not prepare Microsoft WebView2. Install it from Microsoft, then retry Necropsy setup.'
+    }
+}
+
 try {
     $appRoot = [IO.Path]::GetFullPath($InstallRoot)
     New-Item -ItemType Directory -Force -Path $appRoot | Out-Null
@@ -92,6 +117,7 @@ try {
     $guiRoot = Join-Path $environmentRoot 'gui'
     Expand-Archive -LiteralPath $guiArchive -DestinationPath $guiRoot
     $gui = Join-Path $guiRoot 'Necropsy\necropsy-desktop.exe'
+    Ensure-WebView2 $workRoot
     $guiOutput = Join-Path $workRoot 'gui-check.txt'
     $guiError = Join-Path $workRoot 'gui-check-error.txt'
     $guiCheck = Start-Process -FilePath $gui -ArgumentList '--check-install' -Wait -PassThru -WindowStyle Hidden -RedirectStandardOutput $guiOutput -RedirectStandardError $guiError
