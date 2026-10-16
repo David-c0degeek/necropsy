@@ -160,6 +160,17 @@ reported Restoration snapshot with the corrected Loatheb and missing-talent
 comparisons. All nine public assets were downloaded and checksum-verified before
 updating the installers on main.
 
+[0.4.0](https://github.com/David-c0degeek/necropsy/releases/tag/v0.4.0)
+adds saved-report refresh, explicit app updates and the clearer Playbook. Its
+[four-platform native checks](https://github.com/David-c0degeek/necropsy/actions/runs/38964392126)
+passed frozen-engine replay, packaging, fresh setup, staged app updates and
+damaged-download recovery. Its
+[three-platform Python checks](https://github.com/David-c0degeek/necropsy/actions/runs/38964395667)
+also passed. The exact Windows archive passed the native-window flow, including
+report refresh, review persistence and controlled update-dialog states. All nine
+public files were downloaded without authentication and checksum-verified before
+switching the one-line installers to this version.
+
 To check a frozen engine outside the checkout, pass its executable to:
 
 ```sh

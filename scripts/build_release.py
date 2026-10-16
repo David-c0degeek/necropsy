@@ -39,7 +39,9 @@ def build(out: Path, desktop_bundles: Path | None = None, *, require_all: bool =
             raise ValueError(f"{name} does not match package version {__version__}")
     subprocess.run(["uv", "build", "--out-dir", str(out)], cwd=repository, check=True)
     for name in ("install.ps1", "install.sh"):
-        shutil.copyfile(repository / name, out / name)
+        # A Windows checkout may contain CRLF despite the repository's LF policy.
+        # In particular, sh must receive executable Unix line endings.
+        (out / name).write_bytes((repository / name).read_text(encoding="utf-8").encode("utf-8"))
     if desktop_bundles is not None:
         for name in native_names:
             source = desktop_bundles / name
