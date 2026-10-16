@@ -11,6 +11,11 @@ in a separate disclosure, collapsed by default, with faction differences noted.
 
 ## Select a ranking category
 
+For the proposed separation of game talent trees, WCL categories, encounter roles
+and race identity, see the [2026-10-16 taxonomy research](class-taxonomy-research.md).
+That research describes a future model; the category choices below remain the
+current implementation.
+
 | Class | Supported WCL categories | Default ranking metric |
 |---|---|---|
 | Druid | Balance, Feral, Guardian (Tank), Restoration | DPS; Restoration HPS; explicit Balance HPS supported |
@@ -26,10 +31,12 @@ in a separate disclosure, collapsed by default, with faction differences noted.
 These are WCL ranking labels, **not talent-tree diagnoses**. Classic Era groups
 Rogue damage under Assassination and Warlock damage under Destruction, including
 other talent builds. Hunter game data exposes one ranking category. Combat,
-Affliction and Survival filter probes returned no ranking rows; Necropsy does not
-invent those as supported ranking filters. Your actual talent-point build remains
-visible for each encounter and source. Category metadata and filtered rows were
-verified on 2026-10-15 against the vanilla API; new categories require evidence.
+Affliction and Survival filters are rejected as invalid
+class/spec combinations by the Vanilla API. Necropsy does not invent those as
+supported ranking filters. Your actual talent-point build remains visible for
+each encounter and source when evidence is available. Category names and slugs
+were reverified on 2026-10-16; see the linked research for the bounded ranking
+probes and additional rejected filters. New categories require evidence.
 
 `Tank`, `Healer` and `DPS` aliases resolve by class where unambiguous. For example:
 
