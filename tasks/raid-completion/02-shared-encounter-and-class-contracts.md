@@ -12,6 +12,13 @@ Extend the existing engine so mechanics alter measurements and guidance for ever
 
 ## Boxes
 
+Readiness constraint (D003): current new-raid domain evidence applies only to
+Era partitions 1/2. Guard applicability before new mechanics/ranking policies
+run; never select SoM/Hardcore because the zone matches. Keep Naxx historical
+and saved-live replay behavior. Live API schema is frozen in research/schema.json;
+the older public schema additionally lists obsolete expansion arguments and
+must not supersede current authenticated introspection.
+
 - [ ] **02.1** (agent) Define the durable module contract: identity/variants, targets, facts/sources, observed phase/opportunity policies, ranking/metric windows, class/role applicability and guidance. Promote architecture decisions to an ADR; preserve registry and callers.
 
 - [ ] **02.2** (agent) Implement target and phase/opportunity evidence with observed/inferred/static/unknown distinctions, actor/event refs, multiple targets, immunity/untargetable time and incomplete windows. Prove short, no-transition and partial-stream counterexamples.

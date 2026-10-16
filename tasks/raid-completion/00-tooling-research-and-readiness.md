@@ -12,25 +12,25 @@ later subjects can execute with the right context already in place.
 > or waived by decision. A failing Build/Test baseline from 00.3 blocks
 > implementation subjects unless a §4 Decision-log row accepts it.
 
-- [ ] **00.1** (agent) Read repo instructions and authoritative project docs —
+- [x] **00.1** (agent) Read repo instructions and authoritative project docs —
       including any vision, ADR, roadmap, planning, and lessons docs; list
       applicable constraints, clean-room/provenance rules, existing conventions,
       and the intended architectural direction so later subjects can flag drift.
-- [ ] **00.2** (agent) Inventory language, framework, runtime, package manager,
+- [x] **00.2** (agent) Inventory language, framework, runtime, package manager,
       CI, existing commands, and repo structure; identify the implementation
       surfaces this plan will touch and map where each belongs in the current
       architecture and what similar functionality already exists (prior-art
       map), so implementation subjects reuse or extend before adding new code.
-- [ ] **00.3** (agent) Run baseline build/test/lint commands and confirm or
+- [x] **00.3** (agent) Run baseline build/test/lint commands and confirm or
       correct the plan's §2 Verification-commands table, or record exact
       blockers and the command output needed to reproduce them.
-- [ ] **00.4** (agent) Research current best practices for the detected
+- [x] **00.4** (agent) Research current best practices for the detected
       language/framework/runtime/testing stack using official or primary
       sources; record only findings that affect this plan.
-- [ ] **00.5** (agent) Research APIs, libraries, providers, or standards this
+- [x] **00.5** (agent) Research APIs, libraries, providers, or standards this
       plan depends on using official or primary sources; record links,
       versions, and date-sensitive notes.
-- [ ] **00.6** (agent) Discover existing capabilities before building any. Run
+- [x] **00.6** (agent) Discover existing capabilities before building any. Run
       all five rungs, widest last: (1) skills, tools, and MCP servers already
       loaded this session; (2) installed-but-unloaded skill directories — user,
       project, and plugin-bundled; (3) the plugin/marketplace registry this
@@ -44,7 +44,7 @@ later subjects can execute with the right context already in place.
       install/config command, and setup cost. Record the result even when
       nothing is found; stopping at rung 1 is the default failure, not a
       finding.
-- [ ] **00.7** (agent) Set up only approved local tooling/config needed before
+- [x] **00.7** (agent) Set up only approved local tooling/config needed before
       coding — approved means confirmed by the user or already allowed by
       project config; the `adopt` classification from 00.6 is a recommendation,
       not approval. Installing anything that adds credentials, network-reachable
@@ -52,7 +52,7 @@ later subjects can execute with the right context already in place.
       human-owned box mirrored into `tasks/raid-completion/manual-actions.md`. Record
       install/config/provenance; never commit secrets; keep security-sensitive
       permissions out of repo config unless narrowly justified.
-- [ ] **00.8** (agent) Bake adopted findings into the plan: update the §2
+- [x] **00.8** (agent) Bake adopted findings into the plan: update the §2
       Verification-commands table, §6 cross-cutting principles, §7 gates,
       subject boxes, §4 decisions, and
       `tasks/raid-completion/lessons.md` as needed. Inventory the doc surfaces this plan
@@ -74,8 +74,8 @@ later subjects can execute with the right context already in place.
 > leave the subject open, add/reopen boxes or update decisions/lessons,
 > and rerun this checkpoint after the fixes.
 
-- [ ] Captain Hindsight review recorded
-- [ ] Verdict is `CLOSE`
+- [x] Captain Hindsight review recorded
+- [x] Verdict is `CLOSE`
 
 ## Progress log
 > One line per slice. Date · slice number (per-subject, starting at 1) · box IDs touched · what
@@ -101,5 +101,37 @@ Metadata denominator verified: 952 rows/28 encounters/34 configurations,
 client and locked tooling adopted; all proposed external MCPs deferred/rejected.
 No additional user credentials or permission required. Foundation baseline
 failures repaired with targeted behavior verification; full ordinary rerun in
-progress. Golden/raw acceptance must run serially. Readiness stays open until
-commands, closing review and pushed checkpoint are reconciled.
+progress. Golden/raw acceptance must run serially. Readiness is complete after the repaired baseline, documented commands and
+closing review; checkpoint receipt is recorded below.
+
+## Closing Captain Hindsight — 2026-10-16
+
+**Keep:** Fresh authenticated metadata/schema, public-source visibility checks,
+952-row reconciliation, one client/cache/writer, existing strict zone matching,
+independent category/build/duty evidence, and all five capability discovery rungs.
+Foundation preserved in 9aded83, pushed to origin/main. No new services/grants.
+
+**Fix before closing:** None for readiness. Initial baseline failure was fully
+isolated to two test tables and repaired: 35/35 affected assertions now pass;
+the other 1192 ordinary tests passed in the initial full run. All static checks,
+Python/desktop builds, locked isolated npm ci, context/installed and 31 changed
+end-to-end raid flows pass. Full ordinary rerun and serialized golden follow-up
+remain explicitly tracked verification, not claims of completed raw acceptance.
+
+**Record:** D003 (Era partition applicability), D004 (baseline test schema repair),
+readiness-research.md, sanitized metadata/schema, exact command interfaces and
+doc-impact map. Public combined-dragon/Holy candidates exist. Three actual public
+report bundles were fetched through the existing cache: Lucifron, combined
+dragons, Viscidus. Their fight/ranking durations match, but no event measurement
+or ranking policy is yet certified. Source probes are research, not seed acceptance.
+
+**Risk:** PM-1/2/3 remain open implementation obligations. Partial/generic current
+raids are never approved by this readiness review; no prior Naxx waiver applies.
+New partition guard and real-event independent facts must land before domain
+completion. Existing full golden fixtures are available; interrupted golden is
+not a pass. No product/domain sign-off is inferred.
+
+**Verdict:** CLOSE for subject 00 research/readiness only. No scope waiver or
+acceptance of missing evidence. Next: 01 durable inventory and capture program.
+
+2026-10-16 · slice 2 · 00.1–00.8 · Closing research/guardrails and exact commands reconciled; 35 repaired baseline cases pass plus all 1192 initially passing ordinary checks; static/build/behavior receipts above. Embedded Hindsight CLOSE for readiness; original risk predictions unchanged. Foundation 9aded83 pushed; closing documentation checkpoint follows. No runtime behavior changed in this documentation checkpoint; user docs need no additional claim.

@@ -107,6 +107,16 @@ passing checks so expensive raw replays run serially, consistent with the
 existing lessons. Interrupted is not passed; re-run `uv run pytest -m golden`.
 No runtime implementation subject is opened on this pending baseline.
 
+Update: full initial baseline completed: 1192 passed, 35 failed, 251 deselected
+in 439.01 s. Every failure was a BinderException for missing zone_id in two
+miniature unit-test tables, despite that column existing in the production
+schema. Corrected those fixtures without changing assertions or production
+logic: 35 passed/1.15 s; Ruff/format/mypy pass. Context/installed-wheel 16 passed,
+cross-raid acquisition/replay/render/library 31 passed, render subset 28 passed.
+The affected baseline is repaired and supports implementation readiness; a
+complete ordinary rerun is additionally in progress. Golden verification is
+still required before changing shared measurement behavior and final closure.
+
 Existing native probes accept an engine/executable positional argument;
 window probe additionally supports --screenshots. Help was exercised, not the
 native acceptance flow. Installed-rule test already builds/installs outside the
@@ -150,6 +160,12 @@ Official/primary sources checked, with plan effects:
   returned internal errors. Do not claim those pages were read. Authenticated
   live introspection supplies current API evidence; retain ranking-policy
   questions for independent raw reconciliation in 01/02 and each raid.
+- Subsequently the [Encounter schema page](https://vanilla.warcraftlogs.com/v2-api-docs/warcraft/encounter.doc.html)
+  loaded successfully. It documents mutable rankings and explicit partition
+  selection (omission chooses latest), metric and class/spec slugs; generic
+  filter syntax matches the website. It lists old covenant/soulbind arguments
+  absent from current live introspection. Use live arguments; preserve dated
+  responses and never equate HTTP success to filter enforcement.
 - [BWL catalog](https://vanilla.warcraftlogs.com/zone/rankings/2002?metric=progress)
   separately lists individual and combined dragon encounters. Live partition-1
   combined Holy rankings are nonempty; do not combine individual fights or

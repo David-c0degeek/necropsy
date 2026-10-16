@@ -44,7 +44,7 @@
 | Coordinator | Codex |
 | Resume safety | required |
 | Parallel branches | `no` |
-| Notes | Planning only in this turn. No subagents. Existing raid-foundation edits are uncommitted on top of `30e89ce`; preserve and reconcile them in 00.1/00.3. No implementation, commit, push, publication or new infrastructure was performed by creating this plan. |
+| Notes | Solo, no subagents. Foundation and research preserved in pushed checkpoint `9aded83` on `main`, based on `30e89ce`. Creation-time no-action statement is historical; execution began 2026-10-16. Existing WCL user-endpoint tooling only; no publication or new infrastructure. |
 
 Mode rules:
 
@@ -161,9 +161,10 @@ These are repo commands, not claims of execution in this planning turn. Subject 
 | Desktop frontend | From `desktop/`: `npm ci`; `npm run build`; `npm run format:check` | Existing lockfile; no dependency upgrade presumed |
 | HTML behavior | `uv run pytest -m browser` | Recorded Chromium/viewport setup; every raid/class plus legacy Naxx views |
 | Existing native/offline probes | `uv run python scripts/check_desktop_engine.py --help`; `uv run python scripts/check_desktop_window.py --help` | Read current flags in 00; --help is discovery, not acceptance |
-| Live capture / quota resume | Exact command(s) TBD in 01, using existing `necropsy analyze` / `--raid` / checkpoint path | Bounded acquisition, retained receipts; never default CI live traffic |
-| Matrix / oracle / content gate | Command TBD in 01, extended by 03–06 | Reject unresolved cells, missing facts, circular oracles and generic-only advice |
-| Input/output integrity | Existing fixture/secret/provenance tools inventoried in 00/01; exact commands TBD | Raw hashes, member manifests, secrets/identity policy and output/source link checks |
+| Live capture / quota resume | `uv run necropsy analyze CHARACTER_URL --raid RAID --category CATEGORY --metric METRIC --partition 1 --endpoint user --cache workspace/raid-cache --out workspace/CAPTURE`; repeat with `--resume` | Substitute a verified public actor and unique output, retain receipts; never default CI live traffic. No implicit reset waiting. |
+| Matrix / content gate | `uv run python scripts/check_raid_coverage.py --inventory`; `uv run python scripts/check_raid_coverage.py --require-complete` | Interface to implement in 01.7; inventory never substitutes for the strict gate. Reject unresolved cells, missing facts and generic-only advice. |
+| Independent facts | `uv run pytest tests/golden/test_fact_checks_full.py tests/golden/test_ranking_rules_full.py tests/golden/test_druid_replay.py tests/golden/test_class_replay.py -q` | Existing Naxx contracts; add exact per-raid checker/test paths with 01.6. Do not treat old facts as new-raid proof. |
+| Input/output integrity | `uv run python scripts/fixture_tools.py manifest ARCHIVE`; `gitleaks dir EXTRACTED_OR_OUTPUT --redact --max-target-megabytes 0`; `uv run pytest tests/unit/test_rules_package.py -q`; `uv run python scripts/check_docs.py` | Substitute concrete retained capture paths; manifests plus strict snapshot reader/member hashes. Scan all extracted bytes and generated outputs. |
 | Naxx compatibility | Existing golden, live-v1/legacy, browser and package checks selected in 00 | Record expected allowed changes; no silent baseline rewrite |
 
 ---
@@ -204,7 +205,7 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
-| [ ] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | IN_PROGRESS | agent: 8; research recorded, checkpoint pending | n/a |
+| [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
 | [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | TODO | agent: 8 | n/a |
 | [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | TODO | agent: 8 | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | TODO | agent: 9; domain-sme: 1 | yes |
