@@ -47,3 +47,13 @@ Exact current WCL classifier algorithms and full individual talent allocations r
 ### Verdict
 
 CLOSE. Engineering implementation complete; coherent feature branch checkpoints pushed. No user action required to finish the requested implementation.
+
+## Independent completion recheck
+
+2026-10-16 · session 2 · Rechecked the completed implementation against all subjects and the retained risk guardrails. Fresh verification: fast/browser suite 1145 passed, 251 deselected in 395.15s; Ruff check/format, mypy (183 files), Python sdist/wheel build and desktop TypeScript/Vite build passed. Reviewed selection/query/persistence/report regression coverage and the existing historical byte-compatibility receipt. No production changes required.
+
+Keep: separate game intent, recorded evidence and WCL category scope throughout the shared pipeline.
+Fix before closing: none.
+Record: fresh verification above supplements the original implementation receipts.
+Risk: previously documented classifier and full-allocation limits remain unchanged; no new live acquisition or release verification claimed.
+Verdict: CLOSE.
