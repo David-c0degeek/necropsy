@@ -2,7 +2,7 @@
 
 [Home](../README.md) · [Connection](warcraft-logs.md) · [Read results](reading-results.md)
 
-Necropsy supports all nine Classic Era classes in Naxxramas through the same
+Necropsy supports all nine Classic Era classes across the [supported raid modules](raids.md) through the same
 character → faction/spec → faction-leader comparison workflow. Every requested
 boss remains visible. Without matching personal duty/coverage, the leader remains
 a practice reference and your performance is not assessed. One or two comparison

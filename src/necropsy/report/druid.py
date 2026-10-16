@@ -17,6 +17,7 @@ from necropsy.analysis.evidence import Evidenced, EvidenceLevel, EvidenceRef, ob
 from necropsy.analysis.generic.catalog import ItemName, item_catalog
 from necropsy.analysis.roles import DRUID_CATEGORIES, ComparisonKey, FightRole, ranking_policy
 from necropsy.analysis.taxonomy import build_matches
+from necropsy.raids import raid_for_encounter
 from necropsy.report.abilities import difference as _difference
 from necropsy.report.abilities import rows as ability_rows
 from necropsy.report.equipment import enrich_gear
@@ -53,6 +54,7 @@ def comparison_key(
             role,
             metric or DRUID_CATEGORIES[category][0],
             partition,
+            zone=raid_for_encounter(entry.participant.encounter_id).zone_id,
             difficulty=entry.participant.difficulty,
         )
     except ValueError:
@@ -201,7 +203,11 @@ def _recommendations(
         )
     if role == FightRole.HEALER:
         rules = load_rules("classic_era", "druid")["healer_reviews"]
-        encounter = encounter_rules("classic_era", "naxxramas", subject.participant.encounter_id)
+        encounter = encounter_rules(
+            "classic_era",
+            raid_for_encounter(subject.participant.encounter_id).slug,
+            subject.participant.encounter_id,
+        )
         over = druid.metrics["overhealing_pct"].value
         if over is not None and over > rules["overhealing_pct"]:
             add(
@@ -531,7 +537,9 @@ def boss_section(
         ],
         FightRole.TANK: ["incoming_damage", "incoming_damage_per_second", "healing_received"],
     }.get(role, ["damage", "damage_per_second", "effective_healing", "incoming_damage"])
-    encounter = encounter_rules("classic_era", "naxxramas", boss.encounter_id)
+    encounter = encounter_rules(
+        "classic_era", raid_for_encounter(boss.encounter_id).slug, boss.encounter_id
+    )
     assessment_limits = []
     if subject is not None:
         if subject.druid.build.value is None:
@@ -590,7 +598,11 @@ def boss_section(
         if subject is None
         else _recommendations(subject, medians, applicable),
         "playbook": {
-            "encounter_facts": to_data(gamedata.encounter_facts("naxxramas", boss.encounter_id)),
+            "encounter_facts": to_data(
+                gamedata.encounter_facts(
+                    raid_for_encounter(boss.encounter_id).slug, boss.encounter_id
+                )
+            ),
             "excluded_subject": section(boss.subject)
             if excluded is not None and boss.subject is not None
             else None,

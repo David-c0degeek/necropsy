@@ -27,6 +27,7 @@ from necropsy.analysis.generic.combat import event_totals as _totals
 from necropsy.analysis.generic.environment import EnvironmentProfile
 from necropsy.analysis.generic.metrics import DeathsFinding
 from necropsy.analysis.roles import DRUID_CATEGORIES, FightRole, RoleOverride
+from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
 
@@ -139,7 +140,9 @@ def _duties(
             for group, role in mapping.items():
                 if event.name in rules[group]:
                     candidates[role].append(event)
-    encounter = encounter_rules("classic_era", "naxxramas", pf.encounter_id)
+    encounter = encounter_rules(
+        "classic_era", raid_for_encounter(pf.encounter_id).slug, pf.encounter_id
+    )
     boss_ids = {
         int(actor)
         for actor, game_id in con.execute(

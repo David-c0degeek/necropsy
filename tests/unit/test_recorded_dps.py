@@ -51,7 +51,9 @@ def _db(
     role: str = "dps",
 ) -> duckdb.DuckDBPyConnection:
     con = duckdb.connect()
-    con.execute("CREATE TABLE snapshot_meta (mode VARCHAR, partition_id INT, acquisition JSON)")
+    con.execute(
+        "CREATE TABLE snapshot_meta (mode VARCHAR, partition_id INT, acquisition JSON, zone_id INT)"
+    )
     key = {
         name: {"value": value, "status": "enforced"}
         for name, value in {
@@ -67,7 +69,7 @@ def _db(
         }.items()
     }
     con.execute(
-        "INSERT INTO snapshot_meta VALUES ('live', 1, ?)",
+        "INSERT INTO snapshot_meta VALUES ('live', 1, ?, 2006)",
         [
             json.dumps(
                 {

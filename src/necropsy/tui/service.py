@@ -18,6 +18,7 @@ from uuid import uuid4
 from platformdirs import user_data_path
 
 from necropsy.analysis.class_catalog import WCL_CATEGORIES, category_label, talent_tree
+from necropsy.raids import DEFAULT_RAID, raid_for_zone, with_raid
 from necropsy.report.render import load_document
 from necropsy.wcl.analyze import AnalyzeError, Outcome, plain_dir, run_analyze
 from necropsy.wcl.auth import (
@@ -68,6 +69,17 @@ class SavedRun:
     updated: str = ""
     detail: str = ""
     legacy: bool = False
+
+    @property
+    def raid_id(self) -> int:
+        url = self.options.get("url")
+        if url:
+            return parse_character_url(str(url)).zone_id
+        return DEFAULT_RAID.zone_id
+
+    @property
+    def raid_name(self) -> str:
+        return raid_for_zone(self.raid_id).name
 
     @property
     def finished(self) -> bool:
@@ -141,7 +153,7 @@ class RunLibrary:
         run = SavedRun(
             out,
             {
-                "url": url,
+                "url": with_raid(url, context.zone_id),
                 "cache": str(self.cache),
                 "endpoint": "user",
                 "partition": context.partition.id,
@@ -155,7 +167,7 @@ class RunLibrary:
             },
             f"{context.name.value} · "
             + (f"{declared_tree} · " if declared_tree else "")
-            + f"WCL {label} · Naxxramas",
+            + f"WCL {label} · {raid_for_zone(context.zone_id).name}",
         )
         run.store("Ready")
         return run
@@ -213,7 +225,10 @@ class RunLibrary:
             None,
         )
         options = {
-            "url": f"https://vanilla.warcraftlogs.com/character/id/{subject['id']}",
+            "url": with_raid(
+                f"https://vanilla.warcraftlogs.com/character/id/{subject['id']}",
+                document["zone"]["id"],
+            ),
             "cache": str(self.cache),
             "category": category,
             "metric": metric,

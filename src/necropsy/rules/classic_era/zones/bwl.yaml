@@ -1,0 +1,49 @@
+# Encounter IDs verified against WCL Vanilla worldData, 2026-10-16.
+version: 1
+zone:
+  id: 2002
+  name: Blackwing Lair
+source: https://vanilla.warcraftlogs.com/zone/rankings/2002
+retrieved: '2026-10-16'
+ranking_exclusions_rule:
+  rule: bwl-ranking-unvalidated-v1
+  basis: unvalidated
+  validated: No real-log ranked-damage reconciliation yet; no target exclusions assumed.
+encounters:
+- id: 50610
+  name: Razorgore the Untamed
+  boss_game_ids:
+  - 12435
+- id: 50611
+  name: Vaelastrasz the Corrupt
+  boss_game_ids:
+  - 13020
+- id: 50612
+  name: Broodlord Lashlayer
+  boss_game_ids:
+  - 12017
+- id: 50613
+  name: Firemaw
+  boss_game_ids:
+  - 11983
+- id: 50614
+  name: Ebonroc
+  boss_game_ids:
+  - 14601
+- id: 50615
+  name: Flamegor
+  boss_game_ids:
+  - 11981
+- id: 50631
+  name: Ebonroc / Flamegor
+  boss_game_ids:
+  - 14601
+  - 11981
+- id: 50616
+  name: Chromaggus
+  boss_game_ids:
+  - 14020
+- id: 50617
+  name: Nefarian
+  boss_game_ids:
+  - 11583

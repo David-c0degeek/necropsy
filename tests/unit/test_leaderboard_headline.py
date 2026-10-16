@@ -21,8 +21,10 @@ def _setup(row: dict[str, Any]) -> tuple[duckdb.DuckDBPyConnection, BossData]:
     con = duckdb.connect()
     key = to_data(cohort_key(VANILLA, _context(), PATCHWERK))
     acq = {"bosses": [{"encounter_id": PATCHWERK, "key": key}]}
-    con.execute("CREATE TABLE snapshot_meta(mode VARCHAR, partition_id INT, acquisition JSON)")
-    con.execute("INSERT INTO snapshot_meta VALUES ('live', 3, ?)", [json.dumps(acq)])
+    con.execute(
+        "CREATE TABLE snapshot_meta(mode VARCHAR, partition_id INT, acquisition JSON, zone_id INT)"
+    )
+    con.execute("INSERT INTO snapshot_meta VALUES ('live', 3, ?, 2006)", [json.dumps(acq)])
     con.execute(
         "CREATE TABLE rankings(source VARCHAR, kind VARCHAR, encounter_id INT, "
         "page INT, row_index INT, raw JSON)"

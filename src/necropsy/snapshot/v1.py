@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from necropsy.analysis.class_catalog import talent_tree
 from necropsy.analysis.evidence import Faction
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
+from necropsy.raids import RAIDS, raid_for_zone
 from necropsy.rules import load_rules
 from necropsy.snapshot.archive import VerifiedArchive
 from necropsy.snapshot.model import (
@@ -45,11 +46,10 @@ from necropsy.wcl.cache import (
     check_pages,
 )
 from necropsy.wcl.combatant import validate_context
-from necropsy.wcl.context import SUPPORTED_ZONE_ID
 from necropsy.wcl.fetch import EVENTS_LIMIT, QUERY_VERSION
 from necropsy.wcl.sites import VANILLA
 
-GAME, ZONE = "classic_era", "naxxramas"
+GAME = "classic_era"
 COHORT = "same-faction-deep"
 _FACTIONS = {"Alliance": Faction.ALLIANCE, "Horde": Faction.HORDE}
 MARKER = "necropsy-snapshot.json"
@@ -288,14 +288,15 @@ class V1Snapshot(V0Snapshot):
                 raise ValueError("snapshot talent-tree declaration must be canonical")
         except ValueError as error:
             raise SnapshotError(str(error)) from error
-        if live.zone.id != SUPPORTED_ZONE_ID:
+        if live.zone.id not in {r.zone_id for r in RAIDS}:
             raise SnapshotError(f"zone {live.zone.id} is not supported")
         if live.cohort != COHORT:
             raise SnapshotError(f"unknown live cohort {live.cohort!r}")
         if live.top_n != int(load_rules(GAME, "benchmarks")["live_cohort"]["deep"]):
             raise SnapshotError("top_n differs from the live cohort rule")
         names = {
-            int(e["id"]): str(e["name"]) for e in load_rules(GAME, f"zones/{ZONE}")["encounters"]
+            int(e["id"]): str(e["name"])
+            for e in load_rules(GAME, f"zones/{raid_for_zone(live.zone.id).slug}")["encounters"]
         }
         for f in live.fights:
             for p in f.participants:

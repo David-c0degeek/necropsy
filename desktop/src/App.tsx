@@ -35,6 +35,7 @@ import { ReportFrame } from "./ReportFrame";
 import { Updates } from "./Updates";
 import type {
   Character,
+  Raid,
   EngineMessage,
   ReportResult,
   RunResult,
@@ -77,6 +78,9 @@ export default function App() {
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [url, setUrl] = useState("");
+  const [raids, setRaids] = useState<Raid[]>([]);
+  const [raidId, setRaidId] = useState(2006);
+  const [raidFilter, setRaidFilter] = useState(0);
   const [character, setCharacter] = useState<Character | null>(null);
   const [category, setCategory] = useState("");
   const [talentTree, setTalentTree] = useState("");
@@ -174,11 +178,14 @@ export default function App() {
           cleanup();
           return;
         }
-        const hello = await request<{ version: string; runs: SavedRun[] }>(
-          "hello",
-        );
+        const hello = await request<{
+          version: string;
+          runs: SavedRun[];
+          raids: Raid[];
+        }>("hello");
         if (!disposed) {
           setVersion(hello.version);
+          setRaids(hello.raids);
           setRuns(hello.runs);
           setReady(true);
         }
@@ -380,8 +387,12 @@ export default function App() {
       throw error;
     }
   }
-  const matching = runs.filter((run) =>
-    `${run.title} ${run.status}`.toLowerCase().includes(filter.toLowerCase()),
+  const matching = runs.filter(
+    (run) =>
+      (!raidFilter || run.raid_id === raidFilter) &&
+      `${run.title} ${run.raid_name} ${run.status}`
+        .toLowerCase()
+        .includes(filter.toLowerCase()),
   );
   const minutes = `${Math.floor(countdown / 60)}:${String(countdown % 60).padStart(2, "0")}`;
 
@@ -537,7 +548,12 @@ export default function App() {
                   <form
                     onSubmit={(event) => {
                       event.preventDefault();
-                      if (available) void operation("identify", { url });
+                      if (available) {
+                        const selectedUrl = new URL(url.trim());
+                        selectedUrl.searchParams.set("zone", String(raidId));
+                        setUrl(selectedUrl.href);
+                        void operation("identify", { url: selectedUrl.href });
+                      }
                     }}
                   >
                     <label htmlFor="character-url">
@@ -560,11 +576,39 @@ export default function App() {
                         disabled={!available}
                         onChange={(event) => {
                           setUrl(event.target.value);
+                          try {
+                            const linkedRaid = Number(
+                              new URL(event.target.value).searchParams.get(
+                                "zone",
+                              ),
+                            );
+                            if (raids.some((r) => r.id === linkedRaid))
+                              setRaidId(linkedRaid);
+                          } catch {
+                            /* The character link can be incomplete while typing. */
+                          }
                           setCharacter(null);
                           delete document.documentElement.dataset.class;
                         }}
                       />
                     </div>
+                    <label htmlFor="raid">Raid</label>
+                    <select
+                      id="raid"
+                      value={raidId}
+                      disabled={!available}
+                      onChange={(event) => {
+                        setRaidId(Number(event.target.value));
+                        setCharacter(null);
+                        delete document.documentElement.dataset.class;
+                      }}
+                    >
+                      {raids.map((r) => (
+                        <option key={r.id} value={r.id}>
+                          {r.name}
+                        </option>
+                      ))}
+                    </select>
                     <button
                       className="primary find-button"
                       type="submit"
@@ -596,7 +640,7 @@ export default function App() {
                           <h3>{character.name}</h3>
                           <p>
                             {character.class_name} · {character.server} ·{" "}
-                            {character.faction}
+                            {character.faction} · {character.raid_name}
                           </p>
                         </div>
                         <Check size={21} />
@@ -706,14 +750,14 @@ export default function App() {
                       {character.ready && !character.categories.length && (
                         <p className="warning-text">
                           This character’s class is not supported for Classic
-                          Era Naxxramas.
+                          Era raids.
                         </p>
                       )}
                     </section>
                   )}
                   <div className="panel-footer">
                     <span className="tag">Classic Era</span>
-                    <span>Naxxramas · All nine classes</span>
+                    <span>Naxxramas · AQ40 · BWL · MC · All nine classes</span>
                   </div>
                 </section>
                 <aside
@@ -843,6 +887,20 @@ export default function App() {
                 </p>
               </div>
               <div className="library-tools">
+                <select
+                  aria-label="Filter analyses by raid"
+                  value={raidFilter}
+                  onChange={(event) =>
+                    setRaidFilter(Number(event.target.value))
+                  }
+                >
+                  <option value={0}>All raids</option>
+                  {raids.map((r) => (
+                    <option key={r.id} value={r.id}>
+                      {r.name}
+                    </option>
+                  ))}
+                </select>
                 <div className="search-field">
                   <Search size={18} />
                   <input
@@ -1158,6 +1216,7 @@ function RunRow({
       </div>
       <div className="run-info">
         <h3>{run.title}</h3>
+        <p>{run.raid_name}</p>
         <p>
           {run.when}
           <span>·</span>

@@ -3,7 +3,7 @@
 [Home](../README.md) · [Documentation](README.md) · [Architecture decisions](decisions/README.md)
 
 Necropsy is a local Python analysis engine with a graphical desktop app,
-optional terminal UI and advanced CLI for all Classic Era classes in Naxxramas. It acquires
+optional terminal UI and advanced CLI for all Classic Era classes in Naxxramas, AQ40, BWL and Molten Core. It acquires
 WCL data or reads a saved snapshot, normalizes it into a derived DuckDB database,
 and produces one versioned analysis document. The report, playbook and package
 are built from that document alone.
@@ -22,8 +22,8 @@ handle browser sign-in, character/spec selection, saved runs, progress,
 cooperative stop and repeated quota waits. The Tauri/React
 [desktop GUI](desktop.md) reuses the same service through a Python JSON-lines
 sidecar. It displays the existing rendered pages in a sandbox, with desktop
-packaging and verification boundaries documented separately. Further game/raid
-support remains future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
+packaging and verification boundaries documented separately. Each raid has its own module and packaged encounter rules; see [raid modules](raids.md).
+Further game variants remain future work. The [original specification](origin/WCL_Forensics_App_Architecture_v0.1.md)
 is design history; this page describes the current implementation.
 
 ## Guided and advanced entry paths, one analysis pipeline
@@ -54,7 +54,8 @@ no automatic network requests. Following a source link opens its online page.
 ## Acquisition and comparison scope
 
 URL parsing enforces supported HTTPS hosts and exact character paths. Resolution
-requests the supported zone and its partition list. Ambiguous partitions require
+requests the selected raid zone and its partition list. The URL retains the zone
+through checkpoints and resumes; offline analysis reads it from the snapshot. Ambiguous partitions require
 a choice. Character faction is observed only from a recognized canonical name;
 unknown faction blocks same-faction acquisition.
 

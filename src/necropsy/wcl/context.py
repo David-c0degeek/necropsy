@@ -16,11 +16,12 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from necropsy.analysis.evidence import Faction
+from necropsy.raids import DEFAULT_RAID, raid_for_zone
 from necropsy.wcl.client import RATE_FIELDS, Endpoint, InvalidResponse, NotFound, WclClient
 from necropsy.wcl.urls import CharacterRef
 
-SUPPORTED_ZONE_ID = 2006
-"""Naxxramas: the only zone with encounter rules so far."""
+SUPPORTED_ZONE_ID = DEFAULT_RAID.zone_id
+"""Legacy default; the character URL can select another supported raid."""
 
 _FACTION_NAMES = {"Alliance": Faction.ALLIANCE, "Horde": Faction.HORDE}
 
@@ -155,7 +156,8 @@ def resolve(
     partition: int | None = None,
     endpoint: Endpoint = "client",
 ) -> CharacterContext:
-    variables: dict[str, Any] = {"zone": SUPPORTED_ZONE_ID}
+    raid_for_zone(ref.zone_id)
+    variables: dict[str, Any] = {"zone": ref.zone_id}
     if ref.character_id is not None:
         variables["id"] = ref.character_id
     else:
@@ -169,6 +171,8 @@ def resolve(
     zone = (result.data.get("worldData") or {}).get("zone")
     if not isinstance(zone, dict):
         raise InvalidResponse("the supported zone is missing from WCL's answer", result.rate)
+    if zone.get("id") != ref.zone_id:
+        raise InvalidResponse("WCL returned a different raid zone than requested", result.rate)
     notes: list[str] = []
     if character.get("hidden"):
         notes.append("WCL marks this character as hidden; rankings may be unavailable")
@@ -187,7 +191,7 @@ def resolve(
     if listed and partition is None:
         ranks = client.query(
             rankings_query([p for p, _, _ in listed]),
-            {"id": cid, "zone": SUPPORTED_ZONE_ID},
+            {"id": cid, "zone": ref.zone_id},
             endpoint=endpoint,
         )
         holder = (ranks.data.get("characterData") or {}).get("character") or {}
@@ -228,7 +232,7 @@ def resolve(
         class_id=_observed(character.get("classID"), "wcl-character-class"),
         faction=faction_field(character.get("faction")),
         raw_faction=character.get("faction"),
-        zone_id=SUPPORTED_ZONE_ID,
+        zone_id=ref.zone_id,
         zone_name=_observed(zone.get("name"), "wcl-zone-name"),
         partitions=partitions,
         partition=chosen,

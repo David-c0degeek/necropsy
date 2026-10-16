@@ -1,9 +1,9 @@
 # Necropsy documentation
 
-[Product home](../README.md)
+[Product home](../README.md) · [Raid modules and validation](raids.md)
 
 Get a working analysis, decide what to change, then inspect as much evidence as
-you need. Necropsy supports all nine Classic Era classes in Naxxramas; the saved
+you need. Necropsy supports all nine Classic Era classes in Naxxramas, AQ40, BWL and Molten Core; the saved
 Playbook and Report work offline.
 
 ## Start here

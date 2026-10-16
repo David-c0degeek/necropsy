@@ -33,7 +33,9 @@ def recorded_hunter_dps(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) ->
     Only live Hunter DPS acquisitions qualify. Never turn a score into damage
     totals, pet attribution or event coverage.
     """
-    meta = con.execute("SELECT mode, partition_id, acquisition FROM snapshot_meta").fetchone()
+    meta = con.execute(
+        "SELECT mode, partition_id, acquisition, zone_id FROM snapshot_meta"
+    ).fetchone()
     if meta is None or meta[0] != "live":
         return unknown("no live Hunter DPS acquisition")
     acquisition = json.loads(meta[2]) if isinstance(meta[2], str) else meta[2]
@@ -46,7 +48,7 @@ def recorded_hunter_dps(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) ->
     required = {
         "site": "vanilla.warcraftlogs.com",
         "game": "classic_era",
-        "zone": 2006,
+        "zone": meta[3],
         "partition": meta[1],
         "encounter": pf.encounter_id,
         "role": "dps",

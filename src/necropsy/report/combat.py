@@ -14,6 +14,7 @@ from necropsy.analysis.evidence import EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog
 from necropsy.analysis.roles import ranking_policy
 from necropsy.analysis.taxonomy import build_matches
+from necropsy.raids import raid_for_encounter
 from necropsy.report.abilities import difference, rows
 from necropsy.report.equipment import enrich_gear
 from necropsy.report.rankings import top_metadata
@@ -261,7 +262,11 @@ def boss_section(
             "selected_metric": metric,
             "selected_faction": faction,
             "n_event_sources": len(same),
-            "encounter_facts": to_data(gamedata.encounter_facts("naxxramas", boss.encounter_id)),
+            "encounter_facts": to_data(
+                gamedata.encounter_facts(
+                    raid_for_encounter(boss.encounter_id).slug, boss.encounter_id
+                )
+            ),
             "personal_data": {
                 "status": "available" if subject else "insufficient-data",
                 "message": (

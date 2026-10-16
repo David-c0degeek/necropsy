@@ -8,7 +8,8 @@ explicit partial pet coverage; see [live validation](live-validation.md). The [o
 already produces a report and playbook without signing in.
 
 The current connection supports **Classic Era on `vanilla.warcraftlogs.com`**
-and the Naxxramas context. Other Warcraft Logs game sites are recognized and
+for Naxxramas, AQ40, BWL and Molten Core. Choose one raid for each analysis.
+See [raid support and validation](raids.md). Other Warcraft Logs game sites are recognized and
 refused with an explanation before Necropsy accesses saved credentials.
 
 For storage, token lifecycle and distribution limits, see

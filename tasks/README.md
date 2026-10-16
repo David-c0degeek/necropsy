@@ -8,6 +8,8 @@ Reconciled 2026-10-16 against plan sign-offs, manual-action records, current bra
 | Public PKCE and installable CLI | Complete; accepted and released | [Distribution plan](Distribution-Plan.md) |
 | Druid analysis | Complete; accepted with documented evidence limits | [Class expansion plan](ClassExpansion-Plan.md) |
 | Remaining Classic Era classes | Complete; accepted with documented evidence limits | [All classes plan](AllClasses-Plan.md) |
+| AQ40, BWL and MC selection/pipeline foundation | Implemented; full domain support remains planned | [Foundation record](raid-expansion.md), [current boundaries](../docs/raids.md) |
+| Full AQ40, BWL and MC boss/class implementation | Planned; no implementation subjects started | [Raid completion plan](RaidCompletion-Plan.md), [completion matrix](raid-completion/coverage-matrix.csv) |
 | Game talent trees and WCL categories | Closed by David; verified and integrated into main | [Class taxonomy plan](ClassTaxonomy-Plan.md) |
 | Product UX and desktop shell | Implemented; native/manual acceptance limits remain | [UX](product-ux.md), [desktop](desktop-gui.md) |
 | GUI-first installation | Complete; released | [Installation work](gui-default-install.md) |
@@ -26,7 +28,7 @@ These are documented follow-ups, not started implementation plans or blockers to
 - Manual native GUI acceptance: real-account sign-in/acquisition, vaults, dialogs, keyboard/scaling and close/resume across target platforms; Windows offline checks and all-platform packaging checks already exist. See [desktop boundaries](../docs/desktop.md#verification-and-platform-boundaries).
 - Signed/notarized native distribution. See [installation work](gui-default-install.md).
 - Assistive-technology review and Firefox/WebKit report coverage. See [UX follow-ups](product-ux.md#deliberate-boundaries-and-remaining-work).
-- Additional raids and game variants. See [roadmap](../docs/roadmap.md).
+- Full AQ40/BWL/MC mechanics, classes and real-log validation now have a [dedicated plan](RaidCompletion-Plan.md). Other game variants remain future opportunities.
 - Optional deeper build research: exact WCL classifier rules, full talent allocations and bounded searches for leaders of unranked builds remain outside current taxonomy support. See [taxonomy contract](../docs/decisions/0012-game-build-and-wcl-category.md).
 
 The unchecked public-client box in the original live-acquisition subject is deliberately retained as a historical deferral; [Distribution manual actions](distribution/manual-actions.md) records its completed successor. It is not an outstanding registration task.

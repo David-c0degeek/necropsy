@@ -19,8 +19,7 @@ from necropsy.wcl.cli import analyze_command, auth_app, resolve_command
 
 app = typer.Typer(
     name="necropsy",
-    help="Local-first Warcraft Logs forensics. "
-    "Acquire supported Naxxramas logs or replay a snapshot.",
+    help="Local-first Warcraft Logs forensics. Acquire Classic Era raid logs or replay a snapshot.",
     epilog="Run necropsy for the graphical app, or necropsy tui for the terminal interface.",
     no_args_is_help=False,
     add_completion=False,

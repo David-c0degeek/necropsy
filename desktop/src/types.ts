@@ -1,4 +1,11 @@
+export interface Raid {
+  id: number;
+  name: string;
+  short_name: string;
+}
 export interface SavedRun {
+  raid_id: number;
+  raid_name: string;
   id: string;
   title: string;
   status: string;
@@ -9,6 +16,8 @@ export interface SavedRun {
   can_resume: boolean;
 }
 export interface Character {
+  raid_id: number;
+  raid_name: string;
   name: string;
   server: string;
   region: string;

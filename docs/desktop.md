@@ -1,12 +1,16 @@
 # Necropsy desktop
 
-[Home](../README.md) · [Installation](installation.md) · [Architecture](architecture.md)
+[Home](../README.md) Â· [Installation](installation.md) Â· [Architecture](architecture.md)
 
 The desktop GUI brings character setup, saved analyses and the existing Playbook
 and Report into one window. It uses the same local analysis engine, saved-run
 library and operating-system password vault as the terminal app.
 
 ![Necropsy desktop with guided character setup and an offline example](images/desktop.png)
+
+Choose a raid before finding your character. Each raid produces a separate
+Report and Playbook; **Your analyses** can be filtered by raid. See
+[raid modules and validation](raids.md).
 
 ## Start here
 

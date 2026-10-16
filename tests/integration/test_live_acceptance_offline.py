@@ -71,7 +71,7 @@ def test_a_configured_shell_without_the_option_touches_nothing(
 def run(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Any:
     from necropsy.wcl import analyze as analyze_mod
 
-    monkeypatch.setattr(acquire_mod, "boss_order", lambda: (PATCHWERK, 51120))
+    monkeypatch.setattr(acquire_mod, "boss_order", lambda zone="naxxramas": (PATCHWERK, 51120))
     monkeypatch.setattr(analyze_mod, "resolve", lambda *a, **k: _context())
     server = FakeWcl([Player(f"Ally{i}") for i in range(1, 31)], Player("Haplina"))
 

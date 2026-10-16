@@ -34,7 +34,7 @@ SECRET = "sentinel-secret-token-value"
 @pytest.fixture
 def fake(monkeypatch: pytest.MonkeyPatch) -> dict[str, Any]:
     state: dict[str, Any] = {"server": None, "tokens": 0, "endpoints": []}
-    monkeypatch.setattr(acquire_mod, "boss_order", lambda: (PATCHWERK,))
+    monkeypatch.setattr(acquire_mod, "boss_order", lambda zone="naxxramas": (PATCHWERK,))
 
     def tokens() -> Any:
         state["tokens"] += 1

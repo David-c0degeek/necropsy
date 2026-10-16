@@ -36,7 +36,7 @@ from necropsy.analysis.context import (
     participant_fights,
     pet_listing_known,
 )
-from necropsy.analysis.encounters import EncounterRules, encounter_rules
+from necropsy.analysis.encounters import EncounterRules, encounter_rules, zone_encounters
 from necropsy.analysis.evidence import (
     Claim,
     Evidenced,
@@ -211,6 +211,14 @@ def analyze_entry(
             unknown(f"see {plugin.name} damage targets"),
         )
     )
+    if isinstance(result, HunterAnalysis) and rules.exclusion_basis == "unvalidated":
+        from dataclasses import replace
+
+        ranking = replace(
+            ranking,
+            ranked=unknown("encounter ranking exclusions have not been validated"),
+            by_target=unknown("ranked-target classification has not been validated"),
+        )
     return Entry(
         participant=pf,
         profile=profile,
@@ -241,7 +249,10 @@ def load_bosses(
     subject_keys = {(p.report_code, p.fight_id) for p in participants if p.kind == "you"}
     if set(overrides) - subject_keys:
         raise ValueError("role overrides must identify acquired subject fights")
+    allowed = zone_encounters(game, zone)
     for pf in participants:
+        if pf.encounter_id not in allowed:
+            raise ValueError(f"encounter {pf.encounter_id} does not belong to raid {zone}")
         by_encounter.setdefault(pf.encounter_id, []).append(pf)
     bosses: list[BossData] = []
     for encounter_id, pfs in by_encounter.items():

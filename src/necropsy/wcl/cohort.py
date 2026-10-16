@@ -27,6 +27,7 @@ from necropsy.analysis.context import realm_key
 from necropsy.analysis.encounters import zone_encounters
 from necropsy.analysis.evidence import Faction
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
+from necropsy.raids import DEFAULT_RAID, RAIDS, raid_for_zone
 from necropsy.rules import load_rules
 from necropsy.wcl.client import (
     RATE_FIELDS,
@@ -40,12 +41,12 @@ from necropsy.wcl.client import (
     WclClient,
     pages,
 )
-from necropsy.wcl.context import SUPPORTED_ZONE_ID, CharacterContext
+from necropsy.wcl.context import CharacterContext
 from necropsy.wcl.sites import SITES, Site, UnsupportedSite, require_supported
 
 HUNTER = "Hunter"
 GAME = "classic_era"
-ZONE = "naxxramas"
+ZONE = DEFAULT_RAID.slug
 
 LEADERBOARD_QUERY = f"""
 query NecropsyLeaderboard($encounter: Int!, $partition: Int!, $page: Int!) {{
@@ -125,7 +126,7 @@ class CohortKey:
 
 
 def _ready(context: CharacterContext) -> None:
-    if context.zone_id != SUPPORTED_ZONE_ID:
+    if context.zone_id not in {r.zone_id for r in RAIDS}:
         raise CohortRefused(f"zone {context.zone_id} is not supported")
     if context.partition is None:
         raise CohortRefused(context.ambiguity or "no partition chosen")
@@ -139,11 +140,11 @@ def _ready(context: CharacterContext) -> None:
         raise CohortRefused(str(error)) from None
 
 
-def _supported_encounter(encounter_id: Any) -> int:
+def _supported_encounter(encounter_id: Any, zone: str = ZONE) -> int:
     if (
         not isinstance(encounter_id, int)
         or isinstance(encounter_id, bool)
-        or encounter_id not in zone_encounters(GAME, ZONE)
+        or encounter_id not in zone_encounters(GAME, zone)
     ):
         raise CohortRefused(f"encounter {encounter_id!r} is not a supported boss of this zone")
     return encounter_id
@@ -153,7 +154,7 @@ def cohort_key(site: Site, context: CharacterContext, encounter_id: int) -> Coho
     """The key for one boss; refuses a context that cannot give a same-faction cohort."""
     require_supported(site)
     _ready(context)
-    _supported_encounter(encounter_id)
+    _supported_encounter(encounter_id, raid_for_zone(context.zone_id).slug)
     assert context.partition is not None
     faction: Faction = context.faction.value
     policy = ranking_policy(

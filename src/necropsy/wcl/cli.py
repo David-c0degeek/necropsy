@@ -14,6 +14,7 @@ import typer
 from rich.console import Console
 from rich.status import Status
 
+from necropsy.raids import RAIDS, with_raid
 from necropsy.snapshot.v1_writer import WriteError
 from necropsy.wcl.analyze import AnalyzeError, run_analyze
 from necropsy.wcl.auth import (
@@ -162,8 +163,21 @@ def logout(
     typer.echo("Signed out." + (" Client id and secret removed." if forget_secret else ""))
 
 
+def _raid_url(url: str, raid: str | None) -> str:
+    if raid is None:
+        return url
+    selected = next((r for r in RAIDS if r.slug == raid.lower()), None)
+    if selected is None:
+        raise typer.BadParameter("choose naxxramas, aq40, bwl or mc", param_hint="--raid")
+    try:
+        return with_raid(url, selected.zone_id)
+    except ValueError as error:
+        raise typer.BadParameter(str(error), param_hint="URL") from None
+
+
 def resolve_command(
     url: Annotated[str, typer.Argument(help="A Warcraft Logs character URL.")],
+    raid: Annotated[str | None, typer.Option(help="Raid: naxxramas, aq40, bwl or mc.")] = None,
     partition: Annotated[
         int | None, typer.Option(help="Partition id when several hold rankings.")
     ] = None,
@@ -175,6 +189,7 @@ def resolve_command(
     try:
         if endpoint not in {"client", "user"}:
             raise AuthError("endpoint must be client or user")
+        url = _raid_url(url, raid)
         ref = parse_character_url(url)
         require_supported(ref.site)
         auth = _auth()
@@ -244,6 +259,7 @@ def analyze_command(
             "--out", help="Write results here. Use --resume to continue a saved analysis."
         ),
     ],
+    raid: Annotated[str | None, typer.Option(help="Raid: naxxramas, aq40, bwl or mc.")] = None,
     partition: Annotated[
         int | None, typer.Option(help="Partition id when several hold rankings.")
     ] = None,
@@ -306,12 +322,13 @@ def analyze_command(
         ),
     ] = False,
 ) -> None:
-    """Acquire any Classic Era class's Naxxramas logs and write a report.
+    """Acquire one Classic Era raid and write its Report and Playbook.
 
     Uses saved WCL credentials and the network. Exit 0: complete report;
     4: partial report; 2: choose a partition; 3: finalization stopped, no report;
     1: failure. Saved snapshots can be replayed with offline.
     """
+    url = _raid_url(url, raid)
     if sys.stdin.isatty() and not resume:
         if faction is None:
             faction = typer.prompt("Character faction (Alliance/Horde)")

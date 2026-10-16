@@ -20,6 +20,8 @@ PROBE = (
     "assert r.load_rules('classic_era', 'druid')['minimum_role_actions'] == 3; "
     "from necropsy.analysis.classes import plugin_for; "
     "assert plugin_for('classic_era', 2).name == 'Druid'; "
+    "from necropsy.raids import RAIDS, encounters; "
+    "assert len(RAIDS) == 4; assert all(encounters(raid) for raid in RAIDS); "
     "print(r.load_rules('classic_era', 'racials')['racials'][0]['race'])"
 )
 
@@ -43,6 +45,10 @@ def test_rules_load_from_an_installed_wheel(tmp_path: Path) -> None:
     with zipfile.ZipFile(wheel) as zf:
         assert "necropsy/rules/classic_era/racials.yaml" in zf.namelist()
         assert "necropsy/rules/classic_era/druid.yaml" in zf.namelist()
+        for raid in ("aq40", "bwl", "mc"):
+            assert f"necropsy/raids/{raid}.py" in zf.namelist()
+            for suffix in ("", "_facts", "_guidance"):
+                assert f"necropsy/rules/classic_era/zones/{raid}{suffix}.yaml" in zf.namelist()
         assert "necropsy/report/render/templates/class-report.html.j2" in zf.namelist()
     venv = tmp_path / "venv"
     subprocess.run(

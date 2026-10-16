@@ -1,6 +1,6 @@
 # Necropsy
 
-A Warcraft performance coach for all nine Classic Era classes in Naxxramas.
+A Warcraft performance coach for all nine Classic Era classes in Naxxramas, AQ40, BWL and Molten Core.
 
 ## Install and open
 

@@ -86,7 +86,7 @@ def test_guided_worker_writes_real_report_and_opens_it(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     server = FakeWcl([Player(f"Ally{i}") for i in range(1, 31)], Player("Haplina"))
-    monkeypatch.setattr(acquire_module, "boss_order", lambda: (PATCHWERK,))
+    monkeypatch.setattr(acquire_module, "boss_order", lambda zone="naxxramas": (PATCHWERK,))
     monkeypatch.setattr(analyze_module, "resolve", lambda *args, **kwargs: _context())
 
     class RealAnalysis(AnalysisService):

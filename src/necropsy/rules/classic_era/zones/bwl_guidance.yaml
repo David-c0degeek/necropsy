@@ -1,0 +1,27 @@
+version: 1
+rule: bwl-execution-v1
+non_boss_share_min_pct: 5.0
+general:
+- key: one-rapid-fire
+  when: kill_within_rapid_fire_cooldown
+  text: 'With no cooldown reset, this kill is shorter than Rapid Fire''s cooldown,
+    so it allows one use: spend it where it covers the most ranked damage.'
+  otherwise: 'This kill is longer than Rapid Fire''s cooldown: a pull use comes back
+    before the end, so a second use is possible.'
+  based_on:
+  - rapid_fire
+- key: refocus-after-specials
+  text: Refocus clears the cooldowns of Aimed Shot, Multi-Shot, Volley and Arcane
+    Shot. It gains most right after Aimed Shot and Multi-Shot have both been used;
+    resetting only one still gains that shot.
+  based_on:
+  - refocus
+- key: refocus-trinket-lockout
+  when: refocus_shares_trinket_lockout
+  text: 'Renataki''s Charm shares a cooldown category with your other on-use trinket:
+    using Refocus locks that trinket for 10 s, and using that trinket locks Refocus
+    for its own category time.'
+  based_on:
+  - refocus
+encounters: {}
+pet: {}

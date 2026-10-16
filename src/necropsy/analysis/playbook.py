@@ -26,10 +26,10 @@ from necropsy.analysis.benchmark import (
 )
 from necropsy.analysis.encounters.findings import RaidUtility, TargetIntegrity
 from necropsy.analysis.evidence import EvidenceLevel, WindfuryStatus
+from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
 
 RULE_SET = "playbook-v1"
-ZONE = "naxxramas"
 
 
 def _cfg() -> dict[str, Any]:
@@ -641,7 +641,9 @@ def _static(
 ) -> StaticFacts:
     ranged = subject.hunter.gear.ranged.value
     uses = []
-    for bonus in gamedata.creature_type_bonuses(ZONE, boss.encounter_id):
+    for bonus in gamedata.creature_type_bonuses(
+        raid_for_encounter(boss.encounter_id).slug, boss.encounter_id
+    ):
         worn = [_wears(e, bonus.item_id) for e in same]
         uses.append(
             TypeBonusUse(
@@ -656,10 +658,12 @@ def _static(
             )
         )
     return StaticFacts(
-        gamedata.encounter_facts(ZONE, boss.encounter_id),
+        gamedata.encounter_facts(raid_for_encounter(boss.encounter_id).slug, boss.encounter_id),
         gamedata.ammo_advice(None if ranged is None else ranged.item_id or None),
         tuple(uses),
-        guidance.build(ZONE, boss, subject, same, inferred_membership),
+        guidance.build(
+            raid_for_encounter(boss.encounter_id).slug, boss, subject, same, inferred_membership
+        ),
     )
 
 

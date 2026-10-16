@@ -46,6 +46,7 @@ from necropsy.analysis.overview import build as build_overview
 from necropsy.analysis.playbook import build as build_playbook
 from necropsy.analysis.recommendations import Controllability, Tier, recommend
 from necropsy.analysis.roles import RoleOverride
+from necropsy.raids import raid_for_zone
 from necropsy.report.equipment import enrich_gear
 from necropsy.report.serialize import to_data
 from necropsy.rules import load_rules
@@ -53,7 +54,6 @@ from necropsy.rules import load_rules
 SCHEMA_ID = "necropsy.analysis"
 SCHEMA_VERSION = 1
 GAME = "classic_era"
-ZONE = "naxxramas"
 
 HISTORICAL_LIMITATIONS = (
     "Historical mode: the cohort is the overall top five per boss recorded in the snapshot, "
@@ -174,7 +174,7 @@ class CoverageSummary(_Strict):
 
 class ExclusionRule(_Strict):
     rule: str
-    basis: Literal["empirical", "none"]
+    basis: Literal["empirical", "none", "unvalidated"]
     """`empirical`: found from recorded rankings, not from WCL documentation."""
     validation: str | None
 
@@ -335,7 +335,9 @@ def _set_armor(e: Entry) -> list[dict[str, Any]] | None:
 
 
 def _leaderboard_top(con: duckdb.DuckDBPyConnection, boss: BossData) -> dict[str, Any] | None:
-    meta = con.execute("SELECT mode, partition_id, acquisition FROM snapshot_meta").fetchone()
+    meta = con.execute(
+        "SELECT mode, partition_id, acquisition, zone_id FROM snapshot_meta"
+    ).fetchone()
     if meta is None or meta[0] != "live":
         return None
     acquisition = _json(meta[2]) or {}
@@ -361,7 +363,7 @@ def _leaderboard_top(con: duckdb.DuckDBPyConnection, boss: BossData) -> dict[str
     required = {
         "site": "vanilla.warcraftlogs.com",
         "game": GAME,
-        "zone": 2006,
+        "zone": meta[3],
         "partition": meta[1],
         "encounter": boss.encounter_id,
         "role": "dps",
@@ -734,7 +736,13 @@ def build_document(
     )
     acquisition = _json(meta[18]) if mode == "live" else None
     names = item_catalog(con)
-    boss_data = load_bosses(con, GAME, ZONE, role_overrides)
+    zone = raid_for_zone(meta[10]).slug
+    if load_rules(GAME, f"zones/{zone}")["ranking_exclusions_rule"]["basis"] == "unvalidated":
+        limitations.append(
+            "This raid has no real-log ranked-damage reconciliation yet. "
+            "Target exclusions and encounter-specific guidance remain unvalidated."
+        )
+    boss_data = load_bosses(con, GAME, zone, role_overrides)
     if meta[9] != 3:
         from functools import partial
 
@@ -762,12 +770,12 @@ def build_document(
             acquisition = {**acquisition, "selected_category": category}
         present = {b.encounter_id for b in boss_data}
         boss_data += [
-            BossData(eid, r["boss"], encounter_rules(GAME, ZONE, eid), None, ())
+            BossData(eid, r["boss"], encounter_rules(GAME, zone, eid), None, ())
             for eid, r in records.items()
             if eid not in present
         ]
         order = {
-            int(e["id"]): i for i, e in enumerate(load_rules(GAME, f"zones/{ZONE}")["encounters"])
+            int(e["id"]): i for i, e in enumerate(load_rules(GAME, f"zones/{zone}")["encounters"])
         }
         boss_data.sort(key=lambda b: order.get(b.encounter_id, 999))
         bosses = [
@@ -790,7 +798,7 @@ def build_document(
                 BossData(
                     r["encounter_id"],
                     r["boss"],
-                    encounter_rules(GAME, ZONE, r["encounter_id"]),
+                    encounter_rules(GAME, zone, r["encounter_id"]),
                     None,
                     (),
                 )

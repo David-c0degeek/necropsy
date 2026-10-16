@@ -28,6 +28,7 @@ from textual.widgets import (
 
 from necropsy import __version__
 from necropsy.analysis.class_catalog import CLASS_NAMES, TALENT_TREES
+from necropsy.raids import DEFAULT_RAID, RAIDS, with_raid
 from necropsy.tui.service import AnalysisService, RunLibrary, SavedRun, Stopped, categories
 from necropsy.wcl.analyze import AnalyzeError
 from necropsy.wcl.cache import CacheError
@@ -86,7 +87,7 @@ class NecropsyApp(App[None]):
     def compose(self) -> ComposeResult:
         yield Header(show_clock=True)
         with VerticalScroll(id="page"):
-            yield Static(f"NECROPSY  {__version__}  ·  Classic Era / Naxxramas", id="brand")
+            yield Static(f"NECROPSY  {__version__}  Â·  Classic Era raids", id="brand")
             yield Static(
                 "Paste your Warcraft Logs character link. We'll guide you from there.",
                 classes="help",
@@ -95,8 +96,15 @@ class NecropsyApp(App[None]):
                 with TabPane("New analysis", id="new-analysis"):
                     yield Label("Your character")
                     yield Input(
-                        placeholder="https://vanilla.warcraftlogs.com/character/…",
+                        placeholder="https://vanilla.warcraftlogs.com/character/â€¦",
                         id="character-url",
+                    )
+                    yield Label("Raid")
+                    yield Select[str](
+                        [(r.name, str(r.zone_id)) for r in RAIDS],
+                        value=str(DEFAULT_RAID.zone_id),
+                        allow_blank=False,
+                        id="raid",
                     )
                     with Horizontal():
                         yield Button("Find my character", variant="primary", id="find")
@@ -113,6 +121,12 @@ class NecropsyApp(App[None]):
                     yield Button("Analyze my character", variant="success", id="analyze")
                 with TabPane("Saved analyses", id="saved-analyses"):
                     yield Static("Your saved analyses", id="history-heading")
+                    yield Select[str](
+                        [("All raids", "all"), *((r.name, str(r.zone_id)) for r in RAIDS)],
+                        value="all",
+                        allow_blank=False,
+                        id="saved-raid",
+                    )
                     yield Static(
                         "Close the app and continue here later. Finished reports work offline.",
                         classes="help",
@@ -198,6 +212,7 @@ class NecropsyApp(App[None]):
             "import",
             "refresh",
             "character-url",
+            "raid",
             "spec",
             "tree",
             "partition",
@@ -219,7 +234,14 @@ class NecropsyApp(App[None]):
         if self.busy:
             return
         if kind == "identify":
-            self.character_url = self.query_one("#character-url", Input).value.strip()
+            raw_url = self.query_one("#character-url", Input).value.strip()
+            try:
+                self.character_url = with_raid(
+                    raw_url, int(str(self.query_one("#raid", Select).value))
+                )
+            except ValueError as error:
+                self.show_progress(f"Check the character link: {error}")
+                return
             self.context = None
             for widget_id in (
                 "identity",
@@ -306,7 +328,8 @@ class NecropsyApp(App[None]):
         faction = context.faction.value
         faction_name = getattr(faction, "value", "Faction unknown")
         self.query_one("#identity", Static).update(
-            f"{context.name.value} · {name} · {faction_name}\n{context.server.value} · Naxxramas"
+            f"{context.name.value} Â· {name} Â· {faction_name}\n"
+            f"{context.server.value} Â· {context.zone_name.value}"
         )
         self.query_one("#identity").display = True
         if context.ambiguity:
@@ -326,7 +349,7 @@ class NecropsyApp(App[None]):
             return
         choices = categories(context.class_id.value)
         if not choices:
-            self.show_progress("This character's class is not supported for Classic Era Naxxramas.")
+            self.show_progress("This character's class is not supported for Classic Era.")
             return
         selector = self.query_one("#spec", Select)
         selector.set_options(choices)
@@ -357,10 +380,16 @@ class NecropsyApp(App[None]):
     def action_refresh(self, selected: str | None = None) -> None:
         try:
             self.saved = self.library.discover()
+            raid_filter = self.query_one("#saved-raid", Select).value
+            if raid_filter not in ("all", Select.NULL):
+                self.saved = [r for r in self.saved if str(r.raid_id) == raid_filter]
             selector = self.query_one("#saved", Select)
             old = selector.value
             selector.set_options(
-                [(f"{run.title} · {run.when} · {run.status}", str(run.out)) for run in self.saved]
+                [
+                    (f"{run.title} Â· {run.raid_name} Â· {run.when} Â· {run.status}", str(run.out))
+                    for run in self.saved
+                ]
             )
             target = selected or (str(old) if old is not Select.NULL else "")
             if self.saved:
@@ -382,8 +411,12 @@ class NecropsyApp(App[None]):
         self.query_one("#continue", Button).disabled = self.busy or run is None or run.finished
         self.query_one("#report", Button).disabled = run is None or run.report is None
         self.query_one("#saved-detail", Static).update(
-            "" if run is None else f"{run.title} · {run.when}\n{run.status}\n{run.detail}"
+            "" if run is None else f"{run.title} Â· {run.when}\n{run.status}\n{run.detail}"
         )
+
+    @on(Select.Changed, "#saved-raid")
+    def saved_raid_changed(self) -> None:
+        self.action_refresh()
 
     @on(Select.Changed, "#saved")
     def saved_changed(self) -> None:
@@ -394,6 +427,11 @@ class NecropsyApp(App[None]):
         if event.value is not Select.NULL and not self.busy:
             self.start_operation("partition")
 
+    @on(Select.Changed, "#raid")
+    def raid_changed(self) -> None:
+        if not self.busy:
+            self.clear_character()
+
     @on(Input.Submitted, "#character-url")
     def url_submitted(self) -> None:
         self.start_operation("identify")
@@ -401,18 +439,21 @@ class NecropsyApp(App[None]):
     @on(Input.Changed, "#character-url")
     def url_changed(self, event: Input.Changed) -> None:
         if not self.busy and event.value.strip() != self.character_url:
-            self.context = None
-            for name in (
-                "identity",
-                "partition-label",
-                "partition",
-                "spec-label",
-                "tree-label",
-                "spec",
-                "tree",
-                "analyze",
-            ):
-                self.query_one(f"#{name}").display = False
+            self.clear_character()
+
+    def clear_character(self) -> None:
+        self.context = None
+        for name in (
+            "identity",
+            "partition-label",
+            "partition",
+            "spec-label",
+            "tree-label",
+            "spec",
+            "tree",
+            "analyze",
+        ):
+            self.query_one(f"#{name}").display = False
 
     @on(Button.Pressed)
     def pressed(self, event: Button.Pressed) -> None:

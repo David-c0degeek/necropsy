@@ -33,7 +33,8 @@ are implemented. [Try the sample](getting-started.md).
 | Guided TUI and OS launchers | Implemented | Browser sign-in, saved analyses, safe stop/resume and automatic quota waiting |
 | One-command bootstrap | Implemented | Windows, macOS and Linux scripts verify/install the native GUI and CLI runtime, then open the GUI; `necropsy tui` stays explicit |
 | Graphical desktop shell | Implemented in current development | Tauri/React + Python sidecar; themed embedded reports, setup, saved analyses, offline example and safe close; [platform verification boundaries](desktop.md#verification-and-platform-boundaries) |
-| More raids and game variants | Planned | Raid styling tokens are not analytical support for additional raids |
+| AQ40, BWL and Molten Core | Implemented | Independent modules, acquisition, snapshots, Report/Playbook and library filters; [validation limits](raids.md) |
+| Other game variants | Planned | Classic Era remains the supported game |
 | Further domain validation | Ongoing | Engineering tests do not replace real-log validation for every class and encounter |
 
 ## Authorized next work
@@ -47,7 +48,7 @@ including supported healing/tank categories. Druid role analysis has
 [documented validation limits](druid-validation.md); engineering checks do not
 replace domain acceptance. The graphical desktop shell is additive current
 development; signed distribution and macOS/Linux runtime acceptance remain open.
-Additional game/raid support remains future work. The guided terminal app and
+AQ40, BWL and Molten Core have independent [raid modules](raids.md). Additional game variants remain future work. The guided terminal app and
 per-OS launchers are implemented.
 
 ## Authentication and distribution

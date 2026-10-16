@@ -8,6 +8,14 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add independent AQ40, Blackwing Lair and Molten Core raid modules. Select a raid
+  before analysis; generate its own snapshot, Report and Playbook, and filter
+  saved analyses by raid in the desktop and terminal apps. The CLI accepts
+  `--raid aq40`, `--raid bwl` and `--raid mc`.
+- Preserve raid identity through stop/resume, imported analyses and offline replay.
+  New raids keep unvalidated ranking exclusions and missing encounter facts
+  explicit; WCL-recorded Hunter scores remain usable without invented totals.
+
 - Separate optional game talent-tree declarations from WCL comparison categories
   in the desktop, terminal and CLI (`--talent-tree`). Save declarations through
   resumes and offline snapshot replay; retain legacy category flags.

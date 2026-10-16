@@ -9,6 +9,7 @@ from pathlib import Path
 
 from necropsy.analysis.class_catalog import CATEGORIES, category_for
 from necropsy.analysis.class_catalog import CLASS_NAMES as CLASS_NAMES
+from necropsy.raids import DEFAULT_RAID, RAIDS
 
 
 class FightRole(StrEnum):
@@ -143,7 +144,7 @@ class ComparisonKey:
     metric: str
     partition: int
     game: str = "classic_era"
-    zone: int = 2006
+    zone: int = DEFAULT_RAID.zone_id
     difficulty: int = 3
     hard_mode: int = 0
 
@@ -156,7 +157,7 @@ class ComparisonKey:
             or self.faction not in ("Alliance", "Horde")
             or self.partition <= 0
             or self.game != "classic_era"
-            or self.zone != 2006
+            or self.zone not in {r.zone_id for r in RAIDS}
             or self.difficulty != 3
             or self.hard_mode != 0
         ):

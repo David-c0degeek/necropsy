@@ -1,4 +1,4 @@
-"""Acquire one character's Naxxramas data: subject fights, cohorts, deep event streams.
+"""Acquire one character's selected raid data: subject fights, cohorts, deep event streams.
 
 The analyze CLI passes the acquired data to the snapshot writer and offline pipeline.
 
@@ -28,6 +28,7 @@ from typing import Any
 from necropsy.analysis.context import realm_key
 from necropsy.analysis.evidence import Faction
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
+from necropsy.raids import DEFAULT_RAID, RAIDS, raid_for_zone
 from necropsy.rules import load_rules
 from necropsy.wcl.cache import Cache, FightKey, StreamPages, valid_report_code
 from necropsy.wcl.client import (
@@ -63,7 +64,7 @@ from necropsy.wcl.fetch import (
 from necropsy.wcl.sites import Site
 
 GAME = "classic_era"
-ZONE = "naxxramas"
+ZONE = DEFAULT_RAID.slug
 
 SUBJECT_QUERY = f"""
 query NecropsySubject($id: Int!, $encounter: Int!, $partition: Int!) {{
@@ -98,9 +99,9 @@ def _live() -> dict[str, Any]:
 
 
 @cache
-def boss_order() -> tuple[int, ...]:
+def boss_order(zone: str = ZONE) -> tuple[int, ...]:
     """Supported encounters in the zone rule data's order."""
-    return tuple(int(e["id"]) for e in load_rules(GAME, f"zones/{ZONE}")["encounters"])
+    return tuple(int(e["id"]) for e in load_rules(GAME, f"zones/{zone}")["encounters"])
 
 
 def _int(value: Any) -> int | None:
@@ -891,7 +892,7 @@ def _boss_progress(
     stage: str,
 ) -> None:
     if progress is not None:
-        encounters = load_rules(GAME, f"zones/{ZONE}")["encounters"]
+        encounters = [e for r in RAIDS for e in load_rules(GAME, f"zones/{r.slug}")["encounters"]]
         names = {int(e["id"]): str(e["name"]) for e in encounters}
         progress(
             f"{stage}: {names.get(encounter, encounter)} "
@@ -916,7 +917,10 @@ def _acquire_spec_view(
             out.stopped = f"personal data, encounter {encounter}: {stop}"
             break
     if out.stopped is None:
-        order = {encounter: i for i, encounter in enumerate(boss_order())}
+        order = {
+            encounter: i
+            for i, encounter in enumerate(boss_order(raid_for_zone(context.zone_id).slug))
+        }
         comparisons = sorted(
             out.bosses,
             key=lambda b: (
@@ -1010,7 +1014,10 @@ def acquire(
         category=context.ranking_category,
         metric=context.ranking_metric,
     )
-    requested = tuple(encounters or boss_order())
+    requested = tuple(encounters or boss_order(raid_for_zone(context.zone_id).slug))
+    allowed = set(boss_order(raid_for_zone(context.zone_id).slug))
+    if any(e not in allowed for e in requested):
+        raise ValueError("requested encounter does not belong to the selected raid")
     out = Acquisition(endpoint, cross_faction, context, requested)
     if (context.class_id.value == 2 or context.ranking_category is not None) and len(requested) > 1:
         return _acquire_spec_view(run, context, out, progress)

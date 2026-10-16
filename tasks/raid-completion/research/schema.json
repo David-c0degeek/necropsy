@@ -1,0 +1,1166 @@
+{
+  "retrieved": "2026-10-16",
+  "site": "vanilla.warcraftlogs.com",
+  "endpoint": "user",
+  "data": {
+    "e": {
+      "fields": [
+        {
+          "name": "id",
+          "args": []
+        },
+        {
+          "name": "name",
+          "args": []
+        },
+        {
+          "name": "characterRankings",
+          "args": [
+            {
+              "name": "bracket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "page",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "partition",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverRegion",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverSlug",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "leaderboard",
+              "type": {
+                "kind": "ENUM",
+                "name": "LeaderboardRank",
+                "ofType": null
+              }
+            },
+            {
+              "name": "hardModeLevel",
+              "type": {
+                "kind": "ENUM",
+                "name": "HardModeLevelRankFilter",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metric",
+              "type": {
+                "kind": "ENUM",
+                "name": "CharacterRankingMetricType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeCombatantInfo",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeOtherPlayers",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "className",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "specName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "externalBuffs",
+              "type": {
+                "kind": "ENUM",
+                "name": "ExternalBuffRankFilter",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "fightRankings",
+          "args": [
+            {
+              "name": "bracket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "page",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "partition",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverRegion",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverSlug",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "leaderboard",
+              "type": {
+                "kind": "ENUM",
+                "name": "LeaderboardRank",
+                "ofType": null
+              }
+            },
+            {
+              "name": "hardModeLevel",
+              "type": {
+                "kind": "ENUM",
+                "name": "HardModeLevelRankFilter",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metric",
+              "type": {
+                "kind": "ENUM",
+                "name": "FightRankingMetricType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeOtherPlayers",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "zone",
+          "args": []
+        },
+        {
+          "name": "journalID",
+          "args": []
+        }
+      ]
+    },
+    "r": {
+      "fields": [
+        {
+          "name": "code",
+          "args": []
+        },
+        {
+          "name": "endTime",
+          "args": []
+        },
+        {
+          "name": "events",
+          "args": [
+            {
+              "name": "abilityID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "dataType",
+              "type": {
+                "kind": "ENUM",
+                "name": "EventDataType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "death",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "encounterID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fightIDs",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              }
+            },
+            {
+              "name": "filterExpression",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "hostilityType",
+              "type": {
+                "kind": "ENUM",
+                "name": "HostilityType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeResources",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "killType",
+              "type": {
+                "kind": "ENUM",
+                "name": "KillType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "limit",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceAurasAbsent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceAurasPresent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceInstanceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetAurasAbsent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetAurasPresent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetInstanceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "translate",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "useAbilityIDs",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "useActorIDs",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "viewOptions",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wipeCutoff",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "exportedSegments",
+          "args": []
+        },
+        {
+          "name": "fights",
+          "args": [
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "encounterID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fightIDs",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              }
+            },
+            {
+              "name": "killType",
+              "type": {
+                "kind": "ENUM",
+                "name": "KillType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "translate",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "graph",
+          "args": [
+            {
+              "name": "abilityID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "dataType",
+              "type": {
+                "kind": "ENUM",
+                "name": "GraphDataType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "death",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "encounterID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fightIDs",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              }
+            },
+            {
+              "name": "filterExpression",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "hostilityType",
+              "type": {
+                "kind": "ENUM",
+                "name": "HostilityType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "killType",
+              "type": {
+                "kind": "ENUM",
+                "name": "KillType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceAurasAbsent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceAurasPresent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceInstanceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetAurasAbsent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetAurasPresent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetInstanceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "translate",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "viewOptions",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "viewBy",
+              "type": {
+                "kind": "ENUM",
+                "name": "ViewType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wipeCutoff",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "guild",
+          "args": []
+        },
+        {
+          "name": "guildTag",
+          "args": []
+        },
+        {
+          "name": "owner",
+          "args": []
+        },
+        {
+          "name": "masterData",
+          "args": [
+            {
+              "name": "translate",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "playerDetails",
+          "args": [
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "encounterID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fightIDs",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              }
+            },
+            {
+              "name": "killType",
+              "type": {
+                "kind": "ENUM",
+                "name": "KillType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "translate",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeCombatantInfo",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "rankedCharacters",
+          "args": []
+        },
+        {
+          "name": "rankings",
+          "args": [
+            {
+              "name": "compare",
+              "type": {
+                "kind": "ENUM",
+                "name": "RankingCompareType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "encounterID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fightIDs",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              }
+            },
+            {
+              "name": "playerMetric",
+              "type": {
+                "kind": "ENUM",
+                "name": "ReportRankingMetricType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "timeframe",
+              "type": {
+                "kind": "ENUM",
+                "name": "RankingTimeframeType",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "region",
+          "args": []
+        },
+        {
+          "name": "revision",
+          "args": []
+        },
+        {
+          "name": "segments",
+          "args": []
+        },
+        {
+          "name": "startTime",
+          "args": []
+        },
+        {
+          "name": "table",
+          "args": [
+            {
+              "name": "abilityID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "dataType",
+              "type": {
+                "kind": "ENUM",
+                "name": "TableDataType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "death",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "encounterID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fightIDs",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              }
+            },
+            {
+              "name": "filterExpression",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "hostilityType",
+              "type": {
+                "kind": "ENUM",
+                "name": "HostilityType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "killType",
+              "type": {
+                "kind": "ENUM",
+                "name": "KillType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceAurasAbsent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceAurasPresent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sourceInstanceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetAurasAbsent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetAurasPresent",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "targetInstanceID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "translate",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "viewOptions",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "viewBy",
+              "type": {
+                "kind": "ENUM",
+                "name": "ViewType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wipeCutoff",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "title",
+          "args": []
+        },
+        {
+          "name": "visibility",
+          "args": []
+        },
+        {
+          "name": "zone",
+          "args": []
+        },
+        {
+          "name": "archiveStatus",
+          "args": []
+        },
+        {
+          "name": "phases",
+          "args": []
+        }
+      ]
+    }
+  }
+}

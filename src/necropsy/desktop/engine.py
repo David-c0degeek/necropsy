@@ -17,6 +17,7 @@ from uuid import uuid4
 from necropsy import __version__
 from necropsy.analysis.class_catalog import CLASS_NAMES, TALENT_TREES
 from necropsy.desktop.installer import AppUpdater
+from necropsy.raids import RAIDS
 from necropsy.report.offline import run_offline
 from necropsy.report.package import build_outputs, package_name
 from necropsy.report.refresh import refresh_saved_reports
@@ -48,6 +49,8 @@ def describe_run(run: SavedRun) -> Json:
     return {
         "id": str(run.out),
         "title": run.title,
+        "raid_id": run.raid_id,
+        "raid_name": run.raid_name,
         "status": run.status,
         "detail": run.detail,
         "when": run.when,
@@ -62,6 +65,8 @@ def describe_character(context: CharacterContext) -> Json:
     name = CLASS_NAMES.get(context.class_id.value, "Unsupported class")
     return {
         "name": context.name.value,
+        "raid_id": context.zone_id,
+        "raid_name": context.zone_name.value,
         "server": context.server.value,
         "region": context.region.value,
         "class_name": name,
@@ -163,7 +168,13 @@ class DesktopEngine:
 
     def dispatch(self, method: str, params: Json) -> Any:
         if method == "hello":
-            return {"version": __version__, "runs": self.list_runs()}
+            return {
+                "version": __version__,
+                "runs": self.list_runs(),
+                "raids": [
+                    {"id": r.zone_id, "name": r.name, "short_name": r.short_name} for r in RAIDS
+                ],
+            }
         if method == "list":
             return self.list_runs()
         if method == "stop":
@@ -255,6 +266,8 @@ class DesktopEngine:
                 "html": render_playbook(view) if page == "playbook" else render_report(view),
                 "class_key": view.experience["class_key"],
                 "title": run.title,
+                "raid_id": run.raid_id,
+                "raid_name": run.raid_name,
             }
         if method == "export":
             if self.busy:

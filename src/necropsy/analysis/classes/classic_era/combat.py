@@ -15,6 +15,7 @@ from necropsy.analysis.evidence import Evidenced, EvidenceRef, inferred, observe
 from necropsy.analysis.generic import combat, metrics
 from necropsy.analysis.generic.environment import EnvironmentProfile
 from necropsy.analysis.generic.metrics import DeathsFinding
+from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
 
@@ -86,7 +87,9 @@ def _duty(
         role: [e for e in casts if matches(e, role, key)]
         for role, key in (("dps", "damage"), ("healer", "healing"), ("tank", "tanking"))
     }
-    rules = encounter_rules("classic_era", "naxxramas", pf.encounter_id)
+    rules = encounter_rules(
+        "classic_era", raid_for_encounter(pf.encounter_id).slug, pf.encounter_id
+    )
     bosses = {
         int(a)
         for a, game_id in con.execute(

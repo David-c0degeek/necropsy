@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Any
 
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
+from necropsy.raids import RAIDS, raid_for_zone
 from necropsy.rules import load_rules
 from necropsy.snapshot.archive import (
     ArchiveError,
@@ -49,9 +50,8 @@ from necropsy.wcl.acquire import (
     player_actor,
 )
 from necropsy.wcl.cache import Cache, StreamKey, canonical_bytes, is_link, item_lock, publish
-from necropsy.wcl.context import SUPPORTED_ZONE_ID
 
-GAME, ZONE = "classic_era", "naxxramas"
+GAME = "classic_era"
 COHORT = "same-faction-deep"
 _ZIP_TIME = (1980, 1, 1, 0, 0, 0)
 
@@ -74,8 +74,13 @@ def safe_name(text: str) -> str:
     return cleaned[:40] or "x"
 
 
-def _boss_names() -> dict[int, str]:
-    return {int(e["id"]): str(e["name"]) for e in load_rules(GAME, f"zones/{ZONE}")["encounters"]}
+def _boss_names(zone: str | None = None) -> dict[int, str]:
+    raids = RAIDS if zone is None else (next(r for r in RAIDS if r.slug == zone),)
+    return {
+        int(e["id"]): str(e["name"])
+        for raid in raids
+        for e in load_rules(GAME, f"zones/{raid.slug}")["encounters"]
+    }
 
 
 @dataclass(frozen=True)
@@ -204,7 +209,9 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
     context = acquisition.context
     if context is None:
         raise WriteError("the acquisition has no resolved character context")
-    if context.class_id.value not in CLASS_NAMES or context.zone_id != SUPPORTED_ZONE_ID:
+    if context.class_id.value not in CLASS_NAMES or context.zone_id not in {
+        r.zone_id for r in RAIDS
+    }:
         raise WriteError("the acquisition is not for a supported class and zone")
     if context.partition is None or context.faction.level != "observed":
         raise WriteError("the acquisition context has no partition or observed faction")
@@ -215,7 +222,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
         acquisition.requested[: len(acquisition.bosses)]
     ):
         raise WriteError("the acquired bosses do not follow the requested order")
-    names = _boss_names()
+    names = _boss_names(raid_for_zone(context.zone_id).slug)
     members: dict[str, tuple[bytes, EntryOrigin]] = {}
     fights: dict[tuple[str, int], dict[str, Any]] = {}
     actor_dirs: dict[tuple[str, int, int], dict[str, Any]] = {}
