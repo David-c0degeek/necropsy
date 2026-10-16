@@ -21,7 +21,7 @@ Use existing httpx runtime and Python bridge; credentials never enter this path.
 
 ## Progress log
 
-2026-10-16 · 02.1-02.3 implemented. Public metadata checks use bounded HTTP,
+2026-10-16 Â· 02.1-02.3 implemented. Public metadata checks use bounded HTTP,
 stable numeric versions and canonical repository/asset URLs. Negative tests cover
 malformed metadata, draft/prerelease/downgrade, missing assets, unsafe redirects,
 rate limits and offline guidance without WCL credentials. Native-window fixture
@@ -38,3 +38,5 @@ Record: D001 and ADR 0013 retain GitHub release trust and defer updater signing.
 Risk: GitHub availability/rate limits and future asset schema changes can require
 retry or manual installation. Checksums are not independent release signatures.
 Verdict: CLOSE.
+
+Checkpoint: implementation and verification pushed as 1f16cbd.

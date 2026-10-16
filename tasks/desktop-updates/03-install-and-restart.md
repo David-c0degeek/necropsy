@@ -21,7 +21,7 @@ Reuse published install.ps1/install.sh, SHA256SUMS and existing fresh version st
 
 ## Progress log
 
-2026-10-16 · 03.1-03.3 implemented. Checked assets are revalidated and verified
+2026-10-16 Â· 03.1-03.3 implemented. Checked assets are revalidated and verified
 before the existing installer runs. Active launcher files and OS shortcuts are
 restored on ordinary installer/readiness failure; previous versions remain.
 Updates do not rewrite PATH. New tests cover shutdown waiting for installation
@@ -45,3 +45,5 @@ need release acceptance; Windows local tests use controlled release metadata.
 The Windows PID wait and launch order are tested, but this does not claim a real
 future public release was installed into the personal app.
 Verdict: CLOSE.
+
+Checkpoint: implementation and verification pushed as 1f16cbd.
