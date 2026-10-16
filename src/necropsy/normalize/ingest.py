@@ -116,13 +116,9 @@ def _event_row(
 
 
 def _talent_points(talents: Any) -> str | None:
-    if (
-        isinstance(talents, list)
-        and talents
-        and all(isinstance(t, dict) and isinstance(t.get("id"), int) for t in talents)
-    ):
-        return "/".join(str(t["id"]) for t in talents)
-    return None
+    from necropsy.analysis.taxonomy import talent_points
+
+    return talent_points(talents, "id")
 
 
 class _Loader:

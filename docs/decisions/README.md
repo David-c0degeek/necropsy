@@ -26,3 +26,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Graphical desktop](0010-graphical-desktop.md) | Tauri shell, allowlisted process bridge, shared analysis service, sandboxed reports and independent desktop verification |
 
 | [GUI-first installation](0011-gui-default-installation.md) | Native default launch, staged GUI/CLI upgrades, per-OS bootstrap checks and publish-before-switch release ordering |
+
+| [Game builds and WCL categories](0012-game-build-and-wcl-category.md) | Separate declared trees, observed build totals, ranking pools, duties and race validity; compatible saved evidence |

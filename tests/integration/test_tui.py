@@ -57,6 +57,7 @@ def test_tui_identifies_creates_stops_and_reloads_a_run(tmp_path: Path) -> None:
             await pilot.pause()
             assert app.query_one("#analyze").display
             assert app.query_one("#spec", Select).value == "Marksmanship"
+            app.query_one("#tree", Select).value = "Survival"
             await pilot.click("#analyze")
             for _ in range(100):
                 if service.waiting.is_set():
@@ -69,6 +70,7 @@ def test_tui_identifies_creates_stops_and_reloads_a_run(tmp_path: Path) -> None:
             await pilot.pause()
             assert not app.busy
             assert len(library.discover()) == 1
+            assert library.discover()[0].options["talent_tree"] == "Survival"
             assert not app.query_one("#continue", Button).disabled
         reloaded = NecropsyApp(RunLibrary(tmp_path), FakeService())
         async with reloaded.run_test(size=(80, 24)) as pilot:

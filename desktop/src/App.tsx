@@ -77,6 +77,7 @@ export default function App() {
   const [url, setUrl] = useState("");
   const [character, setCharacter] = useState<Character | null>(null);
   const [category, setCategory] = useState("");
+  const [talentTree, setTalentTree] = useState("");
   const [runs, setRuns] = useState<SavedRun[]>([]);
   const [filter, setFilter] = useState("");
   const [theme, setTheme] = useState(initialTheme);
@@ -248,7 +249,10 @@ export default function App() {
           result.categories.length === 1 ? result.categories[0].value : "",
         );
         document.documentElement.dataset.class = result.class_key;
-        setActivity("Character found. Choose your spec to continue.");
+        setTalentTree("");
+        setActivity(
+          "Character found. Choose your WCL comparison category to continue.",
+        );
       } else if (method === "connect") {
         const result = await request<{
           connected?: boolean;
@@ -604,7 +608,31 @@ export default function App() {
                       )}
                       {character.ready && character.categories.length > 0 && (
                         <>
-                          <label htmlFor="category">What do you play?</label>
+                          <label htmlFor="talent-tree">
+                            Your talent tree (optional)
+                          </label>
+                          <select
+                            id="talent-tree"
+                            value={talentTree}
+                            disabled={!available}
+                            onChange={(event) =>
+                              setTalentTree(event.target.value)
+                            }
+                          >
+                            <option value="">Unspecified / hybrid</option>
+                            {(character.talent_trees ?? []).map((tree) => (
+                              <option key={tree} value={tree}>
+                                {tree}
+                              </option>
+                            ))}
+                          </select>
+                          <p className="field-help">
+                            Your declared preference. Actual talent totals and
+                            duties are checked per fight.
+                          </p>
+                          <label htmlFor="category">
+                            WCL comparison category
+                          </label>
                           <select
                             id="category"
                             value={category}
@@ -614,7 +642,7 @@ export default function App() {
                             }
                           >
                             <option value="" disabled>
-                              Choose your spec
+                              Choose a comparison category
                             </option>
                             {character.categories.map((c) => (
                               <option key={c.value} value={c.value}>
@@ -623,13 +651,18 @@ export default function App() {
                             ))}
                           </select>
                           <p className="field-help">
-                            Comparisons follow this Warcraft Logs category.
+                            Comparisons include builds in this WCL category.
+                            Your talent-tree choice does not narrow the
+                            leaderboard.
                           </p>
                           <button
                             className="primary full-width"
                             disabled={!available || !category}
                             onClick={() =>
-                              void operation("analyze", { category })
+                              void operation("analyze", {
+                                category,
+                                talent_tree: talentTree || null,
+                              })
                             }
                           >
                             Analyze my character

@@ -175,3 +175,11 @@ See [product design](product-design.md) for tokens, components and screenshot up
 Druid class plugins are selected through the existing registry. Category/metric checks, duty inference, compatible class sections and role-specific comparison boundaries are described in [the class contract](decisions/0005-class-and-encounter-duties.md). Hunter shot/pet rules remain class-specific. See [Druid validation](druid-validation.md) for observed support and remaining review gates.
 
 All nine class plugins now share the same acquisition/normalization/publishing pipeline. Remaining classes use optional combat entry evidence, shared event/totals helpers and the shared class view/execution components. [Class categories and limits](class-analysis.md) distinguish WCL ranking labels from talents and observed duty.
+
+
+Game talent trees and race/class/faction validity live alongside a separately
+namespaced WCL category name/slug/ID catalog. Declared tree intent passes through
+the existing service, checkpoint and optional live-snapshot subject field into
+acquisition JSON. The optional report taxonomy section preserves observed build,
+category, inferred duty and identity evidence without changing archived `spec`
+semantics or introducing another pipeline. See [ADR0012](decisions/0012-game-build-and-wcl-category.md).

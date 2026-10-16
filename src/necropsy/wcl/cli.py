@@ -269,7 +269,15 @@ def analyze_command(
     spec: Annotated[
         str | None,
         typer.Option(
-            help="Classic Era spec/category; Tank, Healer and DPS aliases resolve by class."
+            help="Legacy alias for --category (WCL pool, not a talent tree). "
+            "Use --talent-tree for declared game build intent."
+        ),
+    ] = None,
+    talent_tree: Annotated[
+        str | None,
+        typer.Option(
+            help="Declared game talent tree (e.g. Combat, Arcane); not a WCL filter. "
+            "Choose --category separately; observed talents remain per fight."
         ),
     ] = None,
     faction: Annotated[
@@ -325,6 +333,7 @@ def analyze_command(
                 package=package,
                 category=category,
                 spec=spec,
+                talent_tree=talent_tree,
                 faction=faction,
                 metric=metric,
                 wait_for_reset=wait_for_reset,

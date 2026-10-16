@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from uuid import uuid4
 
 from necropsy import __version__
-from necropsy.analysis.class_catalog import CLASS_NAMES
+from necropsy.analysis.class_catalog import CLASS_NAMES, TALENT_TREES
 from necropsy.report.offline import run_offline
 from necropsy.report.package import build_outputs, package_name
 from necropsy.report.render import render_playbook, render_report, view_of
@@ -61,6 +61,7 @@ def describe_character(context: CharacterContext) -> Json:
         "categories": [
             {"label": label, "value": value} for label, value in categories(context.class_id.value)
         ],
+        "talent_trees": list(TALENT_TREES.get(context.class_id.value, ())),
     }
 
 
@@ -177,8 +178,11 @@ class DesktopEngine:
                 raise ValueError("Find your character first so we can verify its raid and faction.")
             category = str(params["category"])
             if category not in {value for _, value in categories(self.context.class_id.value)}:
-                raise ValueError("Choose one of the specs shown for your character.")
-            return self.analyze(self.library.create(self.url, category, self.context))
+                raise ValueError("Choose one of the WCL comparison categories for your character.")
+            tree = params.get("talent_tree")
+            if tree is not None and not isinstance(tree, str):
+                raise ValueError("Choose a talent tree or leave it unspecified.")
+            return self.analyze(self.library.create(self.url, category, self.context, tree))
         if method == "resume":
             run = self.find_run(str(params["id"]))
             if not describe_run(run)["can_resume"]:

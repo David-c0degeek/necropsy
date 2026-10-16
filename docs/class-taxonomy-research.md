@@ -2,6 +2,10 @@
 
 Research date: 2026-10-16. Scope: Classic Era / `vanilla.warcraftlogs.com`, Naxxramas zone 2006. This is research and a proposed model, not a claim that the redesign is implemented. Production behavior was not changed.
 
+Subsequent implementation: [ADR0012](decisions/0012-game-build-and-wcl-category.md)
+and [class selection](class-analysis.md) describe the delivered behavior. This
+document retains the research-time findings and proposed model for provenance.
+
 **Finding:** the game has 27 talent trees across nine classes, while WCL currently advertises 19 ranking categories. Its category display names, API slugs, talent distributions and encounter duties are different dimensions. Necropsy's current `spec` selector exposes the API categories, which prevents users from expressing all game specializations and makes labels such as Rogue Assassination misleading.
 
 ## Evidence and boundaries

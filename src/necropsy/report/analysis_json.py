@@ -308,6 +308,8 @@ class AnalysisDocument(_Strict):
     game_data: dict[str, Any] | None = None
     """Where the static item/set/enchant data comes from (game client build)."""
     acquisition: dict[str, Any] | None = None
+    taxonomy: EvidenceTree | None = None
+    """Optional game/build/category/role identity evidence; absent in older outputs."""
     """Live snapshots: every requested boss with its acquisition coverage, the run's
     endpoint, stop reason and cohort provenance. Absent for historical snapshots."""
 
@@ -835,6 +837,13 @@ def build_document(
     }
     if acquisition is not None:
         document["acquisition"] = acquisition
+    if mode == "live" or meta[9] != 3:
+        from necropsy.report.taxonomy import section as taxonomy_section
+
+        pool = (acquisition or {}).get("selected_category") if meta[9] == 3 else category
+        document["taxonomy"] = taxonomy_section(
+            con, meta[9], boss_data, {**(acquisition or {}), "selected_category": pool}
+        )
     AnalysisDocument.model_validate(document)
     return document
 

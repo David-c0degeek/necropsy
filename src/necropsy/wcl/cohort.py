@@ -179,6 +179,8 @@ def cohort_key(site: Site, context: CharacterContext, encounter_id: int) -> Coho
             if policy.category
             else "no spec filter is applied; each row's spec is kept",
         ),
+        # Legacy serialized "enforced" means the category's comparison policy,
+        # not an observed assignment. Reports independently qualify event duty.
         role=Dimension(policy.role, "enforced", f"metric {policy.metric}"),
         faction=Dimension(faction.value, "enforced", "subject's observed faction"),
     )

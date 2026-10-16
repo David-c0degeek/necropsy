@@ -2,11 +2,24 @@
 <section id="overview" class="hero" aria-labelledby="overview-title">
   <div class="hero-top"><span class="eyebrow">Classic Era / {{ doc.zone }}</span><span class="snapshot-label">Saved {{ doc.scope }} snapshot · offline ready</span></div>
   <h1 id="overview-title" tabindex="-1"><span class="character-name">{{ doc.character }}</span> <span class="view-title">{{ page }}</span></h1>
-  <p class="character-context"><strong>{{ doc.class_name }}{% if doc.selected_spec %} · {{ 'Tank' if doc.selected_spec == 'Guardian' else doc.selected_spec }}{% endif %}</strong><span class="faction-label">{{ ux.faction }}{% if ux.faction_level == 'inferred' %} · inferred{% elif ux.faction == 'Unknown' %} faction{% elif ux.faction_level == 'unknown' %} · evidence unknown{% endif %}</span><span>{{ doc.realm }}</span></p>
+  <p class="character-context"><strong>{{ doc.class_name }}{% if doc.taxonomy %} · WCL {{ doc.taxonomy.comparison_pool.label }}{% elif doc.selected_spec %} · {{ 'Tank' if doc.selected_spec == 'Guardian' else doc.selected_spec }}{% endif %}</strong><span class="faction-label">{{ ux.faction }}{% if ux.faction_level == 'inferred' %} · inferred{% elif ux.faction == 'Unknown' %} faction{% elif ux.faction_level == 'unknown' %} · evidence unknown{% endif %}</span><span>{{ doc.realm }}</span></p>
   <p class="hero-purpose">{{ 'Know what to change. Arrive with a plan.' if page == 'playbook' else 'Understand the fight. Follow the evidence.' }}</p>
   <div class="raid-pulse"><div><strong>{{ ux.attention_count }}<span> / {{ ux.bosses|length }}</span></strong><span>bosses with findings</span></div><div><strong>{{ ux.finding_count }}</strong><span>supported findings</span></div><div><strong>{{ ux.personal_count }}</strong><span>personal encounters</span></div></div>
   <div class="quality-strip"><strong>{{ ux.coverage }}</strong><span>{{ ux.limited_count }} boss{{ 'es' if ux.limited_count != 1 else '' }} with limited or unavailable comparisons</span><a href="#analysis-quality">See limits ↓</a></div>
 </section>
+{% if doc.taxonomy %}
+<section class="global analysis-context" aria-label="Build and comparison scope">
+  <p><strong>Declared talent tree:</strong> {{ doc.taxonomy.declared_talent_tree or 'Unspecified / hybrid' }} · user preference, not observed talents.</p>
+  <p><strong>WCL comparison category:</strong> {{ doc.taxonomy.comparison_pool.label }}{% if doc.taxonomy.comparison_pool.slug %} (API: {{ doc.taxonomy.comparison_pool.slug }}){% endif %}. Comparisons include other builds in this category; the talent-tree choice does not narrow the leaderboard.</p>
+  <details><summary>Observed builds, categories, duties and race evidence</summary>
+    <p>A primary tree is derived from the largest recorded tree total. Ties and missing totals stay unknown. Tree totals do not identify individual talents or assigned duties. Race consistency checks validate known evidence without guessing a race.</p>
+    <div class="table-wrap"><table><thead><tr><th>Encounter / player</th><th>Recorded build / primary tree</th><th>WCL category / inferred duty</th><th>Race / faction / catalog consistency</th></tr></thead><tbody>
+    {% for e in doc.taxonomy.entries %}<tr><th>{{ e.boss }} · {{ e.player }}{% if e.server %} ({{ e.server }}){% endif %}</th><td>{{ e.tree_points.value if e.tree_points.value is not none else 'Unknown' }} · {{ e.primary_tree.value or 'Unknown / mixed' }} ({{ e.primary_tree.level }})</td><td>{{ e.wcl_category.label }} · {{ e.duty.value or 'Unknown' }} ({{ e.duty.level }})</td><td>{{ e.race.value or 'Unknown' }} ({{ e.race.level }}) · {{ e.faction.value or 'Unknown' }} · {{ 'Unknown' if e.race_class_faction_valid.value is none else 'Consistent' if e.race_class_faction_valid.value else 'Conflict — review identity evidence' }}</td></tr>{% endfor %}
+    </tbody></table></div>
+    <p>WCL classification, inferred duty and declared assignment are separate. Category scores remain distinct from event throughput. No global leader for an unranked talent specialization is claimed.</p>
+  </details>
+</section>
+{% endif %}
 <section class="priorities" aria-labelledby="priorities-title">
   <div class="section-heading"><div><div class="eyebrow">Start here</div><h2 id="priorities-title">{{ 'Your next raid priorities' if page == 'playbook' else 'What deserves your attention' }}</h2></div><span class="muted">Existing findings · highest severity first</span></div>
   <ol class="priority-list">

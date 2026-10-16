@@ -80,6 +80,61 @@ def test_a_complete_run_writes_snapshot_and_pages(tmp_path: Path, fake: dict[str
     assert fake["endpoints"] == ["client"]
 
 
+def test_declared_tree_survives_snapshot_replay_without_changing_query_pool(
+    tmp_path: Path,
+    fake: dict[str, Any],
+) -> None:
+    from necropsy.report.offline import run_offline
+
+    result = _run(
+        tmp_path, "--name", "declared", "--category", "Marksmanship", "--talent-tree", "Survival"
+    )
+    assert result.exit_code == 0, result.output
+    out = tmp_path / "out"
+    original = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    assert original["taxonomy"]["declared_talent_tree"] == "Survival"
+    assert original["taxonomy"]["comparison_pool"]["slug"] == "Marksmanship"
+    assert original["acquisition"]["declared_talent_tree"] == "Survival"
+    queries = [r["query"] for r in fake["server"].requests if "NecropsyLeaderboard" in r["query"]]
+    assert queries and all('specName: "Marksmanship"' in q for q in queries)
+    assert all('specName: "Survival"' not in q for q in queries)
+    run_offline(out / "snapshot/declared.zip", tmp_path / "replay")
+    replay = json.loads((tmp_path / "replay/analysis.json").read_text(encoding="utf-8"))
+    assert replay["taxonomy"] == original["taxonomy"]
+    page = (tmp_path / "replay/playbook.html").read_text(encoding="utf-8")
+    assert "Survival" in page and "does not narrow the leaderboard" in page
+    changed = _run(tmp_path, "--resume", "--talent-tree", "Beast Mastery")
+    assert changed.exit_code == 1 and "resume options differ" in changed.output
+    # A declaration for another class is also refused at the archive boundary.
+    import zipfile
+
+    from necropsy.snapshot.model import SnapshotError
+
+    bad = tmp_path / "invalid-declaration.zip"
+    with (
+        zipfile.ZipFile(out / "snapshot/declared.zip") as source,
+        zipfile.ZipFile(bad, "w") as target,
+    ):
+        for name in source.namelist():
+            body = source.read(name)
+            if name == "necropsy-snapshot.json":
+                marker = json.loads(body)
+                marker["subject"]["talent_tree"] = "Combat"
+                body = json.dumps(marker).encode()
+            target.writestr(name, body)
+    with pytest.raises(SnapshotError, match="Hunter talent tree"):
+        run_offline(bad, tmp_path / "bad-replay")
+
+
+def test_talent_tree_for_another_class_is_refused_before_acquisition(
+    tmp_path: Path,
+    fake: dict[str, Any],
+) -> None:
+    result = _run(tmp_path, "--talent-tree", "Combat")
+    assert result.exit_code == 1 and "Hunter talent tree" in result.output
+    assert not fake["server"].requests
+
+
 def test_public_sign_in_drives_user_acquisition(
     tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:

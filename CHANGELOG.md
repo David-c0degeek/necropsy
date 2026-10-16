@@ -8,6 +8,13 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Separate optional game talent-tree declarations from WCL comparison categories
+  in the desktop, terminal and CLI (`--talent-tree`). Save declarations through
+  resumes and offline snapshot replay; retain legacy category flags.
+- Show recorded talent totals and derived primary trees separately from WCL
+  classifications, inferred duties, race evidence and catalog consistency.
+  Category comparisons remain broad across builds. Reject malformed talent
+  triples and keep unknown build matches unknown.
 - Recorded WCL Hunter DPS remains available when event reconstruction is blocked
   by unresolved pet ownership, with an explicit source and limitation.
 - Acquire confirmed pets independently of ownerless raid guardians. Hunter-pet

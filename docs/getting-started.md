@@ -17,7 +17,8 @@ Next time, open the Necropsy shortcut/launcher or type `necropsy`.
 1. Copy your character's Warcraft Logs link from your browser.
 2. Paste it into **Warcraft Logs character link** and choose **Find my character**.
 3. Sign in through your browser when asked, then return to Necropsy.
-4. Choose your spec when asked. If asked, choose the raid partition you want to inspect.
+4. Choose the raid partition if asked. Optionally declare your talent tree,
+   then choose the WCL comparison category you want to inspect.
 5. Choose **Analyze my character**. Activity and the current boss stay visible.
 6. The Playbook opens when ready. Start with its priorities and next-pull plan;
    use Report to inspect comparisons and supporting evidence.

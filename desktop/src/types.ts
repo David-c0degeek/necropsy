@@ -21,6 +21,7 @@ export interface Character {
   ambiguity: string | null;
   notes: string[];
   categories: { label: string; value: string }[];
+  talent_trees: string[];
 }
 export interface EngineMessage {
   id?: number;

@@ -223,3 +223,21 @@ conflicts and unavailable names remain explicit with IDs. These are presentation
 additions; raw archives, event multiplicity and role eligibility are unchanged.
 
 Schema1 also adds optional `combat` entry evidence for Mage, Paladin, Priest, Rogue, Shaman, Warlock and Warrior. It retains class/build/category/duty, metrics, actor casts/opener/cooldowns/timeline, targets, resources, deaths and separate pet evidence. Existing `hunter` and `druid` contracts remain. All supported classes use the shared ability comparison and CSV; non-Hunter class metrics/roles/timeline and source comparisons share exports. See [class analysis](class-analysis.md).
+
+Schema1 adds optional top-level `taxonomy` in new live and non-Hunter class
+outputs. It contains the canonical tree names, WCL-namespaced comparison pool
+(class/category IDs, display label and API slug), optional user declaration,
+explicit broad-pool scope and per-entry tree totals, derived primary tree,
+recorded category, inferred duty, declared assignment, race/faction evidence and
+catalog-consistency evidence. A consistency value does not establish identity.
+Historical Hunter output and older documents may omit it.
+
+Live snapshots optionally retain `subject.talent_tree`; acquisition JSON exposes
+it as `declared_talent_tree`. This is user intent, not observed evidence or a WCL
+filter. Existing participant `spec` keys remain WCL categories. The optional
+saved-run option is bound by existing resume checks. Existing snapshots and
+checkpoints without the field remain readable by the updated application.
+
+The legacy comparison `build_matches` field is three-state: true/false for two
+valid three-tree totals, null if either is unknown or malformed. Matching totals
+do not prove identical individual talents. See [the durable contract](decisions/0012-game-build-and-wcl-category.md).

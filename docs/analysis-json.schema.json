@@ -1265,6 +1265,19 @@
     "subject": {
       "$ref": "#/$defs/Subject"
     },
+    "taxonomy": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Taxonomy"
+    },
     "zone": {
       "$ref": "#/$defs/Zone"
     }

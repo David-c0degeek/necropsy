@@ -387,6 +387,7 @@ class DocumentView:
     class_name: str = "Hunter"
     analysis_key: str = "hunter"
     experience: Mapping[str, Any] = field(default_factory=dict)
+    taxonomy: Mapping[str, Any] = field(default_factory=dict)
 
     @property
     def navigation(self) -> tuple[Any, ...]:
@@ -1217,6 +1218,7 @@ def document_view(document: Mapping[str, Any], analysis_sha: str) -> DocumentVie
         class_name=CLASS_NAMES[class_id],
         analysis_key=analysis_key if is_class else "hunter",
         experience=experience(document, CLASS_NAMES[class_id]),
+        taxonomy=document.get("taxonomy") or {},
         selected_spec=(document.get("acquisition") or {}).get("selected_category")
         or (
             (document["bosses"][0].get("playbook") or {}).get("selected_category")

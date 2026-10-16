@@ -17,8 +17,7 @@ from uuid import uuid4
 
 from platformdirs import user_data_path
 
-from necropsy.analysis.class_catalog import CATEGORIES
-from necropsy.analysis.roles import DRUID_CATEGORIES
+from necropsy.analysis.class_catalog import WCL_CATEGORIES, category_label, talent_tree
 from necropsy.report.render import load_document
 from necropsy.wcl.analyze import AnalyzeError, Outcome, plain_dir, run_analyze
 from necropsy.wcl.auth import (
@@ -128,9 +127,15 @@ class RunLibrary:
         )
         self.imports = self.root / "imported-runs.json"
 
-    def create(self, url: str, category: str, context: CharacterContext) -> SavedRun:
+    def create(
+        self, url: str, category: str, context: CharacterContext, declared_tree: str | None = None
+    ) -> SavedRun:
         if context.partition is None:
             raise ValueError("Choose a raid partition before starting.")
+        declared_tree = talent_tree(context.class_id.value, declared_tree)
+        if category not in {value for _, value in categories(context.class_id.value)}:
+            raise ValueError("Choose a WCL comparison category for your class.")
+        label = category_label(context.class_id.value, None if category == "all" else category)
         out = self.runs / (datetime.now(UTC).strftime("%Y%m%d-%H%M%S-") + uuid4().hex[:8])
         out.mkdir()
         run = SavedRun(
@@ -146,8 +151,11 @@ class RunLibrary:
                 "cross_faction": False,
                 "metric": None,
                 "name": None,
+                **({"talent_tree": declared_tree} if declared_tree is not None else {}),
             },
-            f"{context.name.value} · {category} · Naxxramas",
+            f"{context.name.value} · "
+            + (f"{declared_tree} · " if declared_tree else "")
+            + f"WCL {label} · Naxxramas",
         )
         run.store("Ready")
         return run
@@ -267,11 +275,10 @@ class RunLibrary:
 
 
 def categories(class_id: int) -> list[tuple[str, str]]:
-    if class_id == 2:
-        return [("Tank" if name == "Guardian" else name, name) for name in DRUID_CATEGORIES]
+    choices = [(label, slug) for slug, (_id, label) in WCL_CATEGORIES.get(class_id, {}).items()]
     if class_id == 3:
-        return [("Marksmanship", "Marksmanship"), ("All Hunter specs", "all")]
-    return [(name, name) for name in CATEGORIES.get(class_id, {})]
+        choices.append(("All Hunter categories (legacy)", "all"))
+    return choices
 
 
 class AnalysisService:

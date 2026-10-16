@@ -19,6 +19,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
+from necropsy.analysis.class_catalog import talent_tree
 from necropsy.analysis.evidence import Faction
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.rules import load_rules
@@ -71,6 +72,7 @@ class LiveSubject(_Strict):
     faction: Literal["Alliance", "Horde"]
     ranking_category: str | None = None
     ranking_metric: str | None = None
+    talent_tree: str | None = None
 
 
 class LiveZone(_Strict):
@@ -278,6 +280,14 @@ class V1Snapshot(V0Snapshot):
         """The snapshot must describe the supported class and cohort it claims to be."""
         if live.subject.class_id not in CLASS_NAMES:
             raise SnapshotError("the live snapshot subject class is unsupported")
+        try:
+            if (
+                talent_tree(live.subject.class_id, live.subject.talent_tree)
+                != live.subject.talent_tree
+            ):
+                raise ValueError("snapshot talent-tree declaration must be canonical")
+        except ValueError as error:
+            raise SnapshotError(str(error)) from error
         if live.zone.id != SUPPORTED_ZONE_ID:
             raise SnapshotError(f"zone {live.zone.id} is not supported")
         if live.cohort != COHORT:
@@ -499,6 +509,11 @@ class V1Snapshot(V0Snapshot):
                 "stopped": live.stopped,
                 "subject_faction": subject.faction,
                 "subject_canonical_id": subject.canonical_id,
+                **(
+                    {"declared_talent_tree": subject.talent_tree}
+                    if subject.talent_tree is not None
+                    else {}
+                ),
                 "bosses": [dict(b) for b in live.bosses],
                 **(
                     {"comparison_order": list(live.comparison_order)}

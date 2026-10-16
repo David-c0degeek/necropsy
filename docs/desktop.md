@@ -13,9 +13,15 @@ library and operating-system password vault as the terminal app.
 1. Open **Necropsy** and paste your Warcraft Logs character-page address.
 2. Choose **Find my character**. Sign in through your normal browser if asked,
    then return to Necropsy. You never enter a WCL password into the app.
-3. Choose the raid history if prompted, choose your spec, then select
+3. Choose the raid history if prompted, optionally declare your talent tree,
+   choose the **WCL comparison category**, then select
    **Analyze my character**.
 4. Follow the activity panel. The Playbook opens inside Necropsy when ready.
+
+Your declared tree is saved with the run and snapshot. It does not narrow the
+leaderboard: a Combat Rogue uses the WCL **DPS** category, while a Fury-heavy
+Warrior can choose **Tank**. Recorded talent totals and inferred duty remain
+separate per fight. See [class and category choices](class-analysis.md).
 
 To explore without signing in, choose **Try the example**. The bundled Hunter
 example contains four encounters and limited comparison data; it is a sample,

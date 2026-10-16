@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
+from necropsy.analysis.class_catalog import category_label
 from necropsy.report.abilities import comparison
 from necropsy.report.render.execution_view import execution as execution_plan
 from necropsy.report.render.playbook_view import gear, line, number, source
@@ -114,7 +115,10 @@ def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[in
         ]
         recs = boss.get("recommendations") or []
         context = [
-            ("Selected spec", play.get("selected_category") or "Unknown"),
+            (
+                "WCL comparison category",
+                category_label(document["subject"]["class_id"], play.get("selected_category")),
+            ),
             ("Faction", play.get("selected_faction") or "Unknown"),
             ("Build", value_of((basis or {}).get(key, {}).get("build")).text),
             ("Encounter duty", role or "Unknown"),

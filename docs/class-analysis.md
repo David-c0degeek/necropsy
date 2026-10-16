@@ -11,12 +11,32 @@ in a separate disclosure, collapsed by default, with faction differences noted.
 
 ## Select a ranking category
 
-For the proposed separation of game talent trees, WCL categories, encounter roles
-and race identity, see the [2026-10-16 taxonomy research](class-taxonomy-research.md).
-That research describes a future model; the category choices below remain the
-current implementation.
+The guided apps separate your optional **talent tree** declaration from the
+**WCL comparison category**. All 27 game talent trees are available as declarations;
+the categories below are the comparison pools. WCL display labels such as Rogue
+**DPS** use API slugs such as `Assassination`. The
+[taxonomy research](class-taxonomy-research.md) explains the evidence and
+[the class/build contract](decisions/0012-game-build-and-wcl-category.md) defines
+the implemented boundaries.
 
-| Class | Supported WCL categories | Default ranking metric |
+A Combat-heavy Rogue still compares within WCL Rogue DPS. A Fury-heavy Warrior
+can choose Tank comparisons. Recorded talent totals, derived primary tree, WCL
+category, inferred duty, race and faction appear separately in the report's
+**Observed builds, categories, duties and race evidence** table. Unknown builds
+remain unknown; catalog consistency never guesses a race. Choosing a tree does
+not filter the leaderboard or claim the best player for that talent build.
+
+CLI example (legacy `--spec` remains an alias for `--category`):
+
+```sh
+uv run necropsy analyze CHARACTER_URL --talent-tree Combat --category Assassination --endpoint user --cache workspace/cache --out workspace/rogue
+```
+
+The declaration survives saved-run resumes and snapshot offline replay. Leave it
+unspecified for hybrids, or select a tree as a preference without asserting your
+exact allocation. Three recorded point totals do not identify individual talents.
+
+| Class | Supported WCL categories (API slugs) | Default ranking metric |
 |---|---|---|
 | Druid | Balance, Feral, Guardian (Tank), Restoration | DPS; Restoration HPS; explicit Balance HPS supported |
 | Hunter | Marksmanship; legacy all remains supported | DPS |

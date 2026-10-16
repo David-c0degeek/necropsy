@@ -307,3 +307,17 @@ Public PKCE users must include `--endpoint user` on every `analyze` and `resolve
 command. The default `client` route is retained for confidential personal clients;
 permission/expiry errors never trigger endpoint fallback. See
 [installation and recovery](installation.md) for upgrade, logout and uninstall.
+
+
+## Talent-tree intent and comparison categories
+
+Use `--talent-tree` to declare a game tree independently of the WCL pool selected
+by `--category` (or legacy `--spec`). For example, a Warrior can use
+`--talent-tree Fury --category Protection` for Tank comparisons, and a Mage can
+use `--talent-tree Arcane --category Frost`. These combinations record intent;
+they do not assert observed talents or reproduce WCL's classifier.
+
+The declaration is retained in saved runs and snapshots and reused by `--resume`.
+Changing it on a resume is refused like other run options. Existing checkpoints
+without it remain supported. Reports show the broader WCL category scope and
+per-fight recorded evidence. See [class selection](class-analysis.md).

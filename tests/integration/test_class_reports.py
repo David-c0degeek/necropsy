@@ -9,6 +9,52 @@ from necropsy.report.offline import run_offline
 from tests.class_fixture import CASES, snapshot
 
 
+@pytest.mark.parametrize(
+    ("class_id", "category", "ability", "role", "points", "tree"),
+    [
+        (8, "Assassination", "Sinister Strike", "dps", (17, 34, 0), "Combat"),
+        (11, "Protection", "Shield Slam", "tank", (0, 33, 18), "Fury"),
+        (10, "Destruction", "Shadow Bolt", "dps", (9, 21, 21), None),
+        (4, "Frost", "Frostbolt", "dps", (31, 0, 20), "Arcane"),
+    ],
+)
+def test_build_category_and_duty_remain_separate_through_offline_report(
+    tmp_path: Path,
+    class_id: int,
+    category: str,
+    ability: str,
+    role: str,
+    points: tuple[int, ...],
+    tree: str | None,
+) -> None:
+    archive = snapshot(tmp_path, class_id, category, ability, role, tree_totals=points)
+    out = tmp_path / "out"
+    run_offline(archive, out)
+    doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    identity = doc["taxonomy"]["entries"][0]
+    assert identity["primary_tree"]["value"] == tree
+    assert identity["wcl_category"]["slug"] == category
+    assert identity["duty"]["value"] == role
+    assert doc["taxonomy"]["comparison_pool"]["slug"] == category
+    assert identity["race"]["value"] is None
+    assert identity["race_class_faction_valid"]["value"] is None
+    assert doc["bosses"][0]["subject"] is not None
+    page = (out / "playbook.html").read_text(encoding="utf-8")
+    assert "does not narrow the leaderboard" in page
+    assert "Observed builds, categories, duties and race evidence" in page
+
+
+def test_malformed_talent_evidence_does_not_create_a_match_in_shared_report(tmp_path: Path) -> None:
+    archive = snapshot(
+        tmp_path, 8, "Assassination", "Sinister Strike", "dps", tree_totals=(0, 0, 0, 0, 0, 0, 0)
+    )
+    out = tmp_path / "out"
+    run_offline(archive, out)
+    doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    assert doc["taxonomy"]["entries"][0]["tree_points"]["value"] is None
+    assert doc["bosses"][0]["playbook"]["comparisons"][0]["build_matches"] is None
+
+
 @pytest.mark.parametrize(("class_id", "category", "ability", "role"), CASES)
 def test_class_snapshot_produces_role_aware_execution_and_package(
     tmp_path: Path,

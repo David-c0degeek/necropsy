@@ -41,8 +41,15 @@ def saved_options(out: Path) -> dict[str, Any]:
             "metric",
             "faction",
         }
-        if state["version"] != 1 or not isinstance(options, dict) or set(options) != required:
+        if (
+            state["version"] != 1
+            or not isinstance(options, dict)
+            or not required <= set(options)
+            or set(options) - required - {"talent_tree"}
+        ):
             raise ValueError("unsupported checkpoint format")
+        if "talent_tree" in options and not isinstance(options["talent_tree"], str):
+            raise ValueError("talent_tree must be a declaration string")
     except (ValueError, KeyError, TypeError) as error:
         raise CacheCorrupt(f"invalid run checkpoint: {error}") from error
     return options

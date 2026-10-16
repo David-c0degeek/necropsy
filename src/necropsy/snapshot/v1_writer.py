@@ -426,6 +426,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             "server": context.server.value,
             "region": context.region.value,
             "faction": context.faction.value.value,
+            **({"talent_tree": context.talent_tree} if context.talent_tree is not None else {}),
             **(
                 {
                     "ranking_category": context.ranking_category,

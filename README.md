@@ -71,7 +71,8 @@ and preserves your sign-in, saved runs and reports.
 
 1. Paste your Warcraft Logs character link and choose **Find my character**.
 2. Sign in through your browser when asked, then return to Necropsy.
-3. Choose your spec and **Analyze my character**. Your faction, account endpoint,
+3. Optionally declare your talent tree, choose the WCL comparison category and
+   **Analyze my character**. Your faction, account endpoint,
    cache and output folder are handled for you.
 4. Watch the live activity. The Playbook opens inside Necropsy when ready.
 

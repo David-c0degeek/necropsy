@@ -70,14 +70,17 @@ Implement separate Classic Era game talent trees/race validity and WCL ranking c
 | D002 | 2026-10-16 | Separate selection | Keep --spec/--category as WCL selection; add --talent-tree as declared intent, independent of category and observed talents | Avoid silently remapping ambiguous hybrids and breaking scripts | 02.1; durable ADR to follow |
 | D003 | 2026-10-16 | Scope review | Waive whole-repo cleanup-audit; inspect changed seams during close-out | A fresh whole-repo teardown is outside this feature | 04.2 |
 
+| D004 | 2026-10-16 | Durable contract | Separate declaration, observed totals and WCL scope; keep archive spec keys unchanged | Backward-readability and truthful provenance | 01–03; docs/decisions/0012-game-build-and-wcl-category.md |
+| D005 | 2026-10-16 | Metadata compatibility | Retain serialized role.status=enforced as legacy category-policy status; expose scope explicitly | Do not reject old keys or imply observed duty | 03.2; ADR0012 |
+
 ## 5. Master progress tracker
 
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | 00-tooling-research-and-readiness.md | DONE | agent | n/a |
-| [ ] | 01 | 01-catalog-and-evidence.md | TODO | agent | n/a |
-| [ ] | 02 | 02-selection-and-persistence.md | TODO | agent | n/a |
-| [ ] | 03 | 03-reports-and-comparisons.md | TODO | agent | n/a |
+| [x] | 01 | 01-catalog-and-evidence.md | DONE | agent | n/a |
+| [x] | 02 | 02-selection-and-persistence.md | DONE | agent | n/a |
+| [x] | 03 | 03-reports-and-comparisons.md | DONE | agent | n/a |
 | [ ] | 04 | 04-verification-and-documentation.md | TODO | agent | n/a |
 
 ## 6. Cross-cutting principles

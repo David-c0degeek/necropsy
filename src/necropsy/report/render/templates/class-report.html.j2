@@ -48,7 +48,7 @@
 <section class="global analysis-context" aria-label="Analysis context">
   <details><summary>Available data and limitations</summary>
   <p>Coverage describes what the logs can tell us, not sync progress. Missing fights or uncertain pet usage can limit specific results; the notes below explain what is affected.</p>
-  <p>Selected spec: {{ 'Tank (Guardian category)' if selected == 'Guardian' else selected or 'Unknown' }} · selected faction: {{ doc.selected_faction or 'Unknown' }}.</p>
+  <p>WCL comparison category: {{ doc.taxonomy.comparison_pool.label if doc.taxonomy else ('Tank (Guardian category)' if selected == 'Guardian' else selected or 'Unknown') }} · selected faction: {{ doc.selected_faction or 'Unknown' }}.</p>
   <p>{{ personal_count }} encounters with your matching data · {{ doc.navigation|length - personal_count }} without personal analysis.</p>
   {% if selected and personal_count == 0 %}<p class="notice">Not enough personal data in {{ 'Tank' if selected == 'Guardian' else selected }} in the acquired logs. Eligible top-player examples are shown for learning where available.</p>{% endif %}
   <dl class="kv">{% for label, value in doc.coverage %}<dt>{{ label }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>

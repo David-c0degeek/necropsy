@@ -40,6 +40,10 @@ def test_class_pages_have_ability_execution_sources_and_shared_interactions(
                     ),
                 )
                 page.goto((out / (name + ".html")).as_uri())
+                identity = page.locator('[aria-label="Build and comparison scope"]')
+                identity.locator("details > summary").click()
+                assert identity.locator("tbody tr").count() == 2
+                assert "does not narrow the leaderboard" in identity.inner_text()
                 boss = page.locator("section.boss")
                 preparation = boss.locator("details.preparation-details")
                 if not preparation.evaluate("d => d.open"):

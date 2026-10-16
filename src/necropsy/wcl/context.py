@@ -98,6 +98,8 @@ class CharacterContext:
     ranking_category: str | None = None
     """Explicit WCL selection category; neither talents nor observed fight duty."""
     ranking_metric: str | None = None
+    talent_tree: str | None = None
+    """User-declared tree preference; never observed talents or an API filter."""
 
     @property
     def same_faction_ready(self) -> bool:

@@ -27,7 +27,7 @@ from textual.widgets import (
 )
 
 from necropsy import __version__
-from necropsy.analysis.class_catalog import CLASS_NAMES
+from necropsy.analysis.class_catalog import CLASS_NAMES, TALENT_TREES
 from necropsy.tui.service import AnalysisService, RunLibrary, SavedRun, Stopped, categories
 from necropsy.wcl.analyze import AnalyzeError
 from necropsy.wcl.cache import CacheError
@@ -106,8 +106,10 @@ class NecropsyApp(App[None]):
                     yield Select[str](
                         [], prompt="Choose the raid history to analyze", id="partition"
                     )
-                    yield Label("What do you play?", id="spec-label")
-                    yield Select[str]([], prompt="Choose your spec", id="spec")
+                    yield Label("Your talent tree (optional declaration)", id="tree-label")
+                    yield Select[str]([], prompt="Unspecified / hybrid", id="tree")
+                    yield Label("WCL comparison category", id="spec-label")
+                    yield Select[str]([], prompt="Choose a comparison category", id="spec")
                     yield Button("Analyze my character", variant="success", id="analyze")
                 with TabPane("Saved analyses", id="saved-analyses"):
                     yield Static("Your saved analyses", id="history-heading")
@@ -148,7 +150,9 @@ class NecropsyApp(App[None]):
             "partition-label",
             "partition",
             "spec-label",
+            "tree-label",
             "spec",
+            "tree",
             "analyze",
             "browser",
             "spinner",
@@ -195,6 +199,7 @@ class NecropsyApp(App[None]):
             "refresh",
             "character-url",
             "spec",
+            "tree",
             "partition",
         ):
             self.query_one(f"#{widget_id}").disabled = value
@@ -221,7 +226,9 @@ class NecropsyApp(App[None]):
                 "partition-label",
                 "partition",
                 "spec-label",
+                "tree-label",
                 "spec",
+                "tree",
                 "analyze",
             ):
                 self.query_one(f"#{widget_id}").display = False
@@ -324,15 +331,19 @@ class NecropsyApp(App[None]):
         selector = self.query_one("#spec", Select)
         selector.set_options(choices)
         selector.value = choices[0][1]
+        self.query_one("#tree", Select).set_options(
+            [(name, name) for name in TALENT_TREES[context.class_id.value]]
+        )
+        self.query_one("#tree", Select).value = Select.NULL
+        for widget_id in ("tree", "tree-label"):
+            self.query_one(f"#{widget_id}").display = True
         for widget_id in ("spec", "spec-label"):
-            self.query_one(f"#{widget_id}").display = len(choices) > 1
+            self.query_one(f"#{widget_id}").display = True
         self.query_one("#analyze").display = True
         self.query_one("#partition").display = False
         self.query_one("#partition-label").display = False
         self.show_progress(
-            "Character found. Choose your spec, then Analyze my character."
-            if len(choices) > 1
-            else "Character found. Choose Analyze my character to begin."
+            "Choose your talent tree and WCL category. Comparisons include other builds."
         )
 
     def completed(self, run: SavedRun, code: int) -> None:
@@ -351,7 +362,7 @@ class NecropsyApp(App[None]):
             selector.set_options(
                 [(f"{run.title} · {run.when} · {run.status}", str(run.out)) for run in self.saved]
             )
-            target = selected or (str(old) if old is not Select.BLANK else "")
+            target = selected or (str(old) if old is not Select.NULL else "")
             if self.saved:
                 selector.value = (
                     target
@@ -380,7 +391,7 @@ class NecropsyApp(App[None]):
 
     @on(Select.Changed, "#partition")
     def partition_changed(self, event: Select.Changed) -> None:
-        if event.value is not Select.BLANK and not self.busy:
+        if event.value is not Select.NULL and not self.busy:
             self.start_operation("partition")
 
     @on(Input.Submitted, "#character-url")
@@ -396,7 +407,9 @@ class NecropsyApp(App[None]):
                 "partition-label",
                 "partition",
                 "spec-label",
+                "tree-label",
                 "spec",
+                "tree",
                 "analyze",
             ):
                 self.query_one(f"#{name}").display = False
@@ -408,9 +421,15 @@ class NecropsyApp(App[None]):
             self.start_operation("identify" if choice == "find" else "connect")
         elif choice == "analyze" and self.context is not None and not self.busy:
             value = self.query_one("#spec", Select).value
-            if value is not Select.BLANK:
+            if value is not Select.NULL:
                 try:
-                    created = self.library.create(self.character_url, str(value), self.context)
+                    tree = self.query_one("#tree", Select).value
+                    created = self.library.create(
+                        self.character_url,
+                        str(value),
+                        self.context,
+                        None if tree is Select.NULL else str(tree),
+                    )
                     self.start_operation("run", created)
                 except (OSError, ValueError) as error:
                     self.show_progress(str(error))

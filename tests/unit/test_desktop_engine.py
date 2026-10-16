@@ -16,6 +16,32 @@ from necropsy.wcl.analyze import Outcome
 from tests.unit.test_wcl_acquire import _context
 
 
+def test_desktop_keeps_combat_preference_separate_from_wcl_dps_category(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from dataclasses import replace
+
+    from necropsy.wcl.context import Field
+
+    context = replace(_context(), class_id=Field(8, "observed", "test"))
+    character = describe_character(context)
+    assert character["talent_trees"] == ["Assassination", "Combat", "Subtlety"]
+    assert character["categories"] == [{"label": "DPS", "value": "Assassination"}]
+    engine = DesktopEngine(lambda _: None, RunLibrary(tmp_path))
+    engine.context, engine.url = context, "https://vanilla.warcraftlogs.com/character/id/86583560"
+    captured: list[SavedRun] = []
+    monkeypatch.setattr(engine, "analyze", lambda run: captured.append(run))
+    engine.dispatch("analyze", {"category": "Assassination", "talent_tree": "Combat"})
+    assert captured[0].options["category"] == "Assassination"
+    assert captured[0].options["talent_tree"] == "Combat"
+    assert engine.library.load(captured[0].out).options == captured[0].options
+    with pytest.raises(ValueError):
+        engine.dispatch("analyze", {"category": "Combat", "talent_tree": "Combat"})
+    with pytest.raises(ValueError):
+        engine.dispatch("analyze", {"category": "Assassination", "talent_tree": "Arcane"})
+
+
 @pytest.mark.parametrize("status", ["Complete — data notes", "Partial — report ready"])
 def test_finished_analysis_with_data_notes_does_not_offer_resume(
     tmp_path: Path, status: str

@@ -25,6 +25,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from uuid import uuid4
 
+from necropsy.analysis.class_catalog import talent_tree as validate_talent_tree
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy, selected_spec
 from necropsy.report.offline import run_offline
 from necropsy.report.package import ANALYSIS_FILE, PLAYBOOK_FILE, REPORT_FILE
@@ -214,6 +215,7 @@ def run_analyze(
     category: str | None = None,
     metric: str | None = None,
     spec: str | None = None,
+    talent_tree: str | None = None,
     faction: str | None = None,
     progress: Callable[[str], None] | None = None,
     resume: bool = False,
@@ -229,6 +231,7 @@ def run_analyze(
         partition = partition if partition is not None else saved["partition"]
         name = name if name is not None else saved["name"]
         metric = metric if metric is not None else saved["metric"]
+        talent_tree = talent_tree if talent_tree is not None else saved.get("talent_tree")
     try:
         category = selected_spec(category)
         selected = selected_spec(spec)
@@ -257,6 +260,7 @@ def run_analyze(
                 "category": category,
                 "metric": metric,
                 "faction": faction,
+                **({"talent_tree": talent_tree} if talent_tree is not None else {}),
             },
             resume,
         )
@@ -281,6 +285,7 @@ def run_analyze(
                 resolver,
                 before_acquire=before_acquire,
                 category=category,
+                talent_tree=talent_tree,
                 metric=metric,
                 faction=faction,
                 progress=progress,
@@ -338,6 +343,7 @@ def _run(
     before_acquire: Callable[[CharacterContext], None] | None = None,
     category: str | None = None,
     metric: str | None = None,
+    talent_tree: str | None = None,
     faction: str | None = None,
     progress: Callable[[str], None] | None = None,
     checkpoint: Checkpoint | None = None,
@@ -372,9 +378,12 @@ def _run(
         raise AnalyzeError("only Classic Era classes can be analysed")
     try:
         policy = ranking_policy(context.class_id.value, category, metric)
+        declared_tree = validate_talent_tree(context.class_id.value, talent_tree)
     except ValueError as error:
         raise AnalyzeError(str(error)) from None
-    context = replace(context, ranking_category=policy.category, ranking_metric=metric)
+    context = replace(
+        context, ranking_category=policy.category, ranking_metric=metric, talent_tree=declared_tree
+    )
     if before_acquire is not None:
         before_acquire(context)  # last chance to refuse before any acquisition request
     if checkpoint is not None:

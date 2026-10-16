@@ -34,6 +34,7 @@ def snapshot(
     partial: bool = False,
     secondary_healing: bool = False,
     subject_tank_hits: bool = True,
+    tree_totals: tuple[int, ...] = (0, 51, 0),
 ) -> Path:
     class_name = CLASS_NAMES[class_id]
     participants = []
@@ -57,7 +58,7 @@ def snapshot(
             "type": "combatantinfo",
             "sourceID": aid,
             "faction": 0,
-            "talents": [{"id": 0}, {"id": 51}, {"id": 0}],
+            "talents": [{"id": n} for n in tree_totals],
             "auras": [],
             "gear": [],
         }

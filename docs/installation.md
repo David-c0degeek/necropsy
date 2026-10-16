@@ -79,7 +79,8 @@ abruptly still retains requests already checkpointed to disk.
 ## Sign in and analyze
 
 Paste your character link, choose **Find my character** and authorize Necropsy
-in your browser. Return to the app, choose a spec and **Analyze my character**.
+in your browser. Return to the app, optionally declare your talent tree, choose
+the WCL comparison category and **Analyze my character**.
 The app checks the observed faction and offers a partition choice only when WCL
 needs one. It uses the user endpoint automatically. Tokens stay in your OS vault.
 The Playbook opens inside the app automatically; **Open Playbook** opens it again later.

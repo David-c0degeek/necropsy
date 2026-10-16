@@ -13,6 +13,7 @@ from necropsy.analysis.classes.classic_era.combat import LIMITATIONS
 from necropsy.analysis.evidence import EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog
 from necropsy.analysis.roles import ranking_policy
+from necropsy.analysis.taxonomy import build_matches
 from necropsy.report.abilities import difference, rows
 from necropsy.report.equipment import enrich_gear
 from necropsy.report.rankings import top_metadata
@@ -77,7 +78,7 @@ def _comparison(subject: Entry, reference: Entry) -> dict[str, Any]:
         "fight_id": reference.participant.fight_id,
         "kill_duration_s": reference.participant.duration_ms / 1000,
         "build": to_data(reference.combat.build),
-        "build_matches": reference.combat.build.value == subject.combat.build.value,
+        "build_matches": build_matches(reference.combat.build.value, subject.combat.build.value),
         "metrics": {
             name: difference(value.value, reference.combat.metrics[name].value)
             for name, value in subject.combat.metrics.items()

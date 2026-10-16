@@ -16,6 +16,7 @@ from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.evidence import Evidenced, EvidenceLevel, EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog
 from necropsy.analysis.roles import DRUID_CATEGORIES, ComparisonKey, FightRole, ranking_policy
+from necropsy.analysis.taxonomy import build_matches
 from necropsy.report.abilities import difference as _difference
 from necropsy.report.abilities import rows as ability_rows
 from necropsy.report.equipment import enrich_gear
@@ -145,9 +146,7 @@ def _event_comparison(subject: Entry, example: Entry) -> dict[str, Any]:
         "report_code": example.participant.report_code,
         "fight_id": example.participant.fight_id,
         "build": to_data(example.druid.build),
-        "build_matches": example.druid.build.value == subject.druid.build.value
-        if example.druid.build.value is not None and subject.druid.build.value is not None
-        else None,
+        "build_matches": build_matches(example.druid.build.value, subject.druid.build.value),
         "kill_duration_s": example.participant.duration_ms / 1000,
         "metrics": metrics,
         "spells": spells,

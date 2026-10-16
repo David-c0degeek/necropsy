@@ -21,6 +21,7 @@ from necropsy.analysis.evidence import (
     observed,
     unknown,
 )
+from necropsy.analysis.taxonomy import point_totals, talent_points
 from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
 from necropsy.wcl.combatant import auras_at_start
@@ -191,19 +192,25 @@ def talents(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> Evidenced[s
     rows = [(t, uid) for _f, t, _a, _g, uid in _combatant_rows(con, pf) if t is not None]
     values = {t for t, _ in rows}
     refs = [_combatant_ref(pf, uid) for _, uid in rows[:1]]
+    if any(point_totals(value) is None for value in values):
+        return unknown("combatant talent totals are malformed", *refs)
+    for raw, uid in _rows(
+        con,
+        "SELECT talents, event_uid FROM combatant_info "
+        "WHERE report_code=? AND fight_id=? AND actor_id=?",
+        [pf.report_code, pf.fight_id, pf.actor_id],
+    ):
+        raw = _json(raw)
+        if raw is not None and raw != [] and talent_points(raw, "id") is None:
+            return unknown("combatant talent metadata is malformed", *refs, _combatant_ref(pf, uid))
     for raw, source in _context_rows(con, pf):
         event = context_snapshot(_json(raw))
         trees = None if event is None else event.get("talents")
-        if (
-            isinstance(trees, list)
-            and len(trees) == 3
-            and all(
-                isinstance(t, dict) and type(t.get("id")) is int and 0 <= t["id"] <= 51
-                for t in trees
-            )
-            and sum(t["id"] for t in trees) <= 51
-        ):
-            values.add("/".join(str(t["id"]) for t in trees))
+        points = talent_points(trees, "id")
+        if trees is not None and trees != [] and points is None:
+            return unknown("combatant context talent metadata is malformed", *refs)
+        if points is not None:
+            values.add(points)
             refs.append(
                 EvidenceRef(
                     pf.report_code,
@@ -222,19 +229,10 @@ def talents(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> Evidenced[s
         trees = (_json(info) or {}).get("talents")
         if trees is None or trees == []:
             continue
-        if (
-            not isinstance(trees, list)
-            or len(trees) != 3
-            or any(
-                not isinstance(t, dict)
-                or type(t.get("guid")) is not int
-                or not 0 <= t["guid"] <= 51
-                for t in trees
-            )
-            or sum(t["guid"] for t in trees) > 51
-        ):
+        points = talent_points(trees, "guid")
+        if points is None:
             return unknown("fight-scoped talent metadata is malformed", *refs)
-        values.add("/".join(str(t["guid"]) for t in trees))
+        values.add(points)
         refs.append(
             EvidenceRef(
                 pf.report_code,

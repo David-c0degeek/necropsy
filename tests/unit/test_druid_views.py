@@ -225,7 +225,7 @@ def test_every_requested_boss_renders_when_no_player_entries_exist(tmp_path: Pat
     page = outputs["playbook.html"]
     assert page is not None
     text = page.decode()
-    assert 'id="boss-51119"' in text and "Selected spec: Restoration" in text
+    assert 'id="boss-51119"' in text and "WCL comparison category: Healer" in text
     assert "0 encounters with your matching data" in text
     assert "No eligible event example" in text
 
