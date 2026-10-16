@@ -21,7 +21,7 @@ Extend existing native window, frozen-engine and bootstrap smoke checks. Reuse c
 
 ## Progress log
 
-2026-10-16 Â· 04.1-04.2 implemented and verified. 1,189 fast tests passed
+2026-10-16 · 04.1-04.2 implemented and verified. 1,189 fast tests passed
 (251 excluded; workspace/desktop-updates-fast.log). After later review fixes,
 63 focused desktop/update/refresh tests and 11 launcher/bootstrap tests passed.
 Ruff lint/format, strict mypy (190 files), uv build, npm build/format, cargo
@@ -52,4 +52,3 @@ Risk: new macOS/Linux runtime flows and real future-release restart need release
 acceptance. Existing crash recovery and unsigned release trust remain explicit.
 No claim of completed CI on the new commit or of a released binary is made.
 Verdict: CLOSE.
-

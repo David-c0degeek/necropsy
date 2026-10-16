@@ -74,7 +74,7 @@ version directories; saved-data and vault locations are separate from app files.
 
 | # | File | Subject | Depends on |
 |---|---|---|---|
-| 00 | tasks/desktop-updates/00-tooling-research-and-readiness.md | Research and baseline | â€” |
+| 00 | tasks/desktop-updates/00-tooling-research-and-readiness.md | Research and baseline | — |
 | 01 | tasks/desktop-updates/01-saved-reports.md | Refresh known saved reports | 00 |
 | 02 | tasks/desktop-updates/02-release-checks.md | Stable release discovery | 00 |
 | 03 | tasks/desktop-updates/03-install-and-restart.md | Managed update and UI | 02 |
@@ -88,7 +88,6 @@ version directories; saved-data and vault locations are separate from app files.
 | D002 | 2026-10-16 | Existing GUI rendering | Open Playbook already renders current templates; Update reports persists HTML/package | Earlier conversational assumption was incorrect; data conversion is unnecessary | 01; desktop guide |
 | D003 | 2026-10-16 | Proportional teardown | Waive whole-repo cleanup-audit; review touched surfaces for duplication/dead code | Feature-scoped work, no repository teardown requested | 04 |
 | D004 | 2026-10-16 | Release boundary | Implement and verify; no public release or personal install without a separate delivery instruction | Commit/push authorization does not itself publish release binaries | manual-actions.md |
-
 | D005 | 2026-10-16 | Frozen restart boundary | Pass native GUI PID; restart helper uses independent extraction and system subprocess library paths | One-file bootloader changes parent identity and owns temporary runtime lifetime | 03; ADR 0013 |
 
 ## 5. Master progress tracker
@@ -96,10 +95,10 @@ version directories; saved-data and vault locations are separate from app files.
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | 00-tooling-research-and-readiness.md | DONE | agent: 8 | n/a |
-| [x] | 01 | 01-saved-reports.md | DONE | agent: 3 | n/a |
-| [x] | 02 | 02-release-checks.md | DONE | agent: 3 | n/a |
-| [x] | 03 | 03-install-and-restart.md | DONE | agent: 3 | n/a |
-| [ ] | 04 | 04-verification-and-docs.md | IN PROGRESS | agent: 2/3; delivery pending | n/a |
+| [x] | 01 | 01-saved-reports.md | DONE | agent: 3; 1f16cbd | n/a |
+| [x] | 02 | 02-release-checks.md | DONE | agent: 3; 1f16cbd | n/a |
+| [x] | 03 | 03-install-and-restart.md | DONE | agent: 3; 1f16cbd | n/a |
+| [x] | 04 | 04-verification-and-docs.md | DONE | agent: 3; 1f16cbd pushed and verified | n/a |
 
 ## 6. Cross-cutting principles
 
@@ -126,29 +125,42 @@ version directories; saved-data and vault locations are separate from app files.
 
 ## 7. Gate review
 
-- [ ] All subjects done or explicitly abandoned by decision.
-- [ ] Verification commands pass, with platform limitations explicitly recorded.
-- [ ] Changed flows exercised end-to-end; observed vs expected recorded.
-- [ ] Risks and rollback reviewed; every PM-* terminal and calibrated honestly.
-- [ ] Integration analyses recorded; existing service, publisher and installers reused.
-- [ ] No unwired public surface or unjustified duplicate implementation.
-- [ ] Every closed subject has Captain Hindsight CLOSE.
-- [ ] Checked boxes have progress evidence and pushed checkpoint coverage.
-- [ ] Main pushed and clean; no rewritten checkpoint history.
-- [ ] No disposable plan references leaked into shipped code/tests/metadata.
-- [ ] User/developer docs current; durable decision promoted to ADR.
-- [ ] Human actions resolved or explicitly deferred.
-- [ ] Teardown waiver D003 applied; touched-code cleanup findings triaged.
-- [ ] Lessons reconciled before any future plan archival (no archival performed here).
-- [ ] Report refresh preserves analysis bytes, identity, review keys and resume validation.
-- [ ] Release check/install reject incomplete assets, wrong hashes, unsafe URLs and downgrades.
-- [ ] Failed update leaves a working installation and readable retry guidance.
+- [x] All subjects done or explicitly abandoned by decision.
+- [x] Verification commands pass, with platform limitations explicitly recorded.
+- [x] Changed flows exercised end-to-end; observed vs expected recorded.
+- [x] Risks and rollback reviewed; every PM-* terminal and calibrated honestly.
+- [x] Integration analyses recorded; existing service, publisher and installers reused.
+- [x] No unwired public surface or unjustified duplicate implementation.
+- [x] Every closed subject has Captain Hindsight CLOSE.
+- [x] Checked boxes have progress evidence and pushed checkpoint coverage.
+- [x] Main pushed and clean; no rewritten checkpoint history.
+- [x] No disposable plan references leaked into shipped code/tests/metadata.
+- [x] User/developer docs current; durable decision promoted to ADR.
+- [x] Human actions resolved or explicitly deferred.
+- [x] Teardown waiver D003 applied; touched-code cleanup findings triaged.
+- [x] Lessons reconciled before any future plan archival (no archival performed here).
+- [x] Report refresh preserves analysis bytes, identity, review keys and resume validation.
+- [x] Release check/install reject incomplete assets, wrong hashes, unsafe URLs and downgrades.
+- [x] Failed update leaves a working installation and readable retry guidance.
 
 ## 8. Acceptance / sign-off
 
 | Date | Reviewer | Result | Notes |
 |---|---|---|---|
-| | | | |
+| 2026-10-16 | agent | CLOSE | Implementation 1f16cbd pushed; local verification passed; four-platform CI queued at delivery; public publication/personal install excluded. |
+
+### Final review
+
+Keep: saved-run identity/data ownership, explicit checks and staged distribution
+reuse. No second report pipeline or updater package format was introduced.
+Fix before closing: none; publisher finalization, frozen process topology,
+shortcut rollback and modal keyboard controls were reviewed and verified.
+Record: all subject reviews, PM calibration, CH-MISS-1, ADR 0013 and lessons are
+persisted. Implementation checkpoint is 1f16cbd; f19763d records subject closure.
+Risk: cross-platform CI on the implementation commit was queued at delivery;
+real Mac/Linux GUI update acceptance and a future published-release restart
+remain unclaimed.
+Verdict: CLOSE within the stated implementation/delivery scope.
 
 ## Appendix: Captain Hindsight Prompt
 
@@ -172,7 +184,7 @@ Check specifically for:
 - Behaviour closed on a green build alone: a box marked done on a passing build/test exit code without the changed flow exercised end-to-end (observed-vs-expected output).
 - Reuse missed or vision drift: new parallel code where existing code should have been extended, or a change that drifts from the project vision/ADRs (cross-check the subject's Integration analysis).
 - Human-owned actions that need to be mirrored or resolved.
-- Docs that drifted from shipped behaviour â€” user- and developer-facing alike (README, usage/HOWTO guides, CHANGELOG, API/command/config reference, architecture/onboarding docs, troubleshooting, examples, wiki, prompt/skill docs).
+- Docs that drifted from shipped behaviour — user- and developer-facing alike (README, usage/HOWTO guides, CHANGELOG, API/command/config reference, architecture/onboarding docs, troubleshooting, examples, wiki, prompt/skill docs).
 - Plan references that leaked into shipped code, tests, comments, identifiers,
   commit messages, branch names, PR titles, or PR descriptions.
 
@@ -182,7 +194,7 @@ artefacts: rerun the relevant verification command or cite its recorded output.
 Return exactly these sections:
 
 1. Keep: what was correct and should remain.
-2. Fix before closing: concrete issues, missing tests, spec drift, plan hygiene, or design problems â€” cite the file, test, or commit for each item.
+2. Fix before closing: concrete issues, missing tests, spec drift, plan hygiene, or design problems — cite the file, test, or commit for each item.
 3. Record: decisions or lessons that must be added to the plan files.
 4. Risk: anything still uncertain after verification.
 5. Verdict: CLOSE or DO NOT CLOSE.

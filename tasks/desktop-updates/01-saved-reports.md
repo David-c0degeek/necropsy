@@ -21,7 +21,7 @@ Extend DesktopEngine and report publisher; use RunLibrary/SavedRun, existing out
 
 ## Progress log
 
-2026-10-16 Â· 01.1-01.3 implemented. Targeted backend checks pass; the actual
+2026-10-16 · 01.1-01.3 implemented. Targeted backend checks pass; the actual
 Windows GUI refreshed its one known run, retained identical analysis bytes and
 review marks across reload, and persisted current HTML. Frozen-engine IPC also
 refreshed the same run and exported its package. Checkpoint reconstruction after
