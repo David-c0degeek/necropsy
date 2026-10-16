@@ -3,7 +3,7 @@
 [Home](../README.md) · [Documentation](README.md) · [Changelog](../CHANGELOG.md)
 
 The intended experience is simple: paste a Warcraft Logs character URL, select
-the raid, and get a report and a practical boss-by-boss playbook. The guided terminal app now provides that entry path, saved-run history and
+the raid, and get a report and a practical boss-by-boss playbook. The graphical app provides that entry path, saved-run history and
 automatic quota continuation, backed by the same evidence-preserving analyzer.
 
 ## Available now
@@ -31,7 +31,7 @@ are implemented. [Try the sample](getting-started.md).
 | All nine Classic Era classes | Implemented | Category/duty-aware reports; see [validation boundaries](class-analysis.md#contracts-and-validation) |
 | Browser application experience | Implemented in current development | Priority overview, boss triage, Playbook/Report, class themes, responsive offline output; see [Changelog](../CHANGELOG.md) |
 | Guided TUI and OS launchers | Implemented | Browser sign-in, saved analyses, safe stop/resume and automatic quota waiting |
-| One-command bootstrap | Implemented | Windows, macOS and Linux scripts provision uv/Python/app and open the TUI |
+| One-command bootstrap | Implemented | Windows, macOS and Linux scripts verify/install the native GUI and CLI runtime, then open the GUI; `necropsy tui` stays explicit |
 | Graphical desktop shell | Implemented in current development | Tauri/React + Python sidecar; themed embedded reports, setup, saved analyses, offline example and safe close; [platform verification boundaries](desktop.md#verification-and-platform-boundaries) |
 | More raids and game variants | Planned | Raid styling tokens are not analytical support for additional raids |
 | Further domain validation | Ongoing | Engineering tests do not replace real-log validation for every class and encounter |

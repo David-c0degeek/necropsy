@@ -316,6 +316,7 @@ def serve(source: TextIO, target: TextIO, root: Path | None = None) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Necropsy desktop JSON bridge")
+    parser.add_argument("--version", action="version", version=f"necropsy {__version__}")
     parser.add_argument("--data-dir", type=Path, help="Use an isolated saved-analysis library")
     args = parser.parse_args()
     for stream in (sys.stdin, sys.stdout, sys.stderr):

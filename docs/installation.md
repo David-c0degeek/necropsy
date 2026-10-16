@@ -2,15 +2,15 @@
 
 [Home](../README.md) · [First analysis](getting-started.md) · [Connect Warcraft Logs](warcraft-logs.md)
 
-For the graphical desktop application, see the [desktop guide](desktop.md).
-The one-command installers below install the guided terminal application;
-desktop installer builds are separate.
+The installers below open the graphical app by default. The [desktop guide](desktop.md)
+describes its controls; `necropsy tui` opens the optional terminal interface.
 
 ## One command
 
 Run the command for your computer. It installs a private uv runtime, a managed
-Python 3.14 environment and the versioned Necropsy wheel, verifies the download
-checksum and installed version, creates a launcher and opens the guided TUI.
+Python 3.14 environment, the CLI wheel and a native graphical package. It verifies
+both download checksums and the GUI/engine version before switching the launcher,
+then opens the GUI. Windows x64, Intel/Apple Silicon macOS and Linux x64 are supported.
 No Git, GitHub account, preinstalled Python or uv is needed. Downloads are public.
 You need an internet connection, a terminal and a normal desktop session.
 
@@ -62,13 +62,14 @@ The installer child process uses `-NoProfile`; setup does not edit your profile.
 | Computer | Open Necropsy |
 |---|---|
 | Windows | Desktop or Start menu **Necropsy** shortcut |
-| macOS | `Applications/Necropsy.command` in your home folder |
+| macOS | `Applications/Necropsy.app` in your home folder |
 | Linux desktop | **Necropsy** in your applications menu |
 | Any supported terminal | `necropsy` (in a new terminal after setup) |
 
 The first launch needs no shell restart: setup opens the app directly.
 Tab moves between controls; Enter activates a control; the mouse also works.
-Ctrl+C stops and saves an active operation. Ctrl+Q saves/stops and quits.
+Choose **Stop and save** to stop an active operation. Closing the window offers
+**Save and quit** while work is active. The GUI opens without a terminal window.
 An in-flight network request can take up to 30 seconds to stop. Report generation
 may finish its current offline stage before stopping. Closing the terminal
 abruptly still retains requests already checkpointed to disk.
@@ -79,7 +80,7 @@ Paste your character link, choose **Find my character** and authorize Necropsy
 in your browser. Return to the app, choose a spec and **Analyze my character**.
 The app checks the observed faction and offers a partition choice only when WCL
 needs one. It uses the user endpoint automatically. Tokens stay in your OS vault.
-The report opens automatically; **Open report** opens it again later.
+The Playbook opens inside the app automatically; **Open Playbook** opens it again later.
 
 An unlocked OS password vault is required: Windows Credential Manager, macOS
 Keychain, or a desktop Secret Service/KWallet on Linux. Linux needs a running
@@ -89,9 +90,9 @@ falls back to plaintext credentials. An OS vault prompt is part of sign-in.
 
 ## Saved analyses and automatic continuation
 
-**Your saved analyses** shows prior runs and their status. Select a run to
-**Continue analysis** or **Open report**. Add an analysis saved elsewhere using
-**Find an older analysis saved elsewhere** and its containing folder. CLI runs
+**Your analyses** shows prior runs and their status. Select a run to
+**Continue analysis** or **Open Playbook**. Add an analysis saved elsewhere using
+**Add folder** and its containing folder. CLI runs
 with `.necropsy-run/run.json` can resume in place. Older live runs recover completed
 cached streams into a new run, preserving the old report/snapshots.
 
@@ -117,6 +118,11 @@ only after the new environment starts successfully. A failed download or checksu
 check preserves the previous launcher, sign-in and saved analyses. Existing HTML
 pages keep their original design until regenerated from their snapshot/JSON.
 
+Version 0.3.0 installs and opens the GUI by default; rerun the same command to
+upgrade a terminal-only installation. Saved analyses, cache and sign-in stay in
+their existing locations. Linux uses an extracted AppImage runtime, so launch
+does not require FUSE. Older terminal-only versions remain available as releases.
+
 Version 0.1.0 predates the redesigned report. Version 0.1.1 added progress and
 CLI checkpoints and was built locally. Version 0.2.0 adds the guided app and
 cross-platform bootstrap. See [releases](https://github.com/David-c0degeek/necropsy/releases)
@@ -124,7 +130,8 @@ for published artifacts; historical release receipts describe their own versions
 
 ## Advanced CLI and contributor installation
 
-The guided app is the default; `necropsy tui` opens it explicitly. All advanced
+The GUI is the default; `necropsy gui` opens it explicitly, and `necropsy tui`
+opens the terminal interface. All advanced
 commands remain available through `necropsy --help`. Scripted `analyze` still
 uses explicit `--cache`, `--out` and `--endpoint user`; after a quota stop repeat
 with `--resume`. Its optional `--wait-for-reset` permits one bounded wait per
@@ -134,19 +141,22 @@ From a checkout:
 
 ```sh
 uv sync --locked
-uv run necropsy
+uv run necropsy tui
 ```
 
 Build a wheel with `uv build`. Manual wheel users can use
-`uv tool install --force --python 3.14 dist/necropsy-0.2.1-py3-none-any.whl`.
+`uv tool install --force --python 3.14 dist/necropsy-0.3.0-py3-none-any.whl`.
 This path assumes uv exists; it is not the normal first-time install path.
+The wheel alone does not contain a GUI binary; use `necropsy tui`, or follow
+the [desktop build guide](desktop.md#build-and-run-from-source).
 Saved snapshots replay offline with `necropsy offline SNAPSHOT.zip --out FOLDER`.
 Rendering existing JSON uses `necropsy render analysis.json --out FOLDER`.
 
 ## Verification and removal
 
-Automation verifies the TUI, bootstrap/private runtime, installed version,
-checksum refusal, preservation of the launcher after a failed upgrade, offline
+Automation verifies the TUI, native GUI/engine readiness, bootstrap/private runtime,
+installed version, checksum refusal for both packages, preservation of the
+launcher and GUI pointer after a failed upgrade, offline
 report generation and current embedded assets. Real WCL account/vault validation
 is recorded separately in [live validation](live-validation.md); synthetic tests
 and CI do not certify every desktop/password-wallet configuration.
@@ -154,7 +164,8 @@ and CI do not certify every desktop/password-wallet configuration.
 For maintainers:
 
 ```sh
-uv run python scripts/build_release.py --out workspace/release
+uv run python scripts/package_desktop.py --out workspace/desktop-bundle
+uv run python scripts/build_release.py --out workspace/release --desktop-bundles workspace/desktop-bundle
 uv run python scripts/check_bootstrap.py --bundle workspace/release --receipt workspace/bootstrap.json
 uv run python scripts/check_distribution.py --dist workspace/release --snapshot tests/fixtures/haplina_naxx_subset.zip --receipt workspace/distribution.json
 ```

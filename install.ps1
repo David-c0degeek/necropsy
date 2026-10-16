@@ -14,9 +14,10 @@ if ($PSVersionTable.PSVersion.Major -lt 6) {
     # Load the host's own security module so Astral's policy check works there.
     Import-Module (Join-Path $PSHOME 'Modules\Microsoft.PowerShell.Security') -Force
 }
-$necropsyVersion = '0.2.1'
+$necropsyVersion = '0.3.0'
 $releaseBase = "https://github.com/David-c0degeek/necropsy/releases/download/v$necropsyVersion"
 $wheelName = "necropsy-$necropsyVersion-py3-none-any.whl"
+$guiName = "necropsy-desktop-$necropsyVersion-windows-x86_64.zip"
 $uvVersion = '0.11.21'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $workRoot = $null
@@ -35,25 +36,30 @@ try {
     Write-Host 'Necropsy setup - getting everything ready for you.' -ForegroundColor Cyan
     Write-Host '[1/4] Getting the app...'
     $wheel = Join-Path $workRoot $wheelName
+    $guiArchive = Join-Path $workRoot $guiName
     $sums = Join-Path $workRoot 'SHA256SUMS'
     if ($BundleDirectory) {
         Copy-Item -LiteralPath (Join-Path $BundleDirectory $wheelName) -Destination $wheel
+        Copy-Item -LiteralPath (Join-Path $BundleDirectory $guiName) -Destination $guiArchive
         Copy-Item -LiteralPath (Join-Path $BundleDirectory 'SHA256SUMS') -Destination $sums
     } else {
         Invoke-WebRequest -UseBasicParsing "$releaseBase/$wheelName" -OutFile $wheel
+        Invoke-WebRequest -UseBasicParsing "$releaseBase/$guiName" -OutFile $guiArchive
         Invoke-WebRequest -UseBasicParsing "$releaseBase/SHA256SUMS" -OutFile $sums
     }
-    $matching = @(Get-Content -LiteralPath $sums | Where-Object {
-        $_ -match ('^([0-9a-fA-F]{64})\s+\*?' + [regex]::Escape($wheelName) + '$')
-    })
-    if ($matching.Count -ne 1) { throw 'The download checksum is missing or ambiguous. Please retry setup.' }
-    $expected = ($matching[0] -split '\s+')[0]
-    $hasher = [Security.Cryptography.SHA256]::Create()
-    $wheelStream = [IO.File]::OpenRead($wheel)
-    try { $actualHash = [BitConverter]::ToString($hasher.ComputeHash($wheelStream)).Replace('-', '') }
-    finally { $wheelStream.Dispose(); $hasher.Dispose() }
-    if ($actualHash -ne $expected) {
-        throw 'The app download was damaged. Nothing was installed. Please retry setup.'
+    foreach ($assetName in @($wheelName, $guiName)) {
+        $matching = @(Get-Content -LiteralPath $sums | Where-Object {
+            $_ -match ('^([0-9a-fA-F]{64})\s+\*?' + [regex]::Escape($assetName) + '$')
+        })
+        if ($matching.Count -ne 1) { throw 'The download checksum is missing or ambiguous. Please retry setup.' }
+        $expected = ($matching[0] -split '\s+')[0]
+        $hasher = [Security.Cryptography.SHA256]::Create()
+        $assetStream = [IO.File]::OpenRead((Join-Path $workRoot $assetName))
+        try { $actualHash = [BitConverter]::ToString($hasher.ComputeHash($assetStream)).Replace('-', '') }
+        finally { $assetStream.Dispose(); $hasher.Dispose() }
+        if ($actualHash -ne $expected) {
+            throw 'The app download was damaged. Nothing was installed. Please retry setup.'
+        }
     }
 
     Write-Host '[2/4] Preparing the app runtime (no Python installation required)...'
@@ -83,14 +89,23 @@ try {
     if ($LASTEXITCODE -ne 0 -or $installed.Trim() -ne "necropsy $necropsyVersion") {
         throw 'The app could not start. Your previous launcher has been preserved.'
     }
+    $guiRoot = Join-Path $environmentRoot 'gui'
+    Expand-Archive -LiteralPath $guiArchive -DestinationPath $guiRoot
+    $gui = Join-Path $guiRoot 'Necropsy\necropsy-desktop.exe'
+    $guiVersion = & $gui --check-install
+    if ($LASTEXITCODE -ne 0 -or "$guiVersion".Trim() -ne "necropsy $necropsyVersion") {
+        throw 'The graphical app could not start. Your previous launcher has been preserved.'
+    }
 
     Write-Host '[4/4] Making it easy to open next time...'
     # Relative to the launcher: no user-controlled path is interpolated into batch code.
     $relativePython = $python.Substring($appRoot.Length).TrimStart('\')
+    $relativeGui = $gui.Substring($appRoot.Length).TrimStart('\')
     $launcher = Join-Path $appRoot 'necropsy.cmd'
     $launcherTemp = Join-Path $workRoot 'necropsy.cmd'
-    $contents = "@echo off`r`n`"%~dp0$relativePython`" -m necropsy %*`r`nif errorlevel 1 pause`r`n"
+    $contents = "@echo off`r`nset `"NECROPSY_GUI_PATH=%~dp0$relativeGui`"`r`nif `"%~1`"==`"`" (`r`nstart `"`" `"%NECROPSY_GUI_PATH%`"`r`nexit /b`r`n)`r`n`"%~dp0$relativePython`" -m necropsy %*`r`nif errorlevel 1 pause`r`n"
     [IO.File]::WriteAllText($launcherTemp, $contents, [Text.Encoding]::ASCII)
+    [IO.File]::WriteAllText((Join-Path $appRoot 'gui-path'), $gui)
     Move-Item -LiteralPath $launcherTemp -Destination $launcher -Force
     if (-not $NoPathChange) {
         $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
@@ -105,16 +120,17 @@ try {
         foreach ($folder in @($programs, $desktop)) {
             if ($folder) {
                 $shortcut = $shell.CreateShortcut((Join-Path $folder 'Necropsy.lnk'))
-                $shortcut.TargetPath = $env:ComSpec
-                $shortcut.Arguments = "/c `"`"$launcher`"`""
-                $shortcut.WorkingDirectory = $appRoot
+                $shortcut.TargetPath = $gui
+                $shortcut.Arguments = ''
+                $shortcut.WorkingDirectory = Split-Path -Parent $gui
+                $shortcut.IconLocation = Join-Path (Split-Path -Parent $gui) 'icon.ico'
                 $shortcut.Description = 'Analyze your Warcraft Logs and continue saved analyses.'
                 $shortcut.Save()
             }
         }
     }
     Write-Host 'Ready! Next time, open Necropsy from your desktop or Start menu.' -ForegroundColor Green
-    if (-not $NoLaunch) { & $python -m necropsy tui }
+    if (-not $NoLaunch) { Start-Process -FilePath $gui -WorkingDirectory (Split-Path -Parent $gui) }
 } catch {
     Write-Host "Necropsy setup could not finish: $($_.Exception.Message)" -ForegroundColor Red
     Write-Host 'Check your internet connection and run the same setup command again. Your reports and sign-in are preserved.'

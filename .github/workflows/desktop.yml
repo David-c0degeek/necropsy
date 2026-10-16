@@ -2,6 +2,8 @@ name: Desktop packages
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
   pull_request:
     paths:
       - "desktop/**"
@@ -9,6 +11,10 @@ on:
       - "tests/unit/test_desktop_engine.py"
       - "tests/fixtures/haplina_naxx_subset.zip"
       - "scripts/*desktop*"
+      - "scripts/build_release.py"
+      - "scripts/check_bootstrap.py"
+      - "install.ps1"
+      - "install.sh"
       - "pyproject.toml"
       - "uv.lock"
       - ".github/workflows/desktop.yml"
@@ -73,8 +79,14 @@ jobs:
         working-directory: desktop
         env:
           APPIMAGE_EXTRACT_AND_RUN: "1"
+      - name: Build the GUI-first install bundle
+        run: |
+          uv run python scripts/package_desktop.py --out workspace/desktop-bundle
+          uv run python scripts/build_release.py --out workspace/release --desktop-bundles workspace/desktop-bundle
+      - name: Verify fresh bootstrap and failed upgrade on this OS
+        run: uv run python scripts/check_bootstrap.py --bundle workspace/release --receipt workspace/release/bootstrap.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: necropsy-${{ matrix.os }}
-          path: desktop/src-tauri/target/release/bundle/
+          path: workspace/release/
           if-no-files-found: error

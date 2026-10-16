@@ -10,10 +10,9 @@ a boss-by-boss plan, and the evidence behind every finding.
 [Read your results](docs/reading-results.md) ·
 [Documentation](docs/README.md) · [Install and open](docs/installation.md)
 
-A graphical desktop app for Windows, macOS and Linux is now available in the
-source tree: [desktop guide and build instructions](docs/desktop.md). It brings
-setup, saved analyses and the themed Playbook into one window. The install
-commands below continue to install the guided terminal app.
+The one-line installers open the graphical desktop app on Windows, macOS and
+Linux: setup, saved analyses and the themed Playbook in one window.
+[Desktop guide](docs/desktop.md) · Terminal interface: `necropsy tui`.
 
 ![Necropsy raid overview showing character identity, priorities, comparison quality and boss navigation](docs/images/overview.png)
 
@@ -42,7 +41,7 @@ source link opens the online source deliberately.
 ## Install and open
 
 Copy the command for your computer into a terminal. Setup installs Necropsy,
-Python and its runtime automatically and opens the guided app. You do not need
+Python and its runtime automatically and opens the graphical app. You do not need
 Git, Python, uv, a GitHub account or an administrator account to get started.
 
 **Windows** — press Start, type **PowerShell**, open it and paste:
@@ -64,7 +63,7 @@ sh -c 'u=https://raw.githubusercontent.com/David-c0degeek/necropsy/main/install.
 ```
 
 Windows gets a desktop/Start menu shortcut; macOS gets
-`Applications/Necropsy.command`; Linux gets an applications-menu launcher.
+`Applications/Necropsy.app`; Linux gets an applications-menu launcher.
 You can also run `necropsy` in a new terminal. Repeating setup updates the app
 and preserves your sign-in, saved runs and reports.
 
@@ -74,12 +73,12 @@ and preserves your sign-in, saved runs and reports.
 2. Sign in through your browser when asked, then return to Necropsy.
 3. Choose your spec and **Analyze my character**. Your faction, account endpoint,
    cache and output folder are handled for you.
-4. Watch the live activity. The Playbook opens in your browser when ready.
+4. Watch the live activity. The Playbook opens inside Necropsy when ready.
 
 When Warcraft Logs reaches its hourly allowance, Necropsy saves progress,
 shows a countdown and automatically continues after the reset. You can choose
 **Stop and save**, close the app and return later. Select the run under
-**Your saved analyses** and choose **Continue analysis**. **Open report** opens
+**Your analyses** and choose **Continue analysis**. **Open Playbook** opens
 an existing report without contacting Warcraft Logs. Older CLI analyses can be
 added from their saved folder; pre-checkpoint runs recover cached data into a
 new run while preserving the original files.
@@ -115,7 +114,8 @@ distinguish synthetic checks from real-log evidence, including the outstanding
 real Holy Priest healing fixture. A supported category does not imply every
 rotation or assignment has been independently validated.
 
-Installers and the guided terminal app target Windows, macOS and Linux desktop.
+Installers and the graphical app target Windows x64, Intel/Apple Silicon macOS,
+and Linux x64 desktop. `necropsy tui` retains the guided terminal interface.
 Windows has real account/password-vault validation; platform automation and
 real-account evidence are distinguished in [installation](docs/installation.md).
 More raids and game variants remain [future work](docs/roadmap.md).

@@ -4,7 +4,7 @@ A Warcraft performance coach for all nine Classic Era classes in Naxxramas.
 
 ## Install and open
 
-The installer handles uv, Python and the app, then opens the guided terminal UI.
+The installer handles the graphical app and its runtime, then opens the GUI.
 No Git, GitHub account or Python experience is required.
 
 Windows PowerShell:
@@ -38,7 +38,8 @@ used. Private/archived WCL reports still depend on your account's permissions.
 
 Setup creates an app shortcut/launcher. Next time open it, or run `necropsy`.
 Repeating setup updates the app while preserving saved data and sign-in.
-Version 0.2.1 corrects the Windows setup command; 0.2.0 introduced the TUI and
+Version 0.3.0 makes the graphical app the default. Use `necropsy tui` for the
+terminal interface. Version 0.2.1 corrects the Windows setup command; 0.2.0 introduced the TUI and
 installers. The v0.1.0 release predates the redesign; locally built 0.1.1 added CLI resume/progress. Published artifacts are
 listed on the [releases page](https://github.com/David-c0degeek/necropsy/releases).
 

@@ -21,7 +21,7 @@ app = typer.Typer(
     name="necropsy",
     help="Local-first Warcraft Logs forensics. "
     "Acquire supported Naxxramas logs or replay a snapshot.",
-    epilog="Run necropsy for the guided terminal app. Advanced commands remain available below.",
+    epilog="Run necropsy for the graphical app, or necropsy tui for the terminal interface.",
     no_args_is_help=False,
     add_completion=False,
 )
@@ -55,9 +55,21 @@ def root(
         ),
     ] = False,
 ) -> None:
-    """Run the guided app, or use COMMAND --help for advanced options."""
+    """Open the graphical app, or use COMMAND --help for advanced options."""
     if ctx.invoked_subcommand is None:
-        tui_command()
+        gui_command()
+
+
+@app.command("gui")
+def gui_command() -> None:
+    """Open the graphical desktop app."""
+    from necropsy.desktop.launcher import launch
+
+    try:
+        launch()
+    except (OSError, ValueError) as error:
+        typer.echo(str(error), err=True)
+        raise typer.Exit(1) from error
 
 
 @app.command("ingest")
@@ -190,11 +202,11 @@ def render_command(
 
 @app.command("tui")
 def tui_command() -> None:
-    """Open the guided app: sign in, analyze, view saved reports and continue runs."""
+    """Open the terminal interface: sign in, analyze and continue saved runs."""
     if not sys.stdin.isatty() or not sys.stdout.isatty():
         typer.echo(
-            "The guided app needs an interactive terminal. Open Necropsy from its shortcut "
-            "or run necropsy in your terminal. Use --help for scripted commands.",
+            "The terminal interface needs an interactive terminal. Run 'necropsy tui' "
+            "in a terminal, or run 'necropsy' for the graphical app. Use --help for scripts.",
             err=True,
         )
         raise typer.Exit(code=1)

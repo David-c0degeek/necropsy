@@ -50,9 +50,10 @@ shutdown can retain only work already checkpointed.
 
 ## Build and run from source
 
-The GUI is additive: the existing terminal installers still open the terminal
-app. Desktop installers are built separately; this document does not imply a
-published or signed desktop release.
+The one-line installers open this GUI by default. They install the native package
+and retain a private Python runtime for explicit CLI commands. `necropsy` or
+`necropsy gui` opens the GUI; `necropsy tui` opens the terminal interface. A manual
+wheel install supplies the CLI, not the native desktop binary.
 
 Install Node.js 24, a stable Rust toolchain and the
 [Tauri platform prerequisites](https://v2.tauri.app/start/prerequisites/).
@@ -81,7 +82,9 @@ Windows produces a per-user installer; macOS produces an application bundle/DMG;
 Linux packaging includes Debian and AppImage targets. The
 [desktop workflow](../.github/workflows/desktop.yml) builds Windows x64, Linux
 x64, macOS Apple Silicon and macOS Intel artifacts and exercises each frozen
-engine offline. Signing/notarization and publishing are separate release work.
+engine offline. It also creates portable archives for the one-line installers
+and exercises fresh setup and damaged-download recovery on each OS.
+Signing/notarization remains separate release work.
 
 ## Verification and platform boundaries
 
