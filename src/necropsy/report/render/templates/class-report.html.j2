@@ -79,6 +79,7 @@
   <div class="boss-head"><div><div class="eyebrow">Boss {{ '%02d'|format(loop.index) }} · {{ boss.boss }}</div><h2 id="boss-{{ boss.encounter_id }}-title" tabindex="-1">{{ boss.boss }}</h2><div class="metrics">{% for label, value in ref.metrics %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endfor %}</div></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.boss }}</span></label></div>
   <details class="role-context"><summary>Role, category and coverage context</summary><div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div></details>
   <div class="quality-strip"><strong>{{ 'Not assessed · no matching personal data' if not boss.subject else triage.quality }}</strong><span>{{ triage.sources }} comparable event sources{% if triage.membership_label %} · {{ triage.membership_label }}{% endif %} · source counts vary by measurement</span></div>
+  {% if triage.quality_note %}<p class="table-note">{{ triage.quality_note }}</p>{% endif %}
   <nav class="boss-jumps" aria-label="{{ boss.boss }} sections"><a href="#boss-{{ boss.encounter_id }}-actions">What to work on</a><a href="#boss-{{ boss.encounter_id }}-plan">Next pull</a><a href="#boss-{{ boss.encounter_id }}-comparison">Compare</a><a href="#boss-{{ boss.encounter_id }}-evidence">Evidence</a></nav>
   <section id="boss-{{ boss.encounter_id }}-actions" class="boss-actions" aria-labelledby="boss-{{ boss.encounter_id }}-actions-title">
     <h3 id="boss-{{ boss.encounter_id }}-actions-title" tabindex="-1">What to work on</h3>
@@ -93,6 +94,7 @@
       </details>
     </article>
     {% else %}<p>{{ 'No personal finding is available. The recorded example below is for learning, not an assessment of your performance.' if not boss.subject else 'No supported recommendation was generated. This does not establish that every aspect of the fight was assessed; review comparisons and coverage below.' }}</p>{% endfor %}
+    {% if boss.playbook.get('assessment_limits') %}<p>Assessment limits:</p><ul>{% for limit in boss.playbook.assessment_limits %}<li>{{ limit }}</li>{% endfor %}</ul>{% endif %}
   </section>
   {% if page == 'playbook' %}{{ coaching(ref, boss, page) }}{{ comparison_snapshot(ref, boss) }}{% else %}{{ comparison_snapshot(ref, boss) }}{{ coaching(ref, boss, page) }}{% endif %}
   <h3 id="boss-{{ boss.encounter_id }}-evidence" tabindex="-1">Evidence and details</h3>
@@ -120,7 +122,8 @@
   {% if comparisons %}
   <h3>You vs top players in your faction</h3>
   <p>{{ comparisons|length }} event sources in this spec and faction.{% if comparisons|length < 3 %} <strong>Limited sample: only {{ comparisons|length }} source{{ 's' if comparisons|length != 1 else '' }}; compare these individual fights, not a broad population baseline.</strong>{% endif %}
-  {{ boss.benchmarks.baseline.get('builds_differing', 0) }} of {{ comparisons|length }} differ from your build. Fight duration, assignments, buffs and targets can explain differences.</p>
+  {% if d.build.value is not none %}{{ boss.benchmarks.baseline.get('builds_differing', 0) }} sources have a known build different from yours.{% else %}Your talent build is unknown; event comparisons do not require talent data.{% endif %}
+  {% if boss.benchmarks.baseline.get('builds_unknown', 0) %} {{ boss.benchmarks.baseline.builds_unknown }} source builds are unknown.{% endif %} Fight duration, assignments, buffs and targets can explain differences.</p>
   {% set best = comparisons[0] %}<h4>Direct comparison: {{ best.player }} · leaderboard #{{ best.leaderboard_position }}</h4>
   <p>Build {{ ev(best.build) }} · {{ best.kill_duration_s }} s fight.</p>
   <dl class="kv">{% for name in boss.playbook.primary_metrics %}{% set values = best.metrics.get(name) %}{% if values %}<dt>{{ name|replace('_', ' ') }}</dt><dd>You: {{ '%.2f'|format(values.yours) if values.yours is not none else 'Unknown' }} · {{ best.player }}: {{ '%.2f'|format(values.reference) if values.reference is not none else 'Unknown' }}<br>You minus source: {{ '%+.2f'|format(values.difference) if values.difference is not none else 'Unknown' }}{% if values.difference_pct is not none %} ({{ '%+.1f'|format(values.difference_pct) }}%){% endif %}</dd>{% endif %}{% endfor %}</dl>

@@ -53,6 +53,8 @@ def test_partial_stream_never_proves_complete_role_or_healing(tmp_path: Path) ->
     assert d["role"]["value"] is None
     assert d["observed_roles"]["value"] == ["restoration"]
     assert d["metrics"]["effective_healing"]["value"] is None
+    assert d["metrics"]["overhealing"]["value"] is None
+    assert d["metrics"]["overhealing_pct"]["value"] is None
     assert len(d["timeline"]) >= 6
 
 

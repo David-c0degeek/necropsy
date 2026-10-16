@@ -25,6 +25,8 @@ class EncounterRules:
     """`empirical` when the exclusions were found from recorded rankings, not documented."""
     exclusion_validation: str | None = None
     start_trash_game_ids: frozenset[int] = frozenset()
+    healing_role_minimum_actions: int | None = None
+    healing_restriction: str | None = None
 
     def excluded_from_ranking(self, game_id: int | None, _name: str | None) -> bool:
         return game_id is not None and game_id in self.ranking_excluded_game_ids
@@ -65,6 +67,8 @@ def _zone(game: str, zone: str) -> dict[int, EncounterRules]:
             start_trash_game_ids=frozenset(
                 int(e["game_id"]) for e in entry.get("start_trash") or ()
             ),
+            healing_role_minimum_actions=entry.get("healing_role_minimum_actions"),
+            healing_restriction=entry.get("healing_restriction"),
         )
     return result
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 from collections import defaultdict
 from dataclasses import dataclass
 from typing import Any
@@ -113,13 +114,20 @@ def event_totals(
             else unknown(f"{name} rate unavailable")
         )
     ref = event_ref(pf, heals, "overhealing")
+    # WCL heal payloads are sparse: absent overheal means zero. Explicit
+    # null/malformed values remain unknown, as does incomplete source coverage.
+    # See WoWAnalyzer's HealEvent and HealingDone._addHealing (optional field,
+    # default 0): https://github.com/WoWAnalyzer/WoWAnalyzer/tree/midnight/src/parser
+    overheals = [e.raw.get("overheal", 0) for e in heals]
     values["overhealing"] = (
-        unknown("heal events omit overheal; missing is not zero", ref)
-        if any(e.overheal is None for e in heals)
+        unknown("heal events contain null, malformed or negative overheal", ref)
+        if any(type(v) not in (int, float) or not math.isfinite(v) or v < 0 for v in overheals)
         else complete_or_unknown(
-            float(sum(e.overheal or 0 for e in heals)),
+            float(sum(overheals)),
             [source],
             ref,
+            rule_id="wcl-sparse-overheal-v1",
+            note="WCL omits zero overheal; explicit null or invalid values remain unknown",
         )
     )
     effective, over = values["effective_healing"].value, values["overhealing"].value

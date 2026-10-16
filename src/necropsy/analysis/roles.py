@@ -132,12 +132,12 @@ def load_overrides(path: Path) -> dict[tuple[str, int], RoleOverride]:
 
 @dataclass(frozen=True, slots=True)
 class ComparisonKey:
-    """Every dimension must be known; mixed duties have no aggregate baseline."""
+    """Eligibility dimensions must be known; build is optional recorded context."""
 
     class_id: int
     encounter_id: int
     faction: str
-    build: str
+    build: str | None
     category: str
     role: FightRole
     metric: str
@@ -152,7 +152,7 @@ class ComparisonKey:
         if (
             self.role.value != policy.role
             or self.metric != policy.metric
-            or not self.build.strip()
+            or (self.build is not None and not self.build.strip())
             or self.faction not in ("Alliance", "Horde")
             or self.partition <= 0
             or self.game != "classic_era"

@@ -46,6 +46,14 @@ cooldowns:
   - Faerie Fire (Feral)
 minimum_role_actions: 3
 minimum_secondary_cast_share: 0.2
+
+# Review prompts, not healing-quality grades. Assignment and damage demand vary.
+healer_reviews:
+  minimum_known: 3
+  low_ratio: 0.8
+  overhealing_pct: 50
+  cooldowns: [Innervate, "Nature's Swiftness"]
+  minimum_duration_ratio: 0.8
 direct_tank_hits:
   - Melee
   - Hateful Strike

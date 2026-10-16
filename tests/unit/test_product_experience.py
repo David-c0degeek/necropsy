@@ -86,6 +86,11 @@ def test_priority_order_deduplicates_rules_without_inventing_advice() -> None:
     assert all(p["confidence"] == "low" for p in ux["priorities"])
     assert ux["priorities"][0]["limitations"] == ["Partial"]
     assert ux["priorities"][0]["recommendation"] == "Saved advice two"
+    # Several cooldown findings in one fight must not count as several bosses.
+    raw["bosses"][0]["recommendations"].append(deepcopy(recs[0]))
+    ux = experience(raw, "Druid")
+    assert ux["finding_count"] == 7
+    assert all(p["boss_count"] == 2 for p in ux["priorities"])
 
 
 def test_acquisition_shortfall_and_unknown_median_remain_visible() -> None:
@@ -96,3 +101,37 @@ def test_acquisition_shortfall_and_unknown_median_remain_visible() -> None:
     assert ux["coverage"] == "Data limitations"
     assert ux["bosses"][0]["quality"] == "Some comparisons unavailable"
     assert ux["limited_count"] == 1
+
+
+def test_healer_warning_uses_primary_measurements_and_names_actual_gaps() -> None:
+    raw = document()
+    boss = raw["bosses"][0]
+    boss["benchmarks"]["baseline"]["entries"] = 5
+    boss["playbook"] = {"primary_metrics": ["effective_healing_per_second", "overhealing_pct"]}
+    boss["benchmarks"]["baseline"]["medians"] = {
+        "effective_healing_per_second": {"value": {"value": 123}},
+        "overhealing_pct": {"n_known": 5, "value": {"value": 20}},
+        "incoming_absorbed": {"n_known": 0, "value": {"value": None}},
+    }
+    ux = experience(raw, "Druid")
+    assert ux["bosses"][0]["quality"] == "Comparison available"
+    assert ux["bosses"][0]["quality_note"] == ""
+    assert ux["limited_count"] == 0
+    boss["benchmarks"]["baseline"]["medians"]["overhealing_pct"] = {
+        "n_known": 2,
+        "value": {"value": None},
+    }
+    boss["subject"]["druid"] = {
+        "metrics": {
+            "overhealing_pct": {
+                "value": None,
+                "note": "heal payload contains null overheal",
+            }
+        }
+    }
+    ux = experience(raw, "Druid")
+    note = ux["bosses"][0]["quality_note"]
+    assert "Overhealing percentage" in note and "2 known; needs 3" in note
+    assert "heal payload contains null overheal" in note
+    assert "absorbed" not in note
+    assert ux["bosses"][0]["quality"] == "Some comparisons unavailable"

@@ -8,7 +8,18 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
-No additional changes beyond 0.3.0 below.
+No additional changes beyond 0.3.1 below.
+
+## 0.3.1 - 2026-10-16
+
+- Loatheb recognizes sparse healing activity under Corrupted Mind and explains
+  why whole-fight healing cadence advice does not apply.
+- Druid event comparisons and recommendations remain available without talents;
+  unknown builds stay labelled unknown.
+- WCL sparse zero-overheal fields no longer invalidate whole-fight healing totals.
+- Restoration review prompts now cover cast rates, throughput and cooldown use
+  with sample counts and assignment caveats. Comparison warnings identify missing
+  primary measurements instead of flagging unrelated tank fields for healers.
 
 ## 0.3.0 - 2026-10-16
 

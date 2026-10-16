@@ -164,7 +164,12 @@ def _duties(
     # Repeated bear-only actions plus boss hits; form alone cannot establish duty.
     if len(tank_hits) < minimum:
         candidates.pop(FightRole.TANK, None)
-    repeated = {r: es for r, es in candidates.items() if len(es) >= minimum}
+    healing_minimum = encounter.healing_role_minimum_actions or minimum
+    repeated = {
+        r: es
+        for r, es in candidates.items()
+        if len(es) >= (healing_minimum if r is FightRole.HEALER else minimum)
+    }
     refs = [_ref(pf, es, f"repeated {r.value} casts") for r, es in repeated.items()]
     if FightRole.TANK in repeated:
         refs.append(
@@ -179,8 +184,10 @@ def _duties(
         if r is FightRole.TANK or len(repeated[r]) / total_actions >= minimum_share
     )
     params = {"minimum_casts": minimum, "minimum_secondary_cast_share": minimum_share}
+    if encounter.healing_role_minimum_actions is not None:
+        params["healing_minimum_casts"] = healing_minimum
     observed_roles: Evidenced[tuple[FightRole, ...]] = (
-        inferred(signals, *refs, rule_id="druid-duty-signals-v2", params=params)
+        inferred(signals, *refs, rule_id="druid-duty-signals-v3", params=params)
         if signals
         else unknown("insufficient repeated actions to distinguish encounter duties")
     )
@@ -193,7 +200,7 @@ def _duties(
         resolved_role = inferred(
             roles[0] if len(roles) == 1 else FightRole.HYBRID,
             *refs,
-            rule_id="druid-duty-signals-v2",
+            rule_id="druid-duty-signals-v3",
             params=params,
         )
     spans = tuple(

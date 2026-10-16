@@ -12,6 +12,7 @@ from necropsy.analysis import gamedata
 from necropsy.analysis.benchmark import BossData, Entry, median_of
 from necropsy.analysis.classes.classic_era.druid import LIMITATIONS
 from necropsy.analysis.context import coverage
+from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.evidence import Evidenced, EvidenceLevel, EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog
 from necropsy.analysis.roles import DRUID_CATEGORIES, ComparisonKey, FightRole, ranking_policy
@@ -20,6 +21,7 @@ from necropsy.report.abilities import rows as ability_rows
 from necropsy.report.equipment import enrich_gear
 from necropsy.report.rankings import top_metadata as _top_metadata
 from necropsy.report.serialize import to_data
+from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
 
 
@@ -35,7 +37,6 @@ def comparison_key(
         or entry.participant.difficulty is None
         or category is None
         or role is None
-        or analysis.build.value is None
         or entry.profile.faction.value is None
         or role in (FightRole.HYBRID, FightRole.UNCERTAIN)
         or analysis.override is not None
@@ -144,14 +145,18 @@ def _event_comparison(subject: Entry, example: Entry) -> dict[str, Any]:
         "report_code": example.participant.report_code,
         "fight_id": example.participant.fight_id,
         "build": to_data(example.druid.build),
-        "build_matches": example.druid.build.value == subject.druid.build.value,
+        "build_matches": example.druid.build.value == subject.druid.build.value
+        if example.druid.build.value is not None and subject.druid.build.value is not None
+        else None,
         "kill_duration_s": example.participant.duration_ms / 1000,
         "metrics": metrics,
         "spells": spells,
     }
 
 
-def _recommendations(subject: Entry, medians: dict[str, Any]) -> list[dict[str, Any]]:
+def _recommendations(
+    subject: Entry, medians: dict[str, Any], cohort: tuple[Entry, ...] = ()
+) -> list[dict[str, Any]]:
     druid = subject.druid
     role = druid.role.value
     items: list[dict[str, Any]] = []
@@ -196,8 +201,10 @@ def _recommendations(subject: Entry, medians: dict[str, Any]) -> list[dict[str, 
             "raid-assignment",
         )
     if role == FightRole.HEALER:
+        rules = load_rules("classic_era", "druid")["healer_reviews"]
+        encounter = encounter_rules("classic_era", "naxxramas", subject.participant.encounter_id)
         over = druid.metrics["overhealing_pct"].value
-        if over is not None and over > 50:
+        if over is not None and over > rules["overhealing_pct"]:
             add(
                 "druid-healing-context-v1",
                 f"Recorded overhealing was {over:.1f}%.",
@@ -206,6 +213,92 @@ def _recommendations(subject: Entry, medians: dict[str, Any]) -> list[dict[str, 
                 ["subject.druid.metrics.overhealing_pct", "subject.druid.healing_targets"],
                 "raid-assignment",
             )
+        # Throughput is a review signal only. Restricted-healing encounters do
+        # not support whole-fight cadence or throughput prescriptions.
+        if not encounter.healing_restriction:
+            for metric, label, rule, action in (
+                (
+                    "healing_casts_per_minute",
+                    "Healing casts per minute",
+                    "druid-healing-cadence-review-v1",
+                    "Compare Healing Touch, Rejuvenation and Regrowth use, cast timing and "
+                    "assigned targets with the healing sample. Check damage demand and "
+                    "downtime before deciding whether additional casts were needed.",
+                ),
+                (
+                    "effective_healing_per_second",
+                    "Effective healing per second",
+                    "druid-healing-throughput-review-v1",
+                    "Review spell choices, target coverage, buffs and fight length with the "
+                    "healing team. Assignments, incoming damage and other healers can explain "
+                    "the HPS difference; it does not establish poor healing or a required gain.",
+                ),
+            ):
+                median = medians.get(metric) or {}
+                typical = (median.get("value") or {}).get("value")
+                current = druid.metrics[metric].value
+                if (
+                    current is not None
+                    and typical is not None
+                    and typical > 0
+                    and median.get("n_known", 0) >= rules["minimum_known"]
+                    and current < typical * rules["low_ratio"]
+                ):
+                    add(
+                        rule,
+                        f"{label}: {current:.1f}, compared with a same-faction median of "
+                        f"{typical:.1f} from {median['n_known']} known fights.",
+                        action,
+                        [
+                            f"subject.druid.metrics.{metric}",
+                            f"benchmarks.baseline.medians.{metric}",
+                            "subject.druid.casts",
+                            "subject.druid.healing_targets",
+                        ],
+                        "raid-assignment",
+                    )
+                    items[-1]["observed"] = {"metric": metric, "value": current}
+                    items[-1]["benchmark"] = {
+                        "view": "baseline",
+                        "metric": metric,
+                        "value": typical,
+                        "n_known": median["n_known"],
+                    }
+        casts = druid.casts.value
+        for spell in rules["cooldowns"]:
+            # Only compare fights that are not substantially longer than yours;
+            # no cooldown is prescribed solely because a top player used it.
+            known = [
+                e
+                for e in cohort
+                if e.druid.casts.value is not None
+                and subject.participant.duration_ms
+                >= e.participant.duration_ms * rules["minimum_duration_ratio"]
+            ]
+            users = sum((e.druid.casts.value or {}).get(spell, 0) > 0 for e in known)
+            if (
+                casts is not None
+                and not casts.get(spell, 0)
+                and users >= rules["minimum_known"]
+                and users > len(known) / 2
+            ):
+                add(
+                    "druid-healing-cooldown-review-v1",
+                    f"No {spell} cast recorded; {users} of {len(known)} comparable-duration "
+                    "sample fights used it.",
+                    f"Review whether {spell} had an assigned use or a useful opportunity. "
+                    "Check mana needs, emergency coverage and reservations with the healing "
+                    "team before copying another healer's cooldown timing.",
+                    ["subject.druid.casts", "cohort"],
+                    "raid-assignment",
+                )
+                items[-1]["observed"] = {"spell": spell, "casts": 0}
+                items[-1]["benchmark"] = {
+                    "view": "baseline",
+                    "spell": spell,
+                    "users": users,
+                    "n_known": len(known),
+                }
     if role in (FightRole.FERAL, FightRole.BALANCE):
         metric = "damage_per_second"
         median = medians.get(metric)
@@ -362,10 +455,14 @@ def boss_section(
         "medians": medians,
         "excluded_incompatible": len(boss.cohort) - len(applicable),
         "builds_differing": sum(
-            e.druid.build.value != subject.druid.build.value for e in applicable
+            e.druid.build.value is not None
+            and subject.druid.build.value is not None
+            and e.druid.build.value != subject.druid.build.value
+            for e in applicable
         )
         if subject is not None
         else 0,
+        "builds_unknown": sum(e.druid.build.value is None for e in applicable),
         "build_policy": "recorded-per-entry; not filtered",
         "limited_sample": len(applicable) < 3,
         "note": "Same class, encounter, faction, WCL category, duty, metric and partition. "
@@ -427,9 +524,41 @@ def boss_section(
     primary = {
         FightRole.BALANCE: ["damage", "damage_per_second"],
         FightRole.FERAL: ["damage", "damage_per_second"],
-        FightRole.HEALER: ["effective_healing", "effective_healing_per_second", "overhealing_pct"],
+        FightRole.HEALER: [
+            "effective_healing",
+            "effective_healing_per_second",
+            "healing_casts_per_minute",
+            "overhealing_pct",
+        ],
         FightRole.TANK: ["incoming_damage", "incoming_damage_per_second", "healing_received"],
     }.get(role, ["damage", "damage_per_second", "effective_healing", "incoming_damage"])
+    encounter = encounter_rules("classic_era", "naxxramas", boss.encounter_id)
+    assessment_limits = []
+    if subject is not None:
+        if subject.druid.build.value is None:
+            assessment_limits.append(
+                "Talent build was not recorded; event analysis and "
+                "comparisons remain available without it."
+            )
+        if role == FightRole.HEALER:
+            if subject.druid.metrics["overhealing_pct"].value is None:
+                assessment_limits.append(
+                    "Overhealing review unavailable: "
+                    + (
+                        subject.druid.metrics["overhealing"].note
+                        or subject.druid.metrics["overhealing_pct"].note
+                        or "unknown healing total"
+                    )
+                    + ". Missing values are not treated as zero."
+                )
+            if encounter.healing_restriction:
+                assessment_limits.append(encounter.healing_restriction)
+                practice += " " + encounter.healing_restriction
+            if len(applicable) < 3:
+                assessment_limits.append(
+                    "Fewer than three eligible comparison fights; "
+                    "no median-based healing review is available."
+                )
     return {
         "encounter_id": boss.encounter_id,
         "boss": boss.boss,
@@ -458,7 +587,9 @@ def boss_section(
             "raid_utility": None,
             "cohort_target_integrity": [],
         },
-        "recommendations": [] if subject is None else _recommendations(subject, medians),
+        "recommendations": []
+        if subject is None
+        else _recommendations(subject, medians, applicable),
         "playbook": {
             "encounter_facts": to_data(gamedata.encounter_facts("naxxramas", boss.encounter_id)),
             "excluded_subject": section(boss.subject)
@@ -485,6 +616,7 @@ def boss_section(
             "guidance": practice + " Use the recorded first ten seconds as a practice example, "
             "not a universal optimal opener. Check assignments before copying it.",
             "primary_metrics": primary,
+            "assessment_limits": assessment_limits,
             "limitations": list(LIMITATIONS),
         },
     }

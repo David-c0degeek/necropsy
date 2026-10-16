@@ -33,7 +33,33 @@ def experience(document: Mapping[str, Any], class_name: str) -> dict[str, Any]:
         entries = base.get("entries")
         count = len(entries) if isinstance(entries, list) else entries
         medians = base.get("medians") or {}
-        missing = any(m.get("value", {}).get("value") is None for m in medians.values())
+        play = boss.get("playbook") or {}
+        relevant = play.get("primary_metrics") or list(medians)
+        measurements = (subject or {}).get("druid") or (subject or {}).get("combat") or {}
+        measurements = measurements.get("metrics") or {}
+        unavailable = []
+        for name in relevant:
+            median = medians.get(name) or {}
+            personal = measurements.get(name) or {}
+            reasons = []
+            if personal and personal.get("value") is None:
+                reasons.append("your value: " + (personal.get("note") or "unknown"))
+            if median.get("value", {}).get("value") is None:
+                known = median.get("n_known")
+                reasons.append(
+                    f"median unavailable ({known} known; needs 3)"
+                    if known is not None
+                    else "median unavailable"
+                )
+            if reasons:
+                label = {"overhealing_pct": "Overhealing percentage"}.get(
+                    name, name.replace("_", " ").capitalize()
+                )
+                unavailable.append(label + ": " + "; ".join(reasons) + ".")
+        missing = bool(unavailable)
+        quality_note = (
+            "No eligible same-faction event baseline." if not count else " ".join(unavailable)
+        )
         limited = count is None or count < 4 or missing
         quality = (
             "No reliable comparison"
@@ -63,6 +89,8 @@ def experience(document: Mapping[str, Any], class_name: str) -> dict[str, Any]:
             "attention": bool(recs),
             "limited": limited,
             "quality": quality,
+            "quality_note": quality_note,
+            "unavailable_measurements": unavailable,
             "sources": "Unknown" if count is None else str(count),
             "membership_label": "Faction membership inferred"
             if (base.get("membership") or {}).get("level") == "inferred"
@@ -93,11 +121,13 @@ def experience(document: Mapping[str, Any], class_name: str) -> dict[str, Any]:
     priorities.sort(key=lambda r: r["order"])
     # One example per rule avoids a raid-wide issue occupying every priority slot.
     unique: dict[str, dict[str, Any]] = {}
+    rule_bosses: dict[str, set[str]] = {}
     for priority in priorities:
         rule = priority["rule"]
         if rule not in unique:
             unique[rule] = {**priority, "boss_count": 0}
-        unique[rule]["boss_count"] += 1
+        rule_bosses.setdefault(rule, set()).add(priority["boss_anchor"])
+        unique[rule]["boss_count"] = len(rule_bosses[rule])
     coverage = document["coverage"]
     gaps = coverage.get("streams_not_complete")
     issues = coverage.get("snapshot_issues")

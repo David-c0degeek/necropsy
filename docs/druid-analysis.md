@@ -49,7 +49,7 @@ healing as Balance DPS or turns a Guardian ranking into proof that you tanked.
 are refused. Use a separate output directory for each view.
 
 Learning examples require matching category, metric, partition and inferred duty,
-known build/faction/difficulty, complete actor source/target streams, and no
+known faction/difficulty, complete actor source/target streams, and no
 assignment override. They are labelled with their actual leaderboard position.
 The highest acquired example may be #4; it is never relabelled #1. Saved overall
 #1 category metadata is separate from acquired event evidence. `--cross-faction`
@@ -103,6 +103,12 @@ three recorded direct encounter-enemy melee/Hateful Strike hits alongside
 repeated bear-only actions. Raid AoE, bear form or talents alone do not establish
 tanking. This is an inference to review, not a statement of the raid's assignment.
 
+Loatheb's encounter rule lowers the healing-action minimum to one: Corrupted Mind
+restricts healing opportunities, so one or two heals can establish a healing
+signal. Coverage and competing-duty checks still apply. Whole-fight healing
+cadence and throughput findings are suppressed on this encounter; review the
+assigned healing rotation instead.
+
 Multiple qualifying signals produce hybrid duties. Incomplete actor streams or
 insufficient signals leave the aggregate role unknown. The activity spans show
 the first and last qualifying casts; they are not continuous assignment windows.
@@ -110,8 +116,9 @@ No whole-fight benchmark is offered for mixed, uncertain or overridden duties.
 
 A primary comparison uses the same known class, encounter, faction, WCL category,
 duty, metric, difficulty and partition, within Classic Era Naxxramas. Different
-known talent-point builds remain in this selected-spec group, with each build
-shown and the number of differing builds disclosed. **One or two event sources
+known talent-point builds and unknown builds remain in this selected-spec group,
+with known differences and unknown builds disclosed separately. Missing talents
+do not prevent event analysis or recommendations. **One or two event sources
 still provide direct comparisons**, labelled as a limited sample with individual
 measurements, signed differences and source links. Medians summarize three or more
 known metric values. Unknown measurements stay unknown; a percentage difference
@@ -153,8 +160,22 @@ Hunter-specific ranking exclusions and pet/shot advice never apply to Druids.
 
 Restoration shows effective healing, healing rate, overheal where present,
 targets and spell use. WCL event `amount` is effective healing; `overheal` is
-separate. Missing overheal is unknown, never zero. Raw HPS and overheal cannot
+separate. WCL's sparse heal payload omits `overheal` when zero (as handled by
+[WoWAnalyzer's healing parser](https://github.com/WoWAnalyzer/WoWAnalyzer/blob/midnight/src/parser/shared/modules/throughput/HealingDone.tsx)).
+Explicit null, malformed or negative overheal stays unknown; complete source
+coverage is still required for totals. Raw HPS and overheal cannot
 rank healing quality without assignments, incoming raid damage and other healers.
+
+Healing review prompts cover overhealing above 50%, cast rate or effective HPS
+below 80% of a same-faction median with at least three known values, and unused
+Innervate/Nature's Swiftness when at least three and a majority of comparable
+sources used it. Cooldown comparisons exclude fights substantially longer than
+yours (your duration must be at least 80% of the source duration). These are
+low-confidence assignment reviews, not instructions to chase HPS or cast more.
+Findings retain observed values, known source counts, evidence and limitations.
+Unavailable primary measurements are named with their reasons; missing tank
+mitigation fields do not mark healer comparisons unavailable. Assessment limits
+also explain skipped overheal reviews and restricted-healing mechanics.
 
 Tanking shows incoming damage, healing received, death recaps, available
 mitigation fields, form evidence and cooldown timings. Missing mitigation,

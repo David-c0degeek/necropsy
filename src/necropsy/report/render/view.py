@@ -21,6 +21,10 @@ from typing import Any
 
 
 RULE_HEADINGS: dict[str, str] = {
+    "druid-healing-cadence-review-v1": "Review healing cast timing and assignments",
+    "druid-healing-throughput-review-v1": "Review healing coverage and spell choices",
+    "druid-healing-cooldown-review-v1": "Review healing cooldown opportunities",
+    "druid-healing-context-v1": "Review overhealing in context",
     "talent-build": "Consider the common talent build",
     "darkmoon-faire": "Match the common Darkmoon Faire buff",
     "trinket": "Review your trinket choice",
