@@ -8,13 +8,13 @@ Reconciled 2026-10-16 against plan sign-offs, manual-action records, current bra
 | Public PKCE and installable CLI | Complete; accepted and released | [Distribution plan](Distribution-Plan.md) |
 | Druid analysis | Complete; accepted with documented evidence limits | [Class expansion plan](ClassExpansion-Plan.md) |
 | Remaining Classic Era classes | Complete; accepted with documented evidence limits | [All classes plan](AllClasses-Plan.md) |
-| Game talent trees and WCL categories | Closed by David; implemented and verified on `improve-class-taxonomy` | [Class taxonomy plan](ClassTaxonomy-Plan.md) |
+| Game talent trees and WCL categories | Closed by David; verified and integrated into main | [Class taxonomy plan](ClassTaxonomy-Plan.md) |
 | Product UX and desktop shell | Implemented; native/manual acceptance limits remain | [UX](product-ux.md), [desktop](desktop-gui.md) |
 | GUI-first installation | Complete; released | [Installation work](gui-default-install.md) |
 | Healer corrections | Complete; released in 0.3.1 | [Healer corrections](healer-analysis-fixes.md) |
 | Saved-source unknown recovery | Complete on main | [Recovery record](necropsy/unknown-recovery.md) |
 
-No active implementation plan or unresolved required human action was found. GitHub had no open issues or pull requests at reconciliation. Taxonomy integration into main and any subsequent release remain outstanding delivery choices, outside its completed implementation scope. Latest published release observed: 0.3.1.
+No active implementation plan or unresolved required human action was found. GitHub had no open issues or pull requests at reconciliation. David authorized taxonomy integration into main on 2026-10-16; main fast-forwarded to the verified feature branch without conflicts. A subsequent release remains an outstanding delivery choice, outside its completed implementation scope. Latest published release observed: 0.3.1.
 
 ## Remaining opportunities
 
