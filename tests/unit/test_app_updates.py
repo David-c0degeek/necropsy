@@ -259,7 +259,8 @@ def test_failed_update_preserves_the_active_launchers(
         next(a for a in raw["assets"] if a["name"] == name)["digest"] = None
         updater.checked = updates.parse_release(raw)
     elif failure == "changed_release":
-        raw["assets"][0]["id"] += 9999
+        selected = updater._names(updater.checked)[0]
+        next(asset for asset in raw["assets"] if asset["name"] == selected)["id"] += 9999
 
     def install(*_: Any) -> None:
         calls.append("install")
@@ -286,7 +287,7 @@ def test_update_operations_do_not_start_auth_or_accept_arbitrary_links(tmp_path:
     raw, files = release_fixture()
     engine = DesktopEngine(lambda _: None, RunLibrary(tmp_path))
     calls: list[httpx.Request] = []
-    engine.updater = AppUpdater(connection=connection_factory(raw, files, calls))
+    engine.updater = AppUpdater("0.3.1", connection=connection_factory(raw, files, calls))
     result = engine.dispatch("check_updates", {})
     assert result["available"] and engine.service._auth is None
     with pytest.raises(ValueError, match="manual update"):
