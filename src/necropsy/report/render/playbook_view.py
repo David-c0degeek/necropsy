@@ -188,7 +188,9 @@ def cohort(entry: Mapping[str, Any], names: Mapping[str, str]) -> dict[str, Any]
         "wf_status": str(env["windfury"]["status"]),
         "dps": number(entry["ranking"].get("ranked_dps")),
         "dps_note": (
-            str(
+            str(entry["ranking"]["ranked_dps_evidence"].get("note") or "Recorded WCL DPS")
+            if entry["ranking"].get("ranked_dps_evidence", {}).get("value") is not None
+            else str(
                 (entry["ranking"].get("external") or {}).get("note")
                 or "Event-derived ranked DPS is unavailable."
             )

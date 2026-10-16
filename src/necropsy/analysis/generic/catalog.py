@@ -16,7 +16,7 @@ from typing import Any
 import duckdb
 
 from necropsy.analysis import gamedata
-from necropsy.analysis.context import ParticipantFight
+from necropsy.analysis.context import ParticipantFight, realm_key
 from necropsy.analysis.evidence import Evidenced, EvidenceRef, observed, unknown
 from necropsy.rules import load_rules
 
@@ -25,6 +25,98 @@ RULES_SOURCE = "rules-items"
 GAME_SOURCE = "game-client-data"
 _PLACEHOLDERS = frozenset({"Unknown Item"})
 """Names WCL uses when it could not resolve an item; never treated as a real name."""
+
+
+def recorded_hunter_dps(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> Evidenced[float]:
+    """Recorded WCL score, independently of whether pet events can be reconstructed.
+
+    Only live Hunter DPS acquisitions qualify. Never turn a score into damage
+    totals, pet attribution or event coverage.
+    """
+    meta = con.execute("SELECT mode, partition_id, acquisition FROM snapshot_meta").fetchone()
+    if meta is None or meta[0] != "live":
+        return unknown("no live Hunter DPS acquisition")
+    acquisition = json.loads(meta[2]) if isinstance(meta[2], str) else meta[2]
+    records = [
+        r for r in (acquisition or {}).get("bosses", []) if r.get("encounter_id") == pf.encounter_id
+    ]
+    if len(records) != 1:
+        return unknown("no unique acquisition context for this encounter")
+    key = records[0].get("key") or {}
+    required = {
+        "site": "vanilla.warcraftlogs.com",
+        "game": "classic_era",
+        "zone": 2006,
+        "partition": meta[1],
+        "encounter": pf.encounter_id,
+        "role": "dps",
+        "class_name": "Hunter",
+        "difficulty": 0,
+    }
+    for name, value in required.items():
+        dim = key.get(name) or {}
+        if (
+            type(dim.get("value")) is not type(value)
+            or dim.get("value") != value
+            or dim.get("status") != "enforced"
+        ):
+            return unknown("acquisition does not establish the Hunter DPS category")
+    spec = key.get("spec") or {}
+    kind = "subject" if pf.kind == "you" else "leaderboard"
+    rows = con.execute(
+        """SELECT source, row_index, player, raw FROM rankings
+           WHERE kind = ? AND encounter_id = ? AND report_code = ? AND fight_id = ?
+             AND player = ?
+           ORDER BY source, row_index""",
+        [kind, pf.encounter_id, pf.report_code, pf.fight_id, pf.player],
+    ).fetchall()
+    refs = []
+    amounts = set()
+    for source, index, player, raw in rows:
+        row = json.loads(raw) if isinstance(raw, str) else raw
+        report = row.get("report") or {}
+        amount = row.get("amount")
+        server = row.get("server") or {}
+        if (
+            player != pf.player
+            or report.get("code") != pf.report_code
+            or type(report.get("fightID")) is not int
+            or report["fightID"] != pf.fight_id
+            or not (
+                row.get("class") == "Hunter"
+                or (type(row.get("class")) is int and row["class"] == 3)
+            )
+            or (kind == "leaderboard" and row.get("name") != pf.player)
+            or (
+                kind == "leaderboard"
+                and (type(row.get("hardModeLevel")) is not int or row["hardModeLevel"] != 0)
+            )
+            or (spec.get("status") == "enforced" and row.get("spec") != spec.get("value"))
+            or (
+                pf.server is not None
+                and server.get("name") is not None
+                and realm_key(server["name"]) != realm_key(pf.server)
+            )
+            or type(amount) not in (int, float)
+            or not math.isfinite(amount)
+            or amount < 0
+        ):
+            return unknown("ranking identity or DPS amount is invalid")
+        amounts.add(float(amount))
+        refs.append(
+            EvidenceRef(
+                pf.report_code,
+                pf.fight_id,
+                pf.actor_id,
+                "rankings",
+                detail=f"{source}, row {index}; recorded WCL Hunter DPS",
+            )
+        )
+    if len(amounts) != 1:
+        return unknown("no matching ranking score or ranking scores disagree", *refs)
+    return observed(
+        amounts.pop(), *refs, note="Recorded WCL DPS; event reconstruction unavailable."
+    )
 
 
 @dataclass(frozen=True, slots=True)

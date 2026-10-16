@@ -33,6 +33,14 @@ JSON with the same Necropsy version remains deterministic. See
 
 ## Guarantees
 
+For live Hunter DPS analyses, `ranking.ranked_dps` falls back to the recorded WCL
+score when event reconstruction is unavailable. The row must match the player,
+report, fight, encounter and acquired category; conflicting scores stay unknown.
+`ranking.ranked_dps_evidence` records this source and its limitation (also on a
+ceiling or overall-top entry that uses it). Event damage totals, pet attribution
+and coverage remain independently evidenced: a known WCL DPS score does not
+make missing pet events complete. Historical snapshot calculations are unchanged.
+
 - **Deterministic.** The same snapshot and options give byte-identical output: no
   wall-clock time, keys sorted, floats rounded to 6 digits, every list in a defined
   order (chronological lists stay chronological).

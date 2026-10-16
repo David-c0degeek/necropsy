@@ -46,6 +46,7 @@ from necropsy.analysis.evidence import (
     unknown,
 )
 from necropsy.analysis.generic import cohort
+from necropsy.analysis.generic.catalog import recorded_hunter_dps
 from necropsy.analysis.generic.environment import EnvironmentProfile, environment_profile
 from necropsy.analysis.generic.targets import RankedTarget, RankingDamage, ranking_damage
 from necropsy.analysis.roles import CLASS_NAMES, RoleOverride
@@ -77,6 +78,7 @@ class Entry:
     ranking: RankingDamage
     pets_listed: bool
     raptor_roles: Evidenced[RaptorRoles]
+    recorded_dps: Evidenced[float] | None = None
 
     @property
     def hunter(self) -> HunterAnalysis:
@@ -99,7 +101,9 @@ class Entry:
     @property
     def ranked_dps(self) -> float | None:
         value = self.ranking.ranked.value
-        return None if value is None else value / (self.participant.duration_ms / 1000.0)
+        if value is not None:
+            return value / (self.participant.duration_ms / 1000.0)
+        return None if self.recorded_dps is None else self.recorded_dps.value
 
 
 @dataclass(frozen=True, slots=True)
@@ -207,6 +211,9 @@ def analyze_entry(
         class_analysis=result,
         ranking=ranking,
         pets_listed=pet_listing_known(con, pf),
+        recorded_dps=recorded_hunter_dps(con, pf)
+        if isinstance(result, HunterAnalysis) and ranking.ranked.value is None
+        else None,
         raptor_roles=raptor_roles(con, pf, rules, result.shots["raptor_strike"].casts)
         if isinstance(result, HunterAnalysis)
         else unknown("not a Hunter ability"),

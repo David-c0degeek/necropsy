@@ -299,6 +299,17 @@
             }
           ],
           "title": "Ranked Dps"
+        },
+        "ranked_dps_evidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Evidence"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         }
       },
       "required": [

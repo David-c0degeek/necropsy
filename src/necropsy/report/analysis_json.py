@@ -205,6 +205,7 @@ class Ceiling(_Strict):
     player: str
     leaderboard_position: int | None
     ranked_dps: float | None
+    ranked_dps_evidence: Evidence | None = None
     kill_duration_s: float
     membership: Evidence
 
@@ -460,6 +461,7 @@ def _overall_top(
         "leaderboard_position": 1,
         "faction": to_data(e.profile.faction),
         "ranked_dps": None if e.ranked_dps is None else round(e.ranked_dps, 6),
+        **({"ranked_dps_evidence": to_data(e.recorded_dps)} if e.recorded_dps is not None else {}),
         "kill_duration_s": e.participant.duration_ms / 1000.0,
     }
     return result, None
@@ -510,6 +512,11 @@ def _entry(
         "ranking": {
             **to_data(e.ranking),
             "ranked_dps": None if dps is None else round(dps, 6),
+            **(
+                {"ranked_dps_evidence": to_data(e.recorded_dps)}
+                if e.recorded_dps is not None
+                else {}
+            ),
             "rank_percent": None if percent is None else to_data(percent),
         },
         "raptor_roles": to_data(e.raptor_roles),
@@ -572,6 +579,11 @@ def _boss(
                 "ranked_dps": None
                 if comparator.ranked_dps is None
                 else round(comparator.ranked_dps, 6),
+                **(
+                    {"ranked_dps_evidence": to_data(comparator.recorded_dps)}
+                    if comparator.recorded_dps is not None
+                    else {}
+                ),
                 "kill_duration_s": comparator.participant.duration_ms / 1000.0,
                 "membership": to_data(membership((comparator,), subject)),
             }
