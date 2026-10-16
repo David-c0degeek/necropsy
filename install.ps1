@@ -92,8 +92,11 @@ try {
     $guiRoot = Join-Path $environmentRoot 'gui'
     Expand-Archive -LiteralPath $guiArchive -DestinationPath $guiRoot
     $gui = Join-Path $guiRoot 'Necropsy\necropsy-desktop.exe'
-    $guiVersion = & $gui --check-install
-    if ($LASTEXITCODE -ne 0 -or "$guiVersion".Trim() -ne "necropsy $necropsyVersion") {
+    $guiOutput = Join-Path $workRoot 'gui-check.txt'
+    $guiError = Join-Path $workRoot 'gui-check-error.txt'
+    $guiCheck = Start-Process -FilePath $gui -ArgumentList '--check-install' -Wait -PassThru -WindowStyle Hidden -RedirectStandardOutput $guiOutput -RedirectStandardError $guiError
+    $guiVersion = Get-Content -Raw -LiteralPath $guiOutput
+    if ($guiCheck.ExitCode -ne 0 -or "$guiVersion".Trim() -ne "necropsy $necropsyVersion") {
         throw 'The graphical app could not start. Your previous launcher has been preserved.'
     }
 

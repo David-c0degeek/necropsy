@@ -24,3 +24,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Guided terminal and installation](0009-guided-terminal-and-installation.md) | TUI lifecycle, saved-run library, quota supervisor and private bootstrap runtime |
 
 | [Graphical desktop](0010-graphical-desktop.md) | Tauri shell, allowlisted process bridge, shared analysis service, sandboxed reports and independent desktop verification |
+
+| [GUI-first installation](0011-gui-default-installation.md) | Native default launch, staged GUI/CLI upgrades, per-OS bootstrap checks and publish-before-switch release ordering |

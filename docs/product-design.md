@@ -120,3 +120,16 @@ tokens remain exclusively in the approved OS vault.
 
 Regenerate the terminal screenshot with `uv run python scripts/capture_tui.py`.
 The capture uses an isolated empty library and blocks remote font/network requests.
+
+## Default desktop entry
+
+The graphical shell is now the default first-run and launcher experience. It
+imports the Playbook's stylesheet, including mode, class, raid, typography and
+focus tokens. New analysis and the searchable library keep paths and endpoint
+choices out of the normal flow. Native shortcuts open a GUI without a terminal.
+`necropsy tui` retains the terminal experience above as an explicit option.
+
+Capture the Windows release window with `scripts/check_desktop_window.py`, using
+its temporary profile/library. The same check exercises the actual report frame,
+review marks, links, invalid-input recovery and save-before-quit. See the
+[desktop guide](desktop.md) for per-platform verification limits.

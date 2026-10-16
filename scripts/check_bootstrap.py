@@ -74,7 +74,7 @@ def check(bundle: Path, receipt: Path) -> None:
         tempfile.TemporaryDirectory(prefix="necropsy-bootstrap-") as temporary,
         contextlib.ExitStack() as stack,
     ):
-        root = Path(temporary) / "fresh app with spaces"
+        root = Path(temporary).resolve() / "fresh app with spaces"
         env = {k: v for k, v in os.environ.items() if not k.startswith("NECROPSY_")}
         env["UV_PYTHON_INSTALL_DIR"] = str(root / "runtime/python")
         if os.name == "nt":
