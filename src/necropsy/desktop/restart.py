@@ -60,7 +60,7 @@ def restart_after_exit(pid: int, gui: Path) -> None:
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
                 env=environment,
-                creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0,
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
             )
     except (OSError, TimeoutError) as error:
         (gui.parent / "restart-error.log").write_text(str(error), encoding="utf-8")

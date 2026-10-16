@@ -60,7 +60,9 @@ def managed_root(executable: Path) -> Path | None:
 
 
 def _process_options() -> dict[str, Any]:
-    return {"creationflags": subprocess.CREATE_NO_WINDOW} if sys.platform == "win32" else {}
+    if sys.platform == "win32":
+        return {"creationflags": subprocess.CREATE_NO_WINDOW}
+    return {}
 
 
 def verify_installed_gui(root: Path, version: str) -> Path:

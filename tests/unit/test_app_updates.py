@@ -313,7 +313,7 @@ def test_restart_waits_for_the_old_gui_before_launching_the_verified_app(
 def test_restart_waits_for_a_real_child_process_to_exit() -> None:
     child = subprocess.Popen(
         [sys.executable, "-c", "import time; time.sleep(0.1)"],
-        creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0,
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
     )
     reaper = threading.Thread(target=child.wait)
     reaper.start()
