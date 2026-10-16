@@ -15,7 +15,7 @@ from __future__ import annotations
 import contextlib
 import secrets
 import shutil
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 
 STAGING_PREFIX = ".necropsy-staging-"
@@ -34,11 +34,18 @@ def _remove_tree(path: Path) -> None:
     shutil.rmtree(path, ignore_errors=True)
 
 
-def publish(out_dir: Path, files: Mapping[str, bytes | None]) -> None:
+def publish(
+    out_dir: Path,
+    files: Mapping[str, bytes | None],
+    *,
+    finalize: Callable[[], None] | None = None,
+) -> None:
     """Make `out_dir` hold exactly these file contents for these names.
 
     `files` maps a plain file name to its bytes, or to None to remove an old file
     of that name (a stale artifact). Other files in `out_dir` are never touched.
+    An optional finalizer atomically commits associated metadata before backups
+    are discarded. If it fails, the previous output files are restored too.
     """
     for name in files:
         if Path(name).name != name or name.startswith(".") or "/" in name or "\\" in name:
@@ -60,7 +67,7 @@ def publish(out_dir: Path, files: Mapping[str, bytes | None]) -> None:
         for name, data in sorted(files.items()):
             if data is not None:
                 (staging / name).write_bytes(data)
-        _swap(out_dir, staging, backup, files)
+        _swap(out_dir, staging, backup, files, finalize)
     except BaseException:
         _remove_tree(staging)
         if created:
@@ -71,7 +78,13 @@ def publish(out_dir: Path, files: Mapping[str, bytes | None]) -> None:
     _remove_tree(backup)
 
 
-def _swap(out_dir: Path, staging: Path, backup: Path, files: Mapping[str, bytes | None]) -> None:
+def _swap(
+    out_dir: Path,
+    staging: Path,
+    backup: Path,
+    files: Mapping[str, bytes | None],
+    finalize: Callable[[], None] | None = None,
+) -> None:
     placed: list[str] = []
     saved: list[str] = []
     try:
@@ -84,6 +97,8 @@ def _swap(out_dir: Path, staging: Path, backup: Path, files: Mapping[str, bytes 
             if files[name] is not None:
                 (staging / name).replace(target)
                 placed.append(name)
+        if finalize is not None:
+            finalize()
     except BaseException as exc:
         if not _rollback(out_dir, backup, placed, saved):
             raise PublishError(

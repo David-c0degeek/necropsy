@@ -797,6 +797,25 @@ h1[tabindex="-1"]:focus {
   justify-content: flex-end;
   gap: 10px;
 }
+.update-dialog {
+  width: min(640px, calc(100vw - 48px));
+  max-width: 640px;
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+}
+.update-dialog .dialog-actions {
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.update-notes {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 13px/1.6 var(--body);
+  color: var(--text-muted);
+  max-height: 260px;
+  overflow: auto;
+  padding: 12px 0;
+}
 .report-main {
   padding: 0;
   max-width: none;

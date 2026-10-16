@@ -86,7 +86,10 @@ class BlockingService(AnalysisService):
         raise Stopped
 
 
-def test_stop_is_read_while_analysis_is_running_and_shutdown_waits(tmp_path: Path) -> None:
+@pytest.mark.parametrize("other", ["demo", "check_updates", "install_update", "refresh_reports"])
+def test_stop_is_read_while_analysis_is_running_and_shutdown_waits(
+    tmp_path: Path, other: str
+) -> None:
     messages: list[dict[str, Any]] = []
     service = BlockingService()
     library = RunLibrary(tmp_path)
@@ -96,7 +99,7 @@ def test_stop_is_read_while_analysis_is_running_and_shutdown_waits(tmp_path: Pat
     engine = DesktopEngine(messages.append, library, service)
     engine.handle({"id": 1, "method": "resume", "params": {"id": str(run.out)}})
     assert service.started.wait(5)
-    engine.handle({"id": 2, "method": "demo"})
+    engine.handle({"id": 2, "method": other})
     engine.handle({"id": 3, "method": "stop"})
     engine.shutdown()
     assert any(m.get("id") == 2 and "already running" in m["error"] for m in messages)

@@ -14,7 +14,65 @@ import tempfile
 import time
 from pathlib import Path
 
-from playwright.sync_api import expect, sync_playwright
+from playwright.sync_api import Page, expect, sync_playwright
+
+
+def check_update_controls(page: Page, screenshots: Path) -> None:
+    """Exercise UI states using release fixtures; actual update policy has backend tests."""
+    page.evaluate("""() => {
+      const original = window.__TAURI_INTERNALS__.invoke;
+      const originalFetch = window.fetch;
+      window.necropsyUpdateFixture = 'current';
+      window.fetch = async function(address, options) {
+        const isRequest = String(address) === 'http://ipc.localhost/engine_request';
+        const message = isRequest ? JSON.parse(options.body)?.message : null;
+        const update = ['check_updates', 'install_update'].includes(message?.method);
+        if (update) {
+          const mode = window.necropsyUpdateFixture;
+          const failure = message.method === 'install_update'
+            ? 'An update checksum did not match. Nothing was installed.'
+            : mode === 'offline' ? 'Could not check for updates. '
+              + 'Check your connection and try again.' : null;
+          const result = {
+            installed_version:'0.3.1', latest_version:mode === 'current' ? '0.3.1' : '0.4.0',
+            available:mode !== 'current', can_install:mode === 'future', restart_required:false,
+            release_url:'https://github.com/David-c0degeek/necropsy/releases/tag/v0.4.0',
+            notes:'<script>window.updateInjected = true</script>',
+            message:mode === 'current' ? 'You are using the latest available version.'
+              : 'An update is available.'
+          };
+          await original('plugin:event|emit', {event:'engine-message', payload:{
+            id:message.id, ...(failure ? {error:failure} : {result})
+          }});
+          return new Response('null', {headers:{
+            'Tauri-Response':'ok', 'Content-Type':'application/json'
+          }});
+        }
+        return originalFetch(address, options);
+      };
+    }""")
+    page.get_by_role("button", name="Check for updates", exact=True).click()
+    dialog = page.get_by_role("dialog", name="App updates")
+    expect(dialog.get_by_role("status")).to_have_text("You are using the latest available version.")
+    assert dialog.get_by_role("button", name="Update and restart").count() == 0
+    dialog.get_by_text("Release notes", exact=True).click()
+    assert "window.updateInjected" in dialog.locator("pre").inner_text()
+    assert page.evaluate("window.updateInjected === undefined")
+    page.screenshot(path=str(screenshots / "desktop-update-current-fixture.png"))
+    page.evaluate("window.necropsyUpdateFixture = 'offline'")
+    dialog.get_by_role("button", name="Check again").click()
+    expect(dialog.get_by_role("alert")).to_contain_text("Check your connection")
+    page.evaluate("window.necropsyUpdateFixture = 'manual'")
+    dialog.get_by_role("button", name="Check again").click()
+    expect(dialog.get_by_role("button", name="Open release page")).to_be_visible()
+    assert dialog.get_by_role("button", name="Update and restart").count() == 0
+    page.evaluate("window.necropsyUpdateFixture = 'future'")
+    dialog.get_by_role("button", name="Check again").click()
+    dialog.get_by_role("button", name="Update and restart").click()
+    expect(dialog.get_by_role("alert")).to_contain_text("Nothing was installed")
+    expect(dialog.get_by_role("button", name="Check again")).to_be_enabled()
+    dialog.get_by_role("button", name="Close", exact=True).click()
+    assert not page.get_by_role("dialog").count()
 
 
 def check(executable: Path, screenshots: Path) -> None:
@@ -100,7 +158,7 @@ def check(executable: Path, screenshots: Path) -> None:
                 assert page.locator("iframe").get_attribute("srcdoc")
                 box = frame.locator("input[data-review-key]").first
                 box.check()
-                frame.locator('a[href^="report.html#"]').first.click()
+                frame.locator('a[href^="report.html#"]:visible').first.click()
                 expect(page.get_by_role("button", name="Report", exact=True)).to_have_attribute(
                     "aria-pressed", "true"
                 )
@@ -120,6 +178,20 @@ def check(executable: Path, screenshots: Path) -> None:
                 page.get_by_role("button", name="Your analyses", exact=True).first.click()
                 assert page.get_by_role("heading", name="Your analyses", exact=True).is_visible()
                 assert page.get_by_role("button", name="Open Playbook").count() == 1
+                saved = next((root / "library/runs").glob("*/analysis.json"))
+                original_analysis = saved.read_bytes()
+                page.get_by_role("button", name="Update reports", exact=True).click()
+                expect(page.locator("iframe")).to_be_visible()
+                expect(page.get_by_role("status")).to_contain_text(
+                    "Saved reports updated", timeout=30000
+                )
+                assert saved.read_bytes() == original_analysis
+                assert len(list((root / "library/runs").glob("*/analysis.json"))) == 1
+                assert "Reports rendered by Necropsy" in (saved.parent / "playbook.html").read_text(
+                    encoding="utf-8"
+                )
+                page.get_by_role("button", name="Your analyses", exact=True).first.click()
+                check_update_controls(page, screenshots)
                 page.get_by_role("textbox", name="Search saved analyses").fill("no-such-character")
                 assert page.get_by_role("heading", name="No matching analyses").is_visible()
                 page.get_by_role("button", name="Clear search").click()
@@ -144,6 +216,7 @@ def check(executable: Path, screenshots: Path) -> None:
                 print(
                     "PASS: native window, real IPC, offline example, report scripts, "
                     "review persistence, library, save-before-quit."
+                    " Saved-report refresh and controlled update-dialog states passed."
                 )
         finally:
             if process.poll() is None:

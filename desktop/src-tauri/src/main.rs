@@ -23,6 +23,8 @@ fn start_engine(app: tauri::AppHandle, engine: State<Engine>) -> Result<(), Stri
         return Ok(());
     }
     let mut command = engine_command()?;
+    // A frozen engine has its own bootloader parent; pass the actual window PID.
+    command.env("NECROPSY_GUI_PID", std::process::id().to_string());
     if let Some(directory) = std::env::var_os("NECROPSY_DESKTOP_DATA_DIR") {
         command.arg("--data-dir").arg(directory);
     }

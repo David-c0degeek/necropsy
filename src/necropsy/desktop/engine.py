@@ -16,8 +16,10 @@ from uuid import uuid4
 
 from necropsy import __version__
 from necropsy.analysis.class_catalog import CLASS_NAMES, TALENT_TREES
+from necropsy.desktop.installer import AppUpdater
 from necropsy.report.offline import run_offline
 from necropsy.report.package import build_outputs, package_name
+from necropsy.report.refresh import refresh_saved_reports
 from necropsy.report.render import render_playbook, render_report, view_of
 from necropsy.tui.service import AnalysisService, RunLibrary, SavedRun, Stopped, categories
 from necropsy.wcl.cache import is_link
@@ -27,7 +29,19 @@ from necropsy.wcl.urls import parse_character_url
 
 Json = dict[str, Any]
 Emit = Callable[[Json], None]
-LONG_OPERATIONS = frozenset({"connect", "identify", "analyze", "resume", "demo", "snapshot"})
+LONG_OPERATIONS = frozenset(
+    {
+        "connect",
+        "identify",
+        "analyze",
+        "resume",
+        "demo",
+        "snapshot",
+        "refresh_reports",
+        "check_updates",
+        "install_update",
+    }
+)
 
 
 def describe_run(run: SavedRun) -> Json:
@@ -79,6 +93,7 @@ class DesktopEngine:
         self.worker: threading.Thread | None = None
         self.context: CharacterContext | None = None
         self.url = ""
+        self.updater = AppUpdater()
 
     @property
     def busy(self) -> bool:
@@ -109,6 +124,7 @@ class DesktopEngine:
                 self.emit({"id": request_id, "error": "An operation is already running."})
                 return
             self.stop.clear()
+            self.emit({"event": "operation", "data": method})
             self.emit({"event": "busy", "data": True})
             self.worker = threading.Thread(
                 target=self._work, args=(request_id, str(method), params), daemon=False
@@ -196,6 +212,35 @@ class DesktopEngine:
             return describe_run(self.library.import_run(str(params["path"])))
         if method in ("demo", "snapshot"):
             return self.offline(method, params)
+        if method == "refresh_reports":
+            self.service.check(self.stop)
+            run = self.find_run(str(params["id"]))
+            self.library.active_run = run.out
+            self.notify("Updating your saved Report, Playbook and package from existing data…")
+            refresh_saved_reports(run.out)
+            self.notify("Reports updated. Your saved analysis and source logs are unchanged.")
+            return {"run": describe_run(run), "partial": False, "refreshed": True}
+        if method == "check_updates":
+            self.service.check(self.stop)
+            self.notify("Checking Necropsy's published releases…")
+            return self.updater.check()
+        if method == "install_update":
+            if self.updater.installed_gui is None:
+                self.updater.install(self.notify, lambda: self.service.check(self.stop))
+            if not self.stop.is_set():
+                self.updater.restart()
+            return {"installed": True, "restart_ready": not self.stop.is_set()}
+        if method == "restart_update":
+            if self.busy:
+                raise ValueError("Wait for the current operation before restarting.")
+            self.updater.restart()
+            return {"restarting": True}
+        if method == "open_update_release":
+            if self.updater.checked is None:
+                raise ValueError("Check for an available update first.")
+            if not webbrowser.open(self.updater.checked.url):
+                raise ValueError("Could not open the release page. Try again from your browser.")
+            return None
         if method == "report":
             run = self.find_run(str(params["id"]))
             analysis = run.out / "analysis.json"
@@ -322,7 +367,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Necropsy desktop JSON bridge")
     parser.add_argument("--version", action="version", version=f"necropsy {__version__}")
     parser.add_argument("--data-dir", type=Path, help="Use an isolated saved-analysis library")
+    parser.add_argument("--restart-pid", type=int, help=argparse.SUPPRESS)
+    parser.add_argument("--restart-gui", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.restart_pid is not None or args.restart_gui is not None:
+        if args.restart_pid is None or args.restart_gui is None:
+            parser.error("Both restart arguments are required.")
+        from necropsy.desktop.restart import restart_after_exit
+
+        restart_after_exit(args.restart_pid, args.restart_gui)
+        return
     for stream in (sys.stdin, sys.stdout, sys.stderr):
         reconfigure = getattr(stream, "reconfigure", None)
         if reconfigure:

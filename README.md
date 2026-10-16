@@ -66,6 +66,9 @@ Windows gets a desktop/Start menu shortcut; macOS gets
 `Applications/Necropsy.app`; Linux gets an applications-menu launcher.
 You can also run `necropsy` in a new terminal. Repeating setup updates the app
 and preserves your sign-in, saved runs and reports.
+Desktop versions with **Check for updates** can install newer releases from the
+sidebar. **Update reports** refreshes saved HTML/packages without rerunning an
+analysis. See the [desktop guide](docs/desktop.md#update-the-app).
 
 ## Your first analysis
 

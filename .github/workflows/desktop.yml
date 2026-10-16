@@ -63,7 +63,7 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev librsvg2-dev patchelf libayatana-appindicator3-dev
       - run: uv sync --locked --group desktop-build
-      - run: uv run pytest tests/unit/test_desktop_engine.py -q
+      - run: uv run pytest tests/unit/test_desktop_engine.py tests/unit/test_report_refresh.py tests/unit/test_app_updates.py -q
       - run: uv run --group desktop-build python scripts/build_desktop.py
       - name: Verify the frozen engine outside the checkout
         run: uv run python scripts/check_desktop_engine.py ${{ matrix.engine }}

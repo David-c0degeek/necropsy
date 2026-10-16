@@ -67,14 +67,14 @@ version directories; saved-data and vault locations are separate from app files.
 | Fast suite | uv run pytest -m "not golden and not live and not acceptance" -q | Browser included |
 | UI | npm run build; npm run format:check | cwd desktop |
 | Native | cargo fmt --check; cargo clippy --locked -- -D warnings | cwd desktop/src-tauri |
-| Native runtime | uv run python scripts/check_desktop_window.py desktop/src-tauri/target/debug/necropsy-desktop.exe --screenshots workspace/desktop-updates | Requires Vite server; isolated app library/profile |
+| Native runtime | uv run python scripts/check_desktop_window.py desktop/src-tauri/target/x86_64-pc-windows-msvc/debug/necropsy-desktop.exe --screenshots workspace/desktop-updates | Requires Vite server; isolated app library/profile |
 | Frozen/installer | Existing build_desktop, package_desktop and check_bootstrap flows | Extend relevant smoke checks; platform boundaries documented |
 
 ## 3. Subject file index
 
 | # | File | Subject | Depends on |
 |---|---|---|---|
-| 00 | tasks/desktop-updates/00-tooling-research-and-readiness.md | Research and baseline | — |
+| 00 | tasks/desktop-updates/00-tooling-research-and-readiness.md | Research and baseline | â€” |
 | 01 | tasks/desktop-updates/01-saved-reports.md | Refresh known saved reports | 00 |
 | 02 | tasks/desktop-updates/02-release-checks.md | Stable release discovery | 00 |
 | 03 | tasks/desktop-updates/03-install-and-restart.md | Managed update and UI | 02 |
@@ -84,20 +84,22 @@ version directories; saved-data and vault locations are separate from app files.
 
 | ID | Date | Title | Decision | Rationale | Refs |
 |---|---|---|---|---|---|
-| D001 | 2026-10-16 | Distribution reuse | Use versioned published bootstrap assets, not Tauri plugin updater | No existing updater signing/release manifest; retain verified private-runtime staging | 02, 03; ADR to be added |
+| D001 | 2026-10-16 | Distribution reuse | Use versioned published bootstrap assets, not Tauri plugin updater | No existing updater signing/release manifest; retain verified private-runtime staging | 02, 03; ADR 0013 |
 | D002 | 2026-10-16 | Existing GUI rendering | Open Playbook already renders current templates; Update reports persists HTML/package | Earlier conversational assumption was incorrect; data conversion is unnecessary | 01; desktop guide |
 | D003 | 2026-10-16 | Proportional teardown | Waive whole-repo cleanup-audit; review touched surfaces for duplication/dead code | Feature-scoped work, no repository teardown requested | 04 |
 | D004 | 2026-10-16 | Release boundary | Implement and verify; no public release or personal install without a separate delivery instruction | Commit/push authorization does not itself publish release binaries | manual-actions.md |
+
+| D005 | 2026-10-16 | Frozen restart boundary | Pass native GUI PID; restart helper uses independent extraction and system subprocess library paths | One-file bootloader changes parent identity and owns temporary runtime lifetime | 03; ADR 0013 |
 
 ## 5. Master progress tracker
 
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | 00-tooling-research-and-readiness.md | DONE | agent: 8 | n/a |
-| [ ] | 01 | 01-saved-reports.md | TODO | agent: 3 | n/a |
-| [ ] | 02 | 02-release-checks.md | TODO | agent: 3 | n/a |
-| [ ] | 03 | 03-install-and-restart.md | TODO | agent: 3 | n/a |
-| [ ] | 04 | 04-verification-and-docs.md | TODO | agent: 3 | n/a |
+| [x] | 01 | 01-saved-reports.md | DONE | agent: 3 | n/a |
+| [x] | 02 | 02-release-checks.md | DONE | agent: 3 | n/a |
+| [x] | 03 | 03-install-and-restart.md | DONE | agent: 3 | n/a |
+| [ ] | 04 | 04-verification-and-docs.md | IN PROGRESS | agent: 2/3; delivery pending | n/a |
 
 ## 6. Cross-cutting principles
 
@@ -170,7 +172,7 @@ Check specifically for:
 - Behaviour closed on a green build alone: a box marked done on a passing build/test exit code without the changed flow exercised end-to-end (observed-vs-expected output).
 - Reuse missed or vision drift: new parallel code where existing code should have been extended, or a change that drifts from the project vision/ADRs (cross-check the subject's Integration analysis).
 - Human-owned actions that need to be mirrored or resolved.
-- Docs that drifted from shipped behaviour — user- and developer-facing alike (README, usage/HOWTO guides, CHANGELOG, API/command/config reference, architecture/onboarding docs, troubleshooting, examples, wiki, prompt/skill docs).
+- Docs that drifted from shipped behaviour â€” user- and developer-facing alike (README, usage/HOWTO guides, CHANGELOG, API/command/config reference, architecture/onboarding docs, troubleshooting, examples, wiki, prompt/skill docs).
 - Plan references that leaked into shipped code, tests, comments, identifiers,
   commit messages, branch names, PR titles, or PR descriptions.
 
@@ -180,7 +182,7 @@ artefacts: rerun the relevant verification command or cite its recorded output.
 Return exactly these sections:
 
 1. Keep: what was correct and should remain.
-2. Fix before closing: concrete issues, missing tests, spec drift, plan hygiene, or design problems — cite the file, test, or commit for each item.
+2. Fix before closing: concrete issues, missing tests, spec drift, plan hygiene, or design problems â€” cite the file, test, or commit for each item.
 3. Record: decisions or lessons that must be added to the plan files.
 4. Risk: anything still uncertain after verification.
 5. Verdict: CLOSE or DO NOT CLOSE.

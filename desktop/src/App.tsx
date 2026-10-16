@@ -19,6 +19,7 @@ import {
   X,
   AlertCircle,
   ExternalLink,
+  RefreshCw,
 } from "lucide-react";
 import {
   chooseExport,
@@ -31,6 +32,7 @@ import {
   startEngine,
 } from "./bridge";
 import { ReportFrame } from "./ReportFrame";
+import { Updates } from "./Updates";
 import type {
   Character,
   EngineMessage,
@@ -91,6 +93,7 @@ export default function App() {
   const [closeDialog, setCloseDialog] = useState(false);
   const [quitting, setQuitting] = useState(false);
   const [version, setVersion] = useState("");
+  const [operationName, setOperationName] = useState("");
   const busyRef = useRef(false);
   const closingRef = useRef(false);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -142,6 +145,7 @@ export default function App() {
         setActivity(message);
         setLogs((current) => [...current.slice(-199), message]);
       }
+      if (event.event === "operation") setOperationName(String(event.data));
       if (event.event === "countdown") setCountdown(Number(event.data));
       if (event.event === "browser") setBrowserUrl(String(event.data));
     };
@@ -271,8 +275,17 @@ export default function App() {
             "Progress saved. Continue your analysis from the library whenever you are ready.",
           );
         else if (result.run) {
-          if (result.partial) setNotice(result.run.detail);
-          await loadReport(result.run);
+          if (method === "refresh_reports")
+            setNotice(
+              "Saved reports updated from existing data. No logs were downloaded.",
+            );
+          else if (result.partial) setNotice(result.run.detail);
+          await loadReport(
+            result.run,
+            method === "refresh_reports" && reportRun?.id === result.run.id
+              ? reportView
+              : "playbook",
+          );
         }
       }
       await refresh();
@@ -353,6 +366,20 @@ export default function App() {
     [reportRun],
   );
   const available = ready && !busy && !reportLoading;
+  const updatingApp = operationName === "install_update" && busy;
+
+  async function restartAfterUpdate() {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    setQuitting(true);
+    try {
+      await quit();
+    } catch (error) {
+      closingRef.current = false;
+      setQuitting(false);
+      throw error;
+    }
+  }
   const matching = runs.filter((run) =>
     `${run.title} ${run.status}`.toLowerCase().includes(filter.toLowerCase()),
   );
@@ -413,6 +440,12 @@ export default function App() {
             {theme === "dark" ? "Light theme" : "Dark theme"}
           </button>
           <small className="version">Necropsy {version} · Classic Era</small>
+          <Updates
+            available={available}
+            version={version}
+            closing={closeDialog || quitting}
+            onRestart={restartAfterUpdate}
+          />
         </div>
       </aside>
 
@@ -769,6 +802,9 @@ export default function App() {
                       canOpen={ready && !reportLoading}
                       onOpen={() => void loadReport(run)}
                       onResume={() => void operation("resume", { id: run.id })}
+                      onRefresh={() =>
+                        void operation("refresh_reports", { id: run.id })
+                      }
                     />
                   ))}
                 </section>
@@ -842,6 +878,9 @@ export default function App() {
                     canOpen={ready && !reportLoading}
                     onOpen={() => void loadReport(run)}
                     onResume={() => void operation("resume", { id: run.id })}
+                    onRefresh={() =>
+                      void operation("refresh_reports", { id: run.id })
+                    }
                   />
                 ))}
               </div>
@@ -906,6 +945,17 @@ export default function App() {
                 <button
                   className="secondary"
                   disabled={!available}
+                  onClick={() =>
+                    reportRun &&
+                    void operation("refresh_reports", { id: reportRun.id })
+                  }
+                >
+                  <RefreshCw size={16} />
+                  Update reports
+                </button>
+                <button
+                  className="secondary"
+                  disabled={!available}
                   onClick={() => void exportReport()}
                 >
                   <Download size={16} />
@@ -947,7 +997,13 @@ export default function App() {
                       ? `Continuing automatically in ${minutes}`
                       : browserUrl
                         ? "Finish signing in through your browser"
-                        : "Working on your analysis"}
+                        : operationName === "check_updates"
+                          ? "Checking for app updates"
+                          : updatingApp
+                            ? "Updating Necropsy"
+                            : operationName === "refresh_reports"
+                              ? "Updating saved reports"
+                              : "Working on your analysis"}
                 </strong>
                 <p role="status" aria-live="polite">
                   {countdown > 0
@@ -966,7 +1022,7 @@ export default function App() {
               )}
               <button
                 className="secondary"
-                disabled={stopping}
+                disabled={stopping || updatingApp}
                 onClick={() => void stop()}
               >
                 <Square size={14} />
@@ -982,8 +1038,9 @@ export default function App() {
               </ol>
             </details>
             <p className="activity-tip">
-              First analyses can take a while. You can stop safely and continue
-              from Your analyses.
+              {updatingApp
+                ? "The update will finish safely before the app closes. Your saved analyses are preserved."
+                : "First analyses can take a while. You can stop safely and continue from Your analyses."}
             </p>
           </section>
         )}
@@ -1014,10 +1071,15 @@ export default function App() {
             }}
           >
             <ShieldCheck size={28} />
-            <h2 id="close-title">Save your progress before leaving?</h2>
+            <h2 id="close-title">
+              {updatingApp
+                ? "Finish the update before closing?"
+                : "Save your progress before leaving?"}
+            </h2>
             <p id="close-description">
-              We’ll finish the current step safely. You can continue this
-              analysis from your library next time.
+              {updatingApp
+                ? "We’ll finish installing safely before closing. Open Necropsy from its usual shortcut when you return."
+                : "We’ll finish the current step safely. You can continue this analysis from your library next time."}
             </p>
             <div className="dialog-actions">
               <button
@@ -1048,6 +1110,8 @@ export default function App() {
                     <LoaderCircle className="spin" size={17} />
                     Saving…
                   </>
+                ) : updatingApp ? (
+                  "Close when finished"
                 ) : (
                   "Save and quit"
                 )}
@@ -1074,12 +1138,14 @@ function RunRow({
   canOpen,
   onOpen,
   onResume,
+  onRefresh,
 }: {
   run: SavedRun;
   available: boolean;
   canOpen: boolean;
   onOpen: () => void;
   onResume: () => void;
+  onRefresh: () => void;
 }) {
   const done =
     run.status === "Complete" ||
@@ -1103,6 +1169,16 @@ function RunRow({
         {run.detail && <small>{run.detail}</small>}
       </div>
       <div className="run-actions">
+        {run.has_report && (
+          <button
+            className="text-button"
+            disabled={!available}
+            onClick={onRefresh}
+          >
+            <RefreshCw size={16} />
+            Update reports
+          </button>
+        )}
         {run.can_resume && (
           <button
             className="secondary"

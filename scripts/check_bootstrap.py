@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import contextlib
+import hashlib
 import json
 import os
 import platform
@@ -16,8 +17,81 @@ import threading
 from collections.abc import Iterator
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from unittest.mock import patch
+
+import httpx
 
 from necropsy import __version__
+from necropsy.desktop import updates
+from necropsy.desktop.installer import AppUpdater, verify_installed_gui
+
+
+def check_app_update(root: Path, bundle: Path, env: dict[str, str]) -> None:
+    """Use real packages/installers with a local future-release transport fixture."""
+    old_gui = verify_installed_gui(root, __version__)
+    engine = old_gui.with_name("necropsy-engine.exe" if os.name == "nt" else "necropsy-engine")
+    platform_asset = updates.platform_archive(sys.platform, platform.machine())
+    assert platform_asset is not None
+    script = "install.ps1" if os.name == "nt" else "install.sh"
+    repository = Path(__file__).resolve().parents[1]
+    installer = (repository / script).read_bytes()
+    if os.name == "nt":
+        # Suppress personal shortcuts/PATH only; keep the production install steps.
+        installer = installer.replace(b"[switch]$NoShortcuts,", b"[switch]$NoShortcuts = $true,")
+        installer = installer.replace(
+            b"[switch]$NoPathChange\n", b"[switch]$NoPathChange = $true\n"
+        )
+    files = {
+        script: installer,
+        f"necropsy-{__version__}-py3-none-any.whl": (
+            bundle / f"necropsy-{__version__}-py3-none-any.whl"
+        ).read_bytes(),
+        f"necropsy-desktop-{__version__}-{platform_asset}": (
+            bundle / f"necropsy-desktop-{__version__}-{platform_asset}"
+        ).read_bytes(),
+    }
+    files["SHA256SUMS"] = "".join(
+        f"{hashlib.sha256(data).hexdigest()}  {name}\n" for name, data in files.items()
+    ).encode()
+    release = {
+        "tag_name": f"v{__version__}",
+        "draft": False,
+        "prerelease": False,
+        "html_url": f"{updates.REPOSITORY}/releases/tag/v{__version__}",
+        "body": "Isolated installer verification",
+        "assets": [
+            {
+                "id": index,
+                "name": name,
+                "size": len(data),
+                "state": "uploaded",
+                "browser_download_url": (
+                    f"{updates.REPOSITORY}/releases/download/v{__version__}/{name}"
+                ),
+                "digest": "sha256:" + hashlib.sha256(data).hexdigest(),
+            }
+            for index, (name, data) in enumerate(files.items(), 1)
+        ],
+    }
+
+    def handle(request: httpx.Request) -> httpx.Response:
+        if str(request.url) == updates.LATEST_RELEASE:
+            return httpx.Response(200, json=release)
+        return httpx.Response(200, content=files[request.url.path.rsplit("/", 1)[-1]])
+
+    with patch.dict(
+        os.environ,
+        {**env, "NECROPSY_NO_SHORTCUTS": "1", "NECROPSY_NO_PATH_CHANGE": "1"},
+        clear=True,
+    ):
+        updater = AppUpdater(
+            "0.0.0", engine, lambda: httpx.Client(transport=httpx.MockTransport(handle))
+        )
+        assert updater.check()["can_install"]
+        gui = updater.install(lambda _: None, lambda: None)
+        assert gui != old_gui and old_gui.is_file()
+        assert verify_installed_gui(root, __version__) == gui
+    print("PASS: app updater, verified downloads, real staged installer and new GUI readiness.")
 
 
 def documented_command(repository: Path) -> str:
@@ -140,6 +214,7 @@ def check(bundle: Path, receipt: Path) -> None:
         subprocess.run(
             [*executable, "tui", "--help"], env=env, check=True, capture_output=True, timeout=30
         )
+        check_app_update(root, bundle, env)
         saved_launcher = launcher.read_bytes()
         python_pointer = root / "python-path"
         saved_pointer = python_pointer.read_bytes() if python_pointer.exists() else None
@@ -178,6 +253,7 @@ def check(bundle: Path, receipt: Path) -> None:
             launcher="passed",
             gui_engine_readiness="passed",
             explicit_terminal_mode="passed",
+            app_update_staged_install="passed",
             checksum_refusal="passed",
             failed_upgrade_preserves_launcher="passed",
             documented_windows_download_command="passed" if os.name == "nt" else "not applicable",

@@ -163,6 +163,7 @@ See [product design](product-design.md) for tokens, components and screenshot up
 |---|---|
 | Commands and workflow | [CLI](../src/necropsy/cli.py), [live orchestration](../src/necropsy/wcl/analyze.py) |
 | Desktop workflow and shell | [Python bridge](../src/necropsy/desktop/engine.py), [React interface](../desktop/src/App.tsx), [Tauri host](../desktop/src-tauri/src/main.rs); [desktop boundaries](desktop.md) |
+| Saved report refresh and app updates | [Refresh publication](../src/necropsy/report/refresh.py), [release discovery](../src/necropsy/desktop/updates.py), [staged installation](../src/necropsy/desktop/installer.py), [ADR 0013](decisions/0013-saved-report-and-app-updates.md) |
 | Authentication | [Auth](../src/necropsy/wcl/auth.py), [credential store](../src/necropsy/wcl/credentials.py); [boundaries](auth.md) |
 | API and context | [Client](../src/necropsy/wcl/client.py), [URLs](../src/necropsy/wcl/urls.py), [context](../src/necropsy/wcl/context.py) |
 | Selection and acquisition | [Cohort](../src/necropsy/wcl/cohort.py), [acquire](../src/necropsy/wcl/acquire.py), [fetch](../src/necropsy/wcl/fetch.py) |

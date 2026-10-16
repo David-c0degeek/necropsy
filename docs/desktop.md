@@ -33,8 +33,18 @@ and ivory palette. Your theme and review marks stay on this computer.
 
 ## Return to an analysis
 
-**Your analyses** lists saved runs with their status. **Open Playbook** reads the
-saved analysis offline; **Continue analysis** resumes saved acquisition and may
+**Your analyses** lists saved runs with their status. **Open Playbook** renders
+the saved analysis offline with the installed app's current templates. It does
+not execute previously saved HTML. **Update reports**, available on a saved-run
+row or the open report toolbar, also saves refreshed Report/Playbook HTML and the
+configured ZIP package in that same analysis folder. It keeps the analytical
+data, run identity, review keys and resume options unchanged; it does not fetch
+logs or create another analysis. Changed owned files are refused rather than
+silently overwritten, and ordinary publication/metadata failures restore the
+previous outputs. Existing [output recovery](getting-started.md#output-recovery)
+guidance applies to an interrupted publication.
+
+**Continue analysis** resumes saved acquisition and may
 require sign-in. Use **Add folder** for an analysis saved elsewhere, or
 **Open snapshot** to analyze a saved snapshot ZIP without WCL access.
 
@@ -42,6 +52,26 @@ The Playbook and Report keep the established boss navigation, explanation and
 evidence controls. **Export package** saves both pages, analysis data and evidence
 as a shareable ZIP. Packages may contain player identities. Local review marks
 are personal annotations; they are not added to exported analytical findings.
+
+## Update the app
+
+Choose **Check for updates** in the sidebar. Necropsy checks the latest published
+stable release on GitHub and shows your installed version, the latest version
+and release notes. Checks happen only when requested and do not use your WCL
+credentials. Finish or stop an active analysis before checking.
+
+For a copy installed by the one-line installer, choose **Update and restart**.
+Necropsy verifies the release downloads, installs into a fresh version folder,
+checks that the new GUI and engine start together, then restarts. Your analyses,
+review marks and password-vault sign-in remain on this computer. Previous version
+folders remain available. If installation fails, the active launcher is restored;
+retry the check or inspect `last-update.log` inside the app installation folder.
+If automatic restart fails, use **Restart now** or open your usual shortcut.
+
+Source checkouts, portable archives and other unmanaged copies offer **Open
+release page** for manual download. They are not modified by the updater. Older
+app versions without these controls need one manual update first; after that,
+future published releases can be installed from the app.
 
 ## Waiting and closing
 
@@ -53,6 +83,10 @@ Closing an active window offers **Keep working** or **Save and quit**. Saving
 waits for the current request or offline stage to finish safely. An HTTP request
 can take up to 30 seconds; large offline analyses may take longer. A forced OS
 shutdown can retain only work already checkpointed.
+
+During an app installation, closing offers **Close when finished**. Necropsy
+waits for the installer rather than interrupting activation. Reopen the app from
+its usual shortcut afterward.
 
 ## Build and run from source
 
@@ -97,7 +131,14 @@ Signing/notarization remains separate release work.
 Windows has local frozen-engine and native-window offline verification. The
 window check uses the actual engine and IPC: example analysis, both views, local
 review persistence across reload, boss links, invalid-link recovery, library
-navigation and save-before-quit during offline work. Existing service tests cover repeated
+navigation, saved-report refresh and save-before-quit during offline work. Update
+dialog checks use controlled current/offline/manual/damaged-download responses;
+backend tests separately verify release policy, checksums and launcher rollback.
+The bootstrap smoke check also feeds real packages through a controlled release
+transport into the updater and existing installer in a temporary app root. It
+verifies new GUI readiness and retention of the previous version; personal
+shortcuts and PATH changes are suppressed for that check.
+Existing service tests cover repeated
 quota waits, cancellation and checkpoint recovery. A real-account GUI sign-in
 and acquisition is a separate acceptance check; prior terminal acceptance does
 not establish GUI acceptance.

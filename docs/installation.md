@@ -116,10 +116,17 @@ automatically listed by the default app. Reports may contain player identities.
 
 ## Updates and older versions
 
-Run the same install command again to update. The installer switches the launcher
+In a desktop version with **Check for updates**, use the sidebar command and
+choose **Update and restart** for an installer-managed copy. Source and portable
+copies offer a release-page download. See [app updates](desktop.md#update-the-app).
+Older versions need one manual update to acquire these controls.
+
+You can also run the same install command again. The installer switches the launcher
 only after the new environment starts successfully. A failed download or checksum
 check preserves the previous launcher, sign-in and saved analyses. Existing HTML
-pages keep their original design until regenerated from their snapshot/JSON.
+pages keep their original design until refreshed. In the GUI, **Update reports**
+refreshes a saved analysis's HTML and package without downloading logs or changing
+its findings. Updating the app makes its current templates available.
 
 Version 0.3.0 installs and opens the GUI by default; rerun the same command to
 upgrade a terminal-only installation. Saved analyses, cache and sign-in stay in

@@ -57,6 +57,17 @@ def check(command: list[str]) -> None:
                 rendered = request("report", id=run["id"], view=view)
                 assert "<html" in rendered["html"] and "Haplina" in rendered["html"]
                 assert rendered["class_key"] == "hunter"
+            analysis = next((root / "library/runs").glob("*/analysis.json"))
+            original = analysis.read_bytes()
+            refreshed = request("refresh_reports", id=run["id"])
+            assert refreshed["refreshed"] and refreshed["run"]["id"] == run["id"]
+            for line in process.stdout:
+                if json.loads(line) == {"event": "busy", "data": False}:
+                    break
+            assert analysis.read_bytes() == original
+            assert "Reports rendered by Necropsy" in (analysis.parent / "playbook.html").read_text(
+                encoding="utf-8"
+            )
             exported = root / "shared.zip"
             request("export", id=run["id"], path=str(exported))
             with zipfile.ZipFile(exported) as archive:
@@ -65,7 +76,8 @@ def check(command: list[str]) -> None:
                 )
             assert len(request("list")) == 1
             print(
-                "PASS: isolated example, saved library, both report views, ZIP export; no sign-in."
+                "PASS: isolated example, saved library, both report views, saved report refresh, "
+                "ZIP export; no sign-in."
             )
         finally:
             process.stdin.close()

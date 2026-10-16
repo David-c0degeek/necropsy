@@ -28,3 +28,4 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [GUI-first installation](0011-gui-default-installation.md) | Native default launch, staged GUI/CLI upgrades, per-OS bootstrap checks and publish-before-switch release ordering |
 
 | [Game builds and WCL categories](0012-game-build-and-wcl-category.md) | Separate declared trees, observed build totals, ranking pools, duties and race validity; compatible saved evidence |
+| [Saved report and app updates](0013-saved-report-and-app-updates.md) | Preserve saved analysis ownership during refresh; explicit verified releases through staged installers and safe restart |

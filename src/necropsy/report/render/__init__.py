@@ -16,6 +16,7 @@ from typing import Any
 from jinja2 import Environment, FunctionLoader, StrictUndefined
 from markupsafe import Markup
 
+from necropsy import __version__
 from necropsy.report.analysis_json import AnalysisDocument
 from necropsy.report.render.view import DocumentView, document_view
 
@@ -74,7 +75,11 @@ def view_of(analysis: bytes) -> DocumentView:
 
 
 def _render(template: str, view: DocumentView, page: str) -> str:
-    html = _environment().get_template(template).render(doc=view, page=page, **_assets())
+    html = (
+        _environment()
+        .get_template(template)
+        .render(doc=view, page=page, renderer_version=__version__, **_assets())
+    )
     return html.replace("\r\n", "\n")
 
 
