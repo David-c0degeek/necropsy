@@ -119,3 +119,17 @@ reference has no actor attribution. Coerced booleans, fractions or nulls cannot
 certify an absence. Older rows omitting raw scalar keys retain compatibility
 with established normalized identity. This guard is confined to new Era actor
 effects; historical Naxx aura inference remains unchanged.
+
+AQ40 boss aura events can omit `targetInstance`. An explicit singleton policy
+may certify unnumbered state only when the exact fight's `enemyNPCs` roster has
+one unambiguous actor/game-ID binding with integer `instanceCount == 1`.
+Missing, duplicate, conflicting, boolean or repeated cardinality withholds
+durations while retaining positive transitions. Numbered repeated-add policies
+keep their existing instance requirement. Unnumbered state references include
+the fight metadata as well as transitions and lifecycle evidence.
+
+Observed Sartura Whirlwind/Enrage, Huhuran Frenzy/Berserk, each Twin Emperor's
+teleport aura and Ouro Berserk remain distinct effects. Teleport aura duration
+does not define the pickup cycle, and missing C'Thun vulnerability transitions
+cannot supply a guide-timed weakening phase. Personal Sand Blast remains actor
+exposure, without inferred tank duty, avoidability or a lost-casting interval.

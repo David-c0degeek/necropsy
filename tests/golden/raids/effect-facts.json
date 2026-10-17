@@ -720,6 +720,64 @@
         }
       ],
       "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    },
+    {
+      "fixture": "aq40-holy-raid-context",
+      "archive": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip",
+      "entries": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.entries",
+      "sha256": "732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c",
+      "report": "CGkPmVLAN9jgcDzn",
+      "fight": 39,
+      "actor": 17,
+      "player": "Minicutie",
+      "id": "aq40-actor-effects-1",
+      "actor_case": "aq40-holy-raid-context-406",
+      "encounter_id": 50716,
+      "ability_ids": [
+        26102
+      ],
+      "expected": {
+        "duration_ms": 76377,
+        "actor_class": "Priest",
+        "transitions": [
+          [
+            48997,
+            "applydebuff",
+            26102
+          ],
+          [
+            53991,
+            "removedebuff",
+            26102
+          ]
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 26102,
+          "windows": [
+            [
+              0,
+              48997,
+              null
+            ],
+            [
+              48997,
+              53991,
+              true
+            ],
+            [
+              53991,
+              76377,
+              false
+            ]
+          ],
+          "known_affected_ms": 4994,
+          "unknown_state_ms": 48997
+        }
+      ],
+      "review_basis": "Independent target raw enumeration and hand-reviewed integer-ms Sand Blast transitions before policy activation. No inferred nominal five-second duration, full casting interruption, tank assignment or avoidability."
     }
   ]
 }

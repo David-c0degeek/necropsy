@@ -44,6 +44,45 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 24 / Cardinality-qualified AQ40 aura checkpoint follows
+D018. Shared NPC state now retains Sartura Whirlwind/Enrage, separate Huhuran
+Frenzy/Berserk, individual Twin teleport aura and Ouro Berserk; personal Sand
+Blast uses actual26102 transitions. Unnumbered durations require exact fight
+actor/gameID binding with integer instanceCount1. Positive transitions survive
+unknown cardinality; numbered-add requirements and initial/lifecycle/censoring
+rules remain intact. Explicit fight metadata refs accompany these state values.
+
+Full normal capture now has54 public selected actors/all9 personal bosses and
+five comparisons each,108 complete player directions/108 global scopes and four
+missing pet owner listings. Original29 AQ40 dimensions agree.43 archives/484
+actor cases/322 recipient cases; prior430/268 expectations and seven BWL exposure
+contexts unchanged. All raw actor/recipient checks and nine strict upgraded
+receipts pass.51 IN_PROGRESS/901 TODO/0 COMPLETE, no additional status closure.
+
+Six NPC contexts/nine manual timelines froze before activation; actual page
+inspection added a seventh raw countercase afterward: actor113/Ouro receives
+Berserk but only109 is listed in the fight roster. Do not borrow109 cardinality;
+113 durations remain unknown. Exact current golden assertions pass on source
+and installed saved JSON. Eight separate actor contexts now bind16 manual
+exposure timelines, including4.994s Sand Blast/48.997s initial unknown.
+
+128 runtime tests pass/16.94s before metadata-ref addition; final81 window tests
+pass/2.86s after it.62 independent-checker and16 strategy tests pass. Seven real
+replay/register goldens pass/360.83s before explicit metadata refs/seventh raw
+countercase; final source/installed artifact equality and current saved golden
+assertions cover those additions. Four actual browser cases and Twin desktop/
+Ouro mobile inspection pass. Naxx four artifacts remain byte-identical to30e89ce.
+Raw468,825,813-byte/current extracted300,247,274-byte unlimited scans find no
+secrets;136 wheel members match current source. Lint/types/docs clean.
+
+One installed native analysis failure recovered unchanged in isolated offline
+and actual CLI runs using a byte-identical archive,205 reused requests/0 new
+points/expected exit4. Its cause remains recorded, not claimed fixed. See
+research/aq40-observed-aura-review.json for Keep/Fix/Record/Risk/PM calibration.
+DO NOT CLOSE: all full phase/opportunity/ranking/class/faction/duty and human
+acceptance boxes remain open. Native stability needs further final-gate review.
+
+
 2026-10-17 / slice 23 / Initial AQ40 checkpoint follows D017. Shared sourced
 facts/static strategy now covers all28 catalog entries/952 legal configuration
 paths; this is not full boss/class guidance or measured opportunity support.

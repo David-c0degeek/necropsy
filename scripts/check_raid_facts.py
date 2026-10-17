@@ -366,8 +366,12 @@ def raw_control_facts(
     fight: int,
     ability_ids: list[int],
     target_game_ids: list[int],
+    *,
+    aura_kind: str = "debuff",
 ) -> dict[str, Any]:
-    """Raw scoped control transitions and identity bindings, never analyzer windows."""
+    """Raw scoped aura transitions and identity bindings, never analyzer windows."""
+    if type(aura_kind) is not str or aura_kind not in {"buff", "debuff"}:
+        raise ValueError("raw aura facts require an explicit buff/debuff kind")
     bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
     selected = next(f for f in bundle["fights"] if f["id"] == fight)
     raw_encounter_facts(archive, report, selected, bundle)  # exact raw scope/page proofs
@@ -404,7 +408,13 @@ def raw_control_facts(
         for e in ordered
         if e.get("abilityGameID") in ability_ids
         and e["type"]
-        in {"applydebuff", "removedebuff", "refreshdebuff", "applydebuffstack", "removedebuffstack"}
+        in {
+            f"apply{aura_kind}",
+            f"remove{aura_kind}",
+            f"refresh{aura_kind}",
+            f"apply{aura_kind}stack",
+            f"remove{aura_kind}stack",
+        }
     ]
     native = {
         a["id"]
@@ -483,7 +493,7 @@ def check_register(path: Path) -> list[str]:
     if data.get("version") != 1 or not data.get("cases"):
         raise ValueError("a fact register needs version 1 and nonempty reviewed cases")
     kind = data.get("kind", "actor")
-    if kind not in {"actor", "healing-recipients", "npc-controls", "actor-effects"}:
+    if kind not in {"actor", "healing-recipients", "npc-controls", "npc-auras", "actor-effects"}:
         raise ValueError("unsupported independent fact register kind")
     problems = []
     ids = [case["id"] for case in data["cases"]]
@@ -523,7 +533,7 @@ def check_register(path: Path) -> list[str]:
                 actual = raw_actor_effect_facts(
                     archive, case["report"], case["fight"], case["actor"], abilities
                 )
-            elif kind == "npc-controls":
+            elif kind in {"npc-controls", "npc-auras"}:
                 abilities, targets = case.get("ability_ids"), case.get("target_game_ids")
                 if any(
                     not isinstance(ids, list)
@@ -534,8 +544,23 @@ def check_register(path: Path) -> list[str]:
                 ):
                     raise ValueError("control facts need explicit unique spell and NPC IDs")
                 actual = raw_control_facts(
-                    archive, case["report"], case["fight"], abilities, targets
+                    archive,
+                    case["report"],
+                    case["fight"],
+                    abilities,
+                    targets,
+                    aura_kind=case.get("aura_kind", "") if kind == "npc-auras" else "debuff",
                 )
+                if kind == "npc-auras":
+                    bundle = archive.read_json(f"reports/{case['report']}/bundle.json")[
+                        "reportData"
+                    ]["report"]
+                    fight = next(f for f in bundle["fights"] if f["id"] == case["fight"])
+                    actual["target_roster"] = [
+                        {key: row.get(key) for key in ("id", "gameID", "instanceCount")}
+                        for row in fight.get("enemyNPCs") or []
+                        if row.get("gameID") in targets
+                    ]
             elif kind == "healing-recipients":
                 boss_ids = case.get("boss_game_ids")
                 if (

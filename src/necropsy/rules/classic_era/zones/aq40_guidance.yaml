@@ -23,6 +23,75 @@ general:
   - refocus
 encounters: {}
 pet: {}
+effects:
+  50716:
+  - rule: ouro-sand-blast-exposure-v1
+    label: Sand Blast
+    ability_ids: [26102]
+    source: https://www.wowhead.com/classic/spell=26102/sand-blast
+    retrieved: '2026-10-17'
+target_auras:
+  50711:
+  - rule: sartura-whirlwind-state-v1
+    label: Sartura Whirlwind
+    ability_id: 26083
+    caster_game_ids: [15516]
+    target_game_ids: [15516]
+    require_instance: false
+    source: https://www.wowhead.com/classic/spell=26083/whirlwind
+    retrieved: '2026-10-17'
+  - rule: sartura-enrage-state-v1
+    label: Sartura Enrage
+    ability_id: 8269
+    caster_game_ids: [15516]
+    target_game_ids: [15516]
+    require_instance: false
+    source: https://www.wowhead.com/classic/spell=8269/enrage
+    retrieved: '2026-10-17'
+  50714:
+  - rule: huhuran-frenzy-state-v1
+    label: Huhuran Frenzy
+    ability_id: 26051
+    caster_game_ids: [15509]
+    target_game_ids: [15509]
+    require_instance: false
+    source: https://www.wowhead.com/classic/spell=26051/frenzy
+    retrieved: '2026-10-17'
+  - rule: huhuran-berserk-state-v1
+    label: Huhuran Berserk
+    ability_id: 26068
+    caster_game_ids: [15509]
+    target_game_ids: [15509]
+    require_instance: false
+    source: https://www.wowhead.com/classic/spell=26068/berserk
+    retrieved: '2026-10-17'
+  50715:
+  - rule: twin-teleport-state-v1
+    label: Twin Teleport aura
+    ability_id: 800
+    caster_game_ids: [15275, 15276]
+    target_game_ids: [15275, 15276]
+    require_instance: false
+    source: https://www.wowhead.com/classic/spell=800/twin-teleport
+    retrieved: '2026-10-17'
+  50716:
+  - rule: ouro-berserk-state-v1
+    label: Ouro Berserk
+    ability_id: 26615
+    caster_game_ids: [15517]
+    target_game_ids: [15517]
+    require_instance: false
+    source: https://www.wowhead.com/classic/spell=26615/berserk
+    retrieved: '2026-10-17'
+  50717:
+  - rule: cthun-vulnerable-state-v1
+    label: C'Thun Vulnerable aura
+    ability_id: 26235
+    caster_game_ids: [15727]
+    target_game_ids: [15727]
+    require_instance: false
+    source: https://www.wowhead.com/classic/spell=26235/cthun-vulnerable
+    retrieved: '2026-10-17'
 strategy:
   50713:
     retrieved: '2026-10-17'

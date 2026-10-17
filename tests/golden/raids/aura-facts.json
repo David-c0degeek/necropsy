@@ -1,0 +1,1221 @@
+{
+  "version": 1,
+  "kind": "npc-auras",
+  "cases": [
+    {
+      "id": "aq40-npc-auras-1",
+      "fixture": "aq40-holy-raid-context",
+      "archive": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip",
+      "entries": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.entries",
+      "sha256": "732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c",
+      "report": "hTPYLCMxjy6RFfgZ",
+      "fight": 9,
+      "encounter_id": 50711,
+      "ability_ids": [
+        26083,
+        8269
+      ],
+      "target_game_ids": [
+        15516
+      ],
+      "aura_kind": "buff",
+      "expected": {
+        "duration_ms": 46993,
+        "observations": [
+          {
+            "ms": 12934,
+            "kind": "applybuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 27946,
+            "kind": "removebuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 33962,
+            "kind": "applybuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 37200,
+            "kind": "applybuff",
+            "spell": 8269,
+            "caster": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 46957,
+            "kind": "removebuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 46957,
+            "kind": "removebuff",
+            "spell": 8269,
+            "caster": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 79,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          }
+        ],
+        "lifecycles": [
+          [
+            46975,
+            "death",
+            79,
+            null
+          ]
+        ],
+        "target_roster": [
+          {
+            "id": 79,
+            "gameID": 15516,
+            "instanceCount": 1
+          }
+        ]
+      },
+      "window_expectations": [
+        {
+          "spell": 26083,
+          "actor": 79,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              12934,
+              null
+            ],
+            [
+              12934,
+              27946,
+              true
+            ],
+            [
+              27946,
+              33962,
+              false
+            ],
+            [
+              33962,
+              46957,
+              true
+            ],
+            [
+              46957,
+              46975,
+              false
+            ],
+            [
+              46975,
+              46993,
+              null
+            ]
+          ],
+          "known_active": 28007,
+          "unknown_state": 12952
+        },
+        {
+          "spell": 8269,
+          "actor": 79,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              37200,
+              null
+            ],
+            [
+              37200,
+              46957,
+              true
+            ],
+            [
+              46957,
+              46975,
+              false
+            ],
+            [
+              46975,
+              46993,
+              null
+            ]
+          ],
+          "known_active": 9757,
+          "unknown_state": 37218
+        }
+      ],
+      "review_basis": "Independent complete raw All enumeration, exact catalog/lifecycle/fight-roster bindings and manually reviewed integer-ms intervals before policy activation. No production analyzer, normalizer or state helper generated expectations. Aura state is not physical opportunity, phase or duty."
+    },
+    {
+      "id": "aq40-npc-auras-2",
+      "fixture": "aq40-holy-raid-context",
+      "archive": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip",
+      "entries": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.entries",
+      "sha256": "732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c",
+      "report": "CX47QPNRqMab1jgw",
+      "fight": 10,
+      "encounter_id": 50711,
+      "ability_ids": [
+        26083,
+        8269
+      ],
+      "target_game_ids": [
+        15516
+      ],
+      "aura_kind": "buff",
+      "expected": {
+        "duration_ms": 37300,
+        "observations": [
+          {
+            "ms": 11326,
+            "kind": "applybuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 26328,
+            "kind": "removebuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 34004,
+            "kind": "applybuff",
+            "spell": 8269,
+            "caster": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 35616,
+            "kind": "applybuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 37237,
+            "kind": "removebuff",
+            "spell": 8269,
+            "caster": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 37238,
+            "kind": "removebuff",
+            "spell": 26083,
+            "caster": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15516,
+              "id": 60,
+              "name": "Battleguard Sartura",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          }
+        ],
+        "lifecycles": [
+          [
+            37239,
+            "death",
+            60,
+            null
+          ]
+        ],
+        "target_roster": [
+          {
+            "id": 60,
+            "gameID": 15516,
+            "instanceCount": 1
+          }
+        ]
+      },
+      "window_expectations": [
+        {
+          "spell": 26083,
+          "actor": 60,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              11326,
+              null
+            ],
+            [
+              11326,
+              26328,
+              true
+            ],
+            [
+              26328,
+              35616,
+              false
+            ],
+            [
+              35616,
+              37238,
+              true
+            ],
+            [
+              37238,
+              37239,
+              false
+            ],
+            [
+              37239,
+              37300,
+              null
+            ]
+          ],
+          "known_active": 16624,
+          "unknown_state": 11387
+        },
+        {
+          "spell": 8269,
+          "actor": 60,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              34004,
+              null
+            ],
+            [
+              34004,
+              37237,
+              true
+            ],
+            [
+              37237,
+              37239,
+              false
+            ],
+            [
+              37239,
+              37300,
+              null
+            ]
+          ],
+          "known_active": 3233,
+          "unknown_state": 34065
+        }
+      ],
+      "review_basis": "Independent complete raw All enumeration, exact catalog/lifecycle/fight-roster bindings and manually reviewed integer-ms intervals before policy activation. No production analyzer, normalizer or state helper generated expectations. Aura state is not physical opportunity, phase or duty."
+    },
+    {
+      "id": "aq40-npc-auras-3",
+      "fixture": "aq40-holy-raid-context",
+      "archive": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip",
+      "entries": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.entries",
+      "sha256": "732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c",
+      "report": "aB6A1fVJNtkC4wdZ",
+      "fight": 18,
+      "encounter_id": 50714,
+      "ability_ids": [
+        26051,
+        26068
+      ],
+      "target_game_ids": [
+        15509
+      ],
+      "aura_kind": "buff",
+      "expected": {
+        "duration_ms": 36499,
+        "observations": [
+          {
+            "ms": 16171,
+            "kind": "applybuff",
+            "spell": 26051,
+            "caster": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 24173,
+            "kind": "removebuff",
+            "spell": 26051,
+            "caster": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 30700,
+            "kind": "applybuff",
+            "spell": 26068,
+            "caster": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 36461,
+            "kind": "removebuff",
+            "spell": 26068,
+            "caster": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15509,
+              "id": 94,
+              "name": "Princess Huhuran",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          }
+        ],
+        "lifecycles": [],
+        "target_roster": [
+          {
+            "id": 94,
+            "gameID": 15509,
+            "instanceCount": 1
+          }
+        ]
+      },
+      "window_expectations": [
+        {
+          "spell": 26051,
+          "actor": 94,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              16171,
+              null
+            ],
+            [
+              16171,
+              24173,
+              true
+            ],
+            [
+              24173,
+              36499,
+              false
+            ]
+          ],
+          "known_active": 8002,
+          "unknown_state": 16171
+        },
+        {
+          "spell": 26068,
+          "actor": 94,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              30700,
+              null
+            ],
+            [
+              30700,
+              36461,
+              true
+            ],
+            [
+              36461,
+              36499,
+              false
+            ]
+          ],
+          "known_active": 5761,
+          "unknown_state": 30700
+        }
+      ],
+      "review_basis": "Independent complete raw All enumeration, exact catalog/lifecycle/fight-roster bindings and manually reviewed integer-ms intervals before policy activation. No production analyzer, normalizer or state helper generated expectations. Aura state is not physical opportunity, phase or duty."
+    },
+    {
+      "id": "aq40-npc-auras-4",
+      "fixture": "aq40-holy-raid-context",
+      "archive": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip",
+      "entries": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.entries",
+      "sha256": "732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c",
+      "report": "6CWNpM7yT4ajJckh",
+      "fight": 20,
+      "encounter_id": 50715,
+      "ability_ids": [
+        800
+      ],
+      "target_game_ids": [
+        15275,
+        15276
+      ],
+      "aura_kind": "buff",
+      "expected": {
+        "duration_ms": 130472,
+        "observations": [
+          {
+            "ms": 30726,
+            "kind": "applybuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 30726,
+            "kind": "applybuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 30980,
+            "kind": "removebuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 30980,
+            "kind": "removebuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 63073,
+            "kind": "applybuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 63073,
+            "kind": "applybuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 63330,
+            "kind": "removebuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 63330,
+            "kind": "removebuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 103513,
+            "kind": "applybuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 103514,
+            "kind": "applybuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 103765,
+            "kind": "removebuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15275,
+              "id": 100,
+              "name": "Emperor Vek'nilash",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 103765,
+            "kind": "removebuff",
+            "spell": 800,
+            "caster": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15276,
+              "id": 101,
+              "name": "Emperor Vek'lor",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          }
+        ],
+        "lifecycles": [],
+        "target_roster": [
+          {
+            "id": 100,
+            "gameID": 15275,
+            "instanceCount": 1
+          },
+          {
+            "id": 101,
+            "gameID": 15276,
+            "instanceCount": 1
+          }
+        ]
+      },
+      "window_expectations": [
+        {
+          "spell": 800,
+          "actor": 100,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              30726,
+              null
+            ],
+            [
+              30726,
+              30980,
+              true
+            ],
+            [
+              30980,
+              63073,
+              false
+            ],
+            [
+              63073,
+              63330,
+              true
+            ],
+            [
+              63330,
+              103514,
+              false
+            ],
+            [
+              103514,
+              103765,
+              true
+            ],
+            [
+              103765,
+              130472,
+              false
+            ]
+          ],
+          "known_active": 762,
+          "unknown_state": 30726
+        },
+        {
+          "spell": 800,
+          "actor": 101,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              30726,
+              null
+            ],
+            [
+              30726,
+              30980,
+              true
+            ],
+            [
+              30980,
+              63073,
+              false
+            ],
+            [
+              63073,
+              63330,
+              true
+            ],
+            [
+              63330,
+              103513,
+              false
+            ],
+            [
+              103513,
+              103765,
+              true
+            ],
+            [
+              103765,
+              130472,
+              false
+            ]
+          ],
+          "known_active": 763,
+          "unknown_state": 30726
+        }
+      ],
+      "review_basis": "Independent complete raw All enumeration, exact catalog/lifecycle/fight-roster bindings and manually reviewed integer-ms intervals before policy activation. No production analyzer, normalizer or state helper generated expectations. Aura state is not physical opportunity, phase or duty."
+    },
+    {
+      "id": "aq40-npc-auras-5",
+      "fixture": "aq40-holy-raid-context",
+      "archive": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip",
+      "entries": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.entries",
+      "sha256": "732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c",
+      "report": "CGkPmVLAN9jgcDzn",
+      "fight": 39,
+      "encounter_id": 50716,
+      "ability_ids": [
+        26615
+      ],
+      "target_game_ids": [
+        15517
+      ],
+      "aura_kind": "buff",
+      "expected": {
+        "duration_ms": 76377,
+        "observations": [
+          {
+            "ms": 63139,
+            "kind": "applybuff",
+            "spell": 26615,
+            "caster": {
+              "gameID": 15517,
+              "id": 104,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15517,
+              "id": 104,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 76342,
+            "kind": "removebuff",
+            "spell": 26615,
+            "caster": {
+              "gameID": 15517,
+              "id": 104,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15517,
+              "id": 104,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          }
+        ],
+        "lifecycles": [
+          [
+            76362,
+            "death",
+            104,
+            null
+          ]
+        ],
+        "target_roster": [
+          {
+            "id": 104,
+            "gameID": 15517,
+            "instanceCount": 1
+          }
+        ]
+      },
+      "window_expectations": [
+        {
+          "spell": 26615,
+          "actor": 104,
+          "instance": null,
+          "windows": [
+            [
+              0,
+              63139,
+              null
+            ],
+            [
+              63139,
+              76342,
+              true
+            ],
+            [
+              76342,
+              76362,
+              false
+            ],
+            [
+              76362,
+              76377,
+              null
+            ]
+          ],
+          "known_active": 13203,
+          "unknown_state": 63154
+        }
+      ],
+      "review_basis": "Independent complete raw All enumeration, exact catalog/lifecycle/fight-roster bindings and manually reviewed integer-ms intervals before policy activation. No production analyzer, normalizer or state helper generated expectations. Aura state is not physical opportunity, phase or duty."
+    },
+    {
+      "id": "aq40-npc-auras-6",
+      "fixture": "aq40-holy-raid-context",
+      "archive": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip",
+      "entries": "raw/aq40-holy-raid-context/94217209-2005-20261017T204855.entries",
+      "sha256": "732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c",
+      "report": "gbd2aW7ZmtTz8DVj",
+      "fight": 35,
+      "encounter_id": 50717,
+      "ability_ids": [
+        26235
+      ],
+      "target_game_ids": [
+        15727
+      ],
+      "aura_kind": "buff",
+      "expected": {
+        "duration_ms": 177384,
+        "observations": [],
+        "lifecycles": [
+          [
+            177359,
+            "death",
+            120,
+            null
+          ]
+        ],
+        "target_roster": [
+          {
+            "id": 120,
+            "gameID": 15727,
+            "instanceCount": 1
+          }
+        ]
+      },
+      "window_expectations": [],
+      "review_basis": "Independent complete raw All enumeration, exact catalog/lifecycle/fight-roster bindings and manually reviewed integer-ms intervals before policy activation. No production analyzer, normalizer or state helper generated expectations. Aura state is not physical opportunity, phase or duty."
+    },
+    {
+      "id": "aq40-npc-auras-7",
+      "fixture": "aq40-holy-complete-context",
+      "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
+      "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7",
+      "report": "ywGLJZRY8gd6aFmA",
+      "fight": 49,
+      "encounter_id": 50716,
+      "ability_ids": [
+        26615
+      ],
+      "target_game_ids": [
+        15517
+      ],
+      "aura_kind": "buff",
+      "expected": {
+        "duration_ms": 164326,
+        "observations": [
+          {
+            "ms": 135570,
+            "kind": "applybuff",
+            "spell": 26615,
+            "caster": {
+              "gameID": 15517,
+              "id": 113,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15517,
+              "id": 113,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          },
+          {
+            "ms": 164285,
+            "kind": "removebuff",
+            "spell": 26615,
+            "caster": {
+              "gameID": 15517,
+              "id": 113,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "target": {
+              "gameID": 15517,
+              "id": 113,
+              "name": "Ouro",
+              "subType": "Boss",
+              "type": "NPC"
+            },
+            "instance": null
+          }
+        ],
+        "lifecycles": [],
+        "target_roster": [
+          {
+            "id": 109,
+            "gameID": 15517,
+            "instanceCount": 1
+          }
+        ]
+      },
+      "window_expectations": [
+        {
+          "spell": 26615,
+          "actor": 113,
+          "instance": null,
+          "windows": null,
+          "known_active": null,
+          "unknown_state": null
+        }
+      ],
+      "review_basis": "Raw case independently enumerated after actual page inspection exposed a missing fight-roster binding. Actor113 is absent from enemyNPCs while actor109 has count1; never borrow cardinality across same-name/game-ID actors. Expected unknown follows the pre-existing exact-target guardrail, not a production-generated duration. Positive raw transitions remain visible."
+    }
+  ]
+}

@@ -81,6 +81,14 @@ pickups, Ouro threat recovery, and C'Thun tentacle/stomach coordination.
 Huhuran Frenzy removal is Hunter-specific; Berserk and poison-themed effects
 are separate. Wyvern Sting removal needs coordinated damage recovery.
 These are conditional raid plans, not observed assignments or personal grades.
+AQ40 also retains observed Sartura Whirlwind/Enrage, separate Huhuran Frenzy
+and Berserk, individual Twin Emperor teleport auras and Ouro Berserk state.
+Unnumbered NPC duration evidence requires the exact fight roster to identify
+one instance of that NPC. Missing or ambiguous cardinality withholds durations;
+numbered repeated adds retain separate windows. Personal Sand Blast exposure
+is separate from physical attackability, tank assignment or avoidability.
+Missing C'Thun vulnerability transitions do not establish that no weakening
+occurred, and no nominal weakening timer supplies an observed window.
 BWL also retains observed Burning Adrenaline, Essence of the Red, Flame Buffet,
 Chromaggus affliction and Nefarian fear/curse/Priest-call exposure. These are
 recipient aura observations; Bronze exposure is not stun uptime, and a resource

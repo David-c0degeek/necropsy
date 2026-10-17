@@ -15,3 +15,14 @@ Mounds, emergence and scarabs change movement and target duties; a gap in player
 Initial static strategy is separate from personal findings. Full raw actor,
 phase/opportunity, ranking, both-faction/category and domain acceptance remain
 open; no guide timer or addon prewarning certifies an observed boundary.
+
+The full capture independently retains Vallon/ywGLJZRY8gd6aFmA/fight49,164.326 s.
+Actor109 casts Summon Ouro Mounds26058 at93.859 s; actor113 casts generic
+Birth26586 at123.888 s and receives Berserk26615 at135.570–164.285 s.
+Both catalog actors are NPC15517, but the fight roster lists only109 with
+instanceCount1. Do not transfer that cardinality to113 or interpret the gap
+as a certified personal opportunity window. The seventh context in
+[independent NPC facts](../../../tests/golden/raids/aura-facts.json) freezes
+these raw bindings and expected unknown state totals. Personal Minicutie
+Sand Blast26102 applies48.997/removes53.991 s in a different76.377-second fight:
+4.994 s observed exposure,48.997 s initially unknown; no avoidability grade.

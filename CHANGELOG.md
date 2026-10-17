@@ -8,6 +8,11 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Retain observed AQ40 boss aura state separately for Sartura, Huhuran, Twin
+  Emperors and Ouro, plus personal Sand Blast exposure. Unnumbered NPC windows
+  require exact fight metadata proving a single instance; missing C'Thun
+  vulnerability transitions do not supply a timed weakening window.
+
 - Add initial sourced strategy and facts for every AQ40 boss, with conditional
   control, poison/Frenzy handling, target, tank and healing coordination. Keep
   static strategy separate from observed phase windows and ranking eligibility.

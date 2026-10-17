@@ -79,6 +79,47 @@ def _identity(
     return game_id in wanted if game_id is not None else None
 
 
+def _singleton_npcs(
+    con: duckdb.DuckDBPyConnection,
+    pf: ParticipantFight,
+    actors: dict[int, set[tuple[str | None, int | None, str | None]]],
+) -> set[int]:
+    """An unnumbered target needs positive, unambiguous fight-level cardinality."""
+    rows = con.execute(
+        "SELECT enemy_npcs FROM fights WHERE report_code=? AND fight_id=?",
+        [pf.report_code, pf.fight_id],
+    ).fetchall()
+    if len(rows) != 1:
+        return set()
+    raw = rows[0][0]
+    roster = json.loads(raw) if isinstance(raw, str) else raw
+    if not isinstance(roster, list) or any(not isinstance(row, dict) for row in roster):
+        return set()
+    by_actor: dict[int, list[dict[str, Any]]] = defaultdict(list)
+    for row in roster:
+        actor = row.get("id")
+        if type(actor) is not int or actor < 1:
+            return set()
+        by_actor[actor].append(row)
+    result = set()
+    for actor, entries in by_actor.items():
+        if len(entries) != 1:
+            continue
+        entry = entries[0]
+        game_id, count = entry.get("gameID"), entry.get("instanceCount")
+        identities = actors.get(actor, set())
+        if (
+            type(game_id) is int
+            and game_id > 0
+            and type(count) is int
+            and count == 1
+            and len(identities) == 1
+            and next(iter(identities))[:2] == ("NPC", game_id)
+        ):
+            result.add(actor)
+    return result
+
+
 def encounter_auras(
     con: duckdb.DuckDBPyConnection, pf: ParticipantFight
 ) -> tuple[EncounterAura, ...]:
@@ -120,8 +161,13 @@ def encounter_auras(
         for row in rows
     ]
     result = []
+    singletons = (
+        _singleton_npcs(con, pf, actors)
+        if any(policy.get("require_instance") is False for policy in policies)
+        else set()
+    )
     for policy in policies:
-        result.append(_aura(pf, policy, cov, actors, events, classes))
+        result.append(_aura(pf, policy, cov, actors, events, classes, singletons))
     return tuple(result)
 
 
@@ -132,6 +178,7 @@ def _aura(
     actors: dict[int, set[tuple[str | None, int | None, str | None]]],
     events: list[tuple[Any, ...]],
     classes: dict[int, set[tuple[str | None, str | None]]],
+    singletons: set[int],
 ) -> EncounterAura:
     aura_kind = policy.get("aura_kind", "buff")
     if aura_kind not in {"buff", "debuff"}:
@@ -265,7 +312,10 @@ def _aura(
         trustworthy = (
             cov.trusted
             and not unresolved
-            and (instance is not None or not policy.get("require_instance", True))
+            and (
+                instance is not None
+                or (policy.get("require_instance") is False and actor in singletons)
+            )
             and not unresolved_lifecycles
         )
         if policy.get("require_instance", True) and any(
@@ -287,6 +337,16 @@ def _aura(
         )
 
         state_refs: tuple[EvidenceRef, ...] = (target_ref, reset_ref)
+        if instance is None and policy.get("require_instance") is False:
+            state_refs += (
+                EvidenceRef(
+                    pf.report_code,
+                    pf.fight_id,
+                    actor,
+                    "fights",
+                    detail="enemyNPCs exact actor/game ID binding and singleton instanceCount",
+                ),
+            )
         if unresolved_lifecycles:
             state_refs += (
                 EvidenceRef.events(

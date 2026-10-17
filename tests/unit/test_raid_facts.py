@@ -512,6 +512,53 @@ def test_control_raw_boolean_owner_is_not_an_integer_identity(tmp_path: Path) ->
         check_register(_write_control(tmp_path, members))
 
 
+@pytest.mark.parametrize(
+    "mutation", [None, "caster", "target", "cardinality", "kind", "spell", "time", "lifecycle"]
+)
+def test_independent_npc_buff_facts_include_roster_and_reject_rehashed_changes(
+    tmp_path: Path, mutation: str | None
+) -> None:
+    members = _control_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    report["fights"][0]["enemyNPCs"] = [{"id": 5, "gameID": 12099, "instanceCount": 1}]
+    rows = members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"]
+    rows[-2]["type"], rows[-1]["type"] = "applybuff", "removebuff"
+    expected: dict[str, Any] = copy.deepcopy(CONTROL_EXPECTED)
+    expected["observations"][0]["kind"] = "applybuff"
+    expected["observations"][1]["kind"] = "removebuff"
+    expected["target_roster"] = [{"id": 5, "gameID": 12099, "instanceCount": 1}]
+    if mutation == "cardinality":
+        report["fights"][0]["enemyNPCs"][0]["instanceCount"] = 2
+    elif mutation == "lifecycle":
+        rows.append({"timestamp": 2400, "type": "death", "targetID": 5})
+    elif mutation:
+        key, value = {
+            "caster": ("sourceID", 3),
+            "target": ("targetID", 2),
+            "kind": ("type", "applydebuff"),
+            "spell": ("abilityGameID", 18647),
+            "time": ("timestamp", 1501),
+        }[mutation]
+        rows[-2][key] = value
+    register = _write_control(tmp_path, members)
+    data = json.loads(register.read_text(encoding="utf-8"))
+    data["kind"] = "npc-auras"
+    data["cases"][0].update(aura_kind="buff", expected=expected)
+    register.write_text(json.dumps(data), encoding="utf-8")
+    assert bool(check_register(register)) is (mutation is not None)
+
+
+@pytest.mark.parametrize("kind", [None, "", True, "magic", "applybuff", []])
+def test_npc_aura_facts_require_an_explicit_valid_kind(tmp_path: Path, kind: object) -> None:
+    register = _write_control(tmp_path, _control_members())
+    data = json.loads(register.read_text(encoding="utf-8"))
+    data["kind"] = "npc-auras"
+    data["cases"][0]["aura_kind"] = kind
+    register.write_text(json.dumps(data), encoding="utf-8")
+    with pytest.raises(ValueError, match="buff/debuff kind"):
+        check_register(register)
+
+
 def _effect_members() -> dict[str, Any]:
     members = _members()
     members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][0]["type"] = "Player"

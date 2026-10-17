@@ -94,7 +94,7 @@ as the earlier full capture, with all 114 whole-encounter scopes complete. All
 60 original actor measurements agree independently; the new cases additionally
 freeze raw All/critical context. The earlier archive and expectations remain
 unchanged. Both captures retain the two unresolved pet ownership listings.
-The register now contains 42 archives, 430 actor cases, 268 recipient cases and
+The register now contains 43 archives, 484 actor cases, 322 recipient cases and
 six separate NPC-control contexts. No domain cell is certified complete.
 
 The full `bwl-holy-raid-context` capture spans all nine BWL encounter entries,
@@ -123,6 +123,26 @@ stopped earlier and is preserved separately, without replacing this archive.
 The original401 actor and239 recipient expectations remain unchanged. Raw
 Skeram747 summons establish six176525 image instances in each of six fights;
 they do not certify ranking eligibility or complete split opportunity windows.
+
+The additional `aq40-holy-complete-context` native archive retains54 selected
+actor/fights, all nine personal encounters and five comparison actors per boss.
+108 player directions and108 global scopes are complete; four pet ownership
+listings remain missing. All29 earlier AQ40 actor/context expectations agree;
+the original430 actor/268 recipient expectations remain unchanged. A native
+analysis incident succeeded on isolated offline replay and actual CLI recovery
+with the byte-identical archive; its unestablished cause is recorded in the
+research incident receipt. No dependency or threading workaround was adopted.
+
+`aura-facts.json` separately freezes seven NPC aura contexts and nine manually
+reviewed target timelines. Its raw projector verifies transition/catalog,
+native lifecycle and fight-roster cardinality independently of production
+state helpers. The separate actor-effect register adds one reviewed Sand Blast
+context (4.994 seconds affected;48.997 initially unknown). Neither register
+turns aura exposure into phases, assignments, opportunities or quality scores.
+The seventh context independently freezes a real missing-roster binding: Ouro
+actor113 receives Berserk while only actor109 is listed in the fight's NPC
+roster. Positive transitions remain visible, but cardinality cannot be borrowed
+across actors and all113 duration/state totals stay unknown.
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json

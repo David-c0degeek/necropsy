@@ -41,6 +41,10 @@ def test_independent_actor_effect_facts() -> None:
     assert check_register(ROOT / "effect-facts.json") == []
 
 
+def test_independent_npc_aura_facts() -> None:
+    assert check_register(ROOT / "aura-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -137,13 +141,16 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         expected = [f for f in selected if f["expected"]["encounter_id"] == boss["encounter_id"]]
         assert expected
         _assert_boss_replay(fixture, marker, doc, boss, expected, healing_facts, out)
-    if fixture["label"] == "bwl-holy-raid-context":
-        _assert_bwl_effect_windows(doc)
+    observations_fixture = fixture.get("observations_fixture", fixture["label"])
+    _assert_actor_effect_windows(doc, observations_fixture)
+    _assert_npc_aura_windows(doc, {observations_fixture, fixture["label"]})
 
 
-def _assert_bwl_effect_windows(doc: dict[str, Any]) -> None:
+def _assert_actor_effect_windows(doc: dict[str, Any], fixture: str) -> None:
     cases = json.loads((ROOT / "effect-facts.json").read_text(encoding="utf-8"))["cases"]
     for case in cases:
+        if case["fixture"] != fixture:
+            continue
         boss = next(b for b in doc["bosses"] if b["encounter_id"] == case["encounter_id"])
         subject = boss["subject"] or boss["playbook"].get("excluded_subject")
         if subject and (subject["report_code"], subject["fight_id"]) == (
@@ -169,6 +176,60 @@ def _assert_bwl_effect_windows(doc: dict[str, Any]) -> None:
             )
             assert effect["unknown_state_s"]["value"] == pytest.approx(
                 expected["unknown_state_ms"] / 1000
+            )
+
+
+def _assert_npc_aura_windows(doc: dict[str, Any], fixtures: set[str]) -> None:
+    cases = json.loads((ROOT / "aura-facts.json").read_text(encoding="utf-8"))["cases"]
+    for case in cases:
+        if case["fixture"] not in fixtures:
+            continue
+        boss = next(b for b in doc["bosses"] if b["encounter_id"] == case["encounter_id"])
+        subject = boss["subject"] or boss["playbook"].get("excluded_subject")
+        if subject and (subject["report_code"], subject["fight_id"]) == (
+            case["report"],
+            case["fight"],
+        ):
+            auras = boss["playbook"]["target_aura_windows"]
+        else:
+            example = next(
+                e
+                for e in boss["playbook"]["cohort_target_aura_windows"]
+                if (e["report_code"], e["fight_id"]) == (case["report"], case["fight"])
+            )
+            auras = example["auras"]
+        for ability in case["ability_ids"]:
+            aura = next(a for a in auras if a["ability_id"] == ability)
+            observed = [o for o in case["expected"]["observations"] if o["spell"] == ability]
+            assert aura["applications"]["value"] == sum(o["kind"] == "applybuff" for o in observed)
+            expected_targets = {
+                (w["actor"], w["instance"])
+                for w in case["window_expectations"]
+                if w["spell"] == ability
+            }
+            assert {(t["actor_id"], t["instance"]) for t in aura["targets"]} == expected_targets
+        for expected in case["window_expectations"]:
+            aura = next(a for a in auras if a["ability_id"] == expected["spell"])
+            target = next(
+                t
+                for t in aura["targets"]
+                if (t["actor_id"], t["instance"]) == (expected["actor"], expected["instance"])
+            )
+            assert target["game_id"] in case["target_game_ids"]
+            if expected["windows"] is None:
+                assert target["windows"]["value"] is None
+                assert target["known_active_s"]["value"] is None
+                assert target["unknown_state_s"]["value"] is None
+                assert "fights" in {ref["source"] for ref in target["windows"]["refs"]}
+                continue
+            assert target["windows"]["value"] == [
+                [lo / 1000, hi / 1000, state] for lo, hi, state in expected["windows"]
+            ]
+            assert target["known_active_s"]["value"] == pytest.approx(
+                expected["known_active"] / 1000
+            )
+            assert target["unknown_state_s"]["value"] == pytest.approx(
+                expected["unknown_state"] / 1000
             )
 
 

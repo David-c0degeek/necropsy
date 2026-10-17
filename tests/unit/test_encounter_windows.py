@@ -69,6 +69,91 @@ def event(
     )
 
 
+@pytest.mark.parametrize(
+    "case",
+    [
+        "one",
+        "missing-fight",
+        "missing-roster",
+        "missing-count",
+        "repeated",
+        "zero",
+        "boolean",
+        "fraction",
+        "text",
+        "wrong-actor",
+        "wrong-game-id",
+        "duplicate-actor",
+        "duplicate-fight",
+        "non-list",
+        "non-object",
+    ],
+)
+def test_unnumbered_boss_windows_require_exact_singleton_fight_metadata(
+    con: duckdb.DuckDBPyConnection, case: str
+) -> None:
+    con.execute("UPDATE snapshot_meta SET zone_id=2005")
+    con.execute("UPDATE actors SET game_id=15517 WHERE actor_id=5")
+    roster: object = [{"id": 5, "gameID": 15517, "instanceCount": 1}]
+    if case == "missing-roster":
+        roster = None
+    elif case == "non-list":
+        roster = {"id": 5, "gameID": 15517, "instanceCount": 1}
+    elif case == "non-object":
+        roster = [5]
+    elif case in {"missing-count", "repeated", "zero", "boolean", "fraction", "text"}:
+        roster = [
+            {
+                "id": 5,
+                "gameID": 15517,
+                **(
+                    {}
+                    if case == "missing-count"
+                    else {
+                        "instanceCount": {
+                            "repeated": 2,
+                            "zero": 0,
+                            "boolean": True,
+                            "fraction": 1.0,
+                            "text": "1",
+                        }[case]
+                    }
+                ),
+            }
+        ]
+    elif case == "wrong-actor":
+        roster = [{"id": 6, "gameID": 15517, "instanceCount": 1}]
+    elif case == "wrong-game-id":
+        roster = [{"id": 5, "gameID": 12018, "instanceCount": 1}]
+    elif case == "duplicate-actor":
+        roster = [
+            {"id": 5, "gameID": 15517, "instanceCount": 1},
+            {"id": 5, "gameID": 15517, "instanceCount": 1},
+        ]
+    for _ in range(2 if case == "duplicate-fight" else 0 if case == "missing-fight" else 1):
+        con.execute(
+            "INSERT INTO fights (report_code,fight_id,enemy_npcs) VALUES ('REPORT',1,?)",
+            [json.dumps(roster)],
+        )
+    event(con, 1000, "applybuff", None, source=5, ability=26615)
+    event(con, 6000, "removebuff", None, source=5, ability=26615)
+    pf = replace(PF, encounter_id=50716, boss="Ouro")
+    (aura,) = encounter_auras(con, pf)
+    assert aura.applications.value == 1
+    assert len(aura.transitions.value or ()) == 2
+    (target,) = aura.targets
+    assert target.instance is None
+    assert "fights" in {ref.source for ref in target.windows.refs}
+    if case == "one":
+        assert target.windows.value == ((0, 1, None), (1, 6, True), (6, 10, False))
+        assert target.known_active_s.value == 5
+        assert target.unknown_state_s.value == 1
+    else:
+        assert target.windows.value is None
+        assert target.known_active_s.value is None
+        assert target.unknown_state_s.value is None
+
+
 def test_same_actor_different_instances_keep_distinct_windows_and_rendered_values(
     con: duckdb.DuckDBPyConnection,
 ) -> None:

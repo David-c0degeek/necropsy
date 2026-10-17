@@ -310,3 +310,33 @@ preserving all prior401 actor/239 recipient expectations. Eight additional
 Holy Alliance matrix receipts remain partial. The zero-point resume's24-actor
 snapshot is retained in the ignored native run journal, not substituted for
 this stronger result. Raw extracted194,914,329-byte unlimited secret scan passes.
+
+The additional native full AQ40 archive
+`raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip` has SHA256
+deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7.
+54 public actor/fights cover all nine personal bosses and five comparisons each.
+108 player directions and108 global scopes are complete; four unresolved pet
+listings remain explicit. Freeze54 additional actor/recipient/context cases;
+all original430 actor/268 recipient measurements remain unchanged. The first
+29 AQ40 actor and encounter dimensions also agree exactly between archives.
+All468,825,813 extracted raw bytes pass an unlimited secret scan. An initial
+native analysis failure recovered through isolated installed offline analysis
+and actual normal CLI resume:205 requests reused,0 new points, expected exit4,
+and a byte-identical recovered ZIP with all532 identical members. Its cause
+remains recorded as unestablished; no workaround or full-support claim follows.
+
+Six separately frozen NPC aura contexts bind nine manual target timelines;
+the raw projector includes exact caster/recipient catalog, lifecycle and
+fight-roster cardinality. A separate personal Sand Blast context records
+4.994 seconds affected and48.997 initially unknown, with actual26102 transitions
+at48.997/53.991 seconds. No nominal five-second duration or opportunity grade
+is substituted. Prior seven BWL actor-effect contexts remain unchanged.
+
+A seventh NPC context was independently frozen after actual page inspection:
+Vallon ywGLJZRY8gd6aFmA/fight49 (164.326 s). The roster lists actor109/Ouro with
+instanceCount1, but Berserk applies135.570 s/removes164.285 s on actor113/Ouro,
+which is not listed. Actor109 casts Summon Ouro Mounds26058 at93.859 s and113
+casts Birth26586 at123.888 s. Keep these positive observations without borrowing
+109's cardinality or inferring an attackability window;113 durations stay
+unknown. Current saved source/installed JSON passes the exact added golden
+assertions without regenerating expected measurements from runtime results.
