@@ -95,7 +95,7 @@ bytes on 2026-10-17: exit 0, no findings. No quota policy was weakened.
 
 MC Protection regression counts were separately enumerated from target pages,
 NPC 12118 and raw Melee ability IDs 1/-4: Maasumi 9, Doljin 15, Pale 7,
-Frozion 15, PanzÃ¨rzug 8, Cailo 19. Protector/trash and outgoing events are
+Frozion 15, Panzèrzug 8, Cailo 19. Protector/trash and outgoing events are
 excluded. These counts establish pressure, not assignments or tanking quality.
 
 Lucifron Holy actor-target pages independently show Impending Doom (19702)
@@ -115,7 +115,7 @@ enumerated cases bring the register to 96 actor cases and 16 archives. All
 
 Independent actor-source dispel enumeration requires `isBuff=false` and the
 exact removed mechanic ID, separately from cast counts. Balance/HPS Truudee
-records five Curse removals, Ragny 12 and æµ·å…° one; Mage Benoii and Darkwizzardo
+records five Curse removals, Ragny 12 and 海兰 one; Mage Benoii and Darkwizzardo
 one each. Holy Bluebeard records one Dominate Mind removal and Maoainai one Doom
 removal plus unrelated ID11672, which must be excluded. These are successful
 effects, not an assignment or available-opportunity denominator. The Druid
@@ -139,7 +139,7 @@ events reference it, and unrelated Frenzy23537/25801/8269 must not substitute.
 Holy and Protection Magmadar add12 independent actor cases (19 archives/114
 cases). Their33,805,841 extracted raw bytes pass unlimited gitleaks8.30.1,
 2026-10-17, no findings. Almsivi's Holy observation binds report
-`aFQ7MPVdWTAvpK1Y`, fight4, actor41, raw pull309977â€“354067 ms:
+`aFQ7MPVdWTAvpK1Y`, fight4, actor41, raw pull309977–354067 ms:
 Panic apply319284 ms and remove327280 ms give relative9.307/17.303 s, exposure
 7.996 s and initial unknown9.307 s over44.090 s. A new manual test initially
 used a different Almsivi pull endpoint; replay rejected it. The raw expected
@@ -152,7 +152,7 @@ coverage register selects Rumplock's positive control source; Finia's negative
 source remains immutable and is exercised separately. All 28,535,087 extracted
 raw bytes passed unlimited gitleaks8.30.1 on2026-10-17, no findings.
 
-Rumplock, report `DWACqnQrmMxdgYpt`, fight17, actor38: pull1141770â€“1193237 ms;
+Rumplock, report `DWACqnQrmMxdgYpt`, fight17, actor38: pull1141770–1193237 ms;
 Banish18647 begins at2.742 s, casts and applies at4.258 s to NPC actor100,
 Firesworn12099, instance8; removal at34.271 s. Finia's29.453-second source has
 no Banish application. These are source-owned application facts, not global
@@ -168,7 +168,7 @@ Gehennas Holy adds one finalized public six-source archive and six independently
 enumerated raw cases (22 archives/132 cases), one Alliance Holy/HPS configuration.
 All11,096,461 extracted raw bytes passed unlimited gitleaks8.30.1 on2026-10-17,
 no findings. Subject Almsivi is report`wjWt8JCzRKqV1gkG`/fight6/actor28, distinct
-from comparison actor AlmsÃ­vÃ­ in another report. Exact pull6075151â€“6099542 ms
+from comparison actor Almsíví in another report. Exact pull6075151–6099542 ms
 lasts24.391 s. Curse19716 applies6081514 ms/removes6085571 ms, giving relative
 6.363/10.420 s,4.057 s known exposure and6.363 s initial unknown state. A same-time
 source-owned Druid2782 dispel records extra19716/isBuff=false on actor28; its
@@ -182,7 +182,7 @@ Gehennas Mage later finalized through the normal quota-resume path: six public
 Horde Fire/DPS sources and six independently enumerated actor cases, bringing
 totals to23 archives/138 cases. All11,004,544 new extracted raw bytes passed
 unlimited gitleaks8.30.1, no findings. Exact subject Suffel report
-`x4zfwgJZTAV3PYQK`/fight13/actor13, pull975032â€“1001082 ms, duration26.050 s,
+`x4zfwgJZTAV3PYQK`/fight13/actor13, pull975032–1001082 ms, duration26.050 s,
 Curse apply9.718/remove15.769 s gives6.051 s observed exposure/9.718 s unknown
 initial state. All six selected sources have no source-owned curse removals;
 that absence does not identify assignments. Separate Mage Fallout's successful
