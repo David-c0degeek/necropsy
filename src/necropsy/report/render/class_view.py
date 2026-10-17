@@ -89,6 +89,8 @@ def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[in
         subject = boss.get("subject")
         leader = play.get("reference")
         basis = subject or leader
+        personal = subject or play.get("excluded_subject")
+        personal_role = ((personal or {}).get(key, {}).get("role") or {}).get("value")
         role = ((basis or {}).get(key, {}).get("role") or {}).get("value")
         metric = (
             "effective_healing_per_second"
@@ -120,8 +122,8 @@ def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[in
                 category_label(document["subject"]["class_id"], play.get("selected_category")),
             ),
             ("Faction", play.get("selected_faction") or "Unknown"),
-            ("Build", value_of((basis or {}).get(key, {}).get("build")).text),
-            ("Encounter duty", role or "Unknown"),
+            ("Build", value_of((personal or {}).get(key, {}).get("build")).text),
+            ("Encounter duty", personal_role or "Unknown"),
         ]
         quick = [
             {"label": "Your recorded opener", "lines": (line(_opener(subject, key)),)},

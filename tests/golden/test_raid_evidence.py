@@ -14,6 +14,7 @@ import pytest
 from necropsy.raids.scope import coverage_cells
 from necropsy.report.offline import run_offline
 from necropsy.report.package import package_name
+from necropsy.report.render.class_view import bosses as class_bosses
 from necropsy.snapshot.archive import VerifiedArchive, load_entries_manifest, sha256_file
 from necropsy.snapshot.model import ActorRole, StreamStatus
 from necropsy.snapshot.v1 import open_snapshot
@@ -92,9 +93,11 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in players)
             assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in scopes)
             assert all(reader.read_stream(s).status is StreamStatus.MISSING for s in unresolved)
+            expected_missing = fixture.get(
+                "missing_pet_fights", [("BjygkHzvbZN3D6JX", 27), ("TnL9YBfXWp7RvJQK", 6)]
+            )
             assert {(s.report_code, s.fight_id) for s in unresolved} == {
-                ("BjygkHzvbZN3D6JX", 27),
-                ("TnL9YBfXWp7RvJQK", 6),
+                tuple(pair) for pair in expected_missing
             }
     assert doc["zone"]["id"] == marker["zone"]["id"]
     if fixture.get("encounter_context"):
@@ -203,8 +206,18 @@ def _assert_boss_replay(
             assert entry["ranking"]["ranked_dps_evidence"]["value"] is not None
     assert (out / "report.html").is_file() and (out / "playbook.html").is_file()
     assert (out / package_name(doc)).is_file()
-    context = boss["playbook"]["duty_context"]
-    assert context["player"] == marker["subject"]["name"]
+    context = boss["playbook"].get("duty_context")
+    if boss["encounter_id"] in fixture.get("missing_subject_encounters", []):
+        assert boss["subject"] is None
+        assert boss["playbook"].get("excluded_subject") is None
+        assert boss["playbook"].get("duty_context") is None
+        personal_context = dict(
+            class_bosses(doc, "missing-personal", "combat")[boss["encounter_id"]]["context"]
+        )
+        assert personal_context["Build"] == personal_context["Encounter duty"] == "Unknown"
+    else:
+        assert context is not None
+        assert context["player"] == marker["subject"]["name"]
     if fixture["label"] == "mc-golemagg-context-fury":
         (magma,) = boss["playbook"]["encounter_effects"]
         assert magma["ability_ids"] == [13880]
@@ -470,7 +483,8 @@ def _assert_boss_replay(
             assert item["retrieved"] == "2026-10-17"
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
-        assert context["limitation"] in html
+        if context is not None:
+            assert context["limitation"] in html
         if fixture["label"] == "mc-majordomo-context-holy":
             assert "Magic Reflection: 1 recorded applications." in html
             assert "Flamewaker Elite · instance 3: 5.46s known active; 30.45s" in html

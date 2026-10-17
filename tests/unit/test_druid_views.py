@@ -16,6 +16,7 @@ from necropsy.normalize.ingest import ingest
 from necropsy.report.analysis_json import build_document, dumps
 from necropsy.report.druid import boss_section
 from necropsy.report.package import build_outputs
+from necropsy.report.render.class_view import bosses as class_bosses
 from tests.druid_fixture import snapshot
 from tests.snapshot_builder import ENCOUNTER
 
@@ -47,6 +48,8 @@ def test_missing_personal_data_keeps_a_labelled_example_without_a_baseline(tmp_p
             "hps",
             "Restoration",
         )
+        document = build_document(con)
+        document["bosses"] = [section]
     assert section["subject"] is None
     assert section["playbook"]["personal_data"]["status"] == "insufficient-data"
     assert section["playbook"]["reference"]["player"] == "Example healer"
@@ -54,6 +57,11 @@ def test_missing_personal_data_keeps_a_labelled_example_without_a_baseline(tmp_p
     assert section["benchmarks"]["baseline"]["key"] is None
     assert section["benchmarks"]["baseline"]["medians"] == {}
     assert section["recommendations"] == []
+    personal_context = dict(
+        class_bosses(document, "missing-druid")[section["encounter_id"]]["context"]
+    )
+    assert personal_context["Build"] == personal_context["Encounter duty"] == "Unknown"
+    assert section["playbook"]["reference"]["druid"]["role"]["value"] == "restoration"
 
 
 @pytest.mark.parametrize("n", [1, 2])

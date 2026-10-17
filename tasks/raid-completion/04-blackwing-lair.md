@@ -6,7 +6,7 @@ Deliver full boss-domain analysis and useful class/role guidance for all 8 bosse
 
 ## Integration analysis
 
-- Existing module: `src/necropsy/raids/bwl.py`; `bwl.yaml`, `bwl_facts.yaml` and `bwl_guidance.yaml` under `src/necropsy/rules/classic_era/zones/`. Facts are empty and guidance is general Hunter advice today; no boss-domain completion is inherited.
+- Existing module: `src/necropsy/raids/bwl.py`; `bwl.yaml`, `bwl_facts.yaml` and `bwl_guidance.yaml` under `src/necropsy/rules/classic_era/zones/`. Initial sourced facts and class-qualified static strategy now cover all nine encounter entries. Full observed phases/opportunities, ranking reconciliation, class evidence and boss-domain acceptance remain open.
 - Extend these module-owned policies and shared contracts from 02. Durable real fixtures/facts follow the normal project locations established by 01. Reuse acquisition, normalization, class plugins, benchmark/advice, JSON and both renderers; preserve other raids and graded unknowns.
 - No module-owned auth/cache, duplicate metrics, cloned class engine or renderer. Reconfirm exact seams before coding. Dossiers and matrix evidence prove the integration. PM-1/PM-2/PM-3 apply.
 
@@ -47,4 +47,33 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
-TBD — no implementation or runtime acceptance is claimed at plan creation.
+2026-10-17 / slice 1 / Incremental BWL work follows D015 alongside
+unfinished01/02. Initial sourced facts and class-qualified static strategy now
+cover all eight individual bosses plus the existing combined entry. Nine dossiers,
+pinned primary addon revision and Classic tooltip review distinguish version,
+removal type and actor/phase uncertainty. No guide timer supplies measured phases.
+
+Normal full Holy CLI acquisition initially stopped on quota at38 actors; resume
+reused178 requests and reached53 public selected actors/53 fights,106 complete
+player directions and106 complete global scopes, with no quota stop. One Ebonroc
+pet owner remains unresolved. Nefarian has five complete cohort actors and no
+personal fight because factionID is absent; no subject, personal duty or zero is
+fabricated. Combined and individual dragon comparisons remain separate.
+
+Registered41 archives/401 actor cases/239 recipient cases plus six separate
+control contexts; original348 actor/186 recipient expectations preserved.
+Eight additional Holy Alliance evidence cells are IN_PROGRESS:43 partial /
+909 TODO /0 COMPLETE. Independent401 actor and239 recipient checks pass.
+Fourteen strategy checks cover all nine named classes, legal configurations,
+removal-type boundaries and Nefarian responses. Source/installed/page/package,
+privacy and final golden results are retained in research/bwl-initial-review.json.
+Final full BWL golden passes1/87.04 s; all eight new actor receipts validate.
+28 class Report integration checks and16 Druid view checks cover the additional
+personal context attribution fix discovered in real page inspection. Final source/
+installed saved-render artifacts match; Naxx analysis/pages/package remain
+byte-identical to30e89ce. Unlimited raw381,908,872-byte and final extracted
+255,984,054-byte scans found no secrets. Four browser cases pass; lint/types/docs
+clean. Full phase/ranking/class/faction/duty and human acceptance gates remain open;
+no full box or subject closes.
+
+Historical creation baseline: facts were empty and guidance was general Hunter advice; no boss-domain completion was inherited.

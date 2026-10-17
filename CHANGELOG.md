@@ -8,6 +8,15 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial sourced strategy for every individual Blackwing Lair boss:
+  controller protection, resource and threat recovery, affliction removal and
+  nine class-call responses. Keep static advice separate from measured phases,
+  personal assignments and validated rankings; preserve missing personal data.
+
+- Keep the reference player's build and duty out of personal Report context
+  when personal data is missing. Preserve recorded excluded personal context
+  separately from the reference and keep unknown personal duty explicit.
+
 - Track observed Garr Banish state separately for each add instance and rank.
   Keep other Warlocks’ encounter-wide effects distinct from personal counters;
   retain unknown initial state, scope, class and malformed identity limits.

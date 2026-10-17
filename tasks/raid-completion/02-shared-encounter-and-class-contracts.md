@@ -44,6 +44,35 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 21 / Incremental BWL work follows D015 alongside
+unfinished01/02. Initial sourced facts and class-qualified static strategy now
+cover all eight individual bosses plus the existing combined entry. Nine dossiers,
+pinned primary addon revision and Classic tooltip review distinguish version,
+removal type and actor/phase uncertainty. No guide timer supplies measured phases.
+
+Normal full Holy CLI acquisition initially stopped on quota at38 actors; resume
+reused178 requests and reached53 public selected actors/53 fights,106 complete
+player directions and106 complete global scopes, with no quota stop. One Ebonroc
+pet owner remains unresolved. Nefarian has five complete cohort actors and no
+personal fight because factionID is absent; no subject, personal duty or zero is
+fabricated. Combined and individual dragon comparisons remain separate.
+
+Registered41 archives/401 actor cases/239 recipient cases plus six separate
+control contexts; original348 actor/186 recipient expectations preserved.
+Eight additional Holy Alliance evidence cells are IN_PROGRESS:43 partial /
+909 TODO /0 COMPLETE. Independent401 actor and239 recipient checks pass.
+Fourteen strategy checks cover all nine named classes, legal configurations,
+removal-type boundaries and Nefarian responses. Source/installed/page/package,
+privacy and final golden results are retained in research/bwl-initial-review.json.
+Final full BWL golden passes1/87.04 s; all eight new actor receipts validate.
+28 class Report integration checks and16 Druid view checks cover the additional
+personal context attribution fix discovered in real page inspection. Final source/
+installed saved-render artifacts match; Naxx analysis/pages/package remain
+byte-identical to30e89ce. Unlimited raw381,908,872-byte and final extracted
+255,984,054-byte scans found no secrets. Four browser cases pass; lint/types/docs
+clean. Full phase/ranking/class/faction/duty and human acceptance gates remain open;
+no full box or subject closes.
+
 2026-10-17 / slice 20 / Normal installed full-MC context capture promoted
 as a separate immutable fixture:40 archives/348 actor cases/186 recipient cases,
 six separate NPC-control contexts. Original288 actor and126 recipient expectations

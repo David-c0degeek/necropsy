@@ -210,6 +210,7 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 | D013 | 2026-10-17 | Normal encounter context acquisition | Enable existing encounter-context acquisition in shared run_analyze only for new Era zones2000/2002/2005 partitions1/2. Preserve actor-only low-level default, Naxx/non-Era acquisition, old snapshots, quota reserves and immutable resume. | Real public v2 captures across all three raids pass independent raw checks and source/installed artifact equality. Nine actual CLI scope cases and quota-stop/resume verify selection and incomplete scopes; normal live continuation retains bounded partial evidence. No ranking/phase/assignment policy is certified. | 01.6; 02.1/02.2/02.7/02.8; 07.1; PM-2/PM-3; ADR0016; research/normal-context-pre-mortem.md |
 
 | D014 | 2026-10-17 | Class-qualified NPC control state | Extend existing target aura state with player class/debuff policies; activate separate Garr Banish ranks, exact instances and raw integer identity guards. Preserve personal SOURCE counters, observed-only uncertainty and NPC buff defaults. | Six independent raw control contexts/manual integer-ms expectations and all named caster classes distinguish Forand fight/Greasecup effect from Finia personal zero. Coerced IDs are checked before exclusion; unresolved lifecycle owners carry global refs and withhold windows. No physical opportunity, assignment or quality inference. | 01.6; 02.1/02.2/02.7/02.8; 03.4/03.6/03.7/03.8; PM-2/PM-3; ADR0017; research/npc-control-window-contract.md |
+| D015 | 2026-10-17 | Incremental evidenced BWL implementation | Extend the existing shared facts/static strategy contracts to all eight individual BWL bosses alongside the already implemented combined entry, while 01/02 remain open. | Normal full BWL acquisition retains53 public selected actors,106 player directions and106 global scopes. Independent raw spell/recipient checks and pinned primary consumer/tooltips constrain class and version applicability. Missing Nefarian personal faction and one pet owner remain explicit. No phase/ranking or full acceptance reduction. | 01.5/01.6; 02.1/02.5; 04.1–04.9; PM-1/PM-2/PM-3; research/bwl-initial-contract.md |
 
 ---
 
@@ -220,10 +221,10 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 40 real seeds and 348 raw actor checks; full contracts/coverage open | n/a |
-| [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on eleven evidenced encounters and local effects/control; remaining contracts open | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 41 real seeds and 401 raw actor checks; full contracts/coverage open | n/a |
+| [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on twenty evidenced encounters and local effects/control; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
-| [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | TODO | agent: 9; domain-sme: 1 | yes |
+| [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/raid-completion/05-aq40.md` | TODO | agent: 9; domain-sme: 1 | yes |
 | [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | TODO | agent: 11; domain-sme: 1 | yes |
 | [ ] | 07 | `tasks/raid-completion/07-product-and-release-acceptance.md` | IN_PROGRESS | agent: 8; product-owner: 1 | yes |

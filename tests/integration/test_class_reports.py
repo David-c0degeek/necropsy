@@ -8,6 +8,7 @@ import pytest
 from necropsy.report.analysis_json import dumps
 from necropsy.report.offline import run_offline
 from necropsy.report.render import render_report, view_of
+from necropsy.report.render.class_view import bosses as class_bosses
 from tests.class_fixture import CASES, snapshot
 
 
@@ -163,3 +164,37 @@ def test_saved_event_copy_indices_render_as_values_and_are_deterministic(tmp_pat
         assert f"{uid}/Unknown" in old_report
     assert "built-in method" not in old_report
     assert old_report == render_report(view_of(old_saved))
+
+
+@pytest.mark.parametrize("personal", ["missing", "excluded", "unknown-duty"])
+def test_reference_build_and_duty_never_become_personal_context(
+    tmp_path: Path, personal: str
+) -> None:
+    archive = snapshot(tmp_path, 7, "Holy", "Flash Heal", "healer")
+    out = tmp_path / "context"
+    run_offline(archive, out)
+    document = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    boss = document["bosses"][0]
+    subject = boss["subject"]
+    subject["combat"]["build"]["value"] = "10/41/0"
+    leader = boss["playbook"]["reference"]
+    leader["combat"]["build"]["value"] = "31/20/0"
+    leader["combat"]["role"]["value"] = "healer"
+    boss["subject"] = None
+    boss["playbook"]["excluded_subject"] = None if personal == "missing" else subject
+    if personal == "unknown-duty":
+        subject["combat"]["role"]["value"] = None
+    saved = dumps(document).encode("utf-8")
+    view = class_bosses(json.loads(saved), "test-context", "combat")[boss["encounter_id"]]
+    context = dict(view["context"])
+    assert context["Build"] == ("Unknown" if personal == "missing" else "10/41/0")
+    assert context["Encounter duty"] == ("healer" if personal == "excluded" else "Unknown")
+    assert view["metrics"][0][1].text == "Unknown"
+    assert view["metrics"][1][1].text != "Unknown"
+    report = render_report(view_of(saved))
+    strip = report.split('<div class="context-strip">', 1)[1].split("</details>", 1)[0]
+    assert "31/20/0" not in strip
+    assert context["Build"] in strip and context["Encounter duty"] in strip
+    assert "No personal finding is available." in report
+    assert "Ability use vs Leader" in report
+    assert report == render_report(view_of(saved))

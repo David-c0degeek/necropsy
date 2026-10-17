@@ -47,8 +47,8 @@ acquisition → snapshot → offline replay → rendering coverage. Their ranked
 exclusions have not yet been reconciled against real logs, and their modules
 have initial sourced general strategy for Lucifron, Magmadar, Gehennas, Garr,
 Baron Geddon, Shazzrah, Sulfuron Harbinger, Golemagg, Majordomo, Ragnaros,
-combined Ebonroc / Flamegor,
-and Viscidus. Other boss strategy, observed phase/opportunity analysis and
+all eight individual BWL bosses and combined Ebonroc / Flamegor,
+and Viscidus. Remaining AQ40 boss strategy, observed phase/opportunity analysis and
 ranking-policy reconciliation remain incomplete. Missing facts remain
 unknown. Hunter comparisons use recorded WCL scores; the engine does not claim
 that an unvalidated event sum is ranked damage or reconstruct ranked target
@@ -67,6 +67,15 @@ Golemagg retains observed Magma Splash exposure without assigning tank duty;
 Majordomo keeps observed shield states separate for each add instance;
 Ragnaros distinguishes conditional Sons control and party fire-resistance
 support from measured phases or successful control.
+BWL strategy distinguishes Razorgore controller preparation from recorded boss
+execution, Vaelastrasz resource and Burning Adrenaline context, Broodlord threat
+and Mortal Strike recovery, and Firemaw line-of-sight recovery. Ebonroc tank
+handoffs remain separate from Flamegor Frenzy removal. Chromaggus separates
+curse, magic, disease, poison and Hourglass Sand capabilities. Nefarian provides
+one guarded response per Era class; missing personal data or call markers stay
+unknown. These additions do not establish measured phases or ranked totals.
+When a personal fight is unavailable, its Report context keeps personal build
+and duty unknown. A reference player's measurements remain labelled examples.
 Garr retains individual SOURCE-owned Firesworn Banish applications separately
 from encounter-wide, class-qualified target-instance observations. Ranks and
 add instances stay separate; another Warlock’s effect is not personal uptime.

@@ -1,4 +1,85 @@
 version: 1
 rule: bwl-encounter-facts-v1
-retrieved: '2026-10-16'
-encounters: []
+retrieved: '2026-10-17'
+encounters:
+- id: 50610
+  name: Razorgore the Untamed
+  source: https://www.wowhead.com/classic/guide/razorgore-the-untamed-blackwing-lair-strategy
+  note: Egg control and the kill stage are distinct encounter work. WCL fight bounds may omit control; neither remaining adds nor a short duration establishes a phase boundary.
+  timings:
+  - key: orb-control
+    text: Orb controllers need protection and handoffs while Razorgore destroys eggs. NPC actions are not automatically credited to a Player controller.
+  - key: boss-pickup
+    text: Final boss pickup and Conflagration recovery need coordinated tank coverage; nominal schedules do not define observed opportunities.
+- id: 50611
+  name: Vaelastrasz the Corrupt
+  source: https://www.wowhead.com/classic/guide/vaelastrasz-the-corrupt-blackwing-lair-strategy
+  note: Original Era Burning Adrenaline (18173) and Essence of the Red (23513) are distinct from seasonal replacements. Resource generation is not healing or damage throughput.
+  timings:
+  - key: adrenaline
+    text: Burning Adrenaline changes damage, casting and survival context. Only actual transitions and lifecycle evidence establish personal exposure.
+  - key: resource-supply
+    text: Essence of the Red changes resource availability; generic resource-starvation assumptions do not describe every part of this encounter.
+- id: 50612
+  name: Broodlord Lashlayer
+  source: https://www.wowhead.com/classic/guide/broodlord-lashlayer-blackwing-lair-strategy
+  note: Suppression-room preparation may precede the recorded boss fight and is not an observed phase within it. Seasonal charge and health-threshold behavior are excluded.
+  timings:
+  - key: threat-recovery
+    text: Knock Away creates threat and position recovery work; damage alone does not establish which tank was assigned pickup.
+  - key: mortal-strike
+    text: Mortal Strike reduces healing on its recipient. A healer's own exposure is separate from affected patients.
+- id: 50613
+  name: Firemaw
+  source: https://www.wowhead.com/classic/guide/firemaw-blackwing-lair-strategy
+  note: Original Flame Buffet (23341), Wing Buffet (23339) and Shadow Flame (22539) are separate effects. No universal safe stack count, immunity or resist threshold is certified.
+  timings:
+  - key: flame-buffet-recovery
+    text: Players use line-of-sight recovery to let Flame Buffet expire while maintaining tank coverage. Aura state alone does not prove position or safe attackability.
+  - key: tank-handoff
+    text: Wing Buffet and frontal attacks require coordinated tank positioning and recovery; addon timers are not observed handoff windows.
+- id: 50614
+  name: Ebonroc
+  source: https://www.wowhead.com/classic/spell=23340/shadow-of-ebonroc
+  note: Shadow of Ebonroc (23340) has no dispel type in the Classic record. Shadow school and guide use of the word curse do not establish decurse capability. Individual and combined encounters remain separate.
+  timings:
+  - key: shadow-handoff
+    text: Melee damage to the afflicted target can heal Ebonroc, creating tank handoff work. Debuff exposure alone is not a successful-swap or prevented-healing metric.
+  - key: frontal-recovery
+    text: Wing Buffet and Shadow Flame create separate positioning and healing needs; no nominal timer supplies physical opportunity.
+- id: 50615
+  name: Flamegor
+  source: https://www.wowhead.com/classic/guide/flamegor-blackwing-lair-strategy
+  note: Original Frenzy (23342) is separate from Magmadar (19451) and Chromaggus (23128). Recorded WCL labels may call this buff Enrage. Casts alone do not establish successful removal.
+  timings:
+  - key: frenzy
+    text: Frenzy creates removal and recovery work; Hunter Tranquilizing Shot attempts removal and needs effect evidence for success.
+  - key: tank-recovery
+    text: Wing Buffet tank recovery is separate from Frenzy handling and from combined-dragon comparison scope.
+- id: 50631
+  name: Ebonroc / Flamegor
+  source: https://vanilla.warcraftlogs.com/zone/rankings/2002
+  note: WCL separately identifies this combined entry. Captures retain original Ebonroc (14601) and Flamegor (11981); addon seasonal mode flags do not define WCL availability. Do not sum individual scores or durations.
+  timings:
+  - key: separate-dragon-effects
+    text: Shadow of Ebonroc (23340) and Flamegor Frenzy (23342) retain distinct casters, recipients and tank or utility duties.
+- id: 50616
+  name: Chromaggus
+  source: https://www.wowhead.com/classic/guide/chromaggus-blackwing-lair-strategy
+  note: Breath pairs vary by lockout. Vulnerability aura observations are not guaranteed damage gains or a complete physical casting opportunity. Seasonal replacements are excluded.
+  timings:
+  - key: affliction-types
+    text: Blue is Magic, Black Curse, Red Disease and Green Poison. Bronze has no ordinary dispel type; Hourglass Sand cures its user.
+  - key: separate-frenzy
+    text: Removable Frenzy (23128) is distinct from the later enrage (23537) and vulnerability auras. Their names alone cannot establish equivalent removal behavior.
+- id: 50617
+  name: Nefarian
+  source: https://www.wowhead.com/classic/guide/nefarian-blackwing-lair-strategy
+  note: Original Era uses nine class responses. Later-client classes and seasonal replacements are excluded. Yells, addon timers, nominal add counts and health thresholds are not guaranteed captured phase markers.
+  timings:
+  - key: class-calls
+    text: Class calls change available actions and raid coverage. Deliberate changes in cadence can be appropriate; a missing marker cannot certify absence.
+  - key: veil-of-shadow
+    text: Captured Veil of Shadow (22687) is a Curse; the same-name spell (23224) is a different spell. Do not import its nominal duration or treat Shadow school as a magic-removal type.
+  - key: add-pickup
+    text: Drakonid and Bone Construct work needs target and instance identity. Activity alone does not establish complete stage boundaries.

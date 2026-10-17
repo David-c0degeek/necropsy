@@ -33,6 +33,231 @@ effects:
     retrieved: '2026-10-17'
 pet: {}
 strategy:
+  50610:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/razorgore-the-untamed-blackwing-lair-strategy
+    items:
+    - rule: razorgore-control-and-pickup-v1
+      section: before
+      text: Assign Orb controllers, their protection, add control and final boss pickup before pulling.
+    - rule: razorgore-recorded-stage-v1
+      section: during
+      text: Follow your assigned control or kill targets. A short recorded boss fight may omit egg control; its damage cadence cannot grade the controller's work.
+    - rule: razorgore-dragonkin-sleep-v1
+      section: during
+      classes: [2]
+      source: https://www.wowhead.com/classic/spell=2637/hibernate
+      text: If assigned Dragonkin control, coordinate Hibernate targets and avoid breaking another player's control with damage.
+    - rule: razorgore-controller-shield-v1
+      section: during
+      classes: [7]
+      text: If assigned controller protection, coordinate shields and healing while watching loose adds. Whole-fight healing does not identify that duty.
+    - rule: razorgore-controller-handoffs-v1
+      section: raid
+      text: Confirm controller handoff signals, loose-add recovery and who takes the boss after the eggs. Keep preparation outside the captured fight separate from measured execution.
+  50611:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/vaelastrasz-the-corrupt-blackwing-lair-strategy
+    items:
+    - rule: vaelastrasz-adrenaline-plan-v1
+      section: before
+      text: Agree Burning Adrenaline isolation positions and the next tank's pickup before the pull.
+    - rule: vaelastrasz-resources-and-adrenaline-v1
+      section: during
+      text: Essence of the Red changes resource availability. Respond to actual Burning Adrenaline and protect the raid from its death explosion; compare cadence with those effects in mind.
+    - rule: vaelastrasz-healing-handoff-v1
+      section: during
+      metrics: [hps]
+      text: Coordinate healing on the incoming tank when Burning Adrenaline changes tank coverage. Resource supply and the afflicted player's remaining life change useful healing opportunities.
+    - rule: vaelastrasz-recovery-coordination-v1
+      section: raid
+      text: Confirm isolation calls and tank recovery. Guide timers do not establish who received Burning Adrenaline or when a personal opportunity ended.
+  50612:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/broodlord-lashlayer-blackwing-lair-strategy
+    items:
+    - rule: broodlord-threat-and-position-v1
+      section: before
+      text: Agree tank positions and threat recovery after Knock Away. Separate suppression-room preparation from the recorded boss fight.
+    - rule: broodlord-knockback-recovery-v1
+      section: during
+      text: Control threat through knockbacks and leave tanks room to recover. Incoming damage alone does not prove a positioning error.
+    - rule: broodlord-suppression-duty-v1
+      section: before
+      classes: [8]
+      text: If assigned suppression-device work, coordinate the route and Disarm Trap coverage. A boss-only snapshot cannot measure that earlier assignment.
+    - rule: broodlord-mortal-strike-healing-v1
+      section: during
+      metrics: [hps]
+      text: Plan tank coverage around Mortal Strike's healing reduction. Your own debuff state does not identify the state of your healing recipients.
+    - rule: broodlord-tank-coverage-v1
+      section: raid
+      text: Confirm tank handoff and emergency healing signals after threat drops and Mortal Strike; whole-fight throughput is not a tank-survival grade.
+  50613:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/firemaw-blackwing-lair-strategy
+    items:
+    - rule: firemaw-line-of-sight-plan-v1
+      section: before
+      text: Agree recovery positions that break line of sight to Firemaw while preserving tank healing, and plan Wing Buffet handoffs.
+    - rule: firemaw-buffet-recovery-v1
+      section: during
+      text: Use the agreed recovery position to let Flame Buffet fade. Stack tolerance depends on your raid's plan and survival; a guide's stack count is not a universal failure threshold.
+    - rule: firemaw-shadow-flame-preparation-v1
+      section: before
+      source: https://www.wowhead.com/classic/item=15138/onyxia-scale-cloak
+      text: If assigned to face Shadow Flame, confirm Onyxia Scale Cloak preparation. Its protection does not establish immunity to every part of the attack.
+    - rule: firemaw-recipient-recovery-v1
+      section: during
+      metrics: [hps]
+      text: Keep tank coverage while players recover from Flame Buffet. Recovery movement can justify a different healing cadence; compare matching assignments.
+    - rule: firemaw-swap-and-return-v1
+      section: raid
+      text: Confirm tank handoffs, recovery calls and safe returns. Personal aura observations do not establish everyone's line of sight or physical damage opportunities.
+  50614:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/ebonroc-blackwing-lair-strategy
+    items:
+    - rule: ebonroc-handoff-plan-v1
+      section: before
+      text: Assign backup tanks and agree handoff signals for Shadow of Ebonroc and Wing Buffet.
+    - rule: ebonroc-shadow-handoff-v1
+      section: during
+      source: https://www.wowhead.com/classic/spell=23340/shadow-of-ebonroc
+      text: Coordinate a tank handoff when Shadow of Ebonroc affects the current tank. This effect has no dispel type; do not treat it as a decurse assignment.
+    - rule: ebonroc-tank-recipient-healing-v1
+      section: during
+      metrics: [hps]
+      text: Follow the active tank through handoffs and Shadow Flame recovery. Healing done does not prove that Ebonroc's self-healing was prevented.
+    - rule: ebonroc-individual-comparison-v1
+      section: raid
+      text: Confirm tank recovery and frontal positioning. This individual encounter is a separate comparison from combined Ebonroc / Flamegor.
+  50615:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/flamegor-blackwing-lair-strategy
+    items:
+    - rule: flamegor-frenzy-coverage-v1
+      section: before
+      text: Agree Frenzy-removal coverage and backups alongside Wing Buffet tank handoffs.
+    - rule: flamegor-hunter-tranquilizing-shot-v1
+      section: during
+      classes: [3]
+      source: https://www.wowhead.com/classic/spell=19801/tranquilizing-shot
+      text: If assigned Frenzy removal, coordinate Tranquilizing Shot and a backup. A shot attempts removal; its cast alone does not prove a successful effect.
+    - rule: flamegor-burst-recovery-v1
+      section: during
+      text: Follow tank recovery and avoid the frontal attacks when your assignment allows. Frenzy handling affects raid pressure, not just damage cadence.
+    - rule: flamegor-healing-coverage-v1
+      section: during
+      metrics: [hps]
+      text: Keep tank and raid recovery covered while Frenzy is handled. A personal cast gap does not establish that you missed a healing opportunity.
+    - rule: flamegor-individual-coordination-v1
+      section: raid
+      text: Confirm Frenzy backups and tank handoffs. Keep this individual comparison separate from the combined dragon encounter.
+  50616:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/chromaggus-blackwing-lair-strategy
+    items:
+    - rule: chromaggus-breath-and-affliction-plan-v1
+      section: before
+      text: Confirm this lockout's breath pair, recovery positions, affliction-removal duties and Frenzy backups.
+    - rule: chromaggus-hourglass-preparation-v1
+      section: before
+      source: https://www.wowhead.com/classic/item=19183/hourglass-sand
+      text: Confirm Hourglass Sand allocation for Bronze affliction. The item cures its user; ordinary curse, poison, disease and magic removal are different capabilities.
+    - rule: chromaggus-observed-vulnerability-v1
+      section: during
+      text: Match spell choices to the vulnerability actually present while following breath recovery. Guide schedules do not prove a vulnerability or a safe casting window.
+    - rule: chromaggus-curse-removal-v1
+      section: during
+      classes: [2, 4]
+      source: https://www.wowhead.com/classic/spell=23154/brood-affliction-black
+      text: If assigned curse removal, handle Black affliction. This does not grant removal of the other affliction types.
+    - rule: chromaggus-magic-removal-v1
+      section: during
+      classes: [6, 7]
+      source: https://www.wowhead.com/classic/spell=23153/brood-affliction-blue
+      text: If assigned friendly magic removal, handle Blue affliction and confirm backup coverage.
+    - rule: chromaggus-felhunter-magic-removal-v1
+      section: during
+      classes: [10]
+      source: https://www.wowhead.com/classic/spell=19505/devour-magic
+      text: If using a Felhunter and assigned friendly magic removal, coordinate Devour Magic on Blue affliction. Class alone does not establish the pet's presence or coverage.
+    - rule: chromaggus-disease-removal-v1
+      section: during
+      classes: [6, 7, 9]
+      source: https://www.wowhead.com/classic/spell=23155/brood-affliction-red
+      text: If assigned disease removal, handle Red affliction; keep this work separate from direct healing throughput.
+    - rule: chromaggus-poison-removal-v1
+      section: during
+      classes: [2, 6, 9]
+      source: https://www.wowhead.com/classic/spell=23169/brood-affliction-green
+      text: If assigned poison removal, handle Green affliction and coordinate recovery for affected healing recipients.
+    - rule: chromaggus-hunter-frenzy-v1
+      section: during
+      classes: [3]
+      source: https://www.wowhead.com/classic/spell=19801/tranquilizing-shot
+      text: If assigned Frenzy removal, coordinate Tranquilizing Shot and backup coverage. Do not equate every enrage-named buff with the removable Frenzy effect.
+    - rule: chromaggus-coverage-coordination-v1
+      section: raid
+      text: Confirm affliction backups, sand availability and breath recovery. Actual removal effects and recipient state are needed before assessing assigned utility.
+  50617:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/nefarian-blackwing-lair-strategy
+    items:
+    - rule: nefarian-cloak-preparation-v1
+      section: before
+      source: https://www.wowhead.com/classic/item=15138/onyxia-scale-cloak
+      text: Confirm Onyxia Scale Cloak preparation for the landing Shadow Flame and agree add pickup and fear recovery.
+    - rule: nefarian-observed-call-response-v1
+      section: during
+      text: Respond to actual class calls. A nominal timer or missing marker cannot establish a personal call window.
+    - rule: nefarian-druid-call-v1
+      section: during
+      classes: [2]
+      source: https://www.wowhead.com/classic/spell=23398/involuntary-transformation
+      text: Plan coverage while your class call forces Cat Form; do not assume normal healing or tank actions remain available.
+    - rule: nefarian-hunter-call-v1
+      section: during
+      classes: [3]
+      text: Prepare ranged-weapon protection or a spare for the Hunter call. A gap in shots alone does not prove a broken weapon.
+    - rule: nefarian-mage-call-v1
+      section: during
+      classes: [4]
+      text: Coordinate recovery from your call's random friendly Polymorphs; the raid needs magic-removal coverage.
+    - rule: nefarian-paladin-call-v1
+      section: during
+      classes: [6]
+      text: Your call can protect Nefarian from physical attacks. Coordinate threat and the raid's response rather than assuming normal tank recovery.
+    - rule: nefarian-priest-call-v1
+      section: during
+      classes: [7]
+      source: https://www.wowhead.com/classic/spell=23401/corrupted-healing
+      text: During the Priest call, direct heals cause Corrupted Healing. Arrange alternative coverage; a deliberate pause can be correct.
+    - rule: nefarian-rogue-call-v1
+      section: during
+      classes: [8]
+      text: Your call teleports and immobilizes you near Nefarian. Coordinate tank repositioning if you land in danger.
+    - rule: nefarian-shaman-call-v1
+      section: during
+      classes: [9]
+      text: Your call produces hostile corrupted totems. Arrange their removal and account for the call's mana use.
+    - rule: nefarian-warlock-call-v1
+      section: during
+      classes: [10]
+      text: Your call summons hostile Infernals. Coordinate pickup and control away from vulnerable allies; do not rely on Fire damage against them.
+    - rule: nefarian-warrior-call-v1
+      section: during
+      classes: [11]
+      text: Your call forces Berserker Stance and increases incoming damage. Coordinate tank healing and restore your intended stance afterward.
+    - rule: nefarian-veil-curse-v1
+      section: during
+      classes: [2, 4]
+      source: https://www.wowhead.com/classic/spell=22687/veil-of-shadow
+      text: If assigned curse removal, prioritize Veil of Shadow on healing recipients who need recovery. Its Shadow school does not make it a magic dispel.
+    - rule: nefarian-calls-and-add-coverage-v1
+      section: raid
+      text: Agree class-call coverage and Bone Construct pickup. Whole-fight scores do not establish phase boundaries or assignment quality.
   50631:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Ebonroc

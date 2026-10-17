@@ -60,7 +60,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 186 retained HPS actor cases, without changing original actor expectations:
+for 239 retained HPS actor cases, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -94,5 +94,13 @@ as the earlier full capture, with all 114 whole-encounter scopes complete. All
 60 original actor measurements agree independently; the new cases additionally
 freeze raw All/critical context. The earlier archive and expectations remain
 unchanged. Both captures retain the two unresolved pet ownership listings.
-The register now contains 40 archives, 348 actor cases, 186 recipient cases and
+The register now contains 41 archives, 401 actor cases, 239 recipient cases and
 six separate NPC-control contexts. No domain cell is certified complete.
+
+The full `bwl-holy-raid-context` capture spans all nine BWL encounter entries,
+with 53 public selected actors in 53 fights and 106 complete player directions
+plus 106 complete global scopes. One pet ownership listing is missing. Nefarian
+has five complete cohort actors and no acquired personal fight: fight-level
+faction evidence was unavailable. Its golden explicitly rejects a fabricated
+subject, excluded subject or personal duty context. Combined and individual
+dragon entries retain separate identities and independent raw facts.
