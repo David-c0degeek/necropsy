@@ -795,6 +795,29 @@ def test_independent_actor_effect_projection_preserves_recipient_and_lifecycle(
     assert check_register(_write_effect(tmp_path, _effect_members())) == []
 
 
+@pytest.mark.parametrize("mutation", ["unchanged", "false", "removed", "number", "text", "null"])
+def test_independent_effect_facts_preserve_raw_feign_flags(tmp_path: Path, mutation: str) -> None:
+    members = _effect_members()
+    death = members[PREFIX + "target_001.json"]["data"][-1]
+    if mutation != "removed":
+        death["feign"] = {
+            "unchanged": True,
+            "false": False,
+            "number": 1,
+            "text": "true",
+            "null": None,
+        }[mutation]
+    register = _write_effect(tmp_path, members)
+    data = json.loads(register.read_text(encoding="utf-8"))
+    data["cases"][0]["expected"]["death_feign_flags"] = [[1500, True]]
+    register.write_text(json.dumps(data), encoding="utf-8")
+    if mutation in {"number", "text", "null"}:
+        with pytest.raises(ValueError, match="feign flag"):
+            check_register(register)
+    else:
+        assert bool(check_register(register)) is (mutation != "unchanged")
+
+
 @pytest.mark.parametrize("mutation", ["target", "spell", "time", "kind", "class", "lifecycle"])
 def test_rehashed_actor_effect_mutations_fail(tmp_path: Path, mutation: str) -> None:
     members = _effect_members()

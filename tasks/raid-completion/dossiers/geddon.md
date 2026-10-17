@@ -36,6 +36,15 @@ All25,818,371 new extracted raw bytes passed unlimited gitleaks8.30.1.
 | Trazel, Hunter | kw1KFhxA4mfY8aRD / fight42 / actor116 | Applies21.033 s; fight ends26.071 s;5.038 s known affected,21.033 s initial unknown | No inferred removal, mana-loss amount or failed job. |
 | Inkia, Holy comparison | 1QatCkbxLyrZzNAg / fight15 / actor21 | Apply7.667 s / remove9.275 s over16.285 s | Positive transition pair;1.608 s known affected. |
 | Ivokros, Hunter comparison | Lwa74rJDPthfdCRY / fight16 / actor44 | Apply13.004 s / remove16.037 s over30.274 s | Positive transition pair;3.033 s known affected. |
+| Vadik, Hunter comparison | ApbxvjzTX8mqVnY1 / fight25 / actor11 | Apply14.980 s; raw feign15.460 s; fight ends43.113 s | Nine effect-damage ticks continue after the feign.28.133 s affected /14.980 s initial unknown; end censored. |
+
+Follow-up reviewed2026-10-18: the shared observer previously reset on Vadik's
+raw `death` event despite its literal `feign:true`. Old installed replay gives
+0.480s affected; corrected source and installed replay give28.133s, with the
+original event retained. Independent literal expectations and mutation checks
+are in `effect-facts.json#geddon-feign-actor-effects-1`; see
+[lifecycle guardrails](../research/feign-lifecycle-contract.md). This establishes
+continued observed exposure, not a removal assignment or a mana-loss estimate.
 
 No selected actor in these12 sources records Living Bomb20475 application.
 Other raid actors may receive it. Absence in this actor subset is not absence

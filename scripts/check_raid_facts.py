@@ -461,6 +461,7 @@ def raw_actor_effect_facts(
     )
     transitions = []
     lifecycles = []
+    death_feign_flags = []
     for row in ordered:
         kind = row["type"]
         aura = (
@@ -487,14 +488,21 @@ def raw_actor_effect_facts(
         ms = row["timestamp"] - selected["startTime"]
         if lifecycle:
             lifecycles.append([ms, kind])
+            if kind == "death" and "feign" in row:
+                if type(row["feign"]) is not bool:
+                    raise ValueError("raw death feign flag is unresolved")
+                death_feign_flags.append([ms, row["feign"]])
         else:
             transitions.append([ms, kind, row["abilityGameID"]])
-    return {
+    result: dict[str, Any] = {
         "duration_ms": selected["endTime"] - selected["startTime"],
         "actor_class": identities[0].get("subType"),
         "transitions": transitions,
         "lifecycles": lifecycles,
     }
+    if death_feign_flags:
+        result["death_feign_flags"] = death_feign_flags
+    return result
 
 
 def raw_owned_pet_facts(

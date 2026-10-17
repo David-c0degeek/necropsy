@@ -20,6 +20,7 @@ from necropsy.analysis.evidence import (
     observed,
     unknown,
 )
+from necropsy.analysis.generic.lifecycle import real_death
 from necropsy.analysis.generic.metrics import observed_aura_windows
 from necropsy.normalize.coverage import has_complete_encounter_coverage
 from necropsy.raids import raid_for_encounter
@@ -160,6 +161,7 @@ def encounter_auras(
         (*row[:5], json.loads(row[5]) if isinstance(row[5], str) else row[5], *row[6:])
         for row in rows
     ]
+    events = [row for row in events if row[1] != "death" or real_death(row[5]) is not False]
     result = []
     singletons = (
         _singleton_npcs(con, pf, actors)
@@ -265,12 +267,14 @@ def _aura(
     by_target: dict[tuple[int, int | None], list[tuple[Any, ...]]] = defaultdict(list)
     for row in rows:
         by_target[row[3], row[5].get("targetInstance")].append(row)
+    target_actors = {actor for actor, _instance in by_target}
     unresolved_lifecycles = [
         row
         for row in events
         if row[1] in {"death", "resurrect"}
         and (
             row[3] is None
+            or (row[1] == "death" and row[3] in target_actors and real_death(row[5]) is None)
             or (
                 "targetID" in row[5]
                 and (

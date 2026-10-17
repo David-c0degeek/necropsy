@@ -196,3 +196,19 @@ identity in those fights despite the current addon seasonal creature branch.
 research/aq40-first-capture-context.json freezes these events and source hash.
 No global seasonal classification, complete split windows or WCL ranking
 eligibility follows. All29 initial AQ40 fight phaseTransitions are null.
+
+2026-10-18 lifecycle review: actual raw Hunter death rows can have `feign:true`.
+Vadik's Geddon19659 aura keeps ticking after such a row; treating it as a real
+death undermeasured known exposure from28.133s to0.480s. A literal flag
+classifier now distinguishes this from genuine death/resurrection and malformed
+flags, without changing raw events or historical Naxx artifacts. Independent
+actor-effect facts preserve the flag and hand-reviewed end-censored window.
+
+Skeram image research now covers12 contexts/72 numbered747 summons. None has
+an image death row,60 instances have positive overkill, and12 have no such
+endpoint. Image groups overlap; the next Summon Images cast cannot terminate
+the preceding group's existence. No phase/opportunity normalization is enabled.
+The official scripting API offers potential exclusion/phase/enemy-death oracle
+methods, but the report UI could not be exercised: browser setup returned no
+available connection. Documentation polarity/interface differences and this
+unverified capability are retained in research/wcl-script-oracle-readiness.md.

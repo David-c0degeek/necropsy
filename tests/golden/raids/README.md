@@ -170,6 +170,14 @@ The additional29 actor and29 pet contexts preserve all12 earlier contexts
 exactly. Overall inventory:45 archives,525 actor cases,322 recipient cases and
 41 owner contexts/38 owned units; no full matrix cell is certified.
 
+The ninth actor-effect context freezes Vadik's real Geddon Feign Death boundary:
+Ignite Mana applies at14.980s, the raw death event has `feign:true` at15.460s,
+and damage ticks continue afterward. With no removal, measured exposure remains
+active and end-censored at43.113s:28.133s known affected and14.980s initially
+unknown. The independent raw projector preserves the literal flag; validly
+rehashed flag changes fail the frozen expectation. Original eight contexts
+remain unchanged. This does not measure mana loss or an execution mistake.
+
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json
 ```

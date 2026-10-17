@@ -47,6 +47,15 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 14 / Genuine death and Feign Death checkpoint.
+Vadik Hunter Geddon ApbxvjzTX8mqVnY1/25 actor11 applies19659 at14980ms, feigns15460ms and takes nine later19659 ticks. New raw/manual oracle confirms28133ms affected and14980ms initially unknown over43113ms. Old installed replay reproduced0.480s; current source/installed/normal installed CLI agree on28.133s and both-page content. No inferred mana loss, bomb/Inferno opportunity or quality grade.
+
+Verification, observed-vs-expected behavior, uncertainty and interim Hindsight
+are in research/feign-lifecycle-review.json. Keep shared seams and immutable
+evidence; fix remaining full-domain/class/faction/phase/ranking/duty/product
+and human obligations before closure. CH-MISS-3/4 and lasting lessons recorded.
+Verdict DO NOT CLOSE. No full box or matrix cell closed.
+
 2026-10-17 / slice 13 / Normal installed full-MC context capture promoted
 as a separate immutable fixture:40 archives/348 actor cases/186 recipient cases,
 six separate NPC-control contexts. Original288 actor and126 recipient expectations

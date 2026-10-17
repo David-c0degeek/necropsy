@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Preserve measured aura exposure across recorded Feign Death. Keep genuine
+  deaths and resurrections as state resets, and leave malformed death flags unknown.
+
 - Keep Hunter opening guidance explicit when no comparable ranged opening is
   recorded, and hide the reference ability section when no comparison exists.
 

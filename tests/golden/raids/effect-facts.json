@@ -778,6 +778,103 @@
         }
       ],
       "review_basis": "Independent target raw enumeration and hand-reviewed integer-ms Sand Blast transitions before policy activation. No inferred nominal five-second duration, full casting interruption, tank assignment or avoidability."
+    },
+    {
+      "id": "geddon-feign-actor-effects-1",
+      "fixture": "mc-geddon-hunter",
+      "archive": "raw/mc-geddon-hunter.zip",
+      "entries": "raw/mc-geddon-hunter.entries",
+      "sha256": "7a0b48a8045daa99ada215f8f3ca4f9ded39ec27e0d9c24a0b39519b8c707ebe",
+      "report": "ApbxvjzTX8mqVnY1",
+      "fight": 25,
+      "actor": 11,
+      "player": "Vadik",
+      "actor_case": "mc-geddon-hunter-145",
+      "encounter_id": 50668,
+      "ability_ids": [
+        19659
+      ],
+      "expected": {
+        "duration_ms": 43113,
+        "actor_class": "Hunter",
+        "transitions": [
+          [
+            14980,
+            "applydebuff",
+            19659
+          ]
+        ],
+        "lifecycles": [
+          [
+            15460,
+            "death"
+          ]
+        ],
+        "death_feign_flags": [
+          [
+            15460,
+            true
+          ]
+        ]
+      },
+      "window_expectations": [
+        {
+          "spell": 19659,
+          "windows": [
+            [
+              0,
+              14980,
+              null
+            ],
+            [
+              14980,
+              43113,
+              true
+            ]
+          ],
+          "known_affected_ms": 28133,
+          "unknown_state_ms": 14980
+        }
+      ],
+      "post_feign_effect_damage": [
+        [
+          17970,
+          400
+        ],
+        [
+          20974,
+          400
+        ],
+        [
+          23982,
+          44
+        ],
+        [
+          26964,
+          400
+        ],
+        [
+          29976,
+          400
+        ],
+        [
+          32988,
+          400
+        ],
+        [
+          35980,
+          400
+        ],
+        [
+          38973,
+          400
+        ],
+        [
+          41985,
+          400
+        ]
+      ],
+      "review_basis": "Independent target-page enumeration and hand-reviewed boundaries before runtime change. Raw death flag feign:true is preserved; nine19659 damage ticks continue after it. No actual death or removal is inferred. Exposure remains fight-end censored; no mana-loss, opportunity or quality grade."
     }
   ]
 }

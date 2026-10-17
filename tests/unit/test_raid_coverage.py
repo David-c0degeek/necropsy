@@ -5,12 +5,15 @@ from __future__ import annotations
 import hashlib
 import subprocess
 from pathlib import Path
+from typing import Any
 
 import pytest
 from pydantic import ValidationError
 
 from necropsy.analysis.class_catalog import TALENT_TREES, talent_tree
 from necropsy.raids.scope import configurations, coverage_cells
+from necropsy.rules import load_rules
+from scripts import check_raid_coverage as coverage_check
 from scripts.check_raid_coverage import (
     Receipt,
     Reference,
@@ -77,7 +80,18 @@ def test_inventory_preserves_every_missing_obligation() -> None:
     assert errors == []
 
 
-def test_forged_complete_status_requires_content_and_real_independent_evidence() -> None:
+@pytest.mark.parametrize("content_available", [True, False])
+def test_forged_complete_status_requires_content_and_real_independent_evidence(
+    monkeypatch: pytest.MonkeyPatch, content_available: bool
+) -> None:
+    if not content_available:
+        original_load = load_rules
+
+        def missing_facts(game: str, name: str) -> dict[str, Any]:
+            return {"encounters": []} if name.endswith("_facts") else original_load(game, name)
+
+        monkeypatch.setattr(coverage_check, "load_rules", missing_facts)
+        monkeypatch.setattr(coverage_check, "encounter_strategy", lambda *_args: None)
     cell = coverage_cells()[0]
     counts, errors = audit(
         Register(version=1, records=[Receipt(cell_id=cell.key, status="COMPLETE")])
@@ -85,8 +99,8 @@ def test_forged_complete_status_requires_content_and_real_independent_evidence()
     assert counts == {"TODO": 951, "COMPLETE": 1}
     assert any("missing completion evidence" in e for e in errors)
     assert any("no usable real actor source" in e for e in errors)
-    assert any("no sourced encounter facts" in e for e in errors)
-    assert any("no boss-specific guidance" in e for e in errors)
+    assert any("no sourced encounter facts" in e for e in errors) is (not content_available)
+    assert any("no boss-specific guidance" in e for e in errors) is (not content_available)
     assert any("ranking policy remains unvalidated" in e for e in errors)
 
 

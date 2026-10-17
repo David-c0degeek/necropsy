@@ -22,3 +22,18 @@ pairs. gameVersion2 and null classicSeasonID accompany these actual summoning
 relationships; the addon seasonal branch cannot override them. See
 [raw observations](../research/aq40-first-capture-context.json). Ranking
 eligibility and complete split opportunity remain unvalidated.
+
+2026-10-18 lifecycle follow-up extends raw research to12 selected contexts:
+72 numbered image summons, no image death rows,60 image instances with positive
+overkill and12 without. No positive damage is strictly later than the first
+positive-overkill timestamp for those60; same-timestamp rows are unordered.
+Missing endpoints are not supplied by last damage or fight end. These are
+observations, not an activated existence/attackability or opportunity policy.
+See [raw lifecycle observations](../research/skeram-image-lifecycle-observations.json).
+
+Spawn groups also overlap. In `6H9PmqR2QCnNAzVh/2`, the first pair appears at
+9.684s; later groups appear near19.383s and33.939s, while first-group instance1
+retains a positive-overkill hit at44.230s. Consecutive Summon Images casts must
+not truncate earlier NPC timelines or become mutually exclusive add-presence
+phases. Boss progression, image presence and physical damage opportunity are
+different interpretations requiring separate evidence and uncertainty.

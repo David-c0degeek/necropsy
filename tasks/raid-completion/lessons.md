@@ -1,5 +1,7 @@
 # Run lessons
 
+- 2026-10-18: Raw WCL type=death is insufficient to establish a genuine death: feign:true is retained for Hunters. Verify subtypes before resetting temporal state. A real Geddon sample continues Ignite Mana ticks after Feign Death and exposes a large undermeasurement. Preserve raw flags in independent facts and reject malformed values without coercion. Scripting API isFeign is a different interface name; confirm actual raw fields before implementing a mapping.
+
 - 2026-10-18: A trained-pet roster and an all-guardian roster are different evidence scopes. Keep confirmed owner/pet events even when a separate Battle Chicken has no owner; an empty explicit roster and a melee-only unclassified unit also have different meanings. Browser acceptance must inspect class-specific renderer paths, not infer their correctness from the general class path. Jinja block trimming can change otherwise identical artifact bytes; inspect exact diffs before attributing a hash change to content.
 
 - 2026-10-17: Ouro's post-mounds actor can be absent from fight enemyNPCs even though global events and masterData identify it. A count1 entry for another same-name/game-ID actor cannot certify the new actor's unnumbered aura window. Actual page inspection found the guarded Unknown; freeze that API countercase independently instead of weakening the guard to produce a duration.

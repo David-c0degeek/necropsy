@@ -37,6 +37,15 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 26 / Genuine death and Feign Death checkpoint.
+Added the ninth independently frozen actor-effect context (17 manual timelines), preserving literal raw feign flags and all prior525 actor/322 recipient/41 pet expectations and45 native archives. Mutation checks reject changed, omitted or malformed flags. All prior8 actor-effect contexts remain unchanged.59 IN_PROGRESS/893 TODO/0 COMPLETE.
+
+Verification, observed-vs-expected behavior, uncertainty and interim Hindsight
+are in research/feign-lifecycle-review.json. Keep shared seams and immutable
+evidence; fix remaining full-domain/class/faction/phase/ranking/duty/product
+and human obligations before closure. CH-MISS-3/4 and lasting lessons recorded.
+Verdict DO NOT CLOSE. No full box or matrix cell closed.
+
 2026-10-18 / slice 25 / Expanded Hunter comparison and guardian checkpoint.
 Normal installed resume completes29 public selected actor/fights/all9 personal
 bosses, with five comparisons each for Skeram/Royalty/Sartura/Fankriss. All58

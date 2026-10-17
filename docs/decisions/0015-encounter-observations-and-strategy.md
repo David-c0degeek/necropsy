@@ -79,6 +79,16 @@ Guide schedules never fill missing observations. Whole-fight comparisons remain
 labelled whole-fight values; no exposure-based DPS normalization or quality
 penalty is introduced by these policies.
 
+Raw WCL death events distinguish Feign Death with a literal `feign: true`.
+Shared lifecycle classification excludes these events from genuine death
+observations and aura resets while preserving them in immutable raw/normalized
+data. An absent flag or literal false retains ordinary death semantics;
+malformed flags remain unresolved, never coerced. Genuine positive deaths may
+remain observed under ambiguous or partial evidence without certifying a total.
+Resurrections still reset state. The scripting API's `isFeign` property is a
+separate interface, not an assumed alias in raw JSON. A real Geddon Hunter
+capture retains Ignite Mana ticks after a feign and verifies the distinction.
+
 Optional `playbook.control_applications` records source-owned control effects
 using the same actor-event and coverage contracts. Garr's Warlock policy matches
 applydebuff710/18647 on NPC12099. It retains time, target actor, nullable NPC

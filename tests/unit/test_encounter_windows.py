@@ -69,6 +69,20 @@ def event(
     )
 
 
+@pytest.mark.parametrize("flag,active", [(True, 8.0), (False, 1.0), (None, None), (1, None)])
+def test_npc_aura_lifecycle_distinguishes_feign_from_real_or_ambiguous_death(
+    con: duckdb.DuckDBPyConnection, flag: object, active: float | None
+) -> None:
+    event(con, 2000, "applybuff", 1)
+    event(con, 3000, "death", 1, ability=0)
+    con.execute(
+        "UPDATE events SET raw=? WHERE type='death'",
+        [json.dumps({"targetInstance": 1, "feign": flag})],
+    )
+    aura = encounter_auras(con, PF)[0]
+    assert aura.targets[0].known_active_s.value == active
+
+
 @pytest.mark.parametrize(
     "case",
     [

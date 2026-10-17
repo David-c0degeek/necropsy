@@ -101,6 +101,9 @@ are labelled cohort examples and do not fill a missing personal fight.
 Available raw identity fields must agree with normalized recipient/spell IDs;
 unresolved aura or lifecycle identity withholds durations rather than creating
 known absence. Historical whole-fight aura inference stays unchanged.
+Recorded Feign Death does not count as a genuine death or reset measured aura
+state. Malformed death flags stay uncertain; real deaths and resurrections
+retain their state-reset behavior. Raw events are preserved.
 When a personal fight is unavailable, its Report context keeps personal build
 and duty unknown. A reference player's measurements remain labelled examples.
 Garr retains individual SOURCE-owned Firesworn Banish applications separately

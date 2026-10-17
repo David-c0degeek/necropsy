@@ -1,0 +1,186 @@
+{
+  "reviewed": "2026-10-18",
+  "classification": "Shared genuine-death/Feign Death distinction with independently frozen real exposure countercase; full raid/class/faction/phase/ranking/duty/product acceptance stays open",
+  "input_base_commit": "810854e5b8e2d7aa4b27f990f294a3c9483246bc",
+  "archives": 45,
+  "actor_cases": 525,
+  "recipient_cases": 322,
+  "owned_pet_contexts": 41,
+  "owned_units": 38,
+  "actor_effect_contexts": 9,
+  "manual_actor_effect_timelines": 17,
+  "original8_effect_contexts_unchanged": true,
+  "all_prior_actor_recipient_pet_and_provenance_bytes_unchanged": true,
+  "matrix": {
+    "cells": 952,
+    "statuses": {
+      "TODO": 893,
+      "IN_PROGRESS": 59
+    },
+    "problems": []
+  },
+  "countercase": {
+    "fixture": "mc-geddon-hunter",
+    "report": "ApbxvjzTX8mqVnY1",
+    "fight": 25,
+    "actor": 11,
+    "player": "Vadik",
+    "spell": 19659,
+    "raw_apply_ms": 14980,
+    "raw_feign_ms": 15460,
+    "raw_post_feign_damage_ms": [
+      17970,
+      20974,
+      23982,
+      26964,
+      29976,
+      32988,
+      35980,
+      38973,
+      41985
+    ],
+    "raw_end_ms": 43113,
+    "known_affected_ms": 28133,
+    "initial_unknown_ms": 14980,
+    "end_censored": true,
+    "raw_events_preserved": true,
+    "interpretation": "Observed exposure only; no resource-loss, opportunity or quality inference"
+  },
+  "implementation": {
+    "shared_classifier": "analysis/generic/lifecycle.py: real_death",
+    "raw_flag": "feign, literal Boolean only; absent flag retains real-death behavior",
+    "scripting_property_is_not_raw_alias": "isFeign",
+    "consumers": [
+      "generic death observations",
+      "observed actor aura resets",
+      "actor-effect ambiguity validation",
+      "NPC aura lifecycle qualification"
+    ],
+    "malformed_flags": "Unresolved; genuine positive deaths remain observed without a certified total. Unrelated known recipient flags cannot taint personal state.",
+    "normalizer_or_schema_migration": false,
+    "old_saved_json": "Rendering preserves its saved measurements; raw reanalysis applies the correction"
+  },
+  "verification": {
+    "targeted_units": "274 passed/26.92s before equivalent target-set lift and formatting; no behavior changed afterward",
+    "ordinary_suite": "1619 passed/303 deselected/436.65s; includes ordinary browser/integration checks, not domain acceptance",
+    "initial_full_suite": "1617 passed/1 failed/303 deselected/438.50s; stale coverage test assumed first boss had no sourced facts or strategy. Corrected controlled present/absent content cases; all missing-evidence/actor/ranking refusals retained.",
+    "coverage_guard_final": "24 passed/6.02s after final typing/import correction; no production change",
+    "real_goldens": "4 passed/48 deselected/70.67s: Geddon Hunter, combined BWL Hunter, expanded AQ40 Hunter and independent actor-effect register",
+    "independent_actor_effects": "All9 contexts clean; raw flag mutants removed/false/malformed rejected",
+    "source": {
+      "fixture": "mc-geddon-hunter",
+      "installed": false,
+      "baseline": false,
+      "actor_cases_unchanged": 6,
+      "raw_feign_preserved": true,
+      "known_affected_s": 28.133,
+      "unknown_state_s": 14.98,
+      "end_censored": true,
+      "package_acceptance": true,
+      "four_source_installed_artifacts_equal": false
+    },
+    "old_installed": {
+      "fixture": "mc-geddon-hunter",
+      "installed": true,
+      "baseline": true,
+      "actor_cases_unchanged": 6,
+      "raw_feign_preserved": true,
+      "known_affected_s": 0.48,
+      "unknown_state_s": 42.633,
+      "end_censored": true,
+      "package_acceptance": true,
+      "four_source_installed_artifacts_equal": false
+    },
+    "installed": {
+      "fixture": "mc-geddon-hunter",
+      "installed": true,
+      "baseline": false,
+      "actor_cases_unchanged": 6,
+      "raw_feign_preserved": true,
+      "known_affected_s": 28.133,
+      "unknown_state_s": 14.98,
+      "end_censored": true,
+      "package_acceptance": true,
+      "four_source_installed_artifacts_equal": true
+    },
+    "installed_cli": {
+      "exit": 0,
+      "outside_checkout": true,
+      "normal_cli": true,
+      "four_artifacts_identical": true,
+      "artifact_sha256": {
+        "analysis.json": "98551df582b065dcde1ac5547a39330a29ce7405c3ea259778ff36617404ed66",
+        "report.html": "194c62bf665c0beb3490523b0188f3a0be9ac61eb1a27be9940c5f1271e4e1b6",
+        "playbook.html": "17e4dee166f6bd30e7241f2064c427ef820101189eb995eaedb3570d9cea5e39",
+        "necropsy-64024260-2000.zip": "77d7d566b797ac8c2dbe2227f95e4f43212d3e2236c57a477f1c342014b40256"
+      }
+    },
+    "naxx": {
+      "analysis.json": {
+        "baseline": "5cdffb21102afbfb7c2a75f6c68fe325662d5e1a8dcebef4a4520f08f8358541",
+        "current": "5cdffb21102afbfb7c2a75f6c68fe325662d5e1a8dcebef4a4520f08f8358541",
+        "identical": true
+      },
+      "playbook.html": {
+        "baseline": "564c257ae44c8053403c3429c9135002ff51949c6debafda3f5ab8cfca9ed983",
+        "current": "564c257ae44c8053403c3429c9135002ff51949c6debafda3f5ab8cfca9ed983",
+        "identical": true
+      },
+      "report.html": {
+        "baseline": "c0f5f8b6246a57ebbc3e89d6e4f733c7cd896db5b9918f56b75188a1fff5ddeb",
+        "current": "c0f5f8b6246a57ebbc3e89d6e4f733c7cd896db5b9918f56b75188a1fff5ddeb",
+        "identical": true
+      },
+      "necropsy-86583560-2006.zip": {
+        "baseline": "65b9f10dde148966eee9e3216a6ae4c8482e593d4b393f1c94fa504ab6841313",
+        "current": "65b9f10dde148966eee9e3216a6ae4c8482e593d4b393f1c94fa504ab6841313",
+        "identical": true
+      }
+    },
+    "wheel_source_rule_asset_members_match": 137,
+    "sdist_excludes_tasks_tests_workspace": true,
+    "raw_event_manifest_archive_unchanged": true,
+    "privacy": {
+      "raw_extracted_bytes": 17483737,
+      "output_extracted_bytes": 14450871,
+      "output_scanned_bytes": 14434538,
+      "scanner": "gitleaks8.30.1 --max-target-megabytes0; raw/output/research clean",
+      "research_scanned_bytes_before_staged_receipt": 1487070
+    },
+    "ruff": "276 formatted/check clean",
+    "mypy": "219 sources clean",
+    "docs": "291 local links/25 maintained documents",
+    "wheel_sha256": "1077c1d930b8ddbcaef16cbe6f6d20bbf59f285ff9a697a521330da99cff2757",
+    "strict_completeness_expected_exit": 1
+  },
+  "research": {
+    "skeram_contexts": 12,
+    "numbered_summons": 72,
+    "image_death_rows": 0,
+    "positive_overkill_instances": 60,
+    "missing_endpoints": 12,
+    "exclusive_phase_warning": "Image groups overlap; later casts cannot truncate earlier instance timelines. No existence/attackability or opportunity policy activated.",
+    "script_oracle": "Official capability found; no available browser connection, UI results unverified. Polarity/interface cautions retained.",
+    "next_observed_issue": "Real Sartura no-pet recommendation contradicts its zero median. Guardrails frozen; implementation follows this checkpoint."
+  },
+  "hindsight": {
+    "keep": "Literal raw flag classification shared by real callers, independent preserved flags and hand-reviewed windows, scope/recipient/instance uncertainty, unchanged normalization and immutable raw evidence. Normal installed CLI/package and old-versus-new replay demonstrate actual corrected behavior.",
+    "fix_before_closing": "Remaining opportunity/phase/ranking/duty/class/faction/item/pet and human/domain/product gates; investigate native incident further; correct unsupported pet-absence guidance as separately scoped next work.",
+    "record": "CH-MISS-3 formalizes the already-recorded native analysis incident; CH-MISS-4 records Feign Death reset damage and the missing raw subtype in prior oracles. Dossier/ADR/docs updated. Full suite exposed stale test assumptions after all boss facts/strategy were populated; negative guard coverage retained with controlled fixtures.",
+    "risk": "A semantic marker or an observed aura cannot establish physical opportunity or assignment. Missing NPC endpoints and script-oracle results remain unknown. All full subject boxes remain open.",
+    "pm_calibration": {
+      "PM-1": "Actual saved and both-page exposure values checked, not only page presence or green build. Unsupported pet-absence action found separately during content review.",
+      "PM-2": "Real raw flag distinguishes feign/genuine/unknown lifecycle; continued Ignite Mana ticks support the countercase. No guide timer or mana-loss grade.",
+      "PM-3": "One independently frozen real context plus flag mutation tests; unchanged525/322/41 facts and prior8 effects; all4 Naxx artifacts remain byte-identical."
+    },
+    "verdict": "DO_NOT_CLOSE"
+  },
+  "staged_exact_byte_inventory": {
+    "cells": 952,
+    "statuses": {
+      "TODO": 893,
+      "IN_PROGRESS": 59
+    },
+    "problems": []
+  }
+}

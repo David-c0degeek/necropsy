@@ -44,6 +44,15 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 27 / Genuine death and Feign Death checkpoint.
+One shared raw death classifier distinguishes literal feigns, genuine deaths and unresolved flags across generic deaths, observed actor resets, effect identity validation and NPC windows. Unrelated recipient uncertainty does not taint personal state. No normalizer/schema change. Actual Geddon exposure corrected from0.480s to28.133s; end censoring and14.980s initial unknown preserved. ADR0015 extended.
+
+Verification, observed-vs-expected behavior, uncertainty and interim Hindsight
+are in research/feign-lifecycle-review.json. Keep shared seams and immutable
+evidence; fix remaining full-domain/class/faction/phase/ranking/duty/product
+and human obligations before closure. CH-MISS-3/4 and lasting lessons recorded.
+Verdict DO NOT CLOSE. No full box or matrix cell closed.
+
 2026-10-18 / slice 26 / Expanded Hunter comparison and guardian checkpoint.
 Normal installed resume completes29 public selected actor/fights/all9 personal
 bosses, with five comparisons each for Skeram/Royalty/Sartura/Fankriss. All58

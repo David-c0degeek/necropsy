@@ -170,6 +170,8 @@ def test_unusable_dispel_metadata_cannot_supply_a_known_zero(tmp_path: Path, raw
         ("conflicting", 85, 15),
         ("simultaneous", 0, 100),
         ("death", 5, 95),
+        ("feign", 95, 5),
+        ("feign-then-resurrect", 10, 90),
     ],
 )
 def test_effect_state_is_bounded_by_actual_actor_transitions(
@@ -203,6 +205,8 @@ def test_effect_state_is_bounded_by_actual_actor_transitions(
             ],
             "simultaneous": [(5000, "applydebuff"), (5000, "removedebuff")],
             "death": [(5000, "applydebuff"), (10000, "death"), (15000, "resurrect")],
+            "feign": [(5000, "applydebuff"), (10000, "death")],
+            "feign-then-resurrect": [(5000, "applydebuff"), (10000, "death"), (15000, "resurrect")],
         }.get(scenario, [])
         for index, (timestamp, kind) in enumerate(transitions):
             con.execute(
@@ -218,6 +222,8 @@ def test_effect_state_is_bounded_by_actual_actor_transitions(
                     12345 if scenario == "foreign" else 19703,
                 ],
             )
+        if scenario.startswith("feign"):
+            con.execute("UPDATE events SET raw=? WHERE type='death'", [json.dumps({"feign": True})])
         if scenario == "partial":
             con.execute(
                 "UPDATE stream_coverage SET status='incomplete' "
@@ -275,6 +281,10 @@ def test_effect_state_is_bounded_by_actual_actor_transitions(
         ("applydebuff", 1, 19703, None, True),
         ("applydebuff", 1, 19703, [], True),
         ("death", 2, None, {"targetID": 2}, False),
+        ("death", 2, None, {"targetID": 2, "feign": None}, False),
+        ("death", 1, None, {"targetID": 1, "feign": None}, True),
+        ("death", 1, None, {"targetID": 1, "feign": 1}, True),
+        ("death", 1, None, {"targetID": 1, "feign": "true"}, True),
         ("death", 2, None, {"targetID": 1.8}, True),
         ("resurrect", None, None, {"targetID": None}, True),
         ("applybuff", None, 19703, {"targetID": None, "abilityGameID": 19703}, False),

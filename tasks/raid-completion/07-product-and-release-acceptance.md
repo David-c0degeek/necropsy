@@ -39,6 +39,15 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 8 / Genuine death and Feign Death checkpoint.
+Current source and installed replay plus actual installed offline CLI outside checkout match all4 countercase artifacts and normal package acceptance. Full ordinary suite1619 passed/436.65s;4 real cross-raid goldens pass/70.67s;274 targeted units pass. Final24 coverage guard cases pass after correcting a stale empty-content assumption and typing-only cleanup. Naxx all4 baseline hashes unchanged;137 wheel members match source. Unlimited scans clean. No full product acceptance or publication.
+
+Verification, observed-vs-expected behavior, uncertainty and interim Hindsight
+are in research/feign-lifecycle-review.json. Keep shared seams and immutable
+evidence; fix remaining full-domain/class/faction/phase/ranking/duty/product
+and human obligations before closure. CH-MISS-3/4 and lasting lessons recorded.
+Verdict DO NOT CLOSE. No full box or matrix cell closed.
+
 2026-10-18 / slice 7 / Expanded Hunter comparison and guardian checkpoint.
 Normal installed resume completes29 public selected actor/fights/all9 personal
 bosses, with five comparisons each for Skeram/Royalty/Sartura/Fankriss. All58

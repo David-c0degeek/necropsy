@@ -17,6 +17,7 @@ from necropsy.analysis.evidence import (
     unknown,
 )
 from necropsy.analysis.generic import combat, metrics
+from necropsy.analysis.generic.lifecycle import real_death
 from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
@@ -224,6 +225,14 @@ def _unresolved_effect_identity(
     unresolved = []
     for kind, target, ability, raw, uid, copy in rows:
         raw = json.loads(raw) if isinstance(raw, str) else raw
+        if kind == "death":
+            status = real_death(raw)
+            if status is False:
+                continue
+            if status is None:
+                if target == pf.actor_id or not _effect_identity_matches(raw, target, None):
+                    unresolved.append((uid, copy))
+                continue
         if kind in {"death", "resurrect"} and isinstance(raw, dict):
             raw = {k: v for k, v in raw.items() if k != "abilityGameID"}
         if not isinstance(raw, dict) or not _effect_identity_matches(raw, target, ability):

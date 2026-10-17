@@ -235,6 +235,52 @@ def test_deaths_with_recent_hits(db: duckdb.DuckDBPyConnection) -> None:
     assert window is not None and window.first_damage_s == 0.001
 
 
+@pytest.mark.parametrize(
+    "db,expected",
+    [
+        (_spec([ev(1)], [ev(41000, "death", target=1, **flags)]), expected)
+        for flags, expected in (
+            ({}, 1),
+            ({"feign": False}, 1),
+            ({"feign": True}, 0),
+            ({"feign": None}, None),
+            ({"feign": 0}, None),
+            ({"feign": 1}, None),
+            ({"feign": "false"}, None),
+            ({"feign": "true"}, None),
+            ({"feign": []}, None),
+            ({"feign": {}}, None),
+        )
+    ],
+    indirect=["db"],
+)
+def test_real_deaths_require_a_resolved_raw_feign_flag(
+    db: duckdb.DuckDBPyConnection, expected: int | None
+) -> None:
+    pf = participant_fights(db)[0]
+    finding = metrics.deaths(db, pf, pf.actor_id)
+    assert finding.complete is (expected is not None)
+    if expected is None:
+        assert finding.deaths.value is None
+    else:
+        assert finding.deaths.value is not None and len(finding.deaths.value) == expected
+
+
+@pytest.mark.parametrize(
+    "db",
+    [_spec([ev(1)], [ev(10000, "death", target=1), ev(20000, "death", target=1, feign=1)])],
+    indirect=True,
+)
+def test_ambiguous_death_flag_retains_genuine_positive_observations(
+    db: duckdb.DuckDBPyConnection,
+) -> None:
+    pf = participant_fights(db)[0]
+    finding = metrics.deaths(db, pf, pf.actor_id)
+    assert not finding.complete and finding.deaths.level is EvidenceLevel.OBSERVED
+    assert finding.deaths.value is not None
+    assert [d.t_s for d in finding.deaths.value] == [10]
+
+
 def _npc(actor_id: int, game_id: int | None) -> dict[str, Any]:
     return {
         "id": actor_id,

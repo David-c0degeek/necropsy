@@ -25,6 +25,7 @@ from necropsy.analysis.evidence import (
     observed,
     unknown,
 )
+from necropsy.analysis.generic.lifecycle import real_death
 from necropsy.snapshot.model import Direction
 
 DEATH_RECAP_WINDOW_MS = 5000
@@ -323,13 +324,18 @@ def aura_states(
         rows = [row for row in rows if row[2] in event_kinds]
     if observed_only:
         rows = [row for row in rows if pf.start_time <= row[1] <= pf.end_time]
-        resets = _rows(
+        lifecycle_rows = _rows(
             con,
-            "SELECT NULL, timestamp, 'stateunknown', event_uid, copy_index FROM events "
+            "SELECT timestamp, type, raw, event_uid, copy_index FROM events "
             "WHERE report_code=? AND fight_id=? AND target_id=? "
             "AND type IN ('death', 'resurrect') AND timestamp BETWEEN ? AND ?",
             [pf.report_code, pf.fight_id, actor_id, pf.start_time, pf.end_time],
         )
+        resets = [
+            (None, ts, "stateunknown", uid, copy)
+            for ts, kind, raw, uid, copy in lifecycle_rows
+            if kind != "death" or real_death(raw) is not False
+        ]
         rows = sorted([*rows, *resets], key=lambda row: (row[1], row[3], row[4]))
     cov = [coverage(con, pf, actor_id, Direction.TARGET)]
     ref = _ref(pf, actor_id, rows, 3, 4, f"three-state aura windows {aura_ids}")
@@ -409,14 +415,16 @@ def deaths(con: duckdb.DuckDBPyConnection, pf: ParticipantFight, actor_id: int) 
     rows = _rows(
         con,
         """
-        SELECT timestamp, killer_id, killing_ability_game_id, event_uid, copy_index FROM events
+        SELECT timestamp, killer_id, killing_ability_game_id, event_uid, copy_index, raw FROM events
         WHERE report_code = ? AND fight_id = ? AND type = 'death' AND target_id = ?
         ORDER BY timestamp, event_uid, copy_index
         """,
         [pf.report_code, pf.fight_id, actor_id],
     )
+    unresolved = any(real_death(row[5]) is None for row in rows)
+    genuine = [row for row in rows if real_death(row[5]) is True]
     found: list[Death] = []
-    for ts, killer, ability, _uid, _copy in rows:
+    for ts, killer, ability, _uid, _copy, _raw in genuine:
         hits = _rows(
             con,
             """
@@ -446,15 +454,28 @@ def deaths(con: duckdb.DuckDBPyConnection, pf: ParticipantFight, actor_id: int) 
         )
     ref = _ref(pf, actor_id, rows, 3, 4, "death events")
     cov = [coverage(con, pf, actor_id, Direction.TARGET)]
-    if cov[0].trusted:
+    if cov[0].trusted and not unresolved:
         return DeathsFinding(complete_or_unknown(tuple(found), cov, ref), complete=True)
     if found:
         return DeathsFinding(
-            observed(tuple(found), ref, note="partial: the target stream is incomplete"),
+            observed(
+                tuple(found),
+                ref,
+                note="partial: a death flag is unresolved"
+                if unresolved
+                else "partial: the target stream is incomplete",
+            ),
             complete=False,
         )
     return DeathsFinding(
-        unknown("target stream incomplete or untrustworthy", ref, coverage=cov), complete=False
+        unknown(
+            "death flag is unresolved"
+            if unresolved
+            else "target stream incomplete or untrustworthy",
+            ref,
+            coverage=cov,
+        ),
+        complete=False,
     )
 
 
