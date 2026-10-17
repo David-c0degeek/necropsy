@@ -24,6 +24,7 @@ from necropsy.wcl.cache import (
     FightKey,
     StreamKey,
     UnsafeKey,
+    check_identity,
     item_lock,
     publish,
 )
@@ -87,6 +88,57 @@ def test_only_the_canonical_supported_site_is_accepted() -> None:
         _key(direction="both")
     with pytest.raises(UnsafeKey):
         _key(actor_id=0)
+
+
+@pytest.mark.parametrize("role", ["encounter", "critical"])
+@pytest.mark.parametrize(
+    "actor,direction", [(0, "all"), (3, "all"), (None, "source"), (None, "target")]
+)
+def test_encounter_scope_cannot_impersonate_an_actor(
+    role: str, actor: int | None, direction: str
+) -> None:
+    with pytest.raises(UnsafeKey):
+        _key(role=role, actor_id=actor, direction=direction)
+
+
+@pytest.mark.parametrize("role", ["player", "pet"])
+@pytest.mark.parametrize("direction", ["source", "target", "all"])
+def test_actor_scope_cannot_impersonate_encounter_coverage(role: str, direction: str) -> None:
+    with pytest.raises(UnsafeKey):
+        _key(role=role, actor_id=None, direction=direction)
+
+
+@pytest.mark.parametrize("role", ["encounter", "critical"])
+def test_encounter_identity_binds_the_exact_scope_and_critical_filter(role: str) -> None:
+    identity = dict(IDENTITY, role=role, actor_id=None, direction="all")
+    if role == "critical":
+        identity["filter_expression"] = 'type = "damage" AND isCritical = true'
+    key = _key(role=role, actor_id=None, direction="all")
+    assert key.name == f"client_{role}_all"
+    assert check_identity(key, identity) == identity
+    wrong = dict(identity, actor_id=0)
+    with pytest.raises(UnsafeKey):
+        check_identity(key, wrong)
+    wrong = dict(identity, filter_expression='type = "damage"')
+    with pytest.raises(UnsafeKey):
+        check_identity(key, wrong)
+    other = "encounter" if role == "critical" else "critical"
+    with pytest.raises(UnsafeKey):
+        check_identity(_key(role=other, actor_id=None, direction="all"), identity)
+
+
+def test_critical_scope_refuses_non_damage_before_cache_publication(tmp_path: Path) -> None:
+    identity = dict(
+        IDENTITY,
+        role="critical",
+        actor_id=None,
+        direction="all",
+        filter_expression='type = "damage" AND isCritical = true',
+    )
+    key = _key(role="critical", actor_id=None, direction="all")
+    with pytest.raises(CacheCorrupt, match="critical-damage scope"):
+        Cache(tmp_path).write_stream(key, identity, [_page(1)])
+    assert not list(tmp_path.rglob("stream.json"))
 
 
 def test_publish_never_replaces_and_reuses_identical_bytes(tmp_path: Path) -> None:

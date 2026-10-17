@@ -8,6 +8,9 @@ Layout under the root (format version in `cache-format.json`):
     <family>/<reportCode>/r<revision>/fight_<id>/<endpoint>_<role>_<actorId>_<direction>/page_NNN.json
     <family>/<reportCode>/r<revision>/fight_<id>/<endpoint>_<role>_<actorId>_<direction>/stream.json
 
+Actorless encounter/critical scopes use <endpoint>_<role>_all instead. The
+critical scope binds its server filter; it is not unrestricted fight coverage.
+
 Guarantees, and their limits:
 
 - Every file is published whole: bytes go to an owned temp file in the same
@@ -51,7 +54,8 @@ from necropsy.wcl.sites import SITES, Site
 
 CACHE_FORMAT = 2
 _CODE = re.compile(r"[A-Za-z0-9]{1,32}")
-_ROLES = frozenset({"player", "pet"})
+_ROLES = frozenset({"player", "pet", "encounter", "critical"})
+CRITICAL_FILTER = 'type = "damage" AND isCritical = true'
 _DIRECTIONS = frozenset({"source", "target"})
 _REPARSE = getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
 
@@ -129,20 +133,26 @@ class FightKey:
 class StreamKey:
     fight: FightKey
     role: str
-    actor_id: int
+    actor_id: int | None
     direction: str
     endpoint: str = "client"
 
     def __post_init__(self) -> None:
         if self.role not in _ROLES:
-            raise UnsafeKey(f"role {self.role!r} is not player or pet")
-        if self.direction not in _DIRECTIONS:
-            raise UnsafeKey(f"direction {self.direction!r} is not source or target")
-        _positive(self.actor_id, "actor id")
+            raise UnsafeKey(f"role {self.role!r} is not a supported event scope")
+        if self.role in {"encounter", "critical"}:
+            if self.actor_id is not None or self.direction != "all":
+                raise UnsafeKey("encounter streams require no actor and direction all")
+        else:
+            if self.direction not in _DIRECTIONS:
+                raise UnsafeKey(f"direction {self.direction!r} is not source or target")
+            _positive(self.actor_id, "actor id")
         _endpoint(self.endpoint)
 
     @property
     def name(self) -> str:
+        if self.actor_id is None:
+            return f"{self.endpoint}_{self.role}_all"
         return f"{self.endpoint}_{self.role}_{self.actor_id}_{self.direction}"
 
 
@@ -295,7 +305,7 @@ IDENTITY_FIELDS: dict[str, type | tuple[type, ...]] = {
     "code": str,
     "revision": int,
     "fight": int,
-    "actor_id": int,
+    "actor_id": (int, type(None)),
     "role": str,
     "direction": str,
     "start_time": (int, float),
@@ -319,11 +329,14 @@ def _finite(value: Any) -> float | None:
 def check_identity(key: StreamKey, identity: Mapping[str, Any]) -> dict[str, Any]:
     """Refuse an identity that is incomplete, mistyped or not the key's own request."""
     found = dict(identity)
-    if set(found) != set(IDENTITY_FIELDS):
-        missing = sorted(set(IDENTITY_FIELDS) - set(found))
-        extra = sorted(set(found) - set(IDENTITY_FIELDS))
+    fields = dict(IDENTITY_FIELDS)
+    if key.role == "critical":
+        fields["filter_expression"] = str
+    if set(found) != set(fields):
+        missing = sorted(set(fields) - set(found))
+        extra = sorted(set(found) - set(fields))
         raise UnsafeKey(f"stream identity fields differ: missing {missing}, extra {extra}")
-    for name, kind in IDENTITY_FIELDS.items():
+    for name, kind in fields.items():
         value = found[name]
         if isinstance(value, bool) and kind is not bool:
             raise UnsafeKey(f"identity {name} must not be a boolean")
@@ -343,6 +356,8 @@ def check_identity(key: StreamKey, identity: Mapping[str, Any]) -> dict[str, Any
     for name, value in expected.items():
         if found[name] != value:
             raise UnsafeKey(f"identity {name} {found[name]!r} is not the key's {value!r}")
+    if key.role == "critical" and found["filter_expression"] != CRITICAL_FILTER:
+        raise UnsafeKey("critical stream identity has a different event filter")
     start, end = _finite(found["start_time"]), _finite(found["end_time"])
     if start is None or end is None or start < 0 or end <= start:
         raise UnsafeKey("identity time bounds are not finite, ordered and non-negative")
@@ -359,6 +374,7 @@ class _PageCheck:
     def __init__(self, identity: Mapping[str, Any]) -> None:
         self.start = float(identity["start_time"])
         self.end = float(identity["end_time"])
+        self.critical = identity["role"] == "critical"
         self.done = False
         self.count = 0
 
@@ -372,6 +388,8 @@ class _PageCheck:
         data = page["data"]
         if not isinstance(data, list) or not all(isinstance(e, dict) for e in data):
             raise CacheCorrupt(f"page {n} data is not a list of events")
+        if self.critical and any(e.get("type") != "damage" for e in data):
+            raise CacheCorrupt(f"page {n} critical-damage scope contains other events")
         cursor = page["nextPageTimestamp"]
         if cursor is None:
             self.done = True

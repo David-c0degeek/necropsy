@@ -134,6 +134,70 @@ def test_empty_terminal_page_completes(tmp_path: Path) -> None:
     assert fetch_stream(client, store, bundle, "pet", 9, "target").pages[0]["data"] == []
 
 
+@pytest.mark.parametrize("role", ["encounter", "critical"])
+def test_actorless_streams_keep_scope_filter_pagination_and_cache_identity(
+    tmp_path: Path, role: str
+) -> None:
+    events = [dict(e, type="damage") for e in _ev(2)]
+    script = Script(_bundle_response(_report()), _events(events, 2000), _events(events[:1], None))
+    client, store, bundle = _bundle(tmp_path, script)
+    stream = fetch_stream(client, store, bundle, role, None, "all")
+    assert stream.identity["actor_id"] is None and stream.identity["direction"] == "all"
+    assert [len(p["data"]) for p in stream.pages] == [2, 1]
+    sent = script.bodies()[1:]
+    assert [b["variables"]["startTime"] for b in sent] == [1000.0, 2000]
+    for body in sent:
+        variables = body["variables"]
+        assert variables["sourceID"] is None and variables["targetID"] is None
+        assert variables["fightIDs"] == [FIGHT] and variables["endTime"] == 9000
+        if role == "critical":
+            assert variables["filterExpression"] == 'type = "damage" AND isCritical = true'
+            assert stream.identity["filter_expression"] == variables["filterExpression"]
+            assert "filterExpression: $filterExpression" in body["query"]
+        else:
+            assert "filterExpression" not in variables
+            assert "filter_expression" not in stream.identity
+            assert "filterExpression" not in body["query"]
+    before = len(script.bodies())
+    reused = fetch_stream(client, store, bundle, role, None, "all")
+    assert reused.reused and reused.pages == stream.pages
+    assert len(script.bodies()) == before
+
+
+@pytest.mark.parametrize("role", ["encounter", "critical"])
+def test_actorless_revision_drift_never_publishes_a_complete_marker(
+    tmp_path: Path, role: str
+) -> None:
+    events = [dict(e, type="damage") for e in _ev(1)]
+    script = Script(
+        _bundle_response(_report()), _events(events, 2000), _events(events, None, revision=5)
+    )
+    client, store, bundle = _bundle(tmp_path, script)
+    with pytest.raises(RevisionChanged):
+        fetch_stream(client, store, bundle, role, None, "all")
+    folder = tmp_path / "vanilla" / CODE / "r4" / f"fight_{FIGHT}" / f"client_{role}_all"
+    assert not (folder / "stream.json").exists()
+
+
+def test_critical_filter_response_must_actually_contain_damage_events(tmp_path: Path) -> None:
+    client, store, bundle = _bundle(
+        tmp_path, Script(_bundle_response(_report()), _events(_ev(1), None))
+    )
+    with pytest.raises(c.InvalidResponse, match="critical-damage filter"):
+        fetch_stream(client, store, bundle, "critical", None, "all")
+    assert not list(tmp_path.rglob("client_critical_all/stream.json"))
+
+
+def test_actorless_page_budget_keeps_completed_actor_stream_reusable(tmp_path: Path) -> None:
+    script = Script(_bundle_response(_report()), _events(_ev(1), None), _events(_ev(1), 2000))
+    client, store, bundle = _bundle(tmp_path, script)
+    actor = fetch_stream(client, store, bundle, "player", 3, "source")
+    with pytest.raises(c.PageBudgetExhausted):
+        fetch_stream(client, store, bundle, "encounter", None, "all", max_pages=1)
+    assert fetch_stream(client, store, bundle, "player", 3, "source").pages == actor.pages
+    assert not list(tmp_path.rglob("client_encounter_all/stream.json"))
+
+
 def test_revision_drift_leaves_the_stream_incomplete(tmp_path: Path) -> None:
     script = Script(
         _bundle_response(_report()), _events(_ev(1), 2000), _events(_ev(1), None, revision=5)

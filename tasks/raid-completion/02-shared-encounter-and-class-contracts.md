@@ -44,6 +44,28 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice12 / 02.1-02.3 and02.7 partial: encounter-scope cache/fetch
+foundation under D010. Pre-mortem guardrails and versioned archive constraints
+recorded before code in research/encounter-stream-contract.md. Independently
+compared20 immutable actor streams against seven same-revision public terminal
+whole-fight research payloads: exact subset and multiplicities match. Extend the
+existing cache/client/pagination path with nullable actor and explicit all scope,
+separate encounter/critical identities and a canonical critical-damage filter.
+No actor0, substitute downloader, default collection or archive format change.
+Wrong scope/filter/actor, revision drift, page-budget interruption, non-damage
+critical responses and actor-cache preservation/reuse covered.118 focused cache/
+fetch checks pass/1.53 s. Seven recorded payload pairs replay exactly through the
+normal client/cache using synthetic offline transport/quota and no-network reuse;
+research/encounter-cache-recorded-replay.json is not a live archive acceptance.
+
+Keep current actor identities/names and coverage predicates; fix versioned raw
+archive collection/reader/writer, full normal capture and independent normalized/
+rendered/installed acceptance before enabling production encounter context. No
+ranking reconstruction, boss phase or opportunity is certified. Shared subject
+remains IN_PROGRESS; interim Hindsight DO NOT CLOSE; PM-2/PM-3 stay pending full
+calibration. Broad ordinary regression in progress.
+
+
 2026-10-17 / slice 11 / Sulfuron initial strategy and evidence. Promoted
 public finalized six-source Holy/Rogue captures:29 archives/174 independent raw
 actor cases,28 IN_PROGRESS/924 TODO/0 COMPLETE. Original162 expectations unchanged.
@@ -314,3 +336,11 @@ policies remain unvalidated. Other boss strategy and real class cells are open.
 raid, domain/product acceptance or publication.
 
 2026-10-17 · slice 2 · checkpoint receipt · b25e8bb pushed, HEAD/origin/main matched and source tree clean. All verification above remains current; only documentation follows. Subject stays IN_PROGRESS with every full shared-contract box open, zero certified matrix cells, and no human sign-off inferred. Continue phase/opportunity/metric/duty work and the remaining evidence contracts.
+
+Encounter-cache final checks:122 cache/fetch tests pass/1.58 s after adding
+explicit null actor negatives in both legacy directions. Full ordinary suite
+1333 passed/1 skipped/281 deselected in395.31 s before that test-only expansion.
+Ruff/format/mypy/docs pass. All four Naxx artifacts again match30e89ce byte for
+byte. Research receipts pass unlimited secret scan. Full MC Holy acquisition
+is running through normal CLI with one observed-reset wait; currently quota
+waiting, no archive or new evidence is counted. Checkpoint pushed separately.

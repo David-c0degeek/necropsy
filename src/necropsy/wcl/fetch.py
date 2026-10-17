@@ -15,7 +15,14 @@ from collections.abc import Iterator, Mapping
 from dataclasses import dataclass
 from typing import Any
 
-from necropsy.wcl.cache import Cache, FightKey, StreamKey, StreamPages, valid_report_code
+from necropsy.wcl.cache import (
+    CRITICAL_FILTER,
+    Cache,
+    FightKey,
+    StreamKey,
+    StreamPages,
+    valid_report_code,
+)
 from necropsy.wcl.client import (
     RATE_FIELDS,
     Endpoint,
@@ -89,6 +96,13 @@ query NecropsyEvents($code: String!, $fightIDs: [Int], $sourceID: Int, $targetID
   {RATE_FIELDS}
 }}
 """
+
+CRITICAL_EVENTS_QUERY = EVENTS_QUERY.replace(
+    "$endTime: Float)", "$endTime: Float, $filterExpression: String)"
+).replace(
+    "includeResources: true, translate: true)",
+    "includeResources: true, translate: true, filterExpression: $filterExpression)",
+)
 
 
 class ReportInaccessible(WclError):
@@ -204,9 +218,11 @@ def fetch_bundle(
     return Bundle(key, report, fight, start, end, endpoint, digest)
 
 
-def stream_identity(bundle: Bundle, role: str, actor_id: int, direction: str) -> dict[str, Any]:
+def stream_identity(
+    bundle: Bundle, role: str, actor_id: int | None, direction: str
+) -> dict[str, Any]:
     """The canonical request a stream answers (no auth data, no fetch-time metadata)."""
-    return {
+    identity = {
         "site": bundle.key.site.host,
         "code": bundle.key.code,
         "revision": bundle.key.revision,
@@ -223,17 +239,26 @@ def stream_identity(bundle: Bundle, role: str, actor_id: int, direction: str) ->
         "query_version": QUERY_VERSION,
         "endpoint": bundle.endpoint,
     }
+    if role == "critical":
+        identity["filter_expression"] = CRITICAL_FILTER
+    return identity
 
 
 def _pages(
-    client: WclClient, bundle: Bundle, actor_id: int, direction: str, max_pages: int
+    client: WclClient,
+    bundle: Bundle,
+    actor_id: int | None,
+    direction: str,
+    max_pages: int,
+    *,
+    critical: bool = False,
 ) -> Iterator[dict[str, Any]]:
     start = bundle.start
     for n in range(1, max_pages + 1):
         client.ensure_budget(None)
         result = report_query(
             client,
-            EVENTS_QUERY,
+            CRITICAL_EVENTS_QUERY if critical else EVENTS_QUERY,
             {
                 "code": bundle.key.code,
                 "fightIDs": [bundle.key.fight],
@@ -241,6 +266,7 @@ def _pages(
                 "targetID": actor_id if direction == "target" else None,
                 "startTime": start,
                 "endTime": bundle.end,
+                **({"filterExpression": CRITICAL_FILTER} if critical else {}),
             },
             bundle.endpoint,
         )
@@ -258,6 +284,10 @@ def _pages(
         data = events.get("data")
         if not isinstance(data, list) or not all(isinstance(e, dict) for e in data):
             raise InvalidResponse(f"page {n} data is not a list of events", result.rate)
+        if critical and any(e.get("type") != "damage" for e in data):
+            raise InvalidResponse(
+                f"page {n} critical-damage filter returned other events", result.rate
+            )
         cursor = events["nextPageTimestamp"]
         if cursor is None:
             yield {"data": data, "nextPageTimestamp": None}
@@ -275,7 +305,7 @@ def fetch_stream(
     cache: Cache,
     bundle: Bundle,
     role: str,
-    actor_id: int,
+    actor_id: int | None,
     direction: str,
     *,
     max_pages: int = MAX_STREAM_PAGES,
@@ -291,7 +321,7 @@ def fetch_stream(
     if cached is not None:
         return cached
     before = Reading(client.last_rate, client.last_rate_at)
-    pages = _pages(client, bundle, actor_id, direction, max_pages)
+    pages = _pages(client, bundle, actor_id, direction, max_pages, critical=role == "critical")
     return cache.write_stream(
         key,
         identity,

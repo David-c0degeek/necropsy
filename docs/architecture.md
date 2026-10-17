@@ -91,6 +91,14 @@ requires verified pages and an explicit null terminal cursor. Reads recheck
 identity, page hashes and pagination. Durability is limited by the filesystem's
 fsync and hard-link support; unsupported publication fails explicitly.
 
+The shared fetch/cache layer also accepts explicit actorless encounter and
+critical-damage scopes. Their actor is null and direction is `all`; critical
+requests bind the server `isCritical` filter in the immutable identity. They
+use separate cache paths and cannot impersonate an actor source/target stream.
+Default acquisition and live snapshot v1 still collect player/pet streams;
+versioned encounter-stream archive integration remains in development. These
+internal fetch capabilities do not enable validated ranking or phase analysis.
+
 Format 2 report bundles and combined report sets use full content-digest
 generations per endpoint. Metadata can change at the same report revision, so
 each new acquisition fetches a fresh combined report and binds its exact
