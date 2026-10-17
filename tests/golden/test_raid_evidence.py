@@ -62,6 +62,13 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     with VerifiedArchive(archive, entries=entries) as raw:
         marker = raw.read_json("necropsy-snapshot.json")
     assert doc["zone"]["id"] == marker["zone"]["id"]
+    if fixture.get("encounter_context"):
+        assert doc["snapshot"]["format"] == "necropsy-live-snapshot-v2"
+        assert len(marker["encounter_streams"]) == 12
+        assert all(
+            p["actor_id"] is None and p["direction"] == "all" for p in marker["encounter_streams"]
+        )
+        assert {p["role"] for p in marker["encounter_streams"]} == {"encounter", "critical"}
     assert len(doc["bosses"]) == 1
     boss = doc["bosses"][0]
     expected = [f for f in facts if f["fixture"] == fixture["label"]]

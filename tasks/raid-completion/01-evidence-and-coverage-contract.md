@@ -37,6 +37,37 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 13 / Representative finalized live format2 evidence. Normal
+acquisition/finalization/writer produced six public Lucifron Mage sources,
+12 global scopes,31,515 unrestricted events and1,485 critical damage events.
+Promoted immutable raw archive/manifests/provenance and six independent context
+facts; original174 expectations unchanged.30 archives/180 cases,28 IN_PROGRESS/
+924 TODO/0 COMPLETE. Independent checker now proves terminal contiguous pages,
+exact global scope/filter/digests and distinct raw critical/control/Ignite inputs.
+Manual synthetic changes to ownership, school, Ignite, scope and pagination fail.
+Version2 also rejects unrestricted actor-owned events missing from a captured
+actor direction, preventing silent actor arithmetic changes. All12 real actor
+directions independently match their unrestricted owned events exactly.
+
+New real golden and all180 independent cases pass. Installed wheel outside
+checkout reproduces all six raw actor totals,12 scopes, both pages/package and
+normal acceptance; observed unselected Mage has no complete actor-source claim.
+Four desktop/mobile browser/no-network/error/overflow/print checks pass; actual
+mobile Report inspected. Unlimited gitleaks8.30.1 finds zero leaks in22,056,307
+raw bytes and36,391,113 build/output/installed/package bytes. Ruff272 files,
+mypy216 source files and maintained docs pass. Full ordinary suite excluding golden/live/acceptance/browser passes1320 tests
+(332 deselected)/353.88 s;42 focused parser/checker tests pass/2.92 s.
+
+Keep versioned scopes, independent inputs and shared existing pipeline. Fix
+observed phase/opportunity, fully reconciled ranking, remaining evidence and
+class/role advice before closure/default collection. Transport acceptance is
+not domain-policy acceptance. Full MC Holy normal CLI run retained47 fights but
+stopped at quota reserve; it remains unpromoted research, not a counted fixture.
+Research source conflicts for Golemagg/Majordomo recorded without inventing
+IDs, phase boundaries or shield attribution. PM-2/PM-3 pending full calibration.
+Interim Captain Hindsight: DO NOT CLOSE.
+
+
 2026-10-17 / slice 12 / Sulfuron initial strategy and evidence. Promoted
 public finalized six-source Holy/Rogue captures:29 archives/174 independent raw
 actor cases,28 IN_PROGRESS/924 TODO/0 COMPLETE. Original162 expectations unchanged.

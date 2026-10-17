@@ -212,7 +212,7 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 29 real seeds and 174 raw actor checks; full contracts/coverage open | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 30 real seeds and 180 raw actor checks; full contracts/coverage open | n/a |
 | [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on nine evidenced encounters and local effects/control; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | TODO | agent: 9; domain-sme: 1 | yes |

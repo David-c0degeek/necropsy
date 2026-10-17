@@ -1,0 +1,39 @@
+{
+  "reviewed": "2026-10-17",
+  "classification": "Research, not implemented or accepted boss policy",
+  "golemagg": {
+    "boss_game_id": 11988,
+    "core_rager_game_id": 11672,
+    "sources": [
+      "https://www.wowhead.com/classic/guide/golemagg-the-incinerator-molten-core-strategy-wow-classic",
+      "https://www.wowhead.com/classic/npc=11672/core-rager",
+      "https://github.com/DeadlyBossMods/DBM-Vanilla/blob/master/DBM-Raids-Vanilla/MC/Golemagg.lua"
+    ],
+    "observations": [
+      "Guide describes stacked Magma Splash as Fire damage and armor reduction, separate Core Rager tanking and late Earthquake pressure. These are general mechanics, not observed timing or prescribed stack thresholds.",
+      "Guide links Golemagg Trust to both20553 and20556; spell pages unavailable. Do not substitute IDs without raw identification.",
+      "Guide says adds need killing after Golemagg; comments contradict that. Verify actual death/completion events before modeling an add phase or score denominator.",
+      "DBM consumer identifies original11988 versus seasonal228435 and Earthquake19798. It also mixes seasonal461463; exclude seasonal branches.",
+      "Creature type, resistance, pet opportunity and exact ranking target rules remain open."
+    ]
+  },
+  "majordomo": {
+    "boss_game_id": 12018,
+    "healer_game_id": 11663,
+    "elite_game_id": 11664,
+    "sources": [
+      "https://www.wowhead.com/classic/guide/majordomo-executus-molten-core-strategy-wow-classic",
+      "https://www.wowhead.com/classic/spell=20620/aegis-of-ragnaros",
+      "https://www.wowhead.com/classic/spell=20619/magic-reflection",
+      "https://www.wowhead.com/classic/spell=21075/damage-shield",
+      "https://github.com/DeadlyBossMods/DBM-Vanilla/blob/master/DBM-Raids-Vanilla/MC/Majordomo.lua"
+    ],
+    "observations": [
+      "Guide describes add-centric completion, healer Polymorph, Elite tank/kite jobs and control immunity after four add deaths. Static guidance cannot establish a particular assigned target or observed control window.",
+      "Guide claims Aegis shields all allies; primary spell20620 describes a caster-self shield and heal-to-full. Do not copy the guide attribution.",
+      "Magic Reflection20619 and Damage Shield21075 are separate spells. Their nominal duration, chance, damage and cooldown are not observed windows.",
+      "DBM consumer confirms original12018/11663/11664 and separate20619/21075/20534; seasonal IDs and Dark Mending364908 are not Era substitutions.",
+      "Need actual add instances, death/completion boundaries, shield recipient transitions, control/teleport evidence, ranked targets/denominator and class/role advice acceptance."
+    ]
+  }
+}

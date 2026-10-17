@@ -224,3 +224,21 @@ present. Other actors' interrupt events can appear on these pages: event page
 completion does not imply every event belongs to its selected actor. Raw
 28,975,958 bytes pass unlimited gitleaks8.30.1. Fury remains unfinalized research
 following the standard quota reserve; it is not counted or promoted.
+
+Lucifron context Mage adds one normal finalized format2 archive and six
+independent raw cases:30 archives/180 cases. Original174 expectations unchanged.
+Archive SHA2568f3f22569da307a336d51c9a371e2e22ba535eb597e0d14916a5c9561eb30f8f.
+Public report/fight/actor pairs: BdvZVpy2nhX8L3rY/7/33 Thepinkmeow,
+NrwC9ayfHDjXL2Fk/11/41 Benoii, QGJ9N7nA6aPjgB8L/4/35 Darkwizzardo,
+ZtdrNjL4RDWkBnCv/6/29 Sirusmax, bYCXzLpPMWctgkaf/8/43 Suffel,
+qfbMdVpkn6xAvYTW/4/1 Marree. Twelve actorless scopes contain31,515
+unrestricted events and1,485 critical damage events. All12 captured actor
+directions agree exactly with owned unrestricted events, including multiplicity.
+Raw22,056,307 extracted bytes pass unlimited gitleaks8.30.1. Installed replay
+outside checkout preserves all six actor totals, both pages/packages and scoped
+coverage. Other observed Mage Spoochog does not gain complete actor-source
+coverage. Four desktop/mobile browser checks pass without network requests,
+page errors or horizontal overflow; print content remains visible. Build, source,
+installed and package extraction36,391,113 bytes passes unlimited secret scan.
+The active Mage cell references this archive; the original actor-only Mage
+fixture is retained. No new cell, complete cell or ranking validation is counted.

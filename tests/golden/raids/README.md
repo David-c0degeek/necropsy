@@ -41,3 +41,11 @@ endpoint, ownership and stream provenance. Keep raw bytes immutable, put full
 archives in Git LFS, and scan all extracted members and generated outputs with
 `gitleaks dir DIRECTORY --redact --max-target-megabytes 0`. Do not commit
 credential material, private reports, developer cache paths or generated pages.
+
+The Lucifron context Mage fixture exercises optional live format2 through the
+normal pipeline. Independent raw facts also bind unfiltered/critical counts,
+Mage fire-critical target sets, Ignite owner/target sums and control/death
+transitions. These are observations, not validated ranking or phase policies.
+Captured actor directions must agree with their owned unrestricted events.
+Unselected actors retain unknown personal stream completeness. Historical
+actor-only fixtures and their original arithmetic expectations remain intact.

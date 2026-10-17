@@ -151,7 +151,8 @@ class V2Snapshot(V1Snapshot):
                 r for r in refs if (r.report_code, r.fight_id) == (fight.reportID, fight.fightID)
             ]
             all_ref = next(r for r in scoped if r.role is ActorRole.ENCOUNTER)
-            complete = Counter(canonical_json(e) for e in self.read_stream(all_ref).events)
+            all_events = self.read_stream(all_ref).events
+            complete = Counter(canonical_json(e) for e in all_events)
             for ref in scoped:
                 if ref.role in {ActorRole.ENCOUNTER, ActorRole.PET_DISCOVERY}:
                     continue
@@ -160,3 +161,12 @@ class V2Snapshot(V1Snapshot):
                     raise SnapshotError(
                         "actor or critical events are not a subset of encounter data"
                     )
+                if ref.role in {ActorRole.PLAYER, ActorRole.PET}:
+                    field = "sourceID" if ref.direction is Direction.SOURCE else "targetID"
+                    owned = Counter(
+                        canonical_json(e) for e in all_events if e.get(field) == ref.actor_id
+                    )
+                    if owned - subset:
+                        raise SnapshotError(
+                            "owned encounter events are missing from their actor direction stream"
+                        )

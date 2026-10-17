@@ -1,7 +1,8 @@
 # Explicit encounter event scope and versioned live archives
 
 Accepted design2026-10-17. Optional collection/archive support is implemented;
-real finalized/installed acceptance and default collection remain in progress.
+representative real finalized/installed acceptance is verified. Default collection
+remains unchanged; complete encounter-policy acceptance remains open.
 
 Selected actor source/target streams cannot establish other actors' fire critical
 eligibility, all hostile heal attempts, or global encounter transitions. Raw
@@ -29,6 +30,9 @@ combined report revision/bounds/endpoint, page/member digests and terminal
 pagination. Extra or missing pages are refused. Actor/pet and critical views must
 be exact raw subsets, including multiplicity, of the unrestricted view. The
 normalizer's existing maximum-multiplicity merge prevents double counting.
+For each captured actor direction, unrestricted events owned by that actor must
+also occur in its certified direction stream; global collection cannot silently
+change a captured actor's arithmetic.
 Existing nullable coverage columns carry these scopes; no schema migration.
 
 Actor absence qualification is unchanged. Unselected actors do not gain a

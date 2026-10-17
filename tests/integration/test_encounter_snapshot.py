@@ -208,6 +208,7 @@ def test_encounter_collection_refuses_other_rulesets_before_any_request(
         "digest",
         "critical-not-subset",
         "actor-not-subset",
+        "global-extra-owned",
         "cursor",
         "fight",
         "v1",
@@ -240,8 +241,14 @@ def test_encounter_context_rejects_wrong_scope_content_and_completion(
             del members[name]
         elif case == "extra-page":
             members[prefix + "all_002.json"] = members[name]
-        elif case in {"digest", "critical-not-subset", "actor-not-subset", "cursor"}:
-            if case == "actor-not-subset":
+        elif case in {
+            "digest",
+            "critical-not-subset",
+            "actor-not-subset",
+            "global-extra-owned",
+            "cursor",
+        }:
+            if case in {"actor-not-subset", "global-extra-owned"}:
                 proof = next(
                     p
                     for p in marker["encounter_streams"]
@@ -253,6 +260,8 @@ def test_encounter_context_rejects_wrong_scope_content_and_completion(
                 page["nextPageTimestamp"] = 2000
             elif case == "actor-not-subset":
                 page["data"] = [EVENTS[4]]
+            elif case == "global-extra-owned":
+                page["data"].append({**EVENTS[2], "amount": 40})
             else:
                 page["data"][0]["amount"] += 1
             members[name] = json.dumps(page).encode()
