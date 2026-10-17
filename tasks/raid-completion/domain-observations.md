@@ -140,3 +140,20 @@ Mixed-version pages require section-level review. General dispel tables and
 Nefarian tactics pages include retail-only classes/abilities; restrict Era
 applicability to the nine verified classes and independently verified spells.
 Never cite an undated generic table as proof of an Era utility option.
+
+2026-10-17 Garr/Gehennas follow-up: normal public Garr source captures prove
+one Rumplock Banish application to Firesworn instance 8 and zero for Finia.
+Other actors in the same raids can have control duties absent from selected
+ranking actors. Retain instance identity and source-owned applications; do not
+infer assignment, complete control uptime or a utility grade from those counts.
+
+Gehennas Holy subject Almsivi, report wjWt8JCzRKqV1gkG / fight 6 / actor 28,
+has Curse 19716 from 6.363–10.420 s over the exact 24.391-second pull. The
+primary Classic spell record identifies a healing-taken aura and also exposes
+seasonal numeric variants. Personal healer exposure is not patient-wide state
+or a basis for scaling outgoing healing. A same-time Druid 2782 removal is
+positive individual evidence, without a separately certified complete Druid
+source. Some actor-filtered event pages include other raid actors' dispels;
+explicit local emitter/recipient matching remains required. Raw catalog 19715
+is Counterspell; Rain of Fire is 19717. IDs and typed fields take precedence
+over guessed adjacency or localized display names.

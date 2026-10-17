@@ -44,6 +44,16 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 8 · 02.4/02.5/02.7/02.8 partial · Reused shared observed aura
+states for Gehennas Curse and added patient-specific healing context. Personal
+healer exposure does not establish the state of all healing recipients or
+support outgoing-HPS scaling. Six sourced strategies now cover 204 legal
+configuration applicability paths; Mage/Druid removal and healer context have
+separate class/metric guards. No Python engine change. Final 38 focused checks
+and 24 real golden checks pass; installed raw replay, both pages/package,
+representative mobile review and four byte-identical Naxx artifacts verified.
+Complete phase/opportunity/ranking/duty/class contracts remain open.
+
 2026-10-17 · slice 7 · 02.4/02.5/02.7/02.8 partial · Added source-owned control
 applications via existing actor-event/coverage primitives. Positive application
 evidence retains NPC actor/instance/spell/time; casts, removals and wrong targets

@@ -2,6 +2,17 @@ version: 1
 rule: mc-encounter-facts-v1
 retrieved: '2026-10-17'
 encounters:
+- id: 50665
+  name: Gehennas
+  creature_type: Humanoid
+  type_source: https://www.wowhead.com/classic/pt/npc=12259/geena
+  source: https://warcraft.wiki.gg/wiki/Gehennas
+  note: Static Classic Era mechanics; a personal curse window is not a raid-wide healing-reduction model. Season of Mastery add counts and cast cadence are excluded.
+  timings:
+  - key: curse
+    text: Gehennas' Curse reduces healing received by the affected target. Personal exposure does not establish the curse state of every healing recipient.
+  - key: rain-of-fire
+    text: Rain of Fire is a ground hazard. Its damage events do not by themselves establish a complete movement or avoidability window.
 - id: 50666
   name: Garr
   creature_type: Elemental

@@ -1,0 +1,118 @@
+{
+  "reviewed": "2026-10-17",
+  "scope": "Initial Gehennas personal Curse exposure and sourced strategy; no full boss/configuration acceptance.",
+  "checks": [
+    {
+      "raid": "mc-gehennas-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-gehennas-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-gehennas-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-gehennas-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "final_focused": {
+    "passed": 38,
+    "seconds": 7.59
+  },
+  "all_raid_golden": {
+    "passed": 24,
+    "seconds": 131.86,
+    "archives": 22,
+    "independent_cases": 132
+  },
+  "ordinary_baseline": {
+    "passed": 1308,
+    "seconds": 341.77,
+    "source": "ec29fef Garr regression checkpoint; no shared Python runtime changes since then. New MC YAML and assertions covered by final focused and all real replays."
+  },
+  "installed": {
+    "outside_checkout": true,
+    "module_from": "site-packages",
+    "raw_replay": true,
+    "both_pages_package": true,
+    "exact_windows": [
+      [
+        0,
+        6.363,
+        null
+      ],
+      [
+        6.363,
+        10.42,
+        true
+      ],
+      [
+        10.42,
+        24.391,
+        false
+      ]
+    ]
+  },
+  "naxx": {
+    "source_baseline": "30e89ce",
+    "analysis_json_report_playbook_package_byte_identical": true
+  },
+  "secrets": {
+    "scanner": "gitleaks8.30.1",
+    "max_target_megabytes": 0,
+    "new_raw_extracted_bytes": 11096461,
+    "current_derived_and_wheel_extracted_bytes": 16226221,
+    "scanner_derived_bytes_read": 16210166,
+    "findings": 0
+  },
+  "visual_review": [
+    "curse-playbook-mobile.png",
+    "curse-report-mobile-reviewed.png"
+  ],
+  "limitations": [
+    "Holy/HPS Alliance only; no full other class/role/faction acceptance.",
+    "Personal healer exposure is not recipient-wide state, outgoing healing reduction, assignment or failure.",
+    "Mage capture awaits normal quota finalization; no usable Mage archive claimed.",
+    "Full target/ranking/school/item/pet/loadout/phase/opportunity evidence and domain/product acceptance stay open."
+  ]
+}

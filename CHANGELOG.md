@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Gehennas curse-removal, patient-healing and positioning strategy,
+  sourced facts and personal Curse exposure. Keep healing received by cursed
+  targets separate from the healer's own exposure and outgoing HPS.
+
 - Add initial Garr add-control and raid-coordination strategy. Record Warlock
   Banish applications separately from casts, retain individual Firesworn
   instances and unknown coverage, and show the evidence in both pages without

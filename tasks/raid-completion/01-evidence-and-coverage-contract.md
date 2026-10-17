@@ -37,6 +37,15 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 8 · Gehennas Holy evidence · Added one finalized public
+six-source archive and six independent actor cases: 22 archives / 132 cases,
+21 IN_PROGRESS / 931 TODO / 0 COMPLETE. All 126 preceding expected cases remain
+unchanged. The full real replay register passes 24 golden checks / 131.86 s;
+new raw bytes and current outputs/packages/wheel pass unlimited secret scans.
+Holy source proves exact personal Curse transitions and separate raw healing /
+absorption facts. The Mage capture remains unpromoted pending normal quota
+finalization; no scarcity exemption or full evidence/contract closure.
+
 2026-10-17 · slice 7 · Garr evidence follow-up · Two additional finalized public
 six-source archives and12 independent raw actor cases:21 archives/126 cases.
 Both subjects are Horde Destruction/DPS, so the register records only one new

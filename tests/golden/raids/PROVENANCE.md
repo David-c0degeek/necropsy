@@ -163,3 +163,17 @@ The earlier same-report global cast research is not fixture evidence: one
 query returned a begin-cast only, and server-side filters did not guarantee
 exact ability matching. The finalized actor streams and local raw IDs are
 the authority for these checks. No previous expected facts were regenerated.
+
+Gehennas Holy adds one finalized public six-source archive and six independently
+enumerated raw cases (22 archives/132 cases), one Alliance Holy/HPS configuration.
+All11,096,461 extracted raw bytes passed unlimited gitleaks8.30.1 on2026-10-17,
+no findings. Subject Almsivi is report`wjWt8JCzRKqV1gkG`/fight6/actor28, distinct
+from comparison actor Almsíví in another report. Exact pull6075151–6099542 ms
+lasts24.391 s. Curse19716 applies6081514 ms/removes6085571 ms, giving relative
+6.363/10.420 s,4.057 s known exposure and6.363 s initial unknown state. A same-time
+source-owned Druid2782 dispel records extra19716/isBuff=false on actor28; its
+source actor38 is Paracetalol. That source is not a selected participant and
+has no separately certified whole-fight count here. Personal healer exposure
+does not model the curse state of all patients or justify outgoing-HPS scaling.
+Prior expected cases remain unchanged. The separately queued Mage capture has
+not completed normal finalization and is not admitted by this receipt.

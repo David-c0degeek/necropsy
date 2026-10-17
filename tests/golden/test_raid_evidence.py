@@ -103,6 +103,21 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] == "mc-gehennas-holy":
+        assert marker["subject"]["name"] == "Almsivi"
+        (curse,) = boss["playbook"]["encounter_effects"]
+        assert curse["known_affected_s"]["value"] == pytest.approx(4.057)
+        assert curse["unknown_state_s"]["value"] == pytest.approx(6.363)
+        assert curse["windows"]["value"] == [
+            [0, 6.363, None],
+            [6.363, 10.420, True],
+            [10.420, 24.391, False],
+        ]
+        assert curse["transitions"]["value"] == [
+            [6.363, "applydebuff", 19716],
+            [10.420, "removedebuff", 19716],
+        ]
+        assert "mechanic_removals" not in boss["playbook"]
     if fixture["label"].startswith("mc-garr-"):
         (control,) = boss["playbook"]["control_applications"]
         positive = fixture["label"] == "mc-garr-control-warlock"
@@ -202,6 +217,9 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "mc-gehennas-holy":
+            assert "Gehennas' Curse: 4.06s known affected; 6.36s with unknown state." in html
+            assert "your own curse window does not describe every patient" in html
         if fixture["label"].startswith("mc-garr-"):
             count = 1 if fixture["label"] == "mc-garr-control-warlock" else 0
             assert f"Recorded Firesworn Banish applications: {count}." in html

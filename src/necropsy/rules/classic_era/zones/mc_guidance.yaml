@@ -34,6 +34,12 @@ control:
     source: https://vanilla.warcraftlogs.com/reports/DWACqnQrmMxdgYpt#fight=17
     retrieved: '2026-10-17'
 effects:
+  50665:
+  - rule: gehennas-curse-exposure-v1
+    label: Gehennas' Curse
+    ability_ids: [19716]
+    source: https://www.wowhead.com/classic/spell=19716/gehennas-curse
+    retrieved: '2026-10-17'
   50664:
   - rule: magmadar-panic-exposure-v1
     label: Panic
@@ -80,6 +86,27 @@ removals:
     retrieved: '2026-10-17'
 pet: {}
 strategy:
+  50665:
+    retrieved: '2026-10-17'
+    source: https://warcraft.wiki.gg/wiki/Gehennas
+    items:
+    - rule: gehennas-tanks-and-curse-coverage-v1
+      section: before
+      text: Agree the Gehennas and Flamewaker tank assignments, add kill order and curse-removal coverage before the pull.
+    - rule: gehennas-rain-and-add-placement-v1
+      section: during
+      text: Move out of Rain of Fire and follow the agreed add positioning and kill order. Damage taken alone does not establish an avoidable mistake or a movement window.
+    - rule: gehennas-assigned-decurse-v1
+      section: during
+      classes: [2, 4]
+      text: If assigned to remove curses, prioritize the agreed targets and coordinate backup. Tank healing depends on clearing the curse; damage-only comparisons do not measure that job.
+    - rule: gehennas-healing-recipient-context-v1
+      section: during
+      metrics: [hps]
+      text: Coordinate curse removal on tanks and other patients. The curse reduces healing received by its target; your own curse window does not describe every patient or measure lost outgoing healing.
+    - rule: gehennas-removal-and-tank-recovery-v1
+      section: raid
+      text: Confirm backup curse removal and healing coverage when tanks or healers move out of fire. Actor-only observations do not establish every raid-wide removal opportunity or assignment.
   50666:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Garr

@@ -10,6 +10,7 @@ def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> Non
     for zone, encounter in (
         ("mc", 50663),
         ("mc", 50664),
+        ("mc", 50665),
         ("mc", 50666),
         ("bwl", 50631),
         ("aq40", 50713),
@@ -44,8 +45,22 @@ def test_viscidus_healing_selection_keeps_healing_context() -> None:
     assert not any(i.rule == "viscidus-mage-frost-v1" for i in strategy.items)
 
 
+def test_gehennas_distinguishes_curse_removal_from_patient_healing_context() -> None:
+    for class_id, metric, decurse, healing in (
+        (2, "hps", True, True),
+        (4, "dps", True, False),
+        (7, "hps", False, True),
+        (11, "dps", False, False),
+    ):
+        strategy = encounter_strategy("mc", 50665, 1, class_id, metric)
+        assert strategy
+        rules = {item.rule for item in strategy.items}
+        assert ("gehennas-assigned-decurse-v1" in rules) is decurse
+        assert ("gehennas-healing-recipient-context-v1" in rules) is healing
+
+
 def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:
-    assert encounter_strategy("mc", 50665, 1, 3, "dps") is None
+    assert encounter_strategy("mc", 50667, 1, 3, "dps") is None
     assert encounter_strategy("mc", 50631, 1, 3, "dps") is None
     for partition in (3, 7, 11, True):
         assert encounter_strategy("mc", 50663, partition, 3, "dps") is None

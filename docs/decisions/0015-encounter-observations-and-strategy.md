@@ -15,7 +15,7 @@ General strategy is static knowledge with source, retrieval date, rule ID and
 class/metric applicability. It does not establish a personal assignment, phase,
 opportunity or mistake. The engine saves the selected items into optional
 `playbook.encounter_strategy`. Old JSON does not acquire advice during rendering.
-Current sourced strategies cover Lucifron, Magmadar, Garr, combined Ebonroc/Flamegor and Viscidus;
+Current sourced strategies cover Lucifron, Magmadar, Gehennas, Garr, combined Ebonroc/Flamegor and Viscidus;
 that initial set does not claim complete support for those bosses or other raids.
 
 Optional `playbook.encounter_effects` records actor debuff exposure through
@@ -37,6 +37,10 @@ Known affected time is a partial observation alongside unknown time, not a
 claim of zero unobserved exposure. Current policies cover Lucifron's Curse,
 Impending Doom and Shadow of Ebonroc in the combined entry.
 Magmadar additionally records local Panic state with the same uncertainty rules.
+Gehennas records local Curse19716 state. That is the affected actor's exposure,
+not a model of all their healing recipients: the curse reduces healing received
+by its target. No outgoing-HPS correction, lost-healing estimate or avoidability
+grade is inferred from the healer's own window.
 
 Successful mechanic removals are separate source-owned `dispel` effects with
 an explicit debuff flag and matching `extraAbilityGameID`. They need not have a

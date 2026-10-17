@@ -47,6 +47,61 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 3 · 03.1/03.2/03.4–03.8 partial · Added the finalized public
+Gehennas Holy seed and six independent raw actor cases: 22 archives / 132 cases
+overall, 21 IN_PROGRESS / 931 TODO / 0 COMPLETE. All original 126 expectations
+remain exactly unchanged. New raw extraction 11,096,461 bytes passed unlimited
+gitleaks 8.30.1. The [partial dossier](dossiers/gehennas.md) binds the exact
+Almsivi report/fight/actor and dated primary mechanic/type sources.
+
+Existing shared exposure primitives now measure personal Curse 19716. Exact
+subject pull 24.391 s, apply 6.363 s and remove 10.420 s give 4.057 s known
+exposure and 6.363 s initial unknown state. A same-time Druid dispel is raw
+positive evidence; it does not provide that unselected actor's full-source
+count. Static strategy distinguishes Mage/Druid removal from healer-recipient
+context. The curse modifies healing taken by its target; the healer's own
+window does not establish patient-wide state or justify outgoing-HPS scaling.
+Primary spell data also mixes seasonal variants, which remain excluded by the
+Era guard. Counterspell 19715 is not Rain of Fire 19717. No new Python runtime
+engine, parser, schema or renderer was needed.
+
+Final verification: 38 focused checks / 7.59 s; all 22 raw fixtures through 24
+golden checks / 131.86 s, including all 132 independent cases. Fresh wheel/sdist
+and installed raw replay outside checkout prove the exact state windows,
+patient context, both pages and package. Four desktop/mobile page checks pass
+offline/no-error/no-overflow/print visibility; both positive mobile sections
+were inspected after waiting for browser paint. Current generated/package/wheel
+extraction 16,226,221 bytes scanned (scanner 16,210,166), no findings. All four
+Naxx artifacts again match 30e89ce byte for byte. Ruff/format/mypy/docs pass.
+The ordinary 1308-test engine baseline is ec29fef; changes since are MC YAML
+and new assertions covered above. Research/gehennas-holy-review.json records
+the representative limits. Mage finalization remains queued for quota reset.
+
+### Interim Captain Hindsight — initial Gehennas work
+
+**Keep:** Raw recipient/actor identity, original independent expectations,
+observed states with initial uncertainty, existing shared pipeline, patient
+healing semantics and saved-only advice rendering.
+
+**Fix before closing:** Complete the open obligations in the dossier and full
+MC/matrix boxes: target/ranking, actual patient/phase/opportunity/duty evidence,
+all class/role/faction/loadout/item/pet behavior and complete rendered/domain
+acceptance. Retry the retained Mage finalization under normal quota policy.
+
+**Record:** Similar actor names belong to different pulls. A returned actor
+page can include other raid actors' dispels: explicit source/target ownership
+filters remain required. The primary spell page mixes Era and seasonal values;
+an ID alone does not prove ruleset or healing direction. Lessons recorded.
+
+**Risk:** Personal healer curse exposure cannot quantify lost outgoing healing
+or explain every patient's healing received. PM-1/PM-2/PM-3 remain Pending for
+full-scope calibration; these checks address existing predicted risks without
+certifying complete outcomes or human sign-off.
+
+**Verdict:** DO NOT CLOSE — concrete initial behavior is verified, while the
+full boss and every-cell contract remain incomplete. Close the specific
+outstanding domain/evidence/behavior/render obligations before acceptance.
+
 2026-10-17 · slice 2 · 03.1/03.2/03.4–03.8 partial, continuing D009 sequencing ·
 Added finalized public Garr Warlock captures for Finia and Rumplock. Both are
 Horde Destruction/DPS: one additional configuration, two distinct sources.
