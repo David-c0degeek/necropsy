@@ -1,0 +1,119 @@
+{
+  "reviewed": "2026-10-17",
+  "source": "Current source engine, real MC Protection and BWL Guardian seed replays; not native app or full cell acceptance.",
+  "checks": [
+    {
+      "raid": "mc-protection",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-protection",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-protection",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-protection",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-guardian",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-guardian",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-guardian",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-guardian",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "visual_inspection": [
+    "mc-protection-playbook-mobile-boss.png: pressure 9 and assignment limitation visible; bounded layout"
+  ],
+  "raw_scan_bytes": 81152275,
+  "generated_output_scan_bytes": 29891846,
+  "scanner": "gitleaks 8.30.1, unlimited file size, no findings",
+  "golden": "14 passed in 99.75 seconds; all 12 real archives",
+  "ordinary": "1255 passed, 262 deselected in 393.66 seconds; later focused Druid additions covered by eight-case run",
+  "naxx": "Four complete artifacts byte-identical to source 30e89ce"
+}

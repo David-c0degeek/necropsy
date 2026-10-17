@@ -82,12 +82,10 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             == (case["report"], case["fight"], case["player"])
         )
         assert entry["kill_duration_s"] * 1000 == pytest.approx(case["expected"]["duration_ms"])
-        if entry.get("combat"):
+        if entry.get("combat") or entry.get("druid"):
+            combat = entry.get("combat") or entry["druid"]
             for metric in ("damage", "effective_healing", "incoming_damage"):
-                assert (
-                    entry["combat"]["metrics"][metric]["value"]
-                    == case["expected"]["totals"][metric]
-                )
+                assert combat["metrics"][metric]["value"] == case["expected"]["totals"][metric]
         else:
             # Ranking reconciliation is a separate gate; an unvalidated raid
             # cannot turn these raw amounts into claimed ranked damage.
@@ -95,6 +93,18 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             assert entry["ranking"]["ranked_dps_evidence"]["value"] is not None
     assert (out / "report.html").is_file() and (out / "playbook.html").is_file()
     assert (out / package_name(doc)).is_file()
+    context = boss["playbook"]["duty_context"]
+    assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] == "mc-protection":
+        # Separately enumerated target pages: only NPC 12118's melee, excluding
+        # the Protector and every outgoing cast. See the provenance receipt.
+        counts = {"Maasumi": 9, "Doljin": 15, "Pale": 7, "Frozion": 15, "Panzèrzug": 8, "Cailo": 19}
+        assert context["melee_events"]["value"] == counts[context["player"]]
+        assert boss["subject"] is None and boss["playbook"]["comparisons"] == []
+        for entry in actual:
+            assert entry["combat"]["role"]["value"] is None
+            assert "boss melee pressure" in entry["combat"]["role"]["note"]
+            assert entry["combat"]["assignment"]["value"] is None
     strategy = boss["playbook"]["encounter_strategy"]
     assert {item["section"] for item in strategy["items"]} == {"before", "during", "raid"}
     for page in ("report.html", "playbook.html"):
@@ -104,3 +114,5 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             assert item["kind"] == "general-strategy"
             assert item["retrieved"] == "2026-10-17"
         assert strategy["limitation"] in html
+        assert "Recorded boss melee events against you:" in html
+        assert context["limitation"] in html

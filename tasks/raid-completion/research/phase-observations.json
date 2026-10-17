@@ -1,0 +1,339 @@
+{
+  "retrieved": "2026-10-17",
+  "site": "vanilla.warcraftlogs.com",
+  "endpoint": "user",
+  "schema": {
+    "ReportFight": [
+      {
+        "name": "lastPhase",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "lastPhaseAsAbsoluteIndex",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "lastPhaseIsIntermission",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "ofType": null
+        }
+      },
+      {
+        "name": "phaseTransitions",
+        "type": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "OBJECT",
+              "name": "PhaseTransition"
+            }
+          }
+        }
+      }
+    ],
+    "PhaseTransition": [
+      {
+        "name": "id",
+        "description": "The 1-indexed id of the phase. Phase IDs are absolute within a fight: phases with the same ID correspond to the same semantic phase.",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "startTime",
+        "description": "The report-relative timestamp of the transition into the phase. The phase ends at the beginning of the next phase, or at the end of the fight.",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Float"
+          }
+        }
+      }
+    ],
+    "EncounterPhases": [
+      {
+        "name": "encounterID",
+        "description": null,
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          }
+        }
+      },
+      {
+        "name": "separatesWipes",
+        "description": "Whether the phases can be used to separate wipes in the report UI.",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "ofType": null
+        }
+      },
+      {
+        "name": "phases",
+        "description": "Phase metadata for all phases in this encounter.",
+        "type": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "OBJECT",
+              "name": "PhaseMetadata"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "reports": [
+    {
+      "raid": "mc",
+      "code": "ZzYr1NR6LpHkyjTc",
+      "phases": [],
+      "fights": [
+        {
+          "id": 3,
+          "encounterID": 50663,
+          "startTime": 292292,
+          "endTime": 331143,
+          "phaseTransitions": null
+        },
+        {
+          "id": 6,
+          "encounterID": 50664,
+          "startTime": 438324,
+          "endTime": 472970,
+          "phaseTransitions": null
+        },
+        {
+          "id": 8,
+          "encounterID": 50665,
+          "startTime": 591659,
+          "endTime": 612493,
+          "phaseTransitions": null
+        },
+        {
+          "id": 10,
+          "encounterID": 50666,
+          "startTime": 736446,
+          "endTime": 778427,
+          "phaseTransitions": null
+        },
+        {
+          "id": 12,
+          "encounterID": 50668,
+          "startTime": 890430,
+          "endTime": 922453,
+          "phaseTransitions": null
+        },
+        {
+          "id": 15,
+          "encounterID": 50667,
+          "startTime": 1014531,
+          "endTime": 1029694,
+          "phaseTransitions": null
+        },
+        {
+          "id": 17,
+          "encounterID": 50669,
+          "startTime": 1163675,
+          "endTime": 1195108,
+          "phaseTransitions": null
+        },
+        {
+          "id": 19,
+          "encounterID": 50670,
+          "startTime": 1266822,
+          "endTime": 1303407,
+          "phaseTransitions": null
+        },
+        {
+          "id": 21,
+          "encounterID": 50671,
+          "startTime": 1417168,
+          "endTime": 1449227,
+          "phaseTransitions": null
+        },
+        {
+          "id": 23,
+          "encounterID": 50672,
+          "startTime": 1588290,
+          "endTime": 1625044,
+          "phaseTransitions": null
+        }
+      ]
+    },
+    {
+      "raid": "bwl",
+      "code": "cg1mfw64BzAhNd97",
+      "phases": [
+        {
+          "encounterID": 50610,
+          "phases": []
+        },
+        {
+          "encounterID": 50617,
+          "phases": []
+        }
+      ],
+      "fights": [
+        {
+          "id": 2,
+          "encounterID": 50610,
+          "startTime": 2554717,
+          "endTime": 2569313,
+          "phaseTransitions": [
+            {
+              "id": 1,
+              "startTime": 2554717
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "encounterID": 50611,
+          "startTime": 2649350,
+          "endTime": 2670993,
+          "phaseTransitions": null
+        },
+        {
+          "id": 7,
+          "encounterID": 50612,
+          "startTime": 2959060,
+          "endTime": 2989576,
+          "phaseTransitions": null
+        },
+        {
+          "id": 11,
+          "encounterID": 50613,
+          "startTime": 3192208,
+          "endTime": 3230041,
+          "phaseTransitions": null
+        },
+        {
+          "id": 19,
+          "encounterID": 50631,
+          "startTime": 3733540,
+          "endTime": 3814151,
+          "phaseTransitions": null
+        },
+        {
+          "id": 22,
+          "encounterID": 50616,
+          "startTime": 3909110,
+          "endTime": 3975509,
+          "phaseTransitions": null
+        },
+        {
+          "id": 25,
+          "encounterID": 50617,
+          "startTime": 4173191,
+          "endTime": 4259589,
+          "phaseTransitions": [
+            {
+              "id": 1,
+              "startTime": 4173191
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "raid": "aq40",
+      "code": "tcJdbDx3rMGTzpLX",
+      "phases": [],
+      "fights": [
+        {
+          "id": 5,
+          "encounterID": 50709,
+          "startTime": 402431,
+          "endTime": 489732,
+          "phaseTransitions": null
+        },
+        {
+          "id": 11,
+          "encounterID": 50710,
+          "startTime": 937036,
+          "endTime": 1021367,
+          "phaseTransitions": null
+        },
+        {
+          "id": 19,
+          "encounterID": 50711,
+          "startTime": 1301332,
+          "endTime": 1366758,
+          "phaseTransitions": null
+        },
+        {
+          "id": 23,
+          "encounterID": 50712,
+          "startTime": 1600311,
+          "endTime": 1648395,
+          "phaseTransitions": null
+        },
+        {
+          "id": 26,
+          "encounterID": 50713,
+          "startTime": 1753007,
+          "endTime": 1854900,
+          "phaseTransitions": null
+        },
+        {
+          "id": 35,
+          "encounterID": 50714,
+          "startTime": 2285872,
+          "endTime": 2330746,
+          "phaseTransitions": null
+        },
+        {
+          "id": 45,
+          "encounterID": 50715,
+          "startTime": 2927090,
+          "endTime": 3162068,
+          "phaseTransitions": null
+        },
+        {
+          "id": 64,
+          "encounterID": 50716,
+          "startTime": 4792283,
+          "endTime": 5019075,
+          "phaseTransitions": null
+        },
+        {
+          "id": 66,
+          "encounterID": 50717,
+          "startTime": 5477200,
+          "endTime": 5817264,
+          "phaseTransitions": null
+        }
+      ]
+    }
+  ],
+  "interpretation": "Observed WCL markers only. Null, absent or empty transitions are not proof of no physical phases. Metadata is not a verified immunity/targetability or ranking window."
+}

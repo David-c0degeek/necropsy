@@ -80,3 +80,20 @@ close any boss/class cell: mechanics, opportunity/ranking policies, assignment
 semantics, source-sensitive guidance, rendered review and domain acceptance
 remain open. The missing Naxx Holy Priest fixture is unchanged. New Holy raid
 evidence does not silently certify old Naxx cases or inherit its waivers.
+
+The MC Guardian retry completed after the normal quota reset on 2026-10-17:
+six usable sources, immutable archive/member receipts and six additional
+independent actor cases (60 total). The original 54 expectations are unchanged.
+The new archive receives its own raw/output scans and replay checks. Earlier
+budget stops remain acquisition history and do not certify GUI/CLI resume.
+
+BWL combined and AQ Viscidus Guardian captures subsequently completed through
+the same acquisition/finalization pipeline. All three new Guardian archives
+contain six sources apiece; the register now holds 12 archives and 72 actor
+cases. Unlimited gitleaks 8.30.1 scanned all 81,152,275 extracted Guardian raw
+bytes on 2026-10-17: exit 0, no findings. No quota policy was weakened.
+
+MC Protection regression counts were separately enumerated from target pages,
+NPC 12118 and raw Melee ability IDs 1/-4: Maasumi 9, Doljin 15, Pale 7,
+Frozion 15, Panzèrzug 8, Cailo 19. Protector/trash and outgoing events are
+excluded. These counts establish pressure, not assignments or tanking quality.

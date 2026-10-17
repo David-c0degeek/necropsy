@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Keep new Era raid duty uncertain when repeated boss melee pressure conflicts
+  with a narrow action-based classification. Show personal boss pressure even
+  when excluded from comparisons; preserve historical Naxx duty behavior.
+
 - Add initial sourced preparation, execution and coordination strategy for
   Lucifron, combined Ebonroc / Flamegor and Viscidus, including class/metric
   utility context. General strategy stays separate from personal findings and

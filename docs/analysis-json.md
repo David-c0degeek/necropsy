@@ -232,6 +232,13 @@ additions; raw archives, event multiplicity and role eligibility are unchanged.
 
 Schema1 also adds optional `combat` entry evidence for Mage, Paladin, Priest, Rogue, Shaman, Warlock and Warrior. It retains class/build/category/duty, metrics, actor casts/opener/cooldowns/timeline, targets, resources, deaths and separate pet evidence. Existing `hunter` and `druid` contracts remain. All supported classes use the shared ability comparison and CSV; non-Hunter class metrics/roles/timeline and source comparisons share exports. See [class analysis](class-analysis.md).
 
+New Era raid analyses may add `bosses[].playbook.duty_context` for an acquired
+subject, including one excluded from comparisons. It identifies report/fight/
+actor and contains coverage-qualified `melee_events`, positive
+`observed_melee_times_s` evidence and an assignment limitation. Partial incoming
+streams leave the total unknown while preserving positive observations. Both
+pages present the saved context; rendering old JSON never creates it.
+
 Schema1 adds optional top-level `taxonomy` in new live and non-Hunter class
 outputs. It contains the canonical tree names, WCL-namespaced comparison pool
 (class/category IDs, display label and API slug), optional user declaration,

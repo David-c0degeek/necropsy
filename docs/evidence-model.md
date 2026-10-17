@@ -120,6 +120,17 @@ auras count once. A state that cannot be settled makes the result UNKNOWN.
 
 ## Rules files
 
+In Molten Core, Blackwing Lair and AQ40 Era partitions 1/2, repeated direct boss
+melee pressure prevents a simple action-based DPS/healer duty inference when
+repeated tank actions are missing. The duty stays unknown; damage actions and
+incoming pressure remain evidence. This guards against classifying Fury-style
+tanking as ordinary DPS without asserting an assignment from category or hits.
+The optional saved `playbook.duty_context` retains coverage-qualified boss melee
+counts and positive observed timestamps, including for excluded personal entries.
+Three events trigger ambiguity, not tank qualification. Swings include avoided
+and fully absorbed outcomes; they do not define continuous tanking opportunity.
+Historical Naxx inference remains unchanged.
+
 Static encounter strategy is labelled general strategy, with versioned rules,
 sources and retrieval dates. Applicability by class, metric and ruleset does not
 establish a player's actual duty, phase, opportunity or fault. It does not change

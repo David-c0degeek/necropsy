@@ -48,6 +48,18 @@ README/PROVENANCE describe the exact delivered validation limits.
 
 ## Resume anchors
 
+2026-10-17 · slice 4 · Guardian evidence and phase research · Resumed retained
+MC capture after quota reset with the normal 90% policy; completed MC, combined
+BWL and Viscidus Guardian captures, six usable sources each. Appended 18
+direction-only independently enumerated actor cases without regenerating the
+original 54; union checker verifies all 72. Inventory 12 IN_PROGRESS/940 TODO,
+zero COMPLETE. All 81,152,275 extracted Guardian raw bytes scanned with unlimited
+gitleaks 8.30.1, no findings. Live phase-schema/report probe records null phases
+for every MC/AQ boss and only initial BWL Razorgore/Nefarian markers, not a usable
+physical opportunity contract. See research/phase-observations.json. BWL Guardian
+sources also expose Ebonroc healing attributed to tanks; recipient/ability
+semantics must precede HPS reconciliation. Real replay follow-up running.
+
 - Current normal-source evidence: tests/golden/raids/{provenance,facts,coverage}.json
   and raw/*.zip plus manifests; exact commands in master §2 and fixture README.
 - Naxx reference and exact replay receipt: naxx-reference.md and

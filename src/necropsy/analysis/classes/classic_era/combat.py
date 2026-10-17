@@ -10,7 +10,7 @@ import duckdb
 from necropsy.analysis.class_catalog import CATEGORIES, CLASS_NAMES
 from necropsy.analysis.classes import register
 from necropsy.analysis.context import ParticipantFight, coverage, owned_pets, pet_listing_known
-from necropsy.analysis.encounters import encounter_rules
+from necropsy.analysis.encounters import duty, encounter_rules
 from necropsy.analysis.evidence import Evidenced, EvidenceRef, inferred, observed, unknown
 from necropsy.analysis.generic import combat, metrics
 from necropsy.analysis.generic.environment import EnvironmentProfile
@@ -142,6 +142,7 @@ def _duty(
         if complete and roles
         else unknown("missing duty signals or incomplete actor streams")
     )
+    role = duty.guard_action_duty(con, pf, events, role, tank_actions="tank" in roles)
     return signals, role
 
 

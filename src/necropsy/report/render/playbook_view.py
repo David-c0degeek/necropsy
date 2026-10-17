@@ -56,6 +56,16 @@ def line(text: str, note: str = "", links: Any = ()) -> dict[str, Any]:
 
 def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str, Any]:
     """Format saved strategy only; old documents do not acquire new advice on render."""
+    context = playbook.get("duty_context")
+    if context:
+        view = dict(view)
+        count = context["melee_events"]["value"]
+        pressure = line(
+            f"Recorded boss melee events against you: {number(count)}.",
+            context["limitation"],
+        )
+        view["duty_lines"] = (pressure,)
+        view["pull_during"] = (pressure, *view.get("pull_during", ()))
     strategy = playbook.get("encounter_strategy")
     if not strategy:
         return view

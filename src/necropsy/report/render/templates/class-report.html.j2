@@ -105,6 +105,7 @@
   </section>
   {{ comparison_snapshot(ref, boss) }}{{ coaching(ref, boss) }}
   <h3 id="boss-{{ boss.encounter_id }}-evidence" tabindex="-1">Evidence and details</h3>
+  {% if page == 'report' and ref.duty_lines is defined %}<div class="encounter-duty">{{ prose(ref.duty_lines) }}</div>{% endif %}
   {% if page == 'report' and ref.strategy_lines is defined %}<details class="encounter-strategy"><summary>General encounter strategy and sources</summary><div>{{ prose(ref.strategy_lines) }}<p class="table-note">{{ ref.strategy_limitation }}</p></div></details>{% endif %}
   <details><summary>Who are you being compared with?</summary><p>{{ boss.benchmarks.baseline.note }}</p><p>{{ boss.benchmarks.baseline.entries }} comparable event sources. Build, race, faction buffs, fight length and assignments can affect comparisons. Ranking scores remain separate from event metrics.</p></details>
   <details class="full-gear"><summary>Your full logged gear for this selected encounter</summary><div>{{ equipment(ref.gear) }}</div></details>

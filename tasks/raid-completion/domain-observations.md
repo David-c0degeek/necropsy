@@ -64,6 +64,39 @@ ownership and independent cast/amount/timing checks are retained there.
 
 ## Guide-source boundaries
 
+BWL Guardian captures expose hostile healing credited to tank actors: raw
+source-only heal events from Trashhealz to NPC 14601 (Ebonroc) total 125,000;
+Obviously 75,000; Belkala 460,963. All are named Shadow of Ebonroc in raw ability
+metadata. Suncat's 1,200 is Frenzied Regeneration on self; these are different
+semantics despite all being raw source-heal amounts. The independent register
+correctly freezes raw sums, but those sums cannot automatically become friendly
+healing/HPS or healer-quality claims. Existing cast-qualified duty inference
+does not use passive heal events. Reconcile recipient/ability semantics before
+approving a healing metric policy; preserve historical arithmetic explicitly.
+
+2026-10-17 follow-up: the normal-policy Guardian retry succeeded after the quota
+reset, preserving retained request/cache data. MC now has a public six-actor
+Guardian archive and six additional independent actor cases; earlier budget
+stops above remain history, not current availability. The direct melee ambiguity
+guard now leaves the six MC Protection duties unknown, retaining damage-action
+signals and observed pressure rather than asserting assigned tank jobs. Naxx's
+historical duty contract remains unchanged. Independently enumerated Lucifron
+melee counts are Maasumi 9, Doljin 15, Pale 7, Frozion 15, Panzèrzug 8, Cailo 19;
+only target pages, NPC gameID 12118 and raw melee IDs 1/-4 were counted.
+
+Live phase schema and report observations are retained in
+research/phase-observations.json. `ReportFight.phaseTransitions` gives semantic
+phase IDs and report-relative start times; the next transition/fight end closes
+the phase according to the live schema. The full MC/AQ sample reports return
+null transitions for every boss. BWL returns only one start marker each for
+Razorgore and Nefarian, with empty phase-name catalogs; combined dragons have
+null transitions. This does not establish the physical absence of phases.
+Do not substitute those fields for actor opportunity or invent missing phases
+from a guide. These are research receipts; current acquisition does not yet
+request/store these optional fields. Official field descriptions are also
+available in [ReportFight](https://br.warcraftlogs.com/v2-api-docs/warcraft/reportfight.doc.html)
+and [PhaseTransition](https://tw.warcraftlogs.com/v2-api-docs/warcraft/phasetransition.doc.html).
+
 [Lucifron](https://warcraft.wiki.gg/wiki/Lucifron) separates Era's two guards
 from Season of Mastery's four. Its curse/resource and control/dispelling advice
 is static strategy, not evidence of a particular actor's assignment. The raw

@@ -48,6 +48,30 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Interim review — not subject closure
 
+2026-10-17 · slice 3 · 02.4/02.7 partial · Added shared direct-boss-melee context
+and an ambiguity guard for action-based combat/Druid duties in new Era raids.
+Three or more boss melee events without qualifying tank actions invalidate a
+simple DPS/healer duty inference, retaining raw actions and unknown assignment.
+No tank assignment is inferred from category or hits. Personal pressure remains
+visible in both pages even when personal comparison eligibility fails. Partial
+target streams preserve positive times while totals remain unknown; trash and
+other actors do not count. Era/seasonal, real MC Fury-style and Druid counterexamples
+are tested. Eight focused cases pass; broad ordinary suite 1255 passed/262
+deselected/393.66 s (two subsequently added Druid cases additionally covered by
+the focused run). Four historical Naxx artifacts again match 30e89ce exactly.
+Remaining assignment/opportunity/ranking contracts stay open; no full box closes.
+
+Verification follow-up: all 12 immutable raid replays pass, **14 golden checks /
+99.75 s**, with all 72 independent raw actor cases. Eight actual page/viewport
+checks for real MC Protection and BWL Guardian pass offline/no-network/no-error/
+no-overflow/print visibility. Inspected MC Protection mobile Playbook screenshot:
+nine boss melee events and the assignment limitation are visible with bounded
+layout. Unlimited scans: 81,152,275 new raw bytes and 29,891,846 representative
+generated output bytes, no findings. Research/duty-review.json records limits.
+Keep shared bounded evidence and old Naxx behavior; remaining hybrid assignment,
+physical phase/opportunity and recipient-aware healing policies need work.
+Interim verdict remains DO NOT CLOSE for the whole subject.
+
 Verification follow-up: full ordinary suite **1248 passed, 262 deselected,
 337.38 s**. After the independent checker's additional missing-amount guard,
 22 focused cases and all 54 real raw actor facts pass; static checks remain

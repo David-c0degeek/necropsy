@@ -10,7 +10,7 @@ import duckdb
 
 from necropsy.analysis.classes import register
 from necropsy.analysis.context import ParticipantFight, coverage
-from necropsy.analysis.encounters import encounter_rules
+from necropsy.analysis.encounters import duty, encounter_rules
 from necropsy.analysis.evidence import (
     Evidenced,
     EvidenceRef,
@@ -206,6 +206,9 @@ def _duties(
             rule_id="druid-duty-signals-v3",
             params=params,
         )
+    resolved_role = duty.guard_action_duty(
+        con, pf, events, resolved_role, tank_actions=FightRole.TANK in roles
+    )
     spans = tuple(
         {
             "role": r.value,

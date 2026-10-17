@@ -807,9 +807,14 @@ def build_document(
             ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     if zone != "naxxramas":
+        from necropsy.analysis.encounters import duty
         from necropsy.analysis.encounters.strategy import encounter_strategy
 
-        for boss in bosses:
+        for boss, data in zip(bosses, boss_data, strict=True):
+            if data.subject is not None and duty.applies(con, data.subject.participant):
+                boss["playbook"]["duty_context"] = to_data(
+                    duty.context(con, data.subject.participant)
+                )
             strategy = encounter_strategy(
                 zone,
                 boss["encounter_id"],
