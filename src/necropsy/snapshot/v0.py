@@ -124,6 +124,7 @@ class V0Snapshot:
     """
 
     _top_level: frozenset[str] = frozenset(_TOP_LEVEL)
+    _known: tuple[re.Pattern[str], ...] = _KNOWN
 
     def __init__(self, archive: VerifiedArchive) -> None:
         self._archive = archive
@@ -385,10 +386,14 @@ class V0Snapshot:
             for n in self._names
             if prefix and n.startswith(prefix) and _PAGE.match(n.rsplit("/", 1)[-1])
         )
+        return self._read_pages(ref, pages, error)
+
+    def _read_pages(self, ref: StreamRef, pages: list[str], error: str | None = None) -> StreamRead:
+        """Shared event-page reading, completeness and overlap handling for every scope."""
         if not pages:
             status = StreamStatus.ERROR if error else StreamStatus.MISSING
             return StreamRead(ref, status, 0, [], 0, error or "no pages")
-        numbers = [int(_PAGE.match(p.rsplit("/", 1)[-1]).group(2)) for p in pages]  # type: ignore[union-attr]
+        numbers = [int(p.rsplit("_", 1)[-1].removesuffix(".json")) for p in pages]
         if numbers != list(range(1, len(pages) + 1)):
             return StreamRead(
                 ref, StreamStatus.MALFORMED, len(pages), [], 0, f"non-contiguous pages {numbers}"
@@ -464,7 +469,7 @@ class V0Snapshot:
         for name in self._names:
             if name in self._top_level:
                 continue
-            if not any(p.match(name) for p in _KNOWN):
+            if not any(p.match(name) for p in self._known):
                 self._issues.append(f"unrecognised member: {name}")
                 continue
             if name.startswith("events/"):

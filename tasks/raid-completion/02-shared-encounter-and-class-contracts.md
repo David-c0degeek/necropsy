@@ -44,6 +44,38 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice13 / 02.1-02.3 and02.7 partial: explicit live format2 for
+optional encounter context through the normal acquisition generation/finalization,
+cache, writer, shared page decoder, normalizer and output/package path. No default
+collection change. Both scopes are certified once per selected fight with exact
+request, bounds, revision, endpoint, page digest and terminal pagination proofs.
+Actor/pet and critical raw views must be subsets, including multiplicity, of All.
+No actor0, filtered-as-All coverage, extra/missing page or unsupported version
+fallback. Existing v0/v1 requests/writing and actor absence predicates preserved.
+
+131 acquisition/live/raid integration checks pass/114.73 s before acceptance-helper
+follow-up;22 new final v2 positive/tamper/ruleset checks pass/4.01 s, including the
+normal live acceptance checker and both pages/package. Legacy reader/ingestion
+plus new v2 checks56 pass/6.94 s before four additional ruleset guard negatives.
+All29 existing real archives pass31 golden checks/188.56 s, including174 raw fact
+cases. All four Naxx artifacts remain byte-identical to30e89ce. Fresh installed
+wheel outside checkout replays the synthetic normal-acquisition v2 archive into
+exact36 unique events/12 actorless scopes, both pages/package and live acceptance.
+Unselected Mage17 has observed events but no complete actor-source certificate;
+raw critical and actor overlaps do not double totals. Synthetic transport is not
+real v2 capture acceptance. Fresh wheel/sdist/synthetic raw/cache/output/installed
+extraction7,882,364 bytes (scanner7,866,228) passes unlimited gitleaks8.30.1.
+Ruff272 files/mypy216 source files/maintained docs pass.
+
+[ADR0016](../../docs/decisions/0016-encounter-event-scope.md) records current
+optional support and live/default-collection limits. Keep versioning, shared
+parser, raw identity and separate coverage; fix live finalized raw/independent/
+installed acceptance and actual observed phase/metric/opportunity policies before
+enabling defaults or closing contracts. Full MC Holy capture is waiting for its
+observed reset through normal CLI. No new real fixture, complete cell or box is
+counted. Interim Hindsight DO NOT CLOSE; PM-2/PM-3 pending full calibration.
+
+
 2026-10-17 / slice12 / 02.1-02.3 and02.7 partial: encounter-scope cache/fetch
 foundation under D010. Pre-mortem guardrails and versioned archive constraints
 recorded before code in research/encounter-stream-contract.md. Independently

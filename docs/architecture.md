@@ -95,9 +95,12 @@ The shared fetch/cache layer also accepts explicit actorless encounter and
 critical-damage scopes. Their actor is null and direction is `all`; critical
 requests bind the server `isCritical` filter in the immutable identity. They
 use separate cache paths and cannot impersonate an actor source/target stream.
-Default acquisition and live snapshot v1 still collect player/pet streams;
-versioned encounter-stream archive integration remains in development. These
-internal fetch capabilities do not enable validated ranking or phase analysis.
+Default acquisition still collects player/pet streams and writes live v1.
+The shared acquisition API can explicitly request encounter context for Era
+MC/BWL/AQ40 partitions1/2, producing live v2 with separately certified encounter
+and critical scopes. Both versions use the same report/finalization, page reader,
+normalizer and output pipeline. This optional path is undergoing live acceptance;
+it does not enable validated ranking or phase analysis.
 
 Format 2 report bundles and combined report sets use full content-digest
 generations per endpoint. Metadata can change at the same report revision, so

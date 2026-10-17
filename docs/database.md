@@ -21,7 +21,7 @@ the ingest fails. A program that opens the target in the instant between that
 last check and the swap is not detected on every platform. `snapshot_meta.schema_version` records the schema; any schema
 change means a rebuild.
 
-Schema 3 reads both historical v6 exports and Necropsy live snapshot v1. A schema
+Schema 3 reads historical v6 exports and Necropsy live snapshots v1/v2. A schema
 1 or 2 database for the same verified archive is rebuilt atomically; it is not reused
 with missing columns. Existing historical `analysis.json` files remain renderable
 without rebuilding their database. Live provenance records requested boss
@@ -74,8 +74,19 @@ Analyses may treat a missing event as "did not happen" only through
 boundary ambiguities and zero multiplicity mismatches. Otherwise the answer is
 UNKNOWN.
 
-Only the selected Hunters and their pets have streams. Raid-wide facts (threat,
-boss target time, other players' actions) are not in the data.
+Historical/v1 archives contain selected actors and their pets. Optional live v2
+archives additionally certify unfiltered whole-fight events and server-filtered
+critical damage. These use actor null, direction `all`, and separate `encounter`/
+`critical` roles. The reader proves their bounds, revision, endpoint, pagination
+and page digests, and requires actor/critical events to be raw subsets of the
+unfiltered data. Existing maximum-multiplicity merging retains each occurrence
+once across these overlapping views. No table or column changes.
+
+Encounter coverage is separate from player/pet source/target coverage. An
+unselected actor's events can be observed without a complete actor-direction
+certificate. Filtered critical coverage cannot establish unrestricted cast or
+phase absence. These data do not by themselves establish threat, positioning,
+assignment, targetability or a validated ranking/opportunity policy.
 
 ## Tables
 

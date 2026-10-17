@@ -1,4 +1,7 @@
-"""Write a live acquisition as a snapshot v1 archive (offline: no network here).
+"""Write a finalized live acquisition as a verified archive (no network here).
+
+Default captures retain format v1. Explicit encounter-context acquisitions use
+format v2 with additional certified whole-fight and filtered-critical streams.
 
 Input is a finalized acquisition (`wcl.acquire.finalize_reports` has recorded
 one combined report per code) and the verified cache it was written to. Only
@@ -39,7 +42,7 @@ from necropsy.snapshot.archive import (
     parse_entries_manifest,
 )
 from necropsy.snapshot.model import SnapshotError
-from necropsy.snapshot.v1 import FORMAT_VERSION, KIND, MARKER, V1Snapshot
+from necropsy.snapshot.v1 import FORMAT_VERSION, KIND, MARKER, open_snapshot
 from necropsy.wcl.acquire import (
     Acquisition,
     BossAcquisition,
@@ -176,6 +179,14 @@ def _check_binding(acquisition: Acquisition, boss: BossAcquisition, e: Entry) ->
     have = [(s.role, s.actor_id, s.direction) for s in e.streams]
     if sorted(have) != sorted(need) or len(have) != len(set(have)):
         raise WriteError(f"entry {e.name} does not have exactly its player and pet streams")
+    wanted_context = (
+        {(role, None, "all") for role in ("encounter", "critical")}
+        if acquisition.encounter_context
+        else set()
+    )
+    found_context = [(s.role, s.actor_id, s.direction) for s in e.encounter_streams]
+    if set(found_context) != wanted_context or len(found_context) != len(wanted_context):
+        raise WriteError(f"entry {e.name} does not have its declared encounter scopes")
     rset = acquisition.reports.get(e.report_code)
     fight = None
     if rset is not None:
@@ -190,10 +201,10 @@ def _check_binding(acquisition: Acquisition, boss: BossAcquisition, e: Entry) ->
     if fight is None:
         raise WriteError(f"entry {e.name} fight is not in its combined report")
     bounds = (fight.get("startTime"), fight.get("endTime"))
-    for s in e.streams:
+    for s in (*e.streams, *e.encounter_streams):
         if (s.identity.get("start_time"), s.identity.get("end_time")) != bounds:
             raise WriteError(f"a stream of {e.name} has other fight bounds than its report")
-    for s in e.streams:
+    for s in (*e.streams, *e.encounter_streams):
         ident = s.identity
         if (
             ident.get("code"),
@@ -312,9 +323,11 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
         if entry_dir["pets"] != e.pets or entry_dir["confirmed_pets"] != e.pet_ids:
             raise WriteError(f"{e.name} in {e.report_code} fight {e.fight_id} has two pet lists")
         entry_dir["reasons"].append(reason)
-        for record in e.streams:
+        for record in (*e.streams, *e.encounter_streams):
             if record.role == "player":
                 prefix = folder
+            elif record.role in {"encounter", "critical"}:
+                prefix = f"{base}encounter/"
             else:
                 pet = by_id.get(record.actor_id) or {}
                 prefix = f"{base}pet_{record.actor_id}_{safe_name(str(pet.get('name') or 'pet'))}/"
@@ -335,8 +348,9 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                 record.identity,
             )
             digests = []
+            page_kind = "critical" if record.role == "critical" else record.direction
             for n, data in enumerate(pages, 1):
-                members[f"{prefix}{record.direction}_{n:03d}.json"] = (data, EntryOrigin.ACQUIRED)
+                members[f"{prefix}{page_kind}_{n:03d}.json"] = (data, EntryOrigin.ACQUIRED)
                 digests.append(hashlib.sha256(data).hexdigest())
             streams.append(
                 {
@@ -424,7 +438,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
     assert context.partition is not None and context.faction.value is not None
     marker = {
         "kind": KIND,
-        "formatVersion": FORMAT_VERSION,
+        "formatVersion": 2 if acquisition.encounter_context else FORMAT_VERSION,
         "subject": {
             "id": context.character_id.value,
             "canonical_id": context.canonical_id.value,
@@ -479,7 +493,28 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                 "meta": s["meta"],
             }
             for s in sorted(streams, key=lambda s: s["key"])
+            if s["key"][2] in {"player", "pet"}
         ],
+        **(
+            {
+                "encounter_streams": [
+                    {
+                        "report": s["key"][0],
+                        "fight": s["key"][1],
+                        "role": s["key"][2],
+                        "actor_id": None,
+                        "direction": "all",
+                        "pages": s["pages"],
+                        "identity": s["identity"],
+                        "meta": s["meta"],
+                    }
+                    for s in sorted(streams, key=lambda s: s["key"])
+                    if s["key"][2] in {"encounter", "critical"}
+                ]
+            }
+            if acquisition.encounter_context
+            else {}
+        ),
         "report_sets": [
             {
                 "report": code,
@@ -590,7 +625,7 @@ def _validate(out_dir: Path, stem: str, data: bytes, entries: str) -> None:
         with check.open("xb") as handle:
             handle.write(data)
         with VerifiedArchive(check, entries=parse_entries_manifest(entries)) as archive:
-            V1Snapshot(archive)
+            open_snapshot(archive)
     except (SnapshotError, ArchiveError) as error:
         raise WriteError(f"the snapshot would not read back: {error}") from None
     finally:
@@ -645,7 +680,12 @@ def _write_locked(acquisition: Acquisition, store: Cache, out_dir: Path, stem: s
         raise
     marker = json.loads(members[MARKER][0])
     return Written(
-        targets[0], targets[1], targets[2], digest, len(marker["fights"]), len(marker["streams"])
+        targets[0],
+        targets[1],
+        targets[2],
+        digest,
+        len(marker["fights"]),
+        len(marker["streams"]) + len(marker.get("encounter_streams", ())),
     )
 
 

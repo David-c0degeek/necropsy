@@ -22,7 +22,7 @@ from necropsy.analysis.context import realm_key
 from necropsy.report.analysis_json import AnalysisDocument
 from necropsy.report.package import ANALYSIS_FILE, PLAYBOOK_FILE, REPORT_FILE, package_name
 from necropsy.snapshot.archive import VerifiedArchive, load_entries_manifest
-from necropsy.snapshot.v1 import V1Snapshot
+from necropsy.snapshot.v1 import open_snapshot
 from necropsy.wcl.context import SUPPORTED_ZONE_ID
 
 CREDENTIAL_FIELDS = frozenset(
@@ -126,7 +126,7 @@ def check_run(
     with VerifiedArchive(
         snapshot, expected_sha256=sha256, entries=load_entries_manifest(entries)
     ) as archive:
-        reader = V1Snapshot(archive)
+        reader = open_snapshot(archive)
         snapshot_bosses = [
             b.get("encounter_id")
             for b in (reader.descriptor().acquisition or {}).get("bosses") or []

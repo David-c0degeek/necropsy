@@ -414,7 +414,7 @@ def fight_pets(
 @dataclass(frozen=True, slots=True)
 class StreamRecord:
     role: str
-    actor_id: int
+    actor_id: int | None
     direction: str
     identity: dict[str, Any]
     pages: int
@@ -450,6 +450,7 @@ class Entry:
     combatant_context: dict[str, Any] | None = None
     combatant_context_reason: str | None = None
     streams: list[StreamRecord] = field(default_factory=list)
+    encounter_streams: list[StreamRecord] = field(default_factory=list)
     generations: int = 0
 
     @property
@@ -457,7 +458,7 @@ class Entry:
         return self.pets if self.pets is not None else self.confirmed_pets
 
 
-def _record(role: str, actor_id: int, direction: str, stream: StreamPages) -> StreamRecord:
+def _record(role: str, actor_id: int | None, direction: str, stream: StreamPages) -> StreamRecord:
     return StreamRecord(
         role,
         actor_id,
@@ -483,9 +484,11 @@ class Run:
         class_id: int = 3,
         category: str | None = None,
         metric: str | None = None,
+        encounter_context: bool = False,
     ) -> None:
         self.client, self.store, self.site, self.endpoint = client, store, site, endpoint
         self.policy = ranking_policy(class_id, category, metric)
+        self.encounter_context = encounter_context
         self.report_points_bound = 6.0
         """Conservative floor; observed account-wide report costs may only increase it."""
         self._bundles: dict[tuple[str, int], Bundle] = {}
@@ -552,6 +555,7 @@ class Run:
         for generation in (1, 2):
             entry.generations = generation
             entry.streams, entry.pets, entry.pets_reason = [], None, None
+            entry.encounter_streams = []
             entry.confirmed_pets = []
             entry.combatant_context = None
             entry.combatant_context_reason = None
@@ -621,6 +625,11 @@ class Run:
             except (InvalidResponse, *_UNREACHABLE) as error:
                 # Optional enrichment must not discard verified ordinary streams.
                 entry.combatant_context_reason = f"{type(error).__name__}: {error}"
+        if self.encounter_context:
+            for role in ("encounter", "critical"):
+                self.stage = f"{role} events for {where}"
+                stream = fetch_stream(self.client, self.store, bundle, role, None, "all")
+                entry.encounter_streams.append(_record(role, None, "all", stream))
         entry.status = "complete"
         entry.reason = None if entry.pets is not None else f"pets unknown: {entry.pets_reason}"
 
@@ -752,6 +761,7 @@ class Acquisition:
     """Planned comparison fetch order; report and snapshot remain in requested order."""
     metadata_order: tuple[int, ...] = ()
     """Completed first-page ranking prefetches, in requested encounter order."""
+    encounter_context: bool = False
 
     def complete_entries(self) -> list[tuple[BossAcquisition, Entry]]:
         out = []
@@ -1003,8 +1013,15 @@ def acquire(
     cross_faction: bool = False,
     encounters: tuple[int, ...] | None = None,
     progress: Callable[[str], None] | None = None,
+    encounter_context: bool = False,
 ) -> Acquisition:
     """Acquire every supported boss (or `encounters`), stopping cleanly on point limits."""
+    if encounter_context and (
+        context.zone_id not in {2000, 2002, 2005}
+        or context.partition is None
+        or context.partition.id not in {1, 2}
+    ):
+        raise ValueError("encounter context requires a supported new Era raid partition")
     run = Run(
         client,
         store,
@@ -1013,12 +1030,14 @@ def acquire(
         class_id=context.class_id.value,
         category=context.ranking_category,
         metric=context.ranking_metric,
+        encounter_context=encounter_context,
     )
     requested = tuple(encounters or boss_order(raid_for_zone(context.zone_id).slug))
     allowed = set(boss_order(raid_for_zone(context.zone_id).slug))
     if any(e not in allowed for e in requested):
         raise ValueError("requested encounter does not belong to the selected raid")
     out = Acquisition(endpoint, cross_faction, context, requested)
+    out.encounter_context = encounter_context
     if (context.class_id.value == 2 or context.ranking_category is not None) and len(requested) > 1:
         return _acquire_spec_view(run, context, out, progress)
     for encounter in requested:

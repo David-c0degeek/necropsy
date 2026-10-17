@@ -22,12 +22,15 @@ class ActorRole(StrEnum):
     PLAYER = "player"
     PET = "pet"
     PET_DISCOVERY = "pet-discovery"
+    ENCOUNTER = "encounter"
+    CRITICAL = "critical"
 
 
 class Direction(StrEnum):
     SOURCE = "source"
     TARGET = "target"
     LISTING = "listing"
+    ALL = "all"
 
 
 class StreamStatus(StrEnum):

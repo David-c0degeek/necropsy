@@ -31,3 +31,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Saved report and app updates](0013-saved-report-and-app-updates.md) | Preserve saved analysis ownership during refresh; explicit verified releases through staged installers and safe restart |
 | [Recipient-qualified healing](0014-recipient-qualified-healing.md) | Separate friendly support, boss mechanics and unresolved recipients while preserving raw source totals and historical Naxx arithmetic |
 | [Encounter observations and strategy](0015-encounter-observations-and-strategy.md) | Keep sourced general strategy, observed actor effects, unknown phase/opportunity and personal assignments separate in the shared pipeline |
+
+| [Encounter event scope](0016-encounter-event-scope.md) | Separate actorless encounter/critical coverage, explicit live format2, shared normalization and preserved historical/v1 defaults |

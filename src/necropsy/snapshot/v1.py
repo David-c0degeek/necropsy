@@ -6,8 +6,8 @@ profile/manifest/selection files there is one `necropsy-snapshot.json`,
 validated strictly: subject (from the resolved character), zone and partition,
 the selected fights with their participants, every requested boss with its
 acquisition coverage, and the page digests that the acquisition cache
-certified for every stream. An archive with that file is always read as v1;
-a malformed one is an error, never read as v6 instead.
+certified for every stream. The dispatcher also accepts explicit format v2;
+a malformed live marker is an error, never read as v6 instead.
 """
 
 from __future__ import annotations
@@ -574,7 +574,7 @@ class V1Snapshot(V0Snapshot):
             yield source, document
 
     def _check_stream_identity(
-        self, key: tuple[str, int, str, int, str], proof: LiveStream, names: list[str]
+        self, key: tuple[str, int, str, int | None, str], identity: dict[str, Any], names: list[str]
     ) -> None:
         """The certified request must be this report revision's exact fight and contract."""
         live = self._file()
@@ -585,7 +585,7 @@ class V1Snapshot(V0Snapshot):
         try:
             fight_key = FightKey(VANILLA, code, rset.revision, fight)
             canon = check_identity(
-                StreamKey(fight_key, role, actor, direction, live.endpoint), proof.identity
+                StreamKey(fight_key, role, actor, direction, live.endpoint), identity
             )
         except CacheError as error:
             raise SnapshotError(f"stream {key} identity is invalid: {error}") from None
@@ -723,14 +723,23 @@ class V1Snapshot(V0Snapshot):
             digests = tuple(hashlib.sha256(self._archive.read_bytes(n)).hexdigest() for n in names)
             if digests != proof.pages:
                 raise SnapshotError(f"pages of stream {key} differ from the certified digests")
-            self._check_stream_identity(key, proof, names)
+            self._check_stream_identity(key, proof.identity, names)
         if used != set(proofs):
             raise SnapshotError("the provenance lists streams that are not in the archive")
 
 
 def open_snapshot(archive: VerifiedArchive) -> V0Snapshot:
-    """The reader for this archive: live (v1) when the marker exists, else the v6 export."""
+    """Dispatch explicit live format versions; otherwise read the historical v6 export."""
     if MARKER in archive:
+        marker = archive.read_json(MARKER)
+        if (
+            isinstance(marker, dict)
+            and type(marker.get("formatVersion")) is int
+            and marker["formatVersion"] == 2
+        ):
+            from necropsy.snapshot.v2 import V2Snapshot
+
+            return V2Snapshot(archive)
         return V1Snapshot(archive)
     return V0Snapshot(archive)
 
