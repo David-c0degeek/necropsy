@@ -85,7 +85,15 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         if entry.get("combat") or entry.get("druid"):
             combat = entry.get("combat") or entry["druid"]
             for metric in ("damage", "effective_healing", "incoming_damage"):
-                assert combat["metrics"][metric]["value"] == case["expected"]["totals"][metric]
+                field = "raw_source_healing" if metric == "effective_healing" else metric
+                assert combat["metrics"][field]["value"] == case["expected"]["totals"][metric]
+            if fixture["label"] == "bwl-combined-guardian":
+                boss_healing = {"Trashhealz": 125000, "Obviously": 75000, "Belkala": 460963}
+                hostile = boss_healing.get(entry["player"], 0)
+                assert combat["metrics"]["healing_to_bosses"]["value"] == hostile
+                assert combat["metrics"]["effective_healing"]["value"] == (
+                    case["expected"]["totals"]["effective_healing"] - hostile
+                )
         else:
             # Ranking reconciliation is a separate gate; an unvalidated raid
             # cannot turn these raw amounts into claimed ranked damage.
@@ -116,3 +124,13 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "bwl-combined-guardian":
+            assert "Effective healing uses recorded friendly recipients." in html
+            for amount, player in (
+                (125000, "Trashhealz"),
+                (75000, "Obviously"),
+                (460963, "Belkala"),
+            ):
+                assert (
+                    f"Recorded healing credited to encounter bosses: {amount} ({player})." in html
+                )

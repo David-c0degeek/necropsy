@@ -19,7 +19,7 @@ from necropsy.analysis.evidence import (
     observed,
     unknown,
 )
-from necropsy.analysis.generic import combat, metrics
+from necropsy.analysis.generic import combat, healing, metrics
 from necropsy.analysis.generic.combat import CombatEvent as DruidEvent
 from necropsy.analysis.generic.combat import event_ref as _ref
 from necropsy.analysis.generic.combat import event_rows as _events
@@ -242,6 +242,11 @@ class DruidClassicEra:
         forms = _form_windows(con, pf, profile, rules)
         signals, role, spans = _duties(con, pf, events, rules)
         totals, heals, damage = _totals(con, pf, events)
+        if duty.applies(con, pf):
+            encounter = encounter_rules(
+                self.game, raid_for_encounter(pf.encounter_id).slug, pf.encounter_id
+            )
+            totals = healing.recipient_metrics(con, pf, events, encounter.boss_game_ids, totals)
         casts = [e for e in events if e.kind == "cast" and e.source_id == pf.actor_id]
         source_coverage = [coverage(con, pf, pf.actor_id, Direction.SOURCE)]
         for group in ("feral", "balance", "healing", "tanking"):

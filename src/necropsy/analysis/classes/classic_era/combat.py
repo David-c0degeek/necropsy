@@ -12,7 +12,7 @@ from necropsy.analysis.classes import register
 from necropsy.analysis.context import ParticipantFight, coverage, owned_pets, pet_listing_known
 from necropsy.analysis.encounters import duty, encounter_rules
 from necropsy.analysis.evidence import Evidenced, EvidenceRef, inferred, observed, unknown
-from necropsy.analysis.generic import combat, metrics
+from necropsy.analysis.generic import combat, healing, metrics
 from necropsy.analysis.generic.environment import EnvironmentProfile
 from necropsy.analysis.generic.metrics import DeathsFinding
 from necropsy.raids import raid_for_encounter
@@ -162,6 +162,11 @@ class ClassicEraCombat:
         actions = load_rules(self.game, "classes")[self.name]
         events = combat.event_rows(con, pf)
         totals, heals, damage = combat.event_totals(con, pf, events)
+        if duty.applies(con, pf):
+            rules = encounter_rules(
+                self.game, raid_for_encounter(pf.encounter_id).slug, pf.encounter_id
+            )
+            totals = healing.recipient_metrics(con, pf, events, rules.boss_game_ids, totals)
         signals, role = _duty(con, pf, events, actions)
         categories = {
             r[0]

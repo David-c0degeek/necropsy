@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Qualify new Era raid healing by recipient. Separate friendly support from
+  healing credited to bosses and unresolved targets, preserve raw source totals,
+  and disclose real mechanic-healing examples in both pages.
+
 - Keep new Era raid duty uncertain when repeated boss melee pressure conflicts
   with a narrow action-based classification. Show personal boss pressure even
   when excluded from comparisons; preserve historical Naxx duty behavior.

@@ -55,7 +55,7 @@ def line(text: str, note: str = "", links: Any = ()) -> dict[str, Any]:
 
 
 def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str, Any]:
-    """Format saved strategy only; old documents do not acquire new advice on render."""
+    """Format saved encounter context; old documents do not acquire new advice on render."""
     context = playbook.get("duty_context")
     if context:
         view = dict(view)
@@ -66,6 +66,22 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (pressure,)
         view["pull_during"] = (pressure, *view.get("pull_during", ()))
+    healing = playbook.get("healing_context")
+    if healing:
+        view = dict(view)
+        lines = (
+            line(healing["note"]),
+            *(
+                line(
+                    f"Recorded healing credited to encounter bosses: "
+                    f"{number(example['healing_to_bosses']['value'])} ({example['player']}).",
+                    "Mechanic healing is separate from friendly healing support.",
+                )
+                for example in healing["boss_healing_examples"]
+            ),
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *lines)
     strategy = playbook.get("encounter_strategy")
     if not strategy:
         return view

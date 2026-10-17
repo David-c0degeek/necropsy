@@ -815,6 +815,35 @@ def build_document(
                 boss["playbook"]["duty_context"] = to_data(
                     duty.context(con, data.subject.participant)
                 )
+            entries = [boss["subject"] or boss["playbook"].get("excluded_subject")]
+            entries += boss["overall_cohort"]
+            qualified = [
+                (
+                    entry["player"],
+                    (entry.get("combat") or entry.get("druid") or {}).get("metrics", {}),
+                )
+                for entry in entries
+                if entry is not None
+            ]
+            qualified = [
+                (player, metrics)
+                for player, metrics in qualified
+                if "raw_source_healing" in metrics
+            ]
+            if qualified:
+                boss["playbook"]["healing_context"] = {
+                    "rule": "healing-recipients-v1",
+                    "note": "Effective healing uses recorded friendly recipients. "
+                    "Raw source healing can include boss mechanics; absorption is separate. "
+                    "These measurements are "
+                    "not WCL HPS reconciliation or healing quality scores.",
+                    "boss_healing_examples": [
+                        {"player": player, "healing_to_bosses": metrics["healing_to_bosses"]}
+                        for player, metrics in qualified
+                        if metrics["healing_to_bosses"]["value"] is None
+                        or metrics["healing_to_bosses"]["value"] > 0
+                    ],
+                }
             strategy = encounter_strategy(
                 zone,
                 boss["encounter_id"],

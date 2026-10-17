@@ -239,6 +239,16 @@ actor and contains coverage-qualified `melee_events`, positive
 streams leave the total unknown while preserving positive observations. Both
 pages present the saved context; rendering old JSON never creates it.
 
+MC/BWL/AQ40 Era partition 1/2 combat and Druid metrics now use recipient-qualified
+`effective_healing`, its rate and overhealing. Additive `raw_source_healing` and
+`raw_source_healing_per_second` retain the original source-event sums.
+`healing_to_bosses` and `unclassified_healing` (with rates) separate mechanic
+healing and unresolved recipients. The optional `playbook.healing_context`
+discloses this policy and boss-healing examples in both pages. These fields do
+not reconstruct WCL HPS or include absorption events. Historical Naxx, seasonal
+analysis and previously saved JSON retain their prior semantics. See
+[the recipient contract](decisions/0014-recipient-qualified-healing.md).
+
 Schema1 adds optional top-level `taxonomy` in new live and non-Hunter class
 outputs. It contains the canonical tree names, WCL-namespaced comparison pool
 (class/category IDs, display label and API slug), optional user declaration,

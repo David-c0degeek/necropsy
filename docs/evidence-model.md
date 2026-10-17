@@ -131,6 +131,16 @@ Three events trigger ambiguity, not tank qualification. Swings include avoided
 and fully absorbed outcomes; they do not define continuous tanking opportunity.
 Historical Naxx inference remains unchanged.
 
+New Era raid combat/Druid healing measurements additionally qualify recipients
+using the fight's friendly player/pet roster, self identity and encounter boss
+game IDs. Boss-mechanic healing credited to a player is distinct from friendly
+support. Other/missing/conflicting recipients keep the exact qualified totals
+unknown. Raw source sums remain separate, and all totals require complete actor
+source coverage. Neither the qualified values nor raw sums reconstruct WCL HPS
+or measure healing quality. See the
+[recipient contract](decisions/0014-recipient-qualified-healing.md), including
+the real Shadow of Ebonroc counterexample. Old Naxx and saved JSON are unchanged.
+
 Static encounter strategy is labelled general strategy, with versioned rules,
 sources and retrieval dates. Applicability by class, metric and ruleset does not
 establish a player's actual duty, phase, opportunity or fault. It does not change

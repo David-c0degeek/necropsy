@@ -72,6 +72,33 @@ Keep shared bounded evidence and old Naxx behavior; remaining hybrid assignment,
 physical phase/opportunity and recipient-aware healing policies need work.
 Interim verdict remains DO NOT CLOSE for the whole subject.
 
+2026-10-17 · slice 4 · 02.3/02.4/02.7/02.8 partial · Recipient-qualified healing
+added through existing generic combat/Druid plugins for new Era raids. Raw
+source sums are preserved; friendly support, boss healing and unclassified
+recipients are separate, with source coverage and roster/actor/event refs.
+Missing recipients/roster, conflicting boss/friendly identity and incomplete
+source streams cannot manufacture a friendly-healing zero. Incoming heals are
+excluded. Qualified overhealing also excludes boss effects. The three real
+Ebonroc amounts (125,000/75,000/460,963) remain independently frozen raw facts;
+real replay checks assert their separation from friendly support. Both pages
+disclose the distinction. D007 and ADR 0014 document the intended new-raid
+measurement semantics; original Naxx behavior and saved JSON remain unchanged.
+Focused 17 checks and all 12 real replays (14 golden checks/112.88 s) pass;
+broad ordinary follow-up running. Full WCL HPS/ranking reconciliation remains
+open; no cell or shared box is complete.
+
+Verification follow-up: full ordinary suite **1261 passed, 265 deselected,
+377.13 s**. Four historical Naxx artifacts remain byte-identical to 30e89ce.
+Fresh wheel raw replay outside checkout verifies all three Ebonroc boss-healing
+amounts versus zero friendly support, both pages and package. Eight actual
+source page/viewport checks pass; inspected the BWL Guardian mobile healing
+section. Source output scan 29,928,344 bytes; installed output 24,997,156 bytes;
+wheel/report packages 57,729,387 extracted bytes (scanner read 57,713,527),
+unlimited gitleaks, no findings. Static checks/docs and all 72 raw facts pass.
+Research/healing-review.json records representative limits. Keep raw/qualified
+semantics and source refs; fix complete ranking, NPC recipient/opportunity and
+domain coverage before closure. Interim verdict: DO NOT CLOSE for subject 02.
+
 Verification follow-up: full ordinary suite **1248 passed, 262 deselected,
 337.38 s**. After the independent checker's additional missing-amount guard,
 22 focused cases and all 54 real raw actor facts pass; static checks remain
