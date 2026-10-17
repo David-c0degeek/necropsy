@@ -39,6 +39,13 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 9 / Evidence-qualified pet advice.
+Naxx reanalysis changes exactly one JSON path: Sapphiron recommendations lose one unsupported pet-absent action (two known comparisons, unknown median); every other JSON value is identical. All four original absence observations and the immutable historical fact register remain. Separate current policy test requires three supported actions.110 targeted tests and208 golden facts/policy pass with4 existing xfails. Initial actual-page assertions caught the missing factual absence in the condensed Playbook; both pages now retain it with safety/assignment caveats. Source/installed/installed CLI artifacts agree, package accepted;137 wheel members match source. Full product/native/domain acceptance remains open.
+
+Observed behavior, exact Naxx difference, verification and interim Hindsight
+are retained in research/pet-absence-review.json. No full box/matrix cell
+closes;59 IN_PROGRESS/893 TODO/0 COMPLETE. Verdict DO NOT CLOSE.
+
 2026-10-18 / slice 8 / Genuine death and Feign Death checkpoint.
 Current source and installed replay plus actual installed offline CLI outside checkout match all4 countercase artifacts and normal package acceptance. Full ordinary suite1619 passed/436.65s;4 real cross-raid goldens pass/70.67s;274 targeted units pass. Final24 coverage guard cases pass after correcting a stale empty-content assumption and typing-only cleanup. Naxx all4 baseline hashes unchanged;137 wheel members match source. Unlimited scans clean. No full product acceptance or publication.
 

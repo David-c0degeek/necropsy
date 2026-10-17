@@ -91,7 +91,12 @@ Missing C'Thun vulnerability transitions do not establish that no weakening
 occurred, and no nominal weakening timer supplies an observed window.
 Real Hunter replay also distinguishes confirmed pet absence from unknown pet
 classification and unresolved guardian ownership. A known trained pet remains
-measured when a separate guardian has no owner. No-comparison boss sections keep
+measured when a separate guardian has no owner. A recommendation to bring a pet
+requires at least three known same-faction trained-pet measurements and a
+positive median. Known absence remains visible in Report and Playbook when that
+comparison is missing or zero; the comparison does not establish pet safety or
+raid assignments.
+No-comparison boss sections keep
 opening guidance unknown and omit an unavailable reference ability comparison.
 BWL also retains observed Burning Adrenaline, Essence of the Red, Flame Buffet,
 Chromaggus affliction and Nefarian fear/curse/Priest-call exposure. These are

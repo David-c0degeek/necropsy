@@ -246,6 +246,13 @@ def _assert_npc_aura_windows(doc: dict[str, Any], fixtures: set[str]) -> None:
 
 
 def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
+    if fixture == "aq40-hunter-expanded-context":
+        sartura = next(b for b in doc["bosses"] if b["encounter_id"] == 50711)
+        assert sartura["subject"]["hunter"]["total_pet_dps"]["value"] == 0
+        assert sartura["playbook"]["pet"]["no_hunter_pet"] is True
+        median = sartura["benchmarks"]["baseline"]["medians"]["pet_dps"]
+        assert median["n_known"] == 5 and median["value"]["value"] == 0
+        assert not any(r["rule"] == "pet-absent" for r in sartura["recommendations"])
     cases = json.loads((ROOT / "pet-facts.json").read_text(encoding="utf-8"))["cases"]
     entries = [
         e
@@ -357,6 +364,15 @@ def _assert_boss_replay(
     healing_facts: list[dict[str, Any]],
     out: Path,
 ) -> None:
+    if fixture["label"] == "aq40-hunter-expanded-context" and boss["encounter_id"] == 50711:
+        for name, absence in (
+            ("report.html", "None took part"),
+            ("playbook.html", "No Hunter pet took part (listing recorded)."),
+        ):
+            html = (out / name).read_text(encoding="utf-8")
+            section = html.split('id="boss-50711"', 1)[1].split('<section class="boss"', 1)[0]
+            assert absence in section
+            assert "Bring a pet and keep it attacking." not in section
     actual = (
         ([boss["subject"]] if boss["subject"] else [])
         + (

@@ -12,6 +12,13 @@ Guard separation and recovery after roaming or knockbacks are distinct from boss
 
 Whirlwind exposure does not establish avoidability, position or the duty assigned to a melee player.
 
+Retained Hunter comparison `aq40-hunter-expanded-context` has explicit empty
+personal pet listing in Jw7RDb43XKALngca/18 (Temison). Five same-faction known
+trained-pet measurements have median zero; three comparisons also list no pet.
+The shared recommendation now withholds the unsupported instruction to bring a
+pet, retaining known absence and zero DPS in analysis and both pages. This does
+not prove a no-pet assignment, pet safety or a universal encounter policy.
+
 Initial static strategy is separate from personal findings. Full raw actor,
 phase/opportunity, ranking, both-faction/category and domain acceptance remain
 open; no guide timer or addon prewarning certifies an observed boundary.

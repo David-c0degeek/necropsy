@@ -6,12 +6,26 @@ import pytest
 
 from tests.analysis_db import connect, full_db
 from tests.fixture_paths import is_lfs_pointer, raw_export_path
-from tests.golden.fact_checks import CHECKS, matches
+from tests.golden.fact_checks import CHECKS, _document, matches
 from tests.golden.facts import FactStatus, load_register
 
 pytestmark = pytest.mark.golden
 
 REGISTER = load_register()
+
+
+def test_pet_absence_advice_requires_supported_comparison() -> None:
+    with connect(full_db()) as con:
+        bosses = _document(con)["bosses"]
+    advised = sorted(
+        b["boss"] for b in bosses if any(r["rule"] == "pet-absent" for r in b["recommendations"])
+    )
+    assert advised == ["Anub'Rekhan", "Gluth", "Heigan the Unclean"]
+    sapphiron = next(b for b in bosses if b["boss"] == "Sapphiron")
+    assert sapphiron["playbook"]["pet"]["no_hunter_pet"] is True
+    median = sapphiron["benchmarks"]["baseline"]["medians"]["pet_dps"]
+    assert median["n_known"] == 2
+    assert median["value"]["value"] is None
 
 
 @pytest.mark.parametrize("fact_id", sorted(CHECKS))

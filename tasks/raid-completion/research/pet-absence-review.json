@@ -1,0 +1,113 @@
+{
+  "reviewed": "2026-10-18",
+  "base_commit": "e936a904c8ace1b2fc572dab81f3de5217ef110e",
+  "scope": "Shared evidence requirement for comparative Hunter pet-absence advice",
+  "evidence": {
+    "aq40": {
+      "fixture": "aq40-hunter-expanded-context",
+      "report": "Jw7RDb43XKALngca",
+      "fight": 18,
+      "player": "Temison",
+      "known_pet_absence": true,
+      "same_faction_n_known": 5,
+      "median_pet_dps": 0,
+      "observation_preserved": true,
+      "unsupported_action_removed": true
+    },
+    "naxx": {
+      "known_absence_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Heigan the Unclean",
+        "Sapphiron"
+      ],
+      "supported_advice_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Heigan the Unclean"
+      ],
+      "sapphiron_n_known": 2,
+      "sapphiron_median": null,
+      "exact_json_delta": "Only Sapphiron recommendations: remove pet-absent, retain every other action.",
+      "all_other_json_values_unchanged": true,
+      "original_fact_register_unchanged": true,
+      "checker_change": "Historical statement checks recorded pet absence; a separate explicit test checks current advice."
+    },
+    "raw_and_facts": {
+      "archives": 45,
+      "actor_cases": 525,
+      "recipient_cases": 322,
+      "pet_contexts": 41,
+      "owned_units": 38,
+      "all_frozen_inputs_and_expectations_unchanged": true
+    }
+  },
+  "verification": {
+    "targeted": "110 passed/28.70s: recommendations, Playbook, render views, refresh, subset/class reports; includes positive/negative/unknown/missing-personal absence presentation",
+    "initial_real_page_failure": "Exact installed-page assertion and real AQ40 golden exposed that the condensed Playbook did not display known absence. Added a saved-observation line, guarded by an actual personal subject; no recommendation or benchmark is computed during rendering.",
+    "naxx_render_delta": "Both rendered pages now retain a factual personal absence line for each known absence. Current and original saved JSON are byte-preserved during rerender; original saved advice is not recomputed.",
+    "naxx_golden": "208 passed/4 existing xfailed/117.26s; reused unchanged full archive database serially",
+    "aq40_golden": "1 passed, 51 deselected in 54.62s",
+    "source": {
+      "fixture": "aq40-hunter-expanded-context",
+      "installed": false,
+      "independent_actors": 29,
+      "owned_pet_contexts": 29,
+      "owned_pets": 27,
+      "personal_bosses": 9,
+      "normal_package_acceptance": true,
+      "four_source_installed_artifacts_equal": false,
+      "artifact_sha256": {
+        "analysis.json": "0aa01a2dedf59d1535e30b21ca3b838d25b60fbfe236c3e94d34372bc7de09e9",
+        "report.html": "150a9cc4668df2ecdb6f21bcde2195b9fdb3126b6d2b0a6627662c822c1b8018",
+        "playbook.html": "3d960e9e329109cdb83868fe17904d4621d2e54b803db4de659fe0bdfe9661a5",
+        "necropsy-73952389-2005.zip": "453b0b70fe8f3ba717d2b6dc560004718fbde874da7c003c870001189d56b518"
+      }
+    },
+    "installed": {
+      "fixture": "aq40-hunter-expanded-context",
+      "installed": true,
+      "independent_actors": 29,
+      "owned_pet_contexts": 29,
+      "owned_pets": 27,
+      "personal_bosses": 9,
+      "normal_package_acceptance": true,
+      "four_source_installed_artifacts_equal": true,
+      "artifact_sha256": {
+        "analysis.json": "0aa01a2dedf59d1535e30b21ca3b838d25b60fbfe236c3e94d34372bc7de09e9",
+        "report.html": "150a9cc4668df2ecdb6f21bcde2195b9fdb3126b6d2b0a6627662c822c1b8018",
+        "playbook.html": "3d960e9e329109cdb83868fe17904d4621d2e54b803db4de659fe0bdfe9661a5",
+        "necropsy-73952389-2005.zip": "453b0b70fe8f3ba717d2b6dc560004718fbde874da7c003c870001189d56b518"
+      }
+    },
+    "actual_installed_cli": {
+      "native_exit": 0,
+      "cwd": "C:/Users/David",
+      "source_installed_cli_all4_equal": true,
+      "normal_package_accepted": true,
+      "both_pages_known_absence_without_unsupported_instruction": true,
+      "artifact_sha256": {
+        "analysis.json": "0aa01a2dedf59d1535e30b21ca3b838d25b60fbfe236c3e94d34372bc7de09e9",
+        "report.html": "150a9cc4668df2ecdb6f21bcde2195b9fdb3126b6d2b0a6627662c822c1b8018",
+        "playbook.html": "3d960e9e329109cdb83868fe17904d4621d2e54b803db4de659fe0bdfe9661a5",
+        "necropsy-73952389-2005.zip": "453b0b70fe8f3ba717d2b6dc560004718fbde874da7c003c870001189d56b518"
+      }
+    },
+    "build": {
+      "wheel_members_match_source": 137,
+      "sdist_excludes_development_data": true,
+      "extracted_output_bytes": 97607982,
+      "wheel_sha256": "1bb7e005eb9154b1c179f51ecd77d9ec7168ac4b2882971da9a6ebb3598f2d79"
+    },
+    "ruff": "276 formatted/check clean",
+    "mypy": "219 sources clean",
+    "docs": "291 links across25 maintained documents",
+    "privacy": "Unlimited gitleaks output/research scans clean; no new raw acquisition in this checkpoint",
+    "prior_ordinary_suite": "1619 passed/303 deselected at e936a90; focused current checks cover this narrow guard"
+  },
+  "Keep": "Use the existing shared recommendation seam, shared median minimum and same-faction median; retain roster/category guards, raw known absence and zero DPS. No new downloader, schema or template policy.",
+  "Fix before closing": "Full phase/opportunity, pet safety/assignments, confidence policy, ranking, all class/faction/duty and human/domain/product acceptance remain open. This narrow correction is verified; it closes no full box.",
+  "Record": "D019, ADR0005, user guide/changelog, Sartura dossier, initial Naxx assumption correction and PM calibration. Do not change frozen raw expectations to hide a semantic correction.",
+  "Risk": "Positive median is only a prerequisite, not proof a pet was safe or required. Existing positive-case confidence behavior is retained; broader opportunity/duty-aware guidance remains open. Native analysis crash cause remains unresolved.",
+  "Verdict": "DO NOT CLOSE"
+}

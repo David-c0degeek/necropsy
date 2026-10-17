@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Require a supported positive same-faction pet comparison before advising a
+  Hunter to bring a pet. Preserve recorded absence when that advice is withheld.
+
 - Preserve measured aura exposure across recorded Feign Death. Keep genuine
   deaths and resurrections as state resets, and leave malformed death flags unknown.
 

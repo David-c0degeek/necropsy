@@ -28,9 +28,22 @@ Correct the shared recommendation seam, not a class-plugin boss-ID branch:
 - Freeze the real observed contradiction before implementation. Use synthetic
   known/unknown/zero/insufficient/positive baselines and actual Sartura replay.
   Check both actual pages and preserve all525 actor/322 recipient/41 pet facts.
-- Verify historical Naxx. Its existing pet-absence examples have positive
-  recorded medians; do not silently change their expected behavior or update
-  frozen artifacts to hide an unrelated difference.
+- Verify historical Naxx. Direct inspection corrected the initial assumption
+  that all four absence examples had positive medians: Sapphiron has only two
+  known comparisons and an unknown median. Reanalysis intentionally removes
+  that unsupported action, retaining the four historical absence observations
+  and the three supported actions (Anub'Rekhan, Gluth, Heigan). Preserve the
+  original fact register and raw archives; distinguish the historical absence
+  fact from current recommendation policy in its checker and tests.
+
+Actual-page verification found a second presentation issue: the condensed
+Playbook did not display the no-pet observation once the action was withheld.
+Keep a factual absence line from saved personal evidence in both pages, without
+creating an instruction or borrowing a comparison player's participation.
+Positive/negative/unknown/missing-personal render cases cover that boundary.
+This changes rendered Naxx fact visibility as well as removing the unsupported
+Sapphiron action; it does not change any other analysis JSON value. Old saved
+JSON retains its exact bytes and saved advice when rendered by the new view.
 
 This is a narrow evidence requirement, not full opportunity/duty-aware advice.
 Those obligations remain open, including legitimate no-pet assignments, pet

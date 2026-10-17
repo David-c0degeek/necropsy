@@ -37,6 +37,16 @@ known values are still required for a cohort median and its recommendation rule.
 Saved ranking scores compare only against saved ranking scores, independently
 of event metrics. Missing personal data never produces a personal gap.
 
+Recorded Hunter pet absence is an observation, not sufficient evidence for a
+comparative instruction. The shared absence recommendation requires a positive
+same-faction trained-pet median with at least the shared minimum of three known
+measurements. Unknown, zero or insufficient medians withhold the instruction;
+other-faction fill and guardian damage cannot justify it. The known absence and
+its zero trained-pet DPS remain saved and visible. Positive comparisons alone
+do not establish pet safety, target access or raid assignment. Reanalysis can
+therefore remove unsupported advice from older captures while retaining all
+measurements; rendering an older saved document preserves its saved advice.
+
 A Druid view selects one spec/category and ranking metric for every requested
 boss. Personal grading requires matching inferred duty as well as category.
 Absent/incompatible personal data stays absent; every requested boss still

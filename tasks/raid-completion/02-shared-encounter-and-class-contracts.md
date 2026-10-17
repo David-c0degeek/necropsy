@@ -44,6 +44,13 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 28 / Evidence-qualified pet advice.
+The shared pet-absent rule now requires the existing three-known-value minimum and a positive same-faction trained-pet median. Unknown, zero, negative or insufficient baselines and unknown roster/category withhold advice; other-faction fill cannot justify it. Supported positive behavior is retained. No schema or capture change.
+
+Observed behavior, exact Naxx difference, verification and interim Hindsight
+are retained in research/pet-absence-review.json. No full box/matrix cell
+closes;59 IN_PROGRESS/893 TODO/0 COMPLETE. Verdict DO NOT CLOSE.
+
 2026-10-18 / slice 27 / Genuine death and Feign Death checkpoint.
 One shared raw death classifier distinguishes literal feigns, genuine deaths and unresolved flags across generic deaths, observed actor resets, effect identity validation and NPC windows. Unrelated recipient uncertainty does not taint personal state. No normalizer/schema change. Actual Geddon exposure corrected from0.480s to28.133s; end censoring and14.980s initial unknown preserved. ADR0015 extended.
 

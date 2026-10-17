@@ -60,6 +60,9 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 
 | PM ID | Outcome | Observed impact | Actual detection | Mitigation effectiveness | Severity calibration | Hindsight note / evidence |
 |---|---|---|---|---|---|---|
+| PM-1 | Confirmed Prediction | Medium | Before production | Partial | Accurate | Pet-advice checkpoint: real Sartura page review found actionable but unsupported advice despite valid zero measurements. Shared guard and actual-page golden now cover this case; full product horizon remains open. research/pet-absence-review.json |
+| PM-2 | Confirmed Prediction | Medium | Before production | Partial | Accurate | Known absence was promoted into a required pet action without a positive supported comparison. Sartura median0 and Sapphiron medianunknown/n2 now withhold that action. Safety/assignment/opportunity remain unresolved. research/pet-absence-review.json |
+| PM-3 | Prevented Prediction | None | Prevented | Effective | Accurate | Original four-boss Naxx absence statement and frozen facts retained; independent raw registers unchanged. Separate explicit policy test distinguishes three supported actions from four recorded absences. Exact full-document diff rules out silent numerical changes. Scope limited to this checkpoint. research/pet-absence-review.json |
 
 ## Misses
 

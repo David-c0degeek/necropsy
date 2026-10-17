@@ -1,5 +1,7 @@
 # Run lessons
 
+- 2026-10-18: A verified absence and a justified recommendation are separate claims. Sartura's zero pet median and Sapphiron's unknown two-source median cannot support an unconditional pet instruction. Preserve the historical four-boss absence fact and independently test the three supported actions; do not regenerate frozen expectations to match changed production behavior. Inspect every historical case before claiming unchanged behavior: the initial assumption that all Naxx absence medians were positive was false.
+
 - 2026-10-18: Raw WCL type=death is insufficient to establish a genuine death: feign:true is retained for Hunters. Verify subtypes before resetting temporal state. A real Geddon sample continues Ignite Mana ticks after Feign Death and exposes a large undermeasurement. Preserve raw flags in independent facts and reject malformed values without coercion. Scripting API isFeign is a different interface name; confirm actual raw fields before implementing a mapping.
 
 - 2026-10-18: A trained-pet roster and an all-guardian roster are different evidence scopes. Keep confirmed owner/pet events even when a separate Battle Chicken has no owner; an empty explicit roster and a melee-only unclassified unit also have different meanings. Browser acceptance must inspect class-specific renderer paths, not infer their correctness from the general class path. Jinja block trimming can change otherwise identical artifact bytes; inspect exact diffs before attributing a hash change to content.

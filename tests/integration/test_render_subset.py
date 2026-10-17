@@ -86,6 +86,30 @@ def test_pages_are_self_contained_and_offline(analysis: bytes) -> None:
             assert forbidden not in script, (name, forbidden)
 
 
+@pytest.mark.parametrize(
+    ("absence", "has_subject", "visible"),
+    [(True, True, True), (False, True, False), (None, True, False), (True, False, False)],
+)
+def test_playbook_records_personal_pet_absence_without_turning_it_into_advice(
+    analysis: bytes, absence: bool | None, has_subject: bool, visible: bool
+) -> None:
+    document, sha = load_document(analysis)
+    boss = document["bosses"][0]
+    boss["playbook"]["pet"]["no_hunter_pet"] = absence
+    boss["recommendations"] = [r for r in boss["recommendations"] if r["rule"] != "pet-absent"]
+    if not has_subject:
+        boss["subject"] = None
+        boss["recommendations"] = []
+    html = render_playbook(document_view(document, sha))
+    section = html.split(f'id="boss-{boss["encounter_id"]}"', 1)[1].split(
+        '<section class="boss"', 1
+    )[0]
+    assert ("No Hunter pet took part (listing recorded)." in section) is visible
+    assert "Bring a pet and keep it attacking." not in section
+    if visible:
+        assert "confirm pet safety and your raid assignment" in section
+
+
 def test_ids_are_unique_and_every_link_resolves(analysis: bytes) -> None:
     pages = _pages(analysis)
     ids = {name: set(_parse(html).ids) for name, html in pages.items()}

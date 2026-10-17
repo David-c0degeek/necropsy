@@ -14,6 +14,7 @@ from enum import StrEnum
 from typing import Any
 
 from necropsy.analysis.benchmark import (
+    MIN_BASELINE,
     Baseline,
     BossData,
     CohortSplit,
@@ -189,6 +190,9 @@ def _pet(boss: BossData, subject: Entry, base: Baseline) -> list[Recommendation]
         return []
     hunter_pets = subject.hunter.hunter_pets
     if not hunter_pets:
+        median = base.medians["pet_dps"]
+        if median.n_known < MIN_BASELINE or median.value.value is None or median.value.value <= 0:
+            return []
         return [
             Recommendation(
                 rule="pet-absent",

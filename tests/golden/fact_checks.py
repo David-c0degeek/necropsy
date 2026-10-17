@@ -464,7 +464,17 @@ def _bosses_with(rule: str) -> Checker:
     return compute
 
 
-check("recommendations.pet-absent", "full")(_bosses_with("pet-absent"))
+@check("recommendations.pet-absent", "full")
+def _pet_absent_observations(con: duckdb.DuckDBPyConnection) -> Any:
+    # The historical statement records pet absence, independently of whether
+    # the comparison supports recommending a different pet assignment.
+    return sorted(
+        b["boss"]
+        for b in _document(con)["bosses"]
+        if b["playbook"].get("pet", {}).get("no_hunter_pet") is True
+    )
+
+
 check("recommendations.raid-utility", "full")(_bosses_with("raid-utility"))
 check("recommendations.foreign-target-padding", "full")(_bosses_with("foreign-target-padding"))
 

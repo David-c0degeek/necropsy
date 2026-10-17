@@ -1224,6 +1224,14 @@ def boss_view(
                 }
             )
     pull_before = [line("Check your weapons, trinkets, ammunition and pet setup before the pull.")]
+    if subject and plan and (plan.get("pet") or {}).get("no_hunter_pet") is True:
+        pull_before.append(
+            line(
+                "No Hunter pet took part (listing recorded).",
+                "This records participation; confirm pet safety and your raid assignment "
+                "before changing your setup.",
+            )
+        )
     pull_during = [
         line(
             _quick_plan(plan, static, game, pet_facts)[0]["lines"][0]["text"],

@@ -5,12 +5,53 @@ from __future__ import annotations
 from types import SimpleNamespace
 from typing import Any
 
+import pytest
+
 from necropsy.analysis import recommendations as rec
 from necropsy.analysis.benchmark import Median, raid_speed
 from necropsy.analysis.evidence import EvidenceRef, Faction, derived, inferred, unknown
 
 REF = EvidenceRef("R", 1, 1, "x")
 BOSS: Any = SimpleNamespace(boss="Patchwerk")
+
+
+@pytest.mark.parametrize(
+    ("value", "n_known"),
+    [(None, 0), (None, 2), (0.0, 5), (-1.0, 5), (120.0, 2)],
+)
+def test_pet_absence_requires_positive_supported_same_faction_median(
+    value: float | None, n_known: int
+) -> None:
+    subject: Any = SimpleNamespace(
+        hunter=SimpleNamespace(pets=[], hunter_pets=[]), pets_listed=True
+    )
+    median = unknown("insufficient measurements") if value is None else derived(value, REF)
+    base: Any = SimpleNamespace(
+        medians={"pet_dps": Median(median, n_known, 0)},
+        tauren_fill=SimpleNamespace(medians={"pet_dps": Median(derived(150.0, REF), 5, 0)}),
+    )
+    assert rec._pet(BOSS, subject, base) == []
+
+
+def test_pet_absence_keeps_supported_recommendation_and_roster_guards() -> None:
+    subject: Any = SimpleNamespace(
+        hunter=SimpleNamespace(pets=[], hunter_pets=[]), pets_listed=True
+    )
+    base: Any = SimpleNamespace(medians={"pet_dps": Median(derived(120.0, REF), 3, 0)})
+    [found] = rec._pet(BOSS, subject, base)
+    assert found.rule == "pet-absent"
+    assert found.benchmark == {
+        "view": "same-faction-baseline",
+        "n_known": 3,
+        "median_pet_dps": 120.0,
+    }
+    assert found.confidence is rec.Tier.HIGH
+    assert found.recommendation == "Bring a pet and keep it attacking."
+    subject.pets_listed = False
+    assert rec._pet(BOSS, subject, base) == []
+    subject.pets_listed = True
+    subject.hunter.pets = [SimpleNamespace(category=unknown("unclassified linked actor"))]
+    assert rec._pet(BOSS, subject, base) == []
 
 
 def _subject(aimed: Any) -> Any:
