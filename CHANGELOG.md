@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Keep partial-acquisition retry advice independent of quota resets and preserve
+  the declared talent tree in the printed resume command.
+
 - Correct class Report event identities to show numeric copy indices; avoid
   dictionary method addresses and restore deterministic report/package bytes.
 

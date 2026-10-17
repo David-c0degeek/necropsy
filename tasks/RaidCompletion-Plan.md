@@ -222,7 +222,7 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | TODO | agent: 9; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/raid-completion/05-aq40.md` | TODO | agent: 9; domain-sme: 1 | yes |
 | [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | TODO | agent: 11; domain-sme: 1 | yes |
-| [ ] | 07 | `tasks/raid-completion/07-product-and-release-acceptance.md` | TODO | agent: 8; product-owner: 1 | yes |
+| [ ] | 07 | `tasks/raid-completion/07-product-and-release-acceptance.md` | IN_PROGRESS | agent: 8; product-owner: 1 | yes |
 
 ---
 

@@ -25,3 +25,5 @@
 - 2026-10-17: Resolving a known utility actor and running ordinary personal-best selection can choose a different fight without that utility. Retain the intended source investigation separately; do not fabricate a positive actor counter, substitute an unrelated ranking or call the class inapplicable.
 
 - 2026-10-17: Jinja dotted lookup can resolve a dictionary method before a same-named key. Class Report rendered dict.copy memory addresses instead of event copy indices despite identical analysis JSON. Use explicit key lookup and verify actual provenance plus byte equality across independent source/installed renders; numeric fact tests alone cannot catch presentation nondeterminism.
+
+- 2026-10-17: Preserve native LASTEXITCODE when verifying PowerShell CLI outcomes; a wrapper can report1 for a native partial-evidence exit4. A partial result can come from unresolved pet ownership with no quota stop, so retry text must not universally promise an hourly reset. Include declared-tree options in recovery commands as well as metric/category/faction.

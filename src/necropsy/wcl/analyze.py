@@ -294,7 +294,7 @@ def run_analyze(
             )
             if outcome.code:
                 outcome.lines.append(
-                    "After the hourly reset, resume with: "
+                    "To retry incomplete acquisition, resume with: "
                     + shell_command(
                         [
                             "necropsy",
@@ -309,6 +309,7 @@ def run_analyze(
                             "--resume",
                             *(["--partition", str(partition)] if partition is not None else []),
                             *(["--spec", category] if category else []),
+                            *(["--talent-tree", talent_tree] if talent_tree is not None else []),
                             *(["--metric", metric] if metric else []),
                             *(["--faction", faction] if faction else []),
                             *(["--name", name] if name else []),

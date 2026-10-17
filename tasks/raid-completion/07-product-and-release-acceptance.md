@@ -39,4 +39,27 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice1 / Actual full MC Holy CLI resume exercised after the
+normal quota-stopped run. All10 requested bosses,60 participants/57 fights,
+120 player streams and51 public report sets were acquired;202 saved requests
+reused on first continuation. Both pages/package were published by the normal
+pipeline. Two samples retain unknown pet ownership; acquisition.stopped is null.
+Native CLI exit4 correctly denotes partial evidence. PowerShell's initial
+command wrapper returned1 for a nonzero native exit; explicit LASTEXITCODE
+verification corrects the earlier research label without changing code semantics.
+
+The displayed retry command incorrectly promised an hourly reset for every
+partial result. It now describes retrying incomplete acquisition and preserves
+the optional declared talent tree. Real resumed execution verifies the corrected
+message;49 CLI integration tests pass/33.14 s, including partial/quota resume
+and declared-tree recovery. All request-cache/ownership/finalization behavior
+remains normal. This
+is an engineering receipt, not full raid, pet, metric or product acceptance.
+Snapshot fac63ab153fd418b8460af3c5e772521bb5c715f380dcbcb6f9884672161d03d and
+updated output remain ignored research until independent multi-boss acceptance
+and full extracted privacy checks. No additional fixture or matrix cell counted.
+Keep truthful unknowns and native exit semantics; fix remaining per-raid CLI/
+GUI/TUI/library/import/refresh/install/rollback and human acceptance obligations
+before closure. Interim Captain Hindsight DO NOT CLOSE.
+
 TBD — no implementation or acceptance is claimed at plan creation.

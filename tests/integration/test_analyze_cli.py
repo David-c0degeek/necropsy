@@ -278,9 +278,12 @@ def test_partial_coverage_exits_4_with_the_report_written(
     tmp_path: Path, fake: dict[str, Any]
 ) -> None:
     fake["server"] = FakeWcl([Player(f"Ally{i}") for i in range(1, 7)], Player("Haplina"))
-    result = _run(tmp_path)
+    result = _run(tmp_path, "--talent-tree", "Beast Mastery")
     assert result.exit_code == 4, result.output
     assert "Patchwerk: partial" in result.output and (tmp_path / "out" / "report.html").exists()
+    assert "To retry incomplete acquisition, resume with:" in result.output
+    assert "After the hourly reset" not in result.output
+    assert "--talent-tree" in result.output and "Beast Mastery" in result.output
 
 
 def test_the_user_endpoint_is_used_everywhere(tmp_path: Path, fake: dict[str, Any]) -> None:
