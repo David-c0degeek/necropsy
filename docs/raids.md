@@ -74,6 +74,14 @@ handoffs remain separate from Flamegor Frenzy removal. Chromaggus separates
 curse, magic, disease, poison and Hourglass Sand capabilities. Nefarian provides
 one guarded response per Era class; missing personal data or call markers stay
 unknown. These additions do not establish measured phases or ranked totals.
+BWL also retains observed Burning Adrenaline, Essence of the Red, Flame Buffet,
+Chromaggus affliction and Nefarian fear/curse/Priest-call exposure. These are
+recipient aura observations; Bronze exposure is not stun uptime, and a resource
+aura's presence is not a measured resource quantity. Other players' observations
+are labelled cohort examples and do not fill a missing personal fight.
+Available raw identity fields must agree with normalized recipient/spell IDs;
+unresolved aura or lifecycle identity withholds durations rather than creating
+known absence. Historical whole-fight aura inference stays unchanged.
 When a personal fight is unavailable, its Report context keeps personal build
 and duty unknown. A reference player's measurements remain labelled examples.
 Garr retains individual SOURCE-owned Firesworn Banish applications separately

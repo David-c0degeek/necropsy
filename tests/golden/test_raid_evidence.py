@@ -37,6 +37,10 @@ def test_independent_npc_control_facts() -> None:
     assert check_register(ROOT / "control-facts.json") == []
 
 
+def test_independent_actor_effect_facts() -> None:
+    assert check_register(ROOT / "effect-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -133,6 +137,39 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         expected = [f for f in selected if f["expected"]["encounter_id"] == boss["encounter_id"]]
         assert expected
         _assert_boss_replay(fixture, marker, doc, boss, expected, healing_facts, out)
+    if fixture["label"] == "bwl-holy-raid-context":
+        _assert_bwl_effect_windows(doc)
+
+
+def _assert_bwl_effect_windows(doc: dict[str, Any]) -> None:
+    cases = json.loads((ROOT / "effect-facts.json").read_text(encoding="utf-8"))["cases"]
+    for case in cases:
+        boss = next(b for b in doc["bosses"] if b["encounter_id"] == case["encounter_id"])
+        subject = boss["subject"] or boss["playbook"].get("excluded_subject")
+        if subject and (subject["report_code"], subject["fight_id"]) == (
+            case["report"],
+            case["fight"],
+        ):
+            effects = boss["playbook"]["encounter_effects"]
+        else:
+            example = next(
+                e
+                for e in boss["playbook"]["cohort_encounter_effects"]
+                if (e["report_code"], e["fight_id"], e["player"])
+                == (case["report"], case["fight"], case["player"])
+            )
+            effects = example["effects"]
+        for expected in case["window_expectations"]:
+            effect = next(e for e in effects if e["ability_ids"] == [expected["spell"]])
+            assert effect["windows"]["value"] == [
+                [lo / 1000, hi / 1000, state] for lo, hi, state in expected["windows"]
+            ]
+            assert effect["known_affected_s"]["value"] == pytest.approx(
+                expected["known_affected_ms"] / 1000
+            )
+            assert effect["unknown_state_s"]["value"] == pytest.approx(
+                expected["unknown_state_ms"] / 1000
+            )
 
 
 def _assert_boss_replay(

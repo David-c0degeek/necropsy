@@ -107,6 +107,25 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    examples = playbook.get("cohort_encounter_effects")
+    if examples:
+        view = dict(view)
+        limits = dict.fromkeys(
+            effect["limitation"] for example in examples for effect in example["effects"]
+        )
+        examples_lines = tuple(
+            line(
+                f"{example['player']} · {effect['label']}: "
+                f"{number(effect['known_affected_s']['value'], 2, 's')} known affected; "
+                f"{number(effect['unknown_state_s']['value'], 2, 's')} with unknown state.",
+                links=(source(effect["source"], "Mechanic reference"),),
+            )
+            for example in examples
+            for effect in example["effects"]
+        )
+        lines = (line("Other players' observed aura exposure.", " ".join(limits)), *examples_lines)
+        view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *lines)
     auras = playbook.get("target_aura_windows")
     if auras:
         view = dict(view)

@@ -3,10 +3,12 @@
 import json
 from html import unescape
 from pathlib import Path
+from typing import Any
 
 import duckdb
 import pytest
 
+from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.analysis.context import participant_fights
 from necropsy.analysis.encounters.effects import actor_effects, mechanic_removals
 from necropsy.analysis.generic.metrics import aura_states
@@ -258,3 +260,114 @@ def test_effect_state_is_bounded_by_actual_actor_transitions(
         assert actor_effects(con, pf) == ()
         con.execute("UPDATE snapshot_meta SET partition_id=1, zone_id=2002")
         assert actor_effects(con, pf) == ()
+
+
+@pytest.mark.parametrize(
+    "kind,target,spell,raw,unresolved",
+    [
+        ("applydebuff", 2, 19703, {"targetID": 2, "abilityGameID": 19703}, False),
+        ("applydebuff", 2, 19703, {"targetID": 1.9, "abilityGameID": 19703}, True),
+        ("applydebuff", 1, 19703, {"targetID": True, "abilityGameID": 19703}, True),
+        ("applydebuff", None, 19703, {"targetID": None, "abilityGameID": 19703}, True),
+        ("applydebuff", 1, 19703, {"targetID": 1, "abilityGameID": 19703.4}, True),
+        ("applydebuff", 1, 19703, {"targetID": 1, "abilityGameID": None}, True),
+        ("applydebuff", 1, 19703, {"targetID": 1, "abilityGameID": 19702}, True),
+        ("applydebuff", 1, 19703, None, True),
+        ("applydebuff", 1, 19703, [], True),
+        ("death", 2, None, {"targetID": 2}, False),
+        ("death", 2, None, {"targetID": 1.8}, True),
+        ("resurrect", None, None, {"targetID": None}, True),
+        ("applybuff", None, 19703, {"targetID": None, "abilityGameID": 19703}, False),
+        ("applydebuff", None, 12345, {"targetID": None, "abilityGameID": 12345}, False),
+    ],
+)
+def test_raw_effect_identity_is_checked_before_excluding_another_recipient(
+    tmp_path: Path,
+    kind: str,
+    target: int | None,
+    spell: int | None,
+    raw: Any,
+    unresolved: bool,
+) -> None:
+    archive = snapshot(tmp_path, 11, "Fury", "Bloodthirst", "dps")
+    db = tmp_path / "raw-effects.duckdb"
+    ingest(archive, db)
+    with duckdb.connect(str(db)) as con:
+        con.execute("UPDATE snapshot_meta SET zone_id=2000, partition_id=1")
+        con.execute("UPDATE fights SET encounter_id=50663")
+        con.execute("UPDATE benchmark_participants SET encounter_id=50663")
+        for uid, ts, event_kind, recipient, ability, payload in (
+            ("known-apply", 5000, "applydebuff", 1, 19703, "{}"),
+            ("known-remove", 15000, "removedebuff", 1, 19703, "{}"),
+            ("unowned-row", 12000, kind, target, spell, json.dumps(raw)),
+        ):
+            con.execute(
+                "INSERT INTO events (report_code,fight_id,event_uid,copy_index,timestamp,"
+                "type,source_id,target_id,ability_game_id,raw) "
+                "VALUES ('REPORT1',7,?,0,?,?,50,?,?,?)",
+                [uid, ts, event_kind, recipient, ability, payload],
+            )
+        pf = next(p for p in participant_fights(con) if p.kind == "you")
+        curse, _doom = actor_effects(con, pf)
+        if unresolved:
+            assert curse.windows.value is None
+            assert curse.transitions.value is None
+            assert curse.known_affected_s.value is curse.unknown_state_s.value is None
+            assert curse.windows.note == "actor-effect identity is unresolved"
+            assert curse.windows.coverage[0].trusted
+            (ref,) = curse.windows.refs
+            assert ref.actor_id is None and ref.event_ids == (("unowned-row", 0),)
+            if isinstance(raw, dict) and raw.get("targetID") is True:
+                document = build_document(con)
+                AnalysisDocument.model_validate(document)
+                saved = document["bosses"][0]["playbook"]["encounter_effects"][0]
+                assert saved["windows"]["value"] is None
+                assert saved["windows"]["note"] == "actor-effect identity is unresolved"
+                view = build_view(document, "0" * 64)
+                for html in (render_report(view), render_playbook(view)):
+                    assert (
+                        "Lucifron's Curse: Unknown known affected; Unknown with unknown state."
+                        in unescape(html)
+                    )
+        else:
+            assert curse.known_affected_s.value == 10
+            assert curse.unknown_state_s.value == 5
+        con.execute("UPDATE snapshot_meta SET partition_id=1, zone_id=2002")
+        assert actor_effects(con, pf) == ()
+
+
+def test_priest_call_exposure_is_class_specific_and_cohort_observations_stay_labelled(
+    tmp_path: Path,
+) -> None:
+    archive = snapshot(tmp_path, 7, "Holy", "Flash Heal", "healer")
+    db = tmp_path / "call.duckdb"
+    ingest(archive, db)
+    with duckdb.connect(str(db)) as con:
+        con.execute("UPDATE snapshot_meta SET zone_id=2002, partition_id=1")
+        con.execute("UPDATE fights SET encounter_id=50617")
+        con.execute("UPDATE benchmark_participants SET encounter_id=50617")
+        con.execute(
+            "INSERT INTO events (report_code,fight_id,event_uid,copy_index,timestamp,"
+            "type,source_id,target_id,ability_game_id,raw) "
+            "VALUES ('REPORT1',7,'call',0,5000,'applydebuff',50,1,23401,"
+            '\'{"targetID":1,"abilityGameID":23401}\')'
+        )
+        pf = next(p for p in participant_fights(con) if p.kind == "you")
+        for class_id, name in CLASS_NAMES.items():
+            con.execute("UPDATE snapshot_meta SET subject_class_id=?", [class_id])
+            con.execute("UPDATE actors SET sub_type=? WHERE actor_id=1", [name])
+            effects = actor_effects(con, pf)
+            call = [e for e in effects if e.ability_ids == (23401,)]
+            assert bool(call) is (name == "Priest")
+            if call:
+                assert call[0].known_affected_s.value == 95
+                assert call[0].unknown_state_s.value == 5
+        con.execute("UPDATE snapshot_meta SET subject_class_id=7")
+        con.execute("UPDATE actors SET sub_type='Priest' WHERE actor_id=1")
+        document = build_document(con)
+        examples = document["bosses"][0]["playbook"]["cohort_encounter_effects"]
+        assert [e["player"] for e in examples] == ["Leader"]
+        view = build_view(document, "0" * 64)
+        for html in (render_report(view), render_playbook(view)):
+            assert "Leader · Corrupted Healing Priest call:" in unescape(html)
+            assert "Corrupted Healing Priest call: 95.00s known affected" in unescape(html)

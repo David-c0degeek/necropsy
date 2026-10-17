@@ -1,0 +1,725 @@
+{
+  "version": 1,
+  "kind": "actor-effects",
+  "cases": [
+    {
+      "id": "bwl-actor-effects-1",
+      "fixture": "bwl-holy-raid-context",
+      "archive": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "entries": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.entries",
+      "sha256": "af604f19e96bdb93a0bf1fc075f0de226bde8267b0103fcf6cc862118b679d84",
+      "report": "qvCZG8NYamQAjWp9",
+      "fight": 43,
+      "actor": 11,
+      "player": "Skysongqt",
+      "actor_case": "bwl-holy-raid-context-399",
+      "encounter_id": 50611,
+      "ability_ids": [
+        18173,
+        23513
+      ],
+      "expected": {
+        "duration_ms": 21075,
+        "actor_class": "Priest",
+        "transitions": [
+          [
+            25,
+            "applydebuff",
+            23513
+          ],
+          [
+            16201,
+            "applydebuff",
+            18173
+          ]
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 18173,
+          "windows": [
+            [
+              0,
+              16201,
+              null
+            ],
+            [
+              16201,
+              21075,
+              true
+            ]
+          ],
+          "known_affected_ms": 4874,
+          "unknown_state_ms": 16201
+        },
+        {
+          "spell": 23513,
+          "windows": [
+            [
+              0,
+              25,
+              null
+            ],
+            [
+              25,
+              21075,
+              true
+            ]
+          ],
+          "known_affected_ms": 21050,
+          "unknown_state_ms": 25
+        }
+      ],
+      "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    },
+    {
+      "id": "bwl-actor-effects-2",
+      "fixture": "bwl-holy-raid-context",
+      "archive": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "entries": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.entries",
+      "sha256": "af604f19e96bdb93a0bf1fc075f0de226bde8267b0103fcf6cc862118b679d84",
+      "report": "NrHvg73J2TGLPY98",
+      "fight": 41,
+      "actor": 14,
+      "player": "Almsivi",
+      "actor_case": "bwl-holy-raid-context-365",
+      "encounter_id": 50611,
+      "ability_ids": [
+        18173
+      ],
+      "expected": {
+        "duration_ms": 26748,
+        "actor_class": "Priest",
+        "transitions": [],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 18173,
+          "windows": [
+            [
+              0,
+              26748,
+              null
+            ]
+          ],
+          "known_affected_ms": 0,
+          "unknown_state_ms": 26748
+        }
+      ],
+      "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    },
+    {
+      "id": "bwl-actor-effects-3",
+      "fixture": "bwl-holy-raid-context",
+      "archive": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "entries": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.entries",
+      "sha256": "af604f19e96bdb93a0bf1fc075f0de226bde8267b0103fcf6cc862118b679d84",
+      "report": "pzyQrjLCVxAwg9G8",
+      "fight": 15,
+      "actor": 41,
+      "player": "Lemur",
+      "actor_case": "bwl-holy-raid-context-397",
+      "encounter_id": 50613,
+      "ability_ids": [
+        23341
+      ],
+      "expected": {
+        "duration_ms": 30335,
+        "actor_class": "Priest",
+        "transitions": [
+          [
+            1999,
+            "applydebuff",
+            23341
+          ],
+          [
+            8100,
+            "applydebuffstack",
+            23341
+          ],
+          [
+            8100,
+            "refreshdebuff",
+            23341
+          ],
+          [
+            12950,
+            "applydebuffstack",
+            23341
+          ],
+          [
+            12950,
+            "refreshdebuff",
+            23341
+          ],
+          [
+            16184,
+            "applydebuffstack",
+            23341
+          ],
+          [
+            16185,
+            "refreshdebuff",
+            23341
+          ]
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 23341,
+          "windows": [
+            [
+              0,
+              1999,
+              null
+            ],
+            [
+              1999,
+              8100,
+              true
+            ],
+            [
+              8100,
+              12950,
+              true
+            ],
+            [
+              12950,
+              16184,
+              true
+            ],
+            [
+              16184,
+              16185,
+              true
+            ],
+            [
+              16185,
+              30335,
+              true
+            ]
+          ],
+          "known_affected_ms": 28336,
+          "unknown_state_ms": 1999
+        }
+      ],
+      "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    },
+    {
+      "id": "bwl-actor-effects-4",
+      "fixture": "bwl-holy-raid-context",
+      "archive": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "entries": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.entries",
+      "sha256": "af604f19e96bdb93a0bf1fc075f0de226bde8267b0103fcf6cc862118b679d84",
+      "report": "DMkKPrBvJcaAwb7g",
+      "fight": 24,
+      "actor": 29,
+      "player": "Almsíví",
+      "actor_case": "bwl-holy-raid-context-359",
+      "encounter_id": 50616,
+      "ability_ids": [
+        23153,
+        23154,
+        23155,
+        23169,
+        23170
+      ],
+      "expected": {
+        "duration_ms": 155344,
+        "actor_class": "Priest",
+        "transitions": [
+          [
+            24319,
+            "applydebuff",
+            23170
+          ],
+          [
+            29556,
+            "removedebuff",
+            23170
+          ],
+          [
+            74438,
+            "applydebuff",
+            23153
+          ],
+          [
+            80950,
+            "removedebuff",
+            23153
+          ],
+          [
+            90584,
+            "applydebuff",
+            23155
+          ],
+          [
+            94138,
+            "removedebuff",
+            23155
+          ],
+          [
+            114860,
+            "applydebuff",
+            23154
+          ],
+          [
+            120847,
+            "removedebuff",
+            23154
+          ],
+          [
+            122958,
+            "applydebuff",
+            23169
+          ],
+          [
+            131061,
+            "applydebuff",
+            23155
+          ],
+          [
+            137630,
+            "removedebuff",
+            23169
+          ],
+          [
+            146273,
+            "removedebuff",
+            23155
+          ],
+          [
+            147237,
+            "applydebuff",
+            23155
+          ],
+          [
+            151764,
+            "removedebuff",
+            23155
+          ]
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 23153,
+          "windows": [
+            [
+              0,
+              74438,
+              null
+            ],
+            [
+              74438,
+              80950,
+              true
+            ],
+            [
+              80950,
+              155344,
+              false
+            ]
+          ],
+          "known_affected_ms": 6512,
+          "unknown_state_ms": 74438
+        },
+        {
+          "spell": 23170,
+          "windows": [
+            [
+              0,
+              24319,
+              null
+            ],
+            [
+              24319,
+              29556,
+              true
+            ],
+            [
+              29556,
+              155344,
+              false
+            ]
+          ],
+          "known_affected_ms": 5237,
+          "unknown_state_ms": 24319
+        },
+        {
+          "spell": 23154,
+          "windows": [
+            [
+              0,
+              114860,
+              null
+            ],
+            [
+              114860,
+              120847,
+              true
+            ],
+            [
+              120847,
+              155344,
+              false
+            ]
+          ],
+          "known_affected_ms": 5987,
+          "unknown_state_ms": 114860
+        },
+        {
+          "spell": 23169,
+          "windows": [
+            [
+              0,
+              122958,
+              null
+            ],
+            [
+              122958,
+              137630,
+              true
+            ],
+            [
+              137630,
+              155344,
+              false
+            ]
+          ],
+          "known_affected_ms": 14672,
+          "unknown_state_ms": 122958
+        },
+        {
+          "spell": 23155,
+          "windows": [
+            [
+              0,
+              90584,
+              null
+            ],
+            [
+              90584,
+              94138,
+              true
+            ],
+            [
+              94138,
+              131061,
+              false
+            ],
+            [
+              131061,
+              146273,
+              true
+            ],
+            [
+              146273,
+              147237,
+              false
+            ],
+            [
+              147237,
+              151764,
+              true
+            ],
+            [
+              151764,
+              155344,
+              false
+            ]
+          ],
+          "known_affected_ms": 23293,
+          "unknown_state_ms": 90584
+        }
+      ],
+      "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    },
+    {
+      "id": "bwl-actor-effects-5",
+      "fixture": "bwl-holy-raid-context",
+      "archive": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "entries": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.entries",
+      "sha256": "af604f19e96bdb93a0bf1fc075f0de226bde8267b0103fcf6cc862118b679d84",
+      "report": "fRc1tp6g9TDvCzrk",
+      "fight": 34,
+      "actor": 15,
+      "player": "Fireflyy",
+      "actor_case": "bwl-holy-raid-context-382",
+      "encounter_id": 50616,
+      "ability_ids": [
+        23153,
+        23170
+      ],
+      "expected": {
+        "duration_ms": 298571,
+        "actor_class": "Priest",
+        "transitions": [
+          [
+            30584,
+            "applydebuff",
+            23153
+          ],
+          [
+            30744,
+            "removedebuff",
+            23153
+          ],
+          [
+            203772,
+            "applydebuff",
+            23170
+          ],
+          [
+            294358,
+            "refreshdebuff",
+            23170
+          ]
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 23153,
+          "windows": [
+            [
+              0,
+              30584,
+              null
+            ],
+            [
+              30584,
+              30744,
+              true
+            ],
+            [
+              30744,
+              298571,
+              false
+            ]
+          ],
+          "known_affected_ms": 160,
+          "unknown_state_ms": 30584
+        },
+        {
+          "spell": 23170,
+          "windows": [
+            [
+              0,
+              203772,
+              null
+            ],
+            [
+              203772,
+              294358,
+              true
+            ],
+            [
+              294358,
+              298571,
+              true
+            ]
+          ],
+          "known_affected_ms": 94799,
+          "unknown_state_ms": 203772
+        }
+      ],
+      "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    },
+    {
+      "id": "bwl-actor-effects-6",
+      "fixture": "bwl-holy-raid-context",
+      "archive": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "entries": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.entries",
+      "sha256": "af604f19e96bdb93a0bf1fc075f0de226bde8267b0103fcf6cc862118b679d84",
+      "report": "2BWD8LqtpTMkxKNw",
+      "fight": 34,
+      "actor": 3,
+      "player": "紅杏丶",
+      "actor_case": "bwl-holy-raid-context-350",
+      "encounter_id": 50617,
+      "ability_ids": [
+        22686,
+        23401
+      ],
+      "expected": {
+        "duration_ms": 222540,
+        "actor_class": "Priest",
+        "transitions": [
+          [
+            42976,
+            "applydebuff",
+            23401
+          ],
+          [
+            62299,
+            "applydebuff",
+            22686
+          ],
+          [
+            66293,
+            "removedebuff",
+            22686
+          ],
+          [
+            72989,
+            "removedebuff",
+            23401
+          ],
+          [
+            91443,
+            "applydebuff",
+            22686
+          ],
+          [
+            95436,
+            "removedebuff",
+            22686
+          ]
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 23401,
+          "windows": [
+            [
+              0,
+              42976,
+              null
+            ],
+            [
+              42976,
+              72989,
+              true
+            ],
+            [
+              72989,
+              222540,
+              false
+            ]
+          ],
+          "known_affected_ms": 30013,
+          "unknown_state_ms": 42976
+        },
+        {
+          "spell": 22686,
+          "windows": [
+            [
+              0,
+              62299,
+              null
+            ],
+            [
+              62299,
+              66293,
+              true
+            ],
+            [
+              66293,
+              91443,
+              false
+            ],
+            [
+              91443,
+              95436,
+              true
+            ],
+            [
+              95436,
+              222540,
+              false
+            ]
+          ],
+          "known_affected_ms": 7987,
+          "unknown_state_ms": 62299
+        }
+      ],
+      "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    },
+    {
+      "id": "bwl-actor-effects-7",
+      "fixture": "bwl-holy-raid-context",
+      "archive": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "entries": "raw/bwl-holy-raid-context/84784613-2002-20261017T195936.entries",
+      "sha256": "af604f19e96bdb93a0bf1fc075f0de226bde8267b0103fcf6cc862118b679d84",
+      "report": "Fz1NXyRh3xMPT2dj",
+      "fight": 24,
+      "actor": 24,
+      "player": "Eeve",
+      "actor_case": "bwl-holy-raid-context-360",
+      "encounter_id": 50617,
+      "ability_ids": [
+        22686,
+        23401
+      ],
+      "expected": {
+        "duration_ms": 127114,
+        "actor_class": "Priest",
+        "transitions": [
+          [
+            76955,
+            "applydebuff",
+            23401
+          ],
+          [
+            106942,
+            "removedebuff",
+            23401
+          ],
+          [
+            126974,
+            "applydebuff",
+            22686
+          ]
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "spell": 23401,
+          "windows": [
+            [
+              0,
+              76955,
+              null
+            ],
+            [
+              76955,
+              106942,
+              true
+            ],
+            [
+              106942,
+              127114,
+              false
+            ]
+          ],
+          "known_affected_ms": 29987,
+          "unknown_state_ms": 76955
+        },
+        {
+          "spell": 22686,
+          "windows": [
+            [
+              0,
+              126974,
+              null
+            ],
+            [
+              126974,
+              127114,
+              true
+            ]
+          ],
+          "known_affected_ms": 140,
+          "unknown_state_ms": 126974
+        }
+      ],
+      "review_basis": "Independent target-page enumeration and reviewed integer-ms raw transition boundaries before activating BWL actor-effect policies. No production analyzer, normalizer or aura-state helper generated expectations. Durations are exposure, not phases, assignments or quality."
+    }
+  ]
+}

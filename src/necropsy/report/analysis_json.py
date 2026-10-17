@@ -839,7 +839,18 @@ def build_document(
                     boss["playbook"]["target_aura_windows"] = to_data(auras)
             removal_examples = []
             aura_examples = []
+            effect_examples = []
             for entry in data.cohort:
+                exposure = effects.actor_effects(con, entry.participant)
+                if exposure:
+                    effect_examples.append(
+                        {
+                            "player": entry.participant.player,
+                            "report_code": entry.participant.report_code,
+                            "fight_id": entry.participant.fight_id,
+                            "effects": to_data(exposure),
+                        }
+                    )
                 auras = windows.encounter_auras(con, entry.participant)
                 if auras:
                     aura_examples.append(
@@ -862,6 +873,8 @@ def build_document(
                     )
             if removal_examples:
                 boss["playbook"]["cohort_mechanic_removals"] = removal_examples
+            if effect_examples:
+                boss["playbook"]["cohort_encounter_effects"] = effect_examples
             if aura_examples:
                 boss["playbook"]["cohort_target_aura_windows"] = aura_examples
             entries = [boss["subject"] or boss["playbook"].get("excluded_subject")]

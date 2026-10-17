@@ -1,0 +1,69 @@
+{
+  "retrieved": "2026-10-17",
+  "site": "vanilla.warcraftlogs.com",
+  "endpoint": "user",
+  "classification": "Primary API metric enum descriptions, research only; no score or target policy acceptance",
+  "metric_names": {
+    "character": [
+      "bosscdps",
+      "bossdps",
+      "bossndps",
+      "bossrdps",
+      "default",
+      "dps",
+      "hps",
+      "krsi",
+      "playerscore",
+      "playerspeed",
+      "cdps",
+      "ndps",
+      "rdps",
+      "tankhps",
+      "wdps",
+      "healercombineddps",
+      "healercombinedbossdps",
+      "healercombinedcdps",
+      "healercombinedbosscdps",
+      "healercombinedndps",
+      "healercombinedbossndps",
+      "healercombinedrdps",
+      "healercombinedbossrdps",
+      "tankcombineddps",
+      "tankcombinedbossdps",
+      "tankcombinedcdps",
+      "tankcombinedbosscdps",
+      "tankcombinedndps",
+      "tankcombinedbossndps",
+      "tankcombinedrdps",
+      "tankcombinedbossrdps"
+    ],
+    "report": [
+      "bosscdps",
+      "bossdps",
+      "bossndps",
+      "bossrdps",
+      "default",
+      "dps",
+      "hps",
+      "krsi",
+      "playerscore",
+      "playerspeed",
+      "cdps",
+      "ndps",
+      "rdps",
+      "tankhps",
+      "wdps"
+    ]
+  },
+  "relevant_descriptions": {
+    "bossdps": "Boss damage per second.",
+    "dps": "Damage per second.",
+    "hps": "Healing per second."
+  },
+  "rateLimitData": {
+    "limitPerHour": 1800,
+    "pointsSpentThisHour": 369.52,
+    "pointsResetIn": 1610
+  },
+  "interpretation": "dps and bossdps are distinct API metrics. Current captures explicitly request dps/hps; a website default view cannot silently substitute bossdps or redefine accepted score/target policies."
+}

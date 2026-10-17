@@ -104,3 +104,16 @@ has five complete cohort actors and no acquired personal fight: fight-level
 faction evidence was unavailable. Its golden explicitly rejects a fabricated
 subject, excluded subject or personal duty context. Combined and individual
 dragon entries retain separate identities and independent raw facts.
+
+`effect-facts.json` separately freezes seven actor-recipient contexts and fifteen
+reviewed aura timelines. Its `actor-effects` checker projects raw transitions and
+lifecycle rows from the maximum-multiplicity actor directions; it does not call
+production state helpers or generate expected windows. Golden replay compares
+the manually reviewed integer-ms boundaries with actual saved observations.
+Initial state, contradictory transitions, lifecycles and fight-end censoring stay
+explicit. Bronze exposure is not stun uptime; resource-aura exposure is not
+resource quantity; Priest-call exposure is not a healing-quality grade.
+
+```sh
+uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json
+```

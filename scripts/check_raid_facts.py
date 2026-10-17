@@ -427,12 +427,63 @@ def raw_control_facts(
     }
 
 
+def raw_actor_effect_facts(
+    archive: VerifiedArchive, report: str, fight: int, actor: int, ability_ids: list[int]
+) -> dict[str, Any]:
+    """Project raw actor-recipient transitions; never compute expected aura windows."""
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    selected = next(f for f in bundle["fights"] if f["id"] == fight)
+    identities = [a for a in bundle["masterData"]["actors"] if a["id"] == actor]
+    if len(identities) != 1 or identities[0].get("type") != "Player":
+        raise ValueError("actor effect facts need one explicit Player identity")
+    rows = _events(archive, report, fight, actor, selected["startTime"], selected["endTime"])
+    ordered = sorted(
+        rows, key=lambda e: (e["timestamp"], json.dumps(e, sort_keys=True, separators=(",", ":")))
+    )
+    transitions = []
+    lifecycles = []
+    for row in ordered:
+        kind = row["type"]
+        aura = (
+            kind
+            in {
+                "applydebuff",
+                "removedebuff",
+                "refreshdebuff",
+                "applydebuffstack",
+                "removedebuffstack",
+            }
+            and row.get("abilityGameID") in ability_ids
+        )
+        lifecycle = kind in {"death", "resurrect"}
+        if not aura and not lifecycle:
+            continue
+        target = row.get("targetID")
+        if type(target) is not int or target < 1:
+            raise ValueError("raw actor effect recipient is unresolved")
+        if aura and type(row.get("abilityGameID")) is not int:
+            raise ValueError("raw actor effect spell is unresolved")
+        if target != actor:
+            continue
+        ms = row["timestamp"] - selected["startTime"]
+        if lifecycle:
+            lifecycles.append([ms, kind])
+        else:
+            transitions.append([ms, kind, row["abilityGameID"]])
+    return {
+        "duration_ms": selected["endTime"] - selected["startTime"],
+        "actor_class": identities[0].get("subType"),
+        "transitions": transitions,
+        "lifecycles": lifecycles,
+    }
+
+
 def check_register(path: Path) -> list[str]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("version") != 1 or not data.get("cases"):
         raise ValueError("a fact register needs version 1 and nonempty reviewed cases")
     kind = data.get("kind", "actor")
-    if kind not in {"actor", "healing-recipients", "npc-controls"}:
+    if kind not in {"actor", "healing-recipients", "npc-controls", "actor-effects"}:
         raise ValueError("unsupported independent fact register kind")
     problems = []
     ids = [case["id"] for case in data["cases"]]
@@ -456,7 +507,23 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            if kind == "npc-controls":
+            if kind == "actor-effects":
+                abilities = case.get("ability_ids")
+                if (
+                    not isinstance(abilities, list)
+                    or not abilities
+                    or any(type(i) is not int or i < 1 for i in abilities)
+                    or len(set(abilities)) != len(abilities)
+                    or type(case.get("actor")) is not int
+                    or case["actor"] < 1
+                ):
+                    raise ValueError(
+                        "actor effect facts need a positive actor and unique spell IDs"
+                    )
+                actual = raw_actor_effect_facts(
+                    archive, case["report"], case["fight"], case["actor"], abilities
+                )
+            elif kind == "npc-controls":
                 abilities, targets = case.get("ability_ids"), case.get("target_game_ids")
                 if any(
                     not isinstance(ids, list)

@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add observed BWL player aura exposure with labelled cohort examples. Preserve
+  unknown initial state, lifecycle resets and censored effects; reject coerced
+  raw recipient/spell identities before certifying durations or absence.
+
 - Add initial sourced strategy for every individual Blackwing Lair boss:
   controller protection, resource and threat recovery, affliction removal and
   nine class-call responses. Keep static advice separate from measured phases,

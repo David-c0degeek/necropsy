@@ -119,6 +119,12 @@ out-of-fight and wrong-kind events do not supply personal exposure. Reports show
 known affected time beside unknown time. Complete windows require trusted target
 coverage; partial streams may still prove positive transitions. This is separate
 from global phases, immunity, assignment, dispel opportunity and lost throughput.
+Saved cohort effect examples identify their actor, report and fight separately
+from personal measurements. Available raw recipient/spell identities must agree
+with normalized IDs; relevant unresolved aura/lifecycle identity withholds
+windows and retains unattributed evidence. A class-qualified effect is not a
+universal assigned duty. Resource-aura exposure is not resource quantity, and
+Bronze affliction duration is not a measurement of its individual stuns.
 The historical aura calculations below retain their original policy.
 
 Each aura is tracked on its own: apply turns it on, remove turns it off,

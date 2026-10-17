@@ -15,8 +15,8 @@ General strategy is static knowledge with source, retrieval date, rule ID and
 class/metric applicability. It does not establish a personal assignment, phase,
 opportunity or mistake. The engine saves the selected items into optional
 `playbook.encounter_strategy`. Old JSON does not acquire advice during rendering.
-Current sourced strategies cover Lucifron, Magmadar, Gehennas, Garr, Baron Geddon,
-combined Ebonroc/Flamegor and Viscidus;
+Current sourced strategies cover all ten MC bosses, all nine BWL encounter
+entries and Viscidus;
 that initial set does not claim complete support for those bosses or other raids.
 
 Optional `playbook.encounter_effects` records actor debuff exposure through
@@ -99,3 +99,23 @@ curse remains end-censored. Static strategy distinguishes friendly curse removal
 from hostile Deaden Magic19714 removal; neither capability implies assignment.
 No successful hostile removal counter or Counterspell lockout window is inferred
 from the current selected actor streams.
+
+BWL observations also retain Burning Adrenaline18173, the logged Essence of the
+Red23513 aura, Flame Buffet23341, the five Chromaggus afflictions and Nefarian
+fear/curse/Priest-call effects. Logged debuff type does not mean an effect is
+harmful: resource-aura exposure is not resource quantity. Bronze exposure does
+not measure individual stun intervals. Corrupted Healing23401 is class-qualified
+for Priest and observed only from actual transitions, never a nominal call timer.
+
+Optional `playbook.cohort_encounter_effects` saves separately identified player,
+report and fight examples with the same exposure contract. Both pages label the
+example actor. These do not create personal context when the subject is missing;
+old saved JSON without examples does not acquire them during rendering.
+
+Available raw recipient/spell scalar IDs must be positive integers matching their
+normalized projections before another recipient is excluded. Relevant ambiguous
+aura or lifecycle identity withholds exposure windows and transitions; its event
+reference has no actor attribution. Coerced booleans, fractions or nulls cannot
+certify an absence. Older rows omitting raw scalar keys retain compatibility
+with established normalized identity. This guard is confined to new Era actor
+effects; historical Naxx aura inference remains unchanged.

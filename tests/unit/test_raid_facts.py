@@ -510,3 +510,78 @@ def test_control_raw_boolean_owner_is_not_an_integer_identity(tmp_path: Path) ->
     members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"][-2]["sourceID"] = True
     with pytest.raises(ValueError, match="raw control actor identity"):
         check_register(_write_control(tmp_path, members))
+
+
+def _effect_members() -> dict[str, Any]:
+    members = _members()
+    members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][0]["type"] = "Player"
+    application = {
+        "timestamp": 1500,
+        "type": "applydebuff",
+        "sourceID": 2,
+        "targetID": 1,
+        "abilityGameID": 18173,
+    }
+    members[PREFIX + "source_001.json"]["data"].append(copy.deepcopy(application))
+    members[PREFIX + "target_001.json"]["data"].extend(
+        [
+            application,
+            {**application, "timestamp": 2000, "type": "removedebuff"},
+            {"timestamp": 2500, "type": "death", "targetID": 1},
+        ]
+    )
+    return members
+
+
+def _write_effect(root: Path, members: dict[str, Any]) -> Path:
+    register = _write(root, members)
+    data = json.loads(register.read_text(encoding="utf-8"))
+    data["kind"] = "actor-effects"
+    data["cases"][0].update(
+        ability_ids=[18173],
+        expected={
+            "duration_ms": 2000,
+            "actor_class": "Priest",
+            "transitions": [[500, "applydebuff", 18173], [1000, "removedebuff", 18173]],
+            "lifecycles": [[1500, "death"]],
+        },
+    )
+    register.write_text(json.dumps(data), encoding="utf-8")
+    return register
+
+
+def test_independent_actor_effect_projection_preserves_recipient_and_lifecycle(
+    tmp_path: Path,
+) -> None:
+    assert check_register(_write_effect(tmp_path, _effect_members())) == []
+
+
+@pytest.mark.parametrize("mutation", ["target", "spell", "time", "kind", "class", "lifecycle"])
+def test_rehashed_actor_effect_mutations_fail(tmp_path: Path, mutation: str) -> None:
+    members = _effect_members()
+    rows = members[PREFIX + "target_001.json"]["data"]
+    if mutation == "class":
+        members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][0]["subType"] = "Mage"
+    elif mutation == "lifecycle":
+        rows[-1]["targetID"] = 2
+    else:
+        key, value = {
+            "target": ("targetID", 2),
+            "spell": ("abilityGameID", 23513),
+            "time": ("timestamp", 1501),
+            "kind": ("type", "applybuff"),
+        }[mutation]
+        rows[-2][key] = value
+    assert check_register(_write_effect(tmp_path, members))
+
+
+@pytest.mark.parametrize(
+    "key,value", [("targetID", True), ("targetID", None), ("abilityGameID", 18173.0)]
+)
+def test_actor_effect_checker_refuses_coerced_raw_identity(
+    tmp_path: Path, key: str, value: Any
+) -> None:
+    members = _effect_members()
+    members[PREFIX + "target_001.json"]["data"][-2][key] = value
+    with pytest.raises(ValueError, match="raw actor effect"):
+        check_register(_write_effect(tmp_path, members))

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 
 import duckdb
@@ -200,6 +201,46 @@ def mechanic_removals(
     return tuple(result)
 
 
+def _effect_identity_matches(raw: object, target: int | None, ability: int | None) -> bool:
+    if not isinstance(raw, dict) or type(target) is not int or target < 1:
+        return False
+    return all(
+        key not in raw or (type(raw[key]) is int and raw[key] > 0 and raw[key] == normalized)
+        for key, normalized in (("targetID", target), ("abilityGameID", ability))
+    )
+
+
+def _unresolved_effect_identity(
+    con: duckdb.DuckDBPyConnection, pf: ParticipantFight, ids: tuple[int, ...]
+) -> EvidenceRef | None:
+    rows = con.execute(
+        """SELECT type,target_id,ability_game_id,raw,event_uid,copy_index FROM events
+           WHERE report_code=? AND fight_id=? AND timestamp BETWEEN ? AND ?
+             AND ((ability_game_id IN (SELECT unnest(?::BIGINT[]))
+                   AND type IN (SELECT unnest(?::VARCHAR[])))
+                  OR type IN ('death','resurrect'))""",
+        [pf.report_code, pf.fight_id, pf.start_time, pf.end_time, ids, sorted(AURA_EVENTS)],
+    ).fetchall()
+    unresolved = []
+    for kind, target, ability, raw, uid, copy in rows:
+        raw = json.loads(raw) if isinstance(raw, str) else raw
+        if kind in {"death", "resurrect"} and isinstance(raw, dict):
+            raw = {k: v for k, v in raw.items() if k != "abilityGameID"}
+        if not isinstance(raw, dict) or not _effect_identity_matches(raw, target, ability):
+            unresolved.append((uid, copy))
+    return (
+        EvidenceRef.events(
+            pf.report_code,
+            pf.fight_id,
+            None,
+            unresolved,
+            detail="Unresolved actor-effect recipient or spell identity",
+        )
+        if unresolved
+        else None
+    )
+
+
 def actor_effects(
     con: duckdb.DuckDBPyConnection, pf: ParticipantFight
 ) -> tuple[EffectExposure, ...]:
@@ -213,39 +254,70 @@ def actor_effects(
     )
     if not policies:
         return ()
+    meta = con.execute("SELECT subject_class_id FROM snapshot_meta").fetchone()
+    class_id = meta[0] if meta else None
+    policies = [
+        policy for policy in policies if "classes" not in policy or class_id in policy["classes"]
+    ]
     events = combat.event_rows(con, pf)
     result = []
     for policy in policies:
         ids = tuple(int(ability) for ability in policy["ability_ids"])
-        states = metrics.aura_states(
-            con, pf, pf.actor_id, list(ids), None, observed_only=True, event_kinds=AURA_EVENTS
+        unresolved = _unresolved_effect_identity(con, pf, ids)
+        states = (
+            unknown(
+                "actor-effect identity is unresolved",
+                unresolved,
+                coverage=[coverage(con, pf, pf.actor_id, Direction.TARGET)],
+            )
+            if unresolved is not None
+            else metrics.aura_states(
+                con, pf, pf.actor_id, list(ids), None, observed_only=True, event_kinds=AURA_EVENTS
+            )
         )
         rows = [
             e
             for e in events
-            if e.target_id == pf.actor_id and e.kind in AURA_EVENTS and e.ability_id in ids
+            if e.target_id == pf.actor_id
+            and e.kind in AURA_EVENTS
+            and e.ability_id in ids
+            and _effect_identity_matches(e.raw, e.target_id, e.ability_id)
         ]
         ref = combat.event_ref(pf, rows, f"actor debuff transitions {ids}")
         transitions = (
-            observed(
-                tuple((e.t_s, e.kind, int(e.ability_id)) for e in rows if e.ability_id is not None),
-                ref,
-            )
-            if rows
-            else complete_or_unknown(
-                (),
-                [coverage(con, pf, pf.actor_id, Direction.TARGET)],
-                ref,
-                note="No transitions in the complete target stream; initial state is unknown.",
+            unknown("actor-effect identity is unresolved", unresolved)
+            if unresolved
+            else (
+                observed(
+                    tuple(
+                        (e.t_s, e.kind, int(e.ability_id)) for e in rows if e.ability_id is not None
+                    ),
+                    ref,
+                )
+                if rows
+                else complete_or_unknown(
+                    (),
+                    [coverage(con, pf, pf.actor_id, Direction.TARGET)],
+                    ref,
+                    note="No transitions in the complete target stream; initial state is unknown.",
+                )
             )
         )
         windows: Evidenced[tuple[tuple[float, float, bool | None], ...]]
         affected: Evidenced[float]
         uncertain: Evidenced[float]
         if states.value is None:
-            windows = unknown("debuff windows require complete actor-target coverage", *states.refs)
-            affected = unknown("known debuff duration unavailable", *states.refs)
-            uncertain = unknown("unknown-state duration unavailable", *states.refs)
+            windows = unknown(
+                states.note or "debuff windows require complete actor-target coverage",
+                *states.refs,
+                coverage=states.coverage,
+            )
+            affected = unknown(
+                "known debuff duration unavailable", *states.refs, coverage=states.coverage
+            )
+            uncertain = unknown(
+                "unknown-state duration unavailable", *states.refs, coverage=states.coverage
+            )
         else:
             windows = complete_or_unknown(
                 tuple(

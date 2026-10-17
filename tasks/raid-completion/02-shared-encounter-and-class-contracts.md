@@ -44,6 +44,34 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 22 / BWL actor exposure reuses the shared observed-only
+state and saved JSON/pages. Added Burning Adrenaline18173, logged Essence of
+the Red23513, Flame Buffet23341, five Chromaggus afflictions and Nefarian fear/
+curse/Priest-call policies. Priest-call exposure is class-qualified, not inferred
+from a nominal timer. Saved cohort examples identify their player/report/fight
+and cannot fill missing personal Nefarian context. Shared caveats render once.
+
+Seven independent actor contexts/fifteen manually reviewed integer-ms timelines
+were frozen before activation. Separate actor-effects raw checker and rehashed
+mutation tests project transitions/lifecycles without calling production state
+helpers.41 archives/401 actor/239 recipient/six NPC-control contexts unchanged;
+43 IN_PROGRESS/909 TODO/0 COMPLETE. Raw available recipient/spell IDs must match
+positive integer projections before excluding another actor. Unknown aura or
+lifecycle identity retains unattributed evidence and stream coverage, withholding
+durations and transitions. No actor0 or fabricated absence.
+
+Focused153 checks pass/29.45 s; current final47 effect checks pass/13.04 s after
+unknown-coverage metadata and cohort-caveat refinement. BWL golden2/90.34 s and
+other42/317.85 s cover all41 archives plus overlapping control/effect registers;
+do not sum them as44 distinct tests. Final source/fresh installed three-fixture
+replay verifies65 actors/11 boss sections/12 byte-identical artifacts, including
+original MC Holy/Hunter exposure. Twelve actual browser cases pass; mobile reviewed.
+Current extracted273,808,943-byte unlimited scan found no secrets. Naxx four
+artifacts remain byte-identical to30e89ce. Lint/types/docs and inventory pass.
+Exact results and interim Hindsight:research/bwl-observed-effects-review.json.
+Full phase/ranking/class/faction/duty and domain/product review remain open;
+no full box or subject closes.
+
 2026-10-17 / slice 21 / Incremental BWL work follows D015 alongside
 unfinished01/02. Initial sourced facts and class-qualified static strategy now
 cover all eight individual bosses plus the existing combined entry. Nine dossiers,
