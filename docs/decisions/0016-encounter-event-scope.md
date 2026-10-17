@@ -1,8 +1,9 @@
 # Explicit encounter event scope and versioned live archives
 
-Accepted design2026-10-17. Optional collection/archive support is implemented;
-representative real finalized/installed acceptance is verified. Default collection
-remains unchanged; complete encounter-policy acceptance remains open.
+Accepted design2026-10-17. Collection/archive support and representative real
+finalized/installed acceptance are verified across MC, BWL and AQ40. Normal
+acquisition now enables these scopes for those raids' Era partitions1/2;
+complete encounter-policy acceptance remains open.
 
 Selected actor source/target streams cannot establish other actors' fire critical
 eligibility, all hostile heal attempts, or global encounter transitions. Raw
@@ -21,7 +22,8 @@ partitions1/2. Entry completion includes both scopes and preserves the existing
 whole-generation revision retry. Cache reuse deduplicates a report/fight shared
 by several participants. Snapshot format2 adds separately certified
 `encounter_streams` and acquired pages under `events/<report>/fight_<id>/encounter/`.
-Existing/default acquisitions retain format1. Historical/v1 readers remain in
+Naxx, other partitions and actor-only library acquisitions retain format1.
+Historical/v1 readers remain in
 the shared dispatcher; unsupported/malformed versions never fall back.
 
 Version2 reuses actor/report proofs, event-page decoding and normalizer. It proves
@@ -42,7 +44,7 @@ assignment or opportunity grade is enabled by transport alone. Future policies
 must bind their exact coverage footprint and independent facts. Old saved JSON
 still renders its saved evidence and advice without current policy injection.
 
-Rollback disables optional context collection while retaining historical/v1
+Rollback disables normal context selection while retaining historical/v1
 reading and immutable captures. Older binaries refuse format2 safely; original
 format1 archives remain available. Real before/after research checks do not
 change historical journal-resume semantics or claim one global capture time.

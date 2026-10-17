@@ -20,6 +20,14 @@ The values are `naxxramas`, `aq40`, `bwl` and `mc`. Character URLs with
 A URL without a zone retains the historical Naxxramas default. Use a separate
 output directory per analysis. Resume with the same command plus `--resume`.
 
+New MC/BWL/AQ40 analyses for Era partitions 1/2 also collect whole-fight and
+critical-damage context through the normal quota-controlled acquisition path.
+These scopes support encounter observations; they do not establish every
+player's assignment, personal stream coverage or a validated ranking policy.
+Resuming an older actor-only run acquires missing context and writes a new
+immutable snapshot. Original archives remain available; old saved analyses
+continue to render their recorded results. Naxx acquisition stays actor-only.
+
 | Module | WCL zone | Encounters |
 |---|---|---|
 | Naxxramas | 2006 | 15 |

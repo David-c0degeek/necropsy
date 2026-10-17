@@ -8,6 +8,13 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Preserve frozen evidence hashes across Git staging/checkouts. Add staged
+  receipt verification for metadata bytes and LFS object identities/sizes.
+
+- Collect whole-fight and critical-damage context in normal MC/BWL/AQ40 Era
+  analyses through the existing quota/cache/resume path. Preserve Naxx capture
+  behavior, old archives and explicit incomplete encounter coverage.
+
 - Add initial Ragnaros knockback recovery, conditional Sons control and
   class-specific party support strategy. Retain a full ten-boss Molten Core
   capture with independent actor/support checks and explicit unknown pet ownership.

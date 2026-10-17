@@ -8,6 +8,7 @@ from html import unescape
 from pathlib import Path
 from typing import Any
 
+import duckdb
 import pytest
 
 from necropsy.raids.scope import coverage_cells
@@ -63,7 +64,8 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert sha256_file(archive) == fixture["sha256"], "Fetch the authorized raid LFS fixtures"
     entries = load_entries_manifest(archive.with_suffix(".entries"))
     out = tmp_path / "report"
-    run_offline(archive, out, expected_sha256=fixture["sha256"], entries=entries)
+    db = tmp_path / "analysis.duckdb"
+    run_offline(archive, out, db=db, expected_sha256=fixture["sha256"], entries=entries)
     doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
     facts = json.loads((ROOT / "facts.json").read_text(encoding="utf-8"))["cases"]
     healing_facts = json.loads((ROOT / "healing-facts.json").read_text(encoding="utf-8"))["cases"]
@@ -93,6 +95,23 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     selected = [f for f in facts if f["fixture"] == fixture["label"]]
     assert len(selected) == fixture["sources"]
     assert sum(len(f["participants"]) for f in marker["fights"]) == len(selected)
+    # Every class, including Hunter, must preserve raw owned arithmetic through
+    # scope merging. These sums are never used as unvalidated ranked totals.
+    with duckdb.connect(str(db), read_only=True) as con:
+        for case in selected:
+            report, fight, actor = case["report"], case["fight"], case["actor"]
+            for metric, kind, owner in (
+                ("damage", "damage", "source_id"),
+                ("effective_healing", "heal", "source_id"),
+                ("absorbed_amount", "absorbed", "source_id"),
+                ("incoming_damage", "damage", "target_id"),
+            ):
+                row = con.execute(
+                    f"SELECT coalesce(sum(amount),0) FROM events "
+                    f"WHERE report_code=? AND fight_id=? AND {owner}=? AND type=?",
+                    [report, fight, actor, kind],
+                ).fetchone()
+                assert row and row[0] == case["expected"]["totals"][metric], case["id"]
     expected_encounters = set(fixture.get("encounters", [selected[0]["expected"]["encounter_id"]]))
     assert {b["encounter_id"] for b in doc["bosses"]} == expected_encounters
     for boss in doc["bosses"]:

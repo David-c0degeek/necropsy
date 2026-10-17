@@ -15,3 +15,11 @@ tests/golden/druid/raw/*.zip filter=lfs diff=lfs merge=lfs -text
 tests/golden/classes/raw/*.zip filter=lfs diff=lfs merge=lfs -text
 tests/golden/raids/raw/*.zip filter=lfs diff=lfs merge=lfs -text
 tests/golden/raids/raw/**/*.zip filter=lfs diff=lfs merge=lfs -text
+
+# Evidence references bind exact bytes. Preserve metadata and native sidecars
+# across Windows writers, staging and fresh checkouts, including nested captures.
+tests/golden/raids/*.json -text
+tests/golden/raids/raw/*.entries -text
+tests/golden/raids/raw/*.sha256 -text
+tests/golden/raids/raw/**/*.entries -text
+tests/golden/raids/raw/**/*.sha256 -text

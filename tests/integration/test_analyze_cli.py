@@ -10,6 +10,7 @@ import json
 import random
 import subprocess
 import sys
+from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
@@ -19,11 +20,15 @@ import typer
 from typer.testing import CliRunner
 
 from necropsy.cli import app
+from necropsy.raids import RAIDS
+from necropsy.snapshot.archive import VerifiedArchive
+from necropsy.snapshot.v1 import open_snapshot
 from necropsy.wcl import acquire as acquire_mod
 from necropsy.wcl import analyze as analyze_mod
 from necropsy.wcl import cli as wcl_cli
 from necropsy.wcl import client as c
 from necropsy.wcl.context import Partition
+from tests.integration.test_encounter_snapshot import EncounterWcl
 from tests.unit.test_wcl_acquire import PATCHWERK, FakeWcl, Player, _context
 from tests.wcl_fakes import FakeClock
 
@@ -78,6 +83,128 @@ def test_a_complete_run_writes_snapshot_and_pages(tmp_path: Path, fake: dict[str
     assert "Patchwerk: complete" in result.output and "Next: open" in result.output
     assert SECRET not in result.output
     assert fake["endpoints"] == ["client"]
+
+
+@pytest.mark.parametrize(
+    "slug,partition,context_enabled",
+    [
+        ("mc", 1, True),
+        ("mc", 2, True),
+        ("bwl", 1, True),
+        ("bwl", 2, True),
+        ("aq40", 1, True),
+        ("aq40", 2, True),
+        ("naxxramas", 1, False),
+        ("naxxramas", 3, False),
+        ("mc", 3, False),
+    ],
+)
+def test_normal_cli_selects_encounter_scopes_for_new_era_raids(
+    tmp_path: Path,
+    fake: dict[str, Any],
+    monkeypatch: pytest.MonkeyPatch,
+    slug: str,
+    partition: int,
+    context_enabled: bool,
+) -> None:
+    raid = next(r for r in RAIDS if r.slug == slug)
+    encounter = {"mc": 50669, "bwl": 50631, "aq40": 50713, "naxxramas": PATCHWERK}[slug]
+
+    class Server(EncounterWcl):
+        def _report(self, player: Player, wanted: list[int] | None = None) -> dict[str, Any]:
+            report = super()._report(player, wanted)
+            for fight in report["fights"]:
+                fight["encounterID"] = encounter
+            return report
+
+    context = _context()
+    assert context.partition is not None
+    chosen = replace(context.partition, id=partition)
+    fake["context"] = replace(context, zone_id=raid.zone_id, partition=chosen, partitions=(chosen,))
+    fake["server"] = Server([Player(f"Ally{i}") for i in range(30)], Player("Haplina"))
+    monkeypatch.setattr(acquire_mod, "boss_order", lambda zone="naxxramas": (encounter,))
+    result = _run(tmp_path, "--raid", slug, "--partition", str(partition), "--name", "scoped")
+    assert result.exit_code == 0, result.output
+    out = tmp_path / "out"
+    with VerifiedArchive(out / "snapshot/scoped.zip") as archive:
+        reader = open_snapshot(archive)
+        assert reader.issues() == []
+        assert reader.descriptor().format == (
+            "necropsy-live-snapshot-v2" if context_enabled else "necropsy-live-snapshot-v1"
+        )
+        marker = archive.read_json("necropsy-snapshot.json")
+        scopes = marker.get("encounter_streams", [])
+        assert len(scopes) == (12 if context_enabled else 0)
+        assert all(s["actor_id"] is None and s["direction"] == "all" for s in scopes)
+    document = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    assert document["zone"]["id"] == raid.zone_id
+    assert len(document["bosses"]) == 1
+    assert (out / "report.html").is_file() and (out / "playbook.html").is_file()
+    assert list(out.glob("necropsy-*.zip"))
+    critical = [r for r in fake["server"].requests if r["variables"].get("filterExpression")]
+    assert len(critical) == (6 if context_enabled else 0)
+
+
+def test_normal_encounter_context_quota_resume_preserves_completed_scopes(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    context = _context()
+    assert context.partition is not None
+    chosen = replace(context.partition, id=1)
+    fake["context"] = replace(context, zone_id=2000, partition=chosen, partitions=(chosen,))
+    server = EncounterWcl([Player(f"Ally{i}") for i in range(30)], Player("Haplina"))
+    monkeypatch.setattr(acquire_mod, "boss_order", lambda zone="naxxramas": (50669,))
+    blocked = True
+    unrestricted_requests = 0
+
+    def interrupted(request: httpx.Request) -> httpx.Response:
+        nonlocal unrestricted_requests
+        body = json.loads(request.content)
+        variables = body["variables"]
+        if "NecropsyEvents" in body["query"] and variables["code"] == "RHaplina":
+            if blocked and variables.get("filterExpression"):
+                return httpx.Response(
+                    200,
+                    json={
+                        "data": {
+                            "rateLimitData": {
+                                "limitPerHour": 36000,
+                                "pointsSpentThisHour": 36000,
+                                "pointsResetIn": 20,
+                            }
+                        },
+                        "errors": [{"message": "rate limit exceeded"}],
+                    },
+                )
+            if (
+                variables.get("sourceID") is None
+                and variables.get("targetID") is None
+                and not variables.get("filterExpression")
+            ):
+                unrestricted_requests += 1
+        return server(request)
+
+    fake["server"] = interrupted
+    first = _run(tmp_path, "--raid", "mc", "--partition", "1", "--name", "interrupted")
+    assert first.exit_code == 4, first.output
+    assert "RateLimited" in first.output
+    assert unrestricted_requests == 1
+    assert list((tmp_path / "cache").rglob("client_encounter_all/stream.json"))
+    assert not list((tmp_path / "cache").rglob("client_critical_all/stream.json"))
+    first_archive = tmp_path / "out/snapshot/interrupted.zip"
+    original = first_archive.read_bytes()
+    with VerifiedArchive(first_archive) as archive:
+        assert archive.read_json("necropsy-snapshot.json")["fights"] == []
+    blocked = False
+    second = _run(tmp_path, "--raid", "mc", "--partition", "1", "--resume")
+    assert second.exit_code == 0, second.output
+    assert unrestricted_requests == 1  # completed All scope is reused after the stop
+    assert first_archive.read_bytes() == original
+    resumed = list((tmp_path / "out/.necropsy-run/snapshots").glob("*/*.zip"))
+    assert len(resumed) == 1
+    with VerifiedArchive(resumed[0]) as archive:
+        assert open_snapshot(archive).issues() == []
+        assert len(archive.read_json("necropsy-snapshot.json")["encounter_streams"]) == 12
 
 
 def test_declared_tree_survives_snapshot_replay_without_changing_query_pool(

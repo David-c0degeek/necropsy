@@ -37,6 +37,48 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+Final checkpoint audit caught CH-MISS-2: Git normalized SHA-bound JSON bytes
+after local verification. Earlier pushed provenance references did not match
+Git blobs. Fixed forward with canonical LF metadata, exact-byte Git attributes
+for registers/native sidecars and recomputed reference digests; every frozen
+measurement/provenance value remains unchanged. Eight real Git-filter regressions and eight staged Git/LFS countercases plus
+seven existing coverage tests pass (23/6.53 s). New --staged checks actual index
+metadata bytes and LFS OID/size, without replacing raw/domain checks. Fresh real
+actor receipt recheck passes1/116.86 s after canonicalization. Staged verification
+is recorded in the review.
+
+Current full golden check:42 passed/423.77 s across all39 archives; frozen288
+actor cases and126 recipient cases pass, including normalized raw owned sums
+for every class. Ordinary1384 passed/401.79 s. Final installed CLI continuation
+acquired all10 bosses/57 fights/60 actors with114 complete global scopes and
+120 complete player directions;2 pet listings remain missing (native4), with
+no quota stop.236 saved requests reused;60 original independent actor sums
+verified. Three final installed replays match12 source artifacts. Naxx4 baseline
+artifacts remain byte-identical and its frozen fixture tree unchanged. Actual
+installed public51 report bundles and351,164,920 extracted raw/output bytes pass
+unlimited secret scan. See research/normal-context-review.json and
+normal-context-installed-cli.json. This new full context archive stays ignored
+research, not a counted fixture or full domain certification.
+
+2026-10-17 / slice 17 / Added three normal finalized public format2 captures:
+Garr Destruction, combined BWL Holy and Viscidus Marksmanship.39 archives /
+288 independent actor cases, preserving all270 prior expectations. Separate
+healing cases remain126. Replaced only three existing actor-source receipts:
+35 IN_PROGRESS/917 TODO/0 COMPLETE. Independent raw All/critical observations,
+original ownership/target/cast arithmetic and strict bidirectional proofs pass.
+Source/installed replay matches12 JSON/page/package artifacts across all3 raids;
+12 desktop/mobile browser checks pass. Unlimited raw scan191,360,045 bytes and
+final build/source/installed/package206,517,355 bytes, zero findings.
+
+Strengthened shared golden acceptance to compare normalized owned raw damage,
+healing, absorption and incoming sums with frozen independent values for every
+class, including Hunter. Raw sums remain separate from unvalidated rankings.
+Full current golden rerun and checkpoint receipt recorded in
+research/normal-context-review.json. Domain/class/phase/ranking and human review
+remain open. Interim Hindsight Keep independent facts and scoped absence; fix
+all full coverage dimensions before closing. PM-1/2/3 pending calibration;
+DO NOT CLOSE.
+
 2026-10-17 / slice 16 / Full ten-boss MC capture independently registered,
 without cutting or rewriting the normal CLI archive.60 actor cases in57 fights
 and60 separate recipient-qualified support cases bring totals to36 archives,

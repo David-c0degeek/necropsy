@@ -162,7 +162,7 @@ These are repo commands, not claims of execution in this planning turn. Subject 
 | HTML behavior | `uv run pytest -m browser` | Recorded Chromium/viewport setup; every raid/class plus legacy Naxx views |
 | Existing native/offline probes | `uv run python scripts/check_desktop_engine.py --help`; `uv run python scripts/check_desktop_window.py --help` | Read current flags in 00; --help is discovery, not acceptance |
 | Live capture / quota resume | `uv run necropsy analyze CHARACTER_URL --raid RAID --category CATEGORY --metric METRIC --partition 1 --endpoint user --cache workspace/raid-cache --out workspace/CAPTURE`; repeat with `--resume` | Substitute a verified public actor and unique output, retain receipts; never default CI live traffic. No implicit reset waiting. |
-| Matrix / content gate | `uv run python scripts/check_raid_coverage.py --inventory`; `uv run python scripts/check_raid_coverage.py --require-complete` | Interface to implement in 01.7; inventory never substitutes for the strict gate. Reject unresolved cells, missing facts and generic-only advice. |
+| Matrix / content gate | `uv run python scripts/check_raid_coverage.py --inventory`; `uv run python scripts/check_raid_coverage.py --inventory --staged`; `uv run python scripts/check_raid_coverage.py --require-complete` | Interface to implement in 01.7; inventory never substitutes for the strict gate. Reject unresolved cells, missing facts and generic-only advice. |
 | Independent facts | `uv run pytest tests/golden/test_fact_checks_full.py tests/golden/test_ranking_rules_full.py tests/golden/test_druid_replay.py tests/golden/test_class_replay.py -q` | Existing Naxx contracts; add exact per-raid checker/test paths with 01.6. Do not treat old facts as new-raid proof. |
 | Input/output integrity | `uv run python scripts/fixture_tools.py manifest ARCHIVE`; `gitleaks dir EXTRACTED_OR_OUTPUT --redact --max-target-megabytes 0`; `uv run pytest tests/unit/test_rules_package.py -q`; `uv run python scripts/check_docs.py` | Substitute concrete retained capture paths; manifests plus strict snapshot reader/member hashes. Scan all extracted bytes and generated outputs. |
 | Naxx compatibility | Existing golden, live-v1/legacy, browser and package checks selected in 00 | Record expected allowed changes; no silent baseline rewrite |
@@ -207,6 +207,8 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 
 | D012 | 2026-10-17 | Actor support and event provenance | Extend recipient-qualified new Era actor absorption/combined support while preserving heal-only values and unknowns. Correct existing class Report dict.copy collisions to numeric indices or explicit Unknown; retain Naxx Hunter bytes and all saved analysis values. |66 independent HPS cases require credited absorbs, not incoming mitigation. Source/installed comparison exposed identical JSON but nondeterministic class Report addresses. No oracle regeneration or universal ranking certification. | 01.6; 02.3/02.7/02.8; 03.2/03.7; 06.10; PM-2/PM-3; CH-MISS-1; ADR0014 |
 
+| D013 | 2026-10-17 | Normal encounter context acquisition | Enable existing encounter-context acquisition in shared run_analyze only for new Era zones2000/2002/2005 partitions1/2. Preserve actor-only low-level default, Naxx/non-Era acquisition, old snapshots, quota reserves and immutable resume. | Real public v2 captures across all three raids pass independent raw checks and source/installed artifact equality. Nine actual CLI scope cases and quota-stop/resume verify selection and incomplete scopes; normal live continuation retains bounded partial evidence. No ranking/phase/assignment policy is certified. | 01.6; 02.1/02.2/02.7/02.8; 07.1; PM-2/PM-3; ADR0016; research/normal-context-pre-mortem.md |
+
 ---
 
 ## 5. Master progress tracker
@@ -216,7 +218,7 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 36 real seeds and 270 raw actor checks; full contracts/coverage open | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 39 real seeds and 288 raw actor checks; full contracts/coverage open | n/a |
 | [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on eleven evidenced encounters and local effects/control; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | TODO | agent: 9; domain-sme: 1 | yes |

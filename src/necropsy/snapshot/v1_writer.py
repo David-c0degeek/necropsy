@@ -1,7 +1,7 @@
 """Write a finalized live acquisition as a verified archive (no network here).
 
-Default captures retain format v1. Explicit encounter-context acquisitions use
-format v2 with additional certified whole-fight and filtered-critical streams.
+Actor-only captures retain format v1. Encounter-context acquisitions use format
+v2 with additional certified whole-fight and filtered-critical streams.
 
 Input is a finalized acquisition (`wcl.acquire.finalize_reports` has recorded
 one combined report per code) and the verified cache it was written to. Only

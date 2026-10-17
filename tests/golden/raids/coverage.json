@@ -17,7 +17,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-holy"
         },
         "report": "ZzYr1NR6LpHkyjTc",
@@ -29,7 +29,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-holy-6"
           }
         ]
@@ -41,19 +41,19 @@
       "status": "IN_PROGRESS",
       "real_actor_source": {
         "archive": {
-          "path": "tests/golden/raids/raw/bwl-combined-holy.zip",
-          "sha256": "a419dd9b35872f99543b1deec799cf112ddee88df98f0dfe9e390e02c3592edb",
+          "path": "tests/golden/raids/raw/bwl-combined-context-holy.zip",
+          "sha256": "66bfc999f48b7f0cfd1fe02e67076a4c9bb28f245ccf0d30d2bddebc2f0a91d0",
           "locator": "necropsy-snapshot.json"
         },
         "entries": {
-          "path": "tests/golden/raids/raw/bwl-combined-holy.entries",
-          "sha256": "e68a8d4e27336cf43f36dd2f24540d1a67beff41ea6d731125c420639a524933",
+          "path": "tests/golden/raids/raw/bwl-combined-context-holy.entries",
+          "sha256": "22847fe8eb90c0cf65b12cce9e0ee7972146a9050b7b6db2b3f279f9d4af089d",
           "locator": "all members"
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
-          "locator": "bwl-combined-holy"
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
+          "locator": "bwl-combined-context-holy"
         },
         "report": "cg1mfw64BzAhNd97",
         "fight": 19,
@@ -64,31 +64,31 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
-            "locator": "bwl-combined-holy-10"
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
+            "locator": "bwl-combined-context-holy-280"
           }
         ]
       },
-      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+      "note": "Usable actor and encounter-context seed; independent actor arithmetic verified. Ranking, phases, opportunities and full acceptance remain open."
     },
     {
       "cell_id": "aq40/50713/3/Marksmanship/dps/Horde",
       "status": "IN_PROGRESS",
       "real_actor_source": {
         "archive": {
-          "path": "tests/golden/raids/raw/aq40-viscidus-hunter.zip",
-          "sha256": "7fa2e6d9ce08c920b7f0d13465dee0e60533c56030b057896dcb971bff177f36",
+          "path": "tests/golden/raids/raw/aq40-viscidus-context-hunter.zip",
+          "sha256": "237e7a524f7da110d5c87ef6b918b17ad0465153e2998f609bd9fce5edda8dbd",
           "locator": "necropsy-snapshot.json"
         },
         "entries": {
-          "path": "tests/golden/raids/raw/aq40-viscidus-hunter.entries",
-          "sha256": "f5d81ca1a5a0f0ea1529750493c903b96196e5686c13bc93764f001c8e564483",
+          "path": "tests/golden/raids/raw/aq40-viscidus-context-hunter.entries",
+          "sha256": "1c16a1c1a1a482ae4241e679cc6f1c57ff15e78cddf24e44ba64fd05409c133c",
           "locator": "all members"
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
-          "locator": "aq40-viscidus-hunter"
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
+          "locator": "aq40-viscidus-context-hunter"
         },
         "report": "tcJdbDx3rMGTzpLX",
         "fight": 26,
@@ -99,12 +99,12 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
-            "locator": "aq40-viscidus-hunter-17"
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
+            "locator": "aq40-viscidus-context-hunter-287"
           }
         ]
       },
-      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+      "note": "Usable actor and encounter-context seed; independent actor arithmetic verified. Ranking, phases, opportunities and full acceptance remain open."
     },
     {
       "cell_id": "mc/50663/3/Marksmanship/dps/Alliance",
@@ -122,7 +122,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-hunter"
         },
         "report": "aFTG9fPh38rNyVvc",
@@ -134,7 +134,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-hunter-22"
           }
         ]
@@ -157,7 +157,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-protection"
         },
         "report": "Wy9zLPK3dnJ4YGZb",
@@ -169,7 +169,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-protection-29"
           }
         ]
@@ -192,7 +192,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "bwl-combined-hunter"
         },
         "report": "12zKGaT8HByAkPM3",
@@ -204,7 +204,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "bwl-combined-hunter-31"
           }
         ]
@@ -227,7 +227,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "bwl-combined-protection"
         },
         "report": "RjNf2qnCY3K7J6VX",
@@ -239,7 +239,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "bwl-combined-protection-40"
           }
         ]
@@ -262,7 +262,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "aq40-viscidus-holy"
         },
         "report": "dmBacFqHv1kDZhn6",
@@ -274,7 +274,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "aq40-viscidus-holy-47"
           }
         ]
@@ -297,7 +297,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "aq40-viscidus-protection"
         },
         "report": "R7g2PBXpAHfChLJr",
@@ -309,7 +309,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "aq40-viscidus-protection-50"
           }
         ]
@@ -332,7 +332,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-guardian"
         },
         "report": "LWnxfcjZkMmBAKYC",
@@ -344,7 +344,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-guardian-59"
           }
         ]
@@ -367,7 +367,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "bwl-combined-guardian"
         },
         "report": "qX2nmQ41J7WbYV69",
@@ -379,7 +379,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "bwl-combined-guardian-64"
           }
         ]
@@ -402,7 +402,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "aq40-viscidus-guardian"
         },
         "report": "cJma3DMdG1tpzjC4",
@@ -414,7 +414,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "aq40-viscidus-guardian-71"
           }
         ]
@@ -437,7 +437,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-balance-damage"
         },
         "report": "AXQ9Dq3TYWhGKVJw",
@@ -449,7 +449,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-balance-damage-73"
           }
         ]
@@ -472,7 +472,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-balance-healing"
         },
         "report": "r2pwMHQKhFZTV7cB",
@@ -484,7 +484,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-balance-healing-84"
           }
         ]
@@ -507,7 +507,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-lucifron-context-mage"
         },
         "report": "bYCXzLpPMWctgkaf",
@@ -519,7 +519,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-lucifron-context-mage-179"
           }
         ]
@@ -542,7 +542,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-shaman-enhancement"
         },
         "report": "T8f2Nb4xLH6C3qnv",
@@ -554,7 +554,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-shaman-enhancement-94"
           }
         ]
@@ -577,7 +577,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-magmadar-hunter"
         },
         "report": "rdCgGvwxp71YZ4X3",
@@ -589,7 +589,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-magmadar-hunter-102"
           }
         ]
@@ -612,7 +612,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-magmadar-holy"
         },
         "report": "aFQ7MPVdWTAvpK1Y",
@@ -624,7 +624,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-magmadar-holy-107"
           }
         ]
@@ -647,7 +647,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-magmadar-protection"
         },
         "report": "nKDHXJC49NhfpVWL",
@@ -659,7 +659,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-magmadar-protection-113"
           }
         ]
@@ -671,35 +671,35 @@
       "status": "IN_PROGRESS",
       "real_actor_source": {
         "archive": {
-          "path": "tests/golden/raids/raw/mc-garr-control-warlock.zip",
-          "sha256": "ce705967dac0a8672fb1388443bce62d4af89fe866a02bc4d4e14e15cea25756",
+          "path": "tests/golden/raids/raw/mc-garr-context-warlock.zip",
+          "sha256": "a8e6f248e0a0dbec45c4439b2ed88270e087270db42194b1e58fa614fb3c6241",
           "locator": "necropsy-snapshot.json"
         },
         "entries": {
-          "path": "tests/golden/raids/raw/mc-garr-control-warlock.entries",
-          "sha256": "2e5de783acb4b09752166181c6d74d507b14c006639d0656d590c02ea2f4436c",
+          "path": "tests/golden/raids/raw/mc-garr-context-warlock.entries",
+          "sha256": "0c56f845b4b9477f16ce64642458a92b57b135ec91a7cc18f2bbc1e94c7ca198",
           "locator": "all members"
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
-          "locator": "mc-garr-control-warlock"
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
+          "locator": "mc-garr-context-warlock"
         },
-        "report": "DWACqnQrmMxdgYpt",
-        "fight": 17,
-        "actor": 38,
+        "report": "yKBC4j3tzL8mDrNR",
+        "fight": 22,
+        "actor": 9,
         "partition": 1
       },
       "references": {
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
-            "locator": "mc-garr-control-warlock-122"
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
+            "locator": "mc-garr-context-warlock-276"
           }
         ]
       },
-      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+      "note": "Usable actor and encounter-context seed; independent actor arithmetic verified. Ranking, phases, opportunities and full acceptance remain open."
     },
     {
       "cell_id": "mc/50665/7/Holy/hps/Alliance",
@@ -717,7 +717,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-gehennas-holy"
         },
         "report": "wjWt8JCzRKqV1gkG",
@@ -729,7 +729,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-gehennas-holy-132"
           }
         ]
@@ -752,7 +752,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-gehennas-mage"
         },
         "report": "x4zfwgJZTAV3PYQK",
@@ -764,7 +764,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-gehennas-mage-137"
           }
         ]
@@ -787,7 +787,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-geddon-holy"
         },
         "report": "fdRrFwaKmvy3xJZD",
@@ -799,7 +799,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-geddon-holy-144"
           }
         ]
@@ -822,7 +822,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-geddon-hunter"
         },
         "report": "kw1KFhxA4mfY8aRD",
@@ -834,7 +834,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-geddon-hunter-150"
           }
         ]
@@ -857,7 +857,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-shazzrah-holy"
         },
         "report": "yGLZpJgXT3nW1CFK",
@@ -869,7 +869,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-shazzrah-holy-156"
           }
         ]
@@ -892,7 +892,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-shazzrah-hunter"
         },
         "report": "Fzv2pKaA31GmTtcQ",
@@ -904,7 +904,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-shazzrah-hunter-159"
           }
         ]
@@ -927,7 +927,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-sulfuron-holy"
         },
         "report": "7HRVn849AKpbGcmv",
@@ -939,7 +939,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-sulfuron-holy-163"
           }
         ]
@@ -962,7 +962,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-sulfuron-rogue"
         },
         "report": "xmnMwpP7QBy2AK89",
@@ -974,7 +974,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-sulfuron-rogue-174"
           }
         ]
@@ -997,7 +997,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-golemagg-context-holy"
         },
         "report": "fdRrFwaKmvy3xJZD",
@@ -1009,7 +1009,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-golemagg-context-holy-185"
           }
         ]
@@ -1032,7 +1032,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-majordomo-context-holy"
         },
         "report": "wjWt8JCzRKqV1gkG",
@@ -1044,7 +1044,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-majordomo-context-holy-192"
           }
         ]
@@ -1067,7 +1067,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-golemagg-context-fury"
         },
         "report": "B7dTxC8cHDFqRmaz",
@@ -1079,7 +1079,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-golemagg-context-fury-193"
           }
         ]
@@ -1102,7 +1102,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-majordomo-context-mage"
         },
         "report": "x4zfwgJZTAV3PYQK",
@@ -1114,7 +1114,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-majordomo-context-mage-203"
           }
         ]
@@ -1137,7 +1137,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-majordomo-context-frost-control"
         },
         "report": "adhCNDWyvbVk9Fc7",
@@ -1149,7 +1149,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-majordomo-context-frost-control-206"
           }
         ]
@@ -1172,7 +1172,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-holy-raid"
         },
         "report": "18D4MtX7JvPjxZg3",
@@ -1184,7 +1184,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-holy-raid-211"
           }
         ]
@@ -1207,7 +1207,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c80385e1fd01c9d576f4a2ced7e982474612b58fa9421856b70cd91967987888",
+          "sha256": "66f6ac8c0ccfe530e93144e334b1c0013170391784ff823971cd68a51ed3d0c6",
           "locator": "mc-holy-raid"
         },
         "report": "TJVNQYXDhP4mRdKH",
@@ -1219,7 +1219,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "11e37cb466a5a51108ef40d2a876fc8346ab60d73d014ba3680766000cf456a4",
+            "sha256": "6a67c891f8878c92c529961be71e6d8595465c7fbe5b054453d456305c6d9059",
             "locator": "mc-holy-raid-246"
           }
         ]

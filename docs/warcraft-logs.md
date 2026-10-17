@@ -309,6 +309,14 @@ command. The default `client` route is retained for confidential personal client
 permission/expiry errors never trigger endpoint fallback. See
 [installation and recovery](installation.md) for upgrade, logout and uninstall.
 
+Era MC/BWL/AQ40 partitions1/2 collect unrestricted whole-fight and filtered
+critical-damage streams alongside selected player/pet directions. These extra
+pages use the same quota reserve, cache, endpoint, revision checks and resume
+journal. A quota stop retains reusable pages without claiming incomplete
+encounter context is complete. Resume creates a new immutable snapshot and
+preserves the previous archive. Naxx and other partitions keep actor-only
+collection. Existing saved analyses can still be opened without new requests.
+
 
 ## Talent-tree intent and comparison categories
 

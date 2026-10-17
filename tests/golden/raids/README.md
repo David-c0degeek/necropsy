@@ -12,6 +12,7 @@ The partial register deliberately certifies no complete domain cells.
 
 ```sh
 uv run python scripts/check_raid_coverage.py --inventory
+uv run python scripts/check_raid_coverage.py --inventory --staged
 uv run python scripts/check_raid_coverage.py --require-complete
 ```
 
@@ -42,8 +43,16 @@ archives in Git LFS, and scan all extracted members and generated outputs with
 `gitleaks dir DIRECTORY --redact --max-target-megabytes 0`. Do not commit
 credential material, private reports, developer cache paths or generated pages.
 
-The Lucifron context Mage fixture exercises optional live format2 through the
-normal pipeline. Independent raw facts also bind unfiltered/critical counts,
+Git preserves register JSON and native `.entries`/`.sha256` sidecars as exact
+bytes. Automatic newline conversion would invalidate reference hashes after
+staging, even when every working-tree check passed. Verify staged metadata blobs
+and LFS object identities against the receipt hashes before pushing captures.
+The `--staged` option checks the Git index as well as the working files and
+rejects missing staged evidence, changed bytes and invalid LFS object IDs/sizes.
+It does not replace raw-archive or domain acceptance checks.
+
+The Lucifron context Mage fixture and cross-raid MC/BWL/AQ40 captures exercise
+live format2 through the normal pipeline. Independent raw facts also bind unfiltered/critical counts,
 Mage fire-critical target sets, Ignite owner/target sums and control/death
 transitions. These are observations, not validated ranking or phase policies.
 Captured actor directions must agree with their owned unrestricted events.
@@ -51,7 +60,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for126 retained HPS actor cases, without changing original actor expectations:
+for 126 retained HPS actor cases, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json

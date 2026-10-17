@@ -7,7 +7,10 @@ Usage: uv run python scripts/check_raid_coverage.py --inventory
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import re
+import subprocess
 from collections import Counter
 from pathlib import Path
 from typing import Literal
@@ -214,15 +217,60 @@ def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str
     return counts, problems
 
 
+def staged_problems(register: Register, root: Path = ROOT) -> list[str]:
+    """Working-tree hashes must also identify the bytes a fresh checkout receives."""
+    references = {}
+    for receipt in register.records:
+        source = receipt.real_actor_source
+        refs = [source.archive, source.entries, source.provenance] if source else []
+        refs.extend(ref for values in receipt.references.values() for ref in values)
+        for ref in refs:
+            references[ref.path, ref.sha256] = ref
+    problems = []
+    for ref in references.values():
+        try:
+            path = checked_path(root, ref)
+            result = subprocess.run(
+                ["git", "show", f":{ref.path}"], cwd=root, capture_output=True, check=False
+            )
+            if result.returncode:
+                problems.append(f"{ref.path}: evidence is not staged in Git")
+                continue
+            blob = result.stdout
+            digest = hashlib.sha256(blob).hexdigest()
+            if path.suffix == ".zip" and blob.startswith(b"version https://git-lfs.github.com/"):
+                pointer = re.fullmatch(
+                    rb"version https://git-lfs.github.com/spec/v1\r?\n"
+                    rb"oid sha256:([0-9a-f]{64})\r?\nsize ([0-9]+)\r?\n?",
+                    blob,
+                )
+                if pointer is None:
+                    problems.append(f"{ref.path}: malformed staged LFS pointer")
+                    continue
+                digest = pointer[1].decode("ascii")
+                if int(pointer[2]) != path.stat().st_size:
+                    problems.append(f"{ref.path}: staged LFS size differs from evidence")
+            if digest != ref.sha256:
+                problems.append(f"{ref.path}: staged evidence differs from receipt hash")
+        except (ValueError, OSError) as exc:
+            problems.append(f"{ref.path}: cannot verify staged evidence: {exc}")
+    return problems
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--inventory", action="store_true")
     mode.add_argument("--require-complete", action="store_true")
     parser.add_argument("--register", type=Path, default=REGISTER)
+    parser.add_argument(
+        "--staged", action="store_true", help="also verify receipt hashes against staged Git bytes"
+    )
     args = parser.parse_args()
     register = Register.model_validate_json(args.register.read_text(encoding="utf-8"))
     counts, problems = audit(register)
+    if args.staged:
+        problems.extend(staged_problems(register))
     print(
         json.dumps(
             {"cells": sum(counts.values()), "statuses": dict(counts), "problems": problems},

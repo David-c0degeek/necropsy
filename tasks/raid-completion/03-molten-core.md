@@ -47,6 +47,52 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+Final checkpoint audit caught CH-MISS-2: Git normalized SHA-bound JSON bytes
+after local verification. Earlier pushed provenance references did not match
+Git blobs. Fixed forward with canonical LF metadata, exact-byte Git attributes
+for registers/native sidecars and recomputed reference digests; every frozen
+measurement/provenance value remains unchanged. Eight real Git-filter regressions and eight staged Git/LFS countercases plus
+seven existing coverage tests pass (23/6.53 s). New --staged checks actual index
+metadata bytes and LFS OID/size, without replacing raw/domain checks. Fresh real
+actor receipt recheck passes1/116.86 s after canonicalization. Staged verification
+is recorded in the review.
+
+Current full golden check:42 passed/423.77 s across all39 archives; frozen288
+actor cases and126 recipient cases pass, including normalized raw owned sums
+for every class. Ordinary1384 passed/401.79 s. Final installed CLI continuation
+acquired all10 bosses/57 fights/60 actors with114 complete global scopes and
+120 complete player directions;2 pet listings remain missing (native4), with
+no quota stop.236 saved requests reused;60 original independent actor sums
+verified. Three final installed replays match12 source artifacts. Naxx4 baseline
+artifacts remain byte-identical and its frozen fixture tree unchanged. Actual
+installed public51 report bundles and351,164,920 extracted raw/output bytes pass
+unlimited secret scan. See research/normal-context-review.json and
+normal-context-installed-cli.json. This new full context archive stays ignored
+research, not a counted fixture or full domain certification.
+
+2026-10-17 / slice 11 / Accepted six independently counted public Garr
+Destruction actor/context cases through normal v2 snapshot/replay. All original
+270 actor expectations preserved; selected Finia has no owned Banish in the
+new fight. Independent global research records Greasecup's actual710 effects
+on Firesworn122/instance2; do not attribute them to Finia. Other repeated NPC
+instances/ranks retain separate raw observations for next control-window work.
+No new global Banish-window behavior is claimed yet.
+
+Normal real CLI --resume now obtains context through the shared producer:
+format2,94 certified actorless scopes for47 fights/50 participants. It reused193
+saved requests and stopped at the standard finalization reserve before later
+comparisons; native4, all requested boss rows and both pages/package retained.
+The original full ten-boss format1 archive remains unchanged. This new partial
+archive is ignored research, not another counted seed or complete MC claim.
+Actual package/analysis ownership and four desktop/mobile checks pass. Extracted
+raw/live outputs277,080,761 bytes pass unlimited gitleaks, no findings.
+
+Shared broader regression1384 passed/342 deselected/401.79 s. Remaining checks
+are recorded in research/normal-context-review.json. Interim Hindsight Keep
+truthful partial/global versus personal evidence and immutable resume; fix all
+full class/faction/duty, phase/ranking and human review obligations. PM-1/2/3
+pending full calibration. DO NOT CLOSE.
+
 2026-10-17 / slice 10 / Full ten-boss MC capture independently registered,
 without cutting or rewriting the normal CLI archive.60 actor cases in57 fights
 and60 separate recipient-qualified support cases bring totals to36 archives,

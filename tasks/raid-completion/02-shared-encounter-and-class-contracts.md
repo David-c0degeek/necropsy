@@ -44,6 +44,54 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+Final checkpoint audit caught CH-MISS-2: Git normalized SHA-bound JSON bytes
+after local verification. Earlier pushed provenance references did not match
+Git blobs. Fixed forward with canonical LF metadata, exact-byte Git attributes
+for registers/native sidecars and recomputed reference digests; every frozen
+measurement/provenance value remains unchanged. Eight real Git-filter regressions and eight staged Git/LFS countercases plus
+seven existing coverage tests pass (23/6.53 s). New --staged checks actual index
+metadata bytes and LFS OID/size, without replacing raw/domain checks. Fresh real
+actor receipt recheck passes1/116.86 s after canonicalization. Staged verification
+is recorded in the review.
+
+Current full golden check:42 passed/423.77 s across all39 archives; frozen288
+actor cases and126 recipient cases pass, including normalized raw owned sums
+for every class. Ordinary1384 passed/401.79 s. Final installed CLI continuation
+acquired all10 bosses/57 fights/60 actors with114 complete global scopes and
+120 complete player directions;2 pet listings remain missing (native4), with
+no quota stop.236 saved requests reused;60 original independent actor sums
+verified. Three final installed replays match12 source artifacts. Naxx4 baseline
+artifacts remain byte-identical and its frozen fixture tree unchanged. Actual
+installed public51 report bundles and351,164,920 extracted raw/output bytes pass
+unlimited secret scan. See research/normal-context-review.json and
+normal-context-installed-cli.json. This new full context archive stays ignored
+research, not a counted fixture or full domain certification.
+
+2026-10-17 / slice 18 / Shared run_analyze now enables existing actorless All
+and critical collection for MC/BWL/AQ40 Era partitions1/2. One applicability
+predicate also guards explicit library acquisition. Low-level acquire remains
+opt-in; Naxx/non-Era normal flows keep format1. No renderer, extra cache,
+normalizer or downloader added. D013 and ADR0016 record the decision; sources,
+pre-mortem and actual cross-raid immutable evidence precede normal activation.
+
+Nine actual CLI cases verify three raids/both Era partitions and legacy
+counterexamples. A quota interruption between All and critical leaves the
+critical marker absent and no selected complete fight; resume reuses the All
+scope, preserves the original archive and produces12 certified scopes. Broader
+ordinary suite1384 passed/342 deselected/401.79 s. Ruff/format,218 typed sources
+and291 doc links pass. Updated architecture, raid/API docs, changelog and
+snapshot writer description. Three real source/installed replays retain exact
+actor arithmetic and artifact bytes. Normal live MC continuation retained94
+scopes/47 fights/50 cases, reused193 requests and stopped at the unchanged quota
+reserve (native4); later comparison coverage remains partial.
+
+See research/normal-context-review.json and normal-context-live-cli.json for
+remaining final checks and receipts. Interim Hindsight Keep shared scope and
+budget/revision/finalization/resume invariants; fix actual phase/opportunity,
+ranking, class/faction/duty/loadout and complete product paths before closure.
+Global presence never certifies another player's personal completeness. PM-1/
+PM-2/PM-3 pending full calibration. DO NOT CLOSE; no full box accepted.
+
 2026-10-17 / slice 17 / Full ten-boss MC capture independently registered,
 without cutting or rewriting the normal CLI archive.60 actor cases in57 fights
 and60 separate recipient-qualified support cases bring totals to36 archives,

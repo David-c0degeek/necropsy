@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -10,7 +11,42 @@ from pydantic import ValidationError
 
 from necropsy.analysis.class_catalog import TALENT_TREES, talent_tree
 from necropsy.raids.scope import configurations, coverage_cells
-from scripts.check_raid_coverage import Receipt, Reference, Register, audit, checked_path
+from scripts.check_raid_coverage import (
+    Receipt,
+    Reference,
+    Register,
+    audit,
+    checked_path,
+    staged_problems,
+)
+
+
+@pytest.mark.parametrize(
+    "relative",
+    [
+        "facts.json",
+        "provenance.json",
+        "healing-facts.json",
+        "coverage.json",
+        "raw/mc-holy.entries",
+        "raw/mc-holy.sha256",
+        "raw/mc-holy-raid/74578049-2000-20261017T175812.entries",
+        "raw/mc-holy-raid/74578049-2000-20261017T175812.sha256",
+    ],
+)
+def test_git_preserves_evidence_bytes_including_windows_line_endings(relative: str) -> None:
+    root = Path(__file__).parents[2]
+    payload = b'{"evidence": "exact bytes"}\r\n'
+    command = ["git", "hash-object", "--stdin"]
+    original = subprocess.run(command, cwd=root, input=payload, capture_output=True, check=True)
+    filtered = subprocess.run(
+        [*command, "--path", f"tests/golden/raids/{relative}"],
+        cwd=root,
+        input=payload,
+        capture_output=True,
+        check=True,
+    )
+    assert filtered.stdout == original.stdout, "Git would invalidate a frozen SHA-256 reference"
 
 
 def test_era_scope_contains_every_legal_configuration_and_variant() -> None:
@@ -91,3 +127,63 @@ def test_pass_label_is_not_an_evidence_reference() -> None:
                 "references": {"implementation": ["PASS"]},
             }
         )
+
+
+@pytest.mark.parametrize(
+    "scenario,valid",
+    [
+        ("normalized-metadata", False),
+        ("exact-metadata", True),
+        ("unstaged-metadata", False),
+        ("changed-metadata", False),
+        ("lfs", True),
+        ("lfs-wrong-digest", False),
+        ("lfs-wrong-size", False),
+        ("lfs-malformed", False),
+    ],
+)
+def test_staged_receipts_check_git_transformations_and_lfs_identity(
+    tmp_path: Path, scenario: str, valid: bool
+) -> None:
+    def git(*args: str, data: bytes | None = None) -> bytes:
+        return subprocess.run(
+            ["git", *args], cwd=tmp_path, input=data, capture_output=True, check=True
+        ).stdout
+
+    git("init", "-q")
+    payload = b'{"amount":42}\r\n'
+    attributes = b"* text=auto eol=lf\n"
+    if scenario == "exact-metadata":
+        attributes += b"evidence.json -text\n"
+    (tmp_path / ".gitattributes").write_bytes(attributes)
+    filename = "evidence.json"
+    if scenario.startswith("lfs"):
+        filename = "capture.zip"
+        payload = b"PK synthetic archive bytes"
+        digest = hashlib.sha256(payload).hexdigest()
+        oid = "0" * 64 if scenario == "lfs-wrong-digest" else digest
+        size = len(payload) + (1 if scenario == "lfs-wrong-size" else 0)
+        pointer = (
+            f"version https://git-lfs.github.com/spec/v1\noid sha256:{oid}\nsize {size}\n"
+        ).encode()
+        if scenario == "lfs-malformed":
+            pointer = b"version https://git-lfs.github.com/spec/v1\n"
+        blob_id = git("hash-object", "-w", "--stdin", data=pointer).decode().strip()
+        git("update-index", "--add", "--cacheinfo", "100644", blob_id, filename)
+        (tmp_path / filename).write_bytes(payload)
+    else:
+        (tmp_path / filename).write_bytes(payload)
+        if scenario != "unstaged-metadata":
+            git("-c", "core.safecrlf=false", "add", "--", filename)
+        if scenario == "changed-metadata":
+            payload = b'{"amount":43}\r\n'
+            (tmp_path / filename).write_bytes(payload)
+    ref = Reference(path=filename, sha256=hashlib.sha256(payload).hexdigest(), locator="bytes")
+    register = Register(
+        version=1,
+        records=[
+            Receipt(cell_id="test", status="IN_PROGRESS", references={"independent_facts": [ref]})
+        ],
+    )
+    problems = staged_problems(register, tmp_path)
+    assert (not problems) is valid, problems

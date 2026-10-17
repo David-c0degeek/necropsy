@@ -156,3 +156,13 @@
 - Exercise optional selector values using the installed widget runtime. Textual
   empty selections use Select.NULL; build/type checks alone did not catch the
   obsolete sentinel because it resolved as an inherited boolean.
+
+## Hash-bound metadata and Git transformations
+
+- A green working-tree hash check cannot certify committed evidence. Git's text
+  normalization can change JSON/manifest bytes during staging or checkout.
+- Write canonical UTF-8/LF metadata, preserve hash-bound files with `-text`, and
+  verify actual staged blobs or LFS object IDs against every receipt digest.
+  Test the Git filter with CRLF input as well as ordinary file parsing.
+- Fix affected receipts forward without changing frozen measurement values or
+  rewriting pushed history. Preserve native archive/member/hash sidecars.

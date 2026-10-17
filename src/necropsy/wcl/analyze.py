@@ -38,6 +38,7 @@ from necropsy.wcl.acquire import (
     RunStopped,
     acquire,
     finalize_reports,
+    supports_encounter_context,
 )
 from necropsy.wcl.cache import Cache, item_lock
 from necropsy.wcl.checkpoint import Checkpoint, Journal, saved_options
@@ -408,6 +409,7 @@ def _run(
         endpoint=endpoint,
         cross_faction=cross_faction,
         progress=progress,
+        encounter_context=supports_encounter_context(context),
     )
     notify("Finalizing acquired reports")
     if client.journal is not None:

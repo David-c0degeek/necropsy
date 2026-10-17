@@ -1003,6 +1003,16 @@ def _acquire_rankings(run: Run, context: CharacterContext, boss: BossAcquisition
     boss.metadata = list(boss.selection.metadata)
 
 
+def supports_encounter_context(context: CharacterContext) -> bool:
+    """Whole-fight scopes are defined only for the supported new Era raids."""
+    return (
+        context.zone_id in {2000, 2002, 2005}
+        and context.partition is not None
+        and type(context.partition.id) is int
+        and context.partition.id in {1, 2}
+    )
+
+
 def acquire(
     client: WclClient,
     store: Cache,
@@ -1016,11 +1026,7 @@ def acquire(
     encounter_context: bool = False,
 ) -> Acquisition:
     """Acquire every supported boss (or `encounters`), stopping cleanly on point limits."""
-    if encounter_context and (
-        context.zone_id not in {2000, 2002, 2005}
-        or context.partition is None
-        or context.partition.id not in {1, 2}
-    ):
+    if encounter_context and not supports_encounter_context(context):
         raise ValueError("encounter context requires a supported new Era raid partition")
     run = Run(
         client,
