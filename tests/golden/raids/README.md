@@ -94,7 +94,7 @@ as the earlier full capture, with all 114 whole-encounter scopes complete. All
 60 original actor measurements agree independently; the new cases additionally
 freeze raw All/critical context. The earlier archive and expectations remain
 unchanged. Both captures retain the two unresolved pet ownership listings.
-The register now contains 41 archives, 401 actor cases, 239 recipient cases and
+The register now contains 42 archives, 430 actor cases, 268 recipient cases and
 six separate NPC-control contexts. No domain cell is certified complete.
 
 The full `bwl-holy-raid-context` capture spans all nine BWL encounter entries,
@@ -113,6 +113,16 @@ the manually reviewed integer-ms boundaries with actual saved observations.
 Initial state, contradictory transitions, lifecycles and fight-end censoring stay
 explicit. Bronze exposure is not stun uptime; resource-aura exposure is not
 resource quantity; Priest-call exposure is not a healing-quality grade.
+
+The native `aq40-holy-raid-context` fixture retains29 public actor/fight cases
+and all nine personal boss sections from normal quota-limited acquisition.
+Its58 player directions and58 whole-fight scopes are complete, with two missing
+pet ownership listings. Five bosses have no comparison group in this capture;
+their examples and medians remain absent/unknown. A later zero-point resume
+stopped earlier and is preserved separately, without replacing this archive.
+The original401 actor and239 recipient expectations remain unchanged. Raw
+Skeram747 summons establish six176525 image instances in each of six fights;
+they do not certify ranking eligibility or complete split opportunity windows.
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json

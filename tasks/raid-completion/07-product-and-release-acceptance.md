@@ -39,6 +39,25 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 4 / Initial AQ40 checkpoint follows D017. Shared sourced
+facts/static strategy now covers all28 catalog entries/952 legal configuration
+paths; this is not full boss/class guidance or measured opportunity support.
+Native first AQ40 capture retains29 public actors/all9 personal bosses,
+58 complete player directions/58 global scopes and two missing pet listings.
+Comparisons stop at Viscidus; a94-request zero-point resume produces24 actors
+and does not replace stronger evidence.42 archives/430 actor/268 recipient cases,
+original401/239 expectations preserved;51 IN_PROGRESS/901 TODO/0 COMPLETE.
+Independent full registers pass; eight strict new actor receipts pass.46 focused
+class-report/strategy tests pass/13.26s; new real golden1/59.87s before the final
+missing-reference guidance refinement. Final source/installed four artifacts
+match over all29 actors/all9 bosses; four browser cases and desktop/mobile
+visual inspection pass. Naxx four artifacts match30e89ce. Raw194,914,329-byte and
+current extracted112,121,485-byte unlimited scans find no secrets.136 wheel
+members match source;227 formatted files/218 typed sources/291 docs links clean.
+See research/aq40-initial-review.json for Keep/Fix/Record/Risk and PM calibration.
+Hindsight verdict DO NOT CLOSE; all full boxes and human acceptance remain open.
+
+
 Final checkpoint audit caught CH-MISS-2: Git normalized SHA-bound JSON bytes
 after local verification. Earlier pushed provenance references did not match
 Git blobs. Fixed forward with canonical LF metadata, exact-byte Git attributes

@@ -298,3 +298,15 @@ plus absorption reproduce recorded two-decimal scores over recorded duration,
 without certifying universal WCL policy. Source/boss/unknown and malformed
 counterexamples are separately tested; incoming mitigation is not credited
 absorption. Historical Naxx values and saved-only rendering remain unchanged.
+
+AQ40 normal installed Holy acquisition adds the native
+`raw/aq40-holy-raid-context/94217209-2005-20261017T204855.zip` and unchanged
+sidecars, SHA256732b56b5050ec4cb37165364d7210b445969e9faad1bf35cf7e46647772d6a9c.
+All29 selected actor/fights are public; all nine bosses have a personal source.
+58 player directions and58 global scopes are complete; pet discovery is missing
+on aB6A1fVJNtkC4wdZ/18 and pAPfk3Wz4mHnaL6M/10. Comparisons stop at Viscidus
+under the normal reserve. Freeze29 independent actor/recipient/context cases,
+preserving all prior401 actor/239 recipient expectations. Eight additional
+Holy Alliance matrix receipts remain partial. The zero-point resume's24-actor
+snapshot is retained in the ignored native run journal, not substituted for
+this stronger result. Raw extracted194,914,329-byte unlimited secret scan passes.

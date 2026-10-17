@@ -1,6 +1,7 @@
 """Every new class/category traverses the real offline report/package pipeline."""
 
 import json
+from html import unescape
 from pathlib import Path
 
 import pytest
@@ -99,6 +100,31 @@ def test_partial_personal_casts_are_excluded_but_leader_practice_remains(tmp_pat
     assert boss["playbook"]["reference"]["player"] == "Leader"
     assert boss["playbook"]["comparisons"] == []
     assert boss["playbook"]["excluded_subject"]["ability_use"]["value"] is None
+
+
+@pytest.mark.parametrize("include_reference", [False, True])
+def test_practice_guidance_requires_an_eligible_recorded_reference(
+    tmp_path: Path, include_reference: bool
+) -> None:
+    archive = snapshot(
+        tmp_path, 7, "Holy", "Flash Heal", "healer", include_reference=include_reference
+    )
+    out = tmp_path / "guidance"
+    run_offline(archive, out)
+    document = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    boss = document["bosses"][0]
+    assert boss["subject"] is not None
+    playbook = boss["playbook"]
+    assert (playbook["reference"] is not None) is include_reference
+    assert ("Use the leader's recorded opener" in playbook["guidance"]) is include_reference
+    assert ("Highest-ranked acquired eligible example" in playbook["reference_note"]) is (
+        include_reference
+    )
+    for name in ("report.html", "playbook.html"):
+        html = unescape((out / name).read_text(encoding="utf-8"))
+        assert ("Use the leader's recorded opener" in html) is include_reference
+        if not include_reference:
+            assert "No eligible recorded opener or ability mix is available" in html
 
 
 @pytest.mark.parametrize("mixed", [False, True])

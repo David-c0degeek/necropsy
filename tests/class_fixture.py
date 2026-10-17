@@ -35,11 +35,13 @@ def snapshot(
     secondary_healing: bool = False,
     subject_tank_hits: bool = True,
     tree_totals: tuple[int, ...] = (0, 51, 0),
+    include_reference: bool = True,
 ) -> Path:
     class_name = CLASS_NAMES[class_id]
     participants = []
     streams: dict[str, list[dict[str, Any] | None]] = {}
-    for aid, name in ((1, "Subject"), (2, "Leader")):
+    players = {1: "Subject", **({2: "Leader"} if include_reference else {})}
+    for aid, name in players.items():
         participants.append(
             {
                 "kind": "you" if aid == 1 else "top",
@@ -135,7 +137,7 @@ def snapshot(
     return build(
         out / "class.zip",
         SnapshotSpec(
-            players={1: "Subject", 2: "Leader"},
+            players=players,
             pets={},
             class_id=class_id,
             class_name=class_name,

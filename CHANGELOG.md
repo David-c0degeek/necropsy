@@ -8,6 +8,13 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial sourced strategy and facts for every AQ40 boss, with conditional
+  control, poison/Frenzy handling, target, tank and healing coordination. Keep
+  static strategy separate from observed phase windows and ranking eligibility.
+
+- Keep practice guidance explicit when no eligible recorded comparison exists;
+  do not suggest copying an unavailable leader's opener or ability mix.
+
 - Add observed BWL player aura exposure with labelled cohort examples. Preserve
   unknown initial state, lifecycle resets and censored effects; reject coerced
   raw recipient/spell identities before certifying durations or absence.

@@ -28,7 +28,15 @@ def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> Non
         ("bwl", 50616),
         ("bwl", 50617),
         ("bwl", 50631),
+        ("aq40", 50709),
+        ("aq40", 50710),
+        ("aq40", 50711),
+        ("aq40", 50712),
         ("aq40", 50713),
+        ("aq40", 50714),
+        ("aq40", 50715),
+        ("aq40", 50716),
+        ("aq40", 50717),
     ):
         for config in configurations():
             strategy = encounter_strategy(zone, encounter, 1, config.class_id, config.metric)
@@ -58,6 +66,52 @@ def test_viscidus_healing_selection_keeps_healing_context() -> None:
     assert strategy
     assert any(i.rule == "viscidus-healing-context-v1" for i in strategy.items)
     assert not any(i.rule == "viscidus-mage-frost-v1" for i in strategy.items)
+
+
+def test_aq40_capabilities_do_not_assign_every_class_the_same_control_or_removal() -> None:
+    capabilities = {
+        (50709, "skeram-mage-control-v1"): {"Mage"},
+        (50710, "silithid-royalty-poison-removal-v1"): {"Druid", "Paladin", "Shaman"},
+        (50711, "sartura-control-v1"): {"Paladin", "Rogue", "Warrior"},
+        (50712, "fankriss-spawn-control-v1"): {"Paladin", "Rogue", "Warrior"},
+        (50714, "huhuran-tranquilizing-shot-v1"): {"Hunter"},
+        (50714, "huhuran-sting-removal-v1"): {"Druid", "Paladin", "Shaman"},
+        (50715, "twin-emperors-warlock-tank-v1"): {"Warlock"},
+    }
+    for (encounter, rule), eligible in capabilities.items():
+        for class_id, name in CLASS_NAMES.items():
+            for partition in (1, 2):
+                for metric in ("dps", "hps"):
+                    strategy = encounter_strategy("aq40", encounter, partition, class_id, metric)
+                    assert strategy
+                    assert any(item.rule == rule for item in strategy.items) is (name in eligible)
+            assert encounter_strategy("aq40", encounter, 3, class_id, "dps") is None
+
+
+def test_aq40_healing_and_dangerous_removal_context_stays_explicit() -> None:
+    for encounter, slug in (
+        (50709, "skeram"),
+        (50710, "silithid-royalty"),
+        (50711, "sartura"),
+        (50712, "fankriss"),
+        (50714, "huhuran"),
+        (50715, "twin-emperors"),
+        (50716, "ouro"),
+        (50717, "cthun"),
+    ):
+        for metric in ("dps", "hps"):
+            strategy = encounter_strategy("aq40", encounter, 1, 7, metric)
+            assert strategy
+            assert any(i.rule == f"{slug}-healing-v1" for i in strategy.items) is (metric == "hps")
+    hunter = encounter_strategy("aq40", 50714, 1, 3, "dps")
+    druid = encounter_strategy("aq40", 50714, 1, 2, "hps")
+    assert hunter and druid
+    assert "separate Berserk" in next(
+        i.text for i in hunter.items if i.rule == "huhuran-tranquilizing-shot-v1"
+    )
+    assert "removal can deal damage" in next(
+        i.text for i in druid.items if i.rule == "huhuran-sting-removal-v1"
+    )
 
 
 def test_gehennas_distinguishes_curse_removal_from_patient_healing_context() -> None:

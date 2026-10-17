@@ -4,23 +4,21 @@ non_boss_share_min_pct: 5.0
 general:
 - key: one-rapid-fire
   when: kill_within_rapid_fire_cooldown
-  text: 'With no cooldown reset, this kill is shorter than Rapid Fire''s cooldown,
-    so it allows one use: spend it where it covers the most ranked damage.'
-  otherwise: 'This kill is longer than Rapid Fire''s cooldown: a pull use comes back
-    before the end, so a second use is possible.'
+  text: 'With no cooldown reset, this kill is shorter than Rapid Fire''s cooldown, so it allows one use: spend it
+    where it covers the most ranked damage.'
+  otherwise: 'This kill is longer than Rapid Fire''s cooldown: a pull use comes back before the end, so a second
+    use is possible.'
   based_on:
   - rapid_fire
 - key: refocus-after-specials
-  text: Refocus clears the cooldowns of Aimed Shot, Multi-Shot, Volley and Arcane
-    Shot. It gains most right after Aimed Shot and Multi-Shot have both been used;
-    resetting only one still gains that shot.
+  text: Refocus clears the cooldowns of Aimed Shot, Multi-Shot, Volley and Arcane Shot. It gains most right after
+    Aimed Shot and Multi-Shot have both been used; resetting only one still gains that shot.
   based_on:
   - refocus
 - key: refocus-trinket-lockout
   when: refocus_shares_trinket_lockout
-  text: 'Renataki''s Charm shares a cooldown category with your other on-use trinket:
-    using Refocus locks that trinket for 10 s, and using that trinket locks Refocus
-    for its own category time.'
+  text: 'Renataki''s Charm shares a cooldown category with your other on-use trinket: using Refocus locks that trinket
+    for 10 s, and using that trinket locks Refocus for its own category time.'
   based_on:
   - refocus
 encounters: {}
@@ -32,19 +30,237 @@ strategy:
     items:
     - rule: viscidus-prepare-participation-v1
       section: before
-      text: Agree your frost-hit, melee-shatter, glob or healing job and prepare the tools for it. Ordinary DPS does not measure every contribution.
+      text: Agree your frost-hit, melee-shatter, glob or healing job and prepare the tools for it. Ordinary DPS
+        does not measure every contribution.
     - rule: viscidus-frost-then-melee-v1
       section: during
-      text: Follow the raid's freeze and shatter calls, then the assigned glob target. Static guide hit thresholds do not establish your observed phase or available attacks.
+      text: Follow the raid's freeze and shatter calls, then the assigned glob target. Static guide hit thresholds
+        do not establish your observed phase or available attacks.
     - rule: viscidus-mage-frost-v1
       section: during
-      classes: [4]
-      metrics: [dps]
-      text: If assigned to freezing, prioritize eligible frost hits; your Fire or Frost ranking category does not itself establish that assignment.
+      classes:
+      - 4
+      metrics:
+      - dps
+      text: If assigned to freezing, prioritize eligible frost hits; your Fire or Frost ranking category does not
+        itself establish that assignment.
     - rule: viscidus-healing-context-v1
       section: during
-      metrics: [hps]
-      text: Coordinate poison recovery and healer coverage while others move for shattering; do not leave an assigned healing job merely to copy a damage example.
+      metrics:
+      - hps
+      text: Coordinate poison recovery and healer coverage while others move for shattering; do not leave an assigned
+        healing job merely to copy a damage example.
     - rule: viscidus-raid-coordination-v1
       section: raid
-      text: Confirm frost coverage, shatter participation, glob assignments and poison recovery. Pet or guardian contributions require actual ownership and event evidence.
+      text: Confirm frost coverage, shatter participation, glob assignments and poison recovery. Pet or guardian
+        contributions require actual ownership and event evidence.
+  50709:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/the-prophet-skeram-temple-of-ahnqiraj-strategy
+    items:
+    - rule: skeram-platform-coverage-v1
+      section: before
+      text: Agree platform pickups, interrupt coverage and containment of controlled players.
+    - rule: skeram-split-recovery-v1
+      section: during
+      text: Follow the identified target and pickup calls after splits or blinks; protect controlled players rather
+        than treating them as ordinary enemies.
+    - rule: skeram-healing-v1
+      section: during
+      text: Maintain platform tank coverage through blinks and control recovery; a stationary healing cadence is
+        not always available.
+      metrics:
+      - hps
+    - rule: skeram-mage-control-v1
+      section: during
+      text: If assigned, use Polymorph to contain a controlled player and coordinate release recovery.
+      classes:
+      - 4
+    - rule: skeram-identity-v1
+      section: raid
+      text: Confirm real-boss identification and platform handoffs. Same-name targets or damage totals do not prove
+        successful split handling.
+  50710:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/bug-trio-temple-of-ahnqiraj-strategy
+    items:
+    - rule: silithid-royalty-kill-order-v1
+      section: before
+      text: Confirm the kill order, separate tank positions and Yauj interrupt coverage.
+    - rule: silithid-royalty-death-recovery-v1
+      section: during
+      text: Follow the called target; avoid Kri's death cloud and recover control after Yauj's fear.
+    - rule: silithid-royalty-poison-removal-v1
+      section: during
+      text: If assigned, remove Kri's Toxic Volley poison while maintaining your other duties.
+      classes:
+      - 2
+      - 6
+      - 9
+    - rule: silithid-royalty-healing-v1
+      section: during
+      text: Cover separated tanks and surviving bosses after deaths; poison removal is a separate capability and
+        assignment.
+      metrics:
+      - hps
+    - rule: silithid-royalty-handoffs-v1
+      section: raid
+      text: Call each death and the next target. Kill order and remaining bosses change the healing and control
+        work.
+  50711:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/battleguard-sartura-temple-of-ahnqiraj-strategy
+    items:
+    - rule: sartura-guard-control-v1
+      section: before
+      text: Assign guard separation and recovery so roaming targets do not overlap the raid.
+    - rule: sartura-whirlwind-safety-v1
+      section: during
+      text: Move out of dangerous Whirlwinds and resume the called target when safe; protect pets from the same
+        melee hazards.
+    - rule: sartura-control-v1
+      section: during
+      text: If assigned and available, coordinate short stuns to contain a roaming boss or guard.
+      classes:
+      - 6
+      - 8
+      - 11
+    - rule: sartura-healing-v1
+      section: during
+      text: Keep separated control tanks covered and prepare for burst recovery when guards roam.
+      metrics:
+      - hps
+    - rule: sartura-recovery-v1
+      section: raid
+      text: Call lost control and guard deaths; agree the final burn without treating an addon prewarning as its
+        measured start.
+  50712:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/fankriss-the-unyielding-temple-of-ahnqiraj-strategy
+    items:
+    - rule: fankriss-assignments-v1
+      section: before
+      text: Assign Mortal Wound handoffs, worm priority, drone pickup and Entangle rescue coverage.
+    - rule: fankriss-spawn-priority-v1
+      section: during
+      text: Switch to dangerous Spawn of Fankriss when called; distinguish them from tunnel drones before using
+        area damage.
+    - rule: fankriss-spawn-control-v1
+      section: during
+      text: If assigned, use available stuns to help contain a dangerous worm while the raid kills it.
+      classes:
+      - 6
+      - 8
+      - 11
+    - rule: fankriss-healing-v1
+      section: during
+      text: Cover Entangled players and the incoming tank during Mortal Wound handoffs; reduced received healing
+        is patient context.
+      metrics:
+      - hps
+    - rule: fankriss-handoffs-v1
+      section: raid
+      text: Call new worms, trapped players and tank recovery. Do not infer duty from the share of boss damage.
+  50714:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/princess-huhuran-temple-of-ahnqiraj-strategy
+    items:
+    - rule: huhuran-soak-plan-v1
+      section: before
+      text: Confirm assigned soakers, Nature protection, tank threat handoffs and Frenzy coverage. Pets do not replace
+        player soakers.
+    - rule: huhuran-spread-recovery-v1
+      section: during
+      text: Maintain the agreed spacing and burn call while protecting healing coverage from Noxious Poison silence.
+    - rule: huhuran-tranquilizing-shot-v1
+      section: during
+      text: If assigned, use Tranquilizing Shot for Frenzy; the separate Berserk is not the same removable effect.
+      classes:
+      - 3
+    - rule: huhuran-sting-removal-v1
+      section: during
+      text: Coordinate any assigned Wyvern Sting removal with immediate recovery healing; removal can deal damage.
+      classes:
+      - 2
+      - 6
+      - 9
+    - rule: huhuran-healing-v1
+      section: during
+      text: Prioritize assigned soakers and tank handoffs; do not assume every poison-named effect can be cleansed.
+      metrics:
+      - hps
+    - rule: huhuran-handoffs-v1
+      section: raid
+      text: Call Frenzy coverage and threat handoffs; confirm the soak plan without inferring a universal resistance
+        threshold.
+  50715:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/twin-emperors-veklor-veknilash-temple-of-ahnqiraj-strategy
+    items:
+    - rule: twin-emperors-target-plan-v1
+      section: before
+      text: Confirm eligible ability targets, tank pickups on both sides and bug assignments.
+    - rule: twin-emperors-target-handoff-v1
+      section: during
+      text: Follow teleport pickup calls; avoid Blizzard and exploding bugs while switching to the target your ability
+        can affect.
+    - rule: twin-emperors-warlock-tank-v1
+      section: during
+      text: If assigned to Veklor tanking, prepare threat and Shadow recovery tools. Destruction ranking alone does
+        not establish that duty.
+      classes:
+      - 10
+    - rule: twin-emperors-healing-v1
+      section: during
+      text: Cover the correct tank on each side after teleports and prepare for Unbalancing Strike burst.
+      metrics:
+      - hps
+    - rule: twin-emperors-separation-v1
+      section: raid
+      text: Maintain boss separation and call pickups. Shared health does not justify doubling credited damage or
+        copying another duty's cadence.
+  50716:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/ouro-temple-of-ahnqiraj-strategy
+    items:
+    - rule: ouro-handoff-plan-v1
+      section: before
+      text: Agree frontal positioning, threat recovery and scarab handling before the pull.
+    - rule: ouro-ground-safety-v1
+      section: during
+      text: Avoid ground hazards and the frontal Sand Blast; return after knockbacks when safe and follow the emergence
+        call.
+    - rule: ouro-healing-v1
+      section: during
+      text: Cover threat handoffs and moving players without crossing the frontal attack to copy a stationary example.
+      metrics:
+      - hps
+    - rule: ouro-ground-recovery-v1
+      section: raid
+      text: Call underground movement, emergence and scarab work. No nominal submerge timer establishes personal
+        lost opportunity.
+  50717:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/cthun-temple-of-ahnqiraj-strategy
+    items:
+    - rule: cthun-assignments-v1
+      section: before
+      text: Agree spread positions, tentacle priority and stomach communication before entering.
+    - rule: cthun-eye-safety-v1
+      section: during
+      text: Preserve Eye Beam spacing, avoid Dark Glare and follow tentacle priorities instead of chasing uninterrupted
+        boss damage.
+    - rule: cthun-stomach-v1
+      section: during
+      text: If swallowed, coordinate Flesh Tentacle work and leave before acid becomes unsafe; no universal stack
+        threshold is inferred.
+    - rule: cthun-healing-v1
+      section: during
+      text: Coordinate outside coverage when healers enter the stomach; swallowed players have different available
+        patients.
+      metrics:
+      - hps
+    - rule: cthun-vulnerability-v1
+      section: raid
+      text: Call stomach progress and vulnerability. A nominal weakening timer does not certify a measured damage
+        window.

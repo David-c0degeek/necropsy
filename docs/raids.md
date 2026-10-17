@@ -48,7 +48,7 @@ exclusions have not yet been reconciled against real logs, and their modules
 have initial sourced general strategy for Lucifron, Magmadar, Gehennas, Garr,
 Baron Geddon, Shazzrah, Sulfuron Harbinger, Golemagg, Majordomo, Ragnaros,
 all eight individual BWL bosses and combined Ebonroc / Flamegor,
-and Viscidus. Remaining AQ40 boss strategy, observed phase/opportunity analysis and
+and all nine AQ40 bosses. Complete class/duty guidance, observed phase/opportunity analysis and
 ranking-policy reconciliation remain incomplete. Missing facts remain
 unknown. Hunter comparisons use recorded WCL scores; the engine does not claim
 that an unvalidated event sum is ranked damage or reconstruct ranked target
@@ -74,6 +74,13 @@ handoffs remain separate from Flamegor Frenzy removal. Chromaggus separates
 curse, magic, disease, poison and Hourglass Sand capabilities. Nefarian provides
 one guarded response per Era class; missing personal data or call markers stay
 unknown. These additions do not establish measured phases or ranked totals.
+AQ40 strategy distinguishes Skeram control recovery, Royalty kill order and
+poison removal, Sartura guard control, Fankriss worm and trapped-player duties,
+Viscidus participation, Huhuran soak/recovery, Twin Emperor targets and tank
+pickups, Ouro threat recovery, and C'Thun tentacle/stomach coordination.
+Huhuran Frenzy removal is Hunter-specific; Berserk and poison-themed effects
+are separate. Wyvern Sting removal needs coordinated damage recovery.
+These are conditional raid plans, not observed assignments or personal grades.
 BWL also retains observed Burning Adrenaline, Essence of the Red, Flame Buffet,
 Chromaggus affliction and Nefarian fear/curse/Priest-call exposure. These are
 recipient aura observations; Bronze exposure is not stun uptime, and a resource

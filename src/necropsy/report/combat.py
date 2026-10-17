@@ -282,8 +282,12 @@ def boss_section(
             "excluded_subject": section(boss.subject) if subject is None else None,
             "reference": section(leader),
             "overall_reference": section(global_leader),
-            "reference_note": "Highest-ranked acquired eligible example in your spec and faction; "
-            "build, buffs, fight length and assignments may differ.",
+            "reference_note": (
+                "Highest-ranked acquired eligible example in your spec and faction; "
+                "build, buffs, fight length and assignments may differ."
+                if leader is not None
+                else "No eligible recorded example is available in your spec and faction."
+            ),
             "comparisons": [] if subject is None else [_comparison(subject, e) for e in same],
             "ranking_comparison": ranking_comparison,
             "same_faction_top": faction_top,
@@ -294,7 +298,12 @@ def boss_section(
             ),
             "primary_metrics": primary,
             "limitations": list(LIMITATIONS),
-            "guidance": focus + " Use the leader's recorded opener and ability mix as practice "
-            "references; confirm assignments before copying them.",
+            "guidance": focus
+            + (
+                " Use the leader's recorded opener and ability mix as practice "
+                "references; confirm assignments before copying them."
+                if leader is not None
+                else " No eligible recorded opener or ability mix is available for comparison."
+            ),
         },
     }

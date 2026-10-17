@@ -188,3 +188,11 @@ across attempts so quota-limited runs progress. The integration test requires
 that reuse and disclaims a global point-in-time claim. Preserved behavior and
 clarified the comment; before/after research checks use a separate nonjournal
 instance of the existing client. No cache, acquisition or quota policy change.
+
+AQ40 identity follow-up: six normal selected public Skeram fights retain both
+15263 and176525 with gameVersion2/null classicSeasonID. Actual Summon Images747
+events connect15263 to176525 instances1–6 in three pairs, resolving image
+identity in those fights despite the current addon seasonal creature branch.
+research/aq40-first-capture-context.json freezes these events and source hash.
+No global seasonal classification, complete split windows or WCL ranking
+eligibility follows. All29 initial AQ40 fight phaseTransitions are null.
