@@ -8,6 +8,11 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Magmadar preparation, fear recovery and Hunter/healer strategy,
+  sourced facts, local Panic observations and exact Frenzy-removal evidence.
+  Match the boss NPC and removing spell; keep missing identity unknown and
+  successful effects separate from casts and available opportunities.
+
 - Add observed actor-debuff windows for Lucifron and combined Ebonroc/Flamegor.
   Keep initial, contradictory and incomplete states unknown, show known exposure
   beside unknown time in both pages, and avoid inventing phases or DPS penalties.

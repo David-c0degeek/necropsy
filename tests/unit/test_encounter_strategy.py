@@ -7,7 +7,7 @@ from necropsy.report.serialize import to_data
 
 
 def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> None:
-    for zone, encounter in (("mc", 50663), ("bwl", 50631), ("aq40", 50713)):
+    for zone, encounter in (("mc", 50663), ("mc", 50664), ("bwl", 50631), ("aq40", 50713)):
         for config in configurations():
             strategy = encounter_strategy(zone, encounter, 1, config.class_id, config.metric)
             assert strategy is not None
@@ -39,7 +39,7 @@ def test_viscidus_healing_selection_keeps_healing_context() -> None:
 
 
 def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:
-    assert encounter_strategy("mc", 50664, 1, 3, "dps") is None
+    assert encounter_strategy("mc", 50665, 1, 3, "dps") is None
     assert encounter_strategy("mc", 50631, 1, 3, "dps") is None
     for partition in (3, 7, 11, True):
         assert encounter_strategy("mc", 50663, partition, 3, "dps") is None

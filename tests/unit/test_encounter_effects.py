@@ -1,5 +1,6 @@
 """Observed local debuffs cannot invent initial state, assignment or global phases."""
 
+import json
 from html import unescape
 from pathlib import Path
 
@@ -13,6 +14,79 @@ from necropsy.normalize.ingest import ingest
 from necropsy.report.analysis_json import AnalysisDocument, build_document
 from necropsy.report.render import build_view, render_playbook, render_report
 from tests.class_fixture import snapshot
+
+
+@pytest.mark.parametrize(
+    "case,expected",
+    [
+        ("success", 1),
+        ("cast", 0),
+        ("incoming", 0),
+        ("wrong-target", 0),
+        ("unknown-target", None),
+        ("wrong-flag", 0),
+        ("wrong-ability", 0),
+        ("missing-ability", None),
+        ("wrong-frenzy", 0),
+        ("player-collision", 0),
+        ("unknown-type", None),
+        ("conflicting-identity", None),
+        ("partial", None),
+    ],
+)
+def test_tranquilizing_removal_needs_the_actual_buff_boss_and_removing_spell(
+    tmp_path: Path, case: str, expected: int | None
+) -> None:
+    archive = snapshot(tmp_path, 3, "Marksmanship", "Auto Shot", "dps", partial=case == "partial")
+    db = tmp_path / "analysis.duckdb"
+    ingest(archive, db)
+    with duckdb.connect(str(db)) as con:
+        con.execute("UPDATE snapshot_meta SET zone_id=2000, partition_id=1")
+        con.execute("UPDATE fights SET encounter_id=50664")
+        con.execute("UPDATE benchmark_participants SET encounter_id=50664")
+        con.execute(
+            "UPDATE actors SET game_id=? WHERE actor_id=50",
+            [12118 if case == "wrong-target" else 11982],
+        )
+        if case in ("player-collision", "unknown-type"):
+            con.execute(
+                "UPDATE actors SET type=? WHERE actor_id=50",
+                ["Player" if case == "player-collision" else None],
+            )
+        if case == "conflicting-identity":
+            con.execute(
+                "INSERT INTO actors (report_code,actor_id,type,game_id) "
+                "VALUES ('REPORT1',50,'NPC',12118)"
+            )
+        raw = json.dumps(
+            {
+                "extraAbilityGameID": 23537 if case == "wrong-frenzy" else 19451,
+                "isBuff": case != "wrong-flag",
+            }
+        )
+        con.execute(
+            "INSERT INTO events (report_code,fight_id,event_uid,copy_index,timestamp,"
+            "type,source_id,target_id,ability_game_id,raw) "
+            "VALUES ('REPORT1',7,'tranquilizing-effect',0,5000,?,?,?,?,?)",
+            [
+                "cast" if case == "cast" else "dispel",
+                2 if case == "incoming" else 1,
+                1 if case == "incoming" else 999 if case == "unknown-target" else 50,
+                None if case == "missing-ability" else 475 if case == "wrong-ability" else 19801,
+                raw,
+            ],
+        )
+        pf = next(p for p in participant_fights(con) if p.kind == "you")
+        (removal,) = mechanic_removals(con, pf)
+        assert removal.removals.value == expected
+        assert removal.is_buff is True and removal.target_game_ids == (11982,)
+        assert removal.removing_ability_ids == (19801,)
+        if case == "partial":
+            assert removal.observations.value == ((5, 50, 19801, 19451),)
+        if case == "success":
+            assert {ref.source for ref in removal.removals.refs} == {"actors", "events"}
+            con.execute("UPDATE snapshot_meta SET subject_class_id=7")
+            assert mechanic_removals(con, pf) == ()
 
 
 @pytest.mark.parametrize("partial", [False, True])
@@ -90,6 +164,7 @@ def test_unusable_dispel_metadata_cannot_supply_a_known_zero(tmp_path: Path, raw
         ("outside", 0, 100),
         ("short", 0, 1),
         ("wrong-kind", 0, 100),
+        ("damage", 0, 100),
         ("conflicting", 85, 15),
         ("simultaneous", 0, 100),
         ("death", 5, 95),
@@ -117,6 +192,7 @@ def test_effect_state_is_bounded_by_actual_actor_transitions(
             "foreign": [(5000, "applydebuff")],
             "outside": [(-1000, "applydebuff"), (200000, "removedebuff")],
             "wrong-kind": [(5000, "applybuff")],
+            "damage": [(5000, "damage")],
             "conflicting": [
                 (5000, "applydebuff"),
                 (10000, "removedebuff"),

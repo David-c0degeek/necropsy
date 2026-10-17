@@ -121,3 +121,26 @@ removal plus unrelated ID11672, which must be excluded. These are successful
 effects, not an assignment or available-opportunity denominator. The Druid
 raw spell name may say Remove Corruption for ability 2782; IDs and effect fields
 identify the recorded action without importing a modern spell-name policy.
+
+Magmadar Hunter adds one finalized six-source public archive and six independent
+raw actor cases (17 archives,102 cases). All 24,601,508 extracted raw bytes
+passed unlimited gitleaks8.30.1 on2026-10-17, no findings. No prior raw expected
+values were regenerated. Independent source enumeration fixes successful
+Tranquilizing Shot19801 dispels of buff19451 on NPC11982: Xelown, Charies and
+Clicker each one; Fleskhunter, Cartman and subject Trazel zero. Cast/effect
+relative times are Xelown12.377/13.329 s, Charies9.363/10.722 s and
+Clicker9.414/10.122 s. Those intervals do not establish reaction time: the
+actor's cast is not the boss's Frenzy start. Panic19408 appears as damage events
+for Xelown/Clicker, which are not aura transitions. Trazel has no recorded aura
+transition and34.485 s unknown state; this is not proof of immunity or a missed
+fear-handling job. Some master ability catalogs omit19451 even while dispel
+events reference it, and unrelated Frenzy23537/25801/8269 must not substitute.
+
+Holy and Protection Magmadar add12 independent actor cases (19 archives/114
+cases). Their33,805,841 extracted raw bytes pass unlimited gitleaks8.30.1,
+2026-10-17, no findings. Almsivi's Holy observation binds report
+`aFQ7MPVdWTAvpK1Y`, fight4, actor41, raw pull309977–354067 ms:
+Panic apply319284 ms and remove327280 ms give relative9.307/17.303 s, exposure
+7.996 s and initial unknown9.307 s over44.090 s. A new manual test initially
+used a different Almsivi pull endpoint; replay rejected it. The raw expected
+duration and transition readings were already correct and were preserved.

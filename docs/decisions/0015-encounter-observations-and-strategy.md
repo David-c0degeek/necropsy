@@ -15,7 +15,7 @@ General strategy is static knowledge with source, retrieval date, rule ID and
 class/metric applicability. It does not establish a personal assignment, phase,
 opportunity or mistake. The engine saves the selected items into optional
 `playbook.encounter_strategy`. Old JSON does not acquire advice during rendering.
-Current sourced strategies cover Lucifron, combined Ebonroc/Flamegor and Viscidus;
+Current sourced strategies cover Lucifron, Magmadar, combined Ebonroc/Flamegor and Viscidus;
 that initial set does not claim complete support for those bosses or other raids.
 
 Optional `playbook.encounter_effects` records actor debuff exposure through
@@ -36,6 +36,7 @@ coverage; partial streams may still prove individual positive transitions.
 Known affected time is a partial observation alongside unknown time, not a
 claim of zero unobserved exposure. Current policies cover Lucifron's Curse,
 Impending Doom and Shadow of Ebonroc in the combined entry.
+Magmadar additionally records local Panic state with the same uncertainty rules.
 
 Successful mechanic removals are separate source-owned `dispel` effects with
 an explicit debuff flag and matching `extraAbilityGameID`. They need not have a
@@ -49,6 +50,17 @@ metadata and do not determine which mechanic was removed. The initial Lucifron
 policies separate Curse, Doom and Dominate Mind from unrelated dispels. They do
 not establish assignments, available opportunities, reaction time or a utility
 score; a recorded zero is not a poor-play finding.
+
+The Magmadar Frenzy policy uses `isBuff=true`, removed effect19451, removing
+ability19801 and recipient NPC11982 together. NPC type is part of recipient
+identity; a player game-ID collision is not a boss. Unknown required identity
+fields keep the exact total unknown. Raw same-name Frenzy abilities do not
+substitute for19451, which may appear only as an extra ability in dispel events
+and be absent from the report's ability-name catalog. Policy match dimensions
+and actor-catalog references are saved alongside the evidence.
+The counter applies to Hunters; Priest/Warrior pages retain their own Panic and
+pressure context without presenting a zero Hunter-specific job count. General
+coordination strategy remains separate from personal capability or assignment.
 
 Actor exposure is distinct from global boss phases, damage targetability,
 immunity, assigned duty, dispel opportunity or lost throughput. The currently

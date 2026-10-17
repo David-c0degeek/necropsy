@@ -25,6 +25,12 @@ general:
   - refocus
 encounters: {}
 effects:
+  50664:
+  - rule: magmadar-panic-exposure-v1
+    label: Panic
+    ability_ids: [19408]
+    source: https://warcraft.wiki.gg/wiki/Magmadar
+    retrieved: '2026-10-17'
   50663:
   - rule: lucifron-curse-exposure-v1
     label: Lucifron's Curse
@@ -37,6 +43,16 @@ effects:
     source: https://warcraft.wiki.gg/wiki/Lucifron
     retrieved: '2026-10-17'
 removals:
+  50664:
+  - rule: magmadar-frenzy-removals-v1
+    label: Magmadar Frenzy removals
+    classes: [3]
+    removed_ability_ids: [19451]
+    is_buff: true
+    target_game_ids: [11982]
+    removing_ability_ids: [19801]
+    source: https://warcraft.wiki.gg/wiki/Magmadar
+    retrieved: '2026-10-17'
   50663:
   - rule: lucifron-curse-removals-v1
     label: Lucifron's Curse removals
@@ -55,6 +71,32 @@ removals:
     retrieved: '2026-10-17'
 pet: {}
 strategy:
+  50664:
+    retrieved: '2026-10-17'
+    source: https://warcraft.wiki.gg/wiki/Magmadar
+    items:
+    - rule: magmadar-placement-and-recovery-v1
+      section: before
+      text: Agree the tank position, safe recovery routes after Panic and the Hunter rotation for removing Frenzy before the pull.
+    - rule: magmadar-prepare-tranquilizing-shot-v1
+      section: before
+      classes: [3]
+      source: https://www.wowhead.com/classic/item=16665/tome-of-tranquilizing-shot
+      text: If assigned to Frenzy removal, confirm Tranquilizing Shot is learned and agree who covers an unsuccessful attempt.
+    - rule: magmadar-fire-and-fear-v1
+      section: during
+      text: Recover from Panic without crossing Lava Bomb fire or the boss's frontal attacks. A fear event describes exposure; it does not by itself establish avoidable downtime.
+    - rule: magmadar-hunter-utility-v1
+      section: during
+      classes: [3]
+      text: Follow your assigned Tranquilizing Shot rotation. Review successful Frenzy removals separately from casts; a cast alone does not prove the effect was removed.
+    - rule: magmadar-healing-context-v1
+      section: during
+      metrics: [hps]
+      text: Plan healing coverage through Panic and Frenzy with the tank and other healers. Whole-fight healing can change with fear exposure and assignments.
+    - rule: magmadar-rotation-and-fear-coverage-v1
+      section: raid
+      text: Coordinate backup Frenzy removal and tank support during fear recovery. Actor logs cannot establish every raid-wide Frenzy opportunity or each player's assignment.
   50663:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Lucifron

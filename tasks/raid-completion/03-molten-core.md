@@ -6,7 +6,7 @@ Deliver full boss-domain analysis and useful class/role guidance for all 10 boss
 
 ## Integration analysis
 
-- Existing module: `src/necropsy/raids/mc.py`; `mc.yaml`, `mc_facts.yaml` and `mc_guidance.yaml` under `src/necropsy/rules/classic_era/zones/`. Facts are empty and guidance is general Hunter advice today; no boss-domain completion is inherited.
+- Existing module: `src/necropsy/raids/mc.py`; `mc.yaml`, `mc_facts.yaml` and `mc_guidance.yaml` under `src/necropsy/rules/classic_era/zones/`. Planning baseline: facts empty and general Hunter guidance only; no boss-domain completion is inherited.
 - Extend these module-owned policies and shared contracts from 02. Durable real fixtures/facts follow the normal project locations established by 01. Reuse acquisition, normalization, class plugins, benchmark/advice, JSON and both renderers; preserve other raids and graded unknowns.
 - No module-owned auth/cache, duplicate metrics, cloned class engine or renderer. Reconfirm exact seams before coding. Dossiers and matrix evidence prove the integration. PM-1/PM-2/PM-3 apply.
 
@@ -47,4 +47,73 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
-TBD — no implementation or runtime acceptance is claimed at plan creation.
+2026-10-17 · slice 1 · 03.1/03.2/03.4–03.8 partial under D009 · Finalized public
+Magmadar Hunter seed, six actor cases independently enumerated without the
+production analyzer. All 24,601,508 extracted raw bytes scanned with unlimited
+gitleaks8.30.1, no findings. Raw successful Tranq effects identify extra19451,
+isBuff=true, ability19801 and NPC11982; raw master name catalogs omit19451 in
+some reports and include unrelated same-name Frenzy IDs. Shared matcher now
+requires exact buff/mechanic/removing-ability/NPC identity; missing fields stay
+unknown, known mismatches excluded. Personal and cohort counts remain effects,
+not casts, assignments, reaction time or full opportunity. Xelown/Charies/
+Clicker each show one success; subject Trazel, Fleskhunter and Cartman show none.
+Panic19408 damage events are not aura transitions. Subject's whole34.485 s stays
+unknown-state, not proof of fear immunity/avoidance. Added sourced static
+Magmadar strategy and basic facts, Era-only; no SoM Core Hound mechanics or
+nominal guide timer drives analysis. Focused first real replay passes; expanded
+negative/old-raid verification is running. No full MC box or cell closes.
+
+Additional evidence: finalized Holy and Protection Magmadar seeds, six sources
+each; independently enumerated12 more raw actor cases (19 archives/114 cases
+overall), all original expectations retained. Additional33,805,841 raw bytes
+scanned with unlimited gitleaks8.30.1, no findings. Holy Almsivi's exact
+`aFQ7MPVdWTAvpK1Y`/fight4/actor41 transitions9.307–17.303 s give7.996 s known
+Panic exposure and9.307 s initial unknown over44.090 s. Real replay caught a
+manual test endpoint copied from a different Almsivi pull; corrected only that
+new test's endpoint, preserving the raw fact register and transition arithmetic.
+Damage-only Panic events in other actors are not aura transitions. The
+[partial dossier](dossiers/magmadar.md) binds identities, sources and open
+school/target/ranking/phase/loadout/class/pet obligations.
+
+Broad ordinary verification **1292 passed/270 deselected/416.80 s**; all19 real
+fixtures replay **21 passed/140.24 s**. Subsequent actual mobile review caught
+irrelevant zero Frenzy counters on Holy/tank pages; Hunter-specific counter
+applicability now excludes those pages, while all classes retain local Panic
+and general raid coordination. Focused37 checks pass, including a wrong-class
+negative. Class-scope real replay follow-up running. No full boss or matrix
+cell is accepted. Garr capture is retained separately as unpromoted research.
+
+Class-scope follow-up: six real Magmadar/Lucifron utility replays pass in21.09 s.
+Twelve actual page/viewport checks cover damage/healing/tank sources and both
+pages, offline/no-network/no-error/no-overflow/print visibility. Fresh isolated
+wheel replay outside checkout verifies the exact Holy window and sourced facts
+in both pages/package, and confirms no Hunter-specific zero counter on Holy.
+Current mobile Holy screenshot inspected. Four complete Naxx artifacts again
+match30e89ce exactly. Unlimited scans:58,407,349 new raw bytes,19,326,299 source
+output bytes,5,406,641 installed output bytes and26,906,755 extracted final
+wheel/report-package bytes (scanner read26,890,797), no findings. Sdist excludes
+tasks/workspace. Research/magmadar-review.json records representative limits.
+
+### Interim Captain Hindsight — initial Magmadar slice
+
+**Keep:** Existing pipeline and shared local-observation/strategy contracts;
+exact source/mechanic/buff/removing-spell/NPC/class applicability; counts
+separate from casts; unknown opportunity/initial state; independent real actor
+facts and both-page content checks.
+
+**Fix before closing:** Complete target/ranking/phase/opportunity reconciliation,
+all class/loadout/pet/role/faction obligations and the other nine MC bosses;
+resolve the explicit domain/product acceptance actions on complete artifacts.
+
+**Record:** Real replay caught the wrong manual pull endpoint. Actual mobile
+review caught irrelevant Hunter job counters on non-Hunter pages. Raw master
+ability names omit some extra mechanic IDs; zero-damage fear events do not prove
+an aura window. D009 sequences this evidence-led partial work without closing
+the still-open shared/evidence contracts.
+
+**Risk:** Actor-only sources do not establish global Frenzy or fear opportunity,
+assigned jobs, causality or reaction time. Sample Core Hounds do not prove
+seasonal spawns. PM-1/PM-2/PM-3 remain pending for full-plan calibration.
+
+**Verdict:** DO NOT CLOSE — initial Magmadar behavior is concrete and verified,
+but no full MC box, domain obligation or matrix cell is complete.

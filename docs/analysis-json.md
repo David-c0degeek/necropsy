@@ -263,6 +263,11 @@ personal/cohort source-owned removal effects independently of casts. Counts
 require source coverage; positive observations identify relative time, target,
 removing ability and removed mechanic IDs. These are successful effects, not
 opportunity counts or a utility grade. Both pages show the saved observations.
+Removal policies additionally save `is_buff`, `target_game_ids`,
+`removing_ability_ids` and `applicable_classes`. A missing required identity
+keeps the count unknown; a class outside applicability receives no counter.
+Magmadar's Hunter-only Frenzy policy requires the boss NPC and Tranquilizing
+Shot together; local Panic exposure remains available to other classes.
 
 Schema1 adds optional top-level `taxonomy` in new live and non-Hunter class
 outputs. It contains the canonical tree names, WCL-namespaced comparison pool

@@ -8,7 +8,13 @@ import duckdb
 
 from necropsy.analysis.context import ParticipantFight, coverage
 from necropsy.analysis.encounters import duty
-from necropsy.analysis.evidence import Evidenced, complete_or_unknown, observed, unknown
+from necropsy.analysis.evidence import (
+    Evidenced,
+    EvidenceRef,
+    complete_or_unknown,
+    observed,
+    unknown,
+)
 from necropsy.analysis.generic import combat, metrics
 from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
@@ -53,8 +59,12 @@ class MechanicRemoval:
     removed_ability_ids: tuple[int, ...]
     removals: Evidenced[int]
     observations: Evidenced[tuple[tuple[float, int | None, int | None, int], ...]]
+    is_buff: bool = False
+    target_game_ids: tuple[int, ...] = ()
+    removing_ability_ids: tuple[int, ...] = ()
+    applicable_classes: tuple[int, ...] = ()
     limitation: str = (
-        "Recorded successful debuff removals by this actor, separate from cast counts. "
+        "Recorded successful mechanic removals by this actor, separate from cast counts. "
         "They do not establish assignment, available dispel opportunities, reaction time "
         "or lost throughput. Missing opportunity evidence cannot support a utility score."
     )
@@ -73,39 +83,85 @@ def mechanic_removals(
     )
     if not policies:
         return ()
+    meta = con.execute("SELECT subject_class_id FROM snapshot_meta").fetchone()
+    class_id = meta[0] if meta else None
+    policies = [
+        policy for policy in policies if "classes" not in policy or class_id in policy["classes"]
+    ]
+    if not policies:
+        return ()
     events = combat.event_rows(con, pf)
     result = []
+    actors: dict[int, set[tuple[str | None, int | None]]] = {}
+    for actor, kind, game_id in con.execute(
+        "SELECT actor_id, type, game_id FROM actors WHERE report_code=?", [pf.report_code]
+    ).fetchall():
+        actors.setdefault(actor, set()).add((kind, game_id))
     for policy in policies:
         ids = tuple(int(ability) for ability in policy["removed_ability_ids"])
-        rows = [
-            event
-            for event in events
-            if event.kind == "dispel"
-            and event.source_id == pf.actor_id
-            and event.raw.get("isBuff") is False
-            and type(event.raw.get("extraAbilityGameID")) is int
-            and event.raw["extraAbilityGameID"] in ids
-        ]
-        unresolved = [
-            event
-            for event in events
-            if event.kind == "dispel"
-            and event.source_id == pf.actor_id
-            and event.raw.get("isBuff") is not True
-            and (
-                type(event.raw.get("extraAbilityGameID")) is not int
-                or (event.raw["extraAbilityGameID"] in ids and event.raw.get("isBuff") is not False)
-            )
-        ]
+        wanted_buff = policy.get("is_buff", False)
+        if type(wanted_buff) is not bool:
+            raise ValueError("removal policy needs a boolean buff/debuff selector")
+        targets = tuple(int(target) for target in policy.get("target_game_ids", ()))
+        abilities = tuple(int(ability) for ability in policy.get("removing_ability_ids", ()))
+        rows, unresolved = [], []
+        for event in events:
+            if event.kind != "dispel" or event.source_id != pf.actor_id:
+                continue
+            extra = event.raw.get("extraAbilityGameID")
+            buff = event.raw.get("isBuff")
+            matches: list[bool | None] = [
+                extra in ids if type(extra) is int else None,
+                buff == wanted_buff if type(buff) is bool else None,
+            ]
+            if targets:
+                identities = actors.get(event.target_id) if event.target_id is not None else None
+                target = next(iter(identities)) if identities and len(identities) == 1 else None
+                if target is None or target[0] is None:
+                    matches.append(None)
+                elif target[0] != "NPC":
+                    matches.append(False)
+                else:
+                    matches.append(target[1] in targets if target[1] is not None else None)
+            if abilities:
+                matches.append(
+                    event.ability_id in abilities if event.ability_id is not None else None
+                )
+            if False in matches:
+                continue
+            if None in matches:
+                unresolved.append(event)
+            else:
+                rows.append(event)
         ref = combat.event_ref(pf, rows, f"successful mechanic removals {ids}")
+        refs = (
+            ref,
+            *(
+                (
+                    EvidenceRef(
+                        pf.report_code,
+                        pf.fight_id,
+                        None,
+                        "actors",
+                        detail=f"removal recipients with NPC game IDs {targets}",
+                    ),
+                )
+                if targets
+                else ()
+            ),
+        )
         ambiguous_ref = combat.event_ref(pf, unresolved, "unresolved dispel metadata")
         count = (
-            unknown("source dispel events omit usable debuff/mechanic metadata", ref, ambiguous_ref)
+            unknown(
+                "source dispel events omit required mechanic/target/ability metadata",
+                *refs,
+                ambiguous_ref,
+            )
             if unresolved
             else complete_or_unknown(
                 len(rows),
                 [coverage(con, pf, pf.actor_id, Direction.SOURCE)],
-                ref,
+                *refs,
                 rule_id=policy["rule"],
                 note="Source-owned dispel effects, not cast or opportunity count.",
             )
@@ -115,14 +171,14 @@ def mechanic_removals(
             for event in rows
         )
         observations = (
-            observed(values, ref)
+            observed(values, *refs)
             if rows
-            else unknown("dispel metadata cannot establish absence", ambiguous_ref)
+            else unknown("dispel metadata cannot establish absence", *refs, ambiguous_ref)
             if unresolved
             else complete_or_unknown(
                 (),
                 [coverage(con, pf, pf.actor_id, Direction.SOURCE)],
-                ref,
+                *refs,
                 note="No matching removal effects in the complete actor-source stream.",
             )
         )
@@ -135,6 +191,10 @@ def mechanic_removals(
                 ids,
                 count,
                 observations,
+                is_buff=wanted_buff,
+                target_game_ids=targets,
+                removing_ability_ids=abilities,
+                applicable_classes=tuple(policy.get("classes", ())),
             )
         )
     return tuple(result)

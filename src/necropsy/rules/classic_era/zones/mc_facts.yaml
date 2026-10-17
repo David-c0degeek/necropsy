@@ -1,4 +1,15 @@
 version: 1
 rule: mc-encounter-facts-v1
-retrieved: '2026-10-16'
-encounters: []
+retrieved: '2026-10-17'
+encounters:
+- id: 50664
+  name: Magmadar
+  creature_type: Beast
+  type_source: https://warcraft.wiki.gg/wiki/Magmadar
+  source: https://www.wowhead.com/classic/npc=11982/magmadar
+  note: Static Classic Era mechanics; nominal timings are not observed opportunities. Seasonal Core Hound spawns do not apply to these Era policies.
+  timings:
+  - key: frenzy
+    text: Frenzy is removed by Tranquilizing Shot; review successful removal effects separately from casts.
+  - key: panic
+    text: Panic causes fear. An absent aura transition does not establish immunity or a completed fear-handling assignment.

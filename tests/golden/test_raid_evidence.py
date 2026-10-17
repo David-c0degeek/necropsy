@@ -103,6 +103,39 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] == "mc-magmadar-holy":
+        assert "mechanic_removals" not in boss["playbook"]
+        assert "cohort_mechanic_removals" not in boss["playbook"]
+        (fear,) = boss["playbook"]["encounter_effects"]
+        assert fear["known_affected_s"]["value"] == 7.996
+        assert fear["unknown_state_s"]["value"] == 9.307
+        assert fear["windows"]["value"] == [
+            [0, 9.307, None],
+            [9.307, 17.303, True],
+            [17.303, 44.090, False],
+        ]
+        assert fear["transitions"]["value"] == [
+            [9.307, "applydebuff", 19408],
+            [17.303, "removedebuff", 19408],
+        ]
+    if fixture["label"] == "mc-magmadar-hunter":
+        assert boss["playbook"]["mechanic_removals"][0]["removals"]["value"] == 0
+        examples = boss["playbook"]["cohort_mechanic_removals"]
+        assert {e["player"]: e["removals"][0]["removals"]["value"] for e in examples} == {
+            "Xelown": 1,
+            "Fleskhunter": 0,
+            "Charies": 1,
+            "Clicker": 1,
+            "Cartman": 0,
+        }
+        for example in examples:
+            removal = example["removals"][0]
+            assert removal["is_buff"] is True
+            assert removal["target_game_ids"] == [11982]
+            assert removal["removing_ability_ids"] == [19801]
+        (fear,) = boss["playbook"]["encounter_effects"]
+        assert fear["known_affected_s"]["value"] == 0
+        assert fear["unknown_state_s"]["value"] == 34.485
     if fixture["label"] in ("mc-balance-healing", "mc-mage-fire", "mc-holy"):
         # Independent actor-source dispel enumeration, filtering isBuff=false
         # and exact removed mechanic ID. Cast presence is deliberately irrelevant.
@@ -163,6 +196,12 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "mc-magmadar-holy":
+            assert "Panic: 8.00s known affected; 9.31s with unknown state." in html
+            assert "Magmadar Frenzy removals: 0" not in html
+        if fixture["label"] == "mc-magmadar-hunter":
+            assert "Xelown · Magmadar Frenzy removals: 1 recorded successful effects." in html
+            assert "Panic: 0.00s known affected; 34.48s with unknown state." in html
         if fixture["label"] == "mc-balance-healing":
             assert "Ragny · Lucifron's Curse removals: 12 recorded successful effects." in html
         if fixture["label"] == "mc-mage-fire":

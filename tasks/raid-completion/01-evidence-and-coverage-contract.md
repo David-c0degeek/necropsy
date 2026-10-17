@@ -48,6 +48,18 @@ README/PROVENANCE describe the exact delivered validation limits.
 
 ## Resume anchors
 
+2026-10-17 · slice 6 · Magmadar role evidence · Promoted finalized public
+Hunter/Holy/Protection six-actor seeds with18 additional independent cases,
+preserving all original expected values (19 archives/114 cases overall).
+58,407,349 extracted Magmadar raw bytes passed unlimited gitleaks8.30.1 with
+no findings. Register/CSV:19 IN_PROGRESS/933 TODO/zero COMPLETE. Independent
+successful Frenzy effects and Holy Panic windows are bound to exact report/
+fight/actor identities; replay rejected a new manual endpoint taken from another
+pull and that expectation was corrected. Actual source/installed verification
+is recorded under03. Remaining full roster/faction/category and ranking/
+opportunity contracts stay open. Garr Warlock capture is finalized research,
+not yet promoted or counted in the durable evidence register.
+
 2026-10-17 · slice 5 · Utility evidence · Added public finalized six-actor MC
 Balance/DPS, Balance/HPS, Fire Mage and Enhancement Shaman captures. Independently
 enumerated 24 additional direction-only raw cases; union checker verifies all 96
