@@ -82,6 +82,71 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    effects = playbook.get("encounter_effects")
+    if effects:
+        view = dict(view)
+        lines = tuple(
+            line(
+                f"{effect['label']}: {number(effect['known_affected_s']['value'], 2, 's')} "
+                f"known affected; {number(effect['unknown_state_s']['value'], 2, 's')} "
+                "with unknown state.",
+                effect["limitation"],
+                (source(effect["source"], "Mechanic reference"),),
+            )
+            for effect in effects
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    removals = playbook.get("mechanic_removals")
+    if removals:
+        view = dict(view)
+        lines = (
+            line(
+                "Your recorded mechanic removals",
+                removals[0]["limitation"],
+                tuple(
+                    source(url, "Mechanic reference")
+                    for url in dict.fromkeys(removal["source"] for removal in removals)
+                ),
+            ),
+            *(
+                line(
+                    f"{removal['label']}: {number(removal['removals']['value'])} "
+                    "recorded successful effects.",
+                    "",
+                )
+                for removal in removals
+            ),
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    examples = list(playbook.get("cohort_mechanic_removals") or ())
+    example_lines = tuple(
+        line(
+            f"{example['player']} · {removal['label']}: "
+            f"{number(removal['removals']['value'])} recorded successful effects.",
+            "",
+        )
+        for example in examples
+        for removal in example["removals"]
+        if removal["removals"]["value"] is None or removal["removals"]["value"] > 0
+    )
+    if example_lines:
+        view = dict(view)
+        heading = line(
+            "Recorded utility in the acquired examples",
+            examples[0]["removals"][0]["limitation"] if not removals else "",
+            tuple(
+                source(url, "Mechanic reference")
+                for url in dict.fromkeys(
+                    removal["source"] for example in examples for removal in example["removals"]
+                )
+            )
+            if not removals
+            else (),
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), heading, *example_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), heading, *example_lines)
     strategy = playbook.get("encounter_strategy")
     if not strategy:
         return view

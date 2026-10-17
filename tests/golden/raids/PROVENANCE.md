@@ -97,3 +97,27 @@ MC Protection regression counts were separately enumerated from target pages,
 NPC 12118 and raw Melee ability IDs 1/-4: Maasumi 9, Doljin 15, Pale 7,
 Frozion 15, Panzèrzug 8, Cailo 19. Protector/trash and outgoing events are
 excluded. These counts establish pressure, not assignments or tanking quality.
+
+Lucifron Holy actor-target pages independently show Impending Doom (19702)
+apply at 12,141 ms, remove/damage at 22,145 ms, then apply at 34,796 ms;
+Lucifron's Curse (19703) applies at 13,760 ms and removes at 21,432 ms.
+The pull ends at 38,851 ms. Damage is not an aura transition. Conservative
+unknown initial state gives 7.672 s known cursed/13.760 s initial unknown and
+14.059 s known Doom/12.141 s initial unknown. Real replay assertions freeze these
+manual target-only calculations independently of the production state machine;
+no nominal guide schedule or analyzer-generated expectation supplies them.
+
+Four additional public six-source Lucifron captures cover Balance/DPS,
+Balance/HPS, Fire Mage and Enhancement Shaman. The 24 new independently
+enumerated cases bring the register to 96 actor cases and 16 archives. All
+57,112,206 extracted utility raw bytes passed unlimited gitleaks 8.30.1 on
+2026-10-17, no findings. The original 72 expectations remain unchanged.
+
+Independent actor-source dispel enumeration requires `isBuff=false` and the
+exact removed mechanic ID, separately from cast counts. Balance/HPS Truudee
+records five Curse removals, Ragny 12 and 海兰 one; Mage Benoii and Darkwizzardo
+one each. Holy Bluebeard records one Dominate Mind removal and Maoainai one Doom
+removal plus unrelated ID11672, which must be excluded. These are successful
+effects, not an assignment or available-opportunity denominator. The Druid
+raw spell name may say Remove Corruption for ability 2782; IDs and effect fields
+identify the recorded action without importing a modern spell-name policy.

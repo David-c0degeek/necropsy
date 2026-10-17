@@ -8,6 +8,13 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add observed actor-debuff windows for Lucifron and combined Ebonroc/Flamegor.
+  Keep initial, contradictory and incomplete states unknown, show known exposure
+  beside unknown time in both pages, and avoid inventing phases or DPS penalties.
+- Record successful Lucifron mechanic-removal effects separately from casts for
+  personal and acquired examples. Preserve unknown counts under incomplete
+  coverage or unusable metadata; do not infer assignments or utility grades.
+
 - Qualify new Era raid healing by recipient. Separate friendly support from
   healing credited to bosses and unresolved targets, preserve raw source totals,
   and disclose real mechanic-healing examples in both pages.

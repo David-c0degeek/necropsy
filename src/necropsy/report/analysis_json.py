@@ -807,7 +807,7 @@ def build_document(
             ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     if zone != "naxxramas":
-        from necropsy.analysis.encounters import duty
+        from necropsy.analysis.encounters import duty, effects
         from necropsy.analysis.encounters.strategy import encounter_strategy
 
         for boss, data in zip(bosses, boss_data, strict=True):
@@ -815,6 +815,26 @@ def build_document(
                 boss["playbook"]["duty_context"] = to_data(
                     duty.context(con, data.subject.participant)
                 )
+                exposure = effects.actor_effects(con, data.subject.participant)
+                if exposure:
+                    boss["playbook"]["encounter_effects"] = to_data(exposure)
+                removals = effects.mechanic_removals(con, data.subject.participant)
+                if removals:
+                    boss["playbook"]["mechanic_removals"] = to_data(removals)
+            removal_examples = []
+            for entry in data.cohort:
+                removals = effects.mechanic_removals(con, entry.participant)
+                if removals:
+                    removal_examples.append(
+                        {
+                            "player": entry.participant.player,
+                            "report_code": entry.participant.report_code,
+                            "fight_id": entry.participant.fight_id,
+                            "removals": to_data(removals),
+                        }
+                    )
+            if removal_examples:
+                boss["playbook"]["cohort_mechanic_removals"] = removal_examples
             entries = [boss["subject"] or boss["playbook"].get("excluded_subject")]
             entries += boss["overall_cohort"]
             qualified = [

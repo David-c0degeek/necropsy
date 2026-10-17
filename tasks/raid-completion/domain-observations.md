@@ -64,6 +64,35 @@ ownership and independent cast/amount/timing checks are retained there.
 
 ## Guide-source boundaries
 
+A bounded Magmadar Hunter capture subsequently finalized six public actors
+under the normal quota policy (account spend1331.2/1800; reset646 s at receipt).
+It remains ignored research until raw/member/independent checks and provenance
+promotion complete. Three cohort actor-source streams directly show successful
+Tranquilizing Shot dispels (`isBuff=true`, extraAbilityGameID19451) on the boss;
+the removing ability is19801. The removed effect19451 is absent from some raw
+master ability catalogs, so a name-only join would lose the mechanic.
+Other same-name Frenzy entries23537/25801/8269 are not equivalent IDs. Subject
+and two other samples have no own successful effect; this cannot prove an
+unfulfilled assignment or unused opportunity. No Magmadar runtime policy or
+matrix completion is certified by this research observation.
+
+Further raw direction-only ranking audit (not an approved policy): combined
+Hunter damage to NPCs14601/11981 plus consistently owned pets agrees with all
+six recorded scores at their displayed rounding. MC Balance/DPS mostly agrees
+with raw player sums, but Teris has 577 damage to a player-gameID recipient
+alongside a 22.446 DPS discrepancy. MC Hunter Charies' 854 damage to two
+player-gameID recipients accounts for a 57.571 DPS difference, while another
+Hunter's player-recipient damage is included in an otherwise matching raw sum.
+Recipient actor type/name alone cannot implement the exact WCL exclusion rule.
+MC Fire Mage Benoii: 43,382 raw damage /24.016 s =1806.379 versus recorded
+1352.31; 21,815 raw Ignite damage is among the components. No positive overkill
+field explains the difference. An Ignite attribution hypothesis remains
+unverified; do not implement it from community descriptions or this one sample.
+AQ Hunter Temison: raw owned actor/pet amount50,509 over101.893 s =495.706 versus
+490.711 recorded; 509 damage to the player-gameID recipient is the difference.
+These discrepancies preserve the unvalidated ranking gate. Exact owner,
+hostility, attribution and window contracts still require independent proof.
+
 BWL Guardian captures expose hostile healing credited to tank actors: raw
 source-only heal events from Trashhealz to NPC 14601 (Ebonroc) total 125,000;
 Obviously 75,000; Belkala 460,963. All are named Shadow of Ebonroc in raw ability

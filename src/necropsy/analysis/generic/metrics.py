@@ -270,6 +270,9 @@ def aura_states(
     actor_id: int,
     aura_ids: list[int],
     active_at_start: frozenset[int] | None,
+    *,
+    observed_only: bool = False,
+    event_kinds: frozenset[str] | None = None,
 ) -> Evidenced[tuple[tuple[int, int, bool | None], ...]]:
     """Union of active, inactive and uncertain windows, without guessing missing state.
 
@@ -277,26 +280,63 @@ def aura_states(
     A definitive apply/remove event settles subsequent state. Contradictory
     refreshes invalidate the preceding segment and remain uncertain until a
     definitive transition. Existing whole-fight uptime calculations stay separate.
+    `observed_only` keeps missing initial state unknown, ignores out-of-fight
+    transitions and leaves simultaneous contradictory transitions unresolved.
     """
     rows = _rows(con, _AURA_SQL, [pf.report_code, pf.fight_id, actor_id, aura_ids])
+    if event_kinds is not None:
+        rows = [row for row in rows if row[2] in event_kinds]
+    if observed_only:
+        rows = [row for row in rows if pf.start_time <= row[1] <= pf.end_time]
+        resets = _rows(
+            con,
+            "SELECT NULL, timestamp, 'stateunknown', event_uid, copy_index FROM events "
+            "WHERE report_code=? AND fight_id=? AND target_id=? "
+            "AND type IN ('death', 'resurrect') AND timestamp BETWEEN ? AND ?",
+            [pf.report_code, pf.fight_id, actor_id, pf.start_time, pf.end_time],
+        )
+        rows = sorted([*rows, *resets], key=lambda row: (row[1], row[3], row[4]))
     cov = [coverage(con, pf, actor_id, Direction.TARGET)]
     ref = _ref(pf, actor_id, rows, 3, 4, f"three-state aura windows {aura_ids}")
     timelines = []
     for aura in aura_ids:
-        events = [(int(ts), kind) for ability, ts, kind, _, _ in rows if ability == aura]
+        events = [
+            (int(ts), kind)
+            for ability, ts, kind, _, _ in rows
+            if ability == aura or kind == "stateunknown"
+        ]
         state: bool | None = (
             aura in active_at_start
             if active_at_start is not None
             else events[0][1] not in _ON
-            if events
+            if events and not observed_only
             else None
         )
         start = pf.start_time
         segments = []
+        if observed_only:
+            grouped = []
+            for ts, group in itertools.groupby(events, key=lambda event: event[0]):
+                kinds = {kind for _, kind in group}
+                contradictory = "stateunknown" in kinds or bool(
+                    kinds & _OFF and kinds & (_ON | _SUSTAIN)
+                )
+                if contradictory:
+                    kind = "ambiguous"
+                elif kinds & _ON:
+                    kind = min(kinds & _ON)
+                elif kinds & _OFF:
+                    kind = min(kinds & _OFF)
+                else:
+                    kind = min(kinds)
+                grouped.append((ts, kind))
+            events = grouped
         for ts, kind in events:
             ts = min(max(ts, pf.start_time), pf.end_time)
             previous = state
-            if kind in _ON:
+            if kind == "ambiguous":
+                state = None
+            elif kind in _ON:
                 state = True
             elif kind in _OFF:
                 state = False
@@ -317,7 +357,12 @@ def aura_states(
         states = [state for segments in timelines for a, b, state in segments if a <= lo < b]
         union = True if True in states else None if None in states else False
         result.append((lo, hi, union))
-    return complete_or_unknown(tuple(result), cov, ref, rule_id="aura-state-windows-v1")
+    return complete_or_unknown(
+        tuple(result),
+        cov,
+        ref,
+        rule_id="aura-observed-windows-v1" if observed_only else "aura-state-windows-v1",
+    )
 
 
 def aura_uptime(

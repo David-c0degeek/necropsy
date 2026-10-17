@@ -48,6 +48,17 @@ README/PROVENANCE describe the exact delivered validation limits.
 
 ## Resume anchors
 
+2026-10-17 · slice 5 · Utility evidence · Added public finalized six-actor MC
+Balance/DPS, Balance/HPS, Fire Mage and Enhancement Shaman captures. Independently
+enumerated 24 additional direction-only raw cases; union checker verifies all 96
+without changing the original 72 expected values. All 57,112,206 extracted raw
+utility bytes scanned with unlimited gitleaks 8.30.1, no findings. Register and
+CSV agree on 16 IN_PROGRESS/936 TODO/zero COMPLETE. Initial all-source replay
+18 passed/122.00 s; subsequent removal-aware all-source run 18 passed/126.98 s.
+Captures reveal real cast/effect gaps, mixed damage/healing Balance/HPS samples,
+and raw spell labels that cannot establish ruleset-specific ability identity.
+Current remaining hourly budget is bounded; do not weaken quota reserves.
+
 2026-10-17 · slice 4 · Guardian evidence and phase research · Resumed retained
 MC capture after quota reset with the normal 90% policy; completed MC, combined
 BWL and Viscidus Guardian captures, six usable sources each. Appended 18
@@ -67,9 +78,10 @@ semantics must precede HPS reconciliation. Real replay follow-up running.
   0.3.1 taxonomy-preview output (not comparable).
 - Further investigations: domain-observations.md, research/candidate-inventory.json
   (60 category/metric first-page pools), research/raid-report-inventory.json.
-- Pending Guardian retry: ignored workspace/raid-research/capture_guardian_seed.py,
-  mc-guardian/requests and shared cache. This is acquisition-library/request-journal
-  verification, not a substitute for the later actual GUI/CLI quota-resume gate.
+- Guardian retries completed: all three seed bosses now have public six-actor
+  Guardian archives and independent facts, checkpoint 870f151. Retained capture
+  journals/cache remain ignored. This acquisition-library verification does not
+  substitute for the later actual GUI/CLI quota-resume gate.
 - Continue shared measured phase/opportunity/metric/duty contracts and full
   evidence coverage. Initial static strategy is governed by D006; it does not
   close phase or per-cell guidance obligations.

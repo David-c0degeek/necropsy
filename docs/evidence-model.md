@@ -112,6 +112,15 @@ UNKNOWN. Race is never inferred from faction or class.
 
 ## Aura uptime
 
+New local encounter-effect observations use the shared aura-state primitive in
+observed-only mode. Missing initial state stays unknown until a definitive
+transition. Simultaneous contradictory events leave subsequent state unresolved;
+out-of-fight and wrong-kind events do not supply personal exposure. Reports show
+known affected time beside unknown time. Complete windows require trusted target
+coverage; partial streams may still prove positive transitions. This is separate
+from global phases, immunity, assignment, dispel opportunity and lost throughput.
+The historical aura calculations below retain their original policy.
+
 Each aura is tracked on its own: apply turns it on, remove turns it off,
 refresh and stack changes require it to be on. The starting state comes from
 the starting-aura snapshot taken at the pull; without one, an aura's first

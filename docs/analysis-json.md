@@ -249,6 +249,21 @@ not reconstruct WCL HPS or include absorption events. Historical Naxx, seasonal
 analysis and previously saved JSON retain their prior semantics. See
 [the recipient contract](decisions/0014-recipient-qualified-healing.md).
 
+Optional `playbook.encounter_effects` saves local actor-debuff observations:
+source/rule/ability IDs, `transitions`, three-state `windows`, `known_affected_s`,
+`unknown_state_s` and a limitation. Window times are seconds relative to pull;
+state is true/false/null. Positive transitions may survive partial target
+coverage while window durations remain unknown. Missing initial state stays
+unknown; simultaneous contradictory events do not receive an invented order.
+These are exposure descriptions, not boss phases, dispel opportunities or a DPS
+normalization. See [encounter evidence](decisions/0015-encounter-observations-and-strategy.md).
+
+Optional `playbook.mechanic_removals` and `cohort_mechanic_removals` retain
+personal/cohort source-owned removal effects independently of casts. Counts
+require source coverage; positive observations identify relative time, target,
+removing ability and removed mechanic IDs. These are successful effects, not
+opportunity counts or a utility grade. Both pages show the saved observations.
+
 Schema1 adds optional top-level `taxonomy` in new live and non-Hunter class
 outputs. It contains the canonical tree names, WCL-namespaced comparison pool
 (class/category IDs, display label and API slug), optional user declaration,

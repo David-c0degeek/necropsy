@@ -103,6 +103,45 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] in ("mc-balance-healing", "mc-mage-fire", "mc-holy"):
+        # Independent actor-source dispel enumeration, filtering isBuff=false
+        # and exact removed mechanic ID. Cast presence is deliberately irrelevant.
+        expected_removals = {
+            "mc-balance-healing": {"Truudee": (5, 0, 0), "Ragny": (12, 0, 0), "海兰": (1, 0, 0)},
+            "mc-mage-fire": {"Benoii": (1, 0, 0), "Darkwizzardo": (1, 0, 0)},
+            "mc-holy": {"Bluebeard": (0, 0, 1), "Maoainai": (0, 1, 0)},
+        }[fixture["label"]]
+        examples = boss["playbook"]["cohort_mechanic_removals"]
+        assert len(examples) == 5
+        for example in examples:
+            expected_counts = expected_removals.get(example["player"], (0, 0, 0))
+            assert tuple(r["removals"]["value"] for r in example["removals"]) == expected_counts
+        assert all(r["removals"]["value"] == 0 for r in boss["playbook"]["mechanic_removals"])
+    if fixture["label"] == "mc-holy":
+        # Independent target-only enumeration on the 38.851-second pull.
+        # Damage at 22.145 is not an aura transition.
+        effects = {e["rule"]: e for e in boss["playbook"]["encounter_effects"]}
+        curse = effects["lucifron-curse-exposure-v1"]
+        assert curse["known_affected_s"]["value"] == pytest.approx(7.672)
+        assert curse["unknown_state_s"]["value"] == pytest.approx(13.760)
+        assert curse["windows"]["value"] == [
+            [0, 13.760, None],
+            [13.760, 21.432, True],
+            [21.432, 38.851, False],
+        ]
+        assert curse["transitions"]["value"] == [
+            [13.760, "applydebuff", 19703],
+            [21.432, "removedebuff", 19703],
+        ]
+        doom = effects["lucifron-doom-exposure-v1"]
+        assert doom["known_affected_s"]["value"] == pytest.approx(14.059)
+        assert doom["unknown_state_s"]["value"] == pytest.approx(12.141)
+        assert doom["windows"]["value"] == [
+            [0, 12.141, None],
+            [12.141, 22.145, True],
+            [22.145, 34.796, False],
+            [34.796, 38.851, True],
+        ]
     if fixture["label"] == "mc-protection":
         # Separately enumerated target pages: only NPC 12118's melee, excluding
         # the Protector and every outgoing cast. See the provenance receipt.
@@ -124,6 +163,13 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "mc-balance-healing":
+            assert "Ragny · Lucifron's Curse removals: 12 recorded successful effects." in html
+        if fixture["label"] == "mc-mage-fire":
+            assert "Benoii · Lucifron's Curse removals: 1 recorded successful effects." in html
+        if fixture["label"] == "mc-holy":
+            assert "Lucifron's Curse: 7.67s known affected; 13.76s with unknown state." in html
+            assert "Impending Doom: 14.06s known affected; 12.14s with unknown state." in html
         if fixture["label"] == "bwl-combined-guardian":
             assert "Effective healing uses recorded friendly recipients." in html
             for amount, player in (

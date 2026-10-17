@@ -1,0 +1,66 @@
+{
+  "retrieved": "2026-10-17",
+  "archive": "tests/golden/raids/raw/mc-holy.zip",
+  "report": "ZzYr1NR6LpHkyjTc",
+  "fight": 3,
+  "actor": 32,
+  "player": "Almsivi",
+  "duration_ms": 38851,
+  "abilities": [
+    {
+      "gameID": 19702,
+      "icon": "spell_shadow_nightofthedead.jpg",
+      "name": "Impending Doom",
+      "type": "32"
+    },
+    {
+      "gameID": 19703,
+      "icon": "spell_shadow_blackplague.jpg",
+      "name": "Lucifron's Curse",
+      "type": "32"
+    }
+  ],
+  "raw_target_only_events_ms": [
+    [
+      12141,
+      "applydebuff",
+      19702
+    ],
+    [
+      13760,
+      "applydebuff",
+      19703
+    ],
+    [
+      21432,
+      "removedebuff",
+      19703
+    ],
+    [
+      22145,
+      "damage",
+      19702
+    ],
+    [
+      22145,
+      "removedebuff",
+      19702
+    ],
+    [
+      34796,
+      "applydebuff",
+      19702
+    ]
+  ],
+  "independent_arithmetic": {
+    "curse": {
+      "known_affected_ms": 7672,
+      "unknown_initial_ms": 13760
+    },
+    "doom": {
+      "known_affected_ms": 14059,
+      "unknown_initial_ms": 12141
+    }
+  },
+  "interpretation": "Actor-target debuff state only; no guessed initial state, global phase, immunity, dispel opportunity, assignment or fault. Damage at 22145 ms is not an aura transition. Timings derived from raw target pages, not analyzer output."
+}

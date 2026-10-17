@@ -24,6 +24,35 @@ general:
   based_on:
   - refocus
 encounters: {}
+effects:
+  50663:
+  - rule: lucifron-curse-exposure-v1
+    label: Lucifron's Curse
+    ability_ids: [19703]
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    retrieved: '2026-10-17'
+  - rule: lucifron-doom-exposure-v1
+    label: Impending Doom
+    ability_ids: [19702]
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    retrieved: '2026-10-17'
+removals:
+  50663:
+  - rule: lucifron-curse-removals-v1
+    label: Lucifron's Curse removals
+    removed_ability_ids: [19703]
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    retrieved: '2026-10-17'
+  - rule: lucifron-doom-removals-v1
+    label: Impending Doom removals
+    removed_ability_ids: [19702]
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    retrieved: '2026-10-17'
+  - rule: lucifron-control-removals-v1
+    label: Dominate Mind removals
+    removed_ability_ids: [20604]
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    retrieved: '2026-10-17'
 pet: {}
 strategy:
   50663:
