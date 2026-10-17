@@ -2,6 +2,19 @@ version: 1
 rule: mc-encounter-facts-v1
 retrieved: '2026-10-17'
 encounters:
+- id: 50667
+  name: Shazzrah
+  creature_type: Humanoid
+  type_source: https://www.wowhead.com/classic/spell=19714/deaden-magic
+  source: https://www.wowhead.com/classic/guide/shazzrah-molten-core-strategy-wow-classic
+  note: Static Classic Era mechanics; guide timers do not establish observed Blink, Counterspell or boss-buff windows. Seasonal replacements are excluded.
+  timings:
+  - key: curse
+    text: Shazzrah's Curse increases magic damage taken. Personal exposure does not identify who was assigned to remove it.
+  - key: deaden-magic
+    text: Deaden Magic reduces magical damage taken by the boss and can be removed. Casts and successful removal effects are distinct observations.
+  - key: blink-counterspell
+    text: Blink and Counterspell can disrupt positioning and casting. An action gap does not by itself establish either mechanic or a lost opportunity.
 - id: 50668
   name: Baron Geddon
   creature_type: Elemental

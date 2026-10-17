@@ -93,3 +93,9 @@ The existing schema 1 evidence-tree fields admit the optional additions.
 Snapshots and normalized tables do not change. Old documents remain readable;
 new observations require reanalysis of raw snapshots. Rollback reverts optional
 policy callers and presentation without modifying the immutable raw archive.
+
+Shazzrah uses the same observed-only state contract for Curse19713. An active
+curse remains end-censored. Static strategy distinguishes friendly curse removal
+from hostile Deaden Magic19714 removal; neither capability implies assignment.
+No successful hostile removal counter or Counterspell lockout window is inferred
+from the current selected actor streams.

@@ -1,0 +1,139 @@
+{
+  "reviewed": "2026-10-17",
+  "scope": "Initial Shazzrah strategy and personal Curse exposure; no full encounter acceptance",
+  "checks": [
+    {
+      "raid": "mc-shazzrah-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-shazzrah-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-shazzrah-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-shazzrah-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-shazzrah-hunter",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-shazzrah-hunter",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-shazzrah-hunter",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-shazzrah-hunter",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "focused": {
+    "passed": 40,
+    "seconds": 8.69
+  },
+  "new_real_goldens": {
+    "passed": 2,
+    "seconds": 6.61
+  },
+  "independent_raw_cases": 162,
+  "installed": {
+    "outside_checkout": true,
+    "both_roles_pages_packages": true
+  },
+  "secrets": {
+    "scanner": "gitleaks8.30.1",
+    "max_target_megabytes": 0,
+    "raw_bytes": 21559194,
+    "output_build_bytes": 22198662,
+    "findings": 0
+  },
+  "visual_review": [
+    "mc-shazzrah-holy-report-software.png",
+    "mc-shazzrah-hunter-playbook-exposure-mobile.png"
+  ],
+  "limitations": [
+    "No observed Counterspell interrupt/lockout policy or Deaden Magic removal count.",
+    "Personal curse duration cannot establish damage loss, dispel opportunity or fault.",
+    "All-class/faction/tank, ranking, target/opportunity/pet/loadout and domain/product acceptance remain open."
+  ]
+}

@@ -44,6 +44,31 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 10 · Shazzrah initial evidence/strategy · Two public
+finalized six-source Holy/Hunter captures add12 independently enumerated actor
+cases:27 archives/162 cases,26 IN_PROGRESS/926 TODO/0 COMPLETE. Original150
+expectations preserved. Personal Curse19713 uses existing observed-only state;
+active effects at fight end remain censored. Friendly curse removal and hostile
+Deaden Magic removal are separate class capabilities, not inferred assignments.
+No selected positive Deaden Magic removal or Counterspell interrupt is claimed.
+
+Verification:40 focused checks/8.69 s; two new real goldens/6.61 s; all162 raw
+fact cases pass. Fresh installed wheel outside checkout reproduces exact windows,
+facts/strategy and both pages/packages for both roles. Eight desktop/mobile
+checks pass offline/no-error/no-overflow/print; actual positive Holy Report and
+Hunter Playbook mobile exposure sections visually inspected. Unlimited
+gitleaks8.30.1 finds no leaks in21,559,194 raw bytes or22,198,662 current output/
+package/build bytes (scanner21,870,352). See research/shazzrah-review.json and
+[dossier](dossiers/shazzrah.md) for limits.
+
+Interim Hindsight: **Keep** shared state/coverage, immutable evidence and honest
+class capability. **Fix before closing** all class/faction/tank, actual interrupt/
+removal/opportunity/pet/loadout/target/ranking evidence and domain/product review.
+**Record** active-end observations do not mean dispel failure; no cast is not a
+measured lockout. **Risk** PM-1/PM-2/PM-3 remain Pending full calibration.
+**Verdict: DO NOT CLOSE.** No full subject box or matrix cell closes.
+
+
 2026-10-17 · slice 9 · 02.4/02.5/02.7/02.8 partial · Existing aura-state contract
 now carries Geddon Ignite Mana still active at fight end. No fabricated removal
 at the boundary, mana-loss amount, assignment or avoidance grade. Static bomb /

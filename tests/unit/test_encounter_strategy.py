@@ -12,6 +12,7 @@ def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> Non
         ("mc", 50664),
         ("mc", 50665),
         ("mc", 50666),
+        ("mc", 50667),
         ("mc", 50668),
         ("bwl", 50631),
         ("aq40", 50713),
@@ -75,8 +76,23 @@ def test_geddon_applies_class_and_healing_strategy_without_inventing_duty() -> N
         assert ("geddon-healer-bomb-coverage-v1" in rules) is healing
 
 
+def test_shazzrah_keeps_friendly_curse_and_hostile_magic_removal_distinct() -> None:
+    for class_id, curse, purge in (
+        (2, True, False),
+        (4, True, False),
+        (7, False, True),
+        (8, False, True),
+        (3, False, False),
+    ):
+        strategy = encounter_strategy("mc", 50667, 1, class_id, "dps")
+        assert strategy
+        rules = {item.rule for item in strategy.items}
+        assert ("shazzrah-assigned-curse-removal-v1" in rules) is curse
+        assert ("shazzrah-assigned-boss-purge-v1" in rules) is purge
+
+
 def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:
-    assert encounter_strategy("mc", 50667, 1, 3, "dps") is None
+    assert encounter_strategy("mc", 50669, 1, 3, "dps") is None
     assert encounter_strategy("mc", 50631, 1, 3, "dps") is None
     for partition in (3, 7, 11, True):
         assert encounter_strategy("mc", 50663, partition, 3, "dps") is None

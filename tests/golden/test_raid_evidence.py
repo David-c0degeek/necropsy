@@ -103,6 +103,17 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] in ("mc-shazzrah-holy", "mc-shazzrah-hunter"):
+        (effect,) = boss["playbook"]["encounter_effects"]
+        apply, duration = (
+            (6.500, 22.094) if fixture["label"] == "mc-shazzrah-holy" else (9.683, 12.942)
+        )
+        assert effect["ability_ids"] == [19713]
+        assert effect["windows"]["value"] == [[0, apply, None], [apply, duration, True]]
+        assert effect["known_affected_s"]["value"] == pytest.approx(duration - apply)
+        assert effect["unknown_state_s"]["value"] == apply
+        assert effect["transitions"]["value"] == [[apply, "applydebuff", 19713]]
+        assert "mechanic_removals" not in boss["playbook"]
     if fixture["label"] in ("mc-geddon-holy", "mc-geddon-hunter"):
         (effect,) = boss["playbook"]["encounter_effects"]
         apply, duration = (
@@ -252,6 +263,10 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "mc-shazzrah-holy":
+            assert "Shazzrah's Curse: 15.59s known affected; 6.50s with unknown state." in html
+        if fixture["label"] == "mc-shazzrah-hunter":
+            assert "Shazzrah's Curse: 3.26s known affected; 9.68s with unknown state." in html
         if fixture["label"] == "mc-geddon-holy":
             assert "Ignite Mana: 0.20s known affected; 16.04s with unknown state." in html
         if fixture["label"] == "mc-geddon-hunter":

@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Shazzrah positioning, Blink recovery and class-specific removal
+  strategy, sourced facts and personal Curse exposure. Keep friendly curses
+  separate from hostile Magic buffs and retain unknown initial state.
+
 - Add initial Baron Geddon bomb separation, Inferno recovery and class-specific
   support strategy. Preserve Ignite Mana observations active at fight end;
   distinguish aura exposure from mana loss, dispel quality and bomb handling.
