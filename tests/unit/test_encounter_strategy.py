@@ -15,6 +15,7 @@ def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> Non
         ("mc", 50666),
         ("mc", 50667),
         ("mc", 50668),
+        ("mc", 50669),
         ("bwl", 50631),
         ("aq40", 50713),
     ):
@@ -86,8 +87,23 @@ def test_shazzrah_keeps_friendly_curse_and_hostile_magic_removal_distinct() -> N
         assert ("shazzrah-assigned-boss-purge-v1" in rules) is (name in {"Priest", "Shaman"})
 
 
+def test_sulfuron_support_capabilities_use_named_classes_without_assigning_duty() -> None:
+    for class_id, name in CLASS_NAMES.items():
+        for metric in ("dps", "hps"):
+            strategy = encounter_strategy("mc", 50669, 1, class_id, metric)
+            assert strategy
+            rules = {item.rule for item in strategy.items}
+            assert ("sulfuron-assigned-interrupts-v1" in rules) is (
+                name in {"Druid", "Mage", "Rogue", "Shaman", "Warrior"}
+            )
+            assert ("sulfuron-friendly-magic-removal-v1" in rules) is (
+                name in {"Paladin", "Priest"}
+            )
+            assert ("sulfuron-divided-healing-coverage-v1" in rules) is (metric == "hps")
+
+
 def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:
-    assert encounter_strategy("mc", 50669, 1, 3, "dps") is None
+    assert encounter_strategy("mc", 50670, 1, 3, "dps") is None
     assert encounter_strategy("mc", 50631, 1, 3, "dps") is None
     for partition in (3, 7, 11, True):
         assert encounter_strategy("mc", 50663, partition, 3, "dps") is None

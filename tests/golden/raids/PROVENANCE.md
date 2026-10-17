@@ -213,3 +213,14 @@ streams have no successful Deaden Magic19714 removal. This does not establish
 assignment, opportunity, lack of raid removal or Counterspell lockout. Raw
 21,559,194 extracted bytes pass unlimited gitleaks8.30.1. Both role installed
 replays and both pages/packages reproduce saved initial strategy and exposure.
+
+Sulfuron Holy/Rogue add two normal finalized public six-source archives and12
+independent raw cases (29 archives/174 cases). Original162 expectations preserved.
+Holy Almsivi7HRVn849AKpbGcmv/fight26/actor27 lasts45.592 s; raw source healing
+31,291, absorption7,251, raw damage847 (including658 to self), incoming658.
+Rogue Untz xmnMwpP7QBy2AK89/fight55/actor65 lasts35.182 s; raw damage55,515,
+healing0, absorption0, incoming0. No selected Rogue source-owned interrupt is
+present. Other actors' interrupt events can appear on these pages: event page
+completion does not imply every event belongs to its selected actor. Raw
+28,975,958 bytes pass unlimited gitleaks8.30.1. Fury remains unfinalized research
+following the standard quota reserve; it is not counted or promoted.

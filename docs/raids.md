@@ -38,7 +38,7 @@ ranking exclusions and authored boss guidance. AQ40, BWL and MC have synthetic
 acquisition → snapshot → offline replay → rendering coverage. Their ranked-damage
 exclusions have not yet been reconciled against real logs, and their modules
 have initial sourced general strategy for Lucifron, Magmadar, Gehennas, Garr,
-Baron Geddon, Shazzrah, combined Ebonroc / Flamegor,
+Baron Geddon, Shazzrah, Sulfuron Harbinger, combined Ebonroc / Flamegor,
 and Viscidus. Other boss strategy, observed phase/opportunity analysis and
 ranking-policy reconciliation remain incomplete. Missing facts remain
 unknown. Hunter comparisons use recorded WCL scores; the engine does not claim
@@ -52,7 +52,8 @@ Panic exposure; Gehennas separates personal Curse exposure from healing received
 by other patients; Baron Geddon keeps Ignite Mana exposure separate from actual
 resource loss, and bomb guidance separate from observed handling; Shazzrah
 separates personal Curse exposure, friendly curse removal and hostile Magic
-removal without diagnosing Counterspell from gaps in casts;
+removal without diagnosing Counterspell from gaps in casts; Sulfuron separates
+add interruption, friendly magic removal and divided healing assignments;
 Garr retains individual Firesworn Banish applications without
 assuming every Warlock was assigned control; Viscidus distinguishes freezing and healing context. Local
 debuff windows retain unknown state and do not define global phases or damage

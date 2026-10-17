@@ -103,6 +103,17 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] in ("mc-sulfuron-holy", "mc-sulfuron-rogue"):
+        assert boss["encounter_id"] == 50669
+        assert "mechanic_removals" not in boss["playbook"]
+        assert "control_applications" not in boss["playbook"]
+        rules = {item["rule"] for item in boss["playbook"]["encounter_strategy"]["items"]}
+        assert ("sulfuron-assigned-interrupts-v1" in rules) is (
+            fixture["label"] == "mc-sulfuron-rogue"
+        )
+        assert ("sulfuron-friendly-magic-removal-v1" in rules) is (
+            fixture["label"] == "mc-sulfuron-holy"
+        )
     if fixture["label"] in ("mc-shazzrah-holy", "mc-shazzrah-hunter"):
         (effect,) = boss["playbook"]["encounter_effects"]
         apply, duration = (

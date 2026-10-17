@@ -98,6 +98,31 @@ removals:
     retrieved: '2026-10-17'
 pet: {}
 strategy:
+  50669:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/sulfuron-harbinger-molten-core-strategy-wow-classic
+    items:
+    - rule: sulfuron-tanks-and-interrupt-backup-v1
+      section: before
+      text: Assign Sulfuron and the Flamewaker Priests to tanks, agree the add kill order and give each active priest an interrupt plan with backup.
+    - rule: sulfuron-target-and-heal-control-v1
+      section: during
+      text: Follow the agreed priest kill order and watch Dark Mending. Review interrupt effects separately from casts; damage totals alone do not describe add control.
+    - rule: sulfuron-assigned-interrupts-v1
+      section: during
+      classes: [2, 4, 8, 9, 11]
+      text: If assigned to interrupt, track your specific Flamewaker Priest and coordinate backup. A recorded zero does not establish an available cast, missed assignment or failed interrupt.
+    - rule: sulfuron-friendly-magic-removal-v1
+      section: during
+      classes: [6, 7]
+      text: Coordinate removal of Immolate and Shadow Word Pain on the agreed patients. Successful effects and healing throughput describe different parts of that support job.
+    - rule: sulfuron-divided-healing-coverage-v1
+      section: during
+      metrics: [hps]
+      text: Confirm coverage for the separated boss and add tanks. Positioning, dispels and the chosen kill order can change healing opportunity; whole-fight HPS does not establish assignment quality.
+    - rule: sulfuron-add-and-healing-coordination-v1
+      section: raid
+      text: Confirm tank separation, interrupt backups and healing range before switching from the priests to Sulfuron. Actor streams do not establish every hostile healing cast or raid-wide interruption opportunity.
   50667:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/shazzrah-molten-core-strategy-wow-classic

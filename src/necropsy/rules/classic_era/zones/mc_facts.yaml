@@ -2,6 +2,17 @@ version: 1
 rule: mc-encounter-facts-v1
 retrieved: '2026-10-17'
 encounters:
+- id: 50669
+  name: Sulfuron Harbinger
+  source: https://www.wowhead.com/classic/guide/sulfuron-harbinger-molten-core-strategy-wow-classic
+  note: Classic Era boss and Flamewaker Priest context; seasonal shared health and Dark Mending changes are excluded. Nominal cast times do not establish observed opportunities.
+  timings:
+  - key: dark-mending
+    text: Flamewaker Priests cast Dark Mending to heal allies. Individual targets and successful interrupt effects are needed before assessing assigned interruption.
+  - key: separated-tanks
+    text: Boss and add positioning divides tank and healing duties. Category and whole-fight throughput do not establish those assignments.
+  - key: friendly-magic-removal
+    text: Immolate and Shadow Word Pain create friendly magic-removal work separate from healing throughput.
 - id: 50667
   name: Shazzrah
   creature_type: Humanoid

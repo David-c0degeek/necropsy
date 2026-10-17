@@ -37,6 +37,37 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 12 / Sulfuron initial strategy and evidence. Promoted
+public finalized six-source Holy/Rogue captures:29 archives/174 independent raw
+actor cases,28 IN_PROGRESS/924 TODO/0 COMPLETE. Original162 expectations unchanged.
+Guide and Classic spell record disagree on nominal Dark Mending cast time (2 s
+versus2.5 s); no numeric timer, cast-opportunity or lockout model is implemented.
+General add targets/interrupt backups and divided healer/magic-removal duties
+use existing sourced static strategy. No personal successful interrupt/removal
+counter or failed-duty diagnosis is inferred from absent selected events.
+
+Verification:11 focused/new real golden checks pass/7.98 s; all174 independent
+raw cases pass. Fresh wheel installed outside checkout reproduces both real
+roles, both pages/packages and corrected Shazzrah applicability for all nine
+named classes. Eight desktop/mobile/no-network/no-error/no-overflow/print checks
+pass; positive Holy Report and Rogue Playbook mobile strategy inspected.
+Unlimited gitleaks8.30.1:28,975,958 raw bytes and47,892,406 current source/installed/
+package/build bytes (scanner47,563,511), zero findings. Dossier and
+research/sulfuron-review.json retain exact limits.
+
+Fury capture stopped during normal finalization:159 allowed points remain,
+unknown-cost reserve162. Cache/journal retained; no archive or acceptance and no
+quota ceiling change. Selected Rogue pages contain other actors' interrupts,
+but none of six selected Rogues has a source-owned interrupt. This is not proof
+of raid failure or universal Rogue non-applicability.
+
+Interim Hindsight: Keep ownership/coverage/normal finalization and sourced advice;
+fix actual positive interrupt/removal/hostile-heal/instance opportunity, all
+class/faction/tank/ranking/loadout/pet and human domain/product obligations before
+closure. Record source cast-time conflict and numeric-class-filter miss in
+lessons. PM-1/PM-2/PM-3 remain pending full calibration. DO NOT CLOSE.
+
+
 2026-10-17 · slice 11 · Shazzrah initial evidence/strategy · Two public
 finalized six-source Holy/Hunter captures add12 independently enumerated actor
 cases:27 archives/162 cases,26 IN_PROGRESS/926 TODO/0 COMPLETE. Original150

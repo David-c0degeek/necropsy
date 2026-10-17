@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Sulfuron add-target, interrupt-backup and divided healing strategy.
+  Separate general assignments from observations; nominal cast times and absent
+  personal interrupts do not establish missed opportunities.
+
 - Add initial Shazzrah positioning, Blink recovery and class-specific removal
   strategy, sourced facts and personal Curse exposure. Keep friendly curses
   separate from hostile Magic buffs and retain unknown initial state.
