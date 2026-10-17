@@ -177,3 +177,14 @@ has no separately certified whole-fight count here. Personal healer exposure
 does not model the curse state of all patients or justify outgoing-HPS scaling.
 Prior expected cases remain unchanged. The separately queued Mage capture has
 not completed normal finalization and is not admitted by this receipt.
+
+Gehennas Mage later finalized through the normal quota-resume path: six public
+Horde Fire/DPS sources and six independently enumerated actor cases, bringing
+totals to23 archives/138 cases. All11,004,544 new extracted raw bytes passed
+unlimited gitleaks8.30.1, no findings. Exact subject Suffel report
+`x4zfwgJZTAV3PYQK`/fight13/actor13, pull975032–1001082 ms, duration26.050 s,
+Curse apply9.718/remove15.769 s gives6.051 s observed exposure/9.718 s unknown
+initial state. All six selected sources have no source-owned curse removals;
+that absence does not identify assignments. Separate Mage Fallout's successful
+removal appears in subject-target evidence, without certifying that unselected
+actor's whole-fight source. All original132 expectations remain unchanged.

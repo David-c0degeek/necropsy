@@ -37,6 +37,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 9 · Gehennas Mage quota retry finalized normally. Promoted six
+public sources and six independently enumerated cases:23 archives/138 cases,
+22 IN_PROGRESS/930 TODO/0 COMPLETE. Exact subject Curse windows and class/metric
+strategy replay pass; both Gehennas fixtures2 checks/6.39 s. Raw11,004,544 bytes
+and representative derived5,997,642 bytes pass unlimited gitleaks8.30.1. Four
+page/viewport checks pass offline/no-error/no-overflow/print visibility. No
+selected Mage dispel or assigned duty is inferred. Shared ranking investigation
+now independently reconciles27 Mage scores in7 complete public/revision-checked
+research fights; those global responses are research, not actor fixtures or
+completion receipts. Original132 expected cases remain untouched. Full contracts
+and global-source acquisition obligations stay open.
+
 2026-10-17 · slice 8 · Gehennas Holy evidence · Added one finalized public
 six-source archive and six independent actor cases: 22 archives / 132 cases,
 21 IN_PROGRESS / 931 TODO / 0 COMPLETE. All 126 preceding expected cases remain

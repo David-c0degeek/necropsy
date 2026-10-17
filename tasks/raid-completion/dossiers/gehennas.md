@@ -65,3 +65,16 @@ full real/behavior/render and domain/product acceptance. The Mage capture is
 retained in ignored cache/journal but stopped finalization at the normal quota
 reserve (161 left versus 162 estimated). It is not a usable fixture yet. Retry
 after reset without weakening policy. No scarcity-based N/A or closure follows.
+
+## Mage follow-up
+
+The normal quota retry finalized `mc-gehennas-mage`: six Horde Fire/DPS
+sources, six independent actor cases. Subject Suffel, `x4zfwgJZTAV3PYQK`
+fight13 actor13, pull975032–1001082 ms (26.050 s), Curse apply9.718 s /
+remove15.769 s:6.051 s known exposure,9.718 s initial unknown. All six selected
+Mages record no source-owned Curse dispel; this does not establish failed jobs.
+The subject's target stream records Frost Mage Fallout's2782 removal at15.770 s,
+one millisecond after the boss-sourced removal transition. Those two event times
+are not a reaction-time measurement or evidence that selected Mages neglected
+decurse. Four representative page/viewport checks and exact raw replay pass;
+full cell/class/ranking acceptance remains open.

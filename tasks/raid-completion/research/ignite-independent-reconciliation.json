@@ -1,0 +1,1175 @@
+{
+  "reviewed": "2026-10-17",
+  "status": "Research reconciliation; runtime remains unvalidated without required global streams and complete applicability.",
+  "candidate": "Per native target, fire-critical Mage recipients; each tick gives floor(amount/n) to each and remainder to raw owner. Whole-fight target-specific recipient set. Include positive observed controlled-player damage at impact; exclude native-unrelated NPCs and hits after recorded control removal. No unverified critical-code mapping used (server isCritical expression).",
+  "limitations": [
+    "Historical/current sampled semantics only; no proof for death/late-entry, no-fire-crit raw owner, unobserved sources, bosses outside Lucifron, or other partitions.",
+    "Native NPC targets and observed hostile players require separate complete policy/coverage; these research inputs are not promoted into actor snapshots.",
+    "No actor-only event sum can reconstruct transferred Ignite when other emitters/recipients are absent.",
+    "No new runtime ranking policy enabled."
+  ],
+  "reports": [
+    {
+      "report": "3mDNGhW4QkrPjny7",
+      "fight": 4,
+      "revision": 1,
+      "visibility_before_after": [
+        "public",
+        "public"
+      ],
+      "duration_s": 19.407,
+      "terminal_all_and_critical_pages": true,
+      "native_target_actor_game_ids": {
+        "64": 12118,
+        "65": 12119
+      },
+      "eligible_fire_critical_actors_by_target": {
+        "64": [
+          20
+        ]
+      },
+      "ticks": [
+        {
+          "timestamp": 461708,
+          "source": 20,
+          "target": 64,
+          "amount": 134,
+          "allocation": {
+            "20": 134
+          }
+        },
+        {
+          "timestamp": 463711,
+          "source": 20,
+          "target": 64,
+          "amount": 722,
+          "allocation": {
+            "20": 722
+          }
+        },
+        {
+          "timestamp": 465698,
+          "source": 20,
+          "target": 64,
+          "amount": 867,
+          "allocation": {
+            "20": 867
+          }
+        },
+        {
+          "timestamp": 467699,
+          "source": 20,
+          "target": 64,
+          "amount": 1154,
+          "allocation": {
+            "20": 1154
+          }
+        },
+        {
+          "timestamp": 469699,
+          "source": 20,
+          "target": 64,
+          "amount": 1186,
+          "allocation": {
+            "20": 1186
+          }
+        },
+        {
+          "timestamp": 471707,
+          "source": 20,
+          "target": 64,
+          "amount": 1186,
+          "allocation": {
+            "20": 1186
+          }
+        }
+      ],
+      "mage_rows": [
+        {
+          "actor": 20,
+          "name": "Amber",
+          "recorded_category": "Fire",
+          "recorded_dps": 727.985,
+          "native_non_ignite": 8879,
+          "attributed_ignite_candidate": 5249,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 727.9847477714227,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 727.9847477714227,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 44,
+          "name": "Frostblade",
+          "recorded_category": "Frost",
+          "recorded_dps": 443.036,
+          "native_non_ignite": 8070,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 2016,
+          "candidate_dps": 415.8293399288916,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": false,
+          "observed_controlled_player_impacts": [
+            {
+              "relative_ms": 11075,
+              "target": 30,
+              "ability": 10187,
+              "amount": 192,
+              "latest_transition_ms": 9682,
+              "observed_control_state": true
+            },
+            {
+              "relative_ms": 12093,
+              "target": 30,
+              "ability": 10187,
+              "amount": 144,
+              "latest_transition_ms": 9682,
+              "observed_control_state": true
+            },
+            {
+              "relative_ms": 13095,
+              "target": 30,
+              "ability": 10187,
+              "amount": 192,
+              "latest_transition_ms": 9682,
+              "observed_control_state": true
+            }
+          ],
+          "observed_controlled_player_damage": 528,
+          "candidate_with_observed_controlled_players_dps": 443.0360179316741,
+          "matches_recorded_after_control_state": true
+        }
+      ],
+      "response_sha256": "9fcb7d2b44a316c764d7acd13953cba8e8da5107208ce5d2162520fdc5f50a4a"
+    },
+    {
+      "report": "6YQDmwJMx2RvnF3H",
+      "fight": 4,
+      "revision": 1,
+      "visibility_before_after": [
+        "public",
+        "public"
+      ],
+      "duration_s": 37.287,
+      "terminal_all_and_critical_pages": true,
+      "native_target_actor_game_ids": {
+        "53": 12119,
+        "54": 12118
+      },
+      "eligible_fire_critical_actors_by_target": {
+        "53": [
+          27,
+          40
+        ],
+        "54": [
+          37
+        ]
+      },
+      "ticks": [
+        {
+          "timestamp": 286027,
+          "source": 40,
+          "target": 53,
+          "amount": 488,
+          "allocation": {
+            "40": 244,
+            "27": 244
+          }
+        },
+        {
+          "timestamp": 288034,
+          "source": 40,
+          "target": 53,
+          "amount": 488,
+          "allocation": {
+            "40": 244,
+            "27": 244
+          }
+        },
+        {
+          "timestamp": 293745,
+          "source": 37,
+          "target": 54,
+          "amount": 306,
+          "allocation": {
+            "37": 306
+          }
+        },
+        {
+          "timestamp": 295755,
+          "source": 37,
+          "target": 54,
+          "amount": 307,
+          "allocation": {
+            "37": 307
+          }
+        }
+      ],
+      "mage_rows": [
+        {
+          "actor": 37,
+          "name": "Macharius",
+          "recorded_category": "Fire",
+          "recorded_dps": 66.967,
+          "native_non_ignite": 1884,
+          "attributed_ignite_candidate": 613,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 66.96703945074691,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 66.96703945074691,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 40,
+          "name": "Icestørm",
+          "recorded_category": "Fire",
+          "recorded_dps": 128.383,
+          "native_non_ignite": 4299,
+          "attributed_ignite_candidate": 488,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 128.38254619572504,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 128.38254619572504,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 27,
+          "name": "Ashanix",
+          "recorded_category": "Fire",
+          "recorded_dps": 109.582,
+          "native_non_ignite": 3598,
+          "attributed_ignite_candidate": 488,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 109.5824281921313,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 109.5824281921313,
+          "matches_recorded_after_control_state": true
+        }
+      ],
+      "response_sha256": "8c9c64a1f629f249ee70e3f63bd35314beff186b71b2a28de60f526d2ce362ab"
+    },
+    {
+      "report": "BdvZVpy2nhX8L3rY",
+      "fight": 7,
+      "revision": 10041,
+      "visibility_before_after": [
+        "public",
+        "public"
+      ],
+      "duration_s": 45.664,
+      "terminal_all_and_critical_pages": true,
+      "native_target_actor_game_ids": {
+        "96": 12119,
+        "97": 12118
+      },
+      "eligible_fire_critical_actors_by_target": {
+        "97": [
+          33
+        ]
+      },
+      "ticks": [
+        {
+          "timestamp": 1377016,
+          "source": 33,
+          "target": 97,
+          "amount": 434,
+          "allocation": {
+            "33": 434
+          }
+        },
+        {
+          "timestamp": 1379026,
+          "source": 33,
+          "target": 97,
+          "amount": 446,
+          "allocation": {
+            "33": 446
+          }
+        },
+        {
+          "timestamp": 1389900,
+          "source": 33,
+          "target": 97,
+          "amount": 1332,
+          "allocation": {
+            "33": 1332
+          }
+        },
+        {
+          "timestamp": 1391902,
+          "source": 33,
+          "target": 97,
+          "amount": 2585,
+          "allocation": {
+            "33": 2585
+          }
+        },
+        {
+          "timestamp": 1393891,
+          "source": 33,
+          "target": 97,
+          "amount": 2736,
+          "allocation": {
+            "33": 2736
+          }
+        },
+        {
+          "timestamp": 1395893,
+          "source": 33,
+          "target": 97,
+          "amount": 3647,
+          "allocation": {
+            "33": 3647
+          }
+        },
+        {
+          "timestamp": 1399576,
+          "source": 33,
+          "target": 97,
+          "amount": 3977,
+          "allocation": {
+            "33": 3977
+          }
+        },
+        {
+          "timestamp": 1401581,
+          "source": 33,
+          "target": 97,
+          "amount": 4396,
+          "allocation": {
+            "33": 4396
+          }
+        },
+        {
+          "timestamp": 1403569,
+          "source": 33,
+          "target": 97,
+          "amount": 4396,
+          "allocation": {
+            "33": 4396
+          }
+        },
+        {
+          "timestamp": 1405574,
+          "source": 33,
+          "target": 97,
+          "amount": 4396,
+          "allocation": {
+            "33": 4396
+          }
+        },
+        {
+          "timestamp": 1407595,
+          "source": 33,
+          "target": 97,
+          "amount": 4396,
+          "allocation": {
+            "33": 4396
+          }
+        }
+      ],
+      "mage_rows": [
+        {
+          "actor": 33,
+          "name": "Thepinkmeow",
+          "recorded_category": "Fire",
+          "recorded_dps": 1476.15,
+          "native_non_ignite": 34666,
+          "attributed_ignite_candidate": 32741,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 1476.1518920812894,
+          "display_rounding_halfwidth": 0.005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 1476.1518920812894,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 1,
+          "name": "Akarah",
+          "recorded_category": "Frost",
+          "recorded_dps": 46.8641,
+          "native_non_ignite": 2140,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 46.86405045550105,
+          "display_rounding_halfwidth": 5e-05,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 46.86405045550105,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 46,
+          "name": "Wesh",
+          "recorded_category": "Frost",
+          "recorded_dps": 348.239,
+          "native_non_ignite": 15272,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 1869,
+          "candidate_dps": 334.4428871758935,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": false,
+          "observed_controlled_player_impacts": [
+            {
+              "relative_ms": 13068,
+              "target": 23,
+              "ability": 10187,
+              "amount": 210,
+              "latest_transition_ms": 11262,
+              "observed_control_state": true
+            },
+            {
+              "relative_ms": 14056,
+              "target": 23,
+              "ability": 10187,
+              "amount": 210,
+              "latest_transition_ms": 11262,
+              "observed_control_state": true
+            },
+            {
+              "relative_ms": 14289,
+              "target": 18,
+              "ability": 10187,
+              "amount": 210,
+              "latest_transition_ms": 12873,
+              "observed_control_state": true
+            }
+          ],
+          "observed_controlled_player_damage": 630,
+          "candidate_with_observed_controlled_players_dps": 348.239313244569,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 21,
+          "name": "Spores",
+          "recorded_category": "Frost",
+          "recorded_dps": 42.0244,
+          "native_non_ignite": 1919,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 42.02435178696566,
+          "display_rounding_halfwidth": 5e-05,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 42.02435178696566,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 32,
+          "name": "Zerosum",
+          "recorded_category": "Frost",
+          "recorded_dps": 118.058,
+          "native_non_ignite": 5391,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 118.05798878766643,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 118.05798878766643,
+          "matches_recorded_after_control_state": true
+        }
+      ],
+      "response_sha256": "b3100c40117e0ebc49298535fba8de5bca8b9eedca301ea3b11dcaa9ae8befe5"
+    },
+    {
+      "report": "d29y8an3WQjfkcNB",
+      "fight": 6,
+      "revision": 1,
+      "visibility_before_after": [
+        "public",
+        "public"
+      ],
+      "duration_s": 14.834,
+      "terminal_all_and_critical_pages": true,
+      "native_target_actor_game_ids": {
+        "61": 12118,
+        "63": 12119
+      },
+      "eligible_fire_critical_actors_by_target": {
+        "61": [
+          1,
+          16
+        ]
+      },
+      "ticks": [
+        {
+          "timestamp": 6333822,
+          "source": 16,
+          "target": 61,
+          "amount": 150,
+          "allocation": {
+            "16": 75,
+            "1": 75
+          }
+        },
+        {
+          "timestamp": 6335850,
+          "source": 16,
+          "target": 61,
+          "amount": 1302,
+          "allocation": {
+            "16": 651,
+            "1": 651
+          }
+        },
+        {
+          "timestamp": 6337964,
+          "source": 16,
+          "target": 61,
+          "amount": 2133,
+          "allocation": {
+            "16": 1067,
+            "1": 1066
+          }
+        },
+        {
+          "timestamp": 6339817,
+          "source": 16,
+          "target": 61,
+          "amount": 2134,
+          "allocation": {
+            "16": 1067,
+            "1": 1067
+          }
+        },
+        {
+          "timestamp": 6341808,
+          "source": 16,
+          "target": 61,
+          "amount": 2133,
+          "allocation": {
+            "16": 1067,
+            "1": 1066
+          }
+        }
+      ],
+      "mage_rows": [
+        {
+          "actor": 1,
+          "name": "Marree",
+          "recorded_category": "Fire",
+          "recorded_dps": 910.476,
+          "native_non_ignite": 9083,
+          "attributed_ignite_candidate": 3925,
+          "excluded_non_native_raw": 498,
+          "candidate_dps": 876.9044087906162,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": false,
+          "observed_controlled_player_impacts": [
+            {
+              "relative_ms": 14678,
+              "target": 44,
+              "ability": 10161,
+              "amount": 498,
+              "latest_transition_ms": 14559,
+              "observed_control_state": true
+            }
+          ],
+          "observed_controlled_player_damage": 498,
+          "candidate_with_observed_controlled_players_dps": 910.4759336659026,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 16,
+          "name": "Winecooler",
+          "recorded_category": "Fire",
+          "recorded_dps": 984.428,
+          "native_non_ignite": 10676,
+          "attributed_ignite_candidate": 3927,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 984.4276661723069,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 984.4276661723069,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 15,
+          "name": "Stratix",
+          "recorded_category": "Frost",
+          "recorded_dps": 238.506,
+          "native_non_ignite": 3538,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 238.50613455575032,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 238.50613455575032,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 17,
+          "name": "Frankblue",
+          "recorded_category": "Frost",
+          "recorded_dps": 204.193,
+          "native_non_ignite": 3029,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 204.19306997438318,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 204.19306997438318,
+          "matches_recorded_after_control_state": true
+        }
+      ],
+      "response_sha256": "60f048d15abe9f8d50dd7f89e1301127f362510b77ab1199c86f5aee0c39f81b"
+    },
+    {
+      "report": "N3R8HgyZx467XdAF",
+      "fight": 32,
+      "revision": 1,
+      "visibility_before_after": [
+        "public",
+        "public"
+      ],
+      "duration_s": 14.652,
+      "terminal_all_and_critical_pages": true,
+      "native_target_actor_game_ids": {
+        "125": 12118,
+        "126": 12119
+      },
+      "eligible_fire_critical_actors_by_target": {
+        "125": [
+          5,
+          18,
+          21
+        ],
+        "126": [
+          21
+        ]
+      },
+      "ticks": [
+        {
+          "timestamp": 8891042,
+          "source": 5,
+          "target": 125,
+          "amount": 792,
+          "allocation": {
+            "18": 264,
+            "21": 264,
+            "5": 264
+          }
+        },
+        {
+          "timestamp": 8893036,
+          "source": 5,
+          "target": 125,
+          "amount": 792,
+          "allocation": {
+            "18": 264,
+            "21": 264,
+            "5": 264
+          }
+        },
+        {
+          "timestamp": 8895201,
+          "source": 5,
+          "target": 125,
+          "amount": 1328,
+          "allocation": {
+            "18": 442,
+            "21": 442,
+            "5": 444
+          }
+        },
+        {
+          "timestamp": 8897195,
+          "source": 5,
+          "target": 125,
+          "amount": 1367,
+          "allocation": {
+            "18": 455,
+            "21": 455,
+            "5": 457
+          }
+        },
+        {
+          "timestamp": 8898131,
+          "source": 21,
+          "target": 126,
+          "amount": 86,
+          "allocation": {
+            "21": 86
+          }
+        },
+        {
+          "timestamp": 8901283,
+          "source": 5,
+          "target": 125,
+          "amount": 536,
+          "allocation": {
+            "18": 178,
+            "21": 178,
+            "5": 180
+          }
+        }
+      ],
+      "mage_rows": [
+        {
+          "actor": 21,
+          "name": "Callmejinx",
+          "recorded_category": "Fire",
+          "recorded_dps": 459.664,
+          "native_non_ignite": 5046,
+          "attributed_ignite_candidate": 1689,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 459.6642096642097,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 459.6642096642097,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 18,
+          "name": "Råiny",
+          "recorded_category": "Fire",
+          "recorded_dps": 685.094,
+          "native_non_ignite": 8435,
+          "attributed_ignite_candidate": 1603,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 685.0941850941851,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 685.0941850941851,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 5,
+          "name": "Fubbz",
+          "recorded_category": "Fire",
+          "recorded_dps": 662.708,
+          "native_non_ignite": 8101,
+          "attributed_ignite_candidate": 1609,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 662.7081627081627,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 662.7081627081627,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 32,
+          "name": "Mimich",
+          "recorded_category": "Frost",
+          "recorded_dps": 0,
+          "native_non_ignite": 0,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 0.0,
+          "display_rounding_halfwidth": 0.5,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 0.0,
+          "matches_recorded_after_control_state": true
+        }
+      ],
+      "response_sha256": "ec51b2c088c43e79d1b7f4a26b92a1f3c734cff9beb2d36675705eb13044b563"
+    },
+    {
+      "report": "NrwC9ayfHDjXL2Fk",
+      "fight": 11,
+      "revision": 1,
+      "visibility_before_after": [
+        "public",
+        "public"
+      ],
+      "duration_s": 24.016,
+      "terminal_all_and_critical_pages": true,
+      "native_target_actor_game_ids": {
+        "77": 12118,
+        "78": 12119
+      },
+      "eligible_fire_critical_actors_by_target": {
+        "77": [
+          4,
+          41
+        ]
+      },
+      "ticks": [
+        {
+          "timestamp": 457265,
+          "source": 41,
+          "target": 77,
+          "amount": 1195,
+          "allocation": {
+            "41": 598,
+            "4": 597
+          }
+        },
+        {
+          "timestamp": 459255,
+          "source": 41,
+          "target": 77,
+          "amount": 2381,
+          "allocation": {
+            "41": 1191,
+            "4": 1190
+          }
+        },
+        {
+          "timestamp": 461253,
+          "source": 41,
+          "target": 77,
+          "amount": 2380,
+          "allocation": {
+            "41": 1190,
+            "4": 1190
+          }
+        },
+        {
+          "timestamp": 463340,
+          "source": 41,
+          "target": 77,
+          "amount": 4857,
+          "allocation": {
+            "41": 2429,
+            "4": 2428
+          }
+        },
+        {
+          "timestamp": 465347,
+          "source": 41,
+          "target": 77,
+          "amount": 5501,
+          "allocation": {
+            "41": 2751,
+            "4": 2750
+          }
+        },
+        {
+          "timestamp": 467337,
+          "source": 41,
+          "target": 77,
+          "amount": 5501,
+          "allocation": {
+            "41": 2751,
+            "4": 2750
+          }
+        }
+      ],
+      "mage_rows": [
+        {
+          "actor": 4,
+          "name": "Spoochog",
+          "recorded_category": "Fire",
+          "recorded_dps": 1345.98,
+          "native_non_ignite": 21420,
+          "attributed_ignite_candidate": 10905,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 1345.9776815456364,
+          "display_rounding_halfwidth": 0.005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 1345.9776815456364,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 41,
+          "name": "Benoii",
+          "recorded_category": "Fire",
+          "recorded_dps": 1352.31,
+          "native_non_ignite": 21567,
+          "attributed_ignite_candidate": 10910,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 1352.306795469687,
+          "display_rounding_halfwidth": 0.005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 1352.306795469687,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 45,
+          "name": "Furusato",
+          "recorded_category": "Frost",
+          "recorded_dps": 232.761,
+          "native_non_ignite": 5590,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 232.76149233844106,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 232.76149233844106,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 38,
+          "name": "Bushes",
+          "recorded_category": "Frost",
+          "recorded_dps": 205.03,
+          "native_non_ignite": 4924,
+          "attributed_ignite_candidate": 0,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 205.02998001332446,
+          "display_rounding_halfwidth": 0.005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 205.02998001332446,
+          "matches_recorded_after_control_state": true
+        }
+      ],
+      "response_sha256": "7ba17bdb2cfaf52204ab4ae9396c070e16ab5006114b26b17c0ee2f29ef87889"
+    },
+    {
+      "report": "W4PfFDJTBLtH2bYk",
+      "fight": 2,
+      "revision": 1,
+      "visibility_before_after": [
+        "public",
+        "public"
+      ],
+      "duration_s": 19.981,
+      "terminal_all_and_critical_pages": true,
+      "native_target_actor_game_ids": {
+        "66": 12118,
+        "67": 12119
+      },
+      "eligible_fire_critical_actors_by_target": {
+        "66": [
+          26,
+          29,
+          30,
+          36,
+          39
+        ]
+      },
+      "ticks": [
+        {
+          "timestamp": 188824,
+          "source": 39,
+          "target": 66,
+          "amount": 123,
+          "allocation": {
+            "36": 24,
+            "39": 27,
+            "26": 24,
+            "29": 24,
+            "30": 24
+          }
+        },
+        {
+          "timestamp": 190825,
+          "source": 39,
+          "target": 66,
+          "amount": 755,
+          "allocation": {
+            "36": 151,
+            "39": 151,
+            "26": 151,
+            "29": 151,
+            "30": 151
+          }
+        },
+        {
+          "timestamp": 192819,
+          "source": 39,
+          "target": 66,
+          "amount": 1870,
+          "allocation": {
+            "36": 374,
+            "39": 374,
+            "26": 374,
+            "29": 374,
+            "30": 374
+          }
+        },
+        {
+          "timestamp": 194830,
+          "source": 39,
+          "target": 66,
+          "amount": 1870,
+          "allocation": {
+            "36": 374,
+            "39": 374,
+            "26": 374,
+            "29": 374,
+            "30": 374
+          }
+        },
+        {
+          "timestamp": 196827,
+          "source": 39,
+          "target": 66,
+          "amount": 1870,
+          "allocation": {
+            "36": 374,
+            "39": 374,
+            "26": 374,
+            "29": 374,
+            "30": 374
+          }
+        },
+        {
+          "timestamp": 198814,
+          "source": 39,
+          "target": 66,
+          "amount": 1870,
+          "allocation": {
+            "36": 374,
+            "39": 374,
+            "26": 374,
+            "29": 374,
+            "30": 374
+          }
+        },
+        {
+          "timestamp": 200817,
+          "source": 39,
+          "target": 66,
+          "amount": 1869,
+          "allocation": {
+            "36": 373,
+            "39": 377,
+            "26": 373,
+            "29": 373,
+            "30": 373
+          }
+        },
+        {
+          "timestamp": 203064,
+          "source": 39,
+          "target": 66,
+          "amount": 1403,
+          "allocation": {
+            "36": 280,
+            "39": 283,
+            "26": 280,
+            "29": 280,
+            "30": 280
+          }
+        }
+      ],
+      "mage_rows": [
+        {
+          "actor": 26,
+          "name": "Akarialol",
+          "recorded_category": "Fire",
+          "recorded_dps": 302.638,
+          "native_non_ignite": 3723,
+          "attributed_ignite_candidate": 2324,
+          "excluded_non_native_raw": 403,
+          "candidate_dps": 302.6375056303488,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 302.6375056303488,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 30,
+          "name": "Nagaoss",
+          "recorded_category": "Fire",
+          "recorded_dps": 615.285,
+          "native_non_ignite": 9970,
+          "attributed_ignite_candidate": 2324,
+          "excluded_non_native_raw": 948,
+          "candidate_dps": 615.2845202942796,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 615.2845202942796,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 36,
+          "name": "Lexzor",
+          "recorded_category": "Fire",
+          "recorded_dps": 548.821,
+          "native_non_ignite": 8642,
+          "attributed_ignite_candidate": 2324,
+          "excluded_non_native_raw": 0,
+          "candidate_dps": 548.8213803112957,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 548.8213803112957,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 39,
+          "name": "Xev",
+          "recorded_category": "Fire",
+          "recorded_dps": 519.093,
+          "native_non_ignite": 8038,
+          "attributed_ignite_candidate": 2334,
+          "excluded_non_native_raw": 15,
+          "candidate_dps": 519.0931384815574,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 519.0931384815574,
+          "matches_recorded_after_control_state": true
+        },
+        {
+          "actor": 29,
+          "name": "Barteklëwl",
+          "recorded_category": "Fire",
+          "recorded_dps": 632.801,
+          "native_non_ignite": 10320,
+          "attributed_ignite_candidate": 2324,
+          "excluded_non_native_raw": 13,
+          "candidate_dps": 632.8011611030479,
+          "display_rounding_halfwidth": 0.0005,
+          "matches_rounding": true,
+          "observed_controlled_player_impacts": [],
+          "observed_controlled_player_damage": 0,
+          "candidate_with_observed_controlled_players_dps": 632.8011611030479,
+          "matches_recorded_after_control_state": true
+        }
+      ],
+      "response_sha256": "ccec161afc72e447400a0133b9570bbc9dae8d4e3c6b71d141742621da52a025"
+    }
+  ],
+  "result": {
+    "reports": 7,
+    "mage_rows": 27,
+    "rounding_matches_after_observed_control": 27,
+    "native_target_recipient_sizes_observed": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "runtime_validated": false
+  }
+}

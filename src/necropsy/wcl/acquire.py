@@ -1062,8 +1062,10 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
                 raise InvalidResponse(f"{code} fight {e.fight_id} is claimed by two bosses")
         fight_ids = tuple(sorted(encounters))
         locate = FightKey(run.site, code, revision, fight_ids[0])
-        # Rankings/archive access metadata can change without a report revision.
-        # Finalize afresh, then bind this run to the exact content-addressed answer.
+        # Finalization has its own journal scope: the first answer is independent
+        # of acquisition metadata, which can change without a revision. Resume
+        # retains successful historical finalizations so small-quota runs progress;
+        # this is not a global point-in-time view. Bind the exact captured answer.
         run.stage = f"combined report {code} fights {list(fight_ids)}"
         try:
             run.client.ensure_budget(None)

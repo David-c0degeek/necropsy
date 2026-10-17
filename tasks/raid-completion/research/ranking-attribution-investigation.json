@@ -1,0 +1,545 @@
+{
+  "reviewed": "2026-10-17",
+  "classification": "Research hypotheses only; no validated runtime ranking rule.",
+  "primary_historical_source": {
+    "url": "https://forums.combatlogforums.com/t/ignite-distribution-on-bosses-with-adds-gluth-in-particular/11194",
+    "author": "Kihra",
+    "dates": [
+      "2021-01-30",
+      "2021-02-01"
+    ],
+    "supported_claims": [
+      "A fire-spell critical hit is required to receive an Ignite share.",
+      "A per-target sharing change was announced as deploying on 2021-02-01."
+    ],
+    "limits": [
+      "Historical statements do not certify the current Era eligibility, death behavior, exact recipient set or rounding algorithm.",
+      "The initial user post contains explicitly observational hypotheses; those are not server specification."
+    ]
+  },
+  "raw_fixture": "tests/golden/raids/raw/mc-mage-fire.zip",
+  "independent_source_owned_rows": [
+    {
+      "report": "BdvZVpy2nhX8L3rY",
+      "fight": 7,
+      "actor": 33,
+      "name": "Thepinkmeow",
+      "revision": 10041,
+      "duration_s": 45.664,
+      "recorded_dps": 1476.15,
+      "raw_damage": 67407,
+      "own_ignite": 32741,
+      "non_ignite": 34666,
+      "required_credit_if_only_ignite_differs": 32740.9136,
+      "rounding_amount_halfwidth": 0.22832000000000002,
+      "damage_by_actor": {
+        "97": 67407
+      },
+      "own_fire_hit_types": {
+        "16": 2,
+        "17": 3,
+        "2": 8,
+        "1": 10
+      }
+    },
+    {
+      "report": "NrwC9ayfHDjXL2Fk",
+      "fight": 11,
+      "actor": 41,
+      "name": "Benoii",
+      "revision": 1,
+      "duration_s": 24.016,
+      "recorded_dps": 1352.31,
+      "raw_damage": 43382,
+      "own_ignite": 21815,
+      "non_ignite": 21567,
+      "required_credit_if_only_ignite_differs": 10910.076959999995,
+      "rounding_amount_halfwidth": 0.12007999999999999,
+      "damage_by_actor": {
+        "77": 43382
+      },
+      "own_fire_hit_types": {
+        "1": 4,
+        "2": 5
+      }
+    },
+    {
+      "report": "QGJ9N7nA6aPjgB8L",
+      "fight": 4,
+      "actor": 35,
+      "name": "Darkwizzardo",
+      "revision": 1,
+      "duration_s": 21.905,
+      "recorded_dps": 1359.78,
+      "raw_damage": 29786,
+      "own_ignite": 12448,
+      "non_ignite": 17338,
+      "required_credit_if_only_ignite_differs": 12447.980900000002,
+      "rounding_amount_halfwidth": 0.10952500000000001,
+      "damage_by_actor": {
+        "77": 2568,
+        "78": 27218
+      },
+      "own_fire_hit_types": {
+        "1": 4,
+        "2": 3,
+        "16": 2
+      }
+    },
+    {
+      "report": "ZtdrNjL4RDWkBnCv",
+      "fight": 6,
+      "actor": 29,
+      "name": "Athaleet",
+      "revision": 42,
+      "duration_s": 29.671,
+      "recorded_dps": 1525.13,
+      "raw_damage": 45252,
+      "own_ignite": 18297,
+      "non_ignite": 26955,
+      "required_credit_if_only_ignite_differs": 18297.132230000003,
+      "rounding_amount_halfwidth": 0.148355,
+      "damage_by_actor": {
+        "86": 45252
+      },
+      "own_fire_hit_types": {
+        "17": 8,
+        "2": 4,
+        "1": 5
+      }
+    },
+    {
+      "report": "bYCXzLpPMWctgkaf",
+      "fight": 8,
+      "actor": 43,
+      "name": "Suffel",
+      "revision": 50,
+      "duration_s": 34.995,
+      "recorded_dps": 2095.24,
+      "raw_damage": 73323,
+      "own_ignite": 42381,
+      "non_ignite": 30942,
+      "required_credit_if_only_ignite_differs": 42380.92379999999,
+      "rounding_amount_halfwidth": 0.174975,
+      "damage_by_actor": {
+        "94": 73323
+      },
+      "own_fire_hit_types": {
+        "17": 2,
+        "1": 9,
+        "16": 4,
+        "2": 8
+      }
+    },
+    {
+      "report": "qfbMdVpkn6xAvYTW",
+      "fight": 4,
+      "actor": 1,
+      "name": "Kadouche",
+      "revision": 1,
+      "duration_s": 29.916,
+      "recorded_dps": 1378.43,
+      "raw_damage": 41237,
+      "own_ignite": 20330,
+      "non_ignite": 20907,
+      "required_credit_if_only_ignite_differs": 20330.111880000004,
+      "rounding_amount_halfwidth": 0.14958000000000002,
+      "damage_by_actor": {
+        "85": 41237
+      },
+      "own_fire_hit_types": {
+        "1": 5,
+        "17": 2,
+        "16": 1,
+        "2": 7,
+        "14": 1
+      }
+    }
+  ],
+  "benoii_tick_hypotheses": {
+    "report": "NrwC9ayfHDjXL2Fk",
+    "fight": 11,
+    "actor": 41,
+    "target_actor": 77,
+    "target_game_id": 12118,
+    "duration_s": 24.016,
+    "raw_ignite_ticks": [
+      1195,
+      2381,
+      2380,
+      4857,
+      5501,
+      5501
+    ],
+    "non_ignite_damage": 21567,
+    "recorded_dps": 1352.31,
+    "candidate_equal_two_way_credit": {
+      "half_total": 10907.5,
+      "sum_floor_each": 10905,
+      "sum_python_round_each": 10906,
+      "sum_ceil_each": 10910
+    },
+    "sum_ceil_each_candidate_dps": 1352.306795469687,
+    "warning": "Two eligible recipients and upward per-event rounding are not yet proven. A different global Ignite source could also affect the result. Exact candidate agreement alone does not validate the model.",
+    "supported_by_whole_fight": {
+      "all_ignite_source": 41,
+      "all_ignite_target": 77,
+      "critical_fire_mages": [
+        4,
+        41
+      ],
+      "non_ignite_damage_spoochog": 21420,
+      "non_ignite_damage_benoii": 21567,
+      "recorded_dps_spoochog": 1345.98,
+      "conserved_distribution_candidate": {
+        "spoochog_floor_each_total": 10905,
+        "benoii_remainder_total": 10910,
+        "spoochog_candidate_dps": 1345.9776815456364,
+        "benoii_candidate_dps": 1352.306795469687
+      },
+      "limitation": "Both recorded values round-match with per-tick floor shares to other eligible Mages and remainder to the raw owner. One/two recipient cases do not prove general >2 allocation, death behavior, mixed emitters or target scope."
+    }
+  },
+  "next_checks": [
+    "Collect additional >2 eligible-Mage, mixed emitter, different target and death cases before implementing attribution.",
+    "Verify counts of eligible fire critical recipients and conserved per-event remainder policy against multiple independent recorded rows.",
+    "Develop coverage-qualified observed hostile-player states without guide timing or inferred initial aura state.",
+    "Normal raw acquisition still needs required global or recipient streams before any reconstructed rank can rely on these research fields.",
+    "Retain recorded WCL scores and unknown reconstructed totals until all necessary policies and source coverage reconcile."
+  ],
+  "other_counterexamples": {
+    "fixture": "tests/golden/raids/raw/mc-hunter.zip",
+    "charies": {
+      "report": "d29y8an3WQjfkcNB",
+      "fight": 6,
+      "actor": 25,
+      "player_recipient_damage": [
+        {
+          "timestamp": 6338152,
+          "target": 19,
+          "name": "Jamahl",
+          "spell": 23063,
+          "name_spell": "Dense Dynamite",
+          "amount": 321
+        },
+        {
+          "timestamp": 6341845,
+          "target": 3,
+          "name": "Vaelin",
+          "spell": 25294,
+          "name_spell": "Multi-Shot",
+          "amount": 533
+        }
+      ],
+      "raw_report_date": "2025-08-07"
+    },
+    "jackieesmg": {
+      "report": "3mDNGhW4QkrPjny7",
+      "fight": 4,
+      "actor": 37,
+      "player_recipient_damage": [
+        {
+          "timestamp": 472946,
+          "target": 32,
+          "name": "Lollygagging",
+          "spell": 25294,
+          "name_spell": "Multi-Shot",
+          "amount": 686
+        }
+      ],
+      "raw_report_date": "2024-07-31"
+    },
+    "limit": "Player-recipient damage alone does not explain the different recorded residuals. Confirm control state, ownership, eligibility and score version; do not blanket-exclude every player recipient."
+  },
+  "hit_type_boundary": {
+    "reviewed_source": "https://github.com/WoWAnalyzer/WoWAnalyzer/blob/midnight/src/game/HIT_TYPES.ts",
+    "retrieved": "2026-10-17",
+    "supported": "Current source labels hitType2 critical and5 blocked-critical.",
+    "not_certified": "This is a consumer implementation, not a complete Classic Era server enum. Real frozen Mage events also contain codes14/16/17; do not silently treat unknown codes as non-critical or derive critical status from damage magnitude. Confirm Classic semantics before using all raw events to construct Ignite recipient eligibility.",
+    "actual_samples": [
+      {
+        "spell": 10207,
+        "hitType": 16,
+        "amount": 389,
+        "resisted": 388
+      },
+      {
+        "spell": 10207,
+        "hitType": 17,
+        "amount": 845,
+        "resisted": 188
+      },
+      {
+        "spell": 10207,
+        "hitType": 14,
+        "amount": 0
+      }
+    ]
+  },
+  "frozen_report_mage_rankings": [
+    {
+      "report": "BdvZVpy2nhX8L3rY",
+      "fight": 7,
+      "recorded_mages": [
+        {
+          "name": "Thepinkmeow",
+          "category": "Fire",
+          "amount": 1476.15
+        },
+        {
+          "name": "Akarah",
+          "category": "Frost",
+          "amount": 46.8641
+        },
+        {
+          "name": "Wesh",
+          "category": "Frost",
+          "amount": 348.239
+        },
+        {
+          "name": "Spores",
+          "category": "Frost",
+          "amount": 42.0244
+        },
+        {
+          "name": "Zerosum",
+          "category": "Frost",
+          "amount": 118.058
+        }
+      ]
+    },
+    {
+      "report": "NrwC9ayfHDjXL2Fk",
+      "fight": 11,
+      "recorded_mages": [
+        {
+          "name": "Spoochog",
+          "category": "Fire",
+          "amount": 1345.98
+        },
+        {
+          "name": "Benoii",
+          "category": "Fire",
+          "amount": 1352.31
+        },
+        {
+          "name": "Furusato",
+          "category": "Frost",
+          "amount": 232.761
+        },
+        {
+          "name": "Bushes",
+          "category": "Frost",
+          "amount": 205.03
+        }
+      ]
+    },
+    {
+      "report": "QGJ9N7nA6aPjgB8L",
+      "fight": 4,
+      "recorded_mages": [
+        {
+          "name": "Darkwizzardo",
+          "category": "Fire",
+          "amount": 1359.78
+        },
+        {
+          "name": "Gurlag",
+          "category": "Frost",
+          "amount": 438.439
+        },
+        {
+          "name": "Tarkov",
+          "category": "Frost",
+          "amount": 919.653
+        }
+      ]
+    },
+    {
+      "report": "ZtdrNjL4RDWkBnCv",
+      "fight": 6,
+      "recorded_mages": [
+        {
+          "name": "Athaleet",
+          "category": "Fire",
+          "amount": 1525.13
+        },
+        {
+          "name": "Nextaruz",
+          "category": "Frost",
+          "amount": 57.7331
+        },
+        {
+          "name": "Meave",
+          "category": "Frost",
+          "amount": 0
+        },
+        {
+          "name": "Darkerdark",
+          "category": "Frost",
+          "amount": 72.8321
+        },
+        {
+          "name": "Scärymage",
+          "category": "Frost",
+          "amount": 214.486
+        },
+        {
+          "name": "Androomeda",
+          "category": "Frost",
+          "amount": 103.131
+        }
+      ]
+    },
+    {
+      "report": "bYCXzLpPMWctgkaf",
+      "fight": 8,
+      "recorded_mages": [
+        {
+          "name": "Suffel",
+          "category": "Fire",
+          "amount": 2095.24
+        },
+        {
+          "name": "Jeej",
+          "category": "Frost",
+          "amount": 115.474
+        },
+        {
+          "name": "Ahsokaa",
+          "category": "Frost",
+          "amount": 78.6398
+        },
+        {
+          "name": "Mtt",
+          "category": "Frost",
+          "amount": 196.285
+        }
+      ]
+    },
+    {
+      "report": "qfbMdVpkn6xAvYTW",
+      "fight": 4,
+      "recorded_mages": [
+        {
+          "name": "Kadouche",
+          "category": "Fire",
+          "amount": 1378.43
+        },
+        {
+          "name": "Vevella",
+          "category": "Frost",
+          "amount": 148.683
+        },
+        {
+          "name": "Balenciagas",
+          "category": "Frost",
+          "amount": 0
+        },
+        {
+          "name": "Breadline",
+          "category": "Frost",
+          "amount": 29.2151
+        }
+      ]
+    }
+  ],
+  "whole_fight_revision_checked_research": {
+    "retrieved": "2026-10-17",
+    "endpoint": "user",
+    "query": "Existing EVENTS_QUERY, sourceID=null,targetID=null,exact fight bounds, dataType All, resources,translation,limit10000; second query adds documented isCritical expression. Fresh nonjournal metadata before/after. Existing normal budget guard retained.",
+    "checks": [
+      {
+        "report": "NrwC9ayfHDjXL2Fk",
+        "fight": 11,
+        "revision": 1,
+        "public_before_after": true,
+        "same_revision_before_events_after": true,
+        "events": 3996,
+        "nextPageTimestamp": null,
+        "critical_event_count": 199,
+        "critical_nextPageTimestamp": null,
+        "server_critical_hit_codes": [
+          2,
+          5,
+          17
+        ],
+        "full_research_response_sha256": "7ba17bdb2cfaf52204ab4ae9396c070e16ab5006114b26b17c0ee2f29ef87889"
+      },
+      {
+        "report": "BdvZVpy2nhX8L3rY",
+        "fight": 7,
+        "revision": 10041,
+        "public_before_after": true,
+        "same_revision_before_events_after": true,
+        "events": 6752,
+        "nextPageTimestamp": null,
+        "critical_event_count": 242,
+        "critical_nextPageTimestamp": null,
+        "server_critical_hit_codes": [
+          2,
+          5,
+          17
+        ],
+        "full_research_response_sha256": "b3100c40117e0ebc49298535fba8de5bca8b9eedca301ea3b11dcaa9ae8befe5"
+      },
+      {
+        "report": "3mDNGhW4QkrPjny7",
+        "fight": 4,
+        "revision": 1,
+        "public_before_after": true,
+        "same_revision_before_events_after": true,
+        "events": 3895,
+        "nextPageTimestamp": null,
+        "critical_event_count": 220,
+        "critical_nextPageTimestamp": null,
+        "server_critical_hit_codes": [
+          2,
+          5,
+          17
+        ],
+        "full_research_response_sha256": "9fcb7d2b44a316c764d7acd13953cba8e8da5107208ce5d2162520fdc5f50a4a"
+      },
+      {
+        "report": "d29y8an3WQjfkcNB",
+        "fight": 6,
+        "revision": 1,
+        "public_before_after": true,
+        "same_revision_before_events_after": true,
+        "events": 3151,
+        "nextPageTimestamp": null,
+        "critical_event_count": 221,
+        "critical_nextPageTimestamp": null,
+        "server_critical_hit_codes": [
+          2,
+          5,
+          17
+        ],
+        "full_research_response_sha256": "60f048d15abe9f8d50dd7f89e1301127f362510b77ab1199c86f5aee0c39f81b"
+      }
+    ],
+    "selected_critical_reference": "https://vanilla.warcraftlogs.com/help/pins",
+    "interpretation": "Terminal same-revision public whole-fight research, not finalized actor-stream archives or matrix evidence."
+  },
+  "player_damage_state_observations": {
+    "jackieesmg": {
+      "target32_control_apply_s": 17.769,
+      "damage_s": 18.917,
+      "damage": 686,
+      "control_remove": "not observed before fight end",
+      "interpretation": "Positive observed controlled state at impact."
+    },
+    "charies": {
+      "target3_apply_s": 11.313,
+      "target3_remove_s": 12.143,
+      "damage_s": 12.23,
+      "damage": 533,
+      "target19_apply_s": 5.754,
+      "target19_remove_s": 6.929,
+      "other_damage_s": 8.537,
+      "other_damage": 321,
+      "interpretation": "Both hits land after observed control removals; neither recipient is controlled at impact according to these transitions."
+    },
+    "limitation": "This resolves the initial player-target counterexample at observation level; do not implement blanket player exclusion or certify complete Lucifron ranked reconstruction from only these cases."
+  }
+}

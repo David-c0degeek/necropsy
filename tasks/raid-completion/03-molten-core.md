@@ -47,6 +47,36 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 4 · Gehennas Mage evidence and ranking research · Normal quota
+retry finalized six Horde Fire/DPS sources; six independent cases, exact Curse
+window and applicable strategy replay pass. Overall23 archives/138 cases,
+22 IN_PROGRESS/930 TODO/0 COMPLETE. Raw and derived scans and four page checks
+pass; research/gehennas-mage-review.json retains exact scope. No selected Mage
+has source-owned Curse removal, so no measured-removal policy or assigned-job
+failure is fabricated. Full domain/role/ranking acceptance remains open.
+
+Whole-fight research across seven Lucifron reports reconciles27 Mage scores,
+including1/2/3/5 Ignite recipients and boss/add targets. Per-target recipient
+eligibility, conserved per-tick rounding/remainder and observed controlled-player
+impacts explain discrepancies; imported Core Hound damage is excluded. Runtime
+reconstruction remains disabled because normal actor-only captures lack required
+other-Mage/recipient streams and death/late-entry/other-boss applicability is
+unvalidated. Detailed independent arithmetic and primary historical WCL sources
+are retained in research/ignite-independent-reconciliation.json and
+research/ranking-attribution-investigation.json. No global point-in-time claim:
+ADR0008 intentionally reuses successfully finalized historical responses across
+resume attempts; clarified misleading source comment and kept behavior intact.
+The existing nojournal-fresh and journal-resume tests both pass (2/2.16 s).
+
+Interim Hindsight: **Keep** independent target/actor/state/tick arithmetic,
+normal quota retry and historical resume contract. **Fix before closing** global
+source acquisition plus complete ranking/duty/opportunity/class/domain evidence.
+**Record** rounding conserved at individual tick, control state at actual impact,
+and primary ADR review before treating journal reuse as a bug. **Risk** these
+sampled reconciliations do not certify every boss/partition/death case or supply
+absent global streams. Existing PM-1/PM-2/PM-3 remain pending full calibration.
+**Verdict: DO NOT CLOSE**; all full boxes and configurations remain incomplete.
+
 2026-10-17 · slice 3 · 03.1/03.2/03.4–03.8 partial · Added the finalized public
 Gehennas Holy seed and six independent raw actor cases: 22 archives / 132 cases
 overall, 21 IN_PROGRESS / 931 TODO / 0 COMPLETE. All original 126 expectations

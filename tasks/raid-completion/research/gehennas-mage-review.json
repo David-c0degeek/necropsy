@@ -1,0 +1,113 @@
+{
+  "reviewed": "2026-10-17",
+  "scope": "Gehennas Horde Fire Mage partial evidence; not full cell acceptance.",
+  "capture": {
+    "sources": 6,
+    "archive": "tests/golden/raids/raw/mc-gehennas-mage.zip",
+    "sha256": "ecab01ae49ef40aea7f384b0728d982c0cca76e1f3fd05843076c23e97438116",
+    "actor_cases": 6
+  },
+  "independent_register": {
+    "total_cases": 138,
+    "problems": []
+  },
+  "targeted_real_replay": {
+    "passed": 2,
+    "seconds": 6.39,
+    "fixtures": [
+      "mc-gehennas-holy",
+      "mc-gehennas-mage"
+    ]
+  },
+  "checks": [
+    {
+      "raid": "mc-gehennas-mage",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-gehennas-mage",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-gehennas-mage",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-gehennas-mage",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "secrets": {
+    "new_raw_extracted_bytes": 11004544,
+    "scanner": "gitleaks8.30.1",
+    "max_target_megabytes": 0,
+    "findings": 0
+  },
+  "observed_curse": {
+    "report": "x4zfwgJZTAV3PYQK",
+    "fight": 13,
+    "actor": 13,
+    "player": "Suffel",
+    "start_ms": 975032,
+    "end_ms": 1001082,
+    "relative_windows": [
+      [
+        0,
+        9.718,
+        null
+      ],
+      [
+        9.718,
+        15.769,
+        true
+      ],
+      [
+        15.769,
+        26.05,
+        false
+      ]
+    ]
+  },
+  "limits": [
+    "No selected Mage has source-owned Curse dispels in these six streams; no missed-duty score or control assignment inferred.",
+    "General Mage/Druid decurse strategy appears by applicability; healer-only strategy does not.",
+    "Ranking reconstruction remains unknown; transferred Ignite is not inferable from actor-only streams.",
+    "Full class/role/faction/boss acceptance remains open."
+  ]
+}

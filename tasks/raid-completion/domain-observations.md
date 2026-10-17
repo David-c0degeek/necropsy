@@ -157,3 +157,34 @@ source. Some actor-filtered event pages include other raid actors' dispels;
 explicit local emitter/recipient matching remains required. Raw catalog 19715
 is Counterspell; Rain of Fire is 19717. IDs and typed fields take precedence
 over guessed adjacency or localized display names.
+
+2026-10-17 ranking follow-up: seven fresh public/revision-checked terminal
+whole-fight research responses now reconcile 27 Mage scores within displayed
+rounding. Per native target, identify fire-critical Mage recipients using the
+documented server `isCritical` expression. A candidate Ignite allocation gives
+each floor(tick/recipient-count), retaining the remainder with the raw owner.
+Observed recipient counts include 1/2/3/5, with separate boss/Protector targets.
+All matches also require observed Dominate Mind state for player recipients
+at impact and exclusion of imported Core Hound damage. WCL developer Kihra's
+2021-01-30/02-01 posts confirm historical fire-crit/per-target attribution;
+current rounding remains an independently reconciled observation, not an
+official generalized specification. Research/ignite-independent-reconciliation.json
+retains exact components, tick allocations, identities, revisions and response
+digests. Research/ranking-attribution-investigation.json records constraints.
+
+Jackieesmg's player-target Multi-Shot lands during positive observed control;
+Charies's two player hits land after control removal. Three initial Mage
+residuals likewise match observed controlled-player impacts. This explains the
+prior counterexamples without a blanket player-target exclusion. Required
+recipient/global streams are not present in current actor-only snapshots, so
+no runtime ranking policy is enabled. Death/late entry, missing or conflicting
+control/recipient states, other bosses/partitions and mixed Ignite emitters
+remain explicit validation requirements. Raw critical codes also include17;
+the current WoWAnalyzer retail enum is not a complete Era contract.
+
+Resume assumption correction: a comment suggested every finalization response
+is fresh, but ADR0008 explicitly retains successful historical finalizations
+across attempts so quota-limited runs progress. The integration test requires
+that reuse and disclaims a global point-in-time claim. Preserved behavior and
+clarified the comment; before/after research checks use a separate nonjournal
+instance of the existing client. No cache, acquisition or quota policy change.

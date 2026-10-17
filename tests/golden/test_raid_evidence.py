@@ -103,6 +103,23 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] == "mc-gehennas-mage":
+        assert marker["subject"]["name"] == "Suffel"
+        (curse,) = boss["playbook"]["encounter_effects"]
+        assert curse["known_affected_s"]["value"] == pytest.approx(6.051)
+        assert curse["unknown_state_s"]["value"] == pytest.approx(9.718)
+        assert curse["windows"]["value"] == [
+            [0, 9.718, None],
+            [9.718, 15.769, True],
+            [15.769, 26.050, False],
+        ]
+        assert curse["transitions"]["value"] == [
+            [9.718, "applydebuff", 19716],
+            [15.769, "removedebuff", 19716],
+        ]
+        rules = {item["rule"] for item in boss["playbook"]["encounter_strategy"]["items"]}
+        assert "gehennas-assigned-decurse-v1" in rules
+        assert "gehennas-healing-recipient-context-v1" not in rules
     if fixture["label"] == "mc-gehennas-holy":
         assert marker["subject"]["name"] == "Almsivi"
         (curse,) = boss["playbook"]["encounter_effects"]
@@ -217,6 +234,8 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "mc-gehennas-mage":
+            assert "Gehennas' Curse: 6.05s known affected; 9.72s with unknown state." in html
         if fixture["label"] == "mc-gehennas-holy":
             assert "Gehennas' Curse: 4.06s known affected; 6.36s with unknown state." in html
             assert "your own curse window does not describe every patient" in html
