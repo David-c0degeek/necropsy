@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Ragnaros knockback recovery, conditional Sons control and
+  class-specific party support strategy. Retain a full ten-boss Molten Core
+  capture with independent actor/support checks and explicit unknown pet ownership.
+
 - Keep partial-acquisition retry advice independent of quota resets and preserve
   the declared talent tree in the printed resume command.
 

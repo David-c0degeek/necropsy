@@ -14,6 +14,8 @@ from necropsy.raids.scope import coverage_cells
 from necropsy.report.offline import run_offline
 from necropsy.report.package import package_name
 from necropsy.snapshot.archive import VerifiedArchive, load_entries_manifest, sha256_file
+from necropsy.snapshot.model import ActorRole, StreamStatus
+from necropsy.snapshot.v1 import open_snapshot
 from scripts.check_raid_coverage import ActorSource, Register, actor_problems
 from scripts.check_raid_facts import check_register
 
@@ -56,7 +58,8 @@ def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
 def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     fixture: dict[str, Any], tmp_path: Path
 ) -> None:
-    archive = ROOT / "raw" / f"{fixture['label']}.zip"
+    archive = ROOT / fixture.get("archive", f"raw/{fixture['label']}.zip")
+    assert archive.resolve().is_relative_to(ROOT.resolve())
     assert sha256_file(archive) == fixture["sha256"], "Fetch the authorized raid LFS fixtures"
     entries = load_entries_manifest(archive.with_suffix(".entries"))
     out = tmp_path / "report"
@@ -66,6 +69,19 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     healing_facts = json.loads((ROOT / "healing-facts.json").read_text(encoding="utf-8"))["cases"]
     with VerifiedArchive(archive, entries=entries) as raw:
         marker = raw.read_json("necropsy-snapshot.json")
+        if fixture["label"] == "mc-holy-raid":
+            reader = open_snapshot(raw)
+            assert reader.issues() == []
+            streams = reader.expected_streams()
+            players = [s for s in streams if s.role is ActorRole.PLAYER]
+            unresolved = [s for s in streams if s.role is ActorRole.PET_DISCOVERY]
+            assert len(players) == 120 and len(unresolved) == 2 and len(streams) == 122
+            assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in players)
+            assert all(reader.read_stream(s).status is StreamStatus.MISSING for s in unresolved)
+            assert {(s.report_code, s.fight_id) for s in unresolved} == {
+                ("BjygkHzvbZN3D6JX", 27),
+                ("TnL9YBfXWp7RvJQK", 6),
+            }
     assert doc["zone"]["id"] == marker["zone"]["id"]
     if fixture.get("encounter_context"):
         assert doc["snapshot"]["format"] == "necropsy-live-snapshot-v2"
@@ -74,9 +90,26 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             p["actor_id"] is None and p["direction"] == "all" for p in marker["encounter_streams"]
         )
         assert {p["role"] for p in marker["encounter_streams"]} == {"encounter", "critical"}
-    assert len(doc["bosses"]) == 1
-    boss = doc["bosses"][0]
-    expected = [f for f in facts if f["fixture"] == fixture["label"]]
+    selected = [f for f in facts if f["fixture"] == fixture["label"]]
+    assert len(selected) == fixture["sources"]
+    assert sum(len(f["participants"]) for f in marker["fights"]) == len(selected)
+    expected_encounters = set(fixture.get("encounters", [selected[0]["expected"]["encounter_id"]]))
+    assert {b["encounter_id"] for b in doc["bosses"]} == expected_encounters
+    for boss in doc["bosses"]:
+        expected = [f for f in selected if f["expected"]["encounter_id"] == boss["encounter_id"]]
+        assert expected
+        _assert_boss_replay(fixture, marker, doc, boss, expected, healing_facts, out)
+
+
+def _assert_boss_replay(
+    fixture: dict[str, Any],
+    marker: dict[str, Any],
+    doc: dict[str, Any],
+    boss: dict[str, Any],
+    expected: list[dict[str, Any]],
+    healing_facts: list[dict[str, Any]],
+    out: Path,
+) -> None:
     actual = (
         ([boss["subject"]] if boss["subject"] else [])
         + (

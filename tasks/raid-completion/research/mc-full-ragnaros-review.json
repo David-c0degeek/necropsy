@@ -1,0 +1,133 @@
+{
+  "reviewed": "2026-10-17",
+  "classification": "Full ten-boss actor evidence and initial Ragnaros strategy; incomplete class/phase/ranking/domain acceptance",
+  "archives": 36,
+  "independent_actor_cases": 270,
+  "original_actor_expectations_preserved": 210,
+  "separate_healing_cases": 126,
+  "matrix": {
+    "IN_PROGRESS": 35,
+    "TODO": 917,
+    "COMPLETE": 0
+  },
+  "new_archive": {
+    "label": "mc-holy-raid",
+    "sha256": "fac63ab153fd418b8460af3c5e772521bb5c715f380dcbcb6f9884672161d03d",
+    "raw_extracted_bytes": 141470611,
+    "original_filename": "74578049-2000-20261017T175812.zip",
+    "complete_player_streams": 120,
+    "missing_pet_listings": 2
+  },
+  "source_replay": {
+    "installed": false,
+    "bosses": 10,
+    "actor_cases": 60,
+    "healing_cases": 60,
+    "complete_player_streams": 120,
+    "missing_pet_listings": 2,
+    "artifacts_byte_identical": false,
+    "artifacts": [
+      "analysis.json",
+      "report.html",
+      "playbook.html",
+      "necropsy-74578049-2000.zip"
+    ]
+  },
+  "installed_replay": {
+    "installed": true,
+    "bosses": 10,
+    "actor_cases": 60,
+    "healing_cases": 60,
+    "complete_player_streams": 120,
+    "missing_pet_listings": 2,
+    "artifacts_byte_identical": true,
+    "artifacts": [
+      "analysis.json",
+      "report.html",
+      "playbook.html",
+      "necropsy-74578049-2000.zip"
+    ]
+  },
+  "independent_and_representative_goldens": {
+    "passed": 5,
+    "deselected": 34,
+    "seconds": 90.29
+  },
+  "current_strategy_and_full_golden": {
+    "passed": 12,
+    "deselected": 38,
+    "seconds": 43.72
+  },
+  "browser": [
+    {
+      "raid": "full",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 10,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "full",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 10,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "full",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 10,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "full",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 10,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "privacy": {
+    "scanner": "gitleaks8.30.1, unlimited extracted members/output",
+    "raw_bytes": 141470611,
+    "build_source_installed_package_bytes": 371588287,
+    "scanner_output_bytes": 371572055,
+    "findings": 0
+  },
+  "lint_types_docs": "Ruff clean; mypy source101 plus changed golden test clean;291 local links/25 maintained docs",
+  "strict_coverage": "Expected exit1, no structural problems",
+  "naxx": "Current full historical replay matches baseline30e89ce for analysis.json, Report, Playbook and package, all4 byte-identical; no oracle regeneration.",
+  "hindsight": {
+    "keep": "Immutable original full archive and independent source arithmetic; per-boss shared golden assertions; saved-only shared strategies and explicit missing pet discovery.",
+    "fix_before_closing": "Full phase/opportunity/ranking/class/faction/duty/loadout and human domain/product obligations.",
+    "record": "Archive has60 actor cases in57 fights, not60 independent fights; retain120 complete player directions plus2 missing pet listings.",
+    "risk": "Unmarked long-fight submerge; source direction arithmetic never certifies pet completeness or successful control.",
+    "verdict": "DO NOT CLOSE",
+    "premortem": "PM-1/2/3 guardrails retained; full calibration pending"
+  }
+}

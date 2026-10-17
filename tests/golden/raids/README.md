@@ -51,7 +51,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for66 retained HPS actor cases, without changing original actor expectations:
+for126 retained HPS actor cases, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -61,3 +61,10 @@ Its `healing-recipients` kind binds explicit boss identities, friendly roster,
 source ownership, actual amounts and combined support. It does not certify a
 universal ranked HPS policy. Six source participants can share fewer fights;
 actorless scopes are certified once per distinct fight, not per participant.
+
+The full `mc-holy-raid` capture retains its original ZIP, member manifest and
+hash filenames in a nested directory. Its 60 actor cases span all ten bosses
+and 57 fights. All 120 player directions are complete; two pet discovery
+listings retain unresolved ownership and missing coverage. The capture remains
+partial. It supplements stronger encounter-context fixtures rather than
+replacing them or certifying complete pet coverage.

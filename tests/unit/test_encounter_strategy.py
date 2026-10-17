@@ -18,6 +18,7 @@ def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> Non
         ("mc", 50669),
         ("mc", 50670),
         ("mc", 50671),
+        ("mc", 50672),
         ("bwl", 50631),
         ("aq40", 50713),
     ):
@@ -105,7 +106,7 @@ def test_sulfuron_support_capabilities_use_named_classes_without_assigning_duty(
 
 
 def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:
-    assert encounter_strategy("mc", 50672, 1, 3, "dps") is None
+    assert encounter_strategy("mc", 50709, 1, 3, "dps") is None
     assert encounter_strategy("mc", 50631, 1, 3, "dps") is None
     for partition in (3, 7, 11, True):
         assert encounter_strategy("mc", 50663, partition, 3, "dps") is None
@@ -131,3 +132,18 @@ def test_majordomo_control_capability_is_mage_specific_and_healing_is_metric_spe
             rules = {item.rule for item in strategy.items}
             assert ("majordomo-assigned-polymorph-v1" in rules) is (name == "Mage")
             assert ("majordomo-healing-coverage-v1" in rules) is (metric == "hps")
+
+
+def test_ragnaros_party_support_and_sons_capabilities_use_named_classes() -> None:
+    for class_id, name in CLASS_NAMES.items():
+        strategy = encounter_strategy("mc", 50672, 1, class_id, "hps")
+        assert strategy
+        rules = {item.rule for item in strategy.items}
+        for rule, owner in (
+            ("ragnaros-hunter-sons-control-v1", "Hunter"),
+            ("ragnaros-mage-sons-control-v1", "Mage"),
+            ("ragnaros-paladin-party-support-v1", "Paladin"),
+            ("ragnaros-shaman-party-support-v1", "Shaman"),
+        ):
+            assert (rule in rules) is (name == owner)
+        assert "ragnaros-healing-context-v1" in rules

@@ -44,6 +44,40 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 17 / Full ten-boss MC capture independently registered,
+without cutting or rewriting the normal CLI archive.60 actor cases in57 fights
+and60 separate recipient-qualified support cases bring totals to36 archives,
+270 actor cases and126 healing cases; all original210 actor expectations remain
+unchanged. Added only missing Garr/Ragnaros Holy cells, preserving stronger
+existing format2 receipts:35 IN_PROGRESS/917 TODO/0 COMPLETE.120 player streams
+are complete; two unresolved pet discovery listings remain explicitly MISSING.
+Nested original filenames retain ZIP/member/hash provenance and Git LFS coverage.
+
+Added sourced initial Ragnaros recovery, conditional Hunter/Mage Sons control,
+Paladin Aura19900 and Shaman Totem10538 party capability. All nine named classes
+are checked; no assignment or successful effect inferred. Long372.315-second
+public research has Sons but no20567 marker and null API phaseTransitions; do
+not derive vulnerability/submerge boundaries from guide or addon timers.
+Static facts and strategy remain separate from personal findings.
+
+Shared existing golden assertions now run per actual boss for multi-boss
+archives. Independent checks plus three representative replay cases pass5/90.29s;
+current strategy and full golden pass12/43.72s, including exact missing pet
+coverage. Source/fresh installed wheel outside checkout match all4 JSON/Report/
+Playbook/package artifacts for10 bosses and60 actor/support cases. Both pages
+pass desktop/mobile/no-network/errors/overflow/print checks; Ragnaros mobile
+content visually inspected. Unlimited gitleaks:141,470,611 extracted raw bytes
+and371,588,287 build/source/installed/package bytes, zero findings. Ruff, mypy and
+291 local doc links pass. Updated raid docs, changelog, fixture guide and dossier.
+No shared runtime or Naxx oracle changes. See research/mc-full-ragnaros-review.json.
+
+Interim Captain Hindsight: Keep immutable multi-boss inputs and independent
+actor/recipient arithmetic; fix remaining full class/faction/duty, phase,
+ranking, loadout and human review obligations. Record60 cases/57 fights and
+120 complete player plus2 missing pet-discovery streams; source arithmetic
+never implies complete pets. PM-1/PM-2/PM-3 pending full calibration.
+Verdict: DO NOT CLOSE. No full box or configuration accepted.
+
 2026-10-17 / slice 16 / Recipient-qualified credited absorption and deeper MC
 actor evidence. Added raw source, friendly, boss and unresolved absorption/rates,
 plus combined friendly heal+absorption over whole-fight duration. Preserve

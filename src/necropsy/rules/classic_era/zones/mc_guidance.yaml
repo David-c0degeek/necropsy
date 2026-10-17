@@ -105,6 +105,46 @@ removals:
     retrieved: '2026-10-17'
 pet: {}
 strategy:
+  50672:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/ragnaros-molten-core-strategy-wow-classic
+    items:
+    - rule: ragnaros-pickup-and-recovery-plan-v1
+      section: before
+      text: Agree tank backup, knockback recovery positions and healing coverage. Plan Sons assignments if the fight reaches an add phase.
+    - rule: ragnaros-knockback-recovery-v1
+      section: during
+      text: Recover to your assigned position after knockbacks. Damage events alone do not establish positioning, avoidance or safe uptime.
+    - rule: ragnaros-hunter-sons-control-v1
+      section: during
+      classes:
+      - 3
+      text: If Sons appear and you are assigned control, coordinate a legal Frost Trap setup with the add tanks. A cast does not prove every add was slowed.
+    - rule: ragnaros-mage-sons-control-v1
+      section: during
+      classes:
+      - 4
+      text: If Sons appear and you are assigned control, coordinate Frost Nova with the add tanks. Casts do not prove successful roots or a complete control window.
+    - rule: ragnaros-paladin-party-support-v1
+      section: before
+      classes:
+      - 6
+      source: https://www.wowhead.com/classic/spell=19900/fire-resistance-aura
+      text: If assigned fire-resistance support, confirm your available Aura and party coverage with the raid. Class capability does not establish the assigned group.
+    - rule: ragnaros-shaman-party-support-v1
+      section: before
+      classes:
+      - 9
+      source: https://www.wowhead.com/classic/spell=10538/fire-resistance-totem
+      text: If assigned fire-resistance support, coordinate Totem choice and party coverage with the healers. Your assigned support can differ from another Shaman's healing job.
+    - rule: ragnaros-healing-context-v1
+      section: during
+      metrics:
+      - hps
+      text: Keep coverage through tank recovery and add pressure when present. Compare whole-fight healing alongside assignments and actual encounter length.
+    - rule: ragnaros-control-and-emergence-v1
+      section: raid
+      text: Agree add control, kill order and boss pickup after emergence. Guide timers and activity gaps do not certify submerge boundaries or lost damage opportunity.
   50670:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/golemagg-the-incinerator-molten-core-strategy-wow-classic

@@ -2,6 +2,15 @@ version: 1
 rule: mc-encounter-facts-v1
 retrieved: '2026-10-17'
 encounters:
+- id: 50672
+  name: Ragnaros
+  source: https://www.wowhead.com/classic/guide/ragnaros-molten-core-strategy-wow-classic
+  note: Classic Era conditional boss/add and recovery context. Guide schedules, damage gaps and nominal addon timers are not observed phase or vulnerability windows. Seasonal replacements are excluded.
+  timings:
+  - key: knockback-recovery
+    text: Knockbacks create tank pickup and healing coordination work; damage alone does not establish positioning success.
+  - key: sons
+    text: Sons of Flame create control and mana-user protection work when present. Short kills and missing markers cannot establish a universal phase contract.
 - id: 50670
   name: Golemagg the Incinerator
   source: https://www.wowhead.com/classic/guide/golemagg-the-incinerator-molten-core-strategy-wow-classic
