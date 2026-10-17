@@ -1,5 +1,6 @@
 """Static strategy stays separate from measurements, assignments and game variants."""
 
+from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.analysis.encounters.strategy import encounter_strategy
 from necropsy.raids.scope import configurations
 from necropsy.report.render.playbook_view import with_strategy
@@ -77,18 +78,12 @@ def test_geddon_applies_class_and_healing_strategy_without_inventing_duty() -> N
 
 
 def test_shazzrah_keeps_friendly_curse_and_hostile_magic_removal_distinct() -> None:
-    for class_id, curse, purge in (
-        (2, True, False),
-        (4, True, False),
-        (7, False, True),
-        (8, False, True),
-        (3, False, False),
-    ):
+    for class_id, name in CLASS_NAMES.items():
         strategy = encounter_strategy("mc", 50667, 1, class_id, "dps")
         assert strategy
         rules = {item.rule for item in strategy.items}
-        assert ("shazzrah-assigned-curse-removal-v1" in rules) is curse
-        assert ("shazzrah-assigned-boss-purge-v1" in rules) is purge
+        assert ("shazzrah-assigned-curse-removal-v1" in rules) is (name in {"Druid", "Mage"})
+        assert ("shazzrah-assigned-boss-purge-v1" in rules) is (name in {"Priest", "Shaman"})
 
 
 def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:

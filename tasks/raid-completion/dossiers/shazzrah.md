@@ -59,3 +59,12 @@ opportunities, positive hostile removals and assignment, pet/summon positioning,
 loadout/item, all legal class/faction/tank examples, native/foreign/ranking
 reconciliation and human domain/product acceptance. These two representative
 roles and static strategy do not close any complete cell.
+
+Class-filter correction: independent catalog review caught Shazzrah hostile
+Magic-removal applicability using Rogue WCL ID8 instead of Shaman9. Corrected
+to Priest7/Shaman9. All nine class names now independently check curse and
+hostile-removal capabilities against the shared catalog;8 strategy tests pass
+(0.39 s). Reviewed every current MC/AQ/BWL class-specific strategy filter; other
+filters agree with their intended classes. Earlier Holy/Hunter observed windows
+and raw expectations are unaffected. Lesson: numeric membership tests can mirror
+a wrong policy; assert semantic class names for capability rules.
