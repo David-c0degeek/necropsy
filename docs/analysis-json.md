@@ -286,3 +286,14 @@ checkpoints without the field remain readable by the updated application.
 The legacy comparison `build_matches` field is three-state: true/false for two
 valid three-tree totals, null if either is unknown or malformed. Matching totals
 do not prove identical individual talents. See [the durable contract](decisions/0012-game-build-and-wcl-category.md).
+
+Optional `playbook.target_aura_windows` and `cohort_target_aura_windows` retain
+NPC buff applications, exact recipient actor/instance, relative three-state
+windows, known active and unknown-state durations. Unknown initial state,
+contradictory transitions, lifecycle resets and censored fight end are explicit.
+Complete counts/windows require unrestricted encounter coverage; positive
+transitions can survive incomplete coverage. Actorless coverage references add
+`role` (`encounter` or `critical`), null `actor` and `direction: all`. Old actor
+coverage retains its original shape. Both pages render saved observations only;
+these are not ranking, physical phase, attackability or personal opportunity
+models. See [target instance observations](decisions/0017-target-instance-aura-windows.md).

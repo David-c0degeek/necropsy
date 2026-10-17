@@ -9,7 +9,28 @@ from __future__ import annotations
 
 import duckdb
 
-from necropsy.snapshot.model import Direction
+from necropsy.snapshot.model import ActorRole, Direction
+
+
+def has_complete_encounter_coverage(
+    con: duckdb.DuckDBPyConnection,
+    report_code: str,
+    fight_id: int,
+    role: ActorRole = ActorRole.ENCOUNTER,
+) -> bool:
+    """A filtered critical stream cannot certify unrestricted encounter absence."""
+    if role not in {ActorRole.ENCOUNTER, ActorRole.CRITICAL}:
+        raise ValueError("encounter coverage requires an actorless event role")
+    row = con.execute(
+        """SELECT count(*), count(*) FILTER (
+               WHERE status='complete' AND boundary_ambiguities=0
+                 AND multiplicity_mismatches=0)
+           FROM stream_coverage
+           WHERE report_code=? AND fight_id=? AND actor_id IS NULL
+             AND direction='all' AND role=?""",
+        [report_code, fight_id, role.value],
+    ).fetchone()
+    return row == (1, 1)
 
 
 def has_complete_coverage(

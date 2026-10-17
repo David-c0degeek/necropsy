@@ -98,6 +98,51 @@ removals:
     retrieved: '2026-10-17'
 pet: {}
 strategy:
+  50670:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/golemagg-the-incinerator-molten-core-strategy-wow-classic
+    items:
+    - rule: golemagg-separate-tank-jobs-v1
+      section: before
+      text: Agree the Golemagg and Core Rager tank assignments, positioning and healing coverage. Boss damage and add tanking are different jobs.
+    - rule: golemagg-splash-and-kill-target-v1
+      section: during
+      text: Follow the agreed boss target and manage Magma Splash pressure with the tanks and healers. Do not redirect damage to a Core Rager simply to copy another player's whole-fight total.
+    - rule: golemagg-divided-healing-v1
+      section: during
+      metrics:
+      - hps
+      text: Keep coverage on both the boss and Core Rager tanks. Magma Splash creates stacked damage and armor pressure on affected players; your own debuff state does not describe your patients.
+    - rule: golemagg-late-pressure-support-v1
+      section: raid
+      text: Agree tank recovery and healing coverage as Golemagg approaches death. A guide's health threshold or an action gap does not establish an observed Earthquake phase or lost opportunity.
+  50671:
+    retrieved: '2026-10-17'
+    source: https://www.wowhead.com/classic/guide/majordomo-executus-molten-core-strategy-wow-classic
+    items:
+    - rule: majordomo-add-and-control-jobs-v1
+      section: before
+      text: Agree individual Flamewaker Healer and Elite tank, control and kill assignments. Majordomo surrender follows the add encounter; boss-only damage is not a useful default comparison.
+    - rule: majordomo-assigned-polymorph-v1
+      section: during
+      classes:
+      - 4
+      text: If assigned to Polymorph a Flamewaker Healer, track that exact add and coordinate recovery and the transition away from control. A cast alone does not prove control, and category does not assign the job.
+    - rule: majordomo-target-shields-v1
+      section: during
+      text: 'Check the shield on your actual assigned add before attacking: Magic Reflection affects harmful spells, while Damage Shield punishes melee attackers. Different add instances can lose their buffs at different times; a boss cast is not a universal shield window.'
+    - rule: majordomo-reflection-source-v1
+      section: during
+      source: https://www.wowhead.com/classic/spell=20619/magic-reflection
+      text: Magic Reflection is distinct from Aegis of Ragnaros, Majordomo's own shield. Recorded add applications and removals establish local buff state; they do not prescribe every player's safe attack opportunity.
+    - rule: majordomo-healing-coverage-v1
+      section: during
+      metrics:
+      - hps
+      text: Coordinate healing for separate add tanks and damage taken around Teleport and shield handling. Keep encounter-mechanic boss healing separate from friendly support; HPS alone does not measure this assignment.
+    - rule: majordomo-control-and-recovery-v1
+      section: raid
+      text: Confirm control-break recovery, the remaining-add kill order and tank pickup after Teleport. Review exact add identities and observed transitions before comparing control, tanking and damage jobs.
   50669:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/sulfuron-harbinger-molten-core-strategy-wow-classic
@@ -262,3 +307,28 @@ strategy:
     - rule: lucifron-protector-coordination-v1
       section: raid
       text: Confirm Protector tanking and kill order, control recovery and removal priorities before copying another player's target mix.
+
+target_auras:
+  50671:
+  - rule: majordomo-magic-reflection-instances-v1
+    label: Magic Reflection
+    ability_id: 20619
+    caster_game_ids:
+    - 12018
+    target_game_ids:
+    - 11663
+    - 11664
+    require_instance: true
+    source: https://www.wowhead.com/classic/spell=20619/magic-reflection
+    retrieved: '2026-10-17'
+  - rule: majordomo-damage-shield-instances-v1
+    label: Damage Shield
+    ability_id: 21075
+    caster_game_ids:
+    - 12018
+    target_game_ids:
+    - 11663
+    - 11664
+    require_instance: true
+    source: https://www.wowhead.com/classic/spell=21075/damage-shield
+    retrieved: '2026-10-17'

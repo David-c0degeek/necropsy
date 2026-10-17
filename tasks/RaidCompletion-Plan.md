@@ -203,6 +203,8 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 | D009 | 2026-10-17 | Incremental MC work on newly evidenced encounters | Begin partial Magmadar module work using the implemented shared observation/strategy contracts and a finalized six-actor public seed while remaining 01/02 obligations stay open. | Prior shared contracts pass real/installed regressions; Magmadar now has independent raw data for fear/frenzy research. Sequencing permits concrete evidenced implementation without declaring shared contracts or any MC box complete. No scope or acceptance reduction. | 01 goal; 02.1/02.4; 03.1/03.2/03.4–03.8; PM-1/PM-2/PM-3 |
 | D010 | 2026-10-17 | Explicit encounter event scope | Extend existing cache/fetch with actorless encounter and server-filtered critical scopes, then integrate an explicitly versioned live archive contract. Preserve v0/v1 reading, Naxx acquisition and actor absence predicates; no default collection or ranking/phase certification in the cache-only increment. | Twenty raw actor streams match seven terminal public whole-fight research payloads exactly; per-target Ignite and hostile cast/phase evidence require actors outside the selected cohort. Existing actor-only snapshots cannot prove those observations. | 01.6; 02.1-02.3/02.7; research/encounter-stream-contract.md; PM-2/PM-3 |
 
+| D011 | 2026-10-17 | Instance-aware NPC aura state | Extend shared observed aura transitions and scoped evidence for exact NPC actor/instance buffs, saved into existing playbook and both pages. Keep initial/lifecycle/identity uncertainty; no physical phase or personal opportunity inference. | Real Majordomo four-instance counterexample has simultaneous applications but different removals. Actor-only or filtered coverage cannot certify windows; Aegis and reflection are distinct effects. | 01.6; 02.1/02.2/02.7/02.8; 03.1/03.2/03.4–03.8; PM-2/PM-3; [ADR0017](../docs/decisions/0017-target-instance-aura-windows.md) |
+
 ---
 
 ## 5. Master progress tracker
@@ -212,8 +214,8 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 30 real seeds and 180 raw actor checks; full contracts/coverage open | n/a |
-| [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on nine evidenced encounters and local effects/control; remaining contracts open | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 32 real seeds and 192 raw actor checks; full contracts/coverage open | n/a |
+| [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on eleven evidenced encounters and local effects/control; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | TODO | agent: 9; domain-sme: 1 | yes |
 | [ ] | 05 | `tasks/raid-completion/05-aq40.md` | TODO | agent: 9; domain-sme: 1 | yes |

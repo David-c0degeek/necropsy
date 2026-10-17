@@ -15,3 +15,6 @@
 
 - 2026-10-17: WCL class IDs are a separate namespace: Rogue8, Shaman9. A Shazzrah policy and numeric expected test repeated the same wrong mapping. Compare capabilities against named shared catalog entries for every class; review data identity independently of the implementation.
 - 2026-10-17: Sulfuron sources disagree on nominal Dark Mending cast time, while spell pages include seasonal values and range flags. Neither supplies observed personal opportunities. Complete selected Rogue pages can contain unrelated raid interrupts; require source ownership before attributing effects.
+
+- 2026-10-17: Repeated NPCs can share one report actor ID while retaining distinct targetInstance transitions. Majordomo's four Elites have simultaneous Reflection applications but different removals. Preserve exact instances for state and later ranking eligibility; an actor-target aggregate is only a labelled raw observation. A boss cast, nominal timer or missing application on a short kill cannot establish every add's buff state.
+- 2026-10-17: Adding a scoped CoverageRef subclass does not automatically extend the explicit evidence serializer. A focused saved-output test caught the missing role field; update the serializer, document validator and committed JSON schema together while preserving old actor coverage bytes.

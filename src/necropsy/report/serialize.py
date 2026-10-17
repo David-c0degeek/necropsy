@@ -6,7 +6,7 @@ import dataclasses
 from enum import Enum
 from typing import Any
 
-from necropsy.analysis.evidence import CoverageRef, Evidenced, EvidenceRef
+from necropsy.analysis.evidence import CoverageRef, Evidenced, EvidenceRef, ScopedCoverageRef
 
 FLOAT_DIGITS = 6
 JSON_EVENT_REFS = 10
@@ -55,13 +55,16 @@ def _ref(ref: EvidenceRef) -> dict[str, Any]:
 
 
 def _coverage(c: CoverageRef) -> dict[str, Any]:
-    return {
+    out = {
         "report": c.report_code,
         "fight": c.fight_id,
         "actor": c.actor_id,
         "direction": c.direction,
         "trusted": c.trusted,
     }
+    if isinstance(c, ScopedCoverageRef):
+        out["role"] = c.role
+    return out
 
 
 def evidence(value: Evidenced[Any]) -> dict[str, Any]:

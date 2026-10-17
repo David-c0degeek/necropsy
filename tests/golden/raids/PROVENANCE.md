@@ -242,3 +242,29 @@ page errors or horizontal overflow; print content remains visible. Build, source
 installed and package extraction36,391,113 bytes passes unlimited secret scan.
 The active Mage cell references this archive; the original actor-only Mage
 fixture is retained. No new cell, complete cell or ranking validation is counted.
+
+Golemagg/Majordomo context Holy add two normal finalized format2 public archives
+and12 independent cases:32 archives/192 cases; original180 expectations unchanged.
+Golemagg SHA2561a7cbe671ee9a10f3aa5ac40f7253f38631209dc5ff00bf346ae0d0ac33882cc;
+Majordomo SHA256956df5589c5eeca96ec7759e0f9388818bbf09bfb37b7b67ccd037078e0a79a6.
+Twelve global scope pairs retain101,749 unrestricted and6,549 critical events.
+Exact report/fight/actor, revision, faction, ownership, durations, casts and raw
+amounts remain in provenance/facts/coverage JSON and member manifests.
+
+Selected Golemagg Almsivi fdRrFwaKmvy3xJZD/fight16/actor7 lasts46.470 s: raw
+healing48,145, absorption688, damage0, incoming4,139. Selected Majordomo Almsivi
+wjWt8JCzRKqV1gkG/fight21/actor28 lasts35.927 s: raw healing53,104, absorption8,010,
+damage589, incoming4,408. Raw shield transitions are independently retained by
+spell, caster, recipient and targetInstance. Majordomo Elite actor80/instance3
+has Reflection apply29.036/remove34.500/death34.518 s:5.464 known active and
+30.445 unknown state over the pull. JqLRy1GvDjMkPYp2/fight44 has four simultaneous
+Elite instances with distinct removal times; their known active durations are
+6.348/8.439/9.973/2.637 s for instances1/2/3/4. These are state observations,
+not physical phases or personal opportunity denominators.
+
+Unlimited gitleaks8.30.1 scans66,558,304 new extracted raw bytes and77,014,695
+current build/source/installed/package bytes with zero findings. Installed
+replay outside checkout preserves12 independent actor healing totals, exact
+Majordomo instance windows, both pages/packages and normal live acceptance.
+Eight desktop/mobile/no-network/error/overflow/print checks pass; positive
+Golemagg Report and Majordomo Playbook mobile content visually inspected.

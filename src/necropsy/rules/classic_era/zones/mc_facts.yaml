@@ -2,6 +2,26 @@ version: 1
 rule: mc-encounter-facts-v1
 retrieved: '2026-10-17'
 encounters:
+- id: 50670
+  name: Golemagg the Incinerator
+  source: https://www.wowhead.com/classic/guide/golemagg-the-incinerator-molten-core-strategy-wow-classic
+  note: Classic Era boss and Core Rager context. Guide disagreements about add death or completion are not implemented as phases or score denominators. Seasonal replacements are excluded.
+  timings:
+  - key: magma-splash
+    text: Magma Splash stacks damage and armor pressure on affected players. Personal state is separate from the debuff state of healing recipients.
+  - key: separate-tank-jobs
+    text: Golemagg and Core Rager tanking divide assignments; the ranking category and whole-fight throughput do not identify the assigned target.
+- id: 50671
+  name: Majordomo Executus
+  source: https://www.wowhead.com/classic/guide/majordomo-executus-molten-core-strategy-wow-classic
+  note: Classic Era add-centric encounter. Observed buff windows retain exact NPC instances. Nominal guide durations and control thresholds do not supply personal opportunities.
+  timings:
+  - key: magic-reflection
+    text: Magic Reflection on adds is distinct from Damage Shield. Only actual recipient transitions establish observed aura state.
+  - key: aegis
+    text: Aegis of Ragnaros is a caster-self shield and healing effect; it is not the adds' reflection buff.
+  - key: control-and-completion
+    text: Individual Flamewaker control, tanking and add deaths require separate identities. No guide threshold is an observed immunity or surrender boundary.
 - id: 50669
   name: Sulfuron Harbinger
   source: https://www.wowhead.com/classic/guide/sulfuron-harbinger-molten-core-strategy-wow-classic

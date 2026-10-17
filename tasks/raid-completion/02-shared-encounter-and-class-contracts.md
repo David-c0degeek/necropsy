@@ -44,6 +44,52 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 15 / Golemagg/Majordomo initial strategy and shared instance
+observations. Added two normal finalized format2 public six-source Holy captures
+and12 independent cases:32 archives/192 cases,30 IN_PROGRESS/922 TODO/0 COMPLETE.
+Original180 expectations unchanged; independent global facts also bind actual
+Majordomo reflection/shield caster, recipient, instance and transition.
+
+Shared observed three-state aura logic now serves exact NPC instances as well
+as existing actor effects, preserving historical defaults. Global counts/windows
+require unrestricted encounter coverage with explicit actorless role in saved
+refs. Critical/player scope, ambiguous instances/catalog, partial pages and
+multiplicity/boundary conflicts cannot certify absence or duration. Positive
+transitions survive partial streams. Unknown initial state, simultaneous
+contradiction, death reset and censored end stay explicit. No inferred phase,
+attackability, immunity, assignment, quality or ranking denominator is added.
+Existing saved JSON renders without current-policy injection.
+
+Majordomo subject wjWt8JCzRKqV1gkG/21 Elite80/instance3 has5.464 s Reflection
+active and30.445 s unknown. Independent JqLRy1GvDjMkPYp2/44 Elite78 instances1–4
+have6.348/8.439/9.973/2.637 s active, proving actor-only merge invalid. Short
+kills have zero recorded applications but unknown initial state. Primary Aegis
+caster-self description contradicts the guide's ally-shield claim; nominal
+timers/control thresholds and Golemagg add-completion contradictions are not
+implemented as measured rules. All nine class names check Mage-only control
+capability. Strategy now covers11 encounters/374 legal configuration paths.
+
+123 focused/schema/historical checks pass/47.28 s; two new real goldens pass/
+12.72 s; all192 independent raw cases pass. Installed wheel outside checkout
+reproduces12 raw actor totals, exact subject/cohort instance states, both pages/
+packages and normal live acceptance. Eight desktop/mobile/offline/no-error/
+no-overflow/print checks pass; positive Golemagg Report and Majordomo Playbook
+mobile sections visually inspected. Unlimited gitleaks8.30.1:66,558,304 raw bytes
+and77,014,695 current build/source/installed/package bytes, zero findings. All
+four Naxx artifacts remain byte-identical to30e89ce. All32 retained real archives pass34 golden checks/230.44 s,
+including192 independent raw cases. Full ordinary regression excluding golden/live/acceptance/browser
+passes1351 tests/334 deselected in368.52 s. New ADR0017, dossiers and research/mc-final-context-review.json retain
+current contract, source conflicts, pre-mortem and exact acceptance limits.
+
+Interim Captain Hindsight — Keep shared state/coverage/serialization/render
+seams and independently frozen instance facts. Fix physical phase/opportunity,
+ranked targets/denominators, positive control/interrupt/loadout/pet and remaining
+class/role/faction evidence plus human reviews before closure. Record missing
+serialized scope role caught by the focused test and repeated-instance ranking
+limitation. Risk: local buff state does not prove attackability or assigned
+behavior. PM-1/PM-2/PM-3 pending full calibration. Verdict: DO NOT CLOSE.
+
+
 2026-10-17 / slice 14 / Representative finalized live format2 evidence. Normal
 acquisition/finalization/writer produced six public Lucifron Mage sources,
 12 global scopes,31,515 unrestricted events and1,485 critical damage events.

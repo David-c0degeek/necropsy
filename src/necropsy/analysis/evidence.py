@@ -106,9 +106,26 @@ class CoverageRef:
 
     report_code: str
     fight_id: int
-    actor_id: int
+    actor_id: int | None
     direction: str
     trusted: bool
+
+
+@dataclass(frozen=True, slots=True)
+class ScopedCoverageRef(CoverageRef):
+    """Actorless coverage must identify its unrestricted or filtered event role."""
+
+    role: str
+
+    def __post_init__(self) -> None:
+        if (
+            self.role not in {"encounter", "critical"}
+            or self.actor_id is not None
+            or self.direction != "all"
+        ):
+            raise EvidenceError(
+                "actorless coverage requires an explicit event role and all direction"
+            )
 
 
 @dataclass(frozen=True, slots=True)

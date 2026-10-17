@@ -33,3 +33,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Encounter observations and strategy](0015-encounter-observations-and-strategy.md) | Keep sourced general strategy, observed actor effects, unknown phase/opportunity and personal assignments separate in the shared pipeline |
 
 | [Encounter event scope](0016-encounter-event-scope.md) | Separate actorless encounter/critical coverage, explicit live format2, shared normalization and preserved historical/v1 defaults |
+
+| [Target instance aura observations](0017-target-instance-aura-windows.md) | Exact NPC instances, scoped encounter coverage and observed buff states separate from phases and personal opportunities |

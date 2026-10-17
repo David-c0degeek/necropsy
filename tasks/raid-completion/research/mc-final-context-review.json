@@ -1,0 +1,159 @@
+{
+  "reviewed": "2026-10-17",
+  "scope": "Initial Golemagg/Majordomo strategy and observed Majordomo NPC buff states; no complete raid/role/ranking acceptance",
+  "fixtures": [
+    "mc-golemagg-context-holy",
+    "mc-majordomo-context-holy"
+  ],
+  "independent_actor_cases": 12,
+  "original_expectations_preserved": 180,
+  "total_archives": 32,
+  "total_actor_cases": 192,
+  "matrix": {
+    "IN_PROGRESS": 30,
+    "TODO": 922,
+    "COMPLETE": 0
+  },
+  "encounter_events": 101749,
+  "critical_events": 6549,
+  "focused_tests": {
+    "passed": 123,
+    "seconds": 47.28
+  },
+  "new_real_golden_tests": {
+    "passed": 2,
+    "seconds": 12.72
+  },
+  "independent_raw_problems": [],
+  "browser_checks": [
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "privacy": {
+    "scanner": "gitleaks8.30.1, unlimited",
+    "raw_extracted_bytes": 66558304,
+    "build_output_installed_package_extracted_bytes": 77014695,
+    "findings": 0
+  },
+  "installed_acceptance": "Both captures outside checkout: six raw actor totals each, exact subject/cohort instance states, both pages/package, normal live check_run",
+  "naxx": "Same raw and original source baseline30e89ce; all four artifacts byte-identical",
+  "remaining": [
+    "Actual physical phases, attackability, ranked target/denominator and opportunity policies remain open.",
+    "No default encounter collection or release approval.",
+    "Raw Mage critical/Ignite inputs aggregate actor IDs as labelled observations; repeated NPC instances require separate eligibility before any ranking reconstruction.",
+    "Full class/faction/duty/loadout/pet and human domain/product evidence remains open."
+  ],
+  "all_retained_raid_golden_tests": {
+    "archives": 32,
+    "passed": 34,
+    "seconds": 230.44
+  },
+  "ordinary_regression": {
+    "command": "uv run pytest -m 'not golden and not live and not acceptance and not browser' -q",
+    "passed": 1351,
+    "deselected": 334,
+    "seconds": 368.52
+  }
+}

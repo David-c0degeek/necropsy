@@ -8,6 +8,11 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Golemagg tank/healing coordination and Majordomo add/control and
+  shield strategy. Preserve observed Majordomo buff state separately for each
+  add instance, with unknown initial state and scoped encounter coverage;
+  show saved observations in both pages without inventing personal opportunities.
+
 - Add initial Sulfuron add-target, interrupt-backup and divided healing strategy.
   Separate general assignments from observations; nominal cast times and absent
   personal interrupts do not establish missed opportunities.

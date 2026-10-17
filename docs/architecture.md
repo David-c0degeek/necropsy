@@ -203,3 +203,8 @@ the existing service, checkpoint and optional live-snapshot subject field into
 acquisition JSON. The optional report taxonomy section preserves observed build,
 category, inferred duty and identity evidence without changing archived `spec`
 semantics or introducing another pipeline. See [ADR0012](decisions/0012-game-build-and-wcl-category.md).
+
+NPC aura observations reuse generic observed state transitions per exact actor/
+instance and the existing saved playbook adapter. Unrestricted scoped coverage
+qualifies counts and durations; filtered streams cannot certify encounter-wide
+absence. See [target instance observations](decisions/0017-target-instance-aura-windows.md).

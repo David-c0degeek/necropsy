@@ -264,6 +264,41 @@ def aura_intervals(
     )
 
 
+def observed_aura_windows(
+    start_time: int,
+    end_time: int,
+    events: Iterable[tuple[int, str]],
+    initial_state: bool | None = None,
+) -> list[tuple[int, int, bool | None]]:
+    """Three-state intervals for one exact entity and aura; never guess initial state.
+
+    Callers establish identity, lifetime and coverage. Conflicting simultaneous
+    transitions and lifecycle resets remain unknown, independent of hash order.
+    A sustain while definitively inactive invalidates the preceding interval.
+    """
+    state = initial_state
+    since = start_time
+    result = []
+    relevant = sorted((ts, kind) for ts, kind in events if start_time <= ts <= end_time)
+    for ts, group in itertools.groupby(relevant, key=lambda event: event[0]):
+        kinds = {kind for _, kind in group}
+        previous = state
+        if "stateunknown" in kinds or (kinds & _OFF and kinds & (_ON | _SUSTAIN)):
+            state = None
+        elif kinds & _ON:
+            state = True
+        elif kinds & _OFF:
+            state = False
+        elif state is False:
+            previous, state = None, None
+        if since < ts:
+            result.append((since, ts, previous))
+        since = ts
+    if since < end_time:
+        result.append((since, end_time, state))
+    return result
+
+
 def aura_states(
     con: duckdb.DuckDBPyConnection,
     pf: ParticipantFight,
@@ -315,38 +350,24 @@ def aura_states(
         start = pf.start_time
         segments = []
         if observed_only:
-            grouped = []
-            for ts, group in itertools.groupby(events, key=lambda event: event[0]):
-                kinds = {kind for _, kind in group}
-                contradictory = "stateunknown" in kinds or bool(
-                    kinds & _OFF and kinds & (_ON | _SUSTAIN)
-                )
-                if contradictory:
-                    kind = "ambiguous"
-                elif kinds & _ON:
-                    kind = min(kinds & _ON)
-                elif kinds & _OFF:
-                    kind = min(kinds & _OFF)
-                else:
-                    kind = min(kinds)
-                grouped.append((ts, kind))
-            events = grouped
-        for ts, kind in events:
-            ts = min(max(ts, pf.start_time), pf.end_time)
-            previous = state
-            if kind == "ambiguous":
-                state = None
-            elif kind in _ON:
-                state = True
-            elif kind in _OFF:
-                state = False
-            elif state is False:
-                previous, state = None, None
-            if start < ts:
-                segments.append((start, ts, previous))
-            start = ts
-        if start < pf.end_time:
-            segments.append((start, pf.end_time, state))
+            segments = observed_aura_windows(pf.start_time, pf.end_time, events, state)
+        else:
+            for ts, kind in events:
+                ts = min(max(ts, pf.start_time), pf.end_time)
+                previous = state
+                if kind == "ambiguous":
+                    state = None
+                elif kind in _ON:
+                    state = True
+                elif kind in _OFF:
+                    state = False
+                elif state is False:
+                    previous, state = None, None
+                if start < ts:
+                    segments.append((start, ts, previous))
+                start = ts
+            if start < pf.end_time:
+                segments.append((start, pf.end_time, state))
         timelines.append(segments)
     boundaries = sorted(
         {pf.start_time, pf.end_time}

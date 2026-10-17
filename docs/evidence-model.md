@@ -160,3 +160,12 @@ not introduce current advice or new observations.
 Game facts live in `src/necropsy/rules/classic_era/*.yaml` (package data, so
 they ship in the wheel). Each entry records whether its ID was seen in the
 Haplina fixture or comes from Classic Era spell data.
+
+NPC buff observations retain exact report actor and instance. Complete target
+state requires trusted unrestricted encounter coverage, with the actorless role
+explicit in its reference. Critical or personal coverage cannot certify global
+absence. Different instances never share transitions; missing instance identity
+withholds windows. State starts unknown and lifecycle/contradiction uncertainty
+is preserved. Observed buff state does not define a physical phase or a
+player's safe attack opportunity. See the
+[instance contract](decisions/0017-target-instance-aura-windows.md).

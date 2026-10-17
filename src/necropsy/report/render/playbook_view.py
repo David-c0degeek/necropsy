@@ -97,6 +97,45 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    auras = playbook.get("target_aura_windows")
+    if auras:
+        view = dict(view)
+        aura_lines = []
+        for aura in auras:
+            aura_lines.append(
+                line(
+                    f"{aura['label']}: {number(aura['applications']['value'])} "
+                    "recorded applications.",
+                    aura["limitation"],
+                    (source(aura["source"], "Mechanic reference"),),
+                )
+            )
+            aura_lines.extend(
+                line(
+                    f"{target['name']} · instance {number(target['instance'])}: "
+                    f"{number(target['known_active_s']['value'], 2, 's')} known active; "
+                    f"{number(target['unknown_state_s']['value'], 2, 's')} with unknown state.",
+                )
+                for target in aura["targets"]
+            )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *aura_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *aura_lines)
+    aura_examples = playbook.get("cohort_target_aura_windows") or ()
+    if aura_examples:
+        view = dict(view)
+        example_lines = tuple(
+            line(
+                f"{example['player']} · {aura['label']} · {target['name']} "
+                f"instance {number(target['instance'])}: "
+                f"{number(target['known_active_s']['value'], 2, 's')} known active.",
+                "Observed target state in this player's fight; assignments may differ.",
+            )
+            for example in aura_examples
+            for aura in example["auras"]
+            for target in aura["targets"]
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *example_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *example_lines)
     controls = playbook.get("control_applications")
     if controls:
         view = dict(view)

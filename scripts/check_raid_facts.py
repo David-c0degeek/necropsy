@@ -88,6 +88,7 @@ def raw_actor_facts(
     actor: int,
     *,
     encounter_context: bool = False,
+    encounter_aura_ids: tuple[int, ...] = (),
 ) -> dict[str, Any]:
     bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
     f = next(f for f in bundle["fights"] if f["id"] == fight)
@@ -155,12 +156,19 @@ def raw_actor_facts(
         },
     }
     if encounter_context:
-        result["encounter_context"] = raw_encounter_facts(archive, report, f, bundle)
+        result["encounter_context"] = raw_encounter_facts(
+            archive, report, f, bundle, aura_ids=encounter_aura_ids
+        )
     return result
 
 
 def raw_encounter_facts(
-    archive: VerifiedArchive, report: str, fight: dict[str, Any], bundle: dict[str, Any]
+    archive: VerifiedArchive,
+    report: str,
+    fight: dict[str, Any],
+    bundle: dict[str, Any],
+    *,
+    aura_ids: tuple[int, ...] = (),
 ) -> dict[str, Any]:
     """Independent scoped observations, without reconstructing ranking or assigning duties."""
     marker = archive.read_json("necropsy-snapshot.json")
@@ -271,7 +279,7 @@ def raw_encounter_facts(
             if e.get("type") in kinds and (ability is None or e.get("abilityGameID") == ability)
         ]
 
-    return {
+    result = {
         "events": len(all_events),
         "critical_events": len(critical),
         "critical_hit_types": dict(
@@ -287,6 +295,15 @@ def raw_encounter_facts(
         "deaths": observations({"death"}),
         "interrupts": observations({"interrupt"}),
     }
+    if aura_ids:
+        result["aura_transitions"] = {
+            str(ability): observations(
+                {"applybuff", "removebuff", "refreshbuff", "applybuffstack", "removebuffstack"},
+                ability,
+            )
+            for ability in aura_ids
+        }
+    return result
 
 
 def check_register(path: Path) -> list[str]:
@@ -300,6 +317,14 @@ def check_register(path: Path) -> list[str]:
     for case in data["cases"]:
         if type(case.get("encounter_context", False)) is not bool:
             raise ValueError("encounter context selection must be boolean")
+        aura_ids = case.get("encounter_aura_ids", [])
+        if (
+            not isinstance(aura_ids, list)
+            or any(type(a) is not int or a < 1 for a in aura_ids)
+            or len(set(aura_ids)) != len(aura_ids)
+            or (aura_ids and not case.get("encounter_context"))
+        ):
+            raise ValueError("encounter aura selection needs unique positive IDs and context")
         if not case.get("review_basis"):
             problems.append(f"{case['id']}: missing independent review basis")
         archive_path = path.parent / case["archive"]
@@ -313,6 +338,7 @@ def check_register(path: Path) -> list[str]:
                 case["fight"],
                 case["actor"],
                 encounter_context=case.get("encounter_context", False),
+                encounter_aura_ids=tuple(aura_ids),
             )
         expected = case["expected"]
         if set(expected) != set(actual):

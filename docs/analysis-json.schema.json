@@ -375,13 +375,21 @@
       "additionalProperties": false,
       "properties": {
         "actor": {
-          "title": "Actor",
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Actor"
         },
         "direction": {
           "enum": [
             "source",
-            "target"
+            "target",
+            "all"
           ],
           "title": "Direction",
           "type": "string"
@@ -393,6 +401,22 @@
         "report": {
           "title": "Report",
           "type": "string"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "enum": [
+                "encounter",
+                "critical"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Role"
         },
         "trusted": {
           "title": "Trusted",

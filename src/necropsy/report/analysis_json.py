@@ -87,9 +87,19 @@ class Reference(_Strict):
 class CoverageReference(_Strict):
     report: str
     fight: int
-    actor: int
-    direction: Literal["source", "target"]
+    actor: int | None
+    direction: Literal["source", "target", "all"]
     trusted: bool
+    role: Literal["encounter", "critical"] | None = None
+
+    @model_validator(mode="after")
+    def _scope(self) -> CoverageReference:
+        if self.role is None:
+            if self.actor is None or self.direction == "all":
+                raise ValueError("actor coverage needs an actor and source/target direction")
+        elif self.actor is not None or self.direction != "all":
+            raise ValueError("encounter coverage needs a null actor and all direction")
+        return self
 
 
 class Evidence(_Strict):
@@ -807,7 +817,7 @@ def build_document(
             ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     if zone != "naxxramas":
-        from necropsy.analysis.encounters import control, duty, effects
+        from necropsy.analysis.encounters import control, duty, effects, windows
         from necropsy.analysis.encounters.strategy import encounter_strategy
 
         for boss, data in zip(bosses, boss_data, strict=True):
@@ -824,8 +834,22 @@ def build_document(
                 controls = control.applications(con, data.subject.participant)
                 if controls:
                     boss["playbook"]["control_applications"] = to_data(controls)
+                auras = windows.encounter_auras(con, data.subject.participant)
+                if auras:
+                    boss["playbook"]["target_aura_windows"] = to_data(auras)
             removal_examples = []
+            aura_examples = []
             for entry in data.cohort:
+                auras = windows.encounter_auras(con, entry.participant)
+                if auras:
+                    aura_examples.append(
+                        {
+                            "player": entry.participant.player,
+                            "report_code": entry.participant.report_code,
+                            "fight_id": entry.participant.fight_id,
+                            "auras": to_data(auras),
+                        }
+                    )
                 removals = effects.mechanic_removals(con, entry.participant)
                 if removals:
                     removal_examples.append(
@@ -838,6 +862,8 @@ def build_document(
                     )
             if removal_examples:
                 boss["playbook"]["cohort_mechanic_removals"] = removal_examples
+            if aura_examples:
+                boss["playbook"]["cohort_target_aura_windows"] = aura_examples
             entries = [boss["subject"] or boss["playbook"].get("excluded_subject")]
             entries += boss["overall_cohort"]
             qualified = [

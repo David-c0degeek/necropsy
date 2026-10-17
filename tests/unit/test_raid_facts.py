@@ -330,3 +330,43 @@ def test_valid_hashes_cannot_certify_wrong_scope_or_pagination(
         members[PREFIX + "source_002.json"] = {"data": [], "nextPageTimestamp": None}
     with pytest.raises(ValueError, match=r"scope|stream"):
         check_register(_write_context(tmp_path, members))
+
+
+@pytest.mark.parametrize("mutation", [None, "instance", "ability", "kind"])
+def test_independent_aura_facts_bind_recipient_instance_and_transition_kind(
+    tmp_path: Path,
+    mutation: str | None,
+) -> None:
+    members = _encounter_members()
+    application = {
+        "timestamp": 2100,
+        "type": "applybuff",
+        "sourceID": 2,
+        "targetID": 2,
+        "targetInstance": 1,
+        "abilityGameID": 20619,
+    }
+    removal = {**application, "timestamp": 2200, "type": "removebuff"}
+    if mutation == "instance":
+        removal["targetInstance"] = 2
+    elif mutation == "ability":
+        removal["abilityGameID"] = 20620
+    elif mutation == "kind":
+        removal["type"] = "cast"
+    members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"].extend(
+        [application, removal]
+    )
+    register = _write_context(tmp_path, members)
+    doc = json.loads(register.read_text(encoding="utf-8"))
+    case = doc["cases"][0]
+    case["encounter_aura_ids"] = [20619]
+    expected = case["expected"]["encounter_context"]
+    expected["events"] = 12
+    expected["aura_transitions"] = {
+        "20619": [
+            [1100, "applybuff", 2, 2, 1, 20619, None],
+            [1200, "removebuff", 2, 2, 1, 20619, None],
+        ]
+    }
+    register.write_text(json.dumps(doc), encoding="utf-8")
+    assert bool(check_register(register)) is (mutation is not None)

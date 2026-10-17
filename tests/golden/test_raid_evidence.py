@@ -110,6 +110,36 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] == "mc-majordomo-context-holy":
+        reflection, shield = boss["playbook"]["target_aura_windows"]
+        assert reflection["applications"]["value"] == 1
+        assert shield["applications"]["value"] == 0
+        (target,) = reflection["targets"]
+        assert (target["actor_id"], target["instance"], target["game_id"]) == (80, 3, 11664)
+        assert target["windows"]["value"] == [
+            [0, 29.036, None],
+            [29.036, 34.5, True],
+            [34.5, 34.518, False],
+            [34.518, 35.927, None],
+        ]
+        assert target["known_active_s"]["value"] == 5.464
+        assert target["unknown_state_s"]["value"] == 30.445
+        # Independent raw review: one actor represents four Elite instances;
+        # their same-time application has different actual removal boundaries.
+        example = next(
+            e
+            for e in boss["playbook"]["cohort_target_aura_windows"]
+            if e["report_code"] == "JqLRy1GvDjMkPYp2"
+        )
+        buff = example["auras"][0]
+        assert buff["applications"]["value"] == 5
+        elites = {t["instance"]: t for t in buff["targets"] if t["actor_id"] == 78}
+        assert {i: t["known_active_s"]["value"] for i, t in elites.items()} == {
+            1: 6.348,
+            2: 8.439,
+            3: 9.973,
+            4: 2.637,
+        }
     if fixture["label"] in ("mc-sulfuron-holy", "mc-sulfuron-rogue"):
         assert boss["encounter_id"] == 50669
         assert "mechanic_removals" not in boss["playbook"]
@@ -281,6 +311,10 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "mc-majordomo-context-holy":
+            assert "Magic Reflection: 1 recorded applications." in html
+            assert "Flamewaker Elite · instance 3: 5.46s known active; 30.45s" in html
+            assert reflection["limitation"] in html
         if fixture["label"] == "mc-shazzrah-holy":
             assert "Shazzrah's Curse: 15.59s known affected; 6.50s with unknown state." in html
         if fixture["label"] == "mc-shazzrah-hunter":
