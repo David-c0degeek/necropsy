@@ -24,6 +24,15 @@ general:
   based_on:
   - refocus
 encounters: {}
+control:
+  50666:
+  - rule: garr-firesworn-banish-applications-v1
+    label: Firesworn Banish
+    classes: [10]
+    ability_ids: [710, 18647]
+    target_game_ids: [12099]
+    source: https://vanilla.warcraftlogs.com/reports/DWACqnQrmMxdgYpt#fight=17
+    retrieved: '2026-10-17'
 effects:
   50664:
   - rule: magmadar-panic-exposure-v1
@@ -71,6 +80,27 @@ removals:
     retrieved: '2026-10-17'
 pet: {}
 strategy:
+  50666:
+    retrieved: '2026-10-17'
+    source: https://warcraft.wiki.gg/wiki/Garr
+    items:
+    - rule: garr-assign-add-control-v1
+      section: before
+      text: Agree which Firesworn are tanked, controlled or killed and confirm the kill order. Different raid strategies give players different jobs.
+    - rule: garr-warlock-control-v1
+      section: during
+      classes: [10]
+      text: If assigned to Banish, track your specific Firesworn and coordinate recovery when control ends. A cast alone does not prove application, and fewer casts do not prove a missed assignment.
+    - rule: garr-add-death-position-v1
+      section: during
+      text: Allow space for Firesworn death explosions and follow the agreed target order. Whole-fight damage alone cannot compare add control and tanking duties.
+    - rule: garr-healing-coverage-v1
+      section: during
+      metrics: [hps]
+      text: Confirm healing coverage for Garr and the active Firesworn tanks. Compare healing with the chosen add strategy and tank assignment in mind.
+    - rule: garr-control-recovery-v1
+      section: raid
+      text: Agree who picks up an add when control ends and how remaining Firesworn are handled after Garr dies. Actor-only evidence does not establish every raid-wide control gap.
   50664:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Magmadar

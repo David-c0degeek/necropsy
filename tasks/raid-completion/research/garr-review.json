@@ -1,0 +1,171 @@
+{
+  "reviewed": "2026-10-17",
+  "scope": "Initial Garr Warlock control evidence and sourced strategy only; no whole boss/configuration acceptance.",
+  "checks": [
+    {
+      "raid": "mc-garr-warlock",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-garr-warlock",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-garr-warlock",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-garr-warlock",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-garr-control-warlock",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-garr-control-warlock",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-garr-control-warlock",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-garr-control-warlock",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "ordinary_tests": {
+    "passed": 1308,
+    "deselected": 274,
+    "seconds": 341.77,
+    "limitation": "Before final narrow control matcher/text refinements; final focused and real replays below cover those changes."
+  },
+  "final_focused_tests": {
+    "passed": 22,
+    "seconds": 4.08
+  },
+  "all_raid_golden": {
+    "passed": 23,
+    "seconds": 128.72,
+    "archives": 21,
+    "independent_actor_cases": 126
+  },
+  "installed": {
+    "outside_checkout": true,
+    "cwd": "Windows temporary directory",
+    "module_from": "site-packages",
+    "normal_raw_replay": true,
+    "expected_applications": 1,
+    "expected_observations": [
+      [
+        4.258,
+        100,
+        8,
+        18647
+      ]
+    ],
+    "both_pages_and_package": true
+  },
+  "naxx": {
+    "source_baseline": "30e89ce",
+    "same_raw_archive": true,
+    "analysis_json_report_playbook_package_byte_identical": true
+  },
+  "secrets": {
+    "scanner": "gitleaks8.30.1",
+    "max_target_megabytes": 0,
+    "new_extracted_raw_bytes": 28535087,
+    "current_extracted_generated_and_wheel_bytes": 26199774,
+    "scanner_generated_bytes_read": 26183719,
+    "findings": 0
+  },
+  "inventory": {
+    "in_progress": 20,
+    "todo": 932,
+    "complete": 0,
+    "strict_completion_exit": 1
+  },
+  "visual_review": [
+    "positive-control-playbook-mobile.png",
+    "positive-control-report-mobile.png"
+  ],
+  "limitations": [
+    "Representative damage/utility sources only; no healer/tank Garr acceptance.",
+    "No complete raid-wide add control window, assignment, break cause or utility score.",
+    "Target/ranking, phases, schools/items/pets/class/loadout and remaining sources stay open.",
+    "Domain and product acceptance not inferred."
+  ]
+}

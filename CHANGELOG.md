@@ -8,6 +8,11 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Garr add-control and raid-coordination strategy. Record Warlock
+  Banish applications separately from casts, retain individual Firesworn
+  instances and unknown coverage, and show the evidence in both pages without
+  treating zero applications as a failed assignment or control-uptime score.
+
 - Add initial Magmadar preparation, fear recovery and Hunter/healer strategy,
   sourced facts, local Panic observations and exact Frenzy-removal evidence.
   Match the boss NPC and removing spell; keep missing identity unknown and

@@ -1,0 +1,80 @@
+{
+  "retrieved": "2026-10-17",
+  "endpoint": "user",
+  "report": "8Lt3zrD92h7Ty6xv",
+  "fight": 22,
+  "actor": 11,
+  "source_url": "https://vanilla.warcraftlogs.com/reports/8Lt3zrD92h7Ty6xv#fight=22",
+  "query": "events(fightIDs:[22],sourceID:11,limit:10000) {data nextPageTimestamp}",
+  "returned_events": 171,
+  "nextPageTimestamp": null,
+  "selected_raw_events": [
+    {
+      "timestamp": 1864932,
+      "type": "begincast",
+      "sourceID": 11,
+      "targetID": -1,
+      "abilityGameID": 710,
+      "fight": 22
+    },
+    {
+      "timestamp": 1866432,
+      "type": "cast",
+      "sourceID": 11,
+      "targetID": 122,
+      "targetInstance": 2,
+      "abilityGameID": 710,
+      "fight": 22,
+      "targetMarker": 7
+    },
+    {
+      "timestamp": 1866432,
+      "type": "applydebuff",
+      "sourceID": 11,
+      "targetID": 122,
+      "targetInstance": 2,
+      "abilityGameID": 710,
+      "fight": 22,
+      "targetMarker": 7
+    },
+    {
+      "timestamp": 1885945,
+      "type": "begincast",
+      "sourceID": 11,
+      "targetID": -1,
+      "abilityGameID": 710,
+      "fight": 22
+    },
+    {
+      "timestamp": 1886431,
+      "type": "removedebuff",
+      "sourceID": 11,
+      "targetID": 122,
+      "targetInstance": 2,
+      "abilityGameID": 710,
+      "fight": 22,
+      "targetMarker": 7
+    },
+    {
+      "timestamp": 1887431,
+      "type": "cast",
+      "sourceID": 11,
+      "targetID": 122,
+      "targetInstance": 2,
+      "abilityGameID": 710,
+      "fight": 22,
+      "targetMarker": 7
+    },
+    {
+      "timestamp": 1887431,
+      "type": "applydebuff",
+      "sourceID": 11,
+      "targetID": 122,
+      "targetInstance": 2,
+      "abilityGameID": 710,
+      "fight": 22,
+      "targetMarker": 7
+    }
+  ],
+  "limitation": "Bounded existing-client research observation of raw spell and instance identity, not a finalized fixture or a complete legal-cell receipt. Canonical profile faction is unknown; no faction inference or ranking/control-uptime claim."
+}

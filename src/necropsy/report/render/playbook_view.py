@@ -97,6 +97,28 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    controls = playbook.get("control_applications")
+    if controls:
+        view = dict(view)
+        lines = tuple(
+            line(
+                f"Recorded {control['label']} applications: "
+                f"{number(control['applications']['value'])}.",
+                control["limitation"],
+                (source(control["source"], "Mechanic reference"),),
+            )
+            for control in controls
+        )
+        lines += tuple(
+            line(
+                f"{number(observation[0], 2, 's')} · {control['label']} applied; "
+                f"target instance {number(observation[2])}.",
+            )
+            for control in controls
+            for observation in control["observations"].get("value") or ()
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *lines)
     removals = playbook.get("mechanic_removals")
     if removals:
         view = dict(view)

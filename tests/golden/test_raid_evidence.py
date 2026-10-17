@@ -103,6 +103,12 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"].startswith("mc-garr-"):
+        (control,) = boss["playbook"]["control_applications"]
+        positive = fixture["label"] == "mc-garr-control-warlock"
+        assert control["applications"]["value"] == (1 if positive else 0)
+        assert control["observations"]["value"] == ([[4.258, 100, 8, 18647]] if positive else [])
+        assert "uptime" in control["limitation"] and "not a failed duty" in control["limitation"]
     if fixture["label"] == "mc-magmadar-holy":
         assert "mechanic_removals" not in boss["playbook"]
         assert "cohort_mechanic_removals" not in boss["playbook"]
@@ -196,6 +202,12 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"].startswith("mc-garr-"):
+            count = 1 if fixture["label"] == "mc-garr-control-warlock" else 0
+            assert f"Recorded Firesworn Banish applications: {count}." in html
+            assert control["limitation"] in html
+            if count:
+                assert "4.26s · Firesworn Banish applied; target instance 8." in html
         if fixture["label"] == "mc-magmadar-holy":
             assert "Panic: 8.00s known affected; 9.31s with unknown state." in html
             assert "Magmadar Frenzy removals: 0" not in html

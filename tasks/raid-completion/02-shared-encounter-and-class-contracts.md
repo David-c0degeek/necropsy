@@ -44,6 +44,19 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 7 · 02.4/02.5/02.7/02.8 partial · Added source-owned control
+applications via existing actor-event/coverage primitives. Positive application
+evidence retains NPC actor/instance/spell/time; casts, removals and wrong targets
+are distinct. Unknown required metadata/partial coverage prevents exact counts;
+known mismatches exclude unrelated events. Garr supplies real positive/zero
+sources,17 focused matching/coverage cases and static assignment-aware strategy.
+Saved optional control data reaches both pages without adding rules to old JSON.
+Shared full opportunity/duty/ranking/loadout contracts remain open. Current
+five-encounter strategy applicability is verified across170 legal configuration
+paths. Ordinary1308 checks pass; final focused22 checks pass after matching
+refinement. Actual current real/installed/Naxx/render follow-up running. No full
+shared box closes.
+
 2026-10-17 · slice 1 · 02.1/02.5/02.8 partial under D006 · Shared sourced-static-strategy contract in analysis/encounters/strategy.py and existing per-raid guidance YAML; concrete Lucifron, combined-dragon and Viscidus strategies. Backend selects class/metric/Era-partition applicability and saves optional playbook data. Existing common pull-sheet adapters present preparation/execution/coordination and source links in both Report and Playbook, retaining explicit general-strategy limitations and no personal grading/observed-phase claim. No class plugin, role heuristic, metric, cohort or snapshot migration changed. Missing strategies remain absent; old saved JSON does not acquire current rules at render. Verified 102 legal seed configuration applicability paths; class-specific curse/magic removal, Viscidus HPS context, wrong-raid/seasonal/boolean partition negatives, old-document rendering. Real replay/content/source/package checks plus unit strategy checks: 16 passed/69.17 s. An earlier real-content run caught missing Report wiring despite passing transport tests; corrected with saved-content source disclosure in both adapters. Actual 12 page/viewport/no-network/no-overflow/print checks pass; two representative screenshots inspected, research/strategy-review.json records limits. All four original historical Naxx artifacts match 30e89ce byte for byte. Static checks/schema currency/docs pass; broad ordinary follow-up running. No subject or matrix cell closes; complete phases/metric reconciliation/duties/loadout/opportunity contracts remain open. Checkpoint pending.
 
 ## Interim review — not subject closure

@@ -15,7 +15,7 @@ General strategy is static knowledge with source, retrieval date, rule ID and
 class/metric applicability. It does not establish a personal assignment, phase,
 opportunity or mistake. The engine saves the selected items into optional
 `playbook.encounter_strategy`. Old JSON does not acquire advice during rendering.
-Current sourced strategies cover Lucifron, Magmadar, combined Ebonroc/Flamegor and Viscidus;
+Current sourced strategies cover Lucifron, Magmadar, Garr, combined Ebonroc/Flamegor and Viscidus;
 that initial set does not claim complete support for those bosses or other raids.
 
 Optional `playbook.encounter_effects` records actor debuff exposure through
@@ -68,6 +68,16 @@ sampled WCL report phase fields do not establish those complete windows.
 Guide schedules never fill missing observations. Whole-fight comparisons remain
 labelled whole-fight values; no exposure-based DPS normalization or quality
 penalty is introduced by these policies.
+
+Optional `playbook.control_applications` records source-owned control effects
+using the same actor-event and coverage contracts. Garr's Warlock policy matches
+applydebuff710/18647 on NPC12099. It retains time, target actor, nullable NPC
+instance and ability, separately from cast/begincast and removal. Source
+coverage and unambiguous required ability/recipient identity qualify exact
+counts; positive effects survive partial streams. Missing instance stays
+unknown and does not become a default add. A count cannot establish complete
+NPC control uptime, assignment or opportunity. Both pages present the saved
+observations; old JSON acquires no current policy during rendering.
 
 The existing schema 1 evidence-tree fields admit the optional additions.
 Snapshots and normalized tables do not change. Old documents remain readable;

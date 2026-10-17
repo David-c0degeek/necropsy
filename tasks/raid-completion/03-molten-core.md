@@ -47,6 +47,78 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 2 · 03.1/03.2/03.4–03.8 partial, continuing D009 sequencing ·
+Added finalized public Garr Warlock captures for Finia and Rumplock. Both are
+Horde Destruction/DPS: one additional configuration, two distinct sources.
+Twelve independently enumerated raw actor cases bring totals to21 archives/
+126 cases and20 IN_PROGRESS/932 TODO/0 COMPLETE. Original expected facts were
+retained. All28,535,087 extracted new raw bytes passed unlimited gitleaks8.30.1.
+The [partial Garr dossier](dossiers/garr.md) records exact identities, sources,
+uncertainties and remaining obligations.
+
+Shared source-owned control observations retain application time, NPC actor,
+nullable instance and spell; they do not equate casts/begincasts with effects or
+establish complete add uptime. Rumplock's exact public report/fight/actor proves
+one Banish18647 application at4.258 s to Firesworn actor100/instance8. Finia's
+complete source proves zero applications, not a failed duty. A bounded existing
+client query confirms rank1 spell710 on another actor/instance without assuming
+that actor's unknown faction or admitting it as a full fixture. Missing required
+metadata/partial streams yield unknown totals, positive effects retained; known
+wrong spell/target combinations are excluded. Static Garr strategy permits
+different raid assignments. Existing event/coverage/JSON/both-page paths reused;
+no alternate downloader, parser, normalized schema or renderer.
+
+Verification so far: ordinary1308 passed/274 deselected/341.77 s; final focused
+control/strategy22 passed/4.08 s (including two new mixed-metadata negatives).
+All126 independent raw cases and inventory pass; strict completion remains
+open. Full current real replays, installed/page review and Naxx follow-up are
+running before checkpoint. No full MC box or configuration closes.
+
+Next evidence collection: Gehennas Holy finalized six public sources;
+Gehennas Mage stopped during finalization at the normal conservative quota
+reserve (161 allowed points left,162 estimated required). No Mage archive or
+complete receipt is claimed. Retain cache/journal and retry after the quota
+reset; do not weaken budget policy or classify the evidence gap N/A.
+
+Final Garr follow-up: all21 current raw archives replay through23 golden checks,
+128.72 s. All126 independent actor facts pass. Fresh wheel/sdist build and actual
+installed replay outside checkout prove the exact application, sourced facts,
+both pages/package and site-packages control module. Eight page/viewport checks
+pass offline/no-error/no-overflow/print visibility; positive control and its
+limitation were visually inspected in both mobile pages. Final generated/page/
+package/wheel extraction26,199,774 bytes scanned (scanner26,183,719), no findings.
+Four complete historical Naxx artifacts again match30e89ce byte for byte.
+Ruff/format269 files, mypy214 source files and maintained docs287 links/25 files
+pass. Strict completion refusal explicitly verified at20 IN_PROGRESS/932 TODO,
+zero COMPLETE. Research/garr-review.json records exact scope and limits.
+
+### Interim Captain Hindsight — initial Garr work
+
+**Keep:** Existing acquisition/finalization/immutable snapshots, shared event and
+coverage primitives, raw independent expectations, source-owned applications
+separate from casts, NPC instances and uncertainty retained, saved-only rendering.
+
+**Fix before closing:** Complete Garr's target/ranking, global phase/opportunity,
+school/item/pet/loadout and all class/role/faction evidence in03.1–03.9 and the
+full matrix. Resolve actual duty comparability before attributing a throughput
+difference to control work. Obtain domain/product acceptance on complete artifacts.
+
+**Record:** Global cast probes can contain only a begin-cast and server filters
+do not guarantee exact spell matching. Unknown canonical faction blocked one
+research actor; normal public capture with observed faction supplied the real
+fixture. Both new archives cover one configuration, not two. Lessons recorded.
+
+**Risk:** Source-owned application evidence cannot establish a complete NPC control
+window or assigned job. PM-1/PM-2/PM-3 retain Pending full-scope calibration; local
+counterexamples reinforce their existing predictions, with no new material
+unpredicted product failure observed. Tool-only scan/screenshot helper errors
+were corrected and final actual artifacts inspected before recording success.
+
+**Verdict:** DO NOT CLOSE — initial Garr behavior is implemented and verified;
+the full boss, class matrix and subject remain incomplete. The smallest closing
+work is the outstanding domain/evidence/behavior/render obligations above, not
+an inventory override or inherited Naxx waiver.
+
 2026-10-17 · slice 1 · 03.1/03.2/03.4–03.8 partial under D009 · Finalized public
 Magmadar Hunter seed, six actor cases independently enumerated without the
 production analyzer. All 24,601,508 extracted raw bytes scanned with unlimited

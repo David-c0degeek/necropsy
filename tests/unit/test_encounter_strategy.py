@@ -7,7 +7,13 @@ from necropsy.report.serialize import to_data
 
 
 def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> None:
-    for zone, encounter in (("mc", 50663), ("mc", 50664), ("bwl", 50631), ("aq40", 50713)):
+    for zone, encounter in (
+        ("mc", 50663),
+        ("mc", 50664),
+        ("mc", 50666),
+        ("bwl", 50631),
+        ("aq40", 50713),
+    ):
         for config in configurations():
             strategy = encounter_strategy(zone, encounter, 1, config.class_id, config.metric)
             assert strategy is not None

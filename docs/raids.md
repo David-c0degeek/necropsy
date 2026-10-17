@@ -37,7 +37,7 @@ evidence rules apply to each module. Naxxramas retains its fixture-validated
 ranking exclusions and authored boss guidance. AQ40, BWL and MC have synthetic
 acquisition → snapshot → offline replay → rendering coverage. Their ranked-damage
 exclusions have not yet been reconciled against real logs, and their modules
-have initial sourced general strategy for Lucifron, Magmadar, combined Ebonroc / Flamegor,
+have initial sourced general strategy for Lucifron, Magmadar, Garr, combined Ebonroc / Flamegor,
 and Viscidus. Other boss strategy, observed phase/opportunity analysis and
 ranking-policy reconciliation remain incomplete. Missing facts remain
 unknown. Hunter comparisons use recorded WCL scores; the engine does not claim
@@ -47,7 +47,8 @@ shares from it. General class and cooldown guidance remains available.
 The initial strategy appears under preparation, execution and raid coordination
 in both pages. Lucifron distinguishes class-specific curse/magic removal;
 Magmadar distinguishes Frenzy-removal casts from successful effects and local
-Panic exposure; Viscidus distinguishes freezing and healing context. Local
+Panic exposure; Garr retains individual Firesworn Banish applications without
+assuming every Warlock was assigned control; Viscidus distinguishes freezing and healing context. Local
 debuff windows retain unknown state and do not define global phases or damage
 opportunity. These are general plans,
 not proof of your assignment, phase or a personal mistake. They apply only to

@@ -144,3 +144,22 @@ Panic apply319284 ms and remove327280 ms give relative9.307/17.303 s, exposure
 7.996 s and initial unknown9.307 s over44.090 s. A new manual test initially
 used a different Almsivi pull endpoint; replay rejected it. The raw expected
 duration and transition readings were already correct and were preserved.
+
+Garr adds two finalized public six-source archives and 12 independently
+enumerated actor cases (21 archives/126 cases). Both subjects are Horde
+Destruction/DPS, so they supply one additional configuration, not two. The
+coverage register selects Rumplock's positive control source; Finia's negative
+source remains immutable and is exercised separately. All 28,535,087 extracted
+raw bytes passed unlimited gitleaks8.30.1 on2026-10-17, no findings.
+
+Rumplock, report `DWACqnQrmMxdgYpt`, fight17, actor38: pull1141770–1193237 ms;
+Banish18647 begins at2.742 s, casts and applies at4.258 s to NPC actor100,
+Firesworn12099, instance8; removal at34.271 s. Finia's29.453-second source has
+no Banish application. These are source-owned application facts, not global
+control uptime, assignment or failure findings. Raw NPC instances must not
+collapse into one presumed add. Positive observations survive partial source
+coverage; full counts require complete source coverage and resolved identity.
+The earlier same-report global cast research is not fixture evidence: one
+query returned a begin-cast only, and server-side filters did not guarantee
+exact ability matching. The finalized actor streams and local raw IDs are
+the authority for these checks. No previous expected facts were regenerated.
