@@ -37,6 +37,15 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 10 · Baron Geddon Holy/Hunter · Two finalized public six-source
+captures and12 independent cases:25 archives/150 cases. Original138 expectations
+preserved. All27 real golden checks pass/173.87 s, covering exact personal
+end-censored Ignite Mana exposure. New raw25,818,371 bytes and current derived/
+packages/wheel15,482,131 bytes scan clean with unlimited gitleaks8.30.1. Normal
+installed raw replay outside checkout and eight representative page checks pass.
+Two additional configurations remain IN_PROGRESS; no complete cell or subject.
+Ragnaros short sources and Shazzrah collection remain unpromoted research.
+
 2026-10-17 · slice 9 · Gehennas Mage quota retry finalized normally. Promoted six
 public sources and six independently enumerated cases:23 archives/138 cases,
 22 IN_PROGRESS/930 TODO/0 COMPLETE. Exact subject Curse windows and class/metric

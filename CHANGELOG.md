@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial Baron Geddon bomb separation, Inferno recovery and class-specific
+  support strategy. Preserve Ignite Mana observations active at fight end;
+  distinguish aura exposure from mana loss, dispel quality and bomb handling.
+
 - Add initial Gehennas curse-removal, patient-healing and positioning strategy,
   sourced facts and personal Curse exposure. Keep healing received by cursed
   targets separate from the healer's own exposure and outgoing HPS.

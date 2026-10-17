@@ -44,6 +44,16 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 9 · 02.4/02.5/02.7/02.8 partial · Existing aura-state contract
+now carries Geddon Ignite Mana still active at fight end. No fabricated removal
+at the boundary, mana-loss amount, assignment or avoidance grade. Static bomb /
+Inferno/healer/magic-removal/Hunter pet strategy stays separate from observations.
+Seven encounter strategies cover238 legal class/metric configuration paths;
+39 focused checks and27 all-real golden checks pass. Fresh installed replay
+outside checkout and both-page/mobile checks pass. No schema or shared Python
+measurement change; full opportunity/duty/ranking and global-source contracts
+remain open, including actual bomb and Ragnaros submerge evidence.
+
 2026-10-17 · slice 8 · 02.4/02.5/02.7/02.8 partial · Reused shared observed aura
 states for Gehennas Curse and added patient-specific healing context. Personal
 healer exposure does not establish the state of all healing recipients or

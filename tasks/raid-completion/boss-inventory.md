@@ -43,7 +43,7 @@ Playbook/Report content. None is complete at planning time.
 | 50665 | Gehennas | Verify boss/add eligibility, curse and healing restrictions, dispelling assignments and safe versus interrupted uptime. | IN_PROGRESS — [partial dossier](dossiers/gehennas.md); no domain closure |
 | 50666 | Garr | Separate boss/add damage, banish/control and tank assignments; check add death context, ownership and ranked exclusions without assuming them. | IN_PROGRESS — [partial dossier](dossiers/garr.md); no domain closure |
 | 50667 | Shazzrah | Verify teleport/blink, interruption and school/position constraints; distinguish assigned dispels from personal throughput. | TODO |
-| 50668 | Baron Geddon | Verify bomb/area-safety windows and forced movement, dispelling/healing demand and pet behavior; do not infer movement from a cast gap alone. | TODO |
+| 50668 | Baron Geddon | Verify bomb/area-safety windows and forced movement, dispelling/healing demand and pet behavior; do not infer movement from a cast gap alone. | IN_PROGRESS — [partial dossier](dossiers/geddon.md); no domain closure |
 | 50669 | Sulfuron Harbinger | Verify boss/priest targets, healing and interrupt/control assignments, kill order and the score’s actual eligible target set. | TODO |
 | 50670 | Golemagg the Incinerator | Verify boss/core-rager roles, target selection and tank/healer context; establish add and score eligibility independently. | TODO |
 | 50671 | Majordomo Executus | Verify add-centric encounter completion, actual boss/add phases and tank/control/healing assignments; reconcile unusual ranking amount and duration. | TODO |

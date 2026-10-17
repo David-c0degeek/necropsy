@@ -1,0 +1,167 @@
+{
+  "reviewed": "2026-10-17",
+  "scope": "Initial Geddon Holy/Hunter exposure and static strategy, not full boss/class/role acceptance.",
+  "checks": [
+    {
+      "raid": "mc-geddon-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-geddon-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-geddon-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-geddon-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-geddon-hunter",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-geddon-hunter",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-geddon-hunter",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-geddon-hunter",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "final_focused": {
+    "passed": 39,
+    "seconds": 8.74
+  },
+  "all_raid_golden": {
+    "passed": 27,
+    "seconds": 173.87,
+    "archives": 25,
+    "independent_cases": 150
+  },
+  "installed": {
+    "outside_checkout": true,
+    "module_from": "site-packages",
+    "both_pages_packages": true,
+    "windows": {
+      "holy": [
+        [
+          0,
+          16.037,
+          null
+        ],
+        [
+          16.037,
+          16.24,
+          true
+        ]
+      ],
+      "hunter": [
+        [
+          0,
+          21.033,
+          null
+        ],
+        [
+          21.033,
+          26.071,
+          true
+        ]
+      ]
+    }
+  },
+  "secrets": {
+    "scanner": "gitleaks8.30.1",
+    "max_target_megabytes": 0,
+    "new_raw_extraction_bytes": 25818371,
+    "current_derived_extraction_bytes": 15482131,
+    "findings": 0
+  },
+  "visual_review": [
+    "mc-geddon-hunter-report-exposure-mobile.png",
+    "mc-geddon-holy-playbook-exposure-mobile.png"
+  ],
+  "limitations": [
+    "No selected actor has a positive Living Bomb application; bomb and Inferno advice is general strategy only.",
+    "Ignite Mana aura duration does not measure actual mana lost or damage taken, removal opportunity or fault.",
+    "No full tank/class/faction, target/ranking, phase/opportunity, item/pet/loadout or domain acceptance."
+  ]
+}

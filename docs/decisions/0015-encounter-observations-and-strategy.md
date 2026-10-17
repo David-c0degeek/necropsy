@@ -15,7 +15,8 @@ General strategy is static knowledge with source, retrieval date, rule ID and
 class/metric applicability. It does not establish a personal assignment, phase,
 opportunity or mistake. The engine saves the selected items into optional
 `playbook.encounter_strategy`. Old JSON does not acquire advice during rendering.
-Current sourced strategies cover Lucifron, Magmadar, Gehennas, Garr, combined Ebonroc/Flamegor and Viscidus;
+Current sourced strategies cover Lucifron, Magmadar, Gehennas, Garr, Baron Geddon,
+combined Ebonroc/Flamegor and Viscidus;
 that initial set does not claim complete support for those bosses or other raids.
 
 Optional `playbook.encounter_effects` records actor debuff exposure through
@@ -41,6 +42,11 @@ Gehennas records local Curse19716 state. That is the affected actor's exposure,
 not a model of all their healing recipients: the curse reduces healing received
 by its target. No outgoing-HPS correction, lost-healing estimate or avoidability
 grade is inferred from the healer's own window.
+Baron Geddon records Ignite Mana19659 exposure, including an observed application
+still active at fight end. The end boundary censors the observation; it is not
+an implicit removal. Aura duration does not establish actual mana destroyed,
+damage taken or a failed removal assignment. Living Bomb/Inferno strategy does
+not imply measured bomb applications, splash attribution or movement windows.
 
 Successful mechanic removals are separate source-owned `dispel` effects with
 an explicit debuff flag and matching `extraAbilityGameID`. They need not have a

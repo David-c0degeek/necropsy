@@ -47,6 +47,42 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 · slice 5 · 03.1/03.2/03.4–03.8 partial · Implemented initial Geddon
+sourced facts/strategy and personal Ignite Mana through existing shared state
+primitives. Promoted two public six-source Holy/Hunter archives and12 independent
+actor cases:25 archives/150 cases,24 IN_PROGRESS/928 TODO/0 COMPLETE. Original138
+expectations unchanged. The [partial dossier](dossiers/geddon.md) binds exact
+actors, end-censored exposure and remaining obligations. No selected actor has
+Living Bomb application; no personal bomb handling or splash diagnosis invented.
+
+Verification:39 focused checks/8.74 s; all25 fixtures through27 golden checks/
+173.87 s, including150 raw actor facts. Fresh wheel/sdist, exact installed raw
+Holy/Hunter replays outside checkout, both pages/packages and eight desktop/mobile
+offline/no-error/no-overflow/print checks pass. Actual positive Holy Playbook and
+Hunter Report mobile sections inspected after browser paint. New raw25,818,371
+bytes and current output/package/wheel15,482,131 bytes (scanner15,466,075) pass
+unlimited gitleaks8.30.1. Four Naxx artifacts again match30e89ce byte for byte.
+Ruff/format/mypy/maintained docs pass. Research/geddon-review.json retains limits.
+
+Ragnaros short-pull raw seeds finalized but not promoted. Bounded lower-ranking
+page research found one372.315-second Holy candidate, Onorine/Grobbulus,
+`a2YQjC8L4X9xWDmv`/fight28. Both canonical profile faction and exact public
+report actor3 playerDetails faction are unknown. Rejected for same-faction
+evidence; no guild inference, raw-field guess or readiness bypass. Other sampled
+Holy ranking pages had no180+second candidate. This is an open source gap, not
+proof of impossibility or N/A. No observed submerge window or nominal-timer phase
+is claimed from the short kills. Shazzrah/Sulfuron collection remains research.
+
+Interim Hindsight: **Keep** shared three-state exposure, fight-end censoring,
+normal quota/public validation and positive raw/installed/render receipts.
+**Fix before closing** actual bomb/control/phase/opportunity/resource/target/
+ranking/pet/loadout/all-class evidence and domain/product review in the dossier.
+**Record** short kills do not establish submerge behavior; long candidate names
+do not supply missing faction or assignment. **Risk** aura time cannot quantify
+mana or damage loss and static strategy cannot prove personal execution. PM-1 /
+PM-2 / PM-3 remain pending full calibration. **Verdict: DO NOT CLOSE**; no full
+MC box, boss or matrix configuration is accepted.
+
 2026-10-17 · slice 4 · Gehennas Mage evidence and ranking research · Normal quota
 retry finalized six Horde Fire/DPS sources; six independent cases, exact Curse
 window and applicable strategy replay pass. Overall23 archives/138 cases,

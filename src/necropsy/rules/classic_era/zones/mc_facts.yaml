@@ -2,6 +2,19 @@ version: 1
 rule: mc-encounter-facts-v1
 retrieved: '2026-10-17'
 encounters:
+- id: 50668
+  name: Baron Geddon
+  creature_type: Elemental
+  type_source: https://www.wowhead.com/classic/guide/baron-geddon-molten-core-strategy-wow-classic
+  source: https://www.wowhead.com/classic/guide/baron-geddon-molten-core-strategy-wow-classic
+  note: Static Classic Era mechanics; personal aura exposure does not establish resource loss, explosion splash, avoidance or a global phase. Season of Mastery multiple-bomb behavior is excluded.
+  timings:
+  - key: ignite-mana
+    text: Ignite Mana burns mana and causes damage when mana is burned. Aura exposure alone does not quantify actual mana loss or damage.
+  - key: living-bomb
+    text: Living Bomb requires separation from nearby allies. Its application, removal and explosion effects must be distinguished before assessing execution.
+  - key: inferno
+    text: Inferno creates close-range fire pressure. A guide schedule is not an observed movement or pet-uptime window.
 - id: 50665
   name: Gehennas
   creature_type: Humanoid

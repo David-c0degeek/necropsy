@@ -12,6 +12,7 @@ def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> Non
         ("mc", 50664),
         ("mc", 50665),
         ("mc", 50666),
+        ("mc", 50668),
         ("bwl", 50631),
         ("aq40", 50713),
     ):
@@ -57,6 +58,21 @@ def test_gehennas_distinguishes_curse_removal_from_patient_healing_context() -> 
         rules = {item.rule for item in strategy.items}
         assert ("gehennas-assigned-decurse-v1" in rules) is decurse
         assert ("gehennas-healing-recipient-context-v1" in rules) is healing
+
+
+def test_geddon_applies_class_and_healing_strategy_without_inventing_duty() -> None:
+    for class_id, metric, removal, pets, healing in (
+        (7, "hps", True, False, True),
+        (6, "dps", True, False, False),
+        (3, "dps", False, True, False),
+        (11, "dps", False, False, False),
+    ):
+        strategy = encounter_strategy("mc", 50668, 1, class_id, metric)
+        assert strategy
+        rules = {item.rule for item in strategy.items}
+        assert ("geddon-magic-removal-v1" in rules) is removal
+        assert ("geddon-hunter-pet-recovery-v1" in rules) is pets
+        assert ("geddon-healer-bomb-coverage-v1" in rules) is healing
 
 
 def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:

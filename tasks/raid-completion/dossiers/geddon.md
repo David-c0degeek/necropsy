@@ -1,0 +1,59 @@
+# Baron Geddon — partial evidence dossier
+
+Reviewed 2026-10-17. Initial observed Ignite Mana and general strategy only;
+no complete boss, class/role/faction or domain acceptance.
+
+## Identity, sources and ruleset
+
+Era zone2000/encounter50668, boss NPC12056, Elemental. Policies apply only to
+Era partitions1/2; real captures use1. Sources:
+[Classic guide](https://www.wowhead.com/classic/guide/baron-geddon-molten-core-strategy-wow-classic),
+[NPC](https://www.wowhead.com/classic/npc=12056/baron-geddon),
+[Ignite Mana19659](https://www.wowhead.com/classic/spell=19659/ignite-mana).
+The shared wiki page includes RPG prose and SoM multiple-bomb behavior; neither
+is imported into Era policy. The Classic spell page describes a magic effect
+that burns mana and causes damage when mana is burned. No nominal duration,
+damage, resistance threshold or cast schedule manufactures a measured window.
+
+Living Bomb20475 and Inferno19695 are also identified in the maintained
+[DBM Vanilla module](https://github.com/DeadlyBossMods/DBM-Vanilla/blob/master/DBM-Raids-Vanilla/MC/Geddon.lua).
+That consumer supports event identity, not proof the event occurred in one of
+our fights. It contains seasonal IDs too; those are not substituted. The
+automated Classic Living Bomb page was blocked. No bomb exposure matcher or
+success/failure diagnosis is enabled without a usable selected positive source.
+
+## Immutable observations
+
+Normal finalized public captures `mc-geddon-holy` and `mc-geddon-hunter`, six
+sources each. Raw files/member manifests and provenance/fact/coverage registers
+are in `tests/golden/raids/`. Twelve independently enumerated actor cases bring
+totals to25 archives/150 cases; original138 expected cases remain untouched.
+All25,818,371 new extracted raw bytes passed unlimited gitleaks8.30.1.
+
+| Actor | Exact source | Observed exposure | Interpretation |
+|---|---|---|---|
+| Almsivi, Holy | fdRrFwaKmvy3xJZD / fight10 / actor7 | Ignite Mana applies16.037 s; fight ends16.240 s;0.203 s known affected,16.037 s initial unknown | No removal event; end of fight censors a still-active observation. |
+| Trazel, Hunter | kw1KFhxA4mfY8aRD / fight42 / actor116 | Applies21.033 s; fight ends26.071 s;5.038 s known affected,21.033 s initial unknown | No inferred removal, mana-loss amount or failed job. |
+| Inkia, Holy comparison | 1QatCkbxLyrZzNAg / fight15 / actor21 | Apply7.667 s / remove9.275 s over16.285 s | Positive transition pair;1.608 s known affected. |
+| Ivokros, Hunter comparison | Lwa74rJDPthfdCRY / fight16 / actor44 | Apply13.004 s / remove16.037 s over30.274 s | Positive transition pair;3.033 s known affected. |
+
+No selected actor in these12 sources records Living Bomb20475 application.
+Other raid actors may receive it. Absence in this actor subset is not absence
+of the boss mechanic. Personal Ignite Mana windows likewise cannot establish
+actual resource loss, explosion recipients, damage avoidance or every dispel
+opportunity. Warrior/Rogue strategy does not equate an aura with mana loss.
+
+## Runtime seams and open work
+
+Existing shared effects state machine, actor coverage, optional JSON and both
+page adapters are reused. Per-raid YAML supplies general preparation, bomb
+isolation, Inferno recovery, Priest/Paladin magic removal, healer support and
+Hunter pet-positioning review. No assigned job, pet failure, bomb splash cause,
+movement duration or ranking reconstruction is inferred. Old JSON and Naxx
+historical behavior remain unchanged.
+
+Open: positive usable bomb sources; full actual Inferno/Armageddon/targetability
+and pet/summon windows; native/foreign/ranking reconciliation; precise resource,
+damage, removal and assignment evidence; all legal class/faction/tank/loadout/
+item cases; full rendered/domain/product acceptance. The two representative
+role captures and sourced static strategy do not close those obligations.

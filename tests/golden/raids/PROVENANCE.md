@@ -188,3 +188,16 @@ initial state. All six selected sources have no source-owned curse removals;
 that absence does not identify assignments. Separate Mage Fallout's successful
 removal appears in subject-target evidence, without certifying that unselected
 actor's whole-fight source. All original132 expectations remain unchanged.
+
+Baron Geddon Holy/Hunter add two finalized public six-source archives and12
+independent raw actor cases (25 archives/150 cases). Original138 expectations
+remain unchanged. All25,818,371 new extracted raw bytes passed unlimited
+gitleaks8.30.1. Subject Holy Almsivi `fdRrFwaKmvy3xJZD`/fight10/actor7 has
+Ignite Mana19659 apply16.037 s through fight end16.240 s (0.203 known exposure,
+16.037 initially unknown). Hunter Trazel `kw1KFhxA4mfY8aRD`/fight42/actor116
+has apply21.033 s through end26.071 s (5.038 known,21.033 initially unknown).
+No removal is inferred at the pull boundary; neither duration quantifies mana
+loss, actual damage or failure. No selected actor supplies a positive Living
+Bomb20475 application in these12 streams; general bomb strategy is not a
+measured handling claim. Real replay checks both saved windows and actual text
+in both pages. Source/package and installed-wheel replay retain these facts.

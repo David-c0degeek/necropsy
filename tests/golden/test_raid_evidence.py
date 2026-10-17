@@ -103,6 +103,24 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] in ("mc-geddon-holy", "mc-geddon-hunter"):
+        (effect,) = boss["playbook"]["encounter_effects"]
+        apply, duration = (
+            (16.037, 16.240) if fixture["label"] == "mc-geddon-holy" else (21.033, 26.071)
+        )
+        assert effect["ability_ids"] == [19659]
+        assert effect["known_affected_s"]["value"] == pytest.approx(duration - apply)
+        assert effect["unknown_state_s"]["value"] == apply
+        assert effect["windows"]["value"] == [[0, apply, None], [apply, duration, True]]
+        assert effect["transitions"]["value"] == [[apply, "applydebuff", 19659]]
+        assert "removals" not in effect
+        strategy_rules = {item["rule"] for item in boss["playbook"]["encounter_strategy"]["items"]}
+        assert ("geddon-healer-bomb-coverage-v1" in strategy_rules) is (
+            fixture["label"] == "mc-geddon-holy"
+        )
+        assert ("geddon-hunter-pet-recovery-v1" in strategy_rules) is (
+            fixture["label"] == "mc-geddon-hunter"
+        )
     if fixture["label"] == "mc-gehennas-mage":
         assert marker["subject"]["name"] == "Suffel"
         (curse,) = boss["playbook"]["encounter_effects"]
@@ -234,6 +252,10 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert strategy["limitation"] in html
         assert "Recorded boss melee events against you:" in html
         assert context["limitation"] in html
+        if fixture["label"] == "mc-geddon-holy":
+            assert "Ignite Mana: 0.20s known affected; 16.04s with unknown state." in html
+        if fixture["label"] == "mc-geddon-hunter":
+            assert "Ignite Mana: 5.04s known affected; 21.03s with unknown state." in html
         if fixture["label"] == "mc-gehennas-mage":
             assert "Gehennas' Curse: 6.05s known affected; 9.72s with unknown state." in html
         if fixture["label"] == "mc-gehennas-holy":
