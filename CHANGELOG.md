@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Keep Hunter opening guidance explicit when no comparable ranged opening is
+  recorded, and hide the reference ability section when no comparison exists.
+
 - Retain observed AQ40 boss aura state separately for Sartura, Huhuran, Twin
   Emperors and Ouro, plus personal Sand Blast exposure. Unnumbered NPC windows
   require exact fight metadata proving a single instance; missing C'Thun

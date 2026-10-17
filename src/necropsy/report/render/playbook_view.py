@@ -489,7 +489,11 @@ def _quick_plan(
     )
     pattern = " → ".join(shots) if shots else "Unknown: no comparator ranged opening recorded."
     member = str(plan["context"].get("membership_level", "unknown"))
-    basis = "Practice pattern from the same-faction comparator; detailed timestamps remain below."
+    basis = (
+        "Practice pattern from the same-faction comparator; detailed timestamps remain below."
+        if shots
+        else "No comparable ranged opening is available. Review your recorded opening below."
+    )
     if member == "inferred":
         basis += " Comparator membership is inferred."
     rapid = plan["rapid_fire"]["same_faction_first_s"]

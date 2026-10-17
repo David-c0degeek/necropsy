@@ -559,6 +559,198 @@ def test_npc_aura_facts_require_an_explicit_valid_kind(tmp_path: Path, kind: obj
         check_register(register)
 
 
+PET_PREFIX = f"events/{REPORT}/fight_1/pet_99_Companion/"
+PET_EXPECTED: dict[str, Any] = {
+    "duration_ms": 2000,
+    "owner_class": "Hunter",
+    "owner_identity": {
+        "id": 1,
+        "gameID": 11,
+        "subType": "Hunter",
+        "type": "Player",
+        "name": "Healer",
+    },
+    "listing_member": PREFIX + "pets.json",
+    "listing_complete": True,
+    "pets": [
+        {
+            "actor": 99,
+            "catalog": {
+                "id": 99,
+                "gameID": 123,
+                "petOwner": 1,
+                "name": "Companion",
+                "type": "Pet",
+                "subType": "Pet",
+            },
+            "listing_binding": {"id": 99, "gameID": 123, "petOwner": 1},
+            "fight_binding": {"id": 99, "gameID": 123, "instanceCount": 1, "petOwner": 1},
+            "totals": {
+                "damage": 40,
+                "damage_absorbed": 8,
+                "effective_healing": 3,
+                "absorbed_amount": 0,
+                "incoming_damage": 7,
+            },
+            "damage_by_actor": {"2": 40},
+            "target_game_ids": {"2": 12118},
+            "casts_ms": {"172": [300]},
+            "deaths_ms": [600],
+            "resurrections_ms": [900],
+            "damage_bounds_ms": [200, 200],
+        }
+    ],
+    "unattributed_friendly_pets": [],
+}
+
+
+def _pet_members() -> dict[str, Any]:
+    members = _members()
+    report = members[BUNDLE]["reportData"]["report"]
+    report["masterData"]["actors"][0].update(type="Player", subType="Hunter", name="Healer")
+    report["masterData"]["actors"][2].update(type="Pet", subType="Pet", name="Companion")
+    report["fights"][0]["friendlyPets"][0]["instanceCount"] = 1
+    members[PREFIX + "pets.json"] = [{"id": 99, "gameID": 123, "petOwner": 1}]
+    damage = {
+        "type": "damage",
+        "timestamp": 1200,
+        "sourceID": 99,
+        "targetID": 2,
+        "abilityGameID": 1,
+        "amount": 20,
+        "absorbed": 4,
+    }
+    heal = {"type": "heal", "timestamp": 1400, "sourceID": 99, "targetID": 99, "amount": 3}
+    members[PET_PREFIX + "source_001.json"] = {
+        "nextPageTimestamp": None,
+        "data": [
+            damage,
+            copy.deepcopy(damage),
+            {"type": "cast", "timestamp": 1300, "sourceID": 99, "abilityGameID": 172},
+            heal,
+        ],
+    }
+    members[PET_PREFIX + "target_001.json"] = {
+        "nextPageTimestamp": None,
+        "data": [
+            copy.deepcopy(heal),
+            {"type": "damage", "timestamp": 1500, "sourceID": 2, "targetID": 99, "amount": 7},
+            {"type": "death", "timestamp": 1600, "sourceID": 2, "targetID": 99},
+            {"type": "resurrect", "timestamp": 1900, "sourceID": 1, "targetID": 99},
+        ],
+    }
+    return members
+
+
+def _write_pet(root: Path, members: dict[str, Any], expected: dict[str, Any]) -> Path:
+    register = _write(root, members)
+    data = json.loads(register.read_text(encoding="utf-8"))
+    data["kind"] = "owned-pets"
+    data["cases"][0]["expected"] = expected
+    register.write_text(json.dumps(data), encoding="utf-8")
+    return register
+
+
+def test_pet_union_preserves_repeats_without_double_counting_self_healing(tmp_path: Path) -> None:
+    assert check_register(_write_pet(tmp_path, _pet_members(), PET_EXPECTED)) == []
+
+
+@pytest.mark.parametrize(
+    "mutation", ["damage", "absorbed", "target", "duration", "kind", "cast", "death", "repeat"]
+)
+def test_rehashed_pet_semantic_changes_cannot_match_frozen_facts(
+    tmp_path: Path, mutation: str
+) -> None:
+    members = _pet_members()
+    source = members[PET_PREFIX + "source_001.json"]["data"]
+    if mutation == "duration":
+        members[BUNDLE]["reportData"]["report"]["fights"][0]["endTime"] += 1
+    elif mutation == "cast":
+        source[2]["timestamp"] += 1
+    elif mutation == "death":
+        members[PET_PREFIX + "target_001.json"]["data"][2]["timestamp"] += 1
+    elif mutation == "repeat":
+        source.append(copy.deepcopy(source[0]))
+    else:
+        key, value = {
+            "damage": ("amount", 21),
+            "absorbed": ("absorbed", 5),
+            "target": ("targetID", 1),
+            "kind": ("type", "heal"),
+        }[mutation]
+        source[0][key] = value
+    assert check_register(_write_pet(tmp_path, members, PET_EXPECTED))
+
+
+@pytest.mark.parametrize("where", ["listing", "fight", "catalog"])
+@pytest.mark.parametrize("owner", [2, True, 1.5, None])
+def test_pet_ownership_cannot_be_coerced_or_borrowed(
+    tmp_path: Path, where: str, owner: object
+) -> None:
+    members = _pet_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    target = {
+        "listing": members[PREFIX + "pets.json"][0],
+        "fight": report["fights"][0]["friendlyPets"][0],
+        "catalog": report["masterData"]["actors"][2],
+    }[where]
+    target["petOwner"] = owner
+    register = _write_pet(tmp_path, members, PET_EXPECTED)
+    if where == "catalog" and owner is None:
+        # A known fight/listing owner can coexist with an absent master owner.
+        assert check_register(register)
+    else:
+        with pytest.raises(ValueError, match="owned pet bindings"):
+            check_register(register)
+
+
+@pytest.mark.parametrize("case", ["missing-target", "partial", "boolean-amount", "null-absorbed"])
+def test_pet_totals_need_complete_directions_and_valid_amounts(tmp_path: Path, case: str) -> None:
+    members = _pet_members()
+    if case == "missing-target":
+        del members[PET_PREFIX + "target_001.json"]
+    elif case == "partial":
+        members[PET_PREFIX + "source_001.json"]["nextPageTimestamp"] = 2500
+    elif case == "boolean-amount":
+        members[PET_PREFIX + "source_001.json"]["data"][0]["amount"] = True
+    else:
+        members[PET_PREFIX + "source_001.json"]["data"][0]["absorbed"] = None
+    with pytest.raises(ValueError, match=r"stream|raw pet amount"):
+        check_register(_write_pet(tmp_path, members, PET_EXPECTED))
+
+
+@pytest.mark.parametrize("unknown_guardian", [False, True])
+def test_no_pet_and_unattributed_guardian_do_not_invent_a_pet_owner(
+    tmp_path: Path, unknown_guardian: bool
+) -> None:
+    members = _pet_members()
+    expected = copy.deepcopy(PET_EXPECTED)
+    report = members[BUNDLE]["reportData"]["report"]
+    if unknown_guardian:
+        members[PREFIX + "confirmed_pets.json"] = members.pop(PREFIX + "pets.json")
+        report["fights"][0]["friendlyPets"].append({"id": 100, "gameID": 8836, "petOwner": None})
+        report["masterData"]["actors"].append({"id": 100, "type": "Pet", "petOwner": None})
+        expected.update(
+            listing_member=PREFIX + "confirmed_pets.json",
+            listing_complete=False,
+            unattributed_friendly_pets=[
+                {
+                    "actor": 100,
+                    "game_id": 8836,
+                    "fight_owner": None,
+                    "master_owner": None,
+                }
+            ],
+        )
+    else:
+        members[PREFIX + "pets.json"] = []
+        report["fights"][0]["friendlyPets"] = []
+        del members[PET_PREFIX + "source_001.json"]
+        del members[PET_PREFIX + "target_001.json"]
+        expected["pets"] = []
+    assert check_register(_write_pet(tmp_path, members, expected)) == []
+
+
 def _effect_members() -> dict[str, Any]:
     members = _members()
     members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][0]["type"] = "Player"

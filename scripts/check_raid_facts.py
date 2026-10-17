@@ -54,9 +54,18 @@ def _pages(
 
 
 def _events(
-    archive: VerifiedArchive, report: str, fight: int, actor: int, start: int, end: int
+    archive: VerifiedArchive,
+    report: str,
+    fight: int,
+    actor: int,
+    start: int,
+    end: int,
+    *,
+    role: str = "player",
 ) -> list[dict[str, Any]]:
-    prefix = f"events/{report}/fight_{fight}/player_{actor}_"
+    if role not in {"player", "pet"}:
+        raise ValueError("raw actor stream role must be player or pet")
+    prefix = f"events/{report}/fight_{fight}/{role}_{actor}_"
     streams: dict[str, Counter[str]] = defaultdict(Counter)
     events: dict[str, dict[str, Any]] = {}
     folders = {
@@ -488,12 +497,170 @@ def raw_actor_effect_facts(
     }
 
 
+def raw_owned_pet_facts(
+    archive: VerifiedArchive, report: str, fight: int, owner: int
+) -> dict[str, Any]:
+    """Project raw owner/listing/catalog bindings and exact pet event arithmetic."""
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    selected = next(f for f in bundle["fights"] if f["id"] == fight)
+    actors = {a["id"]: a for a in bundle["masterData"]["actors"]}
+    if len(actors) != len(bundle["masterData"]["actors"]):
+        raise ValueError("raw pet catalog identities are ambiguous")
+    identity = actors.get(owner, {})
+    if type(identity.get("id")) is not int or identity.get("type") != "Player":
+        raise ValueError("raw pet owner identity is unresolved")
+    prefix = f"events/{report}/fight_{fight}/player_{owner}_"
+    listings = [
+        name
+        for name in archive.names()
+        if name.startswith(prefix) and name.endswith(("/pets.json", "/confirmed_pets.json"))
+    ]
+    if len(listings) != 1:
+        raise ValueError("owned pet facts need one unambiguous raw listing")
+    listing = listings[0]
+    pets = archive.read_json(listing)
+    if (
+        not isinstance(pets, list)
+        or any(not isinstance(p, dict) or type(p.get("id")) is not int or p["id"] < 1 for p in pets)
+        or len({p["id"] for p in pets}) != len(pets)
+    ):
+        raise ValueError("raw pet listing identities are invalid")
+    result = []
+    for pet in pets:
+        actor = pet["id"]
+        bindings = [p for p in selected.get("friendlyPets") or [] if p["id"] == actor]
+        if len(bindings) != 1:
+            raise ValueError("raw pet needs one exact friendly fight binding")
+        catalog = actors.get(actor, {})
+        required_owners = [pet.get("petOwner"), bindings[0].get("petOwner")]
+        master_owner = catalog.get("petOwner")
+        if (
+            actor == owner
+            or type(catalog.get("id")) is not int
+            or catalog.get("type") != "Pet"
+            or any(type(value) is not int or value != owner for value in required_owners)
+            or (
+                master_owner is not None
+                and (type(master_owner) is not int or master_owner != owner)
+            )
+        ):
+            raise ValueError("raw owned pet bindings are unresolved or disagree")
+        rows = _events(
+            archive,
+            report,
+            fight,
+            actor,
+            selected["startTime"],
+            selected["endTime"],
+            role="pet",
+        )
+        outgoing = [e for e in rows if e.get("sourceID") == actor]
+        incoming = [e for e in rows if e.get("targetID") == actor]
+        for event in outgoing + incoming:
+            if event["type"] not in {"damage", "heal", "absorbed"}:
+                continue
+            values = [event.get("amount")]
+            if event["type"] == "damage":
+                values.append(event.get("absorbed", 0))
+            if any(
+                not isinstance(value, int | float)
+                or isinstance(value, bool)
+                or not math.isfinite(value)
+                or value < 0
+                for value in values
+            ):
+                raise ValueError("raw pet amount is missing or invalid")
+        damage = [e for e in outgoing if e["type"] == "damage"]
+        targets: Counter[str] = Counter()
+        casts: dict[str, list[int]] = defaultdict(list)
+        for event in damage:
+            targets[str(event.get("targetID"))] += event["amount"]
+        for event in outgoing:
+            if event["type"] == "cast":
+                casts[str(event.get("abilityGameID"))].append(
+                    event["timestamp"] - selected["startTime"]
+                )
+        result.append(
+            {
+                "actor": actor,
+                "catalog": {
+                    k: v
+                    for k, v in actors.get(actor, {}).items()
+                    if k in {"id", "name", "type", "subType", "gameID", "petOwner"}
+                },
+                "listing_binding": {k: pet.get(k) for k in ("id", "gameID", "petOwner")},
+                "fight_binding": {
+                    k: bindings[0].get(k) for k in ("id", "gameID", "instanceCount", "petOwner")
+                },
+                "totals": {
+                    "damage": sum(e["amount"] for e in damage),
+                    "damage_absorbed": sum(e.get("absorbed", 0) for e in damage),
+                    "effective_healing": sum(e["amount"] for e in outgoing if e["type"] == "heal"),
+                    "absorbed_amount": sum(
+                        e["amount"] for e in outgoing if e["type"] == "absorbed"
+                    ),
+                    "incoming_damage": sum(e["amount"] for e in incoming if e["type"] == "damage"),
+                },
+                "damage_by_actor": dict(sorted(targets.items())),
+                "target_game_ids": {
+                    str(a["id"]): a.get("gameID")
+                    for a in bundle["masterData"]["actors"]
+                    if str(a["id"]) in targets
+                },
+                "casts_ms": {k: sorted(v) for k, v in sorted(casts.items())},
+                "deaths_ms": sorted(
+                    e["timestamp"] - selected["startTime"] for e in incoming if e["type"] == "death"
+                ),
+                "resurrections_ms": sorted(
+                    e["timestamp"] - selected["startTime"]
+                    for e in incoming
+                    if e["type"] == "resurrect"
+                ),
+                "damage_bounds_ms": None
+                if not damage
+                else [
+                    min(e["timestamp"] for e in damage) - selected["startTime"],
+                    max(e["timestamp"] for e in damage) - selected["startTime"],
+                ],
+            }
+        )
+    return {
+        "duration_ms": selected["endTime"] - selected["startTime"],
+        "owner_class": actors.get(owner, {}).get("subType"),
+        "owner_identity": {
+            k: v
+            for k, v in actors.get(owner, {}).items()
+            if k in {"id", "type", "subType", "name", "gameID"}
+        },
+        "listing_member": listing,
+        "listing_complete": listing.endswith("/pets.json"),
+        "pets": result,
+        "unattributed_friendly_pets": [
+            {
+                "actor": p["id"],
+                "game_id": p.get("gameID"),
+                "fight_owner": p.get("petOwner"),
+                "master_owner": actors.get(p["id"], {}).get("petOwner"),
+            }
+            for p in selected.get("friendlyPets") or []
+            if type(p.get("petOwner")) is not int or p["petOwner"] < 1
+        ],
+    }
+
+
 def check_register(path: Path) -> list[str]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("version") != 1 or not data.get("cases"):
         raise ValueError("a fact register needs version 1 and nonempty reviewed cases")
     kind = data.get("kind", "actor")
-    if kind not in {"actor", "healing-recipients", "npc-controls", "npc-auras", "actor-effects"}:
+    if kind not in {
+        "actor",
+        "healing-recipients",
+        "npc-controls",
+        "npc-auras",
+        "actor-effects",
+        "owned-pets",
+    }:
         raise ValueError("unsupported independent fact register kind")
     problems = []
     ids = [case["id"] for case in data["cases"]]
@@ -517,7 +684,11 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            if kind == "actor-effects":
+            if kind == "owned-pets":
+                if type(case.get("actor")) is not int or case["actor"] < 1:
+                    raise ValueError("owned pet facts require a positive owner actor")
+                actual = raw_owned_pet_facts(archive, case["report"], case["fight"], case["actor"])
+            elif kind == "actor-effects":
                 abilities = case.get("ability_ids")
                 if (
                     not isinstance(abilities, list)

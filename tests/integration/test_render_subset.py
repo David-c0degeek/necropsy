@@ -356,8 +356,36 @@ def test_quick_plan_keeps_missing_and_inferred_evidence_visible(analysis: bytes)
     rows = _quick_plan(plan, {}, {}, {})
     text = " ".join(part["text"] + " " + part["note"] for row in rows for part in row["lines"])
     assert "no comparator ranged opening" in text and "timing unknown" in text
+    assert "No comparable ranged opening is available" in text
+    assert "Practice pattern from the same-faction comparator" not in text
     assert "2 had no RF cast recorded" in text and "1 unknown" in text
     assert "membership is inferred" in text
+
+
+def test_reference_ability_section_requires_recorded_reference(analysis: bytes) -> None:
+    document = json.loads(analysis)
+    boss = document["bosses"][0]
+    document["bosses"] = [boss]
+    faction = boss["subject"]["environment"]["faction"]["value"]
+    reference = next(
+        e for e in boss["overall_cohort"] if e["environment"]["faction"]["value"] == faction
+    )
+    boss["benchmarks"]["ceiling"]["player"] = reference["player"]
+    reference["ability_use"] = {
+        "value": {"Auto Shot": 2},
+        "level": "observed",
+        "claim": "complete",
+        "refs": [],
+    }
+    before = _pages(json.dumps(document).encode())
+    boss["overall_cohort"] = []
+    boss["playbook"]["opener"]["comparator_sequence"] = None
+    after = _pages(json.dumps(document).encode())
+    assert "Compare ability use with the reference player" in before["report.html"]
+    assert "Compare ability use with the reference player" not in after["report.html"]
+    assert "No comparable ranged opening is available" in after["report.html"]
+    for name in ("report.html", "playbook.html"):
+        assert "Unknown: no comparator ranged opening recorded" in after[name]
 
 
 def test_overall_unknown_reason_preserves_failed_requested_context(analysis: bytes) -> None:

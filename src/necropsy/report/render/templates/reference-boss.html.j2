@@ -25,7 +25,7 @@
 <article class="quick-plan" id="{{ boss.anchor }}-plan">
   <div class="eyebrow">Prepare for your next attempt</div>
   <h3>Your next pull</h3>{{ '\n' }}{% if doc.selected_spec and ref.leader_practice %}{% set leader = ref.leader_practice %}<p>No personal {{ doc.selected_spec }} encounter was found in the acquired logs. Use this faction leader's recorded ability mix as a practice reference: {{ leader.player }} · leaderboard #{{ leader.leaderboard_position }} · {{ leader.kill_duration_s }} s fight.</p><dl class="kv">{% for spell, shot in leader.hunter.shots.items() %}<dt>{{ spell|replace('_', ' ') }}</dt><dd>{{ shot.casts.value|length if shot.casts.value is not none else 'Unknown' }} recorded casts</dd>{% endfor %}</dl><p>Check assignments, gear and fight duration before copying this example. It is a learning reference, not a grade of your performance.</p>{% endif %}
-  {{ plans(ref.quick_plan) }}<details><summary>Compare ability use with the reference player</summary>{{ ability_use(ref.ability_use) if ref.ability_use else "" }}</details>
+  {{ plans(ref.quick_plan) }}{% if ref.ability_use %}<details><summary>Compare ability use with the reference player</summary>{{ ability_use(ref.ability_use) }}</details>{% endif %}{{ '\n' -}}
 </article>
 <section class="loadout-plan"><h3>Loadout plan</h3>{{ plans(ref.loadout) }}</section>
 <section class="execution-plan"><h3>Execution plan</h3>{{ plans(ref.execution) }}</section>

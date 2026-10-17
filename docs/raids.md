@@ -89,6 +89,10 @@ numbered repeated adds retain separate windows. Personal Sand Blast exposure
 is separate from physical attackability, tank assignment or avoidability.
 Missing C'Thun vulnerability transitions do not establish that no weakening
 occurred, and no nominal weakening timer supplies an observed window.
+Real Hunter replay also distinguishes confirmed pet absence from unknown pet
+classification and unresolved guardian ownership. A known trained pet remains
+measured when a separate guardian has no owner. No-comparison boss sections keep
+opening guidance unknown and omit an unavailable reference ability comparison.
 BWL also retains observed Burning Adrenaline, Essence of the Red, Flame Buffet,
 Chromaggus affliction and Nefarian fear/curse/Priest-call exposure. These are
 recipient aura observations; Bronze exposure is not stun uptime, and a resource

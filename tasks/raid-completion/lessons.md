@@ -1,5 +1,7 @@
 # Run lessons
 
+- 2026-10-18: A trained-pet roster and an all-guardian roster are different evidence scopes. Keep confirmed owner/pet events even when a separate Battle Chicken has no owner; an empty explicit roster and a melee-only unclassified unit also have different meanings. Browser acceptance must inspect class-specific renderer paths, not infer their correctness from the general class path. Jinja block trimming can change otherwise identical artifact bytes; inspect exact diffs before attributing a hash change to content.
+
 - 2026-10-17: Ouro's post-mounds actor can be absent from fight enemyNPCs even though global events and masterData identify it. A count1 entry for another same-name/game-ID actor cannot certify the new actor's unnumbered aura window. Actual page inspection found the guarded Unknown; freeze that API countercase independently instead of weakening the guard to produce a duration.
 - 2026-10-17: Serial database execution does not establish the cause of every native crash. A full AQ40 run failed natively after writing its archive, then succeeded unchanged in isolated installed offline and actual CLI recovery on byte-identical data. Retain the native exit and unresolved cause; do not claim a fix or blame an upstream issue with a different exception signature.
 

@@ -45,6 +45,10 @@ def test_independent_npc_aura_facts() -> None:
     assert check_register(ROOT / "aura-facts.json") == []
 
 
+def test_independent_owned_pet_facts() -> None:
+    assert check_register(ROOT / "pet-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -92,13 +96,16 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             assert reader.issues() == []
             streams = reader.expected_streams()
             players = [s for s in streams if s.role is ActorRole.PLAYER]
+            pets = [s for s in streams if s.role is ActorRole.PET]
             unresolved = [s for s in streams if s.role is ActorRole.PET_DISCOVERY]
             scopes = [s for s in streams if s.role in {ActorRole.ENCOUNTER, ActorRole.CRITICAL}]
             assert len(players) == fixture["complete_player_streams"]
+            assert len(pets) == fixture.get("complete_pet_streams", 0)
             assert len(unresolved) == fixture["missing_pet_listings"]
             assert len(scopes) == fixture.get("complete_encounter_scopes", 0)
-            assert len(streams) == len(players) + len(scopes) + len(unresolved)
+            assert len(streams) == len(players) + len(pets) + len(scopes) + len(unresolved)
             assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in players)
+            assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in pets)
             assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in scopes)
             assert all(reader.read_stream(s).status is StreamStatus.MISSING for s in unresolved)
             expected_missing = fixture.get(
@@ -137,6 +144,10 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
                 assert row and row[0] == case["expected"]["totals"][metric], case["id"]
     expected_encounters = set(fixture.get("encounters", [selected[0]["expected"]["encounter_id"]]))
     assert {b["encounter_id"] for b in doc["bosses"]} == expected_encounters
+    if fixture.get("cohort_counts"):
+        assert {str(b["encounter_id"]): len(b["overall_cohort"]) for b in doc["bosses"]} == fixture[
+            "cohort_counts"
+        ]
     for boss in doc["bosses"]:
         expected = [f for f in selected if f["expected"]["encounter_id"] == boss["encounter_id"]]
         assert expected
@@ -144,6 +155,7 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     observations_fixture = fixture.get("observations_fixture", fixture["label"])
     _assert_actor_effect_windows(doc, observations_fixture)
     _assert_npc_aura_windows(doc, {observations_fixture, fixture["label"]})
+    _assert_owned_pets(doc, fixture["label"], db)
 
 
 def _assert_actor_effect_windows(doc: dict[str, Any], fixture: str) -> None:
@@ -231,6 +243,91 @@ def _assert_npc_aura_windows(doc: dict[str, Any], fixtures: set[str]) -> None:
             assert target["unknown_state_s"]["value"] == pytest.approx(
                 expected["unknown_state"] / 1000
             )
+
+
+def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
+    cases = json.loads((ROOT / "pet-facts.json").read_text(encoding="utf-8"))["cases"]
+    entries = [
+        e
+        for boss in doc["bosses"]
+        for e in [
+            boss["subject"],
+            boss["playbook"].get("excluded_subject"),
+            *boss["overall_cohort"],
+        ]
+        if e is not None
+    ]
+    with duckdb.connect(str(db), read_only=True) as con:
+        for case in cases:
+            if case["fixture"] != fixture:
+                continue
+            entry = next(
+                e
+                for e in entries
+                if (e["report_code"], e["fight_id"], e["player"])
+                == (case["report"], case["fight"], case["player"])
+            )
+            expected = case["expected"]
+            owner = case["actor"]
+            ids = {p["actor"] for p in expected["pets"]}
+            coverage = con.execute(
+                "SELECT DISTINCT actor_id,owner_actor_id,direction,status FROM stream_coverage "
+                "WHERE report_code=? AND fight_id=? AND role='pet' AND owner_actor_id=?",
+                [case["report"], case["fight"], owner],
+            ).fetchall()
+            assert set(coverage) == {
+                (actor, owner, direction, "complete")
+                for actor in ids
+                for direction in ("source", "target")
+            }
+            assert {p["actor_id"] for p in entry["hunter"]["pets"]} == ids
+            assert entry["pets_listed"] is expected["listing_complete"]
+            for pet in expected["pets"]:
+                for field, kind, emitter in (
+                    ("damage", "damage", "source_id"),
+                    ("incoming_damage", "damage", "target_id"),
+                    ("effective_healing", "heal", "source_id"),
+                    ("absorbed_amount", "absorbed", "source_id"),
+                ):
+                    actual = con.execute(
+                        f"SELECT coalesce(sum(amount),0) FROM events WHERE report_code=? "
+                        f"AND fight_id=? AND {emitter}=? AND type=?",
+                        [case["report"], case["fight"], pet["actor"], kind],
+                    ).fetchone()
+                    assert actual and actual[0] == pet["totals"][field], (case["id"], field)
+                trained = next(
+                    (p for p in entry["hunter"]["hunter_pets"] if p["actor_id"] == pet["actor"]),
+                    None,
+                )
+                if trained is not None:
+                    assert trained["damage"]["value"] == pet["totals"]["damage"]
+                    assert [
+                        d["t_s"] * 1000 for d in trained["deaths"]["deaths"]["value"]
+                    ] == pytest.approx(pet["deaths_ms"])
+                    bounds = pet["damage_bounds_ms"]
+                    activity = trained["activity"]["value"]
+                    assert activity["first_damage_s"] == (
+                        None if bounds is None else bounds[0] / 1000
+                    )
+                    assert activity["last_damage_before_end_s"] == (
+                        None if bounds is None else (expected["duration_ms"] - bounds[1]) / 1000
+                    )
+            if not ids and expected["listing_complete"]:
+                assert entry["hunter"]["hunter_pets"] == []
+                assert entry["hunter"]["total_pet_dps"]["value"] == 0
+            if case["id"] == "aq40-owned-pets-1":
+                # Only a melee event was observed before this owned unit died.
+                # Ownership alone cannot turn it into a classified trained pet.
+                assert entry["hunter"]["pets"][0]["category"]["value"] is None
+                assert entry["hunter"]["total_pet_dps"]["value"] is None
+            if case["id"] == "aq40-owned-pets-8":
+                assert case["encounter_id"] == 50715
+                assert ids == {17} and entry["hunter"]["pet_roster_complete"] is True
+                assert all(
+                    p["actor"] == 159 and p["fight_owner"] is None
+                    for p in expected["unattributed_friendly_pets"]
+                )
+                assert entry["ranking"]["ranked"]["value"] is None
 
 
 def _assert_boss_replay(

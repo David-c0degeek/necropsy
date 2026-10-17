@@ -44,6 +44,42 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 25 / Hunter owned-pet evidence and missing-reference
+rendering checkpoint. Normal installed Marksmanship/DPS/Horde capture retains12 public actor/fights,
+all9 personal bosses and3 Skeram comparisons;24 player,22 pet and24 global
+directions complete. The stopped next candidate is absent from the native ZIP.
+One missing guardian listing preserves the separately confirmed trained pet;
+explicit no-pet and unknown-category owned units stay distinct. Added12 raw
+actor cases and12 independent owner contexts/11 units through the existing
+direction projector; prior484 actor/322 recipient expectations unchanged.
+44 archives/496 actors/322 recipient cases;59 IN_PROGRESS/893 TODO/0 COMPLETE.
+The stronger existing Viscidus primary source is retained.
+
+Actual browser review found Hunter-only missing-comparator practice text and an
+empty reference section. Corrected the existing renderer, preserving meaningful
+comparisons and exact Naxx template whitespace.89 raw-fact units pass/2.30s;
+3 real goldens pass/170.06s before render-only correction; final29 render tests
+pass/15.51s. Source/installed12 actors/12 pet contexts/all9 bosses and four
+artifacts match; four browser cases and desktop/mobile visual review pass.
+All4 Naxx artifacts match30e89ce.136 wheel members match source; source
+distribution excludes development data. Raw149843728/output18859101 extracted
+bytes pass unlimited secret scans. Ruff/mypy/docs checks pass.
+
+Research retains322 HPS records/173 unique actor-fights with exact native API
+amount bindings and observed six-significant-digit rounding; no universal
+precision/credit policy inferred. AQ40 Hunter target/control residual candidates
+remain research, not enabled ranking rules. Normal comparison resume started
+after reset; no new archive is counted here. Review:
+research/aq40-hunter-pet-review.json. All full boxes stay open.
+
+Engineering Hindsight: Keep shared seams, immutable raw facts and honest pet
+scope. Fix all remaining phase/opportunity/ranking/class/faction/duty/loadout/pet
+and human/domain/product gates before closure. Record the Hunter-specific
+reference gap and exact newline preservation; risk remains that numeric
+agreement or a known pet hides incomplete guardian credit. PM-1/2/3 reviewed;
+verdict DO NOT CLOSE.
+
+
 2026-10-17 / slice 24 / Cardinality-qualified AQ40 aura checkpoint follows
 D018. Shared NPC state now retains Sartura Whirlwind/Enrage, separate Huhuran
 Frenzy/Berserk, individual Twin teleport aura and Ouro Berserk; personal Sand

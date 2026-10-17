@@ -144,6 +144,21 @@ actor113 receives Berserk while only actor109 is listed in the fight's NPC
 roster. Positive transitions remain visible, but cardinality cannot be borrowed
 across actors and all113 duration/state totals stay unknown.
 
+The native `aq40-hunter-raid-context` archive retains12 public actor/fights and
+all nine personal bosses. Its24 player directions,22 pet directions and24 global
+scopes are complete. The unsuccessful next comparison fetch is absent from the
+saved archive; only Skeram has comparisons (three). The separate `pet-facts.json`
+register independently checks12 owner contexts and11 owned units, raw owner
+bindings, amounts, targets, casts, deaths and damage bounds. It distinguishes
+an explicitly empty roster, a known owned unit with unproven trained-pet category,
+and a confirmed trained pet alongside an ownerless Battle Chicken. Unknown
+guardian ownership remains separate from the known trained pet. None of these
+facts certifies survival opportunities, ranked credit or execution quality.
+
+```sh
+uv run python scripts/check_raid_facts.py tests/golden/raids/pet-facts.json
+```
+
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json
 ```

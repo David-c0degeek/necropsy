@@ -86771,6 +86771,4113 @@
       "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
       "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
       "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "27PcXw8mQZr3NMGg",
+      "fight": 44,
+      "actor": 18,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50716,
+        "revision": 1,
+        "duration_ms": 115137,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 110238,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "14325": [
+            3022
+          ],
+          "20904": [
+            13533,
+            21212,
+            29409,
+            38459,
+            47995,
+            57110,
+            65496,
+            74709,
+            83075,
+            92529,
+            101596,
+            110663
+          ],
+          "25294": [
+            14179,
+            24797,
+            38912,
+            49347,
+            59809,
+            70446,
+            83395,
+            93842,
+            104296,
+            114729
+          ],
+          "25295": [
+            4491,
+            40114,
+            61163,
+            75030,
+            95762
+          ],
+          "3045": [
+            10826
+          ],
+          "75": [
+            8029,
+            10825,
+            13859,
+            15844,
+            17779,
+            19311,
+            21477,
+            23014,
+            24543,
+            26095,
+            27630,
+            29764,
+            31843,
+            34625,
+            39347,
+            42146,
+            44945,
+            48446,
+            51243,
+            54030,
+            57575,
+            60358,
+            63127,
+            65831,
+            67979,
+            70112,
+            72277,
+            75029,
+            77276,
+            80075,
+            83742,
+            85896,
+            88030,
+            90175,
+            93009,
+            95762,
+            98548,
+            102077,
+            104829,
+            107628,
+            111100,
+            113892
+          ]
+        },
+        "damage_by_actor": {
+          "181": 110238
+        },
+        "target_game_ids": {
+          "181": 15517
+        },
+        "pet_ownership": {
+          "69": {
+            "game_id": 3909,
+            "fight_owner": 39,
+            "master_owner": 39
+          },
+          "43": {
+            "game_id": 13926566,
+            "fight_owner": 18,
+            "master_owner": 18
+          },
+          "63": {
+            "game_id": 3909,
+            "fight_owner": 47,
+            "master_owner": 47
+          }
+        },
+        "encounter_context": {
+          "events": 17286,
+          "critical_events": 974,
+          "critical_hit_types": {
+            "17": 8,
+            "2": 966
+          },
+          "fire_critical_mages_by_target": {
+            "181": [
+              10,
+              11,
+              36,
+              42,
+              50
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "11/181": 13170,
+            "36/181": 18248,
+            "42/181": 65040
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              2037,
+              "death",
+              -1,
+              43,
+              null,
+              0,
+              null
+            ],
+            [
+              34694,
+              "death",
+              -1,
+              18,
+              null,
+              0,
+              null
+            ],
+            [
+              73630,
+              "death",
+              -1,
+              50,
+              null,
+              0,
+              null
+            ],
+            [
+              93279,
+              "death",
+              -1,
+              28,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "26615": [
+              [
+                97528,
+                "applybuff",
+                181,
+                181,
+                null,
+                26615,
+                null
+              ],
+              [
+                115081,
+                "removebuff",
+                181,
+                181,
+                null,
+                26615,
+                null
+              ]
+            ]
+          }
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_aura_ids": [
+        26615
+      ],
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-485",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "JYGzpAj2d7bvkwy6",
+      "fight": 4,
+      "actor": 20,
+      "player": "Kasvo",
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 51,
+        "duration_ms": 69008,
+        "actor_class": "Hunter",
+        "actor_game_id": 24354031,
+        "totals": {
+          "damage": 61072,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 3342
+        },
+        "casts_ms": {
+          "20904": [
+            5952,
+            17267,
+            26850,
+            35917,
+            45667,
+            57967
+          ],
+          "24531": [
+            7734
+          ],
+          "25294": [
+            6850,
+            8600,
+            19252,
+            30151,
+            40786,
+            51218,
+            62067
+          ],
+          "28777": [
+            19702
+          ],
+          "3045": [
+            19635
+          ],
+          "75": [
+            2650,
+            6418,
+            9201,
+            14217,
+            17718,
+            20379,
+            22385,
+            24384,
+            27151,
+            29150,
+            31150,
+            33153,
+            36235,
+            38234,
+            40346,
+            46302,
+            49085,
+            51867,
+            54651,
+            58417,
+            61200,
+            63996,
+            67285
+          ]
+        },
+        "damage_by_actor": {
+          "17": 2116,
+          "51": 1815,
+          "77": 46703,
+          "78": 10438
+        },
+        "target_game_ids": {
+          "17": 39217287,
+          "51": 16664985,
+          "77": 15263,
+          "78": 176525
+        },
+        "pet_ownership": {
+          "34": {
+            "game_id": 10110253,
+            "fight_owner": 20,
+            "master_owner": 20
+          },
+          "72": {
+            "game_id": 3909,
+            "fight_owner": 46,
+            "master_owner": 46
+          },
+          "26": {
+            "game_id": 12228188,
+            "fight_owner": 1,
+            "master_owner": 1
+          }
+        },
+        "encounter_context": {
+          "events": 9247,
+          "critical_events": 382,
+          "critical_hit_types": {
+            "17": 7,
+            "2": 374,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "18": [
+              14
+            ],
+            "77": [
+              13,
+              14,
+              31,
+              44
+            ],
+            "78": [
+              13,
+              14
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "13/78": 282,
+            "14/18": 678,
+            "14/77": 281,
+            "14/78": 2613,
+            "31/77": 9660,
+            "44/77": 3343
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              10068,
+              "death",
+              -1,
+              20,
+              null,
+              0,
+              null
+            ],
+            [
+              41835,
+              "death",
+              -1,
+              20,
+              null,
+              0,
+              null
+            ],
+            [
+              53817,
+              "death",
+              -1,
+              12,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              19263,
+              "interrupt",
+              51,
+              78,
+              2,
+              1769,
+              26192
+            ],
+            [
+              22000,
+              "interrupt",
+              21,
+              77,
+              null,
+              6554,
+              26192
+            ],
+            [
+              29917,
+              "interrupt",
+              40,
+              77,
+              null,
+              1769,
+              26192
+            ],
+            [
+              30795,
+              "interrupt",
+              77,
+              25,
+              null,
+              26194,
+              25307
+            ],
+            [
+              36534,
+              "interrupt",
+              47,
+              77,
+              null,
+              6554,
+              26192
+            ],
+            [
+              44453,
+              "interrupt",
+              11,
+              78,
+              3,
+              6554,
+              26192
+            ],
+            [
+              49102,
+              "interrupt",
+              19,
+              77,
+              null,
+              1769,
+              26192
+            ],
+            [
+              55904,
+              "interrupt",
+              39,
+              77,
+              null,
+              6554,
+              26192
+            ],
+            [
+              65352,
+              "interrupt",
+              51,
+              78,
+              6,
+              1769,
+              26192
+            ]
+          ]
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-486",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "Jw7RDb43XKALngca",
+      "fight": 18,
+      "actor": 1,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50711,
+        "revision": 1,
+        "duration_ms": 50597,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 51842,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "14325": [
+            1036
+          ],
+          "20904": [
+            7066,
+            13152,
+            22281,
+            31733,
+            40253,
+            48583
+          ],
+          "24531": [
+            8353
+          ],
+          "25294": [
+            7319,
+            8931,
+            23418,
+            33132,
+            43418
+          ],
+          "75": [
+            3193,
+            7764,
+            13652,
+            16527,
+            19248,
+            23427,
+            26804,
+            29153,
+            31736,
+            33616,
+            35731,
+            37984,
+            40587,
+            42734,
+            44868,
+            48957
+          ]
+        },
+        "damage_by_actor": {
+          "127": 36437,
+          "128": 15405
+        },
+        "target_game_ids": {
+          "127": 15516,
+          "128": 15984
+        },
+        "pet_ownership": {
+          "65": {
+            "game_id": 3909,
+            "fight_owner": 17,
+            "master_owner": 17
+          },
+          "82": {
+            "game_id": 7845,
+            "fight_owner": 45,
+            "master_owner": 45
+          },
+          "130": {
+            "game_id": 2630,
+            "fight_owner": 3,
+            "master_owner": 3
+          },
+          "99": {
+            "game_id": 3909,
+            "fight_owner": 46,
+            "master_owner": 46
+          },
+          "52": {
+            "game_id": 3909,
+            "fight_owner": 3,
+            "master_owner": 3
+          },
+          "70": {
+            "game_id": 7402,
+            "fight_owner": 45,
+            "master_owner": 45
+          },
+          "103": {
+            "game_id": 3909,
+            "fight_owner": 32,
+            "master_owner": 32
+          }
+        },
+        "encounter_context": {
+          "events": 9468,
+          "critical_events": 537,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 534
+          },
+          "fire_critical_mages_by_target": {
+            "127": [
+              28,
+              37
+            ],
+            "128": [
+              28,
+              37
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "28/127": 9125,
+            "28/128": 2472,
+            "37/128": 1092
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              9754,
+              "death",
+              -1,
+              1,
+              null,
+              0,
+              null
+            ],
+            [
+              13165,
+              "death",
+              -1,
+              128,
+              2,
+              0,
+              null
+            ],
+            [
+              17902,
+              "death",
+              -1,
+              128,
+              1,
+              0,
+              null
+            ],
+            [
+              17999,
+              "death",
+              -1,
+              128,
+              3,
+              0,
+              null
+            ],
+            [
+              25919,
+              "death",
+              -1,
+              33,
+              null,
+              0,
+              null
+            ],
+            [
+              50001,
+              "death",
+              -1,
+              48,
+              null,
+              0,
+              null
+            ],
+            [
+              50002,
+              "death",
+              -1,
+              58,
+              null,
+              0,
+              null
+            ],
+            [
+              50554,
+              "death",
+              -1,
+              127,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "8269": [
+              [
+                45270,
+                "applybuff",
+                127,
+                127,
+                null,
+                8269,
+                null
+              ],
+              [
+                50552,
+                "removebuff",
+                127,
+                127,
+                null,
+                8269,
+                null
+              ]
+            ]
+          }
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_aura_ids": [
+        8269
+      ],
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-487",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "Jw7RDb43XKALngca",
+      "fight": 28,
+      "actor": 1,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50714,
+        "revision": 1,
+        "duration_ms": 47665,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 50494,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "14325": [
+            2332
+          ],
+          "19801": [
+            19601,
+            40403
+          ],
+          "20904": [
+            7581,
+            16721,
+            25682,
+            34267,
+            45048
+          ],
+          "25294": [
+            7905,
+            18384,
+            28630,
+            39213
+          ],
+          "3045": [
+            4918
+          ],
+          "75": [
+            4282,
+            8214,
+            10218,
+            12265,
+            14185,
+            17481,
+            19601,
+            21466,
+            23484,
+            26097,
+            29084,
+            31767,
+            34898,
+            36735,
+            38879,
+            41013,
+            45368
+          ]
+        },
+        "damage_by_actor": {
+          "157": 50494
+        },
+        "target_game_ids": {
+          "157": 15509
+        },
+        "pet_ownership": {
+          "65": {
+            "game_id": 3909,
+            "fight_owner": 17,
+            "master_owner": 17
+          },
+          "99": {
+            "game_id": 3909,
+            "fight_owner": 46,
+            "master_owner": 46
+          },
+          "24": {
+            "game_id": 13926566,
+            "fight_owner": 1,
+            "master_owner": 1
+          },
+          "8": {
+            "game_id": 3909,
+            "fight_owner": 7,
+            "master_owner": 7
+          },
+          "77": {
+            "game_id": 3909,
+            "fight_owner": 45,
+            "master_owner": 45
+          }
+        },
+        "encounter_context": {
+          "events": 8013,
+          "critical_events": 475,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 473
+          },
+          "fire_critical_mages_by_target": {
+            "157": [
+              28,
+              37
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "28/157": 9468,
+            "37/157": 2117
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              14331,
+              "death",
+              -1,
+              1,
+              null,
+              0,
+              null
+            ],
+            [
+              41267,
+              "death",
+              -1,
+              33,
+              null,
+              0,
+              null
+            ],
+            [
+              42917,
+              "death",
+              -1,
+              58,
+              null,
+              0,
+              null
+            ],
+            [
+              45049,
+              "death",
+              -1,
+              20,
+              null,
+              0,
+              null
+            ],
+            [
+              46897,
+              "death",
+              -1,
+              43,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "26051": [
+              [
+                19369,
+                "applybuff",
+                157,
+                157,
+                null,
+                26051,
+                null
+              ],
+              [
+                20500,
+                "removebuff",
+                157,
+                157,
+                null,
+                26051,
+                null
+              ],
+              [
+                37166,
+                "applybuff",
+                157,
+                157,
+                null,
+                26051,
+                null
+              ],
+              [
+                41267,
+                "removebuff",
+                157,
+                157,
+                null,
+                26051,
+                null
+              ]
+            ],
+            "26068": [
+              [
+                38780,
+                "applybuff",
+                157,
+                157,
+                null,
+                26068,
+                null
+              ],
+              [
+                47598,
+                "removebuff",
+                157,
+                157,
+                null,
+                26068,
+                null
+              ]
+            ]
+          }
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_aura_ids": [
+        26051,
+        26068
+      ],
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-488",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "QhKBGtanZckAyDbL",
+      "fight": 20,
+      "actor": 27,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50712,
+        "revision": 1,
+        "duration_ms": 38872,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 42703,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 544
+        },
+        "casts_ms": {
+          "20904": [
+            7664,
+            15510,
+            23701,
+            35313
+          ],
+          "25294": [
+            7981,
+            18226,
+            28669
+          ],
+          "25295": [
+            2965
+          ],
+          "3045": [
+            4416
+          ],
+          "3169": [
+            32103
+          ],
+          "75": [
+            5381,
+            8297,
+            10304,
+            12224,
+            13759,
+            15759,
+            17293,
+            18827,
+            20379,
+            21933,
+            24150,
+            26935,
+            29718,
+            35746,
+            38538
+          ]
+        },
+        "damage_by_actor": {
+          "130": 41748,
+          "133": 955
+        },
+        "target_game_ids": {
+          "130": 15510,
+          "133": 15962
+        },
+        "pet_ownership": {
+          "81": {
+            "game_id": 3909,
+            "fight_owner": 33,
+            "master_owner": 33
+          },
+          "50": {
+            "game_id": 13926566,
+            "fight_owner": 27,
+            "master_owner": 27
+          },
+          "9": {
+            "game_id": 3909,
+            "fight_owner": 2,
+            "master_owner": 2
+          }
+        },
+        "encounter_context": {
+          "events": 7427,
+          "critical_events": 550,
+          "critical_hit_types": {
+            "17": 7,
+            "2": 543
+          },
+          "fire_critical_mages_by_target": {
+            "130": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "133": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "6": [
+              6
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "3/130": 31160,
+            "4/130": 2225,
+            "4/133": 2148,
+            "5/133": 482,
+            "6/133": 264
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              26552,
+              "death",
+              -1,
+              133,
+              1,
+              0,
+              null
+            ],
+            [
+              27470,
+              "death",
+              -1,
+              133,
+              2,
+              0,
+              null
+            ],
+            [
+              27552,
+              "death",
+              -1,
+              133,
+              1,
+              0,
+              null
+            ],
+            [
+              29385,
+              "death",
+              -1,
+              133,
+              2,
+              0,
+              null
+            ],
+            [
+              37586,
+              "death",
+              -1,
+              133,
+              3,
+              0,
+              null
+            ],
+            [
+              38087,
+              "death",
+              -1,
+              133,
+              3,
+              0,
+              null
+            ],
+            [
+              38121,
+              "death",
+              -1,
+              133,
+              4,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-489",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "WQDaF9kpYbBPLCKM",
+      "fight": 4,
+      "actor": 6,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 1,
+        "duration_ms": 66616,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 54770,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 3136
+        },
+        "casts_ms": {
+          "19503": [
+            21332
+          ],
+          "20904": [
+            4992,
+            14560,
+            25875,
+            38595,
+            47797,
+            56857,
+            66126
+          ],
+          "24531": [
+            17178
+          ],
+          "25294": [
+            5440,
+            15895,
+            18225,
+            28674,
+            39493,
+            50278,
+            60728
+          ],
+          "3169": [
+            35340
+          ],
+          "75": [
+            1610,
+            5874,
+            8675,
+            11460,
+            14973,
+            17778,
+            26373,
+            29228,
+            31960,
+            39040,
+            41827,
+            44610,
+            48240,
+            51024,
+            53824,
+            57323,
+            60108,
+            62908
+          ]
+        },
+        "damage_by_actor": {
+          "25": 2153,
+          "32": 4144,
+          "37": 1547,
+          "76": 39752,
+          "78": 7174
+        },
+        "target_game_ids": {
+          "25": 41085625,
+          "32": 26538898,
+          "37": 75579438,
+          "76": 15263,
+          "78": 176525
+        },
+        "pet_ownership": {
+          "17": {
+            "game_id": 13926566,
+            "fight_owner": 6,
+            "master_owner": 6
+          },
+          "56": {
+            "game_id": 3909,
+            "fight_owner": 18,
+            "master_owner": 18
+          },
+          "60": {
+            "game_id": 3909,
+            "fight_owner": 34,
+            "master_owner": 34
+          },
+          "79": {
+            "game_id": 3909,
+            "fight_owner": 42,
+            "master_owner": 42
+          }
+        },
+        "encounter_context": {
+          "events": 10221,
+          "critical_events": 424,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 420,
+            "5": 2
+          },
+          "fire_critical_mages_by_target": {
+            "76": [
+              25,
+              51
+            ],
+            "78": [
+              19,
+              51
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "25/76": 15642,
+            "51/76": 588,
+            "51/78": 504
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              18408,
+              "death",
+              -1,
+              6,
+              null,
+              0,
+              null
+            ],
+            [
+              39181,
+              "death",
+              -1,
+              38,
+              null,
+              0,
+              null
+            ],
+            [
+              63028,
+              "death",
+              -1,
+              9,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              8781,
+              "interrupt",
+              11,
+              76,
+              null,
+              1769,
+              26192
+            ],
+            [
+              18393,
+              "interrupt",
+              36,
+              78,
+              2,
+              6554,
+              26192
+            ],
+            [
+              20062,
+              "interrupt",
+              26,
+              78,
+              1,
+              1769,
+              26192
+            ],
+            [
+              37728,
+              "interrupt",
+              26,
+              78,
+              4,
+              1769,
+              26192
+            ],
+            [
+              45262,
+              "interrupt",
+              78,
+              7,
+              null,
+              26194,
+              10623
+            ],
+            [
+              49112,
+              "interrupt",
+              51,
+              76,
+              null,
+              2139,
+              26192
+            ],
+            [
+              50978,
+              "interrupt",
+              26,
+              78,
+              5,
+              1769,
+              26192
+            ],
+            [
+              61412,
+              "interrupt",
+              76,
+              9,
+              null,
+              26194,
+              10623
+            ]
+          ]
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-490",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "WQDaF9kpYbBPLCKM",
+      "fight": 16,
+      "actor": 6,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50710,
+        "revision": 1,
+        "duration_ms": 76131,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 70042,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 3220
+        },
+        "casts_ms": {
+          "20904": [
+            5029,
+            9728,
+            22361,
+            34396,
+            43665,
+            55379,
+            67329
+          ],
+          "24531": [
+            6195
+          ],
+          "25294": [
+            5330,
+            6829,
+            17095,
+            27529,
+            38096,
+            48649,
+            59025,
+            69627
+          ],
+          "3045": [
+            2595
+          ],
+          "75": [
+            2563,
+            5660,
+            7642,
+            11060,
+            12600,
+            14641,
+            17327,
+            19528,
+            22795,
+            25595,
+            28394,
+            31177,
+            34861,
+            37662,
+            40443,
+            43924,
+            46727,
+            49529,
+            52358,
+            55811,
+            58591,
+            61382,
+            64175,
+            67728,
+            70528,
+            73208,
+            75860
+          ]
+        },
+        "damage_by_actor": {
+          "104": 31256,
+          "105": 14160,
+          "108": 21506,
+          "119": 3120
+        },
+        "target_game_ids": {
+          "104": 15544,
+          "105": 15543,
+          "108": 15511,
+          "119": 15621
+        },
+        "pet_ownership": {
+          "17": {
+            "game_id": 13926566,
+            "fight_owner": 6,
+            "master_owner": 6
+          },
+          "56": {
+            "game_id": 3909,
+            "fight_owner": 18,
+            "master_owner": 18
+          },
+          "60": {
+            "game_id": 3909,
+            "fight_owner": 34,
+            "master_owner": 34
+          },
+          "79": {
+            "game_id": 3909,
+            "fight_owner": 42,
+            "master_owner": 42
+          },
+          "95": {
+            "game_id": 7845,
+            "fight_owner": 3,
+            "master_owner": 3
+          }
+        },
+        "encounter_context": {
+          "events": 13789,
+          "critical_events": 676,
+          "critical_hit_types": {
+            "17": 8,
+            "2": 666,
+            "5": 2
+          },
+          "fire_critical_mages_by_target": {
+            "104": [
+              25,
+              51
+            ],
+            "105": [
+              25
+            ],
+            "108": [
+              25,
+              51
+            ],
+            "119": [
+              25,
+              51
+            ],
+            "89": [
+              51
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "25/104": 1921,
+            "25/105": 9357,
+            "25/108": 4413,
+            "51/104": 1056,
+            "51/108": 197,
+            "51/119": 653
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              7683,
+              "death",
+              -1,
+              6,
+              null,
+              0,
+              null
+            ],
+            [
+              24342,
+              "death",
+              -1,
+              105,
+              null,
+              0,
+              null
+            ],
+            [
+              28476,
+              "death",
+              -1,
+              89,
+              null,
+              0,
+              null
+            ],
+            [
+              28561,
+              "death",
+              -1,
+              119,
+              3,
+              0,
+              null
+            ],
+            [
+              28762,
+              "death",
+              -1,
+              119,
+              9,
+              0,
+              null
+            ],
+            [
+              30327,
+              "death",
+              -1,
+              119,
+              1,
+              0,
+              null
+            ],
+            [
+              30328,
+              "death",
+              -1,
+              119,
+              2,
+              0,
+              null
+            ],
+            [
+              30660,
+              "death",
+              -1,
+              119,
+              4,
+              0,
+              null
+            ],
+            [
+              33344,
+              "death",
+              -1,
+              119,
+              7,
+              0,
+              null
+            ],
+            [
+              37559,
+              "death",
+              -1,
+              119,
+              6,
+              0,
+              null
+            ],
+            [
+              37629,
+              "death",
+              -1,
+              119,
+              8,
+              0,
+              null
+            ],
+            [
+              39325,
+              "death",
+              -1,
+              119,
+              5,
+              0,
+              null
+            ],
+            [
+              42793,
+              "death",
+              -1,
+              119,
+              10,
+              0,
+              null
+            ],
+            [
+              58312,
+              "death",
+              -1,
+              104,
+              null,
+              0,
+              null
+            ],
+            [
+              62124,
+              "death",
+              -1,
+              4,
+              null,
+              0,
+              null
+            ],
+            [
+              62126,
+              "death",
+              -1,
+              25,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              7296,
+              "interrupt",
+              26,
+              105,
+              null,
+              1769,
+              25807
+            ],
+            [
+              16442,
+              "interrupt",
+              36,
+              105,
+              null,
+              6554,
+              25808
+            ],
+            [
+              22762,
+              "interrupt",
+              19,
+              105,
+              null,
+              2139,
+              25807
+            ],
+            [
+              30295,
+              "interrupt",
+              119,
+              34,
+              null,
+              25788,
+              10623
+            ],
+            [
+              30784,
+              "interrupt",
+              119,
+              20,
+              null,
+              25788,
+              1064
+            ]
+          ]
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-491",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "WQDaF9kpYbBPLCKM",
+      "fight": 38,
+      "actor": 6,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50715,
+        "revision": 1,
+        "duration_ms": 193579,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 126631,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "20904": [
+            9029,
+            20196,
+            29829,
+            42146,
+            51246,
+            60480,
+            72400,
+            81483,
+            90580,
+            99650,
+            108697,
+            118233,
+            127314,
+            143333,
+            152851,
+            161963,
+            175197,
+            184717
+          ],
+          "25294": [
+            11028,
+            21462,
+            42465,
+            52779,
+            63232,
+            73667,
+            84115,
+            94567,
+            109150,
+            119600,
+            130042,
+            143767,
+            154196,
+            165066,
+            175630,
+            186084
+          ],
+          "3045": [
+            39513
+          ],
+          "75": [
+            5598,
+            10682,
+            12945,
+            15728,
+            20629,
+            23429,
+            26266,
+            30296,
+            36599,
+            39399,
+            42779,
+            44765,
+            46779,
+            48763,
+            52146,
+            54145,
+            56146,
+            58145,
+            60931,
+            63712,
+            69046,
+            72846,
+            75629,
+            78415,
+            81950,
+            84729,
+            87533,
+            91035,
+            93813,
+            96595,
+            104850,
+            109583,
+            112383,
+            115181,
+            118666,
+            121467,
+            124245,
+            127734,
+            130533,
+            133333,
+            140280,
+            144213,
+            147015,
+            149800,
+            153316,
+            156096,
+            158899,
+            162416,
+            165250,
+            171983,
+            176083,
+            178883,
+            181663,
+            185150,
+            187950,
+            190750
+          ]
+        },
+        "damage_by_actor": {
+          "155": 3331,
+          "164": 123300
+        },
+        "target_game_ids": {
+          "155": 15317,
+          "164": 15275
+        },
+        "pet_ownership": {
+          "160": {
+            "game_id": 8836,
+            "fight_owner": 24,
+            "master_owner": 24
+          },
+          "161": {
+            "game_id": 8836,
+            "fight_owner": 37,
+            "master_owner": 37
+          },
+          "17": {
+            "game_id": 13926566,
+            "fight_owner": 6,
+            "master_owner": 6
+          },
+          "165": {
+            "game_id": 8836,
+            "fight_owner": 50,
+            "master_owner": 50
+          },
+          "158": {
+            "game_id": 8836,
+            "fight_owner": 5,
+            "master_owner": 5
+          },
+          "79": {
+            "game_id": 3909,
+            "fight_owner": 42,
+            "master_owner": 42
+          },
+          "159": {
+            "game_id": 8836,
+            "fight_owner": null,
+            "master_owner": null
+          }
+        },
+        "encounter_context": {
+          "events": 26148,
+          "critical_events": 1427,
+          "critical_hit_types": {
+            "17": 9,
+            "2": 1414,
+            "5": 4
+          },
+          "fire_critical_mages_by_target": {
+            "162": [
+              51
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "51/162": 5101
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              5112,
+              "death",
+              -1,
+              155,
+              3,
+              0,
+              null
+            ],
+            [
+              6499,
+              "death",
+              -1,
+              155,
+              1,
+              0,
+              null
+            ],
+            [
+              9396,
+              "death",
+              -1,
+              152,
+              1,
+              0,
+              null
+            ],
+            [
+              10015,
+              "death",
+              -1,
+              155,
+              4,
+              0,
+              null
+            ],
+            [
+              16683,
+              "death",
+              -1,
+              160,
+              null,
+              0,
+              null
+            ],
+            [
+              18720,
+              "death",
+              -1,
+              155,
+              6,
+              0,
+              null
+            ],
+            [
+              19116,
+              "death",
+              -1,
+              158,
+              null,
+              0,
+              null
+            ],
+            [
+              19216,
+              "death",
+              -1,
+              152,
+              2,
+              0,
+              null
+            ],
+            [
+              20730,
+              "death",
+              -1,
+              155,
+              5,
+              0,
+              null
+            ],
+            [
+              25196,
+              "death",
+              -1,
+              152,
+              4,
+              0,
+              null
+            ],
+            [
+              26279,
+              "death",
+              -1,
+              152,
+              3,
+              0,
+              null
+            ],
+            [
+              30477,
+              "death",
+              -1,
+              161,
+              null,
+              0,
+              null
+            ],
+            [
+              33598,
+              "death",
+              -1,
+              152,
+              5,
+              0,
+              null
+            ],
+            [
+              35432,
+              "death",
+              -1,
+              155,
+              7,
+              0,
+              null
+            ],
+            [
+              35499,
+              "death",
+              -1,
+              165,
+              null,
+              0,
+              null
+            ],
+            [
+              36580,
+              "death",
+              -1,
+              152,
+              7,
+              0,
+              null
+            ],
+            [
+              37046,
+              "death",
+              -1,
+              152,
+              8,
+              0,
+              null
+            ],
+            [
+              42337,
+              "death",
+              -1,
+              152,
+              9,
+              0,
+              null
+            ],
+            [
+              42337,
+              "death",
+              -1,
+              152,
+              11,
+              0,
+              null
+            ],
+            [
+              42338,
+              "death",
+              -1,
+              152,
+              10,
+              0,
+              null
+            ],
+            [
+              42534,
+              "death",
+              -1,
+              152,
+              6,
+              0,
+              null
+            ],
+            [
+              43066,
+              "death",
+              -1,
+              155,
+              8,
+              0,
+              null
+            ],
+            [
+              43400,
+              "death",
+              -1,
+              155,
+              9,
+              0,
+              null
+            ],
+            [
+              48646,
+              "death",
+              -1,
+              152,
+              13,
+              0,
+              null
+            ],
+            [
+              55198,
+              "death",
+              -1,
+              155,
+              10,
+              0,
+              null
+            ],
+            [
+              55979,
+              "death",
+              -1,
+              152,
+              12,
+              0,
+              null
+            ],
+            [
+              58733,
+              "death",
+              -1,
+              155,
+              12,
+              0,
+              null
+            ],
+            [
+              61967,
+              "death",
+              -1,
+              155,
+              11,
+              0,
+              null
+            ],
+            [
+              68034,
+              "death",
+              -1,
+              155,
+              13,
+              0,
+              null
+            ],
+            [
+              70366,
+              "death",
+              -1,
+              155,
+              14,
+              0,
+              null
+            ],
+            [
+              79583,
+              "death",
+              -1,
+              155,
+              16,
+              0,
+              null
+            ],
+            [
+              81396,
+              "death",
+              -1,
+              155,
+              15,
+              0,
+              null
+            ],
+            [
+              81963,
+              "death",
+              -1,
+              152,
+              15,
+              0,
+              null
+            ],
+            [
+              83196,
+              "death",
+              -1,
+              155,
+              17,
+              0,
+              null
+            ],
+            [
+              83529,
+              "death",
+              -1,
+              152,
+              14,
+              0,
+              null
+            ],
+            [
+              84163,
+              "death",
+              -1,
+              155,
+              18,
+              0,
+              null
+            ],
+            [
+              88613,
+              "death",
+              -1,
+              152,
+              16,
+              0,
+              null
+            ],
+            [
+              96816,
+              "death",
+              -1,
+              152,
+              17,
+              0,
+              null
+            ],
+            [
+              97082,
+              "death",
+              -1,
+              152,
+              18,
+              0,
+              null
+            ],
+            [
+              98983,
+              "death",
+              -1,
+              152,
+              19,
+              0,
+              null
+            ],
+            [
+              111684,
+              "death",
+              -1,
+              155,
+              19,
+              0,
+              null
+            ],
+            [
+              115415,
+              "death",
+              -1,
+              152,
+              20,
+              0,
+              null
+            ],
+            [
+              120547,
+              "death",
+              -1,
+              155,
+              20,
+              0,
+              null
+            ],
+            [
+              128247,
+              "death",
+              -1,
+              155,
+              21,
+              0,
+              null
+            ],
+            [
+              131032,
+              "death",
+              -1,
+              152,
+              21,
+              0,
+              null
+            ],
+            [
+              131947,
+              "death",
+              -1,
+              155,
+              22,
+              0,
+              null
+            ],
+            [
+              133366,
+              "death",
+              -1,
+              152,
+              23,
+              0,
+              null
+            ],
+            [
+              134336,
+              "death",
+              -1,
+              152,
+              24,
+              0,
+              null
+            ],
+            [
+              135167,
+              "death",
+              -1,
+              152,
+              22,
+              0,
+              null
+            ],
+            [
+              135467,
+              "death",
+              -1,
+              152,
+              25,
+              0,
+              null
+            ],
+            [
+              139134,
+              "death",
+              -1,
+              155,
+              23,
+              0,
+              null
+            ],
+            [
+              142565,
+              "death",
+              -1,
+              155,
+              24,
+              0,
+              null
+            ],
+            [
+              142565,
+              "death",
+              -1,
+              155,
+              27,
+              0,
+              null
+            ],
+            [
+              143632,
+              "death",
+              -1,
+              152,
+              26,
+              0,
+              null
+            ],
+            [
+              146296,
+              "death",
+              -1,
+              155,
+              28,
+              0,
+              null
+            ],
+            [
+              150082,
+              "death",
+              -1,
+              152,
+              28,
+              0,
+              null
+            ],
+            [
+              151351,
+              "death",
+              -1,
+              152,
+              27,
+              0,
+              null
+            ],
+            [
+              152551,
+              "death",
+              -1,
+              155,
+              25,
+              0,
+              null
+            ],
+            [
+              152651,
+              "death",
+              -1,
+              155,
+              26,
+              0,
+              null
+            ],
+            [
+              172719,
+              "death",
+              -1,
+              152,
+              29,
+              0,
+              null
+            ],
+            [
+              182817,
+              "death",
+              -1,
+              155,
+              30,
+              0,
+              null
+            ],
+            [
+              187930,
+              "death",
+              -1,
+              155,
+              29,
+              0,
+              null
+            ],
+            [
+              193549,
+              "death",
+              -1,
+              164,
+              null,
+              0,
+              null
+            ],
+            [
+              193551,
+              "death",
+              -1,
+              162,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "799": [],
+            "800": [
+              [
+                30450,
+                "applybuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                30450,
+                "applybuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                30695,
+                "removebuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                30695,
+                "removebuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                64400,
+                "applybuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                64400,
+                "applybuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                64634,
+                "removebuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                64634,
+                "removebuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                99951,
+                "applybuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                99952,
+                "applybuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                100196,
+                "removebuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                100196,
+                "removebuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                135535,
+                "applybuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                135535,
+                "applybuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                135799,
+                "removebuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                135799,
+                "removebuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                167869,
+                "applybuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                167869,
+                "applybuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ],
+              [
+                168113,
+                "removebuff",
+                162,
+                162,
+                null,
+                800,
+                null
+              ],
+              [
+                168134,
+                "removebuff",
+                164,
+                164,
+                null,
+                800,
+                null
+              ]
+            ]
+          }
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_aura_ids": [
+        799,
+        800
+      ],
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-492",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "cb7dmjfDntT189FG",
+      "fight": 3,
+      "actor": 58,
+      "player": "Anavarlol",
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 49,
+        "duration_ms": 52743,
+        "actor_class": "Hunter",
+        "actor_game_id": 25959036,
+        "totals": {
+          "damage": 49388,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "20904": [
+            4819,
+            15312,
+            23800,
+            31464,
+            42610,
+            51688
+          ],
+          "25294": [
+            5264,
+            15952,
+            27202,
+            37639,
+            52118
+          ],
+          "3045": [
+            12312
+          ],
+          "75": [
+            1741,
+            5709,
+            9253,
+            12059,
+            15617,
+            18797,
+            21917,
+            24036,
+            25567,
+            27554,
+            29094,
+            31810,
+            33975,
+            36778,
+            39560,
+            43046,
+            45845,
+            48633,
+            52571
+          ]
+        },
+        "damage_by_actor": {
+          "78": 44783,
+          "79": 4605
+        },
+        "target_game_ids": {
+          "78": 15263,
+          "79": 176525
+        },
+        "pet_ownership": {
+          "60": {
+            "game_id": 9946414,
+            "fight_owner": 58,
+            "master_owner": 58
+          }
+        },
+        "encounter_context": {
+          "events": 7109,
+          "critical_events": 352,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 349
+          },
+          "fire_critical_mages_by_target": {
+            "78": [
+              16,
+              19,
+              25,
+              41,
+              57
+            ],
+            "79": [
+              25,
+              41
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "16/78": 2263,
+            "19/78": 7846,
+            "25/78": 544,
+            "25/79": 448,
+            "41/79": 460
+          },
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": [
+            [
+              8665,
+              "interrupt",
+              2,
+              78,
+              null,
+              6554,
+              26192
+            ],
+            [
+              16773,
+              "interrupt",
+              55,
+              78,
+              null,
+              1769,
+              26192
+            ],
+            [
+              19867,
+              "interrupt",
+              33,
+              79,
+              1,
+              1769,
+              26192
+            ],
+            [
+              32868,
+              "interrupt",
+              33,
+              78,
+              null,
+              1769,
+              26192
+            ],
+            [
+              34411,
+              "interrupt",
+              55,
+              79,
+              3,
+              1769,
+              26192
+            ],
+            [
+              49561,
+              "interrupt",
+              2,
+              78,
+              null,
+              6554,
+              26192
+            ],
+            [
+              52311,
+              "interrupt",
+              33,
+              79,
+              5,
+              1769,
+              26192
+            ],
+            [
+              52367,
+              "interrupt",
+              55,
+              79,
+              6,
+              1769,
+              26192
+            ]
+          ]
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-493",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "k6zpdLvaqJ4xXPCQ",
+      "fight": 56,
+      "actor": 14,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50717,
+        "revision": 57,
+        "duration_ms": 223955,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 117284,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 2652
+        },
+        "casts_ms": {
+          "14325": [
+            13266,
+            107096,
+            172562
+          ],
+          "20904": [
+            19320,
+            28209,
+            36666,
+            45795,
+            55257,
+            70274,
+            82216,
+            161248,
+            183944,
+            193454,
+            202570,
+            211642,
+            220718
+          ],
+          "25294": [
+            19638,
+            29876,
+            40214,
+            50671,
+            62002,
+            72448,
+            99272,
+            129569,
+            161684,
+            184366,
+            194807,
+            205266,
+            215707
+          ],
+          "25295": [
+            56553,
+            74133
+          ],
+          "25296": [
+            14775,
+            90719
+          ],
+          "3045": [
+            16553
+          ],
+          "5118": [
+            11759,
+            86973
+          ],
+          "75": [
+            16307,
+            19958,
+            21885,
+            23423,
+            24963,
+            26504,
+            28428,
+            30136,
+            31685,
+            33213,
+            34740,
+            36995,
+            39141,
+            41303,
+            43442,
+            46235,
+            49015,
+            51796,
+            55700,
+            59509,
+            62442,
+            65256,
+            70722,
+            76367,
+            79153,
+            82648,
+            97899,
+            100710,
+            103496,
+            108307,
+            111094,
+            113896,
+            116681,
+            119473,
+            122259,
+            125058,
+            128851,
+            131656,
+            136450,
+            139259,
+            142068,
+            144830,
+            147618,
+            150417,
+            153211,
+            157824,
+            162129,
+            164918,
+            168072,
+            170845,
+            173639,
+            176423,
+            179217,
+            184822,
+            187647,
+            190396,
+            193897,
+            196683,
+            199470,
+            203125,
+            205805,
+            208596,
+            212091,
+            214864,
+            217668,
+            221159
+          ]
+        },
+        "damage_by_actor": {
+          "188": 63252,
+          "189": 1329,
+          "192": 683,
+          "194": 37551,
+          "196": 10667,
+          "198": 3802
+        },
+        "target_game_ids": {
+          "188": 15589,
+          "189": 15725,
+          "192": 15726,
+          "194": 15727,
+          "196": 15728,
+          "198": 15334
+        },
+        "pet_ownership": {
+          "65": {
+            "game_id": 3909,
+            "fight_owner": 22,
+            "master_owner": 22
+          },
+          "193": {
+            "game_id": 15901,
+            "fight_owner": 9,
+            "master_owner": 9
+          },
+          "195": {
+            "game_id": 8155590,
+            "fight_owner": 57,
+            "master_owner": 57
+          },
+          "52": {
+            "game_id": 13870432,
+            "fight_owner": 9,
+            "master_owner": 9
+          },
+          "56": {
+            "game_id": 3909,
+            "fight_owner": 38,
+            "master_owner": 38
+          },
+          "93": {
+            "game_id": 3909,
+            "fight_owner": 30,
+            "master_owner": 30
+          },
+          "15": {
+            "game_id": 13926566,
+            "fight_owner": 14,
+            "master_owner": 14
+          }
+        },
+        "encounter_context": {
+          "events": 28873,
+          "critical_events": 1606,
+          "critical_hit_types": {
+            "17": 12,
+            "2": 1591,
+            "5": 3
+          },
+          "fire_critical_mages_by_target": {
+            "188": [
+              25,
+              31,
+              58
+            ],
+            "194": [
+              25,
+              31,
+              58
+            ],
+            "196": [
+              25,
+              31,
+              58
+            ],
+            "198": [
+              25,
+              31
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "25/188": 20828,
+            "25/194": 2,
+            "25/196": 2388,
+            "31/188": 29772,
+            "31/194": 10679,
+            "31/196": 5512,
+            "31/198": 314,
+            "58/188": 30524,
+            "58/194": 19755
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              18599,
+              "death",
+              -1,
+              189,
+              1,
+              0,
+              null
+            ],
+            [
+              24607,
+              "death",
+              -1,
+              189,
+              2,
+              0,
+              null
+            ],
+            [
+              27782,
+              "death",
+              -1,
+              189,
+              3,
+              0,
+              null
+            ],
+            [
+              32900,
+              "death",
+              -1,
+              189,
+              4,
+              0,
+              null
+            ],
+            [
+              36021,
+              "death",
+              -1,
+              186,
+              null,
+              0,
+              null
+            ],
+            [
+              43031,
+              "death",
+              -1,
+              189,
+              5,
+              0,
+              null
+            ],
+            [
+              45731,
+              "death",
+              -1,
+              45,
+              null,
+              0,
+              null
+            ],
+            [
+              45733,
+              "death",
+              -1,
+              26,
+              null,
+              0,
+              null
+            ],
+            [
+              47557,
+              "death",
+              -1,
+              192,
+              6,
+              0,
+              null
+            ],
+            [
+              51698,
+              "death",
+              -1,
+              192,
+              2,
+              0,
+              null
+            ],
+            [
+              52170,
+              "death",
+              -1,
+              192,
+              8,
+              0,
+              null
+            ],
+            [
+              52500,
+              "death",
+              -1,
+              192,
+              1,
+              0,
+              null
+            ],
+            [
+              53170,
+              "death",
+              -1,
+              192,
+              4,
+              0,
+              null
+            ],
+            [
+              54195,
+              "death",
+              -1,
+              192,
+              5,
+              0,
+              null
+            ],
+            [
+              54543,
+              "death",
+              -1,
+              192,
+              7,
+              0,
+              null
+            ],
+            [
+              54782,
+              "death",
+              -1,
+              192,
+              3,
+              0,
+              null
+            ],
+            [
+              55982,
+              "death",
+              -1,
+              24,
+              null,
+              0,
+              null
+            ],
+            [
+              60819,
+              "death",
+              -1,
+              189,
+              6,
+              0,
+              null
+            ],
+            [
+              76311,
+              "death",
+              -1,
+              189,
+              7,
+              0,
+              null
+            ],
+            [
+              80465,
+              "death",
+              -1,
+              189,
+              9,
+              0,
+              null
+            ],
+            [
+              82449,
+              "death",
+              -1,
+              189,
+              8,
+              0,
+              null
+            ],
+            [
+              82735,
+              "death",
+              -1,
+              188,
+              null,
+              0,
+              null
+            ],
+            [
+              85795,
+              "death",
+              -1,
+              189,
+              10,
+              0,
+              null
+            ],
+            [
+              95878,
+              "death",
+              -1,
+              52,
+              null,
+              0,
+              null
+            ],
+            [
+              99096,
+              "death",
+              -1,
+              193,
+              null,
+              0,
+              null
+            ],
+            [
+              103530,
+              "death",
+              -1,
+              196,
+              1,
+              0,
+              null
+            ],
+            [
+              126857,
+              "death",
+              -1,
+              192,
+              11,
+              0,
+              null
+            ],
+            [
+              127639,
+              "death",
+              -1,
+              192,
+              13,
+              0,
+              null
+            ],
+            [
+              130272,
+              "death",
+              -1,
+              192,
+              10,
+              0,
+              null
+            ],
+            [
+              130666,
+              "death",
+              -1,
+              192,
+              12,
+              0,
+              null
+            ],
+            [
+              131926,
+              "death",
+              -1,
+              192,
+              16,
+              0,
+              null
+            ],
+            [
+              132489,
+              "death",
+              -1,
+              192,
+              14,
+              0,
+              null
+            ],
+            [
+              132945,
+              "death",
+              -1,
+              192,
+              15,
+              0,
+              null
+            ],
+            [
+              133291,
+              "death",
+              -1,
+              198,
+              null,
+              0,
+              null
+            ],
+            [
+              135107,
+              "death",
+              -1,
+              192,
+              9,
+              0,
+              null
+            ],
+            [
+              157609,
+              "death",
+              -1,
+              192,
+              17,
+              0,
+              null
+            ],
+            [
+              157646,
+              "death",
+              -1,
+              192,
+              20,
+              0,
+              null
+            ],
+            [
+              158626,
+              "death",
+              -1,
+              192,
+              18,
+              0,
+              null
+            ],
+            [
+              159847,
+              "death",
+              -1,
+              197,
+              1,
+              0,
+              null
+            ],
+            [
+              161012,
+              "death",
+              -1,
+              192,
+              23,
+              0,
+              null
+            ],
+            [
+              163748,
+              "death",
+              -1,
+              192,
+              21,
+              0,
+              null
+            ],
+            [
+              164074,
+              "death",
+              -1,
+              192,
+              19,
+              0,
+              null
+            ],
+            [
+              164270,
+              "death",
+              -1,
+              192,
+              22,
+              0,
+              null
+            ],
+            [
+              165476,
+              "death",
+              -1,
+              196,
+              2,
+              0,
+              null
+            ],
+            [
+              168428,
+              "death",
+              -1,
+              192,
+              24,
+              0,
+              null
+            ],
+            [
+              179433,
+              "death",
+              -1,
+              197,
+              2,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              53240,
+              "interrupt",
+              17,
+              192,
+              3,
+              6554,
+              26143
+            ],
+            [
+              133358,
+              "interrupt",
+              17,
+              192,
+              9,
+              6554,
+              26143
+            ],
+            [
+              163690,
+              "interrupt",
+              17,
+              192,
+              22,
+              6554,
+              26143
+            ],
+            [
+              166772,
+              "interrupt",
+              35,
+              192,
+              24,
+              6554,
+              26143
+            ]
+          ],
+          "aura_transitions": {
+            "26235": []
+          }
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_aura_ids": [
+        26235
+      ],
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-494",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "tcJdbDx3rMGTzpLX",
+      "fight": 26,
+      "actor": 20,
+      "player": "Temison",
+      "expected": {
+        "encounter_id": 50713,
+        "revision": 10001,
+        "duration_ms": 101893,
+        "actor_class": "Hunter",
+        "actor_game_id": 26210203,
+        "totals": {
+          "damage": 46335,
+          "effective_healing": 0,
+          "absorbed_amount": 3704,
+          "incoming_damage": 6303
+        },
+        "casts_ms": {
+          "13241": [
+            59119
+          ],
+          "14317": [
+            57778
+          ],
+          "14325": [
+            1065
+          ],
+          "20904": [
+            8192,
+            20622,
+            28741,
+            37329,
+            67518,
+            74249,
+            83901,
+            93021
+          ],
+          "24531": [
+            68878
+          ],
+          "25294": [
+            8639,
+            21286,
+            29566,
+            40469,
+            51483,
+            67942,
+            74674,
+            85165,
+            95563
+          ],
+          "7254": [
+            78646
+          ],
+          "75": [
+            9090,
+            11903,
+            14686,
+            20717,
+            21913,
+            23886,
+            28769,
+            31545,
+            34011,
+            37913,
+            40486,
+            48792,
+            51024,
+            55342,
+            62675,
+            68405,
+            71183,
+            75118,
+            77921,
+            80718,
+            84367,
+            87118,
+            89913,
+            93469,
+            96256,
+            99060
+          ]
+        },
+        "damage_by_actor": {
+          "116": 33208,
+          "124": 12618,
+          "20": 509
+        },
+        "target_game_ids": {
+          "20": 26210203,
+          "116": 15299,
+          "124": 15667
+        },
+        "pet_ownership": {
+          "19": {
+            "game_id": 7402,
+            "fight_owner": 18,
+            "master_owner": 18
+          },
+          "52": {
+            "game_id": 13926566,
+            "fight_owner": 20,
+            "master_owner": 20
+          },
+          "41": {
+            "game_id": 3909,
+            "fight_owner": 8,
+            "master_owner": 8
+          }
+        },
+        "encounter_context": {
+          "events": 15002,
+          "critical_events": 912,
+          "critical_hit_types": {
+            "17": 4,
+            "2": 908
+          },
+          "fire_critical_mages_by_target": {
+            "116": [
+              9,
+              39,
+              53
+            ],
+            "124": [
+              9,
+              17,
+              37,
+              38,
+              39
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "37/124": 193,
+            "38/124": 357,
+            "53/116": 788
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              51348,
+              "death",
+              -1,
+              124,
+              1,
+              0,
+              null
+            ],
+            [
+              55234,
+              "death",
+              -1,
+              124,
+              2,
+              0,
+              null
+            ],
+            [
+              57668,
+              "death",
+              -1,
+              20,
+              null,
+              0,
+              null
+            ],
+            [
+              57806,
+              "death",
+              -1,
+              124,
+              6,
+              0,
+              null
+            ],
+            [
+              58685,
+              "death",
+              -1,
+              124,
+              7,
+              0,
+              null
+            ],
+            [
+              58818,
+              "death",
+              -1,
+              124,
+              4,
+              0,
+              null
+            ],
+            [
+              59242,
+              "death",
+              -1,
+              124,
+              5,
+              0,
+              null
+            ],
+            [
+              59365,
+              "death",
+              -1,
+              124,
+              12,
+              0,
+              null
+            ],
+            [
+              59441,
+              "death",
+              -1,
+              124,
+              1,
+              0,
+              null
+            ],
+            [
+              59443,
+              "death",
+              -1,
+              124,
+              10,
+              0,
+              null
+            ],
+            [
+              59443,
+              "death",
+              -1,
+              124,
+              3,
+              0,
+              null
+            ],
+            [
+              59662,
+              "death",
+              -1,
+              124,
+              3,
+              0,
+              null
+            ],
+            [
+              59739,
+              "death",
+              -1,
+              124,
+              13,
+              0,
+              null
+            ],
+            [
+              59739,
+              "death",
+              -1,
+              124,
+              2,
+              0,
+              null
+            ],
+            [
+              59977,
+              "death",
+              -1,
+              124,
+              14,
+              0,
+              null
+            ],
+            [
+              71532,
+              "death",
+              -1,
+              40,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-495",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
+    },
+    {
+      "fixture": "aq40-hunter-raid-context",
+      "report": "zgnJcDvZABFtTX2N",
+      "fight": 4,
+      "actor": 2,
+      "player": "Scttrkunt",
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 56,
+        "duration_ms": 54966,
+        "actor_class": "Hunter",
+        "actor_game_id": 35966823,
+        "totals": {
+          "damage": 46020,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 1374
+        },
+        "casts_ms": {
+          "14325": [
+            29770,
+            40863
+          ],
+          "20904": [
+            7021,
+            15773,
+            25391,
+            33977,
+            44831,
+            54051
+          ],
+          "24352": [
+            2163
+          ],
+          "25294": [
+            3611,
+            16399,
+            26829,
+            37186,
+            47628
+          ],
+          "25295": [
+            7597,
+            28274,
+            39352
+          ],
+          "3045": [
+            2873
+          ],
+          "75": [
+            1147,
+            3926,
+            7338,
+            9402,
+            11394,
+            13391,
+            16079,
+            18230,
+            20215,
+            22341,
+            25828,
+            28704,
+            31487,
+            34361,
+            36535,
+            39038,
+            41198,
+            45270,
+            48071,
+            50872,
+            54486
+          ]
+        },
+        "damage_by_actor": {
+          "105": 43193,
+          "107": 2426,
+          "18": 401
+        },
+        "target_game_ids": {
+          "18": 52052078,
+          "105": 15263,
+          "107": 176525
+        },
+        "pet_ownership": {
+          "81": {
+            "game_id": 3909,
+            "fight_owner": 5,
+            "master_owner": 5
+          },
+          "3": {
+            "game_id": 10232002,
+            "fight_owner": 2,
+            "master_owner": 2
+          },
+          "83": {
+            "game_id": 14895370,
+            "fight_owner": 7,
+            "master_owner": 7
+          },
+          "108": {
+            "game_id": 3909,
+            "fight_owner": 62,
+            "master_owner": 62
+          },
+          "109": {
+            "game_id": 2523,
+            "fight_owner": 66,
+            "master_owner": 66
+          }
+        },
+        "encounter_context": {
+          "events": 8732,
+          "critical_events": 484,
+          "critical_hit_types": {
+            "17": 6,
+            "2": 478
+          },
+          "fire_critical_mages_by_target": {
+            "105": [
+              20
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "20/105": 1650
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              24274,
+              "death",
+              -1,
+              11,
+              null,
+              0,
+              null
+            ],
+            [
+              54938,
+              "death",
+              -1,
+              105,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              13593,
+              "interrupt",
+              70,
+              105,
+              null,
+              1769,
+              26192
+            ],
+            [
+              16937,
+              "interrupt",
+              64,
+              107,
+              1,
+              1769,
+              26192
+            ],
+            [
+              23228,
+              "interrupt",
+              85,
+              105,
+              null,
+              6554,
+              26192
+            ],
+            [
+              33177,
+              "interrupt",
+              57,
+              107,
+              3,
+              6554,
+              26192
+            ],
+            [
+              44714,
+              "interrupt",
+              70,
+              107,
+              3,
+              1769,
+              26192
+            ],
+            [
+              46026,
+              "interrupt",
+              10,
+              107,
+              6,
+              6554,
+              26192
+            ],
+            [
+              54179,
+              "interrupt",
+              64,
+              105,
+              null,
+              1769,
+              26192
+            ]
+          ]
+        }
+      },
+      "review_basis": "Independent source/target raw enumeration and separate All/critical context enumeration, not an analyzer or normalizer oracle. Report/fight/actor identity and whole-fight bounds retained; no ranking, phase or duty is certified. Separate raw All/critical enumeration and exact bidirectional actor-owned overlap reviewed; context counts/targets/critical sources/Ignite/control/death/interrupt observations are not a validated ranking or opportunity model.",
+      "encounter_context": true,
+      "id": "aq40-hunter-raid-context-496",
+      "archive": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.zip",
+      "entries": "raw/aq40-hunter-raid-context/73952389-2005-20261017T213349.entries",
+      "sha256": "75414a39012072d0f374ac627bb08d75ee019dafcb28b78aad99c3b11f509e44"
     }
   ]
 }
