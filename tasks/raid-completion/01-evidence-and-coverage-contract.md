@@ -61,3 +61,5 @@ README/PROVENANCE describe the exact delivered validation limits.
 - Continue shared measured phase/opportunity/metric/duty contracts and full
   evidence coverage. Initial static strategy is governed by D006; it does not
   close phase or per-cell guidance obligations.
+
+2026-10-17 · slice 3 · durable checkpoint receipt · Evidence and initial strategy changes committed and pushed as b25e8bb (following 9ab2a29, a0b6553 and 9aded83). Local HEAD equals origin/main and working tree verified clean before this receipt. Latest targeted verification: 22 passed/3.63 s plus all 54 raw fact cases; strict completeness refusal explicitly verified at 9 IN_PROGRESS/943 TODO/0 COMPLETE. No additional acquisition, evidence waiver, acceptance or publication in this receipt. This documentation-only receipt is checkpointed separately.
