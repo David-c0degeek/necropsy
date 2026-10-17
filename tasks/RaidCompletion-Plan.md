@@ -205,6 +205,8 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 
 | D011 | 2026-10-17 | Instance-aware NPC aura state | Extend shared observed aura transitions and scoped evidence for exact NPC actor/instance buffs, saved into existing playbook and both pages. Keep initial/lifecycle/identity uncertainty; no physical phase or personal opportunity inference. | Real Majordomo four-instance counterexample has simultaneous applications but different removals. Actor-only or filtered coverage cannot certify windows; Aegis and reflection are distinct effects. | 01.6; 02.1/02.2/02.7/02.8; 03.1/03.2/03.4–03.8; PM-2/PM-3; [ADR0017](../docs/decisions/0017-target-instance-aura-windows.md) |
 
+| D012 | 2026-10-17 | Actor support and event provenance | Extend recipient-qualified new Era actor absorption/combined support while preserving heal-only values and unknowns. Correct existing class Report dict.copy collisions to numeric indices or explicit Unknown; retain Naxx Hunter bytes and all saved analysis values. |66 independent HPS cases require credited absorbs, not incoming mitigation. Source/installed comparison exposed identical JSON but nondeterministic class Report addresses. No oracle regeneration or universal ranking certification. | 01.6; 02.3/02.7/02.8; 03.2/03.7; 06.10; PM-2/PM-3; CH-MISS-1; ADR0014 |
+
 ---
 
 ## 5. Master progress tracker
@@ -214,7 +216,7 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 32 real seeds and 192 raw actor checks; full contracts/coverage open | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 35 real seeds and 210 raw actor checks; full contracts/coverage open | n/a |
 | [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on eleven evidenced encounters and local effects/control; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | TODO | agent: 9; domain-sme: 1 | yes |

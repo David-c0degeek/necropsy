@@ -306,10 +306,67 @@ def raw_encounter_facts(
     return result
 
 
+def raw_healing_facts(
+    archive: VerifiedArchive, report: str, fight: int, actor: int, boss_game_ids: list[int]
+) -> dict[str, Any]:
+    """Independent recipient arithmetic over the raw maximum-multiplicity union."""
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    f = next(f for f in bundle["fights"] if f["id"] == fight)
+    rows = _events(archive, report, fight, actor, f["startTime"], f["endTime"])
+    friends = {actor, *(f.get("friendlyPlayers") or [])}
+    friends.update(p["id"] for p in f.get("friendlyPets") or [])
+    bosses = {
+        a["id"]
+        for a in bundle["masterData"]["actors"]
+        if a.get("type") == "NPC" and a.get("gameID") in boss_game_ids
+    }
+    totals: dict[str, int | float] = defaultdict(int)
+    uncertain = set()
+    for row in rows:
+        if row.get("sourceID") != actor or row.get("type") not in {"heal", "absorbed"}:
+            continue
+        if type(row.get("sourceID")) is not int:
+            raise ValueError("raw healing/absorption source identity is invalid")
+        value = row.get("amount")
+        if (
+            not isinstance(value, int | float)
+            or isinstance(value, bool)
+            or not math.isfinite(value)
+            or value < 0
+        ):
+            raise ValueError("raw healing/absorption amount is missing or invalid")
+        kind = "healing" if row["type"] == "heal" else "absorption"
+        target = row.get("targetID")
+        membership = (
+            type(target) is int and target in friends,
+            type(target) is int and target in bosses,
+        )
+        group = {(True, False): "friendly", (False, True): "boss"}.get(membership, "unclassified")
+        totals[f"{group}_{kind}"] += value
+        totals[f"raw_{kind}"] += value
+        if group == "unclassified":
+            uncertain.add(kind)
+    result: dict[str, Any] = {}
+    for kind in ("healing", "absorption"):
+        for group in ("friendly", "boss", "unclassified", "raw"):
+            key = f"{group}_{kind}"
+            result[key] = (
+                None if kind in uncertain and group in {"friendly", "boss"} else totals[key]
+            )
+    result["friendly_healing_and_absorption"] = (
+        None if uncertain else totals["friendly_healing"] + totals["friendly_absorption"]
+    )
+    result["duration_ms"] = f["endTime"] - f["startTime"]
+    return result
+
+
 def check_register(path: Path) -> list[str]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("version") != 1 or not data.get("cases"):
         raise ValueError("a fact register needs version 1 and nonempty reviewed cases")
+    kind = data.get("kind", "actor")
+    if kind not in {"actor", "healing-recipients"}:
+        raise ValueError("unsupported independent fact register kind")
     problems = []
     ids = [case["id"] for case in data["cases"]]
     if len(ids) != len(set(ids)):
@@ -332,14 +389,27 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            actual = raw_actor_facts(
-                archive,
-                case["report"],
-                case["fight"],
-                case["actor"],
-                encounter_context=case.get("encounter_context", False),
-                encounter_aura_ids=tuple(aura_ids),
-            )
+            if kind == "healing-recipients":
+                boss_ids = case.get("boss_game_ids")
+                if (
+                    not isinstance(boss_ids, list)
+                    or not boss_ids
+                    or any(type(i) is not int or i < 1 for i in boss_ids)
+                    or len(set(boss_ids)) != len(boss_ids)
+                ):
+                    raise ValueError("recipient facts need explicit unique boss NPC IDs")
+                actual = raw_healing_facts(
+                    archive, case["report"], case["fight"], case["actor"], boss_ids
+                )
+            else:
+                actual = raw_actor_facts(
+                    archive,
+                    case["report"],
+                    case["fight"],
+                    case["actor"],
+                    encounter_context=case.get("encounter_context", False),
+                    encounter_aura_ids=tuple(aura_ids),
+                )
         expected = case["expected"]
         if set(expected) != set(actual):
             problems.append(f"{case['id']}: expected fact dimensions differ from raw checker")

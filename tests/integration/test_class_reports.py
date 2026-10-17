@@ -5,7 +5,9 @@ from pathlib import Path
 
 import pytest
 
+from necropsy.report.analysis_json import dumps
 from necropsy.report.offline import run_offline
+from necropsy.report.render import render_report, view_of
 from tests.class_fixture import CASES, snapshot
 
 
@@ -130,3 +132,34 @@ def test_dual_use_holy_shock_uses_its_recorded_effect_to_infer_duty(
     boss = json.loads((out / "analysis.json").read_text(encoding="utf-8"))["bosses"][0]
     assert boss["subject"] is not None
     assert boss["subject"]["combat"]["role"]["value"] == role
+
+
+def test_saved_event_copy_indices_render_as_values_and_are_deterministic(tmp_path: Path) -> None:
+    archive = snapshot(tmp_path, 4, "Fire", "Fireball", "dps")
+    out = tmp_path / "events"
+    run_offline(archive, out)
+    document = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    boss = document["bosses"][0]
+    event = boss["subject"]["combat"]["timeline"][0]
+    event.update(uid="a" * 64, copy=3)
+    boss["subject"]["combat"]["cooldowns"] = [{**event, "uid": "b" * 64, "copy": 4}]
+    boss["overall_cohort"][0]["combat"]["timeline"][0].update(uid="c" * 64, copy=5)
+    saved = dumps(document).encode("utf-8")
+    report = render_report(view_of(saved))
+    for uid, copy in (("a" * 64, 3), ("b" * 64, 4), ("c" * 64, 5)):
+        assert f"{uid}/{copy}" in report
+    assert "built-in method" not in report
+    # Separate JSON loads create different dictionaries; their addresses cannot
+    # become event identities or change a reproducible saved report.
+    assert report == render_report(view_of(saved))
+    # Older saved rows may lack a copy index. Missing/null is explicit unknown,
+    # never a fallback to a dictionary method with a process-specific address.
+    event.pop("copy")
+    boss["subject"]["combat"]["cooldowns"][0]["copy"] = None
+    boss["overall_cohort"][0]["combat"]["timeline"][0].pop("copy")
+    old_saved = dumps(document).encode("utf-8")
+    old_report = render_report(view_of(old_saved))
+    for uid in ("a" * 64, "b" * 64, "c" * 64):
+        assert f"{uid}/Unknown" in old_report
+    assert "built-in method" not in old_report
+    assert old_report == render_report(view_of(old_saved))

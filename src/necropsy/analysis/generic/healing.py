@@ -44,15 +44,27 @@ def recipient_metrics(
         ).fetchall()
         if game_id in boss_game_ids
     }
+
+    def recipients(
+        rows: list[CombatEvent],
+    ) -> tuple[list[CombatEvent], list[CombatEvent], list[CombatEvent]]:
+        supported, hostile, unresolved = [], [], []
+        for event in rows:
+            raw_target = event.raw.get("targetID", event.target_id)
+            if type(raw_target) is not int or raw_target != event.target_id:
+                unresolved.append(event)
+            elif event.target_id in friendly and event.target_id not in bosses:
+                supported.append(event)
+            elif event.target_id in bosses and event.target_id not in friendly:
+                hostile.append(event)
+            else:
+                unresolved.append(event)
+        return supported, hostile, unresolved
+
     heals = [e for e in events if e.kind == "heal" and e.source_id == pf.actor_id]
-    supported, hostile, unresolved = [], [], []
-    for event in heals:
-        if event.target_id in friendly and event.target_id not in bosses:
-            supported.append(event)
-        elif event.target_id in bosses and event.target_id not in friendly:
-            hostile.append(event)
-        else:
-            unresolved.append(event)
+    absorbs = [e for e in events if e.kind == "absorbed" and e.source_id == pf.actor_id]
+    supported, hostile, unresolved = recipients(heals)
+    shields, hostile_shields, unresolved_shields = recipients(absorbs)
     cov = [coverage(con, pf, pf.actor_id, Direction.SOURCE)]
     roster_ref = EvidenceRef(
         pf.report_code,
@@ -74,29 +86,65 @@ def recipient_metrics(
         "raw_source_healing_per_second": raw_metrics["effective_healing_per_second"],
     }
 
-    def amount(name: str, rows: list[CombatEvent], uncertain: bool) -> Evidenced[float]:
-        refs = (event_ref(pf, heals if uncertain else rows, name), roster_ref, boss_ref)
+    def valid_sources(rows: list[CombatEvent]) -> bool:
+        return all(
+            type(e.raw.get("sourceID", e.source_id)) is int
+            and e.raw.get("sourceID", e.source_id) == pf.actor_id
+            for e in rows
+        )
+
+    def amount(
+        name: str,
+        rows: list[CombatEvent],
+        uncertain: bool,
+        relevant: list[CombatEvent],
+    ) -> Evidenced[float]:
+        refs = (event_ref(pf, relevant if uncertain else rows, name), roster_ref, boss_ref)
+        if not valid_sources(relevant):
+            return unknown("support source identity is malformed", *refs, coverage=cov)
         if uncertain:
             return unknown(
-                "healing recipient is unresolved or conflicts with the friendly roster", *refs
+                "healing or absorption recipient is unresolved or conflicts with "
+                "the friendly roster",
+                *refs,
             )
-        if any(e.amount is None or e.amount < 0 for e in rows):
-            return unknown("healing event amount is missing or negative", *refs)
+
+        def valid_amount(e: CombatEvent) -> bool:
+            raw_amount = e.raw.get("amount", e.amount)
+            return (
+                isinstance(raw_amount, int | float)
+                and not isinstance(raw_amount, bool)
+                and math.isfinite(raw_amount)
+                and raw_amount >= 0
+                and raw_amount == e.amount
+            )
+
+        if any(not valid_amount(e) for e in rows):
+            return unknown("support event amount is missing, invalid or coerced", *refs)
         return complete_or_unknown(
             float(sum(e.amount or 0 for e in rows)),
             cov,
             *refs,
             rule_id="healing-recipients-v1",
-            note="Heal event amount only; absorption events and overheal are separate. "
-            "Recipient classification is not a WCL ranking reconciliation or quality score.",
+            note=(
+                "Source-owned absorbed event amount, separate from incoming damage mitigation. "
+                if relevant is absorbs
+                else "Heal event amount only; absorption events and overheal are separate. "
+            )
+            + "Recipient classification is not a WCL ranking reconciliation or quality score.",
         )
 
-    for name, rows, uncertain in (
-        ("effective_healing", supported, bool(unresolved)),
-        ("healing_to_bosses", hostile, bool(unresolved)),
-        ("unclassified_healing", unresolved, False),
+    for name, rows, uncertain, relevant in (
+        ("raw_source_healing", heals, False, heals),
+        ("effective_healing", supported, bool(unresolved), heals),
+        ("healing_to_bosses", hostile, bool(unresolved), heals),
+        ("unclassified_healing", unresolved, False, heals),
+        ("raw_source_absorption", absorbs, False, absorbs),
+        ("effective_absorption", shields, bool(unresolved_shields), absorbs),
+        ("absorption_to_bosses", hostile_shields, bool(unresolved_shields), absorbs),
+        ("unclassified_absorption", unresolved_shields, False, absorbs),
     ):
-        value = amount(name, rows, uncertain)
+        value = amount(name, rows, uncertain, relevant)
         result[name] = value
         result[f"{name}_per_second"] = (
             complete_or_unknown(
@@ -108,6 +156,32 @@ def recipient_metrics(
             if value.value is not None and pf.duration_ms > 0
             else unknown("recipient-qualified healing rate unavailable", *value.refs)
         )
+    heal, absorb = result["effective_healing"], result["effective_absorption"]
+    combined_refs = (*heal.refs, *absorb.refs)
+    result["healing_and_absorption"] = (
+        complete_or_unknown(
+            heal.value + absorb.value,
+            cov,
+            *combined_refs,
+            rule_id="friendly-healing-and-absorption-v1",
+            note="Friendly actor healing plus credited absorption, excluding overheal. "
+            "Pet/guardian contributions are not added. This is not a validated WCL HPS "
+            "reconstruction or healing quality score.",
+        )
+        if heal.value is not None and absorb.value is not None
+        else unknown("friendly healing or absorption is unresolved", *combined_refs, coverage=cov)
+    )
+    combined = result["healing_and_absorption"]
+    result["healing_and_absorption_per_second"] = (
+        complete_or_unknown(
+            combined.value * 1000 / pf.duration_ms,
+            cov,
+            *combined.refs,
+            rule_id="friendly-healing-and-absorption-v1",
+        )
+        if combined.value is not None and pf.duration_ms > 0
+        else unknown("combined friendly support rate unavailable", *combined.refs, coverage=cov)
+    )
     over = [e.raw.get("overheal", 0) for e in supported]
     refs = (
         event_ref(pf, heals if unresolved else supported, "friendly recipient overhealing"),
@@ -115,8 +189,9 @@ def recipient_metrics(
         boss_ref,
     )
     result["overhealing"] = (
-        unknown("friendly healing recipients or overheal fields are unresolved", *refs)
-        if unresolved
+        unknown("friendly healing source, recipients or overheal fields are unresolved", *refs)
+        if not valid_sources(heals)
+        or unresolved
         or any(type(v) not in (int, float) or not math.isfinite(v) or v < 0 for v in over)
         else complete_or_unknown(float(sum(over)), cov, *refs, rule_id="healing-recipients-v1")
     )

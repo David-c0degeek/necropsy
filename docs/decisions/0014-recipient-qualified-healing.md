@@ -36,3 +36,26 @@ seasonal behavior retain their previous contract; old saved JSON renders its
 saved values. Reanalysis of raw new-raid snapshots produces the qualified values.
 Rollback reverts the qualified analysis call sites and optional presentation;
 no archive migration or expectation regeneration is needed.
+
+## Credited absorption
+
+The same recipient classifier also qualifies source-owned `absorbed` events.
+Additive `raw_source_absorption`, `effective_absorption`, `absorption_to_bosses`
+and `unclassified_absorption` retain their distinct totals and rates. Incoming
+damage payloads' absorbed fields never enter shield contribution. Malformed
+raw source/recipient/amount fields cannot become trustworthy through database
+scalar coercion. Qualified source healing uses the same raw scalar guard.
+
+`healing_and_absorption` and its whole-fight rate add known friendly actor heals
+and credited absorption, excluding overheal. Existing heal-only measurements
+and overheal denominators remain distinct. Pet/guardian contributions are not
+automatically assigned to the player. Every aggregate still needs actor-source
+coverage, even when global data exist. Both pages show saved support examples.
+
+[WCL pins](https://vanilla.warcraftlogs.com/help/pins) document that the healing
+category includes absorbs. Independent66 retained HPS cases reproduce recorded
+two-decimal scores using source heals plus absorption over recorded duration.
+This bounded observation is not universal ranking validation, a fitted error
+tolerance or a quality judgement. Unknown recipients, other classes/encounters,
+pet attribution and encounter-specific ranking rules remain explicit limits.
+Old Naxx and saved documents retain their previous semantics and content.

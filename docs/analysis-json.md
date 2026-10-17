@@ -297,3 +297,14 @@ transitions can survive incomplete coverage. Actorless coverage references add
 coverage retains its original shape. Both pages render saved observations only;
 these are not ranking, physical phase, attackability or personal opportunity
 models. See [target instance observations](decisions/0017-target-instance-aura-windows.md).
+
+New Era combat/Druid metrics additionally retain `raw_source_absorption`,
+`effective_absorption`, `absorption_to_bosses`, `unclassified_absorption` and
+their `_per_second` values. These use source-owned absorb events, separate from
+incoming damage mitigation. `healing_and_absorption` and its whole-fight rate
+combine qualified friendly heals and shields; heal-only and overheal metrics
+remain separate. Missing/malformed source, recipient, amount or coverage keeps
+qualified totals unknown. Optional `playbook.healing_context.support_examples`
+saves the contributing measures for both pages. Neither these values nor
+recorded scores establish healing quality or a universally validated WCL HPS
+policy. See [recipient evidence](decisions/0014-recipient-qualified-healing.md).

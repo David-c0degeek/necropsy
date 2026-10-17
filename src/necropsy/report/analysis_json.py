@@ -892,6 +892,18 @@ def build_document(
                         if metrics["healing_to_bosses"]["value"] is None
                         or metrics["healing_to_bosses"]["value"] > 0
                     ],
+                    "support_examples": [
+                        {
+                            "player": player,
+                            "healing": metrics["effective_healing"],
+                            "absorption": metrics["effective_absorption"],
+                            "combined_per_second": metrics["healing_and_absorption_per_second"],
+                        }
+                        for player, metrics in qualified
+                        if boss["playbook"].get("selected_metric") == "hps"
+                        or metrics["effective_absorption"]["value"] is None
+                        or metrics["effective_absorption"]["value"] > 0
+                    ],
                 }
             strategy = encounter_strategy(
                 zone,

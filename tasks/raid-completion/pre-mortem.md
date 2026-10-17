@@ -73,6 +73,7 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 
 | ID | Failure | Observed impact | Actual detection | Why Pre-Mortem missed it | Future lesson | Evidence / refs |
 |---|---|---|---|---|---|---|
+| CH-MISS-1 | Class Report printed the dict.copy method/address instead of event copy indices in cooldown, subject and cohort timelines; output and package hashes varied across identical replays. | Medium: incorrect provenance display and nondeterministic artifacts; underlying JSON amounts/identities matched. | Before production during source-versus-installed acceptance; pre-existing class template issue. | Numeric/raw fact and page-presence checks did not exercise dictionary attribute/key collisions or cross-process HTML determinism. | Use explicit key lookup for method-name collisions; compare saved event identities and separately loaded renders, plus source/installed output bytes. | tests/integration/test_class_reports.py::test_saved_event_copy_indices_render_as_values_and_are_deterministic; class-report.html.j2; source/installed healing-support replay |
 
 ## Calibration questions
 

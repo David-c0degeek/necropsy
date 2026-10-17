@@ -169,3 +169,10 @@ withholds windows. State starts unknown and lifecycle/contradiction uncertainty
 is preserved. Observed buff state does not define a physical phase or a
 player's safe attack opportunity. See the
 [instance contract](decisions/0017-target-instance-aura-windows.md).
+
+Credited absorption is a source-owned absorb event, distinct from an incoming
+damage event's absorbed field. Friendly, boss and unresolved recipients stay
+separate. Combined friendly healing and absorption retains whole-fight actor
+source coverage, with no implicit pet attribution or quality judgement. Raw
+scalar coercion cannot turn boolean or fractional support fields into valid
+integer ownership/amount evidence. Heal-only and overheal values stay distinct.

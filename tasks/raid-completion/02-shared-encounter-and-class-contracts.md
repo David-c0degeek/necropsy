@@ -44,6 +44,59 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 16 / Recipient-qualified credited absorption and deeper MC
+actor evidence. Added raw source, friendly, boss and unresolved absorption/rates,
+plus combined friendly heal+absorption over whole-fight duration. Preserve
+heal-only values and overheal denominators; no pet/guardian sum, WCL policy or
+quality grade is inferred. Available raw source/recipient/amount scalars are
+checked against normalized values: boolean or fractional coercion cannot certify
+a contribution. Partial actor-source streams remain unknown even with globals.
+Both pages show saved support examples, including Mage wards, through existing
+combat/Druid metrics and shared playbook adapter. Old JSON gains no new analysis.
+
+Primary WCL pins identify healing category as including absorbs. Independent66
+retained HPS cases reproduce recorded two-decimal scores using source heals plus
+absorption over recorded duration; separate healing-facts.json freezes recipient
+expectations before production changes. This is observed precision, not a fitted
+tolerance or universal ranking proof. Synthetic wrong owner/recipient, incoming
+mitigation, hostile/unknown recipient, malformed amount, partial/zero and raw
+scalar-coercion counterexamples pass. Original192 actor expectations unchanged.
+
+Three finalized six-source Golemagg Fury / Majordomo Fire and Frost captures add
+18 cases:35 archives/210 actor cases,33 IN_PROGRESS/919 TODO/0 COMPLETE. The18
+participants span17 fights/34 global scopes: Frost has two Mages in one fight,
+with distinct arithmetic and shared event normalization. Subject Magma13880
+apply14.094 through39.333 s gives25.239 known affected/14.094 unknown; stack
+refreshes do not become armor-loss, avoidance or assigned-tank judgements. No
+selected Mage Polymorph application is invented. Dossiers/provenance record
+exact sources and independent facts. Additional long Ragnaros public research
+returns16576 events/2 terminal pages, same public revision34 before/after, no
+20567 marker and null API phases. It remains uncounted research, not zero phases.
+
+Verification: all35 retained archives pass38 goldens/282.54 s before final raw
+scalar/render guards; current focused support checks48 pass/5.97 s and numeric/
+missing/null event-copy rendering1 pass/1.03 s. Full ordinary regression1373
+pass/338 deselected in384.02 s before final missing-index fallback;17 historical
+class/Druid goldens pass/240.57 s. Four Naxx artifacts remain byte-identical.
+Eight source and isolated installed real replays across all three raids preserve
+48 independent actor totals, normal live acceptance and32 byte-identical JSON/
+Report/Playbook/package artifacts.32 desktop/mobile/offline/no-error/overflow/
+print checks pass; positive Magma and Mage-support mobile sections inspected.
+Unlimited scans:96,870,342 raw bytes and530,494,953 build/source/installed/package
+bytes, zero findings. Final missing/null fallback recheck passes in all8 installed
+fixtures with32 artifact byte matches; targeted legacy Unknown test passes.
+
+Interim Captain Hindsight: Keep independent recipient facts, preserved heal-only
+measurements, explicit actor/source coverage and saved-only adapters. Fix full
+class/pet/target/phase/ranking/opportunity/loadout coverage and human reviews
+before closing. Record CH-MISS-1: installed byte comparison found Jinja resolving
+dict.copy rather than the saved event index. Corrected all three class Report
+locations, including legacy missing/null Unknown behavior; underlying JSON and
+Naxx Hunter values unchanged, no baselines regenerated. Risk:66 score agreements
+are bounded evidence, not universal HPS or quality approval. PM predictions stay
+pending full calibration. Verdict: DO NOT CLOSE.
+
+
 2026-10-17 / slice 15 / Golemagg/Majordomo initial strategy and shared instance
 observations. Added two normal finalized format2 public six-source Holy captures
 and12 independent cases:32 archives/192 cases,30 IN_PROGRESS/922 TODO/0 COMPLETE.

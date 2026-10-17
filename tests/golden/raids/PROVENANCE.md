@@ -268,3 +268,33 @@ replay outside checkout preserves12 independent actor healing totals, exact
 Majordomo instance windows, both pages/packages and normal live acceptance.
 Eight desktop/mobile/no-network/error/overflow/print checks pass; positive
 Golemagg Report and Majordomo Playbook mobile content visually inspected.
+
+Golemagg context Fury and Majordomo context Fire/Frost add18 independent actor
+cases:35 archives/210 actor checks; original192 expectations unchanged.
+Fury SHA25646169950549ecbed66027ad504af81f46a664e9c0383457154f61c50c23f6bde,
+Fire SHA256c1804449f1677223eaee4a3652b6719e19e04b1f17f2a68156ea23437360b13e,
+Frost SHA256bad342756aa48413d660ea8d0a5a4edcb0d2c3225eaa11666792cd85b10b5580.
+The18 participants span17 distinct fights/34 actorless scopes, retaining141,099
+unrestricted and8,977 critical events. Frost source fWTt1bpP2avQVdry/fight66
+contains both actor22 and actor7; shared encounter pages must not double totals.
+All96,870,342 extracted raw bytes pass unlimited gitleaks8.30.1.
+
+Golemagg Hardcoremilf B7dTxC8cHDFqRmaz/fight26/actor5 lasts39.333 s: damage107,793,
+healing455, absorption0, incoming1,256. Magma Splash13880 applies14.094 s and
+stacks/refreshes26.789/31.359/38.668 s without removal:25.239 known affected and
+14.094 initially unknown. This does not quantify armor loss or assign tanking.
+Majordomo Suffel x4zfwgJZTAV3PYQK/40/13 lasts52.800 s, damage66,073, healing0,
+credited absorption586, incoming2,219. Bonesbones adhCNDWyvbVk9Fc7/38/8 lasts
+67.647 s, damage54,112, healing1,438, absorption570, incoming11,707. Selected
+Fire/Frost Mages have no owned Polymorph applications in these captures.
+Other Mages in a retained global fight do; personal best-score selection does
+not preserve the originally investigated utility actor/fight. No failed duty
+or class non-applicability is inferred.
+
+Separate healing-facts.json freezes66 recipient contexts for retained HPS cases
+without adding actor cases or changing prior expectations. Every source heal
+and credited absorb in that set has a supported friendly recipient. Raw sums
+plus absorption reproduce recorded two-decimal scores over recorded duration,
+without certifying universal WCL policy. Source/boss/unknown and malformed
+counterexamples are separately tested; incoming mitigation is not credited
+absorption. Historical Naxx values and saved-only rendering remain unchanged.

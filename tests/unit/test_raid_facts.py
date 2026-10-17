@@ -370,3 +370,39 @@ def test_independent_aura_facts_bind_recipient_instance_and_transition_kind(
     }
     register.write_text(json.dumps(doc), encoding="utf-8")
     assert bool(check_register(register)) is (mutation is not None)
+
+
+@pytest.mark.parametrize("mutation", [None, "owner", "recipient", "amount", "kind"])
+def test_independent_absorption_facts_reject_validly_rehashed_semantic_changes(
+    tmp_path: Path,
+    mutation: str | None,
+) -> None:
+    members = _members()
+    members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][1]["type"] = "NPC"
+    event = members[PREFIX + "source_001.json"]["data"][-1]
+    if mutation == "owner":
+        event["sourceID"] = 2
+    elif mutation == "recipient":
+        event["targetID"] = 2
+    elif mutation == "amount":
+        event["amount"] = 4
+    elif mutation == "kind":
+        event["type"] = "damage"
+    register = _write(tmp_path, members)
+    data = json.loads(register.read_text(encoding="utf-8"))
+    data["kind"] = "healing-recipients"
+    data["cases"][0]["boss_game_ids"] = [12118]
+    data["cases"][0]["expected"] = {
+        "friendly_healing": 20,
+        "boss_healing": 0,
+        "unclassified_healing": 0,
+        "raw_healing": 20,
+        "friendly_absorption": 3,
+        "boss_absorption": 0,
+        "unclassified_absorption": 0,
+        "raw_absorption": 3,
+        "friendly_healing_and_absorption": 23,
+        "duration_ms": 2000,
+    }
+    register.write_text(json.dumps(data), encoding="utf-8")
+    assert bool(check_register(register)) is (mutation is not None)

@@ -33,3 +33,18 @@ Open: boss/add eligibility and lifetime/completion boundaries, positive melee/
 tank stack examples, class-specific loadout/pet opportunities, threat/duty
 ambiguity, ranking reconciliation, long/short phase cases and human acceptance.
 See [research receipt](../research/mc-final-context-review.json).
+
+## Additional melee and support verification
+
+Normal mc-golemagg-context-fury adds six independent Warrior cases. Subject
+Hardcoremilf B7dTxC8cHDFqRmaz/26/5 has13880 apply14.094 s, then stack/refresh
+26.789/31.359/38.668 s through39.333 s end. The existing local effect model
+saves25.239 known affected/14.094 unknown, with no synthetic removal, armor-loss
+amount or assigned-tank inference. Another selected Warrior has no transitions
+and retains unknown initial state.
+
+The common recipient model separately measures friendly credited absorption
+and heal-only values. Holy subject48,145 heals+688 absorbs gives48,833 friendly
+support over46.470 s,1050.85/s. This descriptive measure does not certify a
+universal ranked HPS policy or healing quality. See the independent healing
+register and absorption research contract.

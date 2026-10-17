@@ -8,7 +8,7 @@ Season of Mastery and Hardcore catalog entries do not approve Era policies.
 
 `coverage.json` records evidence against stable keys
 `raid/encounter/class/category/metric/faction`. Missing records mean TODO.
-The empty initial register deliberately certifies no domain completion.
+The partial register deliberately certifies no complete domain cells.
 
 ```sh
 uv run python scripts/check_raid_coverage.py --inventory
@@ -49,3 +49,15 @@ transitions. These are observations, not validated ranking or phase policies.
 Captured actor directions must agree with their owned unrestricted events.
 Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
+
+`healing-facts.json` separately freezes recipient-qualified healing/absorption
+for66 retained HPS actor cases, without changing original actor expectations:
+
+```sh
+uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
+```
+
+Its `healing-recipients` kind binds explicit boss identities, friendly roster,
+source ownership, actual amounts and combined support. It does not certify a
+universal ranked HPS policy. Six source participants can share fewer fights;
+actorless scopes are certified once per distinct fight, not per participant.

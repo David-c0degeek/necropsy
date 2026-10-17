@@ -1,0 +1,550 @@
+{
+  "reviewed": "2026-10-17",
+  "classification": "Recipient-qualified actor support and Golemagg exposure; incomplete domain/ranking/role coverage",
+  "archives": 35,
+  "independent_actor_cases": 210,
+  "original_actor_expectations_preserved": 192,
+  "separate_healing_recipient_cases": 66,
+  "matrix": {
+    "IN_PROGRESS": 33,
+    "TODO": 919,
+    "COMPLETE": 0
+  },
+  "raw_fact_problems": [],
+  "healing_fact_problems": [],
+  "golden_replay": {
+    "passed": 38,
+    "seconds": 282.54,
+    "note": "Before final malformed-scalar guards and copy-index rendering correction; independent values preserved and current focused/installed checks cover corrections."
+  },
+  "ordinary_regression": {
+    "passed": 1373,
+    "deselected": 338,
+    "seconds": 384.02,
+    "note": "Before missing/null copy-index fallback; current targeted saved-render regression covers that additional compatibility case."
+  },
+  "legacy_class_druid_golden": {
+    "passed": 17,
+    "seconds": 240.57
+  },
+  "current_focused_support_checks": {
+    "passed": 48,
+    "seconds": 5.97
+  },
+  "current_saved_event_identity_regression": {
+    "passed": 1,
+    "seconds": 1.03
+  },
+  "installed_replays": [
+    {
+      "fixture": "mc-golemagg-context-fury",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 6,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    },
+    {
+      "fixture": "mc-majordomo-context-mage",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 6,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    },
+    {
+      "fixture": "mc-majordomo-context-frost-control",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 5,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    },
+    {
+      "fixture": "mc-golemagg-context-holy",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 6,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    },
+    {
+      "fixture": "mc-majordomo-context-holy",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 6,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    },
+    {
+      "fixture": "bwl-combined-holy",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 6,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    },
+    {
+      "fixture": "aq40-viscidus-holy",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 6,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    },
+    {
+      "fixture": "mc-balance-healing",
+      "installed": true,
+      "actor_cases": 6,
+      "distinct_fights": 6,
+      "normal_live_acceptance": true,
+      "both_pages_package": true,
+      "source_installed_artifacts_byte_identical": true
+    }
+  ],
+  "byte_identical_source_installed_artifacts": 32,
+  "browser": [
+    {
+      "raid": "mc-golemagg-context-fury",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-fury",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-fury",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-fury",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-mage",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-mage",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-mage",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-mage",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-frost-control",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-frost-control",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-frost-control",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-frost-control",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-golemagg-context-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-majordomo-context-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "bwl-combined-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "aq40-viscidus-holy",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "aq40-viscidus-holy",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "aq40-viscidus-holy",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "aq40-viscidus-holy",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-balance-healing",
+      "page": "report",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-balance-healing",
+      "page": "report",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-balance-healing",
+      "page": "playbook",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    },
+    {
+      "raid": "mc-balance-healing",
+      "page": "playbook",
+      "viewport": [
+        390,
+        844
+      ],
+      "bosses": 1,
+      "network_requests": [],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "print_boss_visible": true
+    }
+  ],
+  "privacy": {
+    "scanner": "gitleaks8.30.1, unlimited",
+    "new_extracted_raw_bytes": 96870342,
+    "source_installed_build_package_bytes": 530494953,
+    "findings": 0
+  },
+  "naxx": "Four artifacts match baseline30e89ce; actor/class measurements unchanged. Existing class Report copy-index presentation corrected intentionally; no oracle regeneration.",
+  "limits": [
+    "No universal WCL HPS/ranking certification, pet/guardian aggregation, phase/opportunity normalization or quality grade.",
+    "All66 HPS examples have supported friendly recipients; hostile/unresolved/malformed/incoming/coercion cases are tested separately.",
+    "Selected Fire/Frost Mages have no own Polymorph applications; a utility actor personal best can select a different fight.",
+    "Long public Ragnaros global research has no20567 marker and null phaseTransitions; not a counted usable actor fixture.",
+    "New Garr/BWL/AQ context captures finalized as ignored research and remain uncounted until independent acceptance."
+  ],
+  "final_missing_index_installed_recheck": {
+    "fixtures": 8,
+    "byte_identical_artifacts": 32,
+    "scope": "Fresh final wheel installed outside checkout; all original source JSON/Report/Playbook/package bytes preserved for valid inputs. Missing/null saved indices separately render Unknown."
+  }
+}

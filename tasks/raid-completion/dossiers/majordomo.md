@@ -42,3 +42,21 @@ control-immunity opportunities, Teleport consequences, reflected damage/pets,
 all classes/duties/loadouts/factions and human domain/product review.
 See [research receipt](../research/mc-final-context-review.json) and
 [architecture decision](../../../docs/decisions/0017-target-instance-aura-windows.md).
+
+## Additional Mage and support verification
+
+Normal Fire and Frost captures add12 independent Mage cases with actual shield
+contributions. Fire subject Suffel x4zfwgJZTAV3PYQK/40/13 has586 credited absorb
+amount; Frost subject Bonesbones adhCNDWyvbVk9Fc7/38/8 has1,438 source healing
+and570 absorption. Incoming damage mitigation is a different measurement.
+
+Frost capture has six sources but five fights: fWTt1bpP2avQVdry/66 contains
+both actor22 and actor7. Exactly10 actorless scopes preserve shared events once
+while both actors retain distinct damage/support arithmetic. Selected Mages
+have no owned Polymorph applications. Investigated utility actors can select
+a different personal-best fight, so no selected positive control is invented.
+
+Holy subject53,104 heals+8,010 absorbs gives61,114 friendly support over35.927 s,
+1701.06/s, shown separately from saved WCL scores and heal-only amounts. Actual
+HPS cases agree at recorded two-decimal precision; unknown/hostile recipient,
+pet, phase/opportunity and universal ranking obligations remain open.

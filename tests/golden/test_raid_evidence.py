@@ -25,6 +25,10 @@ def test_independent_raw_actor_facts() -> None:
     assert check_register(ROOT / "facts.json") == []
 
 
+def test_independent_recipient_healing_and_absorption_facts() -> None:
+    assert check_register(ROOT / "healing-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -59,12 +63,13 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     run_offline(archive, out, expected_sha256=fixture["sha256"], entries=entries)
     doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
     facts = json.loads((ROOT / "facts.json").read_text(encoding="utf-8"))["cases"]
+    healing_facts = json.loads((ROOT / "healing-facts.json").read_text(encoding="utf-8"))["cases"]
     with VerifiedArchive(archive, entries=entries) as raw:
         marker = raw.read_json("necropsy-snapshot.json")
     assert doc["zone"]["id"] == marker["zone"]["id"]
     if fixture.get("encounter_context"):
         assert doc["snapshot"]["format"] == "necropsy-live-snapshot-v2"
-        assert len(marker["encounter_streams"]) == 12
+        assert len(marker["encounter_streams"]) == 2 * len(marker["fights"])
         assert all(
             p["actor_id"] is None and p["direction"] == "all" for p in marker["encounter_streams"]
         )
@@ -91,6 +96,10 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         assert entry["kill_duration_s"] * 1000 == pytest.approx(case["expected"]["duration_ms"])
         if entry.get("combat") or entry.get("druid"):
             combat = entry.get("combat") or entry["druid"]
+            assert (
+                combat["metrics"]["raw_source_absorption"]["value"]
+                == case["expected"]["totals"]["absorbed_amount"]
+            )
             for metric in ("damage", "effective_healing", "incoming_damage"):
                 field = "raw_source_healing" if metric == "effective_healing" else metric
                 assert combat["metrics"][field]["value"] == case["expected"]["totals"][metric]
@@ -101,6 +110,28 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
                 assert combat["metrics"]["effective_healing"]["value"] == (
                     case["expected"]["totals"]["effective_healing"] - hostile
                 )
+            recipient_facts = next(
+                (f for f in healing_facts if f["actor_case"] == case["id"]), None
+            )
+            if recipient_facts is not None:
+                independent = recipient_facts["expected"]
+                for raw_key, metric in (
+                    ("friendly_healing", "effective_healing"),
+                    ("boss_healing", "healing_to_bosses"),
+                    ("unclassified_healing", "unclassified_healing"),
+                    ("raw_healing", "raw_source_healing"),
+                    ("friendly_absorption", "effective_absorption"),
+                    ("boss_absorption", "absorption_to_bosses"),
+                    ("unclassified_absorption", "unclassified_absorption"),
+                    ("raw_absorption", "raw_source_absorption"),
+                    ("friendly_healing_and_absorption", "healing_and_absorption"),
+                ):
+                    assert combat["metrics"][metric]["value"] == independent[raw_key]
+                combined = independent["friendly_healing_and_absorption"]
+                if combined is not None:
+                    assert combat["metrics"]["healing_and_absorption_per_second"][
+                        "value"
+                    ] == pytest.approx(combined * 1000 / independent["duration_ms"])
         else:
             # Ranking reconciliation is a separate gate; an unvalidated raid
             # cannot turn these raw amounts into claimed ranked damage.
@@ -110,6 +141,24 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert (out / package_name(doc)).is_file()
     context = boss["playbook"]["duty_context"]
     assert context["player"] == marker["subject"]["name"]
+    if fixture["label"] == "mc-golemagg-context-fury":
+        (magma,) = boss["playbook"]["encounter_effects"]
+        assert magma["ability_ids"] == [13880]
+        assert magma["known_affected_s"]["value"] == 25.239
+        assert magma["unknown_state_s"]["value"] == 14.094
+        assert magma["windows"]["value"] == [
+            [0, 14.094, None],
+            [14.094, 26.789, True],
+            [26.789, 31.359, True],
+            [31.359, 38.668, True],
+            [38.668, 39.333, True],
+        ]
+    if fixture["label"] == "mc-majordomo-context-frost-control":
+        assert len(marker["fights"]) == 5
+        assert len(marker["encounter_streams"]) == 10
+        # Six participants include two Mages in the same fight. Normalization
+        # merges their shared scopes, keeping each actor's distinct arithmetic.
+        assert len(actual) == 6
     if fixture["label"] == "mc-majordomo-context-holy":
         reflection, shield = boss["playbook"]["target_aura_windows"]
         assert reflection["applications"]["value"] == 1
@@ -315,6 +364,11 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             assert "Magic Reflection: 1 recorded applications." in html
             assert "Flamewaker Elite · instance 3: 5.46s known active; 30.45s" in html
             assert reflection["limitation"] in html
+            assert "Almsivi: 53104 friendly healing; 8010 credited absorption; 1701.06/s" in html
+        if fixture["label"] == "mc-golemagg-context-holy":
+            assert "Almsivi: 48145 friendly healing; 688 credited absorption; 1050.85/s" in html
+        if fixture["label"] == "mc-golemagg-context-fury":
+            assert "Magma Splash: 25.24s known affected; 14.09s with unknown state." in html
         if fixture["label"] == "mc-shazzrah-holy":
             assert "Shazzrah's Curse: 15.59s known affected; 6.50s with unknown state." in html
         if fixture["label"] == "mc-shazzrah-hunter":

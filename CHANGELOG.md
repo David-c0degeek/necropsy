@@ -8,6 +8,16 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Correct class Report event identities to show numeric copy indices; avoid
+  dictionary method addresses and restore deterministic report/package bytes.
+
+- Measure credited friendly absorption separately from incoming mitigation and
+  boss effects. Show combined friendly healing and shielding beside heal-only
+  values; preserve unknown source/recipient/amount/coverage and saved scores.
+- Add observed Golemagg Magma Splash exposure with real melee examples, retaining
+  unknown initial state and censored effects without inventing stack thresholds
+  or tank assignments.
+
 - Add initial Golemagg tank/healing coordination and Majordomo add/control and
   shield strategy. Preserve observed Majordomo buff state separately for each
   add instance, with unknown initial state and scoped encounter coverage;
