@@ -47,6 +47,46 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 12 / Class-qualified NPC control windows reuse the existing
+observed-state/scope/saved-output path. Separate Garr710/18647 policies require
+an unambiguous Player/Warlock caster, native Firesworn12099 and exact target
+instance; keep NPC buff defaults and personal SOURCE-owned counters unchanged.
+Raw source/target/spell IDs are checked before class/target exclusion, so bool/
+fractional coercion cannot certify absence as a different actor. Unknown lifecycle
+recipients carry event refs and withhold windows. No cross-rank union, timer
+removal, physical attackability, lost DPS or assigned control inferred.
+
+Frozen control-facts.json has six independent whole-fight contexts and four
+manually reviewed positive instance intervals, separate from unchanged288 actor
+and126 recipient cases.39 archives,35 IN_PROGRESS/917 TODO/0 COMPLETE remain.
+Finia own yKBC4j3tzL8mDrNR/22 has zero applications personally and globally.
+Forand cohort8Lt3zrD92h7Ty6xv/22 contains Greasecup11 effects:27.290 s known
+active/24.404 s unknown, censored at end. Actor102 instances4/8 retain20.009 /
+30.000 s; separate Rank2 example13.700 s, never a nominal-duration extension.
+Three complete contexts have no applications, not proof of initial inactive state.
+Both pages identify cohort target observations as being in that player's fight.
+
+Current104 unit checks pass/2.99 s, including all nine named caster classes,
+known wrong/unknown/ambiguous NPC/pet/player identity, spell/type/instance/scope,
+raw coercion before exclusion and unresolved lifecycle ownership. Broader1445
+passed/343 deselected/368.39 s before final malformed-ID tightening; current
+focused checks cover that additional guard. Selected raw-control/legacy Garr/
+Majordomo Holy/full MC golden checks pass, and current new Garr golden passes
+1/6.20 s. Five source/fresh installed replays outside checkout verify84 actor
+cases/14 boss sections,20 byte-identical JSON/Report/Playbook/package artifacts,
+legacy unknown global counts and unchanged observed Majordomo buffs.20 desktop/
+mobile checks pass; positive Garr mobile screenshot inspected. Final privacy/
+Naxx/staged receipts are in research/control-windows-review.json.
+
+Updated ADR0017, raid docs, changelog, raw checker/fixture guide, Garr dossier
+and existing matrix receipt. Future full-context MC capture is independently
+counted as ignored research only, not another seed. Interim Captain Hindsight:
+Keep raw/manual independence, scope and separate source versus global effects;
+fix full class/faction/duty/loadout, physical phases/opportunities, ranking and
+human review. Record first archive fight is not necessarily the subject and
+cohort player is not necessarily the effect caster. PM-1/PM-2/PM-3 full calibration
+pending. DO NOT CLOSE; no full box or configuration accepted.
+
 Final checkpoint audit caught CH-MISS-2: Git normalized SHA-bound JSON bytes
 after local verification. Earlier pushed provenance references did not match
 Git blobs. Fixed forward with canonical LF metadata, exact-byte Git attributes

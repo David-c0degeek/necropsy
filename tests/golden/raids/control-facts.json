@@ -1,0 +1,443 @@
+{
+  "version": 1,
+  "kind": "npc-controls",
+  "cases": [
+    {
+      "id": "garr-control-context-1",
+      "fixture": "mc-garr-context-warlock",
+      "archive": "raw/mc-garr-context-warlock.zip",
+      "entries": "raw/mc-garr-context-warlock.entries",
+      "sha256": "a8e6f248e0a0dbec45c4439b2ed88270e087270db42194b1e58fa614fb3c6241",
+      "report": "8Lt3zrD92h7Ty6xv",
+      "fight": 22,
+      "ability_ids": [
+        710,
+        18647
+      ],
+      "target_game_ids": [
+        12099
+      ],
+      "review_basis": "Independent raw All-page enumeration with exact caster/recipient catalog fields, native lifecycles and instances, frozen before control window implementation. Manual integer-ms interval subtraction; no analyzer, normalizer or production state helper generated expectations. Global effects do not establish the selected actor duty or personal source coverage.",
+      "expected": {
+        "duration_ms": 52694,
+        "observations": [
+          {
+            "ms": 24404,
+            "kind": "applydebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 38101996,
+              "id": 11,
+              "name": "Greasecup",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 122,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 2
+          },
+          {
+            "ms": 44403,
+            "kind": "removedebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 38101996,
+              "id": 11,
+              "name": "Greasecup",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 122,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 2
+          },
+          {
+            "ms": 45403,
+            "kind": "applydebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 38101996,
+              "id": 11,
+              "name": "Greasecup",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 122,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 2
+          }
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "report": "8Lt3zrD92h7Ty6xv",
+          "fight": 22,
+          "spell": 710,
+          "actor": 122,
+          "instance": 2,
+          "applications": 2,
+          "windows": [
+            [
+              0,
+              24404,
+              null
+            ],
+            [
+              24404,
+              44403,
+              true
+            ],
+            [
+              44403,
+              45403,
+              false
+            ],
+            [
+              45403,
+              52694,
+              true
+            ]
+          ],
+          "known_active": 27290,
+          "unknown_state": 24404
+        }
+      ]
+    },
+    {
+      "id": "garr-control-context-2",
+      "fixture": "mc-garr-context-warlock",
+      "archive": "raw/mc-garr-context-warlock.zip",
+      "entries": "raw/mc-garr-context-warlock.entries",
+      "sha256": "a8e6f248e0a0dbec45c4439b2ed88270e087270db42194b1e58fa614fb3c6241",
+      "report": "RaYB3pbDkPGd6gxK",
+      "fight": 30,
+      "ability_ids": [
+        710,
+        18647
+      ],
+      "target_game_ids": [
+        12099
+      ],
+      "review_basis": "Independent raw All-page enumeration with exact caster/recipient catalog fields, native lifecycles and instances, frozen before control window implementation. Manual integer-ms interval subtraction; no analyzer, normalizer or production state helper generated expectations. Global effects do not establish the selected actor duty or personal source coverage.",
+      "expected": {
+        "duration_ms": 52716,
+        "observations": [
+          {
+            "ms": 13020,
+            "kind": "applydebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 384219829,
+              "id": 33,
+              "name": "邪恶的小贱贱",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 102,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 4
+          },
+          {
+            "ms": 15183,
+            "kind": "applydebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 206203247,
+              "id": 5,
+              "name": "Murat",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 102,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 8
+          },
+          {
+            "ms": 33029,
+            "kind": "removedebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 384219829,
+              "id": 33,
+              "name": "邪恶的小贱贱",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 102,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 4
+          },
+          {
+            "ms": 35189,
+            "kind": "removedebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 206203247,
+              "id": 5,
+              "name": "Murat",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 102,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 8
+          },
+          {
+            "ms": 42722,
+            "kind": "applydebuff",
+            "spell": 710,
+            "caster": {
+              "gameID": 206203247,
+              "id": 5,
+              "name": "Murat",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 102,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 8
+          }
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "report": "RaYB3pbDkPGd6gxK",
+          "fight": 30,
+          "spell": 710,
+          "actor": 102,
+          "instance": 4,
+          "applications": 1,
+          "windows": [
+            [
+              0,
+              13020,
+              null
+            ],
+            [
+              13020,
+              33029,
+              true
+            ],
+            [
+              33029,
+              52716,
+              false
+            ]
+          ],
+          "known_active": 20009,
+          "unknown_state": 13020
+        },
+        {
+          "report": "RaYB3pbDkPGd6gxK",
+          "fight": 30,
+          "spell": 710,
+          "actor": 102,
+          "instance": 8,
+          "applications": 2,
+          "windows": [
+            [
+              0,
+              15183,
+              null
+            ],
+            [
+              15183,
+              35189,
+              true
+            ],
+            [
+              35189,
+              42722,
+              false
+            ],
+            [
+              42722,
+              52716,
+              true
+            ]
+          ],
+          "known_active": 30000,
+          "unknown_state": 15183
+        }
+      ]
+    },
+    {
+      "id": "garr-control-context-3",
+      "fixture": "mc-garr-context-warlock",
+      "archive": "raw/mc-garr-context-warlock.zip",
+      "entries": "raw/mc-garr-context-warlock.entries",
+      "sha256": "a8e6f248e0a0dbec45c4439b2ed88270e087270db42194b1e58fa614fb3c6241",
+      "report": "Tr3GVvF4t8MPbqYp",
+      "fight": 13,
+      "ability_ids": [
+        710,
+        18647
+      ],
+      "target_game_ids": [
+        12099
+      ],
+      "review_basis": "Independent raw All-page enumeration with exact caster/recipient catalog fields, native lifecycles and instances, frozen before control window implementation. Manual integer-ms interval subtraction; no analyzer, normalizer or production state helper generated expectations. Global effects do not establish the selected actor duty or personal source coverage.",
+      "expected": {
+        "duration_ms": 26691,
+        "observations": [
+          {
+            "ms": 12991,
+            "kind": "applydebuff",
+            "spell": 18647,
+            "caster": {
+              "gameID": 72805424,
+              "id": 7,
+              "name": "Hådêz",
+              "subType": "Warlock",
+              "type": "Player"
+            },
+            "target": {
+              "gameID": 12099,
+              "id": 90,
+              "name": "Firesworn",
+              "subType": "NPC",
+              "type": "NPC"
+            },
+            "instance": 5
+          }
+        ],
+        "lifecycles": []
+      },
+      "window_expectations": [
+        {
+          "report": "Tr3GVvF4t8MPbqYp",
+          "fight": 13,
+          "spell": 18647,
+          "actor": 90,
+          "instance": 5,
+          "applications": 1,
+          "windows": [
+            [
+              0,
+              12991,
+              null
+            ],
+            [
+              12991,
+              26691,
+              true
+            ]
+          ],
+          "known_active": 13700,
+          "unknown_state": 12991
+        }
+      ]
+    },
+    {
+      "id": "garr-control-context-4",
+      "fixture": "mc-garr-context-warlock",
+      "archive": "raw/mc-garr-context-warlock.zip",
+      "entries": "raw/mc-garr-context-warlock.entries",
+      "sha256": "a8e6f248e0a0dbec45c4439b2ed88270e087270db42194b1e58fa614fb3c6241",
+      "report": "hqfXwJk6QWmHAVyx",
+      "fight": 26,
+      "ability_ids": [
+        710,
+        18647
+      ],
+      "target_game_ids": [
+        12099
+      ],
+      "review_basis": "Independent raw All-page enumeration with exact caster/recipient catalog fields, native lifecycles and instances, frozen before control window implementation. Manual integer-ms interval subtraction; no analyzer, normalizer or production state helper generated expectations. Global effects do not establish the selected actor duty or personal source coverage.",
+      "expected": {
+        "duration_ms": 46501,
+        "observations": [],
+        "lifecycles": []
+      },
+      "window_expectations": []
+    },
+    {
+      "id": "garr-control-context-5",
+      "fixture": "mc-garr-context-warlock",
+      "archive": "raw/mc-garr-context-warlock.zip",
+      "entries": "raw/mc-garr-context-warlock.entries",
+      "sha256": "a8e6f248e0a0dbec45c4439b2ed88270e087270db42194b1e58fa614fb3c6241",
+      "report": "mqPyav719zYWZJFx",
+      "fight": 46,
+      "ability_ids": [
+        710,
+        18647
+      ],
+      "target_game_ids": [
+        12099
+      ],
+      "review_basis": "Independent raw All-page enumeration with exact caster/recipient catalog fields, native lifecycles and instances, frozen before control window implementation. Manual integer-ms interval subtraction; no analyzer, normalizer or production state helper generated expectations. Global effects do not establish the selected actor duty or personal source coverage.",
+      "expected": {
+        "duration_ms": 28422,
+        "observations": [],
+        "lifecycles": []
+      },
+      "window_expectations": []
+    },
+    {
+      "id": "garr-control-context-6",
+      "fixture": "mc-garr-context-warlock",
+      "archive": "raw/mc-garr-context-warlock.zip",
+      "entries": "raw/mc-garr-context-warlock.entries",
+      "sha256": "a8e6f248e0a0dbec45c4439b2ed88270e087270db42194b1e58fa614fb3c6241",
+      "report": "yKBC4j3tzL8mDrNR",
+      "fight": 22,
+      "ability_ids": [
+        710,
+        18647
+      ],
+      "target_game_ids": [
+        12099
+      ],
+      "review_basis": "Independent raw All-page enumeration with exact caster/recipient catalog fields, native lifecycles and instances, frozen before control window implementation. Manual integer-ms interval subtraction; no analyzer, normalizer or production state helper generated expectations. Global effects do not establish the selected actor duty or personal source coverage.",
+      "expected": {
+        "duration_ms": 29453,
+        "observations": [],
+        "lifecycles": []
+      },
+      "window_expectations": []
+    }
+  ]
+}

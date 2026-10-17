@@ -166,3 +166,14 @@
   Test the Git filter with CRLF input as well as ordinary file parsing.
 - Fix affected receipts forward without changing frozen measurement values or
   rewriting pushed history. Preserve native archive/member/hash sidecars.
+
+## Selected player, fight and effect caster
+
+- Bind subject and cohort observations through the descriptor's participant
+  identity; the first sorted archive fight need not be the subject's fight.
+- An example player's fight can contain another actor's utility. Label global
+  target observations with the fight, preserve the actual caster in raw refs,
+  and keep personal SOURCE completeness/counters separate.
+- Check raw identity types before using coerced normalized IDs to exclude a
+  known wrong class or target. Unknown lifecycle recipients also cannot hide
+  as unrelated actors and certify a control duration.

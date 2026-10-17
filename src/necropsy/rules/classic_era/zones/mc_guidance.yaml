@@ -356,6 +356,25 @@ strategy:
       text: Confirm Protector tanking and kill order, control recovery and removal priorities before copying another player's target mix.
 
 target_auras:
+  50666:
+  - rule: garr-banish-rank-one-instances-v1
+    label: Encounter-wide Firesworn Banish (Rank 1)
+    ability_id: 710
+    aura_kind: debuff
+    caster_classes: [Warlock]
+    target_game_ids: [12099]
+    require_instance: true
+    source: https://www.wowhead.com/classic/spell=710/banish
+    retrieved: '2026-10-17'
+  - rule: garr-banish-rank-two-instances-v1
+    label: Encounter-wide Firesworn Banish (Rank 2)
+    ability_id: 18647
+    aura_kind: debuff
+    caster_classes: [Warlock]
+    target_game_ids: [12099]
+    require_instance: true
+    source: https://www.wowhead.com/classic/spell=18647/banish
+    retrieved: '2026-10-17'
   50671:
   - rule: majordomo-magic-reflection-instances-v1
     label: Magic Reflection

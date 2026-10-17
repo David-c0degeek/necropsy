@@ -406,3 +406,107 @@ def test_independent_absorption_facts_reject_validly_rehashed_semantic_changes(
     }
     register.write_text(json.dumps(data), encoding="utf-8")
     assert bool(check_register(register)) is (mutation is not None)
+
+
+CONTROL_EXPECTED = {
+    "duration_ms": 2000,
+    "observations": [
+        {
+            "ms": 500,
+            "kind": "applydebuff",
+            "spell": 710,
+            "caster": {"id": 4, "type": "Player", "subType": "Warlock", "name": "Lock"},
+            "target": {"id": 5, "type": "NPC", "gameID": 12099, "name": "Firesworn"},
+            "instance": 2,
+        },
+        {
+            "ms": 1500,
+            "kind": "removedebuff",
+            "spell": 710,
+            "caster": {"id": 4, "type": "Player", "subType": "Warlock", "name": "Lock"},
+            "target": {"id": 5, "type": "NPC", "gameID": 12099, "name": "Firesworn"},
+            "instance": 2,
+        },
+    ],
+    "lifecycles": [],
+}
+
+
+def _control_members() -> dict[str, Any]:
+    members = _encounter_members()
+    members[BUNDLE]["reportData"]["report"]["masterData"]["actors"].extend(
+        [
+            {"id": 4, "type": "Player", "subType": "Warlock", "name": "Lock"},
+            {"id": 5, "type": "NPC", "gameID": 12099, "name": "Firesworn"},
+        ]
+    )
+    members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"].extend(
+        [
+            {
+                "timestamp": 1500,
+                "type": "applydebuff",
+                "sourceID": 4,
+                "targetID": 5,
+                "targetInstance": 2,
+                "abilityGameID": 710,
+            },
+            {
+                "timestamp": 2500,
+                "type": "removedebuff",
+                "sourceID": 4,
+                "targetID": 5,
+                "targetInstance": 2,
+                "abilityGameID": 710,
+            },
+        ]
+    )
+    return members
+
+
+def _write_control(root: Path, members: dict[str, Any]) -> Path:
+    register = _write_context(root, members)
+    data = json.loads(register.read_text(encoding="utf-8"))
+    data["kind"] = "npc-controls"
+    case = data["cases"][0]
+    case["ability_ids"] = [710]
+    case["target_game_ids"] = [12099]
+    case["expected"] = CONTROL_EXPECTED
+    register.write_text(json.dumps(data), encoding="utf-8")
+    return register
+
+
+def test_independent_control_catalog_instance_and_transition_facts(tmp_path: Path) -> None:
+    assert check_register(_write_control(tmp_path, _control_members())) == []
+
+
+@pytest.mark.parametrize(
+    "mutation", ["caster", "class", "target", "instance", "time", "kind", "spell", "lifecycle"]
+)
+def test_validly_rehashed_control_changes_cannot_match_manual_facts(
+    tmp_path: Path, mutation: str
+) -> None:
+    members = _control_members()
+    rows = members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"]
+    application = rows[-2]
+    if mutation == "class":
+        members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][-2]["subType"] = "Mage"
+    elif mutation == "lifecycle":
+        rows.append({"timestamp": 2400, "type": "death", "targetID": 5, "targetInstance": 2})
+    else:
+        key, value = {
+            "caster": ("sourceID", 3),
+            "target": ("targetID", 2),
+            "instance": ("targetInstance", 3),
+            "time": ("timestamp", 1501),
+            "kind": ("type", "cast"),
+            "spell": ("abilityGameID", 18647),
+        }[mutation]
+        application[key] = value
+    assert check_register(_write_control(tmp_path, members))
+
+
+def test_control_raw_boolean_owner_is_not_an_integer_identity(tmp_path: Path) -> None:
+    members = _control_members()
+    members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"][-2]["sourceID"] = True
+    with pytest.raises(ValueError, match="raw control actor identity"):
+        check_register(_write_control(tmp_path, members))

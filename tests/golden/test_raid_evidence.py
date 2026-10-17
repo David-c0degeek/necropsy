@@ -32,6 +32,10 @@ def test_independent_recipient_healing_and_absorption_facts() -> None:
     assert check_register(ROOT / "healing-facts.json") == []
 
 
+def test_independent_npc_control_facts() -> None:
+    assert check_register(ROOT / "control-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -401,6 +405,53 @@ def _assert_boss_replay(
             assert entry["combat"]["role"]["value"] is None
             assert "boss melee pressure" in entry["combat"]["role"]["note"]
             assert entry["combat"]["assignment"]["value"] is None
+    if fixture["label"] == "mc-garr-context-warlock":
+        contexts = json.loads((ROOT / "control-facts.json").read_text(encoding="utf-8"))["cases"]
+        for case in contexts:
+            subject = boss["subject"] or boss["playbook"].get("excluded_subject")
+            if subject and (subject["report_code"], subject["fight_id"]) == (
+                case["report"],
+                case["fight"],
+            ):
+                auras = boss["playbook"]["target_aura_windows"]
+            else:
+                example = next(
+                    e
+                    for e in boss["playbook"]["cohort_target_aura_windows"]
+                    if (e["report_code"], e["fight_id"]) == (case["report"], case["fight"])
+                )
+                auras = example["auras"]
+            by_spell = {a["ability_id"]: a for a in auras}
+            for spell in case["ability_ids"]:
+                aura = by_spell[spell]
+                raw = [e for e in case["expected"]["observations"] if e["spell"] == spell]
+                assert all(
+                    e["caster"]["type"] == "Player"
+                    and e["caster"]["subType"] == "Warlock"
+                    and e["target"]["gameID"] == 12099
+                    for e in raw
+                )
+                assert aura["applications"]["value"] == sum(e["kind"] == "applydebuff" for e in raw)
+                manual = [w for w in case["window_expectations"] if w["spell"] == spell]
+                assert {(t["actor_id"], t["instance"]) for t in aura["targets"]} == {
+                    (w["actor"], w["instance"]) for w in manual
+                }
+                for window in manual:
+                    target = next(
+                        t
+                        for t in aura["targets"]
+                        if (t["actor_id"], t["instance"]) == (window["actor"], window["instance"])
+                    )
+                    assert target["windows"]["value"] == [
+                        [lo / 1000, hi / 1000, state] for lo, hi, state in window["windows"]
+                    ]
+                    assert target["known_active_s"]["value"] == pytest.approx(
+                        window["known_active"] / 1000
+                    )
+                    assert target["unknown_state_s"]["value"] == pytest.approx(
+                        window["unknown_state"] / 1000
+                    )
+                    assert target["windows"]["coverage"][0]["actor"] is None
     strategy = boss["playbook"]["encounter_strategy"]
     assert {item["section"] for item in strategy["items"]} == {"before", "during", "raid"}
     for page in ("report.html", "playbook.html"):
@@ -434,6 +485,9 @@ def _assert_boss_replay(
         if fixture["label"] == "mc-gehennas-holy":
             assert "Gehennas' Curse: 4.06s known affected; 6.36s with unknown state." in html
             assert "your own curse window does not describe every patient" in html
+        if fixture["label"] == "mc-garr-context-warlock":
+            assert "Encounter-wide Firesworn Banish (Rank 1): 0 recorded applications." in html
+            assert "Firesworn instance 2: 27.29s known active." in html
         if fixture["label"].startswith("mc-garr-"):
             count = 1 if fixture["label"] == "mc-garr-control-warlock" else 0
             assert f"Recorded Firesworn Banish applications: {count}." in html

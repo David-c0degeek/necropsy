@@ -209,6 +209,8 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 
 | D013 | 2026-10-17 | Normal encounter context acquisition | Enable existing encounter-context acquisition in shared run_analyze only for new Era zones2000/2002/2005 partitions1/2. Preserve actor-only low-level default, Naxx/non-Era acquisition, old snapshots, quota reserves and immutable resume. | Real public v2 captures across all three raids pass independent raw checks and source/installed artifact equality. Nine actual CLI scope cases and quota-stop/resume verify selection and incomplete scopes; normal live continuation retains bounded partial evidence. No ranking/phase/assignment policy is certified. | 01.6; 02.1/02.2/02.7/02.8; 07.1; PM-2/PM-3; ADR0016; research/normal-context-pre-mortem.md |
 
+| D014 | 2026-10-17 | Class-qualified NPC control state | Extend existing target aura state with player class/debuff policies; activate separate Garr Banish ranks, exact instances and raw integer identity guards. Preserve personal SOURCE counters, observed-only uncertainty and NPC buff defaults. | Six independent raw control contexts/manual integer-ms expectations and all named caster classes distinguish Forand fight/Greasecup effect from Finia personal zero. Coerced IDs are checked before exclusion; unresolved lifecycle owners carry global refs and withhold windows. No physical opportunity, assignment or quality inference. | 01.6; 02.1/02.2/02.7/02.8; 03.4/03.6/03.7/03.8; PM-2/PM-3; ADR0017; research/npc-control-window-contract.md |
+
 ---
 
 ## 5. Master progress tracker

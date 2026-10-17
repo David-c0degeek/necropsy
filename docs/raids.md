@@ -67,8 +67,10 @@ Golemagg retains observed Magma Splash exposure without assigning tank duty;
 Majordomo keeps observed shield states separate for each add instance;
 Ragnaros distinguishes conditional Sons control and party fire-resistance
 support from measured phases or successful control.
-Garr retains individual Firesworn Banish applications without
-assuming every Warlock was assigned control; Viscidus distinguishes freezing and healing context. Local
+Garr retains individual SOURCE-owned Firesworn Banish applications separately
+from encounter-wide, class-qualified target-instance observations. Ranks and
+add instances stay separate; another Warlock’s effect is not personal uptime.
+Neither view assumes every Warlock was assigned control; Viscidus distinguishes freezing and healing context. Local
 debuff windows retain unknown state and do not define global phases or damage
 opportunity. These are general plans,
 not proof of your assignment, phase or a personal mistake. They apply only to

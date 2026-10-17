@@ -2,10 +2,12 @@
 
 import json
 from collections.abc import Iterator
+from dataclasses import replace
 
 import duckdb
 import pytest
 
+from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.analysis.context import ParticipantFight
 from necropsy.analysis.encounters.windows import encounter_auras
 from necropsy.analysis.evidence import EvidenceLevel
@@ -214,3 +216,225 @@ def test_saved_coverage_cannot_confuse_actor_and_encounter_scopes(
                 role=role,
             )
         )
+
+
+GARR = replace(PF, boss="Garr", encounter_id=50666)
+
+
+def warlock(
+    con: duckdb.DuckDBPyConnection, actor: int = 10, subtype: str | None = "Warlock"
+) -> None:
+    con.execute(
+        "INSERT INTO actors (report_code,actor_id,type,sub_type,name) "
+        "VALUES ('REPORT',?,'Player',?,?)",
+        [actor, subtype, f"Caster{actor}"],
+    )
+
+
+@pytest.mark.parametrize("subtype", CLASS_NAMES.values())
+def test_banish_requires_a_known_player_warlock_without_using_subject_class(
+    con: duckdb.DuckDBPyConnection, subtype: str
+) -> None:
+    warlock(con, subtype=subtype)
+    event(con, 1000, "applydebuff", 1, target=7, source=10, ability=710)
+    one, two = encounter_auras(con, GARR)
+    assert two.applications.value == 0
+    assert one.applications.value == (1 if subtype == "Warlock" else 0)
+    if subtype == "Warlock":
+        assert one.targets[0].known_active_s.value == 9
+        assert one.targets[0].unknown_state_s.value == 1
+        assert one.applications.coverage[0].actor_id is None
+        assert one.label.startswith("Encounter-wide")
+        assert GARR.actor_id != 10  # another caster's effect is never personal uptime
+    else:
+        assert one.targets == ()
+
+
+def test_banish_ranks_and_same_actor_instances_keep_independent_observed_state(
+    con: duckdb.DuckDBPyConnection,
+) -> None:
+    for actor in (10, 11, 12):
+        warlock(con, actor)
+    event(con, 1000, "applydebuff", 1, target=7, source=10, ability=710)
+    event(con, 2000, "applydebuff", 2, target=7, source=11, ability=710)
+    event(con, 3000, "removedebuff", 1, target=7, source=10, ability=710)
+    event(con, 5000, "applydebuff", 3, target=7, source=12, ability=18647)
+    one, two = encounter_auras(con, GARR)
+    assert (one.applications.value, two.applications.value) == (2, 1)
+    assert [(t.instance, t.known_active_s.value, t.unknown_state_s.value) for t in one.targets] == [
+        (1, 2, 1),
+        (2, 8, 2),
+    ]
+    assert [(t.instance, t.known_active_s.value, t.unknown_state_s.value) for t in two.targets] == [
+        (3, 5, 5)
+    ]
+
+
+@pytest.mark.parametrize(
+    "scenario,expected",
+    [
+        ("missing-class", None),
+        ("invalid-class", None),
+        ("missing-caster", None),
+        ("ambiguous-class", None),
+        ("ambiguous-name", None),
+        ("npc", 0),
+        ("pet", 0),
+        ("cast", 0),
+        ("buff", 0),
+        ("foreign-target", 0),
+        ("foreign-spell", 0),
+        ("partial", None),
+        ("critical", None),
+        ("personal", None),
+        ("missing-instance", 1),
+        ("boolean-instance", None),
+    ],
+)
+def test_control_identity_kind_instance_and_scope_counterexamples(
+    con: duckdb.DuckDBPyConnection, scenario: str, expected: int | None
+) -> None:
+    warlock(
+        con,
+        subtype=None
+        if scenario == "missing-class"
+        else "unknown"
+        if scenario == "invalid-class"
+        else "Warlock",
+    )
+    if scenario in {"npc", "pet"}:
+        con.execute(
+            "UPDATE actors SET type=? WHERE actor_id=10", ["NPC" if scenario == "npc" else "Pet"]
+        )
+    if scenario.startswith("ambiguous"):
+        con.execute(
+            "INSERT INTO actors (report_code,actor_id,type,sub_type,name) "
+            "VALUES ('REPORT',10,'Player',?,?)",
+            ["Mage" if scenario == "ambiguous-class" else "Warlock", "Other"],
+        )
+    if scenario in {"partial", "critical", "personal"}:
+        column, value = (
+            ("status", "incomplete")
+            if scenario == "partial"
+            else ("role", "critical" if scenario == "critical" else "player")
+        )
+        con.execute(f"UPDATE stream_coverage SET {column}=?", [value])
+    event(
+        con,
+        1000,
+        "cast" if scenario == "cast" else "applybuff" if scenario == "buff" else "applydebuff",
+        None if scenario == "missing-instance" else True if scenario == "boolean-instance" else 1,
+        target=5 if scenario == "foreign-target" else 7,
+        source=999 if scenario == "missing-caster" else 10,
+        ability=8994 if scenario == "foreign-spell" else 710,
+    )
+    one, _ = encounter_auras(con, GARR)
+    assert one.applications.value == expected
+    if one.targets:
+        assert one.targets[0].known_active_s.value is None
+    if scenario in {"partial", "critical", "personal"}:
+        assert one.transitions.level is EvidenceLevel.OBSERVED
+    if scenario in {
+        "missing-class",
+        "invalid-class",
+        "missing-caster",
+        "ambiguous-class",
+        "ambiguous-name",
+        "boolean-instance",
+    }:
+        assert one.transitions.value is None
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("sourceID", True),
+        ("sourceID", 10.5),
+        ("targetID", True),
+        ("targetID", 7.5),
+        ("abilityGameID", True),
+        ("abilityGameID", 710.5),
+    ],
+)
+def test_control_raw_identity_coercion_cannot_certify_an_application(
+    con: duckdb.DuckDBPyConnection, field: str, value: object
+) -> None:
+    warlock(con)
+    event(con, 1000, "applydebuff", 1, target=7, source=10, ability=710)
+    raw = {"sourceID": 10, "targetID": 7, "abilityGameID": 710, "targetInstance": 1, field: value}
+    con.execute("UPDATE events SET raw=?", [json.dumps(raw)])
+    one, _ = encounter_auras(con, GARR)
+    assert one.applications.value is None and one.transitions.value is None
+    assert one.targets == ()
+
+
+@pytest.mark.parametrize("kind", ["death", "resurrect"])
+def test_malformed_lifecycle_identity_withholds_control_windows(
+    con: duckdb.DuckDBPyConnection, kind: str
+) -> None:
+    warlock(con)
+    event(con, 1000, "applydebuff", 1, target=7, source=10, ability=710)
+    event(con, 2000, kind, 1, target=7, source=10, ability=0)
+    con.execute(
+        "UPDATE events SET raw=? WHERE type=?",
+        [json.dumps({"targetID": True, "targetInstance": 1}), kind],
+    )
+    one, _ = encounter_auras(con, GARR)
+    assert one.applications.value == 1
+    assert one.targets[0].windows.value is None
+
+
+def test_cohort_control_display_identifies_a_fight_instead_of_personal_uptime(
+    con: duckdb.DuckDBPyConnection,
+) -> None:
+    warlock(con)
+    event(con, 1000, "applydebuff", 1, target=7, source=10, ability=710)
+    auras = encounter_auras(con, GARR)
+    view = with_strategy(
+        {},
+        {
+            "cohort_target_aura_windows": [
+                {"player": "Forand", "auras": to_data(auras)},
+            ]
+        },
+    )
+    line = view["pull_during"][0]
+    assert line["text"].startswith("In Forand's fight: Encounter-wide Firesworn Banish")
+    assert "assignments may differ" in line["note"]
+
+
+@pytest.mark.parametrize("field,column", [("sourceID", "source_id"), ("targetID", "target_id")])
+def test_coerced_identity_is_unknown_before_wrong_class_or_target_exclusion(
+    con: duckdb.DuckDBPyConnection, field: str, column: str
+) -> None:
+    warlock(con)
+    con.execute(
+        "INSERT INTO actors (report_code,actor_id,type,sub_type,name) "
+        "VALUES ('REPORT',1,'Player','Priest','Priest')"
+    )
+    event(con, 1000, "applydebuff", 1, target=7, source=10, ability=710)
+    raw = {"sourceID": 10, "targetID": 7, "abilityGameID": 710, "targetInstance": 1, field: True}
+    con.execute(f"UPDATE events SET {column}=1,raw=?", [json.dumps(raw)])
+    one, _ = encounter_auras(con, GARR)
+    assert one.applications.value is None and one.targets == ()
+
+
+@pytest.mark.parametrize("target,raw_target", [(1, True), (1, 1.5), (None, None)])
+def test_unresolved_lifecycle_cannot_hide_as_a_different_or_missing_actor(
+    con: duckdb.DuckDBPyConnection, target: int | None, raw_target: object
+) -> None:
+    warlock(con)
+    event(con, 1000, "applydebuff", 1, target=7, source=10, ability=710)
+    event(con, 2000, "death", 1, target=7, ability=0)
+    con.execute(
+        "UPDATE events SET target_id=?,raw=? WHERE type='death'",
+        [target, json.dumps({"targetID": raw_target, "targetInstance": 1})],
+    )
+    one, _ = encounter_auras(con, GARR)
+    assert one.applications.value == 1
+    assert one.targets[0].windows.value is None
+    assert one.targets[0].windows.refs[-1].actor_id is None
+    assert (
+        one.targets[0].windows.refs[-1].detail
+        == "lifecycle rows with unresolved recipient identities"
+    )

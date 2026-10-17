@@ -360,12 +360,79 @@ def raw_healing_facts(
     return result
 
 
+def raw_control_facts(
+    archive: VerifiedArchive,
+    report: str,
+    fight: int,
+    ability_ids: list[int],
+    target_game_ids: list[int],
+) -> dict[str, Any]:
+    """Raw scoped control transitions and identity bindings, never analyzer windows."""
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    selected = next(f for f in bundle["fights"] if f["id"] == fight)
+    raw_encounter_facts(archive, report, selected, bundle)  # exact raw scope/page proofs
+    rows, _ = _pages(
+        archive,
+        f"events/{report}/fight_{fight}/encounter",
+        "all",
+        selected["startTime"],
+        selected["endTime"],
+    )
+    actors = {a["id"]: a for a in bundle["masterData"]["actors"]}
+
+    def identity(actor: int | None) -> dict[str, Any]:
+        if actor is not None and (type(actor) is not int or actor < 1):
+            raise ValueError("raw control actor identity is invalid")
+        return {
+            k: v
+            for k, v in actors.get(actor, {}).items()
+            if k in {"id", "type", "subType", "name", "gameID"}
+        }
+
+    ordered = sorted(
+        rows, key=lambda e: (e["timestamp"], json.dumps(e, sort_keys=True, separators=(",", ":")))
+    )
+    observations = [
+        {
+            "ms": e["timestamp"] - selected["startTime"],
+            "kind": e["type"],
+            "spell": e.get("abilityGameID"),
+            "caster": identity(e.get("sourceID")),
+            "target": identity(e.get("targetID")),
+            "instance": e.get("targetInstance"),
+        }
+        for e in ordered
+        if e.get("abilityGameID") in ability_ids
+        and e["type"]
+        in {"applydebuff", "removedebuff", "refreshdebuff", "applydebuffstack", "removedebuffstack"}
+    ]
+    native = {
+        a["id"]
+        for a in actors.values()
+        if a.get("type") == "NPC" and a.get("gameID") in target_game_ids
+    }
+    return {
+        "duration_ms": selected["endTime"] - selected["startTime"],
+        "observations": observations,
+        "lifecycles": [
+            [
+                e["timestamp"] - selected["startTime"],
+                e["type"],
+                e.get("targetID"),
+                e.get("targetInstance"),
+            ]
+            for e in ordered
+            if e["type"] in {"death", "resurrect"} and e.get("targetID") in native
+        ],
+    }
+
+
 def check_register(path: Path) -> list[str]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("version") != 1 or not data.get("cases"):
         raise ValueError("a fact register needs version 1 and nonempty reviewed cases")
     kind = data.get("kind", "actor")
-    if kind not in {"actor", "healing-recipients"}:
+    if kind not in {"actor", "healing-recipients", "npc-controls"}:
         raise ValueError("unsupported independent fact register kind")
     problems = []
     ids = [case["id"] for case in data["cases"]]
@@ -389,7 +456,20 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            if kind == "healing-recipients":
+            if kind == "npc-controls":
+                abilities, targets = case.get("ability_ids"), case.get("target_game_ids")
+                if any(
+                    not isinstance(ids, list)
+                    or not ids
+                    or any(type(i) is not int or i < 1 for i in ids)
+                    or len(set(ids)) != len(ids)
+                    for ids in (abilities, targets)
+                ):
+                    raise ValueError("control facts need explicit unique spell and NPC IDs")
+                actual = raw_control_facts(
+                    archive, case["report"], case["fight"], abilities, targets
+                )
+            elif kind == "healing-recipients":
                 boss_ids = case.get("boss_game_ids")
                 if (
                     not isinstance(boss_ids, list)

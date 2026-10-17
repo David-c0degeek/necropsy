@@ -1,6 +1,6 @@
 # Target instance aura observations
 
-Accepted design2026-10-17. Observed NPC buffs use the existing encounter rule,
+Accepted design2026-10-17. Observed NPC auras use the existing encounter rule,
 evidence, normalized event and saved playbook/render pipeline.
 
 A WCL NPC actor can represent multiple simultaneous units. Majordomo
@@ -31,6 +31,20 @@ playbook evidence and shown in both pages. Old saved documents do not acquire
 new policy on render. These fields describe target state, not physical phases,
 attackability, immunity, assignment, lost throughput or quality. They cannot
 change ranked amount, denominator, cohort eligibility or comparison medians.
+
+Garr Banish adds class-qualified player casters and debuff transitions through
+the same primitive. Caster type and class must be unambiguous; a pet, NPC or
+unknown class cannot impersonate a Warlock. Available raw source/target/spell
+identities must match normalized integer identities without boolean/fractional
+coercion, before wrong-class/recipient exclusion. An unresolved lifecycle
+recipient withholds windows and carries its own event reference instead of
+hiding as a different actor. Rank1/Rank2 and target instances remain separate; no cross-rank union
+or sum establishes control quality. Missing/ambiguous lifecycle identity also
+withholds windows. Other-player effects belong to the encounter, never the
+selected player's personal uptime. Cohort text explicitly identifies the fight.
+Existing SOURCE-owned personal counters retain their separate coverage contract.
+Independent raw control transitions and manual integer-ms window expectations
+are separate from actor arithmetic. No nominal spell duration supplies a removal.
 
 Rollback removes these optional policies/observations while preserving saved
 JSON rendering and historical/live archive readers. No database schema changes.

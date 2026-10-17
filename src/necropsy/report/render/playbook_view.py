@@ -135,7 +135,7 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         view = dict(view)
         example_lines = tuple(
             line(
-                f"{example['player']} · {aura['label']} · {target['name']} "
+                f"In {example['player']}'s fight: {aura['label']} · {target['name']} "
                 f"instance {number(target['instance'])}: "
                 f"{number(target['known_active_s']['value'], 2, 's')} known active.",
                 "Observed target state in this player's fight; assignments may differ.",

@@ -66,3 +66,39 @@ phase/opportunity/control windows, exact school/resistance/item effects,
 pet/tank/healer/hybrid/class/loadout analysis, Alliance and other category
 evidence, complete behavioral/render acceptance and domain review. Current
 target/ranking policies remain unvalidated. All full MC boxes stay open.
+
+## Encounter-wide observed control
+
+The normal finalized format2 Finia capture supplies six independently frozen
+control contexts in control-facts.json. Finia is Horde and selected Destruction;
+own yKBC4j3tzL8mDrNR/22 has zero Banish applications both personally and globally.
+Do not put positive observations from other examples into Finia's fight.
+
+Forand's cohort fight8Lt3zrD92h7Ty6xv/22 contains the actual caster Greasecup11,
+who applies710 to Firesworn122/instance2 at24.404 and45.403 s, with observed
+removal44.403 s and fight end52.694 s. Manual subtraction gives27.290 s known
+active,24.404 s initial unknown and1.000 s known inactive; the last effect is
+censored. These are target observations in Forand's fight, not Forand's uptime.
+
+RaYB3pbDkPGd6gxK/30 reuses Firesworn102 for distinct instances4/8 and separate
+Warlock casters. Known active durations20.009/30.000 s remain separate. The
+Rank2 effect18647 in Tr3GVvF4t8MPbqYp/13 lasts13.700 observed seconds through
+fight-end censoring; no nominal30-second duration extends the fight. All six
+payloads contain no native Firesworn death/resurrect rows. Three examples have
+no Banish transitions; their initial aura state is not assumed inactive.
+
+The [Classic710 record](https://www.wowhead.com/classic/spell=710/banish) and
+[Classic18647 record](https://www.wowhead.com/classic/spell=18647/banish) verify
+Warlock capability; later indexed retrieval resolved the initially blocked
+18647 page. Its nominal duration is not a measured control interval. Seasonal
+instant Banish and later-expansion recast cancellation are excluded.
+
+Shared NPC aura logic now accepts class-qualified player casters and debuff
+transitions, preserving exact source class, native recipient, instance, scope,
+raw integer identities, lifecycle and initial uncertainty. Other named caster
+classes, NPCs/pets, invalid/ambiguous class or coerced raw IDs cannot certify a
+Warlock effect. Existing personal SOURCE-owned counters remain separate.
+Actor-only legacy archives retain positive observations but unknown global
+counts/windows. Both pages label cohort states as observations in that fight.
+No assigned job, physical attackability, optimal control or lost DPS is inferred.
+Full class/faction/duty, phase, ranking and human review obligations stay open.

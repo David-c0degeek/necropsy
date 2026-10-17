@@ -9,6 +9,7 @@ from typing import Any
 
 import duckdb
 
+from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.analysis.context import ParticipantFight
 from necropsy.analysis.encounters import duty
 from necropsy.analysis.evidence import (
@@ -26,6 +27,9 @@ from necropsy.rules import load_rules
 
 BUFF_EVENTS = frozenset(
     {"applybuff", "removebuff", "refreshbuff", "applybuffstack", "removebuffstack"}
+)
+DEBUFF_EVENTS = frozenset(
+    {"applydebuff", "removedebuff", "refreshdebuff", "applydebuffstack", "removedebuffstack"}
 )
 LIMITATION = (
     "Observed aura state for this target instance, not a global phase, attackability "
@@ -98,10 +102,13 @@ def encounter_auras(
         "encounter",
     )
     actors: dict[int, set[tuple[str | None, int | None, str | None]]] = defaultdict(set)
-    for actor, kind, game_id, name in con.execute(
-        "SELECT actor_id,type,game_id,name FROM actors WHERE report_code=?", [pf.report_code]
+    classes: dict[int, set[tuple[str | None, str | None]]] = defaultdict(set)
+    for actor, kind, game_id, name, subtype in con.execute(
+        "SELECT actor_id,type,game_id,name,sub_type FROM actors WHERE report_code=?",
+        [pf.report_code],
     ).fetchall():
         actors[actor].add((kind, game_id, name))
+        classes[actor].add((kind, subtype))
     rows = con.execute(
         """SELECT timestamp,type,source_id,target_id,ability_game_id,raw,event_uid,copy_index
            FROM events WHERE report_code=? AND fight_id=? AND timestamp BETWEEN ? AND ?
@@ -114,7 +121,7 @@ def encounter_auras(
     ]
     result = []
     for policy in policies:
-        result.append(_aura(pf, policy, cov, actors, events))
+        result.append(_aura(pf, policy, cov, actors, events, classes))
     return tuple(result)
 
 
@@ -124,15 +131,53 @@ def _aura(
     cov: ScopedCoverageRef,
     actors: dict[int, set[tuple[str | None, int | None, str | None]]],
     events: list[tuple[Any, ...]],
+    classes: dict[int, set[tuple[str | None, str | None]]],
 ) -> EncounterAura:
+    aura_kind = policy.get("aura_kind", "buff")
+    if aura_kind not in {"buff", "debuff"}:
+        raise ValueError("unsupported target aura kind")
+    event_kinds = DEBUFF_EVENTS if aura_kind == "debuff" else BUFF_EVENTS
+    if ("caster_classes" in policy) == ("caster_game_ids" in policy):
+        raise ValueError("target aura requires exactly one caster identity policy")
+    wanted_classes = policy.get("caster_classes")
+    if wanted_classes is not None and (
+        not wanted_classes or any(name not in CLASS_NAMES.values() for name in wanted_classes)
+    ):
+        raise ValueError("target aura caster classes must be known game classes")
+
+    def caster_identity(actor: int | None) -> bool | None:
+        if wanted_classes is None:
+            return _identity(actors, actor, tuple(policy["caster_game_ids"]))
+        identities = classes.get(actor) if actor is not None else None
+        catalog = actors.get(actor) if actor is not None else None
+        if not identities or len(identities) != 1 or not catalog or len(catalog) != 1:
+            return None
+        kind, subtype = next(iter(identities))
+        if kind is None:
+            return None
+        if kind != "Player":
+            return False
+        return subtype in wanted_classes if subtype in CLASS_NAMES.values() else None
+
     rows = []
     unresolved = []
     for event in events:
         _ts, kind, caster, target, ability, raw, _uid, _copy = event
-        if ability != policy["ability_id"] or kind not in BUFF_EVENTS:
+        if ability != policy["ability_id"] or kind not in event_kinds:
+            continue
+        raw_identity_valid = all(
+            key not in raw or (type(raw[key]) is int and raw[key] > 0 and raw[key] == value)
+            for key, value in (
+                ("sourceID", caster),
+                ("targetID", target),
+                ("abilityGameID", ability),
+            )
+        )
+        if not raw_identity_valid:
+            unresolved.append(event)
             continue
         matches = (
-            _identity(actors, caster, tuple(policy["caster_game_ids"])),
+            caster_identity(caster),
             _identity(actors, target, tuple(policy["target_game_ids"])),
         )
         if False in matches:
@@ -157,7 +202,7 @@ def _aura(
         )
         if unresolved
         else complete_or_unknown(
-            sum(row[1] == "applybuff" for row in rows), [cov], ref, rule_id=policy["rule"]
+            sum(row[1] == f"apply{aura_kind}" for row in rows), [cov], ref, rule_id=policy["rule"]
         )
     )
     transitions = tuple(
@@ -166,11 +211,29 @@ def _aura(
     observed_transitions = (
         observed(transitions, ref, note="Positive observed transitions; scope may be incomplete.")
         if transitions
+        else unknown("some aura identities are unresolved", ref, coverage=[cov])
+        if unresolved
         else complete_or_unknown((), [cov], ref)
     )
     by_target: dict[tuple[int, int | None], list[tuple[Any, ...]]] = defaultdict(list)
     for row in rows:
         by_target[row[3], row[5].get("targetInstance")].append(row)
+    unresolved_lifecycles = [
+        row
+        for row in events
+        if row[1] in {"death", "resurrect"}
+        and (
+            row[3] is None
+            or (
+                "targetID" in row[5]
+                and (
+                    type(row[5]["targetID"]) is not int
+                    or row[5]["targetID"] < 1
+                    or row[5]["targetID"] != row[3]
+                )
+            )
+        )
+    ]
     targets = []
     for (actor, instance), target_rows in sorted(
         by_target.items(), key=lambda item: (item[0][0], item[0][1] or 0)
@@ -203,11 +266,12 @@ def _aura(
             cov.trusted
             and not unresolved
             and (instance is not None or not policy.get("require_instance", True))
+            and not unresolved_lifecycles
         )
         if policy.get("require_instance", True) and any(
             row[3] == actor
             and (
-                (row[1] in BUFF_EVENTS and row[4] == policy["ability_id"])
+                (row[1] in event_kinds and row[4] == policy["ability_id"])
                 or row[1] in {"death", "resurrect"}
             )
             and (type(row[5].get("targetInstance")) is not int or row[5]["targetInstance"] < 1)
@@ -222,6 +286,18 @@ def _aura(
             detail=f"lifecycle, target instance {instance}",
         )
 
+        state_refs: tuple[EvidenceRef, ...] = (target_ref, reset_ref)
+        if unresolved_lifecycles:
+            state_refs += (
+                EvidenceRef.events(
+                    pf.report_code,
+                    pf.fight_id,
+                    None,
+                    [(row[6], row[7]) for row in unresolved_lifecycles],
+                    detail="lifecycle rows with unresolved recipient identities",
+                ),
+            )
+
         targets.append(
             TargetAuraWindow(
                 actor,
@@ -234,21 +310,21 @@ def _aura(
                     ),
                     trustworthy,
                     cov,
-                    (target_ref, reset_ref),
+                    state_refs,
                     policy["rule"],
                 ),
                 _measure(
                     sum((hi - lo) / 1000 for lo, hi, state in segments if state is True),
                     trustworthy,
                     cov,
-                    (target_ref, reset_ref),
+                    state_refs,
                     policy["rule"],
                 ),
                 _measure(
                     sum((hi - lo) / 1000 for lo, hi, state in segments if state is None),
                     trustworthy,
                     cov,
-                    (target_ref, reset_ref),
+                    state_refs,
                     policy["rule"],
                 ),
             )

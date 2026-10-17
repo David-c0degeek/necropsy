@@ -77,3 +77,13 @@ and 57 fights. All 120 player directions are complete; two pet discovery
 listings retain unresolved ownership and missing coverage. The capture remains
 partial. It supplements stronger encounter-context fixtures rather than
 replacing them or certifying complete pet coverage.
+
+`control-facts.json` separately freezes six whole-encounter control contexts,
+including caster/recipient identities, instance transitions and lifecycle rows.
+Manual interval expectations were reviewed in integer milliseconds before the
+control-window implementation. They are neither analyzer-generated actor facts
+nor physical attackability, personal uptime or assignment certificates.
+
+```sh
+uv run python scripts/check_raid_facts.py tests/golden/raids/control-facts.json
+```

@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Track observed Garr Banish state separately for each add instance and rank.
+  Keep other Warlocks’ encounter-wide effects distinct from personal counters;
+  retain unknown initial state, scope, class and malformed identity limits.
+
 - Preserve frozen evidence hashes across Git staging/checkouts. Add staged
   receipt verification for metadata bytes and LFS object identities/sizes.
 
