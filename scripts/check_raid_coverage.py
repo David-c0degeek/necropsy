@@ -15,6 +15,7 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 from necropsy.analysis.class_catalog import CLASS_NAMES
+from necropsy.analysis.encounters.strategy import encounter_strategy
 from necropsy.raids.scope import CoverageCell, coverage_cells
 from necropsy.rules import load_rules
 from necropsy.snapshot.archive import (
@@ -60,7 +61,7 @@ class ActorSource(Strict):
 
 
 class Receipt(Strict):
-    key: str
+    cell_id: str
     status: Status
     references: dict[str, list[Reference]] = Field(default_factory=dict)
     real_actor_source: ActorSource | None = None
@@ -157,13 +158,18 @@ def actor_problems(root: Path, cell: CoverageCell, source: ActorSource) -> list[
 
 def content_problems(cell: CoverageCell) -> list[str]:
     facts = load_rules("classic_era", f"zones/{cell.raid}_facts")
-    guidance = load_rules("classic_era", f"zones/{cell.raid}_guidance")
     fact = next((f for f in facts["encounters"] if f["id"] == cell.encounter_id), None)
     problems = []
     if not fact or not fact.get("source"):
         problems.append("no sourced encounter facts")
-    if not (guidance.get("encounters") or {}).get(cell.encounter_id):
+    strategy = encounter_strategy(
+        cell.raid, cell.encounter_id, 1, cell.configuration.class_id, cell.configuration.metric
+    )
+    if strategy is None or {i.section for i in strategy.items} != {"before", "during", "raid"}:
         problems.append("no boss-specific guidance")
+    ranking = load_rules("classic_era", f"zones/{cell.raid}")["ranking_exclusions_rule"]
+    if ranking["basis"] == "unvalidated":
+        problems.append("ranking policy remains unvalidated")
     return problems
 
 
@@ -172,20 +178,20 @@ def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str
     records: dict[str, Receipt] = {}
     problems = []
     for record in register.records:
-        if record.key in records:
-            problems.append(f"duplicate cell: {record.key}")
-        if record.key not in cells:
-            problems.append(f"unknown or illegal cell: {record.key}")
-        records[record.key] = record
+        if record.cell_id in records:
+            problems.append(f"duplicate cell: {record.cell_id}")
+        if record.cell_id not in cells:
+            problems.append(f"unknown or illegal cell: {record.cell_id}")
+        records[record.cell_id] = record
         unknown = set(record.references) - set(DIMENSIONS)
         if unknown:
-            problems.append(f"{record.key}: unknown evidence dimensions {sorted(unknown)}")
+            problems.append(f"{record.cell_id}: unknown evidence dimensions {sorted(unknown)}")
         for refs in record.references.values():
             for ref in refs:
                 try:
                     checked_path(root, ref)
                 except ValueError as exc:
-                    problems.append(f"{record.key}: {exc}")
+                    problems.append(f"{record.cell_id}: {exc}")
     counts: Counter[str] = Counter()
     for key, cell in cells.items():
         receipt = records.get(key)

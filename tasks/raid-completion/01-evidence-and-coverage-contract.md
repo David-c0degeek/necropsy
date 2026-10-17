@@ -14,7 +14,7 @@ Establish every boss/configuration obligation and a practical capture program. F
 
 - [x] **01.1** (agent) Reconcile all 28 new WCL entries, 27 canonical bosses, 34 legal category/metric/faction configurations and 27 declared trees against current metadata. Produce a durable supported-scope manifest and reconcile every seed matrix row, including combined dragons (PM-1/PM-3).
 
-- [ ] **01.2** (agent) Freeze the Naxx reference: definitive content inventory, existing facts, historical/live/legacy archives, all class fixtures, both pages and package expectations. List actual accepted gaps instead of claiming universal prior validation.
+- [x] **01.2** (agent) Freeze the Naxx reference: definitive content inventory, existing facts, historical/live/legacy archives, all class fixtures, both pages and package expectations. List actual accepted gaps instead of claiming universal prior validation.
 
 - [ ] **01.3** (agent) Inventory authorized real reports across all three raids, factions, categories and duties. Create a deduplicated roster-based capture schedule prioritizing every boss and rare healing/tank categories; record quota bounds, permissions, missing sources and exact resume commands.
 
@@ -43,3 +43,21 @@ Scope and independent-reference inventory are complete for 01.1; evidence/core
 contracts remain in progress for other boxes. No runtime encounter changes or
 new complete-support claim in this checkpoint. Maintained docs/raids and fixture
 README/PROVENANCE describe the exact delivered validation limits.
+
+2026-10-17 · slice 2 · 01.2–01.8 · Expanded to nine immutable public six-actor seeds and 54 frozen independent raw cases: damage, healing and Protection categories across all three raids. Real BWL/AQ Protection samples currently infer tank; MC samples instead expose repeated boss melee with Fury actions but a current DPS inference, retained as a duty counterexample rather than approved ground truth. Additional Guardian capture stopped at 80% quota during finalization; a retry under the existing standard 90% policy also stopped (159 points remaining versus 162 conservative unknown-cost reserve). No ZIP or acceptance is claimed for that attempt; preserve requests/cache and resume after reset. All nine archive/member manifests and public visibility verified; 301,461,037 extracted raw bytes scanned, no leaks. Initial installed raw replays outside checkout cover all three raids, matching zone IDs and both pages/packages. Current installed module/rule probe and saved-JSON renders also pass after strategy work. Both Naxx pages, JSON and package are byte-identical to source 30e89ce replay; 101 frozen Naxx hashes remain unchanged. Full baseline follow-up 1248 passed/262 deselected/337.38 s; current strategy units + all nine real replays/content/source/package checks 16 passed/69.17 s; raw mutation/coverage checks pass. Structural browser checks cover 12 page/viewport combinations with print/no-network/no-overflow; representative visual review is explicitly limited. Inventory remains 9 IN_PROGRESS/943 TODO, zero COMPLETE; strict gate correctly exits 1. Checkpoint pending. 01.3–01.8 remain open for the complete schedule, phase/duty/guidance fact contracts, fast subsets, exhaustive content gate and capture backlog. No blanket subject closure.
+
+## Resume anchors
+
+- Current normal-source evidence: tests/golden/raids/{provenance,facts,coverage}.json
+  and raw/*.zip plus manifests; exact commands in master §2 and fixture README.
+- Naxx reference and exact replay receipt: naxx-reference.md and
+  research/naxx-foundation-replay.json. Source baseline is 30e89ce, not the older
+  0.3.1 taxonomy-preview output (not comparable).
+- Further investigations: domain-observations.md, research/candidate-inventory.json
+  (60 category/metric first-page pools), research/raid-report-inventory.json.
+- Pending Guardian retry: ignored workspace/raid-research/capture_guardian_seed.py,
+  mc-guardian/requests and shared cache. This is acquisition-library/request-journal
+  verification, not a substitute for the later actual GUI/CLI quota-resume gate.
+- Continue shared measured phase/opportunity/metric/duty contracts and full
+  evidence coverage. Initial static strategy is governed by D006; it does not
+  close phase or per-cell guidance obligations.

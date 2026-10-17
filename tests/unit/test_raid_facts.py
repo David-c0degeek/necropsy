@@ -174,3 +174,11 @@ def test_partial_raw_streams_cannot_establish_complete_totals(
     register = _write(tmp_path, members)
     with pytest.raises(ValueError, match=r"stream|directions"):
         check_register(register)
+
+
+def test_missing_raw_amount_is_not_an_independent_zero(tmp_path: Path) -> None:
+    members = _members()
+    del members[PREFIX + "source_001.json"]["data"][3]["amount"]
+    register = _write(tmp_path, members)
+    with pytest.raises(ValueError, match="raw amount missing"):
+        check_register(register)

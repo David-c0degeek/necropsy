@@ -44,6 +44,7 @@
 </article>
 
 </div></details>
+{% if ref.strategy_lines is defined %}<details class="encounter-strategy"><summary>General encounter strategy and sources</summary><div>{{ prose(ref.strategy_lines) }}<p class="table-note">{{ ref.strategy_limitation }}</p></div></details>{% endif %}
 {% if ref.facts %}<details><summary>Encounter knowledge and sources</summary><div>{{ prose(ref.facts) }}</div></details>{% endif %}
 <details class="full-gear"><summary>Your full logged gear for this selected best parse</summary><div>{{ equipment(ref.gear) }}</div></details>
 <details class="cohort-details">

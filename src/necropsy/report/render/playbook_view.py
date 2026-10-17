@@ -54,6 +54,35 @@ def line(text: str, note: str = "", links: Any = ()) -> dict[str, Any]:
     return {"text": text, "note": note, "sources": tuple(x for x in links if x)}
 
 
+def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str, Any]:
+    """Format saved strategy only; old documents do not acquire new advice on render."""
+    strategy = playbook.get("encounter_strategy")
+    if not strategy:
+        return view
+    result = dict(view)
+    strategy_lines: list[dict[str, Any]] = []
+    for section, destination in (
+        ("before", "pull_before"),
+        ("during", "pull_during"),
+        ("raid", "pull_asks"),
+    ):
+        lines = tuple(
+            line(
+                item["text"],
+                "General strategy; confirm your assignment.",
+                (source(item["source"], "Encounter strategy"),),
+            )
+            for item in strategy["items"]
+            if item["section"] == section
+        )
+        result[destination] = (*lines, *view.get(destination, ()))
+        strategy_lines.extend(lines)
+    result["pull_limits"] = (*view.get("pull_limits", ()), strategy["limitation"])
+    result["strategy_lines"] = tuple(strategy_lines)
+    result["strategy_limitation"] = strategy["limitation"]
+    return result
+
+
 def aggregate(raw: Any, suffix: str = "") -> str:
     if not isinstance(raw, dict):
         return "Unknown — this statistic was not recorded"
@@ -1043,71 +1072,76 @@ def boss_view(
         "padding-strategy": "Confirm your target and side assignments, and which targets "
         "count toward the ranking, before changing your target priorities.",
     }
-    return {
-        "metrics": metrics,
-        "overall_identity": None
-        if top is None
-        else {
-            "player": str(top["player"]),
-            "faction": value_of(top.get("faction")),
+    return with_strategy(
+        {
+            "metrics": metrics,
+            "overall_identity": None
+            if top is None
+            else {
+                "player": str(top["player"]),
+                "faction": value_of(top.get("faction")),
+            },
+            "show_race": any(row["race"].known for row in rows),
+            "leader_practice": leader_practice,
+            "ability_use": ability_comparison(subject, ability_reference),
+            "percent": percent,
+            "comparator": comparator,
+            "target": target,
+            "mix": mix_text,
+            "weave": weave,
+            "context_text": context_text,
+            "context": (
+                ("Faction mix", mix_text),
+                ("Current Auto / Aimed / Multi", shots),
+                (
+                    f"{faction}-normalized target",
+                    target + (" · inferred comparison" if member == "inferred" else ""),
+                ),
+                ("Pet DPS", pet_context),
+            ),
+            "loadout": tuple(loadout),
+            "execution": tuple(execution),
+            "pull_before": tuple(pull_before),
+            "pull_during": tuple(pull_during),
+            "pull_asks": tuple(
+                line(pull_asks[item["kind"]])
+                for item in (plan or {}).get("raid_asks", [])
+                if item["kind"] in pull_asks
+            )
+            or (
+                line(
+                    "Confirm your positioning, target and utility assignments with the raid leader."
+                ),
+            ),
+            "pull_limits": tuple((plan or {}).get("limitations") or ()),
+            "quick_plan": _quick_plan(plan, static, game, pet_facts),
+            "dont": tuple(dont)
+            or (
+                line(
+                    "No additional warning was established by these rules. Review the "
+                    "evidence limits and encounter context."
+                ),
+            ),
+            "asks": tuple(asks)
+            or (
+                line(
+                    "No additional raid ask was established by these rules; that does "
+                    "not prove assignments or positioning are optimal."
+                ),
+            ),
+            "facts": tuple(facts),
+            "gear": gear(subject),
+            "cohort": rows,
+            "cohort_complete": overall is not None,
+            "cohort_title": "Acquired comparison cohort" if live else "Current overall top five",
+            "gear_title": "Full 17-slot gear for each acquired Hunter"
+            if live
+            else "Full 17-slot gear for each top-five Hunter",
+            "review_key": f"necropsy:boss:{sha}:{boss['encounter_id']}",
+            "limits": tuple(plan.get("limitations") or ()) if plan else (),
         },
-        "show_race": any(row["race"].known for row in rows),
-        "leader_practice": leader_practice,
-        "ability_use": ability_comparison(subject, ability_reference),
-        "percent": percent,
-        "comparator": comparator,
-        "target": target,
-        "mix": mix_text,
-        "weave": weave,
-        "context_text": context_text,
-        "context": (
-            ("Faction mix", mix_text),
-            ("Current Auto / Aimed / Multi", shots),
-            (
-                f"{faction}-normalized target",
-                target + (" · inferred comparison" if member == "inferred" else ""),
-            ),
-            ("Pet DPS", pet_context),
-        ),
-        "loadout": tuple(loadout),
-        "execution": tuple(execution),
-        "pull_before": tuple(pull_before),
-        "pull_during": tuple(pull_during),
-        "pull_asks": tuple(
-            line(pull_asks[item["kind"]])
-            for item in (plan or {}).get("raid_asks", [])
-            if item["kind"] in pull_asks
-        )
-        or (
-            line("Confirm your positioning, target and utility assignments with the raid leader."),
-        ),
-        "pull_limits": tuple((plan or {}).get("limitations") or ()),
-        "quick_plan": _quick_plan(plan, static, game, pet_facts),
-        "dont": tuple(dont)
-        or (
-            line(
-                "No additional warning was established by these rules. Review the "
-                "evidence limits and encounter context."
-            ),
-        ),
-        "asks": tuple(asks)
-        or (
-            line(
-                "No additional raid ask was established by these rules; that does "
-                "not prove assignments or positioning are optimal."
-            ),
-        ),
-        "facts": tuple(facts),
-        "gear": gear(subject),
-        "cohort": rows,
-        "cohort_complete": overall is not None,
-        "cohort_title": "Acquired comparison cohort" if live else "Current overall top five",
-        "gear_title": "Full 17-slot gear for each acquired Hunter"
-        if live
-        else "Full 17-slot gear for each top-five Hunter",
-        "review_key": f"necropsy:boss:{sha}:{boss['encounter_id']}",
-        "limits": tuple(plan.get("limitations") or ()) if plan else (),
-    }
+        boss.get("playbook") or {},
+    )
 
 
 def _tally(raw: Mapping[str, Any]) -> str:

@@ -2,7 +2,7 @@
   "version": 1,
   "records": [
     {
-      "key": "mc/50663/7/Holy/hps/Alliance",
+      "cell_id": "mc/50663/7/Holy/hps/Alliance",
       "status": "IN_PROGRESS",
       "real_actor_source": {
         "archive": {
@@ -17,7 +17,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c41c83b838da69d699438540d6174ecab01ecbc50747874bc54f43bc2a80aa4a",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
           "locator": "mc-holy"
         },
         "report": "ZzYr1NR6LpHkyjTc",
@@ -29,7 +29,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "3673b1e61e1c4e4dceca9618c45815ae34646f80c8bc988e523df7e6acbd081a",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
             "locator": "mc-holy-6"
           }
         ]
@@ -37,7 +37,7 @@
       "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
     },
     {
-      "key": "bwl/50631/7/Holy/hps/Alliance",
+      "cell_id": "bwl/50631/7/Holy/hps/Alliance",
       "status": "IN_PROGRESS",
       "real_actor_source": {
         "archive": {
@@ -52,7 +52,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c41c83b838da69d699438540d6174ecab01ecbc50747874bc54f43bc2a80aa4a",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
           "locator": "bwl-combined-holy"
         },
         "report": "cg1mfw64BzAhNd97",
@@ -64,7 +64,7 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "3673b1e61e1c4e4dceca9618c45815ae34646f80c8bc988e523df7e6acbd081a",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
             "locator": "bwl-combined-holy-10"
           }
         ]
@@ -72,7 +72,7 @@
       "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
     },
     {
-      "key": "aq40/50713/3/Marksmanship/dps/Horde",
+      "cell_id": "aq40/50713/3/Marksmanship/dps/Horde",
       "status": "IN_PROGRESS",
       "real_actor_source": {
         "archive": {
@@ -87,7 +87,7 @@
         },
         "provenance": {
           "path": "tests/golden/raids/provenance.json",
-          "sha256": "c41c83b838da69d699438540d6174ecab01ecbc50747874bc54f43bc2a80aa4a",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
           "locator": "aq40-viscidus-hunter"
         },
         "report": "tcJdbDx3rMGTzpLX",
@@ -99,8 +99,218 @@
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
-            "sha256": "3673b1e61e1c4e4dceca9618c45815ae34646f80c8bc988e523df7e6acbd081a",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
             "locator": "aq40-viscidus-hunter-17"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "cell_id": "mc/50663/3/Marksmanship/dps/Alliance",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/mc-hunter.zip",
+          "sha256": "dbdf48499269e0825c1cead7a51043aa707e5b32ab2a7d03f052b923e3aa7d10",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/mc-hunter.entries",
+          "sha256": "9bca22eb146d2a14dda35b52a655a2688e56aa6302c98c9269221f0af65376c7",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
+          "locator": "mc-hunter"
+        },
+        "report": "aFTG9fPh38rNyVvc",
+        "fight": 28,
+        "actor": 140,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
+            "locator": "mc-hunter-22"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "cell_id": "mc/50663/11/Protection/dps/Horde",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/mc-protection.zip",
+          "sha256": "6255aab1b00e4818cd49b3c25c188559f4cc4a1440c29cc6e784e9eb96f6edc1",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/mc-protection.entries",
+          "sha256": "15c86e82872069a816c3714a819dac45d378364144ef24ca1beb6664eab15516",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
+          "locator": "mc-protection"
+        },
+        "report": "Wy9zLPK3dnJ4YGZb",
+        "fight": 3,
+        "actor": 11,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
+            "locator": "mc-protection-29"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "cell_id": "bwl/50631/3/Marksmanship/dps/Alliance",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+          "sha256": "64907055165764c9b5c71473bc625b2e2603f9a723f8cff9129c130cbd7ece90",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/bwl-combined-hunter.entries",
+          "sha256": "be7cc3d3d957766c43cbe3cf87b5ca7890225457e8a1396047adfe02fe6ccb8a",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
+          "locator": "bwl-combined-hunter"
+        },
+        "report": "12zKGaT8HByAkPM3",
+        "fight": 27,
+        "actor": 54,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
+            "locator": "bwl-combined-hunter-31"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "cell_id": "bwl/50631/11/Protection/dps/Horde",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/bwl-combined-protection.zip",
+          "sha256": "4cb54a1cae0ae3e0829f1e2c04c9c5653e1692b0a1a61479b39662e79ea81d2f",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/bwl-combined-protection.entries",
+          "sha256": "a947ba4fea9ad8e16f202c78f5f4f0b2a9600011149dbf9cec5c886e46f1f9b8",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
+          "locator": "bwl-combined-protection"
+        },
+        "report": "RjNf2qnCY3K7J6VX",
+        "fight": 28,
+        "actor": 1,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
+            "locator": "bwl-combined-protection-40"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "cell_id": "aq40/50713/7/Holy/hps/Alliance",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/aq40-viscidus-holy.zip",
+          "sha256": "3084b5889153f79c87a275751eddbc2003ce12b7702b4b63113dd9e3d946f44b",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/aq40-viscidus-holy.entries",
+          "sha256": "2b9f9773a36ab5a9cf2a094156bd8307ce88843b5de0dcb2d3d535fd3e298b7f",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
+          "locator": "aq40-viscidus-holy"
+        },
+        "report": "dmBacFqHv1kDZhn6",
+        "fight": 14,
+        "actor": 40,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
+            "locator": "aq40-viscidus-holy-47"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "cell_id": "aq40/50713/11/Protection/dps/Alliance",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/aq40-viscidus-protection.zip",
+          "sha256": "5216779c6c037dc287c8c2ed1380383fa4b5c312ac626004779b44fb953d7806",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/aq40-viscidus-protection.entries",
+          "sha256": "d3d2784cb5aed46592ddc75c7e02331119868a4f44bc03c5930a51dff302e07a",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "939496fae1cd27a8a6fc1f0a1bc39c513745418928264a67e125a8d7bd1dcb70",
+          "locator": "aq40-viscidus-protection"
+        },
+        "report": "R7g2PBXpAHfChLJr",
+        "fight": 18,
+        "actor": 7,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "5a8383c42087995c9f118c4a010ab54770d8279f1195fa841a150e952918f29c",
+            "locator": "aq40-viscidus-protection-50"
           }
         ]
       },

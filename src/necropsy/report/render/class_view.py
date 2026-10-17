@@ -8,7 +8,7 @@ from typing import Any
 from necropsy.analysis.class_catalog import category_label
 from necropsy.report.abilities import comparison
 from necropsy.report.render.execution_view import execution as execution_plan
-from necropsy.report.render.playbook_view import gear, line, number, source
+from necropsy.report.render.playbook_view import gear, line, number, source, with_strategy
 from necropsy.report.render.view import CONTROLLABILITY, Value, evidence_view, value_of
 
 METRIC_LABELS = {
@@ -306,4 +306,5 @@ def bosses(document: Mapping[str, Any], sha: str, key: str = "druid") -> dict[in
                 ),
             ),
         }
+        result[boss["encounter_id"]] = with_strategy(result[boss["encounter_id"]], play)
     return result

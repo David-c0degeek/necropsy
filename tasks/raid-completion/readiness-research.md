@@ -199,3 +199,14 @@ Pre-mortem PM-1/2/3 remain credible after code inspection: empty fact/guidance
 files confirm the content gap, current resolution accepts all returned partition
 IDs, and old Holy fixture is budget-only. Preserve prediction fields; mitigation
 is pending until guards/content/real independent evidence actually run.
+
+## Execution follow-up — 2026-10-17
+
+Current full ordinary verification after evidence/initial strategy integration:
+1248 passed, 262 deselected, 337.38 seconds. The earlier full existing golden
+run passed 244 checks/four expected failures, with its sole browser-test defect
+fixed and verified separately (1 passed/80.13 seconds). Current seed/strategy
+raw replay and content suite: 16 passed/69.17 seconds. No new domain completion
+is implied: strict matrix remains 9 IN_PROGRESS/943 TODO/0 COMPLETE. Naxx's
+same-input 30e89ce engine replay and current render match all four artifact
+bytes; see naxx-reference.md and research/naxx-foundation-replay.json.

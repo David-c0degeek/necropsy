@@ -806,6 +806,21 @@ def build_document(
                 if r["encounter_id"] not in present
             ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
+    if zone != "naxxramas":
+        from necropsy.analysis.encounters.strategy import encounter_strategy
+
+        for boss in bosses:
+            strategy = encounter_strategy(
+                zone,
+                boss["encounter_id"],
+                meta[12],
+                meta[9],
+                boss["playbook"].get("selected_metric")
+                or (acquisition or {}).get("selected_metric")
+                or "dps",
+            )
+            if strategy is not None:
+                boss["playbook"]["encounter_strategy"] = to_data(strategy)
     document = {
         "schema_id": SCHEMA_ID,
         "schema_version": SCHEMA_VERSION,

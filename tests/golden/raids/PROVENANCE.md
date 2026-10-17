@@ -9,6 +9,17 @@ cache, request journal, combined-report finalization and snapshot-v1 writer on
 | mc-holy | 2000 / Lucifron 50663 | Priest Holy / HPS / Alliance | 6 |
 | bwl-combined-holy | 2002 / Ebonroc / Flamegor 50631 | Priest Holy / HPS / Alliance | 6 |
 | aq40-viscidus-hunter | 2005 / Viscidus 50713 | Hunter Marksmanship / DPS / Horde | 6 |
+| mc-hunter | 2000 / Lucifron 50663 | Hunter Marksmanship / DPS / Alliance | 6 |
+| mc-protection | 2000 / Lucifron 50663 | Warrior Protection / DPS / Alliance | 6 |
+| bwl-combined-hunter | 2002 / Ebonroc / Flamegor 50631 | Hunter Marksmanship / DPS / Alliance | 6 |
+| bwl-combined-protection | 2002 / Ebonroc / Flamegor 50631 | Warrior Protection / DPS / Horde | 6 |
+| aq40-viscidus-holy | 2005 / Viscidus 50713 | Priest Holy / HPS / Alliance | 6 |
+| aq40-viscidus-protection | 2005 / Viscidus 50713 | Warrior Protection / DPS / Alliance | 6 |
+
+The first three captures date to 2026-10-16; the additional six were captured
+2026-10-17. There are 54 actor cases across nine immutable archives. Protection
+is a ranking category; actual tank duty must be established separately from
+the raw actions and incoming boss hits, including counterexamples.
 
 Partition 1, Vanilla user endpoint, public reports only. Every finalized report
 was checked for public visibility before copying into fixture storage. Public
@@ -25,7 +36,7 @@ archive hashes. Each ZIP has its original `.entries` member manifest and
 identities, stream directions, page hashes, endpoint and ownership. Git LFS holds
 the raw ZIPs; ordinary CI does not fetch them.
 
-`facts.json` freezes 18 independently enumerated actor cases, including raw
+`facts.json` freezes 54 independently enumerated actor cases, including raw
 amounts, exact durations, targets and NPC IDs, actor-owned casts and timings,
 and the fight/master-data pet owner records. Expected arithmetic was enumerated
 directly from source pages for outgoing actions and target pages for incoming
@@ -53,6 +64,16 @@ Gitleaks 8.30.1 scanned all **113,744,740 extracted raw bytes**, with
 `gitleaks dir workspace/raid-research/raw-scan --redact --max-target-megabytes 0`,
 2026-10-17: exit 0, no leaks found. The scan is heuristic, not proof of absence.
 Generated-output scans follow actual replay; raw scan alone does not cover them.
+
+Follow-up scan of all nine archives: **301,461,037 extracted raw bytes**, same
+unlimited command/tool, 2026-10-17: exit 0, no leaks found. Three installed-wheel
+replays from outside the checkout produced the correct 2000/2002/2005 identities,
+both pages and packages; their 16,267,142 generated file bytes were separately
+scanned with no findings. Subsequent source strategy changes receive their own
+content/replay checks and preserve the raw bytes. The structural register's
+`cell_id` is a comparison identity, not an API credential; renaming the original
+generic `key` field removed three verified false-positive generic-key findings
+without a scanner suppression or real credential change.
 
 These captures establish usable seed evidence and arithmetic. They do not
 close any boss/class cell: mechanics, opportunity/ranking policies, assignment

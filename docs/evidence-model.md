@@ -120,6 +120,13 @@ auras count once. A state that cannot be settled makes the result UNKNOWN.
 
 ## Rules files
 
+Static encounter strategy is labelled general strategy, with versioned rules,
+sources and retrieval dates. Applicability by class, metric and ruleset does not
+establish a player's actual duty, phase, opportunity or fault. It does not change
+measurement evidence, cohort eligibility, medians or recommendation severity.
+The selected strategy is saved during analysis; rendering older saved JSON does
+not introduce current advice or new observations.
+
 Game facts live in `src/necropsy/rules/classic_era/*.yaml` (package data, so
 they ship in the wheel). Each entry records whether its ID was seen in the
 Haplina fixture or comes from Classic Era spell data.

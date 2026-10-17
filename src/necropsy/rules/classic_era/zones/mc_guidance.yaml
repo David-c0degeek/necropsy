@@ -25,3 +25,25 @@ general:
   - refocus
 encounters: {}
 pet: {}
+strategy:
+  50663:
+    retrieved: '2026-10-17'
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    items:
+    - rule: lucifron-assign-removals-v1
+      section: before
+      text: Agree who removes curses and magic effects, and who handles the two Protectors. Those jobs can interrupt normal damage or healing.
+    - rule: lucifron-resource-cost-v1
+      section: during
+      text: Lucifron's Curse increases ability resource costs. Coordinate its removal rather than treating reduced activity as a rotation failure.
+    - rule: lucifron-decurse-v1
+      section: during
+      classes: [2, 4]
+      text: If assigned to remove curses, preserve time and resources for that job; a damage-only comparison does not measure your decursing contribution.
+    - rule: lucifron-magic-removal-v1
+      section: during
+      classes: [6, 7]
+      text: Follow the assigned magic-removal priorities for Impending Doom and controlled players; healing throughput alone does not measure that duty.
+    - rule: lucifron-protector-coordination-v1
+      section: raid
+      text: Confirm Protector tanking and kill order, control recovery and removal priorities before copying another player's target mix.

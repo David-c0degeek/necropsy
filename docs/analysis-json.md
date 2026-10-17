@@ -33,6 +33,14 @@ JSON with the same Necropsy version remains deterministic. See
 
 ## Guarantees
 
+New analyses may include `bosses[].playbook.encounter_strategy`. Each saved item
+has a versioned rule, preparation/execution/coordination section, text, source
+URL, retrieval date and `kind: general-strategy`. It is static guidance with
+explicit class/metric/ruleset applicability, not observed phase or assignment
+evidence and not a personal finding. Missing items remain absent in older JSON;
+rendering or refreshing a saved analysis does not consult current strategy rules.
+Current encounter coverage and limits are listed in [raid modules](raids.md).
+
 For live Hunter DPS analyses, `ranking.ranked_dps` falls back to the recorded WCL
 score when event reconstruction is unavailable. The row must match the player,
 report, fight, encounter and acquired category; conflicting scores stay unknown.

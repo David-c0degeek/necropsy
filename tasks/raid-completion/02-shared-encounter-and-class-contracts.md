@@ -44,4 +44,35 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
-TBD — no implementation or runtime acceptance is claimed at plan creation.
+2026-10-17 · slice 1 · 02.1/02.5/02.8 partial under D006 · Shared sourced-static-strategy contract in analysis/encounters/strategy.py and existing per-raid guidance YAML; concrete Lucifron, combined-dragon and Viscidus strategies. Backend selects class/metric/Era-partition applicability and saves optional playbook data. Existing common pull-sheet adapters present preparation/execution/coordination and source links in both Report and Playbook, retaining explicit general-strategy limitations and no personal grading/observed-phase claim. No class plugin, role heuristic, metric, cohort or snapshot migration changed. Missing strategies remain absent; old saved JSON does not acquire current rules at render. Verified 102 legal seed configuration applicability paths; class-specific curse/magic removal, Viscidus HPS context, wrong-raid/seasonal/boolean partition negatives, old-document rendering. Real replay/content/source/package checks plus unit strategy checks: 16 passed/69.17 s. An earlier real-content run caught missing Report wiring despite passing transport tests; corrected with saved-content source disclosure in both adapters. Actual 12 page/viewport/no-network/no-overflow/print checks pass; two representative screenshots inspected, research/strategy-review.json records limits. All four original historical Naxx artifacts match 30e89ce byte for byte. Static checks/schema currency/docs pass; broad ordinary follow-up running. No subject or matrix cell closes; complete phases/metric reconciliation/duties/loadout/opportunity contracts remain open. Checkpoint pending.
+
+## Interim review — not subject closure
+
+Verification follow-up: full ordinary suite **1248 passed, 262 deselected,
+337.38 s**. After the independent checker's additional missing-amount guard,
+22 focused cases and all 54 real raw actor facts pass; static checks remain
+green. Schema currency passes. Current wheel/sdist build and isolated installed
+strategy/scope imports pass; saved real JSON for all three raids renders both
+pages/packages outside the checkout. Package/source and selected generated-output
+secret scans pass. No task/workspace files are present in the sdist. New general
+strategy is not a final release candidate or full evidence acceptance.
+
+**Keep:** One existing analysis/render pipeline, per-raid rule ownership, static
+strategy explicitly separate from observed facts, source links and class/metric
+filters, old JSON unchanged on render, unchanged Naxx bytes.
+
+**Fix before closing:** Complete all shared boxes, especially measured phase/
+opportunity/ranking/duty contracts. Resolve the MC Fury-tank pressure counterexample
+without silently changing Naxx or treating category as assignment. More source
+and real-cell validation is required; current three strategies are initial scope.
+
+**Record:** D006 sequences independent static work beside remaining evidence
+contracts. PM-1's Report wiring risk was caught by actual content assertions;
+successful transport/build tests alone did not detect it. Scope remains full.
+
+**Risk:** Generic/class strategy is not complete loadout or personal coaching,
+and no timing, immunity or assignment was inferred from a guide. Current ranking
+policies remain unvalidated. Other boss strategy and real class cells are open.
+
+**Verdict:** DO NOT CLOSE — this is an engineering checkpoint, not full subject,
+raid, domain/product acceptance or publication.

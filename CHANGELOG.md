@@ -8,6 +8,14 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Add initial sourced preparation, execution and coordination strategy for
+  Lucifron, combined Ebonroc / Flamegor and Viscidus, including class/metric
+  utility context. General strategy stays separate from personal findings and
+  observed phases; remaining raid-domain coverage is still incomplete.
+- Add immutable public raid seed fixtures, independent raw measurement and
+  mutation checks, and an explicit evidence-completeness gate. Preserve all four
+  historical Naxx artifacts byte for byte against the pre-expansion engine.
+
 - Add independent AQ40, Blackwing Lair and Molten Core raid modules. Select a raid
   before analysis; generate its own snapshot, Report and Playbook, and filter
   saved analyses by raid in the desktop and terminal apps. The CLI accepts

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
@@ -57,6 +58,17 @@ def raw_actor_facts(
         raise ValueError("no usable raw actor events")
     outgoing = [e for e in events if e.get("sourceID") == actor]
     incoming = [e for e in events if e.get("targetID") == actor]
+    for event in outgoing + incoming:
+        if event["type"] not in ("damage", "heal", "absorbed"):
+            continue
+        amount = event.get("amount")
+        if (
+            not isinstance(amount, int | float)
+            or isinstance(amount, bool)
+            or not math.isfinite(amount)
+            or amount < 0
+        ):
+            raise ValueError("raw amount missing or invalid; cannot establish an exact total")
     totals = {
         "damage": sum(e.get("amount", 0) for e in outgoing if e["type"] == "damage"),
         "effective_healing": sum(e.get("amount", 0) for e in outgoing if e["type"] == "heal"),
@@ -110,6 +122,9 @@ def check_register(path: Path) -> list[str]:
     if data.get("version") != 1 or not data.get("cases"):
         raise ValueError("a fact register needs version 1 and nonempty reviewed cases")
     problems = []
+    ids = [case["id"] for case in data["cases"]]
+    if len(ids) != len(set(ids)):
+        problems.append("duplicate independent fact case IDs")
     for case in data["cases"]:
         if not case.get("review_basis"):
             problems.append(f"{case['id']}: missing independent review basis")

@@ -43,17 +43,20 @@ def test_inventory_preserves_every_missing_obligation() -> None:
 
 def test_forged_complete_status_requires_content_and_real_independent_evidence() -> None:
     cell = coverage_cells()[0]
-    counts, errors = audit(Register(version=1, records=[Receipt(key=cell.key, status="COMPLETE")]))
+    counts, errors = audit(
+        Register(version=1, records=[Receipt(cell_id=cell.key, status="COMPLETE")])
+    )
     assert counts == {"TODO": 951, "COMPLETE": 1}
     assert any("missing completion evidence" in e for e in errors)
     assert any("no usable real actor source" in e for e in errors)
     assert any("no sourced encounter facts" in e for e in errors)
     assert any("no boss-specific guidance" in e for e in errors)
+    assert any("ranking policy remains unvalidated" in e for e in errors)
 
 
 def test_duplicate_unknown_or_illegal_cells_are_rejected() -> None:
-    first = Receipt(key=coverage_cells()[0].key, status="IN_PROGRESS")
-    invalid = Receipt(key="mc/50663/6/Holy/hps/Horde", status="BLOCKED_EVIDENCE")
+    first = Receipt(cell_id=coverage_cells()[0].key, status="IN_PROGRESS")
+    invalid = Receipt(cell_id="mc/50663/6/Holy/hps/Horde", status="BLOCKED_EVIDENCE")
     _, errors = audit(Register(version=1, records=[first, first, invalid]))
     assert any("duplicate cell" in e for e in errors)
     assert any("unknown or illegal cell" in e for e in errors)
@@ -61,7 +64,7 @@ def test_duplicate_unknown_or_illegal_cells_are_rejected() -> None:
 
 def test_evidence_shortage_cannot_be_renamed_not_applicable() -> None:
     with pytest.raises(ValidationError):
-        Receipt.model_validate({"key": coverage_cells()[0].key, "status": "NOT_APPLICABLE"})
+        Receipt.model_validate({"cell_id": coverage_cells()[0].key, "status": "NOT_APPLICABLE"})
 
 
 def test_evidence_references_bind_actual_portable_bytes(tmp_path: Path) -> None:
@@ -83,7 +86,7 @@ def test_pass_label_is_not_an_evidence_reference() -> None:
     with pytest.raises(ValidationError):
         Receipt.model_validate(
             {
-                "key": coverage_cells()[0].key,
+                "cell_id": coverage_cells()[0].key,
                 "status": "COMPLETE",
                 "references": {"implementation": ["PASS"]},
             }

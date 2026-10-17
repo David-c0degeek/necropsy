@@ -153,6 +153,13 @@ and a checksum manifest. It does not contain the raw snapshot or DuckDB database
 
 ## Source map
 
+The shared encounter strategy adapter selects sourced static guidance by raid,
+encounter, Era partition, class and metric during analysis. It saves applicable
+items in the existing optional playbook data. The common pull-sheet adapters
+format those saved items and sources in both pages; they do not select current
+rules or infer assignments. Naxx's established advice and historical artifacts
+retain their existing behavior. Observed phase/duty measurements remain separate.
+
 The browser experience keeps Python/Jinja rendering and embeds CSS/JavaScript in
 each page. `render/experience.py` supplies conservative overview/triage summaries
 of saved findings; class and Hunter views supply their existing specialized

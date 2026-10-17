@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import replace
+from html import unescape
 from pathlib import Path
 from typing import Any
 
@@ -32,7 +33,7 @@ def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     for receipt in register.records:
         source = receipt.real_actor_source
         assert isinstance(source, ActorSource)
-        cell = cells[receipt.key]
+        cell = cells[receipt.cell_id]
         assert actor_problems(repo, cell, source) == []
         wrong_faction = replace(
             cell,
@@ -64,7 +65,15 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     assert len(doc["bosses"]) == 1
     boss = doc["bosses"][0]
     expected = [f for f in facts if f["fixture"] == fixture["label"]]
-    actual = ([boss["subject"]] if boss["subject"] else []) + boss["overall_cohort"]
+    actual = (
+        ([boss["subject"]] if boss["subject"] else [])
+        + (
+            [boss["playbook"]["excluded_subject"]]
+            if boss["playbook"].get("excluded_subject")
+            else []
+        )
+        + boss["overall_cohort"]
+    )
     for case in expected:
         entry = next(
             e
@@ -86,3 +95,12 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
             assert entry["ranking"]["ranked_dps_evidence"]["value"] is not None
     assert (out / "report.html").is_file() and (out / "playbook.html").is_file()
     assert (out / package_name(doc)).is_file()
+    strategy = boss["playbook"]["encounter_strategy"]
+    assert {item["section"] for item in strategy["items"]} == {"before", "during", "raid"}
+    for page in ("report.html", "playbook.html"):
+        html = unescape((out / page).read_text(encoding="utf-8"))
+        for item in strategy["items"]:
+            assert item["text"] in html and item["source"] in html
+            assert item["kind"] == "general-strategy"
+            assert item["retrieved"] == "2026-10-17"
+        assert strategy["limitation"] in html

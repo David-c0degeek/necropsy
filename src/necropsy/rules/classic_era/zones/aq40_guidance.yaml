@@ -25,3 +25,26 @@ general:
   - refocus
 encounters: {}
 pet: {}
+strategy:
+  50713:
+    retrieved: '2026-10-17'
+    source: https://warcraft.wiki.gg/wiki/Viscidus
+    items:
+    - rule: viscidus-prepare-participation-v1
+      section: before
+      text: Agree your frost-hit, melee-shatter, glob or healing job and prepare the tools for it. Ordinary DPS does not measure every contribution.
+    - rule: viscidus-frost-then-melee-v1
+      section: during
+      text: Follow the raid's freeze and shatter calls, then the assigned glob target. Static guide hit thresholds do not establish your observed phase or available attacks.
+    - rule: viscidus-mage-frost-v1
+      section: during
+      classes: [4]
+      metrics: [dps]
+      text: If assigned to freezing, prioritize eligible frost hits; your Fire or Frost ranking category does not itself establish that assignment.
+    - rule: viscidus-healing-context-v1
+      section: during
+      metrics: [hps]
+      text: Coordinate poison recovery and healer coverage while others move for shattering; do not leave an assigned healing job merely to copy a damage example.
+    - rule: viscidus-raid-coordination-v1
+      section: raid
+      text: Confirm frost coverage, shatter participation, glob assignments and poison recovery. Pet or guardian contributions require actual ownership and event evidence.
