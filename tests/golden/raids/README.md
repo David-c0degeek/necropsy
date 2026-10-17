@@ -60,7 +60,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 126 retained HPS actor cases, without changing original actor expectations:
+for 186 retained HPS actor cases, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -87,3 +87,12 @@ nor physical attackability, personal uptime or assignment certificates.
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/control-facts.json
 ```
+
+The separate `mc-holy-raid-context` fixture preserves the normal installed CLI's
+native ZIP and sidecar filenames. It has the same 60 selected actor/fight pairs
+as the earlier full capture, with all 114 whole-encounter scopes complete. All
+60 original actor measurements agree independently; the new cases additionally
+freeze raw All/critical context. The earlier archive and expectations remain
+unchanged. Both captures retain the two unresolved pet ownership listings.
+The register now contains 40 archives, 348 actor cases, 186 recipient cases and
+six separate NPC-control contexts. No domain cell is certified complete.

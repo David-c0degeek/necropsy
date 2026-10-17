@@ -66,6 +66,9 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     archive = ROOT / fixture.get("archive", f"raw/{fixture['label']}.zip")
     assert archive.resolve().is_relative_to(ROOT.resolve())
     assert sha256_file(archive) == fixture["sha256"], "Fetch the authorized raid LFS fixtures"
+    assert archive.with_suffix(".sha256").read_text(encoding="utf-8").strip() == (
+        f"{fixture['sha256']}  {archive.name}"
+    )
     entries = load_entries_manifest(archive.with_suffix(".entries"))
     out = tmp_path / "report"
     db = tmp_path / "analysis.duckdb"
@@ -75,14 +78,19 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     healing_facts = json.loads((ROOT / "healing-facts.json").read_text(encoding="utf-8"))["cases"]
     with VerifiedArchive(archive, entries=entries) as raw:
         marker = raw.read_json("necropsy-snapshot.json")
-        if fixture["label"] == "mc-holy-raid":
+        if fixture.get("missing_pet_listings"):
             reader = open_snapshot(raw)
             assert reader.issues() == []
             streams = reader.expected_streams()
             players = [s for s in streams if s.role is ActorRole.PLAYER]
             unresolved = [s for s in streams if s.role is ActorRole.PET_DISCOVERY]
-            assert len(players) == 120 and len(unresolved) == 2 and len(streams) == 122
+            scopes = [s for s in streams if s.role in {ActorRole.ENCOUNTER, ActorRole.CRITICAL}]
+            assert len(players) == fixture["complete_player_streams"]
+            assert len(unresolved) == fixture["missing_pet_listings"]
+            assert len(scopes) == fixture.get("complete_encounter_scopes", 0)
+            assert len(streams) == len(players) + len(scopes) + len(unresolved)
             assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in players)
+            assert all(reader.read_stream(s).status is StreamStatus.COMPLETE for s in scopes)
             assert all(reader.read_stream(s).status is StreamStatus.MISSING for s in unresolved)
             assert {(s.report_code, s.fight_id) for s in unresolved} == {
                 ("BjygkHzvbZN3D6JX", 27),

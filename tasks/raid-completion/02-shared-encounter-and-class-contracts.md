@@ -44,6 +44,19 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-17 / slice 20 / Normal installed full-MC context capture promoted
+as a separate immutable fixture:40 archives/348 actor cases/186 recipient cases,
+six separate NPC-control contexts. Original288 actor and126 recipient expectations
+remain unchanged. Sixty independently enumerated actor cases exactly agree with
+the earlier actor-only full raid; new All/critical context is separately frozen.
+Eight existing Alliance Holy Priest receipts use the full format2 capture; stronger
+Golemagg/Majordomo captures remain.120 player directions and114 encounter scopes
+complete; two pet ownership listings remain unknown.35 IN_PROGRESS/917 TODO/
+0 COMPLETE. Both full MC golden replays pass:2 passed/42 deselected/111.50 s.
+Further source/installed artifact acceptance recorded in
+research/mc-full-context-review.json. No box closed; phase, ranking, all-class
+coverage and domain/product review remain open.
+
 2026-10-17 / slice 19 / Class-qualified NPC control windows reuse the existing
 observed-state/scope/saved-output path. Separate Garr710/18647 policies require
 an unambiguous Player/Warlock caster, native Firesworn12099 and exact target
