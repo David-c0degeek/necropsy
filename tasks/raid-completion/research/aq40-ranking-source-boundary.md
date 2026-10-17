@@ -31,3 +31,28 @@ universal serialization/credit policy. Low HPS needs a narrower interval than
 a blanket0.005; actual pet/guardian, hostile/control-time and other-class policy
 coverage remains open. See
 [exact residuals and source member hashes](healing-score-precision-investigation.json).
+
+Follow-up checked2026-10-18:
+
+- [Archon's January2025 AQ parsing article](https://www.archon.gg/classic-mop/articles/help/temple-of-ahn-qiraj-parsing-rules)
+  explicitly describes Season of Discovery despite the current `classic-mop`
+  route. Its C'Thun tentacle and Twin bug exclusions cannot be imported into
+  Era. Read the body and ruleset/date, not just the product menu or matching title.
+- [Archon's February2025 Fresh Vanilla announcement](https://www.archon.gg/classic-mop/articles/news/fresh-vanilla-on-warcraft-logs)
+  explicitly says its MC parsing rules match Vanilla Era and describes no
+  additional MC parsing rules at that time. This is a narrow MC statement,
+  not an AQ40 equivalence assertion or a specification of generic hostile
+  targets, foreign trash, self damage, absorbed damage or pet attribution.
+- [Kihra's November2020 response](https://forums.combatlogforums.com/t/it-is-different-for-dps-between-ranking-page-and-report-page/10731)
+  explains Viscidus damage omission from a **whole-raid** aggregate while time
+  remains included. It cannot redefine a single Viscidus boss API DPS row,
+  which the current six selected actors independently retain.
+- [The November2020 C'Thun thread](https://forums.combatlogforums.com/t/how-are-cthun-adds-damage-handled-in-phase-2/10681)
+  is a user report about apparent tentacle counting, without a verified policy
+  response in the available text. It prompts instance/order investigation;
+  it does not establish a universal target-game-ID exclusion.
+
+Searches were name-specific and primary-source focused; no universal current
+Era AQ40 policy specification was established. The independent54 Hunter
+record/47 distinct actor-fight candidate study retains contradictory broad
+filters and incomplete ownership explicitly. No ranking policy changed.

@@ -159,6 +159,17 @@ facts certifies survival opportunities, ranked credit or execution quality.
 uv run python scripts/check_raid_facts.py tests/golden/raids/pet-facts.json
 ```
 
+The later native `aq40-hunter-expanded-context` resume retains29 public selected
+actor/fights, all nine personal bosses and five comparisons each for Skeram,
+Royalty, Sartura and Fankriss. All58 player,54 pet and58 global directions are
+complete. The next Viscidus candidate is absent; two guardian listings remain
+missing. Four Sartura contexts explicitly list no pet. Smcadogx has both a
+trained Cat and an owned Vanquished Tentacle in Royalty and Fankriss; Fankriss
+also retains an ownerless Chicken. Item summons stay outside trained-pet DPS.
+The additional29 actor and29 pet contexts preserve all12 earlier contexts
+exactly. Overall inventory:45 archives,525 actor cases,322 recipient cases and
+41 owner contexts/38 owned units; no full matrix cell is certified.
+
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json
 ```

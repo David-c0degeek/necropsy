@@ -299,6 +299,13 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                     (p for p in entry["hunter"]["hunter_pets"] if p["actor_id"] == pet["actor"]),
                     None,
                 )
+                if pet["catalog"].get("gameID") == 15901:
+                    # The owned item summon is not the owner's trained Hunter pet.
+                    other = next(
+                        p for p in entry["hunter"]["pets"] if p["actor_id"] == pet["actor"]
+                    )
+                    assert other["category"]["value"] == "other"
+                    assert trained is None
                 if trained is not None:
                     assert trained["damage"]["value"] == pet["totals"]["damage"]
                     assert [
@@ -315,6 +322,17 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
             if not ids and expected["listing_complete"]:
                 assert entry["hunter"]["hunter_pets"] == []
                 assert entry["hunter"]["total_pet_dps"]["value"] == 0
+            if any(p["game_id"] == 8836 for p in expected["unattributed_friendly_pets"]):
+                assert entry["hunter"]["pet_roster_complete"] is True
+                assert entry["ranking"]["ranked"]["value"] is None
+            if case["id"] in {"aq40-expanded-owned-pets-10", "aq40-expanded-owned-pets-12"}:
+                # Raw Claw/Dash casts identify this Cat; the separate item summon
+                # must not inflate its trained-pet rate, even beside an unowned Chicken.
+                cat = next(p for p in expected["pets"] if p["catalog"]["gameID"] == 13379216)
+                assert {p["actor_id"] for p in entry["hunter"]["hunter_pets"]} == {cat["actor"]}
+                assert entry["hunter"]["total_pet_dps"]["value"] == pytest.approx(
+                    cat["totals"]["damage"] * 1000 / expected["duration_ms"], rel=0, abs=1e-6
+                )
             if case["id"] == "aq40-owned-pets-1":
                 # Only a melee event was observed before this owned unit died.
                 # Ownership alone cannot turn it into a classified trained pet.

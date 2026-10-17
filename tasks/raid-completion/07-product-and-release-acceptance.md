@@ -39,6 +39,46 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 7 / Expanded Hunter comparison and guardian checkpoint.
+Normal installed resume completes29 public selected actor/fights/all9 personal
+bosses, with five comparisons each for Skeram/Royalty/Sartura/Fankriss. All58
+player/54 pet/58 global directions complete; two guardian listings missing.
+Native4 is the normal stopped acquisition after successful analysis/package;
+107 requests reused,1196.82 account-wide points between readings. Neith's next
+Viscidus candidate is absent. No quota/cache/revision/writer bypass. Original
+archive remains immutable and stronger Viscidus primary evidence is preserved.
+
+Added29 actor and29 owned-pet contexts:45 archives/525 actors/322 recipient
+cases/41 owner contexts/38 units. All prior496 actor/322 recipient expectations
+and12 earlier actor/context/pet measurements agree exactly. Four Sartura
+contexts explicitly list no pet. Smcadogx retains Cat plus owned item summon
+Vanquished Tentacle15901, with a separate ownerless Chicken in Fankriss. Final
+actual source assertions keep the item summon outside trained-pet DPS and keep
+confirmed trained-pet measurements despite unresolved guardian ownership.
+
+Two real goldens pass/82.83s before final explicit guardian assertions; final
+source29 actors/29 pet contexts/all9 bosses and package acceptance pass with
+those exact assertions. Installed outside checkout matches all4 artifacts.
+Four real browser cases pass. No production changes after9b69e70; Naxx all4
+baseline hashes remain current.136 wheel members match checkout. Raw276716922
+and output35264063 extracted bytes pass unlimited secret scans; research clean.
+Ruff/format/mypy/docs pass.59 IN_PROGRESS/893 TODO/0 COMPLETE, no status closure.
+
+Expanded independent ranking study retains83 records/64 distinct actor-fights,
+with initial54 observations unchanged. Exact native API amount/duration binding
+and residual candidates do not activate a ranking policy. SoD/Fresh/whole-raid
+source scope is explicit; Royalty reset, Cthun instance/order, controlled-player
+and guardian credit questions remain. Review: research/aq40-hunter-expanded-review.json.
+
+Engineering Hindsight: Keep shared seams and independent immutable evidence;
+fix remaining evidence/model/class/faction/duty/item/pet and human/domain/product
+obligations before closure. Record that an overbroad research-script replacement
+changed an Ignite filter; preservation guard rejected registration before any
+write, then exact raw expectations agreed after correction. Numeric agreement
+and selected actor aliases cannot certify eligibility. PM-1/2/3 reviewed;
+verdict DO NOT CLOSE. Full subject boxes remain open.
+
+
 2026-10-18 / slice 6 / Hunter owned-pet evidence and missing-reference
 rendering checkpoint. Normal installed Marksmanship/DPS/Horde capture retains12 public actor/fights,
 all9 personal bosses and3 Skeram comparisons;24 player,22 pet and24 global
