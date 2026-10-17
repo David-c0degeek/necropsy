@@ -196,6 +196,7 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 | D002 | 2026-10-16 | Execution mode | Solo; no subagents or parallel branches. | No delegation was requested; keep one resume-safe owner. | Collaboration model; 00.1 |
 | D003 | 2026-10-16 | Era partition boundary | New encounter policies and evidence initially apply to partitions 1/2 only; preserve separate world-buff cohorts. Add explicit applicability guards before new domain rules run. Existing Naxx replay semantics remain unchanged. | Fresh worldData includes SoM and Hardcore partitions under the same zones; site/zone alone does not prove ruleset. | readiness-research.md; 02.1–02.3; PM-2 |
 | D004 | 2026-10-16 | Baseline fixture repair | Extend the two hand-built score-test snapshot_meta tables with existing production zone_id; retain every previous score assertion. No production fallback or evidence upgrade. | Full ordinary baseline: 1192 passed/35 failed, all failures caused by omitted fixture column; corrected targeted run: 35 passed. Ruff/format/mypy and 31 cross-raid flows pass. | 00.3; tests/unit/test_recorded_dps.py; tests/unit/test_leaderboard_headline.py |
+| D005 | 2026-10-17 | Golden navigation check repair | Verify each sidebar href against its actual local target document/fragment, including cross-page truth-model links. Preserve both pages and all 15 sections. | Existing browser test treated report.html#truth-model as a CSS selector in Playbook; identical test bug exists at 30e89ce. Raw golden run otherwise 244 passed/4 expected failures. No product behavior or oracle changed. | 00.3 follow-up; 01.2; tests/golden/test_report_full.py |
 
 ---
 
@@ -206,7 +207,7 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | TODO | agent: 8 | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 3 real seeds and 18 raw actor checks; further roles/coverage open | n/a |
 | [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | TODO | agent: 8 | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | TODO | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | TODO | agent: 9; domain-sme: 1 | yes |

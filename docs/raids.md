@@ -47,3 +47,17 @@ and separate encounter, facts and guidance YAML under
 `src/necropsy/rules/classic_era/zones/`. The registry is shared by acquisition,
 snapshot validation, analysis and application selectors. Neither the desktop
 nor the renderer computes new analytical facts.
+
+The durable validation inventory is available to checkout contributors:
+
+```sh
+uv run python scripts/check_raid_coverage.py --inventory
+uv run python scripts/check_raid_coverage.py --require-complete
+```
+
+The first command reports progress; the second refuses incomplete evidence.
+Current domain completion remains open for all 952 configurations. See the
+[evidence register](../tests/golden/raids/README.md) for receipt requirements.
+This inventory is developer tooling; report generation does not read development
+tracking files. The packaged scope enumerates Era partitions 1/2; other partitions
+returned by WCL are not evidence that Era mechanics apply there.

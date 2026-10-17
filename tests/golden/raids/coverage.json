@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "key": "mc/50663/7/Holy/hps/Alliance",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/mc-holy.zip",
+          "sha256": "ad74883b2a0816dc04a28ab6ee640b8e112405011216ad61bf4e180edee14c6a",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/mc-holy.entries",
+          "sha256": "3dddacf3ac139a8b23af99a20475f63c70f25eb747f22a00579362e15b2bf867",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "c41c83b838da69d699438540d6174ecab01ecbc50747874bc54f43bc2a80aa4a",
+          "locator": "mc-holy"
+        },
+        "report": "ZzYr1NR6LpHkyjTc",
+        "fight": 3,
+        "actor": 32,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "3673b1e61e1c4e4dceca9618c45815ae34646f80c8bc988e523df7e6acbd081a",
+            "locator": "mc-holy-6"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "key": "bwl/50631/7/Holy/hps/Alliance",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/bwl-combined-holy.zip",
+          "sha256": "a419dd9b35872f99543b1deec799cf112ddee88df98f0dfe9e390e02c3592edb",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/bwl-combined-holy.entries",
+          "sha256": "e68a8d4e27336cf43f36dd2f24540d1a67beff41ea6d731125c420639a524933",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "c41c83b838da69d699438540d6174ecab01ecbc50747874bc54f43bc2a80aa4a",
+          "locator": "bwl-combined-holy"
+        },
+        "report": "cg1mfw64BzAhNd97",
+        "fight": 19,
+        "actor": 17,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "3673b1e61e1c4e4dceca9618c45815ae34646f80c8bc988e523df7e6acbd081a",
+            "locator": "bwl-combined-holy-10"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    },
+    {
+      "key": "aq40/50713/3/Marksmanship/dps/Horde",
+      "status": "IN_PROGRESS",
+      "real_actor_source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/aq40-viscidus-hunter.zip",
+          "sha256": "7fa2e6d9ce08c920b7f0d13465dee0e60533c56030b057896dcb971bff177f36",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/aq40-viscidus-hunter.entries",
+          "sha256": "f5d81ca1a5a0f0ea1529750493c903b96196e5686c13bc93764f001c8e564483",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/provenance.json",
+          "sha256": "c41c83b838da69d699438540d6174ecab01ecbc50747874bc54f43bc2a80aa4a",
+          "locator": "aq40-viscidus-hunter"
+        },
+        "report": "tcJdbDx3rMGTzpLX",
+        "fight": 26,
+        "actor": 20,
+        "partition": 1
+      },
+      "references": {
+        "independent_facts": [
+          {
+            "path": "tests/golden/raids/facts.json",
+            "sha256": "3673b1e61e1c4e4dceca9618c45815ae34646f80c8bc988e523df7e6acbd081a",
+            "locator": "aq40-viscidus-hunter-17"
+          }
+        ]
+      },
+      "note": "Usable seed and independently checked raw measurements. Boss mechanics, ranking policy, behavior and rendered review remain open."
+    }
+  ]
+}

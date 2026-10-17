@@ -1,0 +1,28 @@
+version: 1
+site: vanilla.warcraftlogs.com
+game: classic_era
+retrieved: '2026-10-16'
+source: https://vanilla.warcraftlogs.com/v2-api-docs/warcraft/encounter.doc.html
+verification: Authenticated worldData zones/partitions/encounters and gameData class/spec metadata.
+# These partitions are separate cohorts, never pooled. Other returned partitions
+# include Season of Mastery and Hardcore and have no new-domain policy approval.
+partitions:
+  1: S0
+  2: S0 (Without World Buffs)
+raids:
+  aq40:
+    zone_id: 2005
+    encounters: 9
+  bwl:
+    zone_id: 2002
+    encounters: 9
+    variants:
+      50631: combined
+  mc:
+    zone_id: 2000
+    encounters: 10
+faction_legality:
+  source: https://news.blizzard.com/en-us/article/23090134/wow-classic-primer-for-new-players
+  Paladin: Alliance
+  Shaman: Horde
+  note: Game ruleset legality; never an observation of an individual actor's faction.

@@ -12,7 +12,7 @@ Establish every boss/configuration obligation and a practical capture program. F
 
 ## Boxes
 
-- [ ] **01.1** (agent) Reconcile all 28 new WCL entries, 27 canonical bosses, 34 legal category/metric/faction configurations and 27 declared trees against current metadata. Produce a durable supported-scope manifest and reconcile every seed matrix row, including combined dragons (PM-1/PM-3).
+- [x] **01.1** (agent) Reconcile all 28 new WCL entries, 27 canonical bosses, 34 legal category/metric/faction configurations and 27 declared trees against current metadata. Produce a durable supported-scope manifest and reconcile every seed matrix row, including combined dragons (PM-1/PM-3).
 
 - [ ] **01.2** (agent) Freeze the Naxx reference: definitive content inventory, existing facts, historical/live/legacy archives, all class fixtures, both pages and package expectations. List actual accepted gaps instead of claiming universal prior validation.
 
@@ -37,4 +37,9 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
-TBD — no implementation or runtime acceptance is claimed at plan creation.
+2026-10-17 · slice 1 · 01.1–01.8 · Added packaged scope (28 encounters × 34 legal configurations = 952), developer coverage register/checker with strict missing/illegal/duplicate/hash/content/actor guards, independent raw-fact checker and mutation tests. Frozen 101 Naxx rule/fixture/provenance/oracle files (153,207,138 bytes); current hashes unchanged. Fresh 60 first-page category/metric pools across all three raids expose real candidates, including sparse combined pools and misleading guild-faction metadata (not actor proof). Public complete-raid metadata identifies every MC/AQ boss and BWL combined variant; individual dragon sources remain a separate acquisition requirement. Captured/finalized three public six-actor seeds (Holy Lucifron, Holy combined dragons, Hunter Viscidus); 18 independent raw cases; raw/generation/member/owner provenance frozen, 113,744,740 extracted bytes scanned by unlimited gitleaks, no leaks. New golden checks: 5 passed/28.86 s including all three offline replays, both pages/packages and exact raw measurements. Structural/semantic negatives and raw checks: 17 passed; installed scope/rules 9 passed; static checks pass. Matrix 3 IN_PROGRESS/949 TODO; strict gate exits 1 as required. Additional damage/tank/healing-family seeds in progress; no cell/domain completion claimed. Full ordinary baseline rerun 1227 passed/418.57 s. Existing golden: 244 passed/4 xfailed/1 browser-test defect; D005 repairs real local cross-page navigation validation, targeted rerun pending. Checkpoint pending; subject remains open for remaining contracts/capture families/review.
+
+Scope and independent-reference inventory are complete for 01.1; evidence/core
+contracts remain in progress for other boxes. No runtime encounter changes or
+new complete-support claim in this checkpoint. Maintained docs/raids and fixture
+README/PROVENANCE describe the exact delivered validation limits.

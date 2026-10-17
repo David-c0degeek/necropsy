@@ -22,6 +22,7 @@ PROBE = (
     "assert plugin_for('classic_era', 2).name == 'Druid'; "
     "from necropsy.raids import RAIDS, encounters; "
     "assert len(RAIDS) == 4; assert all(encounters(raid) for raid in RAIDS); "
+    "from necropsy.raids.scope import coverage_cells; assert len(coverage_cells()) == 952; "
     "print(r.load_rules('classic_era', 'racials')['racials'][0]['race'])"
 )
 
@@ -45,6 +46,7 @@ def test_rules_load_from_an_installed_wheel(tmp_path: Path) -> None:
     with zipfile.ZipFile(wheel) as zf:
         assert "necropsy/rules/classic_era/racials.yaml" in zf.namelist()
         assert "necropsy/rules/classic_era/druid.yaml" in zf.namelist()
+        assert "necropsy/rules/classic_era/raid_scope.yaml" in zf.namelist()
         for raid in ("aq40", "bwl", "mc"):
             assert f"necropsy/raids/{raid}.py" in zf.namelist()
             for suffix in ("", "_facts", "_guidance"):

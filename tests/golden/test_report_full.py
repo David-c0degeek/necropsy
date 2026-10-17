@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import zipfile
 from pathlib import Path
+from urllib.parse import urljoin, urlsplit
 
 import pytest
 
@@ -64,9 +65,18 @@ def test_full_report_in_a_browser(site: Path) -> None:
             assert page.locator("section.boss").count() == 15
             links = page.locator("nav.sidenav a")
             assert links.count() == 17
-            for i in range(17):
-                href = links.nth(i).get_attribute("href")
-                assert href is not None and page.locator(href).count() == 1
+            hrefs = [links.nth(i).get_attribute("href") for i in range(17)]
+            for href in hrefs:
+                assert href is not None
+                target = urljoin((site / name).as_uri(), href)
+                parsed = urlsplit(target)
+                assert parsed.scheme == "file" and parsed.fragment
+                assert parsed.path in {
+                    urlsplit((site / filename).as_uri()).path
+                    for filename in ("report.html", "playbook.html")
+                }
+                page.goto(target)
+                assert page.locator(f"[id='{parsed.fragment}']").count() == 1
         browser.close()
         assert errors == []
         assert [u for u in requests if not u.startswith("file:")] == []
