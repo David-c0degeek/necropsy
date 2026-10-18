@@ -131,6 +131,13 @@ rate separately from actor support. Conflicting ownership or incomplete event
 evidence remains unknown. This does not establish a WCL HPS policy or complete
 summon coaching.
 
+An initial Elemental Shaman capture retains25 DPS comparison actors across five
+MC bosses and five personal ranking-selected contexts with unknown duty. The
+latter remain excluded from personal DPS assessment; a ranking label alone does
+not establish duty. Sixteen owned damage totems are retained, including confirmed
+individuals beside incomplete overall ownership. Remaining boss comparisons and
+full category/faction advice stay open.
+
 
 ## Accepted validation boundary
 

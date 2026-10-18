@@ -9,7 +9,7 @@ Season of Mastery and Hardcore catalog entries do not approve Era policies.
 `coverage.json` records evidence against stable keys
 `raid/encounter/class/category/metric/faction`. Missing records mean TODO.
 The partial register deliberately certifies no complete domain cells.
-Current inventory:48 archives,699 actor cases,440 recipient cases,154 owned-pet
+Current inventory:49 archives,729 actor cases,470 recipient cases,184 owned-pet
 contexts,9 actor-effect contexts,12 summon contexts and18 removal contexts.
 
 ```sh
@@ -62,7 +62,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 440 retained HPS actor cases, without changing original actor expectations:
+for 470 retained recipient contexts, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -263,3 +263,17 @@ All prior639 actor/380 recipient/95 pet contexts and47 provenance records remain
 unchanged. Both pages show verified owned-unit healing/absorption separately
 from actor support. Specific summon coaching and full class/domain/product
 acceptance remain open.
+
+`mc-elemental-shaman-initial-raid-context` is a usable partial capture, with30
+actor/recipient/owner contexts across30 fights. Twenty-five comparison actors
+supply positive DPS evidence for Lucifron, Gehennas, Geddon, Majordomo and
+Ragnaros. Five ranking-selected personal contexts have unknown duty and remain
+excluded from DPS assessment; four record zero damage, one records584. They do
+not provide positive DPS coverage for the other five bosses. Sixteen known owned
+damage totems remain separate from actor totals. Bushmilfs retains two confirmed
+totems despite an unowned Healing Stream actor95; that actor remains unassigned.
+The historical `missing_pet_listings:1` counter denotes incomplete discovery,
+with one confirmed partial list and no wholly missing listing file. The normal
+quota stop, remaining comparisons, class advice and full cell acceptance remain
+open. Only five new cells enter IN_PROGRESS; no cell completes. All prior699
+actor/440 recipient/154 pet contexts and48 provenance records remain unchanged.

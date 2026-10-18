@@ -450,7 +450,10 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                     assert reported["dps"]["value"] == pytest.approx(
                         pet["totals"]["damage"] * 1000 / expected["duration_ms"]
                     )
-                    if fixture == "mc-restoration-shaman-raid-context":
+                    if fixture in {
+                        "mc-restoration-shaman-raid-context",
+                        "mc-elemental-shaman-initial-raid-context",
+                    }:
                         support = reported["healing_support"]
                         assert support["owner_actor_id"] == owner
                         assert support["game_id"] == pet["catalog"]["gameID"]
@@ -612,6 +615,13 @@ def _assert_boss_replay(
     else:
         assert context is not None
         assert context["player"] == marker["subject"]["name"]
+    if boss["encounter_id"] in fixture.get("excluded_subject_encounters", []):
+        assert boss["subject"] is None
+        excluded = boss["playbook"]["excluded_subject"]
+        assert excluded["player"] == marker["subject"]["name"]
+        assert excluded["combat"]["role"]["value"] is None
+        assert boss["playbook"]["personal_data"]["status"] == "insufficient-data"
+        assert boss["recommendations"] == []
     if fixture["label"] == "mc-golemagg-context-fury":
         (magma,) = boss["playbook"]["encounter_effects"]
         assert magma["ability_ids"] == [13880]

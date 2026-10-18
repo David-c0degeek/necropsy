@@ -68,6 +68,11 @@ individually verified summon healing and credited absorption separately from
 actor support, with whole-fight rates and explicit listing/quality limits.
 These observations do not reconcile WCL HPS or complete summon-specific guidance.
 
+Initial Elemental/Horde/DPS evidence is partial:25 comparison actors cover five
+bosses, while five personal ranking-selected contexts have unknown duty and remain
+excluded from personal assessment. Known individual damage totems remain visible
+beside unresolved ownership; missing sources and the quota stop are explicit.
+
 The initial strategy appears under preparation, execution and raid coordination
 in both pages. Geddon additionally retains recorded Priest Dispel Magic and
 Paladin Cleanse removals of Ignite Mana

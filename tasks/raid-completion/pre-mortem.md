@@ -87,6 +87,10 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 | PM-2 | Prevented Prediction | None | Before production | Effective | Accurate | Exact owner/fight/source bindings and tri-state raw validation withhold unresolved rows rather than certifying absence. No actor HPS, score-fit owner, lifetime or opportunity inference. research/summon-healing-review.json |
 | PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Independent17-actor facts precede modeling. Review exposed duplicate ability-join amplification; occurrence-multiset proof and adverse tests close it. Prior raw facts/model fields and Naxx/Priest/Paladin outputs remain exact. research/summon-healing-review.json |
 
+| PM-1 | Prevented Prediction | None | Before production | Effective | Accurate | Partial Elemental pages expose missing personal assessment and incomplete ownership while preserving known damage totems; no full class/cell claim. research/elemental-initial-review.json |
+| PM-2 | Confirmed Prediction | Medium | Before production | Effective | Accurate | Five personal ranking-selected Elemental contexts have unknown actual duty, not verified healer/DPS roles. Four raw damage0 and one584 remain excluded; only25 positive peers across five bosses qualify new cells. research/elemental-initial-review.json |
+| PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Thirty independently frozen contexts/16 pet actors, exact source/installed/native outputs and privacy checks preserve every prior register; quota and missing evidence remain explicit. research/elemental-initial-review.json |
+
 ## Misses
 
 > A miss is a meaningful failure, regression, or material risk discovered after
