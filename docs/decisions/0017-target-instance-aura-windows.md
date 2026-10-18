@@ -21,7 +21,11 @@ numbered unit. An ambiguous transition or lifecycle instance withholds affected
 actor windows rather than attributing it arbitrarily.
 
 Whole-fight application counts and state durations require trusted unrestricted
-encounter coverage. Filtered critical scope and captured player directions do
+encounter coverage and event-set consistency. Ingestion retains a maximum-
+multiplicity union; its full-fight occurrence count must equal the trusted
+All read's count, proving that no other stream added an identity or copy.
+Missing or inconsistent occurrence metadata leaves complete counts/windows
+unknown. Filtered critical scope and captured player directions do
 not certify them. Positive transitions survive partial coverage. Saved coverage
 references explicitly identify the actorless role, null actor and all direction.
 Original actor coverage serialization and historical aura policies stay unchanged.

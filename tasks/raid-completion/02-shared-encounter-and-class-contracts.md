@@ -44,6 +44,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 30 / Exact encounter aura event-set qualification.
+Trusted All metadata plus exact merged-union occurrence consistency now gates
+NPC aura counts/windows; positive transitions remain observed. Extra
+application/removal/death/copy and missing/inconsistent metadata negatives pass.
+1740 ordinary tests and six real MC/BWL/AQ replay cases pass. Source/installed
+eight artifacts and all four Naxx artifacts retain prior checkpoint bytes.
+Independent raw scans cover seven AQ and17 distinct MC fights with no extras.
+Review and receipts: research/aura-event-set-review.json. Keep shared coverage
+proof; full domain/class/product obligations and native crash investigation
+remain open.59 IN_PROGRESS/893 TODO/0 COMPLETE; verdict DO NOT CLOSE.
+
+
 2026-10-18 / slice 29 / Per-instance summon event bounds.
 Extracted shared NPC identity/cardinality and added raid-owned per-instance summon observations with genuine/feign/unknown lifecycle qualification. Exact All event-set consistency blocks actor/critical-only additions without a schema migration. Personal/cohort saved fields reach both actual class-render paths. No lifetime, attackability, phase denominator, ranking or grade is inferred; audit remaining consumers before full-domain acceptance.
 

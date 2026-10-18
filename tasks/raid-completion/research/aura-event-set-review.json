@@ -1,0 +1,134 @@
+{
+  "reviewed": "2026-10-18",
+  "base_commit": "62e1ed7",
+  "change": "Existing NPC aura counts/windows now require trusted All scope and exact full-fight merged union occurrence consistency. Positive transitions remain observed.",
+  "schema_or_ingestion_change": false,
+  "original_raw_and_frozen_expected_values_unchanged": true,
+  "verification": {
+    "ordinary": "1740 passed/309 deselected/427.25s",
+    "focused": "169 passed/6.89s",
+    "real_goldens": "6 passed/47 deselected/248.99s: MC Garr Warlock, both Majordomo contexts, BWL Holy, complete AQ Holy and expanded AQ Hunter",
+    "source": [
+      {
+        "fixture": "aq40-holy-complete-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": false,
+        "artifact_sha256": {
+          "analysis.json": "84b546593e4b396daa09b16c7cbfcf9f1570f78f8827bfd7b5e9996dfda29f41",
+          "report.html": "4cd7c6df398466f8869b54bf94eee5226fba73742dcde9889c6f849a33c342db",
+          "playbook.html": "7d57eccd37f96095a9aa18d294dc0ac62adbc69f46c05089d5989b81833fc6bb",
+          "necropsy-94217209-2005.zip": "5ad935b29c3c986eb6e7df5a5d64eaca63ac58af151bf9a5e04c78184c24cfa3"
+        }
+      },
+      {
+        "fixture": "aq40-hunter-expanded-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": false,
+        "artifact_sha256": {
+          "analysis.json": "64edd63e9222205f7d353b029eceb673a09139d5e18441c755bd23c9257e02bf",
+          "report.html": "872f734f389f88d990f429b701484c7b3d58557d65f4c59212e9800cbd97f30f",
+          "playbook.html": "a64d5b2d0b916af096ae6457c1fea4123ee324bdf6e7e2ce7941888d3df813c6",
+          "necropsy-73952389-2005.zip": "41e462193184c5d5fa8e620a4c1819ecdf659c4cb087619089049e81ab61eea0"
+        }
+      }
+    ],
+    "installed": [
+      {
+        "fixture": "aq40-holy-complete-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": true,
+        "artifact_sha256": {
+          "analysis.json": "84b546593e4b396daa09b16c7cbfcf9f1570f78f8827bfd7b5e9996dfda29f41",
+          "report.html": "4cd7c6df398466f8869b54bf94eee5226fba73742dcde9889c6f849a33c342db",
+          "playbook.html": "7d57eccd37f96095a9aa18d294dc0ac62adbc69f46c05089d5989b81833fc6bb",
+          "necropsy-94217209-2005.zip": "5ad935b29c3c986eb6e7df5a5d64eaca63ac58af151bf9a5e04c78184c24cfa3"
+        }
+      },
+      {
+        "fixture": "aq40-hunter-expanded-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": true,
+        "artifact_sha256": {
+          "analysis.json": "64edd63e9222205f7d353b029eceb673a09139d5e18441c755bd23c9257e02bf",
+          "report.html": "872f734f389f88d990f429b701484c7b3d58557d65f4c59212e9800cbd97f30f",
+          "playbook.html": "a64d5b2d0b916af096ae6457c1fea4123ee324bdf6e7e2ce7941888d3df813c6",
+          "necropsy-73952389-2005.zip": "41e462193184c5d5fa8e620a4c1819ecdf659c4cb087619089049e81ab61eea0"
+        }
+      }
+    ],
+    "naxx": {
+      "baseline_commit": "5dcc7f3",
+      "all4_artifacts_byte_identical": true,
+      "candidate_wheel_sha256": "a6701356e38c8b42e5bf8dda0ee2ec89452469696a44b06d1756747490df41b8",
+      "original_frozen_naxx_inputs_unchanged": true,
+      "artifact_sha256": {
+        "analysis.json": "e49b379c66255f98edf8914947989f2bc0940e9931eece13bf286e310e893870",
+        "report.html": "3c5827af742e4e4028c48d5a654ca02f7b9431ee5f3eb81cc2d935cd335da5e8",
+        "playbook.html": "8fa409cf93b31643a064e98a0b865dc75a74308de5c58d3b3f7bcdb258f58381",
+        "necropsy-86583560-2006.zip": "ebecf7d20ecd6333cbd2f224c54e6064a790cba3dab651c7a1f3b945fb88e5ca"
+      },
+      "prior_reviewed_semantic_change": "D019 pet-advice correction remains; the aura event-set correction adds no Naxx difference."
+    },
+    "build": {
+      "wheel_members_match_source": 139,
+      "sdist_excludes_development_data": true,
+      "extracted_output_bytes": 481760928,
+      "wheel_sha256": "a6701356e38c8b42e5bf8dda0ee2ec89452469696a44b06d1756747490df41b8"
+    },
+    "ruff": "280 formatted/check clean",
+    "mypy": "223 sources clean",
+    "docs": "291 links/25 documents",
+    "actual_installed_cli": {
+      "cwd": "C:/Users/David",
+      "native_exit": 0,
+      "all4_source_installed_cli_artifacts_equal": true,
+      "candidate_wheel_sha256": "a6701356e38c8b42e5bf8dda0ee2ec89452469696a44b06d1756747490df41b8",
+      "normal_package_accepted": true,
+      "artifact_sha256": {
+        "analysis.json": "84b546593e4b396daa09b16c7cbfcf9f1570f78f8827bfd7b5e9996dfda29f41",
+        "report.html": "4cd7c6df398466f8869b54bf94eee5226fba73742dcde9889c6f849a33c342db",
+        "playbook.html": "7d57eccd37f96095a9aa18d294dc0ac62adbc69f46c05089d5989b81833fc6bb",
+        "necropsy-94217209-2005.zip": "5ad935b29c3c986eb6e7df5a5d64eaca63ac58af151bf9a5e04c78184c24cfa3"
+      }
+    },
+    "privacy": "Unlimited extracted build/output scan481744408bytes clean; immutable previously scanned raw inputs reused."
+  },
+  "independent_read_only_review": {
+    "owner": "/root/summon_review",
+    "verdict": "No actionable defect. Stronger coverage reaches applications and all durations; positive observations preserved. Extra application/removal/death/copy and invalid metadata negatives cover the dependency.",
+    "raw_scan": {
+      "aq_registered_aura_contexts": 7,
+      "aq_occurrences": 103429,
+      "mc_distinct_fights": 17,
+      "mc_occurrences": 135636,
+      "mc_fixture_fights": {
+        "mc-garr-context-warlock": 6,
+        "mc-majordomo-context-holy": 6,
+        "mc-majordomo-context-frost-control": 5
+      },
+      "all_equals_maximum_multiplicity_union": true,
+      "extra_identities_or_copies": 0,
+      "all_terminal_pages": true,
+      "archive_hashes_match": true,
+      "method": "Independent standard-library raw ZIP canonical counters; no analyzer/normalizer imports, edits, tests or database work. BWL guidance has no NPC target-aura policy; BWL replay remains a cross-raid control."
+    }
+  },
+  "Keep": "Reuse the existing maximum-multiplicity proof and shared coverage reference. Retain positive observations, target/instance/lifecycle semantics, old saved rendering and all prior raw expectations.",
+  "Fix before closing": "Full mechanics/physical phase/opportunity/ranking/class/faction/duty/loadout/pet and human/domain/product gates remain open. Register54-case Hunter evidence and harden shared mechanic-removal raw identity before enabling Priest Blue counts. Investigate original native crash.",
+  "Record": "Reviewer-confirmed older-consumer dependency now corrected; transport scope is distinct from membership of queried rows. No new parser, schema or class renderer.",
+  "Risk": "Missing/inconsistent derived count metadata legitimately withholds certification. Equal counts depend on the documented ingest maximum-union invariant. Native crash cause and external script oracle remain unresolved.",
+  "Verdict": "DO NOT CLOSE",
+  "coverage": {
+    "in_progress": 59,
+    "todo": 893,
+    "complete": 0
+  }
+}

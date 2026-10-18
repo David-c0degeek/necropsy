@@ -39,6 +39,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 11 / Exact encounter aura event-set qualification.
+Trusted All metadata plus exact merged-union occurrence consistency now gates
+NPC aura counts/windows; positive transitions remain observed. Extra
+application/removal/death/copy and missing/inconsistent metadata negatives pass.
+1740 ordinary tests and six real MC/BWL/AQ replay cases pass. Source/installed
+eight artifacts and all four Naxx artifacts retain prior checkpoint bytes.
+Independent raw scans cover seven AQ and17 distinct MC fights with no extras.
+Review and receipts: research/aura-event-set-review.json. Keep shared coverage
+proof; full domain/class/product obligations and native crash investigation
+remain open.59 IN_PROGRESS/893 TODO/0 COMPLETE; verdict DO NOT CLOSE.
+
+
 2026-10-18 / slice 10 / Per-instance summon event bounds.
 Full ordinary suite before reviewer fixes: 1722 passed/309 deselected/455.10s. Post-review focused verification: 286 passed, including the new identity and unrelated-event regressions; 122 independent raw tests pass. Current source/event-set proof preserves all12 real policy outputs. Both installed replay sets and actual installed CLI match source artifacts; four real-browser cases and three cross-raid goldens pass. Naxx all four outputs remain byte-identical to5dcc7f3, preserving its separately reviewed pet correction. All139 wheel members match staged fresh-checkout bytes after newline-only normalization, with installed replays repeated. Scans/lint/types/docs are clean. No full product/domain/native acceptance or publication.
 

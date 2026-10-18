@@ -24,7 +24,7 @@ from necropsy.analysis.generic.lifecycle import real_death
 from necropsy.analysis.generic.metrics import observed_aura_windows
 from necropsy.analysis.generic.npcs import identity as _identity
 from necropsy.analysis.generic.npcs import singletons as _singleton_npcs
-from necropsy.normalize.coverage import has_complete_encounter_coverage
+from necropsy.normalize.coverage import has_complete_encounter_event_set
 from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
 
@@ -85,7 +85,7 @@ def encounter_auras(
         pf.fight_id,
         None,
         "all",
-        has_complete_encounter_coverage(con, pf.report_code, pf.fight_id),
+        has_complete_encounter_event_set(con, pf.report_code, pf.fight_id),
         "encounter",
     )
     actors: dict[int, set[tuple[str | None, int | None, str | None]]] = defaultdict(set)

@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Withhold complete NPC aura counts and windows when other streams add events
+  beyond the certified encounter read; preserve the positive transitions.
+
 - Retain observed Skeram image summons and per-instance event bounds. Preserve
   overlapping groups and unknown endpoints without claiming damage opportunity.
 

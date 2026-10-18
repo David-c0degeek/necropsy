@@ -169,7 +169,11 @@ Haplina fixture or comes from Classic Era spell data.
 
 NPC buff observations retain exact report actor and instance. Complete target
 state requires trusted unrestricted encounter coverage, with the actorless role
-explicit in its reference. Critical or personal coverage cannot certify global
+explicit in its reference. The merged event union must contain no extra
+identities or occurrences beyond that All read: equal occurrence counts prove
+this under maximum-multiplicity ingestion. Missing or inconsistent count
+metadata withholds complete counts and windows while preserving positive
+observations. Critical or personal coverage cannot certify global
 absence. Different instances never share transitions; missing instance identity
 withholds windows. State starts unknown and lifecycle/contradiction uncertainty
 is preserved. Observed buff state does not define a physical phase or a

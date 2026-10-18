@@ -291,8 +291,10 @@ Optional `playbook.target_aura_windows` and `cohort_target_aura_windows` retain
 NPC buff applications, exact recipient actor/instance, relative three-state
 windows, known active and unknown-state durations. Unknown initial state,
 contradictory transitions, lifecycle resets and censored fight end are explicit.
-Complete counts/windows require unrestricted encounter coverage; positive
-transitions can survive incomplete coverage. Actorless coverage references add
+Complete counts/windows require unrestricted encounter coverage and proof that
+the merged union adds no identities or copies beyond the All read. Missing or
+inconsistent occurrence metadata withholds certification; positive transitions
+remain observed. Actorless coverage references add
 `role` (`encounter` or `critical`), null `actor` and `direction: all`. Old actor
 coverage retains its original shape. Both pages render saved observations only;
 these are not ranking, physical phase, attackability or personal opportunity

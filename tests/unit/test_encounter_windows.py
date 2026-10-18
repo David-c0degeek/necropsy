@@ -36,8 +36,8 @@ def con() -> Iterator[duckdb.DuckDBPyConnection]:
         )
         connection.execute(
             "INSERT INTO stream_coverage (report_code,fight_id,actor_id,role,direction,status,"
-            "boundary_ambiguities,multiplicity_mismatches) "
-            "VALUES ('REPORT',1,NULL,'encounter','all','complete',0,0)"
+            "boundary_ambiguities,multiplicity_mismatches,raw_events) "
+            "VALUES ('REPORT',1,NULL,'encounter','all','complete',0,0,0)"
         )
         yield connection
 
@@ -51,6 +51,7 @@ def event(
     target: int = 5,
     source: int = 50,
     ability: int = 20619,
+    in_encounter: bool = True,
 ) -> None:
     index = con.execute("SELECT count(*) FROM events").fetchone()
     assert index
@@ -67,6 +68,8 @@ def event(
             json.dumps({"targetInstance": instance}),
         ],
     )
+    if in_encounter:
+        con.execute("UPDATE stream_coverage SET raw_events=raw_events+1 WHERE role='encounter'")
 
 
 @pytest.mark.parametrize("flag,active", [(True, 8.0), (False, 1.0), (None, None), (1, None)])
@@ -537,3 +540,37 @@ def test_unresolved_lifecycle_cannot_hide_as_a_different_or_missing_actor(
         one.targets[0].windows.refs[-1].detail
         == "lifecycle rows with unresolved recipient identities"
     )
+
+
+@pytest.mark.parametrize("extra", ["application", "removal", "death", "copy"])
+def test_complete_all_scope_cannot_certify_aura_rows_added_by_another_stream(
+    con: duckdb.DuckDBPyConnection, extra: str
+) -> None:
+    event(con, 2000, "applybuff", 1, in_encounter=extra != "application")
+    event(con, 6000, "removebuff", 1, in_encounter=extra != "removal")
+    if extra == "death":
+        event(con, 4000, "death", 1, ability=0, in_encounter=False)
+    elif extra == "copy":
+        con.execute(
+            "INSERT INTO events SELECT * REPLACE (1 AS copy_index) FROM events "
+            "WHERE type='applybuff'"
+        )
+    aura = next(a for a in encounter_auras(con, PF) if a.ability_id == 20619)
+    assert aura.applications.value is None
+    assert aura.transitions.level is EvidenceLevel.OBSERVED
+    assert aura.transitions.value
+    assert all(target.windows.value is None for target in aura.targets)
+    assert all(target.known_active_s.value is None for target in aura.targets)
+
+
+@pytest.mark.parametrize("count", [None, -1, 3])
+def test_aura_bounds_require_consistent_all_occurrence_metadata(
+    con: duckdb.DuckDBPyConnection, count: int | None
+) -> None:
+    event(con, 2000, "applybuff", 1)
+    event(con, 6000, "removebuff", 1)
+    con.execute("UPDATE stream_coverage SET raw_events=?", [count])
+    aura = next(a for a in encounter_auras(con, PF) if a.ability_id == 20619)
+    assert aura.applications.value is None
+    assert aura.transitions.value == ((2.0, "applybuff", 5, 1), (6.0, "removebuff", 5, 1))
+    assert aura.targets[0].windows.value is None
