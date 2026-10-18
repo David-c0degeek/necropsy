@@ -64,3 +64,21 @@ Open: exact native/foreign/ranked targets, successful owned interrupts and
 magic removals, hostile heal/cast/instance opportunity, observed position/tank
 and pet/summon duty, all legal class/faction/tank/loadout/item examples and human
 domain/product review. Representative captures do not complete a matrix cell.
+
+## Raid-roster interruption supplement — 2026-10-18
+
+Independent whole-fight All enumeration of the registered Restoration archive
+retains28 interruption rows across six Sulfuron contexts. Four are friendly
+raid-roster Shaman effects interrupting Dark Mending19775 on NPC11662:
+Sabshaw25 and Minni5 in P2tLhDTdzZnVQ31j/41 (target127/instance3), and
+Healybeams38 in PtdbfVR2rBG3pxKT/49 (target136/instances3 and1). None belongs
+to the selected Restoration actor. The six frozen cases and all other-class
+counterexamples are in `tests/golden/raids/interrupt-facts.json`.
+
+The new optional raid context is separate from the owned-utility requirement
+above; that requirement remains open. All/merged-event proof and selected roster
+bindings qualify counts. Both pages show actual sources, instances and unknown
+totals without player credit, talent inference, opportunities or quality grades.
+The primary [DBM r832 module](https://github.com/DeadlyBossMods/DBM-Vanilla/blob/r832/DBM-Raids-Vanilla/MC/Sulfuron.lua)
+confirms cast19775/interruption handling. Its nominal timer does not resolve the
+existing timing conflict, and no numeric cast/opportunity window is activated.

@@ -91,6 +91,10 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 | PM-2 | Confirmed Prediction | Medium | Before production | Effective | Accurate | Five personal ranking-selected Elemental contexts have unknown actual duty, not verified healer/DPS roles. Four raw damage0 and one584 remain excluded; only25 positive peers across five bosses qualify new cells. research/elemental-initial-review.json |
 | PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Thirty independently frozen contexts/16 pet actors, exact source/installed/native outputs and privacy checks preserve every prior register; quota and missing evidence remain explicit. research/elemental-initial-review.json |
 
+| PM-1 | Prevented Prediction | None | Before production | Effective | Accurate | Prevented Prediction: shared saved context/rendering adds useful named raid observations without a new class renderer, personal metrics or ranking claim. research/raid-interrupt-review.json |
+| PM-2 | Prevented Prediction | None | Before production | Effective | Accurate | Prevented Prediction: reviewers exposed missing NPC roster binding false-zero and raw numeric eligibility aliases before shipping; fixes and mutations preserve attribution/unknowns. research/raid-interrupt-review.json |
+| PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Prevented Prediction: independent freeze precedes checker/model, actorless All/event-set proof qualifies counts, direct occurrences avoid join amplification and source/installed/controls preserve prior outputs. research/raid-interrupt-review.json |
+
 ## Misses
 
 > A miss is a meaningful failure, regression, or material risk discovered after

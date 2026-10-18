@@ -200,3 +200,12 @@ all-summon total. These optional saved fields do not modify actor support,
 recorded WCL scores or older saved analyses. Each entry groups all logged
 instances of the same pet actor; it does not identify a physical summon lifetime
 or uptime window.
+
+Optional raid-roster interruption context names the actual source actor, stopped
+spell and recorded target instance. It is separate from selected-player utility.
+Trusted unrestricted All and exact merged-event proof qualify complete counts;
+unselected raid actors need no individual SOURCE stream. Possible interruption
+rows are validated before exclusion. Partial coverage or malformed rows withhold
+the total while independently qualified positive effects remain observed. A zero
+describes matching retained raid-roster effects, not personal non-use. These
+measurements imply no opportunities, assignment, reaction or quality grade.

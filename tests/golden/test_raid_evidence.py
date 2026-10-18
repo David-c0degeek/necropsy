@@ -57,6 +57,10 @@ def test_independent_owned_mechanic_removals() -> None:
     assert check_register(ROOT / "removal-facts.json") == []
 
 
+def test_independent_raid_interrupt_observations() -> None:
+    assert check_register(ROOT / "interrupt-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -166,6 +170,55 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_owned_pets(doc, fixture["label"], db)
     _assert_summon_bounds(doc, observations_fixture, out)
     _assert_mechanic_removals(doc, observations_fixture, out)
+    _assert_raid_interrupts(doc, fixture["label"], out)
+
+
+def _assert_raid_interrupts(doc: dict[str, Any], fixture: str, out: Path) -> None:
+    cases = [
+        c
+        for c in json.loads((ROOT / "interrupt-facts.json").read_bytes())["cases"]
+        if c["fixture"] == fixture
+    ]
+    for case in cases:
+        boss = next(b for b in doc["bosses"] if b["encounter_id"] == 50669)
+        contexts = boss["playbook"]["raid_interrupt_contexts"]
+        assert len({(c["report_code"], c["fight_id"]) for c in contexts}) == len(contexts)
+        [context] = [
+            c
+            for c in contexts
+            if (c["report_code"], c["fight_id"]) == (case["report"], case["fight"])
+        ]
+        expected = case["expected"]["qualified_interrupts"]
+        assert context["interrupts"]["value"] == len(expected)
+        assert context["scope"] == "friendly-raid-roster"
+        assert context["interrupts"]["coverage"] == [
+            {
+                "report": case["report"],
+                "fight": case["fight"],
+                "actor": None,
+                "direction": "all",
+                "trusted": True,
+                "role": "encounter",
+            }
+        ]
+        assert [e["value"] for e in context["observations"]] == [
+            dict(
+                source_actor_id=e["source"],
+                source_name=e["source_name"],
+                source_class="Shaman",
+                target_actor_id=e["target"],
+                target_game_id=11662,
+                target_instance=e["target_instance"],
+                elapsed_ms=e["ms"],
+                interrupt_ability_id=e["ability"],
+                stopped_ability_id=19775,
+            )
+            for e in expected
+        ]
+        for name in ("report.html", "playbook.html"):
+            html = unescape((out / name).read_text(encoding="utf-8"))
+            assert "not credited to the selected player or ranking category" in html
+            assert all(f"{e['source_name']} (raid Shaman {e['source']})" in html for e in expected)
 
 
 def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> None:

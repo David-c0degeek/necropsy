@@ -633,6 +633,159 @@ def _raw_recipient_catalog(bundle: dict[str, Any]) -> dict[int, dict[str, Any]]:
     return result
 
 
+def raw_raid_interrupt_facts(
+    archive: VerifiedArchive,
+    report: str,
+    fight: int,
+    source_class: str,
+    target_game_ids: list[int],
+    stopped_ability_ids: list[int],
+) -> dict[str, Any]:
+    """Raid-roster effects, independent of selected-actor streams or ranking credit."""
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    selected = _selected_raw_fight(bundle, fight)
+    catalog = _raw_recipient_catalog(bundle)
+    marker = archive.read_json("necropsy-snapshot.json")
+    if (
+        any(
+            type(value) is not int or value < 1
+            for value in (
+                marker["zone"]["id"],
+                marker["zone"]["partition"],
+                selected.get("encounterID"),
+            )
+        )
+        or type(bundle.get("revision")) is not int
+        or bundle["revision"] < 0
+    ):
+        raise ValueError("raid interrupt eligibility metadata is malformed")
+    # Validate immutable All/critical request identities and page hashes too.
+    raw_encounter_facts(archive, report, selected, bundle)
+    players = selected.get("friendlyPlayers")
+    if (
+        not isinstance(players, list)
+        or not players
+        or any(type(p) is not int or p < 1 for p in players)
+        or len(set(players)) != len(players)
+        or any(
+            catalog.get(p, {}).get("type") != "Player"
+            or not isinstance(catalog[p].get("subType"), str)
+            or not catalog[p]["subType"]
+            for p in players
+        )
+    ):
+        raise ValueError("raid interrupt friendly roster/class binding is unresolved")
+    enemies = selected.get("enemyNPCs")
+    if not isinstance(enemies, list) or not enemies:
+        raise ValueError("raid interrupt target roster is unresolved")
+    seen: set[int] = set()
+    targets = []
+    for enemy in enemies:
+        if (
+            not isinstance(enemy, dict)
+            or type(enemy.get("id")) is not int
+            or enemy["id"] < 1
+            or enemy["id"] in seen
+            or enemy["id"] in players
+            or type(enemy.get("gameID")) is not int
+            or enemy["gameID"] < 1
+            or catalog.get(enemy["id"], {}).get("type") != "NPC"
+            or catalog[enemy["id"]].get("gameID") != enemy["gameID"]
+            or type(enemy.get("instanceCount")) is not int
+            or enemy["instanceCount"] < 1
+        ):
+            raise ValueError("raid interrupt NPC identity/instance binding is invalid")
+        seen.add(enemy["id"])
+        if enemy["gameID"] in target_game_ids:
+            targets.append(
+                dict(id=enemy["id"], game_id=enemy["gameID"], instances=enemy["instanceCount"])
+            )
+    if not targets:
+        raise ValueError("raid interrupt eligible NPC binding is absent")
+    events, pages = _pages(
+        archive,
+        f"events/{report}/fight_{fight}/encounter",
+        "all",
+        selected["startTime"],
+        selected["endTime"],
+    )
+    rows = []
+    offset = 0
+    for member in pages:
+        page = archive.read_json(member)["data"]
+        for index, event in enumerate(page):
+            if not isinstance(event.get("type"), str) or not event["type"]:
+                raise ValueError("raid interrupt event type is unresolved")
+            if event["type"] != "interrupt":
+                continue
+            _raw_event_chronology(event, selected)
+            if any(
+                type(event.get(k)) is not int or event[k] < 1
+                for k in ("sourceID", "targetID", "abilityGameID", "extraAbilityGameID")
+            ):
+                raise ValueError("raid interrupt event identities are invalid")
+            source, target = catalog.get(event["sourceID"]), catalog.get(event["targetID"])
+            if source is None or target is None:
+                raise ValueError("raid interrupt catalog binding is missing")
+            instance = event.get("targetInstance")
+            bindings = [p for p in targets if p["id"] == event["targetID"]]
+            if instance is not None and (
+                type(instance) is not int
+                or instance < 1
+                or (bindings and instance > bindings[0]["instances"])
+            ):
+                raise ValueError("raid interrupt target instance is invalid")
+            rows.append(
+                dict(
+                    ms=event["timestamp"] - selected["startTime"],
+                    source=event["sourceID"],
+                    source_name=source.get("name"),
+                    source_type=source.get("type"),
+                    source_class=source.get("subType"),
+                    friendly=event["sourceID"] in players,
+                    target=event["targetID"],
+                    target_type=target.get("type"),
+                    target_game_id=target.get("gameID"),
+                    target_instance=instance,
+                    ability=event["abilityGameID"],
+                    stopped=event["extraAbilityGameID"],
+                    member=member,
+                    index=index,
+                )
+            )
+        offset += len(page)
+    assert offset == len(events)
+    return {
+        "zone_id": marker["zone"]["id"],
+        "partition": marker["zone"]["partition"],
+        "encounter_id": selected["encounterID"],
+        "revision": bundle["revision"],
+        "duration_ms": selected["endTime"] - selected["startTime"],
+        "friendly_players": [
+            dict(
+                id=p,
+                type=catalog[p]["type"],
+                **{"class": catalog[p]["subType"]},
+                name=catalog[p].get("name"),
+            )
+            for p in players
+        ],
+        "targets": targets,
+        "all_pages": pages,
+        "interrupt_rows": rows,
+        "qualified_interrupts": [
+            row
+            for row in rows
+            if row["source_type"] == "Player"
+            and row["source_class"] == source_class
+            and row["friendly"]
+            and row["target_type"] == "NPC"
+            and any(p["id"] == row["target"] for p in targets)
+            and row["stopped"] in stopped_ability_ids
+        ],
+    }
+
+
 def raw_healing_facts(
     archive: VerifiedArchive, report: str, fight: int, actor: int, boss_game_ids: list[int]
 ) -> dict[str, Any]:
@@ -1041,6 +1194,7 @@ def check_register(path: Path) -> list[str]:
         "owned-pets",
         "npc-summons",
         "mechanic-removals",
+        "raid-interrupts",
     }:
         raise ValueError("unsupported independent fact register kind")
     problems = []
@@ -1065,7 +1219,26 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            if kind == "mechanic-removals":
+            if kind == "raid-interrupts":
+                if case.get("source_class") != "Shaman" or any(
+                    not isinstance(values, list)
+                    or not values
+                    or any(type(value) is not int or value < 1 for value in values)
+                    or len(set(values)) != len(values)
+                    for values in (case.get("target_game_ids"), case.get("stopped_ability_ids"))
+                ):
+                    raise ValueError(
+                        "raid interrupt facts need exact class and unique NPC/spell IDs"
+                    )
+                actual = raw_raid_interrupt_facts(
+                    archive,
+                    case["report"],
+                    case["fight"],
+                    case["source_class"],
+                    case["target_game_ids"],
+                    case["stopped_ability_ids"],
+                )
+            elif kind == "mechanic-removals":
                 selectors = [
                     case.get(key)
                     for key in ("removed_ability_ids", "removing_ability_ids", "cast_ability_ids")

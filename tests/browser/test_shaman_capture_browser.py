@@ -47,6 +47,10 @@ def shaman_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
     hardzen = next(e for e in examples if e["player"] == "Hardzen")
     assert hardzen["support"]["healing"]["value"] == 683
     assert all(e["support"]["healing"]["value"] is not None for e in examples)
+    sulfuron = next(b for b in doc["bosses"] if b["encounter_id"] == 50669)
+    contexts = sulfuron["playbook"]["raid_interrupt_contexts"]
+    assert len(contexts) == 6
+    assert sorted(c["interrupts"]["value"] for c in contexts) == [0, 0, 0, 0, 2, 2]
     return out
 
 
@@ -103,6 +107,18 @@ def test_real_shaman_support_keeps_ownership_unknown(shaman_site: Path, width: i
                 )
                 page.emulate_media(media="print")
                 assert summon.is_visible()
+                sulfuron = page.locator("#boss-50669")
+                interruption = sulfuron.get_by_text("Sabshaw (raid Shaman 25)", exact=False).first
+                interruption.scroll_into_view_if_needed()
+                assert interruption.is_visible()
+                for text in (
+                    "Minni (raid Shaman 5)",
+                    "Healybeams (raid Shaman 38)",
+                    "not credited to the selected player or ranking category",
+                    "instance 3",
+                    "instance 1",
+                ):
+                    assert text in sulfuron.inner_text()
                 assert page.evaluate(
                     "document.documentElement.scrollWidth <= window.innerWidth + 1"
                 )

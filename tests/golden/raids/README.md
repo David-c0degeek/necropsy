@@ -277,3 +277,16 @@ with one confirmed partial list and no wholly missing listing file. The normal
 quota stop, remaining comparisons, class advice and full cell acceptance remain
 open. Only five new cells enter IN_PROGRESS; no cell completes. All prior699
 actor/440 recipient/154 pet contexts and48 provenance records remain unchanged.
+
+`interrupt-facts.json` independently freezes six Restoration Sulfuron raid
+contexts:28 All interruption rows, including four friendly-roster Shaman effects
+against Dark Mending19775 on selected-roster Flamewaker Priest11662 instances.
+All friendly class bindings, eligible target cardinalities, other-class rows,
+raw page/index locators and complete zeros are retained. The expectations were
+enumerated from ZIP pages before the checker/model existed. These effects belong
+to Sabshaw, Minni and Healybeams; they do not supply selected-player utility,
+talent, opportunity or quality evidence. Check with:
+
+```sh
+uv run python scripts/check_raid_facts.py tests/golden/raids/interrupt-facts.json
+```

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-18",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/DeadlyBossMods/DBM-Vanilla/r832/DBM-Raids-Vanilla/MC/Sulfuron.lua",
+      "kind": "primary pinned source",
+      "retrieval": "ordinary public HTTPS download, local source inspected",
+      "sha256": "776a18e00601847995349566f5cfec5ebe2c0a728f05ac422bcfd225baa4e851",
+      "supported_claim": "Registers cast19775 and interruption events; extraSpellId19775 stops target timer. Era boss12098 separate from seasonal228436.",
+      "unsupported_claims": [
+        "measured or universal cast duration",
+        "available opportunities",
+        "player assignment",
+        "reaction quality",
+        "saved healing"
+      ]
+    },
+    {
+      "url": "https://es.classic.warcraftlogs.com/scripting-api-docs/warcraft/interfaces/RpgLogs.InterruptEvent.html",
+      "kind": "official indexed documentation",
+      "retrieval": "indexed official InterruptEvent documentation; canonical direct open403, localized cache miss; no authenticated execution",
+      "supported_claim": "Scripting interface has type interrupt, ability and stoppedAbility plus source/target actor-instance fields.",
+      "representation_boundary": "Frozen GraphQL raw events use extraAbilityGameID, not stoppedAbility. No runtime alias introduced."
+    }
+  ],
+  "oracle": "WCL browser connection unavailable; no scripting oracle measured or substitute authenticated route attempted.",
+  "raw_freeze": {
+    "path": "tests/golden/raids/interrupt-facts.json",
+    "sha256": "7f1c57d8c2f33043fb176892b580a22526356d77f64b63d7ef754a6f66dc7159",
+    "method": "Independent ZIP-only enumeration before checker/model. Reviewer independently confirmed six contexts,28 All interrupt rows,4 Shaman Dark Mending effects.",
+    "selected_player_credit": false
+  }
+}

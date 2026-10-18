@@ -215,3 +215,9 @@ Generic Era class pet entries reuse recipient-qualified healing after individual
 ownership and full event integrity checks. Optional saved summon examples flow
 through the shared healing context to both pages, separately from actor metrics
 and WCL scores. See [owned summon healing](decisions/0018-owned-summon-healing.md).
+
+Raid interruption context uses the same saved playbook and shared rendering
+seams, deduplicated by report/fight rather than attached to each selected player.
+Its actorless All coverage and merged-event proof qualify complete counts;
+source catalog and selected rosters qualify each observed effect. See
+[raid interruption context](decisions/0019-raid-interruption-context.md).

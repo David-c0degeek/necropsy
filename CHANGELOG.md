@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Show raid-roster Shaman interruptions of Sulfuron's Dark Mending on both pages,
+  naming the actual sources and target instances. Keep selected-player utility,
+  ranking scores and unknown interrupt opportunities separate.
+
 - Show owned summon healing and credited absorption separately on both raid
   pages. Verify individual ownership and event integrity; keep actor totals,
   WCL scores and unresolved pet listings separate.

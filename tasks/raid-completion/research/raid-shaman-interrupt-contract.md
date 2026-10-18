@@ -62,3 +62,5 @@ negatives, hidden raw/normalized rows and duplicate metadata, explicit raid-owne
 wording on both pages, preserved actor metrics/old saved documents, current
 source/installed CLI/package equivalence and Naxx/Priest/Paladin controls. Review
 the real Shaman pages and calibrate PM-1/2/3 before accepting this narrow change.
+
+Checkpoint update2026-10-18: narrow implementation verified under D026/ADR0019; research/raid-interrupt-review.json records checks and fixes. The original pre-implementation contract is retained. Full class/domain/product gates and selected-player interrupt evidence remain open.

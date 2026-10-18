@@ -68,6 +68,12 @@ individually verified summon healing and credited absorption separately from
 actor support, with whole-fight rates and explicit listing/quality limits.
 These observations do not reconcile WCL HPS or complete summon-specific guidance.
 
+Sulfuron Shaman reports show raid-roster interruptions of Dark Mending with actual
+sources and Priest target instances. Four independently verified effects occur
+in two of six Restoration-context fights. They remain separate from selected
+player credit, ranking category and interrupt opportunities. Incomplete coverage
+withholds an exact count while retaining qualified positive observations.
+
 Initial Elemental/Horde/DPS evidence is partial:25 comparison actors cover five
 bosses, while five personal ranking-selected contexts have unknown duty and remain
 excluded from personal assessment. Known individual damage totems remain visible

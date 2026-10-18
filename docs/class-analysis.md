@@ -131,6 +131,12 @@ rate separately from actor support. Conflicting ownership or incomplete event
 evidence remains unknown. This does not establish a WCL HPS policy or complete
 summon coaching.
 
+Shaman Sulfuron reports also retain separate raid-roster interruptions of Dark
+Mending. Six independently checked fights contain four qualified effects by
+Sabshaw, Minni and Healybeams; these are other raid members, not the selected
+Restoration players. Both pages retain actual source names and target instances.
+The count cannot establish talent builds, assignments or missed opportunities.
+
 An initial Elemental Shaman capture retains25 DPS comparison actors across five
 MC bosses and five personal ranking-selected contexts with unknown duty. The
 latter remain excluded from personal DPS assessment; a ranking label alone does

@@ -103,6 +103,46 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    raid_interrupts = playbook.get("raid_interrupt_contexts", ())
+    if raid_interrupts:
+        view = dict(view)
+        interrupt_lines = []
+        for context in raid_interrupts:
+            count = context["interrupts"]["value"]
+            summary = (
+                "Recorded interruption observations; complete count unknown."
+                if count is None
+                else "No matching raid-roster Shaman interruptions recorded in this fight."
+                if count == 0
+                else f"{number(count)} successful Shaman interruptions of Dark Mending recorded."
+            )
+            interrupt_lines.append(
+                line(
+                    f"Raid interruption context — report {context['report_code']}, "
+                    f"fight {context['fight_id']}. {summary}",
+                    context["limitation"],
+                )
+            )
+            for observation in context["observations"]:
+                event = observation["value"]
+                instance = event["target_instance"]
+                interrupt_lines.append(
+                    line(
+                        f"{event['source_name']} (raid Shaman {event['source_actor_id']}): "
+                        f"interrupted Dark Mending on Flamewaker Priest {event['target_actor_id']} "
+                        f"(instance {instance if instance is not None else 'unknown'}) at "
+                        f"{event['elapsed_ms'] / 1000:.3f}s, "
+                        f"ability {event['interrupt_ability_id']}.",
+                    )
+                )
+        interrupt_lines.append(
+            line(
+                "Agree an interrupt order and backup coverage for Dark Mending.",
+                "Coordination prompt; the observations assign no player a duty.",
+            )
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *interrupt_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *interrupt_lines)
     effects = playbook.get("encounter_effects")
     if effects:
         view = dict(view)

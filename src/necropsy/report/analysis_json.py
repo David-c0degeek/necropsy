@@ -821,6 +821,7 @@ def build_document(
             control,
             duty,
             effects,
+            interrupts,
             removal_exposure,
             summons,
             windows,
@@ -828,6 +829,12 @@ def build_document(
         from necropsy.analysis.encounters.strategy import encounter_strategy
 
         for boss, data in zip(bosses, boss_data, strict=True):
+            raid_interrupts = interrupts.contexts(
+                con,
+                [entry.participant for entry in (data.subject, *data.cohort) if entry is not None],
+            )
+            if raid_interrupts:
+                boss["playbook"]["raid_interrupt_contexts"] = to_data(raid_interrupts)
             if data.subject is not None and duty.applies(con, data.subject.participant):
                 boss["playbook"]["duty_context"] = to_data(
                     duty.context(con, data.subject.participant)
