@@ -45,6 +45,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 2 / Priest Geddon utility and first Paladin acquisition.
+Geddon Priest policy reuses shared exact removal counts and adds qualified
+exposure/self-removal pairing with concrete coordination text. Six independent
+contexts include one positive/five zeros and a wrong-mechanic effect;1608ms is
+recorded exposure, not reaction quality. Real pages, installed CLI/package,
+source-equivalence and Naxx controls pass. Normal Paladin full-MC resume retains
+60 selected actors/five cohorts per boss, one unknown guardian owner and two
+empty enemy-roster recipient gaps;60 actor/58 recipient candidates independently
+pass but remain unregistered. Review: research/geddon-removal-review.json.
+Other missing families, all-class advice and domain/product duties remain open.
+59 IN_PROGRESS/893 TODO/0 COMPLETE; DO NOT CLOSE.
+
 2026-10-18 / slice 1 / Qualified Priest Blue-affliction removals.
 Six independently frozen Holy Priest contexts retain three owned988 effects,
 four known-zero actors, five other-owner negatives and a cast-only

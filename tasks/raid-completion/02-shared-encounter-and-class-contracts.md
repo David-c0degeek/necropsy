@@ -44,6 +44,19 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 32 / Explicit exposure alongside self-removal.
+Optional shared personal/cohort records retain integer aura endpoints, elapsed
+milliseconds, unique owned removal and exact event refs. Complete source/target
+and merged All coverage plus raw identity/chronology qualify the new Priest
+Geddon policy. Refresh/stack/reapply/lifecycle ambiguity withholds pairing;
+standalone counts remain independent. Both existing pages render saved
+coordination text and causal/quality/opportunity limits. No schema migration or
+class/raid renderer.1845 ordinary tests pass; final219 raw cases and real
+MC/BWL desktop/mobile/print, source/installed/CLI/package and Naxx checks pass.
+Only three Geddon fields differ from immutable prior-wheel MC model.
+Review: research/geddon-removal-review.json; D023/ADR0015. Full shared contracts,
+class recommendations and domain/product gates remain open. DO NOT CLOSE.
+
 2026-10-18 / slice 31 / Qualified Priest Blue-affliction removals.
 Six independently frozen Holy Priest contexts retain three owned988 effects,
 four known-zero actors, five other-owner negatives and a cast-only

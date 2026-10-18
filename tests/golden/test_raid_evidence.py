@@ -175,9 +175,10 @@ def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> N
             continue
         boss = next(b for b in doc["bosses"] if b["encounter_id"] == case["encounter_id"])
         subject = boss["subject"]
-        personal = subject and (subject["report_code"], subject["fight_id"]) == (
+        personal = subject and (subject["report_code"], subject["fight_id"], subject["player"]) == (
             case["report"],
             case["fight"],
+            case["player"],
         )
         if personal:
             removals = boss["playbook"]["mechanic_removals"]
@@ -185,10 +186,11 @@ def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> N
             example = next(
                 e
                 for e in boss["playbook"]["cohort_mechanic_removals"]
-                if (e["report_code"], e["fight_id"]) == (case["report"], case["fight"])
+                if (e["report_code"], e["fight_id"], e["player"])
+                == (case["report"], case["fight"], case["player"])
             )
             removals = example["removals"]
-        [removal] = removals
+        [removal] = [r for r in removals if r["removed_ability_ids"] == case["removed_ability_ids"]]
         expected = case["expected"]["owned_removals"]
         assert removal["removals"]["value"] == len(expected)
         assert removal["observations"]["value"] == [
@@ -208,10 +210,33 @@ def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> N
                 html = unescape((out / page).read_text(encoding="utf-8"))
                 prefix = "" if personal else f"{case['player']} · "
                 assert (
-                    f"{prefix}Brood Affliction Blue removals: {len(expected)} "
+                    f"{prefix}{removal['label']}: {len(expected)} "
                     "recorded successful effects." in html
                 )
                 assert "Missing opportunity evidence cannot support a utility score." in html
+        if case["encounter_id"] == 50668:
+            if personal:
+                paired = boss["playbook"].get("exposure_removal_correlations", [])
+            else:
+                paired = next(
+                    (
+                        e["correlations"]
+                        for e in boss["playbook"].get("cohort_exposure_removal_correlations", [])
+                        if (e["report_code"], e["fight_id"], e["player"])
+                        == (case["report"], case["fight"], case["player"])
+                    ),
+                    [],
+                )
+            if case["player"] == "Inkia":
+                assert len(paired) == 1
+                assert paired[0]["intervals_ms"]["value"] == [[7667, 9275, 1608, 988]]
+                for page in ("report.html", "playbook.html"):
+                    html = unescape((out / page).read_text(encoding="utf-8"))
+                    assert "recorded exposure from 7.667s to 9.275s (1.608s)" in html
+                    assert "Agree self-clear priorities" in html
+                    assert "reaction quality" in html
+            else:
+                assert paired == []
 
 
 def _assert_summon_bounds(doc: dict[str, Any], fixture: str, out: Path) -> None:

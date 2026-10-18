@@ -667,14 +667,28 @@ def raw_healing_facts(
         raise ValueError("raw healing boss selectors are invalid")
     rows = _events(archive, report, fight, actor, f["startTime"], f["endTime"])
     friends = {actor, *players, *pets}
-    bosses = {
-        a["id"]
-        for a in catalog.values()
-        if a.get("type") == "NPC" and a.get("gameID") in boss_game_ids
-    }
+    enemies = f.get("enemyNPCs")
+    if not isinstance(enemies, list) or any(not isinstance(row, dict) for row in enemies):
+        raise ValueError("raw healing boss identities need an explicit fight NPC roster")
+    bosses = set()
+    for row in enemies:
+        if row.get("gameID") not in boss_game_ids:
+            continue
+        identity, game_id = row.get("id"), row.get("gameID")
+        if (
+            type(identity) is not int
+            or identity < 1
+            or identity in bosses
+            or type(game_id) is not int
+            or game_id < 1
+            or catalog.get(identity, {}).get("type") != "NPC"
+            or catalog[identity].get("gameID") != game_id
+        ):
+            raise ValueError("raw healing boss fight/catalog identities are ambiguous or conflict")
+        bosses.add(identity)
     bound_game_ids = {catalog[identity]["gameID"] for identity in bosses}
     if not set(boss_game_ids) <= bound_game_ids:
-        raise ValueError("raw healing boss selectors lack exact NPC catalog identities")
+        raise ValueError("raw healing boss selectors lack exact fight NPC catalog identities")
     if friends & bosses:
         raise ValueError("raw healing friendly and boss identities conflict")
     totals: dict[str, int | float] = defaultdict(int)

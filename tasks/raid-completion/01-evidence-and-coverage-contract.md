@@ -37,6 +37,22 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 30 / Geddon utility and selected-fight recipient identities.
+Six direct raw Priest contexts freeze one988 Ignite Mana removal and five zeros;
+Inkia's explicit endpoints support1608ms recorded exposure alongside self-dispel.
+Independent investigation corrects24 older Shazzrah/Geddon selector metadata
+swaps while preserving all322 expected measurements and all original archives.
+The raw checker now requires matching selected enemy-roster/catalog identities;
+219 raw negatives/controls and all322 existing recipient cases pass. Runtime,
+real/browser/source/installed/CLI/Naxx verification is recorded in
+research/geddon-removal-review.json. Normal Paladin resume finalizes60 selected
+actors/59 fights; raw/member/privacy and60 actor/58 recipient candidates pass,
+but one guardian and two empty enemy-roster qualification gaps remain explicit.
+New Paladin evidence is not registered or counted in this checkpoint.
+46 archives/579 actors/322 recipients/12 removal contexts;59 IN_PROGRESS/
+893 TODO/0 COMPLETE. Keep independent facts/shared seams; full boss/class,
+ranking/opportunity and domain/product obligations remain open. DO NOT CLOSE.
+
 2026-10-18 / slice 29 / Exact recipient-fact identities and chronology.
 Read-only review found that integer-valued floats, wrong event fights and
 changed owner/boss types could preserve frozen arithmetic. Root hardened only

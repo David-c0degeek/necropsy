@@ -1,0 +1,214 @@
+{
+  "recorded": "2026-10-18",
+  "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+  "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+  "basis": "Direct source-page enumeration before Geddon policy activation or correlation modeling; no analyzer/normalizer. Source folder does not imply event ownership. Independent reviewer locators separately agreed.",
+  "cases": [
+    {
+      "fixture": "mc-holy-raid-context",
+      "report": "1QatCkbxLyrZzNAg",
+      "fight": 15,
+      "actor": 21,
+      "player": "Inkia",
+      "encounter_id": 50668,
+      "kind": "top",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 1,
+        "duration_ms": 16285,
+        "actor_class": "Priest",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/1QatCkbxLyrZzNAg/fight_15/player_21_Inkia/source_001.json"
+        ],
+        "owned_removals": [
+          {
+            "ms": 9275,
+            "source": 21,
+            "target": 21,
+            "ability": 988,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/1QatCkbxLyrZzNAg/fight_15/player_21_Inkia/source_001.json",
+            "index": 41
+          }
+        ],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": [
+          [
+            9275,
+            988
+          ]
+        ]
+      },
+      "aura_source_observations": [
+        {
+          "ms": 7667,
+          "kind": "applydebuff",
+          "member": "events/1QatCkbxLyrZzNAg/fight_15/player_21_Inkia/source_001.json",
+          "index": 32
+        },
+        {
+          "ms": 9275,
+          "kind": "removedebuff",
+          "member": "events/1QatCkbxLyrZzNAg/fight_15/player_21_Inkia/source_001.json",
+          "index": 40
+        }
+      ],
+      "owned_other_spell_removals": []
+    },
+    {
+      "fixture": "mc-holy-raid-context",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 3,
+      "player": "Youngthotty",
+      "encounter_id": 50668,
+      "kind": "top",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 2,
+        "duration_ms": 11280,
+        "actor_class": "Priest",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/CBz1hnGRXbdYAZ8y/fight_11/player_3_Youngthotty/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "aura_source_observations": [],
+      "owned_other_spell_removals": []
+    },
+    {
+      "fixture": "mc-holy-raid-context",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 14,
+      "player": "Linkitcraig",
+      "encounter_id": 50668,
+      "kind": "top",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 2,
+        "duration_ms": 11280,
+        "actor_class": "Priest",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/CBz1hnGRXbdYAZ8y/fight_11/player_14_Linkitcraig/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "aura_source_observations": [],
+      "owned_other_spell_removals": []
+    },
+    {
+      "fixture": "mc-holy-raid-context",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 17,
+      "player": "Immateriall",
+      "encounter_id": 50668,
+      "kind": "top",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 2,
+        "duration_ms": 11280,
+        "actor_class": "Priest",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/CBz1hnGRXbdYAZ8y/fight_11/player_17_Immateriall/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": [
+          [
+            796,
+            988
+          ]
+        ]
+      },
+      "aura_source_observations": [],
+      "owned_other_spell_removals": [
+        {
+          "member": "events/CBz1hnGRXbdYAZ8y/fight_11/player_17_Immateriall/source_001.json",
+          "index": 2,
+          "event": {
+            "abilityGameID": 988,
+            "extraAbilityGameID": 19635,
+            "fight": 11,
+            "isBuff": false,
+            "sourceID": 17,
+            "targetID": 17,
+            "timestamp": 2608093,
+            "type": "dispel"
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "mc-holy-raid-context",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 20,
+      "player": "Divam",
+      "encounter_id": 50668,
+      "kind": "top",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 2,
+        "duration_ms": 11280,
+        "actor_class": "Priest",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/CBz1hnGRXbdYAZ8y/fight_11/player_20_Divam/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "aura_source_observations": [],
+      "owned_other_spell_removals": []
+    },
+    {
+      "fixture": "mc-holy-raid-context",
+      "report": "fdRrFwaKmvy3xJZD",
+      "fight": 10,
+      "actor": 7,
+      "player": "Almsivi",
+      "encounter_id": 50668,
+      "kind": "you",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 1,
+        "duration_ms": 16240,
+        "actor_class": "Priest",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/fdRrFwaKmvy3xJZD/fight_10/player_7_Almsivi/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "aura_source_observations": [
+        {
+          "ms": 16037,
+          "kind": "applydebuff",
+          "member": "events/fdRrFwaKmvy3xJZD/fight_10/player_7_Almsivi/source_001.json",
+          "index": 93
+        }
+      ],
+      "owned_other_spell_removals": []
+    }
+  ]
+}

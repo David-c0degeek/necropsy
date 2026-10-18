@@ -47,6 +47,19 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 15 / Geddon Priest successful removal and exposure pairing.
+One owned988 removal of19659 and five zero actors are independently frozen;
+Immateriall's19635 removal is excluded. Inkia's7.667/9.275-second endpoints
+produce1608ms recorded exposure alongside self-dispel and a healing-team
+self-clear/backup-coverage ask, without a reaction/causation/mana-saving claim.
+1845 ordinary tests, final219 raw checks, two real golden checks and four
+MC/BWL browser cases pass. Source/installed/actual CLI four artifacts agree;
+three intended MC fields change and all four Naxx artifacts are preserved.
+Raw recipient selector metadata corrected against exact fight rosters with all
+prior amounts unchanged. Qualified Paladin candidates await separate registration.
+Review: research/geddon-removal-review.json. Keep explicit limits/shared seams;
+finish full class/faction/duty/phase/ranking/domain/product work. DO NOT CLOSE.
+
 2026-10-18 / slice 14 / Genuine death and Feign Death checkpoint.
 Vadik Hunter Geddon ApbxvjzTX8mqVnY1/25 actor11 applies19659 at14980ms, feigns15460ms and takes nine later19659 ticks. New raw/manual oracle confirms28133ms affected and14980ms initially unknown over43113ms. Old installed replay reproduced0.480s; current source/installed/normal installed CLI agree on28.133s and both-page content. No inferred mana loss, bomb/Inferno opportunity or quality grade.
 

@@ -817,7 +817,14 @@ def build_document(
             ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     if zone != "naxxramas":
-        from necropsy.analysis.encounters import control, duty, effects, summons, windows
+        from necropsy.analysis.encounters import (
+            control,
+            duty,
+            effects,
+            removal_exposure,
+            summons,
+            windows,
+        )
         from necropsy.analysis.encounters.strategy import encounter_strategy
 
         for boss, data in zip(bosses, boss_data, strict=True):
@@ -831,6 +838,11 @@ def build_document(
                 removals = effects.mechanic_removals(con, data.subject.participant)
                 if removals:
                     boss["playbook"]["mechanic_removals"] = to_data(removals)
+                paired = removal_exposure.correlations(
+                    con, data.subject.participant, exposure, removals
+                )
+                if paired:
+                    boss["playbook"]["exposure_removal_correlations"] = to_data(paired)
                 controls = control.applications(con, data.subject.participant)
                 if controls:
                     boss["playbook"]["control_applications"] = to_data(controls)
@@ -844,6 +856,7 @@ def build_document(
             aura_examples = []
             effect_examples = []
             summon_examples = []
+            paired_examples = []
             for entry in data.cohort:
                 summoned = summons.summon_observations(con, entry.participant)
                 if summoned:
@@ -876,6 +889,16 @@ def build_document(
                         }
                     )
                 removals = effects.mechanic_removals(con, entry.participant)
+                paired = removal_exposure.correlations(con, entry.participant, exposure, removals)
+                if paired:
+                    paired_examples.append(
+                        {
+                            "player": entry.participant.player,
+                            "report_code": entry.participant.report_code,
+                            "fight_id": entry.participant.fight_id,
+                            "correlations": to_data(paired),
+                        }
+                    )
                 if removals:
                     removal_examples.append(
                         {
@@ -887,6 +910,8 @@ def build_document(
                     )
             if removal_examples:
                 boss["playbook"]["cohort_mechanic_removals"] = removal_examples
+            if paired_examples:
+                boss["playbook"]["cohort_exposure_removal_correlations"] = paired_examples
             if effect_examples:
                 boss["playbook"]["cohort_encounter_effects"] = effect_examples
             if aura_examples:

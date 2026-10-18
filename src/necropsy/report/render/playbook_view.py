@@ -272,6 +272,30 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), heading, *example_lines)
         view["pull_during"] = (*view.get("pull_during", ()), heading, *example_lines)
+    pairs = playbook.get("exposure_removal_correlations") or ()
+    pair_examples = playbook.get("cohort_exposure_removal_correlations") or ()
+    pair_lines = []
+    for prefix, correlations in [
+        ("", pairs),
+        *((f"{e['player']} · ", e["correlations"]) for e in pair_examples),
+    ]:
+        for correlation in correlations:
+            for start, end, elapsed, _spell in correlation["intervals_ms"].get("value") or ():
+                pair_lines.append(
+                    line(
+                        f"{prefix}{correlation['label']}: recorded exposure from "
+                        f"{start / 1000:.3f}s to {end / 1000:.3f}s ({elapsed / 1000:.3f}s), "
+                        "ending alongside an owned self-dispel.",
+                        correlation["limitation"],
+                        (source(correlation["source"], "Mechanic reference"),),
+                    )
+                )
+            if correlation["intervals_ms"].get("value"):
+                pair_lines.append(line(correlation["coordination"]))
+    if pair_lines:
+        view = dict(view)
+        view["duty_lines"] = (*view.get("duty_lines", ()), *pair_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *pair_lines)
     strategy = playbook.get("encounter_strategy")
     if not strategy:
         return view

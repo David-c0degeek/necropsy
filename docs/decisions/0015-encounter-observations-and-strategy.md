@@ -175,3 +175,15 @@ groups remain separate; no phase denominator, target eligibility or personal
 quality score is derived from these observations. Raw archives and prior
 expectations are immutable; old saved documents acquire no observations during
 rendering. Both personal and labelled comparison views use the saved data.
+
+Explicit aura endpoints can be retained alongside source-owned self-dispels
+through optional shared Playbook records. Pair only exact mechanic/recipient
+identity and integer timestamps with complete actor SOURCE/TARGET and encounter
+event-set proof. A recorded application must precede one removal endpoint;
+matching successful effects at that endpoint must be unique. Reapplications,
+refreshes, stacks, lifecycle interruptions and raw/projection conflicts withhold
+pairing. Genuine death and Feign Death remain distinct. Standalone removal counts
+do not depend on obtaining a pair. Endpoint coincidence is not causal ordering,
+reaction quality, saved mana/damage or an assigned dispel opportunity. Coordination
+text is sourced policy, saved with the record; rendering old documents cannot
+invent it. Initial applicability is the Priest Ignite Mana policy on Geddon.

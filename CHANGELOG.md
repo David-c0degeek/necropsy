@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Show recorded Priest Ignite Mana removals on Geddon and unambiguous exposure
+  endpoints alongside self-dispels. Keep coordination advice separate from
+  reaction quality, saved mana and unknown dispel opportunities.
+
 - Show recorded Priest Dispel Magic removals of Chromaggus Blue affliction,
   separate from casts and effects performed by other players. Keep conflicting
   ownership or chronology unknown instead of reporting a count or absence.

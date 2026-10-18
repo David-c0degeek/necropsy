@@ -39,6 +39,20 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 14 / Geddon utility rendering and installed verification.
+Four real MC/BWL desktop/mobile/print cases pass with visible limits, no remote
+requests/page errors/overflow. Source and installed outside-checkout JSON, both
+pages and package are byte-identical; actual installed offline CLI native0
+matches all four. Three intended Geddon model fields differ from immutable
+prior-wheel baseline; Naxx all four current artifacts preserve5dcc7f3 bytes.
+Candidate wheel140 source members match canonical/staged files, sdist excludes
+development data and193MB extracted output privacy scan is clean. Review and
+interim Hindsight: research/geddon-removal-review.json.1845 ordinary tests,
+final219 raw cases, two real goldens, lint/types/docs checks pass. Paladin
+acquisition/root raw review is preserved but separate registration/replay remains.
+Full GUI/class/library/domain/product and publication gates stay open.
+DO NOT CLOSE; no subject, full box or matrix cell closes.
+
 2026-10-18 / slice 13 / Qualified Priest Blue-affliction removals.
 Six independently frozen Holy Priest contexts retain three owned988 effects,
 four known-zero actors, five other-owner negatives and a cast-only

@@ -13,12 +13,14 @@ sync_api = pytest.importorskip("playwright.sync_api")
 ROOT = Path(__file__).parents[1] / "golden/raids"
 
 
-@pytest.fixture(scope="module")
-def priest_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
+@pytest.fixture(scope="module", params=["bwl-holy-raid-context", "mc-holy-raid-context"])
+def priest_site(
+    tmp_path_factory: pytest.TempPathFactory, request: pytest.FixtureRequest
+) -> tuple[Path, str]:
     fixture = next(
         f
         for f in json.loads((ROOT / "provenance.json").read_bytes())["fixtures"]
-        if f["label"] == "bwl-holy-raid-context"
+        if f["label"] == request.param
     )
     raw = ROOT / fixture["archive"]
     out = tmp_path_factory.mktemp("priest-removals")
@@ -30,13 +32,14 @@ def priest_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
         entries=load_entries_manifest(raw.with_suffix(".entries")),
         package=False,
     )
-    return out
+    return out, request.param
 
 
 @pytest.mark.parametrize("width", [1400, 390])
 def test_real_owned_removals_and_opportunity_limit_remain_visible(
-    priest_site: Path, width: int
+    priest_site: tuple[Path, str], width: int
 ) -> None:
+    site, fixture = priest_site
     with sync_api.sync_playwright() as pw:
         try:
             browser = pw.chromium.launch()
@@ -56,15 +59,28 @@ def test_real_owned_removals_and_opportunity_limit_remain_visible(
                         else None
                     ),
                 )
-                page.goto((priest_site / name).as_uri())
-                boss = page.locator("#boss-50616")
-                for count in (0, 1, 2):
+                page.goto((site / name).as_uri())
+                boss = page.locator("#boss-50616" if fixture.startswith("bwl") else "#boss-50668")
+                label = (
+                    "Brood Affliction Blue removals"
+                    if fixture.startswith("bwl")
+                    else "Ignite Mana removals"
+                )
+                for count in (0, 1, 2) if fixture.startswith("bwl") else (0, 1):
                     finding = boss.get_by_text(
-                        f"Brood Affliction Blue removals: {count} recorded successful effects.",
+                        f"{label}: {count} recorded successful effects.",
                         exact=False,
                     ).first
                     finding.scroll_into_view_if_needed()
                     assert finding.is_visible()
+                if fixture.startswith("mc"):
+                    paired = boss.get_by_text(
+                        "recorded exposure from 7.667s to 9.275s (1.608s)", exact=False
+                    ).first
+                    paired.scroll_into_view_if_needed()
+                    assert paired.is_visible()
+                    assert "Agree self-clear priorities" in boss.inner_text()
+                    assert "reaction quality" in boss.inner_text()
                 assert (
                     "Missing opportunity evidence cannot support a utility score."
                     in boss.inner_text()

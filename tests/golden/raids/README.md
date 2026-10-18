@@ -74,6 +74,10 @@ The independent checker requires exact integer fight, catalog and roster
 identities, bounded event chronology and an NPC catalog binding for every selected
 boss. Player game IDs remain a separate identity namespace. The raw Environment
 sentinel is preserved; contradictory friendly/boss membership is rejected.
+Boss bindings must also occur in the selected fight's `enemyNPCs` roster.
+Twenty-four older full-MC Priest cases had swapped Shazzrah/Geddon selector
+metadata; their selectors were corrected against raw named NPC and fight-roster
+bindings. Every frozen expected amount and original archive remains unchanged.
 
 The full `mc-holy-raid` capture retains its original ZIP, member manifest and
 hash filenames in a nested directory. Its 60 actor cases span all ten bosses
@@ -208,6 +212,11 @@ uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json
 `removal-facts.json` independently retains six existing Holy Priest Chromaggus
 contexts: three self-removal effects across two actors, four known-zero actors,
 five other-owner counterexamples and a cast-only Abolish Disease example.
+Six additional existing Geddon Priest contexts retain one owned988 removal of
+Ignite Mana19659 and five known-zero actors. Immateriall's19635 removal remains
+excluded. Inkia's explicit aura endpoints at7.667/9.275s agree with the self-dispel
+endpoint; the saved1608ms exposure interval is no reaction or avoided-damage
+score. Ambiguous pairing is withheld independently of successful-effect counts.
 SOURCE-page folders alone do not establish ownership. The raw projector retains
 exact event identities, source-member/index locators, elapsed timestamps and
 explicit buff flags. Validly rehashed owner, target, spell, flag and chronology

@@ -276,6 +276,22 @@ keeps the count unknown; a class outside applicability receives no counter.
 Magmadar's Hunter-only Frenzy policy requires the boss NPC and Tranquilizing
 Shot together; local Panic exposure remains available to other classes.
 
+Optional `playbook.exposure_removal_correlations` and
+`cohort_exposure_removal_correlations` retain explicit aura endpoints alongside
+owned self-dispels. Each mechanic saves `intervals_ms`: evidenced tuples of
+relative application, removal, elapsed milliseconds and removing spell ID,
+plus recipient, source and coordination text. The initial Priest Geddon policy
+requires trusted SOURCE/TARGET and exact encounter event-set coverage. Ambiguous
+applications, refreshes, stacks, lifecycle events or conflicting raw identity
+withhold pairing; standalone successful removals remain independent. Matching
+endpoint timestamps do not order the two events or prove causation. These are
+recorded exposure intervals, never reaction grades, saved mana/damage or dispel
+opportunities. Older saved documents acquire no pairing during rendering.
+
+Independent healing-recipient fixture checks bind each selected boss NPC through
+the selected fight's enemy roster and the report catalog. A same-named or
+numerically valid NPC elsewhere in the report cannot certify that classification.
+
 Schema1 adds optional top-level `taxonomy` in new live and non-Hunter class
 outputs. It contains the canonical tree names, WCL-namespaced comparison pool
 (class/category IDs, display label and API slug), optional user declaration,

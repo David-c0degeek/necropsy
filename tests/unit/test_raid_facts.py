@@ -757,6 +757,7 @@ def _healing_members() -> dict[str, Any]:
     catalog = members[BUNDLE]["reportData"]["report"]["masterData"]["actors"]
     catalog[0]["type"] = "Player"
     catalog[1]["type"] = "NPC"
+    members[BUNDLE]["reportData"]["report"]["fights"][0]["enemyNPCs"] = [{"id": 2, "gameID": 12118}]
     return members
 
 
@@ -1405,4 +1406,36 @@ def test_healing_boss_bindings_allow_multiple_npcs_and_separate_player_game_ids(
     members[BUNDLE]["reportData"]["report"]["masterData"]["actors"].extend(
         [{"id": 3, "type": "Player", "gameID": 12118}, {"id": 4, "type": "NPC", "gameID": 12118}]
     )
+    members[BUNDLE]["reportData"]["report"]["fights"][0]["enemyNPCs"].append(
+        {"id": 4, "gameID": 12118}
+    )
     assert check_register(_write_healing(tmp_path, members)) == []
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    ["missing", "empty", "other-game", "float-game", "float-actor", "duplicate", "wrong-catalog"],
+)
+def test_healing_boss_selectors_must_belong_to_the_selected_fight(
+    tmp_path: Path, mutation: str
+) -> None:
+    members = _healing_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    fight = report["fights"][0]
+    if mutation == "missing":
+        del fight["enemyNPCs"]
+    elif mutation == "empty":
+        fight["enemyNPCs"] = []
+    elif mutation == "duplicate":
+        fight["enemyNPCs"] *= 2
+    elif mutation == "wrong-catalog":
+        fight["enemyNPCs"][0]["id"] = 99
+    else:
+        key, value = {
+            "other-game": ("gameID", 12056),
+            "float-game": ("gameID", 12118.0),
+            "float-actor": ("id", 2.0),
+        }[mutation]
+        fight["enemyNPCs"][0][key] = value
+    with pytest.raises(ValueError, match="boss"):
+        check_register(_write_healing(tmp_path, members))

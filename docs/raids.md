@@ -55,7 +55,10 @@ that an unvalidated event sum is ranked damage or reconstruct ranked target
 shares from it. General class and cooldown guidance remains available.
 
 The initial strategy appears under preparation, execution and raid coordination
-in both pages. Lucifron distinguishes class-specific curse/magic removal;
+in both pages. Geddon additionally retains recorded Priest Ignite Mana removals
+and exact exposure endpoints alongside unambiguous self-dispels, with self-clear
+and backup-coverage coordination. This supplies no reaction or saved-mana grade.
+Lucifron distinguishes class-specific curse/magic removal;
 Magmadar distinguishes Frenzy-removal casts from successful effects and local
 Panic exposure; Gehennas separates personal Curse exposure from healing received
 by other patients; Baron Geddon keeps Ignite Mana exposure separate from actual

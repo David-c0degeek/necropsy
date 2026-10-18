@@ -54,6 +54,20 @@ opportunity. Warrior/Rogue strategy does not equate an aura with mana loss.
 
 ## Runtime seams and open work
 
+2026-10-18 extension: six independently frozen Priest contexts in the existing
+full-MC capture retain one owned Dispel Magic988 effect removing Ignite Mana19659
+and five zero counts. Inkia (`1QatCkbxLyrZzNAg`, fight15, actor21) records
+application775695ms and removal777303ms alongside the self-dispel. Relative
+boundaries are7.667/9.275s;1608ms describes recorded exposure. Immateriall's988
+effect removes19635 instead and remains excluded. Exact source member/index
+locators precede modeling in
+[the raw register](../research/geddon-priest-removal-raw-facts.json).
+The shared pairing requires SOURCE/TARGET plus exact encounter-event coverage;
+ambiguous transitions or raw identity withhold it independently of removal
+counts. Self-clear priorities and backup dispel coverage remain raid coordination,
+not a reaction grade, causal proof or saved-mana estimate. Other five actors are
+not accused of missing a dispel assignment. All class/faction/domain gates stay open.
+
 Existing shared effects state machine, actor coverage, optional JSON and both
 page adapters are reused. Per-raid YAML supplies general preparation, bomb
 isolation, Inferno recovery, Priest/Paladin magic removal, healer support and

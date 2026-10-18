@@ -77,6 +77,18 @@ effects:
     source: https://warcraft.wiki.gg/wiki/Lucifron
     retrieved: '2026-10-17'
 removals:
+  50668:
+  - rule: geddon-priest-ignite-mana-removal-v1
+    label: Ignite Mana removals
+    classes: [7]
+    removed_ability_ids: [19659]
+    removing_ability_ids: [527, 988]
+    is_buff: false
+    require_encounter_event_set: true
+    correlate_self_exposure: true
+    coordination: Agree self-clear priorities and backup dispel coverage for other mana users with your healing team.
+    source: https://www.wowhead.com/classic/spell=19659/ignite-mana
+    retrieved: '2026-10-18'
   50664:
   - rule: magmadar-frenzy-removals-v1
     label: Magmadar Frenzy removals
