@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-18",
+  "decision": "D029/ADR0021",
+  "archive": "tests/golden/raids/raw/mc-garr-control-warlock.zip",
+  "archive_sha256": "ce705967dac0a8672fb1388443bce62d4af89fe866a02bc4d4e14e15cea25756",
+  "ordinary": "2125 passed, 335 deselected in 536.60s (marker-scoped: not golden and not live and not acceptance), exit 0",
+  "full_unfiltered_pre_ui": "2446 passed, 1 skipped, 4 xfailed in 7455.27s, exit 0 (before the UI renderer slice and the unbound-NPC/dedupe follow-ups)",
+  "focused": "control unit 29 pass; Garr/control golden 5 pass; real Garr browser 5 pass (Codex UI slice receipt garr-control-ui-verification.json)",
+  "wheel_sha256": "a7ee24b75793641c9b521261f262989941882d764e003348153d1b25f23cf6bd",
+  "wheel_members_match_source": 142,
+  "sdist_excludes_development_data": true,
+  "installed_import_origin": "workspace/raid-research/installed/Lib/site-packages/necropsy",
+  "installed_cli_native_exit": 0,
+  "source_cli_exit": 0,
+  "source_installed_preview_all4_equal": true,
+  "artifacts": {
+    "analysis.json": "ecd39ef27836f56b18fedc2f8d89d4cb9af6fda2faa10e305c296d039badf9fd",
+    "report.html": "e6aceb624fef5c2829a56afeaea75d2cf09eb541379b0fc9131469729c8bfce6",
+    "playbook.html": "8b6f071608277a1a9263230b7c14199bb272bbb9e1abb3f5b4869f410d5036cd",
+    "necropsy-67734854-2000.zip": "14b7b64b7f5fec4f9f0cf0cd675842866e413a79fd7e236ec56011ba50a3dc0c"
+  },
+  "output_privacy_scan": "passed (pattern-based; absence of findings is not proof)",
+  "model": {
+    "rumplock_applications": null,
+    "rumplock_observations": [
+      [
+        4.258,
+        100,
+        8,
+        18647
+      ]
+    ],
+    "rumplock_review_prompts": 1,
+    "format1_counts": "unknown: no encounter All scope (certainty correction; raw facts unchanged)",
+    "mc-garr-context-warlock": "0 with event-set proof"
+  },
+  "raw_registers_unchanged": true,
+  "limits": "Garr Warlock control only. No assignment, uptime, reapplication or utility inference. Full Warlock/Garr/class/phase/ranking/domain gates remain open."
+}

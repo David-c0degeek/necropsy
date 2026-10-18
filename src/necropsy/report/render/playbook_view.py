@@ -309,6 +309,11 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
             for control in controls
             for observation in control["observations"].get("value") or ()
         )
+        lines += tuple(
+            line(prompt["text"], prompt["limitation"])
+            for control in controls
+            for prompt in control.get("review") or ()
+        )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
     removals = playbook.get("mechanic_removals")

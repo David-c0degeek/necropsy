@@ -166,6 +166,10 @@ and duty unknown. A reference player's measurements remain labelled examples.
 Garr retains individual SOURCE-owned Firesworn Banish applications separately
 from encounter-wide, class-qualified target-instance observations. Ranks and
 add instances stay separate; another Warlock’s effect is not personal uptime.
+Complete Banish counts require strict player SOURCE plus encounter event-set
+proof; older snapshots without it keep recorded applications with an unknown
+count. A recorded application with an instance asks you to confirm control and
+backup on that add, never implying an assignment.
 Neither view assumes every Warlock was assigned control; Viscidus distinguishes freezing and healing context. Local
 debuff windows retain unknown state and do not define global phases or damage
 opportunity. These are general plans,

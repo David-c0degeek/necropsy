@@ -2,23 +2,42 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+import json
+from dataclasses import dataclass, replace
+from typing import Any, cast
 
 import duckdb
 
+from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.analysis.context import ParticipantFight, coverage
 from necropsy.analysis.encounters import duty
 from necropsy.analysis.evidence import (
+    CoverageRef,
     Evidenced,
     EvidenceRef,
+    ScopedCoverageRef,
     complete_or_unknown,
     observed,
     unknown,
 )
 from necropsy.analysis.generic import combat
+from necropsy.normalize.coverage import has_complete_encounter_event_set
 from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
+
+LIMITATION = (
+    "Recorded control applications, separate from casts. NPC actor and instance identity "
+    "are retained where recorded. Actor-source coverage does not establish full add control "
+    "uptime, break causes, assigned targets or available opportunities. A zero count is "
+    "not a failed duty or a utility score. Complete counts require trusted player SOURCE "
+    "and encounter event-set proof; qualified recorded applications remain visible when "
+    "the count is unknown."
+)
+REVIEW_LIMITATION = (
+    "A recorded application is not an assignment, maintained uptime or proof that control "
+    "was needed. Agree add control and backup coverage with your raid."
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -29,12 +48,68 @@ class ControlApplications:
     retrieved: str
     applications: Evidenced[int]
     observations: Evidenced[tuple[tuple[float, int, int | None, int], ...]]
-    limitation: str = (
-        "Recorded control applications, separate from casts. NPC actor and instance identity "
-        "are retained where recorded. Actor-source coverage does not establish full add control "
-        "uptime, break causes, assigned targets or available opportunities. A zero count is "
-        "not a failed duty or a utility score."
-    )
+    limitation: str = LIMITATION
+    review: tuple[dict[str, Any], ...] = ()
+
+
+def _decoded(value: Any) -> Any:
+    return json.loads(value) if isinstance(value, str) else value
+
+
+def _context(
+    con: duckdb.DuckDBPyConnection, pf: ParticipantFight, class_name: str
+) -> tuple[dict[int, tuple[Any, ...]], list[dict[str, Any]]] | None:
+    """Unique fight, catalog, Player source and typed enemy roster, or None."""
+    fights = con.execute(
+        "SELECT encounter_id,start_time,end_time,friendly_players,enemy_npcs FROM fights "
+        "WHERE report_code=? AND fight_id=?",
+        [pf.report_code, pf.fight_id],
+    ).fetchall()
+    if (
+        len(fights) != 1
+        or any(type(v) is not int for v in fights[0][:3])
+        or fights[0][:3] != (pf.encounter_id, pf.start_time, pf.end_time)
+        or not 0 <= pf.start_time < pf.end_time
+    ):
+        return None
+    actors = con.execute(
+        "SELECT actor_id,type,sub_type,game_id,name FROM actors WHERE report_code=?",
+        [pf.report_code],
+    ).fetchall()
+    catalog = {a[0]: a for a in actors}
+    if (
+        len(catalog) != len(actors)
+        or any(type(a[0]) is not int for a in actors)
+        or catalog.get(pf.actor_id, (None, None, None))[1:3] != ("Player", class_name)
+    ):
+        return None
+    players, enemies = map(_decoded, fights[0][3:])
+    if (
+        not isinstance(players, list)
+        or any(type(p) is not int or p < 1 for p in players)
+        or len(set(players)) != len(players)
+        or pf.actor_id not in players
+        or not isinstance(enemies, list)
+    ):
+        return None
+    seen: set[int] = set()
+    for enemy in enemies:
+        if (
+            not isinstance(enemy, dict)
+            or type(enemy.get("id")) is not int
+            or enemy["id"] < 1
+            or enemy["id"] in seen
+            or enemy["id"] in players
+            or type(enemy.get("gameID")) is not int
+            or enemy["gameID"] < 1
+            or catalog.get(enemy["id"], (None, None))[1] != "NPC"
+            or catalog[enemy["id"]][3] != enemy["gameID"]
+            or type(enemy.get("instanceCount")) is not int
+            or enemy["instanceCount"] < 1
+        ):
+            return None
+        seen.add(enemy["id"])
+    return catalog, enemies
 
 
 def applications(
@@ -51,74 +126,253 @@ def applications(
     policies = [p for p in policies if meta and meta[0] in p["classes"]]
     if not policies:
         return ()
-    identities: dict[int, set[tuple[str | None, int | None]]] = {}
-    for actor, kind, game in con.execute(
-        "SELECT actor_id,type,game_id FROM actors WHERE report_code=?", [pf.report_code]
+    assert meta is not None
+    source = coverage(con, pf, pf.actor_id, Direction.SOURCE)
+    bindings = con.execute(
+        "SELECT role,owner_actor_id FROM stream_coverage "
+        "WHERE report_code=? AND fight_id=? AND actor_id=? AND direction='source'",
+        [pf.report_code, pf.fight_id, pf.actor_id],
+    ).fetchall()
+    cov: list[CoverageRef] = [
+        replace(source, trusted=source.trusted and bindings == [("player", None)]),
+        ScopedCoverageRef(
+            pf.report_code,
+            pf.fight_id,
+            None,
+            "all",
+            has_complete_encounter_event_set(con, pf.report_code, pf.fight_id),
+            "encounter",
+        ),
+    ]
+    refs = (
+        EvidenceRef(
+            pf.report_code,
+            pf.fight_id,
+            pf.actor_id,
+            "actors",
+            detail="unique Player class source and control NPC identity",
+        ),
+        EvidenceRef(
+            pf.report_code,
+            pf.fight_id,
+            None,
+            "fights",
+            detail="selected friendly Player and enemy NPC/instanceCount roster",
+        ),
+    )
+    context = _context(con, pf, CLASS_NAMES.get(meta[0], ""))
+    rows = (
+        con.execute(
+            "SELECT timestamp,type,source_id,target_id,target_instance,ability_game_id,raw,"
+            "event_uid,copy_index FROM events WHERE report_code=? AND fight_id=? "
+            "ORDER BY timestamp,event_uid,copy_index",
+            [pf.report_code, pf.fight_id],
+        ).fetchall()
+        if context is not None
+        else []
+    )
+    names: dict[int, list[Any]] = {}
+    for spell, name in con.execute(
+        "SELECT game_id,name FROM abilities WHERE report_code=?", [pf.report_code]
     ).fetchall():
-        identities.setdefault(actor, set()).add((kind, game))
-    events = combat.event_rows(con, pf)
+        names.setdefault(spell, []).append(name)
     result = []
     for policy in policies:
-        rows, unresolved = [], []
-        for event in events:
-            if event.kind != "applydebuff" or event.source_id != pf.actor_id:
-                continue
-            ability = (
-                event.ability_id in policy["ability_ids"] if event.ability_id is not None else None
+        if context is None:
+            withheld: Evidenced[Any] = unknown(
+                "control source, fight or enemy roster binding is unresolved", *refs, coverage=cov
             )
-            candidates = identities.get(event.target_id) if event.target_id is not None else None
-            identity = next(iter(candidates)) if candidates and len(candidates) == 1 else None
-            target = (
-                None
-                if identity is None or identity[0] is None
-                else False
-                if identity[0] != "NPC"
-                else identity[1] in policy["target_game_ids"]
-                if identity[1] is not None
-                else None
+            result.append(
+                ControlApplications(
+                    policy["rule"],
+                    policy["label"],
+                    policy["source"],
+                    policy["retrieved"],
+                    withheld,
+                    withheld,
+                )
             )
-            if ability is False or target is False:
+            continue
+        catalog, enemies = context
+        spells = set(policy["ability_ids"])
+        games = set(policy["target_game_ids"])
+        targets = {e["id"]: e["instanceCount"] for e in enemies if e["gameID"] in games}
+        # A relevant catalog NPC without a selected roster binding cannot certify a zero,
+        # even while another bound control target remains.
+        unbound = sorted(a for a, row in catalog.items() if row[1] == "NPC" and row[3] in games)
+        unbound = [a for a in unbound if a not in targets]
+        if not targets:
+            withheld = unknown(
+                "selected enemy roster has no control target binding", *refs, coverage=cov
+            )
+            result.append(
+                ControlApplications(
+                    policy["rule"],
+                    policy["label"],
+                    policy["source"],
+                    policy["retrieved"],
+                    withheld,
+                    withheld,
+                )
+            )
+            continue
+        qualified: list[combat.CombatEvent] = []
+        unresolved: list[tuple[Any, Any]] = []
+        seen: set[tuple[Any, Any]] = set()
+        for ts, kind, src, target, instance, spell, payload, uid, copy in rows:
+            raw = _decoded(payload)
+            # No SQL pruning: an unresolved possible application cannot vanish into zero.
+            if not isinstance(raw, dict):
+                unresolved.append((uid, copy))
                 continue
-            if ability is None or target is None:
-                unresolved.append(event)
-            else:
-                rows.append(event)
-        refs = (
-            combat.event_ref(pf, rows, "source-owned control applications"),
-            EvidenceRef(pf.report_code, pf.fight_id, None, "actors", detail="control NPC identity"),
+            if isinstance(kind, str) and kind and raw.get("type") == kind != "applydebuff":
+                continue
+            if (
+                type(raw.get("sourceID")) is int
+                and raw["sourceID"] == src
+                and src > 0
+                and src != pf.actor_id
+            ):
+                continue
+            if (
+                kind == raw.get("type") == "applydebuff"
+                and type(raw.get("abilityGameID")) is int
+                and raw["abilityGameID"] == spell
+                and spell > 0
+                and spell not in spells
+            ):
+                continue
+            recipient = catalog.get(target) if type(target) is int else None
+            if (
+                kind == raw.get("type") == "applydebuff"
+                and type(raw.get("targetID")) is int
+                and raw["targetID"] == target
+                and recipient is not None
+                and (
+                    recipient[1] in {"Player", "Pet"}
+                    or (
+                        recipient[1] == "NPC"
+                        and type(recipient[3]) is int
+                        and recipient[3] > 0
+                        and recipient[3] not in games
+                    )
+                )
+            ):
+                continue
+            valid = (
+                kind == raw.get("type") == "applydebuff"
+                and all(
+                    type(raw.get(key)) is int and raw[key] == value and value > 0
+                    for key, value in (
+                        ("sourceID", src),
+                        ("targetID", target),
+                        ("abilityGameID", spell),
+                    )
+                )
+                and src == pf.actor_id
+                and spell in spells
+                and type(raw.get("timestamp")) is int
+                and raw["timestamp"] == ts
+                and pf.start_time <= ts <= pf.end_time
+                and (
+                    "fight" not in raw
+                    or (type(raw["fight"]) is int and raw["fight"] == pf.fight_id)
+                )
+                and (
+                    (raw.get("targetInstance") is None and instance is None)
+                    or (
+                        type(raw.get("targetInstance")) is int
+                        and raw["targetInstance"] == instance
+                        and instance > 0
+                    )
+                )
+                and recipient is not None
+                and recipient[1] == "NPC"
+                and recipient[3] in games
+                and target in targets
+                and (instance is None or instance <= targets[target])
+                and (uid, copy) not in seen
+            )
+            if not valid:
+                unresolved.append((uid, copy))
+                continue
+            seen.add((uid, copy))
+            qualified.append(
+                combat.CombatEvent(
+                    ts,
+                    pf.relative_s(ts),
+                    kind,
+                    src,
+                    target,
+                    spell,
+                    None,
+                    None,
+                    None,
+                    uid,
+                    copy,
+                    raw,
+                )
+            )
+        reference = combat.event_ref(pf, qualified, "source-owned control applications")
+        ambiguity = EvidenceRef.events(
+            pf.report_code,
+            pf.fight_id,
+            None,
+            unresolved,
+            detail="unresolved possible control applications",
         )
-        ambiguity = combat.event_ref(pf, unresolved, "unresolved control recipient identity")
+        reason = "possible control rows, recipients or instances are unresolved"
+        if unbound:
+            reason = "a relevant control NPC lacks a selected enemy roster binding"
         count = (
-            unknown(
-                "required control ability or recipient identity is unresolved", *refs, ambiguity
-            )
-            if unresolved
+            unknown(reason, ambiguity, reference, *refs, coverage=cov)
+            if unresolved or unbound
             else complete_or_unknown(
-                len(rows),
-                [coverage(con, pf, pf.actor_id, Direction.SOURCE)],
-                *refs,
-                rule_id=policy["rule"],
+                len(qualified), cov, reference, *refs, rule_id=policy["rule"], note=LIMITATION
             )
         )
         values = tuple(
-            (
-                e.t_s,
-                int(e.target_id),
-                e.raw.get("targetInstance") if type(e.raw.get("targetInstance")) is int else None,
-                int(e.ability_id),
-            )
-            for e in rows
-            if e.target_id is not None and e.ability_id is not None
+            (e.t_s, cast(int, e.target_id), _decoded_instance(e.raw), cast(int, e.ability_id))
+            for e in qualified
         )
         observations = (
-            observed(values, *refs)
-            if rows
-            else unknown(
-                "required control ability or recipient identity is unresolved", *refs, ambiguity
-            )
-            if unresolved
-            else complete_or_unknown((), [coverage(con, pf, pf.actor_id, Direction.SOURCE)], *refs)
+            observed(values, reference, *refs)
+            if qualified
+            else unknown(reason, ambiguity, *refs, coverage=cov)
+            if unresolved or unbound
+            else complete_or_unknown((), cov, reference, *refs)
         )
+        review = []
+        prompted: set[tuple[int, int]] = set()
+        for event in qualified:
+            instance_id = _decoded_instance(event.raw)
+            key = (cast(int, event.target_id), instance_id or 0)
+            # One prompt per add instance; the observation timeline keeps reapplications.
+            if instance_id is None or key in prompted:
+                continue
+            prompted.add(key)
+            spell_names = names.get(event.ability_id or 0, [])
+            spell_name = spell_names[0] if len(spell_names) == 1 and spell_names[0] else None
+            target_name = catalog[cast(int, event.target_id)][4] or "NPC"
+            review.append(
+                {
+                    "kind": "review-prompt",
+                    "text": f"Recorded {spell_name or f'ability {event.ability_id}'} on "
+                    f"{target_name} {event.target_id}, instance {instance_id}, at "
+                    f"{event.t_s:.2f}s. Confirm whether you should maintain control on this add "
+                    "and who provides backup when it ends before copying a damage reference "
+                    "opener.",
+                    "target_actor_id": event.target_id,
+                    "target_instance": instance_id,
+                    "elapsed_s": event.t_s,
+                    "ability_id": event.ability_id,
+                    "refs": (
+                        combat.event_ref(pf, [event], "recorded owned control application"),
+                        *refs,
+                    ),
+                    "limitation": REVIEW_LIMITATION,
+                }
+            )
         result.append(
             ControlApplications(
                 policy["rule"],
@@ -127,6 +381,12 @@ def applications(
                 policy["retrieved"],
                 count,
                 observations,
+                review=tuple(review),
             )
         )
     return tuple(result)
+
+
+def _decoded_instance(raw: dict[str, Any]) -> int | None:
+    value = raw.get("targetInstance")
+    return value if type(value) is int else None

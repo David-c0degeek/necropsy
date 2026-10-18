@@ -8,6 +8,11 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Verify Garr Firesworn Banish applications against literal event identity,
+  roster and instance bindings, and name each recorded add, instance and time in
+  a control review prompt. Counts from older snapshots without full encounter
+  coverage are now unknown; their recorded applications stay visible.
+
 - Split recorded Priest absorption by ability and recipient on both raid pages.
   Review shield recipients separately from other absorption; keep effect counts,
   casts, assignments and healing quality distinct, with incomplete totals unknown.

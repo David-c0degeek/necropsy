@@ -849,8 +849,16 @@ def _assert_boss_replay(
     if fixture["label"].startswith("mc-garr-"):
         (control,) = boss["playbook"]["control_applications"]
         positive = fixture["label"] == "mc-garr-control-warlock"
-        assert control["applications"]["value"] == (1 if positive else 0)
-        assert control["observations"]["value"] == ([[4.258, 100, 8, 18647]] if positive else [])
+        # Format 1 archives have no encounter All scope: the raw facts are unchanged, but
+        # complete counts now require event-set proof (certainty correction, D029).
+        format1 = fixture["label"] in ("mc-garr-control-warlock", "mc-garr-warlock")
+        assert control["applications"]["value"] == (None if format1 else 0)
+        assert control["observations"]["value"] == (
+            [[4.258, 100, 8, 18647]] if positive else None if format1 else []
+        )
+        assert [(r["target_actor_id"], r["target_instance"]) for r in control["review"]] == (
+            [(100, 8)] if positive else []
+        )
         assert "uptime" in control["limitation"] and "not a failed duty" in control["limitation"]
     if fixture["label"] == "mc-magmadar-holy":
         assert "mechanic_removals" not in boss["playbook"]
@@ -1019,10 +1027,12 @@ def _assert_boss_replay(
             assert "Encounter-wide Firesworn Banish (Rank 1): 0 recorded applications." in html
             assert "Firesworn instance 2: 27.29s known active." in html
         if fixture["label"].startswith("mc-garr-"):
-            count = 1 if fixture["label"] == "mc-garr-control-warlock" else 0
+            positive = fixture["label"] == "mc-garr-control-warlock"
+            format1 = fixture["label"] in ("mc-garr-control-warlock", "mc-garr-warlock")
+            count = "Unknown" if format1 else 0
             assert f"Recorded Firesworn Banish applications: {count}." in html
             assert control["limitation"] in html
-            if count:
+            if positive:
                 assert "4.26s · Firesworn Banish applied; target instance 8." in html
         if fixture["label"] == "mc-magmadar-holy":
             assert "Panic: 8.00s known affected; 9.31s with unknown state." in html

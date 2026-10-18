@@ -1,98 +1,343 @@
 """Control application evidence keeps casts, coverage and NPC instances distinct."""
 
 import json
+from collections.abc import Iterator
 from pathlib import Path
+from typing import Any
 
 import duckdb
 import pytest
 
-from necropsy.analysis.context import participant_fights
+from necropsy.analysis.context import ParticipantFight, participant_fights
 from necropsy.analysis.encounters.control import applications
 from necropsy.normalize.ingest import ingest
+from necropsy.report.analysis_json import build_document
+from necropsy.report.render import build_view, render_playbook, render_report
 from tests.class_fixture import snapshot
+
+ROSTER = [{"id": 50, "gameID": 12099, "instanceCount": 8}]
+
+
+@pytest.fixture
+def context(tmp_path: Path) -> Iterator[tuple[duckdb.DuckDBPyConnection, ParticipantFight]]:
+    ingest(
+        snapshot(tmp_path, 10, "Destruction", "Shadow Bolt", "dps"),
+        tmp_path / "analysis.duckdb",
+    )
+    with duckdb.connect(str(tmp_path / "analysis.duckdb")) as con:
+        con.execute("UPDATE snapshot_meta SET zone_id=2000, partition_id=1")
+        con.execute("UPDATE fights SET encounter_id=50666, enemy_npcs=?", [json.dumps(ROSTER)])
+        con.execute("UPDATE benchmark_participants SET encounter_id=50666")
+        con.execute("UPDATE actors SET game_id=12099, name='Firesworn' WHERE actor_id=50")
+        con.execute(
+            "INSERT INTO abilities(report_code,game_id,name) VALUES "
+            "('REPORT1',710,'Banish'),('REPORT1',18647,'Banish')"
+        )
+        con.execute(
+            "INSERT INTO stream_coverage(report_code,fight_id,actor_id,role,direction,"
+            "status,boundary_ambiguities,multiplicity_mismatches,raw_events) "
+            "SELECT 'REPORT1',7,NULL,'encounter','all','complete',0,0,count(*) FROM events"
+        )
+        yield con, next(p for p in participant_fights(con) if p.kind == "you")
+
+
+def add(
+    con: duckdb.DuckDBPyConnection,
+    uid: str,
+    timestamp: int,
+    spell: int,
+    instance: int | None,
+    *,
+    copy: int = 0,
+    kind: str = "applydebuff",
+    source: int = 1,
+    target: int = 50,
+    stored: dict[str, Any] | None = None,
+    counted: bool = True,
+    **changes: Any,
+) -> None:
+    raw = (
+        dict(
+            type=kind,
+            timestamp=timestamp,
+            sourceID=source,
+            targetID=target,
+            abilityGameID=spell,
+            fight=7,
+        )
+        | ({} if instance is None else {"targetInstance": instance})
+        | changes
+    )
+    row = dict(
+        timestamp=timestamp,
+        type=kind,
+        source_id=source,
+        target_id=target,
+        target_instance=instance,
+        ability_game_id=spell,
+    ) | (stored or {})
+    con.execute(
+        "INSERT INTO events(report_code,fight_id,event_uid,copy_index,timestamp,type,source_id,"
+        "target_id,target_instance,ability_game_id,raw) VALUES ('REPORT1',7,?,?,?,?,?,?,?,?,?)",
+        [uid, copy, *row.values(), raw if isinstance(raw, str) else json.dumps(raw)],
+    )
+    if counted:
+        con.execute("UPDATE stream_coverage SET raw_events=raw_events+1 WHERE role='encounter'")
+
+
+def pair(con: duckdb.DuckDBPyConnection, **changes: Any) -> None:
+    add(con, "banish-1", 5000, 710, 1, **changes)
+    add(con, "banish-2", 6000, 18647, 2)
+
+
+def result(context: tuple[Any, ...]) -> Any:
+    con, pf = context
+    (control,) = applications(con, pf)
+    return control
+
+
+def test_owned_applications_count_with_event_set_proof_and_review(
+    context: tuple[Any, ...],
+) -> None:
+    con, _ = context
+    pair(con)
+    control = result(context)
+    assert control.applications.value == 2
+    assert control.observations.value == ((5, 50, 1, 710), (6, 50, 2, 18647))
+    assert {(c.actor_id, c.direction) for c in control.applications.coverage} == {
+        (1, "source"),
+        (None, "all"),
+    }
+    assert [r["text"] for r in control.review] == [
+        "Recorded Banish on Firesworn 50, instance 1, at 5.00s. Confirm whether you should "
+        "maintain control on this add and who provides backup when it ends before copying a "
+        "damage reference opener.",
+        "Recorded Banish on Firesworn 50, instance 2, at 6.00s. Confirm whether you should "
+        "maintain control on this add and who provides backup when it ends before copying a "
+        "damage reference opener.",
+    ]
+    assert "uptime" in control.limitation and "not a failed duty" in control.limitation
+    (saved,) = build_document(con)["bosses"][0]["playbook"]["control_applications"]
+    assert saved["applications"]["value"] == 2
+    assert [r["target_instance"] for r in saved["review"]] == [1, 2]
 
 
 @pytest.mark.parametrize(
-    "case,expected",
+    "case",
+    ["cast", "other-source", "other-spell", "other-npc", "player-recipient"],
+)
+def test_typed_unrelated_rows_are_excluded_to_a_known_zero(
+    context: tuple[Any, ...], case: str
+) -> None:
+    con, _ = context
+    if case == "other-npc":
+        con.execute(
+            "UPDATE fights SET enemy_npcs=?",
+            [json.dumps([*ROSTER, {"id": 51, "gameID": 12057, "instanceCount": 1}])],
+        )
+        con.execute(
+            "INSERT INTO actors(report_code,actor_id,type,game_id,name) "
+            "VALUES ('REPORT1',51,'NPC',12057,'Flamewaker')"
+        )
+    add(
+        con,
+        "row",
+        5000,
+        8994 if case == "other-spell" else 710,
+        1,
+        kind="cast" if case == "cast" else "applydebuff",
+        source=2 if case == "other-source" else 1,
+        target={"other-npc": 51, "player-recipient": 1}.get(case, 50),
+    )
+    control = result(context)
+    assert control.applications.value == 0
+    assert control.observations.value == ()
+    assert control.review == ()
+
+
+@pytest.mark.parametrize(
+    "case",
     [
-        ("success", 2),
-        ("cast", 0),
-        ("begin", 0),
-        ("remove", 0),
-        ("incoming", 0),
-        ("other-spell", 0),
-        ("other-npc", 0),
-        ("player", 0),
-        ("missing-target", None),
-        ("missing-type", None),
-        ("missing-game", None),
-        ("conflict", None),
-        ("partial", None),
-        ("missing-ability", None),
-        ("missing-instance", 2),
-        ("missing-ability-wrong-npc", 0),
-        ("wrong-ability-missing-target", 0),
+        "no-all-scope",
+        "extra-identity-outside-all",
+        "foreign-source-binding",
+        "raw-not-object",
+        "missing-raw-type",
+        "source-contradiction",
+        "time-contradiction",
+        "out-of-fight",
+        "instance-present-vs-missing",
+        "instance-out-of-range",
+        "firesworn-outside-roster",
+        "duplicate-identity",
     ],
 )
-def test_control_counts_only_source_owned_applications_to_evidenced_npcs(
-    tmp_path: Path, case: str, expected: int | None
+def test_unresolved_or_unproven_rows_keep_positives_but_withhold_count(
+    context: tuple[Any, ...], case: str
 ) -> None:
-    archive = snapshot(tmp_path, 10, "Destruction", "Shadow Bolt", "dps", partial=case == "partial")
-    db = tmp_path / "analysis.duckdb"
-    ingest(archive, db)
-    with duckdb.connect(str(db)) as con:
-        con.execute("UPDATE snapshot_meta SET zone_id=2000, partition_id=1")
-        con.execute("UPDATE fights SET encounter_id=50666")
-        con.execute("UPDATE benchmark_participants SET encounter_id=50666")
+    con, _ = context
+    if case == "no-all-scope":
+        con.execute("DELETE FROM stream_coverage WHERE role='encounter'")
+        pair(con)
+    elif case == "extra-identity-outside-all":
+        pair(con)
+        # A disjoint owned identity absent from All has no overlapping key to mismatch.
+        add(con, "banish-3", 7000, 710, 3, counted=False)
+    elif case == "foreign-source-binding":
         con.execute(
-            "UPDATE actors SET type=?,game_id=? WHERE actor_id=50",
-            [
-                None if case == "missing-type" else "Player" if case == "player" else "NPC",
-                None
-                if case == "missing-game"
-                else 12057
-                if case in ("other-npc", "missing-ability-wrong-npc")
-                else 12099,
-            ],
+            "UPDATE stream_coverage SET owner_actor_id=2 WHERE actor_id=1 AND direction='source'"
         )
-        if case == "conflict":
-            con.execute(
-                "INSERT INTO actors (report_code,actor_id,type,game_id) "
-                "VALUES ('REPORT1',50,'NPC',12057)"
-            )
-        for index, ability in enumerate((710, 18647)):
-            con.execute(
-                "INSERT INTO events (report_code,fight_id,event_uid,copy_index,timestamp,"
-                "type,source_id,target_id,ability_game_id,raw) "
-                "VALUES ('REPORT1',7,?,0,?,?,?,?,?,?)",
-                [
-                    f"control-{index}",
-                    5000 + index * 1000,
-                    {"cast": "cast", "begin": "begincast", "remove": "removedebuff"}.get(
-                        case, "applydebuff"
-                    ),
-                    2 if case == "incoming" else 1,
-                    999 if case in ("missing-target", "wrong-ability-missing-target") else 50,
-                    None
-                    if case in ("missing-ability", "missing-ability-wrong-npc")
-                    else 8994
-                    if case in ("other-spell", "wrong-ability-missing-target")
-                    else ability,
-                    json.dumps({} if case == "missing-instance" else {"targetInstance": index + 1}),
-                ],
-            )
-        pf = next(p for p in participant_fights(con) if p.kind == "you")
-        (control,) = applications(con, pf)
-        assert control.applications.value == expected
-        if case in ("success", "partial", "missing-instance"):
-            assert control.observations.value == (
-                (5, 50, None if case == "missing-instance" else 1, 710),
-                (6, 50, None if case == "missing-instance" else 2, 18647),
-            )
-        assert "uptime" in control.limitation and "not a failed duty" in control.limitation
-        con.execute("UPDATE snapshot_meta SET subject_class_id=7")
-        assert applications(con, pf) == ()
-        con.execute("UPDATE snapshot_meta SET subject_class_id=10,partition_id=3")
-        assert applications(con, pf) == ()
-        con.execute("UPDATE snapshot_meta SET partition_id=1,zone_id=2006")
-        assert applications(con, pf) == ()
+        pair(con)
+    elif case == "raw-not-object":
+        pair(con)
+        add(con, "broken", 7000, 710, 3, type="x")
+        con.execute("UPDATE events SET raw='[]' WHERE event_uid='broken'")
+    elif case == "missing-raw-type":
+        pair(con, type=None)
+    elif case == "source-contradiction":
+        pair(con, stored={"source_id": 9})
+    elif case == "time-contradiction":
+        pair(con, stored={"timestamp": 5001})
+    elif case == "out-of-fight":
+        pair(con)
+        add(con, "late", 10**12, 710, 3)
+    elif case == "instance-present-vs-missing":
+        pair(con, stored={"target_instance": None})
+    elif case == "instance-out-of-range":
+        pair(con)
+        add(con, "nine", 7000, 710, 9)
+    elif case == "firesworn-outside-roster":
+        con.execute(
+            "INSERT INTO actors(report_code,actor_id,type,game_id,name) "
+            "VALUES ('REPORT1',52,'NPC',12099,'Firesworn')"
+        )
+        pair(con)
+        add(con, "outside", 7000, 710, 1, target=52)
+    elif case == "duplicate-identity":
+        pair(con)
+        add(con, "banish-2", 6000, 18647, 2)
+    control = result(context)
+    assert control.applications.value is None
+    both = ((5, 50, 1, 710), (6, 50, 2, 18647))
+    expected = {
+        "missing-raw-type": both[1:],
+        "source-contradiction": both[1:],
+        "time-contradiction": both[1:],
+        "instance-present-vs-missing": both[1:],
+        "extra-identity-outside-all": (*both, (7, 50, 3, 710)),
+    }.get(case, both)
+    assert control.observations.value == expected
+    assert [r["target_instance"] for r in control.review] == [o[2] for o in expected]
+
+
+def test_absent_instance_keeps_observation_without_instance_prompt(
+    context: tuple[Any, ...],
+) -> None:
+    con, _ = context
+    add(con, "plain", 5000, 710, None)
+    control = result(context)
+    assert control.applications.value == 1
+    assert control.observations.value == ((5, 50, None, 710),)
+    assert control.review == ()
+
+
+def test_legitimate_copies_count_separately(context: tuple[Any, ...]) -> None:
+    con, _ = context
+    pair(con)
+    add(con, "banish-2", 6000, 18647, 2, copy=1)
+    assert result(context).applications.value == 3
+
+
+def test_missing_control_roster_withholds_zero(context: tuple[Any, ...]) -> None:
+    con, _ = context
+    con.execute("UPDATE fights SET enemy_npcs='[]'")
+    control = result(context)
+    assert control.applications.value is None
+    assert control.observations.value is None
+    assert control.review == ()
+
+
+def test_policy_scope_is_class_partition_and_zone(context: tuple[Any, ...]) -> None:
+    con, pf = context
+    con.execute("UPDATE snapshot_meta SET subject_class_id=7")
+    assert applications(con, pf) == ()
+    con.execute("UPDATE snapshot_meta SET subject_class_id=10,partition_id=3")
+    assert applications(con, pf) == ()
+    con.execute("UPDATE snapshot_meta SET partition_id=1,zone_id=2006")
+    assert applications(con, pf) == ()
+
+
+@pytest.mark.parametrize("positive", [True, False])
+def test_unbound_relevant_npc_withholds_count_even_with_bound_target(
+    context: tuple[Any, ...], positive: bool
+) -> None:
+    con, _ = context
+    con.execute(
+        "INSERT INTO actors(report_code,actor_id,type,game_id,name) "
+        "VALUES ('REPORT1',52,'NPC',12099,'Firesworn')"
+    )
+    if positive:
+        pair(con)
+    control = result(context)
+    assert control.applications.value is None
+    assert "roster binding" in control.applications.note
+    if positive:
+        assert control.observations.value == ((5, 50, 1, 710), (6, 50, 2, 18647))
+        assert len(control.review) == 2
+    else:
+        assert control.observations.value is None
+        assert control.review == ()
+
+
+def test_reapplication_on_one_add_instance_prompts_once(context: tuple[Any, ...]) -> None:
+    con, _ = context
+    add(con, "first", 5000, 710, 3)
+    add(con, "again", 9000, 18647, 3)
+    control = result(context)
+    assert control.applications.value == 2
+    assert control.observations.value == ((5, 50, 3, 710), (9, 50, 3, 18647))
+    assert [(r["target_instance"], r["elapsed_s"]) for r in control.review] == [(3, 5)]
+
+
+@pytest.mark.parametrize("trusted", [True, False])
+def test_saved_review_reaches_both_pages_without_reconstruction(
+    context: tuple[Any, ...], trusted: bool
+) -> None:
+    con, _ = context
+    pair(con)
+    if not trusted:
+        con.execute("UPDATE stream_coverage SET status='partial' WHERE role='encounter'")
+    doc = build_document(con)
+    (saved,) = doc["bosses"][0]["playbook"]["control_applications"]
+    assert saved["applications"]["value"] == (2 if trusted else None)
+    prompts = saved["review"]
+    assert len(prompts) == 2
+    for renderer in (render_report, render_playbook):
+        html = renderer(build_view(doc, "0" * 64))
+        for prompt in prompts:
+            assert prompt["text"] in html
+            assert prompt["limitation"] in html
+        if not trusted:
+            assert "Recorded Firesworn Banish applications: Unknown." in html
+    # Rendering an older saved document must not reconstruct advice from observations.
+    del saved["review"]
+    for renderer in (render_report, render_playbook):
+        html = renderer(build_view(doc, "0" * 64))
+        assert "Confirm whether you should maintain control on this add" not in html
+        assert "Firesworn Banish applied; target instance 1." in html
+
+
+@pytest.mark.parametrize("trusted", [True, False])
+def test_no_positive_control_does_not_render_maintenance_advice(
+    context: tuple[Any, ...], trusted: bool
+) -> None:
+    con, _ = context
+    if not trusted:
+        con.execute("DELETE FROM stream_coverage WHERE role='encounter'")
+    doc = build_document(con)
+    (saved,) = doc["bosses"][0]["playbook"]["control_applications"]
+    assert saved["applications"]["value"] == (0 if trusted else None)
+    assert saved["review"] == []
+    for renderer in (render_report, render_playbook):
+        html = renderer(build_view(doc, "0" * 64))
+        assert "Confirm whether you should maintain control on this add" not in html
