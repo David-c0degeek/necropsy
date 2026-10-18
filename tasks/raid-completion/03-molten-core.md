@@ -47,6 +47,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 17 / Qualified Paladin Geddon Cleanse utility.
+Actual four Cleanse effects and Anrylla2882ms self-exposure reach both shared
+pages with class-specific coordination. Resurgance's three effects target
+others and cannot end his own exposure; four zeros imply no missed assignment.
+Cleanse/Purify capability is independently sourced.125 focused/29 final policy
+tests and five real replay/browser checks pass. Source/installed all4 agree,
+only three intended fields change and Priest/Naxx controls stay byte-identical.
+No algorithm/schema/renderer changes; policy asset only. Shaman first quota-
+stopped24-actor capture and normal resume remain unregistered pending acceptance.
+Review: research/paladin-cleanse-review.json. Full class/faction, mechanics,
+phase/ranking and domain/product work remains open; DO NOT CLOSE.
+
 2026-10-18 / slice 16 / Qualified full-MC Holy Paladin evidence.
 Ten Alliance Holy/HPS cells gain public personal/five-comparison sources and
 real replay references; all remain IN_PROGRESS.60 actor/context and58 recipient

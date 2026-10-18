@@ -39,6 +39,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 16 / Paladin utility installed and visual proof.
+Five real golden/browser checks pass, including both desktop/mobile/print
+Paladin pages and preserved Priest replay. Source/current installed offline
+CLI/package all4 are byte-identical; only three intended Paladin fields differ.
+Priest and Naxx all4 retain prior bytes. Only one MC policy asset changes in
+the140-member wheel;200MB output scan clean.125 focused/29 final policy tests,
+full lint/285 format/mypy228/docs292 pass. No new full ordinary-suite claim for
+this policy-only extension. Normal Shaman quota stop/save/exit and post-reset
+resume are retained with no reserve bypass; final acceptance remains pending.
+Review: research/paladin-cleanse-review.json. Full UI/class/library/domain/
+product/publication gates stay open; DO NOT CLOSE.
+
 2026-10-18 / slice 15 / Native Paladin acquisition and installed evidence review.
 Normal reserve-stopped attempt is preserved; normal resume reuses147 requests
 and completes60 actor selections with one unknown guardian, not a new quota

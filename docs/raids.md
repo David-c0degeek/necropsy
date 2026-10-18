@@ -62,7 +62,8 @@ events. Encounter utility, assignments and complete class/faction acceptance
 are still being developed.
 
 The initial strategy appears under preparation, execution and raid coordination
-in both pages. Geddon additionally retains recorded Priest Ignite Mana removals
+in both pages. Geddon additionally retains recorded Priest Dispel Magic and
+Paladin Cleanse removals of Ignite Mana
 and exact exposure endpoints alongside unambiguous self-dispels, with self-clear
 and backup-coverage coordination. This supplies no reaction or saved-mana grade.
 Lucifron distinguishes class-specific curse/magic removal;

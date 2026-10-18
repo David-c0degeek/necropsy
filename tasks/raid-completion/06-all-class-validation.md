@@ -45,6 +45,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 4 / Paladin-specific Cleanse and first Shaman acquisition.
+Geddon class6 policy permits only sourced Cleanse4987; Purify and Priest spell
+IDs cannot supply Magic-removal credit. Six real contexts retain four effects,
+four zeros and a2882ms cohort self-pair; personal other-recipient effects stay
+unpaired.125 focused/29 final policy tests, real Priest/Paladin replay and two
+responsive browser cases pass. Source/installed all4 agree; Priest/Naxx bytes
+preserved. Review: research/paladin-cleanse-review.json. Restoration Shaman
+candidate resolves natively and first quota-stopped24 selected actors/fights
+remain unregistered; normal second resume is active. Full class/category/duty/
+faction and domain acceptance remain open.69 IN_PROGRESS/883 TODO/0 COMPLETE;
+DO NOT CLOSE.
+
 2026-10-18 / slice 3 / First Paladin family evidence registered.
 Normal full-MC Holy Paladin capture provides all10 personal Alliance bosses and
 five comparisons each.60 actor/context/58 recipient cases pass independent

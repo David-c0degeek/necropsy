@@ -8,7 +8,8 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
-- Show recorded Priest Ignite Mana removals on Geddon and unambiguous exposure
+- Show recorded Priest Dispel Magic and Paladin Cleanse removals of Ignite Mana
+  on Geddon, with unambiguous exposure
   endpoints alongside self-dispels. Keep coordination advice separate from
   reaction quality, saved mana and unknown dispel opportunities.
 

@@ -280,13 +280,16 @@ Optional `playbook.exposure_removal_correlations` and
 `cohort_exposure_removal_correlations` retain explicit aura endpoints alongside
 owned self-dispels. Each mechanic saves `intervals_ms`: evidenced tuples of
 relative application, removal, elapsed milliseconds and removing spell ID,
-plus recipient, source and coordination text. The initial Priest Geddon policy
+plus recipient, source and coordination text. The Priest and Paladin Geddon policies
 requires trusted SOURCE/TARGET and exact encounter event-set coverage. Ambiguous
 applications, refreshes, stacks, lifecycle events or conflicting raw identity
 withhold pairing; standalone successful removals remain independent. Matching
 endpoint timestamps do not order the two events or prove causation. These are
 recorded exposure intervals, never reaction grades, saved mana/damage or dispel
 opportunities. Older saved documents acquire no pairing during rendering.
+Priest ranks527/988 and Paladin Cleanse4987 have separate class applicability;
+Purify1152 is not a Magic remover. Owned effects on other recipients remain
+successful removals but cannot pair with the subject's own aura endpoints.
 
 Independent healing-recipient fixture checks bind each selected boss NPC through
 the selected fight's enemy roster and the report catalog. A same-named or

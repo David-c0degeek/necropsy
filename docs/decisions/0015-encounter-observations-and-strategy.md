@@ -186,4 +186,7 @@ pairing. Genuine death and Feign Death remain distinct. Standalone removal count
 do not depend on obtaining a pair. Endpoint coincidence is not causal ordering,
 reaction quality, saved mana/damage or an assigned dispel opportunity. Coordination
 text is sourced policy, saved with the record; rendering old documents cannot
-invent it. Initial applicability is the Priest Ignite Mana policy on Geddon.
+invent it. Separate Priest Dispel Magic and Paladin Cleanse policies apply to
+Ignite Mana on Geddon. A successful effect on another recipient does not define
+the subject's own exposure endpoint; Purify's Holy school does not grant Magic
+removal capability.

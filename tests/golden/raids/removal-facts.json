@@ -608,6 +608,330 @@
         "owned_dispel_or_abolish_casts_ms": []
       },
       "review_basis": "Direct source-page enumeration before Geddon policy activation or correlation modeling; no analyzer/normalizer. Source folder does not imply event ownership. Independent reviewer locators separately agreed."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "A6avHyzWDkgBMXhq",
+      "fight": 28,
+      "actor": 17,
+      "player": "Killian",
+      "encounter_id": 50668,
+      "id": "geddon-paladin-ignite-mana-removals-1",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19659
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 1,
+        "duration_ms": 76398,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/A6avHyzWDkgBMXhq/fight_28/player_17_Killian/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [
+          {
+            "ms": 15764,
+            "source": 22,
+            "target": 17,
+            "ability": 988,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/A6avHyzWDkgBMXhq/fight_28/player_17_Killian/source_001.json",
+            "index": 42
+          }
+        ],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Direct raw source-page enumeration before Paladin Geddon policy activation or comparison with analyzer output; no analyzer/normalizer. The historical owned_dispel_or_abolish_casts_ms projection field records explicit utility spell IDs4987/1152 here; it does not label these as Priest abilities."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 28,
+      "player": "Meetymhc",
+      "encounter_id": 50668,
+      "id": "geddon-paladin-ignite-mana-removals-2",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19659
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 2,
+        "duration_ms": 11280,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/CBz1hnGRXbdYAZ8y/fight_11/player_28_Meetymhc/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Direct raw source-page enumeration before Paladin Geddon policy activation or comparison with analyzer output; no analyzer/normalizer. The historical owned_dispel_or_abolish_casts_ms projection field records explicit utility spell IDs4987/1152 here; it does not label these as Priest abilities."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "CN3cTnkWYr6mVQD7",
+      "fight": 81,
+      "actor": 3,
+      "player": "Anrylla",
+      "encounter_id": 50668,
+      "id": "geddon-paladin-ignite-mana-removals-3",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19659
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 70,
+        "duration_ms": 39646,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/CN3cTnkWYr6mVQD7/fight_81/player_3_Anrylla/source_001.json"
+        ],
+        "owned_removals": [
+          {
+            "ms": 10144,
+            "source": 3,
+            "target": 3,
+            "ability": 4987,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/CN3cTnkWYr6mVQD7/fight_81/player_3_Anrylla/source_001.json",
+            "index": 23
+          }
+        ],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": [
+          [
+            8653,
+            4987
+          ],
+          [
+            10145,
+            4987
+          ]
+        ]
+      },
+      "review_basis": "Direct raw source-page enumeration before Paladin Geddon policy activation or comparison with analyzer output; no analyzer/normalizer. The historical owned_dispel_or_abolish_casts_ms projection field records explicit utility spell IDs4987/1152 here; it does not label these as Priest abilities."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "N9wnqPbRKygmM4z1",
+      "fight": 20,
+      "actor": 11,
+      "player": "Stimorol",
+      "encounter_id": 50668,
+      "id": "geddon-paladin-ignite-mana-removals-4",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19659
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 1,
+        "duration_ms": 53776,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/N9wnqPbRKygmM4z1/fight_20/player_11_Stimorol/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Direct raw source-page enumeration before Paladin Geddon policy activation or comparison with analyzer output; no analyzer/normalizer. The historical owned_dispel_or_abolish_casts_ms projection field records explicit utility spell IDs4987/1152 here; it does not label these as Priest abilities."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "RkFgyDbCwPmHn9hV",
+      "fight": 68,
+      "actor": 20,
+      "player": "Roñ",
+      "encounter_id": 50668,
+      "id": "geddon-paladin-ignite-mana-removals-5",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19659
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 1,
+        "duration_ms": 44016,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/RkFgyDbCwPmHn9hV/fight_68/player_20_Ron/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Direct raw source-page enumeration before Paladin Geddon policy activation or comparison with analyzer output; no analyzer/normalizer. The historical owned_dispel_or_abolish_casts_ms projection field records explicit utility spell IDs4987/1152 here; it does not label these as Priest abilities."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 43,
+      "actor": 35,
+      "player": "Resurgance",
+      "encounter_id": 50668,
+      "id": "geddon-paladin-ignite-mana-removals-6",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19659
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 9,
+        "duration_ms": 91869,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/source_001.json"
+        ],
+        "owned_removals": [
+          {
+            "ms": 55586,
+            "source": 35,
+            "target": 16,
+            "ability": 4987,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/source_001.json",
+            "index": 112
+          },
+          {
+            "ms": 57222,
+            "source": 35,
+            "target": 30,
+            "ability": 4987,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/source_001.json",
+            "index": 118
+          },
+          {
+            "ms": 71032,
+            "source": 35,
+            "target": 20,
+            "ability": 4987,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/source_001.json",
+            "index": 148
+          }
+        ],
+        "other_removals_in_source_pages": [
+          {
+            "ms": 21606,
+            "source": 26,
+            "target": 35,
+            "ability": 4987,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/source_001.json",
+            "index": 28
+          },
+          {
+            "ms": 56603,
+            "source": 26,
+            "target": 35,
+            "ability": 4987,
+            "removed": 19659,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/source_001.json",
+            "index": 116
+          }
+        ],
+        "owned_dispel_or_abolish_casts_ms": [
+          [
+            55585,
+            4987
+          ],
+          [
+            57221,
+            4987
+          ],
+          [
+            71031,
+            4987
+          ]
+        ]
+      },
+      "review_basis": "Direct raw source-page enumeration before Paladin Geddon policy activation or comparison with analyzer output; no analyzer/normalizer. The historical owned_dispel_or_abolish_casts_ms projection field records explicit utility spell IDs4987/1152 here; it does not label these as Priest abilities."
     }
   ]
 }

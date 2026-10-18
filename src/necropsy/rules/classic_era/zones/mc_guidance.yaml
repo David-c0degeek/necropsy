@@ -89,6 +89,17 @@ removals:
     coordination: Agree self-clear priorities and backup dispel coverage for other mana users with your healing team.
     source: https://www.wowhead.com/classic/spell=19659/ignite-mana
     retrieved: '2026-10-18'
+  - rule: geddon-paladin-ignite-mana-removal-v1
+    label: Ignite Mana removals
+    classes: [6]
+    removed_ability_ids: [19659]
+    removing_ability_ids: [4987]
+    is_buff: false
+    require_encounter_event_set: true
+    correlate_self_exposure: true
+    coordination: Agree self-clear priorities and backup Cleanse coverage for other mana users with your healing team.
+    source: https://www.wowhead.com/classic/spell=19659/ignite-mana
+    retrieved: '2026-10-18'
   50664:
   - rule: magmadar-frenzy-removals-v1
     label: Magmadar Frenzy removals

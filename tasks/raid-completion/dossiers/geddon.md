@@ -68,6 +68,18 @@ counts. Self-clear priorities and backup dispel coverage remain raid coordinatio
 not a reaction grade, causal proof or saved-mana estimate. Other five actors are
 not accused of missing a dispel assignment. All class/faction/domain gates stay open.
 
+Paladin extension: six independently frozen contexts retain four Cleanse4987
+effects across two actors and four zeros. Anrylla (`CN3cTnkWYr6mVQD7`, fight81,
+actor3) has explicit7.262/10.144-second endpoints alongside an owned self-clear:
+2882ms recorded exposure. A later application stays censored. Resurgance
+(`kvJ2WVF1chC9R4wd`, fight43, actor35) removes19659 from16/30/20; none of these
+effects ends his own exposure. The real other-recipient case protects against
+nearest-time attribution. Classic Cleanse includes Magic while Purify1152 only
+removes poison/disease; Holy school alone cannot decide capability. Exact raw
+locators are in [the Paladin register](../research/paladin-geddon-removal-raw-facts.json).
+The same shared guards and coordination limits apply; no reaction grade,
+assignment, prevented damage or saved mana is inferred.
+
 Existing shared effects state machine, actor coverage, optional JSON and both
 page adapters are reused. Per-raid YAML supplies general preparation, bomb
 isolation, Inferno recovery, Priest/Paladin magic removal, healer support and

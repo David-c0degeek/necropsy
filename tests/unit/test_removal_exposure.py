@@ -44,7 +44,9 @@ def context(tmp_path: Path) -> Iterator[tuple[duckdb.DuckDBPyConnection, Partici
 def add(
     con: duckdb.DuckDBPyConnection, kind: str, timestamp: int, ability: int, **raw: Any
 ) -> None:
-    count = con.execute("SELECT count(*) FROM events").fetchone()[0]
+    row = con.execute("SELECT count(*) FROM events").fetchone()
+    assert row is not None
+    count = row[0]
     payload = dict(
         type=kind, timestamp=timestamp, sourceID=1, targetID=1, abilityGameID=ability, fight=7
     )
@@ -197,3 +199,48 @@ def test_feign_death_does_not_reset_explicit_exposure_pair(context: tuple[Any, .
     con, pf = context
     add(con, "death", 4000, 19659, feign=True)
     assert findings(con, pf)[0].intervals_ms.value == ((3000, 4608, 1608, 988),)
+
+
+def paladin(con: duckdb.DuckDBPyConnection, ability: int = 4987, recipient: int = 1) -> None:
+    con.execute("UPDATE snapshot_meta SET subject_class_id=6")
+    con.execute("UPDATE actors SET sub_type='Paladin' WHERE actor_id=1")
+    con.execute(
+        "UPDATE events SET ability_game_id=?,target_id=?,raw=json_merge_patch(raw,?) "
+        "WHERE type='dispel'",
+        [ability, recipient, json.dumps({"abilityGameID": ability, "targetID": recipient})],
+    )
+
+
+def test_paladin_cleanse_reuses_exact_pair_and_priest_keeps_its_own_spell_set(
+    context: tuple[Any, ...],
+) -> None:
+    con, pf = context
+    paladin(con)
+    [removal] = mechanic_removals(con, pf)
+    assert removal.removals.value == 1
+    assert removal.removing_ability_ids == (4987,)
+    assert findings(con, pf)[0].intervals_ms.value == ((3000, 4608, 1608, 4987),)
+    con.execute("UPDATE snapshot_meta SET subject_class_id=7")
+    [priest] = mechanic_removals(con, pf)
+    assert priest.removals.value == 0 and priest.removing_ability_ids == (527, 988)
+    assert findings(con, pf) == ()
+
+
+@pytest.mark.parametrize("ability", [527, 988, 1152, 475])
+def test_paladin_magic_removal_does_not_credit_priest_ranks_purify_or_decurse(
+    context: tuple[Any, ...],
+    ability: int,
+) -> None:
+    con, pf = context
+    paladin(con, ability)
+    assert mechanic_removals(con, pf)[0].removals.value == 0
+    assert findings(con, pf) == ()
+
+
+def test_paladin_removal_on_another_player_is_not_a_self_exposure_endpoint(
+    context: tuple[Any, ...],
+) -> None:
+    con, pf = context
+    paladin(con, recipient=2)
+    assert mechanic_removals(con, pf)[0].removals.value == 1
+    assert findings(con, pf) == ()

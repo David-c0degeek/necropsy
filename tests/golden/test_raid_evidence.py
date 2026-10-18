@@ -227,12 +227,20 @@ def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> N
                     ),
                     [],
                 )
-            if case["player"] == "Inkia":
+            expected_pair = {
+                ("mc-holy-raid-context", "Inkia"): [7667, 9275, 1608, 988],
+                ("mc-holy-paladin-raid-context", "Anrylla"): [7262, 10144, 2882, 4987],
+            }.get((fixture, case["player"]))
+            if expected_pair is not None:
                 assert len(paired) == 1
-                assert paired[0]["intervals_ms"]["value"] == [[7667, 9275, 1608, 988]]
+                assert paired[0]["intervals_ms"]["value"] == [expected_pair]
                 for page in ("report.html", "playbook.html"):
                     html = unescape((out / page).read_text(encoding="utf-8"))
-                    assert "recorded exposure from 7.667s to 9.275s (1.608s)" in html
+                    start, end, elapsed, _ability = expected_pair
+                    assert (
+                        f"recorded exposure from {start / 1000:.3f}s to {end / 1000:.3f}s "
+                        f"({elapsed / 1000:.3f}s)" in html
+                    )
                     assert "Agree self-clear priorities" in html
                     assert "reaction quality" in html
             else:

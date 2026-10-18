@@ -44,6 +44,17 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 33 / Class-specific Magic-removal policy reuse.
+Paladin Cleanse4987 receives its own class6 Geddon policy through unchanged
+shared removal and self-exposure algorithms. Priest527/988 remain separate;
+Purify1152/Decurse/Priest-spell negatives cannot earn Paladin Magic-removal
+credit. Real personal effects on others remain independent of self-exposure.
+Only the MC policy asset changes in the140-member wheel.125 focused/29 final
+policy tests and five real checks pass; source/installed/CLI all4 agree, only
+three Paladin fields change, and Priest/Naxx all4 retain bytes. Full-project
+lint/285 format/mypy228/docs292 checks pass. D024/ADR0015 and
+research/paladin-cleanse-review.json retain limits. DO NOT CLOSE.
+
 2026-10-18 / slice 32 / Explicit exposure alongside self-removal.
 Optional shared personal/cohort records retain integer aura endpoints, elapsed
 milliseconds, unique owned removal and exact event refs. Complete source/target

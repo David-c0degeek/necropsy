@@ -10,7 +10,7 @@ Season of Mastery and Hardcore catalog entries do not approve Era policies.
 `raid/encounter/class/category/metric/faction`. Missing records mean TODO.
 The partial register deliberately certifies no complete domain cells.
 Current inventory:47 archives,639 actor cases,380 recipient cases,95 owned-pet
-contexts,9 actor-effect contexts,12 summon contexts and12 removal contexts.
+contexts,9 actor-effect contexts,12 summon contexts and18 removal contexts.
 
 ```sh
 uv run python scripts/check_raid_coverage.py --inventory
@@ -219,6 +219,13 @@ Ignite Mana19659 and five known-zero actors. Immateriall's19635 removal remains
 excluded. Inkia's explicit aura endpoints at7.667/9.275s agree with the self-dispel
 endpoint; the saved1608ms exposure interval is no reaction or avoided-damage
 score. Ambiguous pairing is withheld independently of successful-effect counts.
+Six Paladin Geddon contexts additionally retain four Cleanse4987 effects across
+two actors and four known-zero actors. Anrylla's7.262/10.144-second endpoints
+support2882ms recorded self-exposure. Resurgance's three removals target other
+players and never pair with his own exposure. Purify1152 is not Magic removal;
+the raw checker's historical cast-projection field retains explicit spell IDs
+without implying Priest capability or failed casts. All prior12 removal
+expectations remain unchanged.
 SOURCE-page folders alone do not establish ownership. The raw projector retains
 exact event identities, source-member/index locators, elapsed timestamps and
 explicit buff flags. Validly rehashed owner, target, spell, flag and chronology

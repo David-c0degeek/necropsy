@@ -37,6 +37,19 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 32 / Paladin Geddon utility and Shaman quota recovery.
+Six pre-activation raw contexts add four Cleanse effects/two positive actors,
+four zeros and Anrylla2882ms self-exposure; personal other-recipient effects stay
+unpaired. Original12 removal expectations and all639 actor/380 recipient/
+47 provenance records remain unchanged. Independent18-context removal checks,
+125 focused/29 final policy tests and five real replay/browser checks pass.
+Source/installed all4 agree; Priest/Naxx all4 preserved. Review:
+research/paladin-cleanse-review.json. Shaman first native attempt finalizes24
+selected actors/fights at normal quota reserve with complete selected scopes;
+one discovery context stays missing. Second normal resume begins after the
+saved reset prediction and owns database work; neither archive nor class cell
+is registered prematurely.69 IN_PROGRESS/883 TODO/0 COMPLETE; DO NOT CLOSE.
+
 2026-10-18 / slice 31 / First qualified Paladin full-MC registration.
 Final native resume retains60 public selected actors across59 fights: all10
 personal bosses/five comparisons each.120 player directions/118 global scopes

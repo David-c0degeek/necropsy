@@ -40,6 +40,11 @@ def paladin_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
     guardian = next(e for e in ragnaros["overall_cohort"] if e["player"] == "Carameyl")
     assert guardian["combat"]["pets_known"] is False
     assert guardian["combat"]["pets"] == []
+    geddon = next(b for b in doc["bosses"] if b["encounter_id"] == 50668)
+    assert geddon["playbook"]["mechanic_removals"][0]["removals"]["value"] == 3
+    [example] = geddon["playbook"]["cohort_exposure_removal_correlations"]
+    assert example["player"] == "Anrylla"
+    assert example["correlations"][0]["intervals_ms"]["value"] == [[7262, 10144, 2882, 4987]]
     return out
 
 
@@ -87,6 +92,20 @@ def test_real_paladin_healing_context_is_usable_without_quality_claims(
                         "Assignments, pet contributions and WCL ranking policies remain separate."
                         in boss.inner_text()
                     )
+                geddon = page.locator("#boss-50668")
+                for count in (1, 3):
+                    finding = geddon.get_by_text(
+                        f"Ignite Mana removals: {count} recorded successful effects.", exact=False
+                    ).first
+                    finding.scroll_into_view_if_needed()
+                    assert finding.is_visible()
+                pairing = geddon.get_by_text(
+                    "recorded exposure from 7.262s to 10.144s (2.882s)", exact=False
+                ).first
+                pairing.scroll_into_view_if_needed()
+                assert pairing.is_visible()
+                assert "backup Cleanse coverage" in geddon.inner_text()
+                assert "reaction quality" in geddon.inner_text()
                 assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
                 page.emulate_media(media="print")
                 assert support.is_visible()
