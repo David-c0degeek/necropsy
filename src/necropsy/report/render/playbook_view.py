@@ -165,6 +165,41 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *example_lines)
         view["pull_during"] = (*view.get("pull_during", ()), *example_lines)
+    summons = playbook.get("summon_observations") or ()
+    summon_examples = playbook.get("cohort_summon_observations") or ()
+    if summons or summon_examples:
+        view = dict(view)
+        summon_lines = []
+        limits = dict.fromkeys(
+            item["limitation"]
+            for item in (*summons, *(item for e in summon_examples for item in e["summons"]))
+        )
+        summon_lines.append(line("Observed summon event bounds.", " ".join(limits)))
+        for prefix, observations in [
+            ("", summons),
+            *(
+                (f"In {example['player']}'s fight: ", example["summons"])
+                for example in summon_examples
+            ),
+        ]:
+            for item in observations:
+                summon_lines.append(
+                    line(
+                        f"{prefix}{item['label']}: "
+                        f"{number(item['summons']['value'])} recorded summons.",
+                        links=(source(item["source"], "Mechanic reference"),),
+                    )
+                )
+                summon_lines.extend(
+                    line(
+                        f"{prefix}{target['name']} · instance {target['instance']}: "
+                        f"{number(target['elapsed_to_overkill_s']['value'], 2, 's')} "
+                        "from summon to first positive-overkill marker."
+                    )
+                    for target in item["targets"]
+                )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *summon_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *summon_lines)
     controls = playbook.get("control_applications")
     if controls:
         view = dict(view)

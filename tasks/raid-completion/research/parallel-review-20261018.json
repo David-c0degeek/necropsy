@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-18",
+  "authorization": "User selected Use three reviewers; D021 records solo to parallel review.",
+  "mode": "Read-only static and raw ZIP review; no reviewer edits, tests, analyzer imports, database workloads, captures or nested agents.",
+  "reviews": [
+    {
+      "owner": "/root/summon_review",
+      "scope": "Summon semantics, NPC identity, scope and actual callers",
+      "verified": [
+        "Maximum-multiplicity ingest and raw occurrence metadata support the All/union count proof.",
+        "Roster cardinality, numbered instances, caster qualification and lifecycle contradictions withhold unsupported bounds.",
+        "Personal/cohort JSON callers and both page adapters retain unknowns and explicit limits."
+      ],
+      "findings": [
+        {
+          "severity": "P2",
+          "file": "src/necropsy/analysis/encounters/summons.py",
+          "issue": "Malformed unrelated chronology globally withholds Image endpoints before recipient relevance is checked.",
+          "disposition": "Root added a strict agreeing raw/normalized unrelated-recipient gate; missing/conflicting identity remains unresolved. Added damage/death/resurrect positive and conflicting-target negatives. Verification recorded in summon-event-bounds-review.json."
+        }
+      ],
+      "root_fix_rechecked_by_reviewer": "Static re-review confirms narrow gate and all six positive/conflicting-target regressions; P2 resolved, no new concern."
+    },
+    {
+      "owner": "/root/oracle_review",
+      "scope": "Independent raw projector, frozen facts, provenance and mutation sensitivity",
+      "verified": [
+        "Direct ZIP reads agree with all 12 contexts, 72 numbered images, 60 known bounds and 12 unknown endpoints.",
+        "Raw research and frozen manual bounds agree; eligibility additions preserve earlier measurements.",
+        "Original actor, healing, pet and effect registers remain unchanged.",
+        "No real image death/resurrect rows exist; lifecycle validation remains synthetic."
+      ],
+      "findings": [
+        {
+          "severity": "P2",
+          "file": "scripts/check_raid_facts.py",
+          "issue": "Numeric aliases in damage-marker source/ability identity can match frozen integers through Python equality.",
+          "disposition": "Root validates available sourceID/sourceInstance/abilityGameID on damage and adds five valid-rehash alias regressions."
+        },
+        {
+          "severity": "P3",
+          "file": "tests/golden/test_raid_evidence.py",
+          "issue": "Dictionary projection can conceal duplicate serialized target keys.",
+          "disposition": "Root added original-list versus dictionary cardinality equality."
+        }
+      ],
+      "root_fix_rechecked_by_reviewer": "Static re-review confirms damage identity validation, five valid-rehash negatives and duplicate-target assertion; no remaining oracle finding."
+    },
+    {
+      "owner": "/root/class_review",
+      "scope": "Class/duty callers, evidence distribution and next priorities",
+      "findings": [
+        {
+          "severity": "P2",
+          "file": "src/necropsy/analysis/encounters/windows.py",
+          "issue": "Existing aura windows certify All stream coverage while reading the merged event union; actor-only additions can influence complete observations.",
+          "disposition": "Confirmed root follow-up immediately after the summon checkpoint; apply the stronger event-set guard and mutation-sensitive tests before full-domain acceptance."
+        }
+      ],
+      "priorities": [
+        "Finish native AQ Hunter acquisition and independently register finalized actor, pet and ranking evidence; preserve reserve stops.",
+        "Deepen Holy Priest encounter advice using existing evidence across all 28 encounter entries.",
+        "Complete Hunter MC/BWL and faction gaps; current Hunter seeds are AQ9, MC4, BWL1.",
+        "Acquire missing Alliance Paladin, Restoration/Elemental Shaman and Shadow Priest categories deliberately.",
+        "Keep Fury-tank, Guardian and Warlock special assignments unknown until evidenced."
+      ],
+      "implementation_gaps": [
+        "report/combat.py leaves shared class recommendations empty and target-integrity/utility absent.",
+        "encounters/strategy.py filters class/metric but lacks category/tree/duty applicability.",
+        "classes.yaml has no Warlock tank action classification; withholding DPS inference does not establish Twin tank duty."
+      ]
+    }
+  ],
+  "coverage": {
+    "in_progress": 59,
+    "todo": 893,
+    "complete": 0
+  },
+  "full_plan_verdict": "DO NOT CLOSE"
+}

@@ -1,0 +1,482 @@
+{
+  "reviewed": "2026-10-18",
+  "base_commit": "5dcc7f3",
+  "scope": "Per-instance observed summon and overkill event bounds; physical phase/opportunity/ranking and full class/duty acceptance remain open",
+  "immutable_baseline": {
+    "archives": 45,
+    "actor_cases": 525,
+    "recipient_cases": 322,
+    "pet_contexts": 41,
+    "owned_units": 38,
+    "actor_effect_contexts": 9,
+    "all_prior_raw_inputs_and_expected_measurements_unchanged": true
+  },
+  "new_independent_oracle": {
+    "contexts": 12,
+    "distinct_fights": 12,
+    "numbered_images": 72,
+    "event_bounds_ms_known": 60,
+    "missing_endpoints": 12,
+    "image_death_rows": 0,
+    "portable_register": "tests/golden/raids/summon-facts.json",
+    "raw_measurements_and_manual_bounds_frozen_before_production": true,
+    "raw_projector_calls_analyzer_or_normalizer": false,
+    "supplementary_raw_identity_dimensions": "Raid/partition/encounter/revision fields were added independently after initial modeling; all earlier frozen measurements/bounds remained exactly unchanged.",
+    "raw_eligibility": "Exact raid, partition, encounter, revision, NPC catalog/roster identities and numbered instances; Boolean/numeric aliases rejected.",
+    "primary_overlap": {
+      "report": "6H9PmqR2QCnNAzVh",
+      "fight": 2,
+      "actor": 48,
+      "instance1_summoned_ms": 9684,
+      "later_group_ms": [
+        19383,
+        33939
+      ],
+      "instance1_overkill_ms": 44230,
+      "instance1_elapsed_ms": 34546
+    }
+  },
+  "implementation": {
+    "shared_npc_qualification": "analysis/generic/npcs.py; existing aura caller reuses the extracted identity/cardinality logic",
+    "new_analyzer": "analysis/encounters/summons.py; raid-owned policy, shared genuine-death classifier, no boss branch in a class plugin",
+    "scope_guard": "Trusted unrestricted All plus exact maximum-multiplicity union/All occurrence-count consistency. Extra actor/critical identities or copies and missing count metadata withhold certification.",
+    "saved_fields": [
+      "playbook.summon_observations",
+      "playbook.cohort_summon_observations"
+    ],
+    "actual_callers": "build_document personal and same-faction cohort paths; shared Report/Playbook adapters for Hunter and general class pages",
+    "schema_or_ingest_change": false,
+    "zero_and_unknown": "Known zero recorded summons requires complete scope/event-set proof. Missing starts/ends, conflicting identity/cardinality, repeated starts, reversed/same-time endpoints, later positive damage and lifecycle reuse withhold bounds. Feign Death is not a terminal marker.",
+    "forbidden_inferences": [
+      "lifetime",
+      "continuous attackability",
+      "physical range",
+      "assignment",
+      "damage opportunity",
+      "ranking denominator",
+      "personal quality grade"
+    ]
+  },
+  "verification": {
+    "ordinary_suite": {
+      "passed": 1722,
+      "deselected": 309,
+      "seconds": 455.1
+    },
+    "ordinary_suite_scope": "Full suite before three-reviewer fixes; focused post-review regressions below verify the subsequent changes.",
+    "post_review_regressions": "286 passed in 28.25s",
+    "parallel_review": {
+      "date": "2026-10-18",
+      "authorization": "User selected Use three reviewers; D021 records solo to parallel review.",
+      "mode": "Read-only static and raw ZIP review; no reviewer edits, tests, analyzer imports, database workloads, captures or nested agents.",
+      "reviews": [
+        {
+          "owner": "/root/summon_review",
+          "scope": "Summon semantics, NPC identity, scope and actual callers",
+          "verified": [
+            "Maximum-multiplicity ingest and raw occurrence metadata support the All/union count proof.",
+            "Roster cardinality, numbered instances, caster qualification and lifecycle contradictions withhold unsupported bounds.",
+            "Personal/cohort JSON callers and both page adapters retain unknowns and explicit limits."
+          ],
+          "findings": [
+            {
+              "severity": "P2",
+              "file": "src/necropsy/analysis/encounters/summons.py",
+              "issue": "Malformed unrelated chronology globally withholds Image endpoints before recipient relevance is checked.",
+              "disposition": "Root added a strict agreeing raw/normalized unrelated-recipient gate; missing/conflicting identity remains unresolved. Added damage/death/resurrect positive and conflicting-target negatives. Verification recorded in summon-event-bounds-review.json."
+            }
+          ],
+          "root_fix_rechecked_by_reviewer": "Static re-review confirms narrow gate and all six positive/conflicting-target regressions; P2 resolved, no new concern."
+        },
+        {
+          "owner": "/root/oracle_review",
+          "scope": "Independent raw projector, frozen facts, provenance and mutation sensitivity",
+          "verified": [
+            "Direct ZIP reads agree with all 12 contexts, 72 numbered images, 60 known bounds and 12 unknown endpoints.",
+            "Raw research and frozen manual bounds agree; eligibility additions preserve earlier measurements.",
+            "Original actor, healing, pet and effect registers remain unchanged.",
+            "No real image death/resurrect rows exist; lifecycle validation remains synthetic."
+          ],
+          "findings": [
+            {
+              "severity": "P2",
+              "file": "scripts/check_raid_facts.py",
+              "issue": "Numeric aliases in damage-marker source/ability identity can match frozen integers through Python equality.",
+              "disposition": "Root validates available sourceID/sourceInstance/abilityGameID on damage and adds five valid-rehash alias regressions."
+            },
+            {
+              "severity": "P3",
+              "file": "tests/golden/test_raid_evidence.py",
+              "issue": "Dictionary projection can conceal duplicate serialized target keys.",
+              "disposition": "Root added original-list versus dictionary cardinality equality."
+            }
+          ],
+          "root_fix_rechecked_by_reviewer": "Static re-review confirms damage identity validation, five valid-rehash negatives and duplicate-target assertion; no remaining oracle finding."
+        },
+        {
+          "owner": "/root/class_review",
+          "scope": "Class/duty callers, evidence distribution and next priorities",
+          "findings": [
+            {
+              "severity": "P2",
+              "file": "src/necropsy/analysis/encounters/windows.py",
+              "issue": "Existing aura windows certify All stream coverage while reading the merged event union; actor-only additions can influence complete observations.",
+              "disposition": "Confirmed root follow-up immediately after the summon checkpoint; apply the stronger event-set guard and mutation-sensitive tests before full-domain acceptance."
+            }
+          ],
+          "priorities": [
+            "Finish native AQ Hunter acquisition and independently register finalized actor, pet and ranking evidence; preserve reserve stops.",
+            "Deepen Holy Priest encounter advice using existing evidence across all 28 encounter entries.",
+            "Complete Hunter MC/BWL and faction gaps; current Hunter seeds are AQ9, MC4, BWL1.",
+            "Acquire missing Alliance Paladin, Restoration/Elemental Shaman and Shadow Priest categories deliberately.",
+            "Keep Fury-tank, Guardian and Warlock special assignments unknown until evidenced."
+          ],
+          "implementation_gaps": [
+            "report/combat.py leaves shared class recommendations empty and target-integrity/utility absent.",
+            "encounters/strategy.py filters class/metric but lacks category/tree/duty applicability.",
+            "classes.yaml has no Warlock tank action classification; withholding DPS inference does not establish Twin tank duty."
+          ]
+        }
+      ],
+      "coverage": {
+        "in_progress": 59,
+        "todo": 893,
+        "complete": 0
+      },
+      "full_plan_verdict": "DO NOT CLOSE"
+    },
+    "first_full_suite": "1705 passed/305 deselected/453.35s before additional raw eligibility/identity mutations, real-browser tests and final event-set guard; final full suite supersedes it.",
+    "focused_final": "326 passed in 25.26s",
+    "raw_mutations": "122 passed in 2.86s",
+    "real_browser": "4 passed/134.94s; real Holy/Hunter fixtures, desktop/mobile, both pages and print; no overflow, remote request or page error. Before final scope guard; unchanged current12 policy outputs prove displayed values unaffected.",
+    "cross_raid_goldens": "3 passed/50 deselected/17.21s: independent summon register, real MC Frost control and combined BWL Hunter. Final scope guard changes no MC/BWL callers; portable raw register rechecked afterward.",
+    "source": [
+      {
+        "fixture": "aq40-holy-complete-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": false,
+        "artifact_sha256": {
+          "analysis.json": "84b546593e4b396daa09b16c7cbfcf9f1570f78f8827bfd7b5e9996dfda29f41",
+          "report.html": "4cd7c6df398466f8869b54bf94eee5226fba73742dcde9889c6f849a33c342db",
+          "playbook.html": "7d57eccd37f96095a9aa18d294dc0ac62adbc69f46c05089d5989b81833fc6bb",
+          "necropsy-94217209-2005.zip": "5ad935b29c3c986eb6e7df5a5d64eaca63ac58af151bf9a5e04c78184c24cfa3"
+        }
+      },
+      {
+        "fixture": "aq40-hunter-expanded-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": false,
+        "artifact_sha256": {
+          "analysis.json": "64edd63e9222205f7d353b029eceb673a09139d5e18441c755bd23c9257e02bf",
+          "report.html": "872f734f389f88d990f429b701484c7b3d58557d65f4c59212e9800cbd97f30f",
+          "playbook.html": "a64d5b2d0b916af096ae6457c1fea4123ee324bdf6e7e2ce7941888d3df813c6",
+          "necropsy-73952389-2005.zip": "41e462193184c5d5fa8e620a4c1819ecdf659c4cb087619089049e81ab61eea0"
+        }
+      }
+    ],
+    "installed": [
+      {
+        "fixture": "aq40-holy-complete-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": true,
+        "artifact_sha256": {
+          "analysis.json": "84b546593e4b396daa09b16c7cbfcf9f1570f78f8827bfd7b5e9996dfda29f41",
+          "report.html": "4cd7c6df398466f8869b54bf94eee5226fba73742dcde9889c6f849a33c342db",
+          "playbook.html": "7d57eccd37f96095a9aa18d294dc0ac62adbc69f46c05089d5989b81833fc6bb",
+          "necropsy-94217209-2005.zip": "5ad935b29c3c986eb6e7df5a5d64eaca63ac58af151bf9a5e04c78184c24cfa3"
+        }
+      },
+      {
+        "fixture": "aq40-hunter-expanded-context",
+        "all6_instance_contexts_and_both_pages_verified": true,
+        "prior_aura_actor_effect_and_pet_assertions_pass": true,
+        "normal_package_accepted": true,
+        "source_installed_all4_equal": true,
+        "artifact_sha256": {
+          "analysis.json": "64edd63e9222205f7d353b029eceb673a09139d5e18441c755bd23c9257e02bf",
+          "report.html": "872f734f389f88d990f429b701484c7b3d58557d65f4c59212e9800cbd97f30f",
+          "playbook.html": "a64d5b2d0b916af096ae6457c1fea4123ee324bdf6e7e2ce7941888d3df813c6",
+          "necropsy-73952389-2005.zip": "41e462193184c5d5fa8e620a4c1819ecdf659c4cb087619089049e81ab61eea0"
+        }
+      }
+    ],
+    "current_source_event_set_proof": {
+      "classification": "Current source policy after exact event-set guard; all prior independently checked real outputs unchanged",
+      "cases": [
+        {
+          "case": "skeram-summon-observations-1",
+          "all_occurrences": 10744,
+          "merged_occurrences": 10744,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-2",
+          "all_occurrences": 6325,
+          "merged_occurrences": 6325,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-3",
+          "all_occurrences": 8430,
+          "merged_occurrences": 8430,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-4",
+          "all_occurrences": 7281,
+          "merged_occurrences": 7281,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-5",
+          "all_occurrences": 7841,
+          "merged_occurrences": 7841,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-6",
+          "all_occurrences": 5233,
+          "merged_occurrences": 5233,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-7",
+          "all_occurrences": 9247,
+          "merged_occurrences": 9247,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-8",
+          "all_occurrences": 6591,
+          "merged_occurrences": 6591,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-9",
+          "all_occurrences": 10221,
+          "merged_occurrences": 10221,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-10",
+          "all_occurrences": 7109,
+          "merged_occurrences": 7109,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-11",
+          "all_occurrences": 7392,
+          "merged_occurrences": 7392,
+          "all_policy_outputs_equal_saved_observations": true
+        },
+        {
+          "case": "skeram-summon-observations-12",
+          "all_occurrences": 8732,
+          "merged_occurrences": 8732,
+          "all_policy_outputs_equal_saved_observations": true
+        }
+      ]
+    },
+    "actual_installed_cli": {
+      "cwd": "C:/Users/David",
+      "native_exit": 0,
+      "all4_source_installed_cli_artifacts_equal": true,
+      "candidate_wheel_sha256": "18872dcded6703d854afe63e31bca649732290a6b7681f847529830d6d289379",
+      "normal_package_accepted": true,
+      "artifact_sha256": {
+        "analysis.json": "84b546593e4b396daa09b16c7cbfcf9f1570f78f8827bfd7b5e9996dfda29f41",
+        "report.html": "4cd7c6df398466f8869b54bf94eee5226fba73742dcde9889c6f849a33c342db",
+        "playbook.html": "7d57eccd37f96095a9aa18d294dc0ac62adbc69f46c05089d5989b81833fc6bb",
+        "necropsy-94217209-2005.zip": "5ad935b29c3c986eb6e7df5a5d64eaca63ac58af151bf9a5e04c78184c24cfa3"
+      }
+    },
+    "naxx": {
+      "baseline_commit": "5dcc7f3",
+      "all4_artifacts_byte_identical": true,
+      "candidate_wheel_sha256": "18872dcded6703d854afe63e31bca649732290a6b7681f847529830d6d289379",
+      "original_frozen_naxx_inputs_unchanged": true,
+      "artifact_sha256": {
+        "analysis.json": "e49b379c66255f98edf8914947989f2bc0940e9931eece13bf286e310e893870",
+        "report.html": "3c5827af742e4e4028c48d5a654ca02f7b9431ee5f3eb81cc2d935cd335da5e8",
+        "playbook.html": "8fa409cf93b31643a064e98a0b865dc75a74308de5c58d3b3f7bcdb258f58381",
+        "necropsy-86583560-2006.zip": "ebecf7d20ecd6333cbd2f224c54e6064a790cba3dab651c7a1f3b945fb88e5ca"
+      },
+      "prior_reviewed_semantic_change": "D019 pet-advice correction remains; this summon change adds no Naxx difference."
+    },
+    "build": {
+      "wheel_members_match_source": 139,
+      "sdist_excludes_development_data": true,
+      "extracted_output_bytes": 489818837,
+      "wheel_sha256": "18872dcded6703d854afe63e31bca649732290a6b7681f847529830d6d289379"
+    },
+    "ruff": "280 formatted/check clean",
+    "mypy": "223 sources clean",
+    "docs": "291 links/25 maintained documents",
+    "privacy": "Unlimited output/build and research scans clean; previously scanned immutable raw archives reused.",
+    "canonical_package": {
+      "all139_members_match_staged_fresh_checkout_bytes": true,
+      "working_copy_files_normalized_to_existing_staged_LF_bytes": 24,
+      "only_line_endings_changed": true,
+      "both_installed_replay_sets_and_cli_repeated_after_rebuild": true
+    }
+  },
+  "new_native_acquisition": {
+    "recorded": "2026-10-18",
+    "status": "Research receipts only; final54 personal/cohort selections acquired. Native ownership remains partial; independent registration and product acceptance remain open.",
+    "captures": [
+      {
+        "normal_installed_resume": 2,
+        "native_exit": 4,
+        "archive": "workspace/raid-research/aq40-hunter-full/.necropsy-run/snapshots/fb467d1f255845e39004324cc0a49a41/73952389-2005-20261017T231552.zip",
+        "sha256": "931d4609c402515720791ea7f4f1b1b5d39c5f5e399f59935b6ee784a880d8de",
+        "entries_sha256": "704764f2f40e5ea10f85395fd9ebac77541175e43a934665ac7ba394cd7b2bd6",
+        "members": 460,
+        "public_selected_actor_fights": 39,
+        "selected_personal": {
+          "50709": 1,
+          "50710": 1,
+          "50711": 1,
+          "50712": 1,
+          "50713": 1,
+          "50714": 1,
+          "50715": 1,
+          "50716": 1,
+          "50717": 1
+        },
+        "selected_cohorts": {
+          "50709": 5,
+          "50710": 5,
+          "50711": 5,
+          "50712": 5,
+          "50713": 5,
+          "50714": 5
+        },
+        "reused_saved_requests": 289,
+        "account_wide_point_delta": 793.27,
+        "complete": false,
+        "registry_promoted": false,
+        "unsuccessful_next_candidate": {
+          "player": "Aye",
+          "report": "1nPhZMwHVmR7Ap36",
+          "fight": 26,
+          "encounter_id": 50715,
+          "selected": false
+        },
+        "reason": "Normal quota reserve stop; confirmed evidence saved, unsuccessful next candidate not promoted. Guardian ownership remains explicitly unresolved.",
+        "raw_inputs_preserved": true
+      },
+      {
+        "normal_installed_resume": 3,
+        "native_exit": 4,
+        "archive": "workspace/raid-research/aq40-hunter-full/.necropsy-run/snapshots/eb6b5266d714419c94a362d063751555/73952389-2005-20261018T081700.zip",
+        "sha256": "6d30a38b9ee079c4e7a3c92f40fa74f45635429e90e64962369ba5efd8077982",
+        "entries_sha256": "619de9a398c4181d07cfb63a44914635440fb5f09e0f6ee869d99350c464e49e",
+        "members": 557,
+        "public_selected_actor_fights": 46,
+        "selected_personal": {
+          "50709": 1,
+          "50710": 1,
+          "50711": 1,
+          "50712": 1,
+          "50713": 1,
+          "50714": 1,
+          "50715": 1,
+          "50716": 1,
+          "50717": 1
+        },
+        "selected_cohorts": {
+          "50709": 5,
+          "50710": 5,
+          "50711": 5,
+          "50712": 5,
+          "50713": 5,
+          "50714": 5,
+          "50715": 5,
+          "50716": 2
+        },
+        "reused_saved_requests": 413,
+        "account_wide_point_delta": 773.25,
+        "complete": false,
+        "registry_promoted": false,
+        "unsuccessful_next_candidate": {
+          "player": "Petdaddy",
+          "report": "cwNR63DjAKHd8BxM",
+          "fight": 44,
+          "encounter_id": 50716,
+          "selected": false
+        },
+        "reason": "Normal quota reserve stop; confirmed evidence saved, unsuccessful next candidate not promoted. Guardian ownership remains explicitly unresolved.",
+        "raw_inputs_preserved": true
+      },
+      {
+        "normal_installed_resume": 4,
+        "native_exit": 4,
+        "archive": "workspace/raid-research/aq40-hunter-full/.necropsy-run/snapshots/daa203f1db6d47d0a057b2493703df7b/73952389-2005-20261018T093201.zip",
+        "sha256": "56bbae946cadd4a02b7906a9cf23fc357f25a391d58e20fb774717993d0d05eb",
+        "entries_sha256": "b611e4f7a4a71b918c7b0268488902cd85cade3148f05f04d7cd8bc290648788",
+        "members": 681,
+        "verified_extracted_bytes": 668142678,
+        "public_selected_actor_fights": 54,
+        "selected_personal": {
+          "50709": 1,
+          "50710": 1,
+          "50711": 1,
+          "50712": 1,
+          "50713": 1,
+          "50714": 1,
+          "50715": 1,
+          "50716": 1,
+          "50717": 1
+        },
+        "selected_cohorts": {
+          "50709": 5,
+          "50710": 5,
+          "50711": 5,
+          "50712": 5,
+          "50713": 5,
+          "50714": 5,
+          "50715": 5,
+          "50716": 5,
+          "50717": 5
+        },
+        "reused_saved_requests": 526,
+        "account_wide_point_delta": 521.73,
+        "cohort_selection_complete": true,
+        "complete": false,
+        "registry_promoted": false,
+        "reason": "All requested personal/cohort selections finalized; native exit4 retains unresolved guardian ownership in Fankriss/Twins. No quota stop in this resume. Unknown ownership is not replaced by an invented owner.",
+        "independent_prior_equivalence": {
+          "new_cases": 54,
+          "prior_cases_reused": 29,
+          "all_prior_expected_fields_exactly_equal": true,
+          "new_cases_added": 25,
+          "basis": "Independent raw ZIP projection, no production analyzer or normalizer"
+        },
+        "raw_inputs_preserved": true,
+        "privacy": {
+          "tool": "gitleaks8.30.1",
+          "max_target_megabytes": 0,
+          "redact": true,
+          "extracted_raw_bytes": 668142678,
+          "result": "no leaks found"
+        },
+        "independent_prior_owned_pet_equivalence": {
+          "prior_contexts": 29,
+          "new_contexts": 54,
+          "all_prior_expected_fields_exactly_equal": true
+        }
+      }
+    ]
+  },
+  "Keep": "Independent portable raw facts before modeling, exact instance/metadata qualification, overlapping groups, explicit unknowns, shared source model and real Hunter/Priest page callers. No duplicate parser or downloader; prior evidence and all4 Naxx outputs preserved.",
+  "Fix before closing": "Audit other encounter consumers for exact event-set dependence; independently register the new54 Hunter cases, then finish full mechanics/physical phase/opportunity/ranking/class/faction/duty/loadout/pet and human/domain/product gates. Complete original native-crash investigation. No full subject or matrix cell closes.",
+  "Record": "D020/D021/ADR0015, three independent reviewers and root dispositions, new oracle and two existing cell references, source/event-set proof, native39/46/54-source receipts, lessons and PM calibration. Distinguish WCL and in-game class IDs in evidence lookup. Packaged source uses canonical LF bytes, matching fresh-checkout source.",
+  "Risk": "Positive overkill is an observed marker, not certified lifetime or attackability. Script-oracle UI remains unverified because no connected browser was available. Existing native0xC0000005 cause remains unresolved. Native resumption may stop normally at quota reserve or unknown ownership; do not promote unfinished candidates.",
+  "Verdict": "DO NOT CLOSE"
+}

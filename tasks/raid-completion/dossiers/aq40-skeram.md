@@ -37,3 +37,15 @@ retains a positive-overkill hit at44.230s. Consecutive Summon Images casts must
 not truncate earlier NPC timelines or become mutually exclusive add-presence
 phases. Boss progression, image presence and physical damage opportunity are
 different interpretations requiring separate evidence and uncertainty.
+
+The shared engine now retains these independently checked event bounds in
+optional `summon_observations` and labelled cohort examples. The portable
+[raw register](../../../tests/golden/raids/summon-facts.json) binds raid,
+partition, encounter, revision, caster/target catalog and exact fight roster
+to the recorded summons and damage markers. Known elapsed bounds require
+complete unrestricted All coverage; positive events can survive partial data.
+Repeated starts, missing/ambiguous instance identity, conflicting later damage
+and genuine or ambiguous lifecycle reuse withhold an elapsed bound. Explicit
+Feign Death cannot supply an endpoint. Both Hunter and general class pages
+render the saved observations; these remain separate from physical opportunity
+and validated ranking eligibility.

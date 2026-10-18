@@ -49,6 +49,10 @@ def test_independent_owned_pet_facts() -> None:
     assert check_register(ROOT / "pet-facts.json") == []
 
 
+def test_independent_summon_observations() -> None:
+    assert check_register(ROOT / "summon-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -156,6 +160,54 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_actor_effect_windows(doc, observations_fixture)
     _assert_npc_aura_windows(doc, {observations_fixture, fixture["label"]})
     _assert_owned_pets(doc, fixture["label"], db)
+    _assert_summon_bounds(doc, fixture["label"], out)
+
+
+def _assert_summon_bounds(doc: dict[str, Any], fixture: str, out: Path) -> None:
+    cases = json.loads((ROOT / "summon-facts.json").read_text(encoding="utf-8"))["cases"]
+    for case in cases:
+        if case["fixture"] != fixture:
+            continue
+        boss = next(b for b in doc["bosses"] if b["encounter_id"] == case["encounter_id"])
+        subject = boss["subject"]
+        if subject and (subject["report_code"], subject["fight_id"]) == (
+            case["report"],
+            case["fight"],
+        ):
+            observations = boss["playbook"]["summon_observations"]
+        else:
+            example = next(
+                example
+                for example in boss["playbook"]["cohort_summon_observations"]
+                if (example["report_code"], example["fight_id"]) == (case["report"], case["fight"])
+            )
+            observations = example["summons"]
+        [observation] = observations
+        assert observation["summons"]["value"] == len(case["expected"]["summons"])
+        assert sorted(observation["transitions"]["value"]) == sorted(
+            [row[0] / 1000, row[1], row[3], row[4]] for row in case["expected"]["summons"]
+        )
+        targets = {(t["actor_id"], t["instance"]): t for t in observation["targets"]}
+        assert len(targets) == len(observation["targets"])
+        assert len(targets) == len(case["boundary_expectations"])
+        for expected in case["boundary_expectations"]:
+            target = targets[expected["actor"], expected["instance"]]
+            assert target["game_id"] == 176525
+            for actual, key in (
+                ("summoned_s", "summoned_ms"),
+                ("first_positive_overkill_s", "first_positive_overkill_ms"),
+                ("elapsed_to_overkill_s", "elapsed_to_overkill_ms"),
+            ):
+                value = expected[key]
+                assert target[actual]["value"] == (None if value is None else value / 1000)
+            coverage = target["elapsed_to_overkill_s"]["coverage"]
+            assert coverage and coverage[0]["role"] == "encounter"
+    if any(case["fixture"] == fixture for case in cases):
+        for page in ("report.html", "playbook.html"):
+            html = (out / page).read_text(encoding="utf-8")
+            assert "Observed summon event bounds." in html
+            assert "Groups can overlap." in html
+            assert "from summon to first positive-overkill marker." in html
 
 
 def _assert_actor_effect_windows(doc: dict[str, Any], fixture: str) -> None:

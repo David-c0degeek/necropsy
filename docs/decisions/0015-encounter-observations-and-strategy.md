@@ -143,3 +143,20 @@ teleport aura and Ouro Berserk remain distinct effects. Teleport aura duration
 does not define the pickup cycle, and missing C'Thun vulnerability transitions
 cannot supply a guide-timed weakening phase. Personal Sand Blast remains actor
 exposure, without inferred tank duty, avoidability or a lost-casting interval.
+
+Optional summon observations use the same NPC catalog/cardinality qualification
+as aura observations, extracted into a shared primitive. They retain separate
+numbered instances and observed summon-to-positive-overkill event bounds.
+The maximum-multiplicity normalized union must have the same occurrence count
+as the trusted unrestricted All read before it supplies certified bounds;
+otherwise actor/critical-only additions could masquerade as scoped events.
+Missing count metadata withholds that proof. This uses existing coverage and
+event tables; no schema migration or alternate parser is introduced.
+An overkill marker is not a certified death or proof of continuous attackability.
+Repeated starts, lifecycle reuse, conflicting later damage, ambiguous raw IDs
+or incomplete unrestricted All coverage withhold elapsed bounds. Missing ends
+are never filled by the next group or fight end. Skeram's overlapping image
+groups remain separate; no phase denominator, target eligibility or personal
+quality score is derived from these observations. Raw archives and prior
+expectations are immutable; old saved documents acquire no observations during
+rendering. Both personal and labelled comparison views use the saved data.

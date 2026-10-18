@@ -59,3 +59,16 @@ Implementation must start after the in-flight lifecycle correction's full
 ordinary-suite verification and checkpoint. The official scripting enemy-death,
 phase and ranking oracle remains unverified because no browser connection was
 available; do not invent its result or bypass the normal capture pipeline.
+
+Pre-checkpoint adversarial review found an additional dependency: a complete
+All scope alone does not prove that each merged database row was present in
+that read. The existing merger flags multiplicity disagreements only among
+streams containing an identity; an actor-only or critical-only identity can
+add a normalized row without marking the All stream untrusted. New summon
+certification therefore also requires the maximum-multiplicity union count
+to equal the trusted All read's occurrence count. Since that union contains
+at least every All occurrence, equality proves there are no extra identities
+or copies. Missing/inconsistent count metadata withholds bounds; positive
+observations remain. All12 frozen real fights satisfy this consistency check.
+No normalized schema or raw archive changes are needed. Other encounter
+consumers need the same dependency audit before full-domain acceptance.

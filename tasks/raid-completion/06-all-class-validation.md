@@ -45,4 +45,14 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / Independent read-only priorities review.
+Three-reviewer authorization and findings are recorded in
+research/parallel-review-20261018.json. Finish native AQ Hunter cohorts and
+independent actor/pet registration, audit the older aura event-set guard, then
+deepen Holy Priest encounter advice using evidence across all 28 entries.
+Hunter MC/BWL/faction gaps and missing Paladin, Restoration/Elemental Shaman
+and Shadow Priest evidence remain open. Shared class adapters still lack
+the required specific findings/advice and category/tree/duty applicability.
+No class box or cell closes; this review does not establish implementation.
+
 TBD — no implementation or acceptance is claimed at plan creation.

@@ -298,6 +298,19 @@ coverage retains its original shape. Both pages render saved observations only;
 these are not ranking, physical phase, attackability or personal opportunity
 models. See [target instance observations](decisions/0017-target-instance-aura-windows.md).
 
+Optional `playbook.summon_observations` and `cohort_summon_observations` retain
+policy-qualified numbered NPC summons. Each target saves `summoned_s`,
+`first_positive_overkill_s` and `elapsed_to_overkill_s` as separate evidence
+values. These are event bounds, not lifetime or continuous attackability.
+Complete unrestricted encounter coverage, exact caster/target identity and
+fight roster cardinality are required for counts and elapsed bounds. Positive
+summons may survive partial coverage. The merged event union must also add no
+identities or copies beyond the certified All read. Missing markers, repeated starts,
+contradictory later damage, lifecycle reuse or ambiguous raw identity withhold
+the elapsed bound. A later summon cast or fight end cannot supply it. Groups
+can overlap; they are not exclusive phases and cannot normalize player output.
+Both pages retain personal observations and explicitly labelled cohort examples.
+
 New Era combat/Druid metrics additionally retain `raw_source_absorption`,
 `effective_absorption`, `absorption_to_bosses`, `unclassified_absorption` and
 their `_per_second` values. These use source-owned absorb events, separate from

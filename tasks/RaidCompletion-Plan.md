@@ -39,12 +39,12 @@
 
 | Field | Value |
 |---|---|
-| Mode | `solo` |
+| Mode | `parallel` |
 | Primary owner | Codex |
 | Coordinator | Codex |
 | Resume safety | required |
-| Parallel branches | `no` |
-| Notes | Solo, no subagents. Foundation and research preserved in pushed checkpoint `9aded83` on `main`, based on `30e89ce`. Creation-time no-action statement is historical; execution began 2026-10-16. Existing WCL user-endpoint tooling only; no publication or new infrastructure. |
+| Parallel branches | `no` — reviewers are read only |
+| Notes | User authorized three reviewers on2026-10-18 (D021). Root alone owns edits on main and serializes all DuckDB work. Reviewers do not edit, run database workloads, capture WCL data or spawn further agents. Foundation/research checkpoint9aded83 derives from30e89ce; execution began2026-10-16. Existing WCL user-endpoint tooling only; no publication or new infrastructure. |
 
 Mode rules:
 
@@ -69,7 +69,10 @@ rationale, affected subjects, and branch/ownership impact.
 
 | Subject | Owner | Branch | Dependencies | Conflict-risk files | Status | Handoff notes |
 |---|---|---|---|---|---|---|
-| n/a | n/a | n/a | n/a | n/a | solo | No parallel workers |
+| Summon logic review | /root/summon_review | n/a — read only | current working tree and observed-summon guardrails | none — no edits | reviewed | Unrelated malformed chronology fixed; reviewer rechecked, six regressions included in286 passing tests. research/parallel-review-20261018.json |
+| Oracle integrity review | /root/oracle_review | n/a — read only | raw registers, independent checker and checkpoint evidence | none — no edits | reviewed | Marker identity aliases and duplicate-target assertion fixed; reviewer rechecked, all122 raw tests pass. research/parallel-review-20261018.json |
+| Class/duty priorities review | /root/class_review | n/a — read only | master plan, subject06, coverage and real callers | none — no edits | reviewed | Aura merged-event guard is next; Holy advice and Hunter/missing-family evidence remain open. research/parallel-review-20261018.json |
+| Implementation and verification | Codex root | main | reviewer findings | root owns all changed files | active | All edits, captures and database workloads remain serialized under root |
 
 ### Checkpoint gate
 
@@ -215,6 +218,8 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 | D017 | 2026-10-17 | Incremental evidenced AQ40 implementation | Extend existing shared facts/static strategy to all nine AQ40 bosses while 01/02 remain open; preserve independent raw actor/recipient/context evidence from normal quota-limited acquisition. | First capture retains29 public actors across all nine personal bosses,58 player directions/58 global scopes; comparisons stop before Viscidus and two pet listings remain missing. A zero-point resume stops earlier and cannot replace the stronger immutable first archive. Exact Summon Images747 events resolve176525 image identity in six captured Skeram fights, without ranking eligibility. No phase, duty, faction/class or acceptance reduction. | 01.5/01.6; 02.1/02.5; 05.1–05.9; PM-1/PM-2/PM-3; research/aq40-initial-contract.md |
 | D018 | 2026-10-17 | Cardinality-qualified AQ40 aura observations | Extend existing NPC aura windows to explicitly singleton boss policies using exact fight enemyNPCs actor/gameID/instanceCount1 metadata; preserve numbered-add requirements, actor exposure and independent buff/debuff raw checks. | Six frozen NPC contexts/nine manual target timelines plus actual4.994-second Sand Blast exposure precede rule activation. Full54-actor capture preserves earlier29 dimensions and supplies all nine personal/five-cohort sections. One native analysis failure recovers on byte-identical offline and actual CLI runs; its cause remains recorded, not claimed fixed. No physical phase/ranking/duty inference or acceptance reduction. | 01.6; 02.1/02.2/02.7/02.8; 05.2/05.4/05.7/05.8; PM-2/PM-3; research/aq40-observed-aura-contract.md; research/aq40-normal-analysis-incident.md |
 | D019 | 2026-10-18 | Evidence-qualified pet absence advice | Require the shared three-known-value minimum and a positive same-faction trained-pet median before emitting the shared comparative pet-absent instruction. Preserve known absence and zero DPS, classification uncertainty, guardian exclusion and roster guards. | Sartura has five known comparisons with median zero; Sapphiron has only two with an unknown median. Both retain absence but lose unsupported advice on reanalysis. Original Naxx fact register still requires all four historical absences; a separate policy test requires three supported actions. No frozen expectation regeneration or opportunity/assignment claim. | 02.5–02.8; 05.5; 07.4–07.6; PM-1/PM-2/PM-3; ADR0005; research/pet-absence-evidence-contract.md |
+| D020 | 2026-10-18 | Qualified per-instance summon event bounds | Save exact numbered summons and elapsed bounds to the first recorded positive-overkill hit, with shared NPC identity/cardinality and genuine-death qualification. Preserve overlapping groups and unknown endpoints; no life, attackability, opportunity, ranking denominator or grade is inferred. | Twelve independently frozen fights/72 images precede production modeling;60 event bounds and12 unknown endpoints. Raw scalar, scope, metadata/variant and contradictory-event negatives are required. Source and installed Holy/Hunter outputs agree; final verification and interim Hindsight remain prerequisites to checkpointing. Original expectations/archives remain immutable. | 01.6; 02.2/02.7/02.8; 05.3/05.7; 07.4–07.7; PM-1/PM-2/PM-3; ADR0015; research/observed-summon-window-contract.md |
+| D021 | 2026-10-18 | Review collaboration | Change from solo to parallel review after the user explicitly selected “Use three reviewers.” Three read-only agents review summon logic, oracle integrity and class/duty priorities; root retains all edits on main. | Independent review can overlap implementation without write conflicts or concurrent DuckDB workloads. No reviewer branches, mutations, captures, database commands or nested delegation. Review findings and root dispositions must be recorded before checkpointing. | Collaboration model; 01/02/05/06/07; parallel work tracker |
 
 ---
 
@@ -225,11 +230,11 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates, 45 real seeds and 525 raw actor cases; full contracts/coverage open | n/a |
-| [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on all28 encounter entries and local effects/control; remaining contracts open | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | durable scope/gates,45 real seeds/525 raw actor cases and independent NPC event observations; full contracts/coverage open | n/a |
+| [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | initial shared strategy on all28 encounter entries, local effects/control and qualified summon bounds; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
-| [ ] | 05 | `tasks/raid-completion/05-aq40.md` | IN_PROGRESS | agent: 9; domain-sme: 1; initial facts/strategy and partial real evidence | yes |
+| [ ] | 05 | `tasks/raid-completion/05-aq40.md` | IN_PROGRESS | agent: 9; domain-sme: 1; initial facts/strategy, observed NPC context and partial real class coverage | yes |
 | [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | TODO | agent: 11; domain-sme: 1 | yes |
 | [ ] | 07 | `tasks/raid-completion/07-product-and-release-acceptance.md` | IN_PROGRESS | agent: 8; product-owner: 1 | yes |
 

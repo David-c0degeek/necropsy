@@ -315,6 +315,167 @@ def raw_encounter_facts(
     return result
 
 
+def raw_summon_facts(
+    archive: VerifiedArchive,
+    report: str,
+    fight: int,
+    ability_ids: list[int],
+    caster_game_ids: list[int],
+    target_game_ids: list[int],
+) -> dict[str, Any]:
+    """Raw summon and damage-marker chronology; never reconstruct a living phase."""
+    marker = archive.read_json("necropsy-snapshot.json")
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    selected = next(f for f in bundle["fights"] if f["id"] == fight)
+    zone = marker.get("zone")
+    if not isinstance(zone, dict):
+        raise ValueError("raw summon eligibility needs exact raid and partition metadata")
+    eligibility: dict[str, Any] = {
+        "encounter_id": selected.get("encounterID"),
+        "revision": bundle.get("revision"),
+        "zone_id": zone.get("id"),
+        "partition": zone.get("partition"),
+    }
+    if any(type(value) is not int or value < 0 for value in eligibility.values()) or any(
+        eligibility[key] < 1 for key in ("encounter_id", "zone_id", "partition")
+    ):
+        raise ValueError("raw summon eligibility identities must be exact integers")
+    raw_encounter_facts(archive, report, selected, bundle)
+    wanted_npcs = set(caster_game_ids) | set(target_game_ids)
+    for entity in bundle["masterData"]["actors"]:
+        if entity.get("gameID") in wanted_npcs and any(
+            type(entity.get(key)) is not int or entity[key] < 1 for key in ("id", "gameID")
+        ):
+            raise ValueError("raw summon NPC catalog identities must be exact positive integers")
+    for entity in selected.get("enemyNPCs", []):
+        if entity.get("gameID") in wanted_npcs and any(
+            type(entity.get(key)) is not int or entity[key] < 1
+            for key in ("id", "gameID", "instanceCount")
+        ):
+            raise ValueError("raw summon NPC roster identities must be exact positive integers")
+    rows, _ = _pages(
+        archive,
+        f"events/{report}/fight_{fight}/encounter",
+        "all",
+        selected["startTime"],
+        selected["endTime"],
+    )
+    actors = {a["id"]: a for a in bundle["masterData"]["actors"]}
+    targets = {
+        actor
+        for actor, data in actors.items()
+        if data.get("type") == "NPC" and data.get("gameID") in target_game_ids
+    }
+
+    def ordered(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        return sorted(
+            events,
+            key=lambda e: (e["timestamp"], json.dumps(e, sort_keys=True, separators=(",", ":"))),
+        )
+
+    summons = [e for e in rows if e["type"] == "summon" and e.get("abilityGameID") in ability_ids]
+    damage = [e for e in rows if e["type"] == "damage" and e.get("targetID") in targets]
+    lifecycles = [
+        e for e in rows if e["type"] in {"death", "resurrect"} and e.get("targetID") in targets
+    ]
+    for event in [*summons, *damage, *lifecycles]:
+        if (
+            type(event.get("timestamp")) is not int
+            or not selected["startTime"] <= event["timestamp"] <= selected["endTime"]
+        ):
+            raise ValueError("raw summon chronology timestamp is invalid")
+        for key in ("targetID", "targetInstance"):
+            if key in event and (type(event[key]) is not int or event[key] < 1):
+                raise ValueError("raw summon recipient or instance identity is invalid")
+        if event["type"] in {"summon", "damage"}:
+            for key in ("sourceID", "sourceInstance", "abilityGameID"):
+                if key in event and (type(event[key]) is not int or event[key] < 1):
+                    raise ValueError("raw summon caster or ability identity is invalid")
+        if event["type"] == "damage":
+            for key in ("amount", "overkill"):
+                if key not in event and key == "overkill":
+                    continue
+                value = event.get(key)
+                if (
+                    not isinstance(value, int | float)
+                    or isinstance(value, bool)
+                    or not math.isfinite(value)
+                    or (key == "amount" and value < 0)
+                ):
+                    raise ValueError("raw summon damage or overkill amount is invalid")
+        if event["type"] == "death" and "feign" in event and type(event["feign"]) is not bool:
+            raise ValueError("raw summon death flag is invalid")
+
+    grouped: dict[tuple[int, int | None], list[dict[str, Any]]] = defaultdict(list)
+    for event in damage:
+        grouped[event["targetID"], event.get("targetInstance")].append(event)
+    bounds = []
+    for (actor, instance), hits in sorted(
+        grouped.items(), key=lambda item: (item[0][0], item[0][1] or 0)
+    ):
+        markers = ordered([e for e in hits if e.get("overkill", 0) > 0])
+        first = markers[0]["timestamp"] if markers else None
+        bounds.append(
+            {
+                "actor": actor,
+                "instance": instance,
+                "first_last_damage_ms": [
+                    min(e["timestamp"] for e in hits) - selected["startTime"],
+                    max(e["timestamp"] for e in hits) - selected["startTime"],
+                ],
+                "positive_overkill": [
+                    [
+                        e["timestamp"] - selected["startTime"],
+                        e.get("sourceID"),
+                        e.get("abilityGameID"),
+                        e["amount"],
+                        e["overkill"],
+                    ]
+                    for e in markers
+                ],
+                "later_positive_damage_ms": sorted(
+                    e["timestamp"] - selected["startTime"]
+                    for e in hits
+                    if first is not None and e["timestamp"] > first and e["amount"] > 0
+                ),
+            }
+        )
+    return {
+        **eligibility,
+        "duration_ms": selected["endTime"] - selected["startTime"],
+        "caster_catalog": [a for a in actors.values() if a.get("gameID") in caster_game_ids],
+        "target_catalog": [a for a in actors.values() if a.get("gameID") in target_game_ids],
+        "caster_roster": [
+            e for e in selected.get("enemyNPCs", []) if e.get("gameID") in caster_game_ids
+        ],
+        "target_roster": [
+            e for e in selected.get("enemyNPCs", []) if e.get("gameID") in target_game_ids
+        ],
+        "summons": [
+            [
+                e["timestamp"] - selected["startTime"],
+                e.get("sourceID"),
+                e.get("sourceInstance"),
+                e.get("targetID"),
+                e.get("targetInstance"),
+                e.get("abilityGameID"),
+            ]
+            for e in ordered(summons)
+        ],
+        "damage_by_instance": bounds,
+        "lifecycles": [
+            {
+                "ms": e["timestamp"] - selected["startTime"],
+                "kind": e["type"],
+                "target": e.get("targetID"),
+                "instance": e.get("targetInstance"),
+                **({"feign": e["feign"]} if "feign" in e else {}),
+            }
+            for e in ordered(lifecycles)
+        ],
+    }
+
+
 def raw_healing_facts(
     archive: VerifiedArchive, report: str, fight: int, actor: int, boss_game_ids: list[int]
 ) -> dict[str, Any]:
@@ -668,6 +829,7 @@ def check_register(path: Path) -> list[str]:
         "npc-auras",
         "actor-effects",
         "owned-pets",
+        "npc-summons",
     }:
         raise ValueError("unsupported independent fact register kind")
     problems = []
@@ -692,7 +854,29 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            if kind == "owned-pets":
+            if kind == "npc-summons":
+                selectors = [
+                    case.get(key) for key in ("ability_ids", "caster_game_ids", "target_game_ids")
+                ]
+                if any(
+                    not isinstance(values, list)
+                    or not values
+                    or any(type(value) is not int or value < 1 for value in values)
+                    or len(set(values)) != len(values)
+                    for values in selectors
+                ):
+                    raise ValueError(
+                        "raw summon facts need unique positive ability/caster/target IDs"
+                    )
+                actual = raw_summon_facts(
+                    archive,
+                    case["report"],
+                    case["fight"],
+                    case["ability_ids"],
+                    case["caster_game_ids"],
+                    case["target_game_ids"],
+                )
+            elif kind == "owned-pets":
                 if type(case.get("actor")) is not int or case["actor"] < 1:
                     raise ValueError("owned pet facts require a positive owner actor")
                 actual = raw_owned_pet_facts(archive, case["report"], case["fight"], case["actor"])

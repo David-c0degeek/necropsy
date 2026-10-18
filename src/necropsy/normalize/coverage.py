@@ -54,3 +54,27 @@ def has_complete_coverage(
     assert row is not None
     streams, trusted = row
     return bool(streams) and streams == trusted
+
+
+def has_complete_encounter_event_set(
+    con: duckdb.DuckDBPyConnection, report_code: str, fight_id: int
+) -> bool:
+    """The merged maximum-multiplicity union must contain no extra actor/critical rows.
+
+    Ingest retains at least every occurrence in the All stream. Equal counts
+    therefore prove that the union adds no other identities or copies. A trusted
+    scope alone cannot establish this: a row absent from All has no overlapping
+    multiplicity to disagree with. Missing count metadata withholds this proof.
+    """
+    if not has_complete_encounter_coverage(con, report_code, fight_id):
+        return False
+    row = con.execute(
+        """SELECT raw_events,
+               (SELECT count(*) FROM events e
+                WHERE e.report_code=s.report_code AND e.fight_id=s.fight_id)
+           FROM stream_coverage s
+           WHERE report_code=? AND fight_id=? AND actor_id IS NULL
+             AND direction='all' AND role='encounter'""",
+        [report_code, fight_id],
+    ).fetchone()
+    return row is not None and type(row[0]) is int and row[0] >= 0 and row[0] == row[1]

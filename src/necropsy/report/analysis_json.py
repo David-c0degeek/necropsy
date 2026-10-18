@@ -817,7 +817,7 @@ def build_document(
             ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
     if zone != "naxxramas":
-        from necropsy.analysis.encounters import control, duty, effects, windows
+        from necropsy.analysis.encounters import control, duty, effects, summons, windows
         from necropsy.analysis.encounters.strategy import encounter_strategy
 
         for boss, data in zip(bosses, boss_data, strict=True):
@@ -837,10 +837,24 @@ def build_document(
                 auras = windows.encounter_auras(con, data.subject.participant)
                 if auras:
                     boss["playbook"]["target_aura_windows"] = to_data(auras)
+                summoned = summons.summon_observations(con, data.subject.participant)
+                if summoned:
+                    boss["playbook"]["summon_observations"] = to_data(summoned)
             removal_examples = []
             aura_examples = []
             effect_examples = []
+            summon_examples = []
             for entry in data.cohort:
+                summoned = summons.summon_observations(con, entry.participant)
+                if summoned:
+                    summon_examples.append(
+                        {
+                            "player": entry.participant.player,
+                            "report_code": entry.participant.report_code,
+                            "fight_id": entry.participant.fight_id,
+                            "summons": to_data(summoned),
+                        }
+                    )
                 exposure = effects.actor_effects(con, entry.participant)
                 if exposure:
                     effect_examples.append(
@@ -877,6 +891,8 @@ def build_document(
                 boss["playbook"]["cohort_encounter_effects"] = effect_examples
             if aura_examples:
                 boss["playbook"]["cohort_target_aura_windows"] = aura_examples
+            if summon_examples:
+                boss["playbook"]["cohort_summon_observations"] = summon_examples
             entries = [boss["subject"] or boss["playbook"].get("excluded_subject")]
             entries += boss["overall_cohort"]
             qualified = [

@@ -287,6 +287,207 @@ def _write_context(root: Path, members: dict[str, Any]) -> Path:
     return register
 
 
+def _summon_members() -> dict[str, Any]:
+    members = _encounter_members()
+    members["necropsy-snapshot.json"]["zone"] = {"id": 2000, "partition": 1}
+    report = members[BUNDLE]["reportData"]["report"]
+    report["masterData"]["actors"][1]["type"] = "NPC"
+    report["masterData"]["actors"].append({"id": 77, "gameID": 176525, "type": "NPC"})
+    report["fights"][0]["enemyNPCs"] = [
+        {"id": 2, "gameID": 12118, "instanceCount": 1},
+        {"id": 77, "gameID": 176525, "instanceCount": 2},
+    ]
+    spawn = {
+        "type": "summon",
+        "timestamp": 1500,
+        "sourceID": 2,
+        "targetID": 77,
+        "targetInstance": 1,
+        "abilityGameID": 747,
+    }
+    hit = {
+        "type": "damage",
+        "timestamp": 1700,
+        "sourceID": 1,
+        "targetID": 77,
+        "targetInstance": 1,
+        "abilityGameID": 99,
+        "amount": 10,
+        "overkill": 3,
+    }
+    members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"].extend(
+        [
+            spawn,
+            {**spawn, "timestamp": 1600, "targetInstance": 2},
+            hit,
+            {
+                "type": "death",
+                "timestamp": 1750,
+                "targetID": 77,
+                "targetInstance": 1,
+                "feign": True,
+            },
+            {**hit, "timestamp": 1800, "targetInstance": 2, "amount": 20, "overkill": 0},
+            {**hit, "timestamp": 1900, "amount": 1, "overkill": 0},
+        ]
+    )
+    return members
+
+
+SUMMON_EXPECTED = {
+    "encounter_id": 50663,
+    "revision": 4,
+    "zone_id": 2000,
+    "partition": 1,
+    "duration_ms": 2000,
+    "caster_catalog": [{"id": 2, "gameID": 12118, "type": "NPC"}],
+    "target_catalog": [{"id": 77, "gameID": 176525, "type": "NPC"}],
+    "caster_roster": [{"id": 2, "gameID": 12118, "instanceCount": 1}],
+    "target_roster": [{"id": 77, "gameID": 176525, "instanceCount": 2}],
+    "summons": [[500, 2, None, 77, 1, 747], [600, 2, None, 77, 2, 747]],
+    "damage_by_instance": [
+        {
+            "actor": 77,
+            "instance": 1,
+            "first_last_damage_ms": [700, 900],
+            "positive_overkill": [[700, 1, 99, 10, 3]],
+            "later_positive_damage_ms": [900],
+        },
+        {
+            "actor": 77,
+            "instance": 2,
+            "first_last_damage_ms": [800, 800],
+            "positive_overkill": [],
+            "later_positive_damage_ms": [],
+        },
+    ],
+    "lifecycles": [{"ms": 750, "kind": "death", "target": 77, "instance": 1, "feign": True}],
+}
+
+
+def _write_summons(root: Path, members: dict[str, Any]) -> Path:
+    path = _write_context(root, members)
+    data = json.loads(path.read_text(encoding="utf-8"))
+    data["kind"] = "npc-summons"
+    data["cases"][0].update(
+        ability_ids=[747],
+        caster_game_ids=[12118],
+        target_game_ids=[176525],
+        expected=SUMMON_EXPECTED,
+    )
+    path.write_text(json.dumps(data), encoding="utf-8")
+    return path
+
+
+def test_independent_summon_facts_preserve_instances_and_contradictory_damage(
+    tmp_path: Path,
+) -> None:
+    assert check_register(_write_summons(tmp_path, _summon_members())) == []
+
+
+@pytest.mark.parametrize("mutation", ["caster", "instance", "zero", "negative", "damage", "feign"])
+def test_rehashed_summon_observation_mutations_fail_frozen_expectations(
+    tmp_path: Path, mutation: str
+) -> None:
+    members = _summon_members()
+    rows = members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"]
+    if mutation == "caster":
+        rows[-6]["sourceID"] = 3
+    elif mutation == "instance":
+        rows[-6]["targetInstance"] = 2
+    elif mutation in {"zero", "negative"}:
+        rows[-4]["overkill"] = 0 if mutation == "zero" else -1
+    elif mutation == "damage":
+        rows[-1]["timestamp"] = 1699
+    else:
+        rows[-3]["feign"] = False
+    assert check_register(_write_summons(tmp_path, members))
+
+
+@pytest.mark.parametrize("value", [None, True, "3", float("inf")])
+def test_independent_summon_facts_reject_malformed_overkill(tmp_path: Path, value: Any) -> None:
+    members = _summon_members()
+    members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"][-4]["overkill"] = value
+    with pytest.raises(ValueError, match="overkill"):
+        check_register(_write_summons(tmp_path, members))
+
+
+@pytest.mark.parametrize(
+    "key,value",
+    [
+        ("sourceID", 1.0),
+        ("sourceID", True),
+        ("abilityGameID", 99.0),
+        ("sourceInstance", 1.0),
+        ("sourceInstance", True),
+    ],
+)
+def test_rehashed_damage_marker_identity_aliases_cannot_match_frozen_facts(
+    tmp_path: Path, key: str, value: object
+) -> None:
+    members = _summon_members()
+    members[f"events/{REPORT}/fight_1/encounter/all_001.json"]["data"][-4][key] = value
+    with pytest.raises(ValueError, match="caster or ability identity"):
+        check_register(_write_summons(tmp_path, members))
+
+
+@pytest.mark.parametrize("field", ["zone", "partition", "encounter", "revision"])
+def test_rehashed_summon_eligibility_metadata_changes_fail_independent_expectations(
+    tmp_path: Path, field: str
+) -> None:
+    members = _summon_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    if field == "zone":
+        members["necropsy-snapshot.json"]["zone"]["id"] = 2005
+    elif field == "partition":
+        members["necropsy-snapshot.json"]["zone"]["partition"] = 3
+    elif field == "encounter":
+        report["fights"][0]["encounterID"] = 50709
+    else:
+        report["revision"] = 5
+        for proof in members["necropsy-snapshot.json"]["encounter_streams"]:
+            proof["identity"]["revision"] = 5
+    assert check_register(_write_summons(tmp_path, members))
+
+
+@pytest.mark.parametrize("field", ["partition", "revision"])
+def test_boolean_summon_eligibility_is_not_an_integer_identity(tmp_path: Path, field: str) -> None:
+    members = _summon_members()
+    if field == "partition":
+        members["necropsy-snapshot.json"]["zone"]["partition"] = True
+    else:
+        members[BUNDLE]["reportData"]["report"]["revision"] = True
+        for proof in members["necropsy-snapshot.json"]["encounter_streams"]:
+            proof["identity"]["revision"] = True
+    with pytest.raises(ValueError, match="eligibility"):
+        check_register(_write_summons(tmp_path, members))
+
+
+@pytest.mark.parametrize(
+    "section,key,value",
+    [
+        ("catalog", "id", 2.0),
+        ("catalog", "gameID", 12118.0),
+        ("roster", "id", 2.0),
+        ("roster", "gameID", 12118.0),
+        ("roster", "instanceCount", True),
+    ],
+)
+def test_numeric_aliases_cannot_hide_changed_raw_npc_identity(
+    tmp_path: Path, section: str, key: str, value: object
+) -> None:
+    members = _summon_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    entity = (
+        report["masterData"]["actors"][1]
+        if section == "catalog"
+        else report["fights"][0]["enemyNPCs"][0]
+    )
+    entity[key] = value
+    with pytest.raises(ValueError, match=r"NPC .*identities"):
+        check_register(_write_summons(tmp_path, members))
+
+
 def test_hand_counted_encounter_observations_keep_scope_and_mage_sharing_inputs(
     tmp_path: Path,
 ) -> None:

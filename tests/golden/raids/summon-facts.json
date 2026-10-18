@@ -1,0 +1,3198 @@
+{
+  "version": 1,
+  "kind": "npc-summons",
+  "cases": [
+    {
+      "id": "skeram-summon-observations-1",
+      "fixture": "aq40-holy-complete-context",
+      "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
+      "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7",
+      "report": "6H9PmqR2QCnNAzVh",
+      "fight": 2,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 10001,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 65423,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 47,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 48,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 47,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 48,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            9684,
+            47,
+            null,
+            48,
+            1,
+            747
+          ],
+          [
+            9684,
+            47,
+            null,
+            48,
+            2,
+            747
+          ],
+          [
+            19383,
+            47,
+            null,
+            48,
+            3,
+            747
+          ],
+          [
+            19384,
+            47,
+            null,
+            48,
+            4,
+            747
+          ],
+          [
+            33939,
+            47,
+            null,
+            48,
+            5,
+            747
+          ],
+          [
+            33939,
+            47,
+            null,
+            48,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 48,
+            "instance": 1,
+            "first_last_damage_ms": [
+              10458,
+              44230
+            ],
+            "positive_overkill": [
+              [
+                44230,
+                9,
+                10199,
+                628,
+                829
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 48,
+            "instance": 2,
+            "first_last_damage_ms": [
+              10509,
+              41894
+            ],
+            "positive_overkill": [
+              [
+                41894,
+                5,
+                20647,
+                522,
+                1200
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 48,
+            "instance": 3,
+            "first_last_damage_ms": [
+              21660,
+              37913
+            ],
+            "positive_overkill": [
+              [
+                37913,
+                41,
+                20647,
+                212,
+                210
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 48,
+            "instance": 4,
+            "first_last_damage_ms": [
+              21406,
+              34662
+            ],
+            "positive_overkill": [
+              [
+                34662,
+                33,
+                23894,
+                295,
+                356
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 48,
+            "instance": 5,
+            "first_last_damage_ms": [
+              35661,
+              47230
+            ],
+            "positive_overkill": [
+              [
+                47230,
+                9,
+                10207,
+                893,
+                108
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 48,
+            "instance": 6,
+            "first_last_damage_ms": [
+              35157,
+              57044
+            ],
+            "positive_overkill": [
+              [
+                57044,
+                6,
+                20647,
+                763,
+                573
+              ]
+            ],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 48,
+          "instance": 1,
+          "summoned_ms": 9684,
+          "first_positive_overkill_ms": 44230,
+          "elapsed_to_overkill_ms": 34546
+        },
+        {
+          "actor": 48,
+          "instance": 2,
+          "summoned_ms": 9684,
+          "first_positive_overkill_ms": 41894,
+          "elapsed_to_overkill_ms": 32210
+        },
+        {
+          "actor": 48,
+          "instance": 3,
+          "summoned_ms": 19383,
+          "first_positive_overkill_ms": 37913,
+          "elapsed_to_overkill_ms": 18530
+        },
+        {
+          "actor": 48,
+          "instance": 4,
+          "summoned_ms": 19384,
+          "first_positive_overkill_ms": 34662,
+          "elapsed_to_overkill_ms": 15278
+        },
+        {
+          "actor": 48,
+          "instance": 5,
+          "summoned_ms": 33939,
+          "first_positive_overkill_ms": 47230,
+          "elapsed_to_overkill_ms": 13291
+        },
+        {
+          "actor": 48,
+          "instance": 6,
+          "summoned_ms": 33939,
+          "first_positive_overkill_ms": 57044,
+          "elapsed_to_overkill_ms": 23105
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-2",
+      "fixture": "aq40-holy-complete-context",
+      "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
+      "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7",
+      "report": "FAdMm3zRCZL6Qrvq",
+      "fight": 3,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 1,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 30808,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 54,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 55,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 54,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 55,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            6489,
+            54,
+            null,
+            55,
+            1,
+            747
+          ],
+          [
+            6489,
+            54,
+            null,
+            55,
+            2,
+            747
+          ],
+          [
+            12963,
+            54,
+            null,
+            55,
+            3,
+            747
+          ],
+          [
+            12964,
+            54,
+            null,
+            55,
+            4,
+            747
+          ],
+          [
+            21082,
+            54,
+            null,
+            55,
+            5,
+            747
+          ],
+          [
+            21082,
+            54,
+            null,
+            55,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 55,
+            "instance": 1,
+            "first_last_damage_ms": [
+              7030,
+              17679
+            ],
+            "positive_overkill": [
+              [
+                17679,
+                4,
+                9912,
+                282,
+                1157
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 55,
+            "instance": 2,
+            "first_last_damage_ms": [
+              6618,
+              9499
+            ],
+            "positive_overkill": [
+              [
+                9499,
+                9,
+                20647,
+                504,
+                3193
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 55,
+            "instance": 3,
+            "first_last_damage_ms": [
+              13879,
+              17888
+            ],
+            "positive_overkill": [
+              [
+                17888,
+                37,
+                20647,
+                172,
+                1568
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 55,
+            "instance": 4,
+            "first_last_damage_ms": [
+              14399,
+              23684
+            ],
+            "positive_overkill": [
+              [
+                23684,
+                9,
+                1,
+                71,
+                500
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 55,
+            "instance": 5,
+            "first_last_damage_ms": [
+              21940,
+              30681
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 55,
+            "instance": 6,
+            "first_last_damage_ms": [
+              22878,
+              28284
+            ],
+            "positive_overkill": [
+              [
+                28284,
+                1,
+                25286,
+                757,
+                675
+              ]
+            ],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 55,
+          "instance": 1,
+          "summoned_ms": 6489,
+          "first_positive_overkill_ms": 17679,
+          "elapsed_to_overkill_ms": 11190
+        },
+        {
+          "actor": 55,
+          "instance": 2,
+          "summoned_ms": 6489,
+          "first_positive_overkill_ms": 9499,
+          "elapsed_to_overkill_ms": 3010
+        },
+        {
+          "actor": 55,
+          "instance": 3,
+          "summoned_ms": 12963,
+          "first_positive_overkill_ms": 17888,
+          "elapsed_to_overkill_ms": 4925
+        },
+        {
+          "actor": 55,
+          "instance": 4,
+          "summoned_ms": 12964,
+          "first_positive_overkill_ms": 23684,
+          "elapsed_to_overkill_ms": 10720
+        },
+        {
+          "actor": 55,
+          "instance": 5,
+          "summoned_ms": 21082,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        },
+        {
+          "actor": 55,
+          "instance": 6,
+          "summoned_ms": 21082,
+          "first_positive_overkill_ms": 28284,
+          "elapsed_to_overkill_ms": 7202
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-3",
+      "fixture": "aq40-holy-complete-context",
+      "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
+      "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7",
+      "report": "VLkJpD9TNfcgyARP",
+      "fight": 2,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 1,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 54375,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 53,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 54,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 53,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 54,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            6500,
+            53,
+            null,
+            54,
+            1,
+            747
+          ],
+          [
+            6500,
+            53,
+            null,
+            54,
+            2,
+            747
+          ],
+          [
+            17819,
+            53,
+            null,
+            54,
+            3,
+            747
+          ],
+          [
+            17819,
+            53,
+            null,
+            54,
+            4,
+            747
+          ],
+          [
+            29160,
+            53,
+            null,
+            54,
+            5,
+            747
+          ],
+          [
+            29160,
+            53,
+            null,
+            54,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 54,
+            "instance": 1,
+            "first_last_damage_ms": [
+              7561,
+              23131
+            ],
+            "positive_overkill": [
+              [
+                23131,
+                29,
+                1,
+                95,
+                213
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 54,
+            "instance": 2,
+            "first_last_damage_ms": [
+              7763,
+              12310
+            ],
+            "positive_overkill": [
+              [
+                12310,
+                7,
+                1,
+                2,
+                412
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 54,
+            "instance": 3,
+            "first_last_damage_ms": [
+              18187,
+              41215
+            ],
+            "positive_overkill": [
+              [
+                41215,
+                10,
+                25286,
+                143,
+                1114
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 54,
+            "instance": 4,
+            "first_last_damage_ms": [
+              18187,
+              30724
+            ],
+            "positive_overkill": [
+              [
+                30724,
+                28,
+                1,
+                182,
+                215
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 54,
+            "instance": 5,
+            "first_last_damage_ms": [
+              30395,
+              42080
+            ],
+            "positive_overkill": [
+              [
+                42080,
+                25,
+                10199,
+                229,
+                644
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 54,
+            "instance": 6,
+            "first_last_damage_ms": [
+              30069,
+              45411
+            ],
+            "positive_overkill": [
+              [
+                45411,
+                43,
+                23894,
+                782,
+                126
+              ]
+            ],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 54,
+          "instance": 1,
+          "summoned_ms": 6500,
+          "first_positive_overkill_ms": 23131,
+          "elapsed_to_overkill_ms": 16631
+        },
+        {
+          "actor": 54,
+          "instance": 2,
+          "summoned_ms": 6500,
+          "first_positive_overkill_ms": 12310,
+          "elapsed_to_overkill_ms": 5810
+        },
+        {
+          "actor": 54,
+          "instance": 3,
+          "summoned_ms": 17819,
+          "first_positive_overkill_ms": 41215,
+          "elapsed_to_overkill_ms": 23396
+        },
+        {
+          "actor": 54,
+          "instance": 4,
+          "summoned_ms": 17819,
+          "first_positive_overkill_ms": 30724,
+          "elapsed_to_overkill_ms": 12905
+        },
+        {
+          "actor": 54,
+          "instance": 5,
+          "summoned_ms": 29160,
+          "first_positive_overkill_ms": 42080,
+          "elapsed_to_overkill_ms": 12920
+        },
+        {
+          "actor": 54,
+          "instance": 6,
+          "summoned_ms": 29160,
+          "first_positive_overkill_ms": 45411,
+          "elapsed_to_overkill_ms": 16251
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-4",
+      "fixture": "aq40-holy-complete-context",
+      "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
+      "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7",
+      "report": "db3P8tpw2YRnNy76",
+      "fight": 2,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 1,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 34491,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 50,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 51,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 50,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 51,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            6446,
+            50,
+            null,
+            51,
+            1,
+            747
+          ],
+          [
+            6446,
+            50,
+            null,
+            51,
+            2,
+            747
+          ],
+          [
+            12895,
+            50,
+            null,
+            51,
+            3,
+            747
+          ],
+          [
+            12895,
+            50,
+            null,
+            51,
+            4,
+            747
+          ],
+          [
+            22613,
+            50,
+            null,
+            51,
+            5,
+            747
+          ],
+          [
+            22613,
+            50,
+            null,
+            51,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 51,
+            "instance": 1,
+            "first_last_damage_ms": [
+              6817,
+              22131
+            ],
+            "positive_overkill": [
+              [
+                22131,
+                12,
+                23894,
+                2659,
+                97
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 2,
+            "first_last_damage_ms": [
+              6978,
+              9881
+            ],
+            "positive_overkill": [
+              [
+                9881,
+                10,
+                20647,
+                913,
+                1118
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 3,
+            "first_last_damage_ms": [
+              13731,
+              34446
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 4,
+            "first_last_damage_ms": [
+              12979,
+              28031
+            ],
+            "positive_overkill": [
+              [
+                28031,
+                41,
+                10207,
+                159,
+                1098
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 5,
+            "first_last_damage_ms": [
+              22863,
+              29150
+            ],
+            "positive_overkill": [
+              [
+                29150,
+                15,
+                20647,
+                1190,
+                956
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 6,
+            "first_last_damage_ms": [
+              26782,
+              34399
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 51,
+          "instance": 1,
+          "summoned_ms": 6446,
+          "first_positive_overkill_ms": 22131,
+          "elapsed_to_overkill_ms": 15685
+        },
+        {
+          "actor": 51,
+          "instance": 2,
+          "summoned_ms": 6446,
+          "first_positive_overkill_ms": 9881,
+          "elapsed_to_overkill_ms": 3435
+        },
+        {
+          "actor": 51,
+          "instance": 3,
+          "summoned_ms": 12895,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        },
+        {
+          "actor": 51,
+          "instance": 4,
+          "summoned_ms": 12895,
+          "first_positive_overkill_ms": 28031,
+          "elapsed_to_overkill_ms": 15136
+        },
+        {
+          "actor": 51,
+          "instance": 5,
+          "summoned_ms": 22613,
+          "first_positive_overkill_ms": 29150,
+          "elapsed_to_overkill_ms": 6537
+        },
+        {
+          "actor": 51,
+          "instance": 6,
+          "summoned_ms": 22613,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-5",
+      "fixture": "aq40-holy-complete-context",
+      "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
+      "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7",
+      "report": "g3CMGrhZmJAFvqKV",
+      "fight": 3,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 10001,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 49503,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 45,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 50,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 45,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 50,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            11018,
+            45,
+            null,
+            50,
+            1,
+            747
+          ],
+          [
+            11018,
+            45,
+            null,
+            50,
+            2,
+            747
+          ],
+          [
+            17465,
+            45,
+            null,
+            50,
+            3,
+            747
+          ],
+          [
+            17465,
+            45,
+            null,
+            50,
+            4,
+            747
+          ],
+          [
+            30371,
+            45,
+            null,
+            50,
+            5,
+            747
+          ],
+          [
+            30371,
+            45,
+            null,
+            50,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 50,
+            "instance": 1,
+            "first_last_damage_ms": [
+              11984,
+              41504
+            ],
+            "positive_overkill": [
+              [
+                41504,
+                19,
+                25286,
+                423,
+                614
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 50,
+            "instance": 2,
+            "first_last_damage_ms": [
+              12407,
+              22770
+            ],
+            "positive_overkill": [
+              [
+                22770,
+                20,
+                20647,
+                1101,
+                199
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 50,
+            "instance": 3,
+            "first_last_damage_ms": [
+              18262,
+              23724
+            ],
+            "positive_overkill": [
+              [
+                23724,
+                24,
+                20647,
+                621,
+                1517
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 50,
+            "instance": 4,
+            "first_last_damage_ms": [
+              19058,
+              38420
+            ],
+            "positive_overkill": [
+              [
+                38420,
+                5,
+                12654,
+                2072,
+                352
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 50,
+            "instance": 5,
+            "first_last_damage_ms": [
+              31487,
+              39109
+            ],
+            "positive_overkill": [
+              [
+                39109,
+                30,
+                20647,
+                834,
+                197
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 50,
+            "instance": 6,
+            "first_last_damage_ms": [
+              31765,
+              45183
+            ],
+            "positive_overkill": [
+              [
+                45183,
+                20,
+                20647,
+                752,
+                545
+              ]
+            ],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 50,
+          "instance": 1,
+          "summoned_ms": 11018,
+          "first_positive_overkill_ms": 41504,
+          "elapsed_to_overkill_ms": 30486
+        },
+        {
+          "actor": 50,
+          "instance": 2,
+          "summoned_ms": 11018,
+          "first_positive_overkill_ms": 22770,
+          "elapsed_to_overkill_ms": 11752
+        },
+        {
+          "actor": 50,
+          "instance": 3,
+          "summoned_ms": 17465,
+          "first_positive_overkill_ms": 23724,
+          "elapsed_to_overkill_ms": 6259
+        },
+        {
+          "actor": 50,
+          "instance": 4,
+          "summoned_ms": 17465,
+          "first_positive_overkill_ms": 38420,
+          "elapsed_to_overkill_ms": 20955
+        },
+        {
+          "actor": 50,
+          "instance": 5,
+          "summoned_ms": 30371,
+          "first_positive_overkill_ms": 39109,
+          "elapsed_to_overkill_ms": 8738
+        },
+        {
+          "actor": 50,
+          "instance": 6,
+          "summoned_ms": 30371,
+          "first_positive_overkill_ms": 45183,
+          "elapsed_to_overkill_ms": 14812
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-6",
+      "fixture": "aq40-holy-complete-context",
+      "archive": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "entries": "raw/aq40-holy-complete-context/94217209-2005-20261017T210540.entries",
+      "sha256": "deb3e55b5af2a7e6defe168329e3da67936f8808bc00898d1a363d5cb4f1bde7",
+      "report": "tdFNambqRfx1wK64",
+      "fight": 2,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 1,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 29115,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 50,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-trade_engineering.jpg",
+            "id": 51,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 50,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 51,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            6516,
+            50,
+            null,
+            51,
+            1,
+            747
+          ],
+          [
+            6516,
+            50,
+            null,
+            51,
+            2,
+            747
+          ],
+          [
+            14577,
+            50,
+            null,
+            51,
+            3,
+            747
+          ],
+          [
+            14577,
+            50,
+            null,
+            51,
+            4,
+            747
+          ],
+          [
+            24293,
+            50,
+            null,
+            51,
+            5,
+            747
+          ],
+          [
+            24293,
+            50,
+            null,
+            51,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 51,
+            "instance": 1,
+            "first_last_damage_ms": [
+              7743,
+              12636
+            ],
+            "positive_overkill": [
+              [
+                12636,
+                32,
+                18871,
+                925,
+                972
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 2,
+            "first_last_damage_ms": [
+              6832,
+              9225
+            ],
+            "positive_overkill": [
+              [
+                9225,
+                14,
+                23894,
+                1763,
+                947
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 3,
+            "first_last_damage_ms": [
+              15138,
+              22572
+            ],
+            "positive_overkill": [
+              [
+                22572,
+                29,
+                1,
+                260,
+                770
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 4,
+            "first_last_damage_ms": [
+              15403,
+              19435
+            ],
+            "positive_overkill": [
+              [
+                19435,
+                1,
+                20647,
+                16,
+                1179
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 5,
+            "first_last_damage_ms": [
+              24995,
+              29041
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 51,
+            "instance": 6,
+            "first_last_damage_ms": [
+              25012,
+              28868
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 51,
+          "instance": 1,
+          "summoned_ms": 6516,
+          "first_positive_overkill_ms": 12636,
+          "elapsed_to_overkill_ms": 6120
+        },
+        {
+          "actor": 51,
+          "instance": 2,
+          "summoned_ms": 6516,
+          "first_positive_overkill_ms": 9225,
+          "elapsed_to_overkill_ms": 2709
+        },
+        {
+          "actor": 51,
+          "instance": 3,
+          "summoned_ms": 14577,
+          "first_positive_overkill_ms": 22572,
+          "elapsed_to_overkill_ms": 7995
+        },
+        {
+          "actor": 51,
+          "instance": 4,
+          "summoned_ms": 14577,
+          "first_positive_overkill_ms": 19435,
+          "elapsed_to_overkill_ms": 4858
+        },
+        {
+          "actor": 51,
+          "instance": 5,
+          "summoned_ms": 24293,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        },
+        {
+          "actor": 51,
+          "instance": 6,
+          "summoned_ms": 24293,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-7",
+      "fixture": "aq40-hunter-expanded-context",
+      "archive": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.zip",
+      "entries": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.entries",
+      "sha256": "e75020fe7b94bc05323ebabc9a2100f8b3210e117c0b3df9ee75e18a7554023d",
+      "report": "JYGzpAj2d7bvkwy6",
+      "fight": 4,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 51,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 69008,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 77,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 78,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 77,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 78,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            11401,
+            77,
+            null,
+            78,
+            1,
+            747
+          ],
+          [
+            11401,
+            77,
+            null,
+            78,
+            2,
+            747
+          ],
+          [
+            34029,
+            77,
+            null,
+            78,
+            3,
+            747
+          ],
+          [
+            34029,
+            77,
+            null,
+            78,
+            4,
+            747
+          ],
+          [
+            56695,
+            77,
+            null,
+            78,
+            5,
+            747
+          ],
+          [
+            56695,
+            77,
+            null,
+            78,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 78,
+            "instance": 1,
+            "first_last_damage_ms": [
+              11900,
+              29834
+            ],
+            "positive_overkill": [
+              [
+                29834,
+                32,
+                20647,
+                373,
+                134
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 2,
+            "first_last_damage_ms": [
+              12733,
+              20553
+            ],
+            "positive_overkill": [
+              [
+                20553,
+                9,
+                20647,
+                370,
+                1605
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 3,
+            "first_last_damage_ms": [
+              35084,
+              50596
+            ],
+            "positive_overkill": [
+              [
+                50596,
+                21,
+                20647,
+                80,
+                786
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 4,
+            "first_last_damage_ms": [
+              34934,
+              42586
+            ],
+            "positive_overkill": [
+              [
+                42586,
+                16,
+                20647,
+                91,
+                937
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 5,
+            "first_last_damage_ms": [
+              57368,
+              68751
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 6,
+            "first_last_damage_ms": [
+              57933,
+              68785
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 78,
+          "instance": 1,
+          "summoned_ms": 11401,
+          "first_positive_overkill_ms": 29834,
+          "elapsed_to_overkill_ms": 18433
+        },
+        {
+          "actor": 78,
+          "instance": 2,
+          "summoned_ms": 11401,
+          "first_positive_overkill_ms": 20553,
+          "elapsed_to_overkill_ms": 9152
+        },
+        {
+          "actor": 78,
+          "instance": 3,
+          "summoned_ms": 34029,
+          "first_positive_overkill_ms": 50596,
+          "elapsed_to_overkill_ms": 16567
+        },
+        {
+          "actor": 78,
+          "instance": 4,
+          "summoned_ms": 34029,
+          "first_positive_overkill_ms": 42586,
+          "elapsed_to_overkill_ms": 8557
+        },
+        {
+          "actor": 78,
+          "instance": 5,
+          "summoned_ms": 56695,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        },
+        {
+          "actor": 78,
+          "instance": 6,
+          "summoned_ms": 56695,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-8",
+      "fixture": "aq40-hunter-expanded-context",
+      "archive": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.zip",
+      "entries": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.entries",
+      "sha256": "e75020fe7b94bc05323ebabc9a2100f8b3210e117c0b3df9ee75e18a7554023d",
+      "report": "KZY2ndzmh39qfWFw",
+      "fight": 3,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 10001,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 40796,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_earthshock.jpg",
+            "id": 64,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-trade_engineering.jpg",
+            "id": 68,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 64,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 68,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            8116,
+            64,
+            null,
+            68,
+            1,
+            747
+          ],
+          [
+            8116,
+            64,
+            null,
+            68,
+            2,
+            747
+          ],
+          [
+            19449,
+            64,
+            null,
+            68,
+            3,
+            747
+          ],
+          [
+            19449,
+            64,
+            null,
+            68,
+            4,
+            747
+          ],
+          [
+            30781,
+            64,
+            null,
+            68,
+            5,
+            747
+          ],
+          [
+            30781,
+            64,
+            null,
+            68,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 68,
+            "instance": 1,
+            "first_last_damage_ms": [
+              9866,
+              16216
+            ],
+            "positive_overkill": [
+              [
+                16216,
+                13,
+                1,
+                748,
+                50
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 68,
+            "instance": 2,
+            "first_last_damage_ms": [
+              8432,
+              12633
+            ],
+            "positive_overkill": [
+              [
+                12633,
+                28,
+                20647,
+                175,
+                3464
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 68,
+            "instance": 3,
+            "first_last_damage_ms": [
+              22565,
+              32932
+            ],
+            "positive_overkill": [
+              [
+                32932,
+                21,
+                11294,
+                44,
+                489
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 68,
+            "instance": 4,
+            "first_last_damage_ms": [
+              21403,
+              27965
+            ],
+            "positive_overkill": [
+              [
+                27965,
+                16,
+                20647,
+                2325,
+                142
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 68,
+            "instance": 5,
+            "first_last_damage_ms": [
+              31516,
+              39766
+            ],
+            "positive_overkill": [
+              [
+                39766,
+                21,
+                1,
+                352,
+                22
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 68,
+            "instance": 6,
+            "first_last_damage_ms": [
+              32349,
+              39802
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 68,
+          "instance": 1,
+          "summoned_ms": 8116,
+          "first_positive_overkill_ms": 16216,
+          "elapsed_to_overkill_ms": 8100
+        },
+        {
+          "actor": 68,
+          "instance": 2,
+          "summoned_ms": 8116,
+          "first_positive_overkill_ms": 12633,
+          "elapsed_to_overkill_ms": 4517
+        },
+        {
+          "actor": 68,
+          "instance": 3,
+          "summoned_ms": 19449,
+          "first_positive_overkill_ms": 32932,
+          "elapsed_to_overkill_ms": 13483
+        },
+        {
+          "actor": 68,
+          "instance": 4,
+          "summoned_ms": 19449,
+          "first_positive_overkill_ms": 27965,
+          "elapsed_to_overkill_ms": 8516
+        },
+        {
+          "actor": 68,
+          "instance": 5,
+          "summoned_ms": 30781,
+          "first_positive_overkill_ms": 39766,
+          "elapsed_to_overkill_ms": 8985
+        },
+        {
+          "actor": 68,
+          "instance": 6,
+          "summoned_ms": 30781,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-9",
+      "fixture": "aq40-hunter-expanded-context",
+      "archive": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.zip",
+      "entries": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.entries",
+      "sha256": "e75020fe7b94bc05323ebabc9a2100f8b3210e117c0b3df9ee75e18a7554023d",
+      "report": "WQDaF9kpYbBPLCKM",
+      "fight": 4,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 1,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 66616,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 76,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 78,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 76,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 78,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            11293,
+            76,
+            null,
+            78,
+            1,
+            747
+          ],
+          [
+            11293,
+            76,
+            null,
+            78,
+            2,
+            747
+          ],
+          [
+            25861,
+            76,
+            null,
+            78,
+            3,
+            747
+          ],
+          [
+            25861,
+            76,
+            null,
+            78,
+            4,
+            747
+          ],
+          [
+            43642,
+            76,
+            null,
+            78,
+            5,
+            747
+          ],
+          [
+            43642,
+            76,
+            null,
+            78,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 78,
+            "instance": 1,
+            "first_last_damage_ms": [
+              12889,
+              28941
+            ],
+            "positive_overkill": [
+              [
+                28941,
+                40,
+                20647,
+                1050,
+                307
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 2,
+            "first_last_damage_ms": [
+              12358,
+              22241
+            ],
+            "positive_overkill": [
+              [
+                22241,
+                24,
+                1,
+                846,
+                641
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 3,
+            "first_last_damage_ms": [
+              26826,
+              33658
+            ],
+            "positive_overkill": [
+              [
+                33658,
+                33,
+                20647,
+                417,
+                2785
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 4,
+            "first_last_damage_ms": [
+              27027,
+              46909
+            ],
+            "positive_overkill": [
+              [
+                46909,
+                40,
+                20647,
+                163,
+                720
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 5,
+            "first_last_damage_ms": [
+              45995,
+              53759
+            ],
+            "positive_overkill": [
+              [
+                53759,
+                46,
+                1,
+                253,
+                798
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 78,
+            "instance": 6,
+            "first_last_damage_ms": [
+              45328,
+              60295
+            ],
+            "positive_overkill": [
+              [
+                60295,
+                27,
+                1,
+                174,
+                24
+              ]
+            ],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 78,
+          "instance": 1,
+          "summoned_ms": 11293,
+          "first_positive_overkill_ms": 28941,
+          "elapsed_to_overkill_ms": 17648
+        },
+        {
+          "actor": 78,
+          "instance": 2,
+          "summoned_ms": 11293,
+          "first_positive_overkill_ms": 22241,
+          "elapsed_to_overkill_ms": 10948
+        },
+        {
+          "actor": 78,
+          "instance": 3,
+          "summoned_ms": 25861,
+          "first_positive_overkill_ms": 33658,
+          "elapsed_to_overkill_ms": 7797
+        },
+        {
+          "actor": 78,
+          "instance": 4,
+          "summoned_ms": 25861,
+          "first_positive_overkill_ms": 46909,
+          "elapsed_to_overkill_ms": 21048
+        },
+        {
+          "actor": 78,
+          "instance": 5,
+          "summoned_ms": 43642,
+          "first_positive_overkill_ms": 53759,
+          "elapsed_to_overkill_ms": 10117
+        },
+        {
+          "actor": 78,
+          "instance": 6,
+          "summoned_ms": 43642,
+          "first_positive_overkill_ms": 60295,
+          "elapsed_to_overkill_ms": 16653
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-10",
+      "fixture": "aq40-hunter-expanded-context",
+      "archive": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.zip",
+      "entries": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.entries",
+      "sha256": "e75020fe7b94bc05323ebabc9a2100f8b3210e117c0b3df9ee75e18a7554023d",
+      "report": "cb7dmjfDntT189FG",
+      "fight": 3,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 49,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 52743,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-trade_engineering.jpg",
+            "id": 78,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-trade_engineering.jpg",
+            "id": 79,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 78,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 79,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            11402,
+            78,
+            null,
+            79,
+            1,
+            747
+          ],
+          [
+            11402,
+            78,
+            null,
+            79,
+            2,
+            747
+          ],
+          [
+            25918,
+            78,
+            null,
+            79,
+            3,
+            747
+          ],
+          [
+            25918,
+            78,
+            null,
+            79,
+            4,
+            747
+          ],
+          [
+            43717,
+            78,
+            null,
+            79,
+            5,
+            747
+          ],
+          [
+            43717,
+            78,
+            null,
+            79,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 79,
+            "instance": 1,
+            "first_last_damage_ms": [
+              11980,
+              20148
+            ],
+            "positive_overkill": [
+              [
+                20148,
+                44,
+                17923,
+                94,
+                690
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 79,
+            "instance": 2,
+            "first_last_damage_ms": [
+              12668,
+              16939
+            ],
+            "positive_overkill": [
+              [
+                16939,
+                25,
+                25306,
+                307,
+                2546
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 79,
+            "instance": 3,
+            "first_last_damage_ms": [
+              27362,
+              36118
+            ],
+            "positive_overkill": [
+              [
+                36118,
+                35,
+                20647,
+                1594,
+                299
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 79,
+            "instance": 4,
+            "first_last_damage_ms": [
+              26128,
+              33398
+            ],
+            "positive_overkill": [
+              [
+                33398,
+                25,
+                12654,
+                448,
+                439
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 79,
+            "instance": 5,
+            "first_last_damage_ms": [
+              44065,
+              52461
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 79,
+            "instance": 6,
+            "first_last_damage_ms": [
+              44917,
+              52461
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 79,
+          "instance": 1,
+          "summoned_ms": 11402,
+          "first_positive_overkill_ms": 20148,
+          "elapsed_to_overkill_ms": 8746
+        },
+        {
+          "actor": 79,
+          "instance": 2,
+          "summoned_ms": 11402,
+          "first_positive_overkill_ms": 16939,
+          "elapsed_to_overkill_ms": 5537
+        },
+        {
+          "actor": 79,
+          "instance": 3,
+          "summoned_ms": 25918,
+          "first_positive_overkill_ms": 36118,
+          "elapsed_to_overkill_ms": 10200
+        },
+        {
+          "actor": 79,
+          "instance": 4,
+          "summoned_ms": 25918,
+          "first_positive_overkill_ms": 33398,
+          "elapsed_to_overkill_ms": 7480
+        },
+        {
+          "actor": 79,
+          "instance": 5,
+          "summoned_ms": 43717,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        },
+        {
+          "actor": 79,
+          "instance": 6,
+          "summoned_ms": 43717,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-11",
+      "fixture": "aq40-hunter-expanded-context",
+      "archive": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.zip",
+      "entries": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.entries",
+      "sha256": "e75020fe7b94bc05323ebabc9a2100f8b3210e117c0b3df9ee75e18a7554023d",
+      "report": "tWkayc9LwbAzTHQg",
+      "fight": 3,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 1,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 49420,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 65,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-trade_engineering.jpg",
+            "id": 69,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 65,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 69,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            11332,
+            65,
+            null,
+            69,
+            1,
+            747
+          ],
+          [
+            11332,
+            65,
+            null,
+            69,
+            2,
+            747
+          ],
+          [
+            24291,
+            65,
+            null,
+            69,
+            3,
+            747
+          ],
+          [
+            24291,
+            65,
+            null,
+            69,
+            4,
+            747
+          ],
+          [
+            38864,
+            65,
+            null,
+            69,
+            5,
+            747
+          ],
+          [
+            38864,
+            65,
+            null,
+            69,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 69,
+            "instance": 1,
+            "first_last_damage_ms": [
+              13484,
+              21586
+            ],
+            "positive_overkill": [
+              [
+                21586,
+                13,
+                10207,
+                565,
+                274
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 69,
+            "instance": 2,
+            "first_last_damage_ms": [
+              11839,
+              22145
+            ],
+            "positive_overkill": [
+              [
+                22145,
+                4,
+                25286,
+                437,
+                133
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 69,
+            "instance": 3,
+            "first_last_damage_ms": [
+              26148,
+              37812
+            ],
+            "positive_overkill": [
+              [
+                37812,
+                4,
+                23894,
+                725,
+                1479
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 69,
+            "instance": 4,
+            "first_last_damage_ms": [
+              25893,
+              36107
+            ],
+            "positive_overkill": [
+              [
+                36107,
+                22,
+                20647,
+                482,
+                742
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 69,
+            "instance": 5,
+            "first_last_damage_ms": [
+              40857,
+              49153
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 69,
+            "instance": 6,
+            "first_last_damage_ms": [
+              39919,
+              49225
+            ],
+            "positive_overkill": [],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 69,
+          "instance": 1,
+          "summoned_ms": 11332,
+          "first_positive_overkill_ms": 21586,
+          "elapsed_to_overkill_ms": 10254
+        },
+        {
+          "actor": 69,
+          "instance": 2,
+          "summoned_ms": 11332,
+          "first_positive_overkill_ms": 22145,
+          "elapsed_to_overkill_ms": 10813
+        },
+        {
+          "actor": 69,
+          "instance": 3,
+          "summoned_ms": 24291,
+          "first_positive_overkill_ms": 37812,
+          "elapsed_to_overkill_ms": 13521
+        },
+        {
+          "actor": 69,
+          "instance": 4,
+          "summoned_ms": 24291,
+          "first_positive_overkill_ms": 36107,
+          "elapsed_to_overkill_ms": 11816
+        },
+        {
+          "actor": 69,
+          "instance": 5,
+          "summoned_ms": 38864,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        },
+        {
+          "actor": 69,
+          "instance": 6,
+          "summoned_ms": 38864,
+          "first_positive_overkill_ms": null,
+          "elapsed_to_overkill_ms": null
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    },
+    {
+      "id": "skeram-summon-observations-12",
+      "fixture": "aq40-hunter-expanded-context",
+      "archive": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.zip",
+      "entries": "raw/aq40-hunter-expanded-context/73952389-2005-20261017T220829.entries",
+      "sha256": "e75020fe7b94bc05323ebabc9a2100f8b3210e117c0b3df9ee75e18a7554023d",
+      "report": "zgnJcDvZABFtTX2N",
+      "fight": 4,
+      "encounter_id": 50709,
+      "ability_ids": [
+        747
+      ],
+      "caster_game_ids": [
+        15263
+      ],
+      "target_game_ids": [
+        176525
+      ],
+      "expected": {
+        "encounter_id": 50709,
+        "revision": 56,
+        "zone_id": 2005,
+        "partition": 1,
+        "duration_ms": 54966,
+        "caster_catalog": [
+          {
+            "gameID": 15263,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 105,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "Boss",
+            "type": "NPC"
+          }
+        ],
+        "target_catalog": [
+          {
+            "gameID": 176525,
+            "icon": "custom-icon-spell_nature_wispsplode.jpg",
+            "id": 107,
+            "name": "The Prophet Skeram",
+            "petOwner": null,
+            "server": null,
+            "subType": "NPC",
+            "type": "NPC"
+          }
+        ],
+        "caster_roster": [
+          {
+            "gameID": 15263,
+            "groupCount": 1,
+            "id": 105,
+            "instanceCount": 1,
+            "petOwner": null
+          }
+        ],
+        "target_roster": [
+          {
+            "gameID": 176525,
+            "groupCount": 1,
+            "id": 107,
+            "instanceCount": 6,
+            "petOwner": null
+          }
+        ],
+        "summons": [
+          [
+            8106,
+            105,
+            null,
+            107,
+            1,
+            747
+          ],
+          [
+            8107,
+            105,
+            null,
+            107,
+            2,
+            747
+          ],
+          [
+            24220,
+            105,
+            null,
+            107,
+            3,
+            747
+          ],
+          [
+            24220,
+            105,
+            null,
+            107,
+            4,
+            747
+          ],
+          [
+            37135,
+            105,
+            null,
+            107,
+            5,
+            747
+          ],
+          [
+            37135,
+            105,
+            null,
+            107,
+            6,
+            747
+          ]
+        ],
+        "damage_by_instance": [
+          {
+            "actor": 107,
+            "instance": 1,
+            "first_last_damage_ms": [
+              9739,
+              21188
+            ],
+            "positive_overkill": [
+              [
+                21188,
+                67,
+                1,
+                3,
+                119
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 107,
+            "instance": 2,
+            "first_last_damage_ms": [
+              8559,
+              12048
+            ],
+            "positive_overkill": [
+              [
+                12048,
+                15,
+                1,
+                345,
+                247
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 107,
+            "instance": 3,
+            "first_last_damage_ms": [
+              25582,
+              48423
+            ],
+            "positive_overkill": [
+              [
+                48423,
+                16,
+                1,
+                367,
+                490
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 107,
+            "instance": 4,
+            "first_last_damage_ms": [
+              24588,
+              31465
+            ],
+            "positive_overkill": [
+              [
+                31465,
+                21,
+                18871,
+                938,
+                85
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 107,
+            "instance": 5,
+            "first_last_damage_ms": [
+              37997,
+              48473
+            ],
+            "positive_overkill": [
+              [
+                48473,
+                69,
+                1,
+                28,
+                437
+              ]
+            ],
+            "later_positive_damage_ms": []
+          },
+          {
+            "actor": 107,
+            "instance": 6,
+            "first_last_damage_ms": [
+              37440,
+              50054
+            ],
+            "positive_overkill": [
+              [
+                50054,
+                69,
+                20647,
+                307,
+                380
+              ]
+            ],
+            "later_positive_damage_ms": []
+          }
+        ],
+        "lifecycles": []
+      },
+      "boundary_expectations": [
+        {
+          "actor": 107,
+          "instance": 1,
+          "summoned_ms": 8106,
+          "first_positive_overkill_ms": 21188,
+          "elapsed_to_overkill_ms": 13082
+        },
+        {
+          "actor": 107,
+          "instance": 2,
+          "summoned_ms": 8107,
+          "first_positive_overkill_ms": 12048,
+          "elapsed_to_overkill_ms": 3941
+        },
+        {
+          "actor": 107,
+          "instance": 3,
+          "summoned_ms": 24220,
+          "first_positive_overkill_ms": 48423,
+          "elapsed_to_overkill_ms": 24203
+        },
+        {
+          "actor": 107,
+          "instance": 4,
+          "summoned_ms": 24220,
+          "first_positive_overkill_ms": 31465,
+          "elapsed_to_overkill_ms": 7245
+        },
+        {
+          "actor": 107,
+          "instance": 5,
+          "summoned_ms": 37135,
+          "first_positive_overkill_ms": 48473,
+          "elapsed_to_overkill_ms": 11338
+        },
+        {
+          "actor": 107,
+          "instance": 6,
+          "summoned_ms": 37135,
+          "first_positive_overkill_ms": 50054,
+          "elapsed_to_overkill_ms": 12919
+        }
+      ],
+      "review_basis": "Separate direct ZIP enumeration, before production modeling, cross-checked against retained12-context/72-instance raw lifecycle research. Per-instance spawn-to-first-positive-overkill arithmetic is an observed event bound, not lifetime, physical attackability, duty or opportunity. Missing12 endpoints remain unknown; same-time damage is unordered and overlapping summon groups remain separate."
+    }
+  ]
+}

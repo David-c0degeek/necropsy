@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Retain observed Skeram image summons and per-instance event bounds. Preserve
+  overlapping groups and unknown endpoints without claiming damage opportunity.
+
 - Require a supported positive same-faction pet comparison before advising a
   Hunter to bring a pet. Preserve recorded absence when that advice is withheld.
 

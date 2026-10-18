@@ -39,6 +39,14 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 10 / Per-instance summon event bounds.
+Full ordinary suite before reviewer fixes: 1722 passed/309 deselected/455.10s. Post-review focused verification: 286 passed, including the new identity and unrelated-event regressions; 122 independent raw tests pass. Current source/event-set proof preserves all12 real policy outputs. Both installed replay sets and actual installed CLI match source artifacts; four real-browser cases and three cross-raid goldens pass. Naxx all four outputs remain byte-identical to5dcc7f3, preserving its separately reviewed pet correction. All139 wheel members match staged fresh-checkout bytes after newline-only normalization, with installed replays repeated. Scans/lint/types/docs are clean. No full product/domain/native acceptance or publication.
+
+Observed behavior, versions/hashes, remaining uncertainty and interim Hindsight
+are in research/summon-event-bounds-review.json. Keep the shared seams and
+immutable independent evidence; fix the remaining full-domain obligations
+before closure.59 IN_PROGRESS/893 TODO/0 COMPLETE. Verdict DO NOT CLOSE.
+
 2026-10-18 / slice 9 / Evidence-qualified pet advice.
 Naxx reanalysis changes exactly one JSON path: Sapphiron recommendations lose one unsupported pet-absent action (two known comparisons, unknown median); every other JSON value is identical. All four original absence observations and the immutable historical fact register remain. Separate current policy test requires three supported actions.110 targeted tests and208 golden facts/policy pass with4 existing xfails. Initial actual-page assertions caught the missing factual absence in the condensed Playbook; both pages now retain it with safety/assignment caveats. Source/installed/installed CLI artifacts agree, package accepted;137 wheel members match source. Full product/native/domain acceptance remains open.
 

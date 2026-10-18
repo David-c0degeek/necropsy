@@ -44,6 +44,14 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 29 / Per-instance summon event bounds.
+Extracted shared NPC identity/cardinality and added raid-owned per-instance summon observations with genuine/feign/unknown lifecycle qualification. Exact All event-set consistency blocks actor/critical-only additions without a schema migration. Personal/cohort saved fields reach both actual class-render paths. No lifetime, attackability, phase denominator, ranking or grade is inferred; audit remaining consumers before full-domain acceptance.
+
+Observed behavior, versions/hashes, remaining uncertainty and interim Hindsight
+are in research/summon-event-bounds-review.json. Keep the shared seams and
+immutable independent evidence; fix the remaining full-domain obligations
+before closure.59 IN_PROGRESS/893 TODO/0 COMPLETE. Verdict DO NOT CLOSE.
+
 2026-10-18 / slice 28 / Evidence-qualified pet advice.
 The shared pet-absent rule now requires the existing three-known-value minimum and a positive same-faction trained-pet median. Unknown, zero, negative or insufficient baselines and unknown roster/category withhold advice; other-faction fill cannot justify it. Supported positive behavior is retained. No schema or capture change.
 

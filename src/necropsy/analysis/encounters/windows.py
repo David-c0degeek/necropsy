@@ -22,6 +22,8 @@ from necropsy.analysis.evidence import (
 )
 from necropsy.analysis.generic.lifecycle import real_death
 from necropsy.analysis.generic.metrics import observed_aura_windows
+from necropsy.analysis.generic.npcs import identity as _identity
+from necropsy.analysis.generic.npcs import singletons as _singleton_npcs
 from necropsy.normalize.coverage import has_complete_encounter_coverage
 from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
@@ -62,63 +64,6 @@ class EncounterAura:
     transitions: Evidenced[tuple[tuple[float, str, int, int | None], ...]]
     targets: tuple[TargetAuraWindow, ...]
     limitation: str = LIMITATION
-
-
-def _identity(
-    actors: dict[int, set[tuple[str | None, int | None, str | None]]],
-    actor: int | None,
-    wanted: tuple[int, ...],
-) -> bool | None:
-    identities = actors.get(actor) if actor is not None else None
-    if not identities or len(identities) != 1:
-        return None
-    kind, game_id, _ = next(iter(identities))
-    if kind is None:
-        return None
-    if kind != "NPC":
-        return False
-    return game_id in wanted if game_id is not None else None
-
-
-def _singleton_npcs(
-    con: duckdb.DuckDBPyConnection,
-    pf: ParticipantFight,
-    actors: dict[int, set[tuple[str | None, int | None, str | None]]],
-) -> set[int]:
-    """An unnumbered target needs positive, unambiguous fight-level cardinality."""
-    rows = con.execute(
-        "SELECT enemy_npcs FROM fights WHERE report_code=? AND fight_id=?",
-        [pf.report_code, pf.fight_id],
-    ).fetchall()
-    if len(rows) != 1:
-        return set()
-    raw = rows[0][0]
-    roster = json.loads(raw) if isinstance(raw, str) else raw
-    if not isinstance(roster, list) or any(not isinstance(row, dict) for row in roster):
-        return set()
-    by_actor: dict[int, list[dict[str, Any]]] = defaultdict(list)
-    for row in roster:
-        actor = row.get("id")
-        if type(actor) is not int or actor < 1:
-            return set()
-        by_actor[actor].append(row)
-    result = set()
-    for actor, entries in by_actor.items():
-        if len(entries) != 1:
-            continue
-        entry = entries[0]
-        game_id, count = entry.get("gameID"), entry.get("instanceCount")
-        identities = actors.get(actor, set())
-        if (
-            type(game_id) is int
-            and game_id > 0
-            and type(count) is int
-            and count == 1
-            and len(identities) == 1
-            and next(iter(identities))[:2] == ("NPC", game_id)
-        ):
-            result.add(actor)
-    return result
 
 
 def encounter_auras(

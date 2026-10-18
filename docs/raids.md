@@ -89,6 +89,10 @@ numbered repeated adds retain separate windows. Personal Sand Blast exposure
 is separate from physical attackability, tank assignment or avoidability.
 Missing C'Thun vulnerability transitions do not establish that no weakening
 occurred, and no nominal weakening timer supplies an observed window.
+Skeram retains separate numbered image summons and elapsed event bounds to a
+recorded positive-overkill marker. Groups can overlap; missing endpoints stay
+unknown. These observations do not prove lifetime, attackability, target access
+or available damage time, and do not supply a phase or performance grade.
 Real Hunter replay also distinguishes confirmed pet absence from unknown pet
 classification and unresolved guardian ownership. A known trained pet remains
 measured when a separate guardian has no owner. A recommendation to bring a pet

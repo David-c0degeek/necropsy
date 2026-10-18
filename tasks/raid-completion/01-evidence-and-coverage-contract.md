@@ -37,6 +37,14 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 27 / Per-instance summon event bounds.
+Added12 independently frozen Skeram contexts/72 numbered instances,60 observed event bounds and12 unknown endpoints; all prior45 archives/525 actor/322 recipient/41 pet/9 actor-effect expectations unchanged. Eligibility/NPC scalar and valid-rehash mutation checks protect raw identities. Two existing cells gain the portable oracle reference; all statuses unchanged.
+
+Observed behavior, versions/hashes, remaining uncertainty and interim Hindsight
+are in research/summon-event-bounds-review.json. Keep the shared seams and
+immutable independent evidence; fix the remaining full-domain obligations
+before closure.59 IN_PROGRESS/893 TODO/0 COMPLETE. Verdict DO NOT CLOSE.
+
 2026-10-18 / slice 26 / Genuine death and Feign Death checkpoint.
 Added the ninth independently frozen actor-effect context (17 manual timelines), preserving literal raw feign flags and all prior525 actor/322 recipient/41 pet expectations and45 native archives. Mutation checks reject changed, omitted or malformed flags. All prior8 actor-effect contexts remain unchanged.59 IN_PROGRESS/893 TODO/0 COMPLETE.
 
