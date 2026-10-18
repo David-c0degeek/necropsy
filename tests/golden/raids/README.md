@@ -9,7 +9,7 @@ Season of Mastery and Hardcore catalog entries do not approve Era policies.
 `coverage.json` records evidence against stable keys
 `raid/encounter/class/category/metric/faction`. Missing records mean TODO.
 The partial register deliberately certifies no complete domain cells.
-Current inventory:47 archives,639 actor cases,380 recipient cases,95 owned-pet
+Current inventory:48 archives,699 actor cases,440 recipient cases,154 owned-pet
 contexts,9 actor-effect contexts,12 summon contexts and18 removal contexts.
 
 ```sh
@@ -62,7 +62,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 380 retained HPS actor cases, without changing original actor expectations:
+for 440 retained HPS actor cases, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -250,3 +250,15 @@ qualification is not certified. Prior579 actor and322 recipient measurements
 and46 provenance records remain unchanged. Manual mechanic bounds, utility
 coaching, assignments, ranking and class/faction/domain/product acceptance stay
 open; this capture does not complete any cell.
+
+The normal `mc-restoration-shaman-raid-context` capture adds all ten personal
+Horde Restoration/HPS bosses and five comparisons each:60 actors across58 fights.
+All120 player directions,34 pet directions and116 global scopes are complete.
+Avaztwo's Magmadar pet104 has no valid owner; its missing listing remains unknown
+and is excluded from independent pet contexts. Sixty actor/context and60
+recipient cases plus59 owner contexts retain17 owned Healing Stream Totem units
+(NPC3908/3909). Their healing and zero damage are separate observations;
+score agreement cannot establish ownership or a generic WCL HPS policy.
+All prior639 actor/380 recipient/95 pet contexts and47 provenance records remain
+unchanged. Specific summon coaching and full class/domain/product acceptance
+remain open.

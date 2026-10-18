@@ -79,6 +79,10 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 | PM-2 | Confirmed Prediction | Medium | Before production | Partial | Accurate | Known absence was promoted into a required pet action without a positive supported comparison. Sartura median0 and Sapphiron medianunknown/n2 now withhold that action. Safety/assignment/opportunity remain unresolved. research/pet-absence-review.json |
 | PM-3 | Prevented Prediction | None | Prevented | Effective | Accurate | Original four-boss Naxx absence statement and frozen facts retained; independent raw registers unchanged. Separate explicit policy test distinguishes three supported actions from four recorded absences. Exact full-document diff rules out silent numerical changes. Scope limited to this checkpoint. research/pet-absence-review.json |
 
+| PM-1 | Confirmed Prediction | Medium | Before production | Partial | Accurate | Real Shaman totems heal with zero damage while generic pet presentation exposes damage only. Scoped healing-summon contract recorded before implementation; full coaching remains open. research/mc-restoration-shaman-review.json |
+| PM-2 | Prevented Prediction | None | Before production | Effective | Accurate | Seventeen owned units retain raw amounts; Avaztwo pet104 remains unresolved and excluded from pet facts. No actor HPS/ranking change or fitted owner. research/mc-restoration-shaman-review.json |
+| PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Raw expectations frozen before comparison/replay; all639 actor/380 recipient/95 pet/47 provenance records unchanged, exact native/source/installed artifacts and privacy checks. research/mc-restoration-shaman-review.json |
+
 ## Misses
 
 > A miss is a meaningful failure, regression, or material risk discovered after

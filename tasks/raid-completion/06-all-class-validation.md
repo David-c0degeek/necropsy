@@ -109,3 +109,6 @@ the required specific findings/advice and category/tree/duty applicability.
 No class box or cell closes; this review does not establish implementation.
 
 TBD — no implementation or acceptance is claimed at plan creation.
+
+
+2026-10-18 · slice 5 · Full-MC Horde Restoration evidence. Normal resume finalized60 actors/58 fights without quota stop; native4 retains Avaztwo pet104 unknown owner. All549 members/321231401 extracted bytes verified/scanned;445754 raw All/max-union events match selected actor projections. Freeze/register60 actor+context,60 recipient and59 owned-pet contexts/17 totems; prior639/380/95 expectations and47 provenance records unchanged. Real golden1/72.35s and desktop/mobile/print browser2/57.60s pass; source/installed/native all4 identical and normal package accepted. No runtime changes; current c132 wheel retained, no new full-suite claim. Inventory48 archives/699 actors/440 recipients/154 owner contexts;79 IN_PROGRESS/873 TODO/0 COMPLETE. Separate healing-summon contract precedes future implementation. Review research/mc-restoration-shaman-review.json; PM-1/2/3 calibrated; all full boxes/human gates remain open, DO NOT CLOSE.

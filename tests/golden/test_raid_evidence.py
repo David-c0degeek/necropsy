@@ -423,8 +423,12 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                 for actor in ids
                 for direction in ("source", "target")
             }
-            assert {p["actor_id"] for p in entry["hunter"]["pets"]} == ids
-            assert entry["pets_listed"] is expected["listing_complete"]
+            hunter = entry.get("hunter")
+            pet_analysis = hunter if hunter is not None else entry["combat"]
+            assert {p["actor_id"] for p in pet_analysis["pets"]} == ids
+            assert (
+                entry["pets_listed"] if hunter is not None else pet_analysis["pets_known"]
+            ) is expected["listing_complete"]
             for pet in expected["pets"]:
                 for field, kind, emitter in (
                     ("damage", "damage", "source_id"),
@@ -438,6 +442,15 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                         [case["report"], case["fight"], pet["actor"], kind],
                     ).fetchone()
                     assert actual and actual[0] == pet["totals"][field], (case["id"], field)
+                if hunter is None:
+                    reported = next(
+                        p for p in pet_analysis["pets"] if p["actor_id"] == pet["actor"]
+                    )
+                    assert reported["damage"]["value"] == pet["totals"]["damage"]
+                    assert reported["dps"]["value"] == pytest.approx(
+                        pet["totals"]["damage"] * 1000 / expected["duration_ms"]
+                    )
+                    continue
                 trained = next(
                     (p for p in entry["hunter"]["hunter_pets"] if p["actor_id"] == pet["actor"]),
                     None,
@@ -462,6 +475,8 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                     assert activity["last_damage_before_end_s"] == (
                         None if bounds is None else (expected["duration_ms"] - bounds[1]) / 1000
                     )
+            if hunter is None:
+                continue
             if not ids and expected["listing_complete"]:
                 assert entry["hunter"]["hunter_pets"] == []
                 assert entry["hunter"]["total_pet_dps"]["value"] == 0

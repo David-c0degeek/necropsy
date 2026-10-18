@@ -235,12 +235,12 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | 47 archives/639 actors/380 recipients, strict identity/chronology and NPC observations; two Paladin roster gaps/one guardian remain explicit | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | 48 archives/699 actors/440 recipients/154 pet contexts; Shaman17 owned totems; two Paladin roster gaps and unresolved guardians remain explicit | n/a |
 | [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | shared strategy on all28 entries, local effects/control, qualified summon bounds and exposure/self-removal pairing; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | IN_PROGRESS | initial strategy/exposure and qualified Priest Blue-removal effects; full boss/class/domain obligations open | yes |
 | [ ] | 05 | `tasks/raid-completion/05-aq40.md` | IN_PROGRESS | agent: 9; domain-sme: 1; initial facts/strategy, observed NPC context and partial real class coverage | yes |
-| [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | IN_PROGRESS | Priest Blue/Geddon and Paladin Geddon utility active; Paladin60 actor/58 recipient evidence registered; Shaman resume active; full class/domain gates open | yes |
+| [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | IN_PROGRESS | Priest Blue/Geddon and Paladin Geddon utility active; Shaman60 actor/60 recipient/59 owner evidence registered; separate summon healing pending; full class/domain gates open | yes |
 | [ ] | 07 | `tasks/raid-completion/07-product-and-release-acceptance.md` | IN_PROGRESS | agent: 8; product-owner: 1 | yes |
 
 ---

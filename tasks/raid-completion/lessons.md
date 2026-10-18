@@ -66,3 +66,5 @@
 - 2026-10-18: Real browser checks must open actual collapsed completeness and pet-evidence panels before asserting their visible contents. Hidden warning text in server HTML or raw JSON does not prove accessibility, and expecting it in the initial visible body is not a product regression. Exercise the real summary controls and keep actor evidence usable while guardian/recipient metadata stays unresolved.
 
 - 2026-10-18: A successful removal by the subject need not end the subject's own exposure. Real Paladin effects on16/30/20 stayed separate from actor35's aura endpoints, while a cohort self-clear had exact2882ms boundaries. Bind recipient as well as owner, spell and timestamp; same spell school does not make Cleanse, Purify and Priest ranks interchangeable.
+
+- 2026-10-18: An owned healing summon can have zero damage and substantial friendly healing. Verify actual raw effects and owner bindings before treating a damage-only presentation as sufficient; neither `zzOLD` names nor score-fitting establishes eligibility or ownership. Missing owner-listing files differ from explicit empty listings.
