@@ -210,3 +210,8 @@ NPC aura observations reuse generic observed state transitions per exact actor/
 instance and the existing saved playbook adapter. Unrestricted scoped coverage
 qualifies counts and durations; filtered streams cannot certify encounter-wide
 absence. See [target instance observations](decisions/0017-target-instance-aura-windows.md).
+
+Generic Era class pet entries reuse recipient-qualified healing after individual
+ownership and full event integrity checks. Optional saved summon examples flow
+through the shared healing context to both pages, separately from actor metrics
+and WCL scores. See [owned summon healing](decisions/0018-owned-summon-healing.md).

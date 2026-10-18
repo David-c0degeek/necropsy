@@ -83,6 +83,10 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 | PM-2 | Prevented Prediction | None | Before production | Effective | Accurate | Seventeen owned units retain raw amounts; Avaztwo pet104 remains unresolved and excluded from pet facts. No actor HPS/ranking change or fitted owner. research/mc-restoration-shaman-review.json |
 | PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Raw expectations frozen before comparison/replay; all639 actor/380 recipient/95 pet/47 provenance records unchanged, exact native/source/installed artifacts and privacy checks. research/mc-restoration-shaman-review.json |
 
+| PM-1 | Confirmed Prediction | Medium | Before production | Effective | Accurate | Damage-only presentation hid real totem healing; optional individual support now reaches both shared pages, with whole-fight/quality/listing limits. Full coaching remains open. research/summon-healing-review.json |
+| PM-2 | Prevented Prediction | None | Before production | Effective | Accurate | Exact owner/fight/source bindings and tri-state raw validation withhold unresolved rows rather than certifying absence. No actor HPS, score-fit owner, lifetime or opportunity inference. research/summon-healing-review.json |
+| PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Independent17-actor facts precede modeling. Review exposed duplicate ability-join amplification; occurrence-multiset proof and adverse tests close it. Prior raw facts/model fields and Naxx/Priest/Paladin outputs remain exact. research/summon-healing-review.json |
+
 ## Misses
 
 > A miss is a meaningful failure, regression, or material risk discovered after

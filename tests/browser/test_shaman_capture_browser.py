@@ -38,6 +38,15 @@ def shaman_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
     avaztwo = next(e for e in magmadar["overall_cohort"] if e["player"] == "Avaztwo")
     assert avaztwo["combat"]["pets_known"] is False
     assert avaztwo["combat"]["pets"] == []
+    examples = [
+        e
+        for boss in doc["bosses"]
+        for e in boss["playbook"]["healing_context"].get("owned_summon_examples", ())
+    ]
+    assert len(examples) == 17
+    hardzen = next(e for e in examples if e["player"] == "Hardzen")
+    assert hardzen["support"]["healing"]["value"] == 683
+    assert all(e["support"]["healing"]["value"] is not None for e in examples)
     return out
 
 
@@ -83,8 +92,20 @@ def test_real_shaman_support_keeps_ownership_unknown(shaman_site: Path, width: i
                 assert page.evaluate(
                     "document.documentElement.scrollWidth <= window.innerWidth + 1"
                 )
+                summon = page.get_by_text(
+                    "Hardzen · zzOLDHealing Stream Totem V (owned unit 64): 683 friendly healing;",
+                    exact=False,
+                ).first
+                summon.scroll_into_view_if_needed()
+                assert summon.is_visible()
+                assert (
+                    "not added to actor support or WCL scores" in page.locator("body").inner_text()
+                )
                 page.emulate_media(media="print")
-                assert "Rumpldoc" in page.locator("body").inner_text()
+                assert summon.is_visible()
+                assert page.evaluate(
+                    "document.documentElement.scrollWidth <= window.innerWidth + 1"
+                )
                 assert not errors and not remote
                 page.close()
         finally:

@@ -186,3 +186,17 @@ separate. Combined friendly healing and absorption retains whole-fight actor
 source coverage, with no implicit pet attribution or quality judgement. Raw
 scalar coercion cannot turn boolean or fractional support fields into valid
 integer ownership/amount evidence. Heal-only and overheal values stay distinct.
+
+Era raid class reports additionally retain each known owned summon's friendly
+healing, credited absorption and whole-fight support rate. Master actor,
+selected-fight pet and exported source ownership must agree. Trusted pet SOURCE
+coverage plus the exact unrestricted encounter event set qualify these totals;
+TARGET coverage does not prove outgoing healing. Possible support rows are
+validated before identity/time/type exclusions, and projected event occurrence
+multiplicity must match the original event set. Conflicting ownership, malformed
+events or unknown recipients withhold certainty. A known individual contribution
+can coexist with an incomplete overall pet listing; it never certifies an
+all-summon total. These optional saved fields do not modify actor support,
+recorded WCL scores or older saved analyses. Each entry groups all logged
+instances of the same pet actor; it does not identify a physical summon lifetime
+or uptime window.

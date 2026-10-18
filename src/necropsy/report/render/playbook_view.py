@@ -83,6 +83,17 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
             ),
             *(
                 line(
+                    f"{example['player']} · {example['name']} (owned unit {example['actor_id']}): "
+                    f"{number(example['support']['healing']['value'])} friendly healing; "
+                    f"{number(example['support']['absorption']['value'])} credited absorption; "
+                    f"{number(example['support']['combined_per_second']['value'], 2)}/s "
+                    "separate summon support.",
+                    example["support"]["limitation"],
+                )
+                for example in healing.get("owned_summon_examples", ())
+            ),
+            *(
+                line(
                     f"Recorded healing credited to encounter bosses: "
                     f"{number(example['healing_to_bosses']['value'])} ({example['player']}).",
                     "Mechanic healing is separate from friendly healing support.",

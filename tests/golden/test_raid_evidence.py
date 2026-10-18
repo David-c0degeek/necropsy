@@ -450,6 +450,17 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                     assert reported["dps"]["value"] == pytest.approx(
                         pet["totals"]["damage"] * 1000 / expected["duration_ms"]
                     )
+                    if fixture == "mc-restoration-shaman-raid-context":
+                        support = reported["healing_support"]
+                        assert support["owner_actor_id"] == owner
+                        assert support["game_id"] == pet["catalog"]["gameID"]
+                        assert support["healing"]["value"] == pet["totals"]["effective_healing"]
+                        assert support["absorption"]["value"] == pet["totals"]["absorbed_amount"]
+                        assert support["combined_per_second"]["value"] == pytest.approx(
+                            (pet["totals"]["effective_healing"] + pet["totals"]["absorbed_amount"])
+                            * 1000
+                            / expected["duration_ms"]
+                        )
                     continue
                 trained = next(
                     (p for p in entry["hunter"]["hunter_pets"] if p["actor_id"] == pet["actor"]),

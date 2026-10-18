@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Show owned summon healing and credited absorption separately on both raid
+  pages. Verify individual ownership and event integrity; keep actor totals,
+  WCL scores and unresolved pet listings separate.
+
 - Show recorded Priest Dispel Magic and Paladin Cleanse removals of Ignite Mana
   on Geddon, with unambiguous exposure
   endpoints alongside self-dispels. Keep coordination advice separate from

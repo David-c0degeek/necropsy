@@ -12,7 +12,7 @@ from necropsy.analysis.classes import register
 from necropsy.analysis.context import ParticipantFight, coverage, owned_pets, pet_listing_known
 from necropsy.analysis.encounters import duty, encounter_rules
 from necropsy.analysis.evidence import Evidenced, EvidenceRef, inferred, observed, unknown
-from necropsy.analysis.generic import combat, healing, metrics
+from necropsy.analysis.generic import combat, healing, metrics, summon_healing
 from necropsy.analysis.generic.environment import EnvironmentProfile
 from necropsy.analysis.generic.metrics import DeathsFinding
 from necropsy.raids import raid_for_encounter
@@ -197,6 +197,10 @@ class ClassicEraCombat:
                     "deaths": metrics.deaths(con, pf, pet.actor_id),
                 }
             )
+            if duty.applies(con, pf):
+                pets[-1]["healing_support"] = summon_healing.support(
+                    con, pf, pet, rules.boss_game_ids
+                )
         healing_spells: dict[str, int] = {}
         heal_events = [e for e in events if e.kind == "heal" and e.source_id == pf.actor_id]
         for event in heal_events:

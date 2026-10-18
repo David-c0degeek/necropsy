@@ -63,9 +63,10 @@ are still being developed.
 
 Full-MC Horde Restoration Shaman evidence adds60 actor/context and60 recipient
 cases, with17 owned Healing Stream Totem units independently retained in59
-owner contexts. One Magmadar pet owner remains unknown. Totem healing is
-separate from actor support; these observations do not reconcile WCL HPS or
-complete summon-specific guidance.
+owner contexts. One Magmadar pet owner remains unknown. Both pages retain
+individually verified summon healing and credited absorption separately from
+actor support, with whole-fight rates and explicit listing/quality limits.
+These observations do not reconcile WCL HPS or complete summon-specific guidance.
 
 The initial strategy appears under preparation, execution and raid coordination
 in both pages. Geddon additionally retains recorded Priest Dispel Magic and

@@ -35,3 +35,4 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Encounter event scope](0016-encounter-event-scope.md) | Separate actorless encounter/critical coverage, explicit live format2, shared normalization and preserved historical/v1 defaults |
 
 | [Target instance aura observations](0017-target-instance-aura-windows.md) | Exact NPC instances, scoped encounter coverage and observed buff states separate from phases and personal opportunities |
+| [Owned summon healing](0018-owned-summon-healing.md) | Individual owned-unit friendly support, strict event integrity and separate actor/ranking evidence |

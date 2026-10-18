@@ -260,5 +260,6 @@ recipient cases plus59 owner contexts retain17 owned Healing Stream Totem units
 (NPC3908/3909). Their healing and zero damage are separate observations;
 score agreement cannot establish ownership or a generic WCL HPS policy.
 All prior639 actor/380 recipient/95 pet contexts and47 provenance records remain
-unchanged. Specific summon coaching and full class/domain/product acceptance
-remain open.
+unchanged. Both pages show verified owned-unit healing/absorption separately
+from actor support. Specific summon coaching and full class/domain/product
+acceptance remain open.

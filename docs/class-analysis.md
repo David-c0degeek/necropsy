@@ -125,9 +125,11 @@ quality or complete class/duty/faction coverage.
 
 Full-MC Horde Restoration Shaman evidence retains60 actor and60 recipient
 contexts, with17 owned Healing Stream Totem units in59 independently checked
-owner contexts. One Magmadar pet owner remains unresolved. Recorded totem healing
-is separate from actor-only support and does not establish a WCL HPS policy or
-complete summon coaching.
+owner contexts. One Magmadar pet owner remains unresolved. Both raid pages show
+each verified owned unit's friendly healing, credited absorption and whole-fight
+rate separately from actor support. Conflicting ownership or incomplete event
+evidence remains unknown. This does not establish a WCL HPS policy or complete
+summon coaching.
 
 
 ## Accepted validation boundary

@@ -349,3 +349,18 @@ qualified totals unknown. Optional `playbook.healing_context.support_examples`
 saves the contributing measures for both pages. Neither these values nor
 recorded scores establish healing quality or a universally validated WCL HPS
 policy. See [recipient evidence](decisions/0014-recipient-qualified-healing.md).
+
+Generic Era raid `combat.pets[]` entries may additionally save `healing_support`:
+`rule`, `owner_actor_id`, `game_id`, `limitation`, and evidenced `healing`,
+`absorption`, `combined_per_second`. The values describe that individual unit's
+friendly support over the whole fight. They require consistent ownership,
+trusted SOURCE and exact encounter event-set coverage, raw event integrity and
+unchanged projected occurrence multiplicity. Unknown recipients or conflicting
+metadata withhold certainty. Actor totals and WCL scores do not include them.
+Optional `playbook.healing_context.owned_summon_examples` saves player,
+report/fight, pet actor/name and the same support record for both pages.
+Each pet actor entry groups its recorded instances rather than defining a
+physical summon lifetime or uptime. Missing fields in older documents remain
+absent during rendering; listing incompleteness does not certify zero or an
+all-summon total. See
+[the owned-summon contract](decisions/0018-owned-summon-healing.md).

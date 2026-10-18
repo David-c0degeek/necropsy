@@ -959,6 +959,22 @@ def build_document(
                         or metrics["effective_absorption"]["value"] > 0
                     ],
                 }
+                summon_examples = [
+                    {
+                        "player": entry["player"],
+                        "report_code": entry["report_code"],
+                        "fight_id": entry["fight_id"],
+                        "actor_id": pet["actor_id"],
+                        "name": pet["name"],
+                        "support": pet["healing_support"],
+                    }
+                    for entry in entries
+                    if entry is not None
+                    for pet in (entry.get("combat") or {}).get("pets", ())
+                    if "healing_support" in pet
+                ]
+                if summon_examples:
+                    boss["playbook"]["healing_context"]["owned_summon_examples"] = summon_examples
             strategy = encounter_strategy(
                 zone,
                 boss["encounter_id"],

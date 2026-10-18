@@ -53,3 +53,5 @@ totem's contribution on both pages, no page errors/remote calls/overflow. Real
 source/installed CLI/package equivalence plus preserved Naxx/old saved output
 controls and full ordinary verification are required before the runtime
 checkpoint. This contract is pending implementation, not accepted behavior.
+
+Checkpoint update,2026-10-18: narrow implementation verified under D025/ADR0018; see summon-healing-review.json. Original pre-implementation contract above is retained. Full class/domain/product scope remains open.
