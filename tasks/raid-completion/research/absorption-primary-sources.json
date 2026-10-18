@@ -1,0 +1,11 @@
+{
+  "retrieved": "2026-10-18",
+  "source": "https://de.warcraftlogs.com/scripting-api-docs/warcraft/interfaces/RpgLogs.AbsorbedEvent.html",
+  "authority": "Official WCL scripting API documentation, indexed page inspected through web search; no connected browser session claimed.",
+  "observations": [
+    "AbsorbedEvent is a distinct absorbed event with amount, source, target and ability; source and ability can be null.",
+    "The scripting wrapper describes amount as absorbed damage and ability as the source's ability on the target. This supports separate recorded effect attribution, not cast enumeration or equipment causality."
+  ],
+  "representation_boundary": "The retained GraphQL raw fields sourceID, targetID, abilityGameID, timestamp and amount are validated directly against normalized events and the independent SOURCE/All oracle. Wrapper actor/ability objects are not assumed to be raw field aliases.",
+  "non_claims": "No spell capacity, rank equivalence, item/proc cause, wasted shielding, opportunity, mana efficiency, counterfactual total prevented damage, ranking policy or assignment is derived from this page. The initial prompt applies only to observed10901 positives."
+}

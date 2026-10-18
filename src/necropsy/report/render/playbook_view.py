@@ -103,6 +103,44 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
+        absorption_lines = []
+        for example in healing.get("absorption_examples", ()):
+            breakdown = example["breakdown"]
+            total = breakdown["absorption"]["value"]
+            if total == 0 and not breakdown["abilities"]:
+                continue
+            absorption_lines.append(
+                line(
+                    f"{example['player']} · report {example['report_code']}, "
+                    f"fight {example['fight_id']}: {number(total)} friendly credited absorption "
+                    "by recorded ability.",
+                    breakdown["limitation"],
+                )
+            )
+            for ability in breakdown["abilities"]:
+                label = ability["name"] or f"Ability {ability['ability_id']}"
+                amount = ability["absorption"]["value"]
+                effects = ability["effects"]["value"]
+                text = (
+                    f"{label} ({ability['ability_id']}): {number(amount)} credited absorption; "
+                    f"{number(effects)} absorption effects, not casts."
+                    if amount is not None
+                    else f"{label} ({ability['ability_id']}): "
+                    f"{len(ability['observations']['value'])} recorded effects; "
+                    "complete amount unknown."
+                )
+                recipients = "; ".join(
+                    f"{p['name'] or 'Actor'} ({p['actor_id']}): "
+                    f"{number(p['absorption']['value'])} credited absorption"
+                    for p in ability["recipients"]
+                )
+                absorption_lines.append(line(text, "Recorded recipients — " + recipients + "."))
+            if breakdown["review"]:
+                absorption_lines.append(
+                    line(breakdown["review"]["text"], breakdown["review"]["limitation"])
+                )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *absorption_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *absorption_lines)
     raid_interrupts = playbook.get("raid_interrupt_contexts", ())
     if raid_interrupts:
         view = dict(view)

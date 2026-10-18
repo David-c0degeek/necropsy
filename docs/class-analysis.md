@@ -154,6 +154,16 @@ beside the existing unresolved Healing Stream owner. Real comparison collection
 does not complete class coaching, assignments or ranked-damage reconciliation.
 
 
+Priest raid pages also separate credited absorption by numeric ability and
+recorded friendly recipient. Power Word: Shield effects stay distinct from
+Persistent Shield and other absorption, and from casts. The review prompt asks
+players to agree shield priorities with tanks and healers; it does not prescribe
+cast frequency or grade healing quality. Initial prompt coverage is observed
+rank10901. All60 independently checked full-MC contexts preserve their previous
+actor totals and comparison scores. Incomplete source/context evidence withholds
+totals while retaining qualified observations; full class and rank coverage stays
+open. See the [absorption context decision](decisions/0020-absorption-ability-context.md).
+
 ## Accepted validation boundary
 
 On 2026-10-15 David approved the delivered implementation and instructed final closure after the remaining domain-review requirements were disclosed. Additional standalone Druid SME adjudication was retired by product-owner decision; no new per-finding review is claimed. The accepted scope retains conservative duty heuristics, assignment/coverage unknowns and the missing real Holy Priest healing fixture. Arithmetic and automated role-regression checks are engineering evidence, not universal rotation, quality or assignment certification. Earlier pending handoff records are historical. Further refinement is separately scoped.

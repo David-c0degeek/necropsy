@@ -175,6 +175,52 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_summon_bounds(doc, observations_fixture, out)
     _assert_mechanic_removals(doc, observations_fixture, out)
     _assert_raid_interrupts(doc, fixture["label"], out)
+    _assert_absorption_abilities(doc, fixture["label"], out)
+
+
+def _assert_absorption_abilities(doc: dict[str, Any], fixture: str, out: Path) -> None:
+    cases = json.loads((ROOT / "absorption-ability-facts.json").read_text(encoding="utf-8"))[
+        "cases"
+    ]
+    cases = [case for case in cases if case["fixture"] == fixture]
+    if not cases:
+        return
+    rows = [
+        example
+        for boss in doc["bosses"]
+        for example in boss["playbook"]["healing_context"]["absorption_examples"]
+    ]
+    examples = {
+        (example["report_code"], example["fight_id"], example["actor_id"]): example
+        for example in rows
+    }
+    assert len(examples) == len(rows) == len(cases)
+    for case in cases:
+        example = examples[(case["report"], case["fight"], case["actor"])]["breakdown"]
+        expected = case["expected"]
+        assert example["absorption"]["value"] == expected["friendly_absorption"]
+        if not expected["ability_absorption"]:
+            assert example["review"] is None
+        assert [a["ability_id"] for a in example["abilities"]] == [
+            a["ability_id"] for a in expected["ability_absorption"]
+        ]
+        for actual, ability in zip(
+            example["abilities"], expected["ability_absorption"], strict=True
+        ):
+            assert actual["absorption"]["value"] == ability["amount"]
+            assert actual["effects"]["value"] == ability["events"]
+            assert sorted(actual["observations"]["value"]) == sorted(
+                [e["ms"], e["target"], e["amount"]] for e in ability["observations"]
+            )
+            assert [
+                (r["actor_id"], r["absorption"]["value"], r["effects"]["value"])
+                for r in actual["recipients"]
+            ] == [(r["actor_id"], r["amount"], r["events"]) for r in ability["recipients"]]
+    for name in ("report.html", "playbook.html"):
+        html = unescape((out / name).read_text(encoding="utf-8"))
+        assert "Power Word: Shield (10901): 2406 credited absorption; 4 absorption effects" in html
+        assert "Persistent Shield (26470): 4845 credited absorption; 17 absorption effects" in html
+        assert "Agree shield priorities with your tanks and healers" in html
 
 
 def _assert_raid_interrupts(doc: dict[str, Any], fixture: str, out: Path) -> None:

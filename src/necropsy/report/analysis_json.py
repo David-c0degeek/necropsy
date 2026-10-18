@@ -982,6 +982,34 @@ def build_document(
                 ]
                 if summon_examples:
                     boss["playbook"]["healing_context"]["owned_summon_examples"] = summon_examples
+                if meta[9] == 7:
+                    from necropsy.analysis.generic import healing
+
+                    participants = {
+                        (
+                            entry.participant.report_code,
+                            entry.participant.fight_id,
+                            entry.participant.actor_id,
+                        ): entry.participant
+                        for entry in (data.subject, *data.cohort)
+                        if entry is not None and duty.applies(con, entry.participant)
+                    }
+                    if participants:
+                        rules = encounter_rules(GAME, zone, boss["encounter_id"])
+                        boss["playbook"]["healing_context"]["absorption_examples"] = to_data(
+                            [
+                                {
+                                    "player": pf.player,
+                                    "report_code": pf.report_code,
+                                    "fight_id": pf.fight_id,
+                                    "actor_id": pf.actor_id,
+                                    "breakdown": healing.absorption_by_ability(
+                                        con, pf, rules.boss_game_ids
+                                    ),
+                                }
+                                for _, pf in sorted(participants.items())
+                            ]
+                        )
             strategy = encounter_strategy(
                 zone,
                 boss["encounter_id"],

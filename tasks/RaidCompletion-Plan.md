@@ -39,12 +39,12 @@
 
 | Field | Value |
 |---|---|
-| Mode | `parallel` |
-| Primary owner | Codex |
-| Coordinator | Codex |
+| Mode | `coordinated` |
+| Primary owner | Claude (implementation lead; Codex while Claude is unavailable) |
+| Coordinator | Claude for implementation; Codex for UI/UX |
 | Resume safety | required |
 | Parallel branches | `no` — reviewers are read only |
-| Notes | User authorized three reviewers on2026-10-18 (D021). Root alone owns edits on main and serializes all DuckDB work. Reviewers do not edit, run database workloads, capture WCL data or spawn further agents. Foundation/research checkpoint9aded83 derives from30e89ce; execution began2026-10-16. Existing WCL user-endpoint tooling only; no publication or new infrastructure. |
+| Notes | Since 2026-10-18 the user directs a Claude/Codex pair (D028): Claude leads implementation until its usage runs out, Codex leads UI/UX and reviews. Exactly one writer at a time; ownership moves only by explicit pair handoff (UI/UX implementation is handed to Codex), and ownership returns to Codex before Claude loses tool access. The writer serializes all DuckDB work, captures and replays. Earlier: user authorized three read-only reviewers on2026-10-18 (D021). Reviewers do not edit, run database workloads, capture WCL data or spawn further agents. Foundation/research checkpoint9aded83 derives from30e89ce; execution began2026-10-16. Existing WCL user-endpoint tooling only; no publication or new infrastructure. |
 
 Mode rules:
 
@@ -72,7 +72,8 @@ rationale, affected subjects, and branch/ownership impact.
 | Summon logic review | /root/summon_review | n/a — read only | current working tree and observed-summon guardrails | none — no edits | reviewed | Unrelated malformed chronology fixed; reviewer rechecked, six regressions included in286 passing tests. research/parallel-review-20261018.json |
 | Oracle integrity review | /root/oracle_review | n/a — read only | raw registers, independent checker and checkpoint evidence | none — no edits | reviewed | Marker identity aliases and duplicate-target assertion fixed; reviewer rechecked, all122 raw tests pass. research/parallel-review-20261018.json |
 | Class/duty priorities review | /root/class_review | n/a — read only | master plan, subject06, coverage and real callers | none — no edits | reviewed | Aura merged-event guard is next; Holy advice and Hunter/missing-family evidence remain open. research/parallel-review-20261018.json |
-| Implementation and verification | Codex root | main | reviewer findings | root owns all changed files | active | All edits, captures and database workloads remain serialized under root |
+| Implementation and verification | Codex root | main | reviewer findings | root owned all changed files | handed off | Superseded by D028 pair handoff at cc83584; historical row |
+| Implementation lead (pair) | Claude, current pair-handoff owner | main | Codex UI/UX review and pair verdicts | owner holds all changed files | active | One writer by pair handoff; all edits, captures and database workloads serialized under the owner; UI/UX writes via handoff to Codex |
 
 ### Checkpoint gate
 
@@ -228,6 +229,8 @@ Append-only. Record deviations, previous/new collaboration modes, affected boxes
 | D024 | 2026-10-18 | Paladin-specific Geddon Cleanse evidence | Add a separate class6 policy restricted to Cleanse4987, reusing the existing qualified removal/pairing algorithms. Keep Priest527/988 applicability separate; Purify1152's Holy school does not grant Magic removal. | Six directly frozen Paladin contexts establish four successful effects/two actors, four zero actors and Anrylla's2882ms self-exposure pair. Resurgance's three effects target others and cannot end his personal exposure. Classic capability sources and adverse tests distinguish effects from casts/assignment/quality. Only the MC policy asset changes in the wheel; all prior12 removal expectations remain unchanged. | 02.5/02.7/02.8; 03.6/03.7; 06.4; 07.4–07.7; PM-1/PM-2/PM-3; ADR0015; research/paladin-geddon-cleanse-contract.md |
 | D025 | 2026-10-18 | Separate owned-summon healing | Add optional individual healing/absorption/rate evidence to generic Era combat pet entries and shared saved healing context for both pages. Reuse recipient classification only after strict ownership, full-event integrity and occurrence-multiplicity checks. | Raw Shaman expectations precede modeling:17 known-owned units across59 qualified owner contexts, plus one missing listing left unknown. Damage0 does not imply healing0; approximate score fit cannot establish ownership/ranked HPS. All actor metrics, scores, Hunter/Druid and Naxx contracts remain separate. Reviewers found both-null identity/type and duplicate ability-join seams; adverse tests guard them. | 02.2/02.5/02.8; 03.7; 06.7/06.11; 07.4–07.7; PM-1/PM-2/PM-3; ADR0018; research/owned-summon-healing-contract.md |
 | D026 | 2026-10-18 | Raid-roster interruption context | Add optional deduplicated report/fight observations through shared saved JSON/rendering, initially class9 Era Sulfuron. Exact friendly class/NPC-instance/raw event bindings and All/event-set proof qualify counts; partial totals preserve positives. | Four qualified effects belong to Sabshaw, Minni and Healybeams, not selected players or inferred talent builds. All six raw contexts frozen before model/checker; no opportunity or personal-utility waiver. | 02.2/02.4/02.5/02.7/02.8; 03.7; 06.7/06.11; 07.4–07.7; PM-1/2/3; ADR0019; research/raid-interrupt-review.json |
+| D027 | 2026-10-18 | Priest credited absorption context | Add optional actor/report/fight-deduplicated ability and recipient splits through shared healing classification and both-page rendering. Initial review prompt requires positive10901; other ranks remain outside prompt coverage. | Strict player SOURCE binding plus All/event-set proof qualifies totals; valid observations survive uncertainty. All60 independent raw contexts were frozen first. Preserve existing actor metrics/scores and old saved rendering; do not infer cast frequency, assignment, proc causes or quality. | 02.2/02.4/02.5/02.7/02.8; 03.7; 06.5/06.11; 07.4–07.7; PM-1/2/3; ADR0020; research/absorption-review.json |
+| D028 | 2026-10-18 | Pair implementation lead | Change Mode from `parallel` (D021 read-only reviewers, now complete) to `coordinated`: the user directs Claude to lead implementation until its usage runs out, with Codex leading UI/UX and reviewing; Codex reclaims implementation when Claude is unavailable. | One writer at a time through explicit pair handoff keeps edits and serialized DuckDB/capture work unambiguous across two terminals; UI/UX changes go through a handoff to Codex. Completed D021 reviewer rows stay as historical evidence. | All subjects; §Collaboration ownership; no branch change (main) |
 
 ---
 
@@ -243,7 +246,7 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | IN_PROGRESS | initial strategy/exposure and qualified Priest Blue-removal effects; full boss/class/domain obligations open | yes |
 | [ ] | 05 | `tasks/raid-completion/05-aq40.md` | IN_PROGRESS | agent: 9; domain-sme: 1; initial facts/strategy, observed NPC context and partial real class coverage | yes |
-| [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | IN_PROGRESS | Priest Blue/Geddon and Paladin Geddon utility active; Shaman Restoration and expanded Elemental evidence registered; ten Elemental positive peer cells, five duty-unknown personal contexts and one duty-unknown Golemagg peer; separate summon healing and raid-roster interrupts active; full class/domain gates open | yes |
+| [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | IN_PROGRESS | Priest Blue/Geddon and Paladin Geddon utility active; Shaman Restoration and expanded Elemental evidence registered; ten Elemental positive peer cells, five duty-unknown personal contexts and one duty-unknown Golemagg peer; separate summon healing, raid-roster interrupts and Priest absorption-recipient review active; full class/domain gates open | yes |
 | [ ] | 07 | `tasks/raid-completion/07-product-and-release-acceptance.md` | IN_PROGRESS | agent: 8; product-owner: 1 | yes |
 
 ---

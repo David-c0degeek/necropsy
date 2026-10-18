@@ -37,3 +37,4 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Target instance aura observations](0017-target-instance-aura-windows.md) | Exact NPC instances, scoped encounter coverage and observed buff states separate from phases and personal opportunities |
 | [Owned summon healing](0018-owned-summon-healing.md) | Individual owned-unit friendly support, strict event integrity and separate actor/ranking evidence |
 | [Raid interruption context](0019-raid-interruption-context.md) | Deduplicated raid-member effects with named sources, qualified NPC instances and separate player credit |
+| [Credited absorption context](0020-absorption-ability-context.md) | Ability and recipient splits, verified player coverage and separate shield review prompts |

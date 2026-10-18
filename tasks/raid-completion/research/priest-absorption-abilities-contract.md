@@ -1,6 +1,7 @@
 # Ability and recipient context for credited absorption
 
-2026-10-18. Pre-implementation contract. No new breakdown or advice is active.
+2026-10-18. Original pre-implementation contract retained below. Working-tree
+implementation is under verification; no full class/domain gate is closed.
 
 Independent raw source enumeration froze60 registered full-MC Holy Priest
 contexts before a new checker or model. Thirty-seven have friendly credited
@@ -51,3 +52,5 @@ copying a reference cast mix. Show it as an evidence-backed review/coordination
 prompt, never a missed-cast, damage-prevention, mana-efficiency, opportunity,
 quality or performance-gain finding. Full class/domain/product acceptance remains
 open. Research any further spell/item mechanics before making causal guidance.
+
+Verified narrow implementation checkpoint: D027/ADR0020 and research/absorption-review.json. The original contract is retained; initial prompt covers10901 only. Full class/domain/product obligations remain open.

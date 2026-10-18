@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Split recorded Priest absorption by ability and recipient on both raid pages.
+  Review shield recipients separately from other absorption; keep effect counts,
+  casts, assignments and healing quality distinct, with incomplete totals unknown.
+
 - Show raid-roster Shaman interruptions of Sulfuron's Dark Mending on both pages,
   naming the actual sources and target instances. Keep selected-player utility,
   ranking scores and unknown interrupt opportunities separate.

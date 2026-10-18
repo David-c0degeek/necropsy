@@ -88,6 +88,14 @@ remain explicit. Two additional raid-roster Dark Mending interruptions belong to
 Enoset and Shocknlawl, separately from selected-player utility. No quota stop
 remains; full class/phase/ranking/domain/product acceptance is still open.
 
+Priest reports also show friendly credited absorption by ability and recipient,
+separating Power Word: Shield from Persistent Shield and other recorded effects.
+The shield review prompt asks for coordination with tanks and healers; absorption
+effects do not establish casts, prevented damage, equipment causes or quality.
+Complete amounts require verified player SOURCE and encounter coverage; partial
+evidence retains observations with unknown totals. Initial real acceptance covers
+60 full-MC contexts, with the prompt limited to observed shield rank10901.
+
 The initial strategy appears under preparation, execution and raid coordination
 in both pages. Geddon additionally retains recorded Priest Dispel Magic and
 Paladin Cleanse removals of Ignite Mana
