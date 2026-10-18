@@ -759,10 +759,76 @@
       },
       "observations_fixture": "aq40-hunter-expanded-context",
       "observation_scope": "Reuse six independently preserved Skeram summon contexts from expanded capture; actor/context/pet facts cover all54. Additional manual aura/effect/summon expectations for new25 contexts remain open."
+    },
+    {
+      "label": "mc-holy-paladin-raid-context",
+      "url": "https://vanilla.warcraftlogs.com/character/us/pagle/Resurgance?zone=2000",
+      "category": "Holy",
+      "metric": "hps",
+      "partition": 1,
+      "sources": 60,
+      "stopped": null,
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "captured_date": "2026-10-18",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "encounters": [
+        50663,
+        50664,
+        50665,
+        50666,
+        50667,
+        50668,
+        50669,
+        50670,
+        50671,
+        50672
+      ],
+      "encounter_context": true,
+      "complete_player_streams": 120,
+      "complete_pet_streams": 0,
+      "complete_encounter_scopes": 118,
+      "missing_pet_listings": 1,
+      "missing_pet_fights": [
+        [
+          "HvCjr3FwLq9JYgK8",
+          28
+        ]
+      ],
+      "cohort_counts": {
+        "50663": 5,
+        "50664": 5,
+        "50665": 5,
+        "50666": 5,
+        "50667": 5,
+        "50668": 5,
+        "50669": 5,
+        "50670": 5,
+        "50671": 5,
+        "50672": 5
+      },
+      "recipient_fact_cases": 58,
+      "uncertified_recipient_eligibility": [
+        {
+          "report": "aPFnkKmGDLryT7R6",
+          "fight": 28,
+          "actor": 11,
+          "player": "Stimorol",
+          "reason": "Empty selected enemyNPCs roster; boss-recipient qualification remains open. Original independently enumerated amounts retained without certifying this eligibility."
+        },
+        {
+          "report": "aPFnkKmGDLryT7R6",
+          "fight": 37,
+          "actor": 11,
+          "player": "Stimorol",
+          "reason": "Empty selected enemyNPCs roster; boss-recipient qualification remains open. Original independently enumerated amounts retained without certifying this eligibility."
+        }
+      ],
+      "observation_scope": "Actor/context and58 recipient facts only. Two empty enemy rosters leave recipient eligibility uncertified; one guardian owner remains unknown. Additional manual aura/effect/utility bounds, class/duty/faction/ranking and product/domain acceptance remain open."
     }
   ],
   "capture_dates": [
     "2026-10-16",
-    "2026-10-17"
+    "2026-10-17",
+    "2026-10-18"
   ]
 }

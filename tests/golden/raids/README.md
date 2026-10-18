@@ -9,6 +9,8 @@ Season of Mastery and Hardcore catalog entries do not approve Era policies.
 `coverage.json` records evidence against stable keys
 `raid/encounter/class/category/metric/faction`. Missing records mean TODO.
 The partial register deliberately certifies no complete domain cells.
+Current inventory:47 archives,639 actor cases,380 recipient cases,95 owned-pet
+contexts,9 actor-effect contexts,12 summon contexts and12 removal contexts.
 
 ```sh
 uv run python scripts/check_raid_coverage.py --inventory
@@ -60,7 +62,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 322 retained HPS actor cases, without changing original actor expectations:
+for 380 retained HPS actor cases, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -102,7 +104,7 @@ as the earlier full capture, with all 114 whole-encounter scopes complete. All
 60 original actor measurements agree independently; the new cases additionally
 freeze raw All/critical context. The earlier archive and expectations remain
 unchanged. Both captures retain the two unresolved pet ownership listings.
-The register now contains 43 archives, 484 actor cases, 322 recipient cases and
+That checkpoint contained43 archives,484 actor cases,322 recipient cases and
 six separate NPC-control contexts. No domain cell is certified complete.
 
 The full `bwl-holy-raid-context` capture spans all nine BWL encounter entries,
@@ -229,3 +231,15 @@ and raw archives remain unchanged.
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/removal-facts.json
 ```
+
+The normal `mc-holy-paladin-raid-context` capture adds all ten personal Alliance
+Holy Paladin bosses and five comparisons each:60 selected actors across59 fights.
+All120 player directions and118 global scopes are complete. One Ragnaros
+guardian owner is unresolved and remains a missing pet-discovery context.
+Sixty independent actor/context facts and58 recipient facts retain exact raw
+ownership, amounts and event-set membership. Two comparison fights for Stimorol
+have empty enemy rosters; their actor events remain usable but boss-recipient
+qualification is not certified. Prior579 actor and322 recipient measurements
+and46 provenance records remain unchanged. Manual mechanic bounds, utility
+coaching, assignments, ranking and class/faction/domain/product acceptance stay
+open; this capture does not complete any cell.

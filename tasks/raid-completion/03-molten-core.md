@@ -47,6 +47,17 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 16 / Qualified full-MC Holy Paladin evidence.
+Ten Alliance Holy/HPS cells gain public personal/five-comparison sources and
+real replay references; all remain IN_PROGRESS.60 actor/context and58 recipient
+facts are appended without changing prior579/322 measurements. One Ragnaros
+guardian and two empty enemy rosters stay unknown/uncertified. Real golden,
+desktop/mobile/print and source/installed/normal CLI four-artifact equivalence
+pass; package/privacy checks pass. No runtime policy or class coaching is added
+by capture registration. Review: research/mc-holy-paladin-review.json. Next:
+source-qualified Paladin utility plus missing class/faction/mechanic/ranking/
+domain/product obligations.69 IN_PROGRESS/883 TODO/0 COMPLETE; DO NOT CLOSE.
+
 2026-10-18 / slice 15 / Geddon Priest successful removal and exposure pairing.
 One owned988 removal of19659 and five zero actors are independently frozen;
 Immateriall's19635 removal is excluded. Inkia's7.667/9.275-second endpoints

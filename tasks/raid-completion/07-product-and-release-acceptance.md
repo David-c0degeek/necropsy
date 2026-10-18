@@ -39,6 +39,18 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 15 / Native Paladin acquisition and installed evidence review.
+Normal reserve-stopped attempt is preserved; normal resume reuses147 requests
+and completes60 actor selections with one unknown guardian, not a new quota
+stop. Independent raw/member checks, real golden and two desktop/mobile/print
+tests pass. Browser tests open actual completeness/pet evidence panels to expose
+the owner warning. Source golden/current installed offline CLI/original normal
+capture all four artifacts are byte-identical and package accepted. Raw266MB/
+output197MB scans clean. No runtime source or publication change; full GUI,
+library/class/utility/domain/product obligations remain open. Review:
+research/mc-holy-paladin-review.json.69 IN_PROGRESS/883 TODO/0 COMPLETE;
+DO NOT CLOSE.
+
 2026-10-18 / slice 14 / Geddon utility rendering and installed verification.
 Four real MC/BWL desktop/mobile/print cases pass with visible limits, no remote
 requests/page errors/overflow. Source and installed outside-checkout JSON, both

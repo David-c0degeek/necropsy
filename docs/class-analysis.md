@@ -115,8 +115,13 @@ Destruction and Warrior Protection. Each has six actor entries and independent
 raw amount checks. Warrior captures retain DPS-duty Protection entries separately
 from tank comparisons. [Provenance](../tests/golden/classes/PROVENANCE.md) records
 hashes, coverage and the additional budget-only Priest Holy snapshot. Real Holy
-Priest event validation is still unavailable; synthetic checks and verified HPS
-ranking metadata are not presented as a completed live healing fixture.
+Priest event validation for that original Naxxramas/Patchwerk acceptance remains
+unavailable; synthetic checks and verified HPS ranking metadata do not complete
+that fixture. Later [MC/BWL/AQ40 evidence](raids.md) retains usable real Holy Priest
+healing separately. Full-MC Holy Paladin evidence also retains60 actors and58
+qualified recipient contexts, with two empty enemy rosters and one unknown
+guardian owner. These module-specific captures do not establish universal healer
+quality or complete class/duty/faction coverage.
 
 
 ## Accepted validation boundary

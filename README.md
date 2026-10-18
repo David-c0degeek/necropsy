@@ -115,7 +115,9 @@ Hunter has dedicated shot, pet and weaving analysis. Druid and other class views
 include role-aware measurements, ability use and recorded practice examples.
 The exact [class support and validation boundaries](docs/class-analysis.md)
 distinguish synthetic checks from real-log evidence, including the outstanding
-real Holy Priest healing fixture. A supported category does not imply every
+real Holy Priest healing fixture for the original Naxxramas/Patchwerk acceptance.
+Later MC/BWL/AQ40 healing captures have their own evidence limits.
+A supported category does not imply every
 rotation or assignment has been independently validated.
 
 Installers and the graphical app target Windows x64, Intel/Apple Silicon macOS,

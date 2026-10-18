@@ -54,6 +54,13 @@ unknown. Hunter comparisons use recorded WCL scores; the engine does not claim
 that an unvalidated event sum is ranked damage or reconstruct ranked target
 shares from it. General class and cooldown guidance remains available.
 
+Retained public full-MC Holy Paladin evidence covers all ten personal bosses and
+five comparisons each. Independent raw checks qualify60 actor/context cases and
+58 recipient cases; two comparison enemy rosters are empty and one guardian
+owner is unresolved. These limits remain separate from the usable healing
+events. Encounter utility, assignments and complete class/faction acceptance
+are still being developed.
+
 The initial strategy appears under preparation, execution and raid coordination
 in both pages. Geddon additionally retains recorded Priest Ignite Mana removals
 and exact exposure endpoints alongside unambiguous self-dispels, with self-clear

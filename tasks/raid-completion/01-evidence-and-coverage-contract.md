@@ -37,6 +37,19 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 31 / First qualified Paladin full-MC registration.
+Final native resume retains60 public selected actors across59 fights: all10
+personal bosses/five comparisons each.120 player directions/118 global scopes
+complete; one guardian owner remains unknown. Added60 independent actor/context
+and58 recipient facts; two empty enemy rosters remain uncertified. Prior579
+actor/322 recipient/46 provenance records preserved exactly. All380 registered
+recipient cases, real golden, two both-page desktop/mobile/print cases and
+source/installed/normal CLI four-artifact equivalence pass. Raw266MB/output197MB
+privacy scans clean. Runtime source unchanged. Inventory47 archives/639 actors/
+380 recipients;69 IN_PROGRESS/883 TODO/0 COMPLETE. Review:
+research/mc-holy-paladin-review.json. Keep strict scope/unknowns and immutable
+expectations; full class/mechanic/domain/product duties remain open. DO NOT CLOSE.
+
 2026-10-18 / slice 30 / Geddon utility and selected-fight recipient identities.
 Six direct raw Priest contexts freeze one988 Ignite Mana removal and five zeros;
 Inkia's explicit endpoints support1608ms recorded exposure alongside self-dispel.

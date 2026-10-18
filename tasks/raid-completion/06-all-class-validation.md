@@ -45,6 +45,17 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 3 / First Paladin family evidence registered.
+Normal full-MC Holy Paladin capture provides all10 personal Alliance bosses and
+five comparisons each.60 actor/context/58 recipient cases pass independent
+checks; prior records unchanged. Real golden, two responsive both-page browser
+cases and installed native0 offline CLI/package agree with source and normal
+capture bytes. Guardian ownership and two absent enemy-roster qualifications
+remain explicit. Raw evidence and generic support are not full class coaching;
+next Paladin utility and missing Shaman/Shadow/faction families remain open.
+Review: research/mc-holy-paladin-review.json.69 IN_PROGRESS/883 TODO/0 COMPLETE;
+all full class boxes/domain acceptance remain open. DO NOT CLOSE.
+
 2026-10-18 / slice 2 / Priest Geddon utility and first Paladin acquisition.
 Geddon Priest policy reuses shared exact removal counts and adds qualified
 exposure/self-removal pairing with concrete coordination text. Six independent
