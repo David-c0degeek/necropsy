@@ -24,6 +24,17 @@ general:
   based_on:
   - refocus
 encounters: {}
+removals:
+  50616:
+  - rule: chromaggus-priest-blue-removal-v1
+    label: Brood Affliction Blue removals
+    classes: [7]
+    removed_ability_ids: [23153]
+    removing_ability_ids: [527, 988]
+    is_buff: false
+    require_encounter_event_set: true
+    source: https://www.wowhead.com/classic/spell=23153/brood-affliction-blue
+    retrieved: '2026-10-18'
 effects:
   50611:
   - rule: vaelastrasz-burning-adrenaline-exposure-v1

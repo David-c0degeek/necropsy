@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Show recorded Priest Dispel Magic removals of Chromaggus Blue affliction,
+  separate from casts and effects performed by other players. Keep conflicting
+  ownership or chronology unknown instead of reporting a count or absence.
+
 - Withhold complete NPC aura counts and windows when other streams add events
   beyond the certified encounter read; preserve the positive transitions.
 

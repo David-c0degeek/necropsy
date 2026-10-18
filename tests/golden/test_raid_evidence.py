@@ -53,6 +53,10 @@ def test_independent_summon_observations() -> None:
     assert check_register(ROOT / "summon-facts.json") == []
 
 
+def test_independent_owned_mechanic_removals() -> None:
+    assert check_register(ROOT / "removal-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -161,6 +165,53 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_npc_aura_windows(doc, {observations_fixture, fixture["label"]})
     _assert_owned_pets(doc, fixture["label"], db)
     _assert_summon_bounds(doc, observations_fixture, out)
+    _assert_mechanic_removals(doc, observations_fixture, out)
+
+
+def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> None:
+    cases = json.loads((ROOT / "removal-facts.json").read_bytes())["cases"]
+    for case in cases:
+        if case["fixture"] != fixture:
+            continue
+        boss = next(b for b in doc["bosses"] if b["encounter_id"] == case["encounter_id"])
+        subject = boss["subject"]
+        personal = subject and (subject["report_code"], subject["fight_id"]) == (
+            case["report"],
+            case["fight"],
+        )
+        if personal:
+            removals = boss["playbook"]["mechanic_removals"]
+        else:
+            example = next(
+                e
+                for e in boss["playbook"]["cohort_mechanic_removals"]
+                if (e["report_code"], e["fight_id"]) == (case["report"], case["fight"])
+            )
+            removals = example["removals"]
+        [removal] = removals
+        expected = case["expected"]["owned_removals"]
+        assert removal["removals"]["value"] == len(expected)
+        assert removal["observations"]["value"] == [
+            [e["ms"] / 1000, e["target"], e["ability"], e["removed"]] for e in expected
+        ]
+        assert {(c["actor"], c["direction"]) for c in removal["removals"]["coverage"]} == {
+            (case["actor"], "source"),
+            (None, "all"),
+        }
+        assert all(c["trusted"] for c in removal["removals"]["coverage"])
+        assert (
+            next(c for c in removal["removals"]["coverage"] if c["actor"] is None)["role"]
+            == "encounter"
+        )
+        if personal or expected:
+            for page in ("report.html", "playbook.html"):
+                html = unescape((out / page).read_text(encoding="utf-8"))
+                prefix = "" if personal else f"{case['player']} · "
+                assert (
+                    f"{prefix}Brood Affliction Blue removals: {len(expected)} "
+                    "recorded successful effects." in html
+                )
+                assert "Missing opportunity evidence cannot support a utility score." in html
 
 
 def _assert_summon_bounds(doc: dict[str, Any], fixture: str, out: Path) -> None:

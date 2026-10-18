@@ -61,6 +61,21 @@ policies separate Curse, Doom and Dominate Mind from unrelated dispels. They do
 not establish assignments, available opportunities, reaction time or a utility
 score; a recorded zero is not a poor-play finding.
 
+Removal qualification examines the full report/fight before normalized actor,
+type or time filters can hide a raw-owned candidate. Available raw source,
+recipient, ability, timestamp, type and fight identities must agree without
+coercion. Missing normalized ownership or chronology cannot establish absence.
+Malformed required mechanic metadata remains unresolved; known unrelated effects
+stay excluded. Valid positives survive alongside an unknown total.
+
+Chromaggus Priest Blue-affliction removals require effect23153, harmful-effect
+flagfalse and removing spell527/988. Magic dispel eligibility is separate from
+Frost damage school. Its counts require both actor-source trust and complete
+unrestricted encounter event-set consistency. Existing policies retain their
+original coverage contract. Six raw Priest contexts preserve three owned effects
+and explicit other-owner/cast-only negatives; only988 has observed positives.
+No assignment, nominal removals per cast, reaction-time or utility score follows.
+
 The Magmadar Frenzy policy uses `isBuff=true`, removed effect19451, removing
 ability19801 and recipient NPC11982 together. NPC type is part of recipient
 identity; a player game-ID collision is not a boss. Unknown required identity

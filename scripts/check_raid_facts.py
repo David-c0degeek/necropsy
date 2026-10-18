@@ -315,6 +315,112 @@ def raw_encounter_facts(
     return result
 
 
+def raw_removal_facts(
+    archive: VerifiedArchive,
+    report: str,
+    fight: int,
+    actor: int,
+    removed_ids: list[int],
+    removing_ids: list[int],
+    cast_ids: list[int],
+    is_buff: bool,
+) -> dict[str, Any]:
+    """Independently retain owned effects and explicit other-owner counterexamples."""
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    selected_fights = [f for f in bundle["fights"] if f["id"] == fight]
+    if len(selected_fights) != 1 or type(selected_fights[0]["id"]) is not int:
+        raise ValueError("raw removal fight identity must be unambiguous and exact")
+    selected = selected_fights[0]
+    identities = [a for a in bundle["masterData"]["actors"] if a["id"] == actor]
+    if (
+        len(identities) != 1
+        or type(identities[0]["id"]) is not int
+        or identities[0].get("type") != "Player"
+    ):
+        raise ValueError("raw removal owner must be an unambiguous player")
+    start, end = selected.get("startTime"), selected.get("endTime")
+    if type(start) is not int or type(end) is not int or not 0 <= start <= end:
+        raise ValueError("raw removal fight bounds must be exact ordered integers")
+    marker = archive.read_json("necropsy-snapshot.json")
+    zone = marker.get("zone")
+    if not isinstance(zone, dict) or any(
+        type(zone.get(key)) is not int or zone[key] < 1 for key in ("id", "partition")
+    ):
+        raise ValueError("raw removal zone and partition identities must be exact integers")
+    for value in (selected.get("encounterID"), bundle.get("revision")):
+        if type(value) is not int or value < 0:
+            raise ValueError("raw removal metadata identity must be an integer")
+    prefix = f"events/{report}/fight_{fight}/player_{actor}_"
+    folders = {
+        name.rsplit("/", 1)[0]
+        for name in archive.names()
+        if name.startswith(prefix) and "/source_" in name
+    }
+    if len(folders) != 1:
+        raise ValueError("raw removals need one unambiguous source folder")
+    _, pages = _pages(archive, folders.pop(), "source", selected["startTime"], selected["endTime"])
+    owned, others, casts = [], [], []
+    for page in pages:
+        for index, event in enumerate(archive.read_json(page)["data"]):
+            dispel = (
+                event.get("type") == "dispel" and event.get("extraAbilityGameID") in removed_ids
+            )
+            cast = (
+                event.get("type") == "cast"
+                and event.get("sourceID") == actor
+                and event.get("abilityGameID") in cast_ids
+            )
+            if not dispel and not cast:
+                continue
+            keys = ["sourceID", "abilityGameID", "timestamp"]
+            if dispel:
+                keys.extend(["targetID", "extraAbilityGameID"])
+            if any(type(event.get(key)) is not int for key in keys) or any(
+                event[key] < 1 for key in keys if key != "timestamp"
+            ):
+                raise ValueError("raw removal event identities must be exact integers")
+            if not selected["startTime"] <= event["timestamp"] <= selected["endTime"] or (
+                "fight" in event and (type(event["fight"]) is not int or event["fight"] != fight)
+            ):
+                raise ValueError("raw removal event chronology or fight identity is invalid")
+            elapsed = event["timestamp"] - selected["startTime"]
+            if cast:
+                casts.append([elapsed, event["abilityGameID"]])
+                continue
+            if type(event.get("isBuff")) is not bool:
+                raise ValueError("raw removal buff selector must be a boolean")
+            row = {
+                "ms": elapsed,
+                "source": event["sourceID"],
+                "target": event["targetID"],
+                "ability": event["abilityGameID"],
+                "removed": event["extraAbilityGameID"],
+                "is_buff": event["isBuff"],
+                "member": page,
+                "index": index,
+            }
+            if (
+                event["sourceID"] == actor
+                and event["abilityGameID"] in removing_ids
+                and event["isBuff"] is is_buff
+            ):
+                owned.append(row)
+            else:
+                others.append(row)
+    return {
+        "encounter_id": selected["encounterID"],
+        "revision": bundle["revision"],
+        "duration_ms": selected["endTime"] - selected["startTime"],
+        "actor_class": identities[0].get("subType"),
+        "zone_id": zone["id"],
+        "partition": zone["partition"],
+        "source_pages": pages,
+        "owned_removals": owned,
+        "other_removals_in_source_pages": others,
+        "owned_dispel_or_abolish_casts_ms": casts,
+    }
+
+
 def raw_summon_facts(
     archive: VerifiedArchive,
     report: str,
@@ -830,6 +936,7 @@ def check_register(path: Path) -> list[str]:
         "actor-effects",
         "owned-pets",
         "npc-summons",
+        "mechanic-removals",
     }:
         raise ValueError("unsupported independent fact register kind")
     problems = []
@@ -854,7 +961,35 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            if kind == "npc-summons":
+            if kind == "mechanic-removals":
+                selectors = [
+                    case.get(key)
+                    for key in ("removed_ability_ids", "removing_ability_ids", "cast_ability_ids")
+                ]
+                if (
+                    type(case.get("actor")) is not int
+                    or case["actor"] < 1
+                    or type(case.get("is_buff")) is not bool
+                    or any(
+                        not isinstance(values, list)
+                        or not values
+                        or any(type(value) is not int or value < 1 for value in values)
+                        or len(set(values)) != len(values)
+                        for values in selectors
+                    )
+                ):
+                    raise ValueError("raw removal facts need exact owner, spell and buff selectors")
+                actual = raw_removal_facts(
+                    archive,
+                    case["report"],
+                    case["fight"],
+                    case["actor"],
+                    case["removed_ability_ids"],
+                    case["removing_ability_ids"],
+                    case["cast_ability_ids"],
+                    case["is_buff"],
+                )
+            elif kind == "npc-summons":
                 selectors = [
                     case.get(key) for key in ("ability_ids", "caster_game_ids", "target_game_ids")
                 ]

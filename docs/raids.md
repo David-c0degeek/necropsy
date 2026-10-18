@@ -71,8 +71,10 @@ BWL strategy distinguishes Razorgore controller preparation from recorded boss
 execution, Vaelastrasz resource and Burning Adrenaline context, Broodlord threat
 and Mortal Strike recovery, and Firemaw line-of-sight recovery. Ebonroc tank
 handoffs remain separate from Flamegor Frenzy removal. Chromaggus separates
-curse, magic, disease, poison and Hourglass Sand capabilities. Nefarian provides
-one guarded response per Era class; missing personal data or call markers stay
+curse, magic, disease, poison and Hourglass Sand capabilities.
+Priest Blue-affliction counters retain actual Dispel Magic effects and distinguish
+other players' removals from personal utility. A zero is not a failed assignment.
+Nefarian provides one guarded response per Era class; missing personal data or call markers stay
 unknown. These additions do not establish measured phases or ranked totals.
 AQ40 strategy distinguishes Skeram control recovery, Royalty kill order and
 poison removal, Sartura guard control, Fankriss worm and trapped-player duties,

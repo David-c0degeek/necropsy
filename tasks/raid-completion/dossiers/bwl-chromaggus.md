@@ -26,3 +26,16 @@ whole-fight scopes. One pet ownership listing remains unresolved; full class,
 faction, phase/opportunity, ranking and domain acceptance remain open.
 [Acquisition receipt](../research/bwl-full-cli-resume.json) preserves native identity.
 Initial static strategy and sourced facts reuse the shared JSON/pages/package path.
+
+Six independently frozen Priest contexts now retain owned Blue-affliction
+Dispel Magic effects: two by q4FAhkn9jGcmrJW6/27 actor1, one by
+LBxCnm96cfJXDpja/25 actor4, and zero in four others. Explicit received effects
+from other Priests/Paladins and an Abolish Disease cast without a successful
+effect remain negatives. Counts use actual source identity, not stream-folder
+names or cast counts. The portable register is
+[removal facts](../../../tests/golden/raids/removal-facts.json); raw locators and
+guardrails are in [the contract](../research/chromaggus-priest-removal-contract.md).
+Both Classic ranks527/988 support harmful magic removal, but only988 has real
+positive evidence. Source trust and exact unrestricted All/event-set proof are
+required for complete counts. No assignment, opportunity, reaction time, lost
+throughput or utility grade is inferred; this does not close the full boss/class.

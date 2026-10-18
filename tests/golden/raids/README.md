@@ -197,3 +197,19 @@ remain unchanged. This does not measure mana loss or an execution mistake.
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json
 ```
+
+`removal-facts.json` independently retains six existing Holy Priest Chromaggus
+contexts: three self-removal effects across two actors, four known-zero actors,
+five other-owner counterexamples and a cast-only Abolish Disease example.
+SOURCE-page folders alone do not establish ownership. The raw projector retains
+exact event identities, source-member/index locators, elapsed timestamps and
+explicit buff flags. Validly rehashed owner, target, spell, flag and chronology
+mutations fail; numeric identity aliases and conflicting fight IDs are rejected.
+Both Dispel Magic ranks527/988 are sourced capabilities, with real positives
+only for988. Counts require actor-source and unrestricted All/event-set trust;
+they do not measure assignments, opportunities or quality. Original registers
+and raw archives remain unchanged.
+
+```sh
+uv run python scripts/check_raid_facts.py tests/golden/raids/removal-facts.json
+```

@@ -45,6 +45,24 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 1 / Qualified Priest Blue-affliction removals.
+Six independently frozen Holy Priest contexts retain three owned988 effects,
+four known-zero actors, five other-owner negatives and a cast-only
+example. Shared raw integrity scans before actor/type/time exclusions, retaining
+valid positives and unknown totals on contradictions. New policy supports
+sourced527/988 and requires source plus exact All/event-set proof; only988 has
+real positives. No assignment, opportunity, reaction-time or quality inference.
+1792 ordinary tests pass; final raw153, six MC controls, real browser and
+source/installed all4 artifacts verified. Only two intended Chromaggus removal
+fields differ from the prior BWL model; all four Naxx artifacts and original
+registers remain unchanged. Reviewers found metadata/nullable chronology seams;
+root fixed them and added mutation negatives. Supplementary eligibility metadata
+was independently added after modeling without changing pre-model measurements.
+Review: research/chromaggus-removal-review.json. Keep shared seams/independent
+facts; finish remaining full class/domain/product duties before closure.
+59 IN_PROGRESS/893 TODO/0 COMPLETE; verdict DO NOT CLOSE.
+
+
 2026-10-18 / Independent read-only priorities review.
 Three-reviewer authorization and findings are recorded in
 research/parallel-review-20261018.json. Finish native AQ Hunter cohorts and

@@ -263,6 +263,13 @@ personal/cohort source-owned removal effects independently of casts. Counts
 require source coverage; positive observations identify relative time, target,
 removing ability and removed mechanic IDs. These are successful effects, not
 opportunity counts or a utility grade. Both pages show the saved observations.
+Available raw ownership, recipient, spell, type, timestamp and fight identities
+must agree with their normalized projections before an event can be excluded
+or attributed. Relevant conflicts withhold the total while valid positives
+remain visible. The Priest Chromaggus Blue policy additionally requires trusted
+encounter-All/event-set coverage. This proves completeness of its merged event
+set; it does not supply generic SOURCE-page provenance. Dispel Magic ranks527
+and988 are eligible; only988 has retained real positive evidence.
 Removal policies additionally save `is_buff`, `target_game_ids`,
 `removing_ability_ids` and `applicable_classes`. A missing required identity
 keeps the count unknown; a class outside applicability receives no counter.

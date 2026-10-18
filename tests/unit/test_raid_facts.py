@@ -93,6 +93,166 @@ EXPECTED = {
 }
 
 
+def _removal_members() -> dict[str, Any]:
+    members = _members()
+    members["necropsy-snapshot.json"] = {"zone": {"id": 2002, "partition": 1}}
+    members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][0]["type"] = "Player"
+    effect = {
+        "type": "dispel",
+        "timestamp": 1700,
+        "sourceID": 1,
+        "targetID": 1,
+        "abilityGameID": 988,
+        "extraAbilityGameID": 23153,
+        "isBuff": False,
+    }
+    members[PREFIX + "source_001.json"]["data"] = [
+        effect,
+        {**effect, "timestamp": 1800, "sourceID": 2},
+        {"type": "cast", "timestamp": 1600, "sourceID": 1, "abilityGameID": 552},
+    ]
+    return members
+
+
+def _write_removals(root: Path, members: dict[str, Any]) -> Path:
+    path = _write(root, members)
+    data = json.loads(path.read_bytes())
+    data["kind"] = "mechanic-removals"
+
+    def row(index: int, ms: int, source: int) -> dict[str, Any]:
+        return {
+            "ms": ms,
+            "source": source,
+            "target": 1,
+            "ability": 988,
+            "removed": 23153,
+            "is_buff": False,
+            "member": PREFIX + "source_001.json",
+            "index": index,
+        }
+
+    data["cases"][0].update(
+        removed_ability_ids=[23153],
+        removing_ability_ids=[527, 988],
+        cast_ability_ids=[527, 988, 552],
+        is_buff=False,
+        expected={
+            "encounter_id": 50663,
+            "revision": 4,
+            "duration_ms": 2000,
+            "actor_class": "Priest",
+            "zone_id": 2002,
+            "partition": 1,
+            "source_pages": [PREFIX + "source_001.json"],
+            "owned_removals": [row(0, 700, 1)],
+            "other_removals_in_source_pages": [row(1, 800, 2)],
+            "owned_dispel_or_abolish_casts_ms": [[600, 552]],
+        },
+    )
+    path.write_text(json.dumps(data), encoding="utf-8")
+    return path
+
+
+def test_raw_removal_oracle_distinguishes_owned_effects_other_sources_and_casts(
+    tmp_path: Path,
+) -> None:
+    assert check_register(_write_removals(tmp_path, _removal_members())) == []
+
+
+@pytest.mark.parametrize(
+    "key,value",
+    [
+        ("sourceID", 2),
+        ("targetID", 2),
+        ("abilityGameID", 527),
+        ("extraAbilityGameID", 23154),
+        ("isBuff", True),
+        ("timestamp", 1701),
+        ("type", "cast"),
+    ],
+)
+def test_valid_rehash_cannot_hide_changed_removal_measurements(
+    tmp_path: Path, key: str, value: object
+) -> None:
+    members = _removal_members()
+    members[PREFIX + "source_001.json"]["data"][0][key] = value
+    assert check_register(_write_removals(tmp_path, members))
+
+
+@pytest.mark.parametrize(
+    "key,value",
+    [
+        ("sourceID", True),
+        ("sourceID", 1.0),
+        ("targetID", 1.0),
+        ("abilityGameID", 988.0),
+        ("extraAbilityGameID", 23153.0),
+        ("isBuff", 0),
+        ("timestamp", 1700.0),
+        ("fight", True),
+        ("fight", 2),
+    ],
+)
+def test_raw_removal_oracle_rejects_numeric_aliases_and_conflicting_fight(
+    tmp_path: Path, key: str, value: object
+) -> None:
+    members = _removal_members()
+    members[PREFIX + "source_001.json"]["data"][0][key] = value
+    with pytest.raises(ValueError, match="raw removal"):
+        check_register(_write_removals(tmp_path, members))
+
+
+@pytest.mark.parametrize(
+    "section,key,value",
+    [
+        ("catalog", "id", 1.0),
+        ("catalog", "id", True),
+        ("fight", "id", 1.0),
+        ("fight", "id", True),
+        ("fight", "startTime", 1000.0),
+        ("fight", "endTime", 3000.0),
+        ("zone", "id", 2002.0),
+        ("zone", "id", True),
+        ("zone", "partition", 1.0),
+        ("zone", "partition", True),
+    ],
+)
+def test_removal_metadata_aliases_cannot_match_frozen_measurements(
+    tmp_path: Path, section: str, key: str, value: object
+) -> None:
+    members = _removal_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    entity = {
+        "catalog": report["masterData"]["actors"][0],
+        "fight": report["fights"][0],
+        "zone": members["necropsy-snapshot.json"]["zone"],
+    }[section]
+    entity[key] = value
+    with pytest.raises(ValueError, match="raw removal"):
+        check_register(_write_removals(tmp_path, members))
+
+
+@pytest.mark.parametrize("key,value", [("id", 2005), ("partition", 2)])
+def test_changed_removal_eligibility_cannot_reuse_frozen_expectations(
+    tmp_path: Path, key: str, value: int
+) -> None:
+    members = _removal_members()
+    members["necropsy-snapshot.json"]["zone"][key] = value
+    assert check_register(_write_removals(tmp_path, members))
+
+
+@pytest.mark.parametrize("section", ["fight", "catalog"])
+def test_duplicate_removal_fight_or_owner_is_not_silently_selected(
+    tmp_path: Path, section: str
+) -> None:
+    members = _removal_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    records = report["fights"] if section == "fight" else report["masterData"]["actors"]
+    records.append(copy.deepcopy(records[0]))
+    with pytest.raises(ValueError, match="raw removal"):
+        check_register(_write_removals(tmp_path, members))
+
+
 def _write(root: Path, members: dict[str, Any]) -> Path:
     archive = root / "raw.zip"
     with zipfile.ZipFile(archive, "w") as z:

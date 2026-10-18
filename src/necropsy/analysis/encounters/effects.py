@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from dataclasses import dataclass
+from typing import Any
 
 import duckdb
 
@@ -12,12 +14,14 @@ from necropsy.analysis.encounters import duty
 from necropsy.analysis.evidence import (
     Evidenced,
     EvidenceRef,
+    ScopedCoverageRef,
     complete_or_unknown,
     observed,
     unknown,
 )
 from necropsy.analysis.generic import combat, metrics
 from necropsy.analysis.generic.lifecycle import real_death
+from necropsy.normalize.coverage import has_complete_encounter_event_set
 from necropsy.raids import raid_for_encounter
 from necropsy.rules import load_rules
 from necropsy.snapshot.model import Direction
@@ -93,6 +97,11 @@ def mechanic_removals(
     if not policies:
         return ()
     events = combat.event_rows(con, pf)
+    integrity_rows = con.execute(
+        """SELECT timestamp,type,source_id,target_id,ability_game_id,raw,event_uid,copy_index
+           FROM events WHERE report_code=? AND fight_id=?""",
+        [pf.report_code, pf.fight_id],
+    ).fetchall()
     result = []
     actors: dict[int, set[tuple[str | None, int | None]]] = {}
     for actor, kind, game_id in con.execute(
@@ -106,8 +115,27 @@ def mechanic_removals(
             raise ValueError("removal policy needs a boolean buff/debuff selector")
         targets = tuple(int(target) for target in policy.get("target_game_ids", ()))
         abilities = tuple(int(ability) for ability in policy.get("removing_ability_ids", ()))
+        require_event_set = policy.get("require_encounter_event_set", False)
+        if type(require_event_set) is not bool:
+            raise ValueError("removal event-set requirement must be boolean")
+        covs = [coverage(con, pf, pf.actor_id, Direction.SOURCE)]
+        if require_event_set:
+            covs.append(
+                ScopedCoverageRef(
+                    pf.report_code,
+                    pf.fight_id,
+                    None,
+                    "all",
+                    has_complete_encounter_event_set(con, pf.report_code, pf.fight_id),
+                    "encounter",
+                )
+            )
+        invalid = _removal_integrity(pf, policy, integrity_rows)
+        invalid_keys = set(invalid)
         rows, unresolved = [], []
         for event in events:
+            if (event.uid, event.copy) in invalid_keys:
+                continue
             if event.kind != "dispel" or event.source_id != pf.actor_id:
                 continue
             extra = event.raw.get("extraAbilityGameID")
@@ -152,17 +180,33 @@ def mechanic_removals(
                 else ()
             ),
         )
-        ambiguous_ref = combat.event_ref(pf, unresolved, "unresolved dispel metadata")
+        ambiguity_refs = (
+            combat.event_ref(pf, unresolved, "unresolved dispel metadata"),
+            *(
+                (
+                    EvidenceRef.events(
+                        pf.report_code,
+                        pf.fight_id,
+                        None,
+                        invalid,
+                        detail="removal events with unresolved raw ownership or chronology",
+                    ),
+                )
+                if invalid
+                else ()
+            ),
+        )
         count = (
             unknown(
-                "source dispel events omit required mechanic/target/ability metadata",
+                "removal events have unresolved ownership, chronology or mechanic metadata",
                 *refs,
-                ambiguous_ref,
+                *ambiguity_refs,
+                coverage=covs,
             )
-            if unresolved
+            if unresolved or invalid
             else complete_or_unknown(
                 len(rows),
-                [coverage(con, pf, pf.actor_id, Direction.SOURCE)],
+                covs,
                 *refs,
                 rule_id=policy["rule"],
                 note="Source-owned dispel effects, not cast or opportunity count.",
@@ -175,11 +219,11 @@ def mechanic_removals(
         observations = (
             observed(values, *refs)
             if rows
-            else unknown("dispel metadata cannot establish absence", *refs, ambiguous_ref)
-            if unresolved
+            else unknown("dispel metadata cannot establish absence", *refs, *ambiguity_refs)
+            if unresolved or invalid
             else complete_or_unknown(
                 (),
-                [coverage(con, pf, pf.actor_id, Direction.SOURCE)],
+                covs,
                 *refs,
                 note="No matching removal effects in the complete actor-source stream.",
             )
@@ -200,6 +244,93 @@ def mechanic_removals(
             )
         )
     return tuple(result)
+
+
+def _removal_integrity(
+    pf: ParticipantFight,
+    policy: dict[str, Any],
+    full_fight_rows: list[tuple[Any, ...]],
+) -> tuple[tuple[str, int], ...]:
+    """Find relevant raw/projection conflicts before normalized exclusions hide them."""
+    invalid = []
+    ids = tuple(policy["removed_ability_ids"])
+    abilities = tuple(policy.get("removing_ability_ids", ()))
+    wanted_buff = policy.get("is_buff", False)
+
+    def positive_id(value: Any) -> bool:
+        return type(value) is int and value > 0
+
+    for ts, kind, source, target, ability, payload, uid, copy in full_fight_rows:
+        raw = json.loads(payload) if isinstance(payload, str) else payload
+        if not isinstance(raw, dict):
+            if (
+                kind in {None, "dispel"}
+                and source in {None, pf.actor_id}
+                and (type(ts) is not int or pf.start_time <= ts <= pf.end_time)
+            ):
+                invalid.append((uid, copy))
+            continue
+        extra, buff = raw.get("extraAbilityGameID"), raw.get("isBuff")
+        if (type(extra) is int and extra > 0 and extra not in ids) or (
+            type(buff) is bool and buff != wanted_buff
+        ):
+            continue
+
+        def possible(
+            key: str,
+            normalized: Any,
+            valid: Callable[[Any], bool],
+            matches: Callable[[Any], bool],
+            payload: dict[str, Any] = raw,
+        ) -> bool:
+            if valid(normalized) and matches(normalized):
+                return True
+            if key not in payload:
+                return not valid(normalized)
+            return not valid(payload[key]) or matches(payload[key])
+
+        if not (
+            possible("sourceID", source, positive_id, lambda value: value == pf.actor_id)
+            and possible(
+                "type", kind, lambda value: type(value) is str, lambda value: value == "dispel"
+            )
+            and possible(
+                "timestamp",
+                ts,
+                lambda value: type(value) is int,
+                lambda value: pf.start_time <= value <= pf.end_time,
+            )
+            and (
+                not abilities
+                or possible("abilityGameID", ability, positive_id, lambda value: value in abilities)
+            )
+        ):
+            continue
+        valid_identity = all(
+            key not in raw or (positive_id(raw[key]) and raw[key] == normalized)
+            for key, normalized in [
+                ("sourceID", source),
+                ("targetID", target),
+                ("abilityGameID", ability),
+            ]
+        )
+        valid_identity = valid_identity and positive_id(source) and source == pf.actor_id
+        valid_identity = valid_identity and (
+            "fight" not in raw or (type(raw["fight"]) is int and raw["fight"] == pf.fight_id)
+        )
+        valid_mechanic = type(extra) is int and extra > 0 and type(buff) is bool
+        valid_chronology = (
+            kind == "dispel"
+            and type(ts) is int
+            and pf.start_time <= ts <= pf.end_time
+            and ("type" not in raw or (type(raw["type"]) is str and raw["type"] == kind))
+            and (
+                "timestamp" not in raw or (type(raw["timestamp"]) is int and raw["timestamp"] == ts)
+            )
+        )
+        if not valid_identity or not valid_chronology or not valid_mechanic:
+            invalid.append((uid, copy))
+    return tuple(invalid)
 
 
 def _effect_identity_matches(raw: object, target: int | None, ability: int | None) -> bool:

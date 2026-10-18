@@ -1,5 +1,7 @@
 # Run lessons
 
+- 2026-10-18: Raw identity validation after SQL ownership/type/time filtering cannot catch a row that those filters already hid. Relevant mechanic removals need a full-fight integrity scan considering either raw or normalized evidence. Nullable normalized kind/time with absent raw counterparts can otherwise certify a false zero; require valid normalized chronology before exclusion/certification. Independent oracles also need strict metadata types: integer-valued floats compare equal to frozen integers, including fight bounds and catalog IDs. Distinguish post-model eligibility supplements from pre-model frozen measurements.
+
 - 2026-10-18: A source-named raw page can contain received dispels. Chromaggus Priest pages include effects owned by another Priest or Paladin. Filter the event's actual source identity; do not attribute a utility effect from folder names, casts or exposure transitions. Independent SOURCE/TARGET/All multiset equality proves membership for retained examples, not a generic source-provenance guarantee.
 
 - 2026-10-18: Three independent read-only reviews found complementary gaps without write conflicts: unrelated malformed chronology suppressed valid bounds, raw damage identities admitted numeric aliases, and older aura consumers trusted scope without proving merged-row membership. Keep database workloads and captures under one owner. Require raw and normalized recipient identities to agree before ignoring unrelated malformed events; validate identity scalar types independently of Python equality.
