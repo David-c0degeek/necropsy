@@ -16,7 +16,12 @@ ROOT = Path(__file__).parents[1] / "golden/raids"
 
 
 @pytest.fixture(
-    scope="module", params=["aq40-holy-complete-context", "aq40-hunter-expanded-context"]
+    scope="module",
+    params=[
+        "aq40-holy-complete-context",
+        "aq40-hunter-expanded-context",
+        "aq40-hunter-cohort-context",
+    ],
 )
 def summon_site(request: pytest.FixtureRequest, tmp_path_factory: pytest.TempPathFactory) -> Path:
     fixture = next(

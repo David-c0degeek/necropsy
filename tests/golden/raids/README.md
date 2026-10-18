@@ -167,8 +167,24 @@ missing. Four Sartura contexts explicitly list no pet. Smcadogx has both a
 trained Cat and an owned Vanquished Tentacle in Royalty and Fankriss; Fankriss
 also retains an ownerless Chicken. Item summons stay outside trained-pet DPS.
 The additional29 actor and29 pet contexts preserve all12 earlier contexts
-exactly. Overall inventory:45 archives,525 actor cases,322 recipient cases and
+exactly. That checkpoint retained45 archives,525 actor cases,322 recipient cases and
 41 owner contexts/38 owned units; no full matrix cell is certified.
+
+The final `aq40-hunter-cohort-context` resume retains54 public actor/fights:
+nine personal selections and five comparisons per boss. Its108 player,108 pet
+and108 global directions are complete; five guardian discovery contexts remain
+missing. Native exit4 records that ownership uncertainty after successful
+analysis/package finalization, with no quota stop on this resume. All prior
+actor and owned-pet expectations remain unchanged. The54 additional actor and
+54 pet contexts bring inventory to46 archives,579 actor cases,322 recipient
+cases and95 owner contexts/92 owned units. Four new contexts explicitly have
+no pet. The five confirmed-only listings never become complete rosters.
+
+Independent review checks exact actor SOURCE/TARGET projections and full-fight
+All/union membership, including duplicate multiplicities. The six preserved
+Skeram summon contexts route to their earlier independent oracle. Additional
+manual mechanic bounds for the25 new contexts remain open; actor/pet facts
+alone do not certify phase, ranking, class/duty or product completeness.
 
 The ninth actor-effect context freezes Vadik's real Geddon Feign Death boundary:
 Ignite Mana applies at14.980s, the raw death event has `feign:true` at15.460s,

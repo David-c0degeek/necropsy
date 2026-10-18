@@ -1,0 +1,206 @@
+{
+  "reviewed": "2026-10-18",
+  "base_commit": "c61bdc2",
+  "scope": "Final AQ40 Hunter personal/cohort selection, independent actor/context/pet registration and rendered replay; full class/domain acceptance open",
+  "inventory": {
+    "archives": 46,
+    "actor_cases": 579,
+    "recipient_cases": 322,
+    "pet_contexts": 95,
+    "owned_units": 92,
+    "new_actor_cases": 54,
+    "new_pet_contexts": 54,
+    "new_owned_units": 54,
+    "missing_pet_fights": [
+      [
+        "FtM9LGdg1QJhm8zK",
+        25
+      ],
+      [
+        "TNjpCgLwq2z1GYMH",
+        16
+      ],
+      [
+        "WQDaF9kpYbBPLCKM",
+        38
+      ],
+      [
+        "cqwzL6FxgYQmb1rB",
+        26
+      ],
+      [
+        "d1nyjQtgXB28GvLq",
+        21
+      ]
+    ],
+    "stream_counts": {
+      "player/complete": 108,
+      "pet/complete": 108,
+      "pet-discovery/missing": 5,
+      "critical/complete": 54,
+      "encounter/complete": 54
+    },
+    "old_actor_and_pet_measurements_unchanged": true,
+    "full_support": false
+  },
+  "capture": {
+    "normal_installed_resume": 4,
+    "native_exit": 4,
+    "archive": "workspace/raid-research/aq40-hunter-full/.necropsy-run/snapshots/daa203f1db6d47d0a057b2493703df7b/73952389-2005-20261018T093201.zip",
+    "sha256": "56bbae946cadd4a02b7906a9cf23fc357f25a391d58e20fb774717993d0d05eb",
+    "entries_sha256": "b611e4f7a4a71b918c7b0268488902cd85cade3148f05f04d7cd8bc290648788",
+    "members": 681,
+    "verified_extracted_bytes": 668142678,
+    "public_selected_actor_fights": 54,
+    "selected_personal": {
+      "50709": 1,
+      "50710": 1,
+      "50711": 1,
+      "50712": 1,
+      "50713": 1,
+      "50714": 1,
+      "50715": 1,
+      "50716": 1,
+      "50717": 1
+    },
+    "selected_cohorts": {
+      "50709": 5,
+      "50710": 5,
+      "50711": 5,
+      "50712": 5,
+      "50713": 5,
+      "50714": 5,
+      "50715": 5,
+      "50716": 5,
+      "50717": 5
+    },
+    "reused_saved_requests": 526,
+    "account_wide_point_delta": 521.73,
+    "cohort_selection_complete": true,
+    "complete": false,
+    "registry_promoted": false,
+    "reason": "All requested personal/cohort selections finalized; native exit4 retains unresolved guardian ownership in Fankriss/Twins. No quota stop in this resume. Unknown ownership is not replaced by an invented owner.",
+    "independent_prior_equivalence": {
+      "new_cases": 54,
+      "prior_cases_reused": 29,
+      "all_prior_expected_fields_exactly_equal": true,
+      "new_cases_added": 25,
+      "basis": "Independent raw ZIP projection, no production analyzer or normalizer"
+    },
+    "raw_inputs_preserved": true,
+    "privacy": {
+      "tool": "gitleaks8.30.1",
+      "max_target_megabytes": 0,
+      "redact": true,
+      "extracted_raw_bytes": 668142678,
+      "result": "no leaks found"
+    },
+    "independent_prior_owned_pet_equivalence": {
+      "prior_contexts": 29,
+      "new_contexts": 54,
+      "all_prior_expected_fields_exactly_equal": true
+    }
+  },
+  "immutable_prior_records": {
+    "facts.json": 525,
+    "pet-facts.json": 41,
+    "provenance.json": 45
+  },
+  "independent_review": {
+    "owner": "/root/oracle_review",
+    "method": "Direct raw ZIP canonical occurrence and owned arithmetic checks, no analyzer/normalizer imports, database workloads, tests or mutations.",
+    "actor_cases": 54,
+    "owned_units": 54,
+    "empty_pet_contexts": 4,
+    "unknown_guardian_contexts": 5,
+    "listing_complete_contexts": 49,
+    "confirmed_only_contexts": 5,
+    "prior_actor_expected_fields_unchanged": 29,
+    "prior_pet_expected_fields_unchanged": 29,
+    "actor_source_target_union_equals_all_actor_projection": true,
+    "source_owned_and_target_received_multisets_equal_all": true,
+    "global_membership": {
+      "distinct_fights": 54,
+      "raw_streams": 324,
+      "all_occurrences": 744479,
+      "maximum_union_occurrences": 744479,
+      "extra_identities_or_copies": 0
+    },
+    "registration_review": "All prior525 actor/41 pet/45 provenance records remain unchanged prefixes. New expectations match independent research. Coverage refs/actor-pet links valid; stronger Viscidus primary preserved. Six reused Skeram cases exist and route explicitly; pet assertions cover all54. Native partial ownership and missing manual mechanic bounds remain explicit."
+  },
+  "verification": {
+    "raw_actor_checker": "54 new cases clean",
+    "raw_pet_checker": "54 new owner contexts clean",
+    "real_golden": "1 passed, 53 deselected in 123.00s (0:02:02)",
+    "browser": "2 passed, 4 deselected in 91.99s (0:01:31)",
+    "source": {
+      "fixture": "aq40-hunter-cohort-context",
+      "actor_cases": 54,
+      "pet_owner_contexts": 54,
+      "owned_units": 54,
+      "bosses": 9,
+      "cohorts_per_boss": 5,
+      "native_capture_exit": 4,
+      "normal_package_accepted": true,
+      "source_installed_all4_equal": false,
+      "prior_six_skeram_observation_contexts_verified": true,
+      "artifact_sha256": {
+        "analysis.json": "8c5d88ed204276e0f4fd6de69ae41a0bad96ffe84355a1ccd6f2878f2e90798c",
+        "report.html": "6fb0f5df4871311b3d9fc00ea0d886984b6167d0b7c67e47b4138b87f4c428ad",
+        "playbook.html": "bb8774a2dc08a96f6a0e371acac46e18e98828ba3110d12de75baec7baa7d104",
+        "necropsy-73952389-2005.zip": "4889951cd8b04d4fd42941eeadc1dca5bc430c34c96eed20f212f2b02e1a1b74"
+      },
+      "production_base": "c61bdc2",
+      "wheel_sha256": "a6701356e38c8b42e5bf8dda0ee2ec89452469696a44b06d1756747490df41b8"
+    },
+    "installed": {
+      "fixture": "aq40-hunter-cohort-context",
+      "actor_cases": 54,
+      "pet_owner_contexts": 54,
+      "owned_units": 54,
+      "bosses": 9,
+      "cohorts_per_boss": 5,
+      "native_capture_exit": 4,
+      "normal_package_accepted": true,
+      "source_installed_all4_equal": true,
+      "prior_six_skeram_observation_contexts_verified": true,
+      "artifact_sha256": {
+        "analysis.json": "8c5d88ed204276e0f4fd6de69ae41a0bad96ffe84355a1ccd6f2878f2e90798c",
+        "report.html": "6fb0f5df4871311b3d9fc00ea0d886984b6167d0b7c67e47b4138b87f4c428ad",
+        "playbook.html": "bb8774a2dc08a96f6a0e371acac46e18e98828ba3110d12de75baec7baa7d104",
+        "necropsy-73952389-2005.zip": "4889951cd8b04d4fd42941eeadc1dca5bc430c34c96eed20f212f2b02e1a1b74"
+      },
+      "production_base": "c61bdc2",
+      "wheel_sha256": "a6701356e38c8b42e5bf8dda0ee2ec89452469696a44b06d1756747490df41b8"
+    },
+    "production_changes": false,
+    "last_ordinary_suite": "1740 passed/309 deselected/427.25s on unchanged production before this fixture registration; new fixture/browser cases are separately exercised here.",
+    "naxx": "c61bdc2 all4 artifact equality remains applicable; no production source or packaged asset changes.",
+    "ruff": "280 files formatted/check clean",
+    "mypy": "223 sources clean",
+    "docs": "291 links/25 maintained documents",
+    "privacy": {
+      "raw_extracted_bytes": 668142678,
+      "output_extracted_bytes": 62276248,
+      "scanner": "gitleaks8.30.1 with max-target-megabytes0 and redact",
+      "raw_and_output_result": "no leaks found"
+    },
+    "build": {
+      "wheel_members_match_source": 139,
+      "sdist_excludes_development_data": true,
+      "extracted_output_bytes": 62276248,
+      "wheel_sha256": "a6701356e38c8b42e5bf8dda0ee2ec89452469696a44b06d1756747490df41b8"
+    },
+    "staged_lfs": "OID56bbae946cadd4a02b7906a9cf23fc357f25a391d58e20fb774717993d0d05eb and size match immutable native archive; both sidecars retain exact bytes."
+  },
+  "Keep": "Native normal user-endpoint resume/cache/finalization, immutable archive and raw-only expectations, exact ownership versus unowned guardians, source/target multiset checks and preserved stronger Viscidus evidence.",
+  "Fix before closing": "Additional manual mechanic bounds for new25 contexts, all remaining faction/class/duty/phase/opportunity/ranking/loadout/pet and human/domain/product obligations; original native crash cause. Do not close cells from acquisition alone.",
+  "Record": "54 selections finalized,9 personal and5 comparisons each,526 requests reused/account-wide521.73points. Native4 is unknown guardian ownership after successful report/package, not quota failure. Four no-pet contexts and five incomplete guardian listings remain explicit.",
+  "Risk": "Successful selection and raw arithmetic do not establish assignment, eligibility, damage opportunity or trained-pet quality. Rank reconstruction and external script oracle remain unvalidated.",
+  "Verdict": "DO NOT CLOSE",
+  "coverage": {
+    "in_progress": 59,
+    "todo": 893,
+    "complete": 0
+  }
+}

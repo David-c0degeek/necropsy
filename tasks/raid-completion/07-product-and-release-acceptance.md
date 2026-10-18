@@ -39,6 +39,22 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 12 / Full Hunter cohort selection and independent registration.
+Native capture finalized54 public selections: all9 personal bosses and five
+comparisons each. Native4 retains unknown guardian ownership, not a quota stop.
+Added54 independent actor and54 pet contexts; prior525 actor/41 pet and45
+provenance records remain unchanged. Current46 archives/579 actor/322 recipient/
+95 pet-owner contexts/92 owned units. All108 player/108 pet/108 global directions
+complete; five guardian discovery gaps remain explicit. Independent raw review
+checks actor projections and324stream maximum-union membership across54fights.
+Real golden, two browser viewports and source/installed all4 outputs pass.
+Six preserved Skeram contexts route to their prior oracle; new25 manual mechanic
+bounds remain open. No production changes, all prior coverage statuses retained.
+Review: research/aq40-hunter-cohort-review.json. Keep immutable evidence/shared
+seams; finish full class/faction/duty/domain/product obligations before closure.
+59 IN_PROGRESS/893 TODO/0 COMPLETE; verdict DO NOT CLOSE.
+
+
 2026-10-18 / slice 11 / Exact encounter aura event-set qualification.
 Trusted All metadata plus exact merged-union occurrence consistency now gates
 NPC aura counts/windows; positive transitions remain observed. Extra

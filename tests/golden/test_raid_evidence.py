@@ -160,7 +160,7 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_actor_effect_windows(doc, observations_fixture)
     _assert_npc_aura_windows(doc, {observations_fixture, fixture["label"]})
     _assert_owned_pets(doc, fixture["label"], db)
-    _assert_summon_bounds(doc, fixture["label"], out)
+    _assert_summon_bounds(doc, observations_fixture, out)
 
 
 def _assert_summon_bounds(doc: dict[str, Any], fixture: str, out: Path) -> None:
@@ -298,7 +298,7 @@ def _assert_npc_aura_windows(doc: dict[str, Any], fixtures: set[str]) -> None:
 
 
 def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
-    if fixture == "aq40-hunter-expanded-context":
+    if fixture in {"aq40-hunter-expanded-context", "aq40-hunter-cohort-context"}:
         sartura = next(b for b in doc["bosses"] if b["encounter_id"] == 50711)
         assert sartura["subject"]["hunter"]["total_pet_dps"]["value"] == 0
         assert sartura["playbook"]["pet"]["no_hunter_pet"] is True
@@ -416,7 +416,10 @@ def _assert_boss_replay(
     healing_facts: list[dict[str, Any]],
     out: Path,
 ) -> None:
-    if fixture["label"] == "aq40-hunter-expanded-context" and boss["encounter_id"] == 50711:
+    if (
+        fixture["label"] in {"aq40-hunter-expanded-context", "aq40-hunter-cohort-context"}
+        and boss["encounter_id"] == 50711
+    ):
         for name, absence in (
             ("report.html", "None took part"),
             ("playbook.html", "No Hunter pet took part (listing recorded)."),

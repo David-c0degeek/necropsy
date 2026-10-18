@@ -1,5 +1,7 @@
 # Run lessons
 
+- 2026-10-18: A source-named raw page can contain received dispels. Chromaggus Priest pages include effects owned by another Priest or Paladin. Filter the event's actual source identity; do not attribute a utility effect from folder names, casts or exposure transitions. Independent SOURCE/TARGET/All multiset equality proves membership for retained examples, not a generic source-provenance guarantee.
+
 - 2026-10-18: Three independent read-only reviews found complementary gaps without write conflicts: unrelated malformed chronology suppressed valid bounds, raw damage identities admitted numeric aliases, and older aura consumers trusted scope without proving merged-row membership. Keep database workloads and captures under one owner. Require raw and normalized recipient identities to agree before ignoring unrelated malformed events; validate identity scalar types independently of Python equality.
 
 - 2026-10-18: Trusted stream metadata does not alone bind a merged row to that stream. The existing union flags conflicting multiplicities only among streams containing an event, so an identity absent from All can still be added by an actor or critical stream. Before certifying new summon bounds, require exact union/All occurrence-count consistency under the merger's maximum-multiplicity invariant; missing count metadata remains unknown. Add negative extra-identity and extra-copy cases, and audit other consumers separately.
