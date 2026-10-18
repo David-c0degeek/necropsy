@@ -41,3 +41,15 @@ facts, package/privacy and desktop/mobile checks retain explicit unknowns.
 Open: physical vulnerability and emergence boundaries, target/ranking policy,
 resistances and loadouts, pet/summon survival, positive successful control,
 all class/faction/duty contexts and human domain/product review.
+
+Supplement2026-10-18: root and read-only summon review inspected18 retained
+Ragnaros contexts across the full-MC Priest, Paladin and Restoration archives.
+New Paladin/Resto maxima are145.041/98.874seconds; no usable Sons/submerge
+positive is added. Seven exact Wrath cast locators corroborate ordinary boss
+activity. One Paladin fight has only363 All events and an empty enemy roster;
+its reportwide boss catalog cannot establish encounter-phase evidence.
+The normal bundle query does not request `phaseTransitions`, so that field's
+absence is unmeasured metadata, not an API-null result. This differs from the
+earlier explicit long-fight metadata query above. Terminal pages and short
+durations never establish physical phase absence. See
+[the raw review](../research/ragnaros-new-healer-phase-review.json).
