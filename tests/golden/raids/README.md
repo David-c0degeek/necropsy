@@ -60,7 +60,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 239 retained HPS actor cases, without changing original actor expectations:
+for 322 retained HPS actor cases, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -70,6 +70,10 @@ Its `healing-recipients` kind binds explicit boss identities, friendly roster,
 source ownership, actual amounts and combined support. It does not certify a
 universal ranked HPS policy. Six source participants can share fewer fights;
 actorless scopes are certified once per distinct fight, not per participant.
+The independent checker requires exact integer fight, catalog and roster
+identities, bounded event chronology and an NPC catalog binding for every selected
+boss. Player game IDs remain a separate identity namespace. The raw Environment
+sentinel is preserved; contradictory friendly/boss membership is rejected.
 
 The full `mc-holy-raid` capture retains its original ZIP, member manifest and
 hash filenames in a nested directory. Its 60 actor cases span all ten bosses
@@ -193,6 +197,9 @@ active and end-censored at43.113s:28.133s known affected and14.980s initially
 unknown. The independent raw projector preserves the literal flag; validly
 rehashed flag changes fail the frozen expectation. Original eight contexts
 remain unchanged. This does not measure mana loss or an execution mistake.
+Relevant aura and lifecycle timestamps must be bounded integers; available event
+fight IDs must agree with the selected fight. Equal-valued floats cannot certify
+identity or chronology after a valid archive rehash.
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/effect-facts.json

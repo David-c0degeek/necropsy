@@ -37,6 +37,23 @@ Use the master plan’s embedded prompt. Record Keep / Fix before closing / Reco
 
 ## Progress log
 
+2026-10-18 / slice 29 / Exact recipient-fact identities and chronology.
+Read-only review found that integer-valued floats, wrong event fights and
+changed owner/boss types could preserve frozen arithmetic. Root hardened only
+the independent raw checker, retaining the actual Environment sentinel and
+multiple NPC bindings while respecting Player game-ID namespaces. Six validly
+rehashed mutations accepted by the prior checker are now rejected. All212 raw
+tests, unchanged322 healing cases and9 effect cases pass; ten register files are
+byte-identical to the prior checkpoint. Ruff/mypy and291 local documentation
+links pass. No runtime model/schema/package source or database workload changes;
+normal Holy Paladin capture alone owned the database path during these checks.
+It finalized with native4 at the normal quota reserve before checkpointing;
+the partial archive remains unregistered pending raw review and normal resume.
+Browser recheck found no connected browser, leaving the script oracle open.
+Review: research/recipient-oracle-review.json. Keep immutable expectations and
+strict identities; full evidence, class and domain/product gates remain open.
+46 archives/579 actor cases,59 IN_PROGRESS/893 TODO/0 COMPLETE; DO NOT CLOSE.
+
 2026-10-18 / slice 28 / Full Hunter cohort selection and independent registration.
 Native capture finalized54 public selections: all9 personal bosses and five
 comparisons each. Native4 retains unknown guardian ownership, not a quota stop.

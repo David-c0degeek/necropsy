@@ -582,20 +582,101 @@ def raw_summon_facts(
     }
 
 
+def _selected_raw_fight(bundle: dict[str, Any], fight: int) -> dict[str, Any]:
+    if type(fight) is not int or fight < 1:
+        raise ValueError("raw fact fight identity is invalid")
+    matches = [row for row in bundle["fights"] if row.get("id") == fight]
+    if len(matches) != 1 or type(matches[0].get("id")) is not int:
+        raise ValueError("raw fact fight identity is ambiguous")
+    selected: dict[str, Any] = matches[0]
+    start, end = selected.get("startTime"), selected.get("endTime")
+    if type(start) is not int or type(end) is not int or not 0 <= start < end:
+        raise ValueError("raw fact fight bounds are invalid")
+    return selected
+
+
+def _raw_event_chronology(row: dict[str, Any], selected: dict[str, Any]) -> None:
+    timestamp = row.get("timestamp")
+    if (
+        type(timestamp) is not int
+        or not selected["startTime"] <= timestamp <= selected["endTime"]
+        or ("fight" in row and (type(row["fight"]) is not int or row["fight"] != selected["id"]))
+    ):
+        raise ValueError("raw fact event chronology or fight identity is invalid")
+
+
+def _raw_recipient_catalog(bundle: dict[str, Any]) -> dict[int, dict[str, Any]]:
+    actors = bundle["masterData"]["actors"]
+    result = {}
+    for identity in actors:
+        actor = identity.get("id")
+        game_id = identity.get("gameID")
+        environment = (
+            type(actor) is int
+            and actor == -1
+            and identity.get("type") == "NPC"
+            and type(game_id) is int
+            and game_id == 0
+        )
+        if (
+            type(actor) is not int
+            or (actor < 1 and not environment)
+            or actor in result
+            or (
+                identity.get("type") == "NPC"
+                and game_id is not None
+                and (type(game_id) is not int or (game_id < 1 and not environment))
+            )
+        ):
+            raise ValueError("raw recipient catalog identities are invalid or ambiguous")
+        result[actor] = identity
+    return result
+
+
 def raw_healing_facts(
     archive: VerifiedArchive, report: str, fight: int, actor: int, boss_game_ids: list[int]
 ) -> dict[str, Any]:
     """Independent recipient arithmetic over the raw maximum-multiplicity union."""
     bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
-    f = next(f for f in bundle["fights"] if f["id"] == fight)
+    f = _selected_raw_fight(bundle, fight)
+    if type(actor) is not int or actor < 1:
+        raise ValueError("raw healing actor identity is invalid")
+    catalog = _raw_recipient_catalog(bundle)
+    if catalog.get(actor, {}).get("type") != "Player":
+        raise ValueError("raw healing actor needs one explicit Player catalog identity")
+    players = f.get("friendlyPlayers")
+    players = [] if players is None else players
+    pet_rows = f.get("friendlyPets")
+    pet_rows = [] if pet_rows is None else pet_rows
+    if not isinstance(pet_rows, list) or any(not isinstance(p, dict) for p in pet_rows):
+        raise ValueError("raw healing friendly pet roster is malformed")
+    pets = [p.get("id") for p in pet_rows]
+    for identities in (players, pets):
+        if (
+            not isinstance(identities, list)
+            or any(type(identity) is not int or identity < 1 for identity in identities)
+            or len(set(identities)) != len(identities)
+        ):
+            raise ValueError("raw healing friendly roster identities are invalid or ambiguous")
+    if (
+        not isinstance(boss_game_ids, list)
+        or not boss_game_ids
+        or any(type(identity) is not int or identity < 1 for identity in boss_game_ids)
+        or len(set(boss_game_ids)) != len(boss_game_ids)
+    ):
+        raise ValueError("raw healing boss selectors are invalid")
     rows = _events(archive, report, fight, actor, f["startTime"], f["endTime"])
-    friends = {actor, *(f.get("friendlyPlayers") or [])}
-    friends.update(p["id"] for p in f.get("friendlyPets") or [])
+    friends = {actor, *players, *pets}
     bosses = {
         a["id"]
-        for a in bundle["masterData"]["actors"]
+        for a in catalog.values()
         if a.get("type") == "NPC" and a.get("gameID") in boss_game_ids
     }
+    bound_game_ids = {catalog[identity]["gameID"] for identity in bosses}
+    if not set(boss_game_ids) <= bound_game_ids:
+        raise ValueError("raw healing boss selectors lack exact NPC catalog identities")
+    if friends & bosses:
+        raise ValueError("raw healing friendly and boss identities conflict")
     totals: dict[str, int | float] = defaultdict(int)
     uncertain = set()
     for row in rows:
@@ -603,6 +684,7 @@ def raw_healing_facts(
             continue
         if type(row.get("sourceID")) is not int:
             raise ValueError("raw healing/absorption source identity is invalid")
+        _raw_event_chronology(row, f)
         value = row.get("amount")
         if (
             not isinstance(value, int | float)
@@ -718,18 +800,17 @@ def raw_actor_effect_facts(
 ) -> dict[str, Any]:
     """Project raw actor-recipient transitions; never compute expected aura windows."""
     bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
-    selected = next(f for f in bundle["fights"] if f["id"] == fight)
-    identities = [a for a in bundle["masterData"]["actors"] if a["id"] == actor]
-    if len(identities) != 1 or identities[0].get("type") != "Player":
+    selected = _selected_raw_fight(bundle, fight)
+    catalog = _raw_recipient_catalog(bundle)
+    identity = catalog.get(actor, {})
+    if type(actor) is not int or actor < 1 or identity.get("type") != "Player":
         raise ValueError("actor effect facts need one explicit Player identity")
     rows = _events(archive, report, fight, actor, selected["startTime"], selected["endTime"])
-    ordered = sorted(
-        rows, key=lambda e: (e["timestamp"], json.dumps(e, sort_keys=True, separators=(",", ":")))
-    )
+    relevant = []
     transitions = []
     lifecycles = []
     death_feign_flags = []
-    for row in ordered:
+    for row in rows:
         kind = row["type"]
         aura = (
             kind
@@ -752,6 +833,15 @@ def raw_actor_effect_facts(
             raise ValueError("raw actor effect spell is unresolved")
         if target != actor:
             continue
+        _raw_event_chronology(row, selected)
+        relevant.append(row)
+    ordered = sorted(
+        relevant,
+        key=lambda e: (e["timestamp"], json.dumps(e, sort_keys=True, separators=(",", ":"))),
+    )
+    for row in ordered:
+        kind = row["type"]
+        lifecycle = kind in {"death", "resurrect"}
         ms = row["timestamp"] - selected["startTime"]
         if lifecycle:
             lifecycles.append([ms, kind])
@@ -763,7 +853,7 @@ def raw_actor_effect_facts(
             transitions.append([ms, kind, row["abilityGameID"]])
     result: dict[str, Any] = {
         "duration_ms": selected["endTime"] - selected["startTime"],
-        "actor_class": identities[0].get("subType"),
+        "actor_class": identity.get("subType"),
         "transitions": transitions,
         "lifecycles": lifecycles,
     }

@@ -1,0 +1,44 @@
+{
+  "baseline_commit": "e172a77",
+  "baseline_checker_sha256": "3badcd9990cfcf832c7a079d13d8af12ffddf67ff815e798a90154e3725ec513",
+  "database_workloads": false,
+  "valid_rehashes": true,
+  "records": [
+    {
+      "mutation": "effect-time-alias",
+      "before": "incorrectly accepted",
+      "after": "rejected",
+      "reason": "raw fact event chronology or fight identity is invalid"
+    },
+    {
+      "mutation": "effect-other-fight",
+      "before": "incorrectly accepted",
+      "after": "rejected",
+      "reason": "raw fact event chronology or fight identity is invalid"
+    },
+    {
+      "mutation": "healing-player-alias",
+      "before": "incorrectly accepted",
+      "after": "rejected",
+      "reason": "raw healing friendly roster identities are invalid or ambiguous"
+    },
+    {
+      "mutation": "healing-boss-alias",
+      "before": "incorrectly accepted",
+      "after": "rejected",
+      "reason": "raw recipient catalog identities are invalid or ambiguous"
+    },
+    {
+      "mutation": "healing-owner-npc",
+      "before": "incorrectly accepted",
+      "after": "rejected",
+      "reason": "raw healing actor needs one explicit Player catalog identity"
+    },
+    {
+      "mutation": "healing-boss-player",
+      "before": "incorrectly accepted",
+      "after": "rejected",
+      "reason": "raw healing boss selectors lack exact NPC catalog identities"
+    }
+  ]
+}

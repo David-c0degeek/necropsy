@@ -29,6 +29,11 @@ setup succeeded, URL selection returned `No browser is available`; the documente
 bootstrap troubleshooting and one read-only browser-list call returned `[]`.
 No UI script, dashboard, signed-in state, session storage or private API was
 accessed. No browser-control workaround or alternate capture engine was used.
+The resumed-session recheck on2026-10-18 (recorded14:12 Europe/Amsterdam) again found
+no available browser: supported runtime initialization succeeded, URL selection
+failed, and the documented single discovery call returned`[]`. Deferred-tool
+discovery still exposed no WCL connector or scripting executor. No policy or
+measured oracle output was inferred from this connection failure.
 This optional oracle does not block ongoing offline implementation; no user
 input was requested. A future connected report UI should use a local preview,
 record exact report/fight/revision/filters, polarity controls and raw-row

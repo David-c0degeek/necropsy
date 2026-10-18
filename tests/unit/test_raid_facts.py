@@ -738,8 +738,7 @@ def test_independent_absorption_facts_reject_validly_rehashed_semantic_changes(
     tmp_path: Path,
     mutation: str | None,
 ) -> None:
-    members = _members()
-    members[BUNDLE]["reportData"]["report"]["masterData"]["actors"][1]["type"] = "NPC"
+    members = _healing_members()
     event = members[PREFIX + "source_001.json"]["data"][-1]
     if mutation == "owner":
         event["sourceID"] = 2
@@ -749,7 +748,20 @@ def test_independent_absorption_facts_reject_validly_rehashed_semantic_changes(
         event["amount"] = 4
     elif mutation == "kind":
         event["type"] = "damage"
-    register = _write(tmp_path, members)
+    register = _write_healing(tmp_path, members)
+    assert bool(check_register(register)) is (mutation is not None)
+
+
+def _healing_members() -> dict[str, Any]:
+    members = _members()
+    catalog = members[BUNDLE]["reportData"]["report"]["masterData"]["actors"]
+    catalog[0]["type"] = "Player"
+    catalog[1]["type"] = "NPC"
+    return members
+
+
+def _write_healing(root: Path, members: dict[str, Any]) -> Path:
+    register = _write(root, members)
     data = json.loads(register.read_text(encoding="utf-8"))
     data["kind"] = "healing-recipients"
     data["cases"][0]["boss_game_ids"] = [12118]
@@ -766,7 +778,7 @@ def test_independent_absorption_facts_reject_validly_rehashed_semantic_changes(
         "duration_ms": 2000,
     }
     register.write_text(json.dumps(data), encoding="utf-8")
-    assert bool(check_register(register)) is (mutation is not None)
+    return register
 
 
 CONTROL_EXPECTED = {
@@ -1208,3 +1220,189 @@ def test_actor_effect_checker_refuses_coerced_raw_identity(
     members[PREFIX + "target_001.json"]["data"][-2][key] = value
     with pytest.raises(ValueError, match="raw actor effect"):
         check_register(_write_effect(tmp_path, members))
+
+
+@pytest.mark.parametrize("row_index", [-2, -1])
+@pytest.mark.parametrize(
+    "key,value",
+    [
+        ("timestamp", 2000.0),
+        ("timestamp", True),
+        ("timestamp", None),
+        ("timestamp", 999),
+        ("timestamp", 3001),
+        ("fight", 2),
+        ("fight", 1.0),
+        ("fight", True),
+        ("fight", None),
+    ],
+)
+def test_rehashed_actor_effect_chronology_must_bind_exact_fight(
+    tmp_path: Path, row_index: int, key: str, value: Any
+) -> None:
+    members = _effect_members()
+    members[PREFIX + "target_001.json"]["data"][row_index][key] = value
+    with pytest.raises(ValueError, match=r"chronology|fight identity"):
+        check_register(_write_effect(tmp_path, members))
+
+
+@pytest.mark.parametrize("kind", ["actor-effects", "healing-recipients"])
+@pytest.mark.parametrize(
+    "mutation", ["fight-alias", "duplicate-fight", "start-alias", "end-alias", "reversed"]
+)
+def test_rehashed_recipient_fact_fight_identity_and_bounds_are_exact(
+    tmp_path: Path, kind: str, mutation: str
+) -> None:
+    members = _effect_members() if kind == "actor-effects" else _healing_members()
+    fights = members[BUNDLE]["reportData"]["report"]["fights"]
+    if mutation == "duplicate-fight":
+        fights.append(copy.deepcopy(fights[0]))
+    else:
+        key, value = {
+            "fight-alias": ("id", 1.0),
+            "start-alias": ("startTime", 1000.0),
+            "end-alias": ("endTime", 3000.0),
+            "reversed": ("endTime", 1000),
+        }[mutation]
+        fights[0][key] = value
+    register = (_write_effect if kind == "actor-effects" else _write_healing)(tmp_path, members)
+    with pytest.raises(ValueError, match=r"fight identity|fight bounds"):
+        check_register(register)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "player-alias",
+        "player-bool",
+        "duplicate-player",
+        "pet-alias",
+        "pet-bool",
+        "duplicate-pet",
+        "catalog-alias",
+        "duplicate-catalog",
+        "npc-alias",
+        "boss-overlap",
+        "owner-absent",
+        "environment-alias",
+        "players-false",
+        "pets-false",
+        "pet-row-malformed",
+        "owner-npc",
+        "owner-type-missing",
+        "boss-player",
+        "boss-type-missing",
+        "boss-player-alias",
+    ],
+)
+def test_rehashed_healing_recipient_metadata_cannot_alias_integer_identity(
+    tmp_path: Path, mutation: str
+) -> None:
+    members = _healing_members()
+    report = members[BUNDLE]["reportData"]["report"]
+    fight = report["fights"][0]
+    catalog = report["masterData"]["actors"]
+    catalog[1]["type"] = "NPC"
+    if mutation == "player-alias":
+        fight["friendlyPlayers"] = [1.0]
+    elif mutation == "player-bool":
+        fight["friendlyPlayers"] = [True]
+    elif mutation == "duplicate-player":
+        fight["friendlyPlayers"] = [1, 1]
+    elif mutation == "pet-alias":
+        fight["friendlyPets"][0]["id"] = 99.0
+    elif mutation == "pet-bool":
+        fight["friendlyPets"][0]["id"] = True
+    elif mutation == "duplicate-pet":
+        fight["friendlyPets"].append(copy.deepcopy(fight["friendlyPets"][0]))
+    elif mutation == "catalog-alias":
+        catalog[0]["id"] = 1.0
+    elif mutation == "duplicate-catalog":
+        catalog.append(copy.deepcopy(catalog[1]))
+    elif mutation == "npc-alias":
+        catalog[1]["gameID"] = 12118.0
+    elif mutation == "boss-overlap":
+        fight["friendlyPlayers"] = [2]
+    elif mutation == "owner-absent":
+        del catalog[0]
+    elif mutation == "owner-npc":
+        catalog[0]["type"] = "NPC"
+    elif mutation == "owner-type-missing":
+        del catalog[0]["type"]
+    elif mutation == "boss-player":
+        catalog[1]["type"] = "Player"
+    elif mutation == "boss-type-missing":
+        del catalog[1]["type"]
+    elif mutation == "boss-player-alias":
+        catalog[1].update(type="Player", gameID=12118.0)
+    elif mutation == "players-false":
+        fight["friendlyPlayers"] = False
+    elif mutation == "pets-false":
+        fight["friendlyPets"] = False
+    elif mutation == "pet-row-malformed":
+        fight["friendlyPets"] = [99]
+    else:
+        catalog.append({"id": -1, "gameID": False, "type": "NPC", "name": "Environment"})
+    with pytest.raises(ValueError, match=r"identit|roster|catalog"):
+        check_register(_write_healing(tmp_path, members))
+
+
+@pytest.mark.parametrize("kind", ["actor-effects", "healing-recipients"])
+def test_raw_recipient_facts_preserve_environment_and_optional_fight_ids(
+    tmp_path: Path, kind: str
+) -> None:
+    members = _effect_members() if kind == "actor-effects" else _healing_members()
+    members[BUNDLE]["reportData"]["report"]["masterData"]["actors"].append(
+        {"id": -1, "gameID": 0, "type": "NPC", "name": "Environment"}
+    )
+    for page in (PREFIX + "source_001.json", PREFIX + "target_001.json"):
+        for row in members[page]["data"]:
+            row["fight"] = 1
+    register = (_write_effect if kind == "actor-effects" else _write_healing)(tmp_path, members)
+    assert check_register(register) == []
+
+
+@pytest.mark.parametrize(
+    "key,value", [("timestamp", 1500.0), ("timestamp", 999), ("fight", 2), ("fight", True)]
+)
+def test_rehashed_healing_events_need_exact_chronology(
+    tmp_path: Path, key: str, value: Any
+) -> None:
+    members = _healing_members()
+    members[PREFIX + "source_001.json"]["data"][-1][key] = value
+    with pytest.raises(ValueError, match=r"chronology|fight identity"):
+        check_register(_write_healing(tmp_path, members))
+
+
+@pytest.mark.parametrize("mutation", ["actor-alias", "duplicate-catalog", "environment-alias"])
+def test_rehashed_actor_effect_catalog_identity_is_strict(tmp_path: Path, mutation: str) -> None:
+    members = _effect_members()
+    catalog = members[BUNDLE]["reportData"]["report"]["masterData"]["actors"]
+    if mutation == "actor-alias":
+        catalog[0]["id"] = 1.0
+    elif mutation == "duplicate-catalog":
+        catalog.append(copy.deepcopy(catalog[1]))
+    else:
+        catalog.append({"id": -1.0, "type": "NPC", "gameID": 0})
+    with pytest.raises(ValueError, match="catalog identities"):
+        check_register(_write_effect(tmp_path, members))
+
+
+def test_unrelated_actor_effect_rows_do_not_establish_selected_actor_chronology(
+    tmp_path: Path,
+) -> None:
+    members = _effect_members()
+    members[PREFIX + "target_001.json"]["data"].append(
+        {"type": "death", "targetID": 2, "timestamp": None, "fight": 2}
+    )
+    assert check_register(_write_effect(tmp_path, members)) == []
+
+
+def test_healing_boss_bindings_allow_multiple_npcs_and_separate_player_game_ids(
+    tmp_path: Path,
+) -> None:
+    members = _healing_members()
+    members[BUNDLE]["reportData"]["report"]["masterData"]["actors"].extend(
+        [{"id": 3, "type": "Player", "gameID": 12118}, {"id": 4, "type": "NPC", "gameID": 12118}]
+    )
+    assert check_register(_write_healing(tmp_path, members)) == []
