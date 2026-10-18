@@ -144,6 +144,15 @@ not establish duty. Sixteen owned damage totems are retained, including confirme
 individuals beside incomplete overall ownership. Remaining boss comparisons and
 full category/faction advice stay open.
 
+The resumed Elemental capture now retains five acquired comparison actors per MC
+boss:50 peers, with49 eligible for DPS comparisons. Pythón's Golemagg fight has
+positive damage and repeated boss melee; its duty remains unknown, leaving four
+eligible Golemagg examples. The five personal contexts remain duty-unknown and
+the other five personal encounters are absent, so no personal DPS assessment is
+available. Forty known owned damage totems remain separate from actor totals,
+beside the existing unresolved Healing Stream owner. Real comparison collection
+does not complete class coaching, assignments or ranked-damage reconciliation.
+
 
 ## Accepted validation boundary
 

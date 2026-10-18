@@ -510,6 +510,7 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                     if fixture in {
                         "mc-restoration-shaman-raid-context",
                         "mc-elemental-shaman-initial-raid-context",
+                        "mc-elemental-shaman-raid-context",
                     }:
                         support = reported["healing_support"]
                         assert support["owner_actor_id"] == owner

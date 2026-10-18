@@ -79,6 +79,15 @@ bosses, while five personal ranking-selected contexts have unknown duty and rema
 excluded from personal assessment. Known individual damage totems remain visible
 beside unresolved ownership; missing sources and the quota stop are explicit.
 
+A later normal resume completes acquisition of five Elemental comparison actors
+per boss,50 overall. Forty-nine qualify for DPS comparisons; Pythón's Golemagg
+duty remains unresolved under repeated boss melee despite positive damage, so
+that baseline has four eligible examples. No personal DPS assessment becomes
+available. Forty individually bound damage totems and one incomplete owner list
+remain explicit. Two additional raid-roster Dark Mending interruptions belong to
+Enoset and Shocknlawl, separately from selected-player utility. No quota stop
+remains; full class/phase/ranking/domain/product acceptance is still open.
+
 The initial strategy appears under preparation, execution and raid coordination
 in both pages. Geddon additionally retains recorded Priest Dispel Magic and
 Paladin Cleanse removals of Ignite Mana

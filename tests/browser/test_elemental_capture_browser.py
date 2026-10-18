@@ -13,12 +13,17 @@ sync_api = pytest.importorskip("playwright.sync_api")
 ROOT = Path(__file__).parents[1] / "golden/raids"
 
 
-@pytest.fixture(scope="module")
-def elemental_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
+@pytest.fixture(
+    scope="module",
+    params=("mc-elemental-shaman-initial-raid-context", "mc-elemental-shaman-raid-context"),
+)
+def elemental_site(
+    tmp_path_factory: pytest.TempPathFactory, request: pytest.FixtureRequest
+) -> tuple[Path, str]:
     fixture = next(
         f
         for f in json.loads((ROOT / "provenance.json").read_bytes())["fixtures"]
-        if f["label"] == "mc-elemental-shaman-initial-raid-context"
+        if f["label"] == request.param
     )
     raw = ROOT / fixture["archive"]
     out = tmp_path_factory.mktemp("elemental-raid")
@@ -33,6 +38,13 @@ def elemental_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
     assert len(doc["bosses"]) == 10 and all(b["subject"] is None for b in doc["bosses"])
     for boss in doc["bosses"]:
         assert boss["recommendations"] == []
+        assert len(boss["overall_cohort"]) == fixture["cohort_counts"][str(boss["encounter_id"])]
+        assert (
+            len(boss["cohort"])
+            == fixture.get("eligible_cohort_counts", fixture["cohort_counts"])[
+                str(boss["encounter_id"])
+            ]
+        )
         if boss["encounter_id"] in fixture["excluded_subject_encounters"]:
             excluded = boss["playbook"]["excluded_subject"]
             assert excluded["player"] == "Rumpldoc"
@@ -46,14 +58,27 @@ def elemental_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
         48: 10843,
         106: 8174,
     }
-    return out
+    if fixture["label"] == "mc-elemental-shaman-raid-context":
+        assert sum(len(b["cohort"]) for b in doc["bosses"]) == 49
+        golemagg = next(b for b in doc["bosses"] if b["encounter_id"] == 50670)
+        uncertain = next(e for e in golemagg["overall_cohort"] if e["player"] == "Pythón")
+        assert uncertain["combat"]["role"]["value"] is None
+        assert all(e["player"] != "Pythón" for e in golemagg["cohort"])
+        sulfuron = next(b for b in doc["bosses"] if b["encounter_id"] == 50669)
+        assert len(sulfuron["playbook"]["raid_interrupt_contexts"]) == 6
+        assert (
+            sum(c["interrupts"]["value"] for c in sulfuron["playbook"]["raid_interrupt_contexts"])
+            == 2
+        )
+    return out, fixture["label"]
 
 
 @pytest.mark.parametrize("width", [1400, 390])
 def test_real_elemental_partial_keeps_unknown_duty_and_confirmed_pets(
-    elemental_site: Path,
+    elemental_site: tuple[Path, str],
     width: int,
 ) -> None:
+    site, label = elemental_site
     with sync_api.sync_playwright() as pw:
         try:
             browser = pw.chromium.launch()
@@ -73,7 +98,7 @@ def test_real_elemental_partial_keeps_unknown_duty_and_confirmed_pets(
                         else None
                     ),
                 )
-                page.goto((elemental_site / name).as_uri())
+                page.goto((site / name).as_uri())
                 for encounter in range(50663, 50673):
                     boss = page.locator(f"#boss-{encounter}")
                     notice = boss.get_by_text(
@@ -98,6 +123,13 @@ def test_real_elemental_partial_keeps_unknown_duty_and_confirmed_pets(
                     assert "10843" in text and "8174" in text
                 else:
                     assert "cannot establish all-summon totals" in majordomo.inner_text()
+                if label == "mc-elemental-shaman-raid-context":
+                    sulfuron = page.locator("#boss-50669")
+                    for text in ("Enoset (raid Shaman 19)", "Shocknlawl (raid Shaman 59)"):
+                        effect = sulfuron.get_by_text(text, exact=False).first
+                        effect.scroll_into_view_if_needed()
+                        assert effect.is_visible()
+                    assert "not credited to the selected player" in sulfuron.inner_text()
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 page.emulate_media(media="print")
                 assert notice.is_visible()

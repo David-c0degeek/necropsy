@@ -95,6 +95,10 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 | PM-2 | Prevented Prediction | None | Before production | Effective | Accurate | Prevented Prediction: reviewers exposed missing NPC roster binding false-zero and raw numeric eligibility aliases before shipping; fixes and mutations preserve attribution/unknowns. research/raid-interrupt-review.json |
 | PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Prevented Prediction: independent freeze precedes checker/model, actorless All/event-set proof qualifies counts, direct occurrences avoid join amplification and source/installed/controls preserve prior outputs. research/raid-interrupt-review.json |
 
+| PM-1 | Prevented Prediction | None | Before production | Effective | Accurate | Prevented Prediction: real collection coversall10 comparison pools without treating missingpersonal assessment, generic context or partial ownership as class completion. research/elemental-resumed-review.json |
+| PM-2 | Confirmed Prediction | Medium | Before production | Effective | Accurate | Confirmed Prediction mitigated: positive owned damage plus Elemental ranking label didnot establish Pythón Golemagg duty. Existing guard excludes it; assertion corrected registration assumption before coverage/provenance acceptance. research/elemental-resumed-review.json |
+| PM-3 | Prevented Prediction | None | Before production | Effective | Accurate | Prevented Prediction: directraw55 cases/40units andsix interruption contexts precede acceptance comparison. Everyold measurement andinitial30 overlap remains exact; source/installed/native outputs and privacy checks agree. research/elemental-resumed-review.json |
+
 ## Misses
 
 > A miss is a meaningful failure, regression, or material risk discovered after
