@@ -61,6 +61,10 @@ def test_independent_raid_interrupt_observations() -> None:
     assert check_register(ROOT / "interrupt-facts.json") == []
 
 
+def test_independent_absorption_ability_facts() -> None:
+    assert check_register(ROOT / "absorption-ability-facts.json") == []
+
+
 def test_real_actor_receipts_reject_wrong_configuration_or_variant() -> None:
     repo = ROOT.parents[2]
     register = Register.model_validate_json((ROOT / "coverage.json").read_text(encoding="utf-8"))

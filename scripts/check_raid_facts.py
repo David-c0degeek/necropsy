@@ -786,6 +786,181 @@ def raw_raid_interrupt_facts(
     }
 
 
+def raw_absorption_ability_facts(
+    archive: VerifiedArchive, report: str, fight: int, actor: int, boss_game_ids: list[int]
+) -> dict[str, Any]:
+    """Independent source-page ability/recipient splits beside unchanged aggregate facts."""
+    bundle = archive.read_json(f"reports/{report}/bundle.json")["reportData"]["report"]
+    selected = _selected_raw_fight(bundle, fight)
+    catalog = _raw_recipient_catalog(bundle)
+    marker = archive.read_json("necropsy-snapshot.json")
+    if (
+        type(actor) is not int
+        or actor < 1
+        or catalog.get(actor, {}).get("type") != "Player"
+        or catalog[actor].get("subType") != "Priest"
+        or any(
+            type(value) is not int or value < 1
+            for value in (
+                marker["zone"]["id"],
+                marker["zone"]["partition"],
+                selected.get("encounterID"),
+            )
+        )
+        or type(bundle.get("revision")) is not int
+        or bundle["revision"] < 0
+    ):
+        raise ValueError("absorption ability owner or eligibility metadata is malformed")
+    players, pets = selected.get("friendlyPlayers"), selected.get("friendlyPets")
+    if (
+        not isinstance(players, list)
+        or not players
+        or any(type(p) is not int or p < 1 for p in players)
+        or len(set(players)) != len(players)
+        or actor not in players
+        or any(catalog.get(p, {}).get("type") != "Player" for p in players)
+        or not isinstance(pets, list)
+    ):
+        raise ValueError("absorption ability friendly Player roster binding is invalid")
+    pet_ids: set[int] = set()
+    for pet in pets:
+        if (
+            not isinstance(pet, dict)
+            or type(pet.get("id")) is not int
+            or pet["id"] < 1
+            or pet["id"] in pet_ids
+            or pet["id"] in players
+            or catalog.get(pet["id"], {}).get("type") != "Pet"
+            or type(pet.get("gameID")) is not int
+            or pet["gameID"] < 1
+            or type(catalog[pet["id"]].get("gameID")) is not int
+            or catalog[pet["id"]].get("gameID") != pet["gameID"]
+            or (
+                pet.get("petOwner") is not None
+                and (type(pet["petOwner"]) is not int or pet["petOwner"] < 1)
+            )
+        ):
+            raise ValueError("absorption ability friendly Pet roster binding is invalid")
+        pet_ids.add(pet["id"])
+    # Reuse existing independent recipient qualification, including exact rosters
+    # and maximum-multiplicity actor union, without generating expected facts.
+    qualified = raw_healing_facts(archive, report, fight, actor, boss_game_ids)
+    raw_encounter_facts(archive, report, selected, bundle)
+    friendly = set(players) | {p["id"] for p in pets}
+    folders = {
+        name.rsplit("/", 1)[0]
+        for name in archive.names()
+        if name.startswith(f"events/{report}/fight_{fight}/player_{actor}_") and "/source_" in name
+    }
+    if len(folders) != 1:
+        raise ValueError("absorption ability SOURCE folder is ambiguous or missing")
+    _, pages = _pages(archive, folders.pop(), "source", selected["startTime"], selected["endTime"])
+    source_rows = [e for name in pages for e in archive.read_json(name)["data"]]
+    all_rows, _ = _pages(
+        archive,
+        f"events/{report}/fight_{fight}/encounter",
+        "all",
+        selected["startTime"],
+        selected["endTime"],
+    )
+    for event in all_rows:
+        if not isinstance(event.get("type"), str) or not event["type"]:
+            raise ValueError("absorption ability All event type is unresolved")
+        if event["type"] == "absorbed" and (
+            type(event.get("sourceID")) is not int or event["sourceID"] < 1
+        ):
+            raise ValueError("absorption ability All source identity is unresolved")
+
+    def occurrences(events: list[dict[str, Any]]) -> Counter[str]:
+        return Counter(
+            json.dumps(e, sort_keys=True, separators=(",", ":"))
+            for e in events
+            if e.get("type") == "absorbed" and e.get("sourceID") == actor
+        )
+
+    owned_union = _events(archive, report, fight, actor, selected["startTime"], selected["endTime"])
+    if not occurrences(source_rows) == occurrences(owned_union) == occurrences(all_rows):
+        raise ValueError("absorption ability source/actor-union/All occurrences differ")
+    groups: dict[int, list[dict[str, Any]]] = defaultdict(list)
+    excluded = []
+    for member in pages:
+        for index, event in enumerate(archive.read_json(member)["data"]):
+            kind = event.get("type")
+            if not isinstance(kind, str) or not kind:
+                raise ValueError("absorption ability event type is unresolved")
+            if kind != "absorbed":
+                continue
+            source = event.get("sourceID")
+            if type(source) is not int or source < 1:
+                raise ValueError("absorption ability source is unresolved")
+            if source != actor:
+                continue
+            _raw_event_chronology(event, selected)
+            if any(
+                type(event.get(k)) is not int or event[k] < 1 for k in ("targetID", "abilityGameID")
+            ) or (
+                type(event.get("amount")) not in (int, float)
+                or not math.isfinite(event["amount"])
+                or event["amount"] < 0
+            ):
+                raise ValueError("absorption ability recipient, spell or amount is invalid")
+            if event["targetID"] not in catalog:
+                raise ValueError("absorption ability recipient catalog identity is absent")
+            row = dict(
+                ms=event["timestamp"] - selected["startTime"],
+                target=event["targetID"],
+                ability=event["abilityGameID"],
+                amount=event["amount"],
+                member=member,
+                index=index,
+            )
+            if event["targetID"] in friendly:
+                groups[event["abilityGameID"]].append(row)
+            else:
+                excluded.append(row)
+    abilities = []
+    for spell, rows in sorted(groups.items()):
+        recipients = []
+        for target in sorted({e["target"] for e in rows}):
+            matches = [e for e in rows if e["target"] == target]
+            recipients.append(
+                dict(actor_id=target, amount=sum(e["amount"] for e in matches), events=len(matches))
+            )
+        abilities.append(
+            dict(
+                ability_id=spell,
+                ability_names=[
+                    a.get("name")
+                    for a in bundle["masterData"].get("abilities", [])
+                    if type(a.get("gameID")) is int and a["gameID"] == spell
+                ],
+                amount=sum(e["amount"] for e in rows),
+                events=len(rows),
+                recipients=recipients,
+                observations=rows,
+            )
+        )
+    if sum(a["amount"] for a in abilities) != qualified["friendly_absorption"] or (
+        sum(a["amount"] for a in abilities) + sum(e["amount"] for e in excluded)
+        != qualified["raw_absorption"]
+    ):
+        raise ValueError("absorption ability source projection differs from qualified actor union")
+    return dict(
+        zone_id=marker["zone"]["id"],
+        partition=marker["zone"]["partition"],
+        encounter_id=selected["encounterID"],
+        revision=bundle["revision"],
+        duration_ms=selected["endTime"] - selected["startTime"],
+        actor_class="Priest",
+        source_pages=pages,
+        friendly_players=players,
+        friendly_pets=pets,
+        friendly_absorption=qualified["friendly_absorption"],
+        ability_absorption=abilities,
+        excluded_source_absorption=excluded,
+    )
+
+
 def raw_healing_facts(
     archive: VerifiedArchive, report: str, fight: int, actor: int, boss_game_ids: list[int]
 ) -> dict[str, Any]:
@@ -1195,6 +1370,7 @@ def check_register(path: Path) -> list[str]:
         "npc-summons",
         "mechanic-removals",
         "raid-interrupts",
+        "absorption-abilities",
     }:
         raise ValueError("unsupported independent fact register kind")
     problems = []
@@ -1219,7 +1395,23 @@ def check_register(path: Path) -> list[str]:
         with VerifiedArchive(
             archive_path, expected_sha256=case["sha256"], entries=entries
         ) as archive:
-            if kind == "raid-interrupts":
+            if kind == "absorption-abilities":
+                boss_ids = case.get("boss_game_ids")
+                if (
+                    not isinstance(boss_ids, list)
+                    or not boss_ids
+                    or any(type(i) is not int or i < 1 for i in boss_ids)
+                    or len(set(boss_ids)) != len(boss_ids)
+                ):
+                    raise ValueError("absorption ability facts need explicit unique boss NPC IDs")
+                actual = raw_absorption_ability_facts(
+                    archive,
+                    case["report"],
+                    case["fight"],
+                    case["actor"],
+                    boss_ids,
+                )
+            elif kind == "raid-interrupts":
                 if case.get("source_class") != "Shaman" or any(
                     not isinstance(values, list)
                     or not values

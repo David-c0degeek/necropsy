@@ -290,3 +290,16 @@ talent, opportunity or quality evidence. Check with:
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/interrupt-facts.json
 ```
+
+`absorption-ability-facts.json` freezes60 full-MC Holy Priest source contexts,
+with435 friendly absorbed effects in37 positive contexts and148863 total credited
+absorption. Numeric ability IDs, recipient splits and exact source-page locators
+are separate from casts. The seven IDs include Power Word: Shield, Persistent
+Shield and protection effects; observed attribution and names establish no item
+cause, shield effectiveness or patient assignment. All earlier aggregate facts
+remain exact. This is an independent input for subsequent class guidance, not
+acceptance of a new breakdown or advice implementation. Check with:
+
+```sh
+uv run python scripts/check_raid_facts.py tests/golden/raids/absorption-ability-facts.json
+```
