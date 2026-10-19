@@ -104,6 +104,63 @@ def test_forged_complete_status_requires_content_and_real_independent_evidence(
     assert any("ranking policy remains unvalidated" in e for e in errors)
 
 
+PILOT = "mc/50668/6/Holy/hps/Alliance"
+
+
+def _cell(key: str) -> Any:
+    return {c.key: c for c in coverage_cells()}[key]
+
+
+def test_scoped_hps_policy_validates_only_its_exact_cell() -> None:
+    assert coverage_check.ranking_problem(_cell(PILOT)) is None
+    for key in (
+        "mc/50668/7/Holy/hps/Alliance",
+        "mc/50663/6/Holy/hps/Alliance",
+        "mc/50668/6/Protection/dps/Alliance",
+        "mc/50668/7/Holy/hps/Horde",
+        "bwl/50610/6/Holy/hps/Alliance",
+    ):
+        assert coverage_check.ranking_problem(_cell(key)) == "ranking policy remains unvalidated"
+    zone = load_rules("classic_era", "zones/mc")
+    assert zone["ranking_exclusions_rule"]["basis"] == "unvalidated"
+
+
+@pytest.mark.parametrize(
+    "mutate",
+    [
+        lambda p: p.update(basis="validated"),
+        lambda p: p.update(basis="unvalidated"),
+        lambda p: p.update(conditions=p["conditions"][:-1]),
+        lambda p: p.update(conditions=[*p["conditions"], p["conditions"][0]]),
+        lambda p: p.update(conditions=[*p["conditions"][:-1], "anything-goes"]),
+        lambda p: p.update(extra="field"),
+        lambda p: p.pop("evidence"),
+        lambda p: p.update(validated=" "),
+        lambda p: p["scope"].update(encounter_id="50668"),
+        lambda p: p["scope"].pop("faction"),
+    ],
+)
+def test_malformed_or_unvalidated_policy_never_skips_the_ranking_problem(
+    monkeypatch: pytest.MonkeyPatch, mutate: Any
+) -> None:
+    original_load = load_rules
+
+    def mutated(game: str, name: str) -> dict[str, Any]:
+        data = original_load(game, name)
+        if name != "zones/mc":
+            return data
+        data = {**data, "ranking_metric_policies": [dict(data["ranking_metric_policies"][0])]}
+        policy = data["ranking_metric_policies"][0]
+        policy["scope"] = dict(policy["scope"])
+        policy["conditions"] = list(policy["conditions"])
+        mutate(policy)
+        return data
+
+    monkeypatch.setattr(coverage_check, "load_rules", mutated)
+    problem = coverage_check.ranking_problem(_cell(PILOT))
+    assert problem is not None and problem.startswith("malformed ranking metric policy")
+
+
 def test_duplicate_unknown_or_illegal_cells_are_rejected() -> None:
     first = Receipt(cell_id=coverage_cells()[0].key, status="IN_PROGRESS")
     invalid = Receipt(cell_id="mc/50663/6/Holy/hps/Horde", status="BLOCKED_EVIDENCE")

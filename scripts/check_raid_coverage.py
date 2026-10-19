@@ -170,10 +170,73 @@ def content_problems(cell: CoverageCell) -> list[str]:
     )
     if strategy is None or {i.section for i in strategy.items} != {"before", "during", "raid"}:
         problems.append("no boss-specific guidance")
-    ranking = load_rules("classic_era", f"zones/{cell.raid}")["ranking_exclusions_rule"]
-    if ranking["basis"] == "unvalidated":
-        problems.append("ranking policy remains unvalidated")
+    problem = ranking_problem(cell)
+    if problem:
+        problems.append(problem)
     return problems
+
+
+VALIDATED_BASES = frozenset({"empirical"})
+POLICY_CONDITIONS = frozenset(
+    {
+        "unique-name-realm-identity",
+        "complete-source-target-streams",
+        "owned-unit-listing-present",
+        "friendly-recipients-only",
+        "ranking-duration-equals-fight-duration",
+    }
+)
+POLICY_FIELDS = frozenset(
+    {"rule", "basis", "scope", "formula", "conditions", "bound", "validated", "evidence"}
+)
+
+
+def _policy_scope(policy: object) -> tuple[int, int, str, str, str]:
+    """A metric policy's exact cell scope; anything malformed is refused."""
+    if not isinstance(policy, dict) or set(policy) != POLICY_FIELDS:
+        raise ValueError("ranking metric policy fields are incomplete or unknown")
+    if policy["basis"] not in VALIDATED_BASES:
+        raise ValueError(f"{policy['rule']}: basis {policy['basis']!r} is not validated")
+    conditions = policy["conditions"]
+    if not isinstance(conditions, list) or set(conditions) != POLICY_CONDITIONS:
+        raise ValueError(f"{policy['rule']}: conditions must be exactly the declared set")
+    if len(conditions) != len(POLICY_CONDITIONS):
+        raise ValueError(f"{policy['rule']}: duplicated condition")
+    for field in ("rule", "formula", "bound", "validated", "evidence"):
+        if not isinstance(policy[field], str) or not policy[field].strip():
+            raise ValueError(f"ranking metric policy needs {field}")
+    scope = policy["scope"]
+    keys = ("encounter_id", "class_id", "category", "metric", "faction")
+    if not isinstance(scope, dict) or set(scope) != set(keys):
+        raise ValueError(f"{policy['rule']}: scope must name exactly {', '.join(keys)}")
+    if type(scope["encounter_id"]) is not int or type(scope["class_id"]) is not int:
+        raise ValueError(f"{policy['rule']}: scope IDs must be integers")
+    if not all(isinstance(scope[k], str) for k in keys[2:]):
+        raise ValueError(f"{policy['rule']}: scope names must be strings")
+    return (
+        scope["encounter_id"],
+        scope["class_id"],
+        scope["category"],
+        scope["metric"],
+        scope["faction"],
+    )
+
+
+def ranking_problem(cell: CoverageCell) -> str | None:
+    """A cell-scoped metric policy, else the raid's damage rule, must be validated."""
+    zone = load_rules("classic_era", f"zones/{cell.raid}")
+    config = cell.configuration
+    key = (cell.encounter_id, config.class_id, config.category, config.metric, config.faction)
+    for policy in zone.get("ranking_metric_policies") or ():
+        try:
+            scope = _policy_scope(policy)
+        except ValueError as exc:
+            return f"malformed ranking metric policy: {exc}"
+        if scope == key:
+            return None
+    if zone["ranking_exclusions_rule"]["basis"] not in VALIDATED_BASES:
+        return "ranking policy remains unvalidated"
+    return None
 
 
 def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str]]:

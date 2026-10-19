@@ -326,3 +326,16 @@ exclusion records its expected runtime role, and the replay checks it: unknown
 duty stays unknown, and known duty is excluded only where personal context is
 missing. Magmadar's Careerhealer pet 52 has no valid owner and no owner listing,
 so no pet context is frozen for it.
+
+`hps-ranking-geddon-paladin.json` is the independent oracle for the scoped
+`mc-geddon-holy-paladin-hps-v1` ranking policy. Its six policy rows are the
+Baron Geddon Holy Paladin subject and five comparisons; a seventh Restoration
+Shaman row with Healing Stream Totem healing is outside the policy scope and
+only proves that owned-unit healing changes the result. The golden test binds
+every page to the snapshot stream identity, requires a known owned-unit listing,
+friendly recipients and a subset of encounter All events, re-enumerates the
+amounts with exact rational arithmetic and checks the published values within
+one unit of their last decimal place. Overheal, a one-second duration change,
+missing absorbed events or owned units, and another actor's totals must all
+fail. The bound reflects publication precision only, and the policy validates
+no other encounter, class, category, metric or faction.

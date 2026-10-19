@@ -68,6 +68,14 @@ individually verified summon healing and credited absorption separately from
 actor support, with whole-fight rates and explicit listing/quality limits.
 These observations do not reconcile WCL HPS or complete summon-specific guidance.
 
+Molten Core has one scoped healing ranking policy, for Baron Geddon Holy
+Paladin HPS on Alliance. In six retained real fights, the WCL amount equals the
+actor's effective healing plus its absorbed events and those of listed owned
+units, divided by the fight duration, within the published precision. The
+policy applies only where identity, complete streams, the owned-unit listing
+and friendly recipients are all established. It does not certify an individual
+report, and Molten Core ranked damage remains unvalidated.
+
 Sulfuron Shaman reports show raid-roster interruptions of Dark Mending with actual
 sources and Priest target instances. Four independently verified effects occur
 in two of six Restoration-context fights. They remain separate from selected

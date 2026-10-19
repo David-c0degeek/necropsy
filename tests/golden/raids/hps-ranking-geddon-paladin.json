@@ -1,0 +1,280 @@
+{
+ "version": 1,
+ "rule": "mc-geddon-holy-paladin-hps-v1",
+ "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+ "rows": [
+  {
+   "id": "mc-holy-paladin-actor-42",
+   "purpose": "policy-scope",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "kvJ2WVF1chC9R4wd",
+   "fight": 43,
+   "actor": 35,
+   "name": "Resurgance",
+   "realm": "Pagle",
+   "game_id": 16940835,
+   "encounter_id": 50668,
+   "duration_ms": 91869,
+   "owner": {
+    "absorbed": 0,
+    "heal": 23895,
+    "overheal": 21519
+   },
+   "owned_units": [],
+   "rankings": [
+    {
+     "member": "user_rankings/50668_Baron_Geddon.json",
+     "locator": "ranks[0]",
+     "kind": "user_ranking",
+     "published": "260.099",
+     "duration_ms": 91869,
+     "residual": "-11677/30623000"
+    },
+    {
+     "member": "reports/kvJ2WVF1chC9R4wd/fight_43.json",
+     "locator": "report.rankings.data[0].roles.healers.characters[0]",
+     "kind": "report_fight_ranking",
+     "published": "260.099",
+     "duration_ms": 91869,
+     "residual": "-11677/30623000"
+    }
+   ]
+  },
+  {
+   "id": "mc-holy-paladin-actor-6",
+   "purpose": "policy-scope",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "A6avHyzWDkgBMXhq",
+   "fight": 28,
+   "actor": 17,
+   "name": "Killian",
+   "realm": "MirageRaceway",
+   "game_id": 40110572,
+   "encounter_id": 50668,
+   "duration_ms": 76398,
+   "owner": {
+    "absorbed": 5161,
+    "heal": 58264,
+    "overheal": 27651
+   },
+   "owned_units": [],
+   "rankings": [
+    {
+     "member": "leaderboards/50668_Baron_Geddon.json",
+     "locator": "pages[1].rankings[2]",
+     "kind": "leaderboard",
+     "published": "830.192",
+     "duration_ms": 76398,
+     "residual": "-526/4774875"
+    },
+    {
+     "member": "reports/A6avHyzWDkgBMXhq/fight_28.json",
+     "locator": "report.rankings.data[0].roles.healers.characters[2]",
+     "kind": "report_fight_ranking",
+     "published": "830.192",
+     "duration_ms": 76398,
+     "residual": "-526/4774875"
+    }
+   ]
+  },
+  {
+   "id": "mc-holy-paladin-actor-8",
+   "purpose": "policy-scope",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "CBz1hnGRXbdYAZ8y",
+   "fight": 11,
+   "actor": 28,
+   "name": "Meetymhc",
+   "realm": "Whitemane",
+   "game_id": 26113019,
+   "encounter_id": 50668,
+   "duration_ms": 11280,
+   "owner": {
+    "absorbed": 0,
+    "heal": 10058,
+    "overheal": 1568
+   },
+   "owned_units": [],
+   "rankings": [
+    {
+     "member": "leaderboards/50668_Baron_Geddon.json",
+     "locator": "pages[1].rankings[0]",
+     "kind": "leaderboard",
+     "published": "891.667",
+     "duration_ms": 11280,
+     "residual": "-1/3000"
+    },
+    {
+     "member": "reports/CBz1hnGRXbdYAZ8y/fight_11.json",
+     "locator": "report.rankings.data[0].roles.healers.characters[1]",
+     "kind": "report_fight_ranking",
+     "published": "891.667",
+     "duration_ms": 11280,
+     "residual": "-1/3000"
+    }
+   ]
+  },
+  {
+   "id": "mc-holy-paladin-actor-10",
+   "purpose": "policy-scope",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "CN3cTnkWYr6mVQD7",
+   "fight": 81,
+   "actor": 3,
+   "name": "Anrylla",
+   "realm": "Mograine",
+   "game_id": 19276243,
+   "encounter_id": 50668,
+   "duration_ms": 39646,
+   "owner": {
+    "absorbed": 0,
+    "heal": 31304,
+    "overheal": 17822
+   },
+   "owned_units": [],
+   "rankings": [
+    {
+     "member": "leaderboards/50668_Baron_Geddon.json",
+     "locator": "pages[1].rankings[4]",
+     "kind": "leaderboard",
+     "published": "789.588",
+     "duration_ms": 39646,
+     "residual": "-17/115250"
+    },
+    {
+     "member": "reports/CN3cTnkWYr6mVQD7/fight_81.json",
+     "locator": "report.rankings.data[0].roles.healers.characters[2]",
+     "kind": "report_fight_ranking",
+     "published": "789.588",
+     "duration_ms": 39646,
+     "residual": "-17/115250"
+    }
+   ]
+  },
+  {
+   "id": "mc-holy-paladin-actor-22",
+   "purpose": "policy-scope",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "N9wnqPbRKygmM4z1",
+   "fight": 20,
+   "actor": 11,
+   "name": "Stimorol",
+   "realm": "Firemaw",
+   "game_id": 53268430,
+   "encounter_id": 50668,
+   "duration_ms": 53776,
+   "owner": {
+    "absorbed": 3585,
+    "heal": 43862,
+    "overheal": 11972
+   },
+   "owned_units": [],
+   "rankings": [
+    {
+     "member": "leaderboards/50668_Baron_Geddon.json",
+     "locator": "pages[1].rankings[1]",
+     "kind": "leaderboard",
+     "published": "882.308",
+     "duration_ms": 53776,
+     "residual": "39/420125"
+    },
+    {
+     "member": "reports/N9wnqPbRKygmM4z1/fight_20.json",
+     "locator": "report.rankings.data[0].roles.healers.characters[0]",
+     "kind": "report_fight_ranking",
+     "published": "882.308",
+     "duration_ms": 53776,
+     "residual": "39/420125"
+    }
+   ]
+  },
+  {
+   "id": "mc-holy-paladin-actor-25",
+   "purpose": "policy-scope",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "RkFgyDbCwPmHn9hV",
+   "fight": 68,
+   "actor": 20,
+   "name": "Ro\u00f1",
+   "realm": "Firemaw",
+   "game_id": 72543874,
+   "encounter_id": 50668,
+   "duration_ms": 44016,
+   "owner": {
+    "absorbed": 0,
+    "heal": 34892,
+    "overheal": 13045
+   },
+   "owned_units": [],
+   "rankings": [
+    {
+     "member": "leaderboards/50668_Baron_Geddon.json",
+     "locator": "pages[1].rankings[3]",
+     "kind": "leaderboard",
+     "published": "792.712",
+     "duration_ms": 44016,
+     "residual": "-89/343875"
+    },
+    {
+     "member": "reports/RkFgyDbCwPmHn9hV/fight_68.json",
+     "locator": "report.rankings.data[0].roles.healers.characters[3]",
+     "kind": "report_fight_ranking",
+     "published": "792.712",
+     "duration_ms": 44016,
+     "residual": "-89/343875"
+    }
+   ]
+  },
+  {
+   "id": "mc-restoration-shaman-actor-1",
+   "purpose": "owned-unit-sensitivity (outside the policy scope)",
+   "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+   "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+   "report": "2jZRYQGrq17CDwFd",
+   "fight": 20,
+   "actor": 3,
+   "name": "Meushi",
+   "realm": "Skullflame",
+   "game_id": 7055010,
+   "encounter_id": 50669,
+   "duration_ms": 32800,
+   "owner": {
+    "absorbed": 2965,
+    "heal": 24248,
+    "overheal": 4084
+   },
+   "owned_units": [
+    {
+     "actor": 4,
+     "game_id": 3909,
+     "heal": 1404,
+     "absorbed": 0
+    }
+   ],
+   "rankings": [
+    {
+     "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+     "locator": "pages[1].rankings[2]",
+     "kind": "leaderboard",
+     "published": "872.469",
+     "duration_ms": 32800,
+     "residual": "21/41000"
+    },
+    {
+     "member": "reports/2jZRYQGrq17CDwFd/fight_20.json",
+     "locator": "report.rankings.data[0].roles.healers.characters[6]",
+     "kind": "report_fight_ranking",
+     "published": "872.469",
+     "duration_ms": 32800,
+     "residual": "21/41000"
+    }
+   ]
+  }
+ ]
+}
