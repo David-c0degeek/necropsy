@@ -168,6 +168,7 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
         expected = [f for f in selected if f["expected"]["encounter_id"] == boss["encounter_id"]]
         assert expected
         _assert_boss_replay(fixture, marker, doc, boss, expected, healing_facts, out)
+    _assert_cohort_exclusions(doc, fixture)
     observations_fixture = fixture.get("observations_fixture", fixture["label"])
     _assert_actor_effect_windows(doc, observations_fixture)
     _assert_npc_aura_windows(doc, {observations_fixture, fixture["label"]})
@@ -176,6 +177,43 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_mechanic_removals(doc, observations_fixture, out)
     _assert_raid_interrupts(doc, fixture["label"], out)
     _assert_absorption_abilities(doc, fixture["label"], out)
+
+
+# Independent duty boundary for the final Shadow capture; the runtime must keep
+# every case it lists out of the eligible comparison cohort.
+DUTY_BOUNDARIES = {"mc-shadow-priest-raid-context": ROOT / "shadow-priest-duty-boundary.json"}
+
+
+def _assert_cohort_exclusions(doc: dict[str, Any], fixture: dict[str, Any]) -> None:
+    excluded = fixture.get("excluded_cohort_sources", [])
+    if "eligible_cohort_counts" in fixture:
+        assert {str(b["encounter_id"]): len(b["cohort"]) for b in doc["bosses"]} == fixture[
+            "eligible_cohort_counts"
+        ]
+    if fixture["label"] in DUTY_BOUNDARIES:
+        boundary = json.loads(DUTY_BOUNDARIES[fixture["label"]].read_text(encoding="utf-8"))
+        assert boundary["archive_sha256"] == fixture["sha256"]
+        cases = boundary["holy_nova_heavy"] + boundary["class_identity_conflicts"]
+        key = ("report", "fight", "actor", "player", "kind")
+        assert sorted(tuple(c[k] for k in key) for c in cases) == sorted(
+            tuple(c[k] for k in key) for c in excluded
+        )
+    for case in excluded:
+        where = (case["report"], case["fight"], case["player"])
+        retained = [
+            entry
+            for boss in doc["bosses"]
+            for entry in boss["overall_cohort"]
+            if (entry["report_code"], entry["fight_id"], entry["player"]) == where
+        ]
+        # Retained as context with unresolved duty, never an eligible comparison.
+        assert len(retained) == 1, case
+        assert retained[0]["combat"]["role"]["value"] is None, case
+        assert not any(
+            (entry["report_code"], entry["fight_id"], entry["player"]) == where
+            for boss in doc["bosses"]
+            for entry in boss["cohort"]
+        ), case
 
 
 def _assert_absorption_abilities(doc: dict[str, Any], fixture: str, out: Path) -> None:

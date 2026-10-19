@@ -154,11 +154,14 @@ beside the existing unresolved Healing Stream owner. Real comparison collection
 does not complete class coaching, assignments or ranked-damage reconciliation.
 
 A completed Shadow Priest capture retains five acquired Alliance comparison
-actors per MC boss,50 overall, with40 eligible for DPS comparisons. The
+actors per MC boss, 50 overall, with 40 eligible for DPS comparisons. The
 subject recorded Holy, not Shadow, in every fight, so no personal Shadow
 assessment exists. Eight peers who mostly cast Holy Nova on adds (all five on
 Garr, three on Majordomo) keep unknown duty because Holy Nova is not in the
-Priest duty-action lists; they are not judged as poor DPS or as healers. One
+Priest duty-action lists; they are not judged as poor DPS or as healers. Holy
+Nova alone is not sufficient for duty under the current classifier: each cast is
+untargeted and produces both enemy damage and ally healing under one ability
+name, so its damage cannot certify an assigned DPS role. One
 actor labelled Shadow Priest by the report and ranking shows Warrior stance,
 gear and abilities in two fights; it is excluded only because no Priest duty
 action is recorded, since the runtime has no general class-conflict check.

@@ -304,3 +304,13 @@ acceptance of a new breakdown or advice implementation. Check with:
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/absorption-ability-facts.json
 ```
+
+`shadow-priest-duty-boundary.json` is the independent duty-boundary oracle for
+`mc-shadow-priest-raid-context`, bound to the archive SHA-256. It lists eight
+Holy-Nova-heavy peers with unresolved duty and two fights of one actor whose
+Priest catalog identity conflicts with Warrior stance, gear and casts, with raw
+source-page, catalog and playerDetails locators. The real replay requires these
+ten cases to match the fixture's `excluded_cohort_sources`, to stay in the
+overall cohort with unknown role, and never to appear in an eligible comparison
+cohort. The exclusion of the conflicting actor is incidental to missing Priest
+duty actions; the runtime has no general class-identity conflict check.

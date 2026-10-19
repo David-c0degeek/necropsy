@@ -86,3 +86,5 @@
 - 2026-10-18: Trusted SOURCE coverage cannot certify a complete owned count: another merged stream can add a disjoint owned identity that has no overlapping key to raise a multiplicity mismatch. Require encounter event-set proof for complete counts, and record the resulting loss of certainty on older archives as a model correction while keeping raw facts and qualified observations. On Windows, write plan records as bytes; Path.write_text converts LF to CRLF.
 
 - 2026-10-19: Report catalog, playerDetails and ranking metadata can all agree on a class that combatant stance, gear and casts contradict. Treat class identity as a raw claim to check, and record that a duty-unknown exclusion is not a class-conflict detector. Check every precondition before any register write; a late assertion left three registers half-appended and needed a git rollback.
+
+- 2026-10-19: An ability that is both damage and healing under one name, cast without a target, defeats target-bound ambiguity checks silently; listing it changes nothing. Check raw cast targets before adding an action to a duty list, and do not let damage effects alone certify assigned DPS.
