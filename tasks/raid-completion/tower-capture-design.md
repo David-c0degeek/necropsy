@@ -362,3 +362,23 @@ the user confirms receipt, before go-live.
   filesystem, the 90 s grace with a real `analyze`
   child, the 03:00 backup restart and Tower's UID mapping are verified on
   Tower before go-live.
+
+## Implementation notes (slice 6: Tower)
+
+- Deployed 2026-10-19 (Tower record `changes/2026-10-19-necropsy-capture-deploy.md`
+  in the unraid-tower repository). Image `necropsy-capture:0.5.0` built on Tower
+  from a context staged from the published release; runner `92813ed0da29`.
+- The first real test alert failed: Cloudflare in front of notifiarr.com answers
+  urllib's default User-Agent with 403. The loopback fake could not show this.
+  Alerts now send `User-Agent: necropsy-capture`. Notifiarr also needs its
+  Passthrough integration enabled on the account.
+- The owner confirmed the test alert in Discord. The real `analyze` stopped in
+  1 s at `docker stop` and resumed with `--resume` after the restart.
+- Appdata Backup ignores both containers (owner decision): the cache is
+  re-downloadable, state is rebuilt from outputs, and outputs are copied to the
+  PC at Finished. The 03:00 backup therefore never stops the runner; the
+  watchdog's 03:00–03:45 quiet window is now only a margin.
+- The watchdog runs every 15 minutes from User Scripts on the host Python as UID
+  99, so the secrets checks pass.
+- The PC and Tower share one WCL refresh token: don't run Necropsy on the PC
+  while the queue runs, or sign in again on the PC afterwards.
