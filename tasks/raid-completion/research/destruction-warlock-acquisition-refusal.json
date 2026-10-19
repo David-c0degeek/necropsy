@@ -1,0 +1,78 @@
+{
+ "date": "2026-10-19",
+ "url": "https://vanilla.warcraftlogs.com/character/id/62254737?zone=2000",
+ "subject": "Kaaklock",
+ "resolve": "exit 0: Kaaklock; 62254737; Firemaw/EU; Alliance; Molten Core; S0",
+ "command": "necropsy.exe analyze <url> --cache workspace/raid-research/cache --out workspace/raid-research/mc-destro-kaaklock --endpoint user --partition 1 --spec Destruction --metric dps --faction Alliance --wait-for-reset",
+ "native_exit": 1,
+ "native_message": "analyze failed: the snapshot would not read back: actor or critical events are not a subset of encounter data",
+ "snapshot_written": false,
+ "checkpoint": "run.json context class 10 Warlock, Alliance, partition 1; 302 cached request responses",
+ "diagnosis": {
+  "method": "Read-only rebuild of cached request responses (no DB, no network); canonical-JSON multiset comparison per fight scope.",
+  "failing_fight": {
+   "report": "4h1FfzPqvBLwCmbA",
+   "fight": 34,
+   "revision": 201
+  },
+  "all_scope_pages": [
+   {
+    "start": 4723987,
+    "end": 4775883,
+    "rows": 10007,
+    "next": 4751252,
+    "duplicate_rows": 3947,
+    "sorted_by_timestamp": false
+   },
+   {
+    "start": 4751252,
+    "end": 4775883,
+    "rows": 3824,
+    "next": null
+   }
+  ],
+  "mismatches": [
+   {
+    "scope": "SOURCE actor 45",
+    "extra": 74,
+    "absent_from_all": 7,
+    "more_copies_than_all": 67,
+    "ts": [
+     4727262,
+     4751011
+    ]
+   },
+   {
+    "scope": "critical",
+    "extra": 140,
+    "absent_from_all": 8,
+    "more_copies_than_all": 132,
+    "ts": [
+     4725802,
+     4751208
+    ]
+   }
+  ],
+  "other_fights": "34 of 35 fights pass; one fight had no All scope cached at failure time (DdV2MTN4pXJAYrhn 41)."
+ },
+ "interpretation": "Observed cross-scope inconsistency: identical event rows appear with different multiplicity across All, actor and critical queries; All page 1 is not timestamp-sorted and contains duplicate rows; some actor/critical rows are absent from All, located near the first All page boundary. These are observations, not a proven root cause (server pagination or otherwise). The native read-back invariant correctly refused publication. No fixture or matrix credit.",
+ "status": "refused twice (Kaaklock, Bizko) on the same cached 4h1FfzPqvBLwCmbA/34 r201 responses; open source-consistency/acquisition investigation (needs separate design and pre-mortem; strict read-back/subset proof must be preserved)",
+ "not_retried": "Resume would replay identical cached responses; cache surgery, deduplication, forced pagination, invariant weakening or partial publication are out of scope.",
+ "reproduction": {
+  "checkpoint": "workspace/raid-research/mc-destro-kaaklock/.necropsy-run (run.json + 302 cached responses, preserved unchanged)",
+  "script": "workspace/raid-research/destro_subset_diag.py",
+  "script_sha256": "1ccafdf9c0002859e173ee4254514df612a8c424269822fba01c6bb80e2d25ee",
+  "usage": "python -I workspace/raid-research/destro_subset_diag.py workspace/raid-research/mc-destro-kaaklock/.necropsy-run/requests"
+ },
+ "bizko_recurrence": {
+  "url": "https://vanilla.warcraftlogs.com/character/id/70350068?zone=2000",
+  "subject": "Bizko",
+  "first_run": "exit 4 (finalization-reserve budget stop); partial 70350068-2000-20261019T061616.zip passed sha256sum -c (10 personal fights, 0 peers); preserved at workspace/raid-research/destro-bizko-partials/first",
+  "resume1": "same command plus --resume after 61-minute wait; exit 1, same native_message; snapshot directory left empty",
+  "same_failing_fight": "Bizko's comparison set fetched 4h1FfzPqvBLwCmbA fight 34 report metadata (07:22:08Z) but no events: actor 45 SOURCE/TARGET, encounter All and critical scopes were cache hits on the r201 responses written during the Kaaklock run (all 12 non-lock files in cache/vanilla/4h1FfzPqvBLwCmbA/r201/fight_34 predate the Bizko first run).",
+  "union_diagnosis": "destro_subset_diag.py over the union of Kaaklock and Bizko request logs (485 responses, 59 fights): only 4h1FfzPqvBLwCmbA/34 fails, with the same SOURCE actor 45 extra 74 and critical extra 140 at revision 201. Bizko's own 311 fetched responses contain no failing scope. Fights served entirely from older shared-cache entries are not covered by either request log.",
+  "run_json_sha256": "1fe0d23851e234af2dfe8e1d03252434dd69e8ebe82bd1095116f59ede9ec7e4",
+  "checkpoint": "workspace/raid-research/mc-destro-bizko/.necropsy-run preserved unchanged; logs copied to destro-bizko-partials/resume1-refused",
+  "decision": "Per agreed fallback rule: recorded, not retried; no further Warlock alts; switch to the Mage Fire/Alliance design."
+ }
+}
