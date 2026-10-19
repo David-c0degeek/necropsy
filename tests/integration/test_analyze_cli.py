@@ -365,6 +365,45 @@ def test_selected_hunter_without_personal_fights_keeps_a_faction_leader_playbook
     assert '<details class="overall-comparison">' in report
 
 
+def test_an_era_raid_hunter_without_personal_fights_still_writes_its_report(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # A quota stop before the first personal fight leaves a boss with neither a
+    # subject nor a playbook; the Era encounter enrichment must skip it.
+    class NoPersonalWcl(FakeWcl):
+        def __call__(self, request: httpx.Request) -> httpx.Response:
+            body = json.loads(request.content)
+            if "NecropsySubject" in body["query"]:
+                self.requests.append(body)
+                return self._ok(
+                    {"characterData": {"character": {"encounterRankings": {"ranks": []}}}}
+                )
+            return super().__call__(request)
+
+    context = _context()
+    assert context.partition is not None
+    chosen = replace(context.partition, id=1)
+    fake["context"] = replace(context, zone_id=2000, partition=chosen, partitions=(chosen,))
+    monkeypatch.setattr(acquire_mod, "boss_order", lambda zone="naxxramas": (50669,))
+    fake["server"] = NoPersonalWcl([Player(f"Ally{i}") for i in range(1, 31)], Player("Haplina"))
+    result = _run(
+        tmp_path,
+        "--raid",
+        "mc",
+        "--partition",
+        "1",
+        "--spec",
+        "Marksmanship",
+        "--faction",
+        "Alliance",
+    )
+    assert result.exit_code == 4, result.output
+    doc = json.loads((tmp_path / "out/analysis.json").read_text(encoding="utf-8"))
+    boss = doc["bosses"][0]
+    assert boss["subject"] is None and boss["playbook"] is None
+    assert (tmp_path / "out/report.html").is_file() and (tmp_path / "out/playbook.html").is_file()
+
+
 def test_interactive_lookup_asks_for_faction_and_spec(
     tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:

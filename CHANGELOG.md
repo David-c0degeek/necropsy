@@ -8,6 +8,13 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+## 0.5.1 - 2026-10-19
+
+- Fix a crash that stopped the report when a Hunter analysis of Molten Core,
+  Blackwing Lair or AQ40 had a boss without any personal fight, for example after
+  a quota stop before the first one. The snapshot was always saved; such bosses
+  now show no personal playbook instead of failing the whole report.
+
 ## 0.5.0 - 2026-10-19
 
 - Add `NECROPSY_CREDENTIAL_FILE` for unattended POSIX servers without an OS

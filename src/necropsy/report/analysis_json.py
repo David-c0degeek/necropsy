@@ -829,6 +829,10 @@ def build_document(
         from necropsy.analysis.encounters.strategy import encounter_strategy
 
         for boss, data in zip(bosses, boss_data, strict=True):
+            if boss["playbook"] is None:
+                # No personal fight was acquired (for example a quota stop before the
+                # first one): there is no playbook to add encounter context to.
+                continue
             raid_interrupts = interrupts.contexts(
                 con,
                 [entry.participant for entry in (data.subject, *data.cohort) if entry is not None],
