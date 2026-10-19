@@ -40,20 +40,33 @@ account), not AI usage. The pilot cell closed at f0d8c78.
   sources). Each must be classified as usable, partial-resumable or partial
   final before it is excluded. The remaining runs (about 77) form the queue.
   The exact list is generated and reviewed, never assumed.
-- Generated result (`scripts/capture_queue.py plan`, 2026-10-19): 7 usable,
-  2 partial-final (MC Restoration Druid misses Sulfuron, whose subject fight
-  had no faction ID; MC Shadow Priest misses Garr, open on duty analysis, not
-  capture) and 16 seeds. A seed is a bounded capture of one to four bosses; it
-  cannot back the rest of its raid, so it is requeued as a full raid with the
-  earlier subject as first candidate. The queue therefore holds 93 runs, not
-  77.
+- Generated result (`scripts/capture_queue.py`, revised after Codex #96):
+  each boss of a run with registered captures gets an explicit disposition.
+  `registered` needs provenance and a snapshot whose subject class, spec,
+  metric, faction, zone and partition match the run. `offline-reuse` needs a
+  finished matching snapshot whose cohort for that boss reached its target
+  with complete entries; the snapshot locator and its limitations are kept.
+  Everything else, including missing provenance, is `needs-capture`, and one
+  such boss queues the whole run. Nine runs are capture-ready (seven fully
+  registered; MC Restoration Druid reuses Sulfuron and MC Shadow Priest
+  reuses Garr, whose subject fights are missing but whose cohorts are 5/5).
+  Capture-ready is not COMPLETE: registration and review stay open. The 16
+  bounded seeds are requeued as full raids, so the queue holds 93 runs.
 - Candidates are mined offline from the rankings inside raw archives already
-  in the repository (public reports only), ordered by report-guild faction
-  lean and boss count. Each is then checked with `necropsy resolve`, whose
-  answers are cached so a rerun never spends points twice. Only an observed
-  faction that matches the entry is accepted, because `analyze` refuses an
-  unknown character faction. About two thirds of mined characters resolve to
-  WCL faction "Unknown", so pools hold twelve characters.
+  in the repository (public reports only), counting a row only under the
+  report role that carries the entry's metric (healers for HPS). Each
+  candidate must pass two checks before it is queued. `necropsy resolve`
+  (in process, partition 1) must return the same character id with an
+  observed faction that matches, because `analyze` refuses an unknown
+  faction; about half of mined characters resolve to WCL faction "Unknown".
+  Then WCL zone rankings for that zone, partition, class, spec and metric
+  must show a positive amount on at least one boss: kill counts are per spec
+  and a zero-amount rank exists for every spec, so neither proves the
+  metric. An earlier subject of the same configuration is accepted from its
+  matching capture without a query. Answers are cached; quota, network or
+  sign-in failures stop the run and are never cached as refusals. `emit`
+  refuses to replace the queue while any queued run lacks a checked
+  candidate, and `verify` checks every pin against the committed blobs.
 - Entry fields: stable `entry_id`, raid, zone, partition, class_id, category,
   metric, expected faction, an ordered list of reviewed public subject
   candidates (character URL, resolved faction, evidence of raid participation),

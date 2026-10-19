@@ -2,17 +2,23 @@
 
 Usage: uv run python scripts/capture_queue.py plan
        uv run python scripts/capture_queue.py resolve --budget 40
+       uv run python scripts/capture_queue.py leaderboard --budget 10   (then plan, resolve)
        uv run python scripts/capture_queue.py emit
+       uv run python scripts/capture_queue.py verify
        uv run python scripts/capture_queue.py summary
 
 `plan` is offline. It derives the raid/configuration universe from the coverage
-matrix, classifies every run that already has registered real captures, and
+matrix, decides per boss whether a run already has reusable captured data, and
 mines public subject candidates from the rankings inside the raw archives
 already in the repository. `resolve` is the only step that spends Warcraft
-Logs points: it runs `necropsy resolve` for at most `--budget` candidates and
-caches every answer, so a rerun never pays twice. `emit` writes the queue that
-`scripts/capture_runner.py` loads, using only candidates whose current faction
-was observed and matches the entry.
+Logs points: it checks each candidate's faction with `necropsy resolve` and
+that WCL ranks the character for the entry's class, spec and metric, at most
+`--budget` live calls, caching every answer so a rerun never pays twice.
+`emit` writes the queue that `scripts/capture_runner.py` loads, and refuses to
+replace it while any queued run lacks a fully checked candidate. `verify`
+checks every pin against the committed Git blobs.
+
+Capture-ready means no capture is needed; it never means a cell is COMPLETE.
 """
 
 from __future__ import annotations
@@ -30,6 +36,7 @@ from collections.abc import Callable, Sequence
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "tasks/raid-completion/coverage-matrix.csv"
@@ -39,9 +46,12 @@ RAW = ROOT / "tests/golden/raids/raw"
 RESEARCH = ROOT / "tasks/raid-completion/research"
 PLAN = RESEARCH / "capture-queue-plan.json"
 RESOLUTIONS = RESEARCH / "capture-candidate-resolutions.json"
+RANKINGS = RESEARCH / "capture-candidate-rankings.json"
+LEADERBOARDS = RESEARCH / "capture-leaderboard-pages.json"
 # The user's own characters, as region/server/name; never queued.
 EXCLUDED = RESEARCH / "capture-excluded-characters.json"
 QUEUE = ROOT / "tasks/raid-completion/capture-queue.json"
+SNAPSHOT = "necropsy-snapshot.json"
 
 QUEUE_VERSION = 1
 PARTITION = 1
@@ -52,6 +62,8 @@ SITE = "https://vanilla.warcraftlogs.com"
 # reports carry 0, Shaman reports carry 1). A hint for ordering only: a
 # guild's faction is not the character's, so `resolve` decides.
 GUILD_FACTION = {0: "Alliance", 1: "Horde"}
+# The report ranking role whose rows carry each metric.
+METRIC_ROLES = {"dps": {"dps", "tanks"}, "hps": {"healers"}}
 
 
 def _read_json(path: Path) -> Any:
@@ -81,7 +93,7 @@ def entry_id(raid: str, cls: str, category: str, metric: str, faction: str) -> s
     return "-".join(_slug(part) for part in (raid, cls, category, metric, faction))
 
 
-# -- universe and classification ------------------------------------------------
+# -- universe and per-boss dispositions ---------------------------------------------
 
 
 def universe(matrix: Path = MATRIX) -> tuple[list[dict[str, Any]], dict[str, dict[str, str]]]:
@@ -111,70 +123,128 @@ def universe(matrix: Path = MATRIX) -> tuple[list[dict[str, Any]], dict[str, dic
     return sorted(runs.values(), key=lambda r: r["entry_id"]), dict(encounters)
 
 
-def classify(
+def read_snapshot(path: Path) -> dict[str, Any]:
+    with zipfile.ZipFile(path) as bundle:
+        data: dict[str, Any] = json.loads(bundle.read(SNAPSHOT))
+    return data
+
+
+def identity_problems(run: dict[str, Any], snapshot: dict[str, Any]) -> list[str]:
+    """Why a snapshot was not captured for this run's configuration, if it wasn't."""
+    subject = snapshot.get("subject") or {}
+    zone = snapshot.get("zone") or {}
+    expected = {
+        "subject.class_id": (subject.get("class_id"), run["class_id"]),
+        "subject.ranking_category": (subject.get("ranking_category"), run["category"]),
+        "subject.ranking_metric": (subject.get("ranking_metric"), run["metric"]),
+        "subject.faction": (subject.get("faction"), run["faction"]),
+        "zone.id": (zone.get("id"), run["zone"]),
+        "zone.partition": (zone.get("partition"), PARTITION),
+    }
+    return [f"{k} {got!r} != {want!r}" for k, (got, want) in expected.items() if got != want]
+
+
+def _complete_cohort(boss: dict[str, Any]) -> int:
+    return sum(1 for entry in boss.get("cohort") or [] if entry.get("status") == "complete")
+
+
+def _cohort_met(boss: dict[str, Any]) -> bool:
+    """The comparison cohort reached its target with complete entries. A missing
+    subject fight is a limitation of that boss, not missing capture."""
+    coverage = boss.get("coverage") or {}
+    target = coverage.get("target") or 0
+    return target > 0 and (coverage.get("usable_deep") or 0) >= target <= _complete_cohort(boss)
+
+
+def dispositions(
     runs: list[dict[str, Any]],
     encounters: dict[str, dict[str, str]],
     register: dict[str, Any],
     provenance: dict[str, Any],
+    snapshots: Callable[[str], dict[str, Any]],
 ) -> dict[str, dict[str, Any]]:
-    """Classify each run that has registered real captures; others are absent.
+    """Decide, boss by boss, whether a run with registered captures needs more.
 
-    usable: registered cells cover every encounter of the raid.
-    partial-final: at least half covered and no archive stopped early, so the
-      gaps are source limits or open analysis, not missing capture time.
-    partial-resumable: an archive stopped early and nothing later finished.
-    seed: a bounded capture of a few encounters; requeued as a full raid.
-    Only usable and partial-final runs leave the queue.
+    registered: the cell already cites a real actor source from an archive
+      with provenance and a matching snapshot identity.
+    offline-reuse: not registered, but a finished matching snapshot holds that
+      boss with complete cohort coverage. Registration and review stay open;
+      only the capture is unnecessary.
+    needs-capture: anything else, including missing provenance or an unknown
+      or mismatched identity. One such boss puts the whole run in the queue.
     """
     fixtures = {f["sha256"]: f for f in provenance["fixtures"]}
-    found: dict[str, dict[str, Any]] = defaultdict(lambda: {"archives": {}, "cells": set()})
+    by_run = {
+        (r["raid"], str(r["class_id"]), r["category"], r["metric"], r["faction"]): r for r in runs
+    }
+    found: dict[str, dict[str, Any]] = defaultdict(lambda: {"archives": {}, "cells": {}})
     for record in register["records"]:
         source = record.get("real_actor_source")
         if not source:
             continue
-        raid, encounter, class_id, category, metric, faction = record["cell_id"].split("/")
-        run = next(
-            r
-            for r in runs
-            if (r["raid"], str(r["class_id"]), r["category"], r["metric"], r["faction"])
-            == (raid, class_id, category, metric, faction)
-        )
+        raid, encounter, *config = record["cell_id"].split("/")
+        run = by_run[(raid, *config)]
         archive = source["archive"]
-        fixture = fixtures.get(archive["sha256"], {})
-        found[run["entry_id"]]["archives"][archive["path"]] = {
-            "path": archive["path"],
-            "sha256": archive["sha256"],
-            "label": fixture.get("label"),
-            "url": fixture.get("url"),
-            "sources": fixture.get("sources"),
-            "stopped": fixture.get("stopped"),
-            "captured_date": fixture.get("captured_date"),
-        }
-        found[run["entry_id"]]["cells"].add(encounter)
+        found[run["entry_id"]]["archives"][archive["path"]] = archive["sha256"]
+        found[run["entry_id"]]["cells"][encounter] = archive["path"]
     result: dict[str, dict[str, Any]] = {}
     for run in runs:
-        if run["entry_id"] not in found:
+        info = found.get(run["entry_id"])
+        if info is None:
             continue
-        info = found[run["entry_id"]]
-        bosses = encounters[run["raid"]]
-        missing = sorted(set(bosses) - info["cells"])
-        archives = sorted(info["archives"].values(), key=lambda a: a["path"])
-        stopped = [a for a in archives if a["stopped"]]
-        finished = [a for a in archives if not a["stopped"]]
-        if not missing:
-            state = "usable"
-        elif len(info["cells"]) * 2 >= len(bosses) and not stopped:
-            state = "partial-final"
-        elif stopped and not finished:
-            state = "partial-resumable"
-        else:
-            state = "seed"
+        archives: dict[str, dict[str, Any]] = {}
+        for path, sha in sorted(info["archives"].items()):
+            fixture = fixtures.get(sha)
+            snapshot = snapshots(path)
+            problems = identity_problems(run, snapshot)
+            if fixture is None:
+                problems.append("no provenance fixture")
+            archives[path] = {
+                "path": path,
+                "sha256": sha,
+                "label": fixture and fixture.get("label"),
+                "url": fixture and fixture.get("url"),
+                "stopped": snapshot.get("stopped"),
+                "identity_problems": problems,
+                "bosses": snapshot.get("bosses") or [],
+            }
+        bosses: list[dict[str, Any]] = []
+        for encounter, name in encounters[run["raid"]].items():
+            path = info["cells"].get(encounter)
+            if path and not archives[path]["identity_problems"]:
+                bosses.append({"boss": name, "disposition": "registered", "archive": path})
+                continue
+            reuse = next(
+                (
+                    {
+                        "archive": a["path"],
+                        "sha256": a["sha256"],
+                        "locator": f"{SNAPSHOT}:bosses[{index}]",
+                        "usable_deep": boss["coverage"]["usable_deep"],
+                        "complete_cohort": _complete_cohort(boss),
+                        "subject_status": (boss.get("subject") or {}).get("status"),
+                        "limitations": list(dict.fromkeys(boss["coverage"].get("reasons") or []))[
+                            :3
+                        ],
+                    }
+                    for a in archives.values()
+                    if not a["identity_problems"] and a["stopped"] is None
+                    for index, boss in enumerate(a["bosses"])
+                    if str(boss.get("encounter_id")) == encounter and _cohort_met(boss)
+                ),
+                None,
+            )
+            if reuse:
+                bosses.append({"boss": name, "disposition": "offline-reuse"} | reuse)
+            else:
+                why = archives[path]["identity_problems"] if path else ["no reusable snapshot"]
+                bosses.append({"boss": name, "disposition": "needs-capture", "why": why})
+        needs = [b["boss"] for b in bosses if b["disposition"] == "needs-capture"]
         result[run["entry_id"]] = {
-            "state": state,
-            "registered_encounters": len(info["cells"]),
-            "raid_encounters": len(bosses),
-            "missing": [bosses[e] for e in missing],
-            "archives": archives,
+            "state": "needs-capture" if needs else "capture-ready",
+            "needs_capture": needs,
+            "bosses": bosses,
+            "archives": [{k: v for k, v in a.items() if k != "bosses"} for a in archives.values()],
         }
     return result
 
@@ -195,11 +265,15 @@ def _public_reports(raw: Path) -> Any:
 
 
 def mine(raw: Path, runs: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
-    """Characters ranked as each run's class and spec in that raid's public reports."""
-    wanted: dict[tuple[int, str, str], list[dict[str, Any]]] = defaultdict(list)
+    """Characters ranked as each run's class and spec in that raid's public reports.
+
+    A row counts toward a run only under the report role that carries its
+    metric, so a damage row never stands in for healing."""
+    wanted: dict[tuple[int, str, str, str], list[dict[str, Any]]] = defaultdict(list)
     for run in runs:
-        wanted[(run["zone"], run["class"], run["category"])].append(run)
-    pool: dict[tuple[int, str, str], dict[int, dict[str, Any]]] = defaultdict(dict)
+        for role in METRIC_ROLES[run["metric"]]:
+            wanted[(run["zone"], run["class"], run["category"], role)].append(run)
+    pool: dict[str, dict[int, dict[str, Any]]] = defaultdict(dict)
     for archive, member, report in _public_reports(raw):
         zone = (report.get("zone") or {}).get("id")
         for index, ranking in enumerate((report.get("rankings") or {}).get("data") or []):
@@ -207,49 +281,44 @@ def mine(raw: Path, runs: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]
             encounter = (ranking.get("encounter") or {}).get("id")
             for role, group in (ranking.get("roles") or {}).items():
                 for position, character in enumerate(group.get("characters") or []):
-                    key = (zone, character.get("class"), character.get("spec"))
+                    key = (zone, character.get("class"), character.get("spec"), role)
                     if key not in wanted or not isinstance(character.get("id"), int):
                         continue
-                    seen = pool[key].setdefault(
-                        character["id"],
-                        {
-                            "id": character["id"],
-                            "name": character.get("name"),
-                            "server": (character.get("server") or {}).get("name"),
-                            "region": (character.get("server") or {}).get("region"),
-                            "encounters": set(),
-                            "reports": set(),
-                            "faction_hints": Counter(),
-                            "evidence": {
-                                "archive": archive,
-                                "member": member,
-                                "locator": f"report.rankings.data[{index}].roles.{role}"
-                                f".characters[{position}]",
+                    for run in wanted[key]:
+                        seen = pool[run["entry_id"]].setdefault(
+                            character["id"],
+                            {
+                                "id": character["id"],
+                                "name": character.get("name"),
+                                "server": (character.get("server") or {}).get("name"),
+                                "region": (character.get("server") or {}).get("region"),
+                                "encounters": set(),
+                                "reports": set(),
+                                "faction_hints": Counter(),
+                                "evidence": {
+                                    "archive": archive,
+                                    "member": member,
+                                    "locator": f"report.rankings.data[{index}].roles.{role}"
+                                    f".characters[{position}]",
+                                },
                             },
-                        },
-                    )
-                    seen["encounters"].add(encounter)
-                    seen["reports"].add(report.get("code"))
-                    if hint:
-                        seen["faction_hints"][hint] += 1
-    mined: dict[str, list[dict[str, Any]]] = {}
-    for key, group in wanted.items():
-        found = [
-            {
-                "id": c["id"],
-                "name": c["name"],
-                "server": c["server"],
-                "region": c["region"],
+                        )
+                        seen["encounters"].add(encounter)
+                        seen["reports"].add(report.get("code"))
+                        if hint:
+                            seen["faction_hints"][hint] += 1
+    return {
+        run["entry_id"]: [
+            c
+            | {
                 "encounters": len(c["encounters"]),
                 "reports": len(c["reports"]),
                 "faction_hints": dict(c["faction_hints"]),
-                "evidence": c["evidence"],
             }
-            for c in pool.get(key, {}).values()
+            for c in pool[run["entry_id"]].values()
         ]
-        for run in group:
-            mined[run["entry_id"]] = found
-    return mined
+        for run in runs
+    }
 
 
 def _excluded() -> set[str]:
@@ -265,15 +334,22 @@ def candidate_url(candidate: dict[str, Any], zone: int) -> str:
 def rank_pool(
     run: dict[str, Any],
     mined: list[dict[str, Any]],
-    classification: dict[str, Any] | None,
+    state: dict[str, Any] | None,
     excluded: set[str],
 ) -> list[dict[str, Any]]:
-    """Order the resolve pool: an earlier seed subject first, then the strongest
-    ranked characters whose report guilds lean to the entry's faction."""
+    """Order the resolve pool: earlier subjects of this exact configuration first,
+    then the strongest ranked characters whose report guilds lean to the
+    entry's faction."""
     pool: list[dict[str, Any]] = []
-    if classification and classification["state"] in {"seed", "partial-resumable"}:
-        urls = sorted({a["url"] for a in classification["archives"] if a["url"]})
-        pool += [{"url": url, "origin": "earlier capture subject"} for url in urls]
+    for archive in (state or {}).get("archives", []):
+        if archive["url"] and not archive["identity_problems"]:
+            pool.append(
+                {
+                    "url": archive["url"],
+                    "origin": "earlier capture subject",
+                    "metric_evidence": {"archive": archive["path"], "sha256": archive["sha256"]},
+                }
+            )
 
     def blocked(c: dict[str, Any]) -> bool:
         return (
@@ -296,29 +372,74 @@ def rank_pool(
     return list(unique.values())[:POOL_SIZE]
 
 
+def leaderboard_key(run: dict[str, Any], encounter: str) -> str:
+    return f"{run['zone']}|{run['class']}|{run['category']}|{run['metric']}|{encounter}"
+
+
+def leaderboard_pool(
+    run: dict[str, Any], encounters: dict[str, str], boards: dict[str, Any], excluded: set[str]
+) -> list[dict[str, Any]]:
+    """Characters on WCL's first leaderboard page for this spec and metric, used
+    only where the mined pool ran dry. Realms without an ASCII slug are skipped."""
+    found: dict[str, dict[str, Any]] = {}
+    for encounter, boss in encounters.items():
+        for row in boards.get(leaderboard_key(run, encounter)) or []:
+            server, region, name = row["server"], row["region"], row["name"]
+            if not (server.isascii() and region.lower() in {"us", "eu"}) or row["amount"] <= 0:
+                continue
+            if f"{region}/{server}/{name}".lower() in excluded:
+                continue
+            path = f"{region.lower()}/{_slug(server)}/{quote(name)}"
+            url = f"{SITE}/character/{path}?zone={run['zone']}"
+            found.setdefault(
+                url,
+                {
+                    "url": url,
+                    "origin": "WCL leaderboard, first page",
+                    "evidence": {"boss": boss, "amount": row["amount"], "page": 1},
+                },
+            )
+    return list(found.values())[:POOL_SIZE]
+
+
 def build_plan() -> dict[str, Any]:
     runs, encounters = universe()
-    classification = classify(runs, encounters, _read_json(REGISTER), _read_json(PROVENANCE))
+    for path in {a for r in _read_json(REGISTER)["records"] if (a := _archive_path(r))}:
+        recorded = next(
+            r["real_actor_source"]["archive"]["sha256"]
+            for r in _read_json(REGISTER)["records"]
+            if _archive_path(r) == path
+        )
+        if _sha256(ROOT / path) != recorded:
+            raise SystemExit(f"{path}: sha256 is not the registered one")
+    states = dispositions(
+        runs,
+        encounters,
+        _read_json(REGISTER),
+        _read_json(PROVENANCE),
+        lambda path: read_snapshot(ROOT / path),
+    )
     mined = mine(RAW, runs)
     excluded = _excluded()
+    boards = _read_json(LEADERBOARDS) if LEADERBOARDS.is_file() else {}
     entries = []
     for run in runs:
-        state = classification.get(run["entry_id"])
-        queued = state is None or state["state"] in {"seed", "partial-resumable"}
+        state = states.get(run["entry_id"])
+        queued = state is None or state["state"] == "needs-capture"
+        pool = rank_pool(run, mined[run["entry_id"]], state, excluded) if queued else []
+        if queued:
+            known = {c["url"] for c in pool}
+            extra = leaderboard_pool(run, encounters[run["raid"]], boards, excluded)
+            pool += [c for c in extra if c["url"] not in known]
         entries.append(
             run
             | {
-                "classification": state or {"state": "absent"},
+                "disposition": state or {"state": "absent"},
                 "queued": queued,
-                "pool": rank_pool(run, mined[run["entry_id"]], state, excluded) if queued else [],
+                "pool": pool,
                 "mined_total": len(mined[run["entry_id"]]),
             }
         )
-    for item in entries:
-        for archive in item["classification"].get("archives", []):
-            actual = _sha256(ROOT / archive["path"])
-            if actual != archive["sha256"]:
-                raise SystemExit(f"{archive['path']}: sha256 {actual} is not the registered one")
     return {
         "generated": datetime.now(UTC).isoformat(timespec="seconds"),
         "inputs": {
@@ -329,7 +450,12 @@ def build_plan() -> dict[str, Any]:
     }
 
 
-# -- resolution --------------------------------------------------------------------
+def _archive_path(record: dict[str, Any]) -> str | None:
+    source = record.get("real_actor_source")
+    return source["archive"]["path"] if source else None
+
+
+# -- faction and metric checks -----------------------------------------------------
 
 
 def parse_resolve(stdout: str) -> dict[str, str]:
@@ -341,78 +467,300 @@ def parse_resolve(stdout: str) -> dict[str, str]:
     return fields
 
 
-def verdict(fields: dict[str, str], code: int, expected: str) -> tuple[bool, str]:
+def verdict(
+    fields: dict[str, str], code: int, expected: str, character_id: int | None = None
+) -> tuple[bool, str]:
     if code != 0:
         return False, f"resolve exited {code}"
     if "needs a choice" in fields:
         return False, f"ambiguous: {fields['needs a choice']}"
+    if fields.get("partition", "unknown") == "unknown":
+        return False, "no partition resolved"
+    if character_id is not None and fields.get("id") != str(character_id):
+        return False, f"resolved id {fields.get('id')}, mined id {character_id}"
     faction = fields.get("faction", "unknown")
     if faction != expected:
         return False, f"faction {faction}, entry needs {expected}"
     return True, "faction observed and matching"
 
 
-def _accepts(answer: dict[str, Any], faction: str) -> tuple[bool, str]:
-    return verdict(answer["fields"], answer["exit"], faction)
+def metric_verdict(answer: dict[str, Any], item: dict[str, Any]) -> tuple[bool, str, list[str]]:
+    """WCL must rank the character for this zone, partition, spec and metric with
+    a positive amount on at least one boss. Kill counts alone are per spec, and
+    a zero-amount rank exists for every spec, so neither proves the metric."""
+    if "error" in answer:
+        return False, f"rankings query failed: {answer['error']}", []
+    data = answer["rankings"]
+    if (data.get("metric"), data.get("zone"), data.get("partition")) != (
+        item["metric"],
+        item["zone"],
+        PARTITION,
+    ):
+        return False, "rankings answered a different metric, zone or partition", []
+    ranked = [
+        r["encounter"]
+        for r in data.get("rankings") or []
+        if (r.get("totalKills") or 0) > 0
+        and (r.get("bestAmount") or 0) > 0
+        and r.get("spec") == item["category"]
+    ]
+    if not ranked:
+        return False, f"no {item['category']} {item['metric']} amount on any boss", []
+    return True, f"{item['metric']} ranked on {len(ranked)} boss(es)", ranked
+
+
+def ranking_key(character_id: int | str, item: dict[str, Any]) -> str:
+    return f"{character_id}|{item['zone']}|{item['class']}|{item['category']}|{item['metric']}"
 
 
 def _run_resolve(url: str) -> tuple[int, str, str]:
-    done = subprocess.run(
-        [
-            "uv",
-            "run",
-            "necropsy",
-            "resolve",
-            url,
-            "--partition",
-            str(PARTITION),
-            "--endpoint",
-            "user",
+    """`necropsy resolve` in process, so failures keep their type. A character
+    WCL refuses is an answer (exit 1, cached); quota, network or sign-in
+    trouble raises and stops the run without caching anything."""
+    from necropsy.wcl.cli import _auth
+    from necropsy.wcl.client import NotFound, PermissionDenied, WclClient
+    from necropsy.wcl.context import describe
+    from necropsy.wcl.context import resolve as resolve_character
+    from necropsy.wcl.urls import parse_character_url
+
+    ref = parse_character_url(url)
+    client = WclClient(ref.site, _auth().token_for)
+    try:
+        context = resolve_character(client, ref, partition=PARTITION, endpoint="user")
+    except (NotFound, PermissionDenied) as error:
+        return 1, "", f"resolve failed: {error}"
+    finally:
+        client.close()
+    lines = [f"{k}: {'unknown' if v is None else v}" for k, v in describe(context).items()]
+    if context.faction.level != "observed":
+        lines.append(f"faction note: {context.faction.note}")
+    if context.ambiguity:
+        lines.append(f"needs a choice: {context.ambiguity}")
+    return 0, "\n".join(lines) + "\n", ""
+
+
+def _query_rankings(character_id: int, item: dict[str, Any]) -> dict[str, Any]:
+    from necropsy.wcl.cli import _auth
+    from necropsy.wcl.client import RATE_FIELDS, WclClient
+    from necropsy.wcl.urls import parse_character_url
+
+    if item["metric"] not in METRIC_ROLES:
+        raise ValueError(f"unsupported metric {item['metric']!r}")
+    query = f"""
+query NecropsyQueueRanking($id: Int!, $zone: Int!, $partition: Int!, $cls: String!,
+                           $spec: String!) {{
+  characterData {{
+    character(id: $id) {{
+      rankings: zoneRankings(zoneID: $zone, partition: $partition, metric: {item["metric"]},
+                             className: $cls, specName: $spec)
+    }}
+  }}
+  {RATE_FIELDS}
+}}
+"""
+    site = parse_character_url(f"{SITE}/character/id/{character_id}?zone={item['zone']}").site
+    client = WclClient(site, _auth().token_for)
+    try:
+        result = client.query(
+            query,
+            {
+                "id": character_id,
+                "zone": item["zone"],
+                "partition": PARTITION,
+                "cls": item["class"],
+                "spec": item["category"],
+            },
+            endpoint="user",
+        )
+    finally:
+        client.close()
+    raw = ((result.data.get("characterData") or {}).get("character") or {}).get("rankings")
+    data = json.loads(raw) if isinstance(raw, str) else raw or {}
+    return {
+        "metric": data.get("metric"),
+        "zone": data.get("zone"),
+        "partition": data.get("partition"),
+        "rankings": [
+            {
+                "encounter": (r.get("encounter") or {}).get("name"),
+                "totalKills": r.get("totalKills"),
+                "bestAmount": r.get("bestAmount"),
+                "spec": r.get("spec"),
+            }
+            for r in data.get("rankings") or []
         ],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        timeout=120,
-        check=False,
-    )
-    return done.returncode, done.stdout, done.stderr
+    }
 
 
-def resolve(budget: int, runner: Callable[[str], tuple[int, str, str]] = _run_resolve) -> int:
-    """Resolve pool candidates until each entry has enough accepted ones or the
-    budget is spent. Cached answers are reused and cost nothing."""
+Resolver = Callable[[str], tuple[int, str, str]]
+Ranker = Callable[[int, dict[str, Any]], dict[str, Any]]
+
+
+def check(
+    item: dict[str, Any],
+    candidate: dict[str, Any],
+    resolutions: dict[str, Any],
+    rankings: dict[str, Any],
+) -> tuple[bool | None, str]:
+    """Both gates from cached answers; None while an answer is still missing."""
+    answer = resolutions.get(candidate["url"])
+    if answer is None:
+        return None, "faction not checked"
+    ok, why = verdict(answer["fields"], answer["exit"], item["faction"], candidate.get("id"))
+    if not ok:
+        return False, why
+    if candidate.get("metric_evidence"):
+        return True, "metric shown by an earlier capture of this configuration"
+    ranked = rankings.get(ranking_key(answer["fields"]["id"], item))
+    if ranked is None:
+        return None, "metric not checked"
+    ok, why, _ = metric_verdict(ranked, item)
+    return ok, why
+
+
+def resolve(
+    budget: int, resolver: Resolver = _run_resolve, ranker: Ranker = _query_rankings
+) -> int:
+    """Check pool candidates until each entry has enough that pass both gates or
+    the budget of live calls is spent. Cached answers cost nothing."""
     plan = _read_json(PLAN)
-    cache: dict[str, Any] = _read_json(RESOLUTIONS) if RESOLUTIONS.is_file() else {}
+    resolutions: dict[str, Any] = _read_json(RESOLUTIONS) if RESOLUTIONS.is_file() else {}
+    rankings: dict[str, Any] = _read_json(RANKINGS) if RANKINGS.is_file() else {}
     spent = 0
     for item in plan["entries"]:
         accepted = 0
         for candidate in item["pool"]:
-            if accepted >= MAX_CANDIDATES:
+            if accepted >= MAX_CANDIDATES or spent >= budget:
                 break
-            key = candidate["url"]
-            if key not in cache:
-                if spent >= budget:
-                    break
-                code, stdout, stderr = runner(candidate["url"])
+            if candidate["url"] not in resolutions:
+                try:
+                    code, stdout, stderr = resolver(candidate["url"])
+                except Exception as error:  # quota, network or auth: stop, cache nothing
+                    print(f"stopped after {spent} live call(s): {type(error).__name__}: {error}")
+                    return 2
                 spent += 1
-                cache[key] = {
+                resolutions[candidate["url"]] = {
                     "resolved_at": datetime.now(UTC).isoformat(timespec="seconds"),
                     "exit": code,
                     "fields": parse_resolve(stdout),
                     "error": stderr.strip().splitlines()[-1:] if code else [],
                 }
-                _write_json(RESOLUTIONS, cache)
-            accepted += _accepts(cache[key], item["faction"])[0]
-    print(f"resolved {spent} new candidate(s); cache holds {len(cache)}")
+                _write_json(RESOLUTIONS, resolutions)
+            ok, why = check(item, candidate, resolutions, rankings)
+            if ok is None and why == "metric not checked" and spent < budget:
+                character_id = int(resolutions[candidate["url"]]["fields"]["id"])
+                try:
+                    answer: dict[str, Any] = {"rankings": ranker(character_id, item)}
+                except Exception as error:  # quota, network or auth: stop, cache nothing
+                    print(f"stopped after {spent} live call(s): {type(error).__name__}: {error}")
+                    return 2
+                spent += 1
+                answer["checked_at"] = datetime.now(UTC).isoformat(timespec="seconds")
+                rankings[ranking_key(character_id, item)] = answer
+                _write_json(RANKINGS, rankings)
+                ok, why = check(item, candidate, resolutions, rankings)
+            accepted += ok is True
+    print(f"made {spent} live call(s); {len(resolutions)} resolutions, {len(rankings)} rankings")
     return 0
 
 
-# -- emit and summary --------------------------------------------------------------
+# -- emit, verify and summary ------------------------------------------------------
+
+
+def _query_leaderboard(run: dict[str, Any], encounter: str) -> list[dict[str, Any]]:
+    from necropsy.wcl.cli import _auth
+    from necropsy.wcl.client import RATE_FIELDS, WclClient
+    from necropsy.wcl.urls import parse_character_url
+
+    if run["metric"] not in METRIC_ROLES:
+        raise ValueError(f"unsupported metric {run['metric']!r}")
+    query = f"""
+query NecropsyQueueLeaderboard($encounter: Int!, $partition: Int!, $cls: String!,
+                               $spec: String!) {{
+  worldData {{
+    encounter(id: $encounter) {{
+      characterRankings(metric: {run["metric"]}, className: $cls, specName: $spec,
+                        partition: $partition, page: 1)
+    }}
+  }}
+  {RATE_FIELDS}
+}}
+"""
+    site = parse_character_url(f"{SITE}/character/id/1?zone={run['zone']}").site
+    client = WclClient(site, _auth().token_for)
+    try:
+        result = client.query(
+            query,
+            {
+                "encounter": int(encounter),
+                "partition": PARTITION,
+                "cls": run["class"],
+                "spec": run["category"],
+            },
+            endpoint="user",
+        )
+    finally:
+        client.close()
+    raw = ((result.data.get("worldData") or {}).get("encounter") or {}).get("characterRankings")
+    data = json.loads(raw) if isinstance(raw, str) else raw or {}
+    return [
+        {
+            "name": r.get("name"),
+            "server": (r.get("server") or {}).get("name") or "",
+            "region": (r.get("server") or {}).get("region") or "",
+            "amount": r.get("amount") or 0,
+        }
+        for r in data.get("rankings") or []
+        if r.get("spec") == run["category"] and r.get("class") == run["class"] and r.get("name")
+    ]
+
+
+def leaderboard(
+    budget: int, fetch: Callable[[dict[str, Any], str], list[dict[str, Any]]] = _query_leaderboard
+) -> int:
+    """Fetch first leaderboard pages, boss by boss, for queued runs whose pool is
+    exhausted without a checked candidate, until each has a full pool. Run
+    `plan` afterwards to merge them."""
+    plan = _read_json(PLAN)
+    _, encounters = universe()
+    resolutions, rankings = _load_caches()
+    boards: dict[str, Any] = _read_json(LEADERBOARDS) if LEADERBOARDS.is_file() else {}
+    _, unfilled = queue_entries(plan, resolutions, rankings)
+    spent = 0
+    for item in plan["entries"]:
+        if item["entry_id"] not in unfilled:
+            continue
+        if any(check(item, c, resolutions, rankings)[0] is None for c in item["pool"]):
+            print(f"{item['entry_id']}: check its pool with `resolve` first")
+            continue
+        for encounter in encounters[item["raid"]]:
+            if len(leaderboard_pool(item, encounters[item["raid"]], boards, set())) >= POOL_SIZE:
+                break
+            key = leaderboard_key(item, encounter)
+            if key in boards:
+                continue
+            if spent >= budget:
+                break
+            try:
+                boards[key] = fetch(item, encounter)
+            except Exception as error:  # quota, network or auth: stop, cache nothing
+                print(f"stopped after {spent} live call(s): {type(error).__name__}: {error}")
+                return 2
+            spent += 1
+            _write_json(LEADERBOARDS, boards)
+    print(f"made {spent} leaderboard call(s); {len(boards)} pages cached")
+    return 0
+
+
+def _load_caches() -> tuple[dict[str, Any], dict[str, Any]]:
+    return (
+        _read_json(RESOLUTIONS) if RESOLUTIONS.is_file() else {},
+        _read_json(RANKINGS) if RANKINGS.is_file() else {},
+    )
 
 
 def queue_entries(
-    plan: dict[str, Any], cache: dict[str, Any]
+    plan: dict[str, Any], resolutions: dict[str, Any], rankings: dict[str, Any]
 ) -> tuple[list[dict[str, Any]], list[str]]:
     entries, unfilled = [], []
     for item in plan["entries"]:
@@ -420,9 +768,9 @@ def queue_entries(
             continue
         chosen = []
         for candidate in item["pool"]:
-            answer = cache.get(candidate["url"])
-            if answer and _accepts(answer, item["faction"])[0]:
-                chosen.append((candidate, answer))
+            ok, why = check(item, candidate, resolutions, rankings)
+            if ok:
+                chosen.append((candidate, resolutions[candidate["url"]], why))
             if len(chosen) == MAX_CANDIDATES:
                 break
         if not chosen:
@@ -438,19 +786,25 @@ def queue_entries(
                 "category": item["category"],
                 "metric": item["metric"],
                 "faction": item["faction"],
-                "candidates": [c["url"] for c, _ in chosen],
+                "candidates": [c["url"] for c, _, _ in chosen],
                 "candidate_evidence": [
                     {
                         "url": c["url"],
                         "character": a["fields"].get("character"),
+                        "character_id": a["fields"].get("id"),
                         "server": a["fields"].get("server"),
                         "resolved_faction": a["fields"].get("faction"),
                         "resolved_at": a["resolved_at"],
+                        "metric_check": why,
+                        "ranked_bosses": metric_verdict(
+                            rankings[ranking_key(a["fields"]["id"], item)], item
+                        )[2]
+                        if not c.get("metric_evidence")
+                        else None,
                         "origin": c["origin"],
-                        "encounters_ranked": c.get("encounters"),
-                        "evidence": c.get("evidence"),
+                        "evidence": c.get("evidence") or c.get("metric_evidence"),
                     }
-                    for c, a in chosen
+                    for c, a, why in chosen
                 ],
             }
         )
@@ -459,70 +813,109 @@ def queue_entries(
 
 def emit() -> int:
     plan = _read_json(PLAN)
-    cache = _read_json(RESOLUTIONS) if RESOLUTIONS.is_file() else {}
-    entries, unfilled = queue_entries(plan, cache)
+    resolutions, rankings = _load_caches()
+    entries, unfilled = queue_entries(plan, resolutions, rankings)
+    if unfilled:
+        print(f"queue not written; {len(unfilled)} queued run(s) lack a checked candidate:")
+        print("  " + ", ".join(unfilled))
+        return 1
     _write_json(
         QUEUE,
         {
             "version": QUEUE_VERSION,
-            "plan_sha256": _sha256(PLAN),
-            "resolutions_sha256": _sha256(RESOLUTIONS) if RESOLUTIONS.is_file() else None,
+            "pins": {
+                path.relative_to(ROOT).as_posix(): _sha256(path)
+                for path in (PLAN, RESOLUTIONS, RANKINGS, LEADERBOARDS)
+                if path.is_file()
+            },
             "entries": entries,
         },
     )
     print(f"wrote {len(entries)} entries to {QUEUE.relative_to(ROOT).as_posix()}")
-    if unfilled:
-        print(
-            f"{len(unfilled)} queued run(s) have no accepted candidate yet: {', '.join(unfilled)}"
-        )
-    return 1 if unfilled else 0
+    return 0
+
+
+def _git_blob(path: str, rev: str) -> bytes:
+    return subprocess.run(
+        ["git", "cat-file", "blob", f"{rev}:{path}"], cwd=ROOT, capture_output=True, check=True
+    ).stdout
+
+
+def verify(rev: str = "HEAD") -> int:
+    """Every pin must equal both the checked-out bytes and the committed blob."""
+    queue = json.loads(_git_blob(QUEUE.relative_to(ROOT).as_posix(), rev))
+    plan_path = PLAN.relative_to(ROOT).as_posix()
+    pins = dict(queue["pins"])
+    pins.update(json.loads(_git_blob(plan_path, rev))["inputs"])
+    failures = []
+    for path, pinned in sorted(pins.items()):
+        blob = hashlib.sha256(_git_blob(path, rev)).hexdigest()
+        local = _sha256(ROOT / path)
+        if not pinned == blob == local:
+            failures.append(f"{path}: pin {pinned[:12]} blob {blob[:12]} checkout {local[:12]}")
+    for line in failures or [f"{len(pins)} pins match {rev} blobs and the checkout"]:
+        print(line)
+    return 1 if failures else 0
 
 
 def summary() -> int:
     plan = _read_json(PLAN)
-    cache = _read_json(RESOLUTIONS) if RESOLUTIONS.is_file() else {}
-    states = Counter(i["classification"]["state"] for i in plan["entries"])
+    resolutions, rankings = _load_caches()
+    states = Counter(i["disposition"]["state"] for i in plan["entries"])
     print(
         f"universe {len(plan['entries'])} runs: "
         + ", ".join(f"{k} {v}" for k, v in sorted(states.items()))
+        + " (capture-ready is not COMPLETE)"
     )
     queued = sum(i["queued"] for i in plan["entries"])
     print(f"queued {queued}; excluded characters {plan['excluded_characters']}")
     for item in plan["entries"]:
-        c = item["classification"]
-        if c["state"] == "absent":
+        d = item["disposition"]
+        if d["state"] == "absent":
             continue
-        missing = f" missing {', '.join(c['missing'])}" if c["missing"] else ""
-        covered = f"{c['registered_encounters']}/{c['raid_encounters']}"
-        print(f"  {c['state']:18} {item['entry_id']} {covered}{missing}")
-    entries, unfilled = queue_entries(plan, cache)
-    thin = [
-        i["entry_id"] for i in plan["entries"] if i["queued"] and len(i["pool"]) < MAX_CANDIDATES
-    ]
-    reasons = Counter(_accepts(a, "Alliance")[1].split(",")[0] for a in cache.values())
-    print(f"resolutions {len(cache)} ({dict(reasons)})")
-    print(f"entries ready {len(entries)}; unfilled {len(unfilled)}")
-    if thin:
-        print(f"pools under {MAX_CANDIDATES}: {', '.join(thin)}")
+        kinds = Counter(b["disposition"] for b in d["bosses"])
+        reuse = [b["boss"] for b in d["bosses"] if b["disposition"] == "offline-reuse"]
+        note = f" offline-reuse {', '.join(reuse)}" if reuse else ""
+        print(f"  {d['state']:14} {item['entry_id']} {dict(kinds)}{note}")
+    entries, unfilled = queue_entries(plan, resolutions, rankings)
+    counts = Counter(len(e["candidates"]) for e in entries)
+    print(f"resolutions {len(resolutions)}, rankings {len(rankings)}")
+    print(
+        f"entries ready {len(entries)} (by candidate count {dict(sorted(counts.items()))}); "
+        f"unfilled {len(unfilled)}"
+    )
+    for e in entries:
+        if len(e["candidates"]) < MAX_CANDIDATES:
+            print(f"  {len(e['candidates'])} candidate(s): {e['entry_id']}")
+    if unfilled:
+        print(f"unfilled: {', '.join(unfilled)}")
     return 0
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     commands = parser.add_subparsers(dest="command", required=True)
-    commands.add_parser("plan", help="offline: universe, classification, candidate pools")
-    spend = commands.add_parser("resolve", help="online: confirm candidate factions (cached)")
-    spend.add_argument("--budget", type=int, required=True, help="most new resolve calls")
-    commands.add_parser("emit", help="write the runner queue")
-    commands.add_parser("summary", help="print classification and readiness")
+    commands.add_parser("plan", help="offline: universe, dispositions, candidate pools")
+    spend = commands.add_parser("resolve", help="online: faction and metric checks (cached)")
+    spend.add_argument("--budget", type=int, required=True, help="most new live calls")
+    boards = commands.add_parser("leaderboard", help="online: first pages for exhausted runs")
+    boards.add_argument("--budget", type=int, required=True, help="most new page fetches")
+    commands.add_parser("emit", help="write the runner queue, or refuse while runs are unfilled")
+    pinned = commands.add_parser("verify", help="check pins against committed blobs")
+    pinned.add_argument("--rev", default="HEAD")
+    commands.add_parser("summary", help="print dispositions and readiness")
     args = parser.parse_args(argv)
     if args.command == "plan":
         _write_json(PLAN, build_plan())
         return summary()
     if args.command == "resolve":
         return resolve(args.budget)
+    if args.command == "leaderboard":
+        return leaderboard(args.budget)
     if args.command == "emit":
         return emit()
+    if args.command == "verify":
+        return verify(args.rev)
     return summary()
 
 

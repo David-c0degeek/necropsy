@@ -23,3 +23,7 @@ tests/golden/raids/raw/*.entries -text
 tests/golden/raids/raw/*.sha256 -text
 tests/golden/raids/raw/**/*.entries -text
 tests/golden/raids/raw/**/*.sha256 -text
+
+# The capture queue pins these files by SHA-256; keep their exact bytes.
+tasks/raid-completion/capture-queue.json -text
+tasks/raid-completion/research/capture-*.json -text
