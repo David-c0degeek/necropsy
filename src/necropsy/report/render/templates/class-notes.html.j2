@@ -1,0 +1,25 @@
+{% macro class_notes(boss) -%}
+{% set notes = boss.playbook.get('class_notes') or [] %}
+{% if notes %}
+<section class="healing-context loadout-plan" aria-label="Healing context from your log">
+  <h3>Healing context from your log</h3>
+  <ul>
+  {% for note in notes %}
+    <li style="margin-bottom: 1em">
+      <p>{{ note.text }}</p>
+      {% set recorded = note.get('recorded_s') or {} %}
+      {% set unresolved = note.get('unresolved_s') or [] %}
+      {% if recorded.get('value') or recorded.get('note') or unresolved or note.get('source') or note.get('retrieved') %}
+      <details><summary>{{ 'Timings and source' if recorded.get('value') or unresolved or note.get('source') or note.get('retrieved') else 'Evidence' }}</summary>
+        {% if recorded.get('value') %}<p>Recorded cast times: {% for time in recorded.value %}{{ time }} s{{ ', ' if not loop.last else '' }}{% endfor %}.</p>{% endif %}
+        {% if unresolved %}<p>Unresolved cast times: {% for time in unresolved %}{{ time }} s{{ ', ' if not loop.last else '' }}{% endfor %}.</p>{% endif %}
+        {% if recorded.get('note') %}<p class="table-note">Evidence: {{ recorded.note }}</p>{% endif %}
+        {% if note.get('source') %}<p class="table-note">Source: <a href="{{ note.source }}" target="_blank" rel="noopener noreferrer" style="overflow-wrap: anywhere">{{ note.source }}</a>{% if note.get('retrieved') %} <span style="white-space: nowrap">(retrieved {{ note.retrieved }})</span>{% endif %}</p>{% elif note.get('retrieved') %}<p class="table-note">Source retrieved {{ note.retrieved }}.</p>{% endif %}
+      </details>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{%- endmacro %}

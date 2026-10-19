@@ -390,3 +390,70 @@ def test_missing_and_null_reference_context_render_identically(tmp_path: Path, p
         boss["playbook"]["reference_context"] = None
     assert render(build_view(document, "0" * 64)) == missing
     assert 'class="quick-plan reference-context"' not in missing
+
+
+@pytest.mark.parametrize("page", ["report", "playbook"])
+def test_healing_context_renders_saved_notes_and_unresolved_times(
+    tmp_path: Path, page: str
+) -> None:
+    with _paladin(tmp_path) as con:
+        document = build_document(con)
+    notes = [
+        {
+            "key": "planned",
+            "kind": "planned-cooldown",
+            "text": "Saved <cooldown> & team context.",
+            "recorded_s": {"value": [0.0, 82.7], "note": "Recorded cast observations."},
+            "unresolved_s": [],
+            "source": "https://example.org/spell?rank=1&class=6",
+            "retrieved": "2026-10-19",
+        },
+        {
+            "key": "unknown",
+            "kind": "unmeasured",
+            "text": "Cast identities are unresolved; coverage cannot be assessed.",
+            "recorded_s": {"value": None, "note": "Identity is unresolved."},
+            "unresolved_s": [5.0],
+            "source": None,
+            "retrieved": None,
+        },
+        {
+            "key": "zero",
+            "kind": "emergency-cooldown",
+            "text": "No cast is recorded; this does not establish an expected use.",
+            "recorded_s": {"value": []},
+            "unresolved_s": [],
+        },
+    ]
+    document["bosses"][0]["playbook"]["class_notes"] = notes
+    render = render_report if page == "report" else render_playbook
+    html = render(build_view(document, "0" * 64))
+    section = html.split('aria-label="Healing context from your log"', 1)[1].split("</section>", 1)[
+        0
+    ]
+    assert "Saved &lt;cooldown&gt; &amp; team context." in section
+    assert "Recorded cast times: 0.0 s, 82.7 s." in section
+    assert "Unresolved cast times: 5.0 s." in section
+    assert "Identity is unresolved." in section
+    assert "No cast is recorded; this does not establish an expected use." in section
+    assert "https://example.org/spell?rank=1&amp;class=6" in section
+    assert "(retrieved 2026-10-19)" in section
+    assert section.index("Saved &lt;cooldown&gt;") < section.index("Cast identities")
+    assert section.index("Cast identities") < section.index("No cast is recorded")
+    assert "0 recorded" not in section and "None" not in section
+
+
+@pytest.mark.parametrize("page", ["report", "playbook"])
+def test_absent_null_and_empty_healing_notes_render_identically(tmp_path: Path, page: str) -> None:
+    with _paladin(tmp_path) as con:
+        document = build_document(con)
+    render = render_report if page == "report" else render_playbook
+    for boss in document["bosses"]:
+        boss["playbook"].pop("class_notes", None)
+    missing = render(build_view(document, "0" * 64))
+    value: list[dict[str, Any]] | None
+    for value in (None, []):
+        for boss in document["bosses"]:
+            boss["playbook"]["class_notes"] = value
+        assert render(build_view(document, "0" * 64)) == missing
+    assert 'aria-label="Healing context from your log"' not in missing
