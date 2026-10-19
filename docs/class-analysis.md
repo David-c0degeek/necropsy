@@ -167,6 +167,16 @@ gear and abilities in two fights; it is excluded only because no Priest duty
 action is recorded, since the runtime has no general class-conflict check.
 Garr therefore has no eligible Shadow comparison.
 
+A Restoration Druid capture retains 59 Alliance fights: nine personal fights and
+five acquired comparison Druids per MC boss. Every one records repeated Druid
+healing casts and no feral, balance, bear or form actions. Personal assessment
+exists on nine bosses. Sulfuron's personal fight was not acquired because its
+player details carry no factionID, so its five peers keep a Restoration role but
+form no comparison. One Majordomo peer stays duty-unknown because repeated boss
+melee conflicts with an action-based duty; this is not a tank conclusion.
+Repeated healing casts do not certify assigned duty, overheal efficiency or
+healing quality, and heal-over-time ticks count as heal events, not casts.
+
 
 Priest raid pages also separate credited absorption by numeric ability and
 recorded friendly recipient. Power Word: Shield effects stay distinct from

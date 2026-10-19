@@ -1,0 +1,30 @@
+{
+  "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+  "archive_sha256": "f877b45fb514fae34ecfb13628a92b2cd5018248522948ca9c068ab6b80d1a6c",
+  "source_commit_src_tree": "f1ed993 (src unchanged since 7e24d7c)",
+  "outputs": {
+    "analysis.json": {
+      "source": "3249a0a38b6d9f852251799ebebe721d4185e67ca39e224b8ce9efad9e20bda1",
+      "installed": "3249a0a38b6d9f852251799ebebe721d4185e67ca39e224b8ce9efad9e20bda1"
+    },
+    "playbook.html": {
+      "source": "206b1deca1d6ac3dc7c975a614cd9fe7be2fa794dbaaac8413eeb9988cd1d97a",
+      "installed": "206b1deca1d6ac3dc7c975a614cd9fe7be2fa794dbaaac8413eeb9988cd1d97a"
+    },
+    "report.html": {
+      "source": "a5580764dffb4fe1c0f25ce215c6d589020c918f6f1a724095ea41ad9fe9ee5b",
+      "installed": "a5580764dffb4fe1c0f25ce215c6d589020c918f6f1a724095ea41ad9fe9ee5b"
+    },
+    "necropsy-66485944-2000.zip": {
+      "source": "bcba0c080c4739fdd3d7b3aedbbd0a3505eb287c1765998c03d8eeed47787352",
+      "installed": "bcba0c080c4739fdd3d7b3aedbbd0a3505eb287c1765998c03d8eeed47787352"
+    }
+  },
+  "source_equals_installed": true,
+  "matches_capture_analysis": true,
+  "output_gitleaks": "no leaks found",
+  "golden": {
+    "affected_seed_replays": "5 passed (bwl-holy, mc-elemental-shaman-initial, mc-elemental-shaman, mc-restoration-druid, mc-shadow-priest) in 296.91s",
+    "register_checks": "11 passed, 52 deselected in 3829.03s"
+  }
+}

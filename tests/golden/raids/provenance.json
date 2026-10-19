@@ -1197,6 +1197,140 @@
         "a3c063dde1bc4ac7eeaf88cb0668a4b2828750c5b76749bdfe9c689b0ee84bb2"
       ],
       "observation_scope": "Final normal Shadow/Alliance/DPS acquisition (third resume, no stop) retains50 acquired comparison actors, five per MC boss, with40 runtime-eligible DPS peers. Personal assessment is absent for all ten bosses: the subject recorded Holy, not Shadow, in every fight. Eight Holy-Nova-heavy peers keep unknown duty (Holy Nova is not in the configured Priest duty-action lists) and one actor with conflicting Priest/Warrior identity evidence (two fights) is excluded; runtime has no general class-conflict check. Garr has no eligible peer and stays TODO. This is comparison collection, not full class/cell or ranked-damage acceptance."
+    },
+    {
+      "label": "mc-restoration-druid-raid-context",
+      "url": "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2000",
+      "category": "Restoration",
+      "metric": "hps",
+      "partition": 1,
+      "sources": 59,
+      "stopped": null,
+      "sha256": "f877b45fb514fae34ecfb13628a92b2cd5018248522948ca9c068ab6b80d1a6c",
+      "captured_date": "2026-10-19",
+      "archive": "raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "encounters": [
+        50663,
+        50664,
+        50665,
+        50666,
+        50667,
+        50668,
+        50669,
+        50670,
+        50671,
+        50672
+      ],
+      "encounter_context": true,
+      "complete_player_streams": 118,
+      "complete_pet_streams": 0,
+      "complete_encounter_scopes": 118,
+      "missing_pet_listings": 1,
+      "missing_pet_fights": [
+        [
+          "DbG1RBjckXmt7frQ",
+          10
+        ]
+      ],
+      "missing_owner_listing_files": 1,
+      "cohort_counts": {
+        "50663": 5,
+        "50664": 5,
+        "50665": 5,
+        "50666": 5,
+        "50667": 5,
+        "50668": 5,
+        "50669": 5,
+        "50670": 5,
+        "50671": 5,
+        "50672": 5
+      },
+      "eligible_cohort_counts": {
+        "50663": 5,
+        "50664": 5,
+        "50665": 5,
+        "50666": 5,
+        "50667": 5,
+        "50668": 5,
+        "50669": 0,
+        "50670": 5,
+        "50671": 4,
+        "50672": 5
+      },
+      "excluded_cohort_sources": [
+        {
+          "report": "Pm296TdXqH1Anaht",
+          "fight": 39,
+          "actor": 11,
+          "player": "Animal",
+          "encounter_id": 50671,
+          "kind": "boss-melee-pressure-unknown-duty",
+          "expected_role": null,
+          "reason": "Repeated direct boss melee pressure conflicts with a simple action-based duty, so runtime duty stays unknown despite repeated listed Druid healing casts and no feral, balance, bear or form actions. Retained in overall context; excluded from healer comparison; not judged as poor healing or as a tank."
+        },
+        {
+          "report": "2MQcNqwvp3r7k8TK",
+          "fight": 43,
+          "actor": 1,
+          "player": "Meowzas",
+          "encounter_id": 50669,
+          "kind": "no-subject-fight-no-cohort",
+          "expected_role": "restoration",
+          "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+        },
+        {
+          "report": "3cDKJnNt7GQvRzmd",
+          "fight": 62,
+          "actor": 27,
+          "player": "Anenga",
+          "encounter_id": 50669,
+          "kind": "no-subject-fight-no-cohort",
+          "expected_role": "restoration",
+          "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+        },
+        {
+          "report": "GNcfxkPQq9WLZKYV",
+          "fight": 52,
+          "actor": 31,
+          "player": "Aldraie",
+          "encounter_id": 50669,
+          "kind": "no-subject-fight-no-cohort",
+          "expected_role": "restoration",
+          "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+        },
+        {
+          "report": "LXN9aYqJKwtPgmQr",
+          "fight": 35,
+          "actor": 12,
+          "player": "Didu",
+          "encounter_id": 50669,
+          "kind": "no-subject-fight-no-cohort",
+          "expected_role": "restoration",
+          "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+        },
+        {
+          "report": "hWynZF4rwcM9Np7t",
+          "fight": 52,
+          "actor": 19,
+          "player": "Eblis",
+          "encounter_id": 50669,
+          "kind": "no-subject-fight-no-cohort",
+          "expected_role": "restoration",
+          "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+        }
+      ],
+      "missing_subject_encounters": [
+        50669
+      ],
+      "excluded_subject_encounters": [],
+      "recipient_fact_cases": 59,
+      "owned_pet_contexts": 58,
+      "owned_pet_units": 0,
+      "superseded_partial_archives": [
+        "81d6198820301bfdc17daf835e1bcb38477edce4e1578620956463497f689993",
+        "ca04bde60653bf0b28522da3384151e8c94d1afdf29bde488eb62376f34b4384"
+      ],
+      "observation_scope": "Normal Restoration/Alliance/HPS acquisition (second resume, no stop; native exit 4 from two recorded source-data limitations) retains 59 selected fights: 9 personal and 50 acquired comparison actors, five per MC boss. All 59 record repeated listed Druid healing casts and no feral, balance, bear or form actions. 49 peers have runtime Restoration duty and 44 enter a comparison cohort. Sulfuron has no personal fight (no factionID in the player details), so its five Restoration peers form no cohort and the cell stays TODO. One Majordomo peer keeps unknown duty from recorded boss melee pressure. Magmadar Careerhealer pet 52 has no valid owner and no owner listing. This is comparison collection plus runtime personal assessment, not certified healing quality, assignment or full class/cell acceptance."
     }
   ],
   "capture_dates": [

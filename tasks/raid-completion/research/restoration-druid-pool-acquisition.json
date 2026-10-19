@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-19",
+  "state": "Final: second normal resume finished with no stop; native exit 4 from two recorded source-data limitations. 59 selected fights registered under mc-restoration-druid-raid-context.",
+  "url": "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2000",
+  "canonical_character_id": 66485944,
+  "subject": "Paracetalol",
+  "server": "Firemaw",
+  "region": "EU",
+  "observed_current_faction": "Alliance",
+  "zone": 2000,
+  "partition": 1,
+  "requested_category": "Restoration",
+  "requested_metric": "hps",
+  "endpoint": "user",
+  "candidate_basis": "Read-only scan of registered raw raid archives: ranking characters by class/spec joined to playerDetails combatantInfo.factionID; historical identity only. Fallback candidate Silverpaws 62254790 not needed.",
+  "installed_wheel": "verified 490a4950 install; src and pyproject unchanged since 7e24d7c",
+  "resolve": {
+    "first": "refused before any request: public sign-in requires --endpoint user",
+    "second": "exit 0: Paracetalol; 66485944; Firemaw/EU; Alliance; Molten Core; S0"
+  },
+  "attempts": [
+    {
+      "name": "first --resume",
+      "native_exit": 1,
+      "result": "refused: no saved run checkpoint in this output directory; nothing written"
+    },
+    {
+      "name": "first capture",
+      "native_exit": 4,
+      "snapshot_sha256": "81d6198820301bfdc17daf835e1bcb38477edce4e1578620956463497f689993",
+      "stop": "comparisons, encounter 50668: BudgetExceeded: 109 of 1091 allowed points left this hour; need about 109; budget reserve kept for fresh report finalization",
+      "status": "superseded partial"
+    },
+    {
+      "name": "resume1 (about one minute later)",
+      "native_exit": 4,
+      "snapshot_sha256": "ca04bde60653bf0b28522da3384151e8c94d1afdf29bde488eb62376f34b4384",
+      "stop": "comparisons, encounter 50664: BudgetExceeded: 109 of 1332 allowed points left this hour; need about 133; 0 account points spent",
+      "status": "superseded partial"
+    },
+    {
+      "name": "resume2 (after a 61-minute wait)",
+      "native_exit": 4,
+      "snapshot_sha256": "f877b45fb514fae34ecfb13628a92b2cd5018248522948ca9c068ab6b80d1a6c",
+      "stop": null,
+      "limitations": [
+        "Magmadar: pets unknown for Careerhealer: pet 52 has no valid owner",
+        "Sulfuron Harbinger: subject fight not acquired: no factionID in the player details"
+      ],
+      "status": "final"
+    }
+  ],
+  "quota": "Existing installed user-endpoint/cache/quota/wait/resume path only; no reserve override, custom acquisition, forced faction or owner inference.",
+  "note": "--wait-for-reset does not wait when the run stops itself to keep the finalization reserve; the next resume must follow the hourly window."
+}

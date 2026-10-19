@@ -88,3 +88,5 @@
 - 2026-10-19: Report catalog, playerDetails and ranking metadata can all agree on a class that combatant stance, gear and casts contradict. Treat class identity as a raw claim to check, and record that a duty-unknown exclusion is not a class-conflict detector. Check every precondition before any register write; a late assertion left three registers half-appended and needed a git rollback.
 
 - 2026-10-19: An ability that is both damage and healing under one name, cast without a target, defeats target-bound ambiguity checks silently; listing it changes nothing. Check raw cast targets before adding an action to a duty list, and do not let damage effects alone certify assigned DPS.
+
+- 2026-10-19: A first normal capture cannot use --resume, and --wait-for-reset does not wait when the run itself stops to keep the finalization reserve; schedule the next resume after the hourly window instead of relaunching at once. Golden replay helpers that read one class's output section (combat) break on the first fixture of a class with its own section (druid); select the section by class and assert empty contexts explicitly.

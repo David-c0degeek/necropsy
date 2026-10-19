@@ -95,6 +95,12 @@ boss. Holy-Nova-heavy add fights on Garr and Majordomo keep unknown duty, and
 one actor with conflicting Priest/Warrior evidence is excluded; Garr has no
 eligible Shadow peer.
 
+Restoration Druid/Alliance/HPS evidence covers nine MC bosses with a personal
+fight and up to five Restoration Druid peers each. Sulfuron has no personal
+fight because the log records no faction for the subject there, so the tool
+forms no comparison for that boss. One Majordomo peer who took repeated boss
+melee keeps an unknown role.
+
 Priest reports also show friendly credited absorption by ability and recipient,
 separating Power Word: Shield from Persistent Shield and other recorded effects.
 The shield review prompt asks for coordination with tanks and healers; absorption

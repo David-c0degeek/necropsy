@@ -9,7 +9,7 @@ Season of Mastery and Hardcore catalog entries do not approve Era policies.
 `coverage.json` records evidence against stable keys
 `raid/encounter/class/category/metric/faction`. Missing records mean TODO.
 The partial register deliberately certifies no complete domain cells.
-Current inventory:51 archives,834 actor cases,575 recipient cases,289 owned-pet
+Current inventory:52 archives,893 actor cases,634 recipient cases,347 owned-pet
 contexts,9 actor-effect contexts,12 summon contexts,18 removal contexts,
 12 raid-interruption contexts and60 absorption-by-ability oracle contexts.
 
@@ -63,7 +63,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 575 retained recipient contexts, without changing original actor expectations:
+for 634 retained recipient contexts, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
@@ -314,3 +314,15 @@ ten cases to match the fixture's `excluded_cohort_sources`, to stay in the
 overall cohort with unknown role, and never to appear in an eligible comparison
 cohort. The exclusion of the conflicting actor is incidental to missing Priest
 duty actions; the runtime has no general class-identity conflict check.
+
+`restoration-druid-duty-boundary.json` is the independent duty-boundary oracle
+for `mc-restoration-druid-raid-context`, bound to the archive SHA-256. All 59
+selected fights record repeated listed Druid healing casts and no feral, balance,
+bear or form actions. It lists one Majordomo peer whose runtime duty stays
+unknown under recorded boss melee pressure, and five Sulfuron peers that keep
+runtime Restoration duty but form no comparison cohort because the subject's
+Sulfuron fight was not acquired (no factionID in the player details). Each
+exclusion records its expected runtime role, and the replay checks it: unknown
+duty stays unknown, and known duty is excluded only where personal context is
+missing. Magmadar's Careerhealer pet 52 has no valid owner and no owner listing,
+so no pet context is frozen for it.

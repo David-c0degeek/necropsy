@@ -179,9 +179,22 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_absorption_abilities(doc, fixture["label"], out)
 
 
-# Independent duty boundary for the final Shadow capture; the runtime must keep
-# every case it lists out of the eligible comparison cohort.
-DUTY_BOUNDARIES = {"mc-shadow-priest-raid-context": ROOT / "shadow-priest-duty-boundary.json"}
+# Independent duty boundaries; the runtime must keep every case they list out of
+# the eligible comparison cohort, with the role each case records.
+DUTY_BOUNDARIES = {
+    "mc-shadow-priest-raid-context": (
+        ROOT / "shadow-priest-duty-boundary.json",
+        ("holy_nova_heavy", "class_identity_conflicts"),
+    ),
+    "mc-restoration-druid-raid-context": (
+        ROOT / "restoration-druid-duty-boundary.json",
+        ("unknown_duty_exclusions", "no_subject_cohort_exclusions"),
+    ),
+}
+
+
+def _role(value: Any) -> Any:
+    return value["value"] if isinstance(value, dict) else value
 
 
 def _assert_cohort_exclusions(doc: dict[str, Any], fixture: dict[str, Any]) -> None:
@@ -191,24 +204,32 @@ def _assert_cohort_exclusions(doc: dict[str, Any], fixture: dict[str, Any]) -> N
             "eligible_cohort_counts"
         ]
     if fixture["label"] in DUTY_BOUNDARIES:
-        boundary = json.loads(DUTY_BOUNDARIES[fixture["label"]].read_text(encoding="utf-8"))
+        path, groups = DUTY_BOUNDARIES[fixture["label"]]
+        boundary = json.loads(path.read_text(encoding="utf-8"))
         assert boundary["archive_sha256"] == fixture["sha256"]
-        cases = boundary["holy_nova_heavy"] + boundary["class_identity_conflicts"]
+        cases = [c for group in groups for c in boundary[group]]
         key = ("report", "fight", "actor", "player", "kind")
-        assert sorted(tuple(c[k] for k in key) for c in cases) == sorted(
-            tuple(c[k] for k in key) for c in excluded
+        assert sorted((*(c[k] for k in key), _role(c["runtime_role"])) for c in cases) == sorted(
+            (*(c[k] for k in key), c.get("expected_role")) for c in excluded
         )
+    missing = set(fixture.get("missing_subject_encounters", []))
     for case in excluded:
+        assert case["reason"] and all(type(case[k]) is int for k in ("fight", "actor")), case
         where = (case["report"], case["fight"], case["player"])
         retained = [
-            entry
+            (boss, entry)
             for boss in doc["bosses"]
             for entry in boss["overall_cohort"]
             if (entry["report_code"], entry["fight_id"], entry["player"]) == where
         ]
-        # Retained as context with unresolved duty, never an eligible comparison.
+        # Retained as context with the recorded role, never an eligible comparison.
         assert len(retained) == 1, case
-        assert retained[0]["combat"]["role"]["value"] is None, case
+        boss, entry = retained[0]
+        expected = case.get("expected_role")
+        assert (entry.get("combat") or entry["druid"])["role"]["value"] == expected, case
+        if expected is not None:
+            # A known duty is excluded only because the boss has no personal context.
+            assert boss["encounter_id"] in missing and boss["subject"] is None, case
         assert not any(
             (entry["report_code"], entry["fight_id"], entry["player"]) == where
             for boss in doc["bosses"]
@@ -565,6 +586,12 @@ def _assert_owned_pets(doc: dict[str, Any], fixture: str, db: Path) -> None:
                 for direction in ("source", "target")
             }
             hunter = entry.get("hunter")
+            if hunter is None and "combat" not in entry:
+                # These frozen Druid contexts contain no qualified owned units, and the Druid
+                # analysis currently has no pet view. Fail if a future positive context
+                # requires that support.
+                assert "druid" in entry and expected["pets"] == [] and coverage == [], case["id"]
+                continue
             pet_analysis = hunter if hunter is not None else entry["combat"]
             assert {p["actor_id"] for p in pet_analysis["pets"]} == ids
             assert (
@@ -750,8 +777,9 @@ def _assert_boss_replay(
         assert boss["subject"] is None
         assert boss["playbook"].get("excluded_subject") is None
         assert boss["playbook"].get("duty_context") is None
+        section = "druid" if marker["subject"]["class_id"] == 2 else "combat"
         personal_context = dict(
-            class_bosses(doc, "missing-personal", "combat")[boss["encounter_id"]]["context"]
+            class_bosses(doc, "missing-personal", section)[boss["encounter_id"]]["context"]
         )
         assert personal_context["Build"] == personal_context["Encounter duty"] == "Unknown"
     else:

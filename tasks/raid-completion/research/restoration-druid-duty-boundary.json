@@ -1,0 +1,206 @@
+{
+  "archive_sha256": "f877b45fb514fae34ecfb13628a92b2cd5018248522948ca9c068ab6b80d1a6c",
+  "basis": "Direct raw SOURCE cast enumeration by report masterData ability name against the configured druid.yaml action groups, own form applybuff events, and recipient-qualified friendly healing, compared with the native analysis.json overall_cohort/cohort split and druid role notes.",
+  "duty_action_lists": {
+    "healing": [
+      "Healing Touch",
+      "Rejuvenation",
+      "Regrowth",
+      "Tranquility",
+      "Swiftmend"
+    ],
+    "feral": [
+      "Claw",
+      "Shred",
+      "Ravage",
+      "Pounce",
+      "Rake",
+      "Rip",
+      "Ferocious Bite",
+      "Tiger's Fury"
+    ],
+    "balance": [
+      "Wrath",
+      "Starfire",
+      "Moonfire",
+      "Insect Swarm",
+      "Hurricane"
+    ],
+    "tanking": [
+      "Maul",
+      "Swipe",
+      "Swipe (Bear)",
+      "Growl",
+      "Challenging Roar"
+    ],
+    "forms": [
+      "Cat Form",
+      "Bear Form",
+      "Dire Bear Form",
+      "Moonkin Form"
+    ]
+  },
+  "all_actors_raw": {
+    "actors": 59,
+    "min_listed_healing_casts": 6,
+    "feral_balance_tank_casts": 0,
+    "form_applications": 0
+  },
+  "runtime_roles": {
+    "('you', 'restoration', True)": 9,
+    "('top', 'restoration', False)": 5,
+    "('top', 'restoration', True)": 44,
+    "('top', None, False)": 1
+  },
+  "eligible_cohort_counts": {
+    "50663": 5,
+    "50664": 5,
+    "50665": 5,
+    "50666": 5,
+    "50667": 5,
+    "50668": 5,
+    "50669": 0,
+    "50670": 5,
+    "50671": 4,
+    "50672": 5
+  },
+  "personal_assessments": {
+    "50663": true,
+    "50664": true,
+    "50665": true,
+    "50666": true,
+    "50667": true,
+    "50668": true,
+    "50669": false,
+    "50670": true,
+    "50671": true,
+    "50672": true
+  },
+  "unknown_duty_exclusions": [
+    {
+      "case": "mc-restoration-druid-actor-28",
+      "report": "Pm296TdXqH1Anaht",
+      "fight": 39,
+      "actor": 11,
+      "player": "Animal",
+      "encounter_id": 50671,
+      "listed_druid_healing_casts": 49,
+      "feral_casts": 0,
+      "balance_casts": 0,
+      "tanking_casts": 0,
+      "form_applications": {},
+      "friendly_healing": 84627,
+      "runtime_role": null,
+      "raw_boss_melee": {
+        "source": "Majordomo Executus",
+        "game_id": 12018,
+        "ability": "Melee",
+        "hits": 4,
+        "stream": "TARGET pages, targetID==actor, type damage"
+      },
+      "kind": "boss-melee-pressure-unknown-duty",
+      "reason": "Repeated direct boss melee pressure conflicts with a simple action-based duty, so runtime duty stays unknown despite repeated listed Druid healing casts and no feral, balance, bear or form actions. Retained in overall context; excluded from healer comparison; not judged as poor healing or as a tank."
+    }
+  ],
+  "no_subject_cohort_exclusions": [
+    {
+      "case": "mc-restoration-druid-actor-3",
+      "report": "2MQcNqwvp3r7k8TK",
+      "fight": 43,
+      "actor": 1,
+      "player": "Meowzas",
+      "encounter_id": 50669,
+      "listed_druid_healing_casts": 50,
+      "feral_casts": 0,
+      "balance_casts": 0,
+      "tanking_casts": 0,
+      "form_applications": {},
+      "friendly_healing": 74266,
+      "runtime_role": "restoration",
+      "kind": "no-subject-fight-no-cohort",
+      "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+    },
+    {
+      "case": "mc-restoration-druid-actor-5",
+      "report": "3cDKJnNt7GQvRzmd",
+      "fight": 62,
+      "actor": 27,
+      "player": "Anenga",
+      "encounter_id": 50669,
+      "listed_druid_healing_casts": 44,
+      "feral_casts": 0,
+      "balance_casts": 0,
+      "tanking_casts": 0,
+      "form_applications": {},
+      "friendly_healing": 67846,
+      "runtime_role": "restoration",
+      "kind": "no-subject-fight-no-cohort",
+      "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+    },
+    {
+      "case": "mc-restoration-druid-actor-22",
+      "report": "GNcfxkPQq9WLZKYV",
+      "fight": 52,
+      "actor": 31,
+      "player": "Aldraie",
+      "encounter_id": 50669,
+      "listed_druid_healing_casts": 20,
+      "feral_casts": 0,
+      "balance_casts": 0,
+      "tanking_casts": 0,
+      "form_applications": {},
+      "friendly_healing": 25039,
+      "runtime_role": "restoration",
+      "kind": "no-subject-fight-no-cohort",
+      "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+    },
+    {
+      "case": "mc-restoration-druid-actor-25",
+      "report": "LXN9aYqJKwtPgmQr",
+      "fight": 35,
+      "actor": 12,
+      "player": "Didu",
+      "encounter_id": 50669,
+      "listed_druid_healing_casts": 40,
+      "feral_casts": 0,
+      "balance_casts": 0,
+      "tanking_casts": 0,
+      "form_applications": {},
+      "friendly_healing": 61174,
+      "runtime_role": "restoration",
+      "kind": "no-subject-fight-no-cohort",
+      "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+    },
+    {
+      "case": "mc-restoration-druid-actor-48",
+      "report": "hWynZF4rwcM9Np7t",
+      "fight": 52,
+      "actor": 19,
+      "player": "Eblis",
+      "encounter_id": 50669,
+      "listed_druid_healing_casts": 56,
+      "feral_casts": 0,
+      "balance_casts": 0,
+      "tanking_casts": 0,
+      "form_applications": {},
+      "friendly_healing": 82596,
+      "runtime_role": "restoration",
+      "kind": "no-subject-fight-no-cohort",
+      "reason": "Runtime role is restoration, but the subject fight for this boss was not acquired (no factionID in the player details), and the runtime builds no comparison cohort without a subject fight."
+    }
+  ],
+  "missing_subject_encounters": [
+    50669
+  ],
+  "missing_pet_listings": [
+    {
+      "report": "DbG1RBjckXmt7frQ",
+      "fight": 10,
+      "actor": 24,
+      "player": "Careerhealer",
+      "encounter_id": 50664,
+      "note": "Native limitation: pet 52 has no valid owner; no owner listing file; pet context not frozen."
+    }
+  ],
+  "limitation": "Repeated listed healing casts do not certify assigned healing duty, raid assignment or healing quality. Absence of form or feral actions in this capture is observed, not a general rule."
+}
