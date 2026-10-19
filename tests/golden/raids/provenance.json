@@ -1030,6 +1030,173 @@
           "reason": "Repeated boss melee leaves duty unresolved despite positive owned damage; retained in overall context but excluded from DPS comparison."
         }
       ]
+    },
+    {
+      "label": "mc-shadow-priest-raid-context",
+      "url": "https://vanilla.warcraftlogs.com/character/id/74578049?zone=2000",
+      "category": "Shadow",
+      "metric": "dps",
+      "partition": 1,
+      "sources": 50,
+      "stopped": null,
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7",
+      "captured_date": "2026-10-18",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "encounters": [
+        50663,
+        50664,
+        50665,
+        50666,
+        50667,
+        50668,
+        50669,
+        50670,
+        50671,
+        50672
+      ],
+      "encounter_context": true,
+      "complete_player_streams": 100,
+      "complete_pet_streams": 2,
+      "complete_encounter_scopes": 100,
+      "missing_pet_listings": 0,
+      "missing_owner_listing_files": 0,
+      "cohort_counts": {
+        "50663": 5,
+        "50664": 5,
+        "50665": 5,
+        "50666": 5,
+        "50667": 5,
+        "50668": 5,
+        "50669": 5,
+        "50670": 5,
+        "50671": 5,
+        "50672": 5
+      },
+      "eligible_cohort_counts": {
+        "50663": 4,
+        "50664": 5,
+        "50665": 5,
+        "50666": 0,
+        "50667": 4,
+        "50668": 5,
+        "50669": 5,
+        "50670": 5,
+        "50671": 2,
+        "50672": 5
+      },
+      "excluded_cohort_sources": [
+        {
+          "report": "rkmzWQpMTvwnX63F",
+          "fight": 8,
+          "actor": 33,
+          "player": "Scrotymcboog",
+          "encounter_id": 50666,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "7LWhyHCvMDRkt23z",
+          "fight": 36,
+          "actor": 44,
+          "player": "Kerzon",
+          "encounter_id": 50666,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "fqZjTbFDt78gBHR6",
+          "fight": 70,
+          "actor": 23,
+          "player": "Nicericelady",
+          "encounter_id": 50666,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "yCkpzxW4QbcBNLqf",
+          "fight": 45,
+          "actor": 35,
+          "player": "Gaussxd",
+          "encounter_id": 50666,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "zCQJxLTKZ7cGVR3W",
+          "fight": 17,
+          "actor": 38,
+          "player": "Serafiora",
+          "encounter_id": 50666,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "Tn9r3vwdaGfQ7Wyz",
+          "fight": 23,
+          "actor": 31,
+          "player": "Scrotymcboog",
+          "encounter_id": 50671,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "fWDArhM3NKk2T1jB",
+          "fight": 44,
+          "actor": 31,
+          "player": "Divam",
+          "encounter_id": 50671,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "z6G13gN8tXyA7a9b",
+          "fight": 29,
+          "actor": 20,
+          "player": "Bønger",
+          "encounter_id": 50671,
+          "kind": "holy-nova-heavy-unknown-duty",
+          "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+        },
+        {
+          "report": "2w93Gx4LJhMBbWga",
+          "fight": 78,
+          "actor": 208,
+          "player": "도봉순",
+          "encounter_id": 50663,
+          "kind": "class-identity-conflict",
+          "reason": "Catalog, playerDetails and ranking metadata label a Shadow Priest, while combatantInfo shows Berserker Stance and Warrior gear and owned casts are Heroic Strike/Sunder Armor/Bloodthirst. Class identity conflicts; runtime leaves duty unknown because no listed Priest action is recorded, not because it detects class conflict. Retained in raw registers; never Priest/Shadow duty or comparison evidence."
+        },
+        {
+          "report": "2w93Gx4LJhMBbWga",
+          "fight": 97,
+          "actor": 208,
+          "player": "도봉순",
+          "encounter_id": 50667,
+          "kind": "class-identity-conflict",
+          "reason": "Catalog, playerDetails and ranking metadata label a Shadow Priest, while combatantInfo shows Berserker Stance and Warrior gear and owned casts are Heroic Strike/Sunder Armor/Bloodthirst. Class identity conflicts; runtime leaves duty unknown because no listed Priest action is recorded, not because it detects class conflict. Retained in raw registers; never Priest/Shadow duty or comparison evidence."
+        }
+      ],
+      "missing_subject_encounters": [
+        50663,
+        50664,
+        50665,
+        50666,
+        50667,
+        50668,
+        50669,
+        50670,
+        50671,
+        50672
+      ],
+      "excluded_subject_encounters": [],
+      "recipient_fact_cases": 50,
+      "owned_pet_contexts": 50,
+      "owned_pet_units": 1,
+      "superseded_partial_archives": [
+        "bc17324e97f832c2d5705205a1ad5b154cf457f6010cf63d0b8411e5da4807a5",
+        "a3c063dde1bc4ac7eeaf88cb0668a4b2828750c5b76749bdfe9c689b0ee84bb2"
+      ],
+      "observation_scope": "Final normal Shadow/Alliance/DPS acquisition (third resume, no stop) retains50 acquired comparison actors, five per MC boss, with40 runtime-eligible DPS peers. Personal assessment is absent for all ten bosses: the subject recorded Holy, not Shadow, in every fight. Eight Holy-Nova-heavy peers keep unknown duty (Holy Nova is not in the configured Priest duty-action lists) and one actor with conflicting Priest/Warrior identity evidence (two fights) is excluded; runtime has no general class-conflict check. Garr has no eligible peer and stays TODO. This is comparison collection, not full class/cell or ranked-damage acceptance."
     }
   ],
   "capture_dates": [

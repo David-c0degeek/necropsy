@@ -152623,6 +152623,7780 @@
       "archive": "raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
       "entries": "raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.entries",
       "sha256": "a39fbc82ab18a9762204d2541f6b63798592a64e3808ef53732925bbf626b8a1"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "1hY7PN23JftGpHFw",
+      "fight": 17,
+      "actor": 15,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 33,
+        "duration_ms": 46873,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 34103,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            3545,
+            28478
+          ],
+          "10947": [
+            6562,
+            14327,
+            22069,
+            31645,
+            39428
+          ],
+          "18807": [
+            6562,
+            9711,
+            14328,
+            17428,
+            22069,
+            25244,
+            31645,
+            34795,
+            39428,
+            42595,
+            45778
+          ],
+          "28779": [
+            3332
+          ]
+        },
+        "damage_by_actor": {
+          "73": 34103
+        },
+        "target_game_ids": {
+          "73": 12056
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 6338,
+          "critical_events": 286,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 282,
+            "5": 2
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              22586,
+              "death",
+              -1,
+              26,
+              null,
+              0,
+              null
+            ],
+            [
+              22588,
+              "death",
+              -1,
+              21,
+              null,
+              0,
+              null
+            ],
+            [
+              22784,
+              "death",
+              -1,
+              31,
+              null,
+              0,
+              null
+            ],
+            [
+              33879,
+              "death",
+              -1,
+              47,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-1",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "1hY7PN23JftGpHFw",
+      "fight": 25,
+      "actor": 15,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50669,
+        "revision": 33,
+        "duration_ms": 91733,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 72758,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 1909
+        },
+        "casts_ms": {
+          "10894": [
+            2605,
+            4120,
+            5621,
+            7120,
+            8621,
+            32206,
+            45155,
+            46954,
+            65088,
+            75437
+          ],
+          "10947": [
+            14771,
+            22520,
+            38574,
+            75171,
+            83221
+          ],
+          "14751": [
+            37070
+          ],
+          "15407": [
+            49471,
+            52721,
+            55887,
+            58987,
+            66988,
+            70238,
+            86354,
+            89537
+          ],
+          "16666": [
+            45055
+          ],
+          "17531": [
+            73437
+          ],
+          "18807": [
+            10139,
+            14771,
+            17887,
+            22521,
+            25721,
+            28854,
+            33921,
+            38574,
+            41771,
+            76938,
+            78455,
+            83221
+          ],
+          "28779": [
+            2387
+          ],
+          "5019": [
+            61404,
+            63004
+          ]
+        },
+        "damage_by_actor": {
+          "15": 765,
+          "75": 49441,
+          "76": 22552
+        },
+        "target_game_ids": {
+          "15": 40010638,
+          "75": 12098,
+          "76": 11662
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 14510,
+          "critical_events": 743,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 736,
+            "5": 4
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              56523,
+              "death",
+              -1,
+              76,
+              4,
+              0,
+              null
+            ],
+            [
+              74971,
+              "death",
+              -1,
+              76,
+              2,
+              0,
+              null
+            ],
+            [
+              77204,
+              "death",
+              -1,
+              76,
+              3,
+              0,
+              null
+            ],
+            [
+              78321,
+              "death",
+              -1,
+              76,
+              1,
+              0,
+              null
+            ],
+            [
+              91722,
+              "death",
+              -1,
+              75,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              10422,
+              "interrupt",
+              9,
+              76,
+              2,
+              1769,
+              19775
+            ],
+            [
+              23488,
+              "interrupt",
+              6,
+              76,
+              1,
+              6554,
+              19775
+            ],
+            [
+              29005,
+              "interrupt",
+              13,
+              76,
+              4,
+              6554,
+              19775
+            ],
+            [
+              34589,
+              "interrupt",
+              41,
+              76,
+              4,
+              1769,
+              19775
+            ],
+            [
+              43755,
+              "interrupt",
+              10,
+              76,
+              4,
+              6554,
+              19775
+            ],
+            [
+              43988,
+              "interrupt",
+              22,
+              76,
+              1,
+              6554,
+              19775
+            ],
+            [
+              44539,
+              "interrupt",
+              25,
+              76,
+              2,
+              6554,
+              19775
+            ],
+            [
+              49272,
+              "interrupt",
+              24,
+              76,
+              4,
+              1769,
+              19775
+            ],
+            [
+              51322,
+              "interrupt",
+              13,
+              76,
+              2,
+              6554,
+              19775
+            ],
+            [
+              56655,
+              "interrupt",
+              22,
+              76,
+              1,
+              6554,
+              19775
+            ],
+            [
+              62488,
+              "interrupt",
+              24,
+              76,
+              1,
+              1769,
+              19775
+            ],
+            [
+              64505,
+              "interrupt",
+              13,
+              76,
+              2,
+              6554,
+              19775
+            ],
+            [
+              70921,
+              "interrupt",
+              22,
+              76,
+              2,
+              6554,
+              19775
+            ],
+            [
+              73956,
+              "interrupt",
+              8,
+              76,
+              3,
+              6554,
+              19775
+            ],
+            [
+              75272,
+              "interrupt",
+              41,
+              76,
+              1,
+              1769,
+              19775
+            ]
+          ]
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-2",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "1hY7PN23JftGpHFw",
+      "fight": 32,
+      "actor": 15,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50672,
+        "revision": 33,
+        "duration_ms": 71394,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 53510,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 1061
+        },
+        "casts_ms": {
+          "10894": [
+            529,
+            25929,
+            50847
+          ],
+          "10947": [
+            3547,
+            11263,
+            19146,
+            28929,
+            36762,
+            44529,
+            53863,
+            61663,
+            69414
+          ],
+          "14751": [
+            9763
+          ],
+          "15407": [
+            69414
+          ],
+          "17531": [
+            51079
+          ],
+          "18807": [
+            3547,
+            6649,
+            11263,
+            14480,
+            19147,
+            20656,
+            23814,
+            28930,
+            32096,
+            36763,
+            39930,
+            44529,
+            47629,
+            53863,
+            57049,
+            61663,
+            64746
+          ],
+          "28779": [
+            9712
+          ]
+        },
+        "damage_by_actor": {
+          "83": 53510
+        },
+        "target_game_ids": {
+          "83": 11502
+        },
+        "pet_ownership": {
+          "61": {
+            "game_id": 13835816,
+            "fight_owner": 17,
+            "master_owner": 17
+          }
+        },
+        "encounter_context": {
+          "events": 11828,
+          "critical_events": 544,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 541,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              59913,
+              "death",
+              -1,
+              61,
+              null,
+              0,
+              null
+            ],
+            [
+              65597,
+              "death",
+              -1,
+              21,
+              null,
+              0,
+              null
+            ],
+            [
+              71380,
+              "death",
+              -1,
+              83,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-3",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "29kAxDd7pRChZHFP",
+      "fight": 2,
+      "actor": 14,
+      "player": "Pookie",
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 10028,
+        "duration_ms": 21567,
+        "actor_class": "Priest",
+        "actor_game_id": 33857665,
+        "totals": {
+          "damage": 16495,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 798
+        },
+        "casts_ms": {
+          "10060": [
+            7576
+          ],
+          "10894": [
+            3803,
+            5307,
+            6817
+          ],
+          "10934": [
+            11993,
+            14946,
+            16958,
+            18968
+          ],
+          "10947": [
+            9971,
+            20468
+          ],
+          "15261": [
+            3331
+          ],
+          "28779": [
+            4888
+          ]
+        },
+        "damage_by_actor": {
+          "3": 1413,
+          "65": 11472,
+          "66": 3610
+        },
+        "target_game_ids": {
+          "3": 59555680,
+          "65": 12118,
+          "66": 12119
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 4204,
+          "critical_events": 248,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 244,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "65": [
+              46
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "46/65": 1429
+          },
+          "mind_control_transitions": [
+            [
+              3358,
+              "applydebuff",
+              66,
+              3,
+              null,
+              20604,
+              null
+            ],
+            [
+              4888,
+              "applydebuff",
+              66,
+              55,
+              null,
+              20604,
+              null
+            ],
+            [
+              6272,
+              "removedebuff",
+              66,
+              55,
+              null,
+              20604,
+              null
+            ],
+            [
+              7600,
+              "removedebuff",
+              66,
+              3,
+              null,
+              20604,
+              null
+            ],
+            [
+              9709,
+              "applydebuff",
+              66,
+              3,
+              null,
+              20604,
+              null
+            ],
+            [
+              9709,
+              "applydebuff",
+              66,
+              46,
+              null,
+              20604,
+              null
+            ],
+            [
+              14410,
+              "removedebuff",
+              66,
+              3,
+              null,
+              20604,
+              null
+            ],
+            [
+              14563,
+              "applydebuff",
+              66,
+              47,
+              null,
+              20604,
+              null
+            ],
+            [
+              17795,
+              "removedebuff",
+              66,
+              47,
+              null,
+              20604,
+              null
+            ]
+          ],
+          "deaths": [
+            [
+              17580,
+              "death",
+              -1,
+              66,
+              1,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              11331,
+              "interrupt",
+              46,
+              2,
+              null,
+              2139,
+              9750
+            ]
+          ]
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-4",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "2XLchFjybdHg3wQD",
+      "fight": 71,
+      "actor": 15,
+      "player": "Stepbro",
+      "expected": {
+        "encounter_id": 50670,
+        "revision": 1,
+        "duration_ms": 53625,
+        "actor_class": "Priest",
+        "actor_game_id": 35750630,
+        "totals": {
+          "damage": 44310,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 1314
+        },
+        "casts_ms": {
+          "10894": [
+            2312,
+            3811,
+            5320,
+            6826,
+            28325,
+            29875,
+            31367,
+            52610
+          ],
+          "10947": [
+            9839,
+            17569,
+            25409,
+            34820,
+            42514,
+            50361
+          ],
+          "14751": [
+            8089
+          ],
+          "17531": [
+            23798
+          ],
+          "18807": [
+            9978,
+            13041,
+            17638,
+            20708,
+            25568,
+            34916,
+            37950,
+            42644,
+            45701,
+            50485
+          ],
+          "23271": [
+            7888
+          ],
+          "26166": [
+            33124
+          ]
+        },
+        "damage_by_actor": {
+          "142": 33062,
+          "143": 11248
+        },
+        "target_game_ids": {
+          "142": 11988,
+          "143": 11672
+        },
+        "pet_ownership": {
+          "40": {
+            "game_id": 8335175,
+            "fight_owner": 23,
+            "master_owner": 23
+          },
+          "9": {
+            "game_id": 8347177,
+            "fight_owner": 8,
+            "master_owner": 8
+          }
+        },
+        "encounter_context": {
+          "events": 7823,
+          "critical_events": 391,
+          "critical_hit_types": {
+            "17": 10,
+            "2": 381
+          },
+          "fire_critical_mages_by_target": {
+            "142": [
+              36
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "36/142": 4907
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              53610,
+              "death",
+              -1,
+              142,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-5",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "2w93Gx4LJhMBbWga",
+      "fight": 78,
+      "actor": 208,
+      "player": "도봉순",
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 10033,
+        "duration_ms": 50333,
+        "actor_class": "Priest",
+        "actor_game_id": 27601587,
+        "totals": {
+          "damage": 35881,
+          "effective_healing": 60,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "1": [
+            5500,
+            5534,
+            8127,
+            8270,
+            10198,
+            11794,
+            12999,
+            13400,
+            15004,
+            16366,
+            17853,
+            18857,
+            19199,
+            20639,
+            20738,
+            22474,
+            23800,
+            25341,
+            27242,
+            27376,
+            29562,
+            29829,
+            31568,
+            33298,
+            35021,
+            36357,
+            37694,
+            39037,
+            40380,
+            41492,
+            41714,
+            43053,
+            44387,
+            45727,
+            47088,
+            47341,
+            48740,
+            49041,
+            50145
+          ],
+          "11556": [
+            32965
+          ],
+          "11585": [
+            13266
+          ],
+          "11597": [
+            5401,
+            6912,
+            20571,
+            29167
+          ],
+          "12328": [
+            8703
+          ],
+          "1680": [
+            23904
+          ],
+          "20569": [
+            10863
+          ],
+          "23894": [
+            10409,
+            22142,
+            30738,
+            42595
+          ],
+          "2457": [
+            12809
+          ],
+          "2458": [
+            13849
+          ],
+          "25286": [
+            15137,
+            17079,
+            22828,
+            24604,
+            31881,
+            34189,
+            36147,
+            37934,
+            39715,
+            43278,
+            45061
+          ],
+          "2687": [
+            28107
+          ],
+          "363880": [
+            38124
+          ],
+          "7373": [
+            14993,
+            25498,
+            34954
+          ]
+        },
+        "damage_by_actor": {
+          "256": 19161,
+          "257": 16720
+        },
+        "target_game_ids": {
+          "256": 12118,
+          "257": 12119
+        },
+        "pet_ownership": {
+          "232": {
+            "game_id": 5023091,
+            "fight_owner": 227,
+            "master_owner": 227
+          }
+        },
+        "encounter_context": {
+          "events": 6144,
+          "critical_events": 258,
+          "critical_hit_types": {
+            "17": 1,
+            "2": 257
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [
+            [
+              3762,
+              "applydebuff",
+              257,
+              202,
+              null,
+              20604,
+              null
+            ],
+            [
+              5669,
+              "removedebuff",
+              257,
+              202,
+              null,
+              20604,
+              null
+            ],
+            [
+              6492,
+              "applydebuff",
+              257,
+              202,
+              null,
+              20604,
+              null
+            ],
+            [
+              8127,
+              "applydebuff",
+              257,
+              220,
+              null,
+              20604,
+              null
+            ],
+            [
+              9886,
+              "removedebuff",
+              257,
+              220,
+              null,
+              20604,
+              null
+            ],
+            [
+              12298,
+              "removedebuff",
+              257,
+              202,
+              null,
+              20604,
+              null
+            ],
+            [
+              12961,
+              "applydebuff",
+              257,
+              221,
+              null,
+              20604,
+              null
+            ],
+            [
+              14580,
+              "applydebuff",
+              257,
+              224,
+              null,
+              20604,
+              null
+            ],
+            [
+              14598,
+              "removedebuff",
+              257,
+              221,
+              null,
+              20604,
+              null
+            ],
+            [
+              16862,
+              "removedebuff",
+              257,
+              224,
+              null,
+              20604,
+              null
+            ]
+          ],
+          "deaths": [
+            [
+              12309,
+              "death",
+              -1,
+              202,
+              null,
+              0,
+              null
+            ],
+            [
+              19560,
+              "death",
+              -1,
+              257,
+              1,
+              0,
+              null
+            ],
+            [
+              27956,
+              "death",
+              -1,
+              257,
+              2,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-6",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "2w93Gx4LJhMBbWga",
+      "fight": 97,
+      "actor": 208,
+      "player": "도봉순",
+      "expected": {
+        "encounter_id": 50667,
+        "revision": 10033,
+        "duration_ms": 37753,
+        "actor_class": "Priest",
+        "actor_game_id": 27601587,
+        "totals": {
+          "damage": 33438,
+          "effective_healing": 615,
+          "absorbed_amount": 0,
+          "incoming_damage": 7568
+        },
+        "casts_ms": {
+          "1": [
+            4802,
+            4846,
+            6188,
+            6598,
+            7530,
+            8365,
+            8867,
+            10532,
+            10578,
+            11915,
+            13256,
+            14584,
+            15938,
+            17263,
+            18610,
+            19941,
+            21271,
+            22676,
+            24276,
+            25871,
+            27481,
+            29073,
+            33201,
+            35286,
+            36898
+          ],
+          "11597": [
+            4724,
+            6234,
+            7758
+          ],
+          "1680": [
+            13883,
+            25896
+          ],
+          "1719": [
+            10836
+          ],
+          "20617": [
+            3917
+          ],
+          "23894": [
+            12335,
+            18343,
+            24342,
+            35131
+          ],
+          "25286": [
+            12312,
+            14093,
+            15877,
+            17659,
+            19423,
+            21226,
+            23138,
+            25275,
+            27405,
+            29538,
+            33190,
+            35823
+          ],
+          "363880": [
+            1622
+          ],
+          "6613": [
+            10041
+          ],
+          "7373": [
+            16337,
+            21397
+          ]
+        },
+        "damage_by_actor": {
+          "273": 33438
+        },
+        "target_game_ids": {
+          "273": 12264
+        },
+        "pet_ownership": {
+          "245": {
+            "game_id": 11636,
+            "fight_owner": 220,
+            "master_owner": 220
+          },
+          "232": {
+            "game_id": 5023091,
+            "fight_owner": 227,
+            "master_owner": 227
+          }
+        },
+        "encounter_context": {
+          "events": 4224,
+          "critical_events": 178,
+          "critical_hit_types": {
+            "2": 177,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "273": [
+              207
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              13614,
+              "death",
+              -1,
+              245,
+              1,
+              0,
+              null
+            ],
+            [
+              13614,
+              "death",
+              -1,
+              245,
+              2,
+              0,
+              null
+            ],
+            [
+              13614,
+              "death",
+              -1,
+              245,
+              3,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-7",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "3MnQgaFbp21BzxdK",
+      "fight": 7,
+      "actor": 3,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50664,
+        "revision": 1,
+        "duration_ms": 50794,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 38067,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            819,
+            25868
+          ],
+          "10947": [
+            3831,
+            11666,
+            19568,
+            28867,
+            36682,
+            44512
+          ],
+          "14751": [
+            18074
+          ],
+          "18807": [
+            3831,
+            6937,
+            11667,
+            14878,
+            19569,
+            22671,
+            28867,
+            32015,
+            36683,
+            39764,
+            44512,
+            47679
+          ],
+          "28779": [
+            602
+          ]
+        },
+        "damage_by_actor": {
+          "57": 38067
+        },
+        "target_game_ids": {
+          "57": 11982
+        },
+        "pet_ownership": {
+          "49": {
+            "game_id": 9828777,
+            "fight_owner": 4,
+            "master_owner": 4
+          },
+          "33": {
+            "game_id": 9950492,
+            "fight_owner": 1,
+            "master_owner": 1
+          }
+        },
+        "encounter_context": {
+          "events": 7438,
+          "critical_events": 321,
+          "critical_hit_types": {
+            "17": 1,
+            "2": 320
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              36592,
+              "death",
+              -1,
+              50,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-8",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "3NvZkzg2a68dxy1R",
+      "fight": 18,
+      "actor": 18,
+      "player": "Elex",
+      "expected": {
+        "encounter_id": 50665,
+        "revision": 10002,
+        "duration_ms": 42193,
+        "actor_class": "Priest",
+        "actor_game_id": 48232817,
+        "totals": {
+          "damage": 30971,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10060": [
+            1109
+          ],
+          "10894": [
+            1215,
+            2717
+          ],
+          "10934": [
+            6216,
+            8233,
+            10228,
+            12236,
+            14242,
+            16256,
+            18262,
+            20273,
+            22285,
+            24287,
+            26302,
+            28308,
+            30302,
+            32307,
+            34303,
+            36311,
+            38316,
+            40322
+          ],
+          "14751": [
+            22286
+          ],
+          "23271": [
+            1108
+          ]
+        },
+        "damage_by_actor": {
+          "67": 12628,
+          "68": 18343
+        },
+        "target_game_ids": {
+          "67": 11661,
+          "68": 12259
+        },
+        "pet_ownership": {
+          "51": {
+            "game_id": 11900146,
+            "fight_owner": 33,
+            "master_owner": 33
+          },
+          "53": {
+            "game_id": 13166198,
+            "fight_owner": 20,
+            "master_owner": 20
+          },
+          "38": {
+            "game_id": 13077354,
+            "fight_owner": 31,
+            "master_owner": 31
+          },
+          "9": {
+            "game_id": 13192955,
+            "fight_owner": 3,
+            "master_owner": 3
+          },
+          "45": {
+            "game_id": 12680734,
+            "fight_owner": 30,
+            "master_owner": 30
+          }
+        },
+        "encounter_context": {
+          "events": 5335,
+          "critical_events": 225,
+          "critical_hit_types": {
+            "17": 6,
+            "2": 219
+          },
+          "fire_critical_mages_by_target": {
+            "67": [
+              41
+            ],
+            "68": [
+              41
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "41/67": 193,
+            "41/68": 1647
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              9220,
+              "death",
+              -1,
+              67,
+              1,
+              0,
+              null
+            ],
+            [
+              16707,
+              "death",
+              -1,
+              67,
+              2,
+              0,
+              null
+            ],
+            [
+              29039,
+              "death",
+              -1,
+              33,
+              null,
+              0,
+              null
+            ],
+            [
+              33173,
+              "death",
+              -1,
+              38,
+              null,
+              0,
+              null
+            ],
+            [
+              40883,
+              "death",
+              -1,
+              53,
+              null,
+              0,
+              null
+            ],
+            [
+              42168,
+              "death",
+              -1,
+              68,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-9",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "6z8pNgPdkLa4vY3B",
+      "fight": 47,
+      "actor": 31,
+      "player": "Riffriff",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 10063,
+        "duration_ms": 46735,
+        "actor_class": "Priest",
+        "actor_game_id": 23419141,
+        "totals": {
+          "damage": 35367,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 1200
+        },
+        "casts_ms": {
+          "10894": [
+            4442,
+            20749,
+            29202
+          ],
+          "10947": [
+            4442,
+            18917,
+            26086,
+            35626,
+            43424
+          ],
+          "11474": [
+            961
+          ],
+          "14751": [
+            33807
+          ],
+          "18807": [
+            5929,
+            8963,
+            11072,
+            13559,
+            22251,
+            26086,
+            30711,
+            35645,
+            38876,
+            43554,
+            45605
+          ]
+        },
+        "damage_by_actor": {
+          "136": 35367
+        },
+        "target_game_ids": {
+          "136": 12056
+        },
+        "pet_ownership": {
+          "64": {
+            "game_id": 10363997,
+            "fight_owner": 34,
+            "master_owner": 34
+          },
+          "51": {
+            "game_id": 9877018,
+            "fight_owner": 28,
+            "master_owner": 28
+          },
+          "37": {
+            "game_id": 10302558,
+            "fight_owner": 2,
+            "master_owner": 2
+          },
+          "38": {
+            "game_id": 9949837,
+            "fight_owner": 15,
+            "master_owner": 15
+          }
+        },
+        "encounter_context": {
+          "events": 6010,
+          "critical_events": 255,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 251,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              19959,
+              "death",
+              -1,
+              51,
+              null,
+              0,
+              null
+            ],
+            [
+              21962,
+              "death",
+              -1,
+              38,
+              null,
+              0,
+              null
+            ],
+            [
+              44225,
+              "death",
+              -1,
+              25,
+              null,
+              0,
+              null
+            ],
+            [
+              44243,
+              "death",
+              -1,
+              21,
+              null,
+              0,
+              null
+            ],
+            [
+              44243,
+              "death",
+              -1,
+              27,
+              null,
+              0,
+              null
+            ],
+            [
+              45247,
+              "death",
+              -1,
+              19,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-10",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "6z8pNgPdkLa4vY3B",
+      "fight": 58,
+      "actor": 31,
+      "player": "Riffriff",
+      "expected": {
+        "encounter_id": 50669,
+        "revision": 10063,
+        "duration_ms": 53302,
+        "actor_class": "Priest",
+        "actor_game_id": 23419141,
+        "totals": {
+          "damage": 46339,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 1060
+        },
+        "casts_ms": {
+          "10894": [
+            1054,
+            2555,
+            4051,
+            5565,
+            7067,
+            17268,
+            42814
+          ],
+          "10947": [
+            10064,
+            17092,
+            26782,
+            34991,
+            42814,
+            51595
+          ],
+          "14751": [
+            25078
+          ],
+          "17531": [
+            30003
+          ],
+          "18807": [
+            10163,
+            13351,
+            18800,
+            21891,
+            26914,
+            30237,
+            35450,
+            38643,
+            44318,
+            47567,
+            51595
+          ],
+          "27869": [
+            35218
+          ]
+        },
+        "damage_by_actor": {
+          "141": 9712,
+          "142": 35567,
+          "31": 1060
+        },
+        "target_game_ids": {
+          "31": 23419141,
+          "141": 11662,
+          "142": 12098
+        },
+        "pet_ownership": {
+          "51": {
+            "game_id": 9877018,
+            "fight_owner": 28,
+            "master_owner": 28
+          },
+          "37": {
+            "game_id": 10302558,
+            "fight_owner": 2,
+            "master_owner": 2
+          },
+          "54": {
+            "game_id": 10128334,
+            "fight_owner": 32,
+            "master_owner": 32
+          },
+          "38": {
+            "game_id": 9949837,
+            "fight_owner": 15,
+            "master_owner": 15
+          },
+          "39": {
+            "game_id": 10196169,
+            "fight_owner": 33,
+            "master_owner": 33
+          }
+        },
+        "encounter_context": {
+          "events": 7486,
+          "critical_events": 413,
+          "critical_hit_types": {
+            "17": 5,
+            "2": 408
+          },
+          "fire_critical_mages_by_target": {
+            "141": [
+              6
+            ],
+            "142": [
+              6
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              8854,
+              "death",
+              -1,
+              141,
+              1,
+              0,
+              null
+            ],
+            [
+              18203,
+              "death",
+              -1,
+              141,
+              4,
+              0,
+              null
+            ],
+            [
+              21202,
+              "death",
+              -1,
+              141,
+              3,
+              0,
+              null
+            ],
+            [
+              24418,
+              "death",
+              -1,
+              141,
+              2,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              7428,
+              "interrupt",
+              30,
+              141,
+              4,
+              1769,
+              19775
+            ],
+            [
+              7513,
+              "interrupt",
+              29,
+              141,
+              2,
+              1769,
+              19775
+            ],
+            [
+              7513,
+              "interrupt",
+              50,
+              141,
+              1,
+              1769,
+              19775
+            ],
+            [
+              7591,
+              "interrupt",
+              27,
+              141,
+              3,
+              1769,
+              19775
+            ],
+            [
+              14287,
+              "interrupt",
+              19,
+              141,
+              4,
+              6554,
+              19775
+            ],
+            [
+              20247,
+              "interrupt",
+              30,
+              141,
+              2,
+              1769,
+              19775
+            ]
+          ]
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-11",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "6z8pNgPdkLa4vY3B",
+      "fight": 62,
+      "actor": 31,
+      "player": "Riffriff",
+      "expected": {
+        "encounter_id": 50670,
+        "revision": 10063,
+        "duration_ms": 54114,
+        "actor_class": "Priest",
+        "actor_game_id": 23419141,
+        "totals": {
+          "damage": 48201,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            2880,
+            4395,
+            5892,
+            21080,
+            22578,
+            29085
+          ],
+          "10947": [
+            12046,
+            29085,
+            38659,
+            46430
+          ],
+          "14751": [
+            27383
+          ],
+          "17531": [
+            33819
+          ],
+          "18807": [
+            7399,
+            12046,
+            15176,
+            18020,
+            19544,
+            24071,
+            30592,
+            34088,
+            38659,
+            41715,
+            46430,
+            49672,
+            52622
+          ]
+        },
+        "damage_by_actor": {
+          "143": 34004,
+          "144": 14197
+        },
+        "target_game_ids": {
+          "143": 11988,
+          "144": 11672
+        },
+        "pet_ownership": {
+          "64": {
+            "game_id": 10363997,
+            "fight_owner": 34,
+            "master_owner": 34
+          },
+          "51": {
+            "game_id": 9877018,
+            "fight_owner": 28,
+            "master_owner": 28
+          },
+          "37": {
+            "game_id": 10302558,
+            "fight_owner": 2,
+            "master_owner": 2
+          },
+          "38": {
+            "game_id": 9949837,
+            "fight_owner": 15,
+            "master_owner": 15
+          },
+          "54": {
+            "game_id": 10128334,
+            "fight_owner": 32,
+            "master_owner": 32
+          },
+          "39": {
+            "game_id": 10196169,
+            "fight_owner": 33,
+            "master_owner": 33
+          }
+        },
+        "encounter_context": {
+          "events": 8681,
+          "critical_events": 417,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 414,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-12",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "6z8pNgPdkLa4vY3B",
+      "fight": 67,
+      "actor": 31,
+      "player": "Riffriff",
+      "expected": {
+        "encounter_id": 50672,
+        "revision": 10063,
+        "duration_ms": 81058,
+        "actor_class": "Priest",
+        "actor_game_id": 23419141,
+        "totals": {
+          "damage": 64787,
+          "effective_healing": 0,
+          "absorbed_amount": 961,
+          "incoming_damage": 781
+        },
+        "casts_ms": {
+          "10894": [
+            1844,
+            11747,
+            27259,
+            55417
+          ],
+          "10947": [
+            1844,
+            11563,
+            21534,
+            30252,
+            38313,
+            46124,
+            53911,
+            61564,
+            69523,
+            76641
+          ],
+          "14751": [
+            19890
+          ],
+          "17531": [
+            16372
+          ],
+          "18807": [
+            3345,
+            6507,
+            13236,
+            16626,
+            21534,
+            24595,
+            30252,
+            33630,
+            38313,
+            41500,
+            46193,
+            49247,
+            53911,
+            56907,
+            61564,
+            64804,
+            69564,
+            72597,
+            76641,
+            79818
+          ],
+          "27869": [
+            33330
+          ]
+        },
+        "damage_by_actor": {
+          "149": 64006,
+          "31": 781
+        },
+        "target_game_ids": {
+          "31": 23419141,
+          "149": 11502
+        },
+        "pet_ownership": {
+          "37": {
+            "game_id": 10302558,
+            "fight_owner": 2,
+            "master_owner": 2
+          },
+          "38": {
+            "game_id": 9949837,
+            "fight_owner": 15,
+            "master_owner": 15
+          },
+          "39": {
+            "game_id": 10196169,
+            "fight_owner": 33,
+            "master_owner": 33
+          }
+        },
+        "encounter_context": {
+          "events": 11416,
+          "critical_events": 518,
+          "critical_hit_types": {
+            "17": 8,
+            "2": 509,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              32928,
+              "death",
+              -1,
+              38,
+              null,
+              0,
+              null
+            ],
+            [
+              57179,
+              "death",
+              -1,
+              37,
+              null,
+              0,
+              null
+            ],
+            [
+              57179,
+              "death",
+              -1,
+              39,
+              null,
+              0,
+              null
+            ],
+            [
+              59221,
+              "death",
+              -1,
+              16,
+              null,
+              0,
+              null
+            ],
+            [
+              63538,
+              "death",
+              -1,
+              28,
+              null,
+              0,
+              null
+            ],
+            [
+              63782,
+              "death",
+              -1,
+              25,
+              null,
+              0,
+              null
+            ],
+            [
+              74905,
+              "death",
+              -1,
+              26,
+              null,
+              0,
+              null
+            ],
+            [
+              81006,
+              "death",
+              -1,
+              149,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-13",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "7Cxmnp8qbYZBDGRf",
+      "fight": 35,
+      "actor": 12,
+      "player": "Kadyía",
+      "expected": {
+        "encounter_id": 50672,
+        "revision": 1,
+        "duration_ms": 52086,
+        "actor_class": "Priest",
+        "actor_game_id": 10483449,
+        "totals": {
+          "damage": 40314,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 4134
+        },
+        "casts_ms": {
+          "10894": [
+            393,
+            26698
+          ],
+          "10947": [
+            3411,
+            13409,
+            20910,
+            29692,
+            37875,
+            45408
+          ],
+          "14751": [
+            1827
+          ],
+          "18807": [
+            3411,
+            4911,
+            8110,
+            13410,
+            16560,
+            20910,
+            24159,
+            29709,
+            32775,
+            37875,
+            40342,
+            45409,
+            48492,
+            51609
+          ],
+          "23271": [
+            23892
+          ]
+        },
+        "damage_by_actor": {
+          "94": 40314
+        },
+        "target_game_ids": {
+          "94": 11502
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 7294,
+          "critical_events": 504,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 501
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-14",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "7LWhyHCvMDRkt23z",
+      "fight": 36,
+      "actor": 44,
+      "player": "Kerzon",
+      "expected": {
+        "encounter_id": 50666,
+        "revision": 1,
+        "duration_ms": 31604,
+        "actor_class": "Priest",
+        "actor_game_id": 64428749,
+        "totals": {
+          "damage": 66136,
+          "effective_healing": 1752,
+          "absorbed_amount": 0,
+          "incoming_damage": 1907
+        },
+        "casts_ms": {
+          "10894": [
+            1681
+          ],
+          "10942": [
+            8567
+          ],
+          "11350": [
+            8580
+          ],
+          "13241": [
+            4784
+          ],
+          "17531": [
+            19639
+          ],
+          "27801": [
+            4784,
+            8550,
+            9286,
+            11267,
+            12796,
+            14294,
+            15788,
+            17290,
+            18805,
+            20298,
+            21804,
+            23340,
+            24832,
+            26321,
+            27847,
+            29341,
+            30838
+          ],
+          "27869": [
+            28629
+          ],
+          "28779": [
+            10481
+          ]
+        },
+        "damage_by_actor": {
+          "131": 5243,
+          "132": 58986,
+          "44": 1907
+        },
+        "target_game_ids": {
+          "44": 64428749,
+          "131": 12057,
+          "132": 12099
+        },
+        "pet_ownership": {
+          "50": {
+            "game_id": 12832179,
+            "fight_owner": 33,
+            "master_owner": 33
+          },
+          "53": {
+            "game_id": 11559876,
+            "fight_owner": 22,
+            "master_owner": 22
+          }
+        },
+        "encounter_context": {
+          "events": 5834,
+          "critical_events": 439,
+          "critical_hit_types": {
+            "17": 14,
+            "2": 424,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "131": [
+              6,
+              41
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "6/131": 274
+          },
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-15",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "7LWhyHCvMDRkt23z",
+      "fight": 45,
+      "actor": 44,
+      "player": "Kerzon",
+      "expected": {
+        "encounter_id": 50669,
+        "revision": 1,
+        "duration_ms": 34463,
+        "actor_class": "Priest",
+        "actor_game_id": 64428749,
+        "totals": {
+          "damage": 29147,
+          "effective_healing": 481,
+          "absorbed_amount": 1011,
+          "incoming_damage": 98
+        },
+        "casts_ms": {
+          "10060": [
+            6332
+          ],
+          "10894": [
+            657
+          ],
+          "10934": [
+            20318,
+            22306,
+            24458,
+            26447,
+            29958,
+            31977,
+            33961
+          ],
+          "10947": [
+            17996,
+            27972
+          ],
+          "13241": [
+            4036
+          ],
+          "17531": [
+            22398
+          ],
+          "27661": [
+            3011
+          ],
+          "27801": [
+            4036,
+            5541,
+            7032,
+            8538,
+            10037,
+            13448,
+            14951
+          ],
+          "28779": [
+            6331
+          ]
+        },
+        "damage_by_actor": {
+          "140": 11691,
+          "141": 17456,
+          "44": 0
+        },
+        "target_game_ids": {
+          "44": 64428749,
+          "140": 11662,
+          "141": 12098
+        },
+        "pet_ownership": {
+          "50": {
+            "game_id": 12832179,
+            "fight_owner": 33,
+            "master_owner": 33
+          },
+          "142": {
+            "game_id": 16111,
+            "fight_owner": 44,
+            "master_owner": 44
+          }
+        },
+        "encounter_context": {
+          "events": 6160,
+          "critical_events": 435,
+          "critical_hit_types": {
+            "17": 16,
+            "2": 418,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "140": [
+              6,
+              41
+            ],
+            "141": [
+              6,
+              40,
+              41
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "6/140": 372,
+            "6/141": 1228
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              3138,
+              "death",
+              -1,
+              142,
+              null,
+              0,
+              null
+            ],
+            [
+              9113,
+              "death",
+              -1,
+              140,
+              1,
+              0,
+              null
+            ],
+            [
+              11234,
+              "death",
+              -1,
+              140,
+              3,
+              0,
+              null
+            ],
+            [
+              13813,
+              "death",
+              -1,
+              140,
+              2,
+              0,
+              null
+            ],
+            [
+              17136,
+              "death",
+              -1,
+              140,
+              4,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              5418,
+              "interrupt",
+              19,
+              140,
+              2,
+              1769,
+              19775
+            ],
+            [
+              6090,
+              "interrupt",
+              14,
+              140,
+              4,
+              1769,
+              19775
+            ],
+            [
+              12059,
+              "interrupt",
+              31,
+              140,
+              4,
+              6554,
+              19775
+            ]
+          ]
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-16",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "9zPhHyA7VcwYR4fN",
+      "fight": 41,
+      "actor": 36,
+      "player": "Kerzon",
+      "expected": {
+        "encounter_id": 50667,
+        "revision": 1,
+        "duration_ms": 14080,
+        "actor_class": "Priest",
+        "actor_game_id": 64428749,
+        "totals": {
+          "damage": 9891,
+          "effective_healing": 0,
+          "absorbed_amount": 2427,
+          "incoming_damage": 373
+        },
+        "casts_ms": {
+          "10894": [
+            1417
+          ],
+          "10934": [
+            4919,
+            8430,
+            10433,
+            13455
+          ],
+          "10947": [
+            6422
+          ],
+          "15261": [
+            1231
+          ]
+        },
+        "damage_by_actor": {
+          "141": 9891
+        },
+        "target_game_ids": {
+          "141": 12264
+        },
+        "pet_ownership": {
+          "61": {
+            "game_id": 10084573,
+            "fight_owner": 14,
+            "master_owner": 14
+          }
+        },
+        "encounter_context": {
+          "events": 2715,
+          "critical_events": 165,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 163
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-17",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Ap4cKdJhXY1zjF6w",
+      "fight": 37,
+      "actor": 8,
+      "player": "Renevieve",
+      "expected": {
+        "encounter_id": 50665,
+        "revision": 1,
+        "duration_ms": 22710,
+        "actor_class": "Priest",
+        "actor_game_id": 31390294,
+        "totals": {
+          "damage": 16890,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            1537
+          ],
+          "10947": [
+            4942,
+            13995
+          ],
+          "18807": [
+            6148,
+            9219,
+            14663,
+            18143
+          ],
+          "23271": [
+            5109
+          ]
+        },
+        "damage_by_actor": {
+          "124": 16890
+        },
+        "target_game_ids": {
+          "124": 12259
+        },
+        "pet_ownership": {
+          "64": {
+            "game_id": 13484896,
+            "fight_owner": 19,
+            "master_owner": 19
+          },
+          "48": {
+            "game_id": 11862537,
+            "fight_owner": 17,
+            "master_owner": 17
+          },
+          "63": {
+            "game_id": 10084573,
+            "fight_owner": 36,
+            "master_owner": 36
+          }
+        },
+        "encounter_context": {
+          "events": 3879,
+          "critical_events": 197,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 193,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "124": [
+              21
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "21/124": 1314
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              22695,
+              "death",
+              -1,
+              124,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-18",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "CzMJ4TxqrD1F863g",
+      "fight": 6,
+      "actor": 24,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 10042,
+        "duration_ms": 37726,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 27389,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            1995,
+            23531
+          ],
+          "10934": [
+            5517,
+            7511,
+            9509,
+            11521,
+            13514,
+            15521,
+            17527,
+            19520,
+            21526,
+            23531,
+            27044,
+            29046,
+            31056,
+            33061,
+            35053,
+            37093
+          ],
+          "28779": [
+            1646
+          ]
+        },
+        "damage_by_actor": {
+          "62": 27389
+        },
+        "target_game_ids": {
+          "62": 12118
+        },
+        "pet_ownership": {
+          "34": {
+            "game_id": 12125525,
+            "fight_owner": 6,
+            "master_owner": 6
+          }
+        },
+        "encounter_context": {
+          "events": 5958,
+          "critical_events": 259,
+          "critical_hit_types": {
+            "17": 9,
+            "2": 250
+          },
+          "fire_critical_mages_by_target": {
+            "62": [
+              14,
+              52
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "52/62": 4181
+          },
+          "mind_control_transitions": [
+            [
+              4610,
+              "applydebuff",
+              61,
+              5,
+              null,
+              20604,
+              null
+            ],
+            [
+              6679,
+              "removedebuff",
+              61,
+              5,
+              null,
+              20604,
+              null
+            ],
+            [
+              9470,
+              "applydebuff",
+              61,
+              40,
+              null,
+              20604,
+              null
+            ],
+            [
+              9738,
+              "removedebuff",
+              61,
+              40,
+              null,
+              20604,
+              null
+            ],
+            [
+              14304,
+              "applydebuff",
+              61,
+              22,
+              null,
+              20604,
+              null
+            ],
+            [
+              15929,
+              "applydebuff",
+              61,
+              9,
+              null,
+              20604,
+              null
+            ],
+            [
+              16262,
+              "removedebuff",
+              61,
+              9,
+              null,
+              20604,
+              null
+            ],
+            [
+              16459,
+              "removedebuff",
+              61,
+              22,
+              null,
+              20604,
+              null
+            ],
+            [
+              19953,
+              "applydebuff",
+              61,
+              3,
+              null,
+              20604,
+              null
+            ],
+            [
+              20810,
+              "removedebuff",
+              61,
+              3,
+              null,
+              20604,
+              null
+            ]
+          ],
+          "deaths": [
+            [
+              17306,
+              "death",
+              -1,
+              61,
+              2,
+              0,
+              null
+            ],
+            [
+              21179,
+              "death",
+              -1,
+              61,
+              1,
+              0,
+              null
+            ],
+            [
+              37723,
+              "death",
+              -1,
+              62,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-19",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "CzMJ4TxqrD1F863g",
+      "fight": 24,
+      "actor": 24,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50667,
+        "revision": 10042,
+        "duration_ms": 23938,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 15573,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10060": [
+            2441
+          ],
+          "10934": [
+            2268,
+            4612,
+            6623,
+            8627,
+            10625,
+            12635,
+            14635,
+            16643,
+            18639,
+            20653,
+            22642
+          ],
+          "28779": [
+            2403
+          ]
+        },
+        "damage_by_actor": {
+          "76": 15573
+        },
+        "target_game_ids": {
+          "76": 12264
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 3861,
+          "critical_events": 149,
+          "critical_hit_types": {
+            "17": 5,
+            "2": 144
+          },
+          "fire_critical_mages_by_target": {
+            "76": [
+              52
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "52/76": 1840
+          },
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": [
+            [
+              9687,
+              "interrupt",
+              76,
+              45,
+              null,
+              19715,
+              19943
+            ]
+          ]
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-20",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "DdV2MTN4pXJAYrhn",
+      "fight": 41,
+      "actor": 25,
+      "player": "Riffriff",
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 10076,
+        "duration_ms": 40197,
+        "actor_class": "Priest",
+        "actor_game_id": 23419141,
+        "totals": {
+          "damage": 29625,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 2000
+        },
+        "casts_ms": {
+          "10894": [
+            1764,
+            3265,
+            4766,
+            25492
+          ],
+          "10947": [
+            14314,
+            22307,
+            31846,
+            39751
+          ],
+          "14751": [
+            30144
+          ],
+          "17531": [
+            34964
+          ],
+          "18807": [
+            6288,
+            9658,
+            14314,
+            17561,
+            22307,
+            26993,
+            31846,
+            35147,
+            39751
+          ]
+        },
+        "damage_by_actor": {
+          "131": 23721,
+          "132": 5904
+        },
+        "target_game_ids": {
+          "131": 12118,
+          "132": 12119
+        },
+        "pet_ownership": {
+          "48": {
+            "game_id": 10196169,
+            "fight_owner": 37,
+            "master_owner": 37
+          },
+          "19": {
+            "game_id": 9949837,
+            "fight_owner": 18,
+            "master_owner": 18
+          },
+          "59": {
+            "game_id": 9877018,
+            "fight_owner": 35,
+            "master_owner": 35
+          },
+          "12": {
+            "game_id": 10302558,
+            "fight_owner": 11,
+            "master_owner": 11
+          }
+        },
+        "encounter_context": {
+          "events": 5608,
+          "critical_events": 259,
+          "critical_hit_types": {
+            "17": 5,
+            "2": 254
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [
+            [
+              5954,
+              "applydebuff",
+              132,
+              34,
+              null,
+              20604,
+              null
+            ],
+            [
+              7805,
+              "removedebuff",
+              132,
+              34,
+              null,
+              20604,
+              null
+            ],
+            [
+              9864,
+              "applydebuff",
+              132,
+              36,
+              null,
+              20604,
+              null
+            ],
+            [
+              13114,
+              "applydebuff",
+              132,
+              32,
+              null,
+              20604,
+              null
+            ],
+            [
+              14730,
+              "removedebuff",
+              132,
+              32,
+              null,
+              20604,
+              null
+            ],
+            [
+              15616,
+              "removedebuff",
+              132,
+              36,
+              null,
+              20604,
+              null
+            ],
+            [
+              16353,
+              "applydebuff",
+              132,
+              31,
+              null,
+              20604,
+              null
+            ],
+            [
+              17723,
+              "removedebuff",
+              132,
+              31,
+              null,
+              20604,
+              null
+            ],
+            [
+              19573,
+              "applydebuff",
+              132,
+              22,
+              null,
+              20604,
+              null
+            ],
+            [
+              22331,
+              "removedebuff",
+              132,
+              22,
+              null,
+              20604,
+              null
+            ]
+          ],
+          "deaths": [
+            [
+              4918,
+              "death",
+              -1,
+              39,
+              null,
+              0,
+              null
+            ],
+            [
+              8376,
+              "death",
+              -1,
+              18,
+              null,
+              0,
+              null
+            ],
+            [
+              15641,
+              "death",
+              -1,
+              36,
+              null,
+              0,
+              null
+            ],
+            [
+              17956,
+              "death",
+              -1,
+              132,
+              2,
+              0,
+              null
+            ],
+            [
+              24739,
+              "death",
+              -1,
+              132,
+              1,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-21",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "JBAyjTKnCdaHrFxk",
+      "fight": 8,
+      "actor": 10,
+      "player": "Solex",
+      "expected": {
+        "encounter_id": 50664,
+        "revision": 10001,
+        "duration_ms": 40636,
+        "actor_class": "Priest",
+        "actor_game_id": 50033276,
+        "totals": {
+          "damage": 28676,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            936
+          ],
+          "10947": [
+            3951,
+            12356,
+            20557,
+            28497,
+            36560
+          ],
+          "18807": [
+            4141,
+            7252,
+            12540,
+            15781,
+            20649,
+            23794,
+            28652,
+            31861,
+            36672,
+            39865
+          ],
+          "28779": [
+            10688
+          ]
+        },
+        "damage_by_actor": {
+          "77": 28676
+        },
+        "target_game_ids": {
+          "77": 11982
+        },
+        "pet_ownership": {
+          "34": {
+            "game_id": 9376380,
+            "fight_owner": 13,
+            "master_owner": 13
+          },
+          "19": {
+            "game_id": 10040804,
+            "fight_owner": 18,
+            "master_owner": 18
+          },
+          "72": {
+            "game_id": 8836,
+            "fight_owner": 43,
+            "master_owner": 43
+          },
+          "41": {
+            "game_id": 6990190,
+            "fight_owner": 15,
+            "master_owner": 15
+          },
+          "73": {
+            "game_id": 8836,
+            "fight_owner": 33,
+            "master_owner": 33
+          },
+          "74": {
+            "game_id": 8836,
+            "fight_owner": 28,
+            "master_owner": 28
+          },
+          "75": {
+            "game_id": 8836,
+            "fight_owner": 42,
+            "master_owner": 42
+          },
+          "60": {
+            "game_id": 5616678,
+            "fight_owner": 50,
+            "master_owner": 50
+          },
+          "76": {
+            "game_id": 8836,
+            "fight_owner": 6,
+            "master_owner": 6
+          },
+          "78": {
+            "game_id": 8836,
+            "fight_owner": 38,
+            "master_owner": 38
+          }
+        },
+        "encounter_context": {
+          "events": 7193,
+          "critical_events": 349,
+          "critical_hit_types": {
+            "17": 7,
+            "2": 341,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "77": [
+              7,
+              32,
+              52
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "7/77": 13159
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              18598,
+              "death",
+              -1,
+              73,
+              null,
+              0,
+              null
+            ],
+            [
+              18599,
+              "death",
+              -1,
+              76,
+              null,
+              0,
+              null
+            ],
+            [
+              18599,
+              "death",
+              -1,
+              78,
+              null,
+              0,
+              null
+            ],
+            [
+              19747,
+              "death",
+              -1,
+              72,
+              null,
+              0,
+              null
+            ],
+            [
+              19748,
+              "death",
+              -1,
+              75,
+              null,
+              0,
+              null
+            ],
+            [
+              25684,
+              "death",
+              -1,
+              39,
+              null,
+              0,
+              null
+            ],
+            [
+              39406,
+              "death",
+              -1,
+              74,
+              null,
+              0,
+              null
+            ],
+            [
+              40635,
+              "death",
+              -1,
+              77,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-22",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Kqf1jV9WCG2Mr4hz",
+      "fight": 31,
+      "actor": 31,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50670,
+        "revision": 34,
+        "duration_ms": 49668,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 46830,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            716,
+            2225,
+            3725,
+            25074,
+            26591,
+            28092
+          ],
+          "10947": [
+            6733,
+            13916,
+            21741,
+            31183,
+            39125,
+            46783
+          ],
+          "14751": [
+            20242
+          ],
+          "17531": [
+            34426
+          ],
+          "18807": [
+            6733,
+            10316,
+            13917,
+            17133,
+            21741,
+            31183,
+            34442,
+            39125,
+            42201,
+            46783
+          ],
+          "28779": [
+            643
+          ]
+        },
+        "damage_by_actor": {
+          "81": 34212,
+          "82": 12618
+        },
+        "target_game_ids": {
+          "81": 11988,
+          "82": 11672
+        },
+        "pet_ownership": {
+          "46": {
+            "game_id": 13395616,
+            "fight_owner": 38,
+            "master_owner": 38
+          }
+        },
+        "encounter_context": {
+          "events": 10374,
+          "critical_events": 549,
+          "critical_hit_types": {
+            "17": 6,
+            "2": 543
+          },
+          "fire_critical_mages_by_target": {
+            "81": [
+              15
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "15/81": 1878
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              49668,
+              "death",
+              -1,
+              81,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-23",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "MJ3qxVc7WTzpfaXd",
+      "fight": 5,
+      "actor": 34,
+      "player": "Renevieve",
+      "expected": {
+        "encounter_id": 50664,
+        "revision": 27,
+        "duration_ms": 50956,
+        "actor_class": "Priest",
+        "actor_game_id": 31390294,
+        "totals": {
+          "damage": 36911,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            1666,
+            18577,
+            44259
+          ],
+          "10947": [
+            5442,
+            13623,
+            21756,
+            30083,
+            37942,
+            47443
+          ],
+          "18807": [
+            6114,
+            9128,
+            14018,
+            22154,
+            25683,
+            30390,
+            33450,
+            38220,
+            41250,
+            47898
+          ],
+          "23271": [
+            5831
+          ]
+        },
+        "damage_by_actor": {
+          "58": 36911
+        },
+        "target_game_ids": {
+          "58": 11982
+        },
+        "pet_ownership": {
+          "49": {
+            "game_id": 11862537,
+            "fight_owner": 43,
+            "master_owner": 43
+          },
+          "53": {
+            "game_id": 10084573,
+            "fight_owner": 20,
+            "master_owner": 20
+          }
+        },
+        "encounter_context": {
+          "events": 7631,
+          "critical_events": 445,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 443
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-24",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "MJ3qxVc7WTzpfaXd",
+      "fight": 16,
+      "actor": 34,
+      "player": "Renevieve",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 27,
+        "duration_ms": 39458,
+        "actor_class": "Priest",
+        "actor_game_id": 31390294,
+        "totals": {
+          "damage": 27151,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 2025
+        },
+        "casts_ms": {
+          "10894": [
+            1671,
+            14076
+          ],
+          "10947": [
+            4809,
+            19990,
+            29342,
+            37721
+          ],
+          "14751": [
+            27547
+          ],
+          "18807": [
+            6007,
+            9161,
+            15584,
+            21007,
+            24420,
+            30076,
+            33219,
+            38133
+          ],
+          "23271": [
+            5184
+          ]
+        },
+        "damage_by_actor": {
+          "68": 27151
+        },
+        "target_game_ids": {
+          "68": 12056
+        },
+        "pet_ownership": {
+          "53": {
+            "game_id": 10084573,
+            "fight_owner": 20,
+            "master_owner": 20
+          }
+        },
+        "encounter_context": {
+          "events": 4844,
+          "critical_events": 231,
+          "critical_hit_types": {
+            "17": 5,
+            "2": 226
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              39456,
+              "death",
+              -1,
+              68,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-25",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "P38pNxm2HKkdDb4a",
+      "fight": 30,
+      "actor": 61,
+      "player": "Kadyía",
+      "expected": {
+        "encounter_id": 50667,
+        "revision": 1,
+        "duration_ms": 22636,
+        "actor_class": "Priest",
+        "actor_game_id": 10483449,
+        "totals": {
+          "damage": 12749,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            1279
+          ],
+          "10947": [
+            5095,
+            12843,
+            20655
+          ],
+          "14751": [
+            19137
+          ],
+          "18807": [
+            5124,
+            8211,
+            12866,
+            15966,
+            20676
+          ]
+        },
+        "damage_by_actor": {
+          "100": 12749
+        },
+        "target_game_ids": {
+          "100": 12264
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 3262,
+          "critical_events": 175,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 173
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-26",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "RHp2V6QxrTNDcawd",
+      "fight": 67,
+      "actor": 30,
+      "player": "Umbranaxx",
+      "expected": {
+        "encounter_id": 50667,
+        "revision": 1,
+        "duration_ms": 22767,
+        "actor_class": "Priest",
+        "actor_game_id": 52072733,
+        "totals": {
+          "damage": 16984,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10060": [
+            5280
+          ],
+          "10934": [
+            4488,
+            7571,
+            9576,
+            11586,
+            13590,
+            15587,
+            17613,
+            19596,
+            21600
+          ],
+          "23271": [
+            4855
+          ]
+        },
+        "damage_by_actor": {
+          "179": 16984
+        },
+        "target_game_ids": {
+          "179": 12264
+        },
+        "pet_ownership": {
+          "180": {
+            "game_id": 8937,
+            "fight_owner": 140,
+            "master_owner": 140
+          }
+        },
+        "encounter_context": {
+          "events": 3394,
+          "critical_events": 184,
+          "critical_hit_types": {
+            "17": 5,
+            "2": 179
+          },
+          "fire_critical_mages_by_target": {
+            "179": [
+              37
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "37/179": 1647
+          },
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-27",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "T7pqcrzk6BPwayf8",
+      "fight": 47,
+      "actor": 48,
+      "player": "Kerzon",
+      "expected": {
+        "encounter_id": 50671,
+        "revision": 27,
+        "duration_ms": 40872,
+        "actor_class": "Priest",
+        "actor_game_id": 64428749,
+        "totals": {
+          "damage": 53788,
+          "effective_healing": 19058,
+          "absorbed_amount": 0,
+          "incoming_damage": 7969
+        },
+        "casts_ms": {
+          "1": [
+            11938,
+            34803
+          ],
+          "10060": [
+            10255
+          ],
+          "10894": [
+            2183,
+            3870,
+            5595,
+            7186,
+            8732
+          ],
+          "10934": [
+            37501
+          ],
+          "17531": [
+            14303
+          ],
+          "23063": [
+            12046
+          ],
+          "27801": [
+            12048,
+            13544,
+            15046,
+            16556,
+            18044,
+            19571,
+            21090,
+            22586,
+            24083,
+            25575,
+            27081,
+            28578,
+            30100
+          ],
+          "27869": [
+            24738
+          ],
+          "28779": [
+            10254
+          ]
+        },
+        "damage_by_actor": {
+          "148": 2442,
+          "149": 28601,
+          "150": 21576,
+          "48": 1169
+        },
+        "target_game_ids": {
+          "48": 64428749,
+          "148": 12018,
+          "149": 11664,
+          "150": 11663
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 9532,
+          "critical_events": 553,
+          "critical_hit_types": {
+            "17": 13,
+            "2": 539,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "149": [
+              22
+            ],
+            "150": [
+              22
+            ],
+            "22": [
+              22
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              13553,
+              "death",
+              -1,
+              150,
+              1,
+              0,
+              null
+            ],
+            [
+              25660,
+              "death",
+              -1,
+              149,
+              1,
+              0,
+              null
+            ],
+            [
+              25942,
+              "death",
+              -1,
+              150,
+              4,
+              0,
+              null
+            ],
+            [
+              27326,
+              "death",
+              -1,
+              150,
+              3,
+              0,
+              null
+            ],
+            [
+              29289,
+              "death",
+              -1,
+              150,
+              2,
+              0,
+              null
+            ],
+            [
+              30771,
+              "death",
+              -1,
+              149,
+              3,
+              0,
+              null
+            ],
+            [
+              32852,
+              "death",
+              -1,
+              149,
+              4,
+              0,
+              null
+            ],
+            [
+              39055,
+              "death",
+              -1,
+              149,
+              2,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "20619": [
+              [
+                27514,
+                "applybuff",
+                148,
+                149,
+                2,
+                20619,
+                null
+              ],
+              [
+                27514,
+                "applybuff",
+                148,
+                149,
+                3,
+                20619,
+                null
+              ],
+              [
+                27514,
+                "applybuff",
+                148,
+                149,
+                4,
+                20619,
+                null
+              ],
+              [
+                27514,
+                "applybuff",
+                148,
+                150,
+                2,
+                20619,
+                null
+              ],
+              [
+                29287,
+                "removebuff",
+                148,
+                150,
+                2,
+                20619,
+                null
+              ],
+              [
+                30747,
+                "removebuff",
+                148,
+                149,
+                3,
+                20619,
+                null
+              ],
+              [
+                32818,
+                "removebuff",
+                148,
+                149,
+                4,
+                20619,
+                null
+              ],
+              [
+                37500,
+                "removebuff",
+                148,
+                149,
+                2,
+                20619,
+                null
+              ]
+            ],
+            "21075": []
+          }
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_aura_ids": [
+        20619,
+        21075
+      ],
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-28",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Tn9r3vwdaGfQ7Wyz",
+      "fight": 23,
+      "actor": 31,
+      "player": "Scrotymcboog",
+      "expected": {
+        "encounter_id": 50671,
+        "revision": 1,
+        "duration_ms": 32022,
+        "actor_class": "Priest",
+        "actor_game_id": 22276443,
+        "totals": {
+          "damage": 49395,
+          "effective_healing": 13964,
+          "absorbed_amount": 0,
+          "incoming_damage": 3606
+        },
+        "casts_ms": {
+          "10060": [
+            3166
+          ],
+          "11350": [
+            5471,
+            16705
+          ],
+          "14751": [
+            6702
+          ],
+          "27801": [
+            3592,
+            5091,
+            6608,
+            8114,
+            9605,
+            11128,
+            12632,
+            14136,
+            15641,
+            17139,
+            18648,
+            20159,
+            21668,
+            23175,
+            24672,
+            26176,
+            27687,
+            29187,
+            30699
+          ]
+        },
+        "damage_by_actor": {
+          "71": 1743,
+          "72": 23029,
+          "73": 24623
+        },
+        "target_game_ids": {
+          "71": 12018,
+          "72": 11664,
+          "73": 11663
+        },
+        "pet_ownership": {
+          "69": {
+            "game_id": 8836,
+            "fight_owner": 3,
+            "master_owner": 3
+          },
+          "70": {
+            "game_id": 8836,
+            "fight_owner": 15,
+            "master_owner": 15
+          }
+        },
+        "encounter_context": {
+          "events": 7597,
+          "critical_events": 569,
+          "critical_hit_types": {
+            "17": 18,
+            "2": 551
+          },
+          "fire_critical_mages_by_target": {
+            "6": [
+              6
+            ],
+            "71": [
+              24
+            ],
+            "72": [
+              6,
+              24
+            ],
+            "73": [
+              6,
+              24
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "24/71": 379,
+            "24/72": 3750,
+            "24/73": 1241
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              7601,
+              "death",
+              -1,
+              72,
+              1,
+              0,
+              null
+            ],
+            [
+              12980,
+              "death",
+              -1,
+              69,
+              null,
+              0,
+              null
+            ],
+            [
+              12980,
+              "death",
+              -1,
+              70,
+              null,
+              0,
+              null
+            ],
+            [
+              16762,
+              "death",
+              -1,
+              73,
+              4,
+              0,
+              null
+            ],
+            [
+              17994,
+              "death",
+              -1,
+              73,
+              2,
+              0,
+              null
+            ],
+            [
+              18728,
+              "death",
+              -1,
+              73,
+              1,
+              0,
+              null
+            ],
+            [
+              20778,
+              "death",
+              -1,
+              72,
+              2,
+              0,
+              null
+            ],
+            [
+              20921,
+              "death",
+              -1,
+              72,
+              3,
+              0,
+              null
+            ],
+            [
+              23425,
+              "death",
+              -1,
+              73,
+              3,
+              0,
+              null
+            ],
+            [
+              29384,
+              "death",
+              -1,
+              72,
+              4,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "20619": [],
+            "21075": [
+              [
+                27513,
+                "applybuff",
+                71,
+                72,
+                4,
+                21075,
+                null
+              ],
+              [
+                29348,
+                "removebuff",
+                71,
+                72,
+                4,
+                21075,
+                null
+              ]
+            ]
+          }
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_aura_ids": [
+        20619,
+        21075
+      ],
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-29",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Z7V1z9wP3vBLycfD",
+      "fight": 29,
+      "actor": 20,
+      "player": "Solex",
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 43,
+        "duration_ms": 17258,
+        "actor_class": "Priest",
+        "actor_game_id": 50033276,
+        "totals": {
+          "damage": 13465,
+          "effective_healing": 0,
+          "absorbed_amount": 1011,
+          "incoming_damage": 722
+        },
+        "casts_ms": {
+          "10890": [
+            9645
+          ],
+          "10894": [
+            1847
+          ],
+          "10947": [
+            6879,
+            14380
+          ],
+          "11350": [
+            5148
+          ],
+          "13241": [
+            5147
+          ],
+          "18807": [
+            7012,
+            11145,
+            14596
+          ],
+          "28779": [
+            1847
+          ]
+        },
+        "damage_by_actor": {
+          "137": 10176,
+          "138": 2346,
+          "20": 0,
+          "27": 72,
+          "29": 55,
+          "37": 0,
+          "46": 73,
+          "47": 60,
+          "52": 683
+        },
+        "target_game_ids": {
+          "20": 50033276,
+          "27": 51251422,
+          "29": 36519653,
+          "37": 52675843,
+          "46": 60982195,
+          "47": 33286042,
+          "52": 37336215,
+          "137": 12118,
+          "138": 12119
+        },
+        "pet_ownership": {
+          "50": {
+            "game_id": 7225182,
+            "fight_owner": 48,
+            "master_owner": 48
+          },
+          "75": {
+            "game_id": 8155716,
+            "fight_owner": 32,
+            "master_owner": 32
+          }
+        },
+        "encounter_context": {
+          "events": 3320,
+          "critical_events": 223,
+          "critical_hit_types": {
+            "17": 8,
+            "2": 215
+          },
+          "fire_critical_mages_by_target": {
+            "137": [
+              45
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "45/137": 5545
+          },
+          "mind_control_transitions": [
+            [
+              4797,
+              "applydebuff",
+              138,
+              52,
+              null,
+              20604,
+              null
+            ],
+            [
+              7395,
+              "removedebuff",
+              138,
+              52,
+              null,
+              20604,
+              null
+            ],
+            [
+              8031,
+              "applydebuff",
+              138,
+              20,
+              null,
+              20604,
+              null
+            ],
+            [
+              9828,
+              "removedebuff",
+              138,
+              20,
+              null,
+              20604,
+              null
+            ],
+            [
+              12890,
+              "applydebuff",
+              138,
+              17,
+              null,
+              20604,
+              null
+            ],
+            [
+              14978,
+              "removedebuff",
+              138,
+              17,
+              null,
+              20604,
+              null
+            ]
+          ],
+          "deaths": [
+            [
+              17244,
+              "death",
+              -1,
+              137,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-30",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Z7V1z9wP3vBLycfD",
+      "fight": 33,
+      "actor": 20,
+      "player": "Solex",
+      "expected": {
+        "encounter_id": 50665,
+        "revision": 43,
+        "duration_ms": 16628,
+        "actor_class": "Priest",
+        "actor_game_id": 50033276,
+        "totals": {
+          "damage": 14680,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            1118
+          ],
+          "10947": [
+            4115,
+            12031
+          ],
+          "18807": [
+            4248,
+            7348,
+            12215,
+            15413
+          ],
+          "28779": [
+            1116
+          ]
+        },
+        "damage_by_actor": {
+          "144": 14680
+        },
+        "target_game_ids": {
+          "144": 12259
+        },
+        "pet_ownership": {
+          "50": {
+            "game_id": 7225182,
+            "fight_owner": 48,
+            "master_owner": 48
+          },
+          "10": {
+            "game_id": 7353655,
+            "fight_owner": 8,
+            "master_owner": 8
+          },
+          "75": {
+            "game_id": 8155716,
+            "fight_owner": 32,
+            "master_owner": 32
+          }
+        },
+        "encounter_context": {
+          "events": 3390,
+          "critical_events": 201,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 198
+          },
+          "fire_critical_mages_by_target": {
+            "145": [
+              45
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              14553,
+              "death",
+              -1,
+              145,
+              2,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-31",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Z7V1z9wP3vBLycfD",
+      "fight": 38,
+      "actor": 20,
+      "player": "Solex",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 43,
+        "duration_ms": 24515,
+        "actor_class": "Priest",
+        "actor_game_id": 50033276,
+        "totals": {
+          "damage": 20306,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 400
+        },
+        "casts_ms": {
+          "10894": [
+            609
+          ],
+          "10947": [
+            3608,
+            11488,
+            19521
+          ],
+          "18807": [
+            3775,
+            6840,
+            11657,
+            14872,
+            19737,
+            22988
+          ],
+          "28779": [
+            609
+          ]
+        },
+        "damage_by_actor": {
+          "153": 20306
+        },
+        "target_game_ids": {
+          "153": 12056
+        },
+        "pet_ownership": {
+          "50": {
+            "game_id": 7225182,
+            "fight_owner": 48,
+            "master_owner": 48
+          },
+          "10": {
+            "game_id": 7353655,
+            "fight_owner": 8,
+            "master_owner": 8
+          },
+          "75": {
+            "game_id": 8155716,
+            "fight_owner": 32,
+            "master_owner": 32
+          }
+        },
+        "encounter_context": {
+          "events": 3966,
+          "critical_events": 210,
+          "critical_hit_types": {
+            "17": 1,
+            "2": 209
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              24488,
+              "death",
+              -1,
+              153,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-32",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Z7V1z9wP3vBLycfD",
+      "fight": 44,
+      "actor": 20,
+      "player": "Solex",
+      "expected": {
+        "encounter_id": 50669,
+        "revision": 43,
+        "duration_ms": 26527,
+        "actor_class": "Priest",
+        "actor_game_id": 50033276,
+        "totals": {
+          "damage": 22033,
+          "effective_healing": 0,
+          "absorbed_amount": 1007,
+          "incoming_damage": 688
+        },
+        "casts_ms": {
+          "10894": [
+            835,
+            2398,
+            6046
+          ],
+          "10947": [
+            10066,
+            17997,
+            26129
+          ],
+          "11350": [
+            4517
+          ],
+          "13241": [
+            4500
+          ],
+          "18807": [
+            10199,
+            13332,
+            18165,
+            21430,
+            26379
+          ],
+          "28779": [
+            6045
+          ]
+        },
+        "damage_by_actor": {
+          "156": 14778,
+          "157": 7255,
+          "20": 0
+        },
+        "target_game_ids": {
+          "20": 50033276,
+          "156": 12098,
+          "157": 11662
+        },
+        "pet_ownership": {
+          "50": {
+            "game_id": 7225182,
+            "fight_owner": 48,
+            "master_owner": 48
+          },
+          "10": {
+            "game_id": 7353655,
+            "fight_owner": 8,
+            "master_owner": 8
+          }
+        },
+        "encounter_context": {
+          "events": 5377,
+          "critical_events": 359,
+          "critical_hit_types": {
+            "17": 11,
+            "2": 348
+          },
+          "fire_critical_mages_by_target": {
+            "156": [
+              11,
+              45
+            ],
+            "157": [
+              22,
+              45
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "45/157": 512
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              18818,
+              "death",
+              -1,
+              157,
+              3,
+              0,
+              null
+            ],
+            [
+              19149,
+              "death",
+              -1,
+              157,
+              4,
+              0,
+              null
+            ],
+            [
+              19581,
+              "death",
+              -1,
+              157,
+              2,
+              0,
+              null
+            ],
+            [
+              19982,
+              "death",
+              -1,
+              157,
+              1,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              17173,
+              "interrupt",
+              46,
+              157,
+              2,
+              6554,
+              19775
+            ],
+            [
+              17184,
+              "interrupt",
+              29,
+              157,
+              3,
+              6554,
+              19775
+            ],
+            [
+              17281,
+              "interrupt",
+              15,
+              157,
+              4,
+              6554,
+              19775
+            ]
+          ]
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-33",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "Z7V1z9wP3vBLycfD",
+      "fight": 47,
+      "actor": 20,
+      "player": "Solex",
+      "expected": {
+        "encounter_id": 50670,
+        "revision": 43,
+        "duration_ms": 33274,
+        "actor_class": "Priest",
+        "actor_game_id": 50033276,
+        "totals": {
+          "damage": 28189,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            1515,
+            3249,
+            4899,
+            14347
+          ],
+          "10947": [
+            7882,
+            17363,
+            25366
+          ],
+          "18807": [
+            8032,
+            11197,
+            17546,
+            20662,
+            25462,
+            28594,
+            31827
+          ],
+          "28779": [
+            14346
+          ]
+        },
+        "damage_by_actor": {
+          "158": 21625,
+          "159": 6564
+        },
+        "target_game_ids": {
+          "158": 11988,
+          "159": 11672
+        },
+        "pet_ownership": {
+          "50": {
+            "game_id": 7225182,
+            "fight_owner": 48,
+            "master_owner": 48
+          },
+          "10": {
+            "game_id": 7353655,
+            "fight_owner": 8,
+            "master_owner": 8
+          },
+          "75": {
+            "game_id": 8155716,
+            "fight_owner": 32,
+            "master_owner": 32
+          }
+        },
+        "encounter_context": {
+          "events": 6424,
+          "critical_events": 426,
+          "critical_hit_types": {
+            "17": 13,
+            "2": 413
+          },
+          "fire_critical_mages_by_target": {
+            "158": [
+              45
+            ],
+            "159": [
+              45
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "45/158": 1328,
+            "45/159": 3547
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              6465,
+              "death",
+              -1,
+              8,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-34",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "bK3jfLWrxGczAnhm",
+      "fight": 11,
+      "actor": 21,
+      "player": "Supgap",
+      "expected": {
+        "encounter_id": 50665,
+        "revision": 10001,
+        "duration_ms": 59740,
+        "actor_class": "Priest",
+        "actor_game_id": 40010638,
+        "totals": {
+          "damage": 48124,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 4789
+        },
+        "casts_ms": {
+          "10894": [
+            2125,
+            3633,
+            5136,
+            13729,
+            27790,
+            40490
+          ],
+          "10947": [
+            8199,
+            16853,
+            24675,
+            34225,
+            43495,
+            51420
+          ],
+          "14751": [
+            32724
+          ],
+          "17531": [
+            43604
+          ],
+          "18807": [
+            8199,
+            11311,
+            16854,
+            20062,
+            24675,
+            29293,
+            34226,
+            37397,
+            43613,
+            46671,
+            51420,
+            54629
+          ],
+          "28779": [
+            1795
+          ]
+        },
+        "damage_by_actor": {
+          "44": 3088,
+          "60": 37955,
+          "61": 7081
+        },
+        "target_game_ids": {
+          "44": 11668,
+          "60": 12259,
+          "61": 11661
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 7666,
+          "critical_events": 276,
+          "critical_hit_types": {
+            "17": 6,
+            "2": 269,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "60": [
+              20
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "20/60": 4583
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              21497,
+              "death",
+              -1,
+              61,
+              1,
+              0,
+              null
+            ],
+            [
+              23288,
+              "death",
+              -1,
+              10,
+              null,
+              0,
+              null
+            ],
+            [
+              28201,
+              "death",
+              -1,
+              61,
+              2,
+              0,
+              null
+            ],
+            [
+              50768,
+              "death",
+              -1,
+              42,
+              null,
+              0,
+              null
+            ],
+            [
+              51917,
+              "death",
+              -1,
+              46,
+              1,
+              0,
+              null
+            ],
+            [
+              59540,
+              "death",
+              -1,
+              9,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-35",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "bV2CM61Fc9d3RgvA",
+      "fight": 77,
+      "actor": 41,
+      "player": "Hegred",
+      "expected": {
+        "encounter_id": 50669,
+        "revision": 10085,
+        "duration_ms": 83689,
+        "actor_class": "Priest",
+        "actor_game_id": 22276384,
+        "totals": {
+          "damage": 72314,
+          "effective_healing": 3336,
+          "absorbed_amount": 0,
+          "incoming_damage": 640
+        },
+        "casts_ms": {
+          "10060": [
+            6096
+          ],
+          "10894": [
+            1110,
+            2632,
+            4123,
+            41362,
+            60919
+          ],
+          "10934": [
+            24933,
+            26934,
+            29190,
+            32336,
+            34342,
+            36335,
+            38344,
+            41362,
+            44901,
+            46885,
+            48886,
+            50927,
+            52905,
+            54916,
+            56920,
+            58915,
+            60919,
+            64434,
+            66447,
+            68437,
+            70442,
+            77249,
+            79252,
+            81313
+          ],
+          "13241": [
+            18707
+          ],
+          "14751": [
+            15173
+          ],
+          "17531": [
+            27010
+          ],
+          "27801": [
+            7125,
+            8627,
+            10131,
+            11632,
+            13144,
+            14636,
+            16140,
+            17635,
+            19912,
+            21414
+          ],
+          "5019": [
+            72491,
+            73997,
+            83095
+          ]
+        },
+        "damage_by_actor": {
+          "147": 36571,
+          "149": 35103,
+          "41": 640
+        },
+        "target_game_ids": {
+          "41": 22276384,
+          "147": 11662,
+          "149": 12098
+        },
+        "pet_ownership": {
+          "116": {
+            "game_id": 9481808,
+            "fight_owner": 117,
+            "master_owner": 117
+          },
+          "148": {
+            "game_id": 11200,
+            "fight_owner": 17,
+            "master_owner": 17
+          },
+          "56": {
+            "game_id": 9481823,
+            "fight_owner": 54,
+            "master_owner": 54
+          }
+        },
+        "encounter_context": {
+          "events": 10518,
+          "critical_events": 436,
+          "critical_hit_types": {
+            "17": 12,
+            "2": 422,
+            "5": 2
+          },
+          "fire_critical_mages_by_target": {
+            "147": [
+              5
+            ],
+            "149": [
+              119
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "119/149": 93
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              18436,
+              "death",
+              -1,
+              147,
+              1,
+              0,
+              null
+            ],
+            [
+              29775,
+              "death",
+              -1,
+              147,
+              2,
+              0,
+              null
+            ],
+            [
+              38604,
+              "death",
+              -1,
+              147,
+              4,
+              0,
+              null
+            ],
+            [
+              40202,
+              "death",
+              -1,
+              147,
+              3,
+              0,
+              null
+            ],
+            [
+              59077,
+              "death",
+              -1,
+              148,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [
+            [
+              10573,
+              "interrupt",
+              34,
+              147,
+              1,
+              6554,
+              19775
+            ],
+            [
+              10842,
+              "interrupt",
+              84,
+              147,
+              2,
+              6554,
+              19775
+            ],
+            [
+              11213,
+              "interrupt",
+              17,
+              147,
+              4,
+              6554,
+              19775
+            ],
+            [
+              17588,
+              "interrupt",
+              119,
+              147,
+              1,
+              2139,
+              19775
+            ],
+            [
+              23487,
+              "interrupt",
+              30,
+              147,
+              2,
+              1769,
+              19775
+            ],
+            [
+              23536,
+              "interrupt",
+              17,
+              147,
+              4,
+              6554,
+              19775
+            ],
+            [
+              32497,
+              "interrupt",
+              33,
+              147,
+              3,
+              6554,
+              19775
+            ],
+            [
+              33412,
+              "interrupt",
+              115,
+              147,
+              4,
+              6554,
+              19775
+            ],
+            [
+              38369,
+              "interrupt",
+              84,
+              147,
+              3,
+              6554,
+              19775
+            ]
+          ]
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-36",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "dHDF79rBNvwCx2MZ",
+      "fight": 31,
+      "actor": 54,
+      "player": "Kerzon",
+      "expected": {
+        "encounter_id": 50664,
+        "revision": 1,
+        "duration_ms": 35892,
+        "actor_class": "Priest",
+        "actor_game_id": 64428749,
+        "totals": {
+          "damage": 25719,
+          "effective_healing": 0,
+          "absorbed_amount": 712,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10060": [
+            2031
+          ],
+          "10894": [
+            559,
+            23534
+          ],
+          "10934": [
+            4072,
+            7586,
+            9581,
+            11588,
+            13600,
+            17095,
+            19101,
+            21107,
+            23120,
+            28540,
+            32911,
+            34922
+          ],
+          "10947": [
+            5578,
+            15111,
+            26533
+          ],
+          "28779": [
+            2030
+          ]
+        },
+        "damage_by_actor": {
+          "133": 25719
+        },
+        "target_game_ids": {
+          "133": 11982
+        },
+        "pet_ownership": {
+          "132": {
+            "game_id": 7940599,
+            "fight_owner": 42,
+            "master_owner": 42
+          },
+          "77": {
+            "game_id": 8836,
+            "fight_owner": 45,
+            "master_owner": 45
+          }
+        },
+        "encounter_context": {
+          "events": 6420,
+          "critical_events": 436,
+          "critical_hit_types": {
+            "17": 5,
+            "2": 431
+          },
+          "fire_critical_mages_by_target": {
+            "133": [
+              26
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "26/133": 3188
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              13726,
+              "death",
+              -1,
+              77,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-37",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "fWDArhM3NKk2T1jB",
+      "fight": 44,
+      "actor": 31,
+      "player": "Divam",
+      "expected": {
+        "encounter_id": 50671,
+        "revision": 10048,
+        "duration_ms": 44155,
+        "actor_class": "Priest",
+        "actor_game_id": 21892305,
+        "totals": {
+          "damage": 52168,
+          "effective_healing": 34078,
+          "absorbed_amount": 0,
+          "incoming_damage": 10364
+        },
+        "casts_ms": {
+          "13241": [
+            9612
+          ],
+          "14751": [
+            6227
+          ],
+          "17531": [
+            14905
+          ],
+          "27801": [
+            5094,
+            6618,
+            8119,
+            9612,
+            11128,
+            12626,
+            14125,
+            15640,
+            17123,
+            18641,
+            20150,
+            21656,
+            23153,
+            24660,
+            26160,
+            27658,
+            29182,
+            30677,
+            32178,
+            33688,
+            35185,
+            36686
+          ],
+          "27869": [
+            24295
+          ],
+          "596": [
+            41205
+          ]
+        },
+        "damage_by_actor": {
+          "31": 1173,
+          "82": 1705,
+          "83": 21878,
+          "84": 27412
+        },
+        "target_game_ids": {
+          "31": 21892305,
+          "82": 12018,
+          "83": 11664,
+          "84": 11663
+        },
+        "pet_ownership": {
+          "85": {
+            "game_id": 8836,
+            "fight_owner": 17,
+            "master_owner": 17
+          }
+        },
+        "encounter_context": {
+          "events": 9210,
+          "critical_events": 416,
+          "critical_hit_types": {
+            "17": 7,
+            "2": 409
+          },
+          "fire_critical_mages_by_target": {
+            "82": [
+              7
+            ],
+            "83": [
+              5,
+              6,
+              7,
+              76
+            ],
+            "84": [
+              5,
+              6,
+              7,
+              76
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "7/82": 189,
+            "7/83": 84,
+            "7/84": 1124,
+            "76/83": 597,
+            "76/84": 310
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              15640,
+              "death",
+              -1,
+              83,
+              1,
+              0,
+              null
+            ],
+            [
+              20579,
+              "death",
+              -1,
+              76,
+              null,
+              0,
+              null
+            ],
+            [
+              28891,
+              "death",
+              -1,
+              84,
+              1,
+              0,
+              null
+            ],
+            [
+              36668,
+              "death",
+              -1,
+              83,
+              2,
+              0,
+              null
+            ],
+            [
+              36871,
+              "death",
+              -1,
+              85,
+              null,
+              0,
+              null
+            ],
+            [
+              37063,
+              "death",
+              -1,
+              84,
+              2,
+              0,
+              null
+            ],
+            [
+              39666,
+              "death",
+              -1,
+              84,
+              3,
+              0,
+              null
+            ],
+            [
+              40070,
+              "death",
+              -1,
+              27,
+              null,
+              0,
+              null
+            ],
+            [
+              41012,
+              "death",
+              -1,
+              6,
+              null,
+              0,
+              null
+            ],
+            [
+              42070,
+              "death",
+              -1,
+              83,
+              3,
+              0,
+              null
+            ],
+            [
+              42888,
+              "death",
+              -1,
+              84,
+              4,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "20619": [
+              [
+                28733,
+                "applybuff",
+                82,
+                83,
+                2,
+                20619,
+                null
+              ],
+              [
+                28733,
+                "applybuff",
+                82,
+                83,
+                3,
+                20619,
+                null
+              ],
+              [
+                28733,
+                "applybuff",
+                82,
+                83,
+                4,
+                20619,
+                null
+              ],
+              [
+                28733,
+                "applybuff",
+                82,
+                84,
+                1,
+                20619,
+                null
+              ],
+              [
+                28733,
+                "applybuff",
+                82,
+                84,
+                2,
+                20619,
+                null
+              ],
+              [
+                28733,
+                "applybuff",
+                82,
+                84,
+                3,
+                20619,
+                null
+              ],
+              [
+                28733,
+                "applybuff",
+                82,
+                84,
+                4,
+                20619,
+                null
+              ],
+              [
+                28875,
+                "removebuff",
+                82,
+                84,
+                1,
+                20619,
+                null
+              ],
+              [
+                36635,
+                "removebuff",
+                82,
+                83,
+                2,
+                20619,
+                null
+              ],
+              [
+                37063,
+                "removebuff",
+                82,
+                84,
+                2,
+                20619,
+                null
+              ],
+              [
+                38715,
+                "removebuff",
+                82,
+                83,
+                3,
+                20619,
+                null
+              ],
+              [
+                38715,
+                "removebuff",
+                82,
+                83,
+                4,
+                20619,
+                null
+              ],
+              [
+                38715,
+                "removebuff",
+                82,
+                84,
+                3,
+                20619,
+                null
+              ],
+              [
+                38715,
+                "removebuff",
+                82,
+                84,
+                4,
+                20619,
+                null
+              ]
+            ],
+            "21075": []
+          }
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_aura_ids": [
+        20619,
+        21075
+      ],
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-38",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "fYyLaxKWcrND2QbT",
+      "fight": 11,
+      "actor": 14,
+      "player": "Zaera",
+      "expected": {
+        "encounter_id": 50665,
+        "revision": 1,
+        "duration_ms": 21823,
+        "actor_class": "Priest",
+        "actor_game_id": 27366192,
+        "totals": {
+          "damage": 17151,
+          "effective_healing": 0,
+          "absorbed_amount": 997,
+          "incoming_damage": 1958
+        },
+        "casts_ms": {
+          "10894": [
+            211,
+            1716,
+            3228
+          ],
+          "10947": [
+            6242,
+            15576
+          ],
+          "14751": [
+            13940
+          ],
+          "18807": [
+            6242,
+            8519,
+            10788,
+            16469,
+            18729
+          ]
+        },
+        "damage_by_actor": {
+          "61": 13495,
+          "62": 3656
+        },
+        "target_game_ids": {
+          "61": 12259,
+          "62": 11661
+        },
+        "pet_ownership": {
+          "21": {
+            "game_id": 11031603,
+            "fight_owner": 12,
+            "master_owner": 12
+          },
+          "54": {
+            "game_id": 8363873,
+            "fight_owner": 13,
+            "master_owner": 13
+          }
+        },
+        "encounter_context": {
+          "events": 3758,
+          "critical_events": 190,
+          "critical_hit_types": {
+            "17": 7,
+            "2": 183
+          },
+          "fire_critical_mages_by_target": {
+            "61": [
+              11,
+              31
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "31/61": 6431
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              15961,
+              "death",
+              -1,
+              62,
+              2,
+              0,
+              null
+            ],
+            [
+              16097,
+              "death",
+              -1,
+              62,
+              1,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-39",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "fdjLwvTtY8GKzRDM",
+      "fight": 44,
+      "actor": 52,
+      "player": "Kerzon",
+      "expected": {
+        "encounter_id": 50668,
+        "revision": 25,
+        "duration_ms": 26758,
+        "actor_class": "Priest",
+        "actor_game_id": 64428749,
+        "totals": {
+          "damage": 18658,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 1675
+        },
+        "casts_ms": {
+          "10060": [
+            8028
+          ],
+          "10894": [
+            883
+          ],
+          "10934": [
+            4401,
+            6403,
+            11896,
+            13894,
+            15916,
+            17908,
+            21423,
+            26718
+          ],
+          "10947": [
+            9900,
+            19415
+          ],
+          "28779": [
+            8027
+          ]
+        },
+        "damage_by_actor": {
+          "178": 18658
+        },
+        "target_game_ids": {
+          "178": 12056
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 4084,
+          "critical_events": 264,
+          "critical_hit_types": {
+            "2": 264
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-40",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "fqZjTbFDt78gBHR6",
+      "fight": 70,
+      "actor": 23,
+      "player": "Nicericelady",
+      "expected": {
+        "encounter_id": 50666,
+        "revision": 1,
+        "duration_ms": 27367,
+        "actor_class": "Priest",
+        "actor_game_id": 82090174,
+        "totals": {
+          "damage": 41766,
+          "effective_healing": 795,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10060": [
+            1977
+          ],
+          "14751": [
+            3715
+          ],
+          "17531": [
+            16956
+          ],
+          "27801": [
+            4404,
+            5900,
+            7411,
+            8907,
+            10417,
+            11917,
+            13420,
+            14922,
+            16426,
+            17942,
+            19464,
+            20938,
+            22447,
+            23951,
+            25456,
+            26959
+          ]
+        },
+        "damage_by_actor": {
+          "183": 37860,
+          "184": 3906
+        },
+        "target_game_ids": {
+          "183": 12099,
+          "184": 12057
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 6835,
+          "critical_events": 505,
+          "critical_hit_types": {
+            "17": 5,
+            "2": 498,
+            "5": 2
+          },
+          "fire_critical_mages_by_target": {
+            "184": [
+              19
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "19/184": 5925
+          },
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-41",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "gTbdzZ4MCRcFKmwV",
+      "fight": 7,
+      "actor": 13,
+      "player": "Zaera",
+      "expected": {
+        "encounter_id": 50664,
+        "revision": 1,
+        "duration_ms": 27627,
+        "actor_class": "Priest",
+        "actor_game_id": 27366192,
+        "totals": {
+          "damage": 19911,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 3100
+        },
+        "casts_ms": {
+          "10894": [
+            986
+          ],
+          "10947": [
+            3990,
+            12396,
+            21805
+          ],
+          "14751": [
+            10830
+          ],
+          "18807": [
+            3990,
+            5500,
+            7742,
+            12396,
+            14132,
+            17224,
+            21843,
+            24966
+          ],
+          "23271": [
+            7742
+          ]
+        },
+        "damage_by_actor": {
+          "54": 19911
+        },
+        "target_game_ids": {
+          "54": 11982
+        },
+        "pet_ownership": {
+          "40": {
+            "game_id": 8153460,
+            "fight_owner": 1,
+            "master_owner": 1
+          },
+          "46": {
+            "game_id": 11031603,
+            "fight_owner": 35,
+            "master_owner": 35
+          }
+        },
+        "encounter_context": {
+          "events": 5282,
+          "critical_events": 380,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 376,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "54": [
+              27
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "27/54": 1734
+          },
+          "mind_control_transitions": [],
+          "deaths": [],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-42",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "ndY2xp7GKZD3Q164",
+      "fight": 50,
+      "actor": 18,
+      "player": "Aph",
+      "expected": {
+        "encounter_id": 50672,
+        "revision": 49,
+        "duration_ms": 76854,
+        "actor_class": "Priest",
+        "actor_game_id": 22801821,
+        "totals": {
+          "damage": 57336,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 991
+        },
+        "casts_ms": {
+          "10060": [
+            11981
+          ],
+          "10934": [
+            6716,
+            7920,
+            9593,
+            14125,
+            15298,
+            15367,
+            17372,
+            19381,
+            21391,
+            23388,
+            25397,
+            27396,
+            29412,
+            31408,
+            33611,
+            35624,
+            37622,
+            39632,
+            41639,
+            43638,
+            45641,
+            47657,
+            49656,
+            51668,
+            53673,
+            55673,
+            57676,
+            59685,
+            61691,
+            63962,
+            65978,
+            67976,
+            69977,
+            73516,
+            74440,
+            76437
+          ],
+          "10942": [
+            9593
+          ],
+          "14751": [
+            11981
+          ],
+          "16666": [
+            61926
+          ],
+          "17531": [
+            31533
+          ]
+        },
+        "damage_by_actor": {
+          "18": 991,
+          "90": 56345
+        },
+        "target_game_ids": {
+          "18": 22801821,
+          "90": 11502
+        },
+        "pet_ownership": {
+          "81": {
+            "game_id": 12491355,
+            "fight_owner": 8,
+            "master_owner": 8
+          },
+          "36": {
+            "game_id": 11416757,
+            "fight_owner": 5,
+            "master_owner": 5
+          },
+          "25": {
+            "game_id": 11818481,
+            "fight_owner": 12,
+            "master_owner": 12
+          }
+        },
+        "encounter_context": {
+          "events": 9988,
+          "critical_events": 517,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 514
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              31860,
+              "death",
+              -1,
+              42,
+              null,
+              0,
+              null
+            ],
+            [
+              32967,
+              "death",
+              -1,
+              5,
+              null,
+              0,
+              null
+            ],
+            [
+              34471,
+              "death",
+              -1,
+              37,
+              null,
+              0,
+              null
+            ],
+            [
+              73522,
+              "death",
+              -1,
+              5,
+              null,
+              0,
+              null
+            ],
+            [
+              75641,
+              "death",
+              -1,
+              47,
+              null,
+              0,
+              null
+            ],
+            [
+              75642,
+              "death",
+              -1,
+              25,
+              null,
+              0,
+              null
+            ],
+            [
+              76833,
+              "death",
+              -1,
+              90,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-43",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "rkmzWQpMTvwnX63F",
+      "fight": 8,
+      "actor": 33,
+      "player": "Scrotymcboog",
+      "expected": {
+        "encounter_id": 50666,
+        "revision": 1,
+        "duration_ms": 38174,
+        "actor_class": "Priest",
+        "actor_game_id": 22276443,
+        "totals": {
+          "damage": 119218,
+          "effective_healing": 4994,
+          "absorbed_amount": 0,
+          "incoming_damage": 3179
+        },
+        "casts_ms": {
+          "10060": [
+            1300
+          ],
+          "11350": [
+            25121
+          ],
+          "13241": [
+            4609
+          ],
+          "16666": [
+            22206
+          ],
+          "17531": [
+            20064
+          ],
+          "27801": [
+            2536,
+            4043,
+            5550,
+            7053,
+            8553,
+            10055,
+            11559,
+            13070,
+            14632,
+            16085,
+            20062,
+            20090,
+            20599,
+            22112,
+            23606,
+            25132,
+            26652,
+            28134,
+            29640,
+            31144,
+            32643,
+            34156,
+            35667,
+            37164
+          ],
+          "28779": [
+            1710
+          ]
+        },
+        "damage_by_actor": {
+          "33": 264,
+          "51": 12180,
+          "52": 106774
+        },
+        "target_game_ids": {
+          "33": 22276443,
+          "51": 12057,
+          "52": 12099
+        },
+        "pet_ownership": {
+          "53": {
+            "game_id": 12419331,
+            "fight_owner": 34,
+            "master_owner": 34
+          }
+        },
+        "encounter_context": {
+          "events": 7741,
+          "critical_events": 530,
+          "critical_hit_types": {
+            "17": 24,
+            "2": 506
+          },
+          "fire_critical_mages_by_target": {
+            "51": [
+              17,
+              19,
+              20,
+              28,
+              35,
+              40
+            ],
+            "52": [
+              19
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "19/52": 1924,
+            "35/51": 24718
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              31173,
+              "death",
+              -1,
+              52,
+              8,
+              0,
+              null
+            ],
+            [
+              35821,
+              "death",
+              -1,
+              52,
+              7,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-44",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "t21QJ4vRF6TNVhc9",
+      "fight": 34,
+      "actor": 10,
+      "player": "Nananomana",
+      "expected": {
+        "encounter_id": 50670,
+        "revision": 1,
+        "duration_ms": 43990,
+        "actor_class": "Priest",
+        "actor_game_id": 40783634,
+        "totals": {
+          "damage": 36992,
+          "effective_healing": 0,
+          "absorbed_amount": 0,
+          "incoming_damage": 0
+        },
+        "casts_ms": {
+          "10894": [
+            1344,
+            7332,
+            8831,
+            25183,
+            28415
+          ],
+          "10947": [
+            4374,
+            11849,
+            19351,
+            28192,
+            35199,
+            42205
+          ],
+          "14751": [
+            17812
+          ],
+          "18807": [
+            4374,
+            11849,
+            14759,
+            19468,
+            22498,
+            29920,
+            35199,
+            38222,
+            42205
+          ]
+        },
+        "damage_by_actor": {
+          "79": 28667,
+          "80": 8325
+        },
+        "target_game_ids": {
+          "79": 11988,
+          "80": 11672
+        },
+        "pet_ownership": {
+          "25": {
+            "game_id": 12277562,
+            "fight_owner": 33,
+            "master_owner": 33
+          },
+          "60": {
+            "game_id": 11699422,
+            "fight_owner": 23,
+            "master_owner": 23
+          }
+        },
+        "encounter_context": {
+          "events": 6714,
+          "critical_events": 415,
+          "critical_hit_types": {
+            "17": 6,
+            "2": 409
+          },
+          "fire_critical_mages_by_target": {
+            "79": [
+              7,
+              21
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "7/79": 212
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              18771,
+              "death",
+              -1,
+              25,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-45",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "t21QJ4vRF6TNVhc9",
+      "fight": 39,
+      "actor": 10,
+      "player": "Nananomana",
+      "expected": {
+        "encounter_id": 50672,
+        "revision": 1,
+        "duration_ms": 57382,
+        "actor_class": "Priest",
+        "actor_game_id": 40783634,
+        "totals": {
+          "damage": 43571,
+          "effective_healing": 0,
+          "absorbed_amount": 3244,
+          "incoming_damage": 2550
+        },
+        "casts_ms": {
+          "10894": [
+            3023,
+            26842,
+            51167
+          ],
+          "10947": [
+            2723,
+            11224,
+            17505,
+            24504,
+            32085,
+            39093,
+            46084,
+            54183
+          ],
+          "18807": [
+            4527,
+            9923,
+            11224,
+            13433,
+            17506,
+            20426,
+            24504,
+            32668,
+            35528,
+            39093,
+            41428,
+            46085,
+            49095,
+            54184
+          ]
+        },
+        "damage_by_actor": {
+          "84": 43571
+        },
+        "target_game_ids": {
+          "84": 11502
+        },
+        "pet_ownership": {
+          "60": {
+            "game_id": 11699422,
+            "fight_owner": 23,
+            "master_owner": 23
+          }
+        },
+        "encounter_context": {
+          "events": 7876,
+          "critical_events": 477,
+          "critical_hit_types": {
+            "17": 3,
+            "2": 474
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              7939,
+              "death",
+              -1,
+              85,
+              null,
+              0,
+              null
+            ],
+            [
+              38052,
+              "death",
+              -1,
+              23,
+              null,
+              0,
+              null
+            ],
+            [
+              42419,
+              "death",
+              -1,
+              25,
+              null,
+              0,
+              null
+            ],
+            [
+              55762,
+              "death",
+              -1,
+              33,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-46",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "xRz1cTwQ6j8YCkhg",
+      "fight": 27,
+      "actor": 35,
+      "player": "Mormonmage",
+      "expected": {
+        "encounter_id": 50671,
+        "revision": 30,
+        "duration_ms": 51760,
+        "actor_class": "Priest",
+        "actor_game_id": 40741064,
+        "totals": {
+          "damage": 64426,
+          "effective_healing": 18852,
+          "absorbed_amount": 956,
+          "incoming_damage": 10077
+        },
+        "casts_ms": {
+          "10060": [
+            4467
+          ],
+          "10894": [
+            4650
+          ],
+          "10934": [
+            44233,
+            46184,
+            48187
+          ],
+          "13241": [
+            9856
+          ],
+          "14751": [
+            16179
+          ],
+          "15430": [
+            32024,
+            33526,
+            35027,
+            36544,
+            38045
+          ],
+          "16666": [
+            22601
+          ],
+          "17531": [
+            13162
+          ],
+          "19243": [
+            39546
+          ],
+          "23271": [
+            4634
+          ],
+          "27801": [
+            6419,
+            7937,
+            9457,
+            10990,
+            12492,
+            13960,
+            15478,
+            16978,
+            18479,
+            19981,
+            21499,
+            22999,
+            24501,
+            26019,
+            27520,
+            29023,
+            30523
+          ]
+        },
+        "damage_by_actor": {
+          "35": 887,
+          "89": 2089,
+          "90": 26586,
+          "91": 34864
+        },
+        "target_game_ids": {
+          "35": 40741064,
+          "89": 12018,
+          "90": 11664,
+          "91": 11663
+        },
+        "pet_ownership": {
+          "56": {
+            "game_id": 14927903,
+            "fight_owner": 33,
+            "master_owner": 33
+          }
+        },
+        "encounter_context": {
+          "events": 9432,
+          "critical_events": 508,
+          "critical_hit_types": {
+            "17": 6,
+            "2": 502
+          },
+          "fire_critical_mages_by_target": {
+            "89": [
+              13
+            ],
+            "90": [
+              13
+            ],
+            "91": [
+              13,
+              32,
+              45
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "13/89": 396,
+            "13/90": 4817,
+            "13/91": 8003,
+            "45/91": 548
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              16163,
+              "death",
+              -1,
+              90,
+              1,
+              0,
+              null
+            ],
+            [
+              26003,
+              "death",
+              -1,
+              30,
+              null,
+              0,
+              null
+            ],
+            [
+              27947,
+              "death",
+              -1,
+              90,
+              2,
+              0,
+              null
+            ],
+            [
+              29494,
+              "death",
+              -1,
+              25,
+              null,
+              0,
+              null
+            ],
+            [
+              34627,
+              "death",
+              -1,
+              91,
+              1,
+              0,
+              null
+            ],
+            [
+              35744,
+              "death",
+              -1,
+              90,
+              3,
+              0,
+              null
+            ],
+            [
+              39498,
+              "death",
+              -1,
+              91,
+              3,
+              0,
+              null
+            ],
+            [
+              39500,
+              "death",
+              -1,
+              90,
+              4,
+              0,
+              null
+            ],
+            [
+              41015,
+              "death",
+              -1,
+              13,
+              null,
+              0,
+              null
+            ],
+            [
+              42699,
+              "death",
+              -1,
+              91,
+              4,
+              0,
+              null
+            ],
+            [
+              49987,
+              "death",
+              -1,
+              91,
+              2,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "20619": [
+              [
+                27455,
+                "applybuff",
+                89,
+                90,
+                2,
+                20619,
+                null
+              ],
+              [
+                27455,
+                "applybuff",
+                89,
+                90,
+                3,
+                20619,
+                null
+              ],
+              [
+                27455,
+                "applybuff",
+                89,
+                90,
+                4,
+                20619,
+                null
+              ],
+              [
+                27455,
+                "applybuff",
+                89,
+                91,
+                1,
+                20619,
+                null
+              ],
+              [
+                27455,
+                "applybuff",
+                89,
+                91,
+                2,
+                20619,
+                null
+              ],
+              [
+                27455,
+                "applybuff",
+                89,
+                91,
+                3,
+                20619,
+                null
+              ],
+              [
+                27455,
+                "applybuff",
+                89,
+                91,
+                4,
+                20619,
+                null
+              ],
+              [
+                27913,
+                "removebuff",
+                89,
+                90,
+                2,
+                20619,
+                null
+              ],
+              [
+                34611,
+                "removebuff",
+                89,
+                91,
+                1,
+                20619,
+                null
+              ],
+              [
+                35743,
+                "removebuff",
+                89,
+                90,
+                3,
+                20619,
+                null
+              ],
+              [
+                37461,
+                "removebuff",
+                89,
+                90,
+                4,
+                20619,
+                null
+              ],
+              [
+                37461,
+                "removebuff",
+                89,
+                91,
+                2,
+                20619,
+                null
+              ],
+              [
+                37461,
+                "removebuff",
+                89,
+                91,
+                3,
+                20619,
+                null
+              ],
+              [
+                37461,
+                "removebuff",
+                89,
+                91,
+                4,
+                20619,
+                null
+              ]
+            ],
+            "21075": []
+          }
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_aura_ids": [
+        20619,
+        21075
+      ],
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-47",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "yCkpzxW4QbcBNLqf",
+      "fight": 45,
+      "actor": 35,
+      "player": "Gaussxd",
+      "expected": {
+        "encounter_id": 50666,
+        "revision": 59,
+        "duration_ms": 34878,
+        "actor_class": "Priest",
+        "actor_game_id": 23698138,
+        "totals": {
+          "damage": 52665,
+          "effective_healing": 3983,
+          "absorbed_amount": 0,
+          "incoming_damage": 1916
+        },
+        "casts_ms": {
+          "10060": [
+            1973
+          ],
+          "13241": [
+            3623
+          ],
+          "14751": [
+            1689
+          ],
+          "17531": [
+            10291
+          ],
+          "23645": [
+            9441
+          ],
+          "27801": [
+            3026,
+            4524,
+            6045,
+            7540,
+            9061,
+            11031,
+            12541,
+            14033,
+            15544,
+            17058,
+            18558,
+            20073,
+            21575,
+            23075,
+            24795,
+            26853,
+            28797
+          ],
+          "5019": [
+            33042,
+            34384
+          ]
+        },
+        "damage_by_actor": {
+          "125": 3816,
+          "126": 48380,
+          "35": 469
+        },
+        "target_game_ids": {
+          "35": 23698138,
+          "125": 12057,
+          "126": 12099
+        },
+        "pet_ownership": {
+          "78": {
+            "game_id": 9964651,
+            "fight_owner": 11,
+            "master_owner": 11
+          }
+        },
+        "encounter_context": {
+          "events": 7571,
+          "critical_events": 425,
+          "critical_hit_types": {
+            "17": 14,
+            "2": 410,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "125": [
+              6,
+              8
+            ],
+            "126": [
+              8,
+              10
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "10/126": 4787,
+            "6/125": 3138,
+            "8/125": 1490,
+            "8/126": 3509
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              3061,
+              "death",
+              -1,
+              78,
+              null,
+              0,
+              null
+            ],
+            [
+              25198,
+              "death",
+              -1,
+              8,
+              null,
+              0,
+              null
+            ],
+            [
+              25699,
+              "death",
+              -1,
+              18,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-48",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "z6G13gN8tXyA7a9b",
+      "fight": 29,
+      "actor": 20,
+      "player": "Bønger",
+      "expected": {
+        "encounter_id": 50671,
+        "revision": 1,
+        "duration_ms": 34864,
+        "actor_class": "Priest",
+        "actor_game_id": 73853071,
+        "totals": {
+          "damage": 39181,
+          "effective_healing": 12883,
+          "absorbed_amount": 0,
+          "incoming_damage": 5023
+        },
+        "casts_ms": {
+          "10060": [
+            3273
+          ],
+          "13241": [
+            7724
+          ],
+          "14751": [
+            3660
+          ],
+          "15646": [
+            2758
+          ],
+          "27801": [
+            3954,
+            5454,
+            6958,
+            8460,
+            9980,
+            11483,
+            12983,
+            14499,
+            15994,
+            17510,
+            19011,
+            20508,
+            22016,
+            23516
+          ],
+          "5019": [
+            28272
+          ]
+        },
+        "damage_by_actor": {
+          "20": 593,
+          "77": 18623,
+          "78": 18869,
+          "79": 1096
+        },
+        "target_game_ids": {
+          "20": 73853071,
+          "77": 11664,
+          "78": 11663,
+          "79": 12018
+        },
+        "pet_ownership": {
+          "16": {
+            "game_id": 16580906,
+            "fight_owner": 17,
+            "master_owner": 17
+          },
+          "39": {
+            "game_id": 15947650,
+            "fight_owner": 6,
+            "master_owner": 6
+          }
+        },
+        "encounter_context": {
+          "events": 7992,
+          "critical_events": 624,
+          "critical_hit_types": {
+            "17": 2,
+            "2": 621,
+            "5": 1
+          },
+          "fire_critical_mages_by_target": {
+            "77": [
+              21,
+              27
+            ],
+            "78": [
+              21,
+              27
+            ],
+            "79": [
+              21
+            ]
+          },
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {
+            "21/77": 3590,
+            "21/78": 3508,
+            "21/79": 636,
+            "27/77": 613,
+            "27/78": 718
+          },
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              9264,
+              "death",
+              -1,
+              77,
+              1,
+              0,
+              null
+            ],
+            [
+              16905,
+              "death",
+              -1,
+              78,
+              1,
+              0,
+              null
+            ],
+            [
+              19593,
+              "death",
+              -1,
+              78,
+              2,
+              0,
+              null
+            ],
+            [
+              21904,
+              "death",
+              -1,
+              78,
+              3,
+              0,
+              null
+            ],
+            [
+              23240,
+              "death",
+              -1,
+              77,
+              2,
+              0,
+              null
+            ],
+            [
+              25249,
+              "death",
+              -1,
+              77,
+              4,
+              0,
+              null
+            ],
+            [
+              25290,
+              "death",
+              -1,
+              77,
+              3,
+              0,
+              null
+            ],
+            [
+              32493,
+              "death",
+              -1,
+              78,
+              4,
+              0,
+              null
+            ]
+          ],
+          "interrupts": [],
+          "aura_transitions": {
+            "20619": [],
+            "21075": [
+              [
+                25893,
+                "applybuff",
+                79,
+                78,
+                4,
+                21075,
+                null
+              ],
+              [
+                32476,
+                "removebuff",
+                79,
+                78,
+                4,
+                21075,
+                null
+              ]
+            ]
+          }
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_aura_ids": [
+        20619,
+        21075
+      ],
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-49",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
+    },
+    {
+      "fixture": "mc-shadow-priest-raid-context",
+      "report": "zCQJxLTKZ7cGVR3W",
+      "fight": 17,
+      "actor": 38,
+      "player": "Serafiora",
+      "expected": {
+        "encounter_id": 50666,
+        "revision": 1,
+        "duration_ms": 39197,
+        "actor_class": "Priest",
+        "actor_game_id": 27353903,
+        "totals": {
+          "damage": 57990,
+          "effective_healing": 811,
+          "absorbed_amount": 1184,
+          "incoming_damage": 614
+        },
+        "casts_ms": {
+          "10894": [
+            107
+          ],
+          "11350": [
+            4291,
+            22928,
+            38493
+          ],
+          "14751": [
+            5475
+          ],
+          "16666": [
+            26576
+          ],
+          "17531": [
+            24959
+          ],
+          "27801": [
+            2091,
+            3592,
+            5092,
+            6591,
+            8133,
+            9608,
+            11109,
+            12608,
+            14125,
+            15609,
+            17125,
+            18643,
+            20143,
+            21643,
+            23143,
+            24660,
+            26144,
+            27644,
+            29160,
+            30660,
+            32176,
+            33677,
+            35193,
+            36694,
+            38194
+          ],
+          "28760": [
+            11442
+          ]
+        },
+        "damage_by_actor": {
+          "38": 614,
+          "67": 56009,
+          "68": 1367
+        },
+        "target_game_ids": {
+          "38": 27353903,
+          "67": 12099,
+          "68": 12057
+        },
+        "pet_ownership": {},
+        "encounter_context": {
+          "events": 7157,
+          "critical_events": 381,
+          "critical_hit_types": {
+            "17": 7,
+            "2": 374
+          },
+          "fire_critical_mages_by_target": {},
+          "unclassified_mage_critical_abilities": [],
+          "unclassified_critical_sources": [],
+          "ignite_by_source_target": {},
+          "mind_control_transitions": [],
+          "deaths": [
+            [
+              1908,
+              "death",
+              -1,
+              27,
+              null,
+              0,
+              null
+            ]
+          ],
+          "interrupts": []
+        }
+      },
+      "review_basis": "Direct SOURCE/TARGET raw enumeration and separate All/critical context enumeration before comparison with independent checker or current production replay; no analyzer/normalizer generated expected values. Recorded score policy, duty and reaction quality remain unverified.",
+      "encounter_context": true,
+      "id": "mc-shadow-priest-actor-50",
+      "archive": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "entries": "raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.entries",
+      "sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7"
     }
   ]
 }

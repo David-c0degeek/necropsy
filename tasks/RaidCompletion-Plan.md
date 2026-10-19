@@ -243,12 +243,12 @@ A subject is DONE only after all boxes, behavior receipts and durable checkpoint
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `tasks/raid-completion/00-tooling-research-and-readiness.md` | DONE | agent: 8; CLOSE; foundation/research checkpoint pushed | n/a |
-| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | 50 archives/784 actor cases/525 recipients/239 pet contexts; Shaman damage/healing totems; two Paladin roster gaps and unresolved guardians remain explicit | n/a |
+| [ ] | 01 | `tasks/raid-completion/01-evidence-and-coverage-contract.md` | IN_PROGRESS | 51 archives/834 actor cases/575 recipients/289 pet contexts; Shaman damage/healing totems; two Paladin roster gaps and unresolved guardians remain explicit | n/a |
 | [ ] | 02 | `tasks/raid-completion/02-shared-encounter-and-class-contracts.md` | IN_PROGRESS | shared strategy on all28 entries, local effects/control, qualified summon bounds and exposure/self-removal pairing; remaining contracts open | n/a |
 | [ ] | 03 | `tasks/raid-completion/03-molten-core.md` | IN_PROGRESS | agent: 9; domain-sme: 1 | yes |
 | [ ] | 04 | `tasks/raid-completion/04-blackwing-lair.md` | IN_PROGRESS | initial strategy/exposure and qualified Priest Blue-removal effects; full boss/class/domain obligations open | yes |
 | [ ] | 05 | `tasks/raid-completion/05-aq40.md` | IN_PROGRESS | agent: 9; domain-sme: 1; initial facts/strategy, observed NPC context and partial real class coverage | yes |
-| [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | IN_PROGRESS | Priest Blue/Geddon and Paladin Geddon utility active; Shaman Restoration and expanded Elemental evidence registered; ten Elemental positive peer cells, five duty-unknown personal contexts and one duty-unknown Golemagg peer; separate summon healing, raid-roster interrupts and Priest absorption-recipient review active; full class/domain gates open | yes |
+| [ ] | 06 | `tasks/raid-completion/06-all-class-validation.md` | IN_PROGRESS | Priest Blue/Geddon and Paladin Geddon utility active; Shaman Restoration and expanded Elemental evidence registered; ten Elemental positive peer cells, five duty-unknown personal contexts and one duty-unknown Golemagg peer; nine Shadow/Alliance peer cells (40 of 50 peers eligible, no personal Shadow fight, Garr TODO); separate summon healing, raid-roster interrupts and Priest absorption-recipient review active; full class/domain gates open | yes |
 | [ ] | 07 | `tasks/raid-completion/07-product-and-release-acceptance.md` | IN_PROGRESS | agent: 8; product-owner: 1 | yes |
 
 ---

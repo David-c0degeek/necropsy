@@ -1007,7 +1007,9 @@ def _assert_boss_replay(
             assert item["kind"] == "general-strategy"
             assert item["retrieved"] == "2026-10-17"
         assert strategy["limitation"] in html
-        assert "Recorded boss melee events against you:" in html
+        # A capture with no personal fight on any boss has nothing to say about "you".
+        personal = any(b["subject"] or b["playbook"].get("excluded_subject") for b in doc["bosses"])
+        assert ("Recorded boss melee events against you:" in html) is personal
         if context is not None:
             assert context["limitation"] in html
         if fixture["label"] == "mc-majordomo-context-holy":

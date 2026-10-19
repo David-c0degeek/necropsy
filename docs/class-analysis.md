@@ -153,6 +153,17 @@ available. Forty known owned damage totems remain separate from actor totals,
 beside the existing unresolved Healing Stream owner. Real comparison collection
 does not complete class coaching, assignments or ranked-damage reconciliation.
 
+A completed Shadow Priest capture retains five acquired Alliance comparison
+actors per MC boss,50 overall, with40 eligible for DPS comparisons. The
+subject recorded Holy, not Shadow, in every fight, so no personal Shadow
+assessment exists. Eight peers who mostly cast Holy Nova on adds (all five on
+Garr, three on Majordomo) keep unknown duty because Holy Nova is not in the
+Priest duty-action lists; they are not judged as poor DPS or as healers. One
+actor labelled Shadow Priest by the report and ranking shows Warrior stance,
+gear and abilities in two fights; it is excluded only because no Priest duty
+action is recorded, since the runtime has no general class-conflict check.
+Garr therefore has no eligible Shadow comparison.
+
 
 Priest raid pages also separate credited absorption by numeric ability and
 recorded friendly recipient. Power Word: Shield effects stay distinct from

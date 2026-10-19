@@ -1,0 +1,690 @@
+{
+  "archive_sha256": "b37e4497ca5fff6965cbc8085ca56cef537b35610cc77cf1c116ebfc2866dde7",
+  "basis": "Direct raw SOURCE cast enumeration with report masterData ability names, catalog and playerDetails locators, compared against the native analysis.json overall_cohort/cohort split. Runtime role notes are recorded verbatim; the explanation rests on the configured duty-action list and observed casts only.",
+  "duty_action_lists": {
+    "damage": [
+      "Holy Fire",
+      "Mind Blast",
+      "Mind Flay",
+      "Shadow Word: Pain",
+      "Smite"
+    ],
+    "healing": [
+      "Flash Heal",
+      "Greater Heal",
+      "Heal",
+      "Lesser Heal",
+      "Power Word: Shield",
+      "Prayer of Healing",
+      "Renew"
+    ],
+    "source": "src/necropsy/rules/classic_era/classes.yaml Priest"
+  },
+  "eligible_cohort_counts": {
+    "50663": 4,
+    "50664": 5,
+    "50665": 5,
+    "50666": 0,
+    "50667": 4,
+    "50668": 5,
+    "50669": 5,
+    "50670": 5,
+    "50671": 2,
+    "50672": 5
+  },
+  "holy_nova_heavy": [
+    {
+      "encounter_id": 50666,
+      "report": "rkmzWQpMTvwnX63F",
+      "fight": 8,
+      "actor": 33,
+      "player": "Scrotymcboog",
+      "catalog": {
+        "gameID": 22276443,
+        "icon": "Priest-Shadow",
+        "id": 33,
+        "name": "Scrotymcboog",
+        "petOwner": null,
+        "server": "Whitemane",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 24,
+        "Power Infusion": 1,
+        "Essence of Sapphiron": 1,
+        "Goblin Sapper Charge": 1,
+        "Restore Mana": 1,
+        "Demonic Rune": 1,
+        "Fire Shield": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 119218,
+      "source_pages": [
+        "events/rkmzWQpMTvwnX63F/fight_8/player_33_Scrotymcboog/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    },
+    {
+      "encounter_id": 50666,
+      "report": "7LWhyHCvMDRkt23z",
+      "fight": 36,
+      "actor": 44,
+      "player": "Kerzon",
+      "catalog": {
+        "gameID": 64428749,
+        "icon": "Priest",
+        "id": 44,
+        "name": "Kerzon",
+        "petOwner": null,
+        "server": "Pagle",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 17,
+        "Shadow Word: Pain": 1,
+        "Goblin Sapper Charge": 1,
+        "Fade": 1,
+        "Fire Shield": 1,
+        "Essence of Sapphiron": 1,
+        "Restore Mana": 1,
+        "Dark Rune": 1
+      },
+      "listed_priest_damage_casts": 1,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 66136,
+      "source_pages": [
+        "events/7LWhyHCvMDRkt23z/fight_36/player_44_Kerzon/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    },
+    {
+      "encounter_id": 50666,
+      "report": "fqZjTbFDt78gBHR6",
+      "fight": 70,
+      "actor": 23,
+      "player": "Nicericelady",
+      "catalog": {
+        "gameID": 82090174,
+        "icon": "Priest",
+        "id": 23,
+        "name": "Nicericelady",
+        "petOwner": null,
+        "server": "Mograine",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 16,
+        "Power Infusion": 1,
+        "Chakra": 1,
+        "Restore Mana": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 41766,
+      "source_pages": [
+        "events/fqZjTbFDt78gBHR6/fight_70/player_23_Nicericelady/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    },
+    {
+      "encounter_id": 50666,
+      "report": "yCkpzxW4QbcBNLqf",
+      "fight": 45,
+      "actor": 35,
+      "player": "Gaussxd",
+      "catalog": {
+        "gameID": 23698138,
+        "icon": "Priest",
+        "id": 35,
+        "name": "Gaussxd",
+        "petOwner": null,
+        "server": "Whitemane",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 17,
+        "Shoot": 2,
+        "Chakra": 1,
+        "Power Infusion": 1,
+        "Goblin Sapper Charge": 1,
+        "Hourglass Sand": 1,
+        "Restore Mana": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 52665,
+      "source_pages": [
+        "events/yCkpzxW4QbcBNLqf/fight_45/player_35_Gaussxd/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    },
+    {
+      "encounter_id": 50666,
+      "report": "zCQJxLTKZ7cGVR3W",
+      "fight": 17,
+      "actor": 38,
+      "player": "Serafiora",
+      "catalog": {
+        "gameID": 27353903,
+        "icon": "Priest",
+        "id": 38,
+        "name": "Serafiora",
+        "petOwner": null,
+        "server": "Firemaw",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 25,
+        "Fire Shield": 3,
+        "Shadow Word: Pain": 1,
+        "Chakra": 1,
+        "Mana Infusion": 1,
+        "Restore Mana": 1,
+        "Demonic Rune": 1
+      },
+      "listed_priest_damage_casts": 1,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 57990,
+      "source_pages": [
+        "events/zCQJxLTKZ7cGVR3W/fight_17/player_38_Serafiora/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    },
+    {
+      "encounter_id": 50671,
+      "report": "Tn9r3vwdaGfQ7Wyz",
+      "fight": 23,
+      "actor": 31,
+      "player": "Scrotymcboog",
+      "catalog": {
+        "gameID": 22276443,
+        "icon": "Priest",
+        "id": 31,
+        "name": "Scrotymcboog",
+        "petOwner": null,
+        "server": "Whitemane",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 19,
+        "Fire Shield": 2,
+        "Power Infusion": 1,
+        "Chakra": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 49395,
+      "source_pages": [
+        "events/Tn9r3vwdaGfQ7Wyz/fight_23/player_31_Scrotymcboog/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    },
+    {
+      "encounter_id": 50671,
+      "report": "fWDArhM3NKk2T1jB",
+      "fight": 44,
+      "actor": 31,
+      "player": "Divam",
+      "catalog": {
+        "gameID": 21892305,
+        "icon": "Priest",
+        "id": 31,
+        "name": "Divam",
+        "petOwner": null,
+        "server": "Bigglesworth",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 22,
+        "Chakra": 1,
+        "Goblin Sapper Charge": 1,
+        "Restore Mana": 1,
+        "Dark Rune": 1,
+        "Prayer of Healing": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 1,
+      "owned_damage": 52168,
+      "source_pages": [
+        "events/fWDArhM3NKk2T1jB/fight_44/player_31_Divam/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    },
+    {
+      "encounter_id": 50671,
+      "report": "z6G13gN8tXyA7a9b",
+      "fight": 29,
+      "actor": 20,
+      "player": "Bønger",
+      "catalog": {
+        "gameID": 73853071,
+        "icon": "Priest",
+        "id": 20,
+        "name": "Bønger",
+        "petOwner": null,
+        "server": "Firemaw",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Holy Nova": 14,
+        "Burst of Knowledge": 1,
+        "Power Infusion": 1,
+        "Chakra": 1,
+        "Goblin Sapper Charge": 1,
+        "Shoot": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 39181,
+      "source_pages": [
+        "events/z6G13gN8tXyA7a9b/fight_29/player_20_Bnger/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "holy-nova-heavy-unknown-duty",
+      "reason": "Owned casts are mainly Holy Nova, which the Priest duty-action lists in classes.yaml do not include; fewer than three listed Priest damage or healing casts are recorded, so runtime duty stays unknown. Not bad DPS, not an assigned healer; retained in raw registers and excluded from DPS comparison."
+    }
+  ],
+  "class_identity_conflicts": [
+    {
+      "encounter_id": 50663,
+      "report": "2w93Gx4LJhMBbWga",
+      "fight": 78,
+      "actor": 208,
+      "player": "도봉순",
+      "catalog": {
+        "gameID": 27601587,
+        "icon": "Priest-Shadow",
+        "id": 208,
+        "name": "도봉순",
+        "petOwner": null,
+        "server": "로크홀라",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Melee": 39,
+        "Heroic Strike": 11,
+        "Sunder Armor": 4,
+        "Bloodthirst": 4,
+        "Hamstring": 3,
+        "Sweeping Strikes": 1,
+        "Cleave": 1,
+        "Battle Stance": 1,
+        "Overpower": 1,
+        "Berserker Stance": 1,
+        "Whirlwind": 1,
+        "Bloodrage": 1,
+        "Demoralizing Shout": 1,
+        "Diamond Flask": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 35881,
+      "source_pages": [
+        "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "class-identity-conflict",
+      "player_details_locator": "reports/2w93Gx4LJhMBbWga/fight_78.json#report.playerDetails.data.playerDetails.dps[15]",
+      "player_details_type": "Priest",
+      "player_details_icon": "Priest-Shadow",
+      "combatant_artifact_names": [
+        "Berserker Stance",
+        "Blessed Sunfruit"
+      ],
+      "head_gear": "Lionheart Helm",
+      "warrior_cast_locators": [
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 1,
+          "ability": 11597,
+          "name": "Sunder Armor"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 8,
+          "ability": 11597,
+          "name": "Sunder Armor"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 28,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 83,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 94,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 119,
+          "ability": 11597,
+          "name": "Sunder Armor"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 128,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 134,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 144,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 166,
+          "ability": 11597,
+          "name": "Sunder Armor"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 174,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 185,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 204,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 221,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 234,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 251,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 273,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 284,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_78/player_208_x/source_001.json",
+          "index": 297,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        }
+      ],
+      "reason": "Catalog, playerDetails and ranking metadata label a Shadow Priest, while combatantInfo shows Berserker Stance and Warrior gear and owned casts are Heroic Strike/Sunder Armor/Bloodthirst. Class identity conflicts; runtime leaves duty unknown because no listed Priest action is recorded, not because it detects class conflict. Retained in raw registers; never Priest/Shadow duty or comparison evidence."
+    },
+    {
+      "encounter_id": 50667,
+      "report": "2w93Gx4LJhMBbWga",
+      "fight": 97,
+      "actor": 208,
+      "player": "도봉순",
+      "catalog": {
+        "gameID": 27601587,
+        "icon": "Priest-Shadow",
+        "id": 208,
+        "name": "도봉순",
+        "petOwner": null,
+        "server": "로크홀라",
+        "subType": "Priest",
+        "type": "Player"
+      },
+      "cast_counts_by_name": {
+        "Melee": 25,
+        "Heroic Strike": 12,
+        "Bloodthirst": 4,
+        "Sunder Armor": 3,
+        "Whirlwind": 2,
+        "Hamstring": 2,
+        "Diamond Flask": 1,
+        "Intercept": 1,
+        "Great Rage": 1,
+        "Recklessness": 1
+      },
+      "listed_priest_damage_casts": 0,
+      "listed_priest_healing_casts": 0,
+      "owned_damage": 33438,
+      "source_pages": [
+        "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json"
+      ],
+      "runtime_role": {
+        "claim": "value",
+        "level": "unknown",
+        "note": "missing duty signals or incomplete actor streams",
+        "value": null
+      },
+      "kind": "class-identity-conflict",
+      "player_details_locator": "reports/2w93Gx4LJhMBbWga/fight_97.json#report.playerDetails.data.playerDetails.dps[24]",
+      "player_details_type": "Priest",
+      "player_details_icon": "Priest-Shadow",
+      "combatant_artifact_names": [
+        "Berserker Stance"
+      ],
+      "head_gear": "Lionheart Helm",
+      "warrior_cast_locators": [
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 9,
+          "ability": 11597,
+          "name": "Sunder Armor"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 25,
+          "ability": 11597,
+          "name": "Sunder Armor"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 37,
+          "ability": 11597,
+          "name": "Sunder Armor"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 78,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 84,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 107,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 128,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 154,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 162,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 177,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 197,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 222,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 234,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 245,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 266,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 280,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 288,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 297,
+          "ability": 23894,
+          "name": "Bloodthirst"
+        },
+        {
+          "member": "events/2w93Gx4LJhMBbWga/fight_97/player_208_x/source_001.json",
+          "index": 308,
+          "ability": 25286,
+          "name": "Heroic Strike"
+        }
+      ],
+      "reason": "Catalog, playerDetails and ranking metadata label a Shadow Priest, while combatantInfo shows Berserker Stance and Warrior gear and owned casts are Heroic Strike/Sunder Armor/Bloodthirst. Class identity conflicts; runtime leaves duty unknown because no listed Priest action is recorded, not because it detects class conflict. Retained in raw registers; never Priest/Shadow duty or comparison evidence."
+    }
+  ],
+  "detection_limitation": "Runtime has no general class-identity conflict check; #208 is excluded only because no listed Priest duty action is recorded."
+}

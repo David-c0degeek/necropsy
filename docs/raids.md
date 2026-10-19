@@ -88,6 +88,13 @@ remain explicit. Two additional raid-roster Dark Mending interruptions belong to
 Enoset and Shocknlawl, separately from selected-player utility. No quota stop
 remains; full class/phase/ranking/domain/product acceptance is still open.
 
+Shadow/Alliance/DPS comparison evidence is complete for collection: five
+acquired Shadow Priest peers per MC boss,40 eligible for DPS comparison. The
+subject played Holy throughout, so personal Shadow assessment is absent on every
+boss. Holy-Nova-heavy add fights on Garr and Majordomo keep unknown duty, and
+one actor with conflicting Priest/Warrior evidence is excluded; Garr has no
+eligible Shadow peer.
+
 Priest reports also show friendly credited absorption by ability and recipient,
 separating Power Word: Shield from Persistent Shield and other recorded effects.
 The shield review prompt asks for coordination with tanks and healers; absorption

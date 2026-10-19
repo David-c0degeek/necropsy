@@ -9,7 +9,7 @@ Season of Mastery and Hardcore catalog entries do not approve Era policies.
 `coverage.json` records evidence against stable keys
 `raid/encounter/class/category/metric/faction`. Missing records mean TODO.
 The partial register deliberately certifies no complete domain cells.
-Current inventory:50 archives,784 actor cases,525 recipient cases,239 owned-pet
+Current inventory:51 archives,834 actor cases,575 recipient cases,289 owned-pet
 contexts,9 actor-effect contexts,12 summon contexts,18 removal contexts,
 12 raid-interruption contexts and60 absorption-by-ability oracle contexts.
 
@@ -63,7 +63,7 @@ Unselected actors retain unknown personal stream completeness. Historical
 actor-only fixtures and their original arithmetic expectations remain intact.
 
 `healing-facts.json` separately freezes recipient-qualified healing/absorption
-for 525 retained recipient contexts, without changing original actor expectations:
+for 575 retained recipient contexts, without changing original actor expectations:
 
 ```sh
 uv run python scripts/check_raid_facts.py tests/golden/raids/healing-facts.json
