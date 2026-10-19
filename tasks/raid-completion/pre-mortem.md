@@ -102,6 +102,10 @@ Verdict: **PROCEED WITH GUARDRAILS**. This is a new domain-completion pre-mortem
 | PM-2 | Prevented Prediction | None | Before checkpoint | Effective | Accurate | Prevented Prediction: strict SOURCE provenance, raw/normalized chronology/identity, roster and multiplicity checks withhold false totals while retaining qualified positives. Reviewer SOURCE-binding finding fixed before checkpoint. research/absorption-review.json |
 | PM-3 | Prevented Prediction | None | Before checkpoint | Effective | Accurate | Prevented Prediction: immutable independent60-context freeze precedes implementation; exact occurrences/recipients and all4 installed/controls prevent equal-sum attribution or metadata-join drift. research/absorption-review.json |
 
+| PM-1 | Confirmed Prediction | Medium | Before production | Effective | Accurate | Pilot mc/50668/6/Holy/hps/Alliance: saved healer notes had no renderer path, so neither page showed them. Actual Report/Playbook review exposed it; da75699 renders them, verified by source/installed/package equality and desktop/mobile screenshots. Scoped to this pilot; other cells unassessed. tests/golden/raids/closures/mc-50668-6-holy-hps-alliance.json |
+| PM-2 | Confirmed Prediction | Medium | Before production | Effective | Accurate | Pilot: complete encounter event coverage with an unresolved or conflicting caster identity initially certified a false zero for boss mechanics. An independent counterexample and three real-caller regressions now keep the count unknown (086faeb). Scoped to this pilot. tests/golden/raids/closures/mc-50668-6-holy-hps-alliance.json |
+| PM-3 | Confirmed Prediction | Medium | Before production | Effective | Accurate | Pilot: the first raw freeze searched only aura 20475 and wrongly reported no Living Bomb explosions, missing Explosion 20476. Independent raw enumeration corrected it before closure, and the oracle keeps the error in its correction field. Scoped to this pilot. tests/golden/raids/geddon-paladin-mechanics.json |
+
 ## Misses
 
 > A miss is a meaningful failure, regression, or material risk discovered after

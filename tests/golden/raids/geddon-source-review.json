@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "subject": "Baron Geddon (encounter 50668) guidance and encounter-fact sources for Paladin Holy HPS",
+  "retrieval": {
+    "date": "2026-10-19",
+    "method": "Automated page fetch by the implementing agent; excerpts below were returned verbatim by that fetch.",
+    "independent_reviewer_fetch": "The reviewing agent's own fetch of the same page returned HTTP 403, so it did not independently re-read the live page; it reviewed these excerpts and the rule sentences."
+  },
+  "sources": [
+    {
+      "url": "https://warcraft.wiki.gg/wiki/Baron_Geddon",
+      "status": "content retrieved",
+      "excerpts": {
+        "type": "Fire elemental",
+        "ignite_mana_ability": "Burns 400 mana from nearby enemies every 3 sec. for 5 min.",
+        "ignite_mana_damage": "Each point of mana that is destroyed also damages the target from which it is consumed.",
+        "ignite_mana_dispel": "Ignite mana should be dispelled, but not from warriors or rogues.",
+        "ignite_mana_range": "keeping healers and the dispellers out of Ignite Mana's range saves on mana used dispelling",
+        "living_bomb_ability": "After 8 sec., the bomb explodes, inflicting 3200 Fire damage to the target and its nearby allies.",
+        "living_bomb_strategy": "Whoever is the living bomb MUST run away from the group and blow up by himself.",
+        "inferno_ability": "Surrounds the caster with an inferno that periodically inflicts Fire damage to nearby enemies for 8 sec.",
+        "inferno_strategy": "When Baron Geddon starts his inferno all melee DPS needs to leave, even the MT.",
+        "healer_position": "another group directly behind them that is out of the range of the Baron's Ignite Mana but still within healing range.",
+        "resistance_mention": "(unless he has over 315 FR)"
+      },
+      "excluded": "Season of Mastery notes (three Living Bomb targets, fire patches) are not Classic Era behavior and support no rule."
+    },
+    {
+      "url": "https://www.wowhead.com/classic/guide/baron-geddon-molten-core-strategy-wow-classic",
+      "status": "no strategy content: two fetches on 2026-10-19 returned only site navigation and boilerplate",
+      "excerpts": {}
+    }
+  ],
+  "rule_support": {
+    "mc_facts 50668 type_source and source": ["type", "ignite_mana_ability", "ignite_mana_damage", "living_bomb_strategy", "inferno_ability"],
+    "geddon-bomb-route-and-coverage-v1": ["living_bomb_strategy", "healer_position", "ignite_mana_dispel"],
+    "geddon-paladin-cleanse-preparation-v1": ["ignite_mana_dispel", "ignite_mana_range"],
+    "geddon-paladin-healer-loadout-applicability-v1": ["resistance_mention"],
+    "geddon-bomb-and-inferno-recovery-v1": ["living_bomb_strategy", "inferno_strategy"],
+    "geddon-magic-removal-v1": ["ignite_mana_dispel"],
+    "geddon-healer-bomb-coverage-v1": ["living_bomb_ability", "healer_position"],
+    "geddon-bomb-and-dispel-backup-v1": ["living_bomb_strategy", "healer_position", "ignite_mana_dispel"]
+  },
+  "loadout_boundary": "The page gives no healer gear or loadout guidance; its only resistance mention concerns the bomb or main-tank context. The loadout rule therefore records a limitation of the cited source, not evidence that healer gearing cannot matter.",
+  "open": "geddon-hunter-pet-recovery-v1 still inherits the Wowhead guide above and has no verified source; it is outside this review."
+}

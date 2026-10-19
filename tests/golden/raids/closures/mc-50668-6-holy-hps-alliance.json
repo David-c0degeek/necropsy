@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "cell_id": "mc/50668/6/Holy/hps/Alliance",
+  "matrix_row": "mc,2000,50668,Baron Geddon,standard,6,Paladin,Holy,hps,Alliance",
+  "commit": "5bf85e676e894ff8358d06d14976033f118fcea3",
+  "archive": {
+    "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+    "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+    "report": "kvJ2WVF1chC9R4wd",
+    "fight": 43,
+    "actor": 35
+  },
+  "evidence_files_at_closure": {
+    "src/necropsy/rules/classic_era/healer_notes.yaml": "9a9f60c1c6252e2e0a5d7874b29df1cd40fe8da2f505c2b80075eac8682ef198",
+    "src/necropsy/rules/classic_era/zones/mc.yaml": "904943a9176bd24f4ff3e520fc0e01f320b040c04c498ebc6e71b19e38773b37",
+    "src/necropsy/rules/classic_era/zones/mc_facts.yaml": "272bbb526e21bbf2df62cf625342ab9811da0ac161ffdc3633b672a8df4a6972",
+    "src/necropsy/rules/classic_era/zones/mc_guidance.yaml": "ed56d887e96c63b58f677054df5abe0dad77af3b87d1092727b3939409660566",
+    "tests/golden/raids/geddon-paladin-mechanics.json": "16ce47f12c04f8fc5ee8baf515faecdf9ccacb0914fc9706b4496b0cfd36faf2",
+    "tests/golden/raids/hps-ranking-geddon-paladin.json": "1268593132b6c9bcbf8f10ba1a82e4809d14663d2eb67c215d7cdf4244bd2ba8",
+    "tests/golden/test_hps_ranking_policy.py": "f03b6e2880baaab5b6c737949e789c8b2d8ce3268af6ba8e4a638edfb0c5fd6c",
+    "tests/golden/test_raid_evidence.py": "145c6f1aacb15d5c39a9fdbcdb8bb76fd501b3a3452e34c4a95bf42f742c1c41",
+    "tests/integration/test_paladin_healer_notes.py": "2f8c5a99e755313912f0d99b08e4c22feff280b713906503b3da038869c62b6f",
+    "tests/unit/test_encounter_strategy.py": "1a9b81f0dde7b40c923b892a3b01c870e89d9158cd2c1f875f8cc31215213f79"
+  },
+  "fields": {
+    "implementation": {
+      "evidence": [
+        "tests/golden/test_raid_evidence.py::test_seed_capture_replays_with_raw_arithmetic_and_correct_raid[mc-holy-paladin-raid-context]"
+      ],
+      "note": "Pinned raw archive replays offline with the Holy category, HPS metric, Alliance faction, Era partition 1 and encounter 50668; healer duty eligibility applies."
+    },
+    "mechanics_and_guidance": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc_guidance.yaml strategy 50668 (seven Paladin/HPS items, before/during/raid)",
+        "src/necropsy/rules/classic_era/zones/mc_guidance.yaml mechanic_presence and target_auras 50668",
+        "src/necropsy/rules/classic_era/zones/mc_facts.yaml encounter 50668",
+        "src/necropsy/rules/classic_era/healer_notes.yaml (Divine Favor, emergency cooldowns, blessings, mana capacity)",
+        "tests/unit/test_encounter_strategy.py::test_geddon_holy_paladin_items_cite_the_verified_source",
+        "tests/golden/raids/geddon-source-review.json (retrieval boundary, verbatim excerpts and per-rule support)"
+      ],
+      "categories": {
+        "preparation": "geddon-bomb-route-and-coverage-v1; geddon-paladin-cleanse-preparation-v1",
+        "loadout": "geddon-paladin-healer-loadout-applicability-v1: the cited source names no Geddon-specific Paladin healer loadout change. This is a declared source limitation, not proof that healer gearing cannot matter.",
+        "opener_and_cooldowns": "Divine Favor observation against its sourced cooldown; emergency cooldowns reported only when used, with no expected-use target",
+        "execution": "geddon-bomb-and-inferno-recovery-v1; geddon-healer-bomb-coverage-v1",
+        "resource": "mana capacity absent from the log is named; mana timing and mana lost are not assessed",
+        "utility": "geddon-magic-removal-v1; observed Cleanse removals of Ignite Mana",
+        "avoidance": "Living Bomb separation and Inferno movement (geddon-bomb-and-inferno-recovery-v1)",
+        "raid_coordination": "geddon-bomb-and-dispel-backup-v1"
+      },
+      "sources": {
+        "https://warcraft.wiki.gg/wiki/Baron_Geddon": "Retrieved 2026-10-19 by the implementing agent; verbatim excerpts and per-rule support are in tests/golden/raids/geddon-source-review.json. The reviewer's own fetch returned HTTP 403, so there was no independent live re-read.",
+        "https://www.wowhead.com/classic/guide/baron-geddon-molten-core-strategy-wow-classic": "Returned only site boilerplate on 2026-10-19; no longer cited for this cell's items."
+      }
+    },
+    "synthetic_behavior": {
+      "evidence": [
+        "tests/integration/test_paladin_healer_notes.py::test_recorded_cooldowns_stay_observations_with_sourced_duration (positive)",
+        "tests/integration/test_paladin_healer_notes.py::test_reference_records_only_boss_cast_mechanics (positive and negative)",
+        "tests/integration/test_paladin_healer_notes.py::test_zero_is_recorded_only_under_complete_cast_coverage (negative)",
+        "tests/integration/test_paladin_healer_notes.py::test_a_single_comparison_keeps_individual_context_without_a_median (sparse)",
+        "tests/integration/test_paladin_healer_notes.py::test_wrong_duty_views_have_no_healer_notes (wrong duty)",
+        "tests/integration/test_paladin_healer_notes.py::test_incomplete_cast_coverage_gives_no_personal_notes (incomplete coverage)",
+        "tests/integration/test_paladin_healer_notes.py::test_reference_mechanics_without_a_complete_encounter_set_are_unmeasured (incomplete coverage)",
+        "tests/integration/test_paladin_healer_notes.py::test_an_unclassifiable_caster_withholds_mechanic_absence (incomplete identity)"
+      ]
+    },
+    "real_actor_source": {
+      "evidence": [
+        "tests/golden/raids/coverage.json real_actor_source for this cell (report kvJ2WVF1chC9R4wd, fight 43, actor 35, partition 1)"
+      ]
+    },
+    "independent_facts": {
+      "evidence": [
+        "tests/golden/raids/facts.json#mc-holy-paladin-actor-42",
+        "tests/golden/raids/healing-facts.json#mc-holy-paladin-healing-recipients-40",
+        "tests/golden/raids/removal-facts.json#geddon-paladin-ignite-mana-removals-1..6",
+        "tests/golden/raids/geddon-paladin-mechanics.json (six fights: Living Bomb, explosions, Inferno windows, Divine Favor, emergency casts, blessings, mana readings, encounter presence)"
+      ],
+      "note": "On 2026-10-19 the saved Living Bomb transitions, Inferno windows and page lines matched the oracle in 36 of 36 checks across all six fights."
+    },
+    "ranking_reconciliation": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc.yaml ranking_metric_policies mc-geddon-holy-paladin-hps-v1 (empirical)",
+        "tests/golden/raids/hps-ranking-geddon-paladin.json",
+        "tests/golden/test_hps_ranking_policy.py::test_policy_scope_matches_its_frozen_evidence",
+        "tests/golden/test_hps_ranking_policy.py::test_published_hps_matches_raw_owner_and_owned_unit_effects"
+      ]
+    },
+    "render_review": {
+      "pages": {
+        "command": "necropsy offline <archive> --sha256 <archive sha256> --entries <entries> --out <dir>, run from source and from the installed 0.4.0 wheel at the closure commit",
+        "analysis.json": "c80fc69a9f3a14cdd81dd2afe0c2f50482a383e832ef498f02daf4f93ed1e670",
+        "report.html": "a314166507fa0387f642e34c38acbbf792c797da0e4a71ec635c198bb6175f76",
+        "playbook.html": "161fc9a3372594dd631752fda209c7ba309d494bc5e57ea582c6d3e76686ac86",
+        "package": "c0a219db5b11dfa81ce00cdce2c6014a5a81125c341dc4635f23427f9a434342",
+        "source_equals_installed": true
+      },
+      "content": [
+        "Geddon section on both pages: reference-fight context (durations, recorded Living Bomb and Inferno counts, listed enemies, sources), healing context (four saved notes verbatim), encounter strategy including the loadout limitation, observed Ignite Mana, Living Bomb and Inferno lines, Cleanse removals, and the ability-use comparison",
+        "Saved texts appear verbatim; unknown values read as unmeasured and are never shown as zero; the overall comparison stays collapsed"
+      ],
+      "visual_checks": [
+        {
+          "slice": "reference context",
+          "by": "owner (Edge headless)",
+          "viewports": [
+            "1366x900",
+            "1920x1080",
+            "390x844",
+            "print A4"
+          ],
+          "result": "no overflow or console errors; five layout findings fixed in round 2",
+          "ui_signoff": "UI lead inspected the screenshots"
+        },
+        {
+          "slice": "healing context",
+          "by": "owner (Edge headless)",
+          "viewports": [
+            "1366x900",
+            "1920x1080",
+            "390x844",
+            "print A4 (round 1)"
+          ],
+          "result": "no overflow or console errors; two of three readability findings applied",
+          "ui_signoff": "UI lead inspected desktop and mobile screenshots"
+        },
+        {
+          "slice": "loadout limitation and re-cited strategy",
+          "by": "owner (Edge headless)",
+          "viewports": [
+            "1366x900",
+            "390x844",
+            "print A4"
+          ],
+          "result": "no overflow or console errors; order bomb-route, cleanse, loadout, then the generic gear checklist; print text present (playbook PDF page 18 of 35), checked by the owner only",
+          "ui_signoff": "UI lead inspected the three named desktop and mobile screenshots; the print PDF was not independently inspected"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "The printed full Report is 1288 A4 pages; this volume is inherited and not addressed by this cell.",
+    "The UI reviewer could not fetch the wiki independently (HTTP 403); the source change rests on the owner's preserved fetch.",
+    "The four saved Hunter report byte receipts were not rerun; the Hunter templates are structurally unchanged.",
+    "The Hunter Geddon pet-recovery item still inherits the unverified guide and is open for the Hunter cell.",
+    "Percentage-metric deltas are shown as relative change, a separate UI improvement.",
+    "The overall-reference render path is proven only by synthetic cases, because in the real pilot the overall and same-faction leaders are the same player."
+  ],
+  "evidence_pinning": "Hashes are SHA-256 of the raw Git blob bytes at the closure commit (git show <commit>:<path>), not working-tree bytes.",
+  "source_review": {
+    "path": "tests/golden/raids/geddon-source-review.json",
+    "sha256": "98aa6372d79556a8aa9b4fa28030a282790b6c88ccc7570225058f9339742a6d"
+  }
+}
