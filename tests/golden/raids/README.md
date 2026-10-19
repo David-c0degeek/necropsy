@@ -364,3 +364,13 @@ draft, not a fact review. `fact-specs/geddon-paladin-mechanics.spec.json`
 reproduces the six pilot contexts of `geddon-paladin-mechanics.json`, and
 `tests/golden/test_fact_freeze.py` also reproduces all nine `effect-facts.json`
 contexts from the actor streams and, where the archive has them, the All pages.
+
+`scripts/closure_pins.py verify` checks every pin nested in `closures/*.json`,
+each occurrence separately, against the raw Git blob at the closure's recorded
+commit; an LFS archive is compared with the committed pointer's oid, so verify
+does not read the archive payload. It also checks that coverage references to
+closure files match HEAD. `pin` fills a new closure's pins from one commit and
+refuses working bytes that differ from it, such as CRLF copies; a hydrated LFS
+archive must match the pointer's oid and size, and an unhydrated pointer is
+reported as metadata only. The pilot closure keeps one known failure: its
+source review was committed after the recorded commit.
