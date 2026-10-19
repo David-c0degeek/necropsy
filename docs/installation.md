@@ -155,7 +155,7 @@ uv run necropsy tui
 ```
 
 Build a wheel with `uv build`. Manual wheel users can use
-`uv tool install --force --python 3.14 dist/necropsy-0.4.0-py3-none-any.whl`.
+`uv tool install --force --python 3.14 dist/necropsy-0.5.0-py3-none-any.whl`.
 This path assumes uv exists; it is not the normal first-time install path.
 The wheel alone does not contain a GUI binary; use `necropsy tui`, or follow
 the [desktop build guide](desktop.md#build-and-run-from-source).

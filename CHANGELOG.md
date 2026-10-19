@@ -8,6 +8,19 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+## 0.5.0 - 2026-10-19
+
+- Add `NECROPSY_CREDENTIAL_FILE` for unattended POSIX servers without an OS
+  credential store (ADR 0023). The file must be a regular 0600 file in a 0700
+  directory owned by the running user; any failed check refuses, with no
+  fallback. `necropsy auth export | ssh server '... necropsy auth import'`
+  moves a sign-in from your computer without a temporary token file. Desktop
+  and terminal sign-in keep using the OS store.
+- Add `necropsy analyze --outcome-json FILE`, a small machine-readable result
+  for unattended runners: the exit code, stop class, known quota reset time,
+  snapshot path and SHA-256, and the run checkpoint's SHA-256. An unknown reset
+  time is recorded as unknown, never guessed.
+
 - Show recorded Garr Warlock Curse of Recklessness, Curse of the Elements and
   Curse of Shadow applications with the curse, target and time, and ask which curse your raid assigned before copying a reference
   choice. Curses are not uptime, assignment or benefit evidence.
@@ -167,6 +180,8 @@ Development changes appear under **Unreleased** until built and published.
 - Preserve raid identity through stop/resume, imported analyses and offline replay.
   New raids keep unvalidated ranking exclusions and missing encounter facts
   explicit; WCL-recorded Hunter scores remain usable without invented totals.
+
+## 0.4.0 - 2026-10-16
 
 - Separate optional game talent-tree declarations from WCL comparison categories
   in the desktop, terminal and CLI (`--talent-tree`). Save declarations through
