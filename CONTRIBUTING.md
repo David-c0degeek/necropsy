@@ -93,6 +93,12 @@ substitute for judgment. Leave historical source documents intact.
 
 Druid contracts are documented in [Druid analysis](docs/druid-analysis.md). Extend the existing class registry and shared output pipeline; do not apply Hunter ranking rules to another class. Keep real fixture provenance and independently checked facts distinct from synthetic tests. Role inference and raw HPS/DPS do not replace domain review.
 
+For rendered pages, `uv run python scripts/visual_check.py SITE --page report.html
+--page playbook.html --out NEW_DIR` takes desktop and mobile screenshots in dark
+and light and reports overflow, content past the screen edge, page errors and
+blocked off-origin requests, with the network closed. A clean run is layout
+evidence for the reviewer, not visual or domain approval.
+
 ## Verify distribution artifacts
 
 Follow [the isolated package check](docs/installation.md#verification-and-removal).
