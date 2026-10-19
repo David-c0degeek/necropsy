@@ -1,0 +1,26 @@
+{% macro reference_context(boss, scope='same-faction-reference') -%}
+{% set context = boss.playbook.get('reference_context') %}
+{% if context %}{% for statement in context.statements if statement.scope == scope %}
+<aside class="quick-plan reference-context" aria-label="Reference fight context">
+  <h4>Reference fight context · {{ statement.player }}</h4>
+  <p>{{ statement.text }}</p>
+  <p class="table-note"><a href="https://vanilla.warcraftlogs.com/reports/{{ statement.report_code }}#fight={{ statement.fight_id }}" target="_blank" rel="noopener noreferrer">{{ statement.player }} · source fight {{ statement.fight_id }}</a></p>
+  {% if scope == 'same-faction-reference' %}
+  <details><summary>Recorded fight details</summary>
+    <div class="table-wrap" role="region" aria-label="Recorded fight context" tabindex="0">
+    <table class="stack"><thead><tr><th>Fight</th><th style="white-space: nowrap; min-width: 5.5em">Duration</th><th>Recorded boss mechanics</th><th>Other listed enemies</th></tr></thead><tbody>
+    {% for fight in [context.subject] + context.examples %}
+    <tr><th scope="row"><a href="https://vanilla.warcraftlogs.com/reports/{{ fight.report_code }}#fight={{ fight.fight_id }}" target="_blank" rel="noopener noreferrer">{{ 'You · ' if loop.first else '' }}{{ fight.player }}</a></th>
+      <td data-label="Duration">{{ '%.2f'|format(fight.duration_s) }} s</td>
+      <td data-label="Recorded boss mechanics"><ul style="margin: 0; padding-left: 1.2em">{% for mechanic in fight.mechanics %}<li>{{ mechanic.label }}: {% if mechanic.applications.value is none %}unmeasured{% else %}{{ mechanic.applications.value }} recorded{% endif %}{% if mechanic.applications.get('note') %} · {{ mechanic.applications.note }}{% endif %}</li>{% endfor %}</ul></td>
+      <td data-label="Other listed enemies">{% if fight.other_enemies.value is none %}Unmeasured{% if fight.other_enemies.get('note') %} · {{ fight.other_enemies.note }}{% endif %}{% elif fight.other_enemies.value %}{{ fight.other_enemies.value|join(', ') }}{% else %}No other enemies listed{% endif %}</td>
+    </tr>
+    {% endfor %}
+    </tbody></table></div>
+    <p class="table-note">Counts describe recorded applications. Listed enemies do not establish their role in the fight.</p>
+    {% for mechanic in context.subject.mechanics %}<p class="table-note">{{ mechanic.label }} source: <a href="{{ mechanic.source }}" target="_blank" rel="noopener noreferrer" style="overflow-wrap: anywhere">{{ mechanic.source }}</a>{% if mechanic.get('retrieved') %} <span style="white-space: nowrap">(retrieved {{ mechanic.retrieved }})</span>{% endif %}</p>{% endfor %}
+  </details>
+  {% endif %}
+</aside>
+{% endfor %}{% endif %}
+{%- endmacro %}

@@ -22,7 +22,7 @@
 {% macro comparison_snapshot(ref, boss) %}
 <section id="boss-{{ boss.encounter_id }}-comparison" class="comparison-snapshot" aria-labelledby="boss-{{ boss.encounter_id }}-comparison-title">
   <div class="eyebrow">Understand the difference</div>
-  <h3 id="boss-{{ boss.encounter_id }}-comparison-title" tabindex="-1">Compared with your faction</h3>
+  <h3 id="boss-{{ boss.encounter_id }}-comparison-title" tabindex="-1">Compared with your faction</h3>{% if boss.playbook.get('reference_context') %}{% from "reference-context.html.j2" import reference_context %}{{ reference_context(boss) }}{% endif +%}
   {% set comparisons = boss.playbook.get('comparisons') or [] %}
   {% if comparisons %}
     <p>{{ comparisons|length }} matching event source{{ 's' if comparisons|length != 1 else '' }}.{% if comparisons|length < 3 %} <strong>Limited sample: only {{ comparisons|length }} source{{ 's' if comparisons|length != 1 else '' }}; compare individual fights, not a population baseline.</strong>{% endif %}</p>
@@ -80,7 +80,7 @@
   {% if page == 'playbook' %}
   <div class="boss-head"><div><div class="eyebrow">Boss {{ '%02d'|format(loop.index) }}</div><h2 id="boss-{{ boss.encounter_id }}-title" tabindex="-1">{{ boss.boss }}</h2></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.boss }}</span></label></div>
   {% if triage.limited %}<p class="table-note">{{ triage.quality }}. {{ triage.quality_note or 'Advice may be limited by the available comparisons.' }}</p>{% endif %}
-  {{ pull_sheet(ref, ref.actions, 'boss-' ~ boss.encounter_id, boss.subject is not none) }}
+  {{ pull_sheet(ref, ref.actions, 'boss-' ~ boss.encounter_id, boss.subject is not none) }}{% if boss.playbook.get('reference_context') %}{% from "reference-context.html.j2" import reference_context %}{{ reference_context(boss) }}{% if boss.playbook.reference_context.statements|selectattr('scope', 'equalto', 'overall-reference')|list %}<details class="overall-comparison"><summary>Optional: overall top across factions</summary>{{ reference_context(boss, 'overall-reference') }}</details>{% endif %}{% endif +%}
   {% else %}
   <div class="boss-head"><div><div class="eyebrow">Boss {{ '%02d'|format(loop.index) }} · {{ boss.boss }}</div><h2 id="boss-{{ boss.encounter_id }}-title" tabindex="-1">{{ boss.boss }}</h2><div class="metrics">{% for label, value in ref.metrics %}<div><b>{{ val(value) }}</b><span>{{ label }}</span></div>{% endfor %}</div></div><label class="done"><input type="checkbox" data-review-key="{{ ref.review_key }}"> reviewed<span class="sr">: {{ boss.boss }}</span></label></div>
   <details class="role-context"><summary>Role, category and coverage context</summary><div class="context-strip">{% for label, value in ref.context %}<div><span>{{ label }}</span><strong>{{ value }}</strong></div>{% endfor %}</div></details>
@@ -188,7 +188,7 @@
     <p><a href="https://vanilla.warcraftlogs.com/reports/{{ reference.report_code }}#fight={{ reference.fight_id }}" target="_blank" rel="noopener noreferrer">Example source report / fight {{ reference.fight_id }}</a></p>
     {% else %}<p>No eligible event example was acquired in the selected spec. Unknown duty, incomplete coverage and incompatible categories do not become learning examples.</p>{% endif %}
   </div></details>
-  <details class="overall-comparison"><summary>Optional: overall top across factions</summary>
+  <details class="overall-comparison"><summary>Optional: overall top across factions</summary>{% if boss.playbook.get('reference_context') %}{% from "reference-context.html.j2" import reference_context %}{{ reference_context(boss, 'overall-reference') }}{% endif +%}
     <p>This comparison is unfiltered by faction. Race, faction-specific buffs, assignments and fight duration may differ; use it as additional context.</p>
     {% set top = boss.benchmarks.get('overall_top') %}
     {% if top %}<p>Saved overall #1 {{ top.category }} ranking: {{ top.player }} · {{ ev(top.category_score) }} {{ top.metric }}. {{ top.note }}</p>{% if not reference or reference.leaderboard_position != 1 %}<p>Overall #1 event example: unknown (not acquired or not eligible). Cross-faction acquisition can supply another-faction #1 when accessible.</p>{% endif %}

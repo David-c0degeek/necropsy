@@ -14,6 +14,7 @@ import pytest
 
 from necropsy.normalize.ingest import ingest
 from necropsy.report.analysis_json import build_document
+from necropsy.report.render import build_view, render_playbook, render_report
 from tests.class_fixture import snapshot
 
 ABILITIES = {
@@ -312,3 +313,80 @@ def test_an_unclassifiable_caster_withholds_mechanic_absence(
     assert "Living Bomb transitions are unmeasured for this reference." in text
     assert "This reference records no Inferno transitions." in text
     assert "no Living Bomb" not in text
+
+
+@pytest.mark.parametrize("page", ["report", "playbook"])
+@pytest.mark.parametrize("with_comparisons", [True, False])
+def test_reference_context_render_keeps_unknowns_and_saved_text(
+    tmp_path: Path, page: str, with_comparisons: bool
+) -> None:
+    with _paladin(tmp_path) as con:
+        document = build_document(con)
+    fight = {
+        "player": "Example",
+        "report_code": "REPORT1",
+        "fight_id": 7,
+        "duration_s": 11.28,
+        "mechanics": [
+            {
+                "label": "Living Bomb",
+                "applications": {"value": None, "note": "Caster identity is unresolved."},
+                "source": "https://classicdb.ch/?spell=20475",
+            },
+            {
+                "label": "Inferno",
+                "applications": {"value": 0},
+                "source": "https://warcraft.wiki.gg/wiki/Baron_Geddon",
+            },
+        ],
+        "other_enemies": {"value": None, "note": "Roster is missing."},
+    }
+    context = {
+        "rule": "reference-fight-context-v1",
+        "subject": fight,
+        "examples": [{**fight, "other_enemies": {"value": []}}],
+        "statements": [
+            {
+                "scope": scope,
+                "player": "Example",
+                "report_code": "REPORT1",
+                "fight_id": 7,
+                "text": text,
+            }
+            for scope, text in [
+                ("same-faction-reference", "Saved <cast> & context."),
+                ("overall-reference", "Overall context remains optional."),
+            ]
+        ],
+    }
+    document["bosses"][0]["playbook"]["reference_context"] = context
+    if not with_comparisons:
+        document["bosses"][0]["playbook"]["comparisons"] = []
+    render = render_report if page == "report" else render_playbook
+    html = render(build_view(document, "0" * 64))
+    assert "Saved &lt;cast&gt; &amp; context." in html
+    assert "Living Bomb: unmeasured · Caster identity is unresolved." in html
+    assert "Inferno: 0 recorded" in html
+    assert "Unmeasured · Roster is missing." in html
+    assert "No other enemies listed" in html
+    assert "11.28 s" in html
+    aside = html.split('class="quick-plan reference-context"', 1)[1].split("</aside>", 1)[0]
+    assert aside.count('href="https://classicdb.ch/?spell=20475"') == 1
+    assert 'style="overflow-wrap: anywhere">https://classicdb.ch/?spell=20475</a>' in aside
+    overall = html.split('<details class="overall-comparison">', 1)[1].split("</details>", 1)[0]
+    assert "Overall context remains optional." in overall
+    assert '<details class="overall-comparison" open' not in html
+
+
+@pytest.mark.parametrize("page", ["report", "playbook"])
+def test_missing_and_null_reference_context_render_identically(tmp_path: Path, page: str) -> None:
+    with _paladin(tmp_path) as con:
+        document = build_document(con)
+    render = render_report if page == "report" else render_playbook
+    for boss in document["bosses"]:
+        boss["playbook"].pop("reference_context", None)
+    missing = render(build_view(document, "0" * 64))
+    for boss in document["bosses"]:
+        boss["playbook"]["reference_context"] = None
+    assert render(build_view(document, "0" * 64)) == missing
+    assert 'class="quick-plan reference-context"' not in missing
