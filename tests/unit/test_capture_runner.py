@@ -515,6 +515,29 @@ def test_alert_retries_are_bounded(tmp_path: Path) -> None:
     assert runner.state["outbox"] == [] and runner.state["alert_failures"] == cr.ALERT_TRIES
 
 
+def test_alert_requests_name_their_own_user_agent(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Cloudflare in front of Notifiarr refuses urllib's default "Python-urllib/x.y".
+    sent: list[Any] = []
+
+    class Response:
+        status = 200
+
+        def __enter__(self) -> Response:
+            return self
+
+        def __exit__(self, *_: object) -> None:
+            return None
+
+    def urlopen(request: Any, timeout: float) -> Response:
+        sent.append(request)
+        return Response()
+
+    monkeypatch.setattr("urllib.request.urlopen", urlopen)
+    cr._post("https://notifiarr.example/passthrough/key", b"{}")
+    assert sent[0].get_header("User-agent") == cr.ALERT_USER_AGENT
+    assert sent[0].get_header("Content-type") == "application/json"
+
+
 def test_alerts_are_queued_once_per_key(tmp_path: Path) -> None:
     clock = Clock()
     alerts = Alerts()

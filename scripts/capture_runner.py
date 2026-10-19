@@ -460,11 +460,19 @@ class Notifier:
             return False
 
 
+ALERT_USER_AGENT = "necropsy-capture"
+"""Notifiarr sits behind Cloudflare, which refuses urllib's default User-Agent."""
+
+
 def _post(url: str, body: bytes) -> None:
     request = urllib.request.Request(
         url,
         data=body,
-        headers={"Content-Type": "application/json", "Accept": "text/plain"},
+        headers={
+            "Content-Type": "application/json",
+            "Accept": "text/plain",
+            "User-Agent": ALERT_USER_AGENT,
+        },
         method="POST",
     )
     with urllib.request.urlopen(request, timeout=30) as response:
