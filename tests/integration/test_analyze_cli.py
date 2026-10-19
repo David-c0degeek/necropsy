@@ -10,6 +10,7 @@ import json
 import random
 import subprocess
 import sys
+from collections.abc import Iterator
 from dataclasses import replace
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -40,14 +41,19 @@ SECRET = "sentinel-secret-token-value"
 
 
 @pytest.fixture(autouse=True)
-def _no_live_access(monkeypatch: pytest.MonkeyPatch) -> None:
-    """No test here may reach the real network or OS credential store, even after undo."""
+def _no_live_access() -> Iterator[None]:
+    """No test here may reach the real network or OS credential store.
+
+    The guard has its own MonkeyPatch, so a test's `monkeypatch.undo()` can't lift it.
+    """
 
     def refuse(*_: Any, **__: Any) -> Any:
         raise AssertionError("live network or credential access in an offline test")
 
-    monkeypatch.setattr(httpx.HTTPTransport, "handle_request", refuse)
-    monkeypatch.setattr(credentials.CredentialStore, "open", refuse)
+    with pytest.MonkeyPatch.context() as guard:
+        guard.setattr(httpx.HTTPTransport, "handle_request", refuse)
+        guard.setattr(credentials.CredentialStore, "open", refuse)
+        yield
 
 
 @pytest.fixture
@@ -1145,3 +1151,107 @@ def test_a_failed_receipt_write_keeps_the_original_failure(
     result = _run(tmp_path, "--outcome-json", str(tmp_path / "outcome.json"))
     assert result.exit_code == 1 and isinstance(result.exception, KeyError)
     assert not (tmp_path / "outcome.json").exists()
+
+
+def test_undoing_a_tests_own_patches_keeps_live_access_refused(
+    fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.undo()
+    with pytest.raises(AssertionError, match="live network"):
+        credentials.CredentialStore.open()
+    with pytest.raises(AssertionError, match="live network"):
+        httpx.HTTPTransport().handle_request(httpx.Request("GET", "https://example.invalid/"))
+
+
+def test_the_capture_runner_accepts_a_real_analyze_receipt_and_archive(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    from scripts import capture_runner as cr
+
+    queue = tmp_path / "queue.json"
+    entry = {
+        "entry_id": "naxx-hunter",
+        "raid": "naxxramas",
+        "partition": 1,
+        "class_id": 3,
+        "category": "Marksmanship",
+        "metric": "dps",
+        "faction": "Alliance",
+        "candidates": [URL],
+    }
+    queue.write_text(json.dumps({"version": 1, "entries": [entry]}), encoding="utf-8")
+    paths = cr.Paths(
+        queue, tmp_path / "state", tmp_path / "out", tmp_path / "cache", tmp_path / "www"
+    )
+    for directory in (paths.state, paths.out, paths.cache, paths.www):
+        directory.mkdir(parents=True, exist_ok=True)
+    runner = cr.Runner(paths, free_floor_bytes=0, exit_when_idle=True)
+    runner.load()
+
+    def real_analyze(command: list[str], log: Path) -> tuple[str, int | None]:
+        args = command[command.index("analyze") + 1 :]
+        kept = [a for a in args if a not in ("--raid", "naxxramas", "--partition", "1")]
+        result = CliRunner().invoke(app, ["analyze", *kept])
+        return "exit", result.exit_code
+
+    runner.supervise = real_analyze  # type: ignore[method-assign]
+    assert runner.run() == 0
+    status = json.loads((paths.www / "status.json").read_text(encoding="utf-8"))
+    assert status["counts"]["complete"] == 1 and status["usable_archives"] == 1
+    archive = runner.state["entries"]["naxx-hunter"]["archives"][0]
+    assert Path(archive["archive"]).is_relative_to(paths.out / "naxx-hunter" / "candidate-0")
+
+
+def test_the_capture_runner_defers_a_real_quota_stop_while_resolving(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from scripts import capture_runner as cr
+
+    def exhausted(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            200,
+            json={
+                "data": {
+                    "rateLimitData": {
+                        "limitPerHour": 36000,
+                        "pointsSpentThisHour": 36000,
+                        "pointsResetIn": 1800,
+                    }
+                },
+                "errors": [{"message": "rate limit exceeded"}],
+            },
+        )
+
+    fake["server"] = exhausted
+    monkeypatch.setattr(analyze_mod, "resolve", _resolve_through_client)
+    queue = tmp_path / "queue.json"
+    entry = {
+        "entry_id": "naxx-hunter",
+        "raid": "naxxramas",
+        "partition": 1,
+        "class_id": 3,
+        "category": "Marksmanship",
+        "metric": "dps",
+        "faction": "Alliance",
+        "candidates": [URL],
+    }
+    queue.write_text(json.dumps({"version": 1, "entries": [entry]}), encoding="utf-8")
+    paths = cr.Paths(
+        queue, tmp_path / "state", tmp_path / "out", tmp_path / "cache", tmp_path / "www"
+    )
+    for directory in (paths.state, paths.out, paths.cache, paths.www):
+        directory.mkdir(parents=True, exist_ok=True)
+    runner = cr.Runner(paths, free_floor_bytes=0, exit_when_idle=True)
+    runner.load()
+
+    def real_analyze(command: list[str], log: Path) -> tuple[str, int | None]:
+        args = command[command.index("analyze") + 1 :]
+        kept = [a for a in args if a not in ("--raid", "naxxramas", "--partition", "1")]
+        return "exit", CliRunner().invoke(app, ["analyze", *kept]).exit_code
+
+    runner.supervise = real_analyze  # type: ignore[method-assign]
+    runner.sleep = lambda seconds: runner.stopping.set()  # stop during the quota wait
+    assert runner.run() == 0
+    info = runner.state["entries"]["naxx-hunter"]
+    assert info["state"] == "deferred" and info["retry_at"] is not None
+    assert runner.state["controller"]["state"] == "waiting"

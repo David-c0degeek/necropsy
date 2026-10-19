@@ -201,3 +201,44 @@ the user confirms receipt, before go-live.
    staging and export use an owner-restricted ACL. UID and 0600 are then
    established and verified on Tower. No broadly accessible temporary token
    file.
+
+## Implementation notes (slice 3, revision 2)
+
+- `scripts/capture_runner.py` holds the runner, the status writer, the alert
+  outbox and the watchdog in one standard-library file (subcommands `run`,
+  `watchdog`, `clear-attention`, `test-alert`). It targets Python 3.11 so the
+  watchdog can run on Tower's own `python3` (3.11.15) from User Scripts cron,
+  independent of Docker. The runner itself runs in the container.
+- Exactly-once results: before a child starts, the attempt is recorded as in
+  flight (entry, candidate, start time, output directory, receipt path). The
+  observed exit code is saved when the child ends. The result is applied, and
+  the in-flight record cleared, in one state write, so a crash before or after
+  that write never applies it twice. An in-flight attempt with an unknown exit
+  resumes only after a requested stop; otherwise it needs a person.
+- Receipt checks: types and version; exit code equal to the observed one and
+  allowed for its class; written after the attempt started; the same output
+  directory; checkpoint hash equal to the saved checkpoint; a quota stop must
+  leave a checkpoint; finished captures must name a snapshot inside this
+  candidate's output whose bytes match the recorded SHA-256.
+- The child is always reaped, whatever exception leaves supervision (its
+  process group on POSIX). Stop requests are noticed within a second. Logs are
+  bounded at two 50 MB files per attempt. The free-space floor is checked
+  before each attempt and every heartbeat during one, across the output,
+  cache and state filesystems.
+- Alerts go through a durable outbox with bounded retries (12, backing off to
+  hourly). The runner stays up at Finished and Needs attention, keeping its
+  heartbeat and outbox going, so a container restart policy never loops it.
+  `clear-attention` drops a request file that the running runner picks up.
+- Stall threshold: 8 hours without progress outside a quota wait, longer than
+  the 6-hour attempt timeout.
+- Round 3 boundaries: a quota stop while resolving the character may have no
+  checkpoint (none existed before the attempt) and retries fresh; a checkpoint
+  that existed before an attempt and is gone after it needs attention. The stop
+  intent is saved before the child is cleaned up. Attempt directories are
+  never reused; one left by a crash is kept and skipped. A clear request names
+  the queue and the current attention incident, is refused when nothing needs
+  attention, and can apply at most once. The watchdog stays quiet about an old
+  heartbeat at Finished only when no alerts are still pending.
+- Container stop grace: run with `--stop-timeout 90`, above the 1 s stop
+  check, 20 s child termination grace and 30 s log drain.
+

@@ -44,6 +44,8 @@ line-length = 100
 # Plan evidence scripts are disposable notes, not project code.
 extend-exclude = ["tasks"]
 target-version = "py314"
+# The capture watchdog also runs on the server host's own Python 3.11.
+per-file-target-version = { "scripts/capture_runner.py" = "py311" }
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "PTH", "S"]
