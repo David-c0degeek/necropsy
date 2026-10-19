@@ -457,3 +457,26 @@ def test_absent_null_and_empty_healing_notes_render_identically(tmp_path: Path, 
             boss["playbook"]["class_notes"] = value
         assert render(build_view(document, "0" * 64)) == missing
     assert 'aria-label="Healing context from your log"' not in missing
+
+
+def test_a_single_comparison_keeps_individual_context_without_a_median(
+    tmp_path: Path,
+) -> None:
+    with _paladin(tmp_path) as con:
+        _encounter_complete(con)
+        document = build_document(con)
+    boss = document["bosses"][0]
+    play = boss["playbook"]
+    assert len(play["comparisons"]) == 1
+    medians = boss["benchmarks"]["baseline"]["medians"]
+    assert medians and all(m["value"]["value"] is None for m in medians.values())
+    assert all("need 3" in m["value"]["note"] for m in medians.values())
+    context = play["reference_context"]
+    assert len(context["examples"]) == 1
+    assert [s["scope"] for s in context["statements"]] == ["same-faction-reference"]
+    view = build_view(document, "0" * 64)
+    for render in (render_report, render_playbook):
+        html = render(view)
+        assert "Limited sample" in html
+        assert "Effective healing per second: median unavailable (1 known; needs 3)." in html
+        assert 'class="quick-plan reference-context"' in html

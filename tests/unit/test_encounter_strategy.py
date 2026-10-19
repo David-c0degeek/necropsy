@@ -143,6 +143,29 @@ def test_geddon_applies_class_and_healing_strategy_without_inventing_duty() -> N
         assert ("geddon-healer-bomb-coverage-v1" in rules) is healing
 
 
+def test_geddon_holy_paladin_items_cite_the_verified_source() -> None:
+    wiki = "https://warcraft.wiki.gg/wiki/Baron_Geddon"
+    strategy = encounter_strategy("mc", 50668, 1, 6, "hps")
+    assert strategy
+    by_rule = {item.rule: item for item in strategy.items}
+    assert set(by_rule) == {
+        "geddon-bomb-route-and-coverage-v1",
+        "geddon-paladin-cleanse-preparation-v1",
+        "geddon-paladin-healer-loadout-applicability-v1",
+        "geddon-bomb-and-inferno-recovery-v1",
+        "geddon-magic-removal-v1",
+        "geddon-healer-bomb-coverage-v1",
+        "geddon-bomb-and-dispel-backup-v1",
+    }
+    assert all(item.source == wiki and item.retrieved == "2026-10-19" for item in by_rule.values())
+    for class_id, metric in ((6, "dps"), (7, "hps"), (2, "hps")):
+        other = encounter_strategy("mc", 50668, 1, class_id, metric)
+        assert other
+        assert "geddon-paladin-healer-loadout-applicability-v1" not in {
+            item.rule for item in other.items
+        }
+
+
 def test_shazzrah_keeps_friendly_curse_and_hostile_magic_removal_distinct() -> None:
     for class_id, name in CLASS_NAMES.items():
         strategy = encounter_strategy("mc", 50667, 1, class_id, "dps")

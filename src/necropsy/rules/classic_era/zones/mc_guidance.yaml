@@ -286,6 +286,8 @@ strategy:
     items:
     - rule: geddon-bomb-route-and-coverage-v1
       section: before
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
       text: Agree a Living Bomb separation route, healer coverage and Ignite Mana removal assignments before the pull.
     - rule: geddon-paladin-cleanse-preparation-v1
       section: before
@@ -294,16 +296,29 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Baron_Geddon
       retrieved: '2026-10-19'
       text: Agree who Cleanses Ignite Mana from mana users. It should not be removed from Warriors or Rogues, and keeping healers and dispellers out of its range saves mana spent dispelling.
+    - rule: geddon-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: The cited encounter source names no Geddon-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
     - rule: geddon-bomb-and-inferno-recovery-v1
       section: during
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
       text: If you receive Living Bomb, follow the agreed route away from nearby allies. Recover your position safely after the explosion and move out for Inferno according to the raid's plan.
     - rule: geddon-magic-removal-v1
       section: during
       classes: [6, 7]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
       text: If assigned magic removal, coordinate Ignite Mana priorities on mana users. Its presence on a Warrior or Rogue does not by itself establish mana loss or damage; aura duration alone is not a removal-quality grade.
     - rule: geddon-healer-bomb-coverage-v1
       section: during
       metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
       text: Coordinate support for the isolated Living Bomb target and recovery from Inferno. Compare whole-fight healing with those assignments and recorded mana loss, rather than assuming equal healing opportunity.
     - rule: geddon-hunter-pet-recovery-v1
       section: during
@@ -311,6 +326,8 @@ strategy:
       text: Review pet positioning and survival around Inferno before copying another Hunter's attack time. Plan a safe withdrawal and return with the raid's movement calls.
     - rule: geddon-bomb-and-dispel-backup-v1
       section: raid
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
       text: Confirm bomb isolation, healing range and backup Ignite Mana removal. Personal aura exposure cannot establish explosion splash victims, movement execution or every raid-wide removal opportunity.
   50665:
     retrieved: '2026-10-17'

@@ -22,6 +22,19 @@ our fights. It contains seasonal IDs too; those are not substituted. The
 automated Classic Living Bomb page was blocked. No bomb exposure matcher or
 success/failure diagnosis is enabled without a usable selected positive source.
 
+Source recheck 2026-10-19: the Wowhead Classic guide URL above returned only
+site boilerplate (no strategy text) on two fetches, so it cannot support any
+sentence. The Holy Paladin strategy items, the Paladin loadout applicability
+item and the encounter facts now cite
+[warcraft.wiki.gg/wiki/Baron_Geddon](https://warcraft.wiki.gg/wiki/Baron_Geddon),
+whose Classic sections support each sentence (Living Bomb separation, melee
+leaving during Inferno, no Ignite Mana dispel on Warriors or Rogues, healers
+outside Ignite Mana range but in healing range, Elemental type). That page has
+no healer gear guidance; its only resistance mention ("over 315 FR") concerns
+the bomb or main-tank context, so no Geddon-specific Paladin loadout change is
+claimed. The Hunter pet-recovery item still inherits the unverified guide and
+needs its own source before any Hunter cell closes.
+
 ## Immutable observations
 
 Normal finalized public captures `mc-geddon-holy` and `mc-geddon-hunter`, six
