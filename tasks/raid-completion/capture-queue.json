@@ -1,0 +1,5205 @@
+{
+ "version": 1,
+ "plan_sha256": "68bccb35c9e4f2d5903271b591b9480fa43708995d87b8637d37a0f30c0bd6d9",
+ "resolutions_sha256": "edb9b4bfb9aba3c665b95cbaeb0af7f9deaa2433d1a5c2d3bfb17d883cb6b6ac",
+ "entries": [
+  {
+   "entry_id": "aq40-druid-balance-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/95599455?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/95599455?zone=2005",
+     "character": "Calimai",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:11:14+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/MR7QD2T6L8rbgpAG/fight_70.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-balance-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/64347501?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/98988907?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/105936990?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/64347501?zone=2005",
+     "character": "Versyth",
+     "server": "Whitemane",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:11:18+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/Hk9aDXYvh7tMKNrL/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98988907?zone=2005",
+     "character": "Nago",
+     "server": "Golemagg",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:11:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-mage.zip",
+      "member": "reports/9jzxYAyNbvK7tJcm/fight_65.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/105936990?zone=2005",
+     "character": "Goldenleaf",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:09+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/ncamJNBRwA1tkgzH/fight_60.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-balance-hps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "hps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/95599455?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/95599455?zone=2005",
+     "character": "Calimai",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:11:14+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/MR7QD2T6L8rbgpAG/fight_70.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-balance-hps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/64347501?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/98988907?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/105936990?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/64347501?zone=2005",
+     "character": "Versyth",
+     "server": "Whitemane",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:11:18+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/Hk9aDXYvh7tMKNrL/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98988907?zone=2005",
+     "character": "Nago",
+     "server": "Golemagg",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:11:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-mage.zip",
+      "member": "reports/9jzxYAyNbvK7tJcm/fight_65.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/105936990?zone=2005",
+     "character": "Goldenleaf",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:09+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/ncamJNBRwA1tkgzH/fight_60.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-feral-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Feral",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/74197702?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/75701466?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/76144583?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74197702?zone=2005",
+     "character": "Thunderoot",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:11:32+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+      "member": "reports/mRkfKhHW4NVCxbqD/fight_91.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75701466?zone=2005",
+     "character": "Calima",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:11:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/ZFt9MLBnpKV6gWrx/fight_61.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76144583?zone=2005",
+     "character": "Soramin",
+     "server": "Mirage Raceway",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:11:35+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/XcW1L2xDRJnzZwTa/fight_64.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-feral-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Feral",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/104951744?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/98300073?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/80028365?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/104951744?zone=2005",
+     "character": "Fcbot",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:11+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-viscidus-guardian.zip",
+      "member": "reports/cJma3DMdG1tpzjC4/fight_16.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98300073?zone=2005",
+     "character": "Fillet",
+     "server": "Bloodfang",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:13+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-mage.zip",
+      "member": "reports/9jzxYAyNbvK7tJcm/fight_65.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80028365?zone=2005",
+     "character": "Dreaktwo",
+     "server": "Bloodfang",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:21:20+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-viscidus-guardian.zip",
+      "member": "reports/XwzFMNQ49BDaLWGy/fight_13.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-guardian-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Guardian",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/88731286?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/75701466?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/98600319?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/88731286?zone=2005",
+     "character": "Calimay",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:17+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/CGkPmVLAN9jgcDzn/fight_39.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75701466?zone=2005",
+     "character": "Calima",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:11:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/T7whfb6931B8Jz2c/fight_90.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98600319?zone=2005",
+     "character": "Titanforged",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:18+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/jCNKd2fLYhQWnPG1/fight_28.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-guardian-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Guardian",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/firemaw/Kentosuh?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/63697574?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/62299941?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Kentosuh?zone=2005",
+     "character": "Kentosuh",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:19+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/63697574?zone=2005",
+     "character": "Moonline",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:20+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/a3VLN2GQTbBcxYA7/fight_14.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62299941?zone=2005",
+     "character": "Kentosuh",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:22+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/HvgMYzf1PqtKNcCR/fight_23.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-restoration-hps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Restoration",
+   "metric": "hps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/92605789?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/95599455?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2005",
+     "character": "Paracetalol",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:24+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/2YAfTWXGQ17CqjxR/fight_49.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/92605789?zone=2005",
+     "character": "Beansprout",
+     "server": "Mirage Raceway",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:26+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/XcW1L2xDRJnzZwTa/fight_64.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/95599455?zone=2005",
+     "character": "Calimai",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:11:14+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/MR7QD2T6L8rbgpAG/fight_10.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-druid-restoration-hps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Restoration",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/103533231?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/76993143?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/90485517?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/103533231?zone=2005",
+     "character": "Rooty",
+     "server": "Ashbringer",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:27+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/cqwzL6FxgYQmb1rB/fight_18.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76993143?zone=2005",
+     "character": "Brygge",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/d1nyjQtgXB28GvLq/fight_18.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/90485517?zone=2005",
+     "character": "Laneva",
+     "server": "Mograine",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:30+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/HvgMYzf1PqtKNcCR/fight_23.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-hunter-marksmanship-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 3,
+   "category": "Marksmanship",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/94877690?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/76305389?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/83304895?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/94877690?zone=2005",
+     "character": "Smokeshow",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:34+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/tgW8V97GvXcPrzNT/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76305389?zone=2005",
+     "character": "Rinzh",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:37+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/AWp7bDJL6zNGcQdK/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83304895?zone=2005",
+     "character": "Velasquez",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:38+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/AWp7bDJL6zNGcQdK/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-mage-fire-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Fire",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/77203429?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/72572303?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/98411839?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77203429?zone=2005",
+     "character": "Magicpotato",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:40+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/1QbJnXTVRL9vAHKr/fight_16.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/72572303?zone=2005",
+     "character": "Auuro",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:41+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/2YAfTWXGQ17CqjxR/fight_49.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[3]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98411839?zone=2005",
+     "character": "Ruiner",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:42+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/MR7QD2T6L8rbgpAG/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-mage-fire-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Fire",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/81009630?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/65957325?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/74176394?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81009630?zone=2005",
+     "character": "Hoorbe",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:43+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/MZvFRcXHj1CG3qyW/fight_28.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/65957325?zone=2005",
+     "character": "Monoxide",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:47+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/a3VLN2GQTbBcxYA7/fight_14.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74176394?zone=2005",
+     "character": "Halfbundy",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:48+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/a3VLN2GQTbBcxYA7/fight_14.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-mage-frost-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Frost",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/75011753?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/64343727?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/78020765?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75011753?zone=2005",
+     "character": "Shiah",
+     "server": "Golemagg",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:49+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-raid/74578049-2000-20261017T175812.zip",
+      "member": "reports/KcdY7WtJCqGDp6nM/fight_63.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/64343727?zone=2005",
+     "character": "Jahma",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:51+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/Ay1BV3rqpXtj6aWP/fight_67.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/78020765?zone=2005",
+     "character": "Wlhung",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:12:53+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "member": "reports/1Fwdzv6fy3QWpRJP/fight_54.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-mage-frost-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Frost",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/74891268?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/66823211?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74891268?zone=2005",
+     "character": "Pandoreo",
+     "server": "Whitemane",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:12:54+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/YtkKGAJz6hX9MZHx/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/66823211?zone=2005",
+     "character": "Enemythings",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:21:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-guardian.zip",
+      "member": "reports/DFf4MgQPdbxqGrKa/fight_84.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[3]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-paladin-holy-hps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Holy",
+   "metric": "hps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/88525424?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/87524717?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/74578485?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/88525424?zone=2005",
+     "character": "Touched",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:07+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/AWp7bDJL6zNGcQdK/fight_10.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[2]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/87524717?zone=2005",
+     "character": "Luxuryheals",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:09+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/6CWNpM7yT4ajJckh/fight_20.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74578485?zone=2005",
+     "character": "Vanillagirl",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:11+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/tgW8V97GvXcPrzNT/fight_10.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-paladin-protection-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/82824656?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/82824656?zone=2005",
+     "character": "Goodoldtank",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:12+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+      "member": "reports/mRkfKhHW4NVCxbqD/fight_91.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-paladin-retribution-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Retribution",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/75661061?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/93512055?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/75993882?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75661061?zone=2005",
+     "character": "Derillian",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:13+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/jCNKd2fLYhQWnPG1/fight_28.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[3]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/93512055?zone=2005",
+     "character": "Killerduki",
+     "server": "Mograine",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:15+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/MR7QD2T6L8rbgpAG/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75993882?zone=2005",
+     "character": "Tommyret",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:16+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/Rdr48tn21WY3xL7m/fight_19.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-priest-holy-hps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Holy",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/81929629?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/78693201?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/63922767?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81929629?zone=2005",
+     "character": "Scylia",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:18+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/MZvFRcXHj1CG3qyW/fight_28.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[2]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/78693201?zone=2005",
+     "character": "Lutjens",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:19+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/41mTFw2c6QAV73KN/fight_20.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[2]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/63922767?zone=2005",
+     "character": "Abgehoben",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:21+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/MZvFRcXHj1CG3qyW/fight_28.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-priest-shadow-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Shadow",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/65587545?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/77299872?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/88564081?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/65587545?zone=2005",
+     "character": "Hfpriest",
+     "server": "Earthshaker",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:22+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/PbjFawLkd1cXBg93/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77299872?zone=2005",
+     "character": "Safeword",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:23+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+      "member": "reports/mRkfKhHW4NVCxbqD/fight_91.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/88564081?zone=2005",
+     "character": "Michalion",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:24+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/ywGLJZRY8gd6aFmA/fight_49.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-priest-shadow-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Shadow",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/76887572?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/83303463?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/79305830?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76887572?zone=2005",
+     "character": "Relativism",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:25+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/41mTFw2c6QAV73KN/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83303463?zone=2005",
+     "character": "Fiduciary",
+     "server": "Ashbringer",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:27+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/HvgMYzf1PqtKNcCR/fight_23.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/79305830?zone=2005",
+     "character": "Raskata",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-viscidus-guardian.zip",
+      "member": "reports/XwzFMNQ49BDaLWGy/fight_13.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-rogue-assassination-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 8,
+   "category": "Assassination",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/65639509?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/82338371?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/95675327?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/65639509?zone=2005",
+     "character": "Awo",
+     "server": "Earthshaker",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:36+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/AWp7bDJL6zNGcQdK/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/82338371?zone=2005",
+     "character": "Fisklukt",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:39+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/7PtgC19QVB3ynJWd/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/95675327?zone=2005",
+     "character": "Mammatrollis",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:13:42+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "member": "reports/1Fwdzv6fy3QWpRJP/fight_54.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-rogue-assassination-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 8,
+   "category": "Assassination",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/89097161?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/97625506?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/98854650?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/89097161?zone=2005",
+     "character": "Jurah",
+     "server": "Golemagg",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:45+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/MZvFRcXHj1CG3qyW/fight_28.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/97625506?zone=2005",
+     "character": "Tracii",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:47+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/N98DVdt7ATXWzGwv/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98854650?zone=2005",
+     "character": "Evorek",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:50+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/a3VLN2GQTbBcxYA7/fight_14.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-shaman-elemental-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 9,
+   "category": "Elemental",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/59539983?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/75756459?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/109155750?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/59539983?zone=2005",
+     "character": "Bushmilfs",
+     "server": "Earthshaker",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:51+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/aZJpY1BAL6tnfhKR/fight_49.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75756459?zone=2005",
+     "character": "Pythón",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:52+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/41mTFw2c6QAV73KN/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[13]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/109155750?zone=2005",
+     "character": "Megaera",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:54+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/d4B1rF9AChpg3Kyz/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-shaman-enhancement-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 9,
+   "category": "Enhancement",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/73303305?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/90226153?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/90755294?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/73303305?zone=2005",
+     "character": "Wfeignrgnivd",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:56+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/41mTFw2c6QAV73KN/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[15]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/90226153?zone=2005",
+     "character": "Winfurytotem",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:57+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/41mTFw2c6QAV73KN/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[16]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/90755294?zone=2005",
+     "character": "Dunaji",
+     "server": "Skullflame",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:13:59+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/Jw7RDb43XKALngca/fight_18.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-shaman-restoration-hps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 9,
+   "category": "Restoration",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/78228954?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/75660813?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/92603971?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/78228954?zone=2005",
+     "character": "Tsunki",
+     "server": "Noggenfogger",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:01+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/9gQDvKPpy8FzTjYh/fight_38.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[8]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75660813?zone=2005",
+     "character": "Ponponn",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:08+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/d1nyjQtgXB28GvLq/fight_18.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[4]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/92603971?zone=2005",
+     "character": "Ranterina",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:09+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/d1nyjQtgXB28GvLq/fight_18.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[10]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-warlock-destruction-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 10,
+   "category": "Destruction",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/62254737?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/62254777?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/64850555?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62254737?zone=2005",
+     "character": "Kaaklock",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:14+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/CX47QPNRqMab1jgw/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62254777?zone=2005",
+     "character": "Kaakje",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:16+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/2YAfTWXGQ17CqjxR/fight_49.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/64850555?zone=2005",
+     "character": "Dahboo",
+     "server": "Bloodfang",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:17+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/7PtgC19QVB3ynJWd/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-warlock-destruction-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 10,
+   "category": "Destruction",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/96798464?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/106034331?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/94941927?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/96798464?zone=2005",
+     "character": "Esaaks",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:18+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/N98DVdt7ATXWzGwv/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[11]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/106034331?zone=2005",
+     "character": "Caidara",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:19+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/MZvFRcXHj1CG3qyW/fight_28.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/94941927?zone=2005",
+     "character": "Souly",
+     "server": "Ashbringer",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:22+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/d1nyjQtgXB28GvLq/fight_18.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-warrior-fury-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Fury",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/78447876?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/83044380?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/77309395?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/78447876?zone=2005",
+     "character": "Smpilihp",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:24+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 11,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/CGkPmVLAN9jgcDzn/fight_39.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[11]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83044380?zone=2005",
+     "character": "Ige",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:25+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/CGkPmVLAN9jgcDzn/fight_39.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[15]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77309395?zone=2005",
+     "character": "Tebatmar",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:26+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/CGkPmVLAN9jgcDzn/fight_39.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-warrior-fury-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Fury",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/73648612?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/87378642?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/107189772?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/73648612?zone=2005",
+     "character": "Panteon",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:27+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/9gQDvKPpy8FzTjYh/fight_38.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[13]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/87378642?zone=2005",
+     "character": "Kdb",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:28+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/d1nyjQtgXB28GvLq/fight_18.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[21]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/107189772?zone=2005",
+     "character": "Mestok",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/MZvFRcXHj1CG3qyW/fight_28.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[22]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-warrior-protection-dps-alliance",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/us/windseeker/Kaiin?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/62254708?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/90701228?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/us/windseeker/Kaiin?zone=2005",
+     "character": "Kaiin",
+     "server": "Windseeker",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:30+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62254708?zone=2005",
+     "character": "Thompsone",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:31+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/2YAfTWXGQ17CqjxR/fight_49.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/90701228?zone=2005",
+     "character": "Tusqaiw",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-holy-complete-context/94217209-2005-20261017T210540.zip",
+      "member": "reports/CGkPmVLAN9jgcDzn/fight_39.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[3]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "aq40-warrior-protection-dps-horde",
+   "raid": "aq40",
+   "zone": 2005,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/85888590?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/80808573?zone=2005",
+    "https://vanilla.warcraftlogs.com/character/id/86890759?zone=2005"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/85888590?zone=2005",
+     "character": "Mozzarella",
+     "server": "Ashbringer",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:34+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/MZvFRcXHj1CG3qyW/fight_28.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80808573?zone=2005",
+     "character": "Krystian",
+     "server": "Noggenfogger",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:35+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/9gQDvKPpy8FzTjYh/fight_38.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/86890759?zone=2005",
+     "character": "Katyparry",
+     "server": "Ashbringer",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:36+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/aq40-hunter-cohort-context/73952389-2005-20261018T093201.zip",
+      "member": "reports/d1nyjQtgXB28GvLq/fight_18.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-balance-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/98761757?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98761757?zone=2002",
+     "character": "Ovechkin",
+     "server": "Westfall",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:37+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "member": "reports/9zPhHyA7VcwYR4fN/fight_41.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2002",
+     "character": "Atomicuranus",
+     "server": "Auberdine",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:38+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/Z8mRrJtAPGzHhxK6/fight_38.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2002",
+     "character": "Teris",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:39+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/nA2cZk3f9CzrhMm6/fight_38.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-balance-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/81935082?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81935082?zone=2002",
+     "character": "Toebeansmash",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:40+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/dBMKwjWFQgmVNpy7/fight_62.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-balance-hps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "hps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/98761757?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98761757?zone=2002",
+     "character": "Ovechkin",
+     "server": "Westfall",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:37+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "member": "reports/9zPhHyA7VcwYR4fN/fight_41.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2002",
+     "character": "Atomicuranus",
+     "server": "Auberdine",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:38+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/Z8mRrJtAPGzHhxK6/fight_38.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2002",
+     "character": "Teris",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:39+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/nA2cZk3f9CzrhMm6/fight_38.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-balance-hps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/81935082?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81935082?zone=2002",
+     "character": "Toebeansmash",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:40+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/dBMKwjWFQgmVNpy7/fight_62.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-feral-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Feral",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/77467351?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/75263752?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/75518659?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77467351?zone=2002",
+     "character": "Cisero",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:50+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-guardian.zip",
+      "member": "reports/GcVwANCP4Zt3bXqv/fight_22.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75263752?zone=2002",
+     "character": "Xu",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:51+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-sulfuron-rogue.zip",
+      "member": "reports/WCYyqTHt1d2RFkrj/fight_42.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75518659?zone=2002",
+     "character": "Volibear",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:14:52+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-hunter.zip",
+      "member": "reports/kw1KFhxA4mfY8aRD/fight_42.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-feral-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Feral",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/88011680?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/88011680?zone=2002",
+     "character": "Hadkillz",
+     "server": "Auberdine",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:14:58+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/apMDqWRZywAFVdTt/fight_63.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-guardian-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Guardian",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/us/ashkandi/Suncat?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/83516646?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/63632465?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/us/ashkandi/Suncat?zone=2002",
+     "character": "Suncat",
+     "server": "Ashkandi",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:03+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83516646?zone=2002",
+     "character": "Catshift",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:04+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/AXQ9Dq3TYWhGKVJw/fight_31.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/63632465?zone=2002",
+     "character": "Eblis",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:06+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-sulfuron-rogue.zip",
+      "member": "reports/WCYyqTHt1d2RFkrj/fight_42.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-guardian-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Guardian",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/75123788?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/86055625?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/68419165?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75123788?zone=2002",
+     "character": "Earthwormjim",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:07+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/9tKf26PNGzLYHbqn/fight_71.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/86055625?zone=2002",
+     "character": "Eaglehoof",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:10+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-garr-control-warlock.zip",
+      "member": "reports/7wrjJy8ct9vLNRCf/fight_52.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/68419165?zone=2002",
+     "character": "Maasu",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:11+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/jNDBfQk4q87vtdma/fight_51.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-restoration-hps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Restoration",
+   "metric": "hps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/60117765?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/83098391?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/60117765?zone=2002",
+     "character": "Aldraie",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:12+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-guardian.zip",
+      "member": "reports/GcVwANCP4Zt3bXqv/fight_22.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83098391?zone=2002",
+     "character": "Kanachan",
+     "server": "Ashkandi",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:13+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-hunter.zip",
+      "member": "reports/Lwa74rJDPthfdCRY/fight_16.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2002",
+     "character": "Paracetalol",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:14+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-context-holy.zip",
+      "member": "reports/aArbYjn2PgmdLMz6/fight_20.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-druid-restoration-hps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Restoration",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/62064329?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/75123786?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/81740771?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62064329?zone=2002",
+     "character": "Karakorn",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:21+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/DXCY3H6nf2xwBtAm/fight_14.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75123786?zone=2002",
+     "character": "Tsum",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:24+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/9tKf26PNGzLYHbqn/fight_71.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81740771?zone=2002",
+     "character": "Pertinax",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:25+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/nR4wXAxyHqhdpWrk/fight_44.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-hunter-marksmanship-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 3,
+   "category": "Marksmanship",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/pyrewood-village/Xal?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/83377642?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/64024260?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/pyrewood-village/Xal?zone=2002",
+     "character": "Xal",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:26+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83377642?zone=2002",
+     "character": "Toefinger",
+     "server": "Windseeker",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:28+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/AXQ9Dq3TYWhGKVJw/fight_31.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/64024260?zone=2002",
+     "character": "Trazel",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-hunter.zip",
+      "member": "reports/kw1KFhxA4mfY8aRD/fight_42.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-hunter-marksmanship-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 3,
+   "category": "Marksmanship",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/80685958?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/72132516?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/74998486?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80685958?zone=2002",
+     "character": "Crandle",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:41+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/72132516?zone=2002",
+     "character": "Tekuma",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:08+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/9tKf26PNGzLYHbqn/fight_71.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74998486?zone=2002",
+     "character": "Rohr",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:10+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/9tKf26PNGzLYHbqn/fight_71.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-mage-fire-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Fire",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/87165518?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/79976647?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/83286178?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/87165518?zone=2002",
+     "character": "Evinakk",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:43+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-context-holy.zip",
+      "member": "reports/TaqZXCvhGnpPxwDf/fight_23.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/79976647?zone=2002",
+     "character": "Vix",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:44+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/9HAGxNQdJ1tmK2FV/fight_32.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83286178?zone=2002",
+     "character": "Råiny",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:45+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "member": "reports/kHmFJLRVgQravA8f/fight_16.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-mage-fire-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Fire",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/74720689?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/76765673?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/77213050?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74720689?zone=2002",
+     "character": "Fuggernaught",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:49+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/dBMKwjWFQgmVNpy7/fight_62.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[3]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76765673?zone=2002",
+     "character": "Caste",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:50+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/dBMKwjWFQgmVNpy7/fight_62.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77213050?zone=2002",
+     "character": "Zebajin",
+     "server": "Nethergarde Keep",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:15:52+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[3]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-mage-frost-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Frost",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/103407768?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/104705849?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/76800434?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/103407768?zone=2002",
+     "character": "Fizbin",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:55+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/TqgtjD4Z6wLJbx8a/fight_51.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/104705849?zone=2002",
+     "character": "Jezreal",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:56+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/TqgtjD4Z6wLJbx8a/fight_51.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76800434?zone=2002",
+     "character": "Amessie",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:15:59+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/nA2cZk3f9CzrhMm6/fight_38.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-mage-frost-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Frost",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/73701518?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/74887569?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/74887892?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/73701518?zone=2002",
+     "character": "Case",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:13+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74887569?zone=2002",
+     "character": "Akarialol",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:15+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/J73FY4zh2VtQRWcZ/fight_13.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74887892?zone=2002",
+     "character": "Beeseajay",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:16+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/nR4wXAxyHqhdpWrk/fight_44.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-paladin-holy-hps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Holy",
+   "metric": "hps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/90114081?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/77152471?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/63683692?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/90114081?zone=2002",
+     "character": "Bubblebooty",
+     "server": "Windseeker",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:13+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 10,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/AXQ9Dq3TYWhGKVJw/fight_31.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[3]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77152471?zone=2002",
+     "character": "Dirtysheets",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:14+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/AXQ9Dq3TYWhGKVJw/fight_31.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/63683692?zone=2002",
+     "character": "Ort",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:15+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "member": "reports/VGypA3Zbf2WDTqrz/fight_2.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-paladin-protection-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/77625731?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/67666001?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77625731?zone=2002",
+     "character": "Svenska",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:16+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "member": "reports/VGypA3Zbf2WDTqrz/fight_2.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/67666001?zone=2002",
+     "character": "Raenarth",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:19+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "member": "reports/hB6xqfKXd2zFa34t/fight_20.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-paladin-retribution-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Retribution",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/81383855?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/81943991?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/62303391?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81383855?zone=2002",
+     "character": "Krumjorn",
+     "server": "Everlook",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:21+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+      "member": "reports/M6bmhrjYLptJgZ8y/fight_19.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81943991?zone=2002",
+     "character": "Holybluff",
+     "server": "Mirage Raceway",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:22+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+      "member": "reports/Vpmj8KTvkcDqhray/fight_22.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62303391?zone=2002",
+     "character": "Acrcus",
+     "server": "Whitemane",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:24+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "member": "reports/bV2CM61Fc9d3RgvA/fight_77.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-priest-holy-hps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Holy",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/77365636?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/84942908?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/60119826?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77365636?zone=2002",
+     "character": "Callisto",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:18+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/84942908?zone=2002",
+     "character": "Aneez",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:20+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/60119826?zone=2002",
+     "character": "Leliá",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:22+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/DXCY3H6nf2xwBtAm/fight_14.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-priest-shadow-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Shadow",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/99685225?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/74487626?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/76700720?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/99685225?zone=2002",
+     "character": "Kerzon",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:38+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "member": "reports/7LWhyHCvMDRkt23z/fight_36.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74487626?zone=2002",
+     "character": "Whosyourmama",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:39+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shazzrah-hunter.zip",
+      "member": "reports/Fzv2pKaA31GmTtcQ/fight_45.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76700720?zone=2002",
+     "character": "Lucysteins",
+     "server": "Whitemane",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:40+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-holy-raid-context/84784613-2002-20261017T195936.zip",
+      "member": "reports/7HJyj1nx2qBKWkRm/fight_2.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-priest-shadow-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Shadow",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/70035928?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/73063484?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/70035928?zone=2002",
+     "character": "Nanaomena",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:16:41+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/8YkpMvn7jLtJCzZA/fight_50.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2002",
+     "character": "Ywfvniefjioe",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:16:42+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/73063484?zone=2002",
+     "character": "Laro",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:16:43+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/9tKf26PNGzLYHbqn/fight_71.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-rogue-assassination-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 8,
+   "category": "Assassination",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/77737333?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/67281272?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/62528529?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77737333?zone=2002",
+     "character": "Peruviancapy",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:45+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-guardian.zip",
+      "member": "reports/GcVwANCP4Zt3bXqv/fight_22.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/67281272?zone=2002",
+     "character": "Flaps",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:46+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-guardian.zip",
+      "member": "reports/GcVwANCP4Zt3bXqv/fight_22.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62528529?zone=2002",
+     "character": "Grifting",
+     "server": "Westfall",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:16:47+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-context-holy.zip",
+      "member": "reports/cg1mfw64BzAhNd97/fight_19.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-rogue-assassination-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 8,
+   "category": "Assassination",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/76406292?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/76674790?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/82955681?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76406292?zone=2002",
+     "character": "Rndomize",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:25+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76674790?zone=2002",
+     "character": "Fleeced",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:26+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/Qtcx8Bz6J1dK3YX7/fight_53.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[13]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/82955681?zone=2002",
+     "character": "Dnr",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:27+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[11]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-shaman-elemental-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 9,
+   "category": "Elemental",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/75756459?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/77287725?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/83021609?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75756459?zone=2002",
+     "character": "Pythón",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:08+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[14]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77287725?zone=2002",
+     "character": "Guyondacouch",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:09+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/dBMKwjWFQgmVNpy7/fight_62.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[15]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/83021609?zone=2002",
+     "character": "Astrø",
+     "server": "Auberdine",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:12+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/apMDqWRZywAFVdTt/fight_63.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[14]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-shaman-enhancement-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 9,
+   "category": "Enhancement",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/76085848?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/80066717?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/85694542?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76085848?zone=2002",
+     "character": "Roughmoon",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:17+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/9tKf26PNGzLYHbqn/fight_71.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[18]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80066717?zone=2002",
+     "character": "Karmelo",
+     "server": "Auberdine",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:20+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/apMDqWRZywAFVdTt/fight_63.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[15]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/85694542?zone=2002",
+     "character": "Kameron",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:21+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[16]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-shaman-restoration-hps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 9,
+   "category": "Restoration",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/62388940?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/62565228?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/80764809?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62388940?zone=2002",
+     "character": "Sylérx",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:24+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/8YkpMvn7jLtJCzZA/fight_50.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62565228?zone=2002",
+     "character": "Grohmkull",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80764809?zone=2002",
+     "character": "Troldefar",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:31+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[8]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-warlock-destruction-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 10,
+   "category": "Destruction",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/76878392?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/100183764?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/105889445?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76878392?zone=2002",
+     "character": "Coveck",
+     "server": "Westfall",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:17:32+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-magmadar-hunter.zip",
+      "member": "reports/3n2bgwqyMpmzhW1B/fight_30.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[11]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/100183764?zone=2002",
+     "character": "Persnickety",
+     "server": "Windseeker",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:17:34+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "member": "reports/7LWhyHCvMDRkt23z/fight_36.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[14]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/105889445?zone=2002",
+     "character": "Remesis",
+     "server": "Windseeker",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:17:35+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "member": "reports/7LWhyHCvMDRkt23z/fight_36.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[15]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-warlock-destruction-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 10,
+   "category": "Destruction",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/75536238?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/60118828?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/62277746?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75536238?zone=2002",
+     "character": "Finia",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:52+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[17]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/60118828?zone=2002",
+     "character": "Linbjörn",
+     "server": "Noggenfogger",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:55+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/DXCY3H6nf2xwBtAm/fight_14.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62277746?zone=2002",
+     "character": "Daemonius",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:17:56+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/J73FY4zh2VtQRWcZ/fight_13.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[12]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-warrior-fury-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Fury",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/75746382?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/82215407?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/81072248?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75746382?zone=2002",
+     "character": "Sempai",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:17:57+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 10,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/nA2cZk3f9CzrhMm6/fight_38.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[15]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/82215407?zone=2002",
+     "character": "Terius",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:17:58+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-context-holy.zip",
+      "member": "reports/cg1mfw64BzAhNd97/fight_19.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[20]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81072248?zone=2002",
+     "character": "Omrux",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:00+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-hunter.zip",
+      "member": "reports/aFTG9fPh38rNyVvc/fight_28.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[23]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-warrior-fury-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Fury",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/59621949?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/65308591?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/59621949?zone=2002",
+     "character": "Oblivions",
+     "server": "Golemagg",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:38+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/DXCY3H6nf2xwBtAm/fight_14.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[11]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/65308591?zone=2002",
+     "character": "Zokra",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:42+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/dBMKwjWFQgmVNpy7/fight_62.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[17]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-warrior-protection-dps-alliance",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/81578468?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/70045890?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/78308139?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81578468?zone=2002",
+     "character": "Lilybangs",
+     "server": "Ashkandi",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:15+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-balance-damage.zip",
+      "member": "reports/AXQ9Dq3TYWhGKVJw/fight_31.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[2]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/70045890?zone=2002",
+     "character": "Vincint",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:16+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-hunter.zip",
+      "member": "reports/kw1KFhxA4mfY8aRD/fight_42.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/78308139?zone=2002",
+     "character": "Dinkie",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:17+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-context-holy.zip",
+      "member": "reports/TaqZXCvhGnpPxwDf/fight_23.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "bwl-warrior-protection-dps-horde",
+   "raid": "bwl",
+   "zone": 2002,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/us/whitemane/Bubzwarr?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/73555992?zone=2002",
+    "https://vanilla.warcraftlogs.com/character/id/59552169?zone=2002"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Bubzwarr?zone=2002",
+     "character": "Bubzwarr",
+     "server": "Whitemane",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:18+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/73555992?zone=2002",
+     "character": "Nesu",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:23+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/dT4V7vxbG9ZYaQkz/fight_20.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/59552169?zone=2002",
+     "character": "Beefalo",
+     "server": "Gandling",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:27+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-protection.zip",
+      "member": "reports/DXCY3H6nf2xwBtAm/fight_14.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-balance-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/us/pagle/Zasko?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/99437596?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/80584343?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/us/pagle/Zasko?zone=2000",
+     "character": "Zasko",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:28+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/99437596?zone=2000",
+     "character": "Greenguard",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:31+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/N9wnqPbRKygmM4z1/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80584343?zone=2000",
+     "character": "Plzgosex",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/N9wnqPbRKygmM4z1/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-balance-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/62299941?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76428825?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/78842964?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62299941?zone=2000",
+     "character": "Kentosuh",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:36+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/p92tmWYcgaQXbq6B/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76428825?zone=2000",
+     "character": "Susmab",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:37+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_24.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/78842964?zone=2000",
+     "character": "Kuhbärmann",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:39+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-mage.zip",
+      "member": "reports/z7ZC8XGvgyrY3xc2/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-balance-hps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "hps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/us/whitemane/Naline?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/99437596?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/80584343?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Naline?zone=2000",
+     "character": "Naline",
+     "server": "Whitemane",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:40+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/99437596?zone=2000",
+     "character": "Greenguard",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:31+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/N9wnqPbRKygmM4z1/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80584343?zone=2000",
+     "character": "Plzgosex",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/N9wnqPbRKygmM4z1/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-balance-hps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Balance",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/62299941?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76428825?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/78842964?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62299941?zone=2000",
+     "character": "Kentosuh",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:36+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/p92tmWYcgaQXbq6B/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76428825?zone=2000",
+     "character": "Susmab",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:37+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_24.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/78842964?zone=2000",
+     "character": "Kuhbärmann",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:39+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-mage.zip",
+      "member": "reports/z7ZC8XGvgyrY3xc2/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-feral-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Feral",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/106258559?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/62492839?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/63210424?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/106258559?zone=2000",
+     "character": "Raya",
+     "server": "Whitemane",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:45+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/DbG1RBjckXmt7frQ/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62492839?zone=2000",
+     "character": "Elwin",
+     "server": "Venoxis",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:46+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/LXN9aYqJKwtPgmQr/fight_35.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/63210424?zone=2000",
+     "character": "Zadel",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:18:47+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/rANvqkf21z8pWTLy/fight_5.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-feral-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Feral",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/60174680?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/81087998?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/88845601?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/60174680?zone=2000",
+     "character": "Sabrakzus",
+     "server": "Mograine",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:50+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/1qKfYMxg3FwpyZJ9/fight_8.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/81087998?zone=2000",
+     "character": "Mocâ",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:57+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/hyQdqAKwjBL4n1mC/fight_24.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/88845601?zone=2000",
+     "character": "Zerele",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:22:48+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/p92tmWYcgaQXbq6B/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-guardian-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Guardian",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/80445946?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/87323067?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/106033389?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80445946?zone=2000",
+     "character": "Gracemoon",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:02+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-golemagg-context-holy.zip",
+      "member": "reports/t8DVmHqyjnMRbZaA/fight_29.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/87323067?zone=2000",
+     "character": "Shúm",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:03+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/A6avHyzWDkgBMXhq/fight_28.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/106033389?zone=2000",
+     "character": "Lomendanar",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:05+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/A6avHyzWDkgBMXhq/fight_28.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-guardian-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Guardian",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/firemaw/Kentosuh?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/60174680?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/104951744?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Kentosuh?zone=2000",
+     "character": "Kentosuh",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:06+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/60174680?zone=2000",
+     "character": "Sabrakzus",
+     "server": "Mograine",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:50+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/86znvCYZRgm4tLVy/fight_14.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/104951744?zone=2000",
+     "character": "Fcbot",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:07+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-guardian.zip",
+      "member": "reports/3p7JKFcDf2xGybCN/fight_8.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-druid-restoration-hps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 2,
+   "category": "Restoration",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/76952701?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76428825?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/90485517?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76952701?zone=2000",
+     "character": "Chillis",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:08+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_15.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76428825?zone=2000",
+     "character": "Susmab",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:18:37+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_15.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/90485517?zone=2000",
+     "character": "Laneva",
+     "server": "Mograine",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:09+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-guardian.zip",
+      "member": "reports/3p7JKFcDf2xGybCN/fight_8.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-hunter-marksmanship-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 3,
+   "category": "Marksmanship",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/us/pagle/Trazel?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76787597?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/77005857?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/us/pagle/Trazel?zone=2000",
+     "character": "Trazel",
+     "server": "Pagle",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:11+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76787597?zone=2000",
+     "character": "Folk",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:12+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 10,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-holy.zip",
+      "member": "reports/fdRrFwaKmvy3xJZD/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77005857?zone=2000",
+     "character": "Catschen",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:14+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-holy.zip",
+      "member": "reports/wjWt8JCzRKqV1gkG/fight_6.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-hunter-marksmanship-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 3,
+   "category": "Marksmanship",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/80685958?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/74579540?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/69565533?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/80685958?zone=2000",
+     "character": "Crandle",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:15+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/F8L3ZvPJ29XG6Y1p/fight_23.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74579540?zone=2000",
+     "character": "Pindleskin",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:20+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-guardian.zip",
+      "member": "reports/3p7JKFcDf2xGybCN/fight_8.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/69565533?zone=2000",
+     "character": "Diziet",
+     "server": "Noggenfogger",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:22+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/AHWN6KgdcZmRv73q/fight_25.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-mage-fire-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Fire",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/72572303?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/65556950?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/74505963?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/72572303?zone=2000",
+     "character": "Auuro",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:24+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/JFKd3Yjb8qDMzRWV/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/65556950?zone=2000",
+     "character": "Icestørm",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:25+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-holy.zip",
+      "member": "reports/2LtJmpfjxGkRPFzB/fight_11.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74505963?zone=2000",
+     "character": "Starlia",
+     "server": "Mirage Raceway",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:26+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-golemagg-context-holy.zip",
+      "member": "reports/t8DVmHqyjnMRbZaA/fight_29.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-mage-fire-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Fire",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/noggenfogger/Suffel?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/74176394?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/77213050?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/noggenfogger/Suffel?zone=2000",
+     "character": "Suffel",
+     "server": "Noggenfogger",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:27+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74176394?zone=2000",
+     "character": "Halfbundy",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:30+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 4,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "member": "reports/PGcA1rjZMKVvFw2f/fight_17.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[3]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77213050?zone=2000",
+     "character": "Zebajin",
+     "server": "Nethergarde Keep",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-raid-context/73386773-2000-20261018T190825.zip",
+      "member": "reports/YKr7cRxTvGwfPaBm/fight_41.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-mage-frost-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Frost",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/65556950?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/74884250?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/74901021?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/65556950?zone=2000",
+     "character": "Icestørm",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:25+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/JFKd3Yjb8qDMzRWV/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[2]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74884250?zone=2000",
+     "character": "Cz",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:34+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/BFn4qHgG6mtYNCPQ/fight_16.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74901021?zone=2000",
+     "character": "Asurá",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:35+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/N9wnqPbRKygmM4z1/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-mage-frost-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 4,
+   "category": "Frost",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/firemaw/Bonesbones?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/98476558?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/89843800?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Bonesbones?zone=2000",
+     "character": "Bonesbones",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:36+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/98476558?zone=2000",
+     "character": "Bonesbones",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:38+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/fn1bJMkVhCpY3ta4/fight_18.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/89843800?zone=2000",
+     "character": "Sewerus",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:49+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/86znvCYZRgm4tLVy/fight_14.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-paladin-protection-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/67666001?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/82075464?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/75737768?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/67666001?zone=2000",
+     "character": "Raenarth",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:50+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 3,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/bwl-combined-guardian.zip",
+      "member": "reports/qX2nmQ41J7WbYV69/fight_63.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/82075464?zone=2000",
+     "character": "Dossius",
+     "server": "Whitemane",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:51+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-restoration-druid-raid-context/66485944-2000-20261019T042418.zip",
+      "member": "reports/2MQcNqwvp3r7k8TK/fight_43.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75737768?zone=2000",
+     "character": "Balafas",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:53+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 1,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+      "member": "reports/3NvZkzg2a68dxy1R/fight_18.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-paladin-retribution-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 6,
+   "category": "Retribution",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/77105021?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/89436180?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/100424260?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/77105021?zone=2000",
+     "character": "Jamahl",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:55+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-hunter.zip",
+      "member": "reports/d29y8an3WQjfkcNB/fight_6.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/89436180?zone=2000",
+     "character": "Llyw",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:56+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/jmkfPWXzC6R7Br1A/fight_9.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/100424260?zone=2000",
+     "character": "Jasonlîves",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:19:58+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/N9wnqPbRKygmM4z1/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-priest-holy-hps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Holy",
+   "metric": "hps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/88359313?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/59589358?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/92693506?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/88359313?zone=2000",
+     "character": "Priester",
+     "server": "Gandling",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:19:59+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/86znvCYZRgm4tLVy/fight_14.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[3]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/59589358?zone=2000",
+     "character": "Tjejsarinnan",
+     "server": "Ashbringer",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:02+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/AHWN6KgdcZmRv73q/fight_25.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[1]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/92693506?zone=2000",
+     "character": "Controllcon",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:06+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_15.json",
+      "locator": "report.rankings.data[0].roles.healers.characters[4]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-priest-shadow-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 7,
+   "category": "Shadow",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/70035928?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/66195792?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2000",
+     "character": "Ywfvniefjioe",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:07+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/F8L3ZvPJ29XG6Y1p/fight_23.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/70035928?zone=2000",
+     "character": "Nanaomena",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:08+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_15.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/66195792?zone=2000",
+     "character": "Frighten",
+     "server": "Mankrik",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:10+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/yF14mJgA7Z9zc3YN/fight_5.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[8]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-rogue-assassination-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 8,
+   "category": "Assassination",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/us/mankrik/Untz?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76631656?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/82338371?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/us/mankrik/Untz?zone=2000",
+     "character": "Untz",
+     "server": "Mankrik",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:11+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76631656?zone=2000",
+     "character": "Darakesh",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:13+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "member": "reports/JFKd3Yjb8qDMzRWV/fight_20.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[4]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/82338371?zone=2000",
+     "character": "Fisklukt",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:16+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-holy.zip",
+      "member": "reports/fdRrFwaKmvy3xJZD/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[5]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-rogue-assassination-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 8,
+   "category": "Assassination",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/62246612?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/82351057?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76406292?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62246612?zone=2000",
+     "character": "Klekz",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:18+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/fn1bJMkVhCpY3ta4/fight_53.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/82351057?zone=2000",
+     "character": "Brittle",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:21+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/F8L3ZvPJ29XG6Y1p/fight_23.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76406292?zone=2000",
+     "character": "Rndomize",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:23+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/F8L3ZvPJ29XG6Y1p/fight_23.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[9]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-shaman-enhancement-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 9,
+   "category": "Enhancement",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/hydraxian-waterlords/Drizzi?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/62388940?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/63827903?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/hydraxian-waterlords/Drizzi?zone=2000",
+     "character": "Drizzi",
+     "server": "Hydraxian Waterlords",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:25+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62388940?zone=2000",
+     "character": "Sylérx",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:28+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-magmadar-protection.zip",
+      "member": "reports/vqkLTxcZF4NXgVnf/fight_12.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[17]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/63827903?zone=2000",
+     "character": "Strabron",
+     "server": "Ashbringer",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:29+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 2,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-guardian.zip",
+      "member": "reports/LWnxfcjZkMmBAKYC/fight_7.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-warlock-destruction-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 10,
+   "category": "Destruction",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/62254737?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/62254777?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76854910?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62254737?zone=2000",
+     "character": "Kaaklock",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:31+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 10,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-holy.zip",
+      "member": "reports/fdRrFwaKmvy3xJZD/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[6]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62254777?zone=2000",
+     "character": "Kaakje",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:32+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-holy.zip",
+      "member": "reports/wjWt8JCzRKqV1gkG/fight_6.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76854910?zone=2000",
+     "character": "Barge",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:33+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-raid/74578049-2000-20261017T175812.zip",
+      "member": "reports/18D4MtX7JvPjxZg3/fight_8.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[7]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-warlock-destruction-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 10,
+   "category": "Destruction",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/pyrewood-village/Finia?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/88230551?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/96798464?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/pyrewood-village/Finia?zone=2000",
+     "character": "Finia",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:34+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/88230551?zone=2000",
+     "character": "Moldylocks",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:41+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_15.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[10]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/96798464?zone=2000",
+     "character": "Esaaks",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:42+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/KPmgfYj98dDTvXhB/fight_15.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[11]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-warrior-fury-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Fury",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/firemaw/Hardcoremilf?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/74642386?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/73512932?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Hardcoremilf?zone=2000",
+     "character": "Hardcoremilf",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:43+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74642386?zone=2000",
+     "character": "Iceglow",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:44+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 10,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-holy.zip",
+      "member": "reports/fdRrFwaKmvy3xJZD/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[16]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/73512932?zone=2000",
+     "character": "Executebaby",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:45+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 10,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-holy.zip",
+      "member": "reports/fdRrFwaKmvy3xJZD/fight_10.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[13]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-warrior-fury-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Fury",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/75787312?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/74966284?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/63937959?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/75787312?zone=2000",
+     "character": "Warnerve",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:48+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/GHgv4tqjnchfZRDk/fight_36.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[19]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74966284?zone=2000",
+     "character": "Samhein",
+     "server": "Earthshaker",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:50+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/fn1bJMkVhCpY3ta4/fight_18.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[20]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/63937959?zone=2000",
+     "character": "Malloc",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:51+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 7,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/AHWN6KgdcZmRv73q/fight_25.json",
+      "locator": "report.rankings.data[0].roles.dps.characters[23]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-warrior-protection-dps-alliance",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Alliance",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/id/74229323?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/62254708?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/76646592?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/74229323?zone=2000",
+     "character": "Kouran",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:52+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 9,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-geddon-holy.zip",
+      "member": "reports/fdRrFwaKmvy3xJZD/fight_10.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/62254708?zone=2000",
+     "character": "Thompsone",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:54+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 8,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-gehennas-holy.zip",
+      "member": "reports/wjWt8JCzRKqV1gkG/fight_6.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/76646592?zone=2000",
+     "character": "Krobian",
+     "server": "Firemaw",
+     "resolved_faction": "Alliance",
+     "resolved_at": "2026-10-19T13:20:55+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-holy-raid/74578049-2000-20261017T175812.zip",
+      "member": "reports/7HRVn849AKpbGcmv/fight_26.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[3]"
+     }
+    }
+   ]
+  },
+  {
+   "entry_id": "mc-warrior-protection-dps-horde",
+   "raid": "mc",
+   "zone": 2000,
+   "partition": 1,
+   "class_id": 11,
+   "category": "Protection",
+   "metric": "dps",
+   "faction": "Horde",
+   "candidates": [
+    "https://vanilla.warcraftlogs.com/character/eu/firemaw/Maasumi?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/73555992?zone=2000",
+    "https://vanilla.warcraftlogs.com/character/id/65347540?zone=2000"
+   ],
+   "candidate_evidence": [
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Maasumi?zone=2000",
+     "character": "Maasumi",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:56+00:00",
+     "origin": "earlier capture subject",
+     "encounters_ranked": null,
+     "evidence": null
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/73555992?zone=2000",
+     "character": "Nesu",
+     "server": "Pyrewood Village",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:20:57+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 6,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/F8L3ZvPJ29XG6Y1p/fight_23.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[0]"
+     }
+    },
+    {
+     "url": "https://vanilla.warcraftlogs.com/character/id/65347540?zone=2000",
+     "character": "Twynn",
+     "server": "Firemaw",
+     "resolved_faction": "Horde",
+     "resolved_at": "2026-10-19T13:21:00+00:00",
+     "origin": "ranked in a public report already captured",
+     "encounters_ranked": 5,
+     "evidence": {
+      "archive": "tests/golden/raids/raw/mc-elemental-shaman-initial-raid-context/73386773-2000-20261018T175806.zip",
+      "member": "reports/86znvCYZRgm4tLVy/fight_14.json",
+      "locator": "report.rankings.data[0].roles.tanks.characters[1]"
+     }
+    }
+   ]
+  }
+ ]
+}

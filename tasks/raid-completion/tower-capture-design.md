@@ -40,6 +40,20 @@ account), not AI usage. The pilot cell closed at f0d8c78.
   sources). Each must be classified as usable, partial-resumable or partial
   final before it is excluded. The remaining runs (about 77) form the queue.
   The exact list is generated and reviewed, never assumed.
+- Generated result (`scripts/capture_queue.py plan`, 2026-10-19): 7 usable,
+  2 partial-final (MC Restoration Druid misses Sulfuron, whose subject fight
+  had no faction ID; MC Shadow Priest misses Garr, open on duty analysis, not
+  capture) and 16 seeds. A seed is a bounded capture of one to four bosses; it
+  cannot back the rest of its raid, so it is requeued as a full raid with the
+  earlier subject as first candidate. The queue therefore holds 93 runs, not
+  77.
+- Candidates are mined offline from the rankings inside raw archives already
+  in the repository (public reports only), ordered by report-guild faction
+  lean and boss count. Each is then checked with `necropsy resolve`, whose
+  answers are cached so a rerun never spends points twice. Only an observed
+  faction that matches the entry is accepted, because `analyze` refuses an
+  unknown character faction. About two thirds of mined characters resolve to
+  WCL faction "Unknown", so pools hold twelve characters.
 - Entry fields: stable `entry_id`, raid, zone, partition, class_id, category,
   metric, expected faction, an ordered list of reviewed public subject
   candidates (character URL, resolved faction, evidence of raid participation),
