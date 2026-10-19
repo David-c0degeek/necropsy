@@ -24,7 +24,7 @@ from typing import Any
 import httpx
 
 from necropsy.wcl.credentials import CredentialStore
-from necropsy.wcl.sites import Site, require_supported
+from necropsy.wcl.sites import VANILLA, Site, require_supported
 
 CLIENT_ID_ENV = "NECROPSY_WCL_CLIENT_ID"
 # A client ID is public application identity; never put a client secret here.
@@ -210,14 +210,18 @@ class Auth:
             ) from None
         return ClientRecord(cid, secret, token, chosen)
 
+    @staticmethod
+    def _pointer(record: ClientRecord) -> str:
+        return (
+            json.dumps({"mode": record.mode.value, "client_id": record.client_id})
+            if record.mode is AuthMode.PUBLIC
+            else record.client_id
+        )
+
     def _save(self, record: ClientRecord, *, select: bool = False) -> None:
         self.store.set(_record_name(record.client_id, record.mode), record.to_json())
         if select:
-            pointer = (
-                json.dumps({"mode": record.mode.value, "client_id": record.client_id})
-                if record.mode is AuthMode.PUBLIC
-                else record.client_id
-            )
+            pointer = self._pointer(record)
             if self.store.get(_POINTER) != pointer:
                 self.store.set(_POINTER, pointer)
             self._client_token = None
@@ -236,6 +240,20 @@ class Auth:
         if token.expires_at - EXPIRY_MARGIN_S <= self.now():
             return AuthState.EXPIRED if token.refresh_token else AuthState.LOGIN_NEEDED
         return AuthState.SIGNED_IN
+
+    def export_values(self) -> dict[str, str]:
+        """The effective sign-in as a self-contained selection plus its record.
+
+        The selection is rebuilt from the effective client (including a client ID
+        override), so the exported values select the same record on their own.
+        """
+        current = self.record()
+        if current is None:
+            raise LoginNeeded("no saved sign-in to export; run `necropsy auth login`")
+        return {
+            _POINTER: self._pointer(current),
+            _record_name(current.client_id, current.mode): current.to_json(),
+        }
 
     def logout(self, forget_secret: bool = False) -> None:
         current = self.record()
@@ -482,6 +500,32 @@ def new_state() -> str:
     return secrets.token_urlsafe(24)
 
 
+def validate_import(values: dict[str, str]) -> None:
+    """Refuse values that are not exactly one self-contained, readable sign-in."""
+    names = sorted(values)
+    pointer = values.get(_POINTER)
+    if len(names) != 2 or pointer is None:
+        raise LoginNeeded("the imported credentials are not one exported sign-in")
+    store = _Values(values)
+    auth = Auth(VANILLA, store)
+    mode, client_id = auth._selection()
+    if not client_id or _record_name(client_id, mode) not in values:
+        raise LoginNeeded("the imported credentials are not one exported sign-in")
+    found = auth.record(client_id, mode=mode)
+    if found is None or found.token is None:
+        raise LoginNeeded("the imported credentials hold no sign-in token")
+
+
+class _Values(CredentialStore):
+    """Read-only values in memory, for validating an import."""
+
+    def __init__(self, values: dict[str, str]) -> None:
+        self._values = dict(values)
+
+    def get(self, name: str) -> str | None:
+        return self._values.get(name)
+
+
 __all__ = [
     "CLIENT_ID_ENV",
     "OAUTH_ERRORS",
@@ -497,5 +541,6 @@ __all__ = [
     "PkceAttempt",
     "Token",
     "new_state",
+    "validate_import",
     "wait_for_code",
 ]

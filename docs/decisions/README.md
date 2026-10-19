@@ -40,3 +40,4 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Credited absorption context](0020-absorption-ability-context.md) | Ability and recipient splits, verified player coverage and separate shield review prompts |
 | [Owned control integrity](0021-owned-control-integrity.md) | Literal event validation, strict player SOURCE plus event-set proof and target-specific control review prompts |
 | [Owned curse context](0022-owned-curse-context.md) | Separate curse policy kind on the shared occurrence engine, with assignment-confirmation prompts |
+| [Unattended credential file](0023-unattended-credential-file.md) | Explicit POSIX-only private file selected by name, never a fallback; atomic durable rotation and export by direct pipe |

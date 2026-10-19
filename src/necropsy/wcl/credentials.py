@@ -11,14 +11,22 @@ characters per entry) under a fresh generation, and the head entry that points
 at a generation is written last: a failed write leaves the previous value
 readable. Backend failures surface as fixed CredentialStoreError messages that
 never carry the backend's own text.
+
+An unattended POSIX server has no OS store. Setting `NECROPSY_CREDENTIAL_FILE`
+selects an explicit private file instead (ADR 0023); it is never a fallback.
 """
 
 from __future__ import annotations
 
 import contextlib
+import json
 import os
 import secrets
+import stat
+import sys
+import tempfile
 from collections.abc import Callable, Sequence
+from pathlib import Path
 from typing import Any, TypeVar
 
 import keyring
@@ -28,6 +36,8 @@ from keyring.backends.chainer import ChainerBackend
 
 SERVICE = "necropsy-wcl"
 BACKEND_ENV = "NECROPSY_KEYRING_BACKEND"
+FILE_ENV = "NECROPSY_CREDENTIAL_FILE"
+FILE_VERSION = 1
 CHUNK = 1000
 _HEAD = "necropsy-v1:"
 
@@ -99,6 +109,9 @@ class CredentialStore:
     def open(
         cls, configured: Any = None, allowed: Sequence[type[Any]] = APPROVED
     ) -> CredentialStore:
+        path = selected_file()
+        if path is not None:
+            return FileCredentialStore(path)
         return cls(select_backend(configured, allowed))
 
     @property
@@ -196,12 +209,164 @@ class CredentialStore:
         return f"CredentialStore({self.backend_name})"
 
 
+def selected_file() -> Path | None:
+    """The credential file `NECROPSY_CREDENTIAL_FILE` names, or None when unset.
+
+    Naming it together with `NECROPSY_KEYRING_BACKEND` is refused before any
+    store is opened.
+    """
+    path = os.environ.get(FILE_ENV)
+    if not path:
+        return None
+    if os.environ.get(BACKEND_ENV):
+        raise CredentialStoreError(
+            f"{FILE_ENV} and {BACKEND_ENV} are both set; choose one credential store"
+        )
+    return Path(path)
+
+
+class FileCredentialStore(CredentialStore):
+    """Values in one private JSON file, selected only by `NECROPSY_CREDENTIAL_FILE`.
+
+    POSIX only. The file must be a regular file (not a link) with mode exactly
+    0600, and it and its directory must belong to this process's user; the
+    directory must be 0700. Anything else is refused, with no fallback. Every
+    write replaces the whole file through a private temporary file in the same
+    directory, synced before and after the rename. A failure before the rename
+    leaves the previous file intact; a failure syncing the directory after it
+    leaves either the previous or the new complete file. Both raise.
+    """
+
+    def __init__(self, path: Path) -> None:
+        if sys.platform == "win32":
+            raise CredentialStoreError(f"{FILE_ENV} is supported only on POSIX systems")
+        # absolute(), not resolve(): a link in the path must stay visible to the checks.
+        self._path: Path = path.absolute()
+        self._check_dir()
+
+    @property
+    def backend_name(self) -> str:
+        return "credential-file"
+
+    def _check_dir(self) -> None:
+        if sys.platform == "win32":
+            raise CredentialStoreError(f"{FILE_ENV} is supported only on POSIX systems")
+        try:
+            info = os.lstat(self._path.parent)
+        except OSError:
+            raise CredentialStoreError("the credential file directory is missing") from None
+        if not stat.S_ISDIR(info.st_mode) or info.st_uid != os.getuid():
+            raise CredentialStoreError(
+                "the credential file directory must be a plain directory owned by this user"
+            )
+        if stat.S_IMODE(info.st_mode) != 0o700:
+            raise CredentialStoreError("the credential file directory must have mode 0700")
+
+    def _read(self) -> dict[str, str]:
+        if sys.platform == "win32":
+            raise CredentialStoreError(f"{FILE_ENV} is supported only on POSIX systems")
+        self._check_dir()
+        try:
+            # Non-blocking: a FIFO or device must reach the type check, not hang the open.
+            fd = os.open(self._path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+        except FileNotFoundError:
+            return {}
+        except OSError:
+            raise CredentialStoreError("the credential file could not be opened") from None
+        with os.fdopen(fd, "rb") as handle:
+            info = os.fstat(handle.fileno())
+            if not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid():
+                raise CredentialStoreError(
+                    "the credential file must be a regular file owned by this user"
+                )
+            if stat.S_IMODE(info.st_mode) != 0o600:
+                raise CredentialStoreError("the credential file must have mode 0600")
+            raw = handle.read()
+        try:
+            return parse_file_payload(raw)
+        except ValueError:
+            raise CredentialStoreError("the credential file is unreadable") from None
+
+    def _write(self, values: dict[str, str]) -> None:
+        payload = json.dumps({"version": FILE_VERSION, "values": values}, sort_keys=True)
+        directory = self._path.parent
+        tmp = None
+        try:
+            fd, tmp = tempfile.mkstemp(prefix=".credentials-", dir=directory)
+            os.fchmod(fd, 0o600)
+            with os.fdopen(fd, "wb") as handle:
+                handle.write(payload.encode("utf-8"))
+                handle.flush()
+                os.fsync(handle.fileno())
+            Path(tmp).replace(self._path)
+            tmp = None
+            dir_fd = os.open(directory, os.O_RDONLY)
+            try:
+                os.fsync(dir_fd)
+            finally:
+                os.close(dir_fd)
+        except OSError:
+            raise CredentialStoreError("the credential file could not be saved") from None
+        finally:
+            if tmp is not None:
+                with contextlib.suppress(OSError):
+                    Path(tmp).unlink()
+
+    def replace_all(self, values: dict[str, str]) -> None:
+        """Replace every stored value at once, with the same failure guarantees as a write."""
+        self._read()
+        self._write(dict(values))
+
+    def get(self, name: str) -> str | None:
+        return self._read().get(name)
+
+    def set(self, name: str, value: str) -> None:
+        values = self._read()
+        values[name] = value
+        self._write(values)
+
+    def delete(self, name: str) -> bool:
+        values = self._read()
+        if name not in values:
+            return False
+        del values[name]
+        self._write(values)
+        return True
+
+    def __repr__(self) -> str:
+        return "FileCredentialStore()"
+
+
+def file_payload(values: dict[str, str]) -> str:
+    """Values as credential-file JSON."""
+    return json.dumps({"version": FILE_VERSION, "values": values}, sort_keys=True)
+
+
+def parse_file_payload(raw: bytes) -> dict[str, str]:
+    """The values of credential-file JSON, or ValueError (never echoing content)."""
+    try:
+        data = json.loads(raw)
+        values = data["values"]
+        if data.get("version") != FILE_VERSION or not isinstance(values, dict):
+            raise ValueError
+        if not all(isinstance(k, str) and isinstance(v, str) for k, v in values.items()):
+            raise ValueError
+    except ValueError, KeyError, TypeError, AttributeError:
+        raise ValueError("not a credential file") from None
+    return dict(values)
+
+
 __all__ = [
     "APPROVED",
     "BACKEND_ENV",
     "CHUNK",
+    "FILE_ENV",
     "SERVICE",
     "CredentialStore",
     "CredentialStoreError",
+    "FileCredentialStore",
+    "file_payload",
+    "parse_file_payload",
     "select_backend",
+    "selected_file",
 ]

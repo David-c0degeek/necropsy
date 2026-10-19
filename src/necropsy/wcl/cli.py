@@ -27,11 +27,20 @@ from necropsy.wcl.auth import (
     CallbackListener,
     PkceAttempt,
     new_state,
+    validate_import,
 )
 from necropsy.wcl.cache import CacheError
 from necropsy.wcl.client import RATE_FIELDS, WclClient, WclError
 from necropsy.wcl.context import describe, resolve
-from necropsy.wcl.credentials import CredentialStore, CredentialStoreError
+from necropsy.wcl.credentials import (
+    FILE_ENV,
+    CredentialStore,
+    CredentialStoreError,
+    FileCredentialStore,
+    file_payload,
+    parse_file_payload,
+    selected_file,
+)
 from necropsy.wcl.sites import VANILLA, Site, UnsupportedSite, require_supported
 from necropsy.wcl.urls import BadCharacterUrl, parse_character_url
 
@@ -161,6 +170,66 @@ def logout(
     except (AuthError, CredentialStoreError) as exc:
         raise _fail("auth failed", exc) from None
     typer.echo("Signed out." + (" Client id and secret removed." if forget_secret else ""))
+
+
+def _stdout_is_terminal() -> bool:
+    return sys.stdout.isatty()
+
+
+@auth_app.command("export")
+def export() -> None:
+    """Write the selected sign-in as credential-file JSON to standard output.
+
+    For an unattended server that uses NECROPSY_CREDENTIAL_FILE (ADR 0023). Pipe
+    it straight into the private file on that server; the output contains the
+    refresh token, so it is refused when standard output is a terminal.
+    """
+    if _stdout_is_terminal():
+        typer.echo(
+            "auth export writes secrets; pipe it into the server's private credential file",
+            err=True,
+        )
+        raise typer.Exit(code=2)
+    try:
+        payload = file_payload(_auth().export_values())
+    except (AuthError, CredentialStoreError) as exc:
+        raise _fail("auth failed", exc) from None
+    sys.stdout.write(payload)
+    sys.stdout.flush()
+
+
+IMPORT_LIMIT = 1_000_000
+
+
+@auth_app.command("import")
+def import_file() -> None:
+    """Replace the credential file with an exported sign-in read from standard input.
+
+    Only with NECROPSY_CREDENTIAL_FILE (ADR 0023). The whole input is read and
+    validated first; empty, truncated or unreadable input leaves the existing
+    file untouched. Never prints the values.
+    """
+    try:
+        path = selected_file()
+    except CredentialStoreError as exc:
+        raise _fail("auth import failed", exc) from None
+    if path is None:
+        typer.echo(f"auth import needs {FILE_ENV}", err=True)
+        raise typer.Exit(code=2)
+    raw = sys.stdin.buffer.read(IMPORT_LIMIT + 1)
+    try:
+        if len(raw) > IMPORT_LIMIT:
+            raise ValueError
+        values = parse_file_payload(raw)
+    except ValueError:
+        typer.echo("auth import failed: the input is not a complete exported sign-in", err=True)
+        raise typer.Exit(code=1) from None
+    try:
+        validate_import(values)
+        FileCredentialStore(path).replace_all(values)
+    except (AuthError, CredentialStoreError) as exc:
+        raise _fail("auth import failed", exc) from None
+    typer.echo("Imported the sign-in into the credential file.")
 
 
 def _raid_url(url: str, raid: str | None) -> str:

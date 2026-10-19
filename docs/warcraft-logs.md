@@ -69,7 +69,8 @@ and token failures preserve the previous selected sign-in. Retry with a fresh
 login; do not reuse a callback code.
 
 Tokens live only in one approved OS credential store, with no file fallback.
-`auth status` shows the active mode. A received refresh token is reused/rotated;
+The one exception is an explicit opt-in for unattended POSIX servers, described
+below. `auth status` shows the active mode. A received refresh token is reused/rotated;
 without one, sign in again at expiry. Public refresh rotation and representative
 current/archived query access are observed on Windows; see
 [live validation](live-validation.md). Permissions remain account-specific.
@@ -231,6 +232,41 @@ For an explicit authenticated acquisition check, follow the
 [manual live procedure](live-acceptance.md). It verifies saved artifacts and
 records coverage and optional historical comparisons; its offline tests do not
 complete live acceptance.
+
+## Unattended server credential file
+
+An unattended Linux server without an OS credential store can use one private
+file instead ([ADR 0023](decisions/0023-unattended-credential-file.md)). This
+is never a fallback: it applies only when `NECROPSY_CREDENTIAL_FILE` names the
+file, and setting `NECROPSY_KEYRING_BACKEND` as well is an error. The file
+must be a regular file (not a link), mode exactly `0600`, in a directory with
+mode `0700`, and both must belong to the user running Necropsy. Anything else
+is refused.
+
+Sign in on your own computer, then send the selected sign-in straight to the
+server, where `auth import` reads and checks all of it before replacing the
+file:
+
+```sh
+uv run necropsy auth export | ssh server 'NECROPSY_CREDENTIAL_FILE=/path/to/secrets/credentials.json necropsy auth import'
+```
+
+`auth export` refuses to write to a terminal, because its output includes the
+refresh token. It exports the sign-in that is in effect, including a client ID
+override, as a selection that needs no override on the server. `auth import`
+keeps the existing file when the input is empty, cut short or not exactly one
+complete sign-in.
+
+The server rewrites the file whenever the token is refreshed. If that write
+fails, the command fails rather than continuing with an old token. A failure
+after the new file is already in place can leave either the old or the new
+sign-in on disk; sign in and export again if later commands report an invalid
+sign-in.
+
+Export copies a refresh token that Warcraft Logs may rotate on use. Don't let
+your computer and the server refresh the same exported sign-in while a server
+run is active: treat the server as its only user until that run stops. If
+either copy stops working, sign in again on your computer and export again.
 
 ## Sign out of the selected client
 
