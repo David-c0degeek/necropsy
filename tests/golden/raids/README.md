@@ -339,3 +339,15 @@ one unit of their last decimal place. Overheal, a one-second duration change,
 missing absorbed events or owned units, and another actor's totals must all
 fail. The bound reflects publication precision only, and the policy validates
 no other encounter, class, category, metric or faction.
+
+`geddon-paladin-mechanics.json` freezes raw Baron Geddon observations for the
+six Holy Paladin contexts in `mc-holy-paladin-raid-context`. It lists Living Bomb
+aura transitions on each actor, Inferno buff windows on the boss, Divine Favor,
+emergency and in-fight blessing casts, and mana readings with and without
+capacity. Living Bomb's explosion is recorded as Explosion (20476) damage
+credited to the bomb carrier; the oracle lists each fight's explosion events,
+those credited to and taken by the actor, and a raw locator. A first version of
+this oracle counted only the aura and wrongly reported that explosions were
+absent; its `correction` field records the fix. Carrier credit does not establish
+fault for nearby damage. The seed replay checks the actor effects, the Inferno
+windows and the subject's class notes against it.

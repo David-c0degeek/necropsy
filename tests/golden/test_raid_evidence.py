@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import zipfile
 from dataclasses import replace
 from html import unescape
 from pathlib import Path
@@ -15,6 +16,7 @@ from necropsy.raids.scope import coverage_cells
 from necropsy.report.offline import run_offline
 from necropsy.report.package import package_name
 from necropsy.report.render.class_view import bosses as class_bosses
+from necropsy.rules import load_rules
 from necropsy.snapshot.archive import VerifiedArchive, load_entries_manifest, sha256_file
 from necropsy.snapshot.model import ActorRole, StreamStatus
 from necropsy.snapshot.v1 import open_snapshot
@@ -177,6 +179,102 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_mechanic_removals(doc, observations_fixture, out)
     _assert_raid_interrupts(doc, fixture["label"], out)
     _assert_absorption_abilities(doc, fixture["label"], out)
+    _assert_geddon_paladin_mechanics(doc, fixture)
+
+
+def _strategy_retrieved(rule: str) -> str:
+    """The retrieval date a strategy rule declares, falling back to its encounter entry."""
+    for raid in ("mc", "bwl", "aq40"):
+        for entry in load_rules("classic_era", f"zones/{raid}_guidance")["strategy"].values():
+            for item in entry["items"]:
+                if item["rule"] == rule:
+                    return str(item.get("retrieved") or entry["retrieved"])
+    raise AssertionError(f"unknown strategy rule {rule}")
+
+
+def _assert_geddon_paladin_mechanics(doc: dict[str, Any], fixture: dict[str, Any]) -> None:
+    """Living Bomb, Inferno and Paladin class notes match the raw-frozen oracle."""
+    oracle = json.loads((ROOT / "geddon-paladin-mechanics.json").read_bytes())
+    if fixture["label"] != oracle["fixture"]:
+        return
+    assert fixture["sha256"] == oracle["sha256"]
+    boss = next(b for b in doc["bosses"] if b["encounter_id"] == 50668)
+    play = boss["playbook"]
+    archive = zipfile.ZipFile(ROOT / oracle["archive"])
+    for case in oracle["contexts"]:
+        key = (case["report"], case["fight"])
+        if case["subject"]:
+            assert (boss["subject"]["report_code"], boss["subject"]["fight_id"]) == key
+            effects, auras = play["encounter_effects"], play.get("target_aura_windows", [])
+        else:
+            effects = next(
+                e["effects"]
+                for e in play["cohort_encounter_effects"]
+                if (e["report_code"], e["fight_id"], e["player"]) == (*key, case["player"])
+            )
+            auras = next(
+                (
+                    e["auras"]
+                    for e in play.get("cohort_target_aura_windows", [])
+                    if (e["report_code"], e["fight_id"]) == key
+                ),
+                [],
+            )
+        bomb = next(e for e in effects if e["ability_ids"] == [20475])
+        assert [[t, kind] for t, kind, _ in bomb["transitions"]["value"]] == case[
+            "living_bomb_transitions"
+        ]
+        assert "do not make this actor responsible for nearby damage" in bomb["limitation"]
+        assert "not recorded" not in bomb["limitation"]
+        # Explosions are re-enumerated from raw encounter pages, independently of the model.
+        explosions = [
+            (index, event)
+            for name in sorted(archive.namelist())
+            if name.startswith(f"events/{key[0]}/fight_{key[1]}/encounter/all_")
+            for index, event in enumerate(json.loads(archive.read(name))["data"])
+            if event.get("abilityGameID") == 20476 and event["type"] == "damage"
+        ]
+        expected = case["living_bomb_explosions"]
+        assert len(explosions) == expected["fight_events"]
+        assert sum(e.get("amount", 0) for _, e in explosions) == expected["fight_amount"]
+        for side, field in (("from_actor", "sourceID"), ("to_actor", "targetID")):
+            mine = [e for _, e in explosions if e.get(field) == case["actor"]]
+            assert [len(mine), sum(e.get("amount", 0) for e in mine)] == [
+                expected[side]["events"],
+                expected[side]["amount"],
+            ]
+        inferno = next((a for a in auras if a["ability_id"] == 19695), None)
+        windows = (
+            []
+            if inferno is None
+            else [
+                [lo, hi]
+                for target in inferno["targets"]
+                for lo, hi, state in target["windows"]["value"]
+                if state is True
+            ]
+        )
+        assert windows == case["inferno_windows"], case["player"]
+        if not case["subject"]:
+            continue
+        notes = {n["key"]: n for n in play["class_notes"]}
+        favor = notes["cooldown:Divine Favor"]
+        assert favor["recorded_s"]["value"] == case["divine_favor_s"]
+        assert favor["source"] == oracle["sources"]["Divine Favor"]
+        assert (case["duration_ms"] < 120_000) is (
+            "shorter than its normal cooldown" in favor["text"]
+        )
+        emergency = {
+            k.split(":", 1)[1]: n["recorded_s"]["value"]
+            for k, n in notes.items()
+            if n["kind"] == "emergency-cooldown"
+        }
+        assert emergency == case["emergency_cast_s"]
+        blessing = notes["pre-pull:blessing"]
+        assert blessing["recorded_s"]["value"] == [t for t, _, _ in case["blessing_casts"]]
+        assert "cannot establish pre-pull blessing coverage" in blessing["text"]
+        missing_capacity = case["mana_readings"] > 0 and case["mana_readings_with_capacity"] == 0
+        assert ("resource:mana-capacity" in notes) is missing_capacity
 
 
 # Independent duty boundaries; the runtime must keep every case they list out of
@@ -863,7 +961,9 @@ def _assert_boss_replay(
         assert effect["transitions"]["value"] == [[apply, "applydebuff", 19713]]
         assert "mechanic_removals" not in boss["playbook"]
     if fixture["label"] in ("mc-geddon-holy", "mc-geddon-hunter"):
-        (effect,) = boss["playbook"]["encounter_effects"]
+        effect, bomb = boss["playbook"]["encounter_effects"]
+        # Raw Living Bomb applications in these seeds target other players only.
+        assert bomb["ability_ids"] == [20475] and bomb["transitions"]["value"] == []
         apply, duration = (
             (16.037, 16.240) if fixture["label"] == "mc-geddon-holy" else (21.033, 26.071)
         )
@@ -1071,7 +1171,7 @@ def _assert_boss_replay(
         for item in strategy["items"]:
             assert item["text"] in html and item["source"] in html
             assert item["kind"] == "general-strategy"
-            assert item["retrieved"] == "2026-10-17"
+            assert item["retrieved"] == _strategy_retrieved(item["rule"])
         assert strategy["limitation"] in html
         # A capture with no personal fight on any boss has nothing to say about "you".
         personal = any(b["subject"] or b["playbook"].get("excluded_subject") for b in doc["bosses"])

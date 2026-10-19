@@ -9,6 +9,7 @@ import duckdb
 
 from necropsy.analysis import gamedata
 from necropsy.analysis.benchmark import BossData, Entry, median_of
+from necropsy.analysis.classes.classic_era import healer_notes
 from necropsy.analysis.classes.classic_era.combat import LIMITATIONS
 from necropsy.analysis.evidence import EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog
@@ -297,6 +298,18 @@ def boss_section(
                 else None
             ),
             "primary_metrics": primary,
+            "class_notes": (
+                []
+                if subject is None or policy.role != "healer"
+                else to_data(
+                    healer_notes.notes(
+                        subject.combat,
+                        class_id,
+                        subject.participant.actor_id,
+                        subject.participant.duration_ms / 1000,
+                    )
+                )
+            ),
             "limitations": list(LIMITATIONS),
             "guidance": focus
             + (

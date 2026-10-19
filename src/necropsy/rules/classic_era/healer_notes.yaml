@@ -1,0 +1,59 @@
+# Sourced class observations for combat-class healing views. Recorded casts are
+# observations only: availability, initial readiness and encounter restrictions
+# are unmeasured, so no rule here turns a cooldown into an expected-use count.
+#
+# Spells are matched by numeric ability ID, never by name. The IDs below are the
+# ones registered raid archives' WCL ability tables name for each spell; a cast
+# whose name matches a listed spell under an unlisted ID, or a cast with no name
+# under an unlisted ID, leaves that group unresolved instead of absent, unless
+# `complete_ids` records that the listed IDs are every rank of the spell. An
+# unresolved group keeps the times of the casts it could not identify.
+version: 1
+rule: healer-class-notes-v1
+classes:
+  6:
+    planned_cooldowns:
+    - name: Divine Favor
+      ability_ids: [20216]
+      complete_ids: true
+      cooldown_s: 120
+      source: https://www.wowhead.com/classic/spell=20216/divine-favor
+      retrieved: '2026-10-19'
+    emergency_cooldowns:
+    - name: Divine Shield
+      ability_ids: [642, 1020]
+    - name: Divine Protection
+      ability_ids: [498, 5573]
+    - name: Lay on Hands
+      ability_ids: [10310]
+    - name: Blessing of Protection
+      ability_ids: [1022]
+    pre_pull_buffs:
+      label: blessing
+      # The listed ranks are not every Paladin blessing (for example Blessing of
+      # Salvation 1038 is absent), so any unlisted cast named like a blessing
+      # leaves the count unresolved, and a zero only covers the listed ranks.
+      unresolved_name_contains: Blessing
+      spells:
+      - name: Blessing of Might
+        ability_ids: [19740, 19834, 19835, 19836, 19837, 19838, 25291]
+      - name: Blessing of Wisdom
+        ability_ids: [19742, 19850, 19852, 19853, 19854, 25290]
+      - name: Blessing of Kings
+        ability_ids: [20217]
+      - name: Blessing of Light
+        ability_ids: [19977, 19978, 19979]
+      - name: Blessing of Sanctuary
+        ability_ids: [20914]
+      - name: Greater Blessing of Might
+        ability_ids: [25782, 25916]
+      - name: Greater Blessing of Wisdom
+        ability_ids: [25894, 25918]
+      - name: Greater Blessing of Kings
+        ability_ids: [25898]
+      - name: Greater Blessing of Salvation
+        ability_ids: [25895]
+      - name: Greater Blessing of Light
+        ability_ids: [25890]
+      - name: Greater Blessing of Sanctuary
+        ability_ids: [25899]

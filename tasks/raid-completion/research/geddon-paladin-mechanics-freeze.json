@@ -1,0 +1,644 @@
+{
+ "correction": "2026-10-19: the first freeze counted only aura 20475 and wrongly reported that explosion damage is never recorded. Living Bomb's periodic trigger is Explosion (20476), recorded as damage credited to the bomb carrier; it is now enumerated per context. Raw archives are unchanged.",
+ "method": "Read-only raw enumeration from encounter All plus actor SOURCE/TARGET pages; no analyzer code. Living Bomb (20475) aura transitions and casts on the actor are counted from All; Inferno windows are boss buff (19695) applybuff/removebuff pairs per NPC instance; Inferno damage (19698) and any Living Bomb damage are counted separately. Resource capacity counts mana (type 0) readings with max > 0.",
+ "sources": {
+  "Baron Geddon": "https://warcraft.wiki.gg/wiki/Baron_Geddon",
+  "Divine Favor": "https://www.wowhead.com/classic/spell=20216/divine-favor",
+  "Cleanse": "https://www.wowhead.com/classic/spell=4987/cleanse",
+  "Living Bomb": "https://classicdb.ch/?spell=20475",
+  "Explosion": "https://classicdb.ch/?spell=20476"
+ },
+ "contexts": [
+  {
+   "id": "mc-holy-paladin-actor-6",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "A6avHyzWDkgBMXhq",
+   "fight": 28,
+   "actor": 17,
+   "name": "Killian",
+   "subject": false,
+   "duration_ms": 76398,
+   "geddon_instances": [
+    65
+   ],
+   "members": {
+    "all": [
+     "events/A6avHyzWDkgBMXhq/fight_28/encounter/all_001.json"
+    ],
+    "source": [
+     "events/A6avHyzWDkgBMXhq/fight_28/player_17_Killian/source_001.json"
+    ],
+    "target": [
+     "events/A6avHyzWDkgBMXhq/fight_28/player_17_Killian/target_001.json"
+    ]
+   },
+   "actor_events_subset_of_all": true,
+   "living_bomb": {
+    "on_actor": [
+     [
+      43.652,
+      "cast",
+      65
+     ],
+     [
+      43.653,
+      "applydebuff",
+      65
+     ],
+     [
+      49.473,
+      "removedebuff",
+      65
+     ]
+    ],
+    "applications_on_actor": 1,
+    "casts_targeting_actor": 1,
+    "other_recipient_transitions": 3,
+    "damage_events_any_recipient": 0,
+    "explosion": {
+     "member": [
+      "events/A6avHyzWDkgBMXhq/fight_28/encounter/all_001.json"
+     ],
+     "fight_events": 25,
+     "fight_amount": 75907,
+     "sources": [
+      25
+     ],
+     "from_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "to_actor": {
+      "events": 1,
+      "amount": 1159
+     },
+     "first_locator": {
+      "all_index": 1678,
+      "timestamp": 2971452,
+      "source": 25,
+      "target": 39,
+      "amount": 3403
+     },
+     "name_in_fight_abilities": "Explosion"
+    }
+   },
+   "inferno": {
+    "boss_windows": [
+     {
+      "instance": [
+       65,
+       null
+      ],
+      "start_s": 14.531,
+      "end_s": 22.536
+     },
+     {
+      "instance": [
+       65,
+       null
+      ],
+      "start_s": 40.415,
+      "end_s": 48.412
+     },
+     {
+      "instance": [
+       65,
+       null
+      ],
+      "start_s": 64.7,
+      "end_s": 72.695
+     }
+    ],
+    "boss_casts": 3,
+    "damage_to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "damage_events_any_recipient": 143
+   },
+   "ignite_mana_on_actor": 3,
+   "casts": {
+    "Blinding Light": 1,
+    "Divine Favor": 1,
+    "Divine Shield": 1,
+    "Flash of Light": 18,
+    "Holy Light": 14,
+    "Lay on Hands": 1,
+    "Persistent Shield": 1
+   },
+   "divine_favor_s": [
+    17.078
+   ],
+   "cleanse_casts": 0,
+   "emergency_casts": {
+    "Divine Shield": 1,
+    "Lay on Hands": 1
+   },
+   "emergency_cast_s": {
+    "Divine Shield": [
+     49.474
+    ],
+    "Lay on Hands": [
+     75.108
+    ]
+   },
+   "blessing_casts": [],
+   "resource": {
+    "mana_readings": 133,
+    "readings_with_capacity": 0
+   }
+  },
+  {
+   "id": "mc-holy-paladin-actor-8",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "CBz1hnGRXbdYAZ8y",
+   "fight": 11,
+   "actor": 28,
+   "name": "Meetymhc",
+   "subject": false,
+   "duration_ms": 11280,
+   "geddon_instances": [
+    100
+   ],
+   "members": {
+    "all": [
+     "events/CBz1hnGRXbdYAZ8y/fight_11/encounter/all_001.json"
+    ],
+    "source": [
+     "events/CBz1hnGRXbdYAZ8y/fight_11/player_28_Meetymhc/source_001.json"
+    ],
+    "target": [
+     "events/CBz1hnGRXbdYAZ8y/fight_11/player_28_Meetymhc/target_001.json"
+    ]
+   },
+   "actor_events_subset_of_all": true,
+   "living_bomb": {
+    "on_actor": [],
+    "applications_on_actor": 0,
+    "casts_targeting_actor": 0,
+    "other_recipient_transitions": 0,
+    "damage_events_any_recipient": 0,
+    "explosion": {
+     "member": [
+      "events/CBz1hnGRXbdYAZ8y/fight_11/encounter/all_001.json"
+     ],
+     "fight_events": 0,
+     "fight_amount": 0,
+     "sources": [],
+     "from_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "to_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "first_locator": null,
+     "name_in_fight_abilities": null
+    }
+   },
+   "inferno": {
+    "boss_windows": [],
+    "boss_casts": 0,
+    "damage_to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "damage_events_any_recipient": 0
+   },
+   "ignite_mana_on_actor": 0,
+   "casts": {
+    "Flash of Light": 2,
+    "Holy Shock": 1,
+    "Lay on Hands": 1
+   },
+   "divine_favor_s": [],
+   "cleanse_casts": 0,
+   "emergency_casts": {
+    "Lay on Hands": 1
+   },
+   "emergency_cast_s": {
+    "Lay on Hands": [
+     4.684
+    ]
+   },
+   "blessing_casts": [],
+   "resource": {
+    "mana_readings": 34,
+    "readings_with_capacity": 0
+   }
+  },
+  {
+   "id": "mc-holy-paladin-actor-10",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "CN3cTnkWYr6mVQD7",
+   "fight": 81,
+   "actor": 3,
+   "name": "Anrylla",
+   "subject": false,
+   "duration_ms": 39646,
+   "geddon_instances": [
+    193
+   ],
+   "members": {
+    "all": [
+     "events/CN3cTnkWYr6mVQD7/fight_81/encounter/all_001.json"
+    ],
+    "source": [
+     "events/CN3cTnkWYr6mVQD7/fight_81/player_3_Anrylla/source_001.json"
+    ],
+    "target": [
+     "events/CN3cTnkWYr6mVQD7/fight_81/player_3_Anrylla/target_001.json"
+    ]
+   },
+   "actor_events_subset_of_all": true,
+   "living_bomb": {
+    "on_actor": [
+     [
+      31.531,
+      "cast",
+      193
+     ],
+     [
+      31.532,
+      "applydebuff",
+      193
+     ],
+     [
+      39.544,
+      "removedebuff",
+      193
+     ]
+    ],
+    "applications_on_actor": 1,
+    "casts_targeting_actor": 1,
+    "other_recipient_transitions": 2,
+    "damage_events_any_recipient": 0,
+    "explosion": {
+     "member": [
+      "events/CN3cTnkWYr6mVQD7/fight_81/encounter/all_001.json"
+     ],
+     "fight_events": 2,
+     "fight_amount": 5542,
+     "sources": [
+      3,
+      24
+     ],
+     "from_actor": {
+      "events": 1,
+      "amount": 3236
+     },
+     "to_actor": {
+      "events": 1,
+      "amount": 3236
+     },
+     "first_locator": {
+      "all_index": 4284,
+      "timestamp": 7986664,
+      "source": 24,
+      "target": 24,
+      "amount": 2306
+     },
+     "name_in_fight_abilities": "Explosion"
+    }
+   },
+   "inferno": {
+    "boss_windows": [
+     {
+      "instance": [
+       193,
+       null
+      ],
+      "start_s": 20.188,
+      "end_s": 28.191
+     }
+    ],
+    "boss_casts": 1,
+    "damage_to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "damage_events_any_recipient": 58
+   },
+   "ignite_mana_on_actor": 2,
+   "casts": {
+    "Cleanse": 2,
+    "Flash of Light": 3,
+    "Holy Light": 10
+   },
+   "divine_favor_s": [],
+   "cleanse_casts": 2,
+   "emergency_casts": {},
+   "emergency_cast_s": {},
+   "blessing_casts": [],
+   "resource": {
+    "mana_readings": 38,
+    "readings_with_capacity": 0
+   }
+  },
+  {
+   "id": "mc-holy-paladin-actor-22",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "N9wnqPbRKygmM4z1",
+   "fight": 20,
+   "actor": 11,
+   "name": "Stimorol",
+   "subject": false,
+   "duration_ms": 53776,
+   "geddon_instances": [
+    71
+   ],
+   "members": {
+    "all": [
+     "events/N9wnqPbRKygmM4z1/fight_20/encounter/all_001.json"
+    ],
+    "source": [
+     "events/N9wnqPbRKygmM4z1/fight_20/player_11_Stimorol/source_001.json"
+    ],
+    "target": [
+     "events/N9wnqPbRKygmM4z1/fight_20/player_11_Stimorol/target_001.json"
+    ]
+   },
+   "actor_events_subset_of_all": true,
+   "living_bomb": {
+    "on_actor": [],
+    "applications_on_actor": 0,
+    "casts_targeting_actor": 0,
+    "other_recipient_transitions": 0,
+    "damage_events_any_recipient": 0,
+    "explosion": {
+     "member": [
+      "events/N9wnqPbRKygmM4z1/fight_20/encounter/all_001.json"
+     ],
+     "fight_events": 0,
+     "fight_amount": 0,
+     "sources": [],
+     "from_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "to_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "first_locator": null,
+     "name_in_fight_abilities": null
+    }
+   },
+   "inferno": {
+    "boss_windows": [],
+    "boss_casts": 0,
+    "damage_to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "damage_events_any_recipient": 14
+   },
+   "ignite_mana_on_actor": 0,
+   "casts": {
+    "Blinding Light": 1,
+    "Distilled Wisdom": 2,
+    "Flash of Light": 1,
+    "Holy Light": 15,
+    "Persistent Shield": 1,
+    "Restore Mana": 1
+   },
+   "divine_favor_s": [],
+   "cleanse_casts": 0,
+   "emergency_casts": {},
+   "emergency_cast_s": {},
+   "blessing_casts": [],
+   "resource": {
+    "mana_readings": 43,
+    "readings_with_capacity": 0
+   }
+  },
+  {
+   "id": "mc-holy-paladin-actor-25",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "RkFgyDbCwPmHn9hV",
+   "fight": 68,
+   "actor": 20,
+   "name": "Ro\u00f1",
+   "subject": false,
+   "duration_ms": 44016,
+   "geddon_instances": [
+    190
+   ],
+   "members": {
+    "all": [
+     "events/RkFgyDbCwPmHn9hV/fight_68/encounter/all_001.json"
+    ],
+    "source": [
+     "events/RkFgyDbCwPmHn9hV/fight_68/player_20_Ron/source_001.json"
+    ],
+    "target": [
+     "events/RkFgyDbCwPmHn9hV/fight_68/player_20_Ron/target_001.json"
+    ]
+   },
+   "actor_events_subset_of_all": true,
+   "living_bomb": {
+    "on_actor": [],
+    "applications_on_actor": 0,
+    "casts_targeting_actor": 0,
+    "other_recipient_transitions": 3,
+    "damage_events_any_recipient": 0,
+    "explosion": {
+     "member": [
+      "events/RkFgyDbCwPmHn9hV/fight_68/encounter/all_001.json"
+     ],
+     "fight_events": 9,
+     "fight_amount": 30720,
+     "sources": [
+      19
+     ],
+     "from_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "to_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "first_locator": {
+      "all_index": 3913,
+      "timestamp": 5956153,
+      "source": 19,
+      "target": 12,
+      "amount": 3520
+     },
+     "name_in_fight_abilities": "Explosion"
+    }
+   },
+   "inferno": {
+    "boss_windows": [
+     {
+      "instance": [
+       190,
+       null
+      ],
+      "start_s": 13.722,
+      "end_s": 21.733
+     },
+     {
+      "instance": [
+       190,
+       null
+      ],
+      "start_s": 39.606,
+      "end_s": 43.972
+     }
+    ],
+    "boss_casts": 2,
+    "damage_to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "damage_events_any_recipient": 104
+   },
+   "ignite_mana_on_actor": 1,
+   "casts": {
+    "Divine Favor": 1,
+    "Flash of Light": 6,
+    "Holy Light": 12
+   },
+   "divine_favor_s": [
+    21.028
+   ],
+   "cleanse_casts": 0,
+   "emergency_casts": {},
+   "emergency_cast_s": {},
+   "blessing_casts": [],
+   "resource": {
+    "mana_readings": 171,
+    "readings_with_capacity": 0
+   }
+  },
+  {
+   "id": "mc-holy-paladin-actor-42",
+   "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+   "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+   "report": "kvJ2WVF1chC9R4wd",
+   "fight": 43,
+   "actor": 35,
+   "name": "Resurgance",
+   "subject": true,
+   "duration_ms": 91869,
+   "geddon_instances": [
+    66
+   ],
+   "members": {
+    "all": [
+     "events/kvJ2WVF1chC9R4wd/fight_43/encounter/all_001.json"
+    ],
+    "source": [
+     "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/source_001.json"
+    ],
+    "target": [
+     "events/kvJ2WVF1chC9R4wd/fight_43/player_35_Resurgance/target_001.json"
+    ]
+   },
+   "actor_events_subset_of_all": true,
+   "living_bomb": {
+    "on_actor": [],
+    "applications_on_actor": 0,
+    "casts_targeting_actor": 0,
+    "other_recipient_transitions": 9,
+    "damage_events_any_recipient": 0,
+    "explosion": {
+     "member": [
+      "events/kvJ2WVF1chC9R4wd/fight_43/encounter/all_001.json"
+     ],
+     "fight_events": 8,
+     "fight_amount": 16785,
+     "sources": [
+      6,
+      7,
+      11,
+      17
+     ],
+     "from_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "to_actor": {
+      "events": 0,
+      "amount": 0
+     },
+     "first_locator": {
+      "all_index": 2143,
+      "timestamp": 3910021,
+      "source": 7,
+      "target": 28,
+      "amount": 3184
+     },
+     "name_in_fight_abilities": "Explosion"
+    }
+   },
+   "inferno": {
+    "boss_windows": [
+     {
+      "instance": [
+       66,
+       null
+      ],
+      "start_s": 17.803,
+      "end_s": 25.809
+     },
+     {
+      "instance": [
+       66,
+       null
+      ],
+      "start_s": 42.074,
+      "end_s": 50.08
+     },
+     {
+      "instance": [
+       66,
+       null
+      ],
+      "start_s": 69.631,
+      "end_s": 77.635
+     }
+    ],
+    "boss_casts": 3,
+    "damage_to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "damage_events_any_recipient": 145
+   },
+   "ignite_mana_on_actor": 2,
+   "casts": {
+    "Cleanse": 3,
+    "Divine Favor": 1,
+    "Divine Shield": 1,
+    "Flash of Light": 43,
+    "Perception": 1
+   },
+   "divine_favor_s": [
+    82.69
+   ],
+   "cleanse_casts": 3,
+   "emergency_casts": {
+    "Divine Shield": 1
+   },
+   "emergency_cast_s": {
+    "Divine Shield": [
+     81.624
+    ]
+   },
+   "blessing_casts": [],
+   "resource": {
+    "mana_readings": 99,
+    "readings_with_capacity": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,313 @@
+{
+ "version": 1,
+ "fixture": "mc-holy-paladin-raid-context",
+ "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+ "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+ "method": "Read-only raw enumeration from encounter All plus actor SOURCE/TARGET pages; no analyzer code. Living Bomb (20475) aura transitions and casts on the actor are counted from All; Inferno windows are boss buff (19695) applybuff/removebuff pairs per NPC instance; Inferno damage (19698) and any Living Bomb damage are counted separately. Resource capacity counts mana (type 0) readings with max > 0.",
+ "sources": {
+  "Baron Geddon": "https://warcraft.wiki.gg/wiki/Baron_Geddon",
+  "Divine Favor": "https://www.wowhead.com/classic/spell=20216/divine-favor",
+  "Cleanse": "https://www.wowhead.com/classic/spell=4987/cleanse",
+  "Living Bomb": "https://classicdb.ch/?spell=20475",
+  "Explosion": "https://classicdb.ch/?spell=20476"
+ },
+ "limits": "Living Bomb explosions are recorded as Explosion (20476) damage credited to the bomb carrier; that credit does not establish fault or responsibility for nearby damage. Inferno windows are boss buff transitions, not player exposure; blessing state before the pull is unmeasured; every mana reading lacks capacity.",
+ "contexts": [
+  {
+   "report": "A6avHyzWDkgBMXhq",
+   "fight": 28,
+   "actor": 17,
+   "player": "Killian",
+   "subject": false,
+   "duration_ms": 76398,
+   "living_bomb_transitions": [
+    [
+     43.653,
+     "applydebuff"
+    ],
+    [
+     49.473,
+     "removedebuff"
+    ]
+   ],
+   "inferno_windows": [
+    [
+     14.531,
+     22.536
+    ],
+    [
+     40.415,
+     48.412
+    ],
+    [
+     64.7,
+     72.695
+    ]
+   ],
+   "divine_favor_s": [
+    17.078
+   ],
+   "emergency_cast_s": {
+    "Divine Shield": [
+     49.474
+    ],
+    "Lay on Hands": [
+     75.108
+    ]
+   },
+   "blessing_casts": [],
+   "mana_readings": 133,
+   "mana_readings_with_capacity": 0,
+   "actor_events_subset_of_all": true,
+   "living_bomb_explosions": {
+    "fight_events": 25,
+    "fight_amount": 75907,
+    "sources": [
+     25
+    ],
+    "from_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "to_actor": {
+     "events": 1,
+     "amount": 1159
+    },
+    "first_locator": {
+     "all_index": 1678,
+     "timestamp": 2971452,
+     "source": 25,
+     "target": 39,
+     "amount": 3403
+    }
+   }
+  },
+  {
+   "report": "CBz1hnGRXbdYAZ8y",
+   "fight": 11,
+   "actor": 28,
+   "player": "Meetymhc",
+   "subject": false,
+   "duration_ms": 11280,
+   "living_bomb_transitions": [],
+   "inferno_windows": [],
+   "divine_favor_s": [],
+   "emergency_cast_s": {
+    "Lay on Hands": [
+     4.684
+    ]
+   },
+   "blessing_casts": [],
+   "mana_readings": 34,
+   "mana_readings_with_capacity": 0,
+   "actor_events_subset_of_all": true,
+   "living_bomb_explosions": {
+    "fight_events": 0,
+    "fight_amount": 0,
+    "sources": [],
+    "from_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "first_locator": null
+   }
+  },
+  {
+   "report": "CN3cTnkWYr6mVQD7",
+   "fight": 81,
+   "actor": 3,
+   "player": "Anrylla",
+   "subject": false,
+   "duration_ms": 39646,
+   "living_bomb_transitions": [
+    [
+     31.532,
+     "applydebuff"
+    ],
+    [
+     39.544,
+     "removedebuff"
+    ]
+   ],
+   "inferno_windows": [
+    [
+     20.188,
+     28.191
+    ]
+   ],
+   "divine_favor_s": [],
+   "emergency_cast_s": {},
+   "blessing_casts": [],
+   "mana_readings": 38,
+   "mana_readings_with_capacity": 0,
+   "actor_events_subset_of_all": true,
+   "living_bomb_explosions": {
+    "fight_events": 2,
+    "fight_amount": 5542,
+    "sources": [
+     3,
+     24
+    ],
+    "from_actor": {
+     "events": 1,
+     "amount": 3236
+    },
+    "to_actor": {
+     "events": 1,
+     "amount": 3236
+    },
+    "first_locator": {
+     "all_index": 4284,
+     "timestamp": 7986664,
+     "source": 24,
+     "target": 24,
+     "amount": 2306
+    }
+   }
+  },
+  {
+   "report": "N9wnqPbRKygmM4z1",
+   "fight": 20,
+   "actor": 11,
+   "player": "Stimorol",
+   "subject": false,
+   "duration_ms": 53776,
+   "living_bomb_transitions": [],
+   "inferno_windows": [],
+   "divine_favor_s": [],
+   "emergency_cast_s": {},
+   "blessing_casts": [],
+   "mana_readings": 43,
+   "mana_readings_with_capacity": 0,
+   "actor_events_subset_of_all": true,
+   "living_bomb_explosions": {
+    "fight_events": 0,
+    "fight_amount": 0,
+    "sources": [],
+    "from_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "first_locator": null
+   }
+  },
+  {
+   "report": "RkFgyDbCwPmHn9hV",
+   "fight": 68,
+   "actor": 20,
+   "player": "Ro\u00f1",
+   "subject": false,
+   "duration_ms": 44016,
+   "living_bomb_transitions": [],
+   "inferno_windows": [
+    [
+     13.722,
+     21.733
+    ],
+    [
+     39.606,
+     43.972
+    ]
+   ],
+   "divine_favor_s": [
+    21.028
+   ],
+   "emergency_cast_s": {},
+   "blessing_casts": [],
+   "mana_readings": 171,
+   "mana_readings_with_capacity": 0,
+   "actor_events_subset_of_all": true,
+   "living_bomb_explosions": {
+    "fight_events": 9,
+    "fight_amount": 30720,
+    "sources": [
+     19
+    ],
+    "from_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "first_locator": {
+     "all_index": 3913,
+     "timestamp": 5956153,
+     "source": 19,
+     "target": 12,
+     "amount": 3520
+    }
+   }
+  },
+  {
+   "report": "kvJ2WVF1chC9R4wd",
+   "fight": 43,
+   "actor": 35,
+   "player": "Resurgance",
+   "subject": true,
+   "duration_ms": 91869,
+   "living_bomb_transitions": [],
+   "inferno_windows": [
+    [
+     17.803,
+     25.809
+    ],
+    [
+     42.074,
+     50.08
+    ],
+    [
+     69.631,
+     77.635
+    ]
+   ],
+   "divine_favor_s": [
+    82.69
+   ],
+   "emergency_cast_s": {
+    "Divine Shield": [
+     81.624
+    ]
+   },
+   "blessing_casts": [],
+   "mana_readings": 99,
+   "mana_readings_with_capacity": 0,
+   "actor_events_subset_of_all": true,
+   "living_bomb_explosions": {
+    "fight_events": 8,
+    "fight_amount": 16785,
+    "sources": [
+     6,
+     7,
+     11,
+     17
+    ],
+    "from_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "to_actor": {
+     "events": 0,
+     "amount": 0
+    },
+    "first_locator": {
+     "all_index": 2143,
+     "timestamp": 3910021,
+     "source": 7,
+     "target": 28,
+     "amount": 3184
+    }
+   }
+  }
+ ],
+ "correction": "2026-10-19: the first freeze counted only aura 20475 and wrongly reported that explosion damage is never recorded. Living Bomb's periodic trigger is Explosion (20476), recorded as damage credited to the bomb carrier; it is now enumerated per context. Raw archives are unchanged."
+}

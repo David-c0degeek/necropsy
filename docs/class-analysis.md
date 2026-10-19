@@ -123,6 +123,14 @@ qualified recipient contexts, with two empty enemy rosters and one unknown
 guardian owner. These module-specific captures do not establish universal healer
 quality or complete class/duty/faction coverage.
 
+Holy Paladin healing views add sourced class notes for the personal fight. They
+record Divine Favor casts with its two-minute cooldown, any emergency cooldowns
+used (with no expected-use target) and in-fight blessing casts. Cooldown
+availability and pre-pull blessings are not measured. When every mana reading
+lacks a capacity, the notes say that mana timing and mana lost to encounter
+effects cannot be assessed, rather than treating the value as zero. Wrong-duty
+and incompletely recorded fights receive no notes.
+
 Full-MC Horde Restoration Shaman evidence retains60 actor and60 recipient
 contexts, with17 owned Healing Stream Totem units in59 independently checked
 owner contexts. One Magmadar pet owner remains unresolved. Both raid pages show

@@ -58,7 +58,7 @@ def encounter_strategy(
                 str(row["section"]),
                 str(row["text"]),
                 str(row.get("source") or entry["source"]),
-                str(entry["retrieved"]),
+                str(row.get("retrieved") or entry["retrieved"]),
             )
         )
     return EncounterStrategy(tuple(items)) if items else None

@@ -64,6 +64,12 @@ effects:
     ability_ids: [19659]
     source: https://www.wowhead.com/classic/spell=19659/ignite-mana
     retrieved: '2026-10-17'
+  - rule: geddon-living-bomb-exposure-v1
+    label: Living Bomb
+    ability_ids: [20475]
+    note: These windows cover the bomb aura only. Its explosion is recorded separately as Explosion damage credited to the carrier; that credit and receiving the bomb do not make this actor responsible for nearby damage.
+    source: https://classicdb.ch/?spell=20475
+    retrieved: '2026-10-19'
   50665:
   - rule: gehennas-curse-exposure-v1
     label: Gehennas' Curse
@@ -281,6 +287,13 @@ strategy:
     - rule: geddon-bomb-route-and-coverage-v1
       section: before
       text: Agree a Living Bomb separation route, healer coverage and Ignite Mana removal assignments before the pull.
+    - rule: geddon-paladin-cleanse-preparation-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: Agree who Cleanses Ignite Mana from mana users. It should not be removed from Warriors or Rogues, and keeping healers and dispellers out of its range saves mana spent dispelling.
     - rule: geddon-bomb-and-inferno-recovery-v1
       section: during
       text: If you receive Living Bomb, follow the agreed route away from nearby allies. Recover your position safely after the explosion and move out for Inferno according to the raid's plan.
@@ -390,6 +403,17 @@ strategy:
       text: Confirm Protector tanking and kill order, control recovery and removal priorities before copying another player's target mix.
 
 target_auras:
+  50668:
+  - rule: geddon-inferno-instances-v1
+    label: Inferno
+    ability_id: 19695
+    caster_game_ids:
+    - 12056
+    target_game_ids:
+    - 12056
+    require_instance: false
+    source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+    retrieved: '2026-10-19'
   50666:
   - rule: garr-banish-rank-one-instances-v1
     label: Encounter-wide Firesworn Banish (Rank 1)

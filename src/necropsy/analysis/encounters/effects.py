@@ -490,6 +490,7 @@ def actor_effects(
                 affected,
                 uncertain,
                 transitions,
+                f"{LIMITATION} {policy['note']}" if policy.get("note") else LIMITATION,
             )
         )
     return tuple(result)
