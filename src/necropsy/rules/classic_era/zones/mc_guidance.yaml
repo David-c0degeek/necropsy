@@ -402,6 +402,22 @@ strategy:
       section: raid
       text: Confirm Protector tanking and kill order, control recovery and removal priorities before copying another player's target mix.
 
+mechanic_presence:
+  50668:
+  - rule: geddon-living-bomb-presence-v1
+    label: Living Bomb
+    ability_id: 20475
+    event_type: applydebuff
+    caster_game_ids: [12056]
+    source: https://classicdb.ch/?spell=20475
+    retrieved: '2026-10-19'
+  - rule: geddon-inferno-presence-v1
+    label: Inferno
+    ability_id: 19695
+    event_type: applybuff
+    caster_game_ids: [12056]
+    source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+    retrieved: '2026-10-19'
 target_auras:
   50668:
   - rule: geddon-inferno-instances-v1

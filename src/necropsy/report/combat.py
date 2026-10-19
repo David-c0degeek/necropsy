@@ -11,6 +11,7 @@ from necropsy.analysis import gamedata
 from necropsy.analysis.benchmark import BossData, Entry, median_of
 from necropsy.analysis.classes.classic_era import healer_notes
 from necropsy.analysis.classes.classic_era.combat import LIMITATIONS
+from necropsy.analysis.encounters import presence
 from necropsy.analysis.evidence import EvidenceRef, observed, unknown
 from necropsy.analysis.generic.catalog import ItemName, item_catalog
 from necropsy.analysis.roles import ranking_policy
@@ -210,6 +211,51 @@ def boss_section(
                 faction_top["category_score"]["value"],
             ),
         }
+
+    def fight_context(entry: Entry) -> dict[str, Any]:
+        pf = entry.participant
+        return {
+            "player": pf.player,
+            "report_code": pf.report_code,
+            "fight_id": pf.fight_id,
+            "duration_s": pf.duration_ms / 1000,
+            "mechanics": to_data(presence.mechanic_presence(con, pf)),
+            "other_enemies": to_data(presence.other_enemies(con, pf, boss.rules.boss_game_ids)),
+        }
+
+    reference_context = None
+    if subject is not None and presence.mechanic_presence(con, subject.participant):
+        statements: list[dict[str, Any]] = []
+        for scope, entry in (
+            ("same-faction-reference", leader),
+            ("overall-reference", global_leader),
+        ):
+            if entry is None or any(
+                s["player"] == entry.participant.player
+                and s["report_code"] == entry.participant.report_code
+                for s in statements
+            ):
+                continue
+            statements.append(
+                {
+                    "scope": scope,
+                    "player": entry.participant.player,
+                    "report_code": entry.participant.report_code,
+                    "fight_id": entry.participant.fight_id,
+                    "text": presence.reference_statement(
+                        subject.participant.duration_ms / 1000,
+                        entry.participant.duration_ms / 1000,
+                        presence.mechanic_presence(con, entry.participant),
+                        policy.role,
+                    ),
+                }
+            )
+        reference_context = {
+            "rule": "reference-fight-context-v1",
+            "subject": fight_context(subject),
+            "examples": [fight_context(e) for e in same],
+            "statements": statements,
+        }
     focus = {
         "dps": "Review your opening casts, core ability cadence, targets and cooldown timing.",
         "healer": "Review assigned targets, healing choices and cooldowns with the healing team.",
@@ -298,6 +344,7 @@ def boss_section(
                 else None
             ),
             "primary_metrics": primary,
+            "reference_context": reference_context,
             "class_notes": (
                 []
                 if subject is None or policy.role != "healer"

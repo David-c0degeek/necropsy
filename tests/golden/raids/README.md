@@ -350,4 +350,7 @@ those credited to and taken by the actor, and a raw locator. A first version of
 this oracle counted only the aura and wrongly reported that explosions were
 absent; its `correction` field records the fix. Carrier credit does not establish
 fault for nearby damage. The seed replay checks the actor effects, the Inferno
-windows and the subject's class notes against it.
+windows and the subject's class notes against it. Each context also records
+the boss's Living Bomb and Inferno applications in the whole fight and the other
+enemies the fight lists; the replay checks the reference-fight context and the
+subject's reference statement against them.

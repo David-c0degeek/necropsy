@@ -226,3 +226,89 @@ def test_an_unlisted_emergency_rank_is_unknown_not_absent(
         notes = _notes(con)
     key = "emergency:Lay on Hands"
     assert notes[key]["recorded_s"]["value"] is None and notes[key]["unresolved_s"] == [5.0]
+
+
+def _encounter_complete(con: duckdb.DuckDBPyConnection) -> None:
+    con.execute(
+        "INSERT INTO stream_coverage (report_code,fight_id,actor_id,role,direction,status,"
+        "boundary_ambiguities,multiplicity_mismatches,raw_events) "
+        "SELECT 'REPORT1',7,NULL,'encounter','all','complete',0,0,count(*) FROM events"
+    )
+
+
+def _boss_event(
+    con: duckdb.DuckDBPyConnection,
+    kind: str,
+    ability: int,
+    source: int,
+    raw_source: int | None = None,
+) -> None:
+    start = con.execute("SELECT min(start_time) FROM fights").fetchone()
+    assert start is not None
+    raw_source = source if raw_source is None else raw_source
+    con.execute(
+        "INSERT INTO events (report_code,fight_id,event_uid,copy_index,timestamp,type,"
+        "source_id,target_id,ability_game_id,raw) VALUES ('REPORT1',7,?,0,?,?,?,1,?,?)",
+        [
+            f"boss-{kind}-{ability}-{source}",
+            start[0] + 4000,
+            kind,
+            source,
+            ability,
+            json.dumps(
+                {"type": kind, "sourceID": raw_source, "targetID": 1, "abilityGameID": ability}
+            ),
+        ],
+    )
+    con.execute("UPDATE stream_coverage SET raw_events=raw_events+1 WHERE role='encounter'")
+
+
+def _statement(con: duckdb.DuckDBPyConnection) -> str:
+    context = build_document(con)["bosses"][0]["playbook"]["reference_context"]
+    (statement,) = context["statements"]
+    return str(statement["text"])
+
+
+def test_reference_mechanics_without_a_complete_encounter_set_are_unmeasured(
+    tmp_path: Path,
+) -> None:
+    with _paladin(tmp_path) as con:
+        text = _statement(con)
+    assert "Living Bomb or Inferno transitions are unmeasured for this reference." in text
+    assert "records no" not in text
+
+
+def test_reference_records_only_boss_cast_mechanics(tmp_path: Path) -> None:
+    with _paladin(tmp_path) as con:
+        _encounter_complete(con)
+        assert "This reference records no Living Bomb or Inferno transitions." in _statement(con)
+        # A player-sourced application is not the boss mechanic.
+        _boss_event(con, "applydebuff", 20475, 2)
+        assert "records no Living Bomb or Inferno" in _statement(con)
+        _boss_event(con, "applydebuff", 20475, 50)
+        text = _statement(con)
+    assert "This reference records no Inferno transitions." in text
+    assert text.startswith("Reference fight: ") and "better healing" in text
+
+
+@pytest.mark.parametrize(
+    ("source", "raw_source", "setup"),
+    [
+        (99, None, None),
+        (50, None, "UPDATE actors SET game_id=NULL WHERE actor_id=50"),
+        (50, 51, None),
+    ],
+    ids=["no-actor-binding", "npc-without-game-id", "raw-source-conflict"],
+)
+def test_an_unclassifiable_caster_withholds_mechanic_absence(
+    tmp_path: Path, source: int, raw_source: int | None, setup: str | None
+) -> None:
+    with _paladin(tmp_path) as con:
+        _encounter_complete(con)
+        if setup is not None:
+            con.execute(setup)
+        _boss_event(con, "applydebuff", 20475, source, raw_source)
+        text = _statement(con)
+    assert "Living Bomb transitions are unmeasured for this reference." in text
+    assert "This reference records no Inferno transitions." in text
+    assert "no Living Bomb" not in text

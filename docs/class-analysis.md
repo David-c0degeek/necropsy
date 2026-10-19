@@ -131,6 +131,13 @@ lacks a capacity, the notes say that mana timing and mana lost to encounter
 effects cannot be assessed, rather than treating the value as zero. Wrong-duty
 and incompletely recorded fights receive no notes.
 
+Where an encounter declares mechanic-presence rules (currently Baron Geddon),
+combat-class views also label the selected reference fight. The label gives both
+fight durations and names boss mechanics the reference records none of, or
+cannot measure without a complete encounter event set. It also keeps each
+comparison fight's recorded duration, mechanic counts and other listed enemies.
+The label does not explain why a reference differs and does not exclude it.
+
 Full-MC Horde Restoration Shaman evidence retains60 actor and60 recipient
 contexts, with17 owned Healing Stream Totem units in59 independently checked
 owner contexts. One Magmadar pet owner remains unresolved. Both raid pages show

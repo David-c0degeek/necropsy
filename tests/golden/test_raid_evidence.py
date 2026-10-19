@@ -255,8 +255,30 @@ def _assert_geddon_paladin_mechanics(doc: dict[str, Any], fixture: dict[str, Any
             ]
         )
         assert windows == case["inferno_windows"], case["player"]
+        context = play["reference_context"]
+        fight = next(
+            c
+            for c in [context["subject"], *context["examples"]]
+            if (c["report_code"], c["fight_id"], c["player"]) == (*key, case["player"])
+        )
+        presence = case["encounter_presence"]
+        assert {m["label"]: m["applications"]["value"] for m in fight["mechanics"]} == {
+            "Living Bomb": presence["living_bomb_applications"],
+            "Inferno": presence["inferno_applications"],
+        }
+        assert list(fight["other_enemies"]["value"]) == presence["other_enemies"]
+        assert fight["duration_s"] * 1000 == pytest.approx(case["duration_ms"])
         if not case["subject"]:
             continue
+        # The pilot's selected reference is the 11.28 s rank-one Meetymhc fight.
+        (statement,) = play["reference_context"]["statements"]
+        assert statement["player"] == "Meetymhc"
+        assert statement["text"] == (
+            "Reference fight: 11.28s; your fight: 91.87s. This reference records no Living "
+            "Bomb or Inferno transitions. Different durations and observed mechanics can "
+            "change healing demand; these whole-fight comparisons do not establish better "
+            "healing or matching assignments."
+        )
         notes = {n["key"]: n for n in play["class_notes"]}
         favor = notes["cooldown:Divine Favor"]
         assert favor["recorded_s"]["value"] == case["divine_favor_s"]
