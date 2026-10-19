@@ -173,6 +173,22 @@ Snapshots from earlier attempts are preserved. Resume validates options and
 owned output digests before credentials are accessed; unrelated/modified files
 are refused. Pre-0.1.1 runs have no checkpoint: retain their cache and choose a
 fresh output directory once to start the new resumable run.
+
+For unattended runners, `--outcome-json PATH` also writes a small JSON file
+after the run, whatever its result. It keeps the native exit code and adds a
+`stop_class`: `none` (complete), `source-limit` (a finished report with
+incomplete source data, no stop), `quota-reset` or `quota-reserve` (stopped
+for points; resume after `reset_at_utc` when it is known), `refused` (this
+character or option set can't be analysed as asked), `auth` (sign-in
+problem), `transient` (server or rate trouble), `interrupted` or `error`. It
+also records the snapshot path and SHA-256 when one was written, including a
+saved snapshot whose report then failed (an `error` that can be finished with
+`necropsy offline`), the number of incomplete bosses, and the SHA-256 of the run
+checkpoint. A quota stop while resolving the character is also `quota-reset`.
+Failing to write the outcome file only prints a warning; it never changes the
+command's own result. An unknown reset time
+is `null`, never a guess. A missing outcome file means the runner must treat
+the run as needing attention.
 It also refuses paths through symlinks or junctions and prevents simultaneous
 `analyze` runs in one output directory. The offline and render commands retain
 their existing replacement behavior.

@@ -755,6 +755,8 @@ class Acquisition:
     bosses: list[BossAcquisition] = field(default_factory=list)
     stopped: str | None = None
     """Collection stopped; Druid personal data may already cover later comparison gaps."""
+    stop_kind: str | None = None
+    """"quota-reserve" when a stop kept the finalization reserve, else "quota-reset"."""
     reports: dict[str, ReportSet] = field(default_factory=dict)
     """Filled by `finalize_reports`: the combined report per code, for the snapshot."""
     comparison_order: tuple[int, ...] = ()
@@ -925,6 +927,7 @@ def _acquire_spec_view(
             _acquire_subject(run, context, boss, out.cross_faction)
         except RunStopped as stop:
             out.stopped = f"personal data, encounter {encounter}: {stop}"
+            out.stop_kind = "quota-reset"
             break
     if out.stopped is None:
         order = {
@@ -975,6 +978,7 @@ def _acquire_spec_view(
                         f"ranking metadata, encounter {boss.encounter_id}: {stop}; "
                         "budget reserve kept for fresh report finalization"
                     )
+                    out.stop_kind = "quota-reserve"
                     break
             for boss in comparisons if out.stopped is None else ():
                 _boss_progress(progress, boss.encounter_id, out.requested, "Fetching comparisons")
@@ -986,6 +990,7 @@ def _acquire_spec_view(
                         f"comparisons, encounter {boss.encounter_id}: {stop}; "
                         "budget reserve kept for fresh report finalization"
                     )
+                    out.stop_kind = "quota-reserve"
                     break
         finally:
             run.client.policy = original_policy
@@ -1054,6 +1059,7 @@ def acquire(
             acquire_boss(run, context, boss, cross_faction)
         except RunStopped as stop:
             out.stopped = f"encounter {encounter}: {stop}"
+            out.stop_kind = "quota-reset"
         boss.coverage = _coverage(boss, out.stopped)
         if out.stopped:
             break

@@ -11,6 +11,7 @@ import random
 import subprocess
 import sys
 from dataclasses import replace
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +28,8 @@ from necropsy.wcl import acquire as acquire_mod
 from necropsy.wcl import analyze as analyze_mod
 from necropsy.wcl import cli as wcl_cli
 from necropsy.wcl import client as c
+from necropsy.wcl import credentials
+from necropsy.wcl.auth import LoginNeeded
 from necropsy.wcl.context import Partition
 from tests.integration.test_encounter_snapshot import EncounterWcl
 from tests.unit.test_wcl_acquire import PATCHWERK, FakeWcl, Player, _context
@@ -34,6 +37,17 @@ from tests.wcl_fakes import FakeClock
 
 URL = "https://vanilla.warcraftlogs.com/character/id/86583560"
 SECRET = "sentinel-secret-token-value"
+
+
+@pytest.fixture(autouse=True)
+def _no_live_access(monkeypatch: pytest.MonkeyPatch) -> None:
+    """No test here may reach the real network or OS credential store, even after undo."""
+
+    def refuse(*_: Any, **__: Any) -> Any:
+        raise AssertionError("live network or credential access in an offline test")
+
+    monkeypatch.setattr(httpx.HTTPTransport, "handle_request", refuse)
+    monkeypatch.setattr(credentials.CredentialStore, "open", refuse)
 
 
 @pytest.fixture
@@ -890,3 +904,244 @@ def test_interruption_saves_requests_and_cleans_up_the_activity_display(
     second = _run(tmp_path, "--resume")
     assert second.exit_code == 0, second.output
     assert not any("NecropsySubject" in r["query"] for r in server.requests[before:])
+
+
+# --outcome-json: real run outcomes classified for unattended runners.
+
+
+def _outcome(tmp_path: Path, *args: str) -> tuple[Any, dict[str, Any]]:
+    path = tmp_path / "outcome.json"
+    result = _run(tmp_path, *args, "--outcome-json", str(path))
+    return result, json.loads(path.read_text(encoding="utf-8"))
+
+
+def _utc(value: str) -> datetime:
+    when = datetime.fromisoformat(value)
+    offset = when.utcoffset()
+    assert offset is not None and offset.total_seconds() == 0
+    return when
+
+
+def test_a_complete_run_reports_none_with_its_snapshot(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    result, outcome = _outcome(tmp_path, "--name", "live")
+    assert result.exit_code == 0 and outcome["exit_code"] == 0
+    assert outcome["stop_class"] == "none" and outcome["incomplete_bosses"] == 0
+    archive = Path(outcome["snapshot"]["archive"])
+    assert archive.name == "live.zip" and len(outcome["snapshot"]["sha256"]) == 64
+    _utc(outcome["reset_at_utc"])
+    assert outcome["checkpoint_sha256"] is not None
+
+
+def test_a_final_partial_without_a_stop_is_a_source_limit(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    fake["server"] = FakeWcl([Player(f"Ally{i}") for i in range(1, 7)], Player("Haplina"))
+    result, outcome = _outcome(tmp_path, "--talent-tree", "Beast Mastery")
+    assert result.exit_code == 4 and outcome["exit_code"] == 4
+    assert outcome["stop_class"] == "source-limit" and outcome["incomplete_bosses"] == 1
+    assert outcome["snapshot"] is not None
+
+
+def test_a_rate_limit_during_acquisition_is_a_quota_reset_stop_with_its_reset_time(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    context = _context()
+    assert context.partition is not None
+    chosen = replace(context.partition, id=1)
+    fake["context"] = replace(context, zone_id=2000, partition=chosen, partitions=(chosen,))
+    server = EncounterWcl([Player(f"Ally{i}") for i in range(30)], Player("Haplina"))
+    monkeypatch.setattr(acquire_mod, "boss_order", lambda zone="naxxramas": (50669,))
+
+    def limited(request: httpx.Request) -> httpx.Response:
+        body = json.loads(request.content)
+        variables = body["variables"]
+        if "NecropsyEvents" in body["query"] and variables["code"] == "RHaplina":
+            return httpx.Response(
+                200,
+                json={
+                    "data": {
+                        "rateLimitData": {
+                            "limitPerHour": 36000,
+                            "pointsSpentThisHour": 36000,
+                            "pointsResetIn": 20,
+                        }
+                    },
+                    "errors": [{"message": "rate limit exceeded"}],
+                },
+            )
+        return server(request)
+
+    fake["server"] = limited
+    result, outcome = _outcome(tmp_path, "--raid", "mc", "--partition", "1")
+    assert result.exit_code == 4 and outcome["exit_code"] == 4
+    assert outcome["stop_class"] == "quota-reset"
+    _utc(outcome["reset_at_utc"])
+    assert outcome["checkpoint_sha256"] is not None
+
+
+def test_a_ranking_metadata_stop_keeps_the_reserve_and_says_so(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def stopped(*_: Any, **__: Any) -> None:
+        raise acquire_mod.RunStopped("BudgetExceeded during leaderboard")
+
+    monkeypatch.setattr(acquire_mod, "_acquire_rankings", stopped)
+    monkeypatch.setattr(acquire_mod, "boss_order", lambda zone="naxxramas": (PATCHWERK, 51119))
+    fake["server"] = FakeWcl([Player(f"Ally{i}") for i in range(1, 31)], Player("Haplina"))
+    result, outcome = _outcome(tmp_path, "--spec", "Marksmanship", "--faction", "Alliance")
+    assert result.exit_code == 4, result.output
+    assert outcome["stop_class"] == "quota-reserve"
+
+
+def test_a_finalization_stop_is_a_quota_reset_without_a_snapshot(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def stop(run: Any, acquisition: Any) -> Any:
+        raise acquire_mod.RunStopped("BudgetExceeded during combined report")
+
+    monkeypatch.setattr(analyze_mod, "finalize_reports", stop)
+    result, outcome = _outcome(tmp_path)
+    assert result.exit_code == 3 and outcome["exit_code"] == 3
+    assert outcome["stop_class"] == "quota-reset" and outcome["snapshot"] is None
+    _utc(outcome["reset_at_utc"])
+
+
+def test_a_partition_choice_and_a_faction_mismatch_are_refusals(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    parts = (Partition(3, "Phase 6", True, True), Partition(4, "Phase 7", False, True))
+    fake["context"] = replace(
+        _context(), partition=None, partitions=parts, ambiguity="choose a partition"
+    )
+    result, outcome = _outcome(tmp_path)
+    assert result.exit_code == 2 and outcome["stop_class"] == "refused"
+    assert outcome["reset_at_utc"] is None
+    fake.pop("context")
+    result, outcome = _outcome(tmp_path, "--spec", "Marksmanship", "--faction", "Horde")
+    assert result.exit_code == 1 and outcome["stop_class"] == "refused"
+
+
+def test_a_sign_in_failure_is_auth(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def no_sign_in() -> Any:
+        raise LoginNeeded("sign in again")
+
+    monkeypatch.setattr(wcl_cli, "_tokens", no_sign_in)
+    result, outcome = _outcome(tmp_path)
+    assert result.exit_code == 1 and outcome["stop_class"] == "auth"
+
+
+def test_a_server_failure_is_transient(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def down(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(503)
+
+    fake["server"] = down
+    monkeypatch.setattr(analyze_mod, "resolve", _resolve_through_client)
+    result, outcome = _outcome(tmp_path)
+    assert result.exit_code == 1 and outcome["stop_class"] == "transient", result.output
+
+
+def _resolve_through_client(client: Any, ref: Any, *, partition: Any, endpoint: str) -> Any:
+    client.query("query NecropsyProbe { rateLimitData { limitPerHour } }", endpoint=endpoint)
+    raise AssertionError("the server failure must stop the run")
+
+
+def test_an_unexpected_failure_is_recorded_as_an_error(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def broken(*_: Any, **__: Any) -> Any:
+        raise KeyError("unexpected")
+
+    monkeypatch.setattr(analyze_mod, "acquire", broken)
+    path = tmp_path / "outcome.json"
+    result = _run(tmp_path, "--outcome-json", str(path))
+    assert result.exit_code == 1 and isinstance(result.exception, KeyError)
+    assert json.loads(path.read_text(encoding="utf-8"))["stop_class"] == "error"
+
+
+def test_without_the_option_no_outcome_file_is_written(
+    tmp_path: Path, fake: dict[str, Any]
+) -> None:
+    assert _run(tmp_path).exit_code == 0
+    assert not list(tmp_path.glob("*.json"))
+
+
+def test_quota_exhaustion_while_resolving_is_a_quota_reset_with_its_reset_time(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def exhausted(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            200,
+            json={
+                "data": {
+                    "rateLimitData": {
+                        "limitPerHour": 36000,
+                        "pointsSpentThisHour": 36000,
+                        "pointsResetIn": 1800,
+                    }
+                },
+                "errors": [{"message": "rate limit exceeded"}],
+            },
+        )
+
+    fake["server"] = exhausted
+    monkeypatch.setattr(analyze_mod, "resolve", _resolve_through_client)
+    result, outcome = _outcome(tmp_path)
+    assert result.exit_code == 1 and outcome["exit_code"] == 1
+    assert outcome["stop_class"] == "quota-reset"
+    clock = fake["client"].clock
+    assert _utc(outcome["reset_at_utc"]) == clock.now() + timedelta(seconds=1800)
+
+
+def test_a_report_failure_after_publication_records_the_saved_snapshot(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    import hashlib
+
+    def broken(*args: Any, **kwargs: Any) -> Any:
+        raise OSError("disk full")
+
+    monkeypatch.setattr(analyze_mod, "run_offline", broken)
+    result, outcome = _outcome(tmp_path, "--name", "live")
+    assert result.exit_code == 1 and outcome["stop_class"] == "error"
+    archive = tmp_path / "out" / "snapshot" / "live.zip"
+    assert Path(outcome["snapshot"]["archive"]) == archive
+    assert outcome["snapshot"]["sha256"] == hashlib.sha256(archive.read_bytes()).hexdigest()
+
+
+def test_an_unreadable_checkpoint_never_changes_the_native_result(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    original = Path.read_bytes
+
+    def guarded(self: Path) -> bytes:
+        if self.name == "run.json" and self.parent.name == ".necropsy-run":
+            raise PermissionError("denied")
+        return original(self)
+
+    monkeypatch.setattr(Path, "read_bytes", guarded)
+    path = tmp_path / "outcome.json"
+    result = _run(tmp_path, "--outcome-json", str(path))
+    assert result.exit_code == 0 and "could not write --outcome-json" in result.output
+    assert not path.exists()
+
+
+def test_a_failed_receipt_write_keeps_the_original_failure(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def broken(*_: Any, **__: Any) -> Any:
+        raise KeyError("unexpected")
+
+    def unwritable(self: Path, *_: Any, **__: Any) -> int:
+        raise OSError(28, "No space left on device")
+
+    monkeypatch.setattr(analyze_mod, "acquire", broken)
+    monkeypatch.setattr(Path, "write_text", unwritable)
+    result = _run(tmp_path, "--outcome-json", str(tmp_path / "outcome.json"))
+    assert result.exit_code == 1 and isinstance(result.exception, KeyError)
+    assert not (tmp_path / "outcome.json").exists()

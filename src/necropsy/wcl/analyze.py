@@ -21,7 +21,7 @@ import stat
 import sys
 from collections.abc import Callable
 from dataclasses import dataclass, field, replace
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from uuid import uuid4
 
@@ -42,7 +42,7 @@ from necropsy.wcl.acquire import (
 )
 from necropsy.wcl.cache import Cache, item_lock
 from necropsy.wcl.checkpoint import Checkpoint, Journal, saved_options
-from necropsy.wcl.client import Endpoint, WclClient
+from necropsy.wcl.client import BudgetExceeded, Endpoint, RateLimited, WclClient
 from necropsy.wcl.context import CharacterContext, resolve
 from necropsy.wcl.fetch import Reading, fetch_meta
 from necropsy.wcl.sites import Site, require_supported
@@ -58,10 +58,25 @@ _LINK_TAGS = {0xA000000C, 0xA0000003}  # Windows symlink and junction (mount poi
 class AnalyzeError(Exception):
     """A refusal or failure with the exit code it maps to."""
 
-    def __init__(self, message: str, code: int = 1, lines: tuple[str, ...] = ()) -> None:
+    def __init__(
+        self,
+        message: str,
+        code: int = 1,
+        lines: tuple[str, ...] = (),
+        *,
+        stop_class: str = "error",
+        reset_at: str | None = None,
+        snapshot: Written | None = None,
+    ) -> None:
         super().__init__(message)
         self.code = code
         self.lines = lines
+        self.stop_class = stop_class
+        """Machine-readable cause for --outcome-json; "refused" means this character
+        or option set cannot be analysed as asked, "error" anything unexpected."""
+        self.reset_at = reset_at
+        self.snapshot = snapshot
+        """A snapshot already published before the failure (offline recovery possible)."""
 
 
 @dataclass
@@ -71,6 +86,8 @@ class Outcome:
     snapshot: Written | None = None
     acquisition: Acquisition | None = None
     reset_wait: dict[str, float | int] | None = None
+    reset_at: str | None = None
+    """UTC time of the hourly reset from the last rate reading, or None when unknown."""
 
 
 TokenSource = Callable[[], Callable[[str], str]]
@@ -320,6 +337,12 @@ def run_analyze(
                     )
                 )
             return outcome
+        except (RateLimited, BudgetExceeded) as error:
+            # Only character resolution can raise these here; acquisition turns
+            # them into stops. Keep the observed reset for unattended runners.
+            raise AnalyzeError(
+                str(error), stop_class="quota-reset", reset_at=reset_at(client)
+            ) from None
         except AnalyzeError as error:
             error.lines += ("Saved progress is kept. Retry the original command with --resume.",)
             raise
@@ -368,21 +391,26 @@ def _run(
             )
             for p in context.partitions
         ]
-        raise AnalyzeError("choose a partition with --partition", code=2, lines=tuple(lines))
+        raise AnalyzeError(
+            "choose a partition with --partition", code=2, lines=tuple(lines), stop_class="refused"
+        )
     if context.faction.level != "observed":
-        raise AnalyzeError(f"the character's faction is unknown: {context.faction.note}")
+        raise AnalyzeError(
+            f"the character's faction is unknown: {context.faction.note}", stop_class="refused"
+        )
     if faction is not None and context.faction.value.value != faction:
         raise AnalyzeError(
             f"selected faction {faction} differs from the character's observed faction "
-            f"{context.faction.value.value}; choose the character's faction for the main list"
+            f"{context.faction.value.value}; choose the character's faction for the main list",
+            stop_class="refused",
         )
     if context.class_id.value not in CLASS_NAMES:
-        raise AnalyzeError("only Classic Era classes can be analysed")
+        raise AnalyzeError("only Classic Era classes can be analysed", stop_class="refused")
     try:
         policy = ranking_policy(context.class_id.value, category, metric)
         declared_tree = validate_talent_tree(context.class_id.value, talent_tree)
     except ValueError as error:
-        raise AnalyzeError(str(error)) from None
+        raise AnalyzeError(str(error), stop_class="refused") from None
     context = replace(
         context, ranking_category=policy.category, ranking_metric=metric, talent_tree=declared_tree
     )
@@ -432,6 +460,8 @@ def _run(
             f"stopped while finalizing reports: {stop}; no snapshot or report was written "
             f"(fetched data stays in the cache {cache_dir} for the next run)",
             code=3,
+            stop_class="quota-reset",
+            reset_at=reset_at(client),
         ) from None
     except MixedRevision as error:
         raise AnalyzeError(f"{error}; rerun to fetch the changed report again") from None
@@ -457,7 +487,8 @@ def _run(
     if stray:
         raise AnalyzeError(
             f"{out_dir} gained other output ({', '.join(stray)}); the snapshot is kept at "
-            f"{written.archive}"
+            f"{written.archive}",
+            snapshot=written,
         )
     recover = shell_command(
         [
@@ -488,6 +519,7 @@ def _run(
         raise AnalyzeError(
             f"the snapshot was saved but the report could not be written: {error}",
             lines=(f"snapshot: {written.archive}", f"finish offline with: {recover}"),
+            snapshot=written,
         ) from None
     if checkpoint is not None:
         checkpoint.record(list(result.files))
@@ -509,7 +541,19 @@ def _run(
         b.coverage.get("complete") for b in acquisition.bosses
     )
     complete = complete and len(acquisition.bosses) == len(acquisition.requested)
-    return Outcome(0 if complete else 4, lines, written, acquisition, client.reset_wait)
+    return Outcome(
+        0 if complete else 4, lines, written, acquisition, client.reset_wait, reset_at(client)
+    )
+
+
+def reset_at(client: WclClient) -> str | None:
+    """UTC of the hourly reset from the last rate reading; None when not observed."""
+    rate, seen = client.last_rate, client.last_rate_at
+    if rate is None or seen is None:
+        return None
+    age = client.clock.monotonic() - seen
+    when = client.clock.now() - timedelta(seconds=age) + timedelta(seconds=rate.reset_in_s)
+    return when.astimezone(UTC).isoformat(timespec="seconds")
 
 
 __all__ = [

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 import os
 import sys
 import webbrowser
@@ -15,7 +17,7 @@ from rich.console import Console
 from rich.status import Status
 
 from necropsy.raids import RAIDS, with_raid
-from necropsy.snapshot.v1_writer import WriteError
+from necropsy.snapshot.v1_writer import WriteError, Written
 from necropsy.wcl.analyze import AnalyzeError, run_analyze
 from necropsy.wcl.auth import (
     CLIENT_ID_ENV,
@@ -30,7 +32,17 @@ from necropsy.wcl.auth import (
     validate_import,
 )
 from necropsy.wcl.cache import CacheError
-from necropsy.wcl.client import RATE_FIELDS, WclClient, WclError
+from necropsy.wcl.checkpoint import DIRECTORY as CHECKPOINT_DIRECTORY
+from necropsy.wcl.client import (
+    RATE_FIELDS,
+    AuthenticationError,
+    NotFound,
+    PermissionDenied,
+    RateLimited,
+    ServerError,
+    WclClient,
+    WclError,
+)
 from necropsy.wcl.context import describe, resolve
 from necropsy.wcl.credentials import (
     FILE_ENV,
@@ -390,6 +402,13 @@ def analyze_command(
             help="Allow one observed hourly reset wait (at most one hour) during this run.",
         ),
     ] = False,
+    outcome_json: Annotated[
+        Path | None,
+        typer.Option(
+            "--outcome-json",
+            help="Also write a machine-readable outcome here (for unattended runners).",
+        ),
+    ] = None,
 ) -> None:
     """Acquire one Classic Era raid and write its Report and Playbook.
 
@@ -429,21 +448,118 @@ def analyze_command(
                 resume=resume,
             )
     except KeyboardInterrupt:
+        _record_outcome(outcome_json, out, 130, "interrupted")
         typer.echo(
             "Interrupted. Keep the cache and output directory; continue with --resume.", err=True
         )
         raise typer.Exit(code=130) from None
     except AnalyzeError as exc:
+        _record_outcome(
+            outcome_json,
+            out,
+            exc.code,
+            exc.stop_class,
+            reset_at=exc.reset_at,
+            snapshot=exc.snapshot,
+        )
         for line in exc.lines:
             typer.echo(line, err=True)
         typer.echo(f"analyze failed: {exc}", err=True)
         raise typer.Exit(code=exc.code) from None
     except (AuthError, CredentialStoreError, WclError, CacheError, WriteError, OSError) as exc:
+        _record_outcome(outcome_json, out, 1, _failure_class(exc))
         raise _fail("analyze failed", exc) from None
+    except Exception:
+        _record_outcome(outcome_json, out, 1, "error")
+        raise
+    acquisition = outcome.acquisition
+    stop_class = "none"
+    if outcome.code:
+        if acquisition is None:
+            stop_class = "error"
+        elif acquisition.stopped is not None:
+            # An unclassified stop is reported as an error, never guessed as quota.
+            stop_class = acquisition.stop_kind or "error"
+        else:
+            stop_class = "source-limit"
+    _record_outcome(
+        outcome_json,
+        out,
+        outcome.code,
+        stop_class,
+        reset_at=outcome.reset_at,
+        snapshot=outcome.snapshot,
+        incomplete=(
+            None
+            if acquisition is None
+            else sum(1 for b in acquisition.bosses if not b.coverage.get("complete"))
+            + len(acquisition.requested)
+            - len(acquisition.bosses)
+        ),
+    )
     for line in outcome.lines:
         typer.echo(line)
     if outcome.code:
         raise typer.Exit(code=outcome.code)
+
+
+OUTCOME_VERSION = 1
+
+
+def _failure_class(exc: Exception) -> str:
+    """Account-wide sign-in problems pause a queue; server trouble may be retried."""
+    if isinstance(exc, (AuthError, CredentialStoreError, AuthenticationError)):
+        return "auth"
+    if isinstance(exc, (PermissionDenied, NotFound)):
+        return "refused"
+    if isinstance(exc, (ServerError, RateLimited)):
+        return "transient"
+    return "error"
+
+
+def _record_outcome(
+    path: Path | None,
+    out: Path,
+    code: int,
+    stop_class: str,
+    *,
+    reset_at: str | None = None,
+    snapshot: Written | None = None,
+    incomplete: int | None = None,
+) -> None:
+    """Write --outcome-json atomically. The native exit code is never changed by it.
+
+    Any failure here, including reading the checkpoint, only warns: the original
+    result or exception continues unchanged, and a missing hash stays null.
+    """
+    if path is None:
+        return
+    try:
+        run = out / CHECKPOINT_DIRECTORY / "run.json"
+        try:
+            checkpoint = hashlib.sha256(run.read_bytes()).hexdigest()
+        except FileNotFoundError:
+            checkpoint = None
+        payload = {
+            "version": OUTCOME_VERSION,
+            "exit_code": code,
+            "stop_class": stop_class,
+            "reset_at_utc": reset_at,
+            "out": str(out),
+            "checkpoint_sha256": checkpoint,
+            "snapshot": (
+                None
+                if snapshot is None
+                else {"archive": str(snapshot.archive), "sha256": snapshot.sha256}
+            ),
+            "incomplete_bosses": incomplete,
+            "written_at_utc": datetime.now(UTC).isoformat(timespec="seconds"),
+        }
+        tmp = path.with_name(f".{path.name}.tmp")
+        tmp.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        tmp.replace(path)
+    except Exception as error:
+        typer.echo(f"could not write --outcome-json: {type(error).__name__}", err=True)
 
 
 __all__ = ["analyze_command", "auth_app", "resolve_command"]
