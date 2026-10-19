@@ -853,6 +853,9 @@ def build_document(
                 controls = control.applications(con, data.subject.participant)
                 if controls:
                     boss["playbook"]["control_applications"] = to_data(controls)
+                curses = control.curse_applications(con, data.subject.participant)
+                if curses:
+                    boss["playbook"]["curse_applications"] = to_data(curses)
                 auras = windows.encounter_auras(con, data.subject.participant)
                 if auras:
                     boss["playbook"]["target_aura_windows"] = to_data(auras)

@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Show recorded Garr Warlock Curse of Recklessness, Curse of the Elements and
+  Curse of Shadow applications with the curse, target and time, and ask which curse your raid assigned before copying a reference
+  choice. Curses are not uptime, assignment or benefit evidence.
+
 - Verify Garr Firesworn Banish applications against literal event identity,
   roster and instance bindings, and name each recorded add, instance and time in
   a control review prompt. Counts from older snapshots without full encounter

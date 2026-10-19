@@ -170,6 +170,10 @@ Complete Banish counts require strict player SOURCE plus encounter event-set
 proof; older snapshots without it keep recorded applications with an unknown
 count. A recorded application with an instance asks you to confirm control and
 backup on that add, never implying an assignment.
+Recorded Garr Warlock Curse of Recklessness, Curse of the Elements and Curse
+of Shadow applications are listed separately with the same evidence rules;
+other curses are outside the count. They ask which curse your raid assigned; they are not uptime, benefit
+or a reason to change curses.
 Neither view assumes every Warlock was assigned control; Viscidus distinguishes freezing and healing context. Local
 debuff windows retain unknown state and do not define global phases or damage
 opportunity. These are general plans,

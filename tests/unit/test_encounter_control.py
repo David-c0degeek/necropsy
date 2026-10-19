@@ -9,7 +9,7 @@ import duckdb
 import pytest
 
 from necropsy.analysis.context import ParticipantFight, participant_fights
-from necropsy.analysis.encounters.control import applications
+from necropsy.analysis.encounters.control import applications, curse_applications
 from necropsy.normalize.ingest import ingest
 from necropsy.report.analysis_json import build_document
 from necropsy.report.render import build_view, render_playbook, render_report
@@ -341,3 +341,153 @@ def test_no_positive_control_does_not_render_maintenance_advice(
     for renderer in (render_report, render_playbook):
         html = renderer(build_view(doc, "0" * 64))
         assert "Confirm whether you should maintain control on this add" not in html
+
+
+def curse(con: duckdb.DuckDBPyConnection, uid: str, timestamp: int, spell: int, **kw: Any) -> None:
+    add(con, uid, timestamp, spell, kw.pop("instance", None), **kw)
+
+
+@pytest.fixture
+def garr(context: tuple[Any, ...]) -> tuple[Any, ...]:
+    con, _ = context
+    con.execute(
+        "UPDATE fights SET enemy_npcs=?",
+        [json.dumps([*ROSTER, {"id": 51, "gameID": 12057, "instanceCount": 1}])],
+    )
+    con.execute(
+        "INSERT INTO actors(report_code,actor_id,type,game_id,name) "
+        "VALUES ('REPORT1',51,'NPC',12057,'Garr')"
+    )
+    con.execute(
+        "INSERT INTO abilities(report_code,game_id,name) VALUES "
+        "('REPORT1',17937,'Curse of Shadow'),('REPORT1',11717,'Curse of Recklessness')"
+    )
+    return context
+
+
+def curses_of(context: tuple[Any, ...]) -> Any:
+    con, pf = context
+    (found,) = curse_applications(con, pf)
+    return found
+
+
+def test_owned_curses_count_observe_and_prompt_once_per_spell_and_target(
+    garr: tuple[Any, ...],
+) -> None:
+    con, _ = garr
+    curse(con, "shadow", 2000, 17937, target=51)
+    curse(con, "again", 9000, 17937, target=51)
+    curse(con, "reckless", 4000, 11717, target=51)
+    curse(con, "add", 5000, 17937, target=50, instance=3)
+    found = curses_of(garr)
+    assert found.applications.value == 4
+    assert found.observations.value == (
+        (2, 51, None, 17937),
+        (4, 51, None, 11717),
+        (5, 50, 3, 17937),
+        (9, 51, None, 17937),
+    )
+    assert [r["text"] for r in found.review] == [
+        "Recorded Curse of Shadow on Garr 51, instance unrecorded, at 2.00s. Confirm which "
+        "curse your raid assigned you before copying a reference curse choice.",
+        "Recorded Curse of Recklessness on Garr 51, instance unrecorded, at 4.00s. Confirm "
+        "which curse your raid assigned you before copying a reference curse choice.",
+        "Recorded Curse of Shadow on Firesworn 50, instance 3, at 5.00s. Confirm which curse "
+        "your raid assigned you before copying a reference curse choice.",
+    ]
+    assert "another Warlock's curse is not yours" in found.limitation
+    assert "not an assignment" in found.review[0]["limitation"]
+    # Curses are not control: the control policy excludes them to a known zero.
+    (controls,) = applications(con, garr[1])
+    assert controls.applications.value == 0 and controls.review == ()
+    playbook = build_document(con)["bosses"][0]["playbook"]
+    assert playbook["curse_applications"][0]["applications"]["value"] == 4
+    assert playbook["control_applications"][0]["applications"]["value"] == 0
+
+
+def test_curse_zero_and_unproven_totals(garr: tuple[Any, ...]) -> None:
+    con, _ = garr
+    found = curses_of(garr)
+    assert found.applications.value == 0 and found.review == ()
+    con.execute("DELETE FROM stream_coverage WHERE role='encounter'")
+    assert curses_of(garr).applications.value is None
+    curse(con, "shadow", 2000, 17937, target=51)
+    found = curses_of(garr)
+    assert found.applications.value is None
+    assert found.observations.value == ((2, 51, None, 17937),)
+    assert len(found.review) == 1
+
+
+def test_other_warlock_curse_is_not_owned(garr: tuple[Any, ...]) -> None:
+    con, _ = garr
+    curse(con, "theirs", 2000, 17937, target=51, source=2)
+    found = curses_of(garr)
+    assert found.applications.value == 0 and found.review == ()
+
+
+def test_curse_policy_requires_warlock_and_garr(garr: tuple[Any, ...]) -> None:
+    con, pf = garr
+    con.execute("UPDATE snapshot_meta SET subject_class_id=7")
+    assert curse_applications(con, pf) == ()
+
+
+@pytest.mark.parametrize("trusted", [True, False])
+def test_saved_curse_review_and_identity_reach_both_pages(
+    garr: tuple[Any, ...], trusted: bool
+) -> None:
+    con, _ = garr
+    curse(con, "shadow", 2000, 17937, target=51)
+    curse(con, "add", 5000, 17937, target=50, instance=3)
+    curse(con, "again", 9000, 17937, target=50, instance=3)
+    if not trusted:
+        con.execute("DELETE FROM stream_coverage WHERE role='encounter'")
+    doc = build_document(con)
+    playbook = doc["bosses"][0]["playbook"]
+    (saved,) = playbook["curse_applications"]
+    assert saved["applications"]["value"] == (3 if trusted else None)
+    assert len(saved["review"]) == 2
+    for renderer in (render_report, render_playbook):
+        html = renderer(build_view(doc, "0" * 64))
+        assert (
+            "Recorded Garr Recklessness/Elements/Shadow curse applications: "
+            f"{3 if trusted else 'Unknown'}." in html
+        )
+        assert "2.00s · Curse ability 17937 applied; target actor 51, instance unrecorded." in html
+        assert "5.00s · Curse ability 17937 applied; target actor 50, instance 3." in html
+        assert "9.00s · Curse ability 17937 applied; target actor 50, instance 3." in html
+        for prompt in saved["review"]:
+            assert html.count(prompt["text"]) == 1
+            assert prompt["limitation"] in html
+    # Old documents and missing saved review never acquire inferred advice.
+    del saved["review"]
+    for renderer in (render_report, render_playbook):
+        html = renderer(build_view(doc, "0" * 64))
+        assert "Confirm which curse your raid assigned you" not in html
+        assert "target actor 50, instance 3." in html
+    del playbook["curse_applications"]
+    for renderer in (render_report, render_playbook):
+        html = renderer(build_view(doc, "0" * 64))
+        assert "Recorded Garr Recklessness/Elements/Shadow curse applications" not in html
+        assert "Curse ability 17937 applied" not in html
+        assert "Recorded Firesworn Banish applications" in html
+
+
+@pytest.mark.parametrize("trusted", [True, False])
+def test_no_owned_curse_observation_supplies_no_assignment_prompt(
+    garr: tuple[Any, ...], trusted: bool
+) -> None:
+    con, _ = garr
+    curse(con, "theirs", 2000, 17937, target=51, source=2)
+    if not trusted:
+        con.execute("DELETE FROM stream_coverage WHERE role='encounter'")
+    doc = build_document(con)
+    (saved,) = doc["bosses"][0]["playbook"]["curse_applications"]
+    assert saved["applications"]["value"] == (0 if trusted else None)
+    for renderer in (render_report, render_playbook):
+        html = renderer(build_view(doc, "0" * 64))
+        assert (
+            "Recorded Garr Recklessness/Elements/Shadow curse applications: "
+            f"{0 if trusted else 'Unknown'}." in html
+        )
+        assert "Curse ability 17937 applied" not in html
+        assert "Confirm which curse your raid assigned you" not in html

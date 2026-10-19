@@ -316,6 +316,38 @@ def with_strategy(view: dict[str, Any], playbook: Mapping[str, Any]) -> dict[str
         )
         view["duty_lines"] = (*view.get("duty_lines", ()), *lines)
         view["pull_during"] = (*view.get("pull_during", ()), *lines)
+    curses = playbook.get("curse_applications") or ()
+    if curses:
+        view = dict(view)
+        curse_lines = tuple(
+            line(
+                f"Recorded {curse['label']} applications: "
+                f"{number(curse['applications']['value'])}.",
+                curse["limitation"],
+                (source(curse["source"], "Spell reference"),),
+            )
+            for curse in curses
+        )
+        curse_lines += tuple(
+            line(
+                f"{number(observation[0], 2, 's')} · Curse ability {observation[3]} applied; "
+                f"target actor {observation[1]}, "
+                + (
+                    "instance unrecorded."
+                    if observation[2] is None
+                    else f"instance {observation[2]}."
+                ),
+            )
+            for curse in curses
+            for observation in curse["observations"].get("value") or ()
+        )
+        curse_lines += tuple(
+            line(prompt["text"], prompt["limitation"])
+            for curse in curses
+            for prompt in curse.get("review") or ()
+        )
+        view["duty_lines"] = (*view.get("duty_lines", ()), *curse_lines)
+        view["pull_during"] = (*view.get("pull_during", ()), *curse_lines)
     removals = playbook.get("mechanic_removals")
     if removals:
         view = dict(view)

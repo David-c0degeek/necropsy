@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-19",
+  "scope": "Shared saved curse observation/review presentation only.",
+  "runtime_delta": "Optional curse lines after existing control lines on both pages; counts, exact occurrence identities and saved review text, without reconstruction.",
+  "focused_unit_result": "37 passed in12.27s (33 backend plus4 UI cases).",
+  "real_result": "5 passed,58 deselected in20.90s (three Garr golden replays plus desktop/mobile browser checks).",
+  "both_pages": true,
+  "viewports": [
+    1400,
+    390
+  ],
+  "print_visible": true,
+  "no_horizontal_overflow": true,
+  "no_remote_requests": true,
+  "no_page_errors": true,
+  "legacy_without_curse_key_supported": true,
+  "missing_review_does_not_reconstruct_advice": true,
+  "unknown_total_preserves_qualified_review": true,
+  "no_positive_no_assignment_prompt": true,
+  "other_warlock_not_credited": true,
+  "actual_screenshots_inspected": true,
+  "screenshots": [
+    "workspace/raid-research/garr-curse-ui-desktop.png",
+    "workspace/raid-research/garr-curse-ui-mobile.png"
+  ],
+  "source_preview": "workspace/raid-research/garr-owned-curse-ui-preview",
+  "closed_reusable_db": "workspace/raid-research/garr-owned-curse-ui-preview/analysis.duckdb",
+  "source_artifact_sha256": {
+    "analysis.json": "4f5ff2d4b9504994018f373cad8b53d29f78601f0fe44d5d7ca536bfb9c86e04",
+    "necropsy-67734854-2000.zip": "b2bf94d8fb583596884d5aaa46f208024cab16a19e30e9f0e3e1f3bca60c31f7",
+    "playbook.html": "42c2833e4b659224eb29c9ade03b3a710fe3ee1c4332f72c2730dcf0f6120c0b",
+    "report.html": "bc83abb142ed23373c601c91811bd7592e274c4b395e8664d31a1631f5cd3e61"
+  },
+  "checks": "Ruff check, format233, mypy239, docs296 links and diff-check passed.",
+  "limits": "UI slice only; no curse uptime, assignment, raid benefit or class/boss completion. Final combined ordinary/build/installed/package/regression checks remain with Claude after handoff."
+}

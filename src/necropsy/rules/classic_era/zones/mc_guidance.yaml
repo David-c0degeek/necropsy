@@ -33,6 +33,17 @@ control:
     target_game_ids: [12099]
     source: https://vanilla.warcraftlogs.com/reports/DWACqnQrmMxdgYpt#fight=17
     retrieved: '2026-10-17'
+curses:
+  50666:
+  - rule: garr-owned-curse-applications-v1
+    label: Garr Recklessness/Elements/Shadow curse
+    classes: [10]
+    # Curse of Recklessness 704/7658/7659/11717, Curse of the Elements 1490/11721/11722,
+    # Curse of Shadow 17862/17937 (Wowhead Classic spell pages, ranks checked 2026-10-18).
+    ability_ids: [704, 7658, 7659, 11717, 1490, 11721, 11722, 17862, 17937]
+    target_game_ids: [12057, 12099]
+    source: https://www.wowhead.com/classic/spell=17937/curse-of-shadow
+    retrieved: '2026-10-18'
 effects:
   50670:
   - rule: golemagg-magma-splash-exposure-v1

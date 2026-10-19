@@ -859,6 +859,15 @@ def _assert_boss_replay(
         assert [(r["target_actor_id"], r["target_instance"]) for r in control["review"]] == (
             [(100, 8)] if positive else []
         )
+        # Independently frozen owned curse occurrences (garr-owned-curses-frozen.json).
+        (curse,) = boss["playbook"]["curse_applications"]
+        cursed = [[5.764, 101, None, 17937]] if positive else [[1.711, 106, None, 17937]]
+        assert curse["observations"]["value"] == cursed
+        assert curse["applications"]["value"] == (None if format1 else 1)
+        assert [(r["ability_id"], r["target_actor_id"]) for r in curse["review"]] == [
+            (17937, cursed[0][1])
+        ]
+        assert "another Warlock's curse is not yours" in curse["limitation"]
         assert "uptime" in control["limitation"] and "not a failed duty" in control["limitation"]
     if fixture["label"] == "mc-magmadar-holy":
         assert "mechanic_removals" not in boss["playbook"]

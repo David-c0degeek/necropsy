@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-18",
+  "decision": "D030/ADR0022",
+  "ordinary": "pre-wording: 2133 passed, 335 deselected in 474.05s (marker-scoped), exit 0",
+  "wheel_sha256": "490a495096a413b30dc38abea9140db3fdb9abcd569909155c59f065461ba66d",
+  "wheel_members_match_source": 142,
+  "sdist_excludes_development_data": true,
+  "source_installed_all4_equal_per_archive": true,
+  "installed_matches_codex_ui_preview": "pre-wording true; post-wording equal after named text substitution only",
+  "artifacts": {
+    "mc-garr-warlock": {
+      "analysis.json": "64bd0a5d0c19f22589e83464e4a34f34cecbdc9801458cad7ac35c5efcf405b5",
+      "necropsy-75536238-2000.zip": "7b77a44c8d33147ff9e65e16a6ce40ae98df068ef10bf548a41b87da34a24a52",
+      "playbook.html": "767b1d1c0d9337c135a470696d457bc512b43e5a0a2708d5c6f71789c7023ad3",
+      "report.html": "89115bd01598e840c9a6aec27bbb20f0ef650db8c8af1bee099dd41257483e5a"
+    },
+    "mc-garr-control-warlock": {
+      "analysis.json": "14c020883df187c22fd0d1260aa505c698412b3a8bc3680ff59ec0cb2f0ce61d",
+      "necropsy-67734854-2000.zip": "97a159b8505b9fa3494b0d1fa5d1edcc06c40911005b889317064a6abae0b6d9",
+      "playbook.html": "6b6fa56cd514b73d77cd79f468c30c176f2c43d89742098575555560eafcc21b",
+      "report.html": "6a9cc86e580abc808a7661bf4935b12bde4726c9234635ba78f86281aebaf454"
+    },
+    "mc-garr-context-warlock": {
+      "analysis.json": "0db7948866932b3000636b1711822078993fe93b9790c167b515d6d31778bbf0",
+      "necropsy-75536238-2000.zip": "a225d283082171cd3c24f41ec5f1e53ab255a4339fda415fe9c6552c4c0a88dc",
+      "playbook.html": "099609209fed6263022fbe32dcbc7d9b3e3493da906f19a2bdd30cf49b429be4",
+      "report.html": "0ec366b1e0e2988f8a212b060fc4f9a680ced556319e573623d10078a69a07e1"
+    }
+  },
+  "regression": "mc-garr-control-warlock analysis.json equals the 5483e72 installed output after removing only curse_applications; control output byte-identical before curse wiring",
+  "output_privacy_scan": "passed for source and installed outputs of all three archives (pattern-based)",
+  "model_vs_independent_freeze": "all three subjects match garr-owned-curses-independent-observation.json; format1 counts unknown, format2 count 1",
+  "raw_registers_unchanged": true,
+  "limits": "Garr only; applications are not uptime, benefit or assignment. Other encounters unconfigured. Full Warlock/class/domain gates open.",
+  "golden": "pre-wording: 329 passed, 2135 deselected, 4 xfailed in 5506.13s, exit 0; post-wording Garr golden subset 3 passed",
+  "wording_revision": "Codex #29 REVISE: label 'Garr Recklessness/Elements/Shadow curse' and limitation scope sentence. Post-wording: focused unit+browser 39 passed; outputs equal pre-wording preview after only label, limitation and analysis-hash text substitution"
+}

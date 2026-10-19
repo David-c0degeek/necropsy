@@ -40,6 +40,50 @@ REVIEW_LIMITATION = (
 )
 
 
+CURSE_LIMITATION = (
+    "Counts only Curse of Recklessness, Curse of the Elements and Curse of Shadow; other "
+    "curses are outside this count. Recorded curse applications, separate from casts. "
+    "Applications are not uptime, "
+    "assignment or proof of raid benefit; curse choice is assigned by the raid, and another "
+    "Warlock's curse is not yours. A zero count is not a failed duty. Complete counts require "
+    "trusted player SOURCE and encounter event-set proof; qualified recorded applications "
+    "remain visible when the count is unknown."
+)
+CURSE_REVIEW_LIMITATION = (
+    "A recorded curse application is not an assignment, uptime or a recommendation to change "
+    "curses. Agree curse assignments with your raid."
+)
+
+
+@dataclass(frozen=True, slots=True)
+class _Kind:
+    section: str
+    noun: str
+    limitation: str
+    review_limitation: str
+    instance_required: bool
+    advice: str
+
+
+CONTROL = _Kind(
+    "control",
+    "control",
+    LIMITATION,
+    REVIEW_LIMITATION,
+    True,
+    "Confirm whether you should maintain control on this add and who provides backup when it "
+    "ends before copying a damage reference opener.",
+)
+CURSES = _Kind(
+    "curses",
+    "curse",
+    CURSE_LIMITATION,
+    CURSE_REVIEW_LIMITATION,
+    False,
+    "Confirm which curse your raid assigned you before copying a reference curse choice.",
+)
+
+
 @dataclass(frozen=True, slots=True)
 class ControlApplications:
     rule: str
@@ -115,12 +159,26 @@ def _context(
 def applications(
     con: duckdb.DuckDBPyConnection, pf: ParticipantFight
 ) -> tuple[ControlApplications, ...]:
+    return _applications(con, pf, CONTROL)
+
+
+def curse_applications(
+    con: duckdb.DuckDBPyConnection, pf: ParticipantFight
+) -> tuple[ControlApplications, ...]:
+    """Owned curse applications under the same occurrence, roster and coverage proofs."""
+    return _applications(con, pf, CURSES)
+
+
+def _applications(
+    con: duckdb.DuckDBPyConnection, pf: ParticipantFight, kind_: _Kind
+) -> tuple[ControlApplications, ...]:
+    noun = kind_.noun
     if not duty.applies(con, pf):
         return ()
     meta = con.execute("SELECT subject_class_id FROM snapshot_meta").fetchone()
     policies = (
         load_rules("classic_era", f"zones/{raid_for_encounter(pf.encounter_id).slug}_guidance")
-        .get("control", {})
+        .get(kind_.section, {})
         .get(pf.encounter_id, ())
     )
     policies = [p for p in policies if meta and meta[0] in p["classes"]]
@@ -150,7 +208,7 @@ def applications(
             pf.fight_id,
             pf.actor_id,
             "actors",
-            detail="unique Player class source and control NPC identity",
+            detail=f"unique Player class source and {noun} NPC identity",
         ),
         EvidenceRef(
             pf.report_code,
@@ -180,7 +238,7 @@ def applications(
     for policy in policies:
         if context is None:
             withheld: Evidenced[Any] = unknown(
-                "control source, fight or enemy roster binding is unresolved", *refs, coverage=cov
+                f"{noun} source, fight or enemy roster binding is unresolved", *refs, coverage=cov
             )
             result.append(
                 ControlApplications(
@@ -190,6 +248,7 @@ def applications(
                     policy["retrieved"],
                     withheld,
                     withheld,
+                    kind_.limitation,
                 )
             )
             continue
@@ -203,7 +262,7 @@ def applications(
         unbound = [a for a in unbound if a not in targets]
         if not targets:
             withheld = unknown(
-                "selected enemy roster has no control target binding", *refs, coverage=cov
+                f"selected enemy roster has no {noun} target binding", *refs, coverage=cov
             )
             result.append(
                 ControlApplications(
@@ -213,6 +272,7 @@ def applications(
                     policy["retrieved"],
                     withheld,
                     withheld,
+                    kind_.limitation,
                 )
             )
             continue
@@ -313,22 +373,22 @@ def applications(
                     raw,
                 )
             )
-        reference = combat.event_ref(pf, qualified, "source-owned control applications")
+        reference = combat.event_ref(pf, qualified, f"source-owned {noun} applications")
         ambiguity = EvidenceRef.events(
             pf.report_code,
             pf.fight_id,
             None,
             unresolved,
-            detail="unresolved possible control applications",
+            detail=f"unresolved possible {noun} applications",
         )
-        reason = "possible control rows, recipients or instances are unresolved"
+        reason = f"possible {noun} rows, recipients or instances are unresolved"
         if unbound:
-            reason = "a relevant control NPC lacks a selected enemy roster binding"
+            reason = f"a relevant {noun} NPC lacks a selected enemy roster binding"
         count = (
             unknown(reason, ambiguity, reference, *refs, coverage=cov)
             if unresolved or unbound
             else complete_or_unknown(
-                len(qualified), cov, reference, *refs, rule_id=policy["rule"], note=LIMITATION
+                len(qualified), cov, reference, *refs, rule_id=policy["rule"], note=kind_.limitation
             )
         )
         values = tuple(
@@ -343,12 +403,16 @@ def applications(
             else complete_or_unknown((), cov, reference, *refs)
         )
         review = []
-        prompted: set[tuple[int, int]] = set()
+        prompted: set[tuple[int, int, int | None]] = set()
         for event in qualified:
             instance_id = _decoded_instance(event.raw)
-            key = (cast(int, event.target_id), instance_id or 0)
+            key = (
+                0 if kind_.instance_required else cast(int, event.ability_id),
+                cast(int, event.target_id),
+                instance_id,
+            )
             # One prompt per add instance; the observation timeline keeps reapplications.
-            if instance_id is None or key in prompted:
+            if (instance_id is None and kind_.instance_required) or key in prompted:
                 continue
             prompted.add(key)
             spell_names = names.get(event.ability_id or 0, [])
@@ -358,19 +422,18 @@ def applications(
                 {
                     "kind": "review-prompt",
                     "text": f"Recorded {spell_name or f'ability {event.ability_id}'} on "
-                    f"{target_name} {event.target_id}, instance {instance_id}, at "
-                    f"{event.t_s:.2f}s. Confirm whether you should maintain control on this add "
-                    "and who provides backup when it ends before copying a damage reference "
-                    "opener.",
+                    f"{target_name} {event.target_id}, "
+                    + ("instance unrecorded" if instance_id is None else f"instance {instance_id}")
+                    + f", at {event.t_s:.2f}s. {kind_.advice}",
                     "target_actor_id": event.target_id,
                     "target_instance": instance_id,
                     "elapsed_s": event.t_s,
                     "ability_id": event.ability_id,
                     "refs": (
-                        combat.event_ref(pf, [event], "recorded owned control application"),
+                        combat.event_ref(pf, [event], f"recorded owned {noun} application"),
                         *refs,
                     ),
-                    "limitation": REVIEW_LIMITATION,
+                    "limitation": kind_.review_limitation,
                 }
             )
         result.append(
@@ -381,7 +444,8 @@ def applications(
                 policy["retrieved"],
                 count,
                 observations,
-                review=tuple(review),
+                kind_.limitation,
+                tuple(review),
             )
         )
     return tuple(result)

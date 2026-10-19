@@ -39,3 +39,4 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Raid interruption context](0019-raid-interruption-context.md) | Deduplicated raid-member effects with named sources, qualified NPC instances and separate player credit |
 | [Credited absorption context](0020-absorption-ability-context.md) | Ability and recipient splits, verified player coverage and separate shield review prompts |
 | [Owned control integrity](0021-owned-control-integrity.md) | Literal event validation, strict player SOURCE plus event-set proof and target-specific control review prompts |
+| [Owned curse context](0022-owned-curse-context.md) | Separate curse policy kind on the shared occurrence engine, with assignment-confirmation prompts |
