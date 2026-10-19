@@ -269,3 +269,32 @@ the user confirms receipt, before go-live.
 - Container stop grace: run with `--stop-timeout 90`, above the 1 s stop
   check, 20 s child termination grace and 30 s log drain.
 
+## Implementation notes (slice 5A: public status)
+
+- `capture/www/index.html` and `status.mjs` are local static assets with no
+  external scripts, fonts or analytics. Deploy both beside the runner's
+  atomic `status.json`; serve only this public directory on the LAN. Never
+  serve the queue, private state, output, logs or secrets directories.
+- The page polls every 15 seconds with an 8 second fetch timeout. A failed
+  fetch retains the last snapshot and labels it connection unavailable. A
+  heartbeat older than 10 minutes loses its live claim, including an active
+  ledger badge. Finished may be quiet only when no alert delivery is pending.
+  Times are UTC; scheduled retries are never presented as finish estimates.
+- Six disjoint result counts describe scheduled runs. Active is a temporary
+  display of a pending run, not another count. Verified archives are counted
+  separately. Search and result filters operate locally without requests.
+  Partial, refused and reused evidence never imply validated or complete cells.
+- Queue generation adds a friendly class label and a plan-derived summary:
+  102 configuration runs, 93 scheduled, 9 reusing capture-ready evidence
+  (7 with all bosses registered and 2 with offline registration or duty review
+  open). Generation and loading check the count invariants. Older queues
+  without a summary show reuse counts as unknown.
+- Public reasons and attention alert descriptions use fixed explanations;
+  arbitrary receipt text, candidate URLs and host paths remain private. Raw
+  reasons remain in private state for SSH diagnosis. The current target names
+  its configuration and candidate ordinal/count without identifying a person.
+- Validation covers public redaction, malformed metadata, unchanged candidate
+  evidence/pins, controller regressions, and DOM polling/failure recovery,
+  stale status, filters, escaped text and empty queues. Image packaging,
+  production command smoke tests and Tower deployment remain later work.
+

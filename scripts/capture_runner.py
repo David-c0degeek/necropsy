@@ -185,12 +185,14 @@ class Entry:
     metric: str
     faction: str
     candidates: tuple[str, ...]
+    class_name: str = ""
 
     def label(self) -> dict[str, Any]:
         return {
             "id": self.entry_id,
             "raid": self.raid,
             "class_id": self.class_id,
+            "class": self.class_name or f"Class {self.class_id}",
             "category": self.category,
             "metric": self.metric,
             "faction": self.faction,
@@ -218,14 +220,91 @@ def load_queue(path: Path) -> tuple[str, list[Entry]]:
                 str(item["metric"]),
                 str(item["faction"]),
                 candidates,
+                str(item.get("class", "")),
             )
             if entry.entry_id in seen or not entry.entry_id.replace("-", "").isalnum():
                 raise ValueError(f"entry id {entry.entry_id!r} is duplicated or unsafe")
             seen.add(entry.entry_id)
             entries.append(entry)
+        if "summary" in data and data["summary"] is None:
+            raise ValueError("queue summary must be an object when supplied")
+        validate_summary(data.get("summary"), len(entries))
     except (ValueError, KeyError, TypeError, AttributeError) as error:
         raise QueueError(f"the queue is invalid: {error}") from None
     return hashlib.sha256(raw).hexdigest(), entries
+
+
+def validate_summary(value: Any, scheduled: int) -> dict[str, int | None]:
+    """Absent reuse data stays unknown; a supplied contradictory block is refused."""
+    keys = (
+        "universe_runs",
+        "scheduled_runs",
+        "capture_ready_runs",
+        "all_registered_runs",
+        "offline_reuse_runs",
+    )
+    if value is None:
+        return {key: scheduled if key == "scheduled_runs" else None for key in keys}
+    if not isinstance(value, dict) or any(
+        type(value.get(key)) is not int or value[key] < 0 for key in keys
+    ):
+        raise ValueError("queue summary must contain nonnegative integer run counts")
+    if (
+        value["scheduled_runs"] != scheduled
+        or value["universe_runs"] != scheduled + value["capture_ready_runs"]
+        or value["capture_ready_runs"] != value["all_registered_runs"] + value["offline_reuse_runs"]
+    ):
+        raise ValueError("queue summary counts disagree")
+    return {key: value[key] for key in keys}
+
+
+def public_reason(reason: str) -> str:
+    """Fixed explanations only: arbitrary receipt strings and host paths stay private."""
+    if reason == "running":
+        return "Acquiring and saving raid data."
+    if reason == "complete":
+        return "Capture finished and its archive was verified."
+    if reason == "finished with incomplete source data":
+        return "Capture ended with source limitations; review the saved evidence."
+    if reason == "the Warcraft Logs sign-in needs attention":
+        return "Warcraft Logs sign-in needs attention. Capture is paused."
+    if reason in ("quota-reset stop", "quota-reserve stop"):
+        return "Waiting for the observed quota reset."
+    if reason in (
+        "quota-reset stop without a known reset time",
+        "quota-reserve stop without a known reset time",
+    ):
+        return "Quota reset time is unknown. Review is needed."
+    if reason == "waiting for the hourly quota reset":
+        return "Waiting until a scheduled retry. No new capture is running."
+    if reason.startswith(
+        (
+            "free space below the floor",
+            "free space fell below the floor",
+            "stopped: free space below the floor",
+        )
+    ):
+        return "Available free space is below the safety floor. Capture is paused."
+    if reason in (
+        "the checkpoint that existed before this attempt is gone",
+        "the outcome receipt's checkpoint does not match the saved checkpoint",
+    ):
+        return "The saved checkpoint could not be verified. Capture is paused for review."
+    if reason == "the runner died during an attempt; its exit is unknown":
+        return "The previous capture stopped unexpectedly; its exit is unknown. Review is needed."
+    if reason == "a snapshot was saved but its report failed; finish it with necropsy offline":
+        return "An archive was saved; its report needs offline recovery."
+    if reason == "this candidate was refused":
+        return "This public candidate could not be used."
+    if reason in ("transient failure", "interrupted failure"):
+        return "A temporary failure will be retried after backoff."
+    if reason in ("transient failures did not clear", "interrupted failures did not clear"):
+        return "Repeated temporary failures need review."
+    if reason == "every queue entry has ended; this does not mean all data is complete":
+        return "Every scheduled run has ended. Partial and refused results still need review."
+    if reason.startswith("resuming after a requested stop"):
+        return "Continuing after a requested stop."
+    return "Review the private runner diagnostics on Tower." if reason else ""
 
 
 # -- outcome receipts -----------------------------------------------------------
@@ -465,6 +544,7 @@ class Runner:
     """Tests stop at Finished or Needs attention; a server runner stays up."""
     state: dict[str, Any] = field(default_factory=dict)
     entries: list[Entry] = field(default_factory=list)
+    summary: dict[str, int | None] = field(default_factory=dict)
     stopping: threading.Event = field(default_factory=threading.Event)
     _published: datetime | None = None
 
@@ -475,6 +555,10 @@ class Runner:
 
     def load(self) -> None:
         digest, self.entries = load_queue(self.paths.queue)
+        raw_queue = self.paths.queue.read_bytes()
+        if hashlib.sha256(raw_queue).hexdigest() != digest:
+            raise QueueError("the queue changed while it was loading")
+        self.summary = validate_summary(json.loads(raw_queue).get("summary"), len(self.entries))
         if self.state_file.exists():
             state = json.loads(self.state_file.read_bytes())
             if state.get("version") != STATE_VERSION or state.get("queue_sha256") != digest:
@@ -528,7 +612,7 @@ class Runner:
                 entry.label()
                 | {
                     "result": info["state"],
-                    "reason": info["reason"],
+                    "reason": public_reason(info["reason"]),
                     "retry_at_utc": info["retry_at"],
                     "archives": len(info["archives"]),
                 }
@@ -542,12 +626,19 @@ class Runner:
         inflight = self.state["inflight"]
         current = None
         if inflight is not None and inflight["entry"] in by_id:
-            current = by_id[inflight["entry"]].label() | {"attempt": inflight["attempt"]}
+            active = by_id[inflight["entry"]]
+            current = active.label() | {
+                "attempt": inflight["attempt"],
+                "candidate": inflight["candidate"] + 1,
+                "candidate_count": len(active.candidates),
+            }
         return {
             "version": 1,
             "headline": HEADLINES[controller["state"]],
             "state": controller["state"],
-            "reason": controller["reason"],
+            "reason": self.public_context(controller["reason"]),
+            "queue_sha256": self.state["queue_sha256"],
+            "summary": self.summary,
             "heartbeat_utc": iso(self.now()),
             "last_progress_utc": self.state["last_progress_utc"],
             "next_retry_utc": iso(min(due)) if due else None,
@@ -559,6 +650,14 @@ class Runner:
             "alerts_pending": len(self.state["outbox"]),
             "entries": rows,
         }
+
+    def public_context(self, reason: str) -> str:
+        """Remove only a known queue identifier before applying the fixed copy allowlist."""
+        for entry in self.entries:
+            prefix = entry.entry_id + ": "
+            if reason.startswith(prefix):
+                return public_reason(reason[len(prefix) :])
+        return public_reason(reason)
 
     def publish(self) -> None:
         write_json(self.paths.www / "status.json", self.status())
@@ -611,7 +710,11 @@ class Runner:
         """Pause as a new incident; only a clear naming this incident resumes it."""
         self.state["incident"] = self.state.get("incident", 0) + 1
         self.set_controller(ATTENTION, reason)
-        self.alert(key, "Necropsy capture needs attention", reason)
+        self.alert(
+            key,
+            "Necropsy capture needs attention",
+            self.public_context(reason) + " Open Capture watch for the last saved status.",
+        )
 
     def next_entry(self) -> tuple[Entry | None, datetime | None]:
         """The next runnable entry, or the earliest retry time when all are waiting."""
@@ -656,7 +759,12 @@ class Runner:
     def _run(self) -> int:
         if self.state["controller"]["state"] not in (ATTENTION, FINISHED):
             self.set_controller(RUNNING)
-            self.alert("start:" + self.state["queue_sha256"], "Necropsy capture started", "")
+            self.alert(
+                "start:" + self.state["queue_sha256"],
+                "Necropsy capture started",
+                f"{len(self.entries)} scheduled capture runs. "
+                "This collects evidence; it does not validate cells.",
+            )
         self.commit()
         while not self.stopping.is_set():
             controller = self.state["controller"]["state"]
@@ -675,7 +783,8 @@ class Runner:
                     "finished",
                     "Necropsy capture finished",
                     f"complete {counts[COMPLETE]}, partial {counts[PARTIAL]}, "
-                    f"refused {counts[REFUSED]}",
+                    f"refused {counts[REFUSED]}. Every scheduled run has ended; "
+                    "partial and refused results still need review. No cell completion is implied.",
                 )
                 self.commit()
                 continue
@@ -833,7 +942,14 @@ class Runner:
             self.alert(
                 f"refused:{entry.entry_id}:{inflight['candidate']}",
                 "Necropsy capture refused a candidate",
-                f"{entry.entry_id} candidate {inflight['candidate'] + 1}",
+                f"{entry.class_name or 'Class ' + str(entry.class_id)} {entry.category}, "
+                f"{entry.raid.upper()}, {entry.faction}: candidate {inflight['candidate'] + 1} "
+                f"of {len(entry.candidates)} could not be used. "
+                + (
+                    "Trying the next checked candidate."
+                    if inflight["candidate"] + 1 < len(entry.candidates)
+                    else "No checked candidates remain for this run."
+                ),
             )
             if inflight["candidate"] + 1 < len(entry.candidates):
                 info["candidate"] = inflight["candidate"] + 1

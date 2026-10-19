@@ -783,6 +783,7 @@ def queue_entries(
                 "zone": item["zone"],
                 "partition": PARTITION,
                 "class_id": item["class_id"],
+                "class": item["class"],
                 "category": item["category"],
                 "metric": item["metric"],
                 "faction": item["faction"],
@@ -811,6 +812,25 @@ def queue_entries(
     return entries, unfilled
 
 
+def public_summary(plan: dict[str, Any], scheduled: int) -> dict[str, int]:
+    """Only reviewed run counts; capture reuse never means a cell is complete."""
+    ready = [item for item in plan["entries"] if not item["queued"]]
+    offline = sum(
+        any(b["disposition"] == "offline-reuse" for b in item["disposition"]["bosses"])
+        for item in ready
+    )
+    summary = {
+        "universe_runs": len(plan["entries"]),
+        "scheduled_runs": scheduled,
+        "capture_ready_runs": len(ready),
+        "all_registered_runs": len(ready) - offline,
+        "offline_reuse_runs": offline,
+    }
+    if summary["universe_runs"] != scheduled + len(ready):
+        raise ValueError("the public summary does not account for every planned run")
+    return summary
+
+
 def emit() -> int:
     plan = _read_json(PLAN)
     resolutions, rankings = _load_caches()
@@ -823,6 +843,7 @@ def emit() -> int:
         QUEUE,
         {
             "version": QUEUE_VERSION,
+            "summary": public_summary(plan, len(entries)),
             "pins": {
                 path.relative_to(ROOT).as_posix(): _sha256(path)
                 for path in (PLAN, RESOLUTIONS, RANKINGS, LEADERBOARDS)

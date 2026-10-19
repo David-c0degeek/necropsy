@@ -361,7 +361,8 @@ def test_a_saved_snapshot_with_a_failed_report_needs_offline_recovery(tmp_path: 
     script = Script(clock, [{"exit": 1, "stop": "error", "snapshot": True}])
     assert _go(_runner(tmp_path, clock), script) == 3
     status = _status(tmp_path)
-    assert "necropsy offline" in status["reason"] and status["counts"]["complete"] == 0
+    assert "offline recovery" in status["reason"] and status["counts"]["complete"] == 0
+    assert "necropsy offline" in _state(tmp_path)["controller"]["reason"]
     assert status["usable_archives"] == 1
 
 
