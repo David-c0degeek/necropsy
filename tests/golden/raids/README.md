@@ -354,3 +354,13 @@ windows and the subject's class notes against it. Each context also records
 the boss's Living Bomb and Inferno applications in the whole fight and the other
 enemies the fight lists; the replay checks the reference-fight context and the
 subject's reference statement against them.
+
+`scripts/fact_freeze.py` drafts new raw oracles from a reviewed spec in
+`fact-specs/`. It reads the archive with the standard library only, refuses
+incomplete or misattributed streams, keeps each NPC target, instance and
+ability apart, and stores the archive member and index behind every value;
+`check` recomputes a frozen file and fails on any difference. A freeze is a
+draft, not a fact review. `fact-specs/geddon-paladin-mechanics.spec.json`
+reproduces the six pilot contexts of `geddon-paladin-mechanics.json`, and
+`tests/golden/test_fact_freeze.py` also reproduces all nine `effect-facts.json`
+contexts from the actor streams and, where the archive has them, the All pages.

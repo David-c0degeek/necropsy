@@ -1,0 +1,99 @@
+{
+  "fixture": "mc-holy-paladin-raid-context",
+  "archive": "../raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+  "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+  "note": "Reproduces geddon-paladin-mechanics.json (pilot cell mc/50668/6/Holy/hps/Alliance) from raw.",
+  "contexts": [
+    {
+      "report": "A6avHyzWDkgBMXhq",
+      "fight": 28,
+      "actor": 17,
+      "player": "Killian",
+      "subject": false
+    },
+    {
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 28,
+      "player": "Meetymhc",
+      "subject": false
+    },
+    {
+      "report": "CN3cTnkWYr6mVQD7",
+      "fight": 81,
+      "actor": 3,
+      "player": "Anrylla",
+      "subject": false
+    },
+    {
+      "report": "N9wnqPbRKygmM4z1",
+      "fight": 20,
+      "actor": 11,
+      "player": "Stimorol",
+      "subject": false
+    },
+    {
+      "report": "RkFgyDbCwPmHn9hV",
+      "fight": 68,
+      "actor": 20,
+      "player": "Roñ",
+      "subject": false
+    },
+    {
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 43,
+      "actor": 35,
+      "player": "Resurgance",
+      "subject": true
+    }
+  ],
+  "queries": {
+    "duration_ms": {
+      "kind": "duration_ms"
+    },
+    "living_bomb_transitions": {
+      "kind": "aura_transitions",
+      "ids": [
+        20475
+      ]
+    },
+    "inferno_windows": {
+      "kind": "npc_buff_windows",
+      "ids": [
+        19695
+      ],
+      "flat": true
+    },
+    "divine_favor_s": {
+      "kind": "casts",
+      "ids": [
+        20216
+      ]
+    },
+    "emergency_cast_s": {
+      "kind": "casts",
+      "ids": {
+        "Divine Shield": [
+          642,
+          1020
+        ],
+        "Lay on Hands": [
+          633,
+          2800,
+          10310
+        ],
+        "Blessing of Protection": [
+          1022,
+          5599,
+          10278
+        ]
+      }
+    },
+    "living_bomb_explosions": {
+      "kind": "ability_damage",
+      "ids": [
+        20476
+      ]
+    }
+  }
+}
