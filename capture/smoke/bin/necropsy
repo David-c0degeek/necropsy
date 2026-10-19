@@ -1,0 +1,63 @@
+#!/usr/local/bin/python
+"""Fake `necropsy analyze` for the smoke, first on PATH in the smoke container.
+
+Records its exact argv, then follows a script: the first call runs until it is
+stopped; that attempt's resume and the next resume complete with a snapshot;
+the third resume is an auth failure. Every other fresh call is a quota stop at
+the current time, so all remaining entries defer and the runner has to wait.
+"""
+
+import hashlib
+import json
+import os
+import sys
+import time
+from datetime import UTC, datetime
+from pathlib import Path
+
+argv = sys.argv[1:]
+log = Path(os.environ["SMOKE_ARGV_LOG"])
+earlier = [json.loads(line) for line in log.read_text().splitlines()] if log.exists() else []
+with log.open("a") as handle:
+    handle.write(json.dumps(argv) + "\n")
+resumes = sum("--resume" in call for call in earlier)
+if not earlier:
+    step = "long"
+elif "--resume" in argv:
+    step = "complete" if resumes < 2 else "auth"
+else:
+    step = "quota"
+calls = len(earlier)
+out = Path(argv[argv.index("--out") + 1])
+receipt = Path(argv[argv.index("--outcome-json") + 1])
+out.mkdir(parents=True, exist_ok=True)
+run = out / ".necropsy-run" / "run.json"
+if step != "auth":
+    run.parent.mkdir(parents=True, exist_ok=True)
+    if not run.exists():
+        run.write_text(json.dumps({"call": calls}))
+if step == "long":
+    print("fake analyze: running until stopped", flush=True)
+    time.sleep(3600)
+    sys.exit(0)
+now = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+exit_code, stop = {"complete": (0, "none"), "quota": (3, "quota-reset"), "auth": (1, "auth")}[step]
+snapshot = None
+if step == "complete":
+    archive = out / "snapshot" / f"capture-{calls}.zip"
+    archive.parent.mkdir(parents=True, exist_ok=True)
+    archive.write_bytes(b"smoke-%d" % calls)
+    snapshot = {"archive": str(archive), "sha256": hashlib.sha256(archive.read_bytes()).hexdigest()}
+payload = {
+    "version": 1,
+    "exit_code": exit_code,
+    "stop_class": stop,
+    "reset_at_utc": now if step == "quota" else None,
+    "out": str(out),
+    "checkpoint_sha256": hashlib.sha256(run.read_bytes()).hexdigest() if run.exists() else None,
+    "snapshot": snapshot,
+    "incomplete_bosses": 0,
+    "written_at_utc": now,
+}
+receipt.write_text(json.dumps(payload))
+sys.exit(exit_code)

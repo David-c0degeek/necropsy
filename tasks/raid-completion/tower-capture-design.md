@@ -187,7 +187,8 @@ the user confirms receipt, before go-live.
 
 - The image is built from the reviewed release wheel (python slim), with the
   wheel and queue version pinned. Unraid autostart is off.
-- Paths: `/mnt/user/appdata/necropsy-capture/{secrets(0700),queue,state,out,www,logs}`.
+- Paths: `/mnt/user/appdata/necropsy-capture/{secrets(0700),state,out,cache,www}`.
+  The queue is baked into the image; container logs go to Docker's capped log.
 - Before deploying: follow the Tower maintenance skill. Find a verified
   recovery reference and write a dated `changes/` record. No change to other
   containers, the VPN or parity.
@@ -298,3 +299,66 @@ the user confirms receipt, before go-live.
   stale status, filters, escaped text and empty queues. Image packaging,
   production command smoke tests and Tower deployment remain later work.
 
+## Implementation notes (slice 5B: image)
+
+- The image is built from the published 0.5.0 release wheel: 0.4.0 predates
+  the credential file and `--outcome-json`. `scripts/stage_capture_image.py`
+  assembles a build context outside the checkout and refuses a wheel that does
+  not match the release `SHA256SUMS`, a queue that does not match
+  `capture/queue.sha256`, or `capture/requirements.txt` drifting from
+  `uv export` of the release lock. Its `manifest.json` lists the SHA-256 of
+  every staged file except the wheel, whose hash is the release line in the
+  staged `SHA256SUMS`; the build checks both and the queue pin again.
+- `capture/Dockerfile`: `python:3.14-slim` by index digest; dependencies with
+  `--require-hashes --only-binary :all:`; then the wheel without dependencies
+  and `pip check`. Image files are root-owned and read-only. The runner user is
+  UID 99, GID 100 by default (build arguments). The credential file path is
+  `/secrets/credentials.json`; no secret is in the image or the environment.
+- `capture/entrypoint.sh` checks the baked queue pin and publishes the static
+  page assets with a byte comparison, then `exec`s the runner with the
+  production arguments. `status-server [PORT]` serves `/www` from a second
+  container from the same image that mounts only the public directory,
+  read-only. The secrets directory is mounted read-write because token rotation
+  replaces the file in place (ADR 0023).
+- Planned Tower commands (slice 6 fixes the host address and port):
+
+  ```sh
+  A=/mnt/user/appdata/necropsy-capture
+  docker run -d --name necropsy-capture --init --stop-timeout 90     --restart unless-stopped --log-opt max-size=10m --log-opt max-file=3     -v $A/secrets:/secrets -v $A/state:/data/state -v $A/out:/data/out     -v $A/cache:/data/cache -v $A/www:/data/www necropsy-capture:0.5.0
+  docker run -d --name necropsy-capture-www --init --restart unless-stopped     -p TOWER_LAN_IP:PORT:8080 -v $A/www:/www:ro necropsy-capture:0.5.0 status-server 8080
+  ```
+
+- Smoke on the PC in WSL Docker 29.6 with the production run flags
+  (`capture/smoke/run_smoke.sh`, `run_checks.sh`, then `check_results.py`;
+  none of it is in the image), on an image staged from the release bundle
+  (wheel `59ea98c25b0f`, the same bytes from all four release builds). No live
+  API:
+  every container ran with `--network none` (the second scenario shared only a
+  loopback with a Notifiarr fake), and a smoke-only audit hook, loaded in the
+  runner and in every child, logged and refused each socket attempt other than
+  that loopback.
+  1. The real 0.5.0 `necropsy analyze` with no credential file wrote an `auth`
+     receipt (exit 1) and made no socket attempt; the queue paused as Needs
+     attention.
+  2. A fake `analyze` first on `PATH` received the exact generated argv for 96
+     calls (compared against the queue). `docker stop` ended a running attempt
+     in 1 s with exit 0 and the stop saved; the restart resumed it with
+     `--resume`. Every other entry then stopped for quota, so the runner
+     waited; a restart during the wait kept waiting, and the deferred entries
+     resumed after the reset margin. An auth stop paused the queue. The start
+     and attention alerts reached the fake as real POSTs, with an empty outbox.
+  3. PID 1 is `docker-init`, the runner is the only other process and runs as
+     UID 99, `/app` is not writable, and the status container serves the page,
+     `status.mjs` and `status.json` from a read-only mount, nothing else.
+  4. `run_credentials.sh`: as UID 99 with no network, the real `necropsy auth
+     import` saved a synthetic sign-in as a 0600 file in the 0700 directory; a
+     second import replaced it by rename with no temporary file left, and
+     `auth status` read it back without printing secrets. Bad input and a 0755
+     directory were refused and left the file unchanged.
+- Limits: the Notifiarr fake is reached through smoke-only URL routing; the
+  real delivery proof is the test alert and the user's receipt in slice 6. A
+  token refresh needs the live API; it uses the same file write as the import
+  and is covered by unit tests. The secrets directory on Tower's own
+  filesystem, the 90 s grace with a real `analyze`
+  child, the 03:00 backup restart and Tower's UID mapping are verified on
+  Tower before go-live.
