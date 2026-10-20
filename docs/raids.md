@@ -126,7 +126,8 @@ Lucifron Paladin reports count only Cleanse removals of Impending Doom, pair an
 exposure that ended with the Paladin's own Cleanse, and add Paladin healing
 guidance on Cleanse priorities and curse range; Paladin curse or Dominate Mind
 removal is not claimed. Lucifron reference fights list Impending Doom and
-Lucifron's Curse applications from the boss.
+Lucifron's Curse applications from the boss. Lucifron encounter facts cite the
+wiki for Impending Doom, Lucifron's Curse and Dominate Mind.
 Lucifron distinguishes class-specific curse/magic removal;
 Magmadar distinguishes Frenzy-removal casts from successful effects and local
 Panic exposure; Gehennas separates personal Curse exposure from healing received

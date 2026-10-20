@@ -200,6 +200,11 @@ def _assert_lucifron_paladin(doc: dict[str, Any], fixture: dict[str, Any]) -> No
     if lucifron is None or lucifron["subject"] is None or lucifron["playbook"] is None:
         return
     class_id = doc["subject"]["class_id"]
+    playbook = lucifron["playbook"]
+    # Hunter playbooks keep cited facts under static; other classes at the top level.
+    facts = playbook.get("encounter_facts") or playbook["static"]["encounter"]
+    assert facts["source"] == "https://warcraft.wiki.gg/wiki/Lucifron"
+    assert [t["key"] for t in facts["timings"]] == ["impending-doom", "curse", "dominate-mind"]
     rules = [r["rule"] for r in lucifron["playbook"]["mechanic_removals"]]
     if class_id == 6:
         assert rules == [

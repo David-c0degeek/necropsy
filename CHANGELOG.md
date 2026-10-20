@@ -13,6 +13,8 @@ Development changes appear under **Unreleased** until built and published.
   guidance on Cleanse priorities and Lucifron's Curse range. Reference fights
   list Impending Doom and Lucifron's Curse applications. Paladin curse and
   Dominate Mind removal are not claimed.
+- Lucifron pages now show sourced encounter facts for Impending Doom,
+  Lucifron's Curse and Dominate Mind, for every class.
 
 ## 0.5.1 - 2026-10-19
 
