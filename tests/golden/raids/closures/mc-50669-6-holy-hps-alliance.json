@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "cell_id": "mc/50669/6/Holy/hps/Alliance",
+  "matrix_row": "mc,2000,50669,Sulfuron Harbinger,standard,6,Paladin,Holy,hps,Alliance,tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json#fields.implementation,tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json#fields.mechanics_and_guidance,tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json#fields.synthetic_behavior,tests/golden/raids/coverage.json#mc/50669/6/Holy/hps/Alliance,tests/golden/raids/facts.json#mc-holy-paladin-actor-44,tests/golden/raids/hps-ranking-sulfuron-paladin.json#mc-sulfuron-holy-paladin-hps-v1,tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json#fields.render_review,COMPLETE,agent,\"D034 unit closure at 6f37de80171d; all fields evidenced in the closure with limitations (20000 px picture cap, guidance-only removal duties, unreleased candidate wheel). Loadout outcome is a declared source limitation, not proof gearing cannot matter.\"",
+  "commit": "6f37de80171dc4fc71acf4fe1a44e84e0d5e96e3",
+  "archive": {
+    "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+    "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+    "report": "kvJ2WVF1chC9R4wd",
+    "fight": 61,
+    "actor": 35
+  },
+  "evidence_files_at_closure": {
+    "src/necropsy/rules/classic_era/healer_notes.yaml": "9a9f60c1c6252e2e0a5d7874b29df1cd40fe8da2f505c2b80075eac8682ef198",
+    "src/necropsy/rules/classic_era/zones/mc.yaml": "2cd9d0959c7e6866f71c23b6906df2529beb2d3649247fdc0c49430723438f17",
+    "src/necropsy/rules/classic_era/zones/mc_facts.yaml": "6754b538cec1abf8cce1fb1c8e69ea088ab5f7177cde40c5f43cce8c14ac14e6",
+    "src/necropsy/rules/classic_era/zones/mc_guidance.yaml": "3624cd90658178743f0e70d805612011d50feb96b060e02cbecb53bdc2ed917d",
+    "tests/golden/raids/hps-ranking-magmadar-paladin.json": "e0b3e15d6a3c7e6105a9d00f4270705ebd865eaceea64c59eb6f0bdef9cea267",
+    "tests/golden/raids/hps-ranking-gehennas-paladin.json": "c59ca90137c13cacbd61a58096648c892112ed9c0d69f25a7a7494ce407a4430",
+    "tests/golden/raids/hps-ranking-garr-paladin.json": "07b7dddb4526a04a5e476a8ddbbd444ded3734d042c7bc47bd96a5201dc1e5e6",
+    "tests/golden/raids/hps-ranking-shazzrah-paladin.json": "7deadf0e326d83a26690a3f1bee3370933b463187e01c620f576cf9c5f9db0ac",
+    "tests/golden/raids/hps-ranking-sulfuron-paladin.json": "963b1c2cdf4c44a808b0be7b046530097d8f9d7c0c350a3c373890836619213d",
+    "tests/golden/raids/hps-ranking-golemagg-paladin.json": "09b048699e0cd0452368a31d736b765e45de7d5e7a225645696328f4e5a980ad",
+    "tests/golden/raids/hps-ranking-majordomo-paladin.json": "e8d6f8b7dbcdbd65794cbf7c7884527f8a559f93feafbd1711974326158af92c",
+    "scripts/freeze_hps_ranking.py": "55fcbdb3c11dd31e9b7971441b442567f305a6b76bbf8f589524f07619667dc5",
+    "tests/golden/test_hps_ranking_policy.py": "0fc00c1b3e0f01c494e0b0bf596a147cd556c91b2f3d2653a74a6310fc78b409",
+    "tests/golden/test_raid_evidence.py": "94a871711ede733c45479a5c2f3e1211c5e0691e72e09e1618c16fdead7764a3",
+    "tests/unit/test_encounter_strategy.py": "ff8d087bc2dcef8755f61980d0217c635e4ba23f6ca6edf6b91c71d53dc43031",
+    "tests/integration/test_paladin_healer_notes.py": "2f8c5a99e755313912f0d99b08e4c22feff280b713906503b3da038869c62b6f"
+  },
+  "fields": {
+    "implementation": {
+      "evidence": [
+        "tests/golden/test_raid_evidence.py::test_seed_capture_replays_with_raw_arithmetic_and_correct_raid[mc-holy-paladin-raid-context]"
+      ],
+      "note": "Pinned raw archive replays offline with the Holy category, HPS metric, Alliance faction and Era partition 1; healer duty eligibility applies."
+    },
+    "mechanics_and_guidance": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc_guidance.yaml strategy 50669 (shared items plus 5 Paladin/HPS items: sulfuron-paladin-cleanse-assignment-v1, sulfuron-paladin-guard-debuff-cleanse-v1, sulfuron-paladin-fire-resistance-v1, sulfuron-paladin-shared-healers-v1, sulfuron-paladin-healer-loadout-applicability-v1)",
+        "src/necropsy/rules/classic_era/zones/mc_facts.yaml encounter 50669",
+        "src/necropsy/rules/classic_era/healer_notes.yaml (Divine Favor, emergency cooldowns, blessings, mana capacity)",
+        "tests/unit/test_encounter_strategy.py::test_mc_paladin_healer_items_cite_the_boss_wiki_and_reach_only_paladin_healers[50669]",
+        "tests/golden/raids/mc-boss-source-review.json (verbatim excerpts per boss, retrieval method, boundary, conflicts and open list)"
+      ],
+      "categories": {
+        "preparation": "sulfuron-paladin-cleanse-assignment-v1; sulfuron-paladin-fire-resistance-v1",
+        "loadout": "sulfuron-paladin-healer-loadout-applicability-v1: the cited source names no Sulfuron-specific Paladin healer loadout change. This is a declared source limitation, not proof that healer gearing cannot matter.",
+        "opener_and_cooldowns": "shared healer notes (Divine Favor observation; mana capacity)",
+        "execution": "not assessed: the source gives dispel and coverage advice only, no Paladin healing sequence",
+        "resource": "shared healer notes (Divine Favor observation; mana capacity); sulfuron-paladin-shared-healers-v1 (the source mentions mana only as a reason to swap healers)",
+        "utility": "sulfuron-paladin-guard-debuff-cleanse-v1 (guidance only; personal Cleanse removals of the guards' debuffs are not measured, and no opportunity count or N/A is claimed)",
+        "avoidance": "not assessed: the source names no healer positioning or avoidance duty",
+        "raid_coordination": "sulfuron-paladin-cleanse-assignment-v1; sulfuron-paladin-shared-healers-v1"
+      },
+      "sources": {
+        "https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger": "Retrieved 2026-10-20 through the implementing agent's fetch tool (wiki.gg blocks plain HTTP clients); excerpts in tests/golden/raids/mc-boss-source-review.json"
+      }
+    },
+    "synthetic_behavior": {
+      "evidence": [
+        "tests/unit/test_encounter_strategy.py::test_mc_paladin_healer_items_cite_the_boss_wiki_and_reach_only_paladin_healers (class and metric split per boss)",
+        "tests/unit/test_encounter_strategy.py::test_ragnaros_and_majordomo_paladin_items_keep_only_supported_guide_claims",
+        "tests/golden/test_hps_ranking_policy.py wrong-policy failures per row (overheal, duration, absorbed, owned units, other actor)",
+        "tests/integration/test_paladin_healer_notes.py healer-note cases (incomplete coverage, wrong duty, sparse comparisons) shared with the pilot"
+      ]
+    },
+    "real_actor_source": {
+      "evidence": [
+        "tests/golden/raids/coverage.json real_actor_source for this cell (report kvJ2WVF1chC9R4wd, fight 61, actor 35, partition 1)"
+      ]
+    },
+    "independent_facts": {
+      "evidence": [
+        "tests/golden/raids/facts.json#mc-holy-paladin-actor-44",
+        "tests/golden/raids/healing-facts.json#mc-holy-paladin-healing-recipients-42",
+        "tests/golden/raids/hps-ranking-sulfuron-paladin.json (six raw-frozen ranking rows)"
+      ],
+      "note": "Actor and recipient facts were frozen from raw before registration; the six ranking rows were frozen from raw with scripts/freeze_hps_ranking.py and independently re-enumerated by the reviewer. Personal removal duties are not measured for this cell."
+    },
+    "ranking_reconciliation": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc.yaml ranking_metric_policies mc-sulfuron-holy-paladin-hps-v1 (empirical)",
+        "tests/golden/raids/hps-ranking-sulfuron-paladin.json",
+        "tests/golden/test_hps_ranking_policy.py::test_policy_scope_matches_its_frozen_evidence[mc-sulfuron-holy-paladin-hps-v1]",
+        "tests/golden/test_hps_ranking_policy.py::test_published_hps_matches_raw_owner_and_owned_unit_effects (six rows)"
+      ],
+      "note": "Twelve published amounts for six Sulfuron Harbinger Holy Paladin rows match raw heal plus absorbed amounts over the fight duration within the last published decimal; absorbed is needed for 1 of the six. The cell's actor Resurgance has a raw rate of 23483 * 1000 / 88158 ms = 266.3740102996892 HPS against published 266.374, within the bound. The golden test rejects the applicable wrong policies for every row: overheal included, duration plus 1 s and another actor's amounts; dropping absorbed is rejected only for the 1 row with nonzero absorption. These six rows list no owned units, so no owned-unit mutation is exercised here. The upstream rounding mode is not established. Sulfuron fight 61 and Golemagg fight 65 of report kvJ2WVF1chC9R4wd both last 88158 ms; the raw fight records have different start and end times, so the equal durations are a coincidence, not a binding error."
+    },
+    "render_review": {
+      "pages": {
+        "command": "scripts/render_parity.py on the pinned archive at 6f37de80171d: wheel built in a detached worktree, installed with --no-deps into a new environment beside the hashed runtime requirements, rendered from the worktree's own source and from the installed wheel (unreleased candidate; version 0.5.1)",
+        "receipt": "workspace/rp-unit1/receipt.json (not committed; its values are recorded here)",
+        "candidate_wheel_sha256": "3c0c9e5a94bac2ef3517f2526411d17a8dfdb031049743c931b2a725f9e6e92b",
+        "wheel_payload": "147 package files byte-equal to Git blobs; none missing, none outside Git",
+        "analysis.json": "f0da69a5b60e",
+        "report.html": "066b958d2259",
+        "playbook.html": "489aeab872d6",
+        "package": "488240741bae",
+        "source_equals_installed": true
+      },
+      "content": [
+        "Every boss's saved strategy items, encounter fact timings, healer notes and removal labels appear, complete and normalized, inside that boss's own section on both pages: 0 missing texts and 0 missing sections across 10 bosses, from source and installed (0 missing from source)"
+      ],
+      "visual_checks": [
+        {
+          "slice": "Every boss section and its facts section (report boss-<id>-plan, playbook boss-<id>-during)",
+          "by": "owner via render_parity (pinned scripts/visual_check.py 06f45bed3528, Edge, --theme-storage necropsy:theme, --print, 20 anchors per page)",
+          "viewports": [
+            "1440x1000 dark",
+            "1440x1000 light",
+            "390x1000 dark",
+            "390x1000 light",
+            "print CSS 1440 light"
+          ],
+          "result": "report.html: 5 screens, 0 with findings; playbook.html: 5 screens, 0 with findings",
+          "ui_signoff": "Owner inspected four pictures of new content: playbook 1440 light at boss-50666-during (Garr items incl. Antimagic Pulse), playbook 390 dark at boss-50669-during (Sulfuron Cleanse priority), report 390 light at boss-50664-plan (Magmadar facts) and playbook print CSS at boss-50671-during (Majordomo); the rest were checked mechanically only. Whole long pages stop at 20000 px and no PDF pagination was reviewed"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Whole report and playbook pictures stop at 20000 px; anchored section and facts pictures cover every boss, and print CSS is not PDF pagination.",
+    "Source excerpts were extracted by the fetch tool's model from the converted page and split long sentences; the source review records the method and its conflicts.",
+    "The candidate wheel is unreleased and carries version 0.5.1; no published release contains these rules yet.",
+    "These logs record no positions; positioning guidance is the guide's advice to confirm, never an assessed outcome.",
+    "Naxx whole-report controls were not rerun; no Naxx rules were touched.",
+    "Paladin removal duties for this boss are guidance only: personal removals, assignments and opportunities are not measured, and nothing here claims zero opportunity, N/A or completed personal utility assessment. Measured boss-major removal work stays open."
+  ],
+  "evidence_pinning": "Hashes are SHA-256 of the raw Git blob bytes at the closure commit (git show <commit>:<path>), not working-tree bytes; the archive pin is its LFS pointer oid. Pinned with scripts/close_unit.py (closure_pins).",
+  "source_review": {
+    "path": "tests/golden/raids/mc-boss-source-review.json",
+    "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315"
+  }
+}

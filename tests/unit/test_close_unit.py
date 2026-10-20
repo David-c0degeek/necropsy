@@ -194,3 +194,16 @@ def test_missing_fields_are_refused_before_anything_is_written(repo: Path) -> No
     with pytest.raises(ValueError, match="fields missing ranking_reconciliation"):
         cu.closures(unit, "HEAD", False, root=repo)
     assert not list((repo / cu.CLOSURES).iterdir())
+
+
+def test_a_cell_names_its_own_report_and_a_wrong_report_is_refused(repo: Path) -> None:
+    unit = spec({"open": "x"})
+    unit["cells"][CELLS[0]]["report"] = "other"  # type: ignore[index]
+    cu.closures(unit, "HEAD", False, root=repo)
+    closure = json.loads((repo / cu.closure_path(CELLS[0])).read_bytes())
+    assert closure["archive"]["report"] == "other"
+    commit(repo, "closure from another report")
+    before = registers(repo)
+    with pytest.raises(ValueError, match="differs from the registered source"):
+        cu.register(unit, root=repo)
+    assert registers(repo) == before

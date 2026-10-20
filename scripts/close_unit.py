@@ -11,14 +11,16 @@ A unit spec (JSON) holds what its cells share once and what differs per cell:
      "evidence_files": [paths pinned in every closure],
      "source_review": path, "evidence_pinning": text,
      "shared": {"fields": {...}, "limitations": [...]},
-     "cells": {CELL_ID: {"fight": N, "actor": N, "source_review": path?,
+     "cells": {CELL_ID: {"fight": N, "actor": N, "report": code?, "source_review": path?,
                          "fields": {...}, "limitations": [...],
                          "references": {DIMENSION: [[path, locator], ...]},
                          "coverage_note": text, "matrix_note": text}
                | {"open": reason}}}
 
-`closures` merges the shared and per-cell fields (nested objects merge, a cell's
-value replaces any other), appends the cell's limitations to the shared ones,
+A cell's own "report" replaces the unit archive's report, since one capture
+holds fights from many reports. `closures` merges the shared and per-cell
+fields (nested objects merge, a cell's value replaces any other), appends the
+cell's limitations to the shared ones,
 writes tests/golden/raids/closures/<raid>-<encounter>-<class>-<category>-<metric>-
 <faction>.json and pins it to REV with closure_pins. A cell marked `open` gets no
 closure and is reported, so a unit can close only some of its cells. Every
@@ -121,7 +123,7 @@ def build(spec: dict[str, Any], cell_id: str, matrix: str) -> dict[str, Any]:
         "archive": {
             "path": spec["archive"]["path"],
             "sha256": "",
-            "report": spec["archive"]["report"],
+            "report": cell.get("report") or spec["archive"]["report"],
             "fight": cell["fight"],
             "actor": cell["actor"],
         },

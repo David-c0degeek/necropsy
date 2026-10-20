@@ -2613,7 +2613,7 @@
     },
     {
       "cell_id": "mc/50664/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2636,6 +2636,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50664-6-holy-hps-alliance.json",
+            "sha256": "d4fd7b22e75dd22e23120158bbd80bc85e991e1625f42eda509c85a9d42ab056",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50664-6-holy-hps-alliance.json",
+            "sha256": "d4fd7b22e75dd22e23120158bbd80bc85e991e1625f42eda509c85a9d42ab056",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/mc-boss-source-review.json",
+            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "locator": "sources"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50664-6-holy-hps-alliance.json",
+            "sha256": "d4fd7b22e75dd22e23120158bbd80bc85e991e1625f42eda509c85a9d42ab056",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -2647,13 +2673,32 @@
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-55"
           }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-magmadar-paladin.json",
+            "sha256": "e0b3e15d6a3c7e6105a9d00f4270705ebd865eaceea64c59eb6f0bdef9cea267",
+            "locator": "mc-magmadar-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50664-6-holy-hps-alliance.json",
+            "sha256": "d4fd7b22e75dd22e23120158bbd80bc85e991e1625f42eda509c85a9d42ab056",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50664-6-holy-hps-alliance.json",
+            "sha256": "d4fd7b22e75dd22e23120158bbd80bc85e991e1625f42eda509c85a9d42ab056",
+            "locator": "fields.render_review"
+          }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Capture-unit closure (D034 first unit) at 6f37de80171d: every field has durable evidence in tests/golden/raids/closures/mc-50664-6-holy-hps-alliance.json, which also records validation boundaries and limitations. Removal duties are guidance only; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50665/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2676,6 +2721,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50665-6-holy-hps-alliance.json",
+            "sha256": "b7b91a9bef9ab6ff1a541f792393d34933e63fc8ea7ecad4bf5f9868ab9e0424",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50665-6-holy-hps-alliance.json",
+            "sha256": "b7b91a9bef9ab6ff1a541f792393d34933e63fc8ea7ecad4bf5f9868ab9e0424",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/mc-boss-source-review.json",
+            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "locator": "sources"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50665-6-holy-hps-alliance.json",
+            "sha256": "b7b91a9bef9ab6ff1a541f792393d34933e63fc8ea7ecad4bf5f9868ab9e0424",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -2687,13 +2758,32 @@
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-56"
           }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-gehennas-paladin.json",
+            "sha256": "c59ca90137c13cacbd61a58096648c892112ed9c0d69f25a7a7494ce407a4430",
+            "locator": "mc-gehennas-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50665-6-holy-hps-alliance.json",
+            "sha256": "b7b91a9bef9ab6ff1a541f792393d34933e63fc8ea7ecad4bf5f9868ab9e0424",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50665-6-holy-hps-alliance.json",
+            "sha256": "b7b91a9bef9ab6ff1a541f792393d34933e63fc8ea7ecad4bf5f9868ab9e0424",
+            "locator": "fields.render_review"
+          }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Capture-unit closure (D034 first unit) at 6f37de80171d: every field has durable evidence in tests/golden/raids/closures/mc-50665-6-holy-hps-alliance.json, which also records validation boundaries and limitations. Removal duties are guidance only; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50666/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2716,6 +2806,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50666-6-holy-hps-alliance.json",
+            "sha256": "2665431da528ca7e760aa592332d67d01e97d9b92c51244f822d0e5a70d56700",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50666-6-holy-hps-alliance.json",
+            "sha256": "2665431da528ca7e760aa592332d67d01e97d9b92c51244f822d0e5a70d56700",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/mc-boss-source-review.json",
+            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "locator": "sources"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50666-6-holy-hps-alliance.json",
+            "sha256": "2665431da528ca7e760aa592332d67d01e97d9b92c51244f822d0e5a70d56700",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -2727,13 +2843,32 @@
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-57"
           }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-garr-paladin.json",
+            "sha256": "07b7dddb4526a04a5e476a8ddbbd444ded3734d042c7bc47bd96a5201dc1e5e6",
+            "locator": "mc-garr-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50666-6-holy-hps-alliance.json",
+            "sha256": "2665431da528ca7e760aa592332d67d01e97d9b92c51244f822d0e5a70d56700",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50666-6-holy-hps-alliance.json",
+            "sha256": "2665431da528ca7e760aa592332d67d01e97d9b92c51244f822d0e5a70d56700",
+            "locator": "fields.render_review"
+          }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Capture-unit closure (D034 first unit) at 6f37de80171d: every field has durable evidence in tests/golden/raids/closures/mc-50666-6-holy-hps-alliance.json, which also records validation boundaries and limitations. Removal duties are guidance only; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50667/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2756,6 +2891,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50667-6-holy-hps-alliance.json",
+            "sha256": "7dfff96ad0e1da3862aa5c9db31fad8ca741b270b9dc6efa139342805bd4463d",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50667-6-holy-hps-alliance.json",
+            "sha256": "7dfff96ad0e1da3862aa5c9db31fad8ca741b270b9dc6efa139342805bd4463d",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/mc-boss-source-review.json",
+            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "locator": "sources"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50667-6-holy-hps-alliance.json",
+            "sha256": "7dfff96ad0e1da3862aa5c9db31fad8ca741b270b9dc6efa139342805bd4463d",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -2767,9 +2928,28 @@
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-41"
           }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-shazzrah-paladin.json",
+            "sha256": "7deadf0e326d83a26690a3f1bee3370933b463187e01c620f576cf9c5f9db0ac",
+            "locator": "mc-shazzrah-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50667-6-holy-hps-alliance.json",
+            "sha256": "7dfff96ad0e1da3862aa5c9db31fad8ca741b270b9dc6efa139342805bd4463d",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50667-6-holy-hps-alliance.json",
+            "sha256": "7dfff96ad0e1da3862aa5c9db31fad8ca741b270b9dc6efa139342805bd4463d",
+            "locator": "fields.render_review"
+          }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Capture-unit closure (D034 first unit) at 6f37de80171d: every field has durable evidence in tests/golden/raids/closures/mc-50667-6-holy-hps-alliance.json, which also records validation boundaries and limitations. Removal duties are guidance only; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50668/6/Holy/hps/Alliance",
@@ -2893,7 +3073,7 @@
     },
     {
       "cell_id": "mc/50669/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2916,6 +3096,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json",
+            "sha256": "2d22d8a853a066a3a02e32f7a84463697ca88bcb9537449d5d80f6057897d58b",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json",
+            "sha256": "2d22d8a853a066a3a02e32f7a84463697ca88bcb9537449d5d80f6057897d58b",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/mc-boss-source-review.json",
+            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "locator": "sources"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json",
+            "sha256": "2d22d8a853a066a3a02e32f7a84463697ca88bcb9537449d5d80f6057897d58b",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -2927,13 +3133,32 @@
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-42"
           }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-sulfuron-paladin.json",
+            "sha256": "963b1c2cdf4c44a808b0be7b046530097d8f9d7c0c350a3c373890836619213d",
+            "locator": "mc-sulfuron-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json",
+            "sha256": "2d22d8a853a066a3a02e32f7a84463697ca88bcb9537449d5d80f6057897d58b",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json",
+            "sha256": "2d22d8a853a066a3a02e32f7a84463697ca88bcb9537449d5d80f6057897d58b",
+            "locator": "fields.render_review"
+          }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Capture-unit closure (D034 first unit) at 6f37de80171d: every field has durable evidence in tests/golden/raids/closures/mc-50669-6-holy-hps-alliance.json, which also records validation boundaries and limitations. Removal duties are guidance only; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50670/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2956,6 +3181,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50670-6-holy-hps-alliance.json",
+            "sha256": "5d3abefd1a04b16567255c12d24c16d9f60d4c2940440ce46e076bcfe039c0a6",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50670-6-holy-hps-alliance.json",
+            "sha256": "5d3abefd1a04b16567255c12d24c16d9f60d4c2940440ce46e076bcfe039c0a6",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/mc-boss-source-review.json",
+            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "locator": "sources"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50670-6-holy-hps-alliance.json",
+            "sha256": "5d3abefd1a04b16567255c12d24c16d9f60d4c2940440ce46e076bcfe039c0a6",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -2967,13 +3218,32 @@
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-43"
           }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-golemagg-paladin.json",
+            "sha256": "09b048699e0cd0452368a31d736b765e45de7d5e7a225645696328f4e5a980ad",
+            "locator": "mc-golemagg-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50670-6-holy-hps-alliance.json",
+            "sha256": "5d3abefd1a04b16567255c12d24c16d9f60d4c2940440ce46e076bcfe039c0a6",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50670-6-holy-hps-alliance.json",
+            "sha256": "5d3abefd1a04b16567255c12d24c16d9f60d4c2940440ce46e076bcfe039c0a6",
+            "locator": "fields.render_review"
+          }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Capture-unit closure (D034 first unit) at 6f37de80171d: every field has durable evidence in tests/golden/raids/closures/mc-50670-6-holy-hps-alliance.json, which also records validation boundaries and limitations. Removal duties are guidance only; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50671/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2996,6 +3266,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50671-6-holy-hps-alliance.json",
+            "sha256": "093f36778f07df4df2d4d1f6156222fa92f8ab67a0a65221f068f6bfc919c016",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50671-6-holy-hps-alliance.json",
+            "sha256": "093f36778f07df4df2d4d1f6156222fa92f8ab67a0a65221f068f6bfc919c016",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/mc-boss-source-review.json",
+            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "locator": "sources"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50671-6-holy-hps-alliance.json",
+            "sha256": "093f36778f07df4df2d4d1f6156222fa92f8ab67a0a65221f068f6bfc919c016",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -3007,9 +3303,28 @@
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-58"
           }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-majordomo-paladin.json",
+            "sha256": "e8d6f8b7dbcdbd65794cbf7c7884527f8a559f93feafbd1711974326158af92c",
+            "locator": "mc-majordomo-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50671-6-holy-hps-alliance.json",
+            "sha256": "093f36778f07df4df2d4d1f6156222fa92f8ab67a0a65221f068f6bfc919c016",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50671-6-holy-hps-alliance.json",
+            "sha256": "093f36778f07df4df2d4d1f6156222fa92f8ab67a0a65221f068f6bfc919c016",
+            "locator": "fields.render_review"
+          }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Capture-unit closure (D034 first unit) at 6f37de80171d: every field has durable evidence in tests/golden/raids/closures/mc-50671-6-holy-hps-alliance.json, which also records validation boundaries and limitations. Removal duties are guidance only; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50672/6/Holy/hps/Alliance",
