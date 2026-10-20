@@ -8,6 +8,12 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Lucifron Holy Paladin analyses count Cleanse removals of Impending Doom,
+  show an exposure that ended with your own Cleanse, and add sourced Paladin
+  guidance on Cleanse priorities and Lucifron's Curse range. Reference fights
+  list Impending Doom and Lucifron's Curse applications. Paladin curse and
+  Dominate Mind removal are not claimed.
+
 ## 0.5.1 - 2026-10-19
 
 - Fix a crash that stopped the report when a Hunter analysis of Molten Core,

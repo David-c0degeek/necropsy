@@ -122,6 +122,11 @@ in both pages. Geddon additionally retains recorded Priest Dispel Magic and
 Paladin Cleanse removals of Ignite Mana
 and exact exposure endpoints alongside unambiguous self-dispels, with self-clear
 and backup-coverage coordination. This supplies no reaction or saved-mana grade.
+Lucifron Paladin reports count only Cleanse removals of Impending Doom, pair an
+exposure that ended with the Paladin's own Cleanse, and add Paladin healing
+guidance on Cleanse priorities and curse range; Paladin curse or Dominate Mind
+removal is not claimed. Lucifron reference fights list Impending Doom and
+Lucifron's Curse applications from the boss.
 Lucifron distinguishes class-specific curse/magic removal;
 Magmadar distinguishes Frenzy-removal casts from successful effects and local
 Panic exposure; Gehennas separates personal Curse exposure from healing received

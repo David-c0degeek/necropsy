@@ -166,6 +166,32 @@ def test_geddon_holy_paladin_items_cite_the_verified_source() -> None:
         }
 
 
+def test_lucifron_paladin_items_cite_the_verified_source_and_split_by_class() -> None:
+    wiki = "https://warcraft.wiki.gg/wiki/Lucifron"
+    paladin_only = {
+        "lucifron-paladin-cleanse-preparation-v1",
+        "lucifron-paladin-healer-loadout-applicability-v1",
+        "lucifron-paladin-curse-range-v1",
+        "lucifron-paladin-doom-priority-v1",
+    }
+    strategy = encounter_strategy("mc", 50663, 1, 6, "hps")
+    assert strategy
+    by_rule = {item.rule: item for item in strategy.items}
+    assert paladin_only <= set(by_rule)
+    assert "lucifron-magic-removal-v1" not in by_rule
+    assert all(
+        by_rule[rule].source == wiki and by_rule[rule].retrieved == "2026-10-20"
+        for rule in paladin_only
+    )
+    assert "do not record positions" in by_rule["lucifron-paladin-curse-range-v1"].text
+    for class_id, metric in ((6, "dps"), (7, "hps"), (2, "hps"), (4, "dps")):
+        other = encounter_strategy("mc", 50663, 1, class_id, metric)
+        assert other
+        rules = {item.rule for item in other.items}
+        assert not paladin_only & rules
+        assert ("lucifron-magic-removal-v1" in rules) is (class_id == 7)
+
+
 def test_shazzrah_keeps_friendly_curse_and_hostile_magic_removal_distinct() -> None:
     for class_id, name in CLASS_NAMES.items():
         strategy = encounter_strategy("mc", 50667, 1, class_id, "dps")

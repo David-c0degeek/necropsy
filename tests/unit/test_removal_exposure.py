@@ -244,3 +244,48 @@ def test_paladin_removal_on_another_player_is_not_a_self_exposure_endpoint(
     paladin(con, recipient=2)
     assert mechanic_removals(con, pf)[0].removals.value == 1
     assert findings(con, pf) == ()
+
+
+def _lucifron(con: duckdb.DuckDBPyConnection) -> ParticipantFight:
+    """The same exact pair, on Lucifron with Impending Doom (19702)."""
+    con.execute("UPDATE fights SET encounter_id=50663")
+    con.execute("UPDATE benchmark_participants SET encounter_id=50663")
+    con.execute(
+        "UPDATE events SET ability_game_id=19702,raw=json_merge_patch(raw,?) "
+        "WHERE ability_game_id=19659",
+        [json.dumps({"abilityGameID": 19702})],
+    )
+    con.execute(
+        "UPDATE events SET raw=json_merge_patch(raw,?) WHERE type='dispel'",
+        [json.dumps({"extraAbilityGameID": 19702})],
+    )
+    return next(p for p in participant_fights(con) if p.kind == "you")
+
+
+def test_lucifron_paladin_doom_policy_is_class_scoped_not_duty_scoped(
+    context: tuple[Any, ...],
+) -> None:
+    # Removal policies select by the subject's class only, so a Protection or
+    # Retribution Paladin gets the same Cleanse policy as a Holy one.
+    con, _ = context
+    pf = _lucifron(con)
+    paladin(con)
+    removals = {r.rule: r for r in mechanic_removals(con, pf)}
+    assert set(removals) == {
+        "lucifron-curse-removals-v1",
+        "lucifron-paladin-impending-doom-removal-v1",
+        "lucifron-control-removals-v1",
+    }
+    doom = removals["lucifron-paladin-impending-doom-removal-v1"]
+    assert (doom.removals.value, doom.removing_ability_ids) == (1, (4987,))
+    assert removals["lucifron-curse-removals-v1"].removals.value == 0
+    assert findings(con, pf)[0].intervals_ms.value == ((3000, 4608, 1608, 4987),)
+
+
+def test_lucifron_priest_keeps_the_generic_doom_policy(context: tuple[Any, ...]) -> None:
+    con, _ = context
+    pf = _lucifron(con)
+    removals = {r.rule: r for r in mechanic_removals(con, pf)}
+    assert "lucifron-paladin-impending-doom-removal-v1" not in removals
+    assert removals["lucifron-doom-removals-v1"].removals.value == 1
+    assert findings(con, pf) == ()  # the generic rule has no correlation

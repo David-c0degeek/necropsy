@@ -191,12 +191,22 @@ def pytest_result(run: Runner, root: Path, name: str, args: Sequence[str], scope
     if shutil.which("uv") is None:
         return Result(name, SKIP, scope, "uv is not available")
     done = run(command, root)
-    summary = (done.stdout.strip().splitlines() or [""])[-1]
-    if done.returncode == 5 or "no tests ran" in summary:
+    lines = (done.stdout + done.stderr).splitlines()
+    # The summary is the last line naming a count; progress dots or a crash
+    # traceback can follow it or replace it.
+    counted = [line for line in lines if re.search(r"\d+ (passed|failed|error|skipped)", line)]
+    summary = counted[-1].strip("= ") if counted else "no pytest summary"
+    # Only pytest's own "no tests collected" exit (5) is a skip; any other
+    # failing exit stays a failure whatever its output says.
+    if done.returncode == 5:
         return Result(name, SKIP, scope, "no tests ran")
     passed = re.search(r"(\d+) passed", summary)
     if done.returncode == 0 and not passed:
         return Result(name, SKIP, scope, f"nothing passed: {summary}")
+    if done.returncode != 0:
+        failing = [line.split(" - ")[0] for line in lines if line.startswith(("FAILED ", "ERROR "))]
+        tail = lines[-1].strip() if lines else ""
+        summary = "; ".join([summary, *failing[:5]] + ([] if counted else [tail]))
     return Result(name, PASS if done.returncode == 0 else FAIL, scope, summary)
 
 

@@ -181,6 +181,7 @@ def test_seed_capture_replays_with_raw_arithmetic_and_correct_raid(
     _assert_raid_interrupts(doc, fixture["label"], out)
     _assert_absorption_abilities(doc, fixture["label"], out)
     _assert_geddon_paladin_mechanics(doc, fixture)
+    _assert_lucifron_paladin(doc, fixture)
 
 
 def _strategy_retrieved(rule: str) -> str:
@@ -191,6 +192,54 @@ def _strategy_retrieved(rule: str) -> str:
                 if item["rule"] == rule:
                     return str(item.get("retrieved") or entry["retrieved"])
     raise AssertionError(f"unknown strategy rule {rule}")
+
+
+def _assert_lucifron_paladin(doc: dict[str, Any], fixture: dict[str, Any]) -> None:
+    """Lucifron removal policies, presence counts and guidance split by class."""
+    lucifron = next((b for b in doc["bosses"] if b["encounter_id"] == 50663), None)
+    if lucifron is None or lucifron["subject"] is None or lucifron["playbook"] is None:
+        return
+    class_id = doc["subject"]["class_id"]
+    rules = [r["rule"] for r in lucifron["playbook"]["mechanic_removals"]]
+    if class_id == 6:
+        assert rules == [
+            "lucifron-curse-removals-v1",
+            "lucifron-paladin-impending-doom-removal-v1",
+            "lucifron-control-removals-v1",
+        ]
+    else:
+        assert "lucifron-paladin-impending-doom-removal-v1" not in rules
+        assert "lucifron-doom-removals-v1" in rules
+    items = {i["rule"] for i in lucifron["playbook"]["encounter_strategy"]["items"]}
+    paladin_items = {
+        "lucifron-paladin-cleanse-preparation-v1",
+        "lucifron-paladin-healer-loadout-applicability-v1",
+        "lucifron-paladin-curse-range-v1",
+        "lucifron-paladin-doom-priority-v1",
+    }
+    metric = lucifron["playbook"].get("selected_metric")
+    assert (paladin_items <= items) is (class_id == 6 and metric == "hps")
+    assert ("lucifron-magic-removal-v1" in items) is (class_id == 7)
+    if fixture["label"] != "mc-holy-paladin-raid-context":
+        return
+    oracle = json.loads((ROOT / "lucifron-presence-facts.json").read_bytes())
+    assert oracle["sha256"] == fixture["sha256"]
+    context = lucifron["playbook"]["reference_context"]
+    fights = {
+        (c["report_code"], c["fight_id"]): c for c in [context["subject"], *context["examples"]]
+    }
+    checked = 0
+    for case in oracle["cases"]:
+        fight = fights.get((case["report"], case["fight"]))
+        if fight is None:
+            continue
+        counts = {m["label"]: m["applications"]["value"] for m in fight["mechanics"]}
+        assert counts == {
+            "Impending Doom": case["impending_doom"]["applications"],
+            "Lucifron's Curse": case["lucifrons_curse"]["applications"],
+        }
+        checked += 1
+    assert checked >= 2
 
 
 def _assert_geddon_paladin_mechanics(doc: dict[str, Any], fixture: dict[str, Any]) -> None:
@@ -452,7 +501,11 @@ def _assert_raid_interrupts(doc: dict[str, Any], fixture: str, out: Path) -> Non
 
 
 def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> None:
-    cases = json.loads((ROOT / "removal-facts.json").read_bytes())["cases"]
+    cases = [
+        case
+        for register in ("removal-facts.json", "lucifron-removal-facts.json")
+        for case in json.loads((ROOT / register).read_bytes())["cases"]
+    ]
     for case in cases:
         if case["fixture"] != fixture:
             continue
@@ -497,7 +550,7 @@ def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> N
                     "recorded successful effects." in html
                 )
                 assert "Missing opportunity evidence cannot support a utility score." in html
-        if case["encounter_id"] == 50668:
+        if case["encounter_id"] in (50668, 50663):
             if personal:
                 paired = boss["playbook"].get("exposure_removal_correlations", [])
             else:
@@ -511,9 +564,15 @@ def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> N
                     [],
                 )
             expected_pair = {
-                ("mc-holy-raid-context", "Inkia"): [7667, 9275, 1608, 988],
-                ("mc-holy-paladin-raid-context", "Anrylla"): [7262, 10144, 2882, 4987],
-            }.get((fixture, case["player"]))
+                ("mc-holy-raid-context", "Inkia", 50668): [7667, 9275, 1608, 988],
+                ("mc-holy-paladin-raid-context", "Anrylla", 50668): [7262, 10144, 2882, 4987],
+                ("mc-holy-paladin-raid-context", "Resurgance", 50663): [49976, 52266, 2290, 4987],
+            }.get((fixture, case["player"], case["encounter_id"]))
+            coordination = (
+                "Agree self-clear priorities"
+                if case["encounter_id"] == 50668
+                else "Agree Impending Doom Cleanse priorities"
+            )
             if expected_pair is not None:
                 assert len(paired) == 1
                 assert paired[0]["intervals_ms"]["value"] == [expected_pair]
@@ -524,7 +583,7 @@ def _assert_mechanic_removals(doc: dict[str, Any], fixture: str, out: Path) -> N
                         f"recorded exposure from {start / 1000:.3f}s to {end / 1000:.3f}s "
                         f"({elapsed / 1000:.3f}s)" in html
                     )
-                    assert "Agree self-clear priorities" in html
+                    assert coordination in html
                     assert "reaction quality" in html
             else:
                 assert paired == []

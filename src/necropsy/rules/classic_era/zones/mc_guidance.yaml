@@ -135,9 +135,21 @@ removals:
     retrieved: '2026-10-17'
   - rule: lucifron-doom-removals-v1
     label: Impending Doom removals
+    classes: [2, 3, 4, 7, 8, 9, 10, 11]
     removed_ability_ids: [19702]
     source: https://warcraft.wiki.gg/wiki/Lucifron
     retrieved: '2026-10-17'
+  - rule: lucifron-paladin-impending-doom-removal-v1
+    label: Impending Doom removals
+    classes: [6]
+    removed_ability_ids: [19702]
+    removing_ability_ids: [4987]
+    is_buff: false
+    require_encounter_event_set: true
+    correlate_self_exposure: true
+    coordination: 'Agree Impending Doom Cleanse priorities with the other healers and Priests: healers, especially the main tanks, and whoever becomes mind controlled.'
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    retrieved: '2026-10-20'
   - rule: lucifron-control-removals-v1
     label: Dominate Mind removals
     removed_ability_ids: [20604]
@@ -413,11 +425,39 @@ strategy:
       text: If assigned to remove curses, preserve time and resources for that job; a damage-only comparison does not measure your decursing contribution.
     - rule: lucifron-magic-removal-v1
       section: during
-      classes: [6, 7]
+      classes: [7]
       text: Follow the assigned magic-removal priorities for Impending Doom and controlled players; healing throughput alone does not measure that duty.
     - rule: lucifron-protector-coordination-v1
       section: raid
       text: Confirm Protector tanking and kill order, control recovery and removal priorities before copying another player's target mix.
+    - rule: lucifron-paladin-cleanse-preparation-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: Agree who Cleanses Impending Doom and in what order. Cleanse does not remove Lucifron's Curse; curse removal belongs to the assigned decursers.
+    - rule: lucifron-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Lucifron-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: lucifron-paladin-curse-range-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: Lucifron's Curse reaches 40 yards. The cited guide suggests healers other than the main-tank decurser can stay outside the curse range. This guidance concerns curse range only; it does not establish avoidance of Impending Doom or Shadow Shock, and these logs do not record positions.
+    - rule: lucifron-paladin-doom-priority-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: 'Follow the assigned Impending Doom Cleanse priorities: healers, especially the main tanks, and whoever becomes mind controlled. Healing throughput alone does not measure that duty.'
 
 mechanic_presence:
   50668:
@@ -435,6 +475,21 @@ mechanic_presence:
     caster_game_ids: [12056]
     source: https://warcraft.wiki.gg/wiki/Baron_Geddon
     retrieved: '2026-10-19'
+  50663:
+  - rule: lucifron-impending-doom-presence-v1
+    label: Impending Doom
+    ability_id: 19702
+    event_type: applydebuff
+    caster_game_ids: [12118]
+    source: https://www.wowhead.com/classic/spell=19702/impending-doom
+    retrieved: '2026-10-20'
+  - rule: lucifron-curse-presence-v1
+    label: Lucifron's Curse
+    ability_id: 19703
+    event_type: applydebuff
+    caster_game_ids: [12118]
+    source: https://warcraft.wiki.gg/wiki/Lucifron
+    retrieved: '2026-10-20'
 target_auras:
   50668:
   - rule: geddon-inferno-instances-v1

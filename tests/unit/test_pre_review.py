@@ -299,3 +299,43 @@ def test_copying_a_legacy_pilot_reference_into_another_cell_exposes_the_pilot(
     write(repo, pr.COVERAGE, legacy + "\n")
     _, _, results = pr.gate(repo, base, False, quiet)
     assert "closure pins" not in statuses(results)
+
+
+def test_a_failing_run_names_its_failures_and_a_crash_without_summary_is_explained(
+    repo: Path,
+) -> None:
+    def failing(command: Sequence[str], root: Path) -> subprocess.CompletedProcess[str]:
+        out = "..F.\nFAILED tests/x.py::test_a - boom\n1 failed, 3 passed in 0.1s\n....\n"
+        return subprocess.CompletedProcess(list(command), 1, out, "")
+
+    def crashed(command: Sequence[str], root: Path) -> subprocess.CompletedProcess[str]:
+        return subprocess.CompletedProcess(list(command), 1, "......\n", "MemoryError\n")
+
+    result = pr.pytest_result(failing, repo, "t", [], "s")
+    assert (result.status, result.detail) == (
+        pr.FAIL,
+        "1 failed, 3 passed in 0.1s; FAILED tests/x.py::test_a",
+    )
+    crash = pr.pytest_result(crashed, repo, "t", [], "s")
+    assert (crash.status, crash.detail) == (pr.FAIL, "no pytest summary; MemoryError")
+
+
+@pytest.mark.parametrize(
+    ("code", "out"),
+    [
+        (
+            1,
+            "E AssertionError: no tests ran\n"
+            "FAILED tests/example.py::test_message - AssertionError\n"
+            "1 failed in 0.1s\n",
+        ),
+        (2, "no tests ran: interrupted\n"),
+        (3, "INTERNALERROR> no tests ran\n"),
+    ],
+    ids=["failed-test-mentions-phrase", "interrupted", "internal-error"],
+)
+def test_only_the_no_collection_exit_is_a_skip(repo: Path, code: int, out: str) -> None:
+    def run(command: Sequence[str], root: Path) -> subprocess.CompletedProcess[str]:
+        return subprocess.CompletedProcess(list(command), code, out, "")
+
+    assert pr.pytest_result(run, repo, "t", [], "s").status == pr.FAIL
