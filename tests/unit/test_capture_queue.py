@@ -3,7 +3,9 @@ metric checks, decides reuse per boss from saved snapshots, and never pays twice
 
 from __future__ import annotations
 
+import hashlib
 import json
+import subprocess
 import zipfile
 from pathlib import Path
 from typing import Any
@@ -329,8 +331,124 @@ def test_emit_refuses_and_keeps_the_previous_queue_while_a_run_is_unfilled(
     assert (tmp_path / "queue.json").read_bytes() == previous
 
 
-def test_the_committed_queue_pins_match_the_committed_blobs() -> None:
-    assert cq.verify() == 0
+def test_the_committed_queue_snapshot_is_intact() -> None:
+    # Strict freshness (`verify`) fails once a cell closes while a queue is live;
+    # the committed queue must still be the one emitted, with intact pins.
+    assert cq.verify_snapshot() == 0
+
+
+def _git(root: Path, *args: str) -> str:
+    done = subprocess.run(["git", *args], cwd=root, capture_output=True, check=True, text=True)
+    return done.stdout.strip()
+
+
+def _commit(root: Path, files: dict[str, bytes]) -> str:
+    for path, data in files.items():
+        (root / path).parent.mkdir(parents=True, exist_ok=True)
+        (root / path).write_bytes(data)
+    _git(root, "add", "-A")
+    _git(root, "commit", "-q", "-m", "c")
+    return _git(root, "rev-parse", "HEAD")
+
+
+def _sha(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def _emit(root: Path, coverage: bytes, cache: bytes) -> dict[str, bytes]:
+    plan = json.dumps({"inputs": {"coverage.json": _sha(coverage)}}).encode()
+    queue = json.dumps({"pins": {"plan.json": _sha(plan), "cache.json": _sha(cache)}}).encode()
+    return {"coverage.json": coverage, "cache.json": cache, "plan.json": plan, "queue.json": queue}
+
+
+@pytest.fixture
+def emitted(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
+    _git(tmp_path, "init", "-q", "-b", "main")
+    _git(tmp_path, "config", "user.email", "t@example.invalid")
+    _git(tmp_path, "config", "user.name", "t")
+    _git(tmp_path, "config", "core.autocrlf", "false")
+    _commit(tmp_path, _emit(tmp_path, b"cov1\n", b"cache1\n"))
+    for name, path in {
+        "ROOT": tmp_path,
+        "PLAN": tmp_path / "plan.json",
+        "QUEUE": tmp_path / "queue.json",
+    }.items():
+        monkeypatch.setattr(cq, name, path)
+    return tmp_path
+
+
+def test_a_later_coverage_change_ages_the_snapshot_but_fails_strict_freshness(
+    emitted: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    _commit(emitted, {"coverage.json": b"cov2\n"})
+    assert cq.verify_snapshot() == 0
+    assert "coverage.json: changed since emit" in capsys.readouterr().out
+    assert cq.verify() == 1
+
+
+@pytest.mark.parametrize(
+    "drift",
+    [
+        {"queue.json": b"{}\n"},
+        {"cache.json": b"cache2\n"},
+        {"plan.json": b'{"inputs": {"coverage.json": "' + b"0" * 64 + b'"}}'},
+    ],
+)
+def test_queue_or_direct_artifact_drift_fails_the_snapshot(
+    emitted: Path, drift: dict[str, bytes]
+) -> None:
+    _commit(emitted, drift)
+    assert cq.verify_snapshot() == 1
+
+
+def test_an_uncommitted_direct_artifact_edit_fails_the_snapshot(emitted: Path) -> None:
+    (emitted / "cache.json").write_bytes(b"edited\n")
+    assert cq.verify_snapshot() == 1
+
+
+@pytest.mark.parametrize(
+    "plan",
+    [
+        b'{"inputs": {"coverage.json": "' + b"0" * 64 + b'"}}',
+        b'{"inputs": {"coverage.json": "short"}}',
+        b'{"inputs": {}}',
+        b"not json",
+    ],
+)
+def test_corrupt_emit_time_pins_fail_closed(emitted: Path, plan: bytes) -> None:
+    queue = json.dumps({"pins": {"plan.json": _sha(plan), "cache.json": _sha(b"cache1\n")}})
+    _commit(emitted, {"plan.json": plan, "queue.json": queue.encode()})
+    assert cq.verify_snapshot() == 1
+
+
+def test_a_pinned_file_missing_at_the_emit_commit_fails_closed(emitted: Path) -> None:
+    queue = json.dumps(
+        {"pins": {"plan.json": _sha((emitted / "plan.json").read_bytes()), "absent.json": "0" * 64}}
+    )
+    _commit(emitted, {"queue.json": queue.encode()})
+    assert cq.verify_snapshot() == 1
+
+
+def test_no_queue_history_fails_closed(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    _git(tmp_path, "init", "-q", "-b", "main")
+    _git(tmp_path, "config", "user.email", "t@example.invalid")
+    _git(tmp_path, "config", "user.name", "t")
+    _commit(tmp_path, {"other.txt": b"x\n"})
+    monkeypatch.setattr(cq, "ROOT", tmp_path)
+    monkeypatch.setattr(cq, "PLAN", tmp_path / "plan.json")
+    monkeypatch.setattr(cq, "QUEUE", tmp_path / "queue.json")
+    assert cq.verify_snapshot() == 1
+
+
+def test_a_new_emit_is_checked_at_its_own_commit(
+    emitted: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    _commit(emitted, {"coverage.json": b"cov2\n"})
+    second = _commit(emitted, _emit(emitted, b"cov2\n", b"cache1\n"))
+    assert cq.verify_snapshot() == 0
+    out = capsys.readouterr().out
+    assert f"intact at emit {second[:12]}" in out
+    assert "changed since emit" not in out
 
 
 def test_a_quota_or_network_failure_stops_the_run_and_caches_nothing(

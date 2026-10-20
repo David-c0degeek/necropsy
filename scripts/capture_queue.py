@@ -4,7 +4,7 @@ Usage: uv run python scripts/capture_queue.py plan
        uv run python scripts/capture_queue.py resolve --budget 40
        uv run python scripts/capture_queue.py leaderboard --budget 10   (then plan, resolve)
        uv run python scripts/capture_queue.py emit
-       uv run python scripts/capture_queue.py verify
+       uv run python scripts/capture_queue.py verify [--snapshot]
        uv run python scripts/capture_queue.py summary
 
 `plan` is offline. It derives the raid/configuration universe from the coverage
@@ -16,7 +16,10 @@ that WCL ranks the character for the entry's class, spec and metric, at most
 `--budget` live calls, caching every answer so a rerun never pays twice.
 `emit` writes the queue that `scripts/capture_runner.py` loads, and refuses to
 replace it while any queued run lacks a fully checked candidate. `verify`
-checks every pin against the committed Git blobs.
+checks every pin against the committed Git blobs and the checkout, so it fails
+once any input changes. `verify --snapshot` checks the queue a runner may be
+executing: unchanged since the commit that wrote it, with every pin intact at
+that commit; later coverage or provenance changes are reported as its age.
 
 Capture-ready means no capture is needed; it never means a cell is COMPLETE.
 """
@@ -879,6 +882,76 @@ def verify(rev: str = "HEAD") -> int:
     return 1 if failures else 0
 
 
+SHA256 = re.compile(r"[0-9a-f]{64}")
+
+
+def _pin_map(raw: bytes, key: str, source: str) -> dict[str, str]:
+    pins = json.loads(raw)[key]
+    if not isinstance(pins, dict) or not pins:
+        raise ValueError(f"{source}: {key} is not a non-empty mapping")
+    for path, pinned in pins.items():
+        if not isinstance(path, str) or not isinstance(pinned, str) or not SHA256.fullmatch(pinned):
+            raise ValueError(f"{source}: malformed pin {path!r}")
+    return pins
+
+
+def verify_snapshot(rev: str = "HEAD") -> int:
+    """The queue must still be the one emitted, with intact emit-time pins.
+
+    Strict `verify` asks whether every input is still current; this asks whether
+    the queue a runner may be executing is unchanged and was pinned correctly when
+    it was written. The emit commit is the last commit that wrote the queue file.
+    At that commit every pin, direct and transitive, must match its blob. The queue
+    and its direct artifacts must still match at `rev` and in the checkout. Later
+    changes to transitive plan inputs (coverage, provenance) are reported as
+    snapshot age, not failures. Missing history or blobs and malformed pins fail.
+    """
+    queue_path = QUEUE.relative_to(ROOT).as_posix()
+    plan_path = PLAN.relative_to(ROOT).as_posix()
+    failures: list[str] = []
+    aged: list[str] = []
+    emit = ""
+    try:
+        emit = subprocess.run(
+            ["git", "log", "-1", "--format=%H", rev, "--", queue_path],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+        if not emit:
+            raise ValueError(f"{queue_path}: no commit in {rev} history writes the queue")
+        written = _git_blob(queue_path, emit)
+        if not written == _git_blob(queue_path, rev) == (ROOT / queue_path).read_bytes():
+            failures.append(f"{queue_path}: differs from its emit commit {emit[:12]}")
+        direct = _pin_map(written, "pins", f"{queue_path}@{emit[:12]}")
+        if plan_path not in direct:
+            raise ValueError(f"{queue_path}@{emit[:12]}: plan {plan_path} is not pinned")
+        transitive = _pin_map(_git_blob(plan_path, emit), "inputs", f"{plan_path}@{emit[:12]}")
+        for path, pinned in sorted(direct.items()):
+            at_emit = hashlib.sha256(_git_blob(path, emit)).hexdigest()
+            now = hashlib.sha256(_git_blob(path, rev)).hexdigest()
+            local = _sha256(ROOT / path)
+            if not pinned == at_emit == now == local:
+                failures.append(
+                    f"{path}: pin {pinned[:12]} emit {at_emit[:12]} "
+                    f"{rev} {now[:12]} checkout {local[:12]}"
+                )
+        for path, pinned in sorted(transitive.items()):
+            at_emit = hashlib.sha256(_git_blob(path, emit)).hexdigest()
+            if pinned != at_emit:
+                failures.append(f"{path}: pin {pinned[:12]} emit blob {at_emit[:12]}")
+            elif _sha256(ROOT / path) != pinned:
+                aged.append(f"{path}: changed since emit {emit[:12]} (snapshot age)")
+    except (subprocess.CalledProcessError, OSError, ValueError, KeyError) as error:
+        failures.append(f"snapshot unverifiable: {error}")
+    for line in aged:
+        print(line)
+    for line in failures or [f"queue snapshot intact at emit {emit[:12]}"]:
+        print(line)
+    return 1 if failures else 0
+
+
 def summary() -> int:
     plan = _read_json(PLAN)
     resolutions, rankings = _load_caches()
@@ -924,6 +997,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     commands.add_parser("emit", help="write the runner queue, or refuse while runs are unfilled")
     pinned = commands.add_parser("verify", help="check pins against committed blobs")
     pinned.add_argument("--rev", default="HEAD")
+    pinned.add_argument(
+        "--snapshot",
+        action="store_true",
+        help="check the emitted queue's own pins, not the freshness of its inputs",
+    )
     commands.add_parser("summary", help="print dispositions and readiness")
     args = parser.parse_args(argv)
     if args.command == "plan":
@@ -936,7 +1014,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "emit":
         return emit()
     if args.command == "verify":
-        return verify(args.rev)
+        return verify_snapshot(args.rev) if args.snapshot else verify(args.rev)
     return summary()
 
 

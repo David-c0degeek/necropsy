@@ -339,3 +339,17 @@ def test_only_the_no_collection_exit_is_a_skip(repo: Path, code: int, out: str) 
         return subprocess.CompletedProcess(list(command), code, out, "")
 
     assert pr.pytest_result(run, repo, "t", [], "s").status == pr.FAIL
+
+
+def test_a_reemitted_queue_is_strict_and_research_alone_checks_the_snapshot(
+    repo: Path,
+) -> None:
+    base = git(repo, "rev-parse", "HEAD")
+    write(repo, "tasks/raid-completion/research/capture-queue-plan.json", "{}\n")
+    _, _, results = pr.gate(repo, base, False, quiet)
+    assert "capture queue snapshot" in statuses(results)
+    assert "capture queue pins" not in statuses(results)
+    write(repo, "tasks/raid-completion/capture-queue.json", "{}\n")
+    _, _, results = pr.gate(repo, base, False, quiet)
+    assert "capture queue pins" in statuses(results)
+    assert "capture queue snapshot" not in statuses(results)

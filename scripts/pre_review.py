@@ -10,7 +10,8 @@ a commit once and must be an ancestor of HEAD; nothing is fetched.
 Checks, each reported PASS, FAIL or SKIP with its command and scope:
 CRLF, missing final newline and whitespace errors in changed text files;
 ruff and ruff format on changed Python; mypy; check_docs when Markdown changed;
-capture_queue verify when the queue or its pinned research changed;
+capture_queue verify when the queue changed, or verify --snapshot when only its
+pinned research changed;
 closure_pins for changed closures, and for closures newly referenced from a
 changed coverage.json; fact_freeze check for changed files written by it; and
 pytest on changed test files plus tests/unit/test_<name>.py for a changed module
@@ -309,8 +310,14 @@ def gate(
         docs = [*uv, "python", "scripts/check_docs.py"]
         results.append(tool(run, root, "docs", docs, "Markdown"))
     if any(p.startswith(QUEUE_INPUTS) for p in found.present + found.deleted):
-        queue = [*uv, "python", "scripts/capture_queue.py", "verify"]
-        results.append(tool(run, root, "capture queue pins", queue, "queue"))
+        # A re-emitted queue must pin current inputs; otherwise the queue a runner
+        # may be executing must be intact, and later input changes are its age.
+        if QUEUE_INPUTS[0] in found.present + found.deleted:
+            queue = [*uv, "python", "scripts/capture_queue.py", "verify"]
+            results.append(tool(run, root, "capture queue pins", queue, "re-emitted queue"))
+        else:
+            queue = [*uv, "python", "scripts/capture_queue.py", "verify", "--snapshot"]
+            results.append(tool(run, root, "capture queue snapshot", queue, "emitted queue"))
     results += closure_results(root, found)
     results += fact_results(root, found)
     tests = related_tests(root, found)
