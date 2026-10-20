@@ -2488,7 +2488,7 @@
     },
     {
       "cell_id": "mc/50663/6/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
@@ -2511,6 +2511,32 @@
         "partition": 1
       },
       "references": {
+        "implementation": [
+          {
+            "path": "tests/golden/raids/closures/mc-50663-6-holy-hps-alliance.json",
+            "sha256": "2e14778e1533f4f15a7db2cbc64590b0ebef48ea09ee2bf9236243f01473c684",
+            "locator": "fields.implementation"
+          }
+        ],
+        "mechanics_and_guidance": [
+          {
+            "path": "tests/golden/raids/closures/mc-50663-6-holy-hps-alliance.json",
+            "sha256": "2e14778e1533f4f15a7db2cbc64590b0ebef48ea09ee2bf9236243f01473c684",
+            "locator": "fields.mechanics_and_guidance"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-source-review.json",
+            "sha256": "bab10f400dfebcc844c25d2e85978c50aea7399cfc99639d085cff492534116b",
+            "locator": "rule_support"
+          }
+        ],
+        "synthetic_behavior": [
+          {
+            "path": "tests/golden/raids/closures/mc-50663-6-holy-hps-alliance.json",
+            "sha256": "2e14778e1533f4f15a7db2cbc64590b0ebef48ea09ee2bf9236243f01473c684",
+            "locator": "fields.synthetic_behavior"
+          }
+        ],
         "independent_facts": [
           {
             "path": "tests/golden/raids/facts.json",
@@ -2521,10 +2547,69 @@
             "path": "tests/golden/raids/healing-facts.json",
             "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
             "locator": "mc-holy-paladin-healing-recipients-39"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-removal-facts.json",
+            "sha256": "817b60c066811095163aab1ea2ecfe5f19ed24295276751122f09900ba8d7374",
+            "locator": "lucifron-paladin-impending-doom-removals-1"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-removal-facts.json",
+            "sha256": "817b60c066811095163aab1ea2ecfe5f19ed24295276751122f09900ba8d7374",
+            "locator": "lucifron-paladin-impending-doom-removals-2"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-removal-facts.json",
+            "sha256": "817b60c066811095163aab1ea2ecfe5f19ed24295276751122f09900ba8d7374",
+            "locator": "lucifron-paladin-impending-doom-removals-3"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-removal-facts.json",
+            "sha256": "817b60c066811095163aab1ea2ecfe5f19ed24295276751122f09900ba8d7374",
+            "locator": "lucifron-paladin-impending-doom-removals-4"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-removal-facts.json",
+            "sha256": "817b60c066811095163aab1ea2ecfe5f19ed24295276751122f09900ba8d7374",
+            "locator": "lucifron-paladin-impending-doom-removals-5"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-removal-facts.json",
+            "sha256": "817b60c066811095163aab1ea2ecfe5f19ed24295276751122f09900ba8d7374",
+            "locator": "lucifron-paladin-impending-doom-removals-6"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-paladin-mechanics.json",
+            "sha256": "530c8620011d9b4964ec5848b905a8e8a863c47a97833981b0111e7f946c7360",
+            "locator": "contexts"
+          },
+          {
+            "path": "tests/golden/raids/lucifron-presence-facts.json",
+            "sha256": "13523899111e0547c54c8296086b63a8131ac00199a5f98311ccdecea15d745a",
+            "locator": "cases"
+          }
+        ],
+        "ranking_reconciliation": [
+          {
+            "path": "tests/golden/raids/hps-ranking-lucifron-paladin.json",
+            "sha256": "01d1ccaf9a69e93cbe2a711afdf569641c799d93ffcdda4c7fe2db8747666cbc",
+            "locator": "mc-lucifron-holy-paladin-hps-v1"
+          },
+          {
+            "path": "tests/golden/raids/closures/mc-50663-6-holy-hps-alliance.json",
+            "sha256": "2e14778e1533f4f15a7db2cbc64590b0ebef48ea09ee2bf9236243f01473c684",
+            "locator": "fields.ranking_reconciliation"
+          }
+        ],
+        "render_review": [
+          {
+            "path": "tests/golden/raids/closures/mc-50663-6-holy-hps-alliance.json",
+            "sha256": "2e14778e1533f4f15a7db2cbc64590b0ebef48ea09ee2bf9236243f01473c684",
+            "locator": "fields.render_review"
           }
         ]
       },
-      "note": "Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open."
+      "note": "Lucifron full-cell closure at d6a2efd: every field has durable evidence in tests/golden/raids/closures/mc-50663-6-holy-hps-alliance.json, which also records validation boundaries and limitations. The loadout outcome is a declared source limitation. Other Paladin Holy/Alliance/HPS bosses on this capture remain IN_PROGRESS."
     },
     {
       "cell_id": "mc/50664/6/Holy/hps/Alliance",
