@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "cell_id": "mc/50663/6/Holy/hps/Alliance",
+  "matrix_row": "mc,2000,50663,Lucifron,standard,6,Paladin,Holy,hps,Alliance,tests/golden/test_raid_evidence.py::test_seed_capture_replays_with_raw_arithmetic_and_correct_raid,TODO,TODO,tests/golden/raids/coverage.json#mc/50663/6/Holy/hps/Alliance,tests/golden/raids/facts.json#mc-holy-paladin-actor-41,TODO,TODO,IN_PROGRESS,agent,\"Normal installed Paladin Holy/Alliance/HPS capture: all10 personal bosses and five comparisons each.60 actor/context and58 recipient facts; two cohort empty enemy rosters remain uncertified and one Ragnaros guardian owner is unknown. Boss-specific utility, manual mechanic bounds, class/duty/faction/ranking and domain/product acceptance remain open.\"",
+  "commit": "d6a2efd5ba0e0f6f07c42da5f773e420802c395c",
+  "archive": {
+    "path": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+    "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+    "report": "kvJ2WVF1chC9R4wd",
+    "fight": 17,
+    "actor": 35
+  },
+  "evidence_files_at_closure": {
+    "src/necropsy/rules/classic_era/healer_notes.yaml": "9a9f60c1c6252e2e0a5d7874b29df1cd40fe8da2f505c2b80075eac8682ef198",
+    "src/necropsy/rules/classic_era/zones/mc.yaml": "b91c84fbd3c28839fa6c010c6b2708122e19f863e768a920025d590201a658fd",
+    "src/necropsy/rules/classic_era/zones/mc_facts.yaml": "6754b538cec1abf8cce1fb1c8e69ea088ab5f7177cde40c5f43cce8c14ac14e6",
+    "src/necropsy/rules/classic_era/zones/mc_guidance.yaml": "eb4eef45f9dceebd7c9e1542141162c7f40b1917c3f9f3b1554f2a33853e5205",
+    "tests/golden/raids/fact-specs/lucifron-paladin-mechanics.spec.json": "c3e0502ce5ab0335bb1ae80246ad30e3e6c0686461af25d8816fa22ff09f8c67",
+    "tests/golden/raids/lucifron-paladin-mechanics.json": "530c8620011d9b4964ec5848b905a8e8a863c47a97833981b0111e7f946c7360",
+    "tests/golden/raids/lucifron-removal-facts.json": "817b60c066811095163aab1ea2ecfe5f19ed24295276751122f09900ba8d7374",
+    "tests/golden/raids/lucifron-presence-facts.json": "13523899111e0547c54c8296086b63a8131ac00199a5f98311ccdecea15d745a",
+    "tests/golden/raids/hps-ranking-lucifron-paladin.json": "01d1ccaf9a69e93cbe2a711afdf569641c799d93ffcdda4c7fe2db8747666cbc",
+    "tests/golden/test_fact_freeze.py": "cfa7134aebaae24f9e4bb56e57264a523cf2e342f36c1a97dc67c19209f441fe",
+    "tests/golden/test_hps_ranking_policy.py": "5342a4e08ecbb629387510129008897ca3a5c2d6060cbbe4465b3b627ae54f8c",
+    "tests/golden/test_raid_evidence.py": "94a871711ede733c45479a5c2f3e1211c5e0691e72e09e1618c16fdead7764a3",
+    "tests/unit/test_encounter_strategy.py": "f5da1b218354166ab7bb8c4493690ac2778306d83726fb8a514bc2dc05a4ef14",
+    "tests/unit/test_removal_exposure.py": "d3c16f75e9a48fc2dd6407f15a3308a2054514348ec7f3459a09248c2dbb6266",
+    "tests/integration/test_paladin_healer_notes.py": "2f8c5a99e755313912f0d99b08e4c22feff280b713906503b3da038869c62b6f"
+  },
+  "fields": {
+    "implementation": {
+      "evidence": [
+        "tests/golden/test_raid_evidence.py::test_seed_capture_replays_with_raw_arithmetic_and_correct_raid[mc-holy-paladin-raid-context]"
+      ],
+      "note": "Pinned raw archive replays offline with the Holy category, HPS metric, Alliance faction, Era partition 1 and encounter 50663; healer duty eligibility applies."
+    },
+    "mechanics_and_guidance": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc_guidance.yaml strategy 50663 (five shared items plus four Paladin/HPS items, before/during/raid)",
+        "src/necropsy/rules/classic_era/zones/mc_guidance.yaml removals 50663 (lucifron-paladin-impending-doom-removal-v1) and mechanic_presence 50663",
+        "src/necropsy/rules/classic_era/zones/mc_facts.yaml encounter 50663 (Impending Doom, Lucifron's Curse and Dominate Mind timings with observation boundaries)",
+        "src/necropsy/rules/classic_era/healer_notes.yaml (Divine Favor, emergency cooldowns, blessings, mana capacity)",
+        "tests/unit/test_encounter_strategy.py::test_lucifron_paladin_items_cite_the_verified_source_and_split_by_class",
+        "tests/golden/raids/lucifron-source-review.json (retrieval boundary, verbatim excerpts, per-rule support and boundaries)"
+      ],
+      "categories": {
+        "preparation": "lucifron-assign-removals-v1; lucifron-paladin-cleanse-preparation-v1; lucifron-paladin-curse-range-v1 (curse range only, no position measurement)",
+        "loadout": "lucifron-paladin-healer-loadout-applicability-v1: the cited source names no Lucifron-specific Paladin healer loadout change. This is a declared source limitation, not proof that healer gearing cannot matter.",
+        "opener_and_cooldowns": "Divine Favor observation against its sourced cooldown; emergency cooldowns reported only when used, with no expected-use target",
+        "execution": "lucifron-resource-cost-v1; lucifron-paladin-doom-priority-v1",
+        "resource": "Lucifron's Curse raises ability costs (lucifron-resource-cost-v1); mana capacity absent from the log is named; mana timing and mana lost are not assessed",
+        "utility": "lucifron-paladin-impending-doom-removal-v1: observed Cleanse removals of Impending Doom and an exposure ended by the Paladin's own Cleanse; Paladin curse and Dominate Mind removal are not claimed",
+        "avoidance": "Not assessed: the source gives curse-range positioning only and these logs record no positions",
+        "raid_coordination": "lucifron-protector-coordination-v1; the Cleanse priority coordination text"
+      },
+      "sources": {
+        "https://warcraft.wiki.gg/wiki/Lucifron": "Retrieved 2026-10-20 through the implementing agent's fetch tool (wiki.gg blocks plain HTTP clients); verbatim excerpts and per-rule support are in tests/golden/raids/lucifron-source-review.json",
+        "https://www.wowhead.com/classic/spell=19702/impending-doom": "Spell details (Magic, Shadow, 10 seconds) retrieved 2026-10-20",
+        "https://www.wowhead.com/classic/spell=4987/cleanse": "Spell effects (Dispel Poison, Disease, Magic) retrieved 2026-10-20"
+      }
+    },
+    "synthetic_behavior": {
+      "evidence": [
+        "tests/unit/test_removal_exposure.py::test_lucifron_paladin_doom_policy_is_class_scoped_not_duty_scoped (positive; applies to any Paladin duty)",
+        "tests/unit/test_removal_exposure.py::test_lucifron_priest_keeps_the_generic_doom_policy (other class)",
+        "tests/unit/test_encounter_strategy.py::test_lucifron_paladin_items_cite_the_verified_source_and_split_by_class (class and metric split)",
+        "tests/unit/test_removal_exposure.py Paladin Cleanse pairing and negative cases (other owner, recipient, mechanic, timing, duplicates) shared with the Geddon policy",
+        "tests/integration/test_paladin_healer_notes.py healer-note cases (incomplete coverage, wrong duty, sparse comparisons) shared with the pilot"
+      ]
+    },
+    "real_actor_source": {
+      "evidence": [
+        "tests/golden/raids/coverage.json real_actor_source for this cell (report kvJ2WVF1chC9R4wd, fight 17, actor 35, partition 1)"
+      ]
+    },
+    "independent_facts": {
+      "evidence": [
+        "tests/golden/raids/facts.json#mc-holy-paladin-actor-41",
+        "tests/golden/raids/healing-facts.json#mc-holy-paladin-healing-recipients-39",
+        "tests/golden/raids/lucifron-removal-facts.json#lucifron-paladin-impending-doom-removals-1..6",
+        "tests/golden/raids/lucifron-paladin-mechanics.json (six fights: Impending Doom, Lucifron's Curse and Dominate Mind transitions, Cleanse and cooldown casts, Shadow Shock and Impending Doom damage)",
+        "tests/golden/raids/lucifron-presence-facts.json (boss-bound Impending Doom and Lucifron's Curse applications per fight)"
+      ],
+      "note": "Frozen from raw before the rules change and independently re-enumerated by the reviewer (132 assertions for the mechanics and removals; six presence bindings, counts and locators). The subject's five Cleanse removals of Impending Doom, its 49.976 to 52.266 s exposure ended by its own Cleanse, and the reference-fight counts match the saved analysis and both pages."
+    },
+    "ranking_reconciliation": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc.yaml ranking_metric_policies mc-lucifron-holy-paladin-hps-v1 (empirical)",
+        "tests/golden/raids/hps-ranking-lucifron-paladin.json",
+        "tests/golden/test_hps_ranking_policy.py::test_policy_scope_matches_its_frozen_evidence[mc-lucifron-holy-paladin-hps-v1]",
+        "tests/golden/test_hps_ranking_policy.py::test_published_hps_matches_raw_owner_and_owned_unit_effects (six Lucifron rows)"
+      ],
+      "note": "Twelve published amounts (six leaderboard or own rankings and six report-fight rankings) match raw heal plus absorbed amounts over the fight duration within the last published decimal; absorbed is needed for four of the six. The subject's raw rate is 23974000/77323 = 310.0500497911359 against a published 310.05, within the bound. The upstream rounding mode is not established."
+    },
+    "render_review": {
+      "pages": {
+        "command": "necropsy offline <archive> --sha256 <archive sha256> --entries <entries> --out <dir>, run from source at d6a2efd and from an unreleased candidate wheel built from d6a2efd (version string 0.5.1; not the published 0.5.1) installed in an isolated environment",
+        "candidate_wheel_sha256": "bd4d3f68a545ca241b922af68f7813db41953c31bc2dc2c72e8f516b25e87500",
+        "analysis.json": "595624513483",
+        "report.html": "8b5cb144df83",
+        "playbook.html": "3e23de90988e",
+        "package": "a6695dd4845e",
+        "source_equals_installed": true,
+        "wheel_payload": "147 package files byte-equal to Git blobs at d6a2efd; no tracked package file missing"
+      },
+      "content": [
+        "Lucifron encounter facts on both pages: the three timing texts and the wiki source link; the pages show no retrieval date",
+        "Lucifron section on both pages: the four Paladin items with their source links, the three removal rows (Lucifron's Curse 0, Impending Doom 5, Dominate Mind 0) under the shared limitation, the exposure from 49.976s to 52.266s ended by the Paladin's own Cleanse with its coordination text, the reference fight context (23.64s reference, 77.32s fight, Impending Doom 117 and Lucifron's Curse 83 recorded) and the three healer notes",
+        "Twelve exact saved texts checked on each page; none missing"
+      ],
+      "visual_checks": [
+        {
+          "slice": "Lucifron section",
+          "by": "owner (scripts/visual_check.py on the installed-wheel output, Edge 155, --theme-storage necropsy:theme --anchor boss-50663 --print)",
+          "viewports": [
+            "1440x1000 dark",
+            "1440x1000 light",
+            "390x1000 dark",
+            "390x1000 light",
+            "print CSS 1440 light"
+          ],
+          "result": "10 screens, 0 findings; rendered themes recorded and matching the request; no overflow, off-origin requests or console errors",
+          "ui_signoff": "Owner inspected five of the ten section-top pictures (report 1440 dark, report 390 light, report print, playbook 1440 light, playbook 390 dark); the other five were checked mechanically only. Whole long pages stop at 20000 px and no PDF pagination was reviewed"
+        },
+        {
+          "slice": "Lucifron encounter facts (report boss-50663-plan, playbook boss-50663-during)",
+          "by": "owner (scripts/visual_check.py on the installed-wheel output, Edge 155, --theme-storage necropsy:theme --print, one page per run with --anchor boss-50663-plan or --anchor boss-50663-during)",
+          "viewports": [
+            "1440x1000 dark",
+            "1440x1000 light",
+            "390x1000 dark",
+            "390x1000 light",
+            "print CSS 1440 light"
+          ],
+          "result": "5 + 5 screens, 0 findings",
+          "ui_signoff": "Owner inspected five facts pictures (report 1440 dark, report 390 light, playbook 1440 light, playbook 390 dark, playbook print): all three timing texts, the pinned-facts caption and the source link wrap and read correctly in both themes; the other five were checked mechanically only"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Whole report and playbook pictures stop at 20000 px; only the Lucifron section was inspected in every theme and width, and print CSS is not PDF pagination.",
+    "The reviewer could not re-fetch the wiki live (HTTP 403); its check used an indexed full-text copy of the same page.",
+    "Paladin removal of Dominate Mind stays unknown; none of the six frozen actors was controlled, which does not show absence raid-wide.",
+    "The candidate wheel is unreleased and carries version 0.5.1; no published release contains these Lucifron rules yet.",
+    "analysis.json carries the rule file's file-level retrieved date 2026-10-17 for the Lucifron facts, although their source was retrieved 2026-10-20 (stated in the entry note and the source review); the pages display no retrieval date for them. Per-entry retrieval dates need a schema change outside this cell.",
+    "Naxx whole-report controls were not rerun for this change; no Naxx rules were touched."
+  ],
+  "evidence_pinning": "Hashes are SHA-256 of the raw Git blob bytes at the closure commit (git show <commit>:<path>), not working-tree bytes; the archive pin is its LFS pointer oid. Pinned with scripts/closure_pins.py pin.",
+  "source_review": {
+    "path": "tests/golden/raids/lucifron-source-review.json",
+    "sha256": "bab10f400dfebcc844c25d2e85978c50aea7399cfc99639d085cff492534116b"
+  }
+}
