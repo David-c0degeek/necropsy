@@ -21,6 +21,7 @@ HEAD += "implementation,mechanics_and_guidance,synthetic_behavior,real_actor_sou
 HEAD += "independent_facts,ranking_reconciliation,render_review,status,owner,notes"
 CELLS = ("mc/1/6/Holy/hps/Alliance", "mc/2/6/Holy/hps/Alliance")
 FIELDS = {f: {"evidence": [f]} for f in cu.FIELDS}
+LEDGER = "tests/golden/raids/boss-source-review.json"
 ARCHIVE = hashlib.sha256(b"archive\n").hexdigest()
 
 
@@ -59,6 +60,7 @@ def repo(tmp_path: Path) -> Path:
         "rule.yaml": "rule\n",
         "raw.bin": "archive\n",
         "review.json": "{}\n",
+        LEDGER: "{}\n",
         "facts.json": "{}\n",
         cu.MATRIX: "\n".join([HEAD, row("1"), row("2")]) + "\n",
         cu.COVERAGE: json.dumps(
@@ -207,3 +209,69 @@ def test_a_cell_names_its_own_report_and_a_wrong_report_is_refused(repo: Path) -
     with pytest.raises(ValueError, match="differs from the registered source"):
         cu.register(unit, root=repo)
     assert registers(repo) == before
+
+
+def test_a_cell_names_its_own_archive_and_a_wrong_archive_is_refused(repo: Path) -> None:
+    (repo / "other.bin").write_bytes(b"other archive\n")
+    commit(repo, "second archive")
+    unit = spec({"open": "x"})
+    unit["cells"][CELLS[0]]["archive"] = "other.bin"  # type: ignore[index]
+    cu.closures(unit, "HEAD", False, root=repo)
+    closure = json.loads((repo / cu.closure_path(CELLS[0])).read_bytes())
+    assert closure["archive"]["path"] == "other.bin"
+    commit(repo, "closure on another archive")
+    before = registers(repo)
+    with pytest.raises(ValueError, match="differs from the registered source"):
+        cu.register(unit, root=repo)
+    assert registers(repo) == before
+
+
+def test_rehash_repoints_references_to_a_grown_committed_ledger(repo: Path) -> None:
+    unit = spec({"open": "x"})
+    unit["cells"][CELLS[0]]["references"]["mechanics_and_guidance"] = [  # type: ignore[index]
+        [LEDGER, "x"]
+    ]
+    cu.closures(unit, "HEAD", False, root=repo)
+    commit(repo, "closures")
+    cu.register(unit, root=repo)
+    commit(repo, "register")
+    (repo / LEDGER).write_bytes(b'{"grown": true}\n')
+    with pytest.raises(ValueError, match="differs from its HEAD blob"):
+        cu.rehash(LEDGER, root=repo)
+    commit(repo, "ledger grows")
+    assert cu.rehash(LEDGER, root=repo) == 0
+    records = json.loads((repo / cu.COVERAGE).read_bytes())["records"]
+    refs = [
+        r
+        for rec in records
+        for v in rec.get("references", {}).values()
+        for r in v
+        if r["path"] == LEDGER
+    ]
+    assert refs and {r["sha256"] for r in refs} == {
+        hashlib.sha256(b'{"grown": true}\n').hexdigest()
+    }
+
+
+def test_rehash_refuses_anything_but_a_shared_source_ledger(repo: Path) -> None:
+    unit = spec({"open": "x"})
+    unit["cells"][CELLS[0]]["fight"] = 9  # type: ignore[index]
+    cu.closures(unit, "HEAD", False, root=repo)
+    commit(repo, "closure with the wrong identity")
+    before = registers(repo)
+    for path in (cu.closure_path(CELLS[0]), "facts.json", "raw.bin"):
+        with pytest.raises(ValueError, match="not a shared source ledger"):
+            cu.rehash(path, root=repo)
+    assert registers(repo) == before
+
+
+def test_registration_fills_the_source_and_facts_columns_of_a_todo_row(repo: Path) -> None:
+    unit = spec({"open": "x"})
+    cu.closures(unit, "HEAD", False, root=repo)
+    commit(repo, "closures")
+    cu.register(unit, root=repo)
+    rows = (repo / cu.MATRIX).read_text(encoding="utf-8").splitlines()
+    head, row = rows[0].split(","), rows[1].split(",")
+    assert row[head.index("real_actor_source")] == f"{cu.COVERAGE}#{CELLS[0]}"
+    assert row[head.index("independent_facts")] == "facts.json#case-1"
+    assert "TODO" not in row

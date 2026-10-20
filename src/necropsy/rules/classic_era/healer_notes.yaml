@@ -57,3 +57,38 @@ classes:
         ability_ids: [25890]
       - name: Greater Blessing of Sanctuary
         ability_ids: [25899]
+  7:
+    # 14751 appears as "Chakra" in these reports' ability tables; matching is by ID.
+    planned_cooldowns:
+    - name: Inner Focus
+      ability_ids: [14751]
+      complete_ids: true
+      cooldown_s: 180
+      source: https://www.wowhead.com/classic/spell=14751
+      retrieved: '2026-10-20'
+    - name: Power Infusion
+      ability_ids: [10060]
+      complete_ids: true
+      cooldown_s: 180
+      source: https://www.wowhead.com/classic/spell=10060
+      retrieved: '2026-10-20'
+    emergency_cooldowns:
+    # Only the observed rank is listed, so a cast named Desperate Prayer under
+    # another ID leaves the group unresolved instead of absent.
+    - name: Desperate Prayer
+      ability_ids: [19243]
+  9:
+    # 16188 appears as "Ancestral Swiftness" in these reports' ability tables.
+    planned_cooldowns:
+    - name: Nature's Swiftness
+      ability_ids: [16188]
+      complete_ids: true
+      cooldown_s: 180
+      source: https://www.wowhead.com/classic/spell=16188
+      retrieved: '2026-10-20'
+    - name: Mana Tide Totem
+      ability_ids: [16190, 17354, 17359]
+      complete_ids: true
+      cooldown_s: 300
+      source: https://www.wowhead.com/classic/spell=17359
+      retrieved: '2026-10-20'

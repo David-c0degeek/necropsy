@@ -3,6 +3,7 @@
 Usage: uv run python scripts/close_unit.py closures SPEC --commit REV [--replace]
        (commit the closure files)
        uv run python scripts/close_unit.py register SPEC
+       uv run python scripts/close_unit.py rehash PATH   (a shared ledger changed)
 
 A unit spec (JSON) holds what its cells share once and what differs per cell:
 
@@ -11,14 +12,16 @@ A unit spec (JSON) holds what its cells share once and what differs per cell:
      "evidence_files": [paths pinned in every closure],
      "source_review": path, "evidence_pinning": text,
      "shared": {"fields": {...}, "limitations": [...]},
-     "cells": {CELL_ID: {"fight": N, "actor": N, "report": code?, "source_review": path?,
+     "cells": {CELL_ID: {"fight": N, "actor": N, "report": code?, "archive": path?,
+                         "source_review": path?,
                          "fields": {...}, "limitations": [...],
                          "references": {DIMENSION: [[path, locator], ...]},
                          "coverage_note": text, "matrix_note": text}
                | {"open": reason}}}
 
-A cell's own "report" replaces the unit archive's report, since one capture
-holds fights from many reports. `closures` merges the shared and per-cell
+A cell's own "report" and "archive" replace the unit's: one capture holds
+fights from many reports, and a cell's registered source can be another archive.
+`closures` merges the shared and per-cell
 fields (nested objects merge, a cell's value replaces any other), appends the
 cell's limitations to the shared ones,
 writes tests/golden/raids/closures/<raid>-<encounter>-<class>-<category>-<metric>-
@@ -45,6 +48,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -68,6 +72,7 @@ FIELDS = (
     "ranking_reconciliation",
     "render_review",
 )
+SHARED_LEDGER = re.compile(r"tests/golden/raids/[a-z0-9-]+-source-review\.json")
 MATRIX_KEY = ("raid", "encounter_id", "class_id", "category", "metric", "faction")
 
 
@@ -121,7 +126,7 @@ def build(spec: dict[str, Any], cell_id: str, matrix: str) -> dict[str, Any]:
         "matrix_row": matrix,
         "commit": "",
         "archive": {
-            "path": spec["archive"]["path"],
+            "path": cell.get("archive") or spec["archive"]["path"],
             "sha256": "",
             "report": cell.get("report") or spec["archive"]["report"],
             "fight": cell["fight"],
@@ -249,8 +254,11 @@ def register(spec: dict[str, Any], root: Path = ROOT) -> int:
         record.update(status="COMPLETE", references=references, note=cell["coverage_note"])
         row = matrix_row(rows, cell_id)
         ranking = next(iter(extra.get("ranking_reconciliation", ())), None)
+        facts = references["independent_facts"][0]
         values = {
             "implementation": f"{closure}#fields.implementation",
+            "real_actor_source": f"{COVERAGE}#{cell_id}",
+            "independent_facts": f"{facts['path']}#{facts['locator']}",
             "mechanics_and_guidance": f"{closure}#fields.mechanics_and_guidance",
             "synthetic_behavior": f"{closure}#fields.synthetic_behavior",
             "ranking_reconciliation": f"{ranking[0]}#{ranking[1]}"
@@ -272,6 +280,34 @@ def register(spec: dict[str, Any], root: Path = ROOT) -> int:
     return 0
 
 
+def rehash(path: str, root: Path = ROOT) -> int:
+    """Point every coverage reference to PATH at its committed HEAD blob.
+
+    A shared ledger (a boss-major source review, for example) can grow after
+    earlier cells registered it; their references then name an older hash. The
+    file must be committed and unchanged; closures keep their own commit pins.
+    Only shared source ledgers qualify: a closure or any other evidence file
+    carries identity that only a full registration may check.
+    """
+    if not SHARED_LEDGER.fullmatch(path):
+        raise ValueError(f"{path} is not a shared source ledger; register its cells instead")
+    blob = _committed(root, path)
+    digest = hashlib.sha256(blob).hexdigest()
+    coverage = json.loads((root / COVERAGE).read_text(encoding="utf-8"))
+    changed = 0
+    for record in coverage["records"]:
+        for refs in record.get("references", {}).values():
+            for ref in refs:
+                if ref["path"] == path and ref["sha256"] != digest:
+                    ref["sha256"] = digest
+                    changed += 1
+    (root / COVERAGE).write_bytes(
+        (json.dumps(coverage, indent=2, ensure_ascii=False) + "\n").encode()
+    )
+    print(f"{path}: {changed} reference(s) now name {digest[:12]}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = parser.add_subparsers(dest="command", required=True)
@@ -281,7 +317,15 @@ def main(argv: list[str] | None = None) -> int:
     write.add_argument("--replace", action="store_true")
     reg = sub.add_parser("register", help="register committed closures as COMPLETE")
     reg.add_argument("spec", type=Path)
+    again = sub.add_parser("rehash", help="re-point coverage references to a committed file")
+    again.add_argument("path")
     args = parser.parse_args(argv)
+    if args.command == "rehash":
+        try:
+            return rehash(args.path)
+        except (ValueError, OSError) as error:
+            print(f"refused: {error}", file=sys.stderr)
+            return 2
     spec = json.loads(args.spec.read_text(encoding="utf-8"))
     try:
         if args.command == "closures":

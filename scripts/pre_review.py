@@ -66,6 +66,7 @@ TRAILING = re.compile(rb"[ \t]+\r?\n")
 CI_MARKERS = "not golden and not live and not acceptance"
 GOLDEN = "tests/golden/test_raid_evidence.py"
 # Zone rule files whose changes reach only that raid's saved analyses.
+RULES = "src/necropsy/rules/"
 ZONE_RULES = re.compile(r"^src/necropsy/rules/classic_era/zones/(mc|bwl|aq40)(_[a-z]+)?\.yaml$")
 PASS, FAIL, SKIP = "PASS", "FAIL", "SKIP"
 
@@ -335,14 +336,19 @@ def golden_run(found: Changes, tests: list[str], golden_k: str | None) -> tuple[
     """The golden replay selection: a targeted -k run is labelled as such.
 
     A changed golden test file runs the whole file unless an explicit expression is
-    given; changed zone rules alone run that raid's seed replays, which the
-    file-name heuristic would otherwise skip entirely.
+    given; changed zone rules alone run that raid's seed replays, and any other
+    changed rule file runs every seed replay, which the file-name heuristic would
+    otherwise skip entirely.
     """
     if GOLDEN in tests:
         if golden_k:
             return golden_k, f"targeted -k {golden_k!r}, NOT the full golden file"
         return "", "full golden file"
-    raids = sorted({m[1] for p in found.present if (m := ZONE_RULES.match(p))})
+    rules = [p for p in found.present if p.startswith(RULES) and p.endswith(".yaml")]
+    if any(not ZONE_RULES.match(p) for p in rules):
+        # A shared (non-zone) rule file can change every raid's analyses.
+        return "seed_capture", "shared rules changed: every seed replay"
+    raids = sorted({m[1] for p in rules if (m := ZONE_RULES.match(p))})
     if not raids:
         return None
     expression = "seed_capture and (" + " or ".join(f"{r}-" for r in raids) + ")"

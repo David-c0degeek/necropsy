@@ -430,3 +430,14 @@ def test_every_test_run_keeps_its_complete_output_in_its_own_log(repo: Path) -> 
     crashed = pr.pytest_result(crash, repo, "golden replays", [], "s")
     assert crashed.status == pr.FAIL and "no pytest summary" in crashed.detail
     assert git(repo, "status", "--porcelain") == ""
+
+
+def test_a_shared_rule_file_runs_every_seed_replay(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.delenv("NECROPSY_GATE_WORKERS", raising=False)
+    base = git(repo, "rev-parse", "HEAD")
+    write(repo, "src/necropsy/rules/classic_era/zones/mc.yaml", "x: 1\n")
+    write(repo, "src/necropsy/rules/classic_era/healer_notes.yaml", "x: 1\n")
+    (command,) = _commands(repo, base)
+    assert command[-7:-5] == ["-k", "seed_capture"]
