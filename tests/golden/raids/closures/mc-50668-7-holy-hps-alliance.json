@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "cell_id": "mc/50668/7/Holy/hps/Alliance",
+  "matrix_row": "mc,2000,50668,Baron Geddon,standard,7,Priest,Holy,hps,Alliance,tests/golden/test_raid_evidence.py::test_seed_capture_replays_with_raw_arithmetic_and_correct_raid,TODO,TODO,tests/golden/raids/coverage.json#mc/50668/7/Holy/hps/Alliance,tests/golden/raids/facts.json#mc-holy-raid-context-333,TODO,TODO,IN_PROGRESS,agent,\"Normal installed full-raid format2 capture;120 player directions and114 global scopes complete, two pet ownership listings remain missing. Independent actor/recipient/context facts; full duty, physical opportunity, ranking and acceptance remain open. Independently frozen Geddon Priest removal facts: one owned effect and five known-zero contexts; exposure pairing does not establish reaction quality or opportunity.\"",
+  "commit": "8084ae7276ab3c82e45c0e13ab605762e0a6f976",
+  "archive": {
+    "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+    "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+    "report": "fdRrFwaKmvy3xJZD",
+    "fight": 10,
+    "actor": 7
+  },
+  "evidence_files_at_closure": {
+    "src/necropsy/rules/classic_era/zones/mc.yaml": "7a3c0dcb5b7079f053c3cae7690a7529df9bfb5d109d39c37fa4b3d4cdb3771f",
+    "src/necropsy/rules/classic_era/zones/mc_facts.yaml": "6754b538cec1abf8cce1fb1c8e69ea088ab5f7177cde40c5f43cce8c14ac14e6",
+    "src/necropsy/rules/classic_era/zones/mc_guidance.yaml": "84de264359812abeaa6a7333caeb7213889aabaa591523c7fb67522a31185ace",
+    "tests/golden/raids/hps-ranking-garr-holy-priest.json": "ce7bf83890764ee7a4f4610746cf673102f6921b41542541bf6137caa0077085",
+    "tests/golden/raids/hps-ranking-geddon-holy-priest.json": "75a677119981f518357697c8b3c0d178bdbb685e445054909f4f418057571417",
+    "tests/golden/raids/hps-ranking-gehennas-holy-priest.json": "da1e3eb59b22f12f92d8b4ed4eefd65d6ace9c811fb7bd7e1f102249878d06ee",
+    "tests/golden/raids/hps-ranking-golemagg-holy-priest.json": "f78b6ae6e027ac68f84389481a0b4a36a0c1c23106d9fee9fce67310bed9fc3c",
+    "tests/golden/raids/hps-ranking-lucifron-holy-priest.json": "ffe3a231b672a1f89fe0808e4981380e2d37f28d538667cb04fe2a0d86f02778",
+    "tests/golden/raids/hps-ranking-majordomo-holy-priest.json": "dee4b23f532967749037405ab69122f48f720e6a06b0d88668e6358e5458e071",
+    "tests/golden/raids/hps-ranking-shazzrah-holy-priest.json": "96364ebcb4e9d4005e12a0edfb511a04b27138e7ccb652d5c39ff6cf84665360",
+    "tests/golden/raids/hps-ranking-sulfuron-holy-priest.json": "c321d219368efc5e0ac7e3184c69712663c12b759ef30f81dbfe0db118fbac6c",
+    "scripts/freeze_hps_ranking.py": "6677c3eb938fde47219851eb625b49ca6f39cde92248d00d306366af6fc90fbe",
+    "tests/golden/test_hps_ranking_policy.py": "6356d16146e2d8c0ac8c75c6c2a5d96ee667b00dc7fc27a85301026c7f00e9ec",
+    "tests/golden/test_raid_evidence.py": "94a871711ede733c45479a5c2f3e1211c5e0691e72e09e1618c16fdead7764a3",
+    "tests/unit/test_encounter_strategy.py": "b387ad62efc0a337d483d85fe4eef4d32f69abb9a1d674f947723112d5dd3a8b"
+  },
+  "fields": {
+    "implementation": {
+      "evidence": [
+        "tests/golden/test_raid_evidence.py::test_seed_capture_replays_with_raw_arithmetic_and_correct_raid[mc-holy-raid-context]"
+      ],
+      "note": "Pinned raw archive replays offline with the Holy category, HPS metric, Alliance faction and Era partition 1; healer duty eligibility applies."
+    },
+    "mechanics_and_guidance": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc_guidance.yaml strategy 50668 (shared and earlier class items plus 3 Holy Priest/HPS items: geddon-priest-ignite-mana-preparation-v1, geddon-priest-healer-position-v1, geddon-priest-healer-loadout-applicability-v1)",
+        "src/necropsy/rules/classic_era/zones/mc_facts.yaml encounter 50668",
+        "tests/unit/test_encounter_strategy.py::test_mc_priest_and_shaman_healer_items_cite_the_boss_wiki_and_reach_only_that_class[7-priest-50668]",
+        "tests/golden/raids/geddon-source-review.json (verbatim excerpts, retrieval method and boundaries)"
+      ],
+      "categories": {
+        "preparation": [
+          "geddon-bomb-route-and-coverage-v1",
+          "geddon-priest-ignite-mana-preparation-v1",
+          "geddon-priest-healer-position-v1"
+        ],
+        "loadout": [
+          "geddon-priest-healer-loadout-applicability-v1"
+        ],
+        "opener_and_cooldowns": "healer-class-notes-v1 class notes record Inner Focus and Power Infusion (planned, sourced 3-minute cooldowns) and Desperate Prayer (emergency) as observations with no expected-use target, beside the recorded opener and ability mix against comparisons",
+        "execution": [
+          "geddon-healer-bomb-coverage-v1",
+          "geddon-bomb-and-inferno-recovery-v1"
+        ],
+        "resource": "not assessed: the cited source names no mana or resource demand for this boss; the class notes record the mana cooldowns as observations",
+        "utility": [
+          "geddon-magic-removal-v1",
+          "geddon-priest-ignite-mana-removal-v1"
+        ],
+        "avoidance": [
+          "geddon-bomb-and-inferno-recovery-v1",
+          "geddon-priest-healer-position-v1"
+        ],
+        "raid_coordination": [
+          "geddon-bomb-and-dispel-backup-v1"
+        ]
+      },
+      "sources": {
+        "https://warcraft.wiki.gg/wiki/Baron_Geddon": "Excerpts and retrieval in tests/golden/raids/geddon-source-review.json"
+      }
+    },
+    "synthetic_behavior": {
+      "evidence": [
+        "tests/unit/test_encounter_strategy.py::test_mc_priest_and_shaman_healer_items_cite_the_boss_wiki_and_reach_only_that_class (class and metric split per boss)",
+        "tests/golden/test_hps_ranking_policy.py applicable wrong-policy failures per row"
+      ]
+    },
+    "real_actor_source": {
+      "evidence": [
+        "tests/golden/raids/coverage.json real_actor_source for this cell (report fdRrFwaKmvy3xJZD, fight 10, actor 7, partition 1)"
+      ]
+    },
+    "independent_facts": {
+      "evidence": [
+        "tests/golden/raids/facts.json#mc-holy-raid-context-333",
+        "tests/golden/raids/healing-facts.json#healing-mc-holy-raid-context-333",
+        "tests/golden/raids/removal-facts.json#geddon-priest-ignite-mana-removals-1",
+        "tests/golden/raids/removal-facts.json#geddon-priest-ignite-mana-removals-2",
+        "tests/golden/raids/removal-facts.json#geddon-priest-ignite-mana-removals-3",
+        "tests/golden/raids/removal-facts.json#geddon-priest-ignite-mana-removals-4",
+        "tests/golden/raids/removal-facts.json#geddon-priest-ignite-mana-removals-5",
+        "tests/golden/raids/removal-facts.json#geddon-priest-ignite-mana-removals-6",
+        "tests/golden/raids/hps-ranking-geddon-holy-priest.json (six raw-frozen ranking rows)"
+      ],
+      "note": "Actor and recipient facts were frozen from raw before registration; the six ranking rows were frozen from raw with scripts/freeze_hps_ranking.py. Personal removal duties are not measured for this cell."
+    },
+    "ranking_reconciliation": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc.yaml ranking_metric_policies mc-geddon-holy-priest-hps-v1 (empirical)",
+        "tests/golden/raids/hps-ranking-geddon-holy-priest.json",
+        "tests/golden/test_hps_ranking_policy.py::test_policy_scope_matches_its_frozen_evidence[mc-geddon-holy-priest-hps-v1]",
+        "tests/golden/test_hps_ranking_policy.py::test_published_hps_matches_raw_owner_and_owned_unit_effects (six rows)"
+      ],
+      "note": "13 published amounts for six Baron Geddon Holy Priest rows match raw heal plus absorbed amounts over the fight duration within the last published decimal; absorbed is needed for 1 of the six. The cell's actor Almsivi has a raw rate of 22344 * 1000 / 16240 ms = 1375.8620689655172 HPS against published 1375.86, within the bound. The golden test rejects the applicable wrong policies for every row: overheal included, duration plus 1 s and another actor's amounts; dropping absorbed is rejected only for the 1 row with nonzero absorption; these six rows list no owned units, so no owned-unit mutation is exercised here. The upstream rounding mode is not established."
+    },
+    "render_review": {
+      "pages": {
+        "command": "scripts/render_parity.py on the pinned archive at 8084ae7276ab: wheel built in a detached worktree, installed with --no-deps into a new environment beside the hashed runtime requirements, rendered from the worktree's own source and from the installed wheel (unreleased candidate; version 0.5.1)",
+        "receipt": "workspace/rp-u2-8084ae7/receipt.json (not committed; its values are recorded here)",
+        "candidate_wheel_sha256": "0c30cc0fbe1fd6d6f520f5b17616521135196b96df63f7af0b61791ac9fdb8b2",
+        "wheel_payload": "147 package files byte-equal to Git blobs; none missing, none outside Git",
+        "analysis.json": "d603b7409535",
+        "report.html": "b38afa3bb386",
+        "playbook.html": "2d5c6567cc95",
+        "package": "adc93f6282c9",
+        "source_equals_installed": true
+      },
+      "content": [
+        "Every boss's saved strategy items, encounter fact timings, class notes and removal labels appear, complete and normalized, inside that boss's own section on both pages: 0 missing texts and 0 missing sections across 10 bosses, from source and installed (0 missing from source)"
+      ],
+      "visual_checks": [
+        {
+          "slice": "Every boss section and its facts section (report boss-<id>-plan, playbook boss-<id>-during)",
+          "by": "owner via render_parity (pinned scripts/visual_check.py 06f45bed3528, Edge, --theme-storage necropsy:theme, --print, 20 anchors per page)",
+          "viewports": [
+            "1440x1000 dark",
+            "1440x1000 light",
+            "390x1000 dark",
+            "390x1000 light",
+            "print CSS 1440 light"
+          ],
+          "result": "report.html: 5 screens, 0 with findings; playbook.html: 5 screens, 0 with findings",
+          "ui_signoff": "Owner inspected report 1440 dark at boss-50669 (Sulfuron: the new Inner Focus and Power Infusion class notes) from this receipt, and at d09276d the playbook 390 dark Sulfuron and report 1440 dark Geddon pictures, whose content is unchanged; the rest were checked mechanically only. Whole long pages stop at 20000 px and no PDF pagination was reviewed"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Whole report and playbook pictures stop at 20000 px; anchored section and facts pictures cover every boss, and print CSS is not PDF pagination.",
+    "Source excerpts were extracted by the fetch tool's model from the converted page and split long sentences; the source reviews record the method and their conflicts.",
+    "The candidate wheel is unreleased and carries version 0.5.1; no published release contains these rules yet.",
+    "These logs record no positions; positioning guidance is the guide's advice to confirm, never an assessed outcome.",
+    "Naxx whole-report controls were not rerun; no Naxx rules were touched.",
+    "Holy Priest removal and support duties for this boss are guidance only: personal removals, assignments and opportunities are not measured, and nothing here claims zero opportunity, N/A or completed personal utility assessment. Measured boss-major removal work stays open.",
+    "Class cooldowns are recorded observations only: availability before and during the fight is unmeasured, and no note grades a missed or late use."
+  ],
+  "evidence_pinning": "Hashes are SHA-256 of the raw Git blob bytes at the closure commit (git show <commit>:<path>), not working-tree bytes; the archive pin is its LFS pointer oid. Pinned with scripts/close_unit.py (closure_pins).",
+  "source_review": {
+    "path": "tests/golden/raids/geddon-source-review.json",
+    "sha256": "98aa6372d79556a8aa9b4fa28030a282790b6c88ccc7570225058f9339742a6d"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "cell_id": "mc/50671/9/Restoration/hps/Horde",
+  "matrix_row": "mc,2000,50671,Majordomo Executus,standard,9,Shaman,Restoration,hps,Horde,TODO,TODO,TODO,TODO,TODO,TODO,TODO,IN_PROGRESS,agent,\"All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open.\"",
+  "commit": "8084ae7276ab3c82e45c0e13ab605762e0a6f976",
+  "archive": {
+    "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+    "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+    "report": "GDjyfQ4BW29cwd7J",
+    "fight": 36,
+    "actor": 18
+  },
+  "evidence_files_at_closure": {
+    "src/necropsy/rules/classic_era/zones/mc.yaml": "7a3c0dcb5b7079f053c3cae7690a7529df9bfb5d109d39c37fa4b3d4cdb3771f",
+    "src/necropsy/rules/classic_era/zones/mc_facts.yaml": "6754b538cec1abf8cce1fb1c8e69ea088ab5f7177cde40c5f43cce8c14ac14e6",
+    "src/necropsy/rules/classic_era/zones/mc_guidance.yaml": "84de264359812abeaa6a7333caeb7213889aabaa591523c7fb67522a31185ace",
+    "tests/golden/raids/hps-ranking-garr-restoration-shaman.json": "7a10e90af7f7c62c0b0aecb33ca9bb02d0d17984aebe0176b065c96391c0dfa9",
+    "tests/golden/raids/hps-ranking-geddon-restoration-shaman.json": "b1a3e72ac5ec09a33e3fe4a94ab85f8625406b27821cf5ef32689f1eb4849091",
+    "tests/golden/raids/hps-ranking-gehennas-restoration-shaman.json": "f785ea4bc7875ade11810389629b4aaa04c11f09f2ec053c69f2a07838aab56e",
+    "tests/golden/raids/hps-ranking-golemagg-restoration-shaman.json": "036406bd33e7a7bb82764282284739369c312c04afa08567300b96c562a096dd",
+    "tests/golden/raids/hps-ranking-lucifron-restoration-shaman.json": "8fc59f9491967252caf2d05f6ac6d619acfbccada8e0ee3ae299a3e707c2865e",
+    "tests/golden/raids/hps-ranking-majordomo-restoration-shaman.json": "64f14265786e3ba4defa76f4486948d0777b7c75981e836072512bf2e224e5f6",
+    "tests/golden/raids/hps-ranking-ragnaros-restoration-shaman.json": "4745934df2ffe1ba3fc88f9c59da43194a31b73ba5b2743e67c009b8a768331e",
+    "tests/golden/raids/hps-ranking-shazzrah-restoration-shaman.json": "edef378484a0bee08ff9fc671015a4a1d5cbd527b4c0baf585c9b2099834cd56",
+    "tests/golden/raids/hps-ranking-sulfuron-restoration-shaman.json": "7b3c73993249a4e8828acb0c0b49394e9e15f24992e8aeab298e1f515094fff3",
+    "scripts/freeze_hps_ranking.py": "6677c3eb938fde47219851eb625b49ca6f39cde92248d00d306366af6fc90fbe",
+    "tests/golden/test_hps_ranking_policy.py": "6356d16146e2d8c0ac8c75c6c2a5d96ee667b00dc7fc27a85301026c7f00e9ec",
+    "tests/golden/test_raid_evidence.py": "94a871711ede733c45479a5c2f3e1211c5e0691e72e09e1618c16fdead7764a3",
+    "tests/unit/test_encounter_strategy.py": "b387ad62efc0a337d483d85fe4eef4d32f69abb9a1d674f947723112d5dd3a8b"
+  },
+  "fields": {
+    "implementation": {
+      "evidence": [
+        "tests/golden/test_raid_evidence.py::test_seed_capture_replays_with_raw_arithmetic_and_correct_raid[mc-restoration-shaman-raid-context]"
+      ],
+      "note": "Pinned raw archive replays offline with the Restoration category, HPS metric, Horde faction and Era partition 1; healer duty eligibility applies."
+    },
+    "mechanics_and_guidance": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc_guidance.yaml strategy 50671 (shared and earlier class items plus 4 Restoration Shaman/HPS items: majordomo-shaman-teleport-position-v1, majordomo-shaman-mana-efficiency-v1, majordomo-shaman-pull-roles-source-v1, majordomo-shaman-healer-loadout-applicability-v1)",
+        "src/necropsy/rules/classic_era/zones/mc_facts.yaml encounter 50671",
+        "tests/unit/test_encounter_strategy.py::test_mc_priest_and_shaman_healer_items_cite_the_boss_wiki_and_reach_only_that_class[9-shaman-50671]",
+        "tests/golden/raids/mc-boss-source-review.json (verbatim excerpts, retrieval method and boundaries)"
+      ],
+      "categories": {
+        "preparation": [
+          "majordomo-shaman-teleport-position-v1",
+          "majordomo-add-and-control-jobs-v1"
+        ],
+        "loadout": [
+          "majordomo-shaman-healer-loadout-applicability-v1"
+        ],
+        "opener_and_cooldowns": "healer-class-notes-v1 class notes record Nature's Swiftness (3 minutes) and Mana Tide Totem (5 minutes), both planned and sourced as observations with no expected-use target, beside the recorded opener and ability mix against comparisons",
+        "execution": [
+          "majordomo-healing-coverage-v1",
+          "majordomo-target-shields-v1"
+        ],
+        "resource": "majordomo-shaman-mana-efficiency-v1; majordomo-shaman-mana-efficiency-v1 (a test of healer mana efficiency); mana timing and mana lost are not measured",
+        "utility": "not assessed: the cited source names no Shaman role",
+        "avoidance": [
+          "majordomo-shaman-teleport-position-v1"
+        ],
+        "raid_coordination": [
+          "majordomo-shaman-pull-roles-source-v1",
+          "majordomo-control-and-recovery-v1"
+        ]
+      },
+      "sources": {
+        "https://warcraft.wiki.gg/wiki/Majordomo_Executus": "Excerpts and retrieval in tests/golden/raids/mc-boss-source-review.json"
+      }
+    },
+    "synthetic_behavior": {
+      "evidence": [
+        "tests/unit/test_encounter_strategy.py::test_mc_priest_and_shaman_healer_items_cite_the_boss_wiki_and_reach_only_that_class (class and metric split per boss)",
+        "tests/golden/test_hps_ranking_policy.py applicable wrong-policy failures per row"
+      ]
+    },
+    "real_actor_source": {
+      "evidence": [
+        "tests/golden/raids/coverage.json real_actor_source for this cell (report GDjyfQ4BW29cwd7J, fight 36, actor 18, partition 1)"
+      ]
+    },
+    "independent_facts": {
+      "evidence": [
+        "tests/golden/raids/facts.json#mc-restoration-shaman-actor-9",
+        "tests/golden/raids/healing-facts.json#mc-restoration-shaman-healing-recipients-9",
+        "tests/golden/raids/hps-ranking-majordomo-restoration-shaman.json (six raw-frozen ranking rows)"
+      ],
+      "note": "Actor and recipient facts were frozen from raw before registration; the six ranking rows were frozen from raw with scripts/freeze_hps_ranking.py. Personal removal duties are not measured for this cell."
+    },
+    "ranking_reconciliation": {
+      "evidence": [
+        "src/necropsy/rules/classic_era/zones/mc.yaml ranking_metric_policies mc-majordomo-restoration-shaman-hps-v1 (empirical)",
+        "tests/golden/raids/hps-ranking-majordomo-restoration-shaman.json",
+        "tests/golden/test_hps_ranking_policy.py::test_policy_scope_matches_its_frozen_evidence[mc-majordomo-restoration-shaman-hps-v1]",
+        "tests/golden/test_hps_ranking_policy.py::test_published_hps_matches_raw_owner_and_owned_unit_effects (six rows)"
+      ],
+      "note": "12 published amounts for six Majordomo Executus Restoration Shaman rows match raw heal plus absorbed amounts over the fight duration within the last published decimal; absorbed is needed for 3 of the six. The cell's actor Rumpldoc has a raw rate of 64165 * 1000 / 86061 ms = 745.5758125050836 HPS against published 745.576, within the bound. The golden test rejects the applicable wrong policies for every row: overheal included, duration plus 1 s and another actor's amounts; dropping absorbed is rejected only for the 3 rows with nonzero absorption; dropping owned units is rejected only for the 5 rows that list owned units. The upstream rounding mode is not established."
+    },
+    "render_review": {
+      "pages": {
+        "command": "scripts/render_parity.py on the pinned archive at 8084ae7276ab: wheel built in a detached worktree, installed with --no-deps into a new environment beside the hashed runtime requirements, rendered from the worktree's own source and from the installed wheel (unreleased candidate; version 0.5.1)",
+        "receipt": "workspace/rp-u3-8084ae7/receipt.json (not committed; its values are recorded here)",
+        "candidate_wheel_sha256": "0c30cc0fbe1fd6d6f520f5b17616521135196b96df63f7af0b61791ac9fdb8b2",
+        "wheel_payload": "147 package files byte-equal to Git blobs; none missing, none outside Git",
+        "analysis.json": "64cc41342392",
+        "report.html": "fb9390ed5580",
+        "playbook.html": "5de380112cf2",
+        "package": "6e28034eaf92",
+        "source_equals_installed": true
+      },
+      "content": [
+        "Every boss's saved strategy items, encounter fact timings, class notes and removal labels appear, complete and normalized, inside that boss's own section on both pages: 0 missing texts and 0 missing sections across 10 bosses, from source and installed (0 missing from source)"
+      ],
+      "visual_checks": [
+        {
+          "slice": "Every boss section and its facts section (report boss-<id>-plan, playbook boss-<id>-during)",
+          "by": "owner via render_parity (pinned scripts/visual_check.py 06f45bed3528, Edge, --theme-storage necropsy:theme, --print, 20 anchors per page)",
+          "viewports": [
+            "1440x1000 dark",
+            "1440x1000 light",
+            "390x1000 dark",
+            "390x1000 light",
+            "print CSS 1440 light"
+          ],
+          "result": "report.html: 5 screens, 0 with findings; playbook.html: 5 screens, 0 with findings",
+          "ui_signoff": "Owner inspected playbook 390 light at boss-50663-during (Lucifron: the corrected Horde Impending Doom wording) from this receipt, and at d09276d the playbook 1440 light Garr and print Ragnaros pictures; the rest were checked mechanically only. Whole long pages stop at 20000 px and no PDF pagination was reviewed"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Whole report and playbook pictures stop at 20000 px; anchored section and facts pictures cover every boss, and print CSS is not PDF pagination.",
+    "Source excerpts were extracted by the fetch tool's model from the converted page and split long sentences; the source reviews record the method and their conflicts.",
+    "The candidate wheel is unreleased and carries version 0.5.1; no published release contains these rules yet.",
+    "These logs record no positions; positioning guidance is the guide's advice to confirm, never an assessed outcome.",
+    "Naxx whole-report controls were not rerun; no Naxx rules were touched.",
+    "Restoration Shaman removal and support duties for this boss are guidance only: personal removals, assignments and opportunities are not measured, and nothing here claims zero opportunity, N/A or completed personal utility assessment. Measured boss-major removal work stays open.",
+    "Class cooldowns are recorded observations only: availability before and during the fight is unmeasured, and no note grades a missed or late use."
+  ],
+  "evidence_pinning": "Hashes are SHA-256 of the raw Git blob bytes at the closure commit (git show <commit>:<path>), not working-tree bytes; the archive pin is its LFS pointer oid. Pinned with scripts/close_unit.py (closure_pins).",
+  "source_review": {
+    "path": "tests/golden/raids/mc-boss-source-review.json",
+    "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb"
+  }
+}
