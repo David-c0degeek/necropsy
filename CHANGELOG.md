@@ -16,6 +16,12 @@ Development changes appear under **Unreleased** until built and published.
 - Lucifron pages now show sourced encounter facts for Impending Doom,
   Lucifron's Curse and Dominate Mind, for every class.
 
+## 0.5.2 - 2026-10-20
+
+- Treat an exhausted Warcraft Logs hourly budget reported mid-request ("no
+  database points remaining" with partial data) as a quota stop that waits for
+  the reset and resumes, instead of a failed capture.
+
 ## 0.5.1 - 2026-10-19
 
 - Fix a crash that stopped the report when a Hunter analysis of Molten Core,

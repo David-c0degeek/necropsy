@@ -309,6 +309,20 @@ def test_partial_rate_limit_response_is_not_saved(tmp_path: Path) -> None:
     client.close()
 
 
+def test_exhausted_points_in_a_partial_response_is_a_quota_stop(tmp_path: Path) -> None:
+    from necropsy.wcl.checkpoint import Journal
+
+    # Seen on Tower: the hourly budget ran out mid-request and WCL answered with
+    # partial data and this error instead of a throttling response.
+    script = Script(ok({"x": None}, errors=[{"message": "no database points remaining"}]))
+    client = _client(script)
+    client.journal = Journal(tmp_path / "requests")
+    with pytest.raises(c.RateLimited):
+        client.query(Q)
+    assert not list(client.journal.root.glob("*.json"))
+    client.close()
+
+
 def test_corrupt_saved_response_is_refused(tmp_path: Path) -> None:
     from necropsy.wcl.cache import CacheCorrupt
     from necropsy.wcl.checkpoint import Journal
