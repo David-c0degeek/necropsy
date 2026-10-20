@@ -353,3 +353,34 @@ def test_a_reemitted_queue_is_strict_and_research_alone_checks_the_snapshot(
     _, _, results = pr.gate(repo, base, False, quiet)
     assert "capture queue pins" in statuses(results)
     assert "capture queue snapshot" not in statuses(results)
+
+
+def _commands(repo: Path, base: str, golden_k: str | None = None) -> list[list[str]]:
+    seen: list[list[str]] = []
+
+    def record(command: Sequence[str], root: Path) -> subprocess.CompletedProcess[str]:
+        seen.append(list(command))
+        return quiet(command, root)
+
+    pr.gate(repo, base, False, record, golden_k)
+    return [c for c in seen if "pytest" in c]
+
+
+def test_zone_rules_run_their_raid_seed_replays_and_nothing_else_golden(repo: Path) -> None:
+    base = git(repo, "rev-parse", "HEAD")
+    write(repo, "src/necropsy/rules/classic_era/zones/mc_guidance.yaml", "x: 1\n")
+    write(repo, "src/necropsy/rules/classic_era/zones/bwl.yaml", "x: 1\n")
+    (command,) = _commands(repo, base)
+    assert command[-2:] == ["-k", "seed_capture and (bwl- or mc-)"]
+
+
+def test_a_changed_golden_file_runs_whole_unless_targeted_and_says_so(repo: Path) -> None:
+    base = git(repo, "rev-parse", "HEAD")
+    write(repo, pr.GOLDEN, "def test_x() -> None:\n    pass\n")
+    (command,) = _commands(repo, base)
+    assert command[-1] == pr.GOLDEN and "-k" not in command
+    (command,) = _commands(repo, base, "mc-holy")
+    assert command[-2:] == ["-k", "mc-holy"]
+    _, _, results = pr.gate(repo, base, False, quiet, "mc-holy")
+    (golden,) = [r for r in results if r.name == "golden replays"]
+    assert "NOT the full golden file" in golden.scope

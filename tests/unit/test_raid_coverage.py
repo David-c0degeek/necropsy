@@ -259,3 +259,43 @@ def test_staged_receipts_check_git_transformations_and_lfs_identity(
     )
     problems = staged_problems(register, tmp_path)
     assert (not problems) is valid, problems
+
+
+def test_strict_opens_are_reused_per_proven_bytes_and_closed_on_eviction(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    events: list[str] = []
+
+    class Archive:
+        def __init__(self, path: Path, **_: object) -> None:
+            self.name = path.name
+
+        def __enter__(self) -> Archive:
+            events.append(f"open {self.name}")
+            return self
+
+        def __exit__(self, *_: object) -> None:
+            events.append(f"close {self.name}")
+
+    def prove(archive: Archive) -> str:
+        if archive.name == "bad.zip":
+            raise ValueError("incomplete stream")
+        return f"reader {archive.name}"
+
+    monkeypatch.setattr(coverage_check, "VerifiedArchive", Archive)
+    monkeypatch.setattr(coverage_check, "open_snapshot", prove)
+    monkeypatch.setattr(coverage_check, "load_entries_manifest", lambda path: None)
+    monkeypatch.setattr(coverage_check, "_OPEN", {})
+    entries = tmp_path / "e.entries"
+    entries.write_text("a\n", encoding="utf-8")
+    first = coverage_check._opened(tmp_path / "a.zip", "1" * 64, entries)
+    assert coverage_check._opened(tmp_path / "a.zip", "1" * 64, entries) is first
+    coverage_check._opened(tmp_path / "b.zip", "2" * 64, entries)
+    coverage_check._opened(tmp_path / "c.zip", "3" * 64, entries)
+    assert events == ["open a.zip", "open b.zip", "open c.zip", "close a.zip"]
+    entries.write_text("changed\n", encoding="utf-8")
+    coverage_check._opened(tmp_path / "c.zip", "3" * 64, entries)
+    assert events[-2:] == ["open c.zip", "close b.zip"]
+    with pytest.raises(ValueError, match="incomplete stream"):
+        coverage_check._opened(tmp_path / "bad.zip", "4" * 64, entries)
+    assert events[-2:] == ["open bad.zip", "close bad.zip"]

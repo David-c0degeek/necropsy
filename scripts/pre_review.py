@@ -13,7 +13,9 @@ ruff and ruff format on changed Python; mypy; check_docs when Markdown changed;
 capture_queue verify when the queue changed, or verify --snapshot when only its
 pinned research changed;
 closure_pins for changed closures, and for closures newly referenced from a
-changed coverage.json; fact_freeze check for changed files written by it; and
+changed coverage.json; fact_freeze check for changed files written by it;
+golden replays: the whole golden file when it changed (or only `--golden-k EXPR`,
+labelled as targeted), else a changed zone rules file's raid seed replays; and
 pytest on changed test files plus tests/unit/test_<name>.py for a changed module
 <name>.py (a heuristic, never a claim of complete impact coverage). `--full`
 runs the CI fast suite as well. A check that cannot run, or tests that are all
@@ -58,6 +60,9 @@ QUEUE_INPUTS = (
 )
 TRAILING = re.compile(rb"[ \t]+\r?\n")
 CI_MARKERS = "not golden and not live and not acceptance"
+GOLDEN = "tests/golden/test_raid_evidence.py"
+# Zone rule files whose changes reach only that raid's saved analyses.
+ZONE_RULES = re.compile(r"^src/necropsy/rules/classic_era/zones/(mc|bwl|aq40)(_[a-z]+)?\.yaml$")
 PASS, FAIL, SKIP = "PASS", "FAIL", "SKIP"
 
 Runner = Callable[[Sequence[str], Path], subprocess.CompletedProcess[str]]
@@ -283,8 +288,30 @@ def fact_results(root: Path, found: Changes) -> list[Result]:
     return results
 
 
+def golden_run(found: Changes, tests: list[str], golden_k: str | None) -> tuple[str, str] | None:
+    """The golden replay selection: a targeted -k run is labelled as such.
+
+    A changed golden test file runs the whole file unless an explicit expression is
+    given; changed zone rules alone run that raid's seed replays, which the
+    file-name heuristic would otherwise skip entirely.
+    """
+    if GOLDEN in tests:
+        if golden_k:
+            return golden_k, f"targeted -k {golden_k!r}, NOT the full golden file"
+        return "", "full golden file"
+    raids = sorted({m[1] for p in found.present if (m := ZONE_RULES.match(p))})
+    if not raids:
+        return None
+    expression = "seed_capture and (" + " or ".join(f"{r}-" for r in raids) + ")"
+    return expression, f"zone rules changed: {', '.join(raids)} seed replays"
+
+
 def gate(
-    root: Path, base: str, full: bool, run: Runner = run_command
+    root: Path,
+    base: str,
+    full: bool,
+    run: Runner = run_command,
+    golden_k: str | None = None,
 ) -> tuple[Changes, dict[str, str], list[Result]]:
     found = changes(root, base)
     before = fingerprints(root, found.present)
@@ -321,9 +348,15 @@ def gate(
     results += closure_results(root, found)
     results += fact_results(root, found)
     tests = related_tests(root, found)
+    golden = golden_run(found, tests, golden_k)
+    tests = [t for t in tests if t != GOLDEN] if golden else tests
     if tests:
         scope = f"{len(tests)} file(s) (heuristic)"
         results.append(pytest_result(run, root, "related tests", ["-m", "not live", *tests], scope))
+    if golden:
+        expression, scope = golden
+        args = ["-m", "not live", GOLDEN, *(["-k", expression] if expression else [])]
+        results.append(pytest_result(run, root, "golden replays", args, scope))
     if full:
         results.append(pytest_result(run, root, "CI fast suite", ["-m", CI_MARKERS], CI_MARKERS))
     # Recompute everything: a check that edits, adds or deletes a file, or moves
@@ -375,9 +408,14 @@ def main(argv: list[str] | None = None, root: Path = ROOT, run: Runner = run_com
     )
     parser.add_argument("--base", default="origin/main")
     parser.add_argument("--full", action="store_true", help="also run the CI fast suite")
+    parser.add_argument(
+        "--golden-k",
+        metavar="EXPR",
+        help="run only these golden replays when the golden test file changed (labelled targeted)",
+    )
     args = parser.parse_args(argv)
     try:
-        found, prints, results = gate(root, args.base, args.full, run)
+        found, prints, results = gate(root, args.base, args.full, run, args.golden_k)
     except GateError as error:
         print(f"pre-review gate refused: {error}", file=sys.stderr)
         return 2

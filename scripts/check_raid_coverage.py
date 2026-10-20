@@ -28,6 +28,7 @@ from necropsy.snapshot.archive import (
     sha256_file,
 )
 from necropsy.snapshot.model import SnapshotError, StreamStatus
+from necropsy.snapshot.v0 import V0Snapshot
 from necropsy.snapshot.v1 import open_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -88,6 +89,39 @@ def checked_path(root: Path, ref: Reference) -> Path:
     return path
 
 
+_OPEN: dict[tuple[str, str, str], tuple[VerifiedArchive, V0Snapshot]] = {}
+_OPEN_LIMIT = 2
+
+
+def _opened(
+    archive_path: Path, sha256: str, entries_path: Path
+) -> tuple[VerifiedArchive, V0Snapshot]:
+    """One strict open and stream proof per archive and manifest, reused in-process.
+
+    Opening proves every encounter stream of the whole archive (seconds per call),
+    and the proof depends only on the verified archive and manifest bytes. Each
+    call still re-hashes both files in `checked_path` before it gets here, so the
+    key names exactly the bytes that were proven. A few archives stay open; the
+    oldest is closed when another is opened.
+    """
+    key = (str(archive_path), sha256, sha256_file(entries_path))
+    if key not in _OPEN:
+        archive = VerifiedArchive(
+            archive_path, expected_sha256=sha256, entries=load_entries_manifest(entries_path)
+        )
+        archive.__enter__()
+        try:
+            reader = open_snapshot(archive)
+        except BaseException:
+            archive.__exit__(None, None, None)
+            raise
+        while len(_OPEN) >= _OPEN_LIMIT:
+            old, _ = _OPEN.pop(next(iter(_OPEN)))
+            old.__exit__(None, None, None)
+        _OPEN[key] = (archive, reader)
+    return _OPEN[key]
+
+
 def actor_problems(root: Path, cell: CoverageCell, source: ActorSource) -> list[str]:
     """Use the strict archive reader; a ranking row or empty ZIP is insufficient."""
     archive_path = checked_path(root, source.archive)
@@ -96,66 +130,59 @@ def actor_problems(root: Path, cell: CoverageCell, source: ActorSource) -> list[
     cfg = cell.configuration
     if source.partition not in load_rules("classic_era", "raid_scope")["partitions"]:
         return ["actor source uses an unsupported ruleset partition"]
-    with VerifiedArchive(
-        archive_path,
-        expected_sha256=source.archive.sha256,
-        entries=load_entries_manifest(entries_path),
-    ) as archive:
-        reader = open_snapshot(archive)
-        descriptor = reader.descriptor()
-        if descriptor.mode != "live":
-            return ["new raid actor source must retain live acquisition identity"]
-        marker = archive.read_json("necropsy-snapshot.json")
-        subject = marker["subject"]
-        if (
-            descriptor.zone.id != cell.zone_id
-            or descriptor.zone.partition != source.partition
-            or subject["class_id"] != cfg.class_id
-            or subject.get("ranking_category") != cfg.category
-            or subject.get("ranking_metric", "dps") != cfg.metric
-            or subject["faction"] != cfg.faction
-        ):
-            return ["actor source category/metric/faction/zone differs from cell"]
-        fights = [
-            f
-            for f in descriptor.fights
-            if f.report_code == source.report and f.fight_id == source.fight
-        ]
-        if not fights or not any(
-            p.encounter_id == cell.encounter_id for f in fights for p in f.participants
-        ):
-            return ["actor source has no matching encounter"]
-        reports = [r for r in reader.reports() if r.get("code") == source.report]
-        if len(reports) != 1 or reports[0].get("visibility") != "public":
-            return ["actor source is not a verified public report"]
-        actor = next(
-            (a for a in reports[0]["masterData"]["actors"] if a["id"] == source.actor), None
+    archive, reader = _opened(archive_path, source.archive.sha256, entries_path)
+    descriptor = reader.descriptor()
+    if descriptor.mode != "live":
+        return ["new raid actor source must retain live acquisition identity"]
+    marker = archive.read_json("necropsy-snapshot.json")
+    subject = marker["subject"]
+    if (
+        descriptor.zone.id != cell.zone_id
+        or descriptor.zone.partition != source.partition
+        or subject["class_id"] != cfg.class_id
+        or subject.get("ranking_category") != cfg.category
+        or subject.get("ranking_metric", "dps") != cfg.metric
+        or subject["faction"] != cfg.faction
+    ):
+        return ["actor source category/metric/faction/zone differs from cell"]
+    fights = [
+        f
+        for f in descriptor.fights
+        if f.report_code == source.report and f.fight_id == source.fight
+    ]
+    if not fights or not any(
+        p.encounter_id == cell.encounter_id for f in fights for p in f.participants
+    ):
+        return ["actor source has no matching encounter"]
+    reports = [r for r in reader.reports() if r.get("code") == source.report]
+    if len(reports) != 1 or reports[0].get("visibility") != "public":
+        return ["actor source is not a verified public report"]
+    actor = next((a for a in reports[0]["masterData"]["actors"] if a["id"] == source.actor), None)
+    if (
+        actor is None
+        or actor.get("type") != "Player"
+        or actor.get("subType") != CLASS_NAMES[cfg.class_id]
+        or not any(
+            p.player == actor["name"] and p.spec == cfg.category
+            for f in fights
+            for p in f.participants
         )
-        if (
-            actor is None
-            or actor.get("type") != "Player"
-            or actor.get("subType") != CLASS_NAMES[cfg.class_id]
-            or not any(
-                p.player == actor["name"] and p.spec == cfg.category
-                for f in fights
-                for p in f.participants
-            )
-        ):
-            return ["actor identity/class/category is not established by selected participants"]
-        streams = [
-            s
-            for s in reader.expected_streams()
-            if s.report_code == source.report
-            and s.fight_id == source.fight
-            and s.actor_id == source.actor
-        ]
-        if {s.direction.value for s in streams} != {"source", "target"}:
-            return ["actor source lacks both actor stream directions"]
-        reads = [reader.read_stream(s) for s in streams]
-        if any(r.status is not StreamStatus.COMPLETE for r in reads):
-            return ["actor source has incomplete streams"]
-        if not any(r.events for r in reads):
-            return ["actor source is budget-only or empty"]
+    ):
+        return ["actor identity/class/category is not established by selected participants"]
+    streams = [
+        s
+        for s in reader.expected_streams()
+        if s.report_code == source.report
+        and s.fight_id == source.fight
+        and s.actor_id == source.actor
+    ]
+    if {s.direction.value for s in streams} != {"source", "target"}:
+        return ["actor source lacks both actor stream directions"]
+    reads = [reader.read_stream(s) for s in streams]
+    if any(r.status is not StreamStatus.COMPLETE for r in reads):
+        return ["actor source has incomplete streams"]
+    if not any(r.events for r in reads):
+        return ["actor source is budget-only or empty"]
     return []
 
 
