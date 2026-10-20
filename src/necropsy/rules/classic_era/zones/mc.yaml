@@ -33,6 +33,27 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
   validated: 6/6 audited Baron Geddon Holy Paladin ranking rows within the bound; 0 contradictions.
   evidence: tests/golden/raids/hps-ranking-geddon-paladin.json
+- rule: mc-lucifron-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50663
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Lucifron Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-lucifron-paladin.json
 encounters:
 - id: 50663
   name: Lucifron

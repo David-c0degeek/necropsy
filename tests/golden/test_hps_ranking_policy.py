@@ -1,4 +1,4 @@
-"""The scoped Geddon Holy Paladin HPS policy is re-proved from raw archive bytes.
+"""The scoped Holy Paladin HPS policies are re-proved from raw archive bytes.
 
 Expected values come from the frozen oracle; every amount is re-enumerated here
 from raw pages with exact rational arithmetic, without analyzer or metric code.
@@ -21,23 +21,29 @@ from necropsy.rules import load_rules
 
 pytestmark = pytest.mark.golden
 ROOT = Path(__file__).parent / "raids"
-ORACLE = ROOT / "hps-ranking-geddon-paladin.json"
-RULE = "mc-geddon-holy-paladin-hps-v1"
+# Each scoped policy and the frozen oracle that its empirical basis cites.
+ORACLES = {
+    "mc-geddon-holy-paladin-hps-v1": ROOT / "hps-ranking-geddon-paladin.json",
+    "mc-lucifron-holy-paladin-hps-v1": ROOT / "hps-ranking-lucifron-paladin.json",
+}
 
 
-def _oracle() -> dict[str, Any]:
-    oracle: dict[str, Any] = json.loads(ORACLE.read_bytes())
+def _oracle(rule: str) -> dict[str, Any]:
+    oracle: dict[str, Any] = json.loads(ORACLES[rule].read_bytes())
     return oracle
 
 
-def _rows() -> list[dict[str, Any]]:
-    rows: list[dict[str, Any]] = _oracle()["rows"]
+def _rows(rule: str) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = _oracle(rule)["rows"]
     return rows
 
 
-def _policy() -> dict[str, Any]:
+ALL_ROWS = [(rule, row) for rule in ORACLES for row in _rows(rule)]
+
+
+def _policy(rule: str) -> dict[str, Any]:
     zone = load_rules("classic_era", "zones/mc")
-    return next(p for p in zone["ranking_metric_policies"] if p["rule"] == RULE)
+    return next(p for p in zone["ranking_metric_policies"] if p["rule"] == rule)
 
 
 def _read(z: zipfile.ZipFile, name: str) -> Any:
@@ -245,18 +251,23 @@ def _consistent(total: int, duration: int, published: str) -> bool:
     return abs(Fraction(total) * 1000 / duration - Fraction(published)) < Fraction(1, 10**decimals)
 
 
-def test_policy_scope_matches_its_frozen_evidence() -> None:
-    policy = _policy()
-    assert policy["evidence"] == f"tests/golden/raids/{ORACLE.name}"
-    assert _oracle()["rule"] == RULE
-    scoped = [r for r in _rows() if r["purpose"] == "policy-scope"]
+@pytest.mark.parametrize("rule", list(ORACLES))
+def test_policy_scope_matches_its_frozen_evidence(rule: str) -> None:
+    policy = _policy(rule)
+    assert policy["evidence"] == f"tests/golden/raids/{ORACLES[rule].name}"
+    assert _oracle(rule)["rule"] == rule
+    scoped = [r for r in _rows(rule) if r["purpose"] == "policy-scope"]
     assert len(scoped) == 6 and {r["encounter_id"] for r in scoped} == {
         policy["scope"]["encounter_id"]
     }
 
 
-@pytest.mark.parametrize("row", _rows(), ids=lambda r: r["id"])
-def test_published_hps_matches_raw_owner_and_owned_unit_effects(row: dict[str, Any]) -> None:
+@pytest.mark.parametrize(
+    ("rule", "row"), ALL_ROWS, ids=lambda v: v if isinstance(v, str) else v["id"]
+)
+def test_published_hps_matches_raw_owner_and_owned_unit_effects(
+    rule: str, row: dict[str, Any]
+) -> None:
     m = _measure(row)
     assert m["duration_ms"] == row["duration_ms"]
     assert m["owner"] == row["owner"] and m["owned_units"] == row["owned_units"]
@@ -264,7 +275,7 @@ def test_published_hps_matches_raw_owner_and_owned_unit_effects(row: dict[str, A
         assert m["me"]["subType"] == "Paladin"
     units = sum(u["heal"] + u["absorbed"] for u in m["owned_units"])
     total = m["owner"]["heal"] + m["owner"]["absorbed"] + units
-    others = [r for r in _rows() if r["id"] != row["id"]]
+    others = [r for r in _rows(rule) if r["id"] != row["id"]]
     for ranking in row["rankings"]:
         published, duration = _published(m["z"], ranking, row)
         assert published == ranking["published"]

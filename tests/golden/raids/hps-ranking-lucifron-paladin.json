@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-lucifron-holy-paladin-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "lucifron-holy-paladin-resurgance",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 17,
+      "actor": 35,
+      "name": "Resurgance",
+      "realm": "Pagle",
+      "game_id": 16940835,
+      "encounter_id": 50663,
+      "duration_ms": 77323,
+      "owner": {
+        "heal": 23974,
+        "absorbed": 0,
+        "overheal": 12077
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50663_Lucifron.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "310.05",
+          "duration_ms": 77323,
+          "residual": "77/1546460"
+        },
+        {
+          "member": "reports/kvJ2WVF1chC9R4wd/fight_17.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[0]",
+          "kind": "report_fight_ranking",
+          "published": "310.05",
+          "duration_ms": 77323,
+          "residual": "77/1546460"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-paladin-auraline",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "TZXrCPKGcL8qQdW1",
+      "fight": 4,
+      "actor": 25,
+      "name": "Auraline",
+      "realm": "Firemaw",
+      "game_id": 75055865,
+      "encounter_id": 50663,
+      "duration_ms": 23637,
+      "owner": {
+        "heal": 21189,
+        "absorbed": 3810,
+        "overheal": 6482
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1057.62",
+          "duration_ms": 23637,
+          "residual": "601/393950"
+        },
+        {
+          "member": "reports/TZXrCPKGcL8qQdW1/fight_4.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "1057.62",
+          "duration_ms": 23637,
+          "residual": "601/393950"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-paladin-dirtysheets",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "vWNnhR1zytxZTKYP",
+      "fight": 60,
+      "actor": 231,
+      "name": "Dirtysheets",
+      "realm": "Mankrik",
+      "game_id": 37113905,
+      "encounter_id": 50663,
+      "duration_ms": 24718,
+      "owner": {
+        "heal": 21205,
+        "absorbed": 3833,
+        "overheal": 5301
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1012.95",
+          "duration_ms": 24718,
+          "residual": "-981/247180"
+        },
+        {
+          "member": "reports/vWNnhR1zytxZTKYP/fight_60.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[0]",
+          "kind": "report_fight_ranking",
+          "published": "1012.95",
+          "duration_ms": 24718,
+          "residual": "-981/247180"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-paladin-diddled",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "Q9fm8CXw7pMkT4b1",
+      "fight": 3,
+      "actor": 19,
+      "name": "Diddled",
+      "realm": "Ashkandi",
+      "game_id": 41307136,
+      "encounter_id": 50663,
+      "duration_ms": 33682,
+      "owner": {
+        "heal": 33526,
+        "absorbed": 0,
+        "overheal": 6542
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "995.368",
+          "duration_ms": 33682,
+          "residual": "939/2105125"
+        },
+        {
+          "member": "reports/Q9fm8CXw7pMkT4b1/fight_3.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "995.368",
+          "duration_ms": 33682,
+          "residual": "939/2105125"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-paladin-killian",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "rkN4cqdjpa9RW26X",
+      "fight": 8,
+      "actor": 10,
+      "name": "Killian",
+      "realm": "MirageRaceway",
+      "game_id": 40110572,
+      "encounter_id": 50663,
+      "duration_ms": 50902,
+      "owner": {
+        "heal": 43651,
+        "absorbed": 5999,
+        "overheal": 22978
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "975.404",
+          "duration_ms": 50902,
+          "residual": "-1801/6362750"
+        },
+        {
+          "member": "reports/rkN4cqdjpa9RW26X/fight_8.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "975.404",
+          "duration_ms": 50902,
+          "residual": "-1801/6362750"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-paladin-stimorol",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "MPav4XnKQjkcd9JH",
+      "fight": 6,
+      "actor": 9,
+      "name": "Stimorol",
+      "realm": "Firemaw",
+      "game_id": 53268430,
+      "encounter_id": 50663,
+      "duration_ms": 48251,
+      "owner": {
+        "heal": 42362,
+        "absorbed": 3080,
+        "overheal": 4861
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "941.784",
+          "duration_ms": 48251,
+          "residual": "-2473/6031375"
+        },
+        {
+          "member": "reports/MPav4XnKQjkcd9JH/fight_6.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "941.784",
+          "duration_ms": 48251,
+          "residual": "-2473/6031375"
+        }
+      ]
+    }
+  ]
+}
