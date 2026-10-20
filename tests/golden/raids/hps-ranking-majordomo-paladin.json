@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-majordomo-holy-paladin-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "majordomo-holy-paladin-atrew",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "JFKd3Yjb8qDMzRWV",
+      "fight": 20,
+      "actor": 3,
+      "name": "Atrew",
+      "realm": "Firemaw",
+      "game_id": 27129496,
+      "encounter_id": 50671,
+      "duration_ms": 29191,
+      "owner": {
+        "heal": 27313,
+        "absorbed": 3796,
+        "overheal": 8881
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1065.71",
+          "duration_ms": 29191,
+          "residual": "-14061/2919100"
+        },
+        {
+          "member": "reports/JFKd3Yjb8qDMzRWV/fight_20.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "1065.71",
+          "duration_ms": 29191,
+          "residual": "-14061/2919100"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-paladin-sprut",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "LGzKk6a3AxZrc4Yb",
+      "fight": 28,
+      "actor": 13,
+      "name": "Sprut",
+      "realm": "Firemaw",
+      "game_id": 26081452,
+      "encounter_id": 50671,
+      "duration_ms": 34850,
+      "owner": {
+        "heal": 39320,
+        "absorbed": 0,
+        "overheal": 7511
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1128.26",
+          "duration_ms": 34850,
+          "residual": "139/34850"
+        },
+        {
+          "member": "reports/LGzKk6a3AxZrc4Yb/fight_28.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "1128.26",
+          "duration_ms": 34850,
+          "residual": "139/34850"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-paladin-fiuris",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "RxmJLbagthv63jdT",
+      "fight": 28,
+      "actor": 35,
+      "name": "Fiuris",
+      "realm": "Firemaw",
+      "game_id": 26838768,
+      "encounter_id": 50671,
+      "duration_ms": 42580,
+      "owner": {
+        "heal": 45505,
+        "absorbed": 0,
+        "overheal": 7185
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1068.69",
+          "duration_ms": 42580,
+          "residual": "899/212900"
+        },
+        {
+          "member": "reports/RxmJLbagthv63jdT/fight_28.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "1068.69",
+          "duration_ms": 42580,
+          "residual": "899/212900"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-paladin-carameyl",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "RxmJLbagthv63jdT",
+      "fight": 28,
+      "actor": 13,
+      "name": "Carameyl",
+      "realm": "Firemaw",
+      "game_id": 62341538,
+      "encounter_id": 50671,
+      "duration_ms": 42580,
+      "owner": {
+        "heal": 38190,
+        "absorbed": 6928,
+        "overheal": 19905
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1059.61",
+          "duration_ms": 42580,
+          "residual": "-969/212900"
+        },
+        {
+          "member": "reports/RxmJLbagthv63jdT/fight_28.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1059.61",
+          "duration_ms": 42580,
+          "residual": "-969/212900"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-paladin-auraline",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "YZgzKMfFALc9XkPC",
+      "fight": 27,
+      "actor": 20,
+      "name": "Auraline",
+      "realm": "Firemaw",
+      "game_id": 75055865,
+      "encounter_id": 50671,
+      "duration_ms": 41328,
+      "owner": {
+        "heal": 44285,
+        "absorbed": 5678,
+        "overheal": 9473
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1208.94",
+          "duration_ms": 41328,
+          "residual": "-113/64575"
+        },
+        {
+          "member": "reports/YZgzKMfFALc9XkPC/fight_27.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "1208.94",
+          "duration_ms": 41328,
+          "residual": "-113/64575"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-paladin-resurgance",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "zgmqFa2X4fjPQMB1",
+      "fight": 55,
+      "actor": 33,
+      "name": "Resurgance",
+      "realm": "Pagle",
+      "game_id": 16940835,
+      "encounter_id": 50671,
+      "duration_ms": 104900,
+      "owner": {
+        "heal": 46944,
+        "absorbed": 0,
+        "overheal": 23065
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50671_Majordomo_Executus.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "447.512",
+          "duration_ms": 104900,
+          "residual": "-11/131125"
+        },
+        {
+          "member": "reports/zgmqFa2X4fjPQMB1/fight_55.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "447.512",
+          "duration_ms": 104900,
+          "residual": "-11/131125"
+        }
+      ]
+    }
+  ]
+}

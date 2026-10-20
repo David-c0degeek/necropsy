@@ -197,6 +197,41 @@ strategy:
     - rule: ragnaros-control-and-emergence-v1
       section: raid
       text: Agree add control, kill order and boss pickup after emergence. Guide timers and activity gaps do not certify submerge boundaries or lost damage opportunity.
+    - rule: ragnaros-paladin-healer-ring-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited guide suggests all healers and ranged support stand on the secondary ring, away from Ragnaros, and that mana users stay out of melee range. Confirm your spot with the raid; these logs do not record positions.
+    - rule: ragnaros-paladin-knockback-return-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited guide says players knocked away must return to their designated areas so they are in range of the healers, who will be very busy. Expect healing demand to rise while knocked-back players return.
+    - rule: ragnaros-paladin-sons-mana-burn-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: After 3 minutes of combat Ragnaros summons 8 Sons of Flame and submerges. The cited guide says mana users should stand at the very edge of the ring to avoid the Sons' massive mana burn aura; the log records no positions.
+    - rule: ragnaros-paladin-return-engage-v1
+      section: raid
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: After Ragnaros submerges, the cited guide says he reappears after 90 seconds or once the Sons of Flame are defeated, whichever comes first, and that the main tank, secondary tank and their healers should be back to engage him when he re-enters combat. Confirm with the raid whether you are in that group and who calls the move.
+    - rule: ragnaros-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Ragnaros-specific gear or loadout change for Paladin healers; it states the importance of fire resistance for the raid in general. Treat the recorded gear comparison as context, not a requirement for this boss.
   50670:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/golemagg-the-incinerator-molten-core-strategy-wow-classic
@@ -215,6 +250,34 @@ strategy:
     - rule: golemagg-late-pressure-support-v1
       section: raid
       text: Agree tank recovery and healing coverage as Golemagg approaches death. A guide's health threshold or an action gap does not establish an observed Earthquake phase or lost opportunity.
+    - rule: golemagg-paladin-tank-fire-resistance-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited guide says the main tank needs high fire resistance to reduce the effect of Magma Splash. Confirm with the raid how the tank's resistance is being prepared.
+    - rule: golemagg-paladin-mana-pacing-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited guide says healers need to pay attention to their mana pools because this is a rather long fight.
+    - rule: golemagg-paladin-tank-dot-load-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: Magma Splash melts armor and adds Fire damage for 30 sec. The cited guide says that if the main tank gets too many DoTs on him it is simply impossible to keep him up.
+    - rule: golemagg-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Golemagg-specific gear or loadout change for Paladin healers; its fire resistance note is about the main tank. Treat the recorded gear comparison as context, not a requirement for this boss.
   50671:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/majordomo-executus-molten-core-strategy-wow-classic
@@ -242,6 +305,41 @@ strategy:
     - rule: majordomo-control-and-recovery-v1
       section: raid
       text: Confirm control-break recovery, the remaining-add kill order and tank pickup after Teleport. Review exact add identities and observed transitions before comparing control, tanking and damage jobs.
+    - rule: majordomo-paladin-pull-role-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: In the approach the cited guide describes, the main tank, a Hunter and a Paladin engage Executus, and the Paladin pulls with Divine Shield. Confirm with the raid whether that role exists and who holds it; the log cannot show the assignment.
+    - rule: majordomo-paladin-teleport-position-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: Executus teleports an enemy into the midst of burning coals. The cited guide says he usually teleports the closest player, and describes a Paladin standing closer to him than the main tank for that reason. Confirm whether you are assigned this; the log records no positions.
+    - rule: majordomo-paladin-mana-efficiency-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The cited guide calls this battle a test of healer mana efficiency and says healers should bring as many Major Mana Potions as possible.
+    - rule: majordomo-paladin-mage-pairs-v1
+      section: raid
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The cited guide describes each Paladin being assigned to a Mage. If the sheep breaks while the shield is up or the Mage dies, it says the Paladin needs to stun or off-tank until the shield is down. Confirm any such pairing with the raid; the log cannot show it.
+    - rule: majordomo-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Majordomo-specific gear or loadout change for Paladin healers; the only item it names is Major Mana Potions, for healers in general. Treat the recorded gear comparison as context, not a requirement for this boss.
   50669:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/sulfuron-harbinger-molten-core-strategy-wow-classic
@@ -267,6 +365,41 @@ strategy:
     - rule: sulfuron-add-and-healing-coordination-v1
       section: raid
       text: Confirm tank separation, interrupt backups and healing range before switching from the priests to Sulfuron. Actor streams do not establish every hostile healing cast or raid-wide interruption opportunity.
+    - rule: sulfuron-paladin-cleanse-assignment-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide says the guards' magic debuffs are much worse than their melee damage and generally target the off-tanks and their healers. Agree who dispels them and in what order before the pull.
+    - rule: sulfuron-paladin-guard-debuff-cleanse-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide treats dispelling the guards' magic debuffs as an absolute priority for Paladins on the Alliance side, or Priests for the Horde. Cleanse removes Magic effects; healing throughput alone does not measure that duty.
+    - rule: sulfuron-paladin-fire-resistance-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide says fire resistance totems and auras also help. It names no Paladin aura assignment, so confirm with the raid whether you are expected to provide one.
+    - rule: sulfuron-paladin-shared-healers-v1
+      section: raid
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide suggests the tanks can share healers if one goes down or runs out of mana. Confirm backup healer coverage for each tank with the healing team.
+    - rule: sulfuron-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Sulfuron-specific gear or loadout change for Paladin healers; it mentions fire resistance only in general terms. Treat the recorded gear comparison as context, not a requirement for this boss.
   50667:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/shazzrah-molten-core-strategy-wow-classic
@@ -292,6 +425,48 @@ strategy:
     - rule: shazzrah-recovery-and-purge-backup-v1
       section: raid
       text: Confirm tank pickup, curse-removal priorities and Deaden Magic backup. General encounter strategy does not prove the raid's assignments or a personal failure.
+    - rule: shazzrah-paladin-curse-not-cleansable-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Shazzrah's Curse increases magical damage taken by nearby enemies by 100% for 5 min. Cleanse does not remove curses; the cited guide has Mages and Druids remove it immediately, starting with the main tank. Confirm that assignment.
+    - rule: shazzrah-paladin-curse-range-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: The cited guide gives the curse range as 35 yards and notes that Druids can stand back 5 more yards and still heal the main tanks. Confirm with the healing team how your group will position; these logs do not record positions.
+    - rule: shazzrah-paladin-arcane-explosion-range-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Arcane Explosion hits nearby enemies within 20 yards for 925 to 1075 Arcane damage. The source states the range only and gives no healer-specific positioning rule for it.
+    - rule: shazzrah-paladin-counterspell-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Counterspell prevents spells from the countered school of magic for 10 sec. A gap in your casting after one may reflect the lockout rather than a choice.
+    - rule: shazzrah-paladin-blink-healer-spread-v1
+      section: raid
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Shazzrah blinks to a random target about every 45 seconds, which wipes the threat list. The cited guide suggests stationing healers throughout the circle to heal the people near the blink point; confirm your spot with the healing team.
+    - rule: shazzrah-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Shazzrah-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
   50668:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/baron-geddon-molten-core-strategy-wow-classic
@@ -362,6 +537,41 @@ strategy:
     - rule: gehennas-removal-and-tank-recovery-v1
       section: raid
       text: Confirm backup curse removal and healing coverage when tanks or healers move out of fire. Actor-only observations do not establish every raid-wide removal opportunity or assignment.
+    - rule: gehennas-paladin-curse-not-cleansable-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: Gehennas' Curse reduces healing received by nearby enemies by 75% for 5 min. Cleanse does not remove curses, so confirm who the dedicated main-tank decurser is. The cited guide says the tank's curse must be removed as soon as possible.
+    - rule: gehennas-paladin-curse-range-layout-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide suggests placing Gehennas so that only the main tank and his healers and decursers are in range of the curse, Shadow Bolt and Rain of Fire. Confirm the layout with the raid; these logs do not record positions.
+    - rule: gehennas-paladin-reduced-healing-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide says Gehennas deals enough damage that the tank cannot be kept up while he receives only 25% of the healing. Healing on a cursed target is therefore not a clean measure of your throughput.
+    - rule: gehennas-paladin-decurse-priority-v1
+      section: raid
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide suggests Mages and Druids put the main tank at the top of their decurse list, followed by other melee players, because the curse greatly reduces the healing a player can receive. Confirm that order with them.
+    - rule: gehennas-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Gehennas-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
   50666:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Garr
@@ -383,6 +593,48 @@ strategy:
     - rule: garr-control-recovery-v1
       section: raid
       text: Agree who picks up an add when control ends and how remaining Firesworn are handled after Garr dies. Actor-only evidence does not establish every raid-wide control gap.
+    - rule: garr-paladin-immolate-removal-assignment-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: In the second strategy it cites, the guide suggests several Paladins or Priests constantly remove Immolates from the tank. Agree with the other healers whether you hold that job and who covers it if you do not.
+    - rule: garr-paladin-immolate-removal-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: If you are assigned to remove Immolates from the tank, that job is separate from healing throughput, which does not measure it. Firesworn Immolate inflicts 337 Fire damage and 168 more every 3 sec for 21 sec.
+    - rule: garr-paladin-tank-healing-load-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited guide says the tank in this strategy requires a tremendous amount of healing. Expect a heavy healing load on the tank.
+    - rule: garr-paladin-firesworn-explosion-mana-v1
+      section: raid
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited guide says melee must get away from Firesworn that are about to die, to save health and healer mana. Confirm that call-out with the melee; this is their movement, not yours.
+    - rule: garr-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Garr-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: garr-paladin-antimagic-pulse-blessings-v1
+      section: during
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: Garr's Antimagic Pulse dispels one beneficial spell effect from each nearby player, so blessings and other buffs near him can be removed during the fight. Agree who refreshes blessings and when; a removed blessing is not your error.
   50664:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Magmadar
@@ -409,6 +661,34 @@ strategy:
     - rule: magmadar-rotation-and-fear-coverage-v1
       section: raid
       text: Coordinate backup Frenzy removal and tank support during fear recovery. Actor logs cannot establish every raid-wide Frenzy opportunity or each player's assignment.
+    - rule: magmadar-paladin-fear-range-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: Magmadar's Panic makes nearby enemies flee in fear for 8 sec. The cited guide suggests healers stand at maximum range behind the main tank, because healing range is 40 yards and the fear range is 30 yards. Confirm your spot with the healing team; these logs do not record positions.
+    - rule: magmadar-paladin-cleanse-range-hint-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: 'The cited guide gives a rule of thumb: if you can cast dispel or Cleanse on the main tank, you are too close. Use it as a positioning check, not as a measurement.'
+    - rule: magmadar-paladin-healer-groups-v1
+      section: raid
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The cited guide suggests a guild new to Magmadar may split main-tank healers into two groups, only one of which is on the tank at a time. Confirm with the healing team whether you are in a group and when it is on the tank.
+    - rule: magmadar-paladin-healer-loadout-applicability-v1
+      section: before
+      classes: [6]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Magmadar-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
   50663:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Lucifron

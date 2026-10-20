@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-shazzrah-holy-paladin-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "shazzrah-holy-paladin-xhosas",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "3HfBQ9ZC1mFPbwjK",
+      "fight": 71,
+      "actor": 22,
+      "name": "Xhosas",
+      "realm": "Earthshaker",
+      "game_id": 38552871,
+      "encounter_id": 50667,
+      "duration_ms": 21971,
+      "owner": {
+        "heal": 27356,
+        "absorbed": 0,
+        "overheal": 2546
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1245.1",
+          "duration_ms": 21971,
+          "residual": "-921/219710"
+        },
+        {
+          "member": "reports/3HfBQ9ZC1mFPbwjK/fight_71.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "1245.1",
+          "duration_ms": 21971,
+          "residual": "-921/219710"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-paladin-killian",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "CMnATZ9zDQk24NpJ",
+      "fight": 24,
+      "actor": 32,
+      "name": "Killian",
+      "realm": "MirageRaceway",
+      "game_id": 40110572,
+      "encounter_id": 50667,
+      "duration_ms": 19037,
+      "owner": {
+        "heal": 21635,
+        "absorbed": 2177,
+        "overheal": 2151
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1250.83",
+          "duration_ms": 19037,
+          "residual": "-5071/1903700"
+        },
+        {
+          "member": "reports/CMnATZ9zDQk24NpJ/fight_24.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1250.83",
+          "duration_ms": 19037,
+          "residual": "-5071/1903700"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-paladin-carameyl",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "HvCjr3FwLq9JYgK8",
+      "fight": 17,
+      "actor": 20,
+      "name": "Carameyl",
+      "realm": "Firemaw",
+      "game_id": 62341538,
+      "encounter_id": 50667,
+      "duration_ms": 15129,
+      "owner": {
+        "heal": 18860,
+        "absorbed": 0,
+        "overheal": 4828
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1246.61",
+          "duration_ms": 15129,
+          "residual": "91/36900"
+        },
+        {
+          "member": "reports/HvCjr3FwLq9JYgK8/fight_17.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1246.61",
+          "duration_ms": 15129,
+          "residual": "91/36900"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-paladin-aribéth",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "RwyTKcHV1NmGPM9f",
+      "fight": 56,
+      "actor": 126,
+      "name": "Aribéth",
+      "realm": "Pagle",
+      "game_id": 18218242,
+      "encounter_id": 50667,
+      "duration_ms": 26810,
+      "owner": {
+        "heal": 26284,
+        "absorbed": 6693,
+        "overheal": 13128
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1230.03",
+          "duration_ms": 26810,
+          "residual": "-149/38300"
+        },
+        {
+          "member": "reports/RwyTKcHV1NmGPM9f/fight_56.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "1230.03",
+          "duration_ms": 26810,
+          "residual": "-149/38300"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-paladin-resurgance",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 49,
+      "actor": 35,
+      "name": "Resurgance",
+      "realm": "Pagle",
+      "game_id": 16940835,
+      "encounter_id": 50667,
+      "duration_ms": 33621,
+      "owner": {
+        "heal": 14081,
+        "absorbed": 0,
+        "overheal": 7099
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50667_Shazzrah.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "418.816",
+          "duration_ms": 33621,
+          "residual": "-1592/4202625"
+        },
+        {
+          "member": "reports/kvJ2WVF1chC9R4wd/fight_49.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[0]",
+          "kind": "report_fight_ranking",
+          "published": "418.816",
+          "duration_ms": 33621,
+          "residual": "-1592/4202625"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-paladin-cisternina",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "n42AKF1daqwMr3mH",
+      "fight": 22,
+      "actor": 30,
+      "name": "Cisternina",
+      "realm": "Mankrik",
+      "game_id": 31149849,
+      "encounter_id": 50667,
+      "duration_ms": 19612,
+      "owner": {
+        "heal": 24426,
+        "absorbed": 0,
+        "overheal": 4086
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1245.46",
+          "duration_ms": 19612,
+          "residual": "481/245150"
+        },
+        {
+          "member": "reports/n42AKF1daqwMr3mH/fight_22.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1245.46",
+          "duration_ms": 19612,
+          "residual": "481/245150"
+        }
+      ]
+    }
+  ]
+}

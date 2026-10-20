@@ -15,7 +15,8 @@ pinned research changed;
 closure_pins for changed closures, and for closures newly referenced from a
 changed coverage.json; fact_freeze check for changed files written by it;
 golden replays: the whole golden file when it changed (or only `--golden-k EXPR`,
-labelled as targeted), else a changed zone rules file's raid seed replays; and
+labelled as targeted), else a changed zone rules file's raid seed replays, on
+NECROPSY_GATE_WORKERS parallel workers (default 8, 0 for serial); and
 pytest on changed test files plus tests/unit/test_<name>.py for a changed module
 <name>.py (a heuristic, never a claim of complete impact coverage). `--full`
 runs the CI fast suite as well. A check that cannot run, or tests that are all
@@ -35,13 +36,16 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
 import sys
+import uuid
 from collections import Counter
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -192,11 +196,42 @@ def tool(run: Runner, root: Path, name: str, command: Sequence[str], scope: str)
     )
 
 
+def run_log(root: Path, name: str, command: Sequence[str], done: Any) -> Path:
+    """Keep a test run's complete output in a new file inside the Git directory.
+
+    Each run gets its own file (never overwritten, never tracked), so a failure
+    stays inspectable after any later diagnostic run.
+    """
+    found = subprocess.run(
+        ["git", "rev-parse", "--git-common-dir"], cwd=root, capture_output=True, text=True
+    )
+    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True)
+    folder = (root / found.stdout.strip() / "necropsy-gate-logs").resolve()
+    folder.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
+    slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    path = folder / f"{stamp}-{slug}-{uuid.uuid4().hex[:8]}.log"
+    with path.open("x", encoding="utf-8") as log:
+        log.write(f"command: {subprocess.list2cmdline(list(command))}\n")
+        log.write(f"head: {head.stdout.strip() or 'unknown'}\n")
+        log.write(f"workers: {os.environ.get('NECROPSY_GATE_WORKERS', '(default)')}\n")
+        log.write(f"exit: {done.returncode}\n\n--- stdout ---\n{done.stdout}\n")
+        log.write(f"--- stderr ---\n{done.stderr}\n")
+    return path
+
+
 def pytest_result(run: Runner, root: Path, name: str, args: Sequence[str], scope: str) -> Result:
     command = ["uv", "run", "pytest", "-q", *args]
     if shutil.which("uv") is None:
         return Result(name, SKIP, scope, "uv is not available")
     done = run(command, root)
+    log = run_log(root, name, command, done)
+    result = _pytest_outcome(done, name, scope)
+    result.detail = f"{result.detail} (full output: {log})"
+    return result
+
+
+def _pytest_outcome(done: Any, name: str, scope: str) -> Result:
     lines = (done.stdout + done.stderr).splitlines()
     # The summary is the last line naming a count; progress dots or a crash
     # traceback can follow it or replace it.
@@ -288,6 +323,14 @@ def fact_results(root: Path, found: Changes) -> list[Result]:
     return results
 
 
+def golden_workers() -> int:
+    """Golden replay workers: NECROPSY_GATE_WORKERS, default 8; 0 runs serially."""
+    value = os.environ.get("NECROPSY_GATE_WORKERS", "8")
+    if re.fullmatch(r"[0-9]+", value) is None:
+        raise GateError(f"NECROPSY_GATE_WORKERS must be a whole number, not {value!r}")
+    return int(value)
+
+
 def golden_run(found: Changes, tests: list[str], golden_k: str | None) -> tuple[str, str] | None:
     """The golden replay selection: a targeted -k run is labelled as such.
 
@@ -356,6 +399,12 @@ def gate(
     if golden:
         expression, scope = golden
         args = ["-m", "not live", GOLDEN, *(["-k", expression] if expression else [])]
+        workers = golden_workers()
+        if workers:
+            # D035: parallel by the owner's decision; -rfE keeps every failure's
+            # traceback in the gate detail so a parallel-only failure can be diagnosed.
+            args += ["-n", str(workers), "--dist", "worksteal", "-rfE"]
+        scope += f"; {workers} workers" if workers else "; serial"
         results.append(pytest_result(run, root, "golden replays", args, scope))
     if full:
         results.append(pytest_result(run, root, "CI fast suite", ["-m", CI_MARKERS], CI_MARKERS))

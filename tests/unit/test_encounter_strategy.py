@@ -1,5 +1,7 @@
 """Static strategy stays separate from measurements, assignments and game variants."""
 
+import pytest
+
 from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.analysis.encounters.strategy import encounter_strategy
 from necropsy.raids.scope import configurations
@@ -310,3 +312,55 @@ def test_ragnaros_party_support_and_sons_capabilities_use_named_classes() -> Non
         ):
             assert (rule in rules) is (name == owner)
         assert "ragnaros-healing-context-v1" in rules
+
+
+MC_PALADIN_WIKI = {
+    50664: "https://warcraft.wiki.gg/wiki/Magmadar",
+    50665: "https://warcraft.wiki.gg/wiki/Gehennas",
+    50666: "https://warcraft.wiki.gg/wiki/Garr",
+    50667: "https://warcraft.wiki.gg/wiki/Shazzrah",
+    50669: "https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger",
+    50670: "https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator",
+    50671: "https://warcraft.wiki.gg/wiki/Majordomo_Executus",
+    50672: "https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)",
+}
+
+
+@pytest.mark.parametrize("encounter", sorted(MC_PALADIN_WIKI))
+def test_mc_paladin_healer_items_cite_the_boss_wiki_and_reach_only_paladin_healers(
+    encounter: int,
+) -> None:
+    strategy = encounter_strategy("mc", encounter, 1, 6, "hps")
+    assert strategy
+    prefix = f"{MC_PALADIN_WIKI[encounter].rsplit('/', 1)[1].split('_')[0].lower()}-paladin-"
+    # The earlier Ragnaros aura item keeps its own Wowhead spell source.
+    paladin = [
+        i
+        for i in strategy.items
+        if i.rule.startswith(prefix) and i.rule != "ragnaros-paladin-party-support-v1"
+    ]
+    assert paladin and {i.section for i in paladin} <= {"before", "during", "raid"}
+    assert all(
+        i.source == MC_PALADIN_WIKI[encounter] and i.retrieved == "2026-10-20" for i in paladin
+    )
+    # Every boss states its loadout source limitation instead of inventing a gear rule.
+    assert f"{prefix}healer-loadout-applicability-v1" in {i.rule for i in paladin}
+    for class_id, metric in ((6, "dps"), (7, "hps"), (2, "hps"), (4, "dps")):
+        other = encounter_strategy("mc", encounter, 1, class_id, metric)
+        assert other
+        assert not {i.rule for i in paladin} & {i.rule for i in other.items}
+
+
+def test_ragnaros_and_majordomo_paladin_items_keep_only_supported_guide_claims() -> None:
+    rag_strategy = encounter_strategy("mc", 50672, 1, 6, "hps")
+    assert rag_strategy
+    ragnaros = {i.rule: i.text for i in rag_strategy.items}
+    ring = ragnaros["ragnaros-paladin-healer-ring-v1"]
+    # The guide's Wrath targeting and radius conflict with spell data; neither is certified.
+    assert "random player" not in ring and "20 yards" not in ring and "secondary ring" in ring
+    engage = ragnaros["ragnaros-paladin-return-engage-v1"]
+    assert engage.startswith("After Ragnaros submerges") and "whichever comes first" in engage
+    domo_strategy = encounter_strategy("mc", 50671, 1, 6, "hps")
+    assert domo_strategy
+    majordomo = {i.rule: i.text for i in domo_strategy.items}
+    assert "portal" not in majordomo["majordomo-paladin-mage-pairs-v1"]

@@ -25,6 +25,13 @@ ROOT = Path(__file__).parent / "raids"
 ORACLES = {
     "mc-geddon-holy-paladin-hps-v1": ROOT / "hps-ranking-geddon-paladin.json",
     "mc-lucifron-holy-paladin-hps-v1": ROOT / "hps-ranking-lucifron-paladin.json",
+    "mc-magmadar-holy-paladin-hps-v1": ROOT / "hps-ranking-magmadar-paladin.json",
+    "mc-gehennas-holy-paladin-hps-v1": ROOT / "hps-ranking-gehennas-paladin.json",
+    "mc-garr-holy-paladin-hps-v1": ROOT / "hps-ranking-garr-paladin.json",
+    "mc-shazzrah-holy-paladin-hps-v1": ROOT / "hps-ranking-shazzrah-paladin.json",
+    "mc-sulfuron-holy-paladin-hps-v1": ROOT / "hps-ranking-sulfuron-paladin.json",
+    "mc-golemagg-holy-paladin-hps-v1": ROOT / "hps-ranking-golemagg-paladin.json",
+    "mc-majordomo-holy-paladin-hps-v1": ROOT / "hps-ranking-majordomo-paladin.json",
 }
 
 

@@ -312,12 +312,11 @@ def test_a_failing_run_names_its_failures_and_a_crash_without_summary_is_explain
         return subprocess.CompletedProcess(list(command), 1, "......\n", "MemoryError\n")
 
     result = pr.pytest_result(failing, repo, "t", [], "s")
-    assert (result.status, result.detail) == (
-        pr.FAIL,
-        "1 failed, 3 passed in 0.1s; FAILED tests/x.py::test_a",
-    )
+    assert result.status == pr.FAIL
+    assert result.detail.startswith("1 failed, 3 passed in 0.1s; FAILED tests/x.py::test_a (full")
     crash = pr.pytest_result(crashed, repo, "t", [], "s")
-    assert (crash.status, crash.detail) == (pr.FAIL, "no pytest summary; MemoryError")
+    assert crash.status == pr.FAIL
+    assert crash.detail.startswith("no pytest summary; MemoryError (full output: ")
 
 
 @pytest.mark.parametrize(
@@ -366,21 +365,68 @@ def _commands(repo: Path, base: str, golden_k: str | None = None) -> list[list[s
     return [c for c in seen if "pytest" in c]
 
 
-def test_zone_rules_run_their_raid_seed_replays_and_nothing_else_golden(repo: Path) -> None:
+def test_zone_rules_run_their_raid_seed_replays_and_nothing_else_golden(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.delenv("NECROPSY_GATE_WORKERS", raising=False)
     base = git(repo, "rev-parse", "HEAD")
     write(repo, "src/necropsy/rules/classic_era/zones/mc_guidance.yaml", "x: 1\n")
     write(repo, "src/necropsy/rules/classic_era/zones/bwl.yaml", "x: 1\n")
     (command,) = _commands(repo, base)
-    assert command[-2:] == ["-k", "seed_capture and (bwl- or mc-)"]
+    assert command[-7:-5] == ["-k", "seed_capture and (bwl- or mc-)"]
+    assert command[-5:] == ["-n", "8", "--dist", "worksteal", "-rfE"]
 
 
-def test_a_changed_golden_file_runs_whole_unless_targeted_and_says_so(repo: Path) -> None:
+def test_golden_workers_follow_the_environment_and_zero_is_serial(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    base = git(repo, "rev-parse", "HEAD")
+    write(repo, "src/necropsy/rules/classic_era/zones/mc.yaml", "x: 1\n")
+    monkeypatch.setenv("NECROPSY_GATE_WORKERS", "0")
+    (command,) = _commands(repo, base)
+    assert "-n" not in command
+    _, _, results = pr.gate(repo, base, False, quiet)
+    (golden,) = [r for r in results if r.name == "golden replays"]
+    assert golden.scope.endswith("; serial")
+    for bad in ("four", "-1", "٣", " 8"):
+        monkeypatch.setenv("NECROPSY_GATE_WORKERS", bad)
+        with pytest.raises(pr.GateError, match="whole number"):
+            pr.gate(repo, base, False, quiet)
+
+
+def test_a_changed_golden_file_runs_whole_unless_targeted_and_says_so(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.delenv("NECROPSY_GATE_WORKERS", raising=False)
     base = git(repo, "rev-parse", "HEAD")
     write(repo, pr.GOLDEN, "def test_x() -> None:\n    pass\n")
     (command,) = _commands(repo, base)
-    assert command[-1] == pr.GOLDEN and "-k" not in command
+    assert pr.GOLDEN in command and "-k" not in command
     (command,) = _commands(repo, base, "mc-holy")
-    assert command[-2:] == ["-k", "mc-holy"]
+    assert command[-7:-5] == ["-k", "mc-holy"]
     _, _, results = pr.gate(repo, base, False, quiet, "mc-holy")
     (golden,) = [r for r in results if r.name == "golden replays"]
     assert "NOT the full golden file" in golden.scope
+
+
+def test_every_test_run_keeps_its_complete_output_in_its_own_log(repo: Path) -> None:
+    trace = "E       AssertionError: worker 3 saw a different total"
+
+    def failing(command: Sequence[str], root: Path) -> subprocess.CompletedProcess[str]:
+        out = f"{trace}\nFAILED tests/x.py::test_y - AssertionError\n1 failed in 0.1s\n"
+        return subprocess.CompletedProcess(list(command), 1, out, "worker crashed late")
+
+    def crash(command: Sequence[str], root: Path) -> subprocess.CompletedProcess[str]:
+        return subprocess.CompletedProcess(list(command), 3, "", "INTERNALERROR> boom")
+
+    first = pr.pytest_result(failing, repo, "golden replays", ["-n", "8"], "s")
+    second = pr.pytest_result(failing, repo, "golden replays", ["-n", "8"], "s")
+    assert first.status == second.status == pr.FAIL
+    logs = [Path(r.detail.rsplit("(full output: ", 1)[1].rstrip(")")) for r in (first, second)]
+    assert logs[0] != logs[1] and all(p.is_file() for p in logs)
+    text = logs[0].read_text(encoding="utf-8")
+    assert trace in text and "worker crashed late" in text and "exit: 1" in text
+    assert "-n 8" in text and f"head: {git(repo, 'rev-parse', 'HEAD')}" in text
+    crashed = pr.pytest_result(crash, repo, "golden replays", [], "s")
+    assert crashed.status == pr.FAIL and "no pytest summary" in crashed.detail
+    assert git(repo, "status", "--porcelain") == ""

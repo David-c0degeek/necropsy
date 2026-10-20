@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-gehennas-holy-paladin-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "gehennas-holy-paladin-jankheáls",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "8jHgCxT1DyVGZNkM",
+      "fight": 10,
+      "actor": 14,
+      "name": "Jankheáls",
+      "realm": "Mankrik",
+      "game_id": 51696708,
+      "encounter_id": 50665,
+      "duration_ms": 36276,
+      "owner": {
+        "heal": 31645,
+        "absorbed": 0,
+        "overheal": 14428
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "872.34",
+          "duration_ms": 36276,
+          "residual": "-73/453450"
+        },
+        {
+          "member": "reports/8jHgCxT1DyVGZNkM/fight_10.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "872.34",
+          "duration_ms": 36276,
+          "residual": "-73/453450"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-paladin-atrew",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "fdRrFwaKmvy3xJZD",
+      "fight": 6,
+      "actor": 2,
+      "name": "Atrew",
+      "realm": "Firemaw",
+      "game_id": 27129496,
+      "encounter_id": 50665,
+      "duration_ms": 25166,
+      "owner": {
+        "heal": 23876,
+        "absorbed": 0,
+        "overheal": 2730
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "948.74",
+          "duration_ms": 25166,
+          "residual": "229/629150"
+        },
+        {
+          "member": "reports/fdRrFwaKmvy3xJZD/fight_6.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "948.74",
+          "duration_ms": 25166,
+          "residual": "229/629150"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-paladin-dirtysheets",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "jmkfPWXzC6R7Br1A",
+      "fight": 9,
+      "actor": 10,
+      "name": "Dirtysheets",
+      "realm": "Mankrik",
+      "game_id": 37113905,
+      "encounter_id": 50665,
+      "duration_ms": 25823,
+      "owner": {
+        "heal": 19300,
+        "absorbed": 4396,
+        "overheal": 10032
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "917.632",
+          "duration_ms": 25823,
+          "residual": "-1392/3227875"
+        },
+        {
+          "member": "reports/jmkfPWXzC6R7Br1A/fight_9.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "917.632",
+          "duration_ms": 25823,
+          "residual": "-1392/3227875"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-paladin-jamahl",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "qX2nmQ41J7WbYV69",
+      "fight": 11,
+      "actor": 39,
+      "name": "Jamahl",
+      "realm": "Mankrik",
+      "game_id": 37996020,
+      "encounter_id": 50665,
+      "duration_ms": 25896,
+      "owner": {
+        "heal": 25234,
+        "absorbed": 3058,
+        "overheal": 14313
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1092.52",
+          "duration_ms": 25896,
+          "residual": "319/80925"
+        },
+        {
+          "member": "reports/qX2nmQ41J7WbYV69/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "1092.52",
+          "duration_ms": 25896,
+          "residual": "319/80925"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-paladin-euterpe",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "tgZdwA7fpyPxF6r1",
+      "fight": 3,
+      "actor": 11,
+      "name": "Euterpe",
+      "realm": "Mankrik",
+      "game_id": 34130282,
+      "encounter_id": 50665,
+      "duration_ms": 26852,
+      "owner": {
+        "heal": 21126,
+        "absorbed": 4233,
+        "overheal": 17372
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "944.399",
+          "duration_ms": 26852,
+          "residual": "-487/6713000"
+        },
+        {
+          "member": "reports/tgZdwA7fpyPxF6r1/fight_3.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "944.399",
+          "duration_ms": 26852,
+          "residual": "-487/6713000"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-paladin-resurgance",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "wp1kMv7XrgNmxc4q",
+      "fight": 17,
+      "actor": 31,
+      "name": "Resurgance",
+      "realm": "Pagle",
+      "game_id": 16940835,
+      "encounter_id": 50665,
+      "duration_ms": 63074,
+      "owner": {
+        "heal": 14392,
+        "absorbed": 0,
+        "overheal": 7241
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50665_Gehennas.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "228.176",
+          "duration_ms": 63074,
+          "residual": "1686/3942125"
+        },
+        {
+          "member": "reports/wp1kMv7XrgNmxc4q/fight_17.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "228.176",
+          "duration_ms": 63074,
+          "residual": "1686/3942125"
+        }
+      ]
+    }
+  ]
+}

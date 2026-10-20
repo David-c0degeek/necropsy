@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-golemagg-holy-paladin-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "golemagg-holy-paladin-arathar",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "9N6DkyvnHY7Praf3",
+      "fight": 63,
+      "actor": 1,
+      "name": "Arathar",
+      "realm": "Firemaw",
+      "game_id": 30237429,
+      "encounter_id": 50670,
+      "duration_ms": 86575,
+      "owner": {
+        "heal": 57680,
+        "absorbed": 3991,
+        "overheal": 10108
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "712.342",
+          "duration_ms": 86575,
+          "residual": "-173/1731500"
+        },
+        {
+          "member": "reports/9N6DkyvnHY7Praf3/fight_63.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[0]",
+          "kind": "report_fight_ranking",
+          "published": "712.342",
+          "duration_ms": 86575,
+          "residual": "-173/1731500"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-paladin-kryda",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "DFxvJ2RbAM4wGymp",
+      "fight": 48,
+      "actor": 19,
+      "name": "Kryda",
+      "realm": "Firemaw",
+      "game_id": 76929666,
+      "encounter_id": 50670,
+      "duration_ms": 81873,
+      "owner": {
+        "heal": 56041,
+        "absorbed": 0,
+        "overheal": 27756
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[5]",
+          "kind": "leaderboard",
+          "published": "684.487",
+          "duration_ms": 81873,
+          "residual": "-4151/81873000"
+        },
+        {
+          "member": "reports/DFxvJ2RbAM4wGymp/fight_48.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "684.487",
+          "duration_ms": 81873,
+          "residual": "-4151/81873000"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-paladin-stimorol",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "N9wnqPbRKygmM4z1",
+      "fight": 34,
+      "actor": 11,
+      "name": "Stimorol",
+      "realm": "Firemaw",
+      "game_id": 53268430,
+      "encounter_id": 50670,
+      "duration_ms": 63666,
+      "owner": {
+        "heal": 61771,
+        "absorbed": 0,
+        "overheal": 11697
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "970.235",
+          "duration_ms": 63666,
+          "residual": "1849/6366600"
+        },
+        {
+          "member": "reports/N9wnqPbRKygmM4z1/fight_34.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "970.235",
+          "duration_ms": 63666,
+          "residual": "1849/6366600"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-paladin-ruvena",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "TNydqkX8r9xVHhvg",
+      "fight": 23,
+      "actor": 14,
+      "name": "Ruvena",
+      "realm": "Firemaw",
+      "game_id": 63327358,
+      "encounter_id": 50670,
+      "duration_ms": 36928,
+      "owner": {
+        "heal": 25613,
+        "absorbed": 0,
+        "overheal": 2120
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "693.593",
+          "duration_ms": 36928,
+          "residual": "-9/144250"
+        },
+        {
+          "member": "reports/TNydqkX8r9xVHhvg/fight_23.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "693.593",
+          "duration_ms": 36928,
+          "residual": "-9/144250"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-paladin-eldra",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "Z8mRrJtAPGzHhxK6",
+      "fight": 61,
+      "actor": 33,
+      "name": "Eldra",
+      "realm": "Auberdine",
+      "game_id": 26973718,
+      "encounter_id": 50670,
+      "duration_ms": 72621,
+      "owner": {
+        "heal": 47512,
+        "absorbed": 3727,
+        "overheal": 21509
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "705.567",
+          "duration_ms": 72621,
+          "residual": "18893/72621000"
+        },
+        {
+          "member": "reports/Z8mRrJtAPGzHhxK6/fight_61.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "705.567",
+          "duration_ms": 72621,
+          "residual": "18893/72621000"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-paladin-resurgance",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 65,
+      "actor": 35,
+      "name": "Resurgance",
+      "realm": "Pagle",
+      "game_id": 16940835,
+      "encounter_id": 50670,
+      "duration_ms": 88158,
+      "owner": {
+        "heal": 32557,
+        "absorbed": 0,
+        "overheal": 16787
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50670_Golemagg_the_Incinerator.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "369.303",
+          "duration_ms": 88158,
+          "residual": "-991/6297000"
+        },
+        {
+          "member": "reports/kvJ2WVF1chC9R4wd/fight_65.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[0]",
+          "kind": "report_fight_ranking",
+          "published": "369.303",
+          "duration_ms": 88158,
+          "residual": "-991/6297000"
+        }
+      ]
+    }
+  ]
+}

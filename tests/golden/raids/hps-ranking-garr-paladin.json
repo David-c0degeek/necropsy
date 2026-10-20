@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-garr-holy-paladin-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "garr-holy-paladin-killian",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "8wgZYD1qknXmQAx6",
+      "fight": 17,
+      "actor": 15,
+      "name": "Killian",
+      "realm": "MirageRaceway",
+      "game_id": 40110572,
+      "encounter_id": 50666,
+      "duration_ms": 41921,
+      "owner": {
+        "heal": 25090,
+        "absorbed": 6950,
+        "overheal": 33257
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "764.295",
+          "duration_ms": 41921,
+          "residual": "-2139/8384200"
+        },
+        {
+          "member": "reports/8wgZYD1qknXmQAx6/fight_17.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "764.295",
+          "duration_ms": 41921,
+          "residual": "-2139/8384200"
+        }
+      ]
+    },
+    {
+      "id": "garr-holy-paladin-luxuryheals",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "Ay1BV3rqpXtj6aWP",
+      "fight": 67,
+      "actor": 10,
+      "name": "Luxuryheals",
+      "realm": "Firemaw",
+      "game_id": 45097168,
+      "encounter_id": 50666,
+      "duration_ms": 33522,
+      "owner": {
+        "heal": 25977,
+        "absorbed": 0,
+        "overheal": 18377
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "774.924",
+          "duration_ms": 33522,
+          "residual": "-97/1396750"
+        },
+        {
+          "member": "reports/Ay1BV3rqpXtj6aWP/fight_67.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "774.924",
+          "duration_ms": 33522,
+          "residual": "-97/1396750"
+        }
+      ]
+    },
+    {
+      "id": "garr-holy-paladin-grandheals",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "mR7XCWLQKTMgPbtB",
+      "fight": 67,
+      "actor": 9,
+      "name": "Grandheals",
+      "realm": "Firemaw",
+      "game_id": 45087719,
+      "encounter_id": 50666,
+      "duration_ms": 29448,
+      "owner": {
+        "heal": 23041,
+        "absorbed": 0,
+        "overheal": 10374
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "782.43",
+          "duration_ms": 29448,
+          "residual": "17/368100"
+        },
+        {
+          "member": "reports/mR7XCWLQKTMgPbtB/fight_67.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "782.43",
+          "duration_ms": 29448,
+          "residual": "17/368100"
+        }
+      ]
+    },
+    {
+      "id": "garr-holy-paladin-勒四",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "p9YNdLHfmh3jq1rJ",
+      "fight": 13,
+      "actor": 2,
+      "name": "勒四",
+      "realm": "碧玉矿洞",
+      "game_id": 91964841,
+      "encounter_id": 50666,
+      "duration_ms": 53907,
+      "owner": {
+        "heal": 43294,
+        "absorbed": 0,
+        "overheal": 4114
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "803.124",
+          "duration_ms": 53907,
+          "residual": "-1367/13476750"
+        },
+        {
+          "member": "reports/p9YNdLHfmh3jq1rJ/fight_13.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "803.124",
+          "duration_ms": 53907,
+          "residual": "-1367/13476750"
+        }
+      ]
+    },
+    {
+      "id": "garr-holy-paladin-aribéth",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "vzAK218xy4YDqWBt",
+      "fight": 54,
+      "actor": 114,
+      "name": "Aribéth",
+      "realm": "Pagle",
+      "game_id": 18218242,
+      "encounter_id": 50666,
+      "duration_ms": 106931,
+      "owner": {
+        "heal": 77044,
+        "absorbed": 4585,
+        "overheal": 14808
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "763.38",
+          "duration_ms": 106931,
+          "residual": "661/5346550"
+        },
+        {
+          "member": "reports/vzAK218xy4YDqWBt/fight_54.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "763.38",
+          "duration_ms": 106931,
+          "residual": "661/5346550"
+        }
+      ]
+    },
+    {
+      "id": "garr-holy-paladin-resurgance",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "zgmqFa2X4fjPQMB1",
+      "fight": 29,
+      "actor": 33,
+      "name": "Resurgance",
+      "realm": "Pagle",
+      "game_id": 16940835,
+      "encounter_id": 50666,
+      "duration_ms": 72185,
+      "owner": {
+        "heal": 22416,
+        "absorbed": 0,
+        "overheal": 19806
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50666_Garr.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "310.535",
+          "duration_ms": 72185,
+          "residual": "1241/2887400"
+        },
+        {
+          "member": "reports/zgmqFa2X4fjPQMB1/fight_29.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "310.535",
+          "duration_ms": 72185,
+          "residual": "1241/2887400"
+        }
+      ]
+    }
+  ]
+}

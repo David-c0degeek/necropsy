@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-magmadar-holy-paladin-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "magmadar-holy-paladin-auraline",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "1ZXW4YmnMqN8p3tg",
+      "fight": 84,
+      "actor": 18,
+      "name": "Auraline",
+      "realm": "Firemaw",
+      "game_id": 75055865,
+      "encounter_id": 50664,
+      "duration_ms": 36638,
+      "owner": {
+        "heal": 35813,
+        "absorbed": 4709,
+        "overheal": 5796
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50664_Magmadar.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1106.01",
+          "duration_ms": 36638,
+          "residual": "281/1831900"
+        },
+        {
+          "member": "reports/1ZXW4YmnMqN8p3tg/fight_84.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "1106.01",
+          "duration_ms": 36638,
+          "residual": "281/1831900"
+        }
+      ]
+    },
+    {
+      "id": "magmadar-holy-paladin-stimorol",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "F9htwyA4DMVRbaxB",
+      "fight": 7,
+      "actor": 11,
+      "name": "Stimorol",
+      "realm": "Firemaw",
+      "game_id": 53268430,
+      "encounter_id": 50664,
+      "duration_ms": 46380,
+      "owner": {
+        "heal": 41575,
+        "absorbed": 0,
+        "overheal": 13956
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50664_Magmadar.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "896.399",
+          "duration_ms": 46380,
+          "residual": "719/2319000"
+        },
+        {
+          "member": "reports/F9htwyA4DMVRbaxB/fight_7.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "896.399",
+          "duration_ms": 46380,
+          "residual": "719/2319000"
+        }
+      ]
+    },
+    {
+      "id": "magmadar-holy-paladin-carameyl",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "KvJwABYjnMpGFxz9",
+      "fight": 5,
+      "actor": 14,
+      "name": "Carameyl",
+      "realm": "Firemaw",
+      "game_id": 62341538,
+      "encounter_id": 50664,
+      "duration_ms": 35123,
+      "owner": {
+        "heal": 31078,
+        "absorbed": 4387,
+        "overheal": 19686
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50664_Magmadar.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1009.74",
+          "duration_ms": 35123,
+          "residual": "-4901/1756150"
+        },
+        {
+          "member": "reports/KvJwABYjnMpGFxz9/fight_5.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1009.74",
+          "duration_ms": 35123,
+          "residual": "-4901/1756150"
+        }
+      ]
+    },
+    {
+      "id": "magmadar-holy-paladin-rarlin",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "rANvqkf21z8pWTLy",
+      "fight": 5,
+      "actor": 2,
+      "name": "Rarlin",
+      "realm": "Mankrik",
+      "game_id": 33912306,
+      "encounter_id": 50664,
+      "duration_ms": 49064,
+      "owner": {
+        "heal": 37060,
+        "absorbed": 4922,
+        "overheal": 18546
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50664_Magmadar.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "855.658",
+          "duration_ms": 49064,
+          "residual": "-257/3066500"
+        },
+        {
+          "member": "reports/rANvqkf21z8pWTLy/fight_5.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "855.658",
+          "duration_ms": 49064,
+          "residual": "-257/3066500"
+        }
+      ]
+    },
+    {
+      "id": "magmadar-holy-paladin-diddled",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "rTMY18kCKdxXbLFh",
+      "fight": 33,
+      "actor": 14,
+      "name": "Diddled",
+      "realm": "Ashkandi",
+      "game_id": 41307136,
+      "encounter_id": 50664,
+      "duration_ms": 26867,
+      "owner": {
+        "heal": 24978,
+        "absorbed": 0,
+        "overheal": 3594
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50664_Magmadar.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "929.691",
+          "duration_ms": 26867,
+          "residual": "-8097/26867000"
+        },
+        {
+          "member": "reports/rTMY18kCKdxXbLFh/fight_33.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "929.691",
+          "duration_ms": 26867,
+          "residual": "-8097/26867000"
+        }
+      ]
+    },
+    {
+      "id": "magmadar-holy-paladin-resurgance",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "report": "wp1kMv7XrgNmxc4q",
+      "fight": 12,
+      "actor": 31,
+      "name": "Resurgance",
+      "realm": "Pagle",
+      "game_id": 16940835,
+      "encounter_id": 50664,
+      "duration_ms": 58557,
+      "owner": {
+        "heal": 16030,
+        "absorbed": 0,
+        "overheal": 16772
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50664_Magmadar.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "273.75",
+          "duration_ms": 58557,
+          "residual": "85/234228"
+        },
+        {
+          "member": "reports/wp1kMv7XrgNmxc4q/fight_12.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[1]",
+          "kind": "report_fight_ranking",
+          "published": "273.75",
+          "duration_ms": 58557,
+          "residual": "85/234228"
+        }
+      ]
+    }
+  ]
+}

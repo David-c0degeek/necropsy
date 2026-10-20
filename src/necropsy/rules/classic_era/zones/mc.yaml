@@ -54,6 +54,153 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
   validated: 6/6 audited Lucifron Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
   evidence: tests/golden/raids/hps-ranking-lucifron-paladin.json
+- rule: mc-magmadar-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50664
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Magmadar Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-magmadar-paladin.json
+- rule: mc-gehennas-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50665
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Gehennas Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-gehennas-paladin.json
+- rule: mc-garr-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50666
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Garr Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-garr-paladin.json
+- rule: mc-shazzrah-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50667
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Shazzrah Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-shazzrah-paladin.json
+- rule: mc-sulfuron-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50669
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Sulfuron Harbinger Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-sulfuron-paladin.json
+- rule: mc-golemagg-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50670
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Golemagg the Incinerator Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-golemagg-paladin.json
+- rule: mc-majordomo-holy-paladin-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50671
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Majordomo Executus Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-majordomo-paladin.json
 encounters:
 - id: 50663
   name: Lucifron
