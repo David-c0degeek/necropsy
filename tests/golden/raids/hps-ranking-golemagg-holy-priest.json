@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "rule": "mc-golemagg-holy-priest-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "golemagg-holy-priest-almsíví",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "4wdQYqaF2pJGL7Rg",
+      "fight": 21,
+      "actor": 8,
+      "name": "Almsíví",
+      "realm": "Firemaw",
+      "game_id": 19719644,
+      "encounter_id": 50670,
+      "duration_ms": 34572,
+      "owner": {
+        "heal": 25740,
+        "absorbed": 4958,
+        "overheal": 18009
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[5]",
+          "kind": "leaderboard",
+          "published": "887.944",
+          "duration_ms": 34572,
+          "residual": "1/1080375"
+        },
+        {
+          "member": "reports/4wdQYqaF2pJGL7Rg/fight_21.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "887.944",
+          "duration_ms": 34572,
+          "residual": "1/1080375"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-priest-yazeli",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "FbGqnV2ghAxpk7NW",
+      "fight": 47,
+      "actor": 20,
+      "name": "Yazeli",
+      "realm": "Mankrik",
+      "game_id": 72432878,
+      "encounter_id": 50670,
+      "duration_ms": 78757,
+      "owner": {
+        "heal": 73134,
+        "absorbed": 0,
+        "overheal": 24030
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "928.603",
+          "duration_ms": 78757,
+          "residual": "13529/78757000"
+        },
+        {
+          "member": "reports/FbGqnV2ghAxpk7NW/fight_47.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "928.603",
+          "duration_ms": 78757,
+          "residual": "13529/78757000"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-priest-licoricetea",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "R8TPryYLMQdAjqJX",
+      "fight": 38,
+      "actor": 24,
+      "name": "Licoricetea",
+      "realm": "Whitemane",
+      "game_id": 25384959,
+      "encounter_id": 50670,
+      "duration_ms": 54242,
+      "owner": {
+        "heal": 54660,
+        "absorbed": 0,
+        "overheal": 18881
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1007.71",
+          "duration_ms": 54242,
+          "residual": "-10291/2712100"
+        },
+        {
+          "member": "reports/R8TPryYLMQdAjqJX/fight_38.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1007.71",
+          "duration_ms": 54242,
+          "residual": "-10291/2712100"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-priest-chiva",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "W3NHPmqQnVKpXTGA",
+      "fight": 34,
+      "actor": 10,
+      "name": "Chiva",
+      "realm": "Anathema",
+      "game_id": 29309939,
+      "encounter_id": 50670,
+      "duration_ms": 44788,
+      "owner": {
+        "heal": 37379,
+        "absorbed": 5953,
+        "overheal": 21961
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "967.491",
+          "duration_ms": 44788,
+          "residual": "3273/11197000"
+        },
+        {
+          "member": "reports/W3NHPmqQnVKpXTGA/fight_34.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "967.491",
+          "duration_ms": 44788,
+          "residual": "3273/11197000"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-priest-almsivi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "fdRrFwaKmvy3xJZD",
+      "fight": 16,
+      "actor": 7,
+      "name": "Almsivi",
+      "realm": "Firemaw",
+      "game_id": 25860080,
+      "encounter_id": 50670,
+      "duration_ms": 46470,
+      "owner": {
+        "heal": 48145,
+        "absorbed": 688,
+        "overheal": 17355
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1050.85",
+          "duration_ms": 46470,
+          "residual": "1/92940"
+        },
+        {
+          "member": "user_rankings/50670_Golemagg_the_Incinerator.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "1050.85",
+          "duration_ms": 46470,
+          "residual": "1/92940"
+        },
+        {
+          "member": "reports/fdRrFwaKmvy3xJZD/fight_16.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1050.85",
+          "duration_ms": 46470,
+          "residual": "1/92940"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-holy-priest-bluebeard",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "t8DVmHqyjnMRbZaA",
+      "fight": 29,
+      "actor": 7,
+      "name": "Bluebeard",
+      "realm": "PyrewoodVillage",
+      "game_id": 29857615,
+      "encounter_id": 50670,
+      "duration_ms": 44221,
+      "owner": {
+        "heal": 47009,
+        "absorbed": 8347,
+        "overheal": 27654
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1251.8",
+          "duration_ms": 44221,
+          "residual": "761/221105"
+        },
+        {
+          "member": "reports/t8DVmHqyjnMRbZaA/fight_29.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "1251.8",
+          "duration_ms": 44221,
+          "residual": "761/221105"
+        }
+      ]
+    }
+  ]
+}

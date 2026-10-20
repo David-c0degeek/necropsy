@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-golemagg-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "golemagg-restoration-shaman-tollmann",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "BFmZW4nz6p7TyCPc",
+      "fight": 35,
+      "actor": 9,
+      "name": "Tollmann",
+      "realm": "Firemaw",
+      "game_id": 27387077,
+      "encounter_id": 50670,
+      "duration_ms": 62939,
+      "owner": {
+        "heal": 60436,
+        "absorbed": 6139,
+        "overheal": 12463
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1057.77",
+          "duration_ms": 62939,
+          "residual": "1397/6293900"
+        },
+        {
+          "member": "reports/BFmZW4nz6p7TyCPc/fight_35.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1057.77",
+          "duration_ms": 62939,
+          "residual": "1397/6293900"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-restoration-shaman-dèniro",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "GPz7YJ3vRaCWNhgk",
+      "fight": 23,
+      "actor": 22,
+      "name": "Dèniro",
+      "realm": "Firemaw",
+      "game_id": 19707937,
+      "encounter_id": 50670,
+      "duration_ms": 58043,
+      "owner": {
+        "heal": 61015,
+        "absorbed": 0,
+        "overheal": 14008
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1051.2",
+          "duration_ms": 58043,
+          "residual": "992/290215"
+        },
+        {
+          "member": "reports/GPz7YJ3vRaCWNhgk/fight_23.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1051.2",
+          "duration_ms": 58043,
+          "residual": "992/290215"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-restoration-shaman-chainheel",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "JFz1k2tN4fqHwCWZ",
+      "fight": 35,
+      "actor": 6,
+      "name": "Chainheel",
+      "realm": "Firemaw",
+      "game_id": 85754207,
+      "encounter_id": 50670,
+      "duration_ms": 56495,
+      "owner": {
+        "heal": 53340,
+        "absorbed": 6020,
+        "overheal": 27704
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1050.71",
+          "duration_ms": 56495,
+          "residual": "2771/1129900"
+        },
+        {
+          "member": "reports/JFz1k2tN4fqHwCWZ/fight_35.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[9]",
+          "kind": "report_fight_ranking",
+          "published": "1050.71",
+          "duration_ms": 56495,
+          "residual": "2771/1129900"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-restoration-shaman-hardzen",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "fk1TdAL37NjZKnFY",
+      "fight": 37,
+      "actor": 17,
+      "name": "Hardzen",
+      "realm": "Firemaw",
+      "game_id": 20891585,
+      "encounter_id": 50670,
+      "duration_ms": 55822,
+      "owner": {
+        "heal": 46624,
+        "absorbed": 5037,
+        "overheal": 32248
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "925.459",
+          "duration_ms": 55822,
+          "residual": "729/1469000"
+        },
+        {
+          "member": "reports/fk1TdAL37NjZKnFY/fight_37.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "925.459",
+          "duration_ms": 55822,
+          "residual": "729/1469000"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "fvwTh2JHyZgCz4B3",
+      "fight": 37,
+      "actor": 27,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50670,
+      "duration_ms": 56862,
+      "owner": {
+        "heal": 30824,
+        "absorbed": 0,
+        "overheal": 27819
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50670_Golemagg_the_Incinerator.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "542.084",
+          "duration_ms": 56862,
+          "residual": "2449/7107750"
+        },
+        {
+          "member": "reports/fvwTh2JHyZgCz4B3/fight_37.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "542.084",
+          "duration_ms": 56862,
+          "residual": "2449/7107750"
+        }
+      ]
+    },
+    {
+      "id": "golemagg-restoration-shaman-hartzen",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "w37DkBcKtRV2ayzQ",
+      "fight": 42,
+      "actor": 17,
+      "name": "Hartzen",
+      "realm": "Firemaw",
+      "game_id": 27542669,
+      "encounter_id": 50670,
+      "duration_ms": 46653,
+      "owner": {
+        "heal": 39147,
+        "absorbed": 5381,
+        "overheal": 20885
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50670_Golemagg_the_Incinerator.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "954.451",
+          "duration_ms": 46653,
+          "residual": "-2503/46653000"
+        },
+        {
+          "member": "reports/w37DkBcKtRV2ayzQ/fight_42.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "954.451",
+          "duration_ms": 46653,
+          "residual": "-2503/46653000"
+        }
+      ]
+    }
+  ]
+}

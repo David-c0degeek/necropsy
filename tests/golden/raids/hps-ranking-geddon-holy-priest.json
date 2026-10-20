@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "rule": "mc-geddon-holy-priest-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "geddon-holy-priest-inkia",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "1QatCkbxLyrZzNAg",
+      "fight": 15,
+      "actor": 21,
+      "name": "Inkia",
+      "realm": "Firemaw",
+      "game_id": 27266465,
+      "encounter_id": 50668,
+      "duration_ms": 16285,
+      "owner": {
+        "heal": 20163,
+        "absorbed": 0,
+        "overheal": 1809
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1238.13",
+          "duration_ms": 16285,
+          "residual": "1059/325700"
+        },
+        {
+          "member": "reports/1QatCkbxLyrZzNAg/fight_15.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1238.13",
+          "duration_ms": 16285,
+          "residual": "1059/325700"
+        }
+      ]
+    },
+    {
+      "id": "geddon-holy-priest-youngthotty",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 3,
+      "name": "Youngthotty",
+      "realm": "Whitemane",
+      "game_id": 25769118,
+      "encounter_id": 50668,
+      "duration_ms": 11280,
+      "owner": {
+        "heal": 21599,
+        "absorbed": 0,
+        "overheal": 952
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1914.8",
+          "duration_ms": 11280,
+          "residual": "7/1410"
+        },
+        {
+          "member": "reports/CBz1hnGRXbdYAZ8y/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1914.8",
+          "duration_ms": 11280,
+          "residual": "7/1410"
+        }
+      ]
+    },
+    {
+      "id": "geddon-holy-priest-linkitcraig",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 14,
+      "name": "Linkitcraig",
+      "realm": "Whitemane",
+      "game_id": 25947054,
+      "encounter_id": 50668,
+      "duration_ms": 11280,
+      "owner": {
+        "heal": 15992,
+        "absorbed": 0,
+        "overheal": 3602
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1417.73",
+          "duration_ms": 11280,
+          "residual": "7/14100"
+        },
+        {
+          "member": "reports/CBz1hnGRXbdYAZ8y/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1417.73",
+          "duration_ms": 11280,
+          "residual": "7/14100"
+        }
+      ]
+    },
+    {
+      "id": "geddon-holy-priest-immateriall",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 17,
+      "name": "Immateriall",
+      "realm": "Whitemane",
+      "game_id": 41380754,
+      "encounter_id": 50668,
+      "duration_ms": 11280,
+      "owner": {
+        "heal": 14991,
+        "absorbed": 0,
+        "overheal": 1714
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1328.99",
+          "duration_ms": 11280,
+          "residual": "-3/4700"
+        },
+        {
+          "member": "reports/CBz1hnGRXbdYAZ8y/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[9]",
+          "kind": "report_fight_ranking",
+          "published": "1328.99",
+          "duration_ms": 11280,
+          "residual": "-3/4700"
+        }
+      ]
+    },
+    {
+      "id": "geddon-holy-priest-divam",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "CBz1hnGRXbdYAZ8y",
+      "fight": 11,
+      "actor": 20,
+      "name": "Divam",
+      "realm": "Bigglesworth",
+      "game_id": 21892305,
+      "encounter_id": 50668,
+      "duration_ms": 11280,
+      "owner": {
+        "heal": 13722,
+        "absorbed": 0,
+        "overheal": 3641
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[5]",
+          "kind": "leaderboard",
+          "published": "1216.49",
+          "duration_ms": 11280,
+          "residual": "-3/4700"
+        },
+        {
+          "member": "reports/CBz1hnGRXbdYAZ8y/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1216.49",
+          "duration_ms": 11280,
+          "residual": "-3/4700"
+        }
+      ]
+    },
+    {
+      "id": "geddon-holy-priest-almsivi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "fdRrFwaKmvy3xJZD",
+      "fight": 10,
+      "actor": 7,
+      "name": "Almsivi",
+      "realm": "Firemaw",
+      "game_id": 25860080,
+      "encounter_id": 50668,
+      "duration_ms": 16240,
+      "owner": {
+        "heal": 20579,
+        "absorbed": 1765,
+        "overheal": 7967
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1375.86",
+          "duration_ms": 16240,
+          "residual": "3/1450"
+        },
+        {
+          "member": "user_rankings/50668_Baron_Geddon.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "1375.86",
+          "duration_ms": 16240,
+          "residual": "3/1450"
+        },
+        {
+          "member": "reports/fdRrFwaKmvy3xJZD/fight_10.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1375.86",
+          "duration_ms": 16240,
+          "residual": "3/1450"
+        }
+      ]
+    }
+  ]
+}

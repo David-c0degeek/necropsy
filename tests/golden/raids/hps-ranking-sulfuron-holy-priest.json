@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "rule": "mc-sulfuron-holy-priest-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "sulfuron-holy-priest-almsivi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "7HRVn849AKpbGcmv",
+      "fight": 26,
+      "actor": 27,
+      "name": "Almsivi",
+      "realm": "Firemaw",
+      "game_id": 25860080,
+      "encounter_id": 50669,
+      "duration_ms": 45592,
+      "owner": {
+        "heal": 31291,
+        "absorbed": 7251,
+        "overheal": 32823
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[17]",
+          "kind": "leaderboard",
+          "published": "845.368",
+          "duration_ms": 45592,
+          "residual": "-279/712375"
+        },
+        {
+          "member": "user_rankings/50669_Sulfuron_Harbinger.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "845.368",
+          "duration_ms": 45592,
+          "residual": "-279/712375"
+        },
+        {
+          "member": "reports/7HRVn849AKpbGcmv/fight_26.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "845.368",
+          "duration_ms": 45592,
+          "residual": "-279/712375"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-holy-priest-almsíví",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "9qfXdBbWYwx1H4Pt",
+      "fight": 15,
+      "actor": 27,
+      "name": "Almsíví",
+      "realm": "Firemaw",
+      "game_id": 19719644,
+      "encounter_id": 50669,
+      "duration_ms": 47736,
+      "owner": {
+        "heal": 59293,
+        "absorbed": 1916,
+        "overheal": 29854
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1282.24",
+          "duration_ms": 47736,
+          "residual": "-1/5525"
+        },
+        {
+          "member": "reports/9qfXdBbWYwx1H4Pt/fight_15.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1282.24",
+          "duration_ms": 47736,
+          "residual": "-1/5525"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-holy-priest-lightnado",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "AxCR7w3VvQHWjLDh",
+      "fight": 34,
+      "actor": 34,
+      "name": "Lightnado",
+      "realm": "Mankrik",
+      "game_id": 18000146,
+      "encounter_id": 50669,
+      "duration_ms": 51164,
+      "owner": {
+        "heal": 59757,
+        "absorbed": 416,
+        "overheal": 10606
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1176.08",
+          "duration_ms": 51164,
+          "residual": "268/319775"
+        },
+        {
+          "member": "reports/AxCR7w3VvQHWjLDh/fight_34.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1176.08",
+          "duration_ms": 51164,
+          "residual": "268/319775"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-holy-priest-blueishh",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "QB3f7JhcgNkwGTMy",
+      "fight": 20,
+      "actor": 20,
+      "name": "Blueishh",
+      "realm": "Firemaw",
+      "game_id": 42360896,
+      "encounter_id": 50669,
+      "duration_ms": 27805,
+      "owner": {
+        "heal": 26360,
+        "absorbed": 282,
+        "overheal": 14179
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "958.173",
+          "duration_ms": 27805,
+          "residual": "-53/5561000"
+        },
+        {
+          "member": "reports/QB3f7JhcgNkwGTMy/fight_20.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "958.173",
+          "duration_ms": 27805,
+          "residual": "-53/5561000"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-holy-priest-hermés",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "jFVTN28C6rJ9YxfP",
+      "fight": 78,
+      "actor": 23,
+      "name": "Hermés",
+      "realm": "Firemaw",
+      "game_id": 44996522,
+      "encounter_id": 50669,
+      "duration_ms": 28480,
+      "owner": {
+        "heal": 27370,
+        "absorbed": 0,
+        "overheal": 8886
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "961.025",
+          "duration_ms": 28480,
+          "residual": "1/3560"
+        },
+        {
+          "member": "reports/jFVTN28C6rJ9YxfP/fight_78.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "961.025",
+          "duration_ms": 28480,
+          "residual": "1/3560"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-holy-priest-daice",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "pCmghbF3kYd42x6G",
+      "fight": 17,
+      "actor": 33,
+      "name": "Daice",
+      "realm": "Mograine",
+      "game_id": 22024414,
+      "encounter_id": 50669,
+      "duration_ms": 24891,
+      "owner": {
+        "heal": 24720,
+        "absorbed": 0,
+        "overheal": 2813
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "993.13",
+          "duration_ms": 24891,
+          "residual": "39/829700"
+        },
+        {
+          "member": "reports/pCmghbF3kYd42x6G/fight_17.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "993.13",
+          "duration_ms": 24891,
+          "residual": "39/829700"
+        }
+      ]
+    }
+  ]
+}

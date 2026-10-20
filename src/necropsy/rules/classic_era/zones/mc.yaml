@@ -201,6 +201,363 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
   validated: 6/6 audited Majordomo Executus Holy Paladin ranking rows (12 published amounts) within the bound; 0 contradictions.
   evidence: tests/golden/raids/hps-ranking-majordomo-paladin.json
+- rule: mc-lucifron-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50663
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Lucifron Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-lucifron-holy-priest.json
+- rule: mc-gehennas-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50665
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Gehennas Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-gehennas-holy-priest.json
+- rule: mc-garr-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50666
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Garr Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-garr-holy-priest.json
+- rule: mc-shazzrah-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50667
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Shazzrah Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-shazzrah-holy-priest.json
+- rule: mc-geddon-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50668
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Baron Geddon Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-geddon-holy-priest.json
+- rule: mc-sulfuron-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50669
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Sulfuron Harbinger Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-sulfuron-holy-priest.json
+- rule: mc-golemagg-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50670
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Golemagg the Incinerator Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-golemagg-holy-priest.json
+- rule: mc-majordomo-holy-priest-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50671
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Majordomo Executus Holy Priest ranking rows (13 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-majordomo-holy-priest.json
+- rule: mc-lucifron-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50663
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Lucifron Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-lucifron-restoration-shaman.json
+- rule: mc-gehennas-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50665
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Gehennas Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-gehennas-restoration-shaman.json
+- rule: mc-garr-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50666
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Garr Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-garr-restoration-shaman.json
+- rule: mc-shazzrah-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50667
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Shazzrah Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-shazzrah-restoration-shaman.json
+- rule: mc-geddon-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50668
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Baron Geddon Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-geddon-restoration-shaman.json
+- rule: mc-sulfuron-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50669
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Sulfuron Harbinger Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-sulfuron-restoration-shaman.json
+- rule: mc-golemagg-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50670
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Golemagg the Incinerator Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-golemagg-restoration-shaman.json
+- rule: mc-majordomo-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50671
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Majordomo Executus Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-majordomo-restoration-shaman.json
+- rule: mc-ragnaros-restoration-shaman-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 50672
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: >-
+    WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed
+    events plus the same for its listed owned units, divided by the fight duration.
+    No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6/6 audited Ragnaros Restoration Shaman ranking rows (12 published amounts) within the bound; 0 contradictions.
+  evidence: tests/golden/raids/hps-ranking-ragnaros-restoration-shaman.json
 encounters:
 - id: 50663
   name: Lucifron

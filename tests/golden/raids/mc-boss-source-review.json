@@ -22,7 +22,25 @@
         "cleanse_range_hint": "(Hint: if you can cast dispel or cleanse on the main tank, you are too close.)",
         "fear_ward": "Priests should keep Fear Ward on the main tank.",
         "two_healer_groups": "A guild new to Magmadar may wish to have 2 groups of MT healers, only one of which is on the MT at a time."
-      }
+      },
+      "capability_sources": [
+        {
+          "url": "https://classicdb.ch/?quest=5641",
+          "retrieved": "2026-10-20",
+          "excerpts": {
+            "fear_ward_quest": "A Lack of Fear (Side: Dwarf); reward spell: Fear Ward (spell 19337)."
+          },
+          "use": "Fear Ward availability is racial in Classic Era: guidance names it as a Dwarf Priest job and never as a general Priest or Horde capability."
+        },
+        {
+          "url": "https://classicdb.ch/?spell=8143",
+          "retrieved": "2026-10-20",
+          "excerpts": {
+            "tremor_totem": "Summons a Tremor Totem with 5 health at the feet of the caster that shakes the ground around it, removing Fear, Charm and Sleep effects from party members within 30 yards. Lasts 2 min."
+          },
+          "use": "The guide's silence on Tremor Totem is not a finding of no Shaman fear utility; Shaman fear utility stays not assessed."
+        }
+      ]
     },
     {
       "boss": "Gehennas",
@@ -112,7 +130,8 @@
         "mana_efficiency": "This battle is a test of the mana efficiency of the healers, who should bring as many Major Mana Potions as possible."
       },
       "conflicts": {
-        "paladin_mage_pairs": "The guide excludes a 'portal caster' Paladin from the Mage pairs without explaining the role; guidance omits that exception and keeps only the conditional raid-assigned pairing."
+        "paladin_mage_pairs": "The guide excludes a 'portal caster' Paladin from the Mage pairs without explaining the role; guidance omits that exception and keeps only the conditional raid-assigned pairing.",
+        "faction": "The guide's pull and Mage-pair roles use Paladins, which only Alliance raids have in Classic Era; Horde guidance must not imply them."
       }
     },
     {

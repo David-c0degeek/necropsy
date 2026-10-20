@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "rule": "mc-shazzrah-holy-priest-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "shazzrah-holy-priest-brizzly",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "JL3GPWMXrQNpczHF",
+      "fight": 28,
+      "actor": 9,
+      "name": "Brizzly",
+      "realm": "Kurinnaxx",
+      "game_id": 19980461,
+      "encounter_id": 50667,
+      "duration_ms": 24774,
+      "owner": {
+        "heal": 46882,
+        "absorbed": 0,
+        "overheal": 12583
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1892.39",
+          "duration_ms": 24774,
+          "residual": "-3493/1238700"
+        },
+        {
+          "member": "reports/JL3GPWMXrQNpczHF/fight_28.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1892.39",
+          "duration_ms": 24774,
+          "residual": "-3493/1238700"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-priest-almsíví",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "PDm2B4tLz6hVMZjx",
+      "fight": 16,
+      "actor": 20,
+      "name": "Almsíví",
+      "realm": "Firemaw",
+      "game_id": 19719644,
+      "encounter_id": 50667,
+      "duration_ms": 26136,
+      "owner": {
+        "heal": 43406,
+        "absorbed": 8348,
+        "overheal": 18930
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1980.18",
+          "duration_ms": 26136,
+          "residual": "97/163350"
+        },
+        {
+          "member": "reports/PDm2B4tLz6hVMZjx/fight_16.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1980.18",
+          "duration_ms": 26136,
+          "residual": "97/163350"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-priest-hewdgeanus",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "WfhyRX7QPrN4qa1g",
+      "fight": 19,
+      "actor": 16,
+      "name": "Hewdgeanus",
+      "realm": "Whitemane",
+      "game_id": 28068173,
+      "encounter_id": 50667,
+      "duration_ms": 19528,
+      "owner": {
+        "heal": 34648,
+        "absorbed": 0,
+        "overheal": 10482
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[5]",
+          "kind": "leaderboard",
+          "published": "1774.27",
+          "duration_ms": 19528,
+          "residual": "693/244100"
+        },
+        {
+          "member": "reports/WfhyRX7QPrN4qa1g/fight_19.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1774.27",
+          "duration_ms": 19528,
+          "residual": "693/244100"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-priest-virotic",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "nQ1h28xZR7Jtygdj",
+      "fight": 22,
+      "actor": 13,
+      "name": "Virotic",
+      "realm": "Venoxis",
+      "game_id": 23593663,
+      "encounter_id": 50667,
+      "duration_ms": 24258,
+      "owner": {
+        "heal": 39272,
+        "absorbed": 5179,
+        "overheal": 15768
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1832.43",
+          "duration_ms": 24258,
+          "residual": "-1449/404300"
+        },
+        {
+          "member": "reports/nQ1h28xZR7Jtygdj/fight_22.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[8]",
+          "kind": "report_fight_ranking",
+          "published": "1832.43",
+          "duration_ms": 24258,
+          "residual": "-1449/404300"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-priest-besaft",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "v29TcxrZVzXykFwm",
+      "fight": 30,
+      "actor": 34,
+      "name": "Besaft",
+      "realm": "PyrewoodVillage",
+      "game_id": 26894035,
+      "encounter_id": 50667,
+      "duration_ms": 17177,
+      "owner": {
+        "heal": 31540,
+        "absorbed": 0,
+        "overheal": 4021
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1836.18",
+          "duration_ms": 17177,
+          "residual": "-3193/858850"
+        },
+        {
+          "member": "reports/v29TcxrZVzXykFwm/fight_30.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1836.18",
+          "duration_ms": 17177,
+          "residual": "-3193/858850"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-holy-priest-almsivi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "yGLZpJgXT3nW1CFK",
+      "fight": 17,
+      "actor": 10,
+      "name": "Almsivi",
+      "realm": "Firemaw",
+      "game_id": 25860080,
+      "encounter_id": 50667,
+      "duration_ms": 22094,
+      "owner": {
+        "heal": 31795,
+        "absorbed": 4568,
+        "overheal": 12504
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[21]",
+          "kind": "leaderboard",
+          "published": "1645.83",
+          "duration_ms": 22094,
+          "residual": "1599/1104700"
+        },
+        {
+          "member": "user_rankings/50667_Shazzrah.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "1645.83",
+          "duration_ms": 22094,
+          "residual": "1599/1104700"
+        },
+        {
+          "member": "reports/yGLZpJgXT3nW1CFK/fight_17.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[8]",
+          "kind": "report_fight_ranking",
+          "published": "1645.83",
+          "duration_ms": 22094,
+          "residual": "1599/1104700"
+        }
+      ]
+    }
+  ]
+}

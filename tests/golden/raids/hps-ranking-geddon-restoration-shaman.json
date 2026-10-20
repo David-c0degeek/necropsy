@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-geddon-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "geddon-restoration-shaman-totemgoesbrr",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "7vBm1LCTHP86gwGD",
+      "fight": 19,
+      "actor": 12,
+      "name": "Totemgoesbrr",
+      "realm": "Golemagg",
+      "game_id": 26103124,
+      "encounter_id": 50668,
+      "duration_ms": 22294,
+      "owner": {
+        "heal": 22655,
+        "absorbed": 0,
+        "overheal": 14518
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1016.19",
+          "duration_ms": 22294,
+          "residual": "3007/1114700"
+        },
+        {
+          "member": "reports/7vBm1LCTHP86gwGD/fight_19.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[8]",
+          "kind": "report_fight_ranking",
+          "published": "1016.19",
+          "duration_ms": 22294,
+          "residual": "3007/1114700"
+        }
+      ]
+    },
+    {
+      "id": "geddon-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "P4qjV3dbt7HMaZBf",
+      "fight": 29,
+      "actor": 18,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50668,
+      "duration_ms": 45055,
+      "owner": {
+        "heal": 29272,
+        "absorbed": 0,
+        "overheal": 6694
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50668_Baron_Geddon.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "649.695",
+          "duration_ms": 45055,
+          "residual": "-329/1802200"
+        },
+        {
+          "member": "reports/P4qjV3dbt7HMaZBf/fight_29.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "649.695",
+          "duration_ms": 45055,
+          "residual": "-329/1802200"
+        }
+      ]
+    },
+    {
+      "id": "geddon-restoration-shaman-undertow",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "ncamJNBRwA1tkgzH",
+      "fight": 64,
+      "actor": 6,
+      "name": "Undertow",
+      "realm": "Dragonfang",
+      "game_id": 65866529,
+      "encounter_id": 50668,
+      "duration_ms": 30446,
+      "owner": {
+        "heal": 39992,
+        "absorbed": 0,
+        "overheal": 1776
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1313.54",
+          "duration_ms": 30446,
+          "residual": "-971/761150"
+        },
+        {
+          "member": "reports/ncamJNBRwA1tkgzH/fight_64.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1313.54",
+          "duration_ms": 30446,
+          "residual": "-971/761150"
+        }
+      ]
+    },
+    {
+      "id": "geddon-restoration-shaman-mayyday",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "ncamJNBRwA1tkgzH",
+      "fight": 64,
+      "actor": 26,
+      "name": "Mayyday",
+      "realm": "Golemagg",
+      "game_id": 31911579,
+      "encounter_id": 50668,
+      "duration_ms": 30446,
+      "owner": {
+        "heal": 36246,
+        "absorbed": 0,
+        "overheal": 10275
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1190.5",
+          "duration_ms": 30446,
+          "residual": "37/30446"
+        },
+        {
+          "member": "reports/ncamJNBRwA1tkgzH/fight_64.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[8]",
+          "kind": "report_fight_ranking",
+          "published": "1190.5",
+          "duration_ms": 30446,
+          "residual": "37/30446"
+        }
+      ]
+    },
+    {
+      "id": "geddon-restoration-shaman-amisha",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "ncamJNBRwA1tkgzH",
+      "fight": 64,
+      "actor": 23,
+      "name": "Amisha",
+      "realm": "Firemaw",
+      "game_id": 78243565,
+      "encounter_id": 50668,
+      "duration_ms": 30446,
+      "owner": {
+        "heal": 31776,
+        "absorbed": 0,
+        "overheal": 3642
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1043.68",
+          "duration_ms": 30446,
+          "residual": "1484/380575"
+        },
+        {
+          "member": "reports/ncamJNBRwA1tkgzH/fight_64.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[10]",
+          "kind": "report_fight_ranking",
+          "published": "1043.68",
+          "duration_ms": 30446,
+          "residual": "1484/380575"
+        }
+      ]
+    },
+    {
+      "id": "geddon-restoration-shaman-chromus",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "xLpBXCgNWat2zZ8F",
+      "fight": 13,
+      "actor": 1,
+      "name": "Chromus",
+      "realm": "Fairbanks",
+      "game_id": 3381218,
+      "encounter_id": 50668,
+      "duration_ms": 36898,
+      "owner": {
+        "heal": 36711,
+        "absorbed": 3145,
+        "overheal": 4694
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50668_Baron_Geddon.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1080.17",
+          "duration_ms": 36898,
+          "residual": "-5633/1844900"
+        },
+        {
+          "member": "reports/xLpBXCgNWat2zZ8F/fight_13.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[10]",
+          "kind": "report_fight_ranking",
+          "published": "1080.17",
+          "duration_ms": 36898,
+          "residual": "-5633/1844900"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "rule": "mc-gehennas-holy-priest-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "gehennas-holy-priest-almsíví",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "2LtJmpfjxGkRPFzB",
+      "fight": 11,
+      "actor": 8,
+      "name": "Almsíví",
+      "realm": "Firemaw",
+      "game_id": 19719644,
+      "encounter_id": 50665,
+      "duration_ms": 32271,
+      "owner": {
+        "heal": 37187,
+        "absorbed": 8250,
+        "overheal": 15357
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1407.98",
+          "duration_ms": 32271,
+          "residual": "3871/1613550"
+        },
+        {
+          "member": "reports/2LtJmpfjxGkRPFzB/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1407.98",
+          "duration_ms": 32271,
+          "residual": "3871/1613550"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-priest-dael",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "6wkH4vBafGFDhtAz",
+      "fight": 59,
+      "actor": 11,
+      "name": "Dael",
+      "realm": "Firemaw",
+      "game_id": 69114907,
+      "encounter_id": 50665,
+      "duration_ms": 15432,
+      "owner": {
+        "heal": 19273,
+        "absorbed": 1223,
+        "overheal": 13179
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1328.15",
+          "duration_ms": 15432,
+          "residual": "-9/12860"
+        },
+        {
+          "member": "reports/6wkH4vBafGFDhtAz/fight_59.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1328.15",
+          "duration_ms": 15432,
+          "residual": "-9/12860"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-priest-sifu",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "KZ3tj8W9H6VYydXx",
+      "fight": 10,
+      "actor": 36,
+      "name": "Sifu",
+      "realm": "Whitemane",
+      "game_id": 24344216,
+      "encounter_id": 50665,
+      "duration_ms": 29280,
+      "owner": {
+        "heal": 36194,
+        "absorbed": 0,
+        "overheal": 16942
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1236.13",
+          "duration_ms": 29280,
+          "residual": "71/18300"
+        },
+        {
+          "member": "reports/KZ3tj8W9H6VYydXx/fight_10.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1236.13",
+          "duration_ms": 29280,
+          "residual": "71/18300"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-priest-dontom",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "MhbaXwR28Jyzfqmj",
+      "fight": 40,
+      "actor": 22,
+      "name": "Dontom",
+      "realm": "Dragonfang",
+      "game_id": 26743129,
+      "encounter_id": 50665,
+      "duration_ms": 27369,
+      "owner": {
+        "heal": 33301,
+        "absorbed": 0,
+        "overheal": 17175
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1216.74",
+          "duration_ms": 27369,
+          "residual": "2147/1368450"
+        },
+        {
+          "member": "reports/MhbaXwR28Jyzfqmj/fight_40.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1216.74",
+          "duration_ms": 27369,
+          "residual": "2147/1368450"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-priest-ragesoulppc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "ZkT1hxDdzYP7rBHC",
+      "fight": 39,
+      "actor": 10,
+      "name": "Ragesoulppc",
+      "realm": "Firemaw",
+      "game_id": 40191136,
+      "encounter_id": 50665,
+      "duration_ms": 16270,
+      "owner": {
+        "heal": 23363,
+        "absorbed": 0,
+        "overheal": 12729
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1435.96",
+          "duration_ms": 16270,
+          "residual": "-173/40675"
+        },
+        {
+          "member": "reports/ZkT1hxDdzYP7rBHC/fight_39.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[9]",
+          "kind": "report_fight_ranking",
+          "published": "1435.96",
+          "duration_ms": 16270,
+          "residual": "-173/40675"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-holy-priest-almsivi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "wjWt8JCzRKqV1gkG",
+      "fight": 6,
+      "actor": 28,
+      "name": "Almsivi",
+      "realm": "Firemaw",
+      "game_id": 25860080,
+      "encounter_id": 50665,
+      "duration_ms": 24391,
+      "owner": {
+        "heal": 22177,
+        "absorbed": 3719,
+        "overheal": 3294
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[15]",
+          "kind": "leaderboard",
+          "published": "1061.7",
+          "duration_ms": 24391,
+          "residual": "753/243910"
+        },
+        {
+          "member": "user_rankings/50665_Gehennas.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "1061.7",
+          "duration_ms": 24391,
+          "residual": "753/243910"
+        },
+        {
+          "member": "reports/wjWt8JCzRKqV1gkG/fight_6.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1061.7",
+          "duration_ms": 24391,
+          "residual": "753/243910"
+        }
+      ]
+    }
+  ]
+}

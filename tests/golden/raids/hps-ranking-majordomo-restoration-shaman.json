@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "rule": "mc-majordomo-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "majordomo-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "GDjyfQ4BW29cwd7J",
+      "fight": 36,
+      "actor": 18,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50671,
+      "duration_ms": 86061,
+      "owner": {
+        "heal": 64165,
+        "absorbed": 0,
+        "overheal": 15295
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50671_Majordomo_Executus.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "745.576",
+          "duration_ms": 86061,
+          "residual": "-2017/10757625"
+        },
+        {
+          "member": "reports/GDjyfQ4BW29cwd7J/fight_36.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[2]",
+          "kind": "report_fight_ranking",
+          "published": "745.576",
+          "duration_ms": 86061,
+          "residual": "-2017/10757625"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-restoration-shaman-zaharias",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "N1QAxKF3dHn6VfCa",
+      "fight": 23,
+      "actor": 28,
+      "name": "Zaharias",
+      "realm": "Firemaw",
+      "game_id": 73597305,
+      "encounter_id": 50671,
+      "duration_ms": 31259,
+      "owner": {
+        "heal": 35096,
+        "absorbed": 4711,
+        "overheal": 2519
+      },
+      "owned_units": [
+        {
+          "actor": 100,
+          "game_id": 3909,
+          "heal": 2322,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1347.74",
+          "duration_ms": 31259,
+          "residual": "-233/1562950"
+        },
+        {
+          "member": "reports/N1QAxKF3dHn6VfCa/fight_23.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[8]",
+          "kind": "report_fight_ranking",
+          "published": "1347.74",
+          "duration_ms": 31259,
+          "residual": "-233/1562950"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-restoration-shaman-tollmann",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "XfDjzc3RMQ7Cptmv",
+      "fight": 33,
+      "actor": 28,
+      "name": "Tollmann",
+      "realm": "Firemaw",
+      "game_id": 27387077,
+      "encounter_id": 50671,
+      "duration_ms": 59502,
+      "owner": {
+        "heal": 71871,
+        "absorbed": 6278,
+        "overheal": 10790
+      },
+      "owned_units": [
+        {
+          "actor": 148,
+          "game_id": 3909,
+          "heal": 1987,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1346.78",
+          "duration_ms": 59502,
+          "residual": "-863/495850"
+        },
+        {
+          "member": "reports/XfDjzc3RMQ7Cptmv/fight_33.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1346.78",
+          "duration_ms": 59502,
+          "residual": "-863/495850"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-restoration-shaman-dèniro",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "YbKJA8LfnaTR7zv3",
+      "fight": 24,
+      "actor": 33,
+      "name": "Dèniro",
+      "realm": "Firemaw",
+      "game_id": 19707937,
+      "encounter_id": 50671,
+      "duration_ms": 28748,
+      "owner": {
+        "heal": 37882,
+        "absorbed": 0,
+        "overheal": 6493
+      },
+      "owned_units": [
+        {
+          "actor": 92,
+          "game_id": 3909,
+          "heal": 1661,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1375.5",
+          "duration_ms": 28748,
+          "residual": "63/14374"
+        },
+        {
+          "member": "reports/YbKJA8LfnaTR7zv3/fight_24.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1375.5",
+          "duration_ms": 28748,
+          "residual": "63/14374"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-restoration-shaman-grannyjoe",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "pGbZYj9Wn8rKXt63",
+      "fight": 27,
+      "actor": 15,
+      "name": "Grannyjoe",
+      "realm": "Firemaw",
+      "game_id": 47406477,
+      "encounter_id": 50671,
+      "duration_ms": 32020,
+      "owner": {
+        "heal": 43221,
+        "absorbed": 0,
+        "overheal": 6034
+      },
+      "owned_units": [
+        {
+          "actor": 118,
+          "game_id": 3909,
+          "heal": 1990,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1411.96",
+          "duration_ms": 32020,
+          "residual": "51/40025"
+        },
+        {
+          "member": "reports/pGbZYj9Wn8rKXt63/fight_27.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[9]",
+          "kind": "report_fight_ranking",
+          "published": "1411.96",
+          "duration_ms": 32020,
+          "residual": "51/40025"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-restoration-shaman-metalhead",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "rM6At2a8B4qzcy1x",
+      "fight": 41,
+      "actor": 9,
+      "name": "Metalhead",
+      "realm": "Whitemane",
+      "game_id": 26024242,
+      "encounter_id": 50671,
+      "duration_ms": 93847,
+      "owner": {
+        "heal": 116538,
+        "absorbed": 5177,
+        "overheal": 8199
+      },
+      "owned_units": [
+        {
+          "actor": 68,
+          "game_id": 3909,
+          "heal": 4139,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1341.06",
+          "duration_ms": 93847,
+          "residual": "-22891/4692350"
+        },
+        {
+          "member": "reports/rM6At2a8B4qzcy1x/fight_41.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1341.06",
+          "duration_ms": 93847,
+          "residual": "-22891/4692350"
+        }
+      ]
+    }
+  ]
+}

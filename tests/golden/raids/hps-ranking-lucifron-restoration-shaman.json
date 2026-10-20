@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "rule": "mc-lucifron-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "lucifron-restoration-shaman-hardzen",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "MaJYG1knWNmw6tCj",
+      "fight": 4,
+      "actor": 20,
+      "name": "Hardzen",
+      "realm": "Firemaw",
+      "game_id": 20891585,
+      "encounter_id": 50663,
+      "duration_ms": 23652,
+      "owner": {
+        "heal": 23808,
+        "absorbed": 1435,
+        "overheal": 6169
+      },
+      "owned_units": [
+        {
+          "actor": 64,
+          "game_id": 3909,
+          "heal": 683,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1096.14",
+          "duration_ms": 23652,
+          "residual": "403/98550"
+        },
+        {
+          "member": "reports/MaJYG1knWNmw6tCj/fight_4.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1096.14",
+          "duration_ms": 23652,
+          "residual": "403/98550"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "PGcA1rjZMKVvFw2f",
+      "fight": 6,
+      "actor": 40,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50663,
+      "duration_ms": 42842,
+      "owner": {
+        "heal": 32848,
+        "absorbed": 0,
+        "overheal": 12547
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50663_Lucifron.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "766.724",
+          "duration_ms": 42842,
+          "residual": "1299/5355250"
+        },
+        {
+          "member": "reports/PGcA1rjZMKVvFw2f/fight_6.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "766.724",
+          "duration_ms": 42842,
+          "residual": "1299/5355250"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-restoration-shaman-redmiso",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "VMj1RcnDk7XJKTam",
+      "fight": 6,
+      "actor": 17,
+      "name": "Redmiso",
+      "realm": "Firemaw",
+      "game_id": 27131730,
+      "encounter_id": 50663,
+      "duration_ms": 30367,
+      "owner": {
+        "heal": 31441,
+        "absorbed": 0,
+        "overheal": 8595
+      },
+      "owned_units": [
+        {
+          "actor": 82,
+          "game_id": 3909,
+          "heal": 1204,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1075.02",
+          "duration_ms": 30367,
+          "residual": "-6617/1518350"
+        },
+        {
+          "member": "reports/VMj1RcnDk7XJKTam/fight_6.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1075.02",
+          "duration_ms": 30367,
+          "residual": "-6617/1518350"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-restoration-shaman-tollmann",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "aJKNd81cx4zbgXQt",
+      "fight": 7,
+      "actor": 33,
+      "name": "Tollmann",
+      "realm": "Firemaw",
+      "game_id": 27387077,
+      "encounter_id": 50663,
+      "duration_ms": 36466,
+      "owner": {
+        "heal": 37062,
+        "absorbed": 2799,
+        "overheal": 14532
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1093.1",
+          "duration_ms": 36466,
+          "residual": "77/182330"
+        },
+        {
+          "member": "reports/aJKNd81cx4zbgXQt/fight_7.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1093.1",
+          "duration_ms": 36466,
+          "residual": "77/182330"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-restoration-shaman-metalhead",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "fdn69YLrhtTjHAB1",
+      "fight": 6,
+      "actor": 29,
+      "name": "Metalhead",
+      "realm": "Whitemane",
+      "game_id": 26024242,
+      "encounter_id": 50663,
+      "duration_ms": 55039,
+      "owner": {
+        "heal": 59412,
+        "absorbed": 2619,
+        "overheal": 7207
+      },
+      "owned_units": [
+        {
+          "actor": 38,
+          "game_id": 3909,
+          "heal": 1323,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1151.07",
+          "duration_ms": 55039,
+          "residual": "25827/5503900"
+        },
+        {
+          "member": "reports/fdn69YLrhtTjHAB1/fight_6.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1151.07",
+          "duration_ms": 55039,
+          "residual": "25827/5503900"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-restoration-shaman-canadianz",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "g9wVYr3ZjFxAQKWM",
+      "fight": 9,
+      "actor": 12,
+      "name": "Canadianz",
+      "realm": "Whitemane",
+      "game_id": 24420941,
+      "encounter_id": 50663,
+      "duration_ms": 55299,
+      "owner": {
+        "heal": 57425,
+        "absorbed": 0,
+        "overheal": 13468
+      },
+      "owned_units": [
+        {
+          "actor": 13,
+          "game_id": 3909,
+          "heal": 1576,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1066.95",
+          "duration_ms": 55299,
+          "residual": "-1787/368660"
+        },
+        {
+          "member": "reports/g9wVYr3ZjFxAQKWM/fight_9.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1066.95",
+          "duration_ms": 55299,
+          "residual": "-1787/368660"
+        }
+      ]
+    }
+  ]
+}

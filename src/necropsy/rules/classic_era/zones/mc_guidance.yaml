@@ -232,6 +232,76 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
       retrieved: '2026-10-20'
       text: The cited encounter source names no Ragnaros-specific gear or loadout change for Paladin healers; it states the importance of fire resistance for the raid in general. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: ragnaros-priest-healer-ring-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited guide suggests all healers and ranged support stand on the secondary ring, away from Ragnaros, and warns that any class with a mana bar placed in melee range risks being knocked back. Confirm your spot with the raid; these logs do not record positions.
+    - rule: ragnaros-priest-knockback-return-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited guide says players knocked away must return to their designated areas so they are in range of the healers, who will be very busy. Expect healing demand to rise while knocked-back players return.
+    - rule: ragnaros-priest-sons-mana-burn-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: After 3 minutes of combat Ragnaros summons 8 Sons of Flame and submerges. The cited guide says mana users should stand at the very edge of the ring to avoid the Sons' massive mana burn aura; the log records no positions.
+    - rule: ragnaros-priest-return-engage-v1
+      section: raid
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: After Ragnaros submerges, the cited guide says he reappears after 90 seconds or once the Sons of Flame are defeated, whichever comes first, and that the main tank, secondary tank and their healers should be back to engage him when he re-enters combat. Confirm with the raid whether you are in that group and who calls the move.
+    - rule: ragnaros-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Ragnaros-specific gear or loadout change for Priest healers; it states the importance of fire resistance for the raid in general. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: ragnaros-shaman-healer-ring-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited guide suggests all healers and ranged support stand on the secondary ring, away from Ragnaros, and that mana users stay out of melee range. Confirm your spot with the raid; these logs do not record positions.
+    - rule: ragnaros-shaman-knockback-return-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited guide says players knocked away must return to their designated areas so they are in range of the healers, who will be very busy. Expect healing demand to rise while knocked-back players return.
+    - rule: ragnaros-shaman-sons-mana-burn-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: After 3 minutes of combat Ragnaros summons 8 Sons of Flame and submerges. The cited guide says mana users should stand at the very edge of the ring to avoid the Sons' massive mana burn aura; the log records no positions.
+    - rule: ragnaros-shaman-return-engage-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: After Ragnaros submerges, the cited guide says he reappears after 90 seconds or once the Sons of Flame are defeated, whichever comes first, and that the main tank, secondary tank and their healers should be back to engage him. These are guide timers, not observed phase boundaries; confirm with the raid whether you are in that group.
+    - rule: ragnaros-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Ragnaros-specific gear or loadout change for Shaman healers; it states the importance of fire resistance for the raid in general. Treat the recorded gear comparison as context, not a requirement for this boss.
   50670:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/golemagg-the-incinerator-molten-core-strategy-wow-classic
@@ -278,6 +348,62 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
       retrieved: '2026-10-20'
       text: The cited encounter source names no Golemagg-specific gear or loadout change for Paladin healers; its fire resistance note is about the main tank. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: golemagg-priest-tank-fire-resistance-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited guide says the main tank needs high fire resistance to reduce the effect of Magma Splash. Confirm with the raid how the tank's resistance is being prepared.
+    - rule: golemagg-priest-mana-pacing-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited guide says healers need to pay attention to their mana pools because this is a rather long fight.
+    - rule: golemagg-priest-tank-dot-load-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: Magma Splash melts armor and adds Fire damage for 30 sec. The cited guide says that if the main tank gets too many DoTs on him it is simply impossible to keep him up.
+    - rule: golemagg-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Golemagg-specific gear or loadout change for Priest healers; its fire resistance note is about the main tank. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: golemagg-shaman-tank-fire-resistance-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited guide says the main tank needs high fire resistance to reduce the effect of Magma Splash. Confirm with the raid how the tank's resistance is being prepared.
+    - rule: golemagg-shaman-mana-pacing-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited guide says healers need to pay attention to their mana pools because this is a rather long fight.
+    - rule: golemagg-shaman-tank-dot-load-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: Magma Splash melts armor and adds Fire damage for 30 sec. The cited guide says that if the main tank gets too many DoTs on him it is simply impossible to keep him up.
+    - rule: golemagg-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Golemagg_the_Incinerator
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Golemagg-specific gear or loadout change for Shaman healers; its fire resistance note is about the main tank. Treat the recorded gear comparison as context, not a requirement for this boss.
   50671:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/majordomo-executus-molten-core-strategy-wow-classic
@@ -340,6 +466,55 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
       retrieved: '2026-10-20'
       text: The cited encounter source names no Majordomo-specific gear or loadout change for Paladin healers; the only item it names is Major Mana Potions, for healers in general. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: majordomo-priest-mana-efficiency-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The cited guide calls this battle a test of healer mana efficiency and says healers should bring as many Major Mana Potions as possible.
+    - rule: majordomo-priest-teleport-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: Executus teleports an enemy into the midst of burning coals, and the cited guide says he usually teleports the closest player. It describes a Paladin standing closest to him for that reason. Confirm with the raid whether any healer holds that role; the log records no positions.
+    - rule: majordomo-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Majordomo-specific gear or loadout change for Priest healers; the only item it names is Major Mana Potions, for healers in general. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: majordomo-shaman-teleport-position-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: Executus teleports an enemy into the midst of burning coals. The cited guide says he usually teleports the closest player. Confirm with the raid who stands closest; the log records no positions.
+    - rule: majordomo-shaman-mana-efficiency-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The cited guide calls this battle a test of healer mana efficiency and says healers should bring as many Major Mana Potions as possible.
+    - rule: majordomo-shaman-pull-roles-source-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The pull the cited guide describes uses an Alliance Paladin with Divine Shield beside the main tank and a Hunter; a Horde raid has no Paladins. Confirm your raid's own pull and teleport assignments, which the log cannot show.
+    - rule: majordomo-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Majordomo_Executus
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Majordomo-specific gear or loadout change for Shaman healers; the only item it names is Major Mana Potions, for healers in general. Treat the recorded gear comparison as context, not a requirement for this boss.
   50669:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/sulfuron-harbinger-molten-core-strategy-wow-classic
@@ -400,6 +575,69 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
       retrieved: '2026-10-20'
       text: The cited encounter source names no Sulfuron-specific gear or loadout change for Paladin healers; it mentions fire resistance only in general terms. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: sulfuron-priest-guard-debuff-assignment-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide says the guards' magic debuffs are much worse than their melee damage and generally target the off-tanks and their healers. Agree who dispels them and in what order before the pull.
+    - rule: sulfuron-priest-guard-debuff-dispel-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide says dispelling these debuffs should be absolute priority for Priests for Horde, or Paladins for Alliance. Confirm the faction split with the raid; healing throughput alone does not measure that duty.
+    - rule: sulfuron-priest-fire-resistance-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide says fire resist totems and auras also help. It assigns this to no class, so confirm with the raid how fire resistance support is covered.
+    - rule: sulfuron-priest-shared-healers-v1
+      section: raid
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide suggests the tanks can share healers if one goes down or runs out of mana. Confirm backup healer coverage for each tank with the healing team.
+    - rule: sulfuron-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Sulfuron-specific gear or loadout change for Priest healers; it mentions fire resistance only in general terms. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: sulfuron-shaman-guard-debuff-source-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide says the guards' magic debuffs are much worse than their melee damage and generally target the off-tanks and their healers. It treats dispelling them as absolute priority for Priests on the Horde side and names no Shaman role, so confirm who dispels.
+    - rule: sulfuron-shaman-fire-resistance-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide says fire resist totems / auras also help. It names no assignment, so confirm with the raid whether you are expected to provide one.
+    - rule: sulfuron-shaman-shared-healers-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited guide suggests the tanks can share healers if one goes down or runs out of mana. Confirm backup healer coverage for each tank with the healing team.
+    - rule: sulfuron-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Sulfuron_Harbinger
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Sulfuron-specific gear or loadout change for Shaman healers; it mentions fire resistance only in general terms. Treat the recorded gear comparison as context, not a requirement for this boss.
   50667:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/shazzrah-molten-core-strategy-wow-classic
@@ -467,6 +705,90 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Shazzrah
       retrieved: '2026-10-20'
       text: The cited encounter source names no Shazzrah-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: shazzrah-priest-curse-removers-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Shazzrah's Curse increases magical damage taken by nearby enemies by 100% for 5 min. The cited guide has Mages and Druids remove it immediately, starting with the main tank, and names no Priest role for it. Confirm that assignment.
+    - rule: shazzrah-priest-curse-range-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: The cited guide gives the curse range as 35 yards and notes that Druids can stand back 5 more yards and still heal the main tanks. Confirm with the healing team how your group will position; these logs do not record positions.
+    - rule: shazzrah-priest-arcane-explosion-range-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Arcane Explosion hits nearby enemies within 20 yards for 925 to 1075 Arcane damage. The source states the range only and gives no healer-specific positioning rule for it.
+    - rule: shazzrah-priest-counterspell-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: The source says Counterspell prevents any spell from the countered school of magic being cast for 10 sec. A gap in your casting after one may reflect the lockout rather than a choice.
+    - rule: shazzrah-priest-blink-healer-spread-v1
+      section: raid
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Shazzrah blinks to a random target about every 45 seconds, which wipes the threat list. The cited guide suggests stationing healers throughout the circle to heal the people near the blink point; confirm your spot with the healing team.
+    - rule: shazzrah-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Shazzrah-specific gear or loadout change for Priest healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: shazzrah-shaman-curse-removal-source-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Shazzrah's Curse increases magical damage taken by nearby enemies by 100% for 5 min. The cited guide has Mages and Druids remove it immediately, starting with the main tank, and names no Shaman role for the curse. Confirm that assignment.
+    - rule: shazzrah-shaman-curse-range-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: The cited guide gives the curse range as 35 yards and notes that Druids can stand back 5 more yards and still heal the main tanks. Confirm with the healing team how your group will position; these logs do not record positions.
+    - rule: shazzrah-shaman-arcane-explosion-range-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Arcane Explosion hits nearby enemies within 20 yards for 925 to 1075 Arcane damage. The source states the range only and gives no healer-specific positioning rule for it.
+    - rule: shazzrah-shaman-counterspell-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Counterspell prevents spells from the countered school of magic for 10 sec. A gap in your casting after one may reflect the lockout rather than a choice.
+    - rule: shazzrah-shaman-blink-healer-spread-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: Shazzrah blinks to a random target about every 45 seconds, which wipes the threat list. The cited guide suggests stationing healers throughout the circle to heal the people near the blink point; confirm your spot with the healing team.
+    - rule: shazzrah-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Shazzrah
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Shazzrah-specific gear or loadout change for Shaman healers. Treat the recorded gear comparison as context, not a requirement for this boss.
   50668:
     retrieved: '2026-10-17'
     source: https://www.wowhead.com/classic/guide/baron-geddon-molten-core-strategy-wow-classic
@@ -516,6 +838,69 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Baron_Geddon
       retrieved: '2026-10-19'
       text: Confirm bomb isolation, healing range and backup Ignite Mana removal. Personal aura exposure cannot establish explosion splash victims, movement execution or every raid-wide removal opportunity.
+    - rule: geddon-priest-ignite-mana-preparation-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: The cited guide says Ignite Mana should be dispelled, but not from Warriors or Rogues, and that keeping healers and the dispellers out of its range saves mana spent dispelling. Agree with the healing team who dispels it and from whom.
+    - rule: geddon-priest-healer-position-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: The cited guide's excerpt describes a group out of Ignite Mana's range but still within healing range. Ignite Mana burns 400 mana from nearby enemies every 3 sec. for 5 min. Confirm your spot with the healing team; these logs do not record positions.
+    - rule: geddon-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: The cited encounter source names no Geddon-specific gear or loadout change for Priest healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: geddon-shaman-ignite-mana-range-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: Ignite Mana burns 400 mana from nearby enemies every 3 sec, and each point destroyed also damages the target it is taken from. The cited guide says keeping healers and dispellers out of its range saves mana spent dispelling.
+    - rule: geddon-shaman-ignite-mana-removal-source-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: The cited guide says Ignite Mana should be dispelled, but not from Warriors or Rogues. It names no class for that job, so Shaman utility on this fight is not assessed; agree with the healing team who dispels.
+    - rule: geddon-shaman-healer-position-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: The cited guide describes another group directly behind, out of the range of Ignite Mana but still within healing range; the excerpt does not say which group. Confirm your spot with the healing team; these logs do not record positions.
+    - rule: geddon-shaman-inferno-tank-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: Inferno periodically inflicts Fire damage to nearby enemies for 8 sec, and the cited guide says all melee DPS needs to leave when it starts, even the main tank. Confirm with the healing team who covers the tank while he is away.
+    - rule: geddon-shaman-living-bomb-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: Living Bomb explodes after 8 sec for 3200 Fire damage to the target and its nearby allies. The cited guide says whoever is the bomb must run away from the group and blow up alone; confirm who covers that player's healing afterwards.
+    - rule: geddon-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Baron_Geddon
+      retrieved: '2026-10-19'
+      text: The cited encounter source names no Geddon-specific gear or loadout change for Shaman healers; its only resistance mention is a parenthetical about 315 fire resistance. Treat the recorded gear comparison as context, not a requirement for this boss.
   50665:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Gehennas
@@ -572,6 +957,76 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Gehennas
       retrieved: '2026-10-20'
       text: The cited encounter source names no Gehennas-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: gehennas-priest-curse-decurser-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: Gehennas' Curse reduces healing effects for nearby enemies by 75% for 5 min. The cited guide says the main tank needs a dedicated decurser, usually a Mage but a Druid will work, and that the curse must be removed as soon as possible. It names no Priest curse-removal role, so confirm who the decurser is.
+    - rule: gehennas-priest-curse-range-layout-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide suggests placing Gehennas so that only the main tank and his healers and decursers are in range of the curse, Shadow Bolt and Rain of Fire. Confirm the layout with the raid; these logs do not record positions.
+    - rule: gehennas-priest-reduced-healing-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide says Gehennas deals enough damage that the tank cannot be kept up while he receives only 25% of the healing. Healing on a cursed target is therefore not a clean measure of your throughput.
+    - rule: gehennas-priest-decurse-priority-v1
+      section: raid
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide suggests Mages and Druids put the main tank at the top of their decurse list, followed by other melee players, because the curse greatly reduces the healing a player can receive. Confirm that order with them.
+    - rule: gehennas-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Gehennas-specific gear or loadout change for Priest healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: gehennas-shaman-curse-removal-source-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: Gehennas' Curse reduces healing received by nearby enemies by 75% for 5 min. The cited guide assigns a dedicated decurser to the main tank, usually a Mage or a Druid, and says the curse must be removed as soon as possible. It names no Shaman role, so confirm who the decurser is.
+    - rule: gehennas-shaman-curse-range-layout-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide suggests placing Gehennas so that only the main tank and his healers and decursers are in range of the curse, Shadow Bolt and Rain of Fire. Confirm the layout with the raid; these logs do not record positions.
+    - rule: gehennas-shaman-reduced-healing-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide says Gehennas deals enough damage that the tank cannot be kept up while he receives only 25% of the healing. Healing on a cursed target is therefore not a clean measure of your throughput.
+    - rule: gehennas-shaman-decurse-priority-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited guide suggests Mages and Druids put the main tank at the top of their decurse list, followed by other melee players, because the curse greatly reduces the healing a player can receive. Confirm that order with them.
+    - rule: gehennas-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Gehennas
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Gehennas-specific gear or loadout change for Shaman healers. Treat the recorded gear comparison as context, not a requirement for this boss.
   50666:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Garr
@@ -635,6 +1090,83 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Garr
       retrieved: '2026-10-20'
       text: Garr's Antimagic Pulse dispels one beneficial spell effect from each nearby player, so blessings and other buffs near him can be removed during the fight. Agree who refreshes blessings and when; a removed blessing is not your error.
+    - rule: garr-priest-immolate-removal-assignment-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: In the second strategy it cites, the guide suggests several Paladins or Priests constantly remove Immolates from the tank. Agree with the other healers whether you hold that job and who covers it if you do not.
+    - rule: garr-priest-immolate-removal-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: If you are assigned to remove Immolates from the tank, that job is separate from healing throughput, which does not measure it. Firesworn Immolate inflicts 337 Fire damage and 168 more every 3 sec for 21 sec.
+    - rule: garr-priest-tank-healing-load-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited guide says the tank in this strategy requires a tremendous amount of healing. Expect a heavy healing load on the tank.
+    - rule: garr-priest-firesworn-explosion-mana-v1
+      section: raid
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited guide says melee must get away from Firesworn that are about to die, to save health and healer mana. Confirm that call-out with the melee; this is their movement, not yours.
+    - rule: garr-priest-antimagic-pulse-buffs-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: Garr's Antimagic Pulse dispels magic on nearby enemies, removing 1 beneficial spell effect. Agree who refreshes raid buffs and when; a removed buff is not necessarily your error.
+    - rule: garr-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Garr-specific gear or loadout change for Priest healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: garr-shaman-immolate-removal-source-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: In the second strategy it cites, the guide suggests several Paladins or Priests constantly remove Immolates from the tank. It names no Shaman role, so agree with the other healers who covers that job. Firesworn Immolate inflicts 337 Fire damage and 168 more every 3 sec for 21 sec.
+    - rule: garr-shaman-tank-healing-load-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited guide says the tank in this strategy requires a tremendous amount of healing. Expect a heavy healing load on the tank.
+    - rule: garr-shaman-antimagic-pulse-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: Antimagic Pulse dispels magic on nearby enemies, removing 1 beneficial spell effect. The excerpt does not say which effects are removed or how often, so agree with the raid who refreshes buffs near Garr; a removed buff is not by itself your error.
+    - rule: garr-shaman-firesworn-explosion-mana-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited guide says melee must get away from Firesworn that are about to die, to save health and healer mana. Confirm that call-out with the melee; this is their movement, not yours.
+    - rule: garr-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Garr
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Garr-specific gear or loadout change for Shaman healers. Treat the recorded gear comparison as context, not a requirement for this boss.
   50664:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Magmadar
@@ -689,6 +1221,69 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Magmadar
       retrieved: '2026-10-20'
       text: The cited encounter source names no Magmadar-specific gear or loadout change for Paladin healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: magmadar-priest-fear-ward-v1
+      section: during
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The cited guide says Priests should keep Fear Ward on the main tank. In Classic Era, Fear Ward is taught by a Dwarf-only quest, so only a Dwarf Priest can hold this job; confirm with the raid who has it and who covers it. Healing throughput does not measure this duty.
+    - rule: magmadar-priest-fear-range-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: Magmadar's Panic makes nearby enemies flee in fear for 8 sec. The cited guide suggests healers stand at maximum range behind the main tank, because healing range is 40 yards and the fear range is 30 yards. Confirm your spot with the healing team; these logs do not record positions.
+    - rule: magmadar-priest-healer-groups-v1
+      section: raid
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The cited guide suggests a guild new to Magmadar may split main-tank healers into two groups, only one of which is on the tank at a time. Confirm with the healing team whether you are in a group and when it is on the tank.
+    - rule: magmadar-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Magmadar-specific gear or loadout change for Priest healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: magmadar-shaman-fear-range-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: Magmadar's Panic makes nearby enemies flee in fear for 8 sec. The cited guide suggests healers stand at maximum range behind the main tank, because healing range is 40 yards and the fear range is 30 yards. Confirm your spot with the healing team; these logs do not record positions.
+    - rule: magmadar-shaman-fear-counter-source-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The only fear counter the cited guide names is Fear Ward on the main tank, which a Dwarf-only quest teaches and a Horde raid therefore lacks. Tremor Totem removes Fear, Charm and Sleep effects from party members within 30 yards; the guide does not discuss it, so Shaman fear utility on this fight is not assessed here.
+    - rule: magmadar-shaman-fire-damage-sources-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The guide lists Lava Bomb as 4800 Fire damage over 12 sec on its target and Magma Spit as additional Fire damage every 3 sec. It gives no healer response to either, so priorities among targets are for the healing team to agree.
+    - rule: magmadar-shaman-healer-groups-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The cited guide suggests a guild new to Magmadar may split main-tank healers into two groups, only one of which is on the tank at a time. Confirm with the healing team whether you are in a group and when it is on the tank.
+    - rule: magmadar-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Magmadar
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Magmadar-specific gear or loadout change for Shaman healers. Treat the recorded gear comparison as context, not a requirement for this boss.
   50663:
     retrieved: '2026-10-17'
     source: https://warcraft.wiki.gg/wiki/Lucifron
@@ -738,6 +1333,55 @@ strategy:
       source: https://warcraft.wiki.gg/wiki/Lucifron
       retrieved: '2026-10-20'
       text: 'Follow the assigned Impending Doom Cleanse priorities: healers, especially the main tanks, and whoever becomes mind controlled. Healing throughput alone does not measure that duty.'
+    - rule: lucifron-priest-curse-range-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: Lucifron's Curse reaches 40 yards. The cited guide suggests healers other than the main-tank decurser can stay outside the curse range. This guidance concerns curse range only; it does not establish avoidance of Impending Doom or Shadow Shock, and these logs do not record positions.
+    - rule: lucifron-priest-mind-control-dummies-v1
+      section: raid
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: The guards can mind control, and the cited guide says it is sometimes easier to have one or two dummies move ahead of the main tank to take the mind control. Confirm with the raid whether it uses this approach; the log cannot show the assignment.
+    - rule: lucifron-priest-healer-loadout-applicability-v1
+      section: before
+      classes: [7]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Lucifron-specific gear or loadout change for Priest healers. Treat the recorded gear comparison as context, not a requirement for this boss.
+    - rule: lucifron-shaman-curse-range-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: Lucifron's Curse reaches 40 yards. The cited guide suggests healers other than the main-tank decurser can stay outside the curse range. This guidance concerns curse range only; it does not establish avoidance of Impending Doom or Shadow Shock, and these logs do not record positions.
+    - rule: lucifron-shaman-impending-doom-coverage-v1
+      section: during
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: Impending Doom inflicts 2000 Shadow damage to nearby enemies after 10 sec. The cited guide names Priests and Paladins for dispelling it from healers, especially the main tanks, and from whoever is mind controlled; it names no Shaman role, so confirm with the healing team who covers each target.
+    - rule: lucifron-shaman-mind-control-plan-v1
+      section: raid
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: Dominate Mind takes control of a humanoid enemy for 15 sec, and the guards have the ability. The cited guide says it is sometimes easier to have one or two dummies move ahead of the main tank to absorb the mind control; confirm with the raid whether that plan is used, as the log cannot show it.
+    - rule: lucifron-shaman-healer-loadout-applicability-v1
+      section: before
+      classes: [9]
+      metrics: [hps]
+      source: https://warcraft.wiki.gg/wiki/Lucifron
+      retrieved: '2026-10-20'
+      text: The cited encounter source names no Lucifron-specific gear or loadout change for Shaman healers. Treat the recorded gear comparison as context, not a requirement for this boss.
 
 mechanic_presence:
   50668:

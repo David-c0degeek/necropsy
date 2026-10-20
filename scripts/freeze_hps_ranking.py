@@ -1,11 +1,13 @@
 """Freeze a scoped HPS ranking oracle for one boss from a raw capture.
 
 Usage: uv run python scripts/freeze_hps_ranking.py FIXTURE ENCOUNTER RULE --out FILE
-           [--slug NAME] [--replace]
+           [--class-name Paladin] [--slug NAME] [--replace]
 
 FIXTURE is a provenance label (for example mc-holy-paladin-raid-context);
 the contexts are its independent actor-fact cases for ENCOUNTER in
-tests/golden/raids/facts.json (one subject, the rest comparisons). For each
+tests/golden/raids/facts.json (one subject, the rest comparisons), each of which
+must be an actor of --class-name (default Paladin). RULE names the scope as
+mc-<boss>-<category>-<class>-hps-v1; rows are named <boss>-<category>-<class>-<player>. For each
 context it locates every published amount for that report, fight and player
 in the archive: the subject's own ranking (user_rankings), the encounter
 leaderboard pages and the report-fight healer rankings. It then measures the
@@ -100,7 +102,13 @@ def candidates(z: Any, encounter: int, report: str, fight: int, name: str) -> li
     return found
 
 
-def freeze_row(case: dict[str, Any], slug: str, encounter: int) -> dict[str, Any]:
+def freeze_row(
+    case: dict[str, Any],
+    slug: str,
+    encounter: int,
+    label: str = "holy-paladin",
+    class_name: str = "Paladin",
+) -> dict[str, Any]:
     path = RAIDS / case["archive"]
     sha = hashlib.sha256(path.read_bytes()).hexdigest()
     if sha != case["sha256"]:
@@ -109,7 +117,7 @@ def freeze_row(case: dict[str, Any], slug: str, encounter: int) -> dict[str, Any
     report = raw._read(z, f"reports/{case['report']}/fight_{case['fight']}.json")["report"]
     actor = next(a for a in report["masterData"]["actors"] if a["id"] == case["actor"])
     row: dict[str, Any] = {
-        "id": f"{slug}-holy-paladin-{actor['name'].lower()}",
+        "id": f"{slug}-{label}-{actor['name'].lower()}",
         "purpose": "policy-scope",
         "archive": case["archive"],
         "sha256": sha,
@@ -122,8 +130,8 @@ def freeze_row(case: dict[str, Any], slug: str, encounter: int) -> dict[str, Any
         "encounter_id": encounter,
     }
     measured = raw._measure(row)
-    if measured["me"]["subType"] != "Paladin":
-        raise ValueError(f"{row['id']}: actor is not a Paladin")
+    if measured["me"]["subType"] != class_name:
+        raise ValueError(f"{row['id']}: actor is not a {class_name}")
     total = (
         measured["owner"]["heal"]
         + measured["owner"]["absorbed"]
@@ -161,6 +169,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("rule")
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--slug", help="row id prefix (default: the rule's boss word)")
+    parser.add_argument("--class-name", default="Paladin", help="the contexts' class subType")
     parser.add_argument("--replace", action="store_true")
     args = parser.parse_args(argv)
     if args.out.exists() and not args.replace:
@@ -172,7 +181,8 @@ def main(argv: list[str] | None = None) -> int:
         print("refused: no fact contexts for this fixture and encounter", file=sys.stderr)
         return 2
     try:
-        rows = [freeze_row(c, slug, args.encounter) for c in cases]
+        label = "-".join(args.rule.split("-")[2:-2])
+        rows = [freeze_row(c, slug, args.encounter, label, args.class_name) for c in cases]
     except (ValueError, AssertionError, KeyError, StopIteration) as error:
         print(f"refused: {error!r}", file=sys.stderr)
         return 2

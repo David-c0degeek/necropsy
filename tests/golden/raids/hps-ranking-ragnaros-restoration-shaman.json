@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-ragnaros-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "ragnaros-restoration-shaman-totempulled",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "8bHhKcVZqxWNXyFn",
+      "fight": 77,
+      "actor": 11,
+      "name": "Totempulled",
+      "realm": "Firemaw",
+      "game_id": 90463327,
+      "encounter_id": 50672,
+      "duration_ms": 48977,
+      "owner": {
+        "heal": 44365,
+        "absorbed": 0,
+        "overheal": 6021
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50672_Ragnaros.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "905.833",
+          "duration_ms": 48977,
+          "residual": "17159/48977000"
+        },
+        {
+          "member": "reports/8bHhKcVZqxWNXyFn/fight_77.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[9]",
+          "kind": "report_fight_ranking",
+          "published": "905.833",
+          "duration_ms": 48977,
+          "residual": "17159/48977000"
+        }
+      ]
+    },
+    {
+      "id": "ragnaros-restoration-shaman-quadàmâgé",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "JvWcfh2t4mTqP71H",
+      "fight": 43,
+      "actor": 13,
+      "name": "Quadàmâgé",
+      "realm": "Firemaw",
+      "game_id": 77269461,
+      "encounter_id": 50672,
+      "duration_ms": 52540,
+      "owner": {
+        "heal": 40814,
+        "absorbed": 2432,
+        "overheal": 11114
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50672_Ragnaros.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "823.106",
+          "duration_ms": 52540,
+          "residual": "269/1313500"
+        },
+        {
+          "member": "reports/JvWcfh2t4mTqP71H/fight_43.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "823.106",
+          "duration_ms": 52540,
+          "residual": "269/1313500"
+        }
+      ]
+    },
+    {
+      "id": "ragnaros-restoration-shaman-onekill",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "TAHb3cJwfD96zhak",
+      "fight": 38,
+      "actor": 7,
+      "name": "Onekill",
+      "realm": "Whitemane",
+      "game_id": 25215343,
+      "encounter_id": 50672,
+      "duration_ms": 57291,
+      "owner": {
+        "heal": 48352,
+        "absorbed": 0,
+        "overheal": 16429
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50672_Ragnaros.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "843.972",
+          "duration_ms": 57291,
+          "residual": "37/14322750"
+        },
+        {
+          "member": "reports/TAHb3cJwfD96zhak/fight_38.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "843.972",
+          "duration_ms": 57291,
+          "residual": "37/14322750"
+        }
+      ]
+    },
+    {
+      "id": "ragnaros-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "WRBPN6VZ7H4A9vYL",
+      "fight": 44,
+      "actor": 26,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50672,
+      "duration_ms": 98874,
+      "owner": {
+        "heal": 44646,
+        "absorbed": 0,
+        "overheal": 15753
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50672_Ragnaros.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "451.544",
+          "duration_ms": 98874,
+          "residual": "803/2059875"
+        },
+        {
+          "member": "reports/WRBPN6VZ7H4A9vYL/fight_44.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "451.544",
+          "duration_ms": 98874,
+          "residual": "803/2059875"
+        }
+      ]
+    },
+    {
+      "id": "ragnaros-restoration-shaman-vadïk",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "q8ygaRxmvVhnPk7M",
+      "fight": 84,
+      "actor": 10,
+      "name": "Vadïk",
+      "realm": "Firemaw",
+      "game_id": 78252618,
+      "encounter_id": 50672,
+      "duration_ms": 39666,
+      "owner": {
+        "heal": 34961,
+        "absorbed": 0,
+        "overheal": 9547
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50672_Ragnaros.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "881.385",
+          "duration_ms": 39666,
+          "residual": "-1741/3966600"
+        },
+        {
+          "member": "reports/q8ygaRxmvVhnPk7M/fight_84.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[9]",
+          "kind": "report_fight_ranking",
+          "published": "881.385",
+          "duration_ms": 39666,
+          "residual": "-1741/3966600"
+        }
+      ]
+    },
+    {
+      "id": "ragnaros-restoration-shaman-whopperjr",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "rGkKZHjtV4wdBFbp",
+      "fight": 45,
+      "actor": 33,
+      "name": "Whopperjr",
+      "realm": "Mankrik",
+      "game_id": 48541542,
+      "encounter_id": 50672,
+      "duration_ms": 86853,
+      "owner": {
+        "heal": 83469,
+        "absorbed": 0,
+        "overheal": 10445
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50672_Ragnaros.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "961.038",
+          "duration_ms": 86853,
+          "residual": "-5569/14475500"
+        },
+        {
+          "member": "reports/rGkKZHjtV4wdBFbp/fight_45.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "961.038",
+          "duration_ms": 86853,
+          "residual": "-5569/14475500"
+        }
+      ]
+    }
+  ]
+}

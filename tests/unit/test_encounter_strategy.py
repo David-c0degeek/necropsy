@@ -364,3 +364,54 @@ def test_ragnaros_and_majordomo_paladin_items_keep_only_supported_guide_claims()
     assert domo_strategy
     majordomo = {i.rule: i.text for i in domo_strategy.items}
     assert "portal" not in majordomo["majordomo-paladin-mage-pairs-v1"]
+
+
+MC_WIKI = {
+    **MC_PALADIN_WIKI,
+    50663: "https://warcraft.wiki.gg/wiki/Lucifron",
+    50668: "https://warcraft.wiki.gg/wiki/Baron_Geddon",
+}
+
+
+@pytest.mark.parametrize("encounter", sorted(MC_WIKI))
+@pytest.mark.parametrize(("class_id", "tag"), [(7, "priest"), (9, "shaman")])
+def test_mc_priest_and_shaman_healer_items_cite_the_boss_wiki_and_reach_only_that_class(
+    encounter: int, class_id: int, tag: str
+) -> None:
+    strategy = encounter_strategy("mc", encounter, 1, class_id, "hps")
+    assert strategy
+    boss = MC_WIKI[encounter].rsplit("/", 1)[1].split("_")[0].lower()
+    boss = "geddon" if boss == "baron" else boss
+    prefix = f"{boss}-{tag}-"
+    # Only the named earlier item keeps its own spell source; any other wrong
+    # citation under this prefix fails instead of being filtered away.
+    earlier = {"ragnaros-shaman-party-support-v1"}
+    own = [i for i in strategy.items if i.rule.startswith(prefix) and i.rule not in earlier]
+    assert own
+    assert all(i.source == MC_WIKI[encounter] for i in own)
+    assert all(i.retrieved in ("2026-10-19", "2026-10-20") for i in own)
+    assert any(i.rule == f"{prefix}healer-loadout-applicability-v1" for i in own)
+    assert {i.section for i in own} <= {"before", "during", "raid"}
+    opposite = 9 if class_id == 7 else 7
+    others = ((class_id, "dps"), (opposite, "hps"), (6, "hps"), (2, "hps"), (4, "dps"))
+    for other_class, metric in others:
+        other = encounter_strategy("mc", encounter, 1, other_class, metric)
+        assert other
+        assert not {i.rule for i in own} & {i.rule for i in other.items}
+
+
+def test_fear_and_faction_capability_claims_name_their_limits() -> None:
+    def text(encounter: int, class_id: int, rule: str) -> str:
+        strategy = encounter_strategy("mc", encounter, 1, class_id, "hps")
+        assert strategy
+        return next(i.text for i in strategy.items if i.rule == rule)
+
+    assert "Dwarf" in text(50664, 7, "magmadar-priest-fear-ward-v1")
+    shaman = text(50664, 9, "magmadar-shaman-fear-counter-source-v1")
+    assert "Dwarf" in shaman and "Tremor Totem" in shaman and "not assessed" in shaman
+    assert "Horde raid has no Paladins" in text(50671, 9, "majordomo-shaman-pull-roles-source-v1")
+    ring = text(50672, 9, "ragnaros-shaman-healer-ring-v1")
+    assert "knockback" not in ring and "secondary ring" in ring
+    assert text(50663, 7, "lucifron-priest-curse-range-v1").startswith(
+        "Lucifron's Curse reaches 40"
+    )

@@ -1,4 +1,4 @@
-"""The scoped Holy Paladin HPS policies are re-proved from raw archive bytes.
+"""The scoped healer HPS policies are re-proved from raw archive bytes.
 
 Expected values come from the frozen oracle; every amount is re-enumerated here
 from raw pages with exact rational arithmetic, without analyzer or metric code.
@@ -17,6 +17,7 @@ from typing import Any
 
 import pytest
 
+from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.rules import load_rules
 
 pytestmark = pytest.mark.golden
@@ -32,6 +33,24 @@ ORACLES = {
     "mc-sulfuron-holy-paladin-hps-v1": ROOT / "hps-ranking-sulfuron-paladin.json",
     "mc-golemagg-holy-paladin-hps-v1": ROOT / "hps-ranking-golemagg-paladin.json",
     "mc-majordomo-holy-paladin-hps-v1": ROOT / "hps-ranking-majordomo-paladin.json",
+    "mc-lucifron-holy-priest-hps-v1": ROOT / "hps-ranking-lucifron-holy-priest.json",
+    "mc-gehennas-holy-priest-hps-v1": ROOT / "hps-ranking-gehennas-holy-priest.json",
+    "mc-garr-holy-priest-hps-v1": ROOT / "hps-ranking-garr-holy-priest.json",
+    "mc-shazzrah-holy-priest-hps-v1": ROOT / "hps-ranking-shazzrah-holy-priest.json",
+    "mc-geddon-holy-priest-hps-v1": ROOT / "hps-ranking-geddon-holy-priest.json",
+    "mc-sulfuron-holy-priest-hps-v1": ROOT / "hps-ranking-sulfuron-holy-priest.json",
+    "mc-golemagg-holy-priest-hps-v1": ROOT / "hps-ranking-golemagg-holy-priest.json",
+    "mc-majordomo-holy-priest-hps-v1": ROOT / "hps-ranking-majordomo-holy-priest.json",
+    "mc-lucifron-restoration-shaman-hps-v1": ROOT / "hps-ranking-lucifron-restoration-shaman.json",
+    "mc-gehennas-restoration-shaman-hps-v1": ROOT / "hps-ranking-gehennas-restoration-shaman.json",
+    "mc-garr-restoration-shaman-hps-v1": ROOT / "hps-ranking-garr-restoration-shaman.json",
+    "mc-shazzrah-restoration-shaman-hps-v1": ROOT / "hps-ranking-shazzrah-restoration-shaman.json",
+    "mc-geddon-restoration-shaman-hps-v1": ROOT / "hps-ranking-geddon-restoration-shaman.json",
+    "mc-sulfuron-restoration-shaman-hps-v1": ROOT / "hps-ranking-sulfuron-restoration-shaman.json",
+    "mc-golemagg-restoration-shaman-hps-v1": ROOT / "hps-ranking-golemagg-restoration-shaman.json",
+    "mc-majordomo-restoration-shaman-hps-v1": ROOT
+    / "hps-ranking-majordomo-restoration-shaman.json",
+    "mc-ragnaros-restoration-shaman-hps-v1": ROOT / "hps-ranking-ragnaros-restoration-shaman.json",
 }
 
 
@@ -279,7 +298,7 @@ def test_published_hps_matches_raw_owner_and_owned_unit_effects(
     assert m["duration_ms"] == row["duration_ms"]
     assert m["owner"] == row["owner"] and m["owned_units"] == row["owned_units"]
     if row["purpose"] == "policy-scope":
-        assert m["me"]["subType"] == "Paladin"
+        assert m["me"]["subType"] == CLASS_NAMES[_policy(rule)["scope"]["class_id"]]
     units = sum(u["heal"] + u["absorbed"] for u in m["owned_units"])
     total = m["owner"]["heal"] + m["owner"]["absorbed"] + units
     others = [r for r in _rows(rule) if r["id"] != row["id"]]

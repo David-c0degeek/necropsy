@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "rule": "mc-gehennas-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "gehennas-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "PGcA1rjZMKVvFw2f",
+      "fight": 17,
+      "actor": 40,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50665,
+      "duration_ms": 41323,
+      "owner": {
+        "heal": 31539,
+        "absorbed": 0,
+        "overheal": 9253
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50665_Gehennas.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "763.231",
+          "duration_ms": 41323,
+          "residual": "5387/41323000"
+        },
+        {
+          "member": "reports/PGcA1rjZMKVvFw2f/fight_17.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "763.231",
+          "duration_ms": 41323,
+          "residual": "5387/41323000"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-restoration-shaman-macha",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "aGDfNz7cPL9HC8Jr",
+      "fight": 8,
+      "actor": 16,
+      "name": "Macha",
+      "realm": "Gandling",
+      "game_id": 18593540,
+      "encounter_id": 50665,
+      "duration_ms": 21920,
+      "owner": {
+        "heal": 23178,
+        "absorbed": 0,
+        "overheal": 3296
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1057.39",
+          "duration_ms": 21920,
+          "residual": "7/13700"
+        },
+        {
+          "member": "reports/aGDfNz7cPL9HC8Jr/fight_8.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1057.39",
+          "duration_ms": 21920,
+          "residual": "7/13700"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-restoration-shaman-redmiso",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "g4K2cyCbJRPw9kQV",
+      "fight": 16,
+      "actor": 24,
+      "name": "Redmiso",
+      "realm": "Firemaw",
+      "game_id": 27131730,
+      "encounter_id": 50665,
+      "duration_ms": 32717,
+      "owner": {
+        "heal": 33596,
+        "absorbed": 0,
+        "overheal": 1658
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1026.87",
+          "duration_ms": 32717,
+          "residual": "-10579/3271700"
+        },
+        {
+          "member": "reports/g4K2cyCbJRPw9kQV/fight_16.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1026.87",
+          "duration_ms": 32717,
+          "residual": "-10579/3271700"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-restoration-shaman-hartzen",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "hfzd1N87AJPYnc2k",
+      "fight": 14,
+      "actor": 43,
+      "name": "Hartzen",
+      "realm": "Firemaw",
+      "game_id": 27542669,
+      "encounter_id": 50665,
+      "duration_ms": 32761,
+      "owner": {
+        "heal": 33621,
+        "absorbed": 0,
+        "overheal": 6142
+      },
+      "owned_units": [
+        {
+          "actor": 69,
+          "game_id": 3909,
+          "heal": 999,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1056.74",
+          "duration_ms": 32761,
+          "residual": "7043/1638050"
+        },
+        {
+          "member": "reports/hfzd1N87AJPYnc2k/fight_14.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1056.74",
+          "duration_ms": 32761,
+          "residual": "7043/1638050"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-restoration-shaman-nihlathak",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "p92tmWYcgaQXbq6B",
+      "fight": 11,
+      "actor": 16,
+      "name": "Nihlathak",
+      "realm": "Bloodfang",
+      "game_id": 7665805,
+      "encounter_id": 50665,
+      "duration_ms": 20987,
+      "owner": {
+        "heal": 21194,
+        "absorbed": 0,
+        "overheal": 1711
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1009.86",
+          "duration_ms": 20987,
+          "residual": "3409/1049350"
+        },
+        {
+          "member": "reports/p92tmWYcgaQXbq6B/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1009.86",
+          "duration_ms": 20987,
+          "residual": "3409/1049350"
+        }
+      ]
+    },
+    {
+      "id": "gehennas-restoration-shaman-zylak",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "pt3YNwA6RF8xzLDW",
+      "fight": 11,
+      "actor": 5,
+      "name": "Zylak",
+      "realm": "Whitemane",
+      "game_id": 25599838,
+      "encounter_id": 50665,
+      "duration_ms": 20208,
+      "owner": {
+        "heal": 17466,
+        "absorbed": 2981,
+        "overheal": 3359
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50665_Gehennas.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1011.83",
+          "duration_ms": 20208,
+          "residual": "-379/126300"
+        },
+        {
+          "member": "reports/pt3YNwA6RF8xzLDW/fight_11.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1011.83",
+          "duration_ms": 20208,
+          "residual": "-379/126300"
+        }
+      ]
+    }
+  ]
+}

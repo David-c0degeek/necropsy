@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "rule": "mc-lucifron-holy-priest-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "lucifron-holy-priest-almsíví",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "6YQDmwJMx2RvnF3H",
+      "fight": 4,
+      "actor": 16,
+      "name": "Almsíví",
+      "realm": "Firemaw",
+      "game_id": 19719644,
+      "encounter_id": 50663,
+      "duration_ms": 37287,
+      "owner": {
+        "heal": 45051,
+        "absorbed": 1840,
+        "overheal": 32487
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1257.57",
+          "duration_ms": 37287,
+          "residual": "-1259/3728700"
+        },
+        {
+          "member": "reports/6YQDmwJMx2RvnF3H/fight_4.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1257.57",
+          "duration_ms": 37287,
+          "residual": "-1259/3728700"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-priest-bluebeard",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "BVWnJAM81R73TCLG",
+      "fight": 4,
+      "actor": 12,
+      "name": "Bluebeard",
+      "realm": "PyrewoodVillage",
+      "game_id": 29857615,
+      "encounter_id": 50663,
+      "duration_ms": 28029,
+      "owner": {
+        "heal": 34487,
+        "absorbed": 1234,
+        "overheal": 15681
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1274.43",
+          "duration_ms": 28029,
+          "residual": "51/934300"
+        },
+        {
+          "member": "reports/BVWnJAM81R73TCLG/fight_4.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1274.43",
+          "duration_ms": 28029,
+          "residual": "51/934300"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-priest-maoainai",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "GTcrHp3LAZyYVtBC",
+      "fight": 4,
+      "actor": 1,
+      "name": "Maoainai",
+      "realm": "Whitemane",
+      "game_id": 20122372,
+      "encounter_id": 50663,
+      "duration_ms": 45652,
+      "owner": {
+        "heal": 52565,
+        "absorbed": 0,
+        "overheal": 19659
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1151.43",
+          "duration_ms": 45652,
+          "residual": "-2059/1141300"
+        },
+        {
+          "member": "reports/GTcrHp3LAZyYVtBC/fight_4.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1151.43",
+          "duration_ms": 45652,
+          "residual": "-2059/1141300"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-priest-merguezheal",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "KcdY7WtJCqGDp6nM",
+      "fight": 63,
+      "actor": 36,
+      "name": "Merguezheal",
+      "realm": "Firemaw",
+      "game_id": 31782722,
+      "encounter_id": 50663,
+      "duration_ms": 25209,
+      "owner": {
+        "heal": 28844,
+        "absorbed": 0,
+        "overheal": 17087
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[5]",
+          "kind": "leaderboard",
+          "published": "1144.19",
+          "duration_ms": 25209,
+          "residual": "11429/2520900"
+        },
+        {
+          "member": "reports/KcdY7WtJCqGDp6nM/fight_63.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1144.19",
+          "duration_ms": 25209,
+          "residual": "11429/2520900"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-priest-chiva",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "R4hrxbLKXBCDavMg",
+      "fight": 7,
+      "actor": 3,
+      "name": "Chiva",
+      "realm": "Anathema",
+      "game_id": 29309939,
+      "encounter_id": 50663,
+      "duration_ms": 35845,
+      "owner": {
+        "heal": 43578,
+        "absorbed": 2122,
+        "overheal": 14126
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1274.93",
+          "duration_ms": 35845,
+          "residual": "2683/716900"
+        },
+        {
+          "member": "reports/R4hrxbLKXBCDavMg/fight_7.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[3]",
+          "kind": "report_fight_ranking",
+          "published": "1274.93",
+          "duration_ms": 35845,
+          "residual": "2683/716900"
+        }
+      ]
+    },
+    {
+      "id": "lucifron-holy-priest-almsivi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "ZzYr1NR6LpHkyjTc",
+      "fight": 3,
+      "actor": 32,
+      "name": "Almsivi",
+      "realm": "Firemaw",
+      "game_id": 25860080,
+      "encounter_id": 50663,
+      "duration_ms": 38851,
+      "owner": {
+        "heal": 48161,
+        "absorbed": 6159,
+        "overheal": 26774
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50663_Lucifron.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1398.16",
+          "duration_ms": 38851,
+          "residual": "2146/971275"
+        },
+        {
+          "member": "user_rankings/50663_Lucifron.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "1398.16",
+          "duration_ms": 38851,
+          "residual": "2146/971275"
+        },
+        {
+          "member": "reports/ZzYr1NR6LpHkyjTc/fight_3.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1398.16",
+          "duration_ms": 38851,
+          "residual": "2146/971275"
+        }
+      ]
+    }
+  ]
+}

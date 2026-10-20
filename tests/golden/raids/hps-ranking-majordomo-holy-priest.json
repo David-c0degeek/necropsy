@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "rule": "mc-majordomo-holy-priest-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "majordomo-holy-priest-dnttrymeprie",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "1zx4WybamfKtkFq2",
+      "fight": 84,
+      "actor": 26,
+      "name": "Dnttrymeprie",
+      "realm": "Firemaw",
+      "game_id": 39626866,
+      "encounter_id": 50671,
+      "duration_ms": 22293,
+      "owner": {
+        "heal": 37274,
+        "absorbed": 0,
+        "overheal": 24115
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[5]",
+          "kind": "leaderboard",
+          "published": "1672",
+          "duration_ms": 22293,
+          "residual": "104/22293"
+        },
+        {
+          "member": "reports/1zx4WybamfKtkFq2/fight_84.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[9]",
+          "kind": "report_fight_ranking",
+          "published": "1672",
+          "duration_ms": 22293,
+          "residual": "104/22293"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-priest-larr",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "AWp7bDJL6zNGcQdK",
+      "fight": 82,
+      "actor": 21,
+      "name": "Larr",
+      "realm": "Firemaw",
+      "game_id": 27999438,
+      "encounter_id": 50671,
+      "duration_ms": 29959,
+      "owner": {
+        "heal": 52469,
+        "absorbed": 0,
+        "overheal": 21600
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1751.36",
+          "duration_ms": 29959,
+          "residual": "144/748975"
+        },
+        {
+          "member": "reports/AWp7bDJL6zNGcQdK/fight_82.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1751.36",
+          "duration_ms": 29959,
+          "residual": "144/748975"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-priest-bluebeard",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "JqLRy1GvDjMkPYp2",
+      "fight": 44,
+      "actor": 31,
+      "name": "Bluebeard",
+      "realm": "PyrewoodVillage",
+      "game_id": 29857615,
+      "encounter_id": 50671,
+      "duration_ms": 44104,
+      "owner": {
+        "heal": 71122,
+        "absorbed": 10487,
+        "overheal": 40425
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1850.38",
+          "duration_ms": 44104,
+          "residual": "-997/275650"
+        },
+        {
+          "member": "reports/JqLRy1GvDjMkPYp2/fight_44.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1850.38",
+          "duration_ms": 44104,
+          "residual": "-997/275650"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-priest-orangutang",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "YXJnDQ49Pxpcbf1H",
+      "fight": 30,
+      "actor": 6,
+      "name": "Orangutang",
+      "realm": "Bloodfang",
+      "game_id": 47180353,
+      "encounter_id": 50671,
+      "duration_ms": 38944,
+      "owner": {
+        "heal": 58648,
+        "absorbed": 8581,
+        "overheal": 11596
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1726.3",
+          "duration_ms": 38944,
+          "residual": "-17/24340"
+        },
+        {
+          "member": "reports/YXJnDQ49Pxpcbf1H/fight_30.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1726.3",
+          "duration_ms": 38944,
+          "residual": "-17/24340"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-priest-gdkat",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "rTPDJqWQVBf1cgav",
+      "fight": 25,
+      "actor": 32,
+      "name": "Gdkat",
+      "realm": "Firemaw",
+      "game_id": 4197509,
+      "encounter_id": 50671,
+      "duration_ms": 24743,
+      "owner": {
+        "heal": 42816,
+        "absorbed": 3485,
+        "overheal": 8247
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1871.28",
+          "duration_ms": 24743,
+          "residual": "-2026/618575"
+        },
+        {
+          "member": "reports/rTPDJqWQVBf1cgav/fight_25.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1871.28",
+          "duration_ms": 24743,
+          "residual": "-2026/618575"
+        }
+      ]
+    },
+    {
+      "id": "majordomo-holy-priest-almsivi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "report": "wjWt8JCzRKqV1gkG",
+      "fight": 21,
+      "actor": 28,
+      "name": "Almsivi",
+      "realm": "Firemaw",
+      "game_id": 25860080,
+      "encounter_id": 50671,
+      "duration_ms": 35927,
+      "owner": {
+        "heal": 53104,
+        "absorbed": 8010,
+        "overheal": 25121
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50671_Majordomo_Executus.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1701.06",
+          "duration_ms": 35927,
+          "residual": "869/1796350"
+        },
+        {
+          "member": "user_rankings/50671_Majordomo_Executus.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "1701.06",
+          "duration_ms": 35927,
+          "residual": "869/1796350"
+        },
+        {
+          "member": "reports/wjWt8JCzRKqV1gkG/fight_21.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1701.06",
+          "duration_ms": 35927,
+          "residual": "869/1796350"
+        }
+      ]
+    }
+  ]
+}

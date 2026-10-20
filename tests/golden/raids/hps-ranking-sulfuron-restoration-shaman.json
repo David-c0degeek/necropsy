@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "rule": "mc-sulfuron-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "sulfuron-restoration-shaman-meushi",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "2jZRYQGrq17CDwFd",
+      "fight": 20,
+      "actor": 3,
+      "name": "Meushi",
+      "realm": "Skullflame",
+      "game_id": 7055010,
+      "encounter_id": 50669,
+      "duration_ms": 32800,
+      "owner": {
+        "heal": 24248,
+        "absorbed": 2965,
+        "overheal": 4084
+      },
+      "owned_units": [
+        {
+          "actor": 4,
+          "game_id": 3909,
+          "heal": 1404,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "872.469",
+          "duration_ms": 32800,
+          "residual": "21/41000"
+        },
+        {
+          "member": "reports/2jZRYQGrq17CDwFd/fight_20.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "872.469",
+          "duration_ms": 32800,
+          "residual": "21/41000"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-restoration-shaman-quadàmâgé",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "JvWcfh2t4mTqP71H",
+      "fight": 34,
+      "actor": 13,
+      "name": "Quadàmâgé",
+      "realm": "Firemaw",
+      "game_id": 77269461,
+      "encounter_id": 50669,
+      "duration_ms": 40272,
+      "owner": {
+        "heal": 29015,
+        "absorbed": 4631,
+        "overheal": 6840
+      },
+      "owned_units": [
+        {
+          "actor": 110,
+          "game_id": 3908,
+          "heal": 930,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "858.562",
+          "duration_ms": 40272,
+          "residual": "-277/1258500"
+        },
+        {
+          "member": "reports/JvWcfh2t4mTqP71H/fight_34.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "858.562",
+          "duration_ms": 40272,
+          "residual": "-277/1258500"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "P2tLhDTdzZnVQ31j",
+      "fight": 41,
+      "actor": 3,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50669,
+      "duration_ms": 47556,
+      "owner": {
+        "heal": 27112,
+        "absorbed": 0,
+        "overheal": 16150
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50669_Sulfuron_Harbinger.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "570.107",
+          "duration_ms": 47556,
+          "residual": "-2123/11889000"
+        },
+        {
+          "member": "reports/P2tLhDTdzZnVQ31j/fight_41.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "570.107",
+          "duration_ms": 47556,
+          "residual": "-2123/11889000"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-restoration-shaman-thunder",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "PtdbfVR2rBG3pxKT",
+      "fight": 49,
+      "actor": 28,
+      "name": "Thunder",
+      "realm": "Whitemane",
+      "game_id": 24323929,
+      "encounter_id": 50669,
+      "duration_ms": 84700,
+      "owner": {
+        "heal": 72050,
+        "absorbed": 0,
+        "overheal": 35018
+      },
+      "owned_units": [
+        {
+          "actor": 29,
+          "game_id": 3909,
+          "heal": 769,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "859.728",
+          "duration_ms": 84700,
+          "residual": "48/105875"
+        },
+        {
+          "member": "reports/PtdbfVR2rBG3pxKT/fight_49.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "859.728",
+          "duration_ms": 84700,
+          "residual": "48/105875"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-restoration-shaman-jishnu",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "W6xq12gr9navGM8b",
+      "fight": 35,
+      "actor": 1,
+      "name": "Jishnu",
+      "realm": "Firemaw",
+      "game_id": 37782148,
+      "encounter_id": 50669,
+      "duration_ms": 57172,
+      "owner": {
+        "heal": 42117,
+        "absorbed": 5956,
+        "overheal": 13693
+      },
+      "owned_units": [
+        {
+          "actor": 43,
+          "game_id": 3909,
+          "heal": 2433,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "883.404",
+          "duration_ms": 57172,
+          "residual": "1657/3573250"
+        },
+        {
+          "member": "reports/W6xq12gr9navGM8b/fight_35.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "883.404",
+          "duration_ms": 57172,
+          "residual": "1657/3573250"
+        }
+      ]
+    },
+    {
+      "id": "sulfuron-restoration-shaman-dèniro",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "dQYZV2xMbv6nNLgf",
+      "fight": 23,
+      "actor": 43,
+      "name": "Dèniro",
+      "realm": "Firemaw",
+      "game_id": 19707937,
+      "encounter_id": 50669,
+      "duration_ms": 34058,
+      "owner": {
+        "heal": 31992,
+        "absorbed": 0,
+        "overheal": 13104
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50669_Sulfuron_Harbinger.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "939.339",
+          "duration_ms": 34058,
+          "residual": "-3831/17029000"
+        },
+        {
+          "member": "reports/dQYZV2xMbv6nNLgf/fight_23.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "939.339",
+          "duration_ms": 34058,
+          "residual": "-3831/17029000"
+        }
+      ]
+    }
+  ]
+}

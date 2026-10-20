@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "rule": "mc-shazzrah-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "shazzrah-restoration-shaman-synthosia",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "9tKf26PNGzLYHbqn",
+      "fight": 71,
+      "actor": 33,
+      "name": "Synthosia",
+      "realm": "PyrewoodVillage",
+      "game_id": 21587514,
+      "encounter_id": 50667,
+      "duration_ms": 30855,
+      "owner": {
+        "heal": 40184,
+        "absorbed": 4761,
+        "overheal": 1381
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "1456.65",
+          "duration_ms": 30855,
+          "residual": "257/123420"
+        },
+        {
+          "member": "reports/9tKf26PNGzLYHbqn/fight_71.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[4]",
+          "kind": "report_fight_ranking",
+          "published": "1456.65",
+          "duration_ms": 30855,
+          "residual": "257/123420"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-restoration-shaman-elmothirsty",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "B1CAxv6bHWwgM2N9",
+      "fight": 20,
+      "actor": 16,
+      "name": "Elmothirsty",
+      "realm": "Whitemane",
+      "game_id": 49585435,
+      "encounter_id": 50667,
+      "duration_ms": 19974,
+      "owner": {
+        "heal": 25683,
+        "absorbed": 3437,
+        "overheal": 5708
+      },
+      "owned_units": [
+        {
+          "actor": 54,
+          "game_id": 3909,
+          "heal": 326,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "1474.22",
+          "duration_ms": 19974,
+          "residual": "-1757/499350"
+        },
+        {
+          "member": "reports/B1CAxv6bHWwgM2N9/fight_20.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1474.22",
+          "duration_ms": 19974,
+          "residual": "-1757/499350"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-restoration-shaman-blueranger",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "QGALwxhZRa349mTk",
+      "fight": 26,
+      "actor": 45,
+      "name": "Blueranger",
+      "realm": "Whitemane",
+      "game_id": 24979402,
+      "encounter_id": 50667,
+      "duration_ms": 20542,
+      "owner": {
+        "heal": 32105,
+        "absorbed": 0,
+        "overheal": 7001
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "1562.9",
+          "duration_ms": 20542,
+          "residual": "-459/102710"
+        },
+        {
+          "member": "reports/QGALwxhZRa349mTk/fight_26.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1562.9",
+          "duration_ms": 20542,
+          "residual": "-459/102710"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-restoration-shaman-whopperjr",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "Tr3GVvF4t8MPbqYp",
+      "fight": 18,
+      "actor": 17,
+      "name": "Whopperjr",
+      "realm": "Mankrik",
+      "game_id": 48541542,
+      "encounter_id": 50667,
+      "duration_ms": 18754,
+      "owner": {
+        "heal": 23081,
+        "absorbed": 4236,
+        "overheal": 9403
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "1456.6",
+          "duration_ms": 18754,
+          "residual": "-191/46885"
+        },
+        {
+          "member": "reports/Tr3GVvF4t8MPbqYp/fight_18.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1456.6",
+          "duration_ms": 18754,
+          "residual": "-191/46885"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-restoration-shaman-wcbenjoyer",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "V8Ba6fY3MgZQxtH9",
+      "fight": 26,
+      "actor": 29,
+      "name": "Wcbenjoyer",
+      "realm": "Whitemane",
+      "game_id": 38258525,
+      "encounter_id": 50667,
+      "duration_ms": 20235,
+      "owner": {
+        "heal": 30640,
+        "absorbed": 3222,
+        "overheal": 1882
+      },
+      "owned_units": [
+        {
+          "actor": 103,
+          "game_id": 3909,
+          "heal": 1392,
+          "absorbed": 0
+        }
+      ],
+      "rankings": [
+        {
+          "member": "leaderboards/50667_Shazzrah.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1742.23",
+          "duration_ms": 20235,
+          "residual": "-481/404700"
+        },
+        {
+          "member": "reports/V8Ba6fY3MgZQxtH9/fight_26.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "1742.23",
+          "duration_ms": 20235,
+          "residual": "-481/404700"
+        }
+      ]
+    },
+    {
+      "id": "shazzrah-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "hkvpYaLB4D3f1C6m",
+      "fight": 41,
+      "actor": 38,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50667,
+      "duration_ms": 25248,
+      "owner": {
+        "heal": 25999,
+        "absorbed": 0,
+        "overheal": 2349
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50667_Shazzrah.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "1029.74",
+          "duration_ms": 25248,
+          "residual": "389/78900"
+        },
+        {
+          "member": "reports/hkvpYaLB4D3f1C6m/fight_41.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[7]",
+          "kind": "report_fight_ranking",
+          "published": "1029.74",
+          "duration_ms": 25248,
+          "residual": "389/78900"
+        }
+      ]
+    }
+  ]
+}

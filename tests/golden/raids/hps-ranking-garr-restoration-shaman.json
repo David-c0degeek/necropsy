@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "rule": "mc-garr-restoration-shaman-hps-v1",
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of SOURCE and TARGET pages (sourceID == actor) plus listed owned units; exact rational arithmetic; published amounts kept as text. A row is consistent when |(heal + absorbed + owned-unit heal + absorbed) * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "rows": [
+    {
+      "id": "garr-restoration-shaman-troldefar",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "KPmgfYj98dDTvXhB",
+      "fight": 18,
+      "actor": 13,
+      "name": "Troldefar",
+      "realm": "PyrewoodVillage",
+      "game_id": 29360483,
+      "encounter_id": 50666,
+      "duration_ms": 32557,
+      "owner": {
+        "heal": 32069,
+        "absorbed": 0,
+        "overheal": 6610
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[1]",
+          "kind": "leaderboard",
+          "published": "985.011",
+          "duration_ms": 32557,
+          "residual": "-3127/32557000"
+        },
+        {
+          "member": "reports/KPmgfYj98dDTvXhB/fight_18.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "985.011",
+          "duration_ms": 32557,
+          "residual": "-3127/32557000"
+        }
+      ]
+    },
+    {
+      "id": "garr-restoration-shaman-hopsin",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "bFBD7qdkgwGmQ9NT",
+      "fight": 8,
+      "actor": 4,
+      "name": "Hopsin",
+      "realm": "PyrewoodVillage",
+      "game_id": 22968543,
+      "encounter_id": 50666,
+      "duration_ms": 22628,
+      "owner": {
+        "heal": 21714,
+        "absorbed": 0,
+        "overheal": 4860
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[2]",
+          "kind": "leaderboard",
+          "published": "959.608",
+          "duration_ms": 22628,
+          "residual": "-307/707125"
+        },
+        {
+          "member": "reports/bFBD7qdkgwGmQ9NT/fight_8.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[8]",
+          "kind": "report_fight_ranking",
+          "published": "959.608",
+          "duration_ms": 22628,
+          "residual": "-307/707125"
+        }
+      ]
+    },
+    {
+      "id": "garr-restoration-shaman-rumpldoc",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "bLXQg1Wn4ac9xrZh",
+      "fight": 29,
+      "actor": 28,
+      "name": "Rumpldoc",
+      "realm": "Firemaw",
+      "game_id": 19729034,
+      "encounter_id": 50666,
+      "duration_ms": 63778,
+      "owner": {
+        "heal": 33710,
+        "absorbed": 0,
+        "overheal": 10800
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "user_rankings/50666_Garr.json",
+          "locator": "ranks[0]",
+          "kind": "user_ranking",
+          "published": "528.552",
+          "duration_ms": 63778,
+          "residual": "659/3986125"
+        },
+        {
+          "member": "reports/bLXQg1Wn4ac9xrZh/fight_29.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "528.552",
+          "duration_ms": 63778,
+          "residual": "659/3986125"
+        }
+      ]
+    },
+    {
+      "id": "garr-restoration-shaman-mayyday",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "ncamJNBRwA1tkgzH",
+      "fight": 60,
+      "actor": 26,
+      "name": "Mayyday",
+      "realm": "Golemagg",
+      "game_id": 31911579,
+      "encounter_id": 50666,
+      "duration_ms": 22947,
+      "owner": {
+        "heal": 19495,
+        "absorbed": 0,
+        "overheal": 8059
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[4]",
+          "kind": "leaderboard",
+          "published": "849.566",
+          "duration_ms": 22947,
+          "residual": "4499/11473500"
+        },
+        {
+          "member": "reports/ncamJNBRwA1tkgzH/fight_60.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "849.566",
+          "duration_ms": 22947,
+          "residual": "4499/11473500"
+        }
+      ]
+    },
+    {
+      "id": "garr-restoration-shaman-spiritbreake",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "ndrqZgB9AX7VGm1J",
+      "fight": 42,
+      "actor": 11,
+      "name": "Spiritbreake",
+      "realm": "Firemaw",
+      "game_id": 21058282,
+      "encounter_id": 50666,
+      "duration_ms": 41650,
+      "owner": {
+        "heal": 30538,
+        "absorbed": 4968,
+        "overheal": 14569
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[3]",
+          "kind": "leaderboard",
+          "published": "852.485",
+          "duration_ms": 41650,
+          "residual": "-1/166600"
+        },
+        {
+          "member": "reports/ndrqZgB9AX7VGm1J/fight_42.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[6]",
+          "kind": "report_fight_ranking",
+          "published": "852.485",
+          "duration_ms": 41650,
+          "residual": "-1/166600"
+        }
+      ]
+    },
+    {
+      "id": "garr-restoration-shaman-khazurok",
+      "purpose": "policy-scope",
+      "archive": "raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "report": "vBCgAXrmxF6GDqN9",
+      "fight": 18,
+      "actor": 37,
+      "name": "Khazurok",
+      "realm": "Whitemane",
+      "game_id": 25443415,
+      "encounter_id": 50666,
+      "duration_ms": 40188,
+      "owner": {
+        "heal": 41242,
+        "absorbed": 0,
+        "overheal": 24330
+      },
+      "owned_units": [],
+      "rankings": [
+        {
+          "member": "leaderboards/50666_Garr.json",
+          "locator": "pages[1].rankings[0]",
+          "kind": "leaderboard",
+          "published": "1026.23",
+          "duration_ms": 40188,
+          "residual": "-193/59100"
+        },
+        {
+          "member": "reports/vBCgAXrmxF6GDqN9/fight_18.json",
+          "locator": "report.rankings.data[0].roles.healers.characters[5]",
+          "kind": "report_fight_ranking",
+          "published": "1026.23",
+          "duration_ms": 40188,
+          "residual": "-193/59100"
+        }
+      ]
+    }
+  ]
+}
