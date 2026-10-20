@@ -250,3 +250,62 @@ def test_every_screen_has_its_own_pictures(tmp_path: Path, browser_available: No
     names = [name for s in report["screens"] for name in s["pictures"]]
     assert len(names) == len(set(names)) == 5
     assert all((tmp_path / "out" / name).is_file() for name in names)
+
+
+THEMED = """<script>
+  var saved = null;
+  try { saved = localStorage.getItem("app:theme"); } catch (e) {}
+  document.documentElement.setAttribute("data-theme", saved === "light" ? "light" : "dark");
+</script>
+<style>[data-theme=dark] body{background:#111;color:#eee}
+[data-theme=light] body{background:#fff}</style>
+<h1>Themed</h1><p id="target">section</p>"""
+
+
+def test_a_page_that_keeps_its_own_dark_theme_cannot_pass_as_light(
+    tmp_path: Path, browser_available: None
+) -> None:
+    root = site(tmp_path, {"themed.html": THEMED})
+    args = [str(root), "--page", "themed.html", "--widths", "800", "--schemes", "dark,light"]
+    assert vc.main([*args, "--out", str(tmp_path / "plain")]) == 1
+    plain = json.loads((tmp_path / "plain" / "findings.json").read_text(encoding="utf-8"))
+    by_scheme = {s["scheme"]: s for s in plain["screens"]}
+    assert by_scheme["light"]["theme"]["attribute"] == "dark"
+    assert (by_scheme["light"]["theme_mismatch"], by_scheme["dark"]["theme_mismatch"]) == (
+        True,
+        False,
+    )
+    stored = [*args, "--theme-storage", "app:theme", "--out", str(tmp_path / "stored")]
+    assert vc.main(stored) == 0
+    report = json.loads((tmp_path / "stored" / "findings.json").read_text(encoding="utf-8"))
+    rendered = {s["scheme"]: s["theme"]["attribute"] for s in report["screens"]}
+    assert rendered == {"dark": "dark", "light": "light"}
+    light = next(s for s in report["screens"] if s["scheme"] == "light")
+    assert light["theme"]["background"] == "rgb(255, 255, 255)"
+
+
+def test_anchor_pictures_are_taken_and_a_missing_anchor_is_a_finding(
+    tmp_path: Path, browser_available: None
+) -> None:
+    root = site(tmp_path, {"themed.html": THEMED})
+    base = [str(root), "--page", "themed.html", "--widths", "800", "--schemes", "dark"]
+    assert vc.main([*base, "--anchor", "target", "--out", str(tmp_path / "a")]) == 0
+    report = json.loads((tmp_path / "a" / "findings.json").read_text(encoding="utf-8"))
+    (screen,) = report["screens"]
+    assert screen["anchors"] == {"target": "themed.html-800-dark-at-target.png"}
+    assert (tmp_path / "a" / "themed.html-800-dark-at-target.png").is_file()
+    assert vc.main([*base, "--anchor", "nowhere", "--out", str(tmp_path / "b")]) == 1
+
+
+@pytest.mark.parametrize(
+    "anchors", [["a.b", "a:b"], ["target", "target"]], ids=["colliding", "duplicate"]
+)
+def test_anchors_that_would_share_a_picture_are_refused(tmp_path: Path, anchors: list[str]) -> None:
+    root = site(tmp_path, {"themed.html": THEMED})
+    args = [str(root), "--page", "themed.html", "--out", str(tmp_path / "out")]
+    for anchor in anchors:
+        args += ["--anchor", anchor]
+    with pytest.raises(SystemExit) as exit_:
+        vc.main(args)
+    assert exit_.value.code == 2
+    assert not (tmp_path / "out").exists()

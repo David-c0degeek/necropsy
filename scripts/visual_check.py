@@ -3,7 +3,7 @@ network and console problems.
 
     uv run python scripts/visual_check.py SITE_DIR --page report.html [--page playbook.html]
         --out DIR [--browser chromium|msedge] [--widths 1440,390] [--schemes dark,light]
-        [--print] [--max-height 20000]
+        [--print] [--max-height 20000] [--theme-storage KEY] [--anchor ID]
 
 A temporary copy of SITE_DIR is served on 127.0.0.1 and the network is closed:
 every request to another origin is refused before it is sent, a same-origin
@@ -17,7 +17,13 @@ and failed requests.
 Pictures keep the real viewport (width x 1000): a page up to --max-height is
 taken whole, a longer one as viewport tiles down to that height, so the picture
 shows the same layout the checks measured; the record says when it stops short
-of the page end. `--print` adds print-media screens.
+of the page end. `--print` adds print-media screens. `--anchor ID` adds one
+viewport picture scrolled to that element.
+
+Each screen records the theme it actually rendered. A page that sets its own
+`data-theme` (and ignores the browser's colour scheme) must match the requested
+scheme, or the screen is a finding; `--theme-storage KEY` sets the page's
+stored theme choice to the requested scheme before it loads.
 
 The exit code is 1 when any screen has a finding. A clean run is layout,
 network and console evidence only: it is not visual, domain or print approval
@@ -93,19 +99,45 @@ def serve(root: Path) -> tuple[http.server.ThreadingHTTPServer, str]:
     return server, f"http://127.0.0.1:{server.server_address[1]}/"
 
 
+def anchor_stem(anchor: str) -> str:
+    """A file-name-safe stem for an element id; distinct ids must stay distinct."""
+    return re.sub(r"[^A-Za-z0-9_-]", "_", anchor)
+
+
 def stem(page_name: str) -> str:
     """A file-name-safe, unique stem for a page path inside the site."""
     return re.sub(r"[^A-Za-z0-9._-]", "_", page_name.replace("/", "__"))
 
 
+THEME = """() => {
+  const root = document.documentElement;
+  return {
+    attribute: root.getAttribute('data-theme'),
+    color_scheme: getComputedStyle(root).colorScheme,
+    background: getComputedStyle(document.body).backgroundColor,
+  };
+}"""
+
+
 def screen(
-    browser: Browser, base: str, page_name: str, width: int, scheme: str, media: str
+    browser: Browser,
+    base: str,
+    page_name: str,
+    width: int,
+    scheme: str,
+    media: str,
+    theme_storage: str | None = None,
 ) -> tuple[Page, dict[str, list[str]]]:
     context = browser.new_context(
         viewport={"width": width, "height": VIEWPORT_HEIGHT},
         color_scheme=scheme,  # type: ignore[arg-type]
         service_workers="block",
     )
+    if theme_storage is not None:
+        # A page that keeps its own theme ignores the browser's colour scheme;
+        # set its stored choice before any of its scripts run.
+        key, value = json.dumps(theme_storage), json.dumps(scheme)
+        context.add_init_script(f"try {{ localStorage.setItem({key}, {value}); }} catch (e) {{}}")
     seen: dict[str, list[str]] = {"errors": [], "blocked": [], "failed": []}
 
     def refuse(url: str) -> None:
@@ -201,7 +233,7 @@ def check(args: argparse.Namespace) -> dict[str, Any]:
             if args.print:
                 plan += [(name, args.widths[0], "light", "print") for name in args.page]
             for name, width, scheme, media in plan:
-                page, seen = screen(browser, base, name, width, scheme, media)
+                page, seen = screen(browser, base, name, width, scheme, media, args.theme_storage)
                 shot = f"{stem(name)}-{width}-{scheme}" + ("-print" if media == "print" else "")
                 heading = page.locator("h1").first
                 record: dict[str, Any] = {
@@ -216,7 +248,26 @@ def check(args: argparse.Namespace) -> dict[str, Any]:
                         "document.documentElement.scrollWidth - innerWidth"
                     ),
                     "past_edge": page.evaluate(PAST_EDGE),
+                    "theme": page.evaluate(THEME),
                 }
+                # A page with an explicit theme attribute must render the requested
+                # scheme; otherwise a nominal light screen could silently be dark.
+                rendered = record["theme"]["attribute"]
+                record["theme_mismatch"] = (
+                    media == "screen" and rendered is not None and rendered != scheme
+                )
+                for anchor in args.anchor:
+                    found = page.evaluate(
+                        "id => { const e = document.getElementById(id);"
+                        " if (!e) return false; e.scrollIntoView(); return true; }",
+                        anchor,
+                    )
+                    picture = f"{shot}-at-{anchor_stem(anchor)}.png"
+                    if found:
+                        page.wait_for_timeout(50)
+                        page.screenshot(path=str(out / picture))
+                    record.setdefault("anchors", {})[anchor] = picture if found else None
+                page.evaluate("window.scrollTo(0, 0)")
                 files, height = pictures(page, out, shot, args.max_height)
                 record |= {
                     "page_height_px": height,
@@ -233,7 +284,13 @@ def check(args: argparse.Namespace) -> dict[str, Any]:
     findings = [
         s
         for s in screens
-        if s["overflow_px"] > 0 or s["past_edge"] or s["errors"] or s["blocked"] or s["failed"]
+        if s["overflow_px"] > 0
+        or s["past_edge"]
+        or s["errors"]
+        or s["blocked"]
+        or s["failed"]
+        or s["theme_mismatch"]
+        or None in (s.get("anchors") or {}).values()
     ]
     report = {
         "browser": {"name": args.browser, "version": version},
@@ -264,11 +321,25 @@ def main(argv: list[str] | None = None) -> int:
         default=20_000,
         help="picture longer pages as viewport tiles down to this height",
     )
+    parser.add_argument(
+        "--theme-storage",
+        metavar="KEY",
+        help="localStorage key in which the page keeps its theme; set to each scheme",
+    )
+    parser.add_argument(
+        "--anchor",
+        action="append",
+        default=[],
+        metavar="ID",
+        help="also take a viewport picture scrolled to this element id (a missing id is a finding)",
+    )
     args = parser.parse_args(argv)
     if not set(args.schemes) <= {"dark", "light"}:
         parser.error("schemes are dark and light")
     if len(set(args.schemes)) != len(args.schemes) or len(set(args.widths)) != len(args.widths):
         parser.error("each width and scheme may be named once")
+    if len({anchor_stem(a) for a in args.anchor}) != len(args.anchor):
+        parser.error("each anchor may be named once, and anchors must map to distinct files")
     if min(args.widths) <= 0 or args.max_height <= 0:
         parser.error("widths and --max-height must be positive")
     try:
@@ -282,6 +353,9 @@ def main(argv: list[str] | None = None) -> int:
             for key in ("overflow_px", "past_edge", "errors", "blocked", "failed")
             if s[key]
         ]
+        if s["theme_mismatch"]:
+            flags.append(f"rendered theme {s['theme']['attribute']} for {s['scheme']}")
+        flags += [f"missing anchor {a}" for a, f in (s.get("anchors") or {}).items() if f is None]
         if s["pictures_stop_short"]:
             flags.append(f"pictures stop at {args.max_height} of {s['page_height_px']} px")
         print(f"{s['pictures'][0]:44} {' '.join(flags) or 'ok'}")
