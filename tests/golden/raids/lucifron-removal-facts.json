@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "kind": "mechanic-removals",
+  "cases": [
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 17,
+      "actor": 35,
+      "player": "Resurgance",
+      "encounter_id": 50663,
+      "id": "lucifron-paladin-impending-doom-removals-1",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19702
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 9,
+        "duration_ms": 77323,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json"
+        ],
+        "owned_removals": [
+          {
+            "ms": 52266,
+            "source": 35,
+            "target": 35,
+            "ability": 4987,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json",
+            "index": 120
+          },
+          {
+            "ms": 53784,
+            "source": 35,
+            "target": 33,
+            "ability": 4987,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json",
+            "index": 126
+          },
+          {
+            "ms": 55287,
+            "source": 35,
+            "target": 3,
+            "ability": 4987,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json",
+            "index": 128
+          },
+          {
+            "ms": 56788,
+            "source": 35,
+            "target": 9,
+            "ability": 4987,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json",
+            "index": 133
+          },
+          {
+            "ms": 58890,
+            "source": 35,
+            "target": 29,
+            "ability": 4987,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json",
+            "index": 136
+          }
+        ],
+        "other_removals_in_source_pages": [
+          {
+            "ms": 14087,
+            "source": 25,
+            "target": 35,
+            "ability": 988,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json",
+            "index": 23
+          },
+          {
+            "ms": 31935,
+            "source": 25,
+            "target": 35,
+            "ability": 988,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/kvJ2WVF1chC9R4wd/fight_17/player_35_Resurgance/source_001.json",
+            "index": 71
+          }
+        ],
+        "owned_dispel_or_abolish_casts_ms": [
+          [
+            52268,
+            4987
+          ],
+          [
+            53767,
+            4987
+          ],
+          [
+            55286,
+            4987
+          ],
+          [
+            56787,
+            4987
+          ],
+          [
+            58889,
+            4987
+          ]
+        ]
+      },
+      "review_basis": "Raw source-page enumeration before any Lucifron Paladin policy change, with no analyzer or normalizer. The owner cross-checked the subject's five owned Cleanse dispels of Impending Doom (targets 35, 33, 3, 9, 29) and its own exposure transitions against a separate plain scan of the encounter All pages on 2026-10-20."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "TZXrCPKGcL8qQdW1",
+      "fight": 4,
+      "actor": 25,
+      "player": "Auraline",
+      "encounter_id": 50663,
+      "id": "lucifron-paladin-impending-doom-removals-2",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19702
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 10001,
+        "duration_ms": 23637,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/TZXrCPKGcL8qQdW1/fight_4/player_25_Auraline/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [
+          {
+            "ms": 12980,
+            "source": 29,
+            "target": 25,
+            "ability": 988,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/TZXrCPKGcL8qQdW1/fight_4/player_25_Auraline/source_001.json",
+            "index": 50
+          }
+        ],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Raw source-page enumeration before any Lucifron Paladin policy change, with no analyzer or normalizer. The owner cross-checked the subject's five owned Cleanse dispels of Impending Doom (targets 35, 33, 3, 9, 29) and its own exposure transitions against a separate plain scan of the encounter All pages on 2026-10-20."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "vWNnhR1zytxZTKYP",
+      "fight": 60,
+      "actor": 231,
+      "player": "Dirtysheets",
+      "encounter_id": 50663,
+      "id": "lucifron-paladin-impending-doom-removals-3",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19702
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 93,
+        "duration_ms": 24718,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/vWNnhR1zytxZTKYP/fight_60/player_231_Dirtysheets/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [
+          {
+            "ms": 14211,
+            "source": 256,
+            "target": 231,
+            "ability": 988,
+            "removed": 19702,
+            "is_buff": false,
+            "member": "events/vWNnhR1zytxZTKYP/fight_60/player_231_Dirtysheets/source_001.json",
+            "index": 79
+          }
+        ],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Raw source-page enumeration before any Lucifron Paladin policy change, with no analyzer or normalizer. The owner cross-checked the subject's five owned Cleanse dispels of Impending Doom (targets 35, 33, 3, 9, 29) and its own exposure transitions against a separate plain scan of the encounter All pages on 2026-10-20."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "Q9fm8CXw7pMkT4b1",
+      "fight": 3,
+      "actor": 19,
+      "player": "Diddled",
+      "encounter_id": 50663,
+      "id": "lucifron-paladin-impending-doom-removals-4",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19702
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 1,
+        "duration_ms": 33682,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/player_19_Diddled/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Raw source-page enumeration before any Lucifron Paladin policy change, with no analyzer or normalizer. The owner cross-checked the subject's five owned Cleanse dispels of Impending Doom (targets 35, 33, 3, 9, 29) and its own exposure transitions against a separate plain scan of the encounter All pages on 2026-10-20."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "rkN4cqdjpa9RW26X",
+      "fight": 8,
+      "actor": 10,
+      "player": "Killian",
+      "encounter_id": 50663,
+      "id": "lucifron-paladin-impending-doom-removals-5",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19702
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 1,
+        "duration_ms": 50902,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/rkN4cqdjpa9RW26X/fight_8/player_10_Killian/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Raw source-page enumeration before any Lucifron Paladin policy change, with no analyzer or normalizer. The owner cross-checked the subject's five owned Cleanse dispels of Impending Doom (targets 35, 33, 3, 9, 29) and its own exposure transitions against a separate plain scan of the encounter All pages on 2026-10-20."
+    },
+    {
+      "fixture": "mc-holy-paladin-raid-context",
+      "report": "MPav4XnKQjkcd9JH",
+      "fight": 6,
+      "actor": 9,
+      "player": "Stimorol",
+      "encounter_id": 50663,
+      "id": "lucifron-paladin-impending-doom-removals-6",
+      "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "entries": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.entries",
+      "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "removed_ability_ids": [
+        19702
+      ],
+      "removing_ability_ids": [
+        4987
+      ],
+      "cast_ability_ids": [
+        4987,
+        1152
+      ],
+      "is_buff": false,
+      "expected": {
+        "encounter_id": 50663,
+        "revision": 1,
+        "duration_ms": 48251,
+        "actor_class": "Paladin",
+        "zone_id": 2000,
+        "partition": 1,
+        "source_pages": [
+          "events/MPav4XnKQjkcd9JH/fight_6/player_9_Stimorol/source_001.json"
+        ],
+        "owned_removals": [],
+        "other_removals_in_source_pages": [],
+        "owned_dispel_or_abolish_casts_ms": []
+      },
+      "review_basis": "Raw source-page enumeration before any Lucifron Paladin policy change, with no analyzer or normalizer. The owner cross-checked the subject's five owned Cleanse dispels of Impending Doom (targets 35, 33, 3, 9, 29) and its own exposure transitions against a separate plain scan of the encounter All pages on 2026-10-20."
+    }
+  ]
+}

@@ -57,6 +57,7 @@ def test_independent_summon_observations() -> None:
 
 def test_independent_owned_mechanic_removals() -> None:
     assert check_register(ROOT / "removal-facts.json") == []
+    assert check_register(ROOT / "lucifron-removal-facts.json") == []
 
 
 def test_independent_raid_interrupt_observations() -> None:

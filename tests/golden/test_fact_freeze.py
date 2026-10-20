@@ -81,3 +81,8 @@ def test_actor_effect_contexts_are_reproduced_from_each_available_stream(
         assert case["id"] == "geddon-feign-actor-effects-1"
         return
     assert ff.differences(actor["transitions"], whole["transitions"]) == []
+
+
+@pytest.mark.parametrize("frozen", ["lucifron-paladin-mechanics.json"])
+def test_frozen_files_still_match_their_raw_archives(frozen: str) -> None:
+    assert ff.main(["check", str(ROOT / frozen)]) == 0

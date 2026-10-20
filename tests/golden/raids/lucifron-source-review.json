@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "subject": "Lucifron (encounter 50663) guidance and spell sources for Paladin Holy HPS",
+  "retrieval": {
+    "date": "2026-10-20",
+    "method": "Automated page fetch by the implementing agent (WebFetch); the excerpts below were returned verbatim by that fetch. A plain HTTP client received the wiki.gg bot block (HTTP 403, 'Blocked - wiki.gg'), so the fetch tool's text is the only live copy read.",
+    "independent_reviewer_fetch": "The reviewing agent's direct wiki GET also returned 403. Its independent web search retrieved an indexed full-text copy of the same wiki URL and of the Cleanse page, consistent with the excerpts here; that is indexed-text corroboration, not a successful live re-fetch. It fetched the Wowhead 19702 and 20604 pages directly."
+  },
+  "sources": [
+    {
+      "url": "https://warcraft.wiki.gg/wiki/Lucifron",
+      "status": "content retrieved; page last edited 28 June 2026, 17:46",
+      "excerpts": {
+        "impending_doom_ability": "Inflicts 2000 Shadow damage to nearby enemies after 10 sec.",
+        "curse_ability": "Curses nearby enemies, increasing the costs of their spells and abilities by 100% for 5 min.",
+        "curse_all_costs": "This cost increase applies to all spells and abilities, whether they cost mana, rage, or energy.",
+        "dominate_mind_ability": "Takes control of a humanoid enemy up to level 100 for 15 sec.",
+        "paladins_priests_dispel": "Priests and Paladins will also be tied up dispelling the Impending Doom debuff from healers,",
+        "dispel_priority_continuation": "and especially the main tanks, and whoever becomes mind controlled.",
+        "mages_decurse": "they will be tied up with removing the curse that Lucifron casts on the raid every 15 seconds.",
+        "guards_mind_control": "His guards have the ability to mind control, so it is sometimes easier to have one or two dummies move ahead",
+        "guards_mind_control_continuation": "of the main tank to suck up the mind control.",
+        "protector_pull": "Generally, two hunters will use one of their insta-cast shots to pull the Flamewalker Protectors,",
+        "protector_pull_continuation": "while the Main Tank must run up, tag, and pull Lucifron in the opposite direction of his guards.",
+        "debuff_range": "Lucifron's debuffs have a range of 40 yards.",
+        "healer_range": "It is possible for every healer (except the MT-decurser), and properly spec'ed hunters to stay out of",
+        "guard_respawn": "If Lucifron is not defeated before the group wipes, the guards will respawn.",
+        "healer_range_continuation": "Lucifron's curse-range, so with a good group you can minimize every curse-wave to about 10 raid members (melees)."
+      }
+    },
+    {
+      "url": "https://www.wowhead.com/classic/spell=19702/impending-doom",
+      "status": "spell details retrieved; no tooltip text on the page",
+      "excerpts": {
+        "duration": "10 seconds",
+        "school": "Shadow",
+        "dispel_type": "Magic"
+      }
+    },
+    {
+      "url": "https://www.wowhead.com/classic/spell=20604/dominate-mind",
+      "status": "spell details retrieved; no tooltip text on the page",
+      "excerpts": {
+        "duration": "15 seconds",
+        "school": "Shadow",
+        "mechanic": "Charmed",
+        "dispel_type": "Magic"
+      }
+    },
+    {
+      "url": "https://www.wowhead.com/classic/spell=4987/cleanse",
+      "status": "spell effects retrieved; no tooltip text, class or rank on the page",
+      "excerpts": {
+        "effects": "Dispel (Poison), Dispel (Disease), Dispel (Magic)"
+      }
+    }
+  ],
+  "rule_support": {
+    "lucifron-assign-removals-v1": [
+      "mages_decurse",
+      "paladins_priests_dispel",
+      "guards_mind_control"
+    ],
+    "lucifron-resource-cost-v1": [
+      "curse_ability",
+      "curse_all_costs"
+    ],
+    "lucifron-decurse-v1": [
+      "mages_decurse"
+    ],
+    "lucifron-magic-removal-v1": [
+      "paladins_priests_dispel",
+      "dispel_priority_continuation",
+      "impending_doom dispel_type Magic",
+      "cleanse effects"
+    ],
+    "lucifron-protector-coordination-v1": [
+      "protector_pull",
+      "protector_pull_continuation",
+      "guards_mind_control",
+      "guard_respawn"
+    ],
+    "Paladin Cleanse of Impending Doom (planned class policy)": [
+      "paladins_priests_dispel",
+      "impending_doom dispel_type Magic",
+      "cleanse effects"
+    ]
+  },
+  "boundaries": {
+    "paladin_curse_removal": "Cleanse lists Poison, Disease and Magic dispels only; Lucifron's Curse is a curse, so the sources give Paladins no curse-removal role.",
+    "paladin_mind_control_removal": "Dominate Mind is Magic, but the charmed player is hostile while controlled. The wiki's priority sentence ('...and whoever becomes mind controlled') lists who to dispel Impending Doom from and does not say a Paladin can end the control. Paladin removal of Dominate Mind therefore stays unknown; no Paladin control-removal policy is proposed. No Dominate Mind on the six frozen actors does not show it was absent raid-wide.",
+    "druid_decurse": "lucifron-decurse-v1 also applies to Druids (class 2); the wiki names only mages for curse removal. The Druid part keeps its earlier source basis and is outside this Paladin cell.",
+    "loadout": "The page gives no healer gear or loadout guidance. A Paladin loadout rule would record a limitation of the cited source, not evidence that gearing cannot matter.",
+    "kill_order": "The page describes pulling and tanking the guards apart from Lucifron and attacking Lucifron once the guards die; it gives no Paladin-specific kill-order advice.",
+    "healer_range_scope": "The healer range sentence concerns Lucifron's curse range only. It does not promise avoiding Impending Doom or Shadow Shock, and these logs carry no position measurement, so any range guidance must name that scope."
+  },
+  "open": "None for the S1/S2 scope; S3 rules still need their own review."
+}

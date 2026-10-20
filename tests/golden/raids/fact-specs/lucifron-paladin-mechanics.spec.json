@@ -1,0 +1,121 @@
+{
+  "fixture": "mc-holy-paladin-raid-context",
+  "archive": "../raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+  "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+  "note": "Raw Lucifron observations for cell mc/50663/6/Holy/hps/Alliance, frozen before any Lucifron Paladin policy change.",
+  "contexts": [
+    {
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 17,
+      "actor": 35,
+      "player": "Resurgance",
+      "subject": true
+    },
+    {
+      "report": "TZXrCPKGcL8qQdW1",
+      "fight": 4,
+      "actor": 25,
+      "player": "Auraline",
+      "subject": false
+    },
+    {
+      "report": "vWNnhR1zytxZTKYP",
+      "fight": 60,
+      "actor": 231,
+      "player": "Dirtysheets",
+      "subject": false
+    },
+    {
+      "report": "Q9fm8CXw7pMkT4b1",
+      "fight": 3,
+      "actor": 19,
+      "player": "Diddled",
+      "subject": false
+    },
+    {
+      "report": "rkN4cqdjpa9RW26X",
+      "fight": 8,
+      "actor": 10,
+      "player": "Killian",
+      "subject": false
+    },
+    {
+      "report": "MPav4XnKQjkcd9JH",
+      "fight": 6,
+      "actor": 9,
+      "player": "Stimorol",
+      "subject": false
+    }
+  ],
+  "queries": {
+    "duration_ms": {
+      "kind": "duration_ms"
+    },
+    "impending_doom_transitions": {
+      "kind": "aura_transitions",
+      "ids": [
+        19702
+      ]
+    },
+    "lucifrons_curse_transitions": {
+      "kind": "aura_transitions",
+      "ids": [
+        19703
+      ]
+    },
+    "dominate_mind_transitions": {
+      "kind": "aura_transitions",
+      "ids": [
+        20604
+      ]
+    },
+    "cleanse_purify_casts_s": {
+      "kind": "casts",
+      "ids": {
+        "Cleanse": [
+          4987
+        ],
+        "Purify": [
+          1152
+        ]
+      }
+    },
+    "divine_favor_s": {
+      "kind": "casts",
+      "ids": [
+        20216
+      ]
+    },
+    "emergency_cast_s": {
+      "kind": "casts",
+      "ids": {
+        "Divine Shield": [
+          642,
+          1020
+        ],
+        "Lay on Hands": [
+          633,
+          2800,
+          10310
+        ],
+        "Blessing of Protection": [
+          1022,
+          5599,
+          10278
+        ]
+      }
+    },
+    "shadow_shock": {
+      "kind": "ability_damage",
+      "ids": [
+        19460
+      ]
+    },
+    "impending_doom_damage": {
+      "kind": "ability_damage",
+      "ids": [
+        19702
+      ]
+    }
+  }
+}

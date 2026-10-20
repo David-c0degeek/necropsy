@@ -1,0 +1,1884 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "mc-holy-paladin-raid-context",
+    "archive": "raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+    "sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+    "note": "Raw Lucifron observations for cell mc/50663/6/Holy/hps/Alliance, frozen before any Lucifron Paladin policy change.",
+    "contexts": [
+      {
+        "report": "kvJ2WVF1chC9R4wd",
+        "fight": 17,
+        "actor": 35,
+        "player": "Resurgance",
+        "subject": true
+      },
+      {
+        "report": "TZXrCPKGcL8qQdW1",
+        "fight": 4,
+        "actor": 25,
+        "player": "Auraline",
+        "subject": false
+      },
+      {
+        "report": "vWNnhR1zytxZTKYP",
+        "fight": 60,
+        "actor": 231,
+        "player": "Dirtysheets",
+        "subject": false
+      },
+      {
+        "report": "Q9fm8CXw7pMkT4b1",
+        "fight": 3,
+        "actor": 19,
+        "player": "Diddled",
+        "subject": false
+      },
+      {
+        "report": "rkN4cqdjpa9RW26X",
+        "fight": 8,
+        "actor": 10,
+        "player": "Killian",
+        "subject": false
+      },
+      {
+        "report": "MPav4XnKQjkcd9JH",
+        "fight": 6,
+        "actor": 9,
+        "player": "Stimorol",
+        "subject": false
+      }
+    ],
+    "queries": {
+      "duration_ms": {
+        "kind": "duration_ms"
+      },
+      "impending_doom_transitions": {
+        "kind": "aura_transitions",
+        "ids": [
+          19702
+        ]
+      },
+      "lucifrons_curse_transitions": {
+        "kind": "aura_transitions",
+        "ids": [
+          19703
+        ]
+      },
+      "dominate_mind_transitions": {
+        "kind": "aura_transitions",
+        "ids": [
+          20604
+        ]
+      },
+      "cleanse_purify_casts_s": {
+        "kind": "casts",
+        "ids": {
+          "Cleanse": [
+            4987
+          ],
+          "Purify": [
+            1152
+          ]
+        }
+      },
+      "divine_favor_s": {
+        "kind": "casts",
+        "ids": [
+          20216
+        ]
+      },
+      "emergency_cast_s": {
+        "kind": "casts",
+        "ids": {
+          "Divine Shield": [
+            642,
+            1020
+          ],
+          "Lay on Hands": [
+            633,
+            2800,
+            10310
+          ],
+          "Blessing of Protection": [
+            1022,
+            5599,
+            10278
+          ]
+        }
+      },
+      "shadow_shock": {
+        "kind": "ability_damage",
+        "ids": [
+          19460
+        ]
+      },
+      "impending_doom_damage": {
+        "kind": "ability_damage",
+        "ids": [
+          19702
+        ]
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 17,
+      "actor": 35,
+      "player": "Resurgance",
+      "subject": true,
+      "duration_ms": 77323,
+      "impending_doom_transitions": [
+        [
+          6.246,
+          "applydebuff"
+        ],
+        [
+          14.087,
+          "removedebuff"
+        ],
+        [
+          28.919,
+          "applydebuff"
+        ],
+        [
+          31.935,
+          "removedebuff"
+        ],
+        [
+          49.976,
+          "applydebuff"
+        ],
+        [
+          52.266,
+          "removedebuff"
+        ],
+        [
+          74.229,
+          "applydebuff"
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          15.95,
+          "applydebuff"
+        ],
+        [
+          33.452,
+          "removedebuff"
+        ],
+        [
+          41.869,
+          "applydebuff"
+        ],
+        [
+          55.887,
+          "removedebuff"
+        ],
+        [
+          62.903,
+          "applydebuff"
+        ],
+        [
+          75.837,
+          "removedebuff"
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {
+        "Cleanse": [
+          52.268,
+          53.767,
+          55.286,
+          56.787,
+          58.889
+        ]
+      },
+      "divine_favor_s": [],
+      "emergency_cast_s": {},
+      "shadow_shock": {
+        "fight_events": 15,
+        "fight_amount": 23158,
+        "sources": [
+          52
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 244,
+          "timestamp": 1669023,
+          "source": 52,
+          "target": 27,
+          "amount": 1461
+        }
+      },
+      "impending_doom_damage": {
+        "fight_events": 51,
+        "fight_amount": 87742,
+        "sources": [
+          52
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 1537,
+          "timestamp": 1680639,
+          "source": 52,
+          "target": 28,
+          "amount": 2200
+        }
+      }
+    },
+    {
+      "report": "TZXrCPKGcL8qQdW1",
+      "fight": 4,
+      "actor": 25,
+      "player": "Auraline",
+      "subject": false,
+      "duration_ms": 23637,
+      "impending_doom_transitions": [
+        [
+          11.313,
+          "applydebuff"
+        ],
+        [
+          12.98,
+          "removedebuff"
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          12.942,
+          "applydebuff"
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [],
+      "emergency_cast_s": {},
+      "shadow_shock": {
+        "fight_events": 4,
+        "fight_amount": 6012,
+        "sources": [
+          52
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 810,
+          "timestamp": 3446642,
+          "source": 52,
+          "target": 6,
+          "amount": 1666
+        }
+      },
+      "impending_doom_damage": {
+        "fight_events": 9,
+        "fight_amount": 15700,
+        "sources": [
+          52
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 2237,
+          "timestamp": 3453085,
+          "source": 52,
+          "target": 23,
+          "amount": 0
+        }
+      }
+    },
+    {
+      "report": "vWNnhR1zytxZTKYP",
+      "fight": 60,
+      "actor": 231,
+      "player": "Dirtysheets",
+      "subject": false,
+      "duration_ms": 24718,
+      "impending_doom_transitions": [
+        [
+          6.576,
+          "applydebuff"
+        ],
+        [
+          14.211,
+          "removedebuff"
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          9.832,
+          "applydebuff"
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [
+        0.103
+      ],
+      "emergency_cast_s": {},
+      "shadow_shock": {
+        "fight_events": 5,
+        "fight_amount": 5857,
+        "sources": [
+          277
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 665,
+          "timestamp": 8247495,
+          "source": 277,
+          "target": 38,
+          "amount": 368
+        }
+      },
+      "impending_doom_damage": {
+        "fight_events": 14,
+        "fight_amount": 25583,
+        "sources": [
+          277
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 3330,
+          "timestamp": 8262204,
+          "source": 277,
+          "target": 240,
+          "amount": 2000
+        }
+      }
+    },
+    {
+      "report": "Q9fm8CXw7pMkT4b1",
+      "fight": 3,
+      "actor": 19,
+      "player": "Diddled",
+      "subject": false,
+      "duration_ms": 33682,
+      "impending_doom_transitions": [
+        [
+          6.447,
+          "applydebuff"
+        ],
+        [
+          16.451,
+          "removedebuff"
+        ],
+        [
+          30.754,
+          "applydebuff"
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          12.931,
+          "applydebuff"
+        ],
+        [
+          21.659,
+          "removedebuff"
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [],
+      "emergency_cast_s": {},
+      "shadow_shock": {
+        "fight_events": 7,
+        "fight_amount": 12624,
+        "sources": [
+          54
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 472,
+          "timestamp": 519270,
+          "source": 54,
+          "target": 5,
+          "amount": 1513
+        }
+      },
+      "impending_doom_damage": {
+        "fight_events": 24,
+        "fight_amount": 46040,
+        "sources": [
+          54
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 1,
+          "amount": 2000
+        },
+        "first_locator": {
+          "all_index": 768,
+          "timestamp": 520867,
+          "source": 54,
+          "target": 11,
+          "amount": 0
+        }
+      }
+    },
+    {
+      "report": "rkN4cqdjpa9RW26X",
+      "fight": 8,
+      "actor": 10,
+      "player": "Killian",
+      "subject": false,
+      "duration_ms": 50902,
+      "impending_doom_transitions": [
+        [
+          6.459,
+          "applydebuff"
+        ],
+        [
+          16.461,
+          "removedebuff"
+        ],
+        [
+          29.135,
+          "applydebuff"
+        ],
+        [
+          39.133,
+          "removedebuff"
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          14.558,
+          "applydebuff"
+        ],
+        [
+          18.659,
+          "removedebuff"
+        ],
+        [
+          38.797,
+          "applydebuff"
+        ],
+        [
+          46.842,
+          "removedebuff"
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [
+        4.709
+      ],
+      "emergency_cast_s": {},
+      "shadow_shock": {
+        "fight_events": 10,
+        "fight_amount": 13944,
+        "sources": [
+          54
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 122,
+          "timestamp": 592845,
+          "source": 54,
+          "target": 14,
+          "amount": 1096
+        }
+      },
+      "impending_doom_damage": {
+        "fight_events": 47,
+        "fight_amount": 85219,
+        "sources": [
+          54
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 2,
+          "amount": 856
+        },
+        "first_locator": {
+          "all_index": 1479,
+          "timestamp": 606010,
+          "source": 54,
+          "target": 20,
+          "amount": 2000
+        }
+      }
+    },
+    {
+      "report": "MPav4XnKQjkcd9JH",
+      "fight": 6,
+      "actor": 9,
+      "player": "Stimorol",
+      "subject": false,
+      "duration_ms": 48251,
+      "impending_doom_transitions": [
+        [
+          8.057,
+          "applydebuff"
+        ],
+        [
+          18.064,
+          "removedebuff"
+        ],
+        [
+          30.723,
+          "applydebuff"
+        ],
+        [
+          40.721,
+          "removedebuff"
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          40.447,
+          "applydebuff"
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [],
+      "emergency_cast_s": {
+        "Lay on Hands": [
+          36.0
+        ]
+      },
+      "shadow_shock": {
+        "fight_events": 9,
+        "fight_amount": 13214,
+        "sources": [
+          50
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "first_locator": {
+          "all_index": 924,
+          "timestamp": 763375,
+          "source": 50,
+          "target": 3,
+          "amount": 1481
+        }
+      },
+      "impending_doom_damage": {
+        "fight_events": 38,
+        "fight_amount": 62645,
+        "sources": [
+          50
+        ],
+        "from_actor": {
+          "events": 0,
+          "amount": 0
+        },
+        "to_actor": {
+          "events": 2,
+          "amount": 920
+        },
+        "first_locator": {
+          "all_index": 3431,
+          "timestamp": 776602,
+          "source": 50,
+          "target": 12,
+          "amount": 0
+        }
+      }
+    }
+  ],
+  "locators": [
+    {
+      "report": "kvJ2WVF1chC9R4wd",
+      "fight": 17,
+      "actor": 35,
+      "duration_ms": [],
+      "impending_doom_transitions": [
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          397
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1271
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          2708
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3019
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          4688
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          4925
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          7125
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1472
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3108
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3885
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5275
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5972
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          7299
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {
+        "Cleanse": [
+          [
+            "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+            4927
+          ],
+          [
+            "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+            5087
+          ],
+          [
+            "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+            5218
+          ],
+          [
+            "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+            5345
+          ],
+          [
+            "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+            5549
+          ]
+        ]
+      },
+      "divine_favor_s": [],
+      "emergency_cast_s": {},
+      "shadow_shock": [
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          244
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          735
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1347
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1953
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          2404
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          2882
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3244
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3548
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          4050
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          4522
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5194
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5620
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          6152
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          6424
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          6938
+        ]
+      ],
+      "impending_doom_damage": [
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1537
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1539
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1541
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1543
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1545
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1547
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1549
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1551
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1553
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1555
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1558
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1560
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1562
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1564
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1566
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1568
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          1570
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3572
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3574
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3576
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3578
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3580
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3582
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3584
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3586
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3590
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3593
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3595
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3599
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3601
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3608
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3609
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3611
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          3613
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          4686
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5656
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5658
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5660
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5662
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5664
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5666
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5670
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5672
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5674
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5676
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5678
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5680
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5684
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          5686
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          7122
+        ],
+        [
+          "events/kvJ2WVF1chC9R4wd/fight_17/encounter/all_001.json",
+          7123
+        ]
+      ]
+    },
+    {
+      "report": "TZXrCPKGcL8qQdW1",
+      "fight": 4,
+      "actor": 25,
+      "duration_ms": [],
+      "impending_doom_transitions": [
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          2279
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          2675
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          2664
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [],
+      "emergency_cast_s": {},
+      "shadow_shock": [
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          810
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          1931
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          3038
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          3993
+        ]
+      ],
+      "impending_doom_damage": [
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          2237
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4338
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4340
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4344
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4346
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4348
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4350
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4352
+        ],
+        [
+          "events/TZXrCPKGcL8qQdW1/fight_4/encounter/all_001.json",
+          4354
+        ]
+      ]
+    },
+    {
+      "report": "vWNnhR1zytxZTKYP",
+      "fight": 60,
+      "actor": 231,
+      "duration_ms": [],
+      "impending_doom_transitions": [
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          1554
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          2924
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          2128
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          417
+        ]
+      ],
+      "emergency_cast_s": {},
+      "shadow_shock": [
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          665
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          1843
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          2416
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3598
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          4412
+        ]
+      ],
+      "impending_doom_damage": [
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3330
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3332
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3336
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3338
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3340
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3342
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3344
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3346
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3348
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3350
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3352
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3354
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3356
+        ],
+        [
+          "events/vWNnhR1zytxZTKYP/fight_60/encounter/all_001.json",
+          3358
+        ]
+      ]
+    },
+    {
+      "report": "Q9fm8CXw7pMkT4b1",
+      "fight": 3,
+      "actor": 19,
+      "duration_ms": [],
+      "impending_doom_transitions": [
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          790
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2430
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          4265
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          1848
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          3185
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [],
+      "emergency_cast_s": {},
+      "shadow_shock": [
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          472
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          1341
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2122
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2648
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          3319
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          3878
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          4487
+        ]
+      ],
+      "impending_doom_damage": [
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          768
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2397
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2399
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2401
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2403
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2405
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2407
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2409
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2411
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2413
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2415
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2417
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2419
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2421
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2423
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2425
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2427
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2429
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2431
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2433
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2435
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2437
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2439
+        ],
+        [
+          "events/Q9fm8CXw7pMkT4b1/fight_3/encounter/all_001.json",
+          2441
+        ]
+      ]
+    },
+    {
+      "report": "rkN4cqdjpa9RW26X",
+      "fight": 8,
+      "actor": 10,
+      "duration_ms": [],
+      "impending_doom_transitions": [
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          444
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1486
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          2778
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4090
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1290
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1701
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4016
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4987
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          203
+        ]
+      ],
+      "emergency_cast_s": {},
+      "shadow_shock": [
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          122
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          677
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1159
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1652
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          2153
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          3010
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          3606
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4259
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4806
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          5354
+        ]
+      ],
+      "impending_doom_damage": [
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1479
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1482
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1485
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1487
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1489
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1491
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1493
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1496
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1498
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1500
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1502
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1504
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1506
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1511
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1513
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1515
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1517
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1519
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1521
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1525
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          1527
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4075
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4077
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4079
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4081
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4083
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4085
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4089
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4091
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4093
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4097
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4099
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4101
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4103
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4105
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4107
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4109
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4111
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4113
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4115
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4117
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4119
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4125
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4126
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4128
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4130
+        ],
+        [
+          "events/rkN4cqdjpa9RW26X/fight_8/encounter/all_001.json",
+          4134
+        ]
+      ]
+    },
+    {
+      "report": "MPav4XnKQjkcd9JH",
+      "fight": 6,
+      "actor": 9,
+      "duration_ms": [],
+      "impending_doom_transitions": [
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          1476
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3461
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          5487
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6606
+        ]
+      ],
+      "lucifrons_curse_transitions": [
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6563
+        ]
+      ],
+      "dominate_mind_transitions": [],
+      "cleanse_purify_casts_s": {},
+      "divine_favor_s": [],
+      "emergency_cast_s": {
+        "Lay on Hands": [
+          [
+            "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+            6052
+          ]
+        ]
+      },
+      "shadow_shock": [
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          924
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          1808
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          2746
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3705
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          4540
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          5227
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          5835
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6363
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6950
+        ]
+      ],
+      "impending_doom_damage": [
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3431
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3435
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3437
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3439
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3441
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3453
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3457
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3460
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3462
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3464
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3466
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3468
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3470
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3472
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3474
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3476
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3480
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3482
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3484
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3486
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          3488
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          5466
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6595
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6597
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6599
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6601
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6605
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6607
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6609
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6611
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6613
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6615
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6624
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6625
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6627
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6629
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6631
+        ],
+        [
+          "events/MPav4XnKQjkcd9JH/fight_6/encounter/all_001.json",
+          6634
+        ]
+      ]
+    }
+  ]
+}
