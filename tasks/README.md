@@ -9,7 +9,8 @@ Reconciled 2026-10-16 against plan sign-offs, manual-action records, current bra
 | Druid analysis | Complete; accepted with documented evidence limits | [Class expansion plan](ClassExpansion-Plan.md) |
 | Remaining Classic Era classes | Complete; accepted with documented evidence limits | [All classes plan](AllClasses-Plan.md) |
 | AQ40, BWL and MC selection/pipeline foundation | Implemented; full domain support remains planned | [Foundation record](raid-expansion.md), [current boundaries](../docs/raids.md) |
-| Full AQ40, BWL and MC boss/class implementation | Planned; no implementation subjects started | [Raid completion plan](RaidCompletion-Plan.md), [completion matrix](raid-completion/coverage-matrix.csv) |
+| Full AQ40, BWL and MC boss/class implementation | Parked 2026-10-21; 26/952 cells complete | [Raid completion plan](RaidCompletion-Plan.md), [completion matrix](raid-completion/coverage-matrix.csv) |
+| Full Naxxramas boss/class/faction completion | Draft; readiness not started | [Naxx completion plan](NaxxCompletion-Plan.md) |
 | Game talent trees and WCL categories | Closed by David; verified and integrated into main | [Class taxonomy plan](ClassTaxonomy-Plan.md) |
 | Product UX and desktop shell | Implemented; native/manual acceptance limits remain | [UX](product-ux.md), [desktop](desktop-gui.md) |
 | GUI-first installation | Complete; released | [Installation work](gui-default-install.md) |
