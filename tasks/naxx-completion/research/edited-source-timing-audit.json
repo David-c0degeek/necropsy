@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-22",
+  "status": "source wording/timing comparison only; no raw mechanic or production rule change",
+  "facts_path": "src/necropsy/rules/classic_era/zones/naxxramas_facts.yaml",
+  "facts_sha256": "2c89e7b863b103e1e7ae7132bf2c5c35f706c56d9ff1324ce03c39842f0b33d0",
+  "ledger_sha256": "96b612813e8de4951ad1f3f854212ce94514ea11ce93c5cd140dc0a35bf2957c",
+  "review": [
+    {
+      "boss": "Grand Widow Faerlina",
+      "key": "enrage_sacrifice",
+      "status": "qualifier needed before future content revision",
+      "evidence_keys": [
+        "worshippers_mind_control",
+        "enrage_note",
+        "strat_mind_control_timing"
+      ],
+      "finding": "Current static text says the sacrifice silences her for 30 seconds. Classic source specifically names the Nature school; its separate 60-second text concerns preventing Enrage after she enrages. Do not conflate silence school/duration and Enrage prevention. Existing v1 report compatibility remains unchanged; no production wording changed in this evidence-only pass.",
+      "source": "https://warcraft.wiki.gg/wiki/Grand_Widow_Faerlina_(Classic)",
+      "method": "Expanded cached Classic page search text; no general Wrath page used."
+    },
+    {
+      "boss": "Maexxna",
+      "keys": [
+        "web_wrap",
+        "web_spray",
+        "spiderlings",
+        "enrage"
+      ],
+      "status": "current ledger supports numeric timing/threshold text as guide claims",
+      "evidence_keys": [
+        "web_wrap_timing",
+        "web_spray_effect",
+        "spider_spawn_timing",
+        "enrage_trigger"
+      ],
+      "finding": "20 seconds then every 40 for Wrap, every 40 and 8 seconds incapacitation for Spray, spiders first at 30 then every 40, enrage at 30 percent. Full 40-second cycle strategy supports first Spray at the end of that cycle. This is source consistency, not measured opportunity or an immunity resolution.",
+      "source": "https://warcraft.wiki.gg/wiki/Maexxna_(Classic)",
+      "method": "Compare existing exact ledger excerpts and expanded Classic cycle text; level-70 section ignored."
+    },
+    {
+      "boss": "Instructor Razuvious",
+      "key": "disrupting_shout",
+      "status": "current ledger supports 25-second guide interval and line-of-sight boundary",
+      "evidence_keys": [
+        "disrupting_shout_timer",
+        "disrupting_shout_line_of_sight",
+        "ranged_dps"
+      ],
+      "finding": "Guide interval and line of sight match the frozen static text. Source also distinguishes the understudy Shield Wall from Warrior spell 871; do not transfer its cooldown or duration to the player.",
+      "source": "https://warcraft.wiki.gg/wiki/Instructor_Razuvious_(Classic)",
+      "method": "Existing ledger plus expanded Classic page search; Wrath and SoD excluded."
+    }
+  ],
+  "limits": [
+    "No authenticated WCL request or fresh capture.",
+    "These are sourced guide descriptions, not observed cast cadence, phase windows, assignments or scoring thresholds.",
+    "Open conflicts, missing full fragments, diagram-dependent statements and race exclusivity remain unresolved."
+  ]
+}

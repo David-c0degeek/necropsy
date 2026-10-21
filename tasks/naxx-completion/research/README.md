@@ -3,6 +3,13 @@
 Evidence for subject 00 of the Naxx completion plan. Codex produced these drafts
 under D007 (read-only on the tree); Claude verified and promoted them unchanged.
 
+Later solo continuation under D013 also retains these bounded offline audits:
+
+| File | Content |
+|---|---|
+| [offline-dps-inventory.json](offline-dps-inventory.json) | 102 supported rows attempted; 39 independently re-enumerated matches, 63 refusals; pinned recipes and actor-source checks, no validated cell policies |
+| [edited-source-timing-audit.json](edited-source-timing-audit.json) | Three edited Classic encounter pages compared with static facts; guide claims and unresolved qualifiers, no observed mechanic or production change |
+
 | File | Content |
 |---|---|
 | [partition-recommendation.md](partition-recommendation.md) | 00.7 partition evidence and recommendation |

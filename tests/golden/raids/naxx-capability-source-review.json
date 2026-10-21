@@ -408,6 +408,308 @@
       },
       "boundary": "Cast/summon ID 8170. The periodic effect 8171 is separate. Neither pet ownership nor raid-wide removal coverage is certified.",
       "required_level": 38
+    },
+    {
+      "id": "druid-natures-swiftness",
+      "spell_id": 17116,
+      "name": "Nature's Swiftness",
+      "class": "Druid",
+      "class_id": 2,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": true,
+      "url": "https://www.wowhead.com/classic/spell=17116/natures-swiftness",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "druid-natures-swiftness-talent": "Nature's SwiftnessTalent",
+        "druid-natures-swiftness-class": "Requires Druid",
+        "druid-natures-swiftness-scope": "When activated, your next Nature spell becomes an instant cast spell."
+      },
+      "boundary": "Classic Druid talent, separate from Shaman spell 16188. No assumed build or assigned instant-heal rotation."
+    },
+    {
+      "id": "shaman-natures-swiftness",
+      "spell_id": 16188,
+      "name": "Nature's Swiftness",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": true,
+      "url": "https://www.wowhead.com/classic/spell=16188/natures-swiftness",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "shaman-natures-swiftness-talent": "Nature's SwiftnessTalent",
+        "shaman-natures-swiftness-class": "Requires Shaman"
+      },
+      "boundary": "Class/talent attribution only; do not borrow the Druid tooltip or assume the player selected it."
+    },
+    {
+      "id": "druid-swiftmend",
+      "spell_id": 18562,
+      "name": "Swiftmend",
+      "class": "Druid",
+      "class_id": 2,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": true,
+      "url": "https://www.wowhead.com/classic/spell=18562/swiftmend",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "druid-swiftmend-talent": "SwiftmendTalent",
+        "druid-swiftmend-class": "Requires Druid"
+      },
+      "boundary": "Attribution only. The search tooltip mixes seasonal branches, so no effect amount, HoT consumption or availability for every Druid is asserted."
+    },
+    {
+      "id": "shaman-healing-way",
+      "spell_id": 29206,
+      "name": "Healing Way",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": true,
+      "url": "https://www.wowhead.com/classic/spell=29206/healing-way",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "shaman-healing-way-talent": "Healing WayTalent Requires Shaman",
+        "shaman-healing-way-stacking": "This effect will stack up to 3 times."
+      },
+      "boundary": "Rank-specific talent and positive stack limit only. No guaranteed proc, actual build, tank assignment or observed stacks."
+    },
+    {
+      "id": "mage-ice-block",
+      "spell_id": 11958,
+      "name": "Ice Block",
+      "class": "Mage",
+      "class_id": 4,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": true,
+      "url": "https://www.wowhead.com/classic/spell=11958/ice-block",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "mage-ice-block-talent": "Ice Block Talent",
+        "mage-ice-block-class": "Requires Mage"
+      },
+      "boundary": "Attribution/talent only; does not resolve the conflicting Web Spray immunity claims."
+    },
+    {
+      "id": "mage-frost-nova",
+      "spell_id": 122,
+      "name": "Frost Nova",
+      "class": "Mage",
+      "class_id": 4,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=122/frost-nova",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "mage-frost-nova-class-level": "Requires Mage Requires level 10",
+        "mage-frost-nova-scope": "freezes them in place for up to 8 sec."
+      },
+      "boundary": "Rank-specific spell; immunity, successful control, target windows, assignment and spell opportunity require separate evidence.",
+      "required_level": 10
+    },
+    {
+      "id": "mage-amplify-magic",
+      "spell_id": 1008,
+      "name": "Amplify Magic",
+      "class": "Mage",
+      "class_id": 4,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=1008/amplify-magic",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "mage-amplify-magic-class-level": "Requires Mage Requires level 18",
+        "mage-amplify-magic-target": "Amplifies magic used against the targeted party member"
+      },
+      "boundary": "Attribution/party target only. The full spell increases both spell damage taken and healing; this excerpt does not certify net benefit or universal use.",
+      "required_level": 18
+    },
+    {
+      "id": "paladin-lay-on-hands",
+      "spell_id": 633,
+      "name": "Lay on Hands",
+      "class": "Paladin",
+      "class_id": 6,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=633/lay-on-hands",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "paladin-lay-on-hands-class-level": "Requires Paladin Requires level 10",
+        "paladin-lay-on-hands-scope": "Heals a friendly target for an amount equal to the Paladin's maximum health."
+      },
+      "boundary": "Rank-specific positive capability. Mana cost, practical availability, rotation and need are not established by this excerpt.",
+      "required_level": 10
+    },
+    {
+      "id": "paladin-divine-shield",
+      "spell_id": 642,
+      "name": "Divine Shield",
+      "class": "Paladin",
+      "class_id": 6,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=642/divine-shield",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "paladin-divine-shield-class-level": "Requires Paladin Requires level 34",
+        "paladin-divine-shield-scope": "Protects the paladin from all damage and spells for 10 sec"
+      },
+      "boundary": "Rank-specific positive capability. Seasonal damage branches excluded; no claim that Web Spray is avoided or any duty is assigned.",
+      "required_level": 34
+    },
+    {
+      "id": "rogue-vanish",
+      "spell_id": 1856,
+      "name": "Vanish",
+      "class": "Rogue",
+      "class_id": 8,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=1856/vanish",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "rogue-vanish-class-level": "Requires Rogue Requires level 22",
+        "rogue-vanish-scope": "Allows the rogue to vanish from sight"
+      },
+      "boundary": "Positive stealth capability only. No immunity, tunnel safety or Web Spray avoidance is established.",
+      "required_level": 22
+    },
+    {
+      "id": "warrior-shield-wall",
+      "spell_id": 871,
+      "name": "Shield Wall",
+      "class": "Warrior",
+      "class_id": 11,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=871/shield-wall",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "warrior-shield-wall-class-level": "Requires Warrior Requires level 28",
+        "warrior-shield-wall-stance": "Requires Defensive Stance"
+      },
+      "boundary": "Class/stance attribution only. Warrior spell 871 is distinct from the Razuvious understudy Shield Wall; no shared duration or cooldown is inferred.",
+      "required_level": 28
+    },
+    {
+      "id": "druid-regrowth",
+      "spell_id": 8936,
+      "name": "Regrowth",
+      "class": "Druid",
+      "class_id": 2,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=8936/regrowth",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "druid-regrowth-class-level": "Requires Druid Requires level 12",
+        "druid-regrowth-scope": "Heals a friendly target"
+      },
+      "boundary": "Druid spell, not Priest. No rank/magnitude or inferred healing assignment.",
+      "required_level": 12
+    },
+    {
+      "id": "druid-rejuvenation",
+      "spell_id": 774,
+      "name": "Rejuvenation",
+      "class": "Druid",
+      "class_id": 2,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=774/rejuvenation",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "druid-rejuvenation-class-level": "Requires Druid Requires level 4",
+        "druid-rejuvenation-scope": "Heals the target for 32 over 12 sec."
+      },
+      "boundary": "Rank-specific capability, not Priest Renew or a claim about a particular player loadout/uptime.",
+      "required_level": 4
+    },
+    {
+      "id": "priest-power-word-shield",
+      "spell_id": 17,
+      "name": "Power Word: Shield",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=17/power-word-shield",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "priest-power-word-shield-class-level": "Requires Priest Requires level 6",
+        "priest-power-word-shield-scope": "Absorbs damage."
+      },
+      "boundary": "Attribution and absorption only. Does not certify actual absorbed amount, target coverage or a pre-shield assignment.",
+      "required_level": 6
+    },
+    {
+      "id": "priest-renew",
+      "spell_id": 139,
+      "name": "Renew",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=139/renew",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "priest-renew-class-level": "Requires Priest Requires level 8",
+        "priest-renew-scope": "Heals the target of 45 damage over 15 sec."
+      },
+      "boundary": "Rank-specific Priest HoT; no class-sharing or generic preferred rank inferred.",
+      "required_level": 8
+    },
+    {
+      "id": "warlock-hellfire",
+      "spell_id": 1949,
+      "name": "Hellfire",
+      "class": "Warlock",
+      "class_id": 10,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=1949/hellfire",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "warlock-hellfire-class-level": "Requires Warlock Requires level 30",
+        "warlock-hellfire-channel": "Channeled (15 sec cast)"
+      },
+      "boundary": "Positive channeled Warlock capability only. No immunity, safe self-damage threshold or preferred AoE policy is inferred.",
+      "required_level": 30
+    },
+    {
+      "id": "warlock-rain-of-fire",
+      "spell_id": 5740,
+      "name": "Rain of Fire",
+      "class": "Warlock",
+      "class_id": 10,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "requires_talent": false,
+      "url": "https://www.wowhead.com/classic/spell=5740/rain-of-fire",
+      "retrieved": "2026-10-22",
+      "method": "Expanded Classic search tooltip/details only. Class/talent attribution separated from seasonal effect branches; no comments, retail, TBC, Wrath or Forever values used.",
+      "excerpts": {
+        "warlock-rain-of-fire-class-level": "Requires Warlock Requires level 20",
+        "warlock-rain-of-fire-channel": "Channeled (8 sec cast)"
+      },
+      "boundary": "Classic channeled spell, not retail instant spender. Boss guidance is separate from cast availability.",
+      "required_level": 20
     }
   ]
 }

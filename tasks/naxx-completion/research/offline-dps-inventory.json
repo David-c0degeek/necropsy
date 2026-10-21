@@ -1,0 +1,4247 @@
+{
+  "date": "2026-10-22",
+  "status": "exhausted available pinned DPS/tank rows under the explicit no-exclusions hypothesis; no cell policy validated",
+  "inputs": [
+    {
+      "path": "tests/golden/classes/raw/class-mage-fire.zip",
+      "pinned_sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "fights": 4,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Mage",
+          "category": "Fire",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/classes/raw/class-paladin-holy.zip",
+      "pinned_sha256": "c2b581ff7b66de387cf92d80a5211da2030081a8b330a617cab5adf216c2cc19",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Paladin",
+          "category": "Holy",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/classes/raw/class-priest-shadow.zip",
+      "pinned_sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Priest",
+          "category": "Shadow",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/classes/raw/class-rogue-assassination.zip",
+      "pinned_sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Rogue",
+          "category": "Assassination",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/classes/raw/class-shaman-restoration.zip",
+      "pinned_sha256": "398cb1c160cb385183c7d60831ab6935d724a1095a721056feec32b44627a8e7",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Shaman",
+          "category": "Restoration",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/classes/raw/class-warlock-destruction.zip",
+      "pinned_sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "fights": 4,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Warlock",
+          "category": "Destruction",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/classes/raw/class-warrior-protection.zip",
+      "pinned_sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Warrior",
+          "category": "Protection",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "pinned_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "fights": 54,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51111,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51108,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51120,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51117,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51112,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51115,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51107,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51110,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51116,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51113,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51109,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51121,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51119,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        },
+        {
+          "encounter": 51114,
+          "class": "Druid",
+          "category": "Balance",
+          "role": "balance-dps"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/druid/raw/druid-feral.zip",
+      "pinned_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Druid",
+          "category": "Feral",
+          "role": "feral-dps"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/druid/raw/druid-guardian.zip",
+      "pinned_sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51118,
+          "class": "Druid",
+          "category": "Guardian",
+          "role": "feral-tank"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/druid/raw/druid-mixed.zip",
+      "pinned_sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51121,
+          "class": "Druid",
+          "category": "Guardian",
+          "role": "feral-tank"
+        }
+      ]
+    },
+    {
+      "path": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+      "pinned_sha256": "e827163bcb7832d8e3e83fa67cc73d32c8e1ac8e4cc7d89c2f6f3d46749136d0",
+      "fights": 6,
+      "configs": [
+        {
+          "encounter": 51119,
+          "class": "Druid",
+          "category": "Restoration",
+          "role": "restoration"
+        }
+      ]
+    }
+  ],
+  "tool_git_commit": "6bdb5c5",
+  "tool_sha256": "e664a8d57a07e94ae48b2b788ae11cc56afb21755d2b25db3c4829b6652cb547",
+  "independent_enumerator_sha256": "ba96e01095bd95621f128be9521a939e31ecd36b18382a64ae3c28024b281e8f",
+  "interpreter": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "attempted": 102,
+  "arithmetic_matches": 39,
+  "refused": 63,
+  "matched_encounters": [
+    51107,
+    51108,
+    51109,
+    51110,
+    51111,
+    51112,
+    51113,
+    51114,
+    51117,
+    51118,
+    51119,
+    51120,
+    51121
+  ],
+  "method": "Pinned archive inventory from the scoped capture plan. HPS roles skipped, supported DPS/tank roles enumerated for every selected participant; explicit exclusion IDs always empty, never fitted. Every admitted row re-enumerated using a separate standard-library ZIP Counter loop without importing generator/page helper/analyzer, with exact raw multiset, totals and Fraction residual checks.",
+  "limits": [
+    "Scope is the available deduplicated capture-plan inputs, not every configuration or all historical exports.",
+    "Legacy Hunter exporter without the snapshot contract is outside this generator.",
+    "Refusals retain their reasons; unknown ownership and unmatched published rows are not zero damage or no pets.",
+    "Inputs/recipes/raw multiset fingerprints are committed; full generated row outputs remain ignored and are reproducible, not new actor-source registrations.",
+    "No whole-encounter completeness, expected play, inferred opportunity, per-configuration policy or COMPLETE cell."
+  ],
+  "rows": [
+    {
+      "archive": "tests/golden/classes/raw/class-mage-fire.zip",
+      "archive_sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "report": "8NWw79ATF4vJGPMd",
+      "fight": 33,
+      "player": "Maithanet",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 9,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/8NWw79ATF4vJGPMd/fight_33/player_9_Maithanet/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-mage-fire.zip",
+      "archive_sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "report": "8NWw79ATF4vJGPMd",
+      "fight": 33,
+      "player": "Maibae",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 15,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/8NWw79ATF4vJGPMd/fight_33/player_15_Maibae/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-mage-fire.zip",
+      "archive_sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "report": "QvfWMGHTxtXDY37Z",
+      "fight": 39,
+      "player": "Linnt",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 54,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/QvfWMGHTxtXDY37Z/fight_39/player_54_Linnt/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-mage-fire.zip",
+      "archive_sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "report": "k6gJXbRFCBnDyHT9",
+      "fight": 14,
+      "player": "Koldskaal",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 22,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/k6gJXbRFCBnDyHT9/fight_14/player_22_Koldskaal/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-mage-fire.zip",
+      "archive_sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "report": "qD2ZvyYm6g8FRbKM",
+      "fight": 55,
+      "player": "Ljhart",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 43,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/qD2ZvyYm6g8FRbKM/fight_55/player_43_Ljhart/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-mage-fire.zip",
+      "archive_sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+      "report": "qD2ZvyYm6g8FRbKM",
+      "fight": 55,
+      "player": "Tremelin",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 19,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/qD2ZvyYm6g8FRbKM/fight_55/player_19_Tremelin/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+      "archive_sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "report": "4m3R1cNVqCkjQWTJ",
+      "fight": 44,
+      "player": "Frighten",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 2,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/4m3R1cNVqCkjQWTJ/fight_44/player_2_Frighten/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+      "archive_sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "report": "AWvKRzT4kP9MhFgx",
+      "fight": 18,
+      "player": "Dabezd",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 8,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 96973,
+        "self": 799,
+        "excluded": 0,
+        "ranked": 96174
+      },
+      "published": "825.223",
+      "duration_ms": 116543,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/class-priest-shadow-AWvKRzT4kP9MhFgx-18-8.oracle.json",
+      "oracle_sha256": "d11985f5dfdf1958f306948b736bbf0095b18893cd5ee8f9613a1b352bb3a121",
+      "spec": {
+        "archive": "../../../tests/golden/classes/raw/class-priest-shadow.zip",
+        "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+        "report": "AWvKRzT4kP9MhFgx",
+        "fight": 18,
+        "actor": 8,
+        "player": "Dabezd",
+        "realm": "Firemaw",
+        "class": "Priest",
+        "category": "Shadow",
+        "role": "dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 7
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 113,
+      "raw_multiset_sha256": "342314142eee062d2a89ad5ec1b0070becdf396e90f9bd5e21e27c5a7dffa0b6",
+      "members_used": {
+        "necropsy-snapshot.json": "65a0d3f175af9c2590135e30ebe6a87b57e53987dbe54ea9c09aae2f985200eb",
+        "reports/AWvKRzT4kP9MhFgx/bundle.json": "08aa40ffbcff72039438a1b8e456f3c51838f36e5ba02f33b53377b2edd48e19",
+        "events/AWvKRzT4kP9MhFgx/fight_18/player_8_Dabezd/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/AWvKRzT4kP9MhFgx/fight_18/player_8_Dabezd/source_001.json": "82b1a62969444bdc2d159f7840ffc1467bbd0fe2c9349f49857be41ec11d166d",
+        "events/AWvKRzT4kP9MhFgx/fight_18/player_8_Dabezd/target_001.json": "b3ee1568e86437ea73cea1e6c6681cf46871ab7480d0af43f1430e825604617e",
+        "events/AWvKRzT4kP9MhFgx/fight_18/player_8_Dabezd/target_002.json": "9f7632a86ff29e8483404903e86f25a1f14192e3c24a726106bf5e18322e7b54",
+        "events/AWvKRzT4kP9MhFgx/fight_18/player_8_Dabezd/target_003.json": "d2d7cca732b6cd0f03f21163e8ceaad9bc3334fc0111c6ed464426be24e3e207",
+        "leaderboards/51118_Patchwerk.json": "00089957bb7073c53f96c3eab4be11707a9f6dc6ccd39f6d97b01db495517926"
+      },
+      "residual": "35911/116543000"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+      "archive_sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "report": "WPxyrnqYh2J8D6LN",
+      "fight": 57,
+      "player": "Ywfvniefjioe",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "No unique exact name/realm friendly actor"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+      "archive_sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "report": "bHhRtQr4LKmGpc21",
+      "fight": 41,
+      "player": "Varjo",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 12,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 120649,
+        "self": 1058,
+        "excluded": 0,
+        "ranked": 119591
+      },
+      "published": "894.399",
+      "duration_ms": 133711,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/class-priest-shadow-bHhRtQr4LKmGpc21-41-12.oracle.json",
+      "oracle_sha256": "224a38a28b101a0b7f6aba8d1685c3dc9814fc8d14de9d38c6b5880979d034ad",
+      "spec": {
+        "archive": "../../../tests/golden/classes/raw/class-priest-shadow.zip",
+        "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+        "report": "bHhRtQr4LKmGpc21",
+        "fight": 41,
+        "actor": 12,
+        "player": "Varjo",
+        "realm": "Mankrik",
+        "class": "Priest",
+        "category": "Shadow",
+        "role": "dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 1
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 164,
+      "raw_multiset_sha256": "bd4c0ea90b5e6c87eb46dfdca694125eb04dc965643fa22dfec99664e5d9f2cb",
+      "members_used": {
+        "necropsy-snapshot.json": "65a0d3f175af9c2590135e30ebe6a87b57e53987dbe54ea9c09aae2f985200eb",
+        "reports/bHhRtQr4LKmGpc21/bundle.json": "47319474d33d40aafa9c080c609a2ee7ac51b136036a3131bd93d8701b61eef4",
+        "events/bHhRtQr4LKmGpc21/fight_41/player_12_Varjo/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/bHhRtQr4LKmGpc21/fight_41/player_12_Varjo/source_001.json": "363e059a2efdd14067d2ffa32ae34c52b17b97187c0aa7db3c926c697451af9e",
+        "events/bHhRtQr4LKmGpc21/fight_41/player_12_Varjo/target_001.json": "00c36925acc8c0e50e49e514a47aef2e43e6c8c757eb55f7855eb5b762275de3",
+        "events/bHhRtQr4LKmGpc21/fight_41/player_12_Varjo/target_002.json": "f24ce93f4dd1f2c9c96ee363b65845a408dcb9ef3bed8faa8ff8da7f8e27f251",
+        "events/bHhRtQr4LKmGpc21/fight_41/player_12_Varjo/target_003.json": "764b6891c115d2dff08397b955141d51df7b942f9c78b118d50b031babc49717",
+        "leaderboards/51118_Patchwerk.json": "00089957bb7073c53f96c3eab4be11707a9f6dc6ccd39f6d97b01db495517926"
+      },
+      "residual": "15311/133711000"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+      "archive_sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "report": "dD1XmanHC3rkAz98",
+      "fight": 101,
+      "player": "Kach",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 30,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 139718,
+        "self": 883,
+        "excluded": 0,
+        "ranked": 138835
+      },
+      "published": "866.895",
+      "duration_ms": 160152,
+      "owned_actor_ids": [
+        255
+      ],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/class-priest-shadow-dD1XmanHC3rkAz98-101-30.oracle.json",
+      "oracle_sha256": "40f24d032a666a7ffd9a4fe7b4c9bd7345366538cd85e4b951bfcb5c4f44d83e",
+      "spec": {
+        "archive": "../../../tests/golden/classes/raw/class-priest-shadow.zip",
+        "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+        "report": "dD1XmanHC3rkAz98",
+        "fight": 101,
+        "actor": 30,
+        "player": "Kach",
+        "realm": "Firemaw",
+        "class": "Priest",
+        "category": "Shadow",
+        "role": "dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 4
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 210,
+      "raw_multiset_sha256": "57c907f9813207273a7288076a11950b0408ea4d3fc377b182b649add42237b7",
+      "members_used": {
+        "necropsy-snapshot.json": "65a0d3f175af9c2590135e30ebe6a87b57e53987dbe54ea9c09aae2f985200eb",
+        "reports/dD1XmanHC3rkAz98/bundle.json": "bddb2ddf1b0c69aa575f3f3a829fd838f3e701405445664e991a88571de559ca",
+        "events/dD1XmanHC3rkAz98/fight_101/player_30_Kach/pets.json": "ab33b3788086714d2ab19274550c094a070af725f171c58527025432e465b40a",
+        "events/dD1XmanHC3rkAz98/fight_101/player_30_Kach/source_001.json": "a0844f2e554d0b63f0ccf3ba552e212aa4a9868c59c789302f8c4f62b79d581e",
+        "events/dD1XmanHC3rkAz98/fight_101/player_30_Kach/target_001.json": "c9030b1f35a599cf363632af9f1a7520c893bef30392ecea1c9dd7b69d17ce4f",
+        "events/dD1XmanHC3rkAz98/fight_101/player_30_Kach/target_002.json": "7ac224d050e0643d03a64baf29f7bfc0de5d036e5237f40d7c3836fd817cd095",
+        "events/dD1XmanHC3rkAz98/fight_101/player_30_Kach/target_003.json": "208b43b18b1f5db749dce511d615653b7a83a34504eac051aefef691f83d0875",
+        "events/dD1XmanHC3rkAz98/fight_101/pet_255_Summoned_Skeleton/source_001.json": "9db3be1bb82907aeaa70e6df3139b0e8edc3e5b1c71d7f04888c31ad9e11297b",
+        "events/dD1XmanHC3rkAz98/fight_101/pet_255_Summoned_Skeleton/target_001.json": "c9030b1f35a599cf363632af9f1a7520c893bef30392ecea1c9dd7b69d17ce4f",
+        "events/dD1XmanHC3rkAz98/fight_101/pet_255_Summoned_Skeleton/target_002.json": "7ac224d050e0643d03a64baf29f7bfc0de5d036e5237f40d7c3836fd817cd095",
+        "events/dD1XmanHC3rkAz98/fight_101/pet_255_Summoned_Skeleton/target_003.json": "208b43b18b1f5db749dce511d615653b7a83a34504eac051aefef691f83d0875",
+        "leaderboards/51118_Patchwerk.json": "00089957bb7073c53f96c3eab4be11707a9f6dc6ccd39f6d97b01db495517926"
+      },
+      "residual": "799/4003800"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+      "archive_sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+      "report": "kFCKm79vHVfbA8rN",
+      "fight": 61,
+      "player": "Peve",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 19,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/kFCKm79vHVfbA8rN/fight_61/player_19_Peve/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-rogue-assassination.zip",
+      "archive_sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "report": "2hT6cDaGPCymAKj4",
+      "fight": 41,
+      "player": "Noitaredeef",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 34,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/2hT6cDaGPCymAKj4/fight_41/player_34_Noitaredeef/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-rogue-assassination.zip",
+      "archive_sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "report": "2znpkmv8FRj61A3q",
+      "fight": 12,
+      "player": "Run\u00edc",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 20,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-rogue-assassination.zip",
+      "archive_sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "report": "7HrQTRPnxZmwyfpB",
+      "fight": 12,
+      "player": "Awo",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 46,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/7HrQTRPnxZmwyfpB/fight_12/player_46_Awo/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-rogue-assassination.zip",
+      "archive_sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "report": "BZLfJWpzjn7m94P2",
+      "fight": 19,
+      "player": "\u5357\u5f00\u5361\u7c73",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 26,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/BZLfJWpzjn7m94P2/fight_19/player_26_x/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-rogue-assassination.zip",
+      "archive_sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "report": "rvBAh2kXTaxwQHnW",
+      "fight": 15,
+      "player": "Bloomrogue",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 27,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 155939,
+        "self": 471,
+        "excluded": 0,
+        "ranked": 155468
+      },
+      "published": "1893.76",
+      "duration_ms": 82095,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/class-rogue-assassination-rvBAh2kXTaxwQHnW-15-27.oracle.json",
+      "oracle_sha256": "d2613bcb3e8b744fef0387d9b33ed15c58c0560fc44d6e78cc82b0d306b1b8a1",
+      "spec": {
+        "archive": "../../../tests/golden/classes/raw/class-rogue-assassination.zip",
+        "sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+        "report": "rvBAh2kXTaxwQHnW",
+        "fight": 15,
+        "actor": 27,
+        "player": "Bloomrogue",
+        "realm": "Firemaw",
+        "class": "Rogue",
+        "category": "Assassination",
+        "role": "dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 1
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 175,
+      "raw_multiset_sha256": "446b1fe94f1e9f7e054579d5430643ff11c28ee569c547a3ed55c7c98a5c4b4d",
+      "members_used": {
+        "necropsy-snapshot.json": "01e896db32905cc571fa27e5c15c8869a1b6b5457943a7691c7af2be02d386c3",
+        "reports/rvBAh2kXTaxwQHnW/bundle.json": "b1e4abd4988d473ac83fd7c472ef485dba4d60e84e8af6d57cca6ac5095ef169",
+        "events/rvBAh2kXTaxwQHnW/fight_15/player_27_Bloomrogue/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/rvBAh2kXTaxwQHnW/fight_15/player_27_Bloomrogue/source_001.json": "b9a4d67349f942bfb64f9c22771ab55481362be67a9e3b3218e6b9183c3fe30a",
+        "events/rvBAh2kXTaxwQHnW/fight_15/player_27_Bloomrogue/target_001.json": "10d82cf1fbc16b19103dee04ac8fd30b25ab67173ede8b56ee1c9a6a6c8db648",
+        "events/rvBAh2kXTaxwQHnW/fight_15/player_27_Bloomrogue/target_002.json": "bbd5fc5580327abf834800213c2a0c8557d93cd688744e74135cf9620bf4d1da",
+        "leaderboards/51118_Patchwerk.json": "81ab8e22a6a78b917a7f4393a0cddc911b298ec378bc12d8152f7fe4d8252f38"
+      },
+      "residual": "-1136/410475"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-rogue-assassination.zip",
+      "archive_sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+      "report": "wqaJXZMvKPY2LGVt",
+      "fight": 27,
+      "player": "Jacckal",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 24,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warlock-destruction.zip",
+      "archive_sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 14,
+      "player": "Sobr",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 38,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 209340,
+        "self": 978,
+        "excluded": 0,
+        "ranked": 208362
+      },
+      "published": "1881.08",
+      "duration_ms": 110767,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/class-warlock-destruction-7NmBydcX8HFRh1tA-14-38.oracle.json",
+      "oracle_sha256": "eb653cb084d45281454dbbecc48ad87ed5488d115ed56bb89ca3417edcbef932",
+      "spec": {
+        "archive": "../../../tests/golden/classes/raw/class-warlock-destruction.zip",
+        "sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+        "report": "7NmBydcX8HFRh1tA",
+        "fight": 14,
+        "actor": 38,
+        "player": "Sobr",
+        "realm": "Firemaw",
+        "class": "Warlock",
+        "category": "Destruction",
+        "role": "dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 0
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 44,
+      "raw_multiset_sha256": "de55f354a0e978decb91171abbe39f9f5e596fe47771f4bee8ac272970d513b5",
+      "members_used": {
+        "necropsy-snapshot.json": "fd3cc3af48f3cef12f13c1b71819252ea56a563e03fa36853e813a04613615cf",
+        "reports/7NmBydcX8HFRh1tA/bundle.json": "1efd7a4eac00ba0bf1259f0278701cc1f41b63ed19627a84dac684065e40d180",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_38_Sobr/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_38_Sobr/source_001.json": "471bec539ccc0bdce385de66ced01cd1ab0e50fd9e90129feb05f56d51ba2258",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_38_Sobr/target_001.json": "d483d35fec612088ba1cc8133c41e527dd9d85521982d5a160a4b2e04770f475",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_38_Sobr/target_002.json": "6546cc1ea291e14731fd21eaf710859db82c2769ae401a49a41ead34050a8232",
+        "leaderboards/51118_Patchwerk.json": "9faa16792875d09c2185179e6a6d0e3aa1c98aa1caf8e23ffb4b9fe299212ca0"
+      },
+      "residual": "10291/2769175"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warlock-destruction.zip",
+      "archive_sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 14,
+      "player": "Encylate",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 45,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warlock-destruction.zip",
+      "archive_sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 14,
+      "player": "Krentemi",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 42,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 194413,
+        "self": 1212,
+        "excluded": 0,
+        "ranked": 193201
+      },
+      "published": "1744.21",
+      "duration_ms": 110767,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/class-warlock-destruction-7NmBydcX8HFRh1tA-14-42.oracle.json",
+      "oracle_sha256": "dca194ef6f027c8e60d9bdf28385aae1e8860cac482abc2cf9112f15e7901647",
+      "spec": {
+        "archive": "../../../tests/golden/classes/raw/class-warlock-destruction.zip",
+        "sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+        "report": "7NmBydcX8HFRh1tA",
+        "fight": 14,
+        "actor": 42,
+        "player": "Krentemi",
+        "realm": "Firemaw",
+        "class": "Warlock",
+        "category": "Destruction",
+        "role": "dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 2
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 42,
+      "raw_multiset_sha256": "8b9e5d9c2cafef0b5b2246a005c0ff72b16905cde68d808387e434cbb1003d8c",
+      "members_used": {
+        "necropsy-snapshot.json": "fd3cc3af48f3cef12f13c1b71819252ea56a563e03fa36853e813a04613615cf",
+        "reports/7NmBydcX8HFRh1tA/bundle.json": "1efd7a4eac00ba0bf1259f0278701cc1f41b63ed19627a84dac684065e40d180",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_42_Krentemi/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_42_Krentemi/source_001.json": "e7326a53ebb7fbe5aba2b564adb9073ced4495a4d88e38134e4c9dd9aeda0f66",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_42_Krentemi/target_001.json": "d483d35fec612088ba1cc8133c41e527dd9d85521982d5a160a4b2e04770f475",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_42_Krentemi/target_002.json": "6546cc1ea291e14731fd21eaf710859db82c2769ae401a49a41ead34050a8232",
+        "leaderboards/51118_Patchwerk.json": "9faa16792875d09c2185179e6a6d0e3aa1c98aa1caf8e23ffb4b9fe299212ca0"
+      },
+      "residual": "9093/11076700"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warlock-destruction.zip",
+      "archive_sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "report": "CRKJPf48YzFgqrL7",
+      "fight": 15,
+      "player": "\u70df\u5875",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 3,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warlock-destruction.zip",
+      "archive_sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "report": "YHPgDqwZ1pmKXbtx",
+      "fight": 31,
+      "player": "\u4eca\u4eca\u5929\u5929",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 7,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warlock-destruction.zip",
+      "archive_sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+      "report": "c9BM6FQZnhqdb8Cm",
+      "fight": 21,
+      "player": "Hyan\u00e1",
+      "encounter": 51118,
+      "role": "dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 7,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warrior-protection.zip",
+      "archive_sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "report": "4MJThtng79PWdQ13",
+      "fight": 27,
+      "player": "Attackerone",
+      "encounter": 51118,
+      "role": "tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 35,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warrior-protection.zip",
+      "archive_sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "report": "HJXdRQpkNCzLYmgK",
+      "fight": 58,
+      "player": "Suinchi",
+      "encounter": 51118,
+      "role": "tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 4,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/HJXdRQpkNCzLYmgK/fight_58/player_4_Suinchi/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warrior-protection.zip",
+      "archive_sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "report": "PLrMvGJK8t6DRm7b",
+      "fight": 41,
+      "player": "Kajiki",
+      "encounter": 51118,
+      "role": "tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 31,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/PLrMvGJK8t6DRm7b/fight_41/player_31_Kajiki/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warrior-protection.zip",
+      "archive_sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "report": "gZK31FHyqcajdhwt",
+      "fight": 51,
+      "player": "\u514b\u745e\u65af",
+      "encounter": 51118,
+      "role": "tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 85,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/gZK31FHyqcajdhwt/fight_51/player_85_x/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warrior-protection.zip",
+      "archive_sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "report": "mNFf8nRZzg7jrXax",
+      "fight": 42,
+      "player": "Alianthus",
+      "encounter": 51118,
+      "role": "tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 129,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 210200,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 210200
+      },
+      "published": "1696.42",
+      "duration_ms": 123908,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/class-warrior-protection-mNFf8nRZzg7jrXax-42-129.oracle.json",
+      "oracle_sha256": "67cad1dc58616131de6a4214645f1b2122ce09d557dea143abcd8069f51bd5ac",
+      "spec": {
+        "archive": "../../../tests/golden/classes/raw/class-warrior-protection.zip",
+        "sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+        "report": "mNFf8nRZzg7jrXax",
+        "fight": 42,
+        "actor": 129,
+        "player": "Alianthus",
+        "realm": "Mankrik",
+        "class": "Warrior",
+        "category": "Protection",
+        "role": "tank",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 2
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 269,
+      "raw_multiset_sha256": "330b8069a4606b30fedb83cada93b610fecea0d11c601ef0bad1f10ff2cfa576",
+      "members_used": {
+        "necropsy-snapshot.json": "209a7837329b464a826275c0502a6983bf5179743e816ef2749db4da22d1efc3",
+        "reports/mNFf8nRZzg7jrXax/bundle.json": "cc54a40404708e80cc0b4b0a95980dfe9c01f14c281acc43530eb586804ea916",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/source_001.json": "8074ef89131e17e2d53c432d5470e3e51592c42410bee45b7ec41fb9102b3d55",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/target_001.json": "e41c2cc48b9a5db0f579b900b2f816588c41fe2d7134c2265e28e2c672b99a10",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/target_002.json": "b3d45d208ca0da628833936f23d42f3738df426e7df7e2d2d36423e545c92ca4",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/target_003.json": "21096f91ec6b6cac5a5a8a26f1decd3c38498cb0f9d71d2dce014e22dd90e877",
+        "leaderboards/51118_Patchwerk.json": "063558152f518f994d9254b461e3d88e23caec7d9b6a4fcd82ac7723d915e3b7"
+      },
+      "residual": "-117/1548850"
+    },
+    {
+      "archive": "tests/golden/classes/raw/class-warrior-protection.zip",
+      "archive_sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+      "report": "mZGwrVzDkfBCdQTW",
+      "fight": 35,
+      "player": "Junsa",
+      "encounter": 51118,
+      "role": "tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 26,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "1xN2P46ChrgYLW3j",
+      "fight": 28,
+      "player": "Pissdoff",
+      "encounter": 51119,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 40,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 26751,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 26751
+      },
+      "published": "1188.56",
+      "duration_ms": 22507,
+      "owned_actor_ids": [
+        230
+      ],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-1xN2P46ChrgYLW3j-28-40.oracle.json",
+      "oracle_sha256": "a5ec0cae663afe838dd46de5ebeea1dd5a2a0a13ad2aa926ab4ce82d7e6ebabe",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "1xN2P46ChrgYLW3j",
+        "fight": 28,
+        "actor": 40,
+        "player": "Pissdoff",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51119,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+        "page": 1,
+        "row": 3
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 13,
+      "raw_multiset_sha256": "2ae643290eb5142958ca5ec81ba9e6aae3092b1403ef134c7a58bd14476e5783",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/1xN2P46ChrgYLW3j/bundle.json": "b0085bc11bbbc572a2cf579ad2f30babd4bd4295c1a52a929240595002452736",
+        "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/pets.json": "311a836f4a57b5949945a28cb7bc6e110f4c3887702e04431205a6cd6df63db0",
+        "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json": "91696e384ef217fbc5287299a3411e8877e6383ea070fc878a2f7986fc2b4bb0",
+        "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json": "5bc3965db73bc8fe24a17a2c722cbbaa4df986db9cb2d86195cce994c30b4341",
+        "events/1xN2P46ChrgYLW3j/fight_28/pet_230_Masterwork_Target_Dummy/source_001.json": "a4fead76c3a76c211a2efd123018fd135e65c40beb65cebffcd93e69907d6d40",
+        "events/1xN2P46ChrgYLW3j/fight_28/pet_230_Masterwork_Target_Dummy/target_001.json": "5bc3965db73bc8fe24a17a2c722cbbaa4df986db9cb2d86195cce994c30b4341",
+        "leaderboards/51119_Sapphiron.json": "20ee43e4d812140d79ed1659e42d6c52069ec76feadf5ef770d51eb00c2613b4"
+      },
+      "residual": "2002/562675"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "1xycFDXLzPVdqJ79",
+      "fight": 41,
+      "player": "Saitl",
+      "encounter": 51112,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 53,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "2R7tvMPzaynXDGfh",
+      "fight": 29,
+      "player": "Zasko",
+      "encounter": 51112,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 11,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 51711,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51711
+      },
+      "published": "915.952",
+      "duration_ms": 56456,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-2R7tvMPzaynXDGfh-29-11.oracle.json",
+      "oracle_sha256": "1743eb2b8c3a03a1f7006d2b9050801c351715dbd0f03715a898d67eda05c445",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "2R7tvMPzaynXDGfh",
+        "fight": 29,
+        "actor": 11,
+        "player": "Zasko",
+        "realm": "Pagle",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51112,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+        "page": 1,
+        "row": 3
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 43,
+      "raw_multiset_sha256": "dc55bede3c45ae640941cefb0cbc1fc71d6fdb3c5504cdbf3c0da00c16a94513",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/2R7tvMPzaynXDGfh/bundle.json": "4b700e912dba7d46c36740aa26175d75f477146bf0fd270ace18d2d39944a1d7",
+        "events/2R7tvMPzaynXDGfh/fight_29/player_11_Zasko/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/2R7tvMPzaynXDGfh/fight_29/player_11_Zasko/source_001.json": "d94f896deeed48f013c1cde445016feee2b49d56cba98843d1b0dd6108ac1fa1",
+        "events/2R7tvMPzaynXDGfh/fight_29/player_11_Zasko/target_001.json": "13c2b5eb1e93cf2b85b05cc23ab84d1cbdbde621b53d7e83245a86cdd019d23f",
+        "events/2R7tvMPzaynXDGfh/fight_29/player_11_Zasko/target_002.json": "d5f85f7405b100328998f9cb45e83139656fe78494108821a691e389a8777132",
+        "leaderboards/51112_Heigan_the_Unclean.json": "7f3190b9834e895d051fce3e38b100829d13be5a282f0b85f5bedd6d784d4353"
+      },
+      "residual": "217/882125"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "2T8XNm3Z6dAycRpw",
+      "fight": 19,
+      "player": "Saitl",
+      "encounter": 51108,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 38,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "3GRTNr7hxZVcCdbn",
+      "fight": 39,
+      "player": "Gdewl",
+      "encounter": 51119,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 13,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 35501,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 35501
+      },
+      "published": "1303.65",
+      "duration_ms": 27232,
+      "owned_actor_ids": [
+        229
+      ],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-3GRTNr7hxZVcCdbn-39-13.oracle.json",
+      "oracle_sha256": "4f86c75333ab4d60375f013d2d3fa81596943c0d71cbf59aac7646fce812c2d9",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "3GRTNr7hxZVcCdbn",
+        "fight": 39,
+        "actor": 13,
+        "player": "Gdewl",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51119,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+        "page": 1,
+        "row": 1
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 10,
+      "raw_multiset_sha256": "64bbcb2e2bc45f71110f20c3bdf6520ed1717f5dc961833900b4fa3635458c9e",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/3GRTNr7hxZVcCdbn/bundle.json": "37bd750fe5e38c84633bb6609864d137baff92e905476a129e7f01ea1f7bc92f",
+        "events/3GRTNr7hxZVcCdbn/fight_39/player_13_Gdewl/pets.json": "06a617011cf0a7ff8b8dd8c541d837b9ead516da5e71507bc6991f8eaf7747c4",
+        "events/3GRTNr7hxZVcCdbn/fight_39/player_13_Gdewl/source_001.json": "afaf2188726388238bd792b2b7c0b1efc3fffdfe0b0db0d69e4b0e6b9264dcbd",
+        "events/3GRTNr7hxZVcCdbn/fight_39/player_13_Gdewl/target_001.json": "0f3be7a6baf31b0ef565b4152913ab7a43bf046ba8a15d178822ecf600454796",
+        "events/3GRTNr7hxZVcCdbn/fight_39/pet_229_Masterwork_Target_Dummy/source_001.json": "79deb51a9435555ac883ee0b8493de7a6ed826ecc165d2f8f2d4ee48cad1acf9",
+        "events/3GRTNr7hxZVcCdbn/fight_39/pet_229_Masterwork_Target_Dummy/target_001.json": "0f3be7a6baf31b0ef565b4152913ab7a43bf046ba8a15d178822ecf600454796",
+        "leaderboards/51119_Sapphiron.json": "20ee43e4d812140d79ed1659e42d6c52069ec76feadf5ef770d51eb00c2613b4"
+      },
+      "residual": "1/8510"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "4Gd9wNXcFvAVn7Dh",
+      "fight": 31,
+      "player": "Alyrian",
+      "encounter": 51108,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 63,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 45191,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 45191
+      },
+      "published": "840.997",
+      "duration_ms": 53735,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-4Gd9wNXcFvAVn7Dh-31-63.oracle.json",
+      "oracle_sha256": "3d7986fb0b53b9a37781466277d7a5e337a599fe8600966227d22311f7c6c99c",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "4Gd9wNXcFvAVn7Dh",
+        "fight": 31,
+        "actor": 63,
+        "player": "Alyrian",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51108,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51108_Gluth.json",
+        "page": 1,
+        "row": 0
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 47,
+      "raw_multiset_sha256": "0e2216f58931e96af7996127935231a004d1c5bbdce5399c6f58f65cf0414b96",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/4Gd9wNXcFvAVn7Dh/bundle.json": "7d8f08297699b08807f0693b0d5262b4cb2358fc205b6b65f0883add55f91085",
+        "events/4Gd9wNXcFvAVn7Dh/fight_31/player_63_Alyrian/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/4Gd9wNXcFvAVn7Dh/fight_31/player_63_Alyrian/source_001.json": "bde886d8ee94dd9adde435fe172a2030fae9e3fda0c8f157ca9c065ae9c2bbf3",
+        "events/4Gd9wNXcFvAVn7Dh/fight_31/player_63_Alyrian/target_001.json": "3726b7da758618e2dd98e6fcc436f2065399d7925dbe0f597906eae3b5ef53a2",
+        "events/4Gd9wNXcFvAVn7Dh/fight_31/player_63_Alyrian/target_002.json": "e34d06366d11448d928b7f507b4eb255fa58047f478bc6be094b03f457a1353b",
+        "leaderboards/51108_Gluth.json": "eb743a28a00ece23884710e34461876979e3d9643b6384db61ac192471cb5efd"
+      },
+      "residual": "5241/10747000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "9qJ3ZtTHrcwnL8CR",
+      "fight": 28,
+      "player": "Saitl",
+      "encounter": 51117,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 24,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "AZLXrwtvgamfWc18",
+      "fight": 28,
+      "player": "Zasko",
+      "encounter": 51117,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 30,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 39788,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39788
+      },
+      "published": "1036.82",
+      "duration_ms": 38375,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-AZLXrwtvgamfWc18-28-30.oracle.json",
+      "oracle_sha256": "172e25c8c76a32e6fcb5b22501cece8da404f50cecf582fdb86a26be9cdee7f4",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "AZLXrwtvgamfWc18",
+        "fight": 28,
+        "actor": 30,
+        "player": "Zasko",
+        "realm": "Pagle",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51117,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+        "page": 1,
+        "row": 0
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 44,
+      "raw_multiset_sha256": "1d0257a320a8adceb39a7a1dd2b51ead2a02d79869d4e6ed56771cc95de8f7ce",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/AZLXrwtvgamfWc18/bundle.json": "d840917f37330088a1bac28f565726738f2b329ff051acdde5c8d202460cabfc",
+        "events/AZLXrwtvgamfWc18/fight_28/player_30_Zasko/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/AZLXrwtvgamfWc18/fight_28/player_30_Zasko/source_001.json": "beebe471f98648bb39e78b57d8e139c59416d722f2b5f9f92d7788283fcb8dcf",
+        "events/AZLXrwtvgamfWc18/fight_28/player_30_Zasko/target_001.json": "d1e2796e69c944cdb1c759be3d1338295cddf8190528538f98e4c31a7943ce85",
+        "leaderboards/51117_Noth_the_Plaguebringer.json": "3845210730cad7802398c453b59cef6b225c2b09a2538b9848c1f8e9dc016686"
+      },
+      "residual": "13/15350"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "CLZBpGHbRM2Kz4a8",
+      "fight": 13,
+      "player": "Forceanature",
+      "encounter": 51111,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 6,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 45916,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 45916
+      },
+      "published": "934.277",
+      "duration_ms": 49146,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-CLZBpGHbRM2Kz4a8-13-6.oracle.json",
+      "oracle_sha256": "7bb56881953cf24d193abec7874564e2dbd639b9d16c20d979cb1c14c4bfb3d4",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "CLZBpGHbRM2Kz4a8",
+        "fight": 13,
+        "actor": 6,
+        "player": "Forceanature",
+        "realm": "Firemaw",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51111,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+        "page": 1,
+        "row": 3
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 20,
+      "raw_multiset_sha256": "7352fc98b02194b7188f38c2c1a1542d7d644bc4ed984adc1f51e75e588309c9",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/CLZBpGHbRM2Kz4a8/bundle.json": "ee6d0ae4eec6108abe663e295a4cc162f27ffc946baf51b5deeba01f59c9745e",
+        "events/CLZBpGHbRM2Kz4a8/fight_13/player_6_Forceanature/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/CLZBpGHbRM2Kz4a8/fight_13/player_6_Forceanature/source_001.json": "a9201186a90a9dfa05cf981d060a9e65bf980c3dc2eae1fca690a851e61ca02e",
+        "events/CLZBpGHbRM2Kz4a8/fight_13/player_6_Forceanature/target_001.json": "00eb856d6c22a85b593fef7ad7537a3ebe70645acdbbd02435e2c939af219129",
+        "events/CLZBpGHbRM2Kz4a8/fight_13/player_6_Forceanature/target_002.json": "2293c7afe5f3203a74c84912c2b2881ae968dc9403b6b205d62adb87b811362f",
+        "leaderboards/51111_Grobbulus.json": "bd49ac318408c7a1cf05037aac9d38dcdc87d60752e831105d028bbf57c62b7e"
+      },
+      "residual": "11279/24573000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "CjpBWdHyrgAGYFLt",
+      "fight": 21,
+      "player": "Frelserboom",
+      "encounter": 51108,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 18,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "DQPTVJRKZL6Wvt7B",
+      "fight": 61,
+      "player": "Urbansombero",
+      "encounter": 51118,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 29,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/DQPTVJRKZL6Wvt7B/fight_61/player_29_Urbansombero/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "DQPTVJRKZL6Wvt7B",
+      "fight": 67,
+      "player": "Urbansombero",
+      "encounter": 51111,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 29,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "Dyd43zV2xht6Mkmv",
+      "fight": 42,
+      "player": "Teris",
+      "encounter": 51115,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 7,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "HAJnjRQqyc7TNpk9",
+      "fight": 29,
+      "player": "Zasko",
+      "encounter": 51120,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 45,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 183550,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 183550
+      },
+      "published": "1431.9",
+      "duration_ms": 128186,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-HAJnjRQqyc7TNpk9-29-45.oracle.json",
+      "oracle_sha256": "d265599d12e406877a5e402edfcf56ea2982975009aaedc7fa392f3579e6f5bc",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "HAJnjRQqyc7TNpk9",
+        "fight": 29,
+        "actor": 45,
+        "player": "Zasko",
+        "realm": "Pagle",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51120,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51120_Thaddius.json",
+        "page": 1,
+        "row": 2
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 76,
+      "raw_multiset_sha256": "487d910e68888e20ad0dbe2a0a7357842951a6ab7f3b79d0372d8c43f3080193",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/HAJnjRQqyc7TNpk9/bundle.json": "8771322ba9f9f420cc491e2e83341a1eaaebcf3073a71814b343485baef4f578",
+        "events/HAJnjRQqyc7TNpk9/fight_29/player_45_Zasko/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/HAJnjRQqyc7TNpk9/fight_29/player_45_Zasko/source_001.json": "b9c4c353e3f3569463f5d43a92c0c8ec91c57ba12cd8316a8f0cd3dc29c04ce6",
+        "events/HAJnjRQqyc7TNpk9/fight_29/player_45_Zasko/target_001.json": "08aa7bef5d2d6697876b0a4d944990625bbe81b94b088dc8abd83bb8ddbd66c8",
+        "events/HAJnjRQqyc7TNpk9/fight_29/player_45_Zasko/target_002.json": "0a6009df70ad23db67427ba79e750fa239e5bf9d20113d05b5c3fb63ca711967",
+        "events/HAJnjRQqyc7TNpk9/fight_29/player_45_Zasko/target_003.json": "f5274f8df6574a1c2ad8701cb88fbf61ea01f3bda9a63c2b468947a822b8754f",
+        "leaderboards/51120_Thaddius.json": "01e65debbf08d1e3a42be95f26ad9de290cbc125612f946a265d272f416ff761"
+      },
+      "residual": "2333/640930"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "KC2wPgkARYtL9HbM",
+      "fight": 32,
+      "player": "Alyrian",
+      "encounter": 51111,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 41,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 69775,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 69775
+      },
+      "published": "985.175",
+      "duration_ms": 70825,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-KC2wPgkARYtL9HbM-32-41.oracle.json",
+      "oracle_sha256": "18757b4a396a831f3fb636ef7a04a0568236504ffdc515a54f739f464d897fa9",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "KC2wPgkARYtL9HbM",
+        "fight": 32,
+        "actor": 41,
+        "player": "Alyrian",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51111,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+        "page": 1,
+        "row": 0
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 63,
+      "raw_multiset_sha256": "1ac68b5131963fccfa455f3655add4c927d2e89bca27d0b40d49f62540b1e39d",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/KC2wPgkARYtL9HbM/bundle.json": "7293c222331189640e38f58f3e9751f3a0f3e520442bc2222603c62bfbcecbfd",
+        "events/KC2wPgkARYtL9HbM/fight_32/player_41_Alyrian/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/KC2wPgkARYtL9HbM/fight_32/player_41_Alyrian/source_001.json": "359404650700ab3447960135f4b67b9a1a9230b463c26e26a9635f05c1bad266",
+        "events/KC2wPgkARYtL9HbM/fight_32/player_41_Alyrian/target_001.json": "eeffb0f2eba4c595944c488ec4cfdb64d00994be1e3c2ccdd1cea14c692e6f1c",
+        "events/KC2wPgkARYtL9HbM/fight_32/player_41_Alyrian/target_002.json": "ca6585343d791d78f70432874fe207fb092848e9d3d4fa0cb7acc79b2d1cd336",
+        "leaderboards/51111_Grobbulus.json": "bd49ac318408c7a1cf05037aac9d38dcdc87d60752e831105d028bbf57c62b7e"
+      },
+      "residual": "-31/113320"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 8,
+      "player": "Haplina",
+      "encounter": 51110,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 2,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 22690,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 22690
+      },
+      "published": "504.357",
+      "duration_ms": 44988,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-KPqATnBvMZVXNH3r-8-2.oracle.json",
+      "oracle_sha256": "ace9d0e6fae89eeec9ccc96fb80498ca17a436ea2ca311ab60277f43ae0a5546",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "KPqATnBvMZVXNH3r",
+        "fight": 8,
+        "actor": 2,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51110,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+        "page": 1,
+        "row": 76
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 32,
+      "raw_multiset_sha256": "8cb8eb619dbd7b1eefe1b46f11e4b505a92bd120cd837aab4baacf81e5933377",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/KPqATnBvMZVXNH3r/bundle.json": "f111a7e2a9f22c5bd847f600144bf9db4a3b52a8d7c3fd29bc8784495f91694d",
+        "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/source_001.json": "d8cc4bb825f3e1ba67111cafaa9de5c737402b7c373c87f593789e8954ec56da",
+        "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/target_001.json": "26618f896a73e4999b927fd6523f1ba7fade3be20414c660a8b6a33bc9824e67",
+        "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/target_002.json": "ba78a2326f0758a659df8c9b9aa3776856b9656e25827b24ef10f16da2ee73ed",
+        "leaderboards/51110_Grand_Widow_Faerlina.json": "1f46866e465ee158790ae6bb8779674eaba65cea056cecddb084bb4ba73de256"
+      },
+      "residual": "-3179/11247000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 11,
+      "player": "Haplina",
+      "encounter": 51116,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 2,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "No unique published captured leaderboard row"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 49,
+      "player": "Haplina",
+      "encounter": 51114,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 2,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 50332,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 50332
+      },
+      "published": "325.207",
+      "duration_ms": 154769,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-KPqATnBvMZVXNH3r-49-2.oracle.json",
+      "oracle_sha256": "fe5258731dde20d7631f38f36d9c8a660248a53a67970a18e79ca4d8b013717a",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "KPqATnBvMZVXNH3r",
+        "fight": 49,
+        "actor": 2,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51114,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+        "page": 1,
+        "row": 67
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 55,
+      "raw_multiset_sha256": "0caaf6511186d85255d8c5fec74ecb04fdadfd3a46af82e435d61430f6cdb7fe",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/KPqATnBvMZVXNH3r/bundle.json": "f111a7e2a9f22c5bd847f600144bf9db4a3b52a8d7c3fd29bc8784495f91694d",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json": "9ac6d93a6d3043d3b9af80bbe40ddab581aec535743a854c6116cd9182584109",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/target_001.json": "5980039658ac8aedba507bb7d05710f11c613efcd717339ccdf72340d65cd242",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/target_002.json": "0a6d22dfda28cff46f8a71dc64343420284f23e0398dbea76ff395cb51b18d0a",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/target_003.json": "11e1e87b9e57db6074d373724414c545277867b8276e6feeccbcead97b7e47e9",
+        "leaderboards/51114_Kel_Thuzad.json": "ac2a07c952d35c4d83bf7da53d38ec33101a9fcc524ff31e2f31a7aeee002fe2"
+      },
+      "residual": "37817/154769000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "Pya8MzbgJ4ndXhKp",
+      "fight": 19,
+      "player": "Teris",
+      "encounter": 51108,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 16,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 42226,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 42226
+      },
+      "published": "829.539",
+      "duration_ms": 50903,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-Pya8MzbgJ4ndXhKp-19-16.oracle.json",
+      "oracle_sha256": "9c2a4a63bd445ef5a28ac0f205d1ad6cda500b3a3e6b3ca72446c152b4f295b3",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "Pya8MzbgJ4ndXhKp",
+        "fight": 19,
+        "actor": 16,
+        "player": "Teris",
+        "realm": "Mankrik",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51108,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51108_Gluth.json",
+        "page": 1,
+        "row": 3
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 43,
+      "raw_multiset_sha256": "022ba8195a0f71bd715cca6200e1a0ccd67ae545b0dcc68b2e8704db64cf2f5d",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/Pya8MzbgJ4ndXhKp/bundle.json": "ecd016e121e2cf96911bdb9122544d301aa8ad9a3e38348ff9479d1ac7ea7668",
+        "events/Pya8MzbgJ4ndXhKp/fight_19/player_16_Teris/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/Pya8MzbgJ4ndXhKp/fight_19/player_16_Teris/source_001.json": "675632dd8d35e34d56b3616410d3dd87b06ec1e6291f1deecd47773621ab536b",
+        "events/Pya8MzbgJ4ndXhKp/fight_19/player_16_Teris/target_001.json": "c176c564ed7ac091e2393a6ece0f45c9da0cabe23fa81677a786adc20be20de7",
+        "leaderboards/51108_Gluth.json": "eb743a28a00ece23884710e34461876979e3d9643b6384db61ac192471cb5efd"
+      },
+      "residual": "-23717/50903000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "T6WzQLF9ynwvrtaN",
+      "fight": 42,
+      "player": "Alyrian",
+      "encounter": 51119,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 31,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 31399,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 31399
+      },
+      "published": "1379.69",
+      "duration_ms": 22758,
+      "owned_actor_ids": [
+        225
+      ],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-T6WzQLF9ynwvrtaN-42-31.oracle.json",
+      "oracle_sha256": "1dd8d0e9f42fbf167a391afaafe433886b59333669ec3aa0f7566fd2ce3529f0",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "T6WzQLF9ynwvrtaN",
+        "fight": 42,
+        "actor": 31,
+        "player": "Alyrian",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51119,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+        "page": 1,
+        "row": 0
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 8,
+      "raw_multiset_sha256": "bfff2cafa8ec5f4dd8648d4175f922a3c3aba8bae51c00e8096399f0465f2e8a",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/T6WzQLF9ynwvrtaN/bundle.json": "daaf2a499d1ffdfe7ceafba85701a684dd9d01386584be272ebd379bf61d43ec",
+        "events/T6WzQLF9ynwvrtaN/fight_42/player_31_Alyrian/pets.json": "16d3c4732f419c073ddc05d1354c0e602cc02430d4266909e7f019fd9c1eb220",
+        "events/T6WzQLF9ynwvrtaN/fight_42/player_31_Alyrian/source_001.json": "e36a104a9eea77afc90230785e562d90c856552e802e679fcab9f95178c27ffc",
+        "events/T6WzQLF9ynwvrtaN/fight_42/player_31_Alyrian/target_001.json": "21c7f771326a5a49878495df4ed9bc1a8022038c94f4a6722372703528a53f6b",
+        "events/T6WzQLF9ynwvrtaN/fight_42/pet_225_Masterwork_Target_Dummy/source_001.json": "3fc4d26ca2243cadf7f43b74f98dd7fa152ad531150bd8db4bb1897fee682a3a",
+        "events/T6WzQLF9ynwvrtaN/fight_42/pet_225_Masterwork_Target_Dummy/target_001.json": "21c7f771326a5a49878495df4ed9bc1a8022038c94f4a6722372703528a53f6b",
+        "leaderboards/51119_Sapphiron.json": "20ee43e4d812140d79ed1659e42d6c52069ec76feadf5ef770d51eb00c2613b4"
+      },
+      "residual": "749/1137900"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "TtP64VnWfN8rZMB2",
+      "fight": 10,
+      "player": "Alyrian",
+      "encounter": 51118,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 22,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "VMbhfk8B1rZN3CXx",
+      "fight": 44,
+      "player": "Melnor",
+      "encounter": 51120,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 49,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "VMbhfk8B1rZN3CXx",
+      "fight": 53,
+      "player": "Melnor",
+      "encounter": 51115,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 49,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/VMbhfk8B1rZN3CXx/fight_53/player_49_Melnor/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "WzGF9BjdrHCk8N1X",
+      "fight": 27,
+      "player": "Haplina",
+      "encounter": 51121,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 1,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 40567,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 40567
+      },
+      "published": "196.756",
+      "duration_ms": 206179,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-WzGF9BjdrHCk8N1X-27-1.oracle.json",
+      "oracle_sha256": "3230a4881e6d835c8f86d9d0ef3c8e5c416a83125bfcf1837092618941c282db",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "WzGF9BjdrHCk8N1X",
+        "fight": 27,
+        "actor": 1,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51121,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+        "page": 1,
+        "row": 52
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 54,
+      "raw_multiset_sha256": "16c95f3b39eedcbd5d11ff27ba6e7cba69cd97cb49af03214b85f743bdd6f423",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/WzGF9BjdrHCk8N1X/bundle.json": "d52e9b8990e4fe3a87b1f19b37c09200ab8a7e843d458b3906f7099e2c7fab08",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json": "beef79769266be3f134b0a96a592b07b63097c02af950ce5847eb33920c5e8d7",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/target_001.json": "e038fcaa741eae07dc99ebd870fa4dbe357b46eb7cc58f49052587c2b535bf94",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/target_002.json": "edf7171ccbcd95f3bfe4036bbc01dc7bef11809d1caa53cbdeabfc70cee38a0e",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/target_003.json": "4045ed4802c96e21f11571f435bf27df486ebae80c3be39d52f722c588483e21",
+        "leaderboards/51121_The_Four_Horsemen.json": "763fb5456eb1fe28df6276a4eb05b9f253435843090c697370b5b93fe1b092b4"
+      },
+      "residual": "11169/51544750"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "WzGF9BjdrHCk8N1X",
+      "fight": 36,
+      "player": "Haplina",
+      "encounter": 51118,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 1,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 68395,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 68395
+      },
+      "published": "535.273",
+      "duration_ms": 127776,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-WzGF9BjdrHCk8N1X-36-1.oracle.json",
+      "oracle_sha256": "b5c1298796a6fc917135c8f58903dd415d327408dcde3f2b638fc815348e2d42",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "WzGF9BjdrHCk8N1X",
+        "fight": 36,
+        "actor": 1,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 90
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 44,
+      "raw_multiset_sha256": "5ce5a993bc47d06e418943caf2457651aa0b2cf86131df8d213c2fb35683c652",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/WzGF9BjdrHCk8N1X/bundle.json": "d52e9b8990e4fe3a87b1f19b37c09200ab8a7e843d458b3906f7099e2c7fab08",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/source_001.json": "71bab37f1ca4ba0fea4b6043efaabbc6cbd69e97da703bec096023f83a25ad52",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/target_001.json": "9fef761aab695ac507f3b4872227e882bf5f657f4c341a39ee2b588e4b81e2a2",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/target_002.json": "837049e6a2daa62f6415a0cc2cf6d748921320967676a6b009cbf33c67d92013",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/target_003.json": "5c1d1d40e74ebab29f60855cd1a3a6a92925f24a0dee7d0faeb014bb5bd78987",
+        "leaderboards/51118_Patchwerk.json": "20845a612fdbef4cae4f1626b563c18a2e58cc13502cdb3a9ed400024e8a4a4f"
+      },
+      "residual": "-1339/3993000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "X7W2nP3rtcYANTjd",
+      "fight": 28,
+      "player": "Bonnibelle",
+      "encounter": 51119,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 24,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "XwFMTVWPGBj3qbL7",
+      "fight": 25,
+      "player": "\u5c71\u8475\u8475",
+      "encounter": 51117,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 28,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 69427,
+        "self": 497,
+        "excluded": 0,
+        "ranked": 68930
+      },
+      "published": "918.136",
+      "duration_ms": 75076,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-XwFMTVWPGBj3qbL7-25-28.oracle.json",
+      "oracle_sha256": "44e4c852111c2a825e70c32379f2aebaa8281268587ee9953e95348acbb0f2b1",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "XwFMTVWPGBj3qbL7",
+        "fight": 25,
+        "actor": 28,
+        "player": "\u5c71\u8475\u8475",
+        "realm": "\u54c8\u970d\u5170",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51117,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+        "page": 1,
+        "row": 3
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 36,
+      "raw_multiset_sha256": "159d3738715c7591cd7b6721c1ce34ad72504b2b268105a0cf22935fcdf9a38e",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/XwFMTVWPGBj3qbL7/bundle.json": "458f876f57cd84b14207642fd33649844893e6d06306fe5effa3319dcecc4abc",
+        "events/XwFMTVWPGBj3qbL7/fight_25/player_28_x/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/XwFMTVWPGBj3qbL7/fight_25/player_28_x/source_001.json": "02ee253986e24177d98bf4ccd505b44aae05493ef04cd8975bda7466efaa44dc",
+        "events/XwFMTVWPGBj3qbL7/fight_25/player_28_x/target_001.json": "5a4f6b9e73d325a82da2a38b4cd7a277245dfd1e6cc36d6a76bafb614734190b",
+        "events/XwFMTVWPGBj3qbL7/fight_25/player_28_x/target_002.json": "00bffe25631f78963a61a26cffeb1cece18ec42ae527fcf06f35615798c625c1",
+        "leaderboards/51117_Noth_the_Plaguebringer.json": "3845210730cad7802398c453b59cef6b225c2b09a2538b9848c1f8e9dc016686"
+      },
+      "residual": "677/2346125"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "a7Gy6C4n2BbAmgtK",
+      "fight": 41,
+      "player": "Atomicuranus",
+      "encounter": 51112,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 30,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "ajnxYLDTKBd7HfF2",
+      "fight": 24,
+      "player": "Tranzerot",
+      "encounter": 51119,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 37,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 22555,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 22555
+      },
+      "published": "1069.72",
+      "duration_ms": 21085,
+      "owned_actor_ids": [
+        209
+      ],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-ajnxYLDTKBd7HfF2-24-37.oracle.json",
+      "oracle_sha256": "32bab9e6869e5fc7513d8a14af6ea8f13ffa191d8a6d35b5791297cce6493d28",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "ajnxYLDTKBd7HfF2",
+        "fight": 24,
+        "actor": 37,
+        "player": "Tranzerot",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51119,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+        "page": 1,
+        "row": 4
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 4,
+      "raw_multiset_sha256": "9cbf601ef665bc13731ce16a4cf24e644c2a5ba32e68dd8a6973fbf62ccb2609",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/ajnxYLDTKBd7HfF2/bundle.json": "8c0eb57fd62e6aabd16fbe29eb78c66f0a41c96677cc85f1961bc4eae4b914f5",
+        "events/ajnxYLDTKBd7HfF2/fight_24/player_37_Tranzerot/pets.json": "6e5e6687db6ec9db8ae9291b3aff143be35921b33608e13ed14f363942e3eae8",
+        "events/ajnxYLDTKBd7HfF2/fight_24/player_37_Tranzerot/source_001.json": "acabdcbc6c15af8a1acdf9b6e573bba7de49ee095386de2fd1da1edcf5b67c00",
+        "events/ajnxYLDTKBd7HfF2/fight_24/player_37_Tranzerot/target_001.json": "e121bff436ce9482b0ba54fc5d6083541c781bd5fd87f57492543731681fe198",
+        "events/ajnxYLDTKBd7HfF2/fight_24/pet_209_Masterwork_Target_Dummy/source_001.json": "59a2739f4821e9b4736f2c59865970581663c1bac296830ebba6ce3abd1f640f",
+        "events/ajnxYLDTKBd7HfF2/fight_24/pet_209_Masterwork_Target_Dummy/target_001.json": "e121bff436ce9482b0ba54fc5d6083541c781bd5fd87f57492543731681fe198",
+        "leaderboards/51119_Sapphiron.json": "20ee43e4d812140d79ed1659e42d6c52069ec76feadf5ef770d51eb00c2613b4"
+      },
+      "residual": "-231/105425"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "brqfwKx8YRWnmVXa",
+      "fight": 28,
+      "player": "Forceanature",
+      "encounter": 51117,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 12,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 34940,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34940
+      },
+      "published": "1029.31",
+      "duration_ms": 33945,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-brqfwKx8YRWnmVXa-28-12.oracle.json",
+      "oracle_sha256": "132f3194493d72ed4f0c547ccb59cdd29b1f1bbf28eef5a0991c205a47780d82",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "brqfwKx8YRWnmVXa",
+        "fight": 28,
+        "actor": 12,
+        "player": "Forceanature",
+        "realm": "Firemaw",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51117,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+        "page": 1,
+        "row": 1
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 20,
+      "raw_multiset_sha256": "947a77cf52662a8373ace3f9bc1fe78407794c44d001fdf0c895c996853fa3ea",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/brqfwKx8YRWnmVXa/bundle.json": "d2a18e7fa1f78452f898106bdd8b48703d7b29cf6244d182024c54b9c92724e8",
+        "events/brqfwKx8YRWnmVXa/fight_28/player_12_Forceanature/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/brqfwKx8YRWnmVXa/fight_28/player_12_Forceanature/source_001.json": "e8afa22e4ac6949c2a4cb64bb93a7e9a9afdb02d6dded6aac29bf7054696084e",
+        "events/brqfwKx8YRWnmVXa/fight_28/player_12_Forceanature/target_001.json": "f6ac4c4826a4292ebdf66e1637469503ca565af149daa3af41ac0500b32b941d",
+        "leaderboards/51117_Noth_the_Plaguebringer.json": "3845210730cad7802398c453b59cef6b225c2b09a2538b9848c1f8e9dc016686"
+      },
+      "residual": "1441/678900"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "brqfwKx8YRWnmVXa",
+      "fight": 32,
+      "player": "Forceanature",
+      "encounter": 51115,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 12,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/brqfwKx8YRWnmVXa/fight_32/player_12_Forceanature/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "cRnXxrKZHVWk9J8h",
+      "fight": 15,
+      "player": "Saitl",
+      "encounter": 51118,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 20,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/cRnXxrKZHVWk9J8h/fight_15/player_20_Saitl/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "cRnXxrKZHVWk9J8h",
+      "fight": 24,
+      "player": "Saitl",
+      "encounter": 51120,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 20,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "dvp83bPThCM7Yxzj",
+      "fight": 33,
+      "player": "Herb",
+      "encounter": 51111,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 36,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 64996,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64996
+      },
+      "published": "923.291",
+      "duration_ms": 70396,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-dvp83bPThCM7Yxzj-33-36.oracle.json",
+      "oracle_sha256": "b24af02896835c8233e152f7210181a38a2a8f2b0d4f708eb5617ea66477c671",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "dvp83bPThCM7Yxzj",
+        "fight": 33,
+        "actor": 36,
+        "player": "Herb",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51111,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+        "page": 1,
+        "row": 4
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 41,
+      "raw_multiset_sha256": "25612a9c3182ed24796f81869de0d2dac97143dc6efd265da4d4a95ce87098f1",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/dvp83bPThCM7Yxzj/bundle.json": "b85b212c47c2f95acd1354819ae731ecc3e0ce695b69d5454ed9f14d3bccc68e",
+        "events/dvp83bPThCM7Yxzj/fight_33/player_36_Herb/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/dvp83bPThCM7Yxzj/fight_33/player_36_Herb/source_001.json": "c16956489c59bdf3004cae1ac0d3938a94af40c29ea3bd238a1ffe2ffab2d0aa",
+        "events/dvp83bPThCM7Yxzj/fight_33/player_36_Herb/target_001.json": "d37beb3c7b3bed2dcd7c7a1d3db589c748d0dd73a7dcc44c5087a67a3534ffb1",
+        "events/dvp83bPThCM7Yxzj/fight_33/player_36_Herb/target_002.json": "f91f9b7b1ccfa9173e9716c0f9112c77aec8eccec2e18df347b1fe967a0e3a42",
+        "leaderboards/51111_Grobbulus.json": "bd49ac318408c7a1cf05037aac9d38dcdc87d60752e831105d028bbf57c62b7e"
+      },
+      "residual": "1691/17599000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "g8f9nGyRTpNLMqWm",
+      "fight": 22,
+      "player": "Frelserboom",
+      "encounter": 51117,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 27,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "kGJRxW8Cp7Dqy31b",
+      "fight": 29,
+      "player": "Zasko",
+      "encounter": 51115,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 21,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/kGJRxW8Cp7Dqy31b/fight_29/player_21_Zasko/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "pX6QTYfaP48tbVHr",
+      "fight": 2,
+      "player": "Hotsndots",
+      "encounter": 51111,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 6,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 64966,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64966
+      },
+      "published": "959.205",
+      "duration_ms": 67729,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-pX6QTYfaP48tbVHr-2-6.oracle.json",
+      "oracle_sha256": "67f0a3ec3dfdb7cc6a5a8898945659bf43f087b213c277600bb70536eae921ea",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "pX6QTYfaP48tbVHr",
+        "fight": 2,
+        "actor": 6,
+        "player": "Hotsndots",
+        "realm": "Mograine",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51111,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+        "page": 1,
+        "row": 2
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 43,
+      "raw_multiset_sha256": "db58911d50e1047f9d692c9dd07ae88dced46353211c9281b72b0dd8ca0beef6",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/pX6QTYfaP48tbVHr/bundle.json": "b249ccc22b0529053593f6d188f1b19385d2120065fb2e9da86dfe4f383bc9aa",
+        "events/pX6QTYfaP48tbVHr/fight_2/player_6_Hotsndots/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/pX6QTYfaP48tbVHr/fight_2/player_6_Hotsndots/source_001.json": "68cc440e2885ad6507313ed41503d89ad51743cb6980428c8f8ac25c52a4c81e",
+        "events/pX6QTYfaP48tbVHr/fight_2/player_6_Hotsndots/target_001.json": "051669f2e07c171c9829add5f5db357582ecefaf34a7320689068ff01e76a8cc",
+        "events/pX6QTYfaP48tbVHr/fight_2/player_6_Hotsndots/target_002.json": "aa32f8927fa06e7ce9637813c15db021f2ce742b5f267ecdd60a00fcf429fc0f",
+        "leaderboards/51111_Grobbulus.json": "bd49ac318408c7a1cf05037aac9d38dcdc87d60752e831105d028bbf57c62b7e"
+      },
+      "residual": "911/13545800"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "q7HXvkFBdVWG8ytb",
+      "fight": 45,
+      "player": "Eulenb\u00e4r",
+      "encounter": 51108,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 38,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 52614,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 52614
+      },
+      "published": "824.723",
+      "duration_ms": 63796,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-q7HXvkFBdVWG8ytb-45-38.oracle.json",
+      "oracle_sha256": "c761262319482bfc1d172e67300dbdcb284b5438dc67b5248596a77dec33f21b",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "q7HXvkFBdVWG8ytb",
+        "fight": 45,
+        "actor": 38,
+        "player": "Eulenb\u00e4r",
+        "realm": "Firemaw",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51108,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51108_Gluth.json",
+        "page": 1,
+        "row": 4
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 26,
+      "raw_multiset_sha256": "bee8df6076e1e5f1ecf01770e879602f1f707cc26cf327ffa8a5cd3815563e97",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/q7HXvkFBdVWG8ytb/bundle.json": "ce671ed338b351962dac47e1cab09c9bea3250187aff83fdf75af9fe6835829e",
+        "events/q7HXvkFBdVWG8ytb/fight_45/player_38_Eulenbar/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/q7HXvkFBdVWG8ytb/fight_45/player_38_Eulenbar/source_001.json": "5609faad4ede28e55fa1d46717352ff3967b02d2887ad757ac15cb65b6526aa5",
+        "events/q7HXvkFBdVWG8ytb/fight_45/player_38_Eulenbar/target_001.json": "03bf8c1ee21c046744b4d1e86a769e122221a2d2b497506e74c31b0c749d7e77",
+        "events/q7HXvkFBdVWG8ytb/fight_45/player_38_Eulenbar/target_002.json": "e6231d57adaae78c000d083c990fca118d8d0049747daa43e40f48aa487ea927",
+        "leaderboards/51108_Gluth.json": "eb743a28a00ece23884710e34461876979e3d9643b6384db61ac192471cb5efd"
+      },
+      "residual": "-7127/15949000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 2,
+      "player": "Haplina",
+      "encounter": 51107,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 17,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 28577,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 28577
+      },
+      "published": "619.865",
+      "duration_ms": 46102,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-qD1Yc8Wk2dmP79wB-2-17.oracle.json",
+      "oracle_sha256": "7bb0e7ed444eaaa700771b1a317113f4b94ed2636889458c3bb78d2cf2dcf28d",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 2,
+        "actor": 17,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51107,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+        "page": 1,
+        "row": 56
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 19,
+      "raw_multiset_sha256": "d254ee4e57321252b9ba308dadb9d6dc7d0a3bca8cd4684974976b10e5d86177",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/qD1Yc8Wk2dmP79wB/bundle.json": "f5fbffa1ed0880e1cf0d9af954e8ff20656b13fcb4f007e53dc1d2b014ae2d17",
+        "events/qD1Yc8Wk2dmP79wB/fight_2/player_17_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/qD1Yc8Wk2dmP79wB/fight_2/player_17_Haplina/source_001.json": "b97bc7763160f58ca56ff8c9fe0d754b27cf59c229a2a6273ad7303f7fe878f4",
+        "events/qD1Yc8Wk2dmP79wB/fight_2/player_17_Haplina/target_001.json": "bebb7407aeeee1b7ec873bbfbb065f921a837aa8141616bd3d355c012c7a781e",
+        "events/qD1Yc8Wk2dmP79wB/fight_2/player_17_Haplina/target_002.json": "1e20bc774c4214fcfd9188a364a2c726a729900fdf9989903fa5ff3839106a6b",
+        "leaderboards/51107_Anub_Rekhan.json": "aff060440fdb5d21948c707aad57ca8247c7312665222e80f9065e0683eb5488"
+      },
+      "residual": "-1623/4610200"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 19,
+      "player": "Haplina",
+      "encounter": 51109,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 17,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 52990,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 52990
+      },
+      "published": "176.504",
+      "duration_ms": 300219,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-qD1Yc8Wk2dmP79wB-19-17.oracle.json",
+      "oracle_sha256": "641d3317213f9952c57775a56698d77a2ef07db6978d9a4b2e7d46cc952bfb0d",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 19,
+        "actor": 17,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51109,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+        "page": 1,
+        "row": 38
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 85,
+      "raw_multiset_sha256": "b55401249eb95de2fa6a52ce0ea2d98289d1df6e78a65a6c6d3741b3864a5b91",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/qD1Yc8Wk2dmP79wB/bundle.json": "f5fbffa1ed0880e1cf0d9af954e8ff20656b13fcb4f007e53dc1d2b014ae2d17",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/source_001.json": "9cd57a4ffed24626b330f9658f700184a831697c592eff7c6d231426f99af009",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/target_001.json": "fb7f4b3f26fbaec919646a0bbe6fd0b1306ad32929b3fb9ed816419f4091fdf3",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/target_002.json": "7721b409a095fe4d5c6b2765f0c5c0d275a2a50c90c24683f7c69797b02e2a83",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/target_003.json": "6c6777fb15c490a833abc62768364b18e3a447b56575146beb6c8f1a7e5a624c",
+        "leaderboards/51109_Gothik_the_Harvester.json": "2bb49a02f7cdc8e20a1f33eeb4b47271f4cd0d261924f3f7badc95baab5cfdb1"
+      },
+      "residual": "18203/37527375"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 37,
+      "player": "Haplina",
+      "encounter": 51111,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 17,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "No unique published captured leaderboard row"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 42,
+      "player": "Haplina",
+      "encounter": 51120,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 17,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 117838,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 117838
+      },
+      "published": "788.784",
+      "duration_ms": 149392,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-qD1Yc8Wk2dmP79wB-42-17.oracle.json",
+      "oracle_sha256": "14767228e18e78a207fa661128e209394973aee7ba57e788fcc3942a12a5cc4b",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 42,
+        "actor": 17,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51120,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51120_Thaddius.json",
+        "page": 1,
+        "row": 93
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 50,
+      "raw_multiset_sha256": "e4e691554be3ec0de4f25e0ca6c3be0d2e794142295866ebf76fc74e3269321b",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/qD1Yc8Wk2dmP79wB/bundle.json": "f5fbffa1ed0880e1cf0d9af954e8ff20656b13fcb4f007e53dc1d2b014ae2d17",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/source_001.json": "0325ab9183b45194d7398f63c6775f2b6cc3ad09bc55bec4e5fe6ea6ea36a68f",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/target_001.json": "d97c22621547d826a00ceda52d84d247d8ece44706039130811600a5be68bb5e",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/target_002.json": "f57eb105073e6587c8a7585416749e98d817a001983d5e56e3358e042721e5a2",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/target_003.json": "a37b3905bdac6b9920b2bf49319f56482febd1260df3a39c565a98d2c3e2e4e4",
+        "leaderboards/51120_Thaddius.json": "01e65debbf08d1e3a42be95f26ad9de290cbc125612f946a265d272f416ff761"
+      },
+      "residual": "-151/1167125"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 46,
+      "player": "Haplina",
+      "encounter": 51117,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 17,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 33268,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 33268
+      },
+      "published": "550.631",
+      "duration_ms": 60418,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-qD1Yc8Wk2dmP79wB-46-17.oracle.json",
+      "oracle_sha256": "13f19361bccdcc5eedddef4c8e121b737cc3163af4c6c85fb9e1b5202fa6a599",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 46,
+        "actor": 17,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51117,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+        "page": 1,
+        "row": 65
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 23,
+      "raw_multiset_sha256": "f0dd53f2c807194a85dc984f7bda781124033c6c8ba10e581efd11af57494a09",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/qD1Yc8Wk2dmP79wB/bundle.json": "f5fbffa1ed0880e1cf0d9af954e8ff20656b13fcb4f007e53dc1d2b014ae2d17",
+        "events/qD1Yc8Wk2dmP79wB/fight_46/player_17_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/qD1Yc8Wk2dmP79wB/fight_46/player_17_Haplina/source_001.json": "dee99e0a3a4272624e2f04ded40260843fa593faeb53d67803ecf09b667ad184",
+        "events/qD1Yc8Wk2dmP79wB/fight_46/player_17_Haplina/target_001.json": "63d65c91373ef03ff07e66262a4b27f74d02a0cbb8a88cd9ed9604f31ca0eca8",
+        "events/qD1Yc8Wk2dmP79wB/fight_46/player_17_Haplina/target_002.json": "92a3c3ad3cb6411864f19e62bfdaff8a40cba337186f3a611e5b43036eee5486",
+        "leaderboards/51117_Noth_the_Plaguebringer.json": "3845210730cad7802398c453b59cef6b225c2b09a2538b9848c1f8e9dc016686"
+      },
+      "residual": "-11879/30209000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "qw7hbdAapQWjBLRN",
+      "fight": 32,
+      "player": "Hotsndots",
+      "encounter": 51120,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 27,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 192312,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 192312
+      },
+      "published": "1492.04",
+      "duration_ms": 128892,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-qw7hbdAapQWjBLRN-32-27.oracle.json",
+      "oracle_sha256": "d8be6bb0d98560ff05f3944046ec0b4e73e53497e550f0132255a453414f6a30",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "qw7hbdAapQWjBLRN",
+        "fight": 32,
+        "actor": 27,
+        "player": "Hotsndots",
+        "realm": "Mograine",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51120,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51120_Thaddius.json",
+        "page": 1,
+        "row": 1
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 42,
+      "raw_multiset_sha256": "b7a19cb8bfee56841b9ab50848d5b78533dfca36e6917bd1cefbf71d4d457d6e",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/qw7hbdAapQWjBLRN/bundle.json": "2dbc1ba810c9ad40109c07cf8ac38e6007609c109a59ad8e1941d5856e0be1b7",
+        "events/qw7hbdAapQWjBLRN/fight_32/player_27_Hotsndots/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/qw7hbdAapQWjBLRN/fight_32/player_27_Hotsndots/source_001.json": "8a4573b54cc45191b78daf38bd97be5f2fe760a73d40fa65b4f9f5f2219da668",
+        "events/qw7hbdAapQWjBLRN/fight_32/player_27_Hotsndots/target_001.json": "a21025f1ded818cb74e3a92c1788e3ddbddfb75ec6dac4e9951b77e64563043e",
+        "events/qw7hbdAapQWjBLRN/fight_32/player_27_Hotsndots/target_002.json": "584d41a29014cb83f4af8ec755d22ea5f387111b7715a6af6b27e855b8bb5c50",
+        "events/qw7hbdAapQWjBLRN/fight_32/player_27_Hotsndots/target_003.json": "48cd6b8f3bb3f06a6e4fe61e7339e5359ffc65e2da7084e6f0baf8b1cdab4b24",
+        "leaderboards/51120_Thaddius.json": "01e65debbf08d1e3a42be95f26ad9de290cbc125612f946a265d272f416ff761"
+      },
+      "residual": "-41/268525"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "rcBvD9bQNRCqtMaY",
+      "fight": 1,
+      "player": "Hotsndots",
+      "encounter": 51115,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 22,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/rcBvD9bQNRCqtMaY/fight_1/player_22_Hotsndots/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "rqbRXMtfcaC93P8m",
+      "fight": 36,
+      "player": "Alyrian",
+      "encounter": 51120,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 39,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 178687,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 178687
+      },
+      "published": "1426.62",
+      "duration_ms": 125252,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-rqbRXMtfcaC93P8m-36-39.oracle.json",
+      "oracle_sha256": "8e79f892f6a76dccd76ee5d77c6f1f272d49e48d4a6005caac2bb0001c1fe1b3",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "rqbRXMtfcaC93P8m",
+        "fight": 36,
+        "actor": 39,
+        "player": "Alyrian",
+        "realm": "Whitemane",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51120,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51120_Thaddius.json",
+        "page": 1,
+        "row": 3
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 68,
+      "raw_multiset_sha256": "f1cc1a81f663e2aec868b6f026d2b1d871a99e0916402601136a27c42ffd3283",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/rqbRXMtfcaC93P8m/bundle.json": "f042452d1cfca3c754d551f66e309317395e4ab25e21361ecaf75cabb692d00e",
+        "events/rqbRXMtfcaC93P8m/fight_36/player_39_Alyrian/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/rqbRXMtfcaC93P8m/fight_36/player_39_Alyrian/source_001.json": "39aa40951289bff798b75c69f0e570a4fee029d6fb910439869fad1b791452f7",
+        "events/rqbRXMtfcaC93P8m/fight_36/player_39_Alyrian/target_001.json": "49e00ab09d033c4988b80e86488a542554ff412c9166315b22f9f9fe7c568f5d",
+        "events/rqbRXMtfcaC93P8m/fight_36/player_39_Alyrian/target_002.json": "e7b3c6fd0da38f8425005e6afbf25b7e8fc6bdd28eba16df5273252c7163c20e",
+        "events/rqbRXMtfcaC93P8m/fight_36/player_39_Alyrian/target_003.json": "c6b2a7504701cb338f5c87b04c194e3c17036c6cb1ad4c2aa88443d8505edfc7",
+        "leaderboards/51120_Thaddius.json": "01e65debbf08d1e3a42be95f26ad9de290cbc125612f946a265d272f416ff761"
+      },
+      "residual": "-103/1565650"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "t4QVpBdP1HCnNDx7",
+      "fight": 34,
+      "player": "Melnor",
+      "encounter": 51112,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 28,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "tbfAmd3WrhXCyPND",
+      "fight": 33,
+      "player": "Teris",
+      "encounter": 51118,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 17,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/tbfAmd3WrhXCyPND/fight_33/player_17_Teris/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "xPcF84yD3mBLb1AN",
+      "fight": 30,
+      "player": "\u6211\u662f\u5c0f\u6ce1\u6ce1",
+      "encounter": 51118,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 21,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/xPcF84yD3mBLb1AN/fight_30/player_21_x/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "xPcF84yD3mBLb1AN",
+      "fight": 45,
+      "player": "\u6211\u662f\u5c0f\u6ce1\u6ce1",
+      "encounter": 51112,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 21,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 59248,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 59248
+      },
+      "published": "955.829",
+      "duration_ms": 61986,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-xPcF84yD3mBLb1AN-45-21.oracle.json",
+      "oracle_sha256": "4d26735aa3e71dd45f6cfa01729d883c7e7107fa81deb525cbebd71343872a62",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "xPcF84yD3mBLb1AN",
+        "fight": 45,
+        "actor": 21,
+        "player": "\u6211\u662f\u5c0f\u6ce1\u6ce1",
+        "realm": "\u6e56\u7554\u9547",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51112,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+        "page": 1,
+        "row": 2
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 42,
+      "raw_multiset_sha256": "e57eb4a1b2198beec908695d6122c0e7eba41f075ecc3bcdf385bdda23949f1e",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/xPcF84yD3mBLb1AN/bundle.json": "e3943c613383d6b128f6c0aedff21e9c00e80cb082ca2689b3a3ea32aadd6a57",
+        "events/xPcF84yD3mBLb1AN/fight_45/player_21_x/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/xPcF84yD3mBLb1AN/fight_45/player_21_x/source_001.json": "9e676e3bd4d7614a516e5d2e90d5a3996445c66ccf3a7fc732be0c65225c4549",
+        "events/xPcF84yD3mBLb1AN/fight_45/player_21_x/target_001.json": "5a045f777093e41f52844e6dab234f9d9133ba02cf42ca89cd8232dfc75e39be",
+        "leaderboards/51112_Heigan_the_Unclean.json": "7f3190b9834e895d051fce3e38b100829d13be5a282f0b85f5bedd6d784d4353"
+      },
+      "residual": "-8197/30993000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 15,
+      "player": "Haplina",
+      "encounter": 51113,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 23,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 40753,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 40753
+      },
+      "published": "440.159",
+      "duration_ms": 92587,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-zqdQLVyTJnp9B176-15-23.oracle.json",
+      "oracle_sha256": "392a1d8966afe069f7d3528ef5786ca75db143353faab75be0c2ab3e679d2928",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 15,
+        "actor": 23,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51113,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+        "page": 1,
+        "row": 48
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 37,
+      "raw_multiset_sha256": "2a8d36989f586c6dabc204a572c5d00404ac1e3df5f29d07098060e9dd5d14d1",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/zqdQLVyTJnp9B176/bundle.json": "1dd7fbb1d3c82c473460cfb5ba580b801fff025105353b6eccfcade05404d960",
+        "events/zqdQLVyTJnp9B176/fight_15/player_23_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/zqdQLVyTJnp9B176/fight_15/player_23_Haplina/source_001.json": "a2645063a3e31d668a74f6c36fc632e0a04f3171c9fe887deb63349cd966f5b8",
+        "events/zqdQLVyTJnp9B176/fight_15/player_23_Haplina/target_001.json": "283a9026e2277c67e99893dd06bb4f65a73510f1bbbc2c596f7d9b8c8defe6da",
+        "events/zqdQLVyTJnp9B176/fight_15/player_23_Haplina/target_002.json": "de1b9494db1f5124a9c90c201fb266daaf0af4e17ec108eb296fb9e0c3ee9999",
+        "leaderboards/51113_Instructor_Razuvious.json": "3b3e26ce4e704f6c82e98f93601abfd8a63ba8591e84404bf56dfeafc28f56f1"
+      },
+      "residual": "-1333/92587000"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 38,
+      "player": "Haplina",
+      "encounter": 51108,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 23,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 38333,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 38333
+      },
+      "published": "513.255",
+      "duration_ms": 74686,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-balance-comparisons-zqdQLVyTJnp9B176-38-23.oracle.json",
+      "oracle_sha256": "dc3f0f800e7191a6782fea5aa49837fbfb3768e03a26e07530747b182a63adbe",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+        "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 38,
+        "actor": 23,
+        "player": "Haplina",
+        "realm": "Dragonfang",
+        "class": "Druid",
+        "category": "Balance",
+        "role": "balance-dps",
+        "encounter": 51108,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51108_Gluth.json",
+        "page": 1,
+        "row": 83
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 27,
+      "raw_multiset_sha256": "3cb28603fe0471b06863fc7aa7e8275976b0661279704d19b82850f9054222aa",
+      "members_used": {
+        "necropsy-snapshot.json": "c224c43120b90e2d55ffb7bd50f6c61807bc07f131db111731fa0852dcf8fd01",
+        "reports/zqdQLVyTJnp9B176/bundle.json": "1dd7fbb1d3c82c473460cfb5ba580b801fff025105353b6eccfcade05404d960",
+        "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/source_001.json": "ed29c21719e0f84934f0c7b7169e1619314de6c90b1556485a0c366607ce704f",
+        "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/target_001.json": "3f11021b44fde1883c19e61444a3cd91ba3d174595e88d97075eed6cc4631d21",
+        "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/target_002.json": "0e11060386a8ac9ba18c30ba6d540d4ab9686525915f58e4b26256f05bcdccb2",
+        "leaderboards/51108_Gluth.json": "eb743a28a00ece23884710e34461876979e3d9643b6384db61ac192471cb5efd"
+      },
+      "residual": "3707/7468600"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 46,
+      "player": "Haplina",
+      "encounter": 51112,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 23,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "No unique published captured leaderboard row"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+      "archive_sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 48,
+      "player": "Haplina",
+      "encounter": 51115,
+      "role": "balance-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 23,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-feral.zip",
+      "archive_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "report": "aWX6AnwHJmzxTGd9",
+      "fight": 30,
+      "player": "Mcbear",
+      "encounter": 51118,
+      "role": "feral-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 33,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/aWX6AnwHJmzxTGd9/fight_30/player_33_Mcbear/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-feral.zip",
+      "archive_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "report": "ghcYNKWwn3PkQpR1",
+      "fight": 28,
+      "player": "H\u00e9lios",
+      "encounter": 51118,
+      "role": "feral-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 45,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/ghcYNKWwn3PkQpR1/fight_28/player_45_Helios/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-feral.zip",
+      "archive_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "report": "hVrBkcXqvHm8YL9d",
+      "fight": 29,
+      "player": "Hamtar\u00f3",
+      "encounter": 51118,
+      "role": "feral-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 29,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 163371,
+        "self": 1034,
+        "excluded": 0,
+        "ranked": 162337
+      },
+      "published": "1500",
+      "duration_ms": 108225,
+      "owned_actor_ids": [
+        150
+      ],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-feral-hVrBkcXqvHm8YL9d-29-29.oracle.json",
+      "oracle_sha256": "d87b516fa6773c5ae63a331688db442a78d1a7acd918270c43963658244851cd",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-feral.zip",
+        "sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+        "report": "hVrBkcXqvHm8YL9d",
+        "fight": 29,
+        "actor": 29,
+        "player": "Hamtar\u00f3",
+        "realm": "Rattlegore",
+        "class": "Druid",
+        "category": "Feral",
+        "role": "feral-dps",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 2
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 275,
+      "raw_multiset_sha256": "5dde60b896e08841cd70a36da85a898c16ecaafa6daf7a7a0944c670457a5a6e",
+      "members_used": {
+        "necropsy-snapshot.json": "d6c4b30998a74e548b976062646c8e54b8d5d7be3feb6c2fef7a17e0094a1c3c",
+        "reports/hVrBkcXqvHm8YL9d/bundle.json": "bee9f1f725d91b7a5381d4fd9a006461be2364d58efd3c231ab4cae3835135ee",
+        "events/hVrBkcXqvHm8YL9d/fight_29/player_29_Hamtaro/pets.json": "9d5455df1927b3fc8eb03accfdc79a897aaf7ccb7be7bfd55f76cabf442d383d",
+        "events/hVrBkcXqvHm8YL9d/fight_29/player_29_Hamtaro/source_001.json": "19aeddf44a4cedebe41c27ab3826674eb39331e4dc03c9ad8108c8148d2f804a",
+        "events/hVrBkcXqvHm8YL9d/fight_29/player_29_Hamtaro/target_001.json": "5be0daa9fdf15cbdd0ede102aa5e03a74c89576b7e3bfa984665b757c9b38ef7",
+        "events/hVrBkcXqvHm8YL9d/fight_29/player_29_Hamtaro/target_002.json": "6253cfbe119f515c910e5e49b8ad63ba8eb6856c6e9427e19edb0ee65709c51d",
+        "events/hVrBkcXqvHm8YL9d/fight_29/player_29_Hamtaro/target_003.json": "fa533aaf6a923db71952fd2eb1f0a071f6848e98110fc815185df3398ffcd039",
+        "events/hVrBkcXqvHm8YL9d/fight_29/pet_150_Battle_Chicken/source_001.json": "56fc9c3389131a10e4f54c18e0dc825d754babe86f7f1322d88e1a55bfc4e21e",
+        "events/hVrBkcXqvHm8YL9d/fight_29/pet_150_Battle_Chicken/target_001.json": "5be0daa9fdf15cbdd0ede102aa5e03a74c89576b7e3bfa984665b757c9b38ef7",
+        "events/hVrBkcXqvHm8YL9d/fight_29/pet_150_Battle_Chicken/target_002.json": "6253cfbe119f515c910e5e49b8ad63ba8eb6856c6e9427e19edb0ee65709c51d",
+        "events/hVrBkcXqvHm8YL9d/fight_29/pet_150_Battle_Chicken/target_003.json": "fa533aaf6a923db71952fd2eb1f0a071f6848e98110fc815185df3398ffcd039",
+        "leaderboards/51118_Patchwerk.json": "b2089fcfbb1292522afbf3b6e6ab147c1207ffc1af444f47f58d7f30c19ded85"
+      },
+      "residual": "-20/4329"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-feral.zip",
+      "archive_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "report": "hprJxjB6PzcVbXYR",
+      "fight": 38,
+      "player": "Suncat",
+      "encounter": 51118,
+      "role": "feral-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 32,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/hprJxjB6PzcVbXYR/fight_38/player_32_Suncat/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-feral.zip",
+      "archive_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "report": "hwxP34cHf9gKBv8N",
+      "fight": 13,
+      "player": "Mckitty",
+      "encounter": 51118,
+      "role": "feral-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 30,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/hwxP34cHf9gKBv8N/fight_13/player_30_Mckitty/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-feral.zip",
+      "archive_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "report": "maHpk8K4hvLQzFRf",
+      "fight": 35,
+      "player": "Stinkface",
+      "encounter": 51118,
+      "role": "feral-dps",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 20,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-guardian.zip",
+      "archive_sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+      "report": "2Zhn7tvNKPQJaRzx",
+      "fight": 16,
+      "player": "M\u00eclfurion",
+      "encounter": 51118,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 50,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-guardian.zip",
+      "archive_sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+      "report": "2rNV9HnARC6MgwxJ",
+      "fight": 11,
+      "player": "Iol",
+      "encounter": 51118,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 13,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 104797,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 104797
+      },
+      "published": "1003.5",
+      "duration_ms": 104432,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-guardian-2rNV9HnARC6MgwxJ-11-13.oracle.json",
+      "oracle_sha256": "07b94f13596da0573c624cb64516d2c3f96269d44618a140f292eb4c28001290",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-guardian.zip",
+        "sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+        "report": "2rNV9HnARC6MgwxJ",
+        "fight": 11,
+        "actor": 13,
+        "player": "Iol",
+        "realm": "Firemaw",
+        "class": "Druid",
+        "category": "Guardian",
+        "role": "feral-tank",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 1
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 145,
+      "raw_multiset_sha256": "44a4819fbf4b2259cb0d87187dc1b714848e0569684b51074069a6603d76e1d2",
+      "members_used": {
+        "necropsy-snapshot.json": "a8e84ead3bbe74db6873235743acfd97fca119ef783aa5bb746ffdc200df9dce",
+        "reports/2rNV9HnARC6MgwxJ/bundle.json": "c84b491a76f503b77fb05fd1b6eca6c3321abc73a70fccd05615c587df5eed86",
+        "events/2rNV9HnARC6MgwxJ/fight_11/player_13_Iol/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/2rNV9HnARC6MgwxJ/fight_11/player_13_Iol/source_001.json": "56e36862d2232e1db68ededa086addf30b58c2252ca0e163648fc0bf863552cb",
+        "events/2rNV9HnARC6MgwxJ/fight_11/player_13_Iol/target_001.json": "e0ff295ca132949891ae71a20d0bb5e1a6dbb70d2f54b1b18ea5db59c8c57056",
+        "events/2rNV9HnARC6MgwxJ/fight_11/player_13_Iol/target_002.json": "0a474f05addb846e8109d5f2379da2ef4e1c69d3ae79dee8c7103a6a0466580d",
+        "events/2rNV9HnARC6MgwxJ/fight_11/player_13_Iol/target_003.json": "b2495b82c821db3b9dde55d449fe372479cf143a7849d384ec701e19801da5aa",
+        "leaderboards/51118_Patchwerk.json": "b2c9a80b5522ce70d9b8688f072ba008ec0b673f63ee706f253866361ff042f9"
+      },
+      "residual": "-32/6527"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-guardian.zip",
+      "archive_sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+      "report": "3mvMLWACGdByfaZt",
+      "fight": 26,
+      "player": "Miskovsky",
+      "encounter": 51118,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 17,
+      "status": "arithmetic-match",
+      "totals": {
+        "raw": 92300,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 92300
+      },
+      "published": "903.016",
+      "duration_ms": 102213,
+      "owned_actor_ids": [],
+      "oracle_path": "workspace/codex-naxx/all-offline-dps/druid-guardian-3mvMLWACGdByfaZt-26-17.oracle.json",
+      "oracle_sha256": "0dc9d6bf4160e3262454a398c6e0d6e3d2f380aaf6ebbe6c90743fd0a319716c",
+      "spec": {
+        "archive": "../../../tests/golden/druid/raw/druid-guardian.zip",
+        "sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+        "report": "3mvMLWACGdByfaZt",
+        "fight": 26,
+        "actor": 17,
+        "player": "Miskovsky",
+        "realm": "Windseeker",
+        "class": "Druid",
+        "category": "Guardian",
+        "role": "feral-tank",
+        "encounter": 51118,
+        "excluded_game_ids": [],
+        "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+        "page": 1,
+        "row": 4
+      },
+      "independent_raw_multiset_match": true,
+      "raw_occurrences": 125,
+      "raw_multiset_sha256": "84fb5c08878b95d474ab73b31901454cc6cf38ff845fc4e18c163b9d33aff535",
+      "members_used": {
+        "necropsy-snapshot.json": "a8e84ead3bbe74db6873235743acfd97fca119ef783aa5bb746ffdc200df9dce",
+        "reports/3mvMLWACGdByfaZt/bundle.json": "82da5638ae21003a406611ad82ff3fbc31557ddbd26e2943b2a164420f04e577",
+        "events/3mvMLWACGdByfaZt/fight_26/player_17_Miskovsky/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "events/3mvMLWACGdByfaZt/fight_26/player_17_Miskovsky/source_001.json": "97b0cdc21eac2363fe665e1884adb7a9b609d5fb432ae7d87f7e85d2ddde0c4a",
+        "events/3mvMLWACGdByfaZt/fight_26/player_17_Miskovsky/target_001.json": "c3c32a2d80099ffffc476f783840bbd92e7a8d6c5fb6312208a1f1dacdcbdec7",
+        "events/3mvMLWACGdByfaZt/fight_26/player_17_Miskovsky/target_002.json": "ec2cbe2545b3901df6d3d442ba41028221416b7fea59d53e8192303ad59abd24",
+        "events/3mvMLWACGdByfaZt/fight_26/player_17_Miskovsky/target_003.json": "a9ecdb4a576f7f65d8cbd776387141dc885110a583117793b2f2ce931afe3b01",
+        "leaderboards/51118_Patchwerk.json": "b2c9a80b5522ce70d9b8688f072ba008ec0b673f63ee706f253866361ff042f9"
+      },
+      "residual": "3199/12776625"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-guardian.zip",
+      "archive_sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+      "report": "MGcdHDtb4RNyTvkz",
+      "fight": 30,
+      "player": "Hamtar\u00f3",
+      "encounter": 51118,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 39,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/MGcdHDtb4RNyTvkz/fight_30/player_39_Hamtaro/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-guardian.zip",
+      "archive_sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+      "report": "YhxTZy3BDQN7nkcV",
+      "fight": 34,
+      "player": "Suncat",
+      "encounter": 51118,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 9,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/YhxTZy3BDQN7nkcV/fight_34/player_9_Suncat/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-guardian.zip",
+      "archive_sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+      "report": "vmfnP98zbcVNQpGh",
+      "fight": 67,
+      "player": "Harryjam",
+      "encounter": 51118,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 41,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/vmfnP98zbcVNQpGh/fight_67/player_41_Harryjam/pets.json' in the archive\""
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-mixed.zip",
+      "archive_sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+      "report": "2jVh4rvqNMQwT9fR",
+      "fight": 24,
+      "player": "Parknoise",
+      "encounter": 51121,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 25,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-mixed.zip",
+      "archive_sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+      "report": "HYjBacLFMqrzCmy8",
+      "fight": 25,
+      "player": "M\u00eclfurion",
+      "encounter": 51121,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 35,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-mixed.zip",
+      "archive_sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+      "report": "NyPYhvRMDFaGACKr",
+      "fight": 47,
+      "player": "Empathic",
+      "encounter": 51121,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 10,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-mixed.zip",
+      "archive_sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+      "report": "ZKbwBpmxnHvFC2DT",
+      "fight": 19,
+      "player": "Suncat",
+      "encounter": 51121,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 40,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-mixed.zip",
+      "archive_sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+      "report": "thxBw4MD1YX8aKyb",
+      "fight": 41,
+      "player": "Arctax",
+      "encounter": 51121,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 34,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "tests/golden/druid/raw/druid-mixed.zip",
+      "archive_sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+      "report": "xYM3RVfLK4wG9r6Z",
+      "fight": 35,
+      "player": "Iol",
+      "encounter": 51121,
+      "role": "feral-tank",
+      "excluded_game_ids_hypothesis": [],
+      "actor": 21,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    }
+  ],
+  "oracle_serialization": "json.dumps(result, indent=2, ensure_ascii=True) + LF; UTF-8 bytes",
+  "exact_oracle_replays": 39,
+  "actor_source_eligibility": {
+    "checker": "scripts/check_raid_coverage.py:actor_problems",
+    "checker_sha256": "7b8efded219d695d8a9f8f1c5d4c3138f87b68fce42f1c64c6978ea1c104f461",
+    "qualifying": 39,
+    "refused": 0,
+    "limits": "Read-only candidate checks, not coverage registration, reviewed ranking policy or full cell eligibility. The strict reader validates archive-wide stream proofs before actor qualification.",
+    "rows": [
+      {
+        "cell_id": "naxxramas/51118/7/Shadow/dps/Horde",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/classes/raw/class-priest-shadow.entries",
+            "sha256": "4b1836e261015a09a533433f9cc04297b2f459f10f20820439defddcf5e52514",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/classes/provenance.json",
+            "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+            "locator": "fixtures"
+          },
+          "report": "AWvKRzT4kP9MhFgx",
+          "fight": 18,
+          "actor": 8,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/7/Shadow/dps/Horde",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/classes/raw/class-priest-shadow.entries",
+            "sha256": "4b1836e261015a09a533433f9cc04297b2f459f10f20820439defddcf5e52514",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/classes/provenance.json",
+            "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+            "locator": "fixtures"
+          },
+          "report": "bHhRtQr4LKmGpc21",
+          "fight": 41,
+          "actor": 12,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/7/Shadow/dps/Horde",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/classes/raw/class-priest-shadow.entries",
+            "sha256": "4b1836e261015a09a533433f9cc04297b2f459f10f20820439defddcf5e52514",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/classes/provenance.json",
+            "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+            "locator": "fixtures"
+          },
+          "report": "dD1XmanHC3rkAz98",
+          "fight": 101,
+          "actor": 30,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/8/Assassination/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/classes/raw/class-rogue-assassination.zip",
+            "sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/classes/raw/class-rogue-assassination.entries",
+            "sha256": "eea84f9073e92e39349cf6152c5c25d90716831ed21d695dd051ba2a16f6aa6d",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/classes/provenance.json",
+            "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+            "locator": "fixtures"
+          },
+          "report": "rvBAh2kXTaxwQHnW",
+          "fight": 15,
+          "actor": 27,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/10/Destruction/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/classes/raw/class-warlock-destruction.zip",
+            "sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/classes/raw/class-warlock-destruction.entries",
+            "sha256": "cb482b258ccdf69dd7e0ea70615a9fbd7727ab0d5c2744bb89febe383373f9cb",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/classes/provenance.json",
+            "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+            "locator": "fixtures"
+          },
+          "report": "7NmBydcX8HFRh1tA",
+          "fight": 14,
+          "actor": 38,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/10/Destruction/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/classes/raw/class-warlock-destruction.zip",
+            "sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/classes/raw/class-warlock-destruction.entries",
+            "sha256": "cb482b258ccdf69dd7e0ea70615a9fbd7727ab0d5c2744bb89febe383373f9cb",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/classes/provenance.json",
+            "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+            "locator": "fixtures"
+          },
+          "report": "7NmBydcX8HFRh1tA",
+          "fight": 14,
+          "actor": 42,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/11/Protection/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/classes/raw/class-warrior-protection.zip",
+            "sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/classes/raw/class-warrior-protection.entries",
+            "sha256": "a96b2acdad90b95197fff8b16b1730c544a588bc21f324ad88435e04512a5e4a",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/classes/provenance.json",
+            "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+            "locator": "fixtures"
+          },
+          "report": "mNFf8nRZzg7jrXax",
+          "fight": 42,
+          "actor": 129,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51119/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "1xN2P46ChrgYLW3j",
+          "fight": 28,
+          "actor": 40,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51112/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "2R7tvMPzaynXDGfh",
+          "fight": 29,
+          "actor": 11,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51119/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "3GRTNr7hxZVcCdbn",
+          "fight": 39,
+          "actor": 13,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51108/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "4Gd9wNXcFvAVn7Dh",
+          "fight": 31,
+          "actor": 63,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51117/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "AZLXrwtvgamfWc18",
+          "fight": 28,
+          "actor": 30,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51111/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "CLZBpGHbRM2Kz4a8",
+          "fight": 13,
+          "actor": 6,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51120/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "HAJnjRQqyc7TNpk9",
+          "fight": 29,
+          "actor": 45,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51111/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "KC2wPgkARYtL9HbM",
+          "fight": 32,
+          "actor": 41,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51110/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "KPqATnBvMZVXNH3r",
+          "fight": 8,
+          "actor": 2,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51114/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "KPqATnBvMZVXNH3r",
+          "fight": 49,
+          "actor": 2,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51108/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "Pya8MzbgJ4ndXhKp",
+          "fight": 19,
+          "actor": 16,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51119/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "T6WzQLF9ynwvrtaN",
+          "fight": 42,
+          "actor": 31,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51121/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "WzGF9BjdrHCk8N1X",
+          "fight": 27,
+          "actor": 1,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "WzGF9BjdrHCk8N1X",
+          "fight": 36,
+          "actor": 1,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51117/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "XwFMTVWPGBj3qbL7",
+          "fight": 25,
+          "actor": 28,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51119/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "ajnxYLDTKBd7HfF2",
+          "fight": 24,
+          "actor": 37,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51117/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "brqfwKx8YRWnmVXa",
+          "fight": 28,
+          "actor": 12,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51111/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "dvp83bPThCM7Yxzj",
+          "fight": 33,
+          "actor": 36,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51111/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "pX6QTYfaP48tbVHr",
+          "fight": 2,
+          "actor": 6,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51108/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "q7HXvkFBdVWG8ytb",
+          "fight": 45,
+          "actor": 38,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51107/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "qD1Yc8Wk2dmP79wB",
+          "fight": 2,
+          "actor": 17,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51109/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "qD1Yc8Wk2dmP79wB",
+          "fight": 19,
+          "actor": 17,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51120/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "qD1Yc8Wk2dmP79wB",
+          "fight": 42,
+          "actor": 17,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51117/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "qD1Yc8Wk2dmP79wB",
+          "fight": 46,
+          "actor": 17,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51120/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "qw7hbdAapQWjBLRN",
+          "fight": 32,
+          "actor": 27,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51120/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "rqbRXMtfcaC93P8m",
+          "fight": 36,
+          "actor": 39,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51112/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "xPcF84yD3mBLb1AN",
+          "fight": 45,
+          "actor": 21,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51113/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "zqdQLVyTJnp9B176",
+          "fight": 15,
+          "actor": 23,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51108/2/Balance/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+            "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "zqdQLVyTJnp9B176",
+          "fight": 38,
+          "actor": 23,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/2/Feral/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-feral.zip",
+            "sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-feral.entries",
+            "sha256": "df56f6325091bf621f3cdd725a6851d5c81616092886f5f2f6d5bcdaa9c7380a",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "hVrBkcXqvHm8YL9d",
+          "fight": 29,
+          "actor": 29,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/2/Guardian/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-guardian.zip",
+            "sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-guardian.entries",
+            "sha256": "9e048d204e57a75cb1c50b732cbcef54636260e8ac8055906c947d254259fd81",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "2rNV9HnARC6MgwxJ",
+          "fight": 11,
+          "actor": 13,
+          "partition": 1
+        },
+        "problems": []
+      },
+      {
+        "cell_id": "naxxramas/51118/2/Guardian/dps/Alliance",
+        "candidate": {
+          "archive": {
+            "path": "tests/golden/druid/raw/druid-guardian.zip",
+            "sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+            "locator": "necropsy-snapshot.json"
+          },
+          "entries": {
+            "path": "tests/golden/druid/raw/druid-guardian.entries",
+            "sha256": "9e048d204e57a75cb1c50b732cbcef54636260e8ac8055906c947d254259fd81",
+            "locator": "all members"
+          },
+          "provenance": {
+            "path": "tests/golden/druid/provenance.json",
+            "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+            "locator": "fixtures"
+          },
+          "report": "3mvMLWACGdByfaZt",
+          "fight": 26,
+          "actor": 17,
+          "partition": 1
+        },
+        "problems": []
+      }
+    ]
+  }
+}

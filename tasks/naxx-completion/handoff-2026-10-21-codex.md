@@ -2,6 +2,19 @@
 
 ## Current continuation, 2026-10-21
 
+Latest offline checkpoint, 2026-10-22: capability catalog has 42 sources; the
+additional mixed Druid/Priest Maexxna fragment is blocked. Edited-page timing
+audit is in `research/edited-source-timing-audit.json`; no production content
+changed. Bulk DPS inventory (`research/offline-dps-inventory.json`) attempted
+102 supported rows in 12 deduplicated pinned archives: 39 arithmetic matches
+across 13 bosses, 63 explicit refusals. Separate raw enumeration matched all
+2677 admitted damage occurrences; all 39 recipes replay byte-for-byte and all
+39 pass strict actor-source checks. These reusable v1 scopes do not establish
+encounter completeness or validated cell policies. Existing registrations are
+unchanged. WCL maintenance end is still unconfirmed; no authenticated request,
+new capture, Tower restart, policy registration or COMPLETE cell is claimed.
+
+
 This section supersedes the release and active-pair state below. Release 0.6.0
 is published from 65b1154; release close-out is recorded in 89e9450. The owner
 reported Claude has no usage and directed Codex to pick up the work (D013).

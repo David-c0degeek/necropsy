@@ -267,7 +267,8 @@
         "priest-cure-disease",
         "priest-abolish-disease",
         "shaman-cure-disease",
-        "shaman-disease-cleansing-totem"
+        "shaman-disease-cleansing-totem",
+        "rogue-vanish"
       ]
     },
     {
@@ -339,7 +340,9 @@
         "impale_fall_followup": "The knockup causes moderate falling damage."
       },
       "capability_refs": [
-        "classic-faction-classes"
+        "classic-faction-classes",
+        "mage-frost-nova",
+        "warrior-shield-wall"
       ]
     },
     {
@@ -466,6 +469,13 @@
           ],
           "issue": "The fragment combines Warrior Demoralizing Shout and Paladin Consecration, then says Demoralizing Shout for both; the key name also incorrectly suggests a taunt.",
           "rule": "Exclude this fragment from support. Warrior and Paladin capabilities must be separate; Consecration requires the Classic talent, and neither tooltip proves taunt, threat or observed spider control."
+        },
+        {
+          "keys": [
+            "druid_priest_heals"
+          ],
+          "issue": "The truncated sentence groups Druids and Priests but names Regrowth; the sourced Regrowth spell is Druid, while Priest Renew and Power Word: Shield are separate capabilities.",
+          "rule": "Do not use this fragment for class-specific spell advice. Recover the full sentence and split the advice by independently sourced class capability before using it."
         }
       ],
       "capability_refs": [
@@ -475,7 +485,24 @@
         "shaman-poison-cleansing-totem",
         "druid-abolish-poison",
         "warrior-demoralizing-shout",
-        "paladin-consecration"
+        "paladin-consecration",
+        "druid-natures-swiftness",
+        "shaman-natures-swiftness",
+        "druid-swiftmend",
+        "shaman-healing-way",
+        "mage-ice-block",
+        "mage-frost-nova",
+        "mage-amplify-magic",
+        "paladin-lay-on-hands",
+        "paladin-divine-shield",
+        "rogue-vanish",
+        "warrior-shield-wall",
+        "druid-regrowth",
+        "druid-rejuvenation",
+        "priest-power-word-shield",
+        "priest-renew",
+        "warlock-hellfire",
+        "warlock-rain-of-fire"
       ]
     },
     {
@@ -519,7 +546,8 @@
       },
       "capability_refs": [
         "classic-faction-classes",
-        "priest-mind-control"
+        "priest-mind-control",
+        "mage-amplify-magic"
       ]
     },
     {
@@ -717,7 +745,7 @@
   ],
   "capability_source_review": {
     "path": "naxx-capability-source-review.json",
-    "sha256": "f21a5981a3f9f16b950590fc67899f9b1a074a1df0c2e0dd3d1d1a5ddb554274",
+    "sha256": "de46f0cfe560f45524f76cffcfbed3ee82e8d361064127653946737e2ee5618b",
     "use": "Research references only; existing guidance support-key loading remains fail-closed."
   }
 }
