@@ -72,6 +72,10 @@ def receipt(commit: str, archive_sha: str, entries_sha: str) -> dict[str, Any]:
             "payload": {"files": 3, "mismatched": [], "not_in_git": [], "missing_from_wheel": []}
         },
         "source_equals_installed": True,
+        "outputs": {
+            name: {"source": "a" * 64, "installed": "a" * 64}
+            for name in ("analysis.json", "report.html", "playbook.html", "necropsy-R-2006.zip")
+        },
         "content": {"bosses": {"1": boss, "2": boss}},
         "content_source_missing": 0,
         "visual": {
@@ -284,6 +288,42 @@ def test_receipt_must_show_the_cells_boss_cleanly(repo: Path) -> None:
     assert not (repo / rb.BATCHES).exists()
     records = json.loads((repo / rb.COVERAGE).read_text(encoding="utf-8"))["records"]
     assert {r["status"] for r in records} == {"IN_PROGRESS"}
+
+
+@pytest.mark.parametrize(
+    "damage",
+    [
+        lambda r: r["content"]["bosses"]["1"].pop("removals"),
+        lambda r: r["content"]["bosses"]["1"]["facts"].pop("expected"),
+        lambda r: r["content"]["bosses"]["1"]["facts"]["missing"].pop("playbook.html"),
+        lambda r: r["content"]["bosses"]["1"].pop("sections_missing"),
+        lambda r: r["outputs"]["report.html"].update(installed="b" * 64),
+        lambda r: r["outputs"].pop("playbook.html"),
+        lambda r: r.pop("outputs"),
+        lambda r: r["wheel"]["payload"].pop("mismatched"),
+    ],
+)
+def test_malformed_or_inconsistent_receipts_are_refused(repo: Path, damage: Any) -> None:
+    data = json.loads((repo / "work/receipt.json").read_text(encoding="utf-8"))
+    damage(data)
+    put(repo, "work/receipt.json", data)
+    with pytest.raises(ValueError, match="receipt"):
+        rb.write(spec(repo), repo)
+
+
+def test_a_failed_rewrite_keeps_every_earlier_byte(repo: Path) -> None:
+    written(repo)
+    paths = [
+        repo / rb.BATCHES / "b1.json",
+        repo / rb.RECEIPTS / "b1-cap.json",
+        repo / rb.COVERAGE,
+        repo / "tasks/raid-completion/coverage-matrix.csv",
+    ]
+    before = [p.read_bytes() for p in paths]
+    put(repo, ARCHIVE_PATH, b"changed archive")  # fails only after the receipt copy
+    with pytest.raises(ValueError, match="changed batch artifact"):
+        rb.write(spec(repo), repo)
+    assert [p.read_bytes() for p in paths] == before
 
 
 def test_write_refuses_a_dirty_package_or_a_stale_receipt(repo: Path) -> None:

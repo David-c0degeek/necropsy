@@ -214,6 +214,42 @@ def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+CONTENT_KINDS = ("strategy", "facts", "class_notes", "removals")
+PAGES = ("report.html", "playbook.html")
+HEX64 = re.compile(r"^[0-9a-f]{64}$")
+
+
+def _shown(kind: object) -> bool:
+    """A content check that ran: a count and an explicit empty miss list per page."""
+    if not isinstance(kind, dict):
+        return False
+    expected, missing = kind.get("expected"), kind.get("missing")
+    return (
+        type(expected) is int
+        and expected >= 0
+        and isinstance(missing, dict)
+        and set(missing) == set(PAGES)
+        and all(missing[page] == [] for page in PAGES)
+    )
+
+
+def _identical_outputs(outputs: object) -> bool:
+    """Both pages, the analysis and the package, each hashed equal from source and wheel."""
+    if not isinstance(outputs, dict):
+        return False
+    names = set(outputs)
+    packages = [n for n in names if n.endswith(".zip")]
+    if not {"analysis.json", *PAGES} <= names or len(packages) != 1:
+        return False
+    return all(
+        isinstance(v, dict)
+        and set(v) == {"source", "installed"}
+        and all(isinstance(h, str) and HEX64.match(h) for h in v.values())
+        and v["source"] == v["installed"]
+        for v in outputs.values()
+    )
+
+
 def receipt_problems(
     receipt: dict[str, Any], commit: str, cell_id: str, archive: dict[str, Any]
 ) -> list[str]:
@@ -239,20 +275,17 @@ def receipt_problems(
     payload = (receipt.get("wheel") or {}).get("payload") or {}
     if (
         receipt.get("source_equals_installed") is not True
+        or not _identical_outputs(receipt.get("outputs"))
         or not payload.get("files")
-        or any(payload.get(k) for k in ("mismatched", "not_in_git", "missing_from_wheel"))
+        or any(payload.get(k) != [] for k in ("mismatched", "not_in_git", "missing_from_wheel"))
     ):
         problems.append("receipt source and installed renders are not identical")
     boss = ((receipt.get("content") or {}).get("bosses") or {}).get(str(encounter))
     if (
-        not boss
+        not isinstance(boss, dict)
         or boss.get("outcome") != "checked"
-        or boss.get("sections_missing")
-        or any(
-            missing
-            for kind in ("strategy", "facts", "class_notes", "removals")
-            for missing in ((boss.get(kind) or {}).get("missing") or {}).values()
-        )
+        or boss.get("sections_missing") != []
+        or not all(_shown(boss.get(kind)) for kind in CONTENT_KINDS)
         or receipt.get("content_source_missing") != 0
     ):
         problems.append("receipt does not show every text of the cell's boss")
@@ -423,21 +456,46 @@ def write(spec: dict[str, Any], root: Path = ROOT) -> int:
         "cells": cells,
         "artifacts": dict(sorted(artifacts.items())),
     }
-    # The receipts must exist before the manifest's own verification can run.
-    for capture_id, (source_path, _) in receipts.items():
-        target = root / captures[capture_id]["receipt"]["path"]
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source_path, target)
-    for cell_id in cells:
-        problems = manifest_problems(
-            root, manifest, cell_id, records[cell_id]["real_actor_source"], here
-        )
-        if problems:
-            for capture in captures.values():
-                (root / capture["receipt"]["path"]).unlink(missing_ok=True)
-            raise ValueError(f"{cell_id}: {'; '.join(problems)}")
     path = f"{BATCHES}/{name}.json"
     data = (json.dumps(manifest, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+    targets = [root / c["receipt"]["path"] for c in captures.values()]
+    targets += [root / path, root / COVERAGE, root / MATRIX]
+    # Every destination is restored to its earlier bytes (or absence) unless the
+    # whole batch verifies and is written.
+    before = {t: t.read_bytes() if t.is_file() else None for t in targets}
+    try:
+        # The receipts must exist before the manifest's own verification can run.
+        for capture_id, (source_path, _) in receipts.items():
+            target = root / captures[capture_id]["receipt"]["path"]
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source_path, target)
+        for cell_id in cells:
+            problems = manifest_problems(
+                root, manifest, cell_id, records[cell_id]["real_actor_source"], here
+            )
+            if problems:
+                raise ValueError(f"{cell_id}: {'; '.join(problems)}")
+        _publish(root, spec, name, path, data, coverage, records, cells)
+    except BaseException:
+        for target, old in before.items():
+            if old is None:
+                target.unlink(missing_ok=True)
+            else:
+                target.write_bytes(old)
+        raise
+    return 0
+
+
+def _publish(
+    root: Path,
+    spec: dict[str, Any],
+    name: str,
+    path: str,
+    data: bytes,
+    coverage: dict[str, Any],
+    records: dict[str, Any],
+    cells: dict[str, Any],
+) -> None:
     (root / BATCHES).mkdir(parents=True, exist_ok=True)
     (root / path).write_bytes(data)
     rows, newline = matrix_rows(root)
@@ -464,7 +522,6 @@ def write(spec: dict[str, Any], root: Path = ROOT) -> int:
     out = io.StringIO()
     csv.writer(out, lineterminator=newline).writerows(rows)
     (root / MATRIX).write_bytes(out.getvalue().encode("utf-8"))
-    return 0
 
 
 def main(argv: list[str] | None = None) -> int:
