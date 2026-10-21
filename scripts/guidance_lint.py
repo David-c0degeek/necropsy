@@ -55,7 +55,9 @@ CLASS_TAGS = {
     11: "warrior",
 }
 # Advice to move or place yourself; a bare range or radius fact is not advice.
-POSITIONING = re.compile(r"\b(stand|stands|standing|spot|spread|closest|move ahead)\b", re.I)
+POSITIONING = re.compile(
+    r"\b(stand|stands|standing|spot|spread|spacing|closest|move ahead)\b", re.I
+)
 POSITION_BOUNDARY = re.compile(
     r"(do not|does not|no) record( any)? positions|records no positions", re.I
 )

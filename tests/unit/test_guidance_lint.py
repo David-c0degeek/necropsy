@@ -55,6 +55,14 @@ def test_each_known_mistake_is_flagged() -> None:
         assert any(expected in f for f in findings), (expected, findings)
 
 
+def test_spacing_advice_needs_its_own_position_boundary() -> None:
+    text = "Maintain proper spacing from other players during phase one."
+    findings = run(item("magmadar-priest-spacing-v1", text))
+    assert any("no-positions boundary" in finding for finding in findings)
+    bounded = run(item("magmadar-priest-spacing-v1", text + " The logs do not record positions."))
+    assert not any("no-positions boundary" in finding for finding in bounded)
+
+
 def test_faction_roles_and_bindings_are_checked() -> None:
     horde = run(
         item("magmadar-shaman-x-v1", "The Paladin pulls with Divine Shield.", classes=[9]),

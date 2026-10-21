@@ -40,14 +40,15 @@ stage the released wheel with a reviewed queue/pin, build a separate image, then
 obtain actual v2 smoke and normal quota measurement. Subject 03 stays open.
 The older release checklist below is historical and must not trigger another release.
 
-**Local inference HOLD:** owner subsequently said "stop local llm till i finish
-raid". LocalBox server/proxy and the fallback server process are stopped; do not
-start local inference until the owner says the raid is finished. Ten guidance
-orders and the source/schema/conflict verifier are prepared; no guidance order
-has run and there is no trial pass rate. The loopback mock runtime probe only
-proves the installed CLI sends max_tokens 4096 without tools. Continue CPU-only
-verification and records. `02-local-work-orders.md` records the interrupted
-startup; do not misdiagnose its interrupted reply check as a model failure.
+**Local inference authorized again:** owner said "local model approved now" and
+then required saved balanced tunes whenever available. Ten frozen guidance orders
+ran once each: 2/10 original machine passes, zero promotions and zero tree mutations.
+Coordinator review rejects the work kind; guidance stays with Codex. Evidence and
+runtime changes are recorded in `research/guidance-trial-results.json`; this was
+not a controlled tune comparison. The saved balanced 256k profile was replayed
+explicitly because its old measurement version loses to a current pure entry in
+automatic selection. Do not use that pure fallback again. Never edit old receipts
+or retry failed orders into acceptance. WCL maintenance remains in force.
 
 The owner instructed Claude to hand over: "codex will take it from here with localpilot".
 Codex accepted ownership at pair epoch 2 and is the only tree writer. LocalPilot stays an adviser only (D009).

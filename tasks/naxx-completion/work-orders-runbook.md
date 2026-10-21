@@ -1,10 +1,12 @@
 # Bounded guidance work orders
 
-## Current hold
+## Current authorization and outcome
 
-The owner has stopped local inference until the raid is finished. Keep LocalBox
-off. Do not start the server or run model orders until the owner says the raid
-is finished. WCL maintenance is a separate hold; this workflow never calls WCL.
+The owner lifted the local inference hold with "local model approved now".
+Always use a saved **balanced** tune when one exists, as subsequently directed.
+The first frozen trial is complete and rejected: 2/10 original machine passes,
+zero promotions. See `research/guidance-trial-results.json`. Do not rerun its
+orders to repair that score. WCL maintenance is separate; this workflow calls no WCL.
 
 ## Contract and verification
 
@@ -36,9 +38,18 @@ explicitly accounts for unknown loadout evidence for both DPS and HPS. None of
 these checks proves the semantic correctness of free text. Coordinator review
 must reject any fabricated or misattributed material claim before acceptance.
 
-## Serve and run after the hold is lifted
+## Serve and run a future approved trial
 
-Restore the already downloaded, tuned model using the same reviewed profile:
+Select and verify the saved balanced profile before launching. The plain command
+below is historical syntax only: the installed resolver selected a current pure
+entry while balanced entries were measured with an older tuner. Do not use that
+fallback. The completed trial replayed the exact balanced 256k arguments as
+per-launch `--server-arg` values through LocalBox, without editing the saved store.
+Its source entry, store hash and full command are in the result artifact. The
+launcher labels that explicit replay `--no-auto-best`; verify effective arguments
+rather than interpreting that label as proof of defaults. No old score was revalidated.
+
+Historical serving syntax (requires balanced selection before reuse):
 
 ```powershell
 localbox serve q3635ba3bapex --quant apex-i-quality --context 256k --agent none
