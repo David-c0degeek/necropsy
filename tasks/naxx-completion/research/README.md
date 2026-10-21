@@ -7,7 +7,7 @@ under D007 (read-only on the tree); Claude verified and promoted them unchanged.
 |---|---|
 | [partition-recommendation.md](partition-recommendation.md) | 00.7 partition evidence and recommendation |
 | [partition-configurations.csv](partition-configurations.csv) | Per-configuration Patchwerk page-1 rows for partitions 1 and 2 |
-| [partition-evidence-manifest.json](partition-evidence-manifest.json) | SHA-256 of all 319 raw responses in `partition-probe/` |
+| [partition-evidence-manifest.json](partition-evidence-manifest.json) | SHA-256 of the 319 JSON files in `partition-probe/`: 317 API request records plus 2 derived summaries (`availability-summary.json`, `validated-pools.json`) |
 | [quota-estimate.md](quota-estimate.md), [quota-estimate.json](quota-estimate.json) | MC-based quota scenario for v2 Naxx captures (not a bound) |
 | [oracle-design.md](oracle-design.md) | PM-3 independent raw-oracle contract for five Naxx bosses |
 
