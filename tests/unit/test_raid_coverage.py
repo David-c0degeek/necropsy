@@ -91,6 +91,17 @@ def test_inventory_preserves_every_missing_obligation() -> None:
     assert errors == []
 
 
+def test_a_raid_wide_ranking_rule_never_reconciles_a_cell() -> None:
+    """Naxxramas's empirical exclusion rule does not stand in for a cell policy."""
+    naxx = [c for c in coverage_cells() if c.raid == "naxxramas"]
+    assert load_rules("classic_era", "zones/naxxramas")["ranking_exclusions_rule"]["basis"] == (
+        "empirical"
+    )
+    assert {coverage_check.ranking_problem(c) for c in naxx} == {
+        "ranking policy remains unvalidated"
+    }
+
+
 def test_raid_scoped_audit_skips_other_raids_but_not_unknown_cells() -> None:
     mc = next(c for c in coverage_cells() if c.raid == "mc")
     records = [

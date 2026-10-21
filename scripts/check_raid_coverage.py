@@ -263,7 +263,12 @@ def _policy_scope(policy: object) -> tuple[int, int, str, str, str]:
 
 
 def ranking_problem(cell: CoverageCell) -> str | None:
-    """A cell-scoped metric policy, else the raid's damage rule, must be validated."""
+    """Only a validated metric policy scoped to exactly this cell reconciles its ranking.
+
+    A raid-wide target-exclusion rule is never enough: Naxxramas's empirical rule
+    was validated on one Hunter capture's damage and says nothing about healing,
+    owned units or other classes.
+    """
     zone = load_rules("classic_era", f"zones/{cell.raid}")
     config = cell.configuration
     key = (cell.encounter_id, config.class_id, config.category, config.metric, config.faction)
@@ -274,9 +279,7 @@ def ranking_problem(cell: CoverageCell) -> str | None:
             return f"malformed ranking metric policy: {exc}"
         if scope == key:
             return None
-    if zone["ranking_exclusions_rule"]["basis"] not in VALIDATED_BASES:
-        return "ranking policy remains unvalidated"
-    return None
+    return "ranking policy remains unvalidated"
 
 
 def batch_problems(root: Path, receipt: Receipt) -> list[str]:

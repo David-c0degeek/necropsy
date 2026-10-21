@@ -85,9 +85,9 @@ def receipt(commit: str, archive_sha: str, entries_sha: str) -> dict[str, Any]:
     }
 
 
-@pytest.fixture
-def repo(tmp_path: Path) -> Path:
-    root = tmp_path
+def build(root: Path, raid: str = "mc", zone: int = 2000) -> Path:
+    """A one-commit repository with two Holy Paladin cells of `raid` in progress."""
+    cell, other = (f"{raid}/{e}/6/Holy/hps/Alliance" for e in (1, 2))
     git(root, "init", "-q")
     git(root, "config", "user.email", "t@example.com")
     git(root, "config", "user.name", "t")
@@ -97,7 +97,7 @@ def repo(tmp_path: Path) -> Path:
 
     def policy(enc: int) -> dict[str, Any]:
         return {
-            "rule": f"mc-{enc}-policy",
+            "rule": f"{raid}-{enc}-policy",
             "evidence": RANKING,
             "scope": {
                 "encounter_id": enc,
@@ -110,8 +110,8 @@ def repo(tmp_path: Path) -> Path:
 
     put(
         root,
-        f"{zones}/mc.yaml",
-        yaml.safe_dump({"rule": "mc", "ranking_metric_policies": [policy(1)]}),
+        f"{zones}/{raid}.yaml",
+        yaml.safe_dump({"rule": raid, "ranking_metric_policies": [policy(1)]}),
     )
     guidance = {
         "rule": "g",
@@ -120,9 +120,9 @@ def repo(tmp_path: Path) -> Path:
             2: {"source": "s", "items": [{"rule": "b", "text": "two"}]},
         },
     }
-    put(root, f"{zones}/mc_guidance.yaml", yaml.safe_dump(guidance))
+    put(root, f"{zones}/{raid}_guidance.yaml", yaml.safe_dump(guidance))
     facts = {"rule": "f", "encounters": [{"id": 1, "timings": []}, {"id": 2, "timings": []}]}
-    put(root, f"{zones}/mc_facts.yaml", yaml.safe_dump(facts))
+    put(root, f"{zones}/{raid}_facts.yaml", yaml.safe_dump(facts))
     put(root, ARCHIVE_PATH, b"archive")
     put(root, ENTRIES_PATH, b"entries")
     archive_sha = sha(root, ARCHIVE_PATH)
@@ -133,17 +133,17 @@ def repo(tmp_path: Path) -> Path:
     put(root, rb.FACTS, {"version": 1, "cases": cases})
     healing = [{**c, "id": f"heal-{c['actor']}", "actor_case": c["id"]} for c in cases]
     put(root, rb.HEALING_FACTS, {"version": 1, "kind": "k", "cases": healing})
-    put(root, RANKING, {"version": 1, "rule": "mc-1-policy", "rows": []})
+    put(root, RANKING, {"version": 1, "rule": f"{raid}-1-policy", "rows": []})
     records = [
         {
-            "cell_id": CELL,
+            "cell_id": cell,
             "status": "IN_PROGRESS",
             "references": {},
             "real_actor_source": source(root, 7),
             "note": "",
         },
         {
-            "cell_id": OTHER,
+            "cell_id": other,
             "status": "IN_PROGRESS",
             "references": {},
             "real_actor_source": source(root, 8),
@@ -152,7 +152,7 @@ def repo(tmp_path: Path) -> Path:
     ]
     put(root, rb.COVERAGE, {"version": 1, "records": records})
     rows = [HEAD] + [
-        f"mc,2000,{e},B{e},standard,6,Paladin,Holy,hps,Alliance,"
+        f"{raid},{zone},{e},B{e},standard,6,Paladin,Holy,hps,Alliance,"
         + ",".join(["TODO"] * 7)
         + ",IN_PROGRESS,agent,"
         for e in (1, 2)
@@ -165,7 +165,12 @@ def repo(tmp_path: Path) -> Path:
     return root
 
 
-def spec(root: Path) -> dict[str, Any]:
+@pytest.fixture
+def repo(tmp_path: Path) -> Path:
+    return build(tmp_path)
+
+
+def spec(root: Path, cells: tuple[str, ...] = (CELL, OTHER)) -> dict[str, Any]:
     return {
         "batch": "b1",
         "captures": {
@@ -174,7 +179,7 @@ def spec(root: Path) -> dict[str, Any]:
                 "visual_sample": {"picture": "p.png", "by": "owner", "result": "fine"},
             }
         },
-        "cells": {c: {"coverage_note": "n", "matrix_note": "m"} for c in (CELL, OTHER)},
+        "cells": {c: {"coverage_note": "n", "matrix_note": "m"} for c in cells},
     }
 
 
@@ -210,6 +215,22 @@ def test_write_registers_cells_against_one_manifest(repo: Path) -> None:
     assert matrix.count(",COMPLETE,agent,m") == 2
     assert problems(repo, manifest, records) == []
     assert problems(repo, manifest, records, OTHER) == []
+
+
+def test_naxx_cells_batch_like_any_raid(tmp_path: Path) -> None:
+    root = build(tmp_path, "naxxramas", 2006)
+    cell, other = "naxxramas/1/6/Holy/hps/Alliance", "naxxramas/2/6/Holy/hps/Alliance"
+    assert rb.write(spec(root, (cell, other)), root) == 0
+    manifest = json.loads((root / rb.BATCHES / "b1.json").read_text(encoding="utf-8"))
+    records = json.loads((root / rb.COVERAGE).read_text(encoding="utf-8"))["records"]
+    by_cell = {r["cell_id"]: r for r in records}
+    assert {by_cell[c]["status"] for c in (cell, other)} == {"COMPLETE"}
+    assert set(manifest["engine"]) == {"naxxramas"}
+    assert manifest["cells"][cell]["ranking"]["path"] == RANKING
+    for c in (cell, other):
+        assert rb.manifest_problems(root, manifest, c, by_cell[c]["real_actor_source"]) == []
+    matrix = (root / "tasks/raid-completion/coverage-matrix.csv").read_text(encoding="utf-8")
+    assert matrix.count("naxxramas,2006,") == 2 and matrix.count(",COMPLETE,agent,m") == 2
 
 
 def test_unrelated_shared_edits_do_not_cascade(repo: Path) -> None:
