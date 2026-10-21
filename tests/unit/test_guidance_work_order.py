@@ -189,6 +189,7 @@ def test_runner_uses_native_ask_with_caps_and_detects_even_untracked_mutation(
         assert command[:4] == [str(fake_binary), "ask", "--provider", "bounded-local"]
         assert kwargs["timeout"] == 600
         cwd = Path(kwargs["cwd"])
+        assert (cwd / "prompt.txt").read_bytes() == command[-1].encode("utf-8")
         config = tomllib.loads((cwd / ".localpilot.toml").read_text(encoding="utf-8"))
         assert config["providers"]["bounded-local"]["max_tokens"] == 4096
         assert config["research"]["web"]["enabled"] is False

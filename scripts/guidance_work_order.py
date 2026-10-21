@@ -260,8 +260,10 @@ def run(
     if executable is None:
         raise ValueError("LocalPilot is not installed")
     out.mkdir(parents=True, exist_ok=False)
-    (out / "order.json").write_text(order.model_dump_json(indent=2) + "\n", encoding="utf-8")
-    (out / "prompt.txt").write_text(prompt, encoding="utf-8")
+    (out / "order.json").write_text(
+        order.model_dump_json(indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
+    (out / "prompt.txt").write_bytes(prompt.encode("utf-8"))
     packet = {
         "order": order.model_dump(),
         "output_schema": Draft.model_json_schema(),
@@ -278,7 +280,9 @@ def run(
             (out / "draft.json").relative_to(root).as_posix(),
         ],
     }
-    (out / "packet.json").write_text(json.dumps(packet, indent=2) + "\n", encoding="utf-8")
+    (out / "packet.json").write_text(
+        json.dumps(packet, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
     # JSON string quoting is also valid TOML basic-string quoting for these values.
     config = (
         '[provider]\ndefault = "bounded-local"\n\n[providers.bounded-local]\nkind = "anthropic"\n'
@@ -286,7 +290,7 @@ def run(
         'api_key_env = "NECROPSY_LOOPBACK_TRIAL_KEY"\nsuppress_thinking = true\ntemperature = 0.2\n'
         f"max_tokens = {order.max_output_tokens}\n\n[research.web]\nenabled = false\n"
     )
-    (out / ".localpilot.toml").write_text(config, encoding="utf-8")
+    (out / ".localpilot.toml").write_text(config, encoding="utf-8", newline="\n")
     before = tree_digest(root)
     started = time.monotonic()
     receipt: dict[str, Any] = {
@@ -342,7 +346,9 @@ def run(
         if receipt["tree_after"] != before:
             receipt["mechanical_pass"] = False
             receipt["tree_mutation"] = True
-        (out / "run.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+        (out / "run.json").write_text(
+            json.dumps(receipt, indent=2) + "\n", encoding="utf-8", newline="\n"
+        )
     return receipt
 
 
