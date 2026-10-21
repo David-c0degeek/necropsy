@@ -49,3 +49,7 @@ Claude remains required reviewer in the harness until an explicit authorized tra
   - commit text must be plan-agnostic.
 - The localbox model server is stopped, and the LocalPilot user config is restored from its backup.
 - The pair session is 20261021T120145Z-a4a14bde. Claude goes idle after this; take ownership with a handoff or takeover as your protocol allows.
+
+## Owner approval 03.3 (2026-10-21)
+
+The owner approved restarting the Tower runner with the Naxx queue ("Approved"). Restart only after: the v0.6.0 release and an image built from its wheel; the 03.2 smoke proving v2 encounter and critical streams; one measured v2 capture (a short fight plus the Four Horsemen, Gothik or Kel'Thuzad); and a verified, pair-reviewed Naxx queue. Record it in manual-actions.md.

@@ -1,6 +1,6 @@
 # NaxxCompletion-Plan.md — Complete Classic Era Naxxramas for every class, spec and faction
 
-> **Status: IN_PROGRESS — subject 00 complete; subject 01 implemented, release pending.** Created 2026-10-21.
+> **Status: IN_PROGRESS — subjects 00–01 complete; 0.6.0 published; Naxx capture preparation next.** Created 2026-10-21.
 > **Purpose.** Bring Naxxramas (zone 2006, 15 bosses) to the layer-based
 > completion bar that the parked raid work reached for Molten Core: every legal
 > boss × configuration cell COMPLETE with real actor evidence, raw-first
@@ -163,7 +163,7 @@ with a source.
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
 | [x] | 00 | `00-tooling-research-and-readiness.md` | DONE | agent; product-owner (XMP) | yes |
-| [ ] | 01 | `01-naxx-register-and-strategy-seam.md` | IN_PROGRESS | agent | n/a |
+| [x] | 01 | `01-naxx-register-and-strategy-seam.md` | DONE | agent; released 0.6.0, close-out recorded | n/a |
 | [ ] | 02 | `02-local-work-orders.md` | TODO | agent | n/a |
 | [ ] | 03 | `03-naxx-captures.md` | TODO | agent; product-owner (Tower restart) | yes |
 | [ ] | 04 | `04-boss-research-and-raw-facts.md` | TODO | agent | n/a |
