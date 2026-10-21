@@ -8,6 +8,11 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+## 0.6.0 - 2026-10-21
+
+- Holy Priest and Restoration Shaman analyses show recorded class cooldown
+  observations. These do not establish that an ability was available or that a
+  player missed an opportunity to use it.
 - Naxxramas analyses for Era partitions 1 and 2 now collect whole-fight and
   critical-damage context like Molten Core, Blackwing Lair and AQ40, which costs
   more of the hourly Warcraft Logs budget. Earlier Naxxramas archives keep their
@@ -16,6 +21,14 @@ Development changes appear under **Unreleased** until built and published.
   configuration cells, and `scripts/check_raid_coverage.py --raid <raid>` audits
   one raid's cells on their own. Existing Naxxramas captures are registered as
   actor sources where their actor streams qualify.
+- Developer: a raid cell's ranking now counts as reconciled only with a validated
+  ranking policy for that exact cell; a raid-wide rule no longer stands in.
+
+## 0.5.2 - 2026-10-20
+
+- Treat an exhausted Warcraft Logs hourly budget reported mid-request ("no
+  database points remaining" with partial data) as a quota stop that waits for
+  the reset and resumes, instead of a failed capture.
 - Lucifron Holy Paladin analyses count Cleanse removals of Impending Doom,
   show an exposure that ended with your own Cleanse, and add sourced Paladin
   guidance on Cleanse priorities and Lucifron's Curse range. Reference fights
@@ -23,12 +36,6 @@ Development changes appear under **Unreleased** until built and published.
   Dominate Mind removal are not claimed.
 - Lucifron pages now show sourced encounter facts for Impending Doom,
   Lucifron's Curse and Dominate Mind, for every class.
-
-## 0.5.2 - 2026-10-20
-
-- Treat an exhausted Warcraft Logs hourly budget reported mid-request ("no
-  database points remaining" with partial data) as a quota stop that waits for
-  the reset and resumes, instead of a failed capture.
 
 ## 0.5.1 - 2026-10-19
 

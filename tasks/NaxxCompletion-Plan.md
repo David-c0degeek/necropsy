@@ -1,6 +1,6 @@
 # NaxxCompletion-Plan.md — Complete Classic Era Naxxramas for every class, spec and faction
 
-> **Status: DRAFT — awaiting pair design agreement; subject 00 not started.** Created 2026-10-21.
+> **Status: IN_PROGRESS — subject 00 complete; subject 01 implemented, release pending.** Created 2026-10-21.
 > **Purpose.** Bring Naxxramas (zone 2006, 15 bosses) to the layer-based
 > completion bar that the parked raid work reached for Molten Core: every legal
 > boss × configuration cell COMPLETE with real actor evidence, raw-first
@@ -24,11 +24,11 @@
 | Field | Value |
 |---|---|
 | Mode | `coordinated` |
-| Primary owner | Claude (shared-tree writer, specs, verifiers, content review) |
-| Coordinator | Claude |
+| Primary owner | Codex (shared-tree writer after the 2026-10-21 handoff, D012) |
+| Coordinator | Codex |
 | Resume safety | required |
 | Parallel branches | `no` — the local runner writes drafts outside the repository only |
-| Notes | Three seats (D003). **Claude** writes the shared tree, defines every work order and its verifier, extracts sources, and reviews content. **Codex** is navigator and batch reviewer of record (pair mailbox, same session as the parked raid work unless a new unit is opened). **Local runner**: LocalPilot on LocalBox serving Qwen3.6 35B-A3B (APEX-I-Quality, 256k) on the owner's RTX 4090. It executes work orders into `workspace/naxx-drafts/` and may pre-screen, but it is never a reviewer of record and never writes the shared tree. One shared-tree writer at a time. Tower runs WCL captures from a reviewed queue only. |
+| Notes | Three seats (D003), with current authority in D012. **Codex** writes the shared tree, continues implementation and leads UI/UX. **Claude** handed over with usage nearly exhausted; it remains the pair's required reviewer until an explicit authorized transfer. **Local runner**: LocalPilot on LocalBox serving Qwen3.6 35B-A3B (APEX-I-Quality, 256k) on the owner's RTX 4090. Its guidance-draft trial remains required (D009); it may advise but is never a reviewer of record and never writes the shared tree. One shared-tree writer at a time. Tower runs WCL captures from a reviewed queue only. |
 
 ### Parallel work tracker
 
@@ -143,6 +143,7 @@ with a source.
 
 | ID | Date | Title | Decision | Rationale | Refs |
 |---|---|---|---|---|---|
+| D012 | 2026-10-21 | Codex accepts implementation ownership | Codex is the sole shared-tree writer and coordinator after pair handoff epoch 2 at 10ba2f2. Continue the owner-authorized 0.6.0 release, then measured Naxx v2 acquisition and remaining subjects. Claude remains required reviewer in the harness; LocalPilot remains advisory under D009. Tower restart and final acceptance remain owner gates. | Claude relayed owner instructions: "codex will take it from here with localpilot" and "Cut v0.6.0 release"; mailbox claude:14/15, handoff-2026-10-21-codex.md. | 01–07 |
 | D001 | 2026-10-21 | Park MC/BWL/AQ40; Naxx first | MC/BWL/AQ40 work stops after the D036 (a)/(b) landing (main 2bc1a30, 821e67f). Their register, closures, batch and Tower archives stay as they are; nothing is deleted. The Tower runner is stopped and its watchdog disabled (unraid-tower c779d5b); it restarts only with a reviewed Naxx queue. | Owner: "Park MC, BWL and AQ40. Lets fully complete Naxx to the highest standard." Answered: stop Tower now and requeue Naxx; land D036 first. | RaidCompletion-Plan; 03 |
 | D002 | 2026-10-21 | Completion bar | Naxx cells use the D036 layer model unchanged: engine digest, receipt per capture, content digest per boss × configuration, batch manifest. Extensions go into the same tools, not copies. | Proven on 17 MC cells; one bar for all raids. | 01; 06 |
 | D003 | 2026-10-21 | Three-seat work split | Local runner (Qwen3.6 35B-A3B on LocalBox, LocalPilot) executes work orders and drafts; Claude specifies, verifies, extracts sources, writes the tree and reviews content; Codex reviews batches. Ornith 35B is not the runner (used injected project context 0/30). The local runner's review verdicts are advisory only. | Owner question and setup, 2026-10-21; LocalX evidence in §2. Expected: frontier use roughly halved, not removed. | 02 |
