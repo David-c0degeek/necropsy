@@ -118,7 +118,7 @@ with a source.
 | Coverage register | `uv run python scripts/check_raid_coverage.py --inventory --staged`; `--require-complete` (Naxx scope, 01) | |
 | Batch | `uv run python scripts/raid_batch.py write SPEC`; `digests CELL` | |
 | Receipt | `uv run python scripts/render_parity.py ARCHIVE --entries E --commit REV --out DIR` | |
-| Naxx compatibility | TBD in 00.2 (legacy/live replays, browser, package) | |
+| Naxx compatibility | `uv run pytest -m golden --ignore tests/golden/test_raid_evidence.py -n 8 --dist worksteal -rfE` (Haplina, Druid and class replays, saved-output and browser checks); `uv run pytest -m browser -rfE`; `uv run pytest -m acceptance`; package: `tests/unit/test_rules_package.py`, `test_distribution_artifacts.py`, `test_release_bundle.py` (in the CI fast suite) | No gate runs the browser suite unless a browser test file changed; run it at every 01 checkpoint |
 | Work-order verifiers | TBD in 02 | |
 | Local runner | TBD in 00.4 (`localbox serve …`, LocalPilot headless invocation) | |
 

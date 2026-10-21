@@ -35,7 +35,11 @@ def paladin_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
     for boss in doc["bosses"]:
         assert boss["subject"]["player"] == "Resurgance"
         assert len(boss["overall_cohort"]) == 5
-        assert "exposure_removal_correlations" not in boss["playbook"]
+        if boss["encounter_id"] != 50663:
+            assert "exposure_removal_correlations" not in boss["playbook"]
+    lucifron = next(b for b in doc["bosses"] if b["encounter_id"] == 50663)
+    [paired] = lucifron["playbook"]["exposure_removal_correlations"]
+    assert paired["intervals_ms"]["value"] == [[49976, 52266, 2290, 4987]]
     ragnaros = next(b for b in doc["bosses"] if b["encounter_id"] == 50672)
     guardian = next(e for e in ragnaros["overall_cohort"] if e["player"] == "Carameyl")
     assert guardian["combat"]["pets_known"] is False
