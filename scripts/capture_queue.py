@@ -7,11 +7,15 @@ Usage: uv run python scripts/capture_queue.py plan
        uv run python scripts/capture_queue.py verify [--snapshot]
        uv run python scripts/capture_queue.py summary
 
+The default scope is MC/BWL/AQ40. For a single raid, put --raid RAID,
+--research-dir DIR and --queue PATH before the command. All three are required;
+the new research and queue must be separate from the default artifacts.
+
 `plan` is offline. It derives the raid/configuration universe from the coverage
 matrix, decides per boss whether a run already has reusable captured data, and
 mines public subject candidates from the rankings inside the raw archives
-already in the repository. `resolve` is the only step that spends Warcraft
-Logs points: it checks each candidate's faction with `necropsy resolve` and
+already in the repository. `resolve` and `leaderboard` spend Warcraft Logs
+points. Resolution checks each candidate's faction with `necropsy resolve` and
 that WCL ranks the character for the entry's class, spec and metric, at most
 `--budget` live calls, caching every answer so a rerun never pays twice.
 `emit` writes the queue that `scripts/capture_runner.py` loads, and refuses to
@@ -36,10 +40,11 @@ import sys
 import zipfile
 from collections import Counter, defaultdict
 from collections.abc import Callable, Sequence
+from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote
+from urllib.parse import quote, unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "tasks/raid-completion/coverage-matrix.csv"
@@ -67,6 +72,56 @@ SITE = "https://vanilla.warcraftlogs.com"
 GUILD_FACTION = {0: "Alliance", 1: "Horde"}
 # The report ranking role whose rows carry each metric.
 METRIC_ROLES = {"dps": {"dps", "tanks"}, "hps": {"healers"}}
+LEGACY_RAIDS = ("aq40", "bwl", "mc")
+
+
+@dataclass(frozen=True)
+class QueueContext:
+    raids: tuple[str, ...]
+    plan: Path
+    resolutions: Path
+    rankings: Path
+    leaderboards: Path
+    excluded: Path
+    queue: Path
+
+
+def queue_context(
+    raid: str | None = None, research: Path | None = None, queue: Path | None = None
+) -> QueueContext:
+    if raid is None and research is None and queue is None:
+        return QueueContext(
+            LEGACY_RAIDS, PLAN, RESOLUTIONS, RANKINGS, LEADERBOARDS, EXCLUDED, QUEUE
+        )
+    if raid is None or research is None or queue is None:
+        raise ValueError("an explicit scope requires --raid, --research-dir and --queue together")
+    from necropsy.raids import RAIDS
+
+    if raid not in {r.slug for r in RAIDS}:
+        raise ValueError(f"unknown raid {raid!r}")
+    for path in (research, queue):
+        if not path.resolve().is_relative_to(ROOT.resolve()):
+            raise ValueError("queue and research paths must be inside the repository")
+    research, queue = research.resolve(), queue.resolve()
+    paths = QueueContext(
+        (raid,),
+        research / "capture-queue-plan.json",
+        research / "capture-candidate-resolutions.json",
+        research / "capture-candidate-rankings.json",
+        research / "capture-leaderboard-pages.json",
+        EXCLUDED,
+        queue,
+    )
+    if (
+        paths.queue.resolve() == QUEUE.resolve()
+        or paths.queue.is_relative_to(RESEARCH.resolve())
+        or any(
+            p.resolve().is_relative_to(RESEARCH.resolve())
+            for p in (paths.plan, paths.resolutions, paths.rankings, paths.leaderboards)
+        )
+    ):
+        raise ValueError("explicit scopes must use separate queue and research paths")
+    return paths
 
 
 def _read_json(path: Path) -> Any:
@@ -74,6 +129,7 @@ def _read_json(path: Path) -> Any:
 
 
 def _write_json(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(path.suffix + ".tmp")
     text = json.dumps(data, indent=1, ensure_ascii=False) + "\n"
     temp.write_text(text, encoding="utf-8", newline="\n")
@@ -99,13 +155,20 @@ def entry_id(raid: str, cls: str, category: str, metric: str, faction: str) -> s
 # -- universe and per-boss dispositions ---------------------------------------------
 
 
-def universe(matrix: Path = MATRIX) -> tuple[list[dict[str, Any]], dict[str, dict[str, str]]]:
+def universe(
+    matrix: Path = MATRIX, raids: tuple[str, ...] = LEGACY_RAIDS
+) -> tuple[list[dict[str, Any]], dict[str, dict[str, str]]]:
     """Every raid x legal configuration run, and each raid's encounters by id."""
     with matrix.open(encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))
+    unknown = set(raids) - {r["raid"] for r in rows}
+    if unknown:
+        raise ValueError(f"raid scope absent from matrix: {sorted(unknown)}")
     runs: dict[tuple[str, ...], dict[str, Any]] = {}
     encounters: dict[str, dict[str, str]] = defaultdict(dict)
     for row in rows:
+        if row["raid"] not in raids:
+            continue
         encounters[row["raid"]][row["encounter_id"]] = row["boss"]
         key = (row["raid"], row["class_id"], row["category"], row["metric"], row["faction"])
         runs.setdefault(
@@ -165,6 +228,7 @@ def dispositions(
     register: dict[str, Any],
     provenance: dict[str, Any],
     snapshots: Callable[[str], dict[str, Any]],
+    encounter_coverage: Callable[[str, str], set[int]] | None = None,
 ) -> dict[str, dict[str, Any]]:
     """Decide, boss by boss, whether a run with registered captures needs more.
 
@@ -186,6 +250,8 @@ def dispositions(
         if not source:
             continue
         raid, encounter, *config = record["cell_id"].split("/")
+        if raid not in encounters:
+            continue
         run = by_run[(raid, *config)]
         archive = source["archive"]
         found[run["entry_id"]]["archives"][archive["path"]] = archive["sha256"]
@@ -210,11 +276,16 @@ def dispositions(
                 "stopped": snapshot.get("stopped"),
                 "identity_problems": problems,
                 "bosses": snapshot.get("bosses") or [],
+                "encounters": sorted(encounter_coverage(path, sha)) if encounter_coverage else None,
             }
         bosses: list[dict[str, Any]] = []
         for encounter, name in encounters[run["raid"]].items():
             path = info["cells"].get(encounter)
-            if path and not archives[path]["identity_problems"]:
+            if (
+                path
+                and not archives[path]["identity_problems"]
+                and (encounter_coverage is None or int(encounter) in archives[path]["encounters"])
+            ):
                 bosses.append({"boss": name, "disposition": "registered", "archive": path})
                 continue
             reuse = next(
@@ -232,6 +303,7 @@ def dispositions(
                     }
                     for a in archives.values()
                     if not a["identity_problems"] and a["stopped"] is None
+                    if encounter_coverage is None or int(encounter) in a["encounters"]
                     for index, boss in enumerate(a["bosses"])
                     if str(boss.get("encounter_id")) == encounter and _cohort_met(boss)
                 ),
@@ -240,7 +312,11 @@ def dispositions(
             if reuse:
                 bosses.append({"boss": name, "disposition": "offline-reuse"} | reuse)
             else:
-                why = archives[path]["identity_problems"] if path else ["no reusable snapshot"]
+                why = (
+                    list(archives[path]["identity_problems"]) if path else ["no reusable snapshot"]
+                )
+                if encounter_coverage is not None:
+                    why.append("no verified complete v2 encounter and critical coverage")
                 bosses.append({"boss": name, "disposition": "needs-capture", "why": why})
         needs = [b["boss"] for b in bosses if b["disposition"] == "needs-capture"]
         result[run["entry_id"]] = {
@@ -256,18 +332,27 @@ def dispositions(
 
 
 def _public_reports(raw: Path) -> Any:
-    for archive in sorted(raw.rglob("*.zip")):
+    archives = [raw] if raw.is_file() else sorted(raw.rglob("*.zip"))
+    for archive in archives:
         relative = archive.relative_to(ROOT).as_posix()
         with zipfile.ZipFile(archive) as bundle:
             for member in sorted(bundle.namelist()):
                 if not (member.startswith("reports/") and member.endswith(".json")):
                     continue
-                report = json.loads(bundle.read(member)).get("report") or {}
+                document = json.loads(bundle.read(member))
+                wrapper = (
+                    "report" if isinstance(document.get("report"), dict) else "reportData.report"
+                )
+                report = (
+                    document.get("report") or (document.get("reportData") or {}).get("report") or {}
+                )
                 if report.get("visibility") == "public":
-                    yield relative, member, report
+                    yield relative, member, report, wrapper
 
 
-def mine(raw: Path, runs: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+def mine(
+    raw: Path | tuple[Path, ...], runs: list[dict[str, Any]]
+) -> dict[str, list[dict[str, Any]]]:
     """Characters ranked as each run's class and spec in that raid's public reports.
 
     A row counts toward a run only under the report role that carries its
@@ -277,16 +362,46 @@ def mine(raw: Path, runs: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]
         for role in METRIC_ROLES[run["metric"]]:
             wanted[(run["zone"], run["class"], run["category"], role)].append(run)
     pool: dict[str, dict[int, dict[str, Any]]] = defaultdict(dict)
-    for archive, member, report in _public_reports(raw):
+    witnesses: set[tuple[Any, ...]] = set()
+    roots = (raw,) if isinstance(raw, Path) else raw
+    reports = (r for root in roots for r in _public_reports(root))
+    for archive, member, report, wrapper in reports:
         zone = (report.get("zone") or {}).get("id")
+        fights = {f["id"]: f for f in report.get("fights", [])}
         for index, ranking in enumerate((report.get("rankings") or {}).get("data") or []):
             hint = GUILD_FACTION.get((ranking.get("guild") or {}).get("faction", -1))
             encounter = (ranking.get("encounter") or {}).get("id")
+            fight_id = ranking.get("fightID")
+            fight = fights.get(fight_id, {})
+            if (
+                type(fight_id) is not int
+                or fight_id <= 0
+                or ranking.get("partition") != PARTITION
+                or not ranking.get("kill")
+                or not fight.get("kill")
+                or fight.get("encounterID") != encounter
+            ):
+                continue
             for role, group in (ranking.get("roles") or {}).items():
                 for position, character in enumerate(group.get("characters") or []):
                     key = (zone, character.get("class"), character.get("spec"), role)
-                    if key not in wanted or not isinstance(character.get("id"), int):
+                    if (
+                        key not in wanted
+                        or type(character.get("id")) is not int
+                        or character["id"] <= 0
+                        or (character.get("amount") or 0) <= 0
+                    ):
                         continue
+                    witness = (
+                        report.get("code"),
+                        report.get("revision"),
+                        encounter,
+                        role,
+                        character["id"],
+                    )
+                    if witness in witnesses:
+                        continue
+                    witnesses.add(witness)
                     for run in wanted[key]:
                         seen = pool[run["entry_id"]].setdefault(
                             character["id"],
@@ -301,7 +416,7 @@ def mine(raw: Path, runs: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]
                                 "evidence": {
                                     "archive": archive,
                                     "member": member,
-                                    "locator": f"report.rankings.data[{index}].roles.{role}"
+                                    "locator": f"{wrapper}.rankings.data[{index}].roles.{role}"
                                     f".characters[{position}]",
                                 },
                             },
@@ -324,14 +439,27 @@ def mine(raw: Path, runs: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]
     }
 
 
-def _excluded() -> set[str]:
-    if not EXCLUDED.is_file():
+def _excluded(context: QueueContext | None = None) -> set[str]:
+    path = (context or queue_context()).excluded
+    if not path.is_file():
         return set()
-    return {str(item).lower() for item in _read_json(EXCLUDED)["characters"]}
+    return {str(item).lower() for item in _read_json(path)["characters"]}
 
 
 def candidate_url(candidate: dict[str, Any], zone: int) -> str:
     return candidate.get("url") or f"{SITE}/character/id/{candidate['id']}?zone={zone}"
+
+
+def excluded_candidate(candidate: dict[str, Any], excluded: set[str]) -> bool:
+    url_path = unquote(urlsplit(candidate.get("url", "")).path).removeprefix("/character/")
+    identity = "/".join(
+        (
+            str(candidate.get("region", "")),
+            _slug(str(candidate.get("server", ""))),
+            str(candidate.get("name", "")),
+        )
+    )
+    return bool({str(candidate.get("id")), url_path.lower(), identity.lower()} & excluded)
 
 
 def rank_pool(
@@ -345,7 +473,11 @@ def rank_pool(
     entry's faction."""
     pool: list[dict[str, Any]] = []
     for archive in (state or {}).get("archives", []):
-        if archive["url"] and not archive["identity_problems"]:
+        if (
+            archive["url"]
+            and not archive["identity_problems"]
+            and not excluded_candidate({"url": archive["url"]}, excluded)
+        ):
             pool.append(
                 {
                     "url": archive["url"],
@@ -355,10 +487,7 @@ def rank_pool(
             )
 
     def blocked(c: dict[str, Any]) -> bool:
-        return (
-            str(c["id"]) in excluded
-            or f"{c['region']}/{c['server']}/{c['name']}".lower() in excluded
-        )
+        return excluded_candidate(c, excluded)
 
     def order(c: dict[str, Any]) -> tuple[Any, ...]:
         hints = c["faction_hints"]
@@ -405,26 +534,86 @@ def leaderboard_pool(
     return list(found.values())[:POOL_SIZE]
 
 
-def build_plan() -> dict[str, Any]:
-    runs, encounters = universe()
-    for path in {a for r in _read_json(REGISTER)["records"] if (a := _archive_path(r))}:
+def complete_encounter_coverage(path: str, digest: str) -> set[int]:
+    """Only strict, complete v2 fight scopes can suppress encounter capture."""
+    from necropsy.snapshot.archive import VerifiedArchive
+    from necropsy.snapshot.model import ActorRole, StreamStatus
+    from necropsy.snapshot.v1 import open_snapshot
+    from necropsy.snapshot.v2 import FORMAT
+
+    with VerifiedArchive(ROOT / path, expected_sha256=digest) as archive:
+        marker = archive.read_json(SNAPSHOT)
+        if marker.get("formatVersion") != 2:
+            return set()
+        reader = open_snapshot(archive)
+        descriptor = reader.descriptor()
+        if descriptor.format != FORMAT or reader.issues():
+            return set()
+        by_boss: dict[int, list[bool]] = defaultdict(list)
+        refs = reader.expected_streams()
+        for fight in descriptor.fights:
+            streams = [
+                r
+                for r in refs
+                if (r.report_code, r.fight_id) == (fight.report_code, fight.fight_id)
+            ]
+            roles = {r.role for r in streams}
+            complete = {ActorRole.ENCOUNTER, ActorRole.CRITICAL} <= roles and all(
+                reader.read_stream(r).status is StreamStatus.COMPLETE for r in streams
+            )
+            for encounter in {p.encounter_id for p in fight.participants}:
+                by_boss[encounter].append(complete)
+        eligible = {
+            b["encounter_id"]
+            for b in marker.get("bosses", [])
+            if marker.get("stopped") is None and _cohort_met(b)
+        }
+        return {
+            boss for boss, checks in by_boss.items() if boss in eligible and checks and all(checks)
+        }
+
+
+def build_plan(context: QueueContext | None = None) -> dict[str, Any]:
+    ctx = context or queue_context()
+    runs, encounters = universe(raids=ctx.raids)
+    register = _read_json(REGISTER)
+    records = [r for r in register["records"] if r["cell_id"].split("/")[0] in ctx.raids]
+    for path in {a for r in records if (a := _archive_path(r))}:
         recorded = next(
-            r["real_actor_source"]["archive"]["sha256"]
-            for r in _read_json(REGISTER)["records"]
-            if _archive_path(r) == path
+            r["real_actor_source"]["archive"]["sha256"] for r in records if _archive_path(r) == path
         )
         if _sha256(ROOT / path) != recorded:
             raise SystemExit(f"{path}: sha256 is not the registered one")
     states = dispositions(
         runs,
         encounters,
-        _read_json(REGISTER),
+        register,
         _read_json(PROVENANCE),
         lambda path: read_snapshot(ROOT / path),
+        complete_encounter_coverage if "naxxramas" in ctx.raids else None,
     )
-    mined = mine(RAW, runs)
-    excluded = _excluded()
-    boards = _read_json(LEADERBOARDS) if LEADERBOARDS.is_file() else {}
+    raw: tuple[Path, ...] = (RAW,)
+    if "naxxramas" in ctx.raids:
+        raw += tuple(
+            sorted(
+                {
+                    ROOT / a
+                    for r in records
+                    if (a := _archive_path(r)) and not (ROOT / a).is_relative_to(RAW)
+                }
+            )
+        )
+    raw_archives = tuple(
+        sorted({p for root in raw for p in ([root] if root.is_file() else root.rglob("*.zip"))})
+    )
+    if "naxxramas" in ctx.raids:
+        for archive in raw_archives:
+            path = archive.relative_to(ROOT).as_posix()
+            if _sha256(archive) != _committed_digest(path, "HEAD"):
+                raise ValueError(f"{path}: raw archive differs from its committed bytes or LFS oid")
+    mined = mine(raw_archives, runs)
+    excluded = _excluded(ctx)
+    boards = _read_json(ctx.leaderboards) if ctx.leaderboards.is_file() else {}
     entries = []
     for run in runs:
         state = states.get(run["entry_id"])
@@ -444,9 +633,12 @@ def build_plan() -> dict[str, Any]:
             }
         )
     return {
+        "raids": list(ctx.raids),
         "generated": datetime.now(UTC).isoformat(timespec="seconds"),
         "inputs": {
-            p.relative_to(ROOT).as_posix(): _sha256(p) for p in (MATRIX, REGISTER, PROVENANCE)
+            p.relative_to(ROOT).as_posix(): _sha256(p)
+            for p in (MATRIX, REGISTER, PROVENANCE, ctx.excluded, *raw_archives)
+            if p.is_file()
         },
         "excluded_characters": len(excluded),
         "entries": entries,
@@ -604,11 +796,16 @@ def check(
     candidate: dict[str, Any],
     resolutions: dict[str, Any],
     rankings: dict[str, Any],
+    excluded: set[str] | None = None,
 ) -> tuple[bool | None, str]:
     """Both gates from cached answers; None while an answer is still missing."""
     answer = resolutions.get(candidate["url"])
     if answer is None:
         return None, "faction not checked"
+    if excluded_candidate(
+        answer["fields"] | {"name": answer["fields"].get("character", "")}, excluded or set()
+    ):
+        return False, "resolved identity is an excluded capture subject"
     ok, why = verdict(answer["fields"], answer["exit"], item["faction"], candidate.get("id"))
     if not ok:
         return False, why
@@ -622,13 +819,17 @@ def check(
 
 
 def resolve(
-    budget: int, resolver: Resolver = _run_resolve, ranker: Ranker = _query_rankings
+    budget: int,
+    resolver: Resolver = _run_resolve,
+    ranker: Ranker = _query_rankings,
+    *,
+    context: QueueContext | None = None,
 ) -> int:
     """Check pool candidates until each entry has enough that pass both gates or
     the budget of live calls is spent. Cached answers cost nothing."""
-    plan = _read_json(PLAN)
-    resolutions: dict[str, Any] = _read_json(RESOLUTIONS) if RESOLUTIONS.is_file() else {}
-    rankings: dict[str, Any] = _read_json(RANKINGS) if RANKINGS.is_file() else {}
+    ctx = context or queue_context()
+    plan = _read_plan(ctx)
+    resolutions, rankings = _load_caches(ctx)
     spent = 0
     for item in plan["entries"]:
         accepted = 0
@@ -648,8 +849,14 @@ def resolve(
                     "fields": parse_resolve(stdout),
                     "error": stderr.strip().splitlines()[-1:] if code else [],
                 }
-                _write_json(RESOLUTIONS, resolutions)
-            ok, why = check(item, candidate, resolutions, rankings)
+                _write_json(ctx.resolutions, resolutions)
+            if excluded_candidate(
+                resolutions[candidate["url"]]["fields"]
+                | {"name": resolutions[candidate["url"]]["fields"].get("character", "")},
+                _excluded(ctx),
+            ):
+                continue
+            ok, why = check(item, candidate, resolutions, rankings, _excluded(ctx))
             if ok is None and why == "metric not checked" and spent < budget:
                 character_id = int(resolutions[candidate["url"]]["fields"]["id"])
                 try:
@@ -660,8 +867,8 @@ def resolve(
                 spent += 1
                 answer["checked_at"] = datetime.now(UTC).isoformat(timespec="seconds")
                 rankings[ranking_key(character_id, item)] = answer
-                _write_json(RANKINGS, rankings)
-                ok, why = check(item, candidate, resolutions, rankings)
+                _write_json(ctx.rankings, rankings)
+                ok, why = check(item, candidate, resolutions, rankings, _excluded(ctx))
             accepted += ok is True
     print(f"made {spent} live call(s); {len(resolutions)} resolutions, {len(rankings)} rankings")
     return 0
@@ -719,21 +926,27 @@ query NecropsyQueueLeaderboard($encounter: Int!, $partition: Int!, $cls: String!
 
 
 def leaderboard(
-    budget: int, fetch: Callable[[dict[str, Any], str], list[dict[str, Any]]] = _query_leaderboard
+    budget: int,
+    fetch: Callable[[dict[str, Any], str], list[dict[str, Any]]] = _query_leaderboard,
+    *,
+    context: QueueContext | None = None,
 ) -> int:
     """Fetch first leaderboard pages, boss by boss, for queued runs whose pool is
     exhausted without a checked candidate, until each has a full pool. Run
     `plan` afterwards to merge them."""
-    plan = _read_json(PLAN)
-    _, encounters = universe()
-    resolutions, rankings = _load_caches()
-    boards: dict[str, Any] = _read_json(LEADERBOARDS) if LEADERBOARDS.is_file() else {}
-    _, unfilled = queue_entries(plan, resolutions, rankings)
+    ctx = context or queue_context()
+    plan = _read_plan(ctx)
+    _, encounters = universe(raids=ctx.raids)
+    resolutions, rankings = _load_caches(ctx)
+    boards: dict[str, Any] = _read_json(ctx.leaderboards) if ctx.leaderboards.is_file() else {}
+    _, unfilled = queue_entries(plan, resolutions, rankings, _excluded(ctx))
     spent = 0
     for item in plan["entries"]:
         if item["entry_id"] not in unfilled:
             continue
-        if any(check(item, c, resolutions, rankings)[0] is None for c in item["pool"]):
+        if any(
+            check(item, c, resolutions, rankings, _excluded(ctx))[0] is None for c in item["pool"]
+        ):
             print(f"{item['entry_id']}: check its pool with `resolve` first")
             continue
         for encounter in encounters[item["raid"]]:
@@ -750,20 +963,48 @@ def leaderboard(
                 print(f"stopped after {spent} live call(s): {type(error).__name__}: {error}")
                 return 2
             spent += 1
-            _write_json(LEADERBOARDS, boards)
+            _write_json(ctx.leaderboards, boards)
     print(f"made {spent} leaderboard call(s); {len(boards)} pages cached")
     return 0
 
 
-def _load_caches() -> tuple[dict[str, Any], dict[str, Any]]:
+def _load_caches(context: QueueContext | None = None) -> tuple[dict[str, Any], dict[str, Any]]:
+    ctx = context or queue_context()
     return (
-        _read_json(RESOLUTIONS) if RESOLUTIONS.is_file() else {},
-        _read_json(RANKINGS) if RANKINGS.is_file() else {},
+        _read_json(ctx.resolutions) if ctx.resolutions.is_file() else {},
+        _read_json(ctx.rankings) if ctx.rankings.is_file() else {},
     )
 
 
+def _read_plan(context: QueueContext) -> dict[str, Any]:
+    plan: dict[str, Any] = _read_json(context.plan)
+    if "raids" in plan and tuple(plan["raids"]) != context.raids:
+        raise ValueError("plan raid scope differs from the selected context")
+    if any(item["raid"] not in context.raids for item in plan["entries"]):
+        raise ValueError("plan contains entries outside the selected raid scope")
+    if "naxxramas" in context.raids:
+        legal, _ = universe(raids=context.raids)
+        fields = ("entry_id", "raid", "zone", "class_id", "class", "category", "metric", "faction")
+        identities = {tuple(r[f] for f in fields) for r in legal}
+        actual = [tuple(r[f] for f in fields) for r in plan["entries"]]
+        if len(actual) != len(identities) or set(actual) != identities:
+            raise ValueError("plan must contain every legal configuration exactly once")
+        excluded = _excluded(context)
+        for item in plan["entries"]:
+            urls = [c["url"] for c in item["pool"]]
+            if len(urls) != len(set(urls)):
+                raise ValueError("plan contains duplicate candidate identities")
+            for candidate in item["pool"]:
+                if excluded_candidate(candidate, excluded):
+                    raise ValueError("plan contains an excluded capture subject")
+    return plan
+
+
 def queue_entries(
-    plan: dict[str, Any], resolutions: dict[str, Any], rankings: dict[str, Any]
+    plan: dict[str, Any],
+    resolutions: dict[str, Any],
+    rankings: dict[str, Any],
+    excluded: set[str] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     entries, unfilled = [], []
     for item in plan["entries"]:
@@ -771,7 +1012,7 @@ def queue_entries(
             continue
         chosen = []
         for candidate in item["pool"]:
-            ok, why = check(item, candidate, resolutions, rankings)
+            ok, why = check(item, candidate, resolutions, rankings, excluded)
             if ok:
                 chosen.append((candidate, resolutions[candidate["url"]], why))
             if len(chosen) == MAX_CANDIDATES:
@@ -834,28 +1075,29 @@ def public_summary(plan: dict[str, Any], scheduled: int) -> dict[str, int]:
     return summary
 
 
-def emit() -> int:
-    plan = _read_json(PLAN)
-    resolutions, rankings = _load_caches()
-    entries, unfilled = queue_entries(plan, resolutions, rankings)
+def emit(context: QueueContext | None = None) -> int:
+    ctx = context or queue_context()
+    plan = _read_plan(ctx)
+    resolutions, rankings = _load_caches(ctx)
+    entries, unfilled = queue_entries(plan, resolutions, rankings, _excluded(ctx))
     if unfilled:
         print(f"queue not written; {len(unfilled)} queued run(s) lack a checked candidate:")
         print("  " + ", ".join(unfilled))
         return 1
     _write_json(
-        QUEUE,
+        ctx.queue,
         {
             "version": QUEUE_VERSION,
             "summary": public_summary(plan, len(entries)),
             "pins": {
                 path.relative_to(ROOT).as_posix(): _sha256(path)
-                for path in (PLAN, RESOLUTIONS, RANKINGS, LEADERBOARDS)
+                for path in (ctx.plan, ctx.resolutions, ctx.rankings, ctx.leaderboards)
                 if path.is_file()
             },
             "entries": entries,
         },
     )
-    print(f"wrote {len(entries)} entries to {QUEUE.relative_to(ROOT).as_posix()}")
+    print(f"wrote {len(entries)} entries to {ctx.queue.relative_to(ROOT).as_posix()}")
     return 0
 
 
@@ -865,15 +1107,33 @@ def _git_blob(path: str, rev: str) -> bytes:
     ).stdout
 
 
-def verify(rev: str = "HEAD") -> int:
+def _committed_digest(path: str, rev: str) -> str:
+    """Pins refer to hydrated LFS content, otherwise to the exact Git blob."""
+    blob = _git_blob(path, rev)
+    if blob.startswith(b"version https://git-lfs.github.com/spec/v1\n"):
+        match = re.search(rb"^oid sha256:([0-9a-f]{64})$", blob, re.MULTILINE)
+        if match is None:
+            raise ValueError(f"{path}: malformed LFS pointer")
+        return match[1].decode("ascii")
+    return hashlib.sha256(blob).hexdigest()
+
+
+def verify(rev: str = "HEAD", *, context: QueueContext | None = None) -> int:
     """Every pin must equal both the checked-out bytes and the committed blob."""
-    queue = json.loads(_git_blob(QUEUE.relative_to(ROOT).as_posix(), rev))
-    plan_path = PLAN.relative_to(ROOT).as_posix()
+    ctx = context or queue_context()
+    queue_blob = _git_blob(ctx.queue.relative_to(ROOT).as_posix(), rev)
+    queue = json.loads(queue_blob)
+    plan_path = ctx.plan.relative_to(ROOT).as_posix()
     pins = dict(queue["pins"])
+    if plan_path not in pins:
+        raise ValueError("queue does not pin its scoped plan")
     pins.update(json.loads(_git_blob(plan_path, rev))["inputs"])
     failures = []
+    if ctx.queue.read_bytes() != queue_blob:
+        failures.append("queue checkout differs from its committed bytes")
+    _check_scoped_queue(ctx, queue, lambda p: _git_blob(p.relative_to(ROOT).as_posix(), rev))
     for path, pinned in sorted(pins.items()):
-        blob = hashlib.sha256(_git_blob(path, rev)).hexdigest()
+        blob = _committed_digest(path, rev)
         local = _sha256(ROOT / path)
         if not pinned == blob == local:
             failures.append(f"{path}: pin {pinned[:12]} blob {blob[:12]} checkout {local[:12]}")
@@ -895,7 +1155,31 @@ def _pin_map(raw: bytes, key: str, source: str) -> dict[str, str]:
     return pins
 
 
-def verify_snapshot(rev: str = "HEAD") -> int:
+def _check_scoped_queue(
+    context: QueueContext, queue: dict[str, Any], read: Callable[[Path], bytes]
+) -> None:
+    if context.raids == LEGACY_RAIDS:
+        return
+    plan = json.loads(read(context.plan))
+    if tuple(plan.get("raids", [])) != context.raids or any(
+        item["raid"] not in context.raids for item in plan["entries"]
+    ):
+        raise ValueError("committed plan differs from selected raid scope")
+    caches = [
+        json.loads(read(p)) if p.relative_to(ROOT).as_posix() in queue["pins"] else {}
+        for p in (context.resolutions, context.rankings)
+    ]
+    excluded = {str(v).lower() for v in json.loads(read(context.excluded))["characters"]}
+    expected, unfilled = queue_entries(plan, caches[0], caches[1], excluded)
+    if (
+        unfilled
+        or queue["entries"] != expected
+        or queue["summary"] != public_summary(plan, len(expected))
+    ):
+        raise ValueError("queue does not match its checked scoped plan and candidates")
+
+
+def verify_snapshot(rev: str = "HEAD", *, context: QueueContext | None = None) -> int:
     """The queue must still be the one emitted, with intact emit-time pins.
 
     Strict `verify` asks whether every input is still current; this asks whether
@@ -906,8 +1190,9 @@ def verify_snapshot(rev: str = "HEAD") -> int:
     changes to transitive plan inputs (coverage, provenance) are reported as
     snapshot age, not failures. Missing history or blobs and malformed pins fail.
     """
-    queue_path = QUEUE.relative_to(ROOT).as_posix()
-    plan_path = PLAN.relative_to(ROOT).as_posix()
+    ctx = context or queue_context()
+    queue_path = ctx.queue.relative_to(ROOT).as_posix()
+    plan_path = ctx.plan.relative_to(ROOT).as_posix()
     failures: list[str] = []
     aged: list[str] = []
     emit = ""
@@ -927,10 +1212,13 @@ def verify_snapshot(rev: str = "HEAD") -> int:
         direct = _pin_map(written, "pins", f"{queue_path}@{emit[:12]}")
         if plan_path not in direct:
             raise ValueError(f"{queue_path}@{emit[:12]}: plan {plan_path} is not pinned")
+        _check_scoped_queue(
+            ctx, json.loads(written), lambda p: _git_blob(p.relative_to(ROOT).as_posix(), emit)
+        )
         transitive = _pin_map(_git_blob(plan_path, emit), "inputs", f"{plan_path}@{emit[:12]}")
         for path, pinned in sorted(direct.items()):
-            at_emit = hashlib.sha256(_git_blob(path, emit)).hexdigest()
-            now = hashlib.sha256(_git_blob(path, rev)).hexdigest()
+            at_emit = _committed_digest(path, emit)
+            now = _committed_digest(path, rev)
             local = _sha256(ROOT / path)
             if not pinned == at_emit == now == local:
                 failures.append(
@@ -938,7 +1226,7 @@ def verify_snapshot(rev: str = "HEAD") -> int:
                     f"{rev} {now[:12]} checkout {local[:12]}"
                 )
         for path, pinned in sorted(transitive.items()):
-            at_emit = hashlib.sha256(_git_blob(path, emit)).hexdigest()
+            at_emit = _committed_digest(path, emit)
             if pinned != at_emit:
                 failures.append(f"{path}: pin {pinned[:12]} emit blob {at_emit[:12]}")
             elif _sha256(ROOT / path) != pinned:
@@ -952,9 +1240,10 @@ def verify_snapshot(rev: str = "HEAD") -> int:
     return 1 if failures else 0
 
 
-def summary() -> int:
-    plan = _read_json(PLAN)
-    resolutions, rankings = _load_caches()
+def summary(context: QueueContext | None = None) -> int:
+    ctx = context or queue_context()
+    plan = _read_plan(ctx)
+    resolutions, rankings = _load_caches(ctx)
     states = Counter(i["disposition"]["state"] for i in plan["entries"])
     print(
         f"universe {len(plan['entries'])} runs: "
@@ -971,7 +1260,7 @@ def summary() -> int:
         reuse = [b["boss"] for b in d["bosses"] if b["disposition"] == "offline-reuse"]
         note = f" offline-reuse {', '.join(reuse)}" if reuse else ""
         print(f"  {d['state']:14} {item['entry_id']} {dict(kinds)}{note}")
-    entries, unfilled = queue_entries(plan, resolutions, rankings)
+    entries, unfilled = queue_entries(plan, resolutions, rankings, _excluded(ctx))
     counts = Counter(len(e["candidates"]) for e in entries)
     print(f"resolutions {len(resolutions)}, rankings {len(rankings)}")
     print(
@@ -988,6 +1277,9 @@ def summary() -> int:
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--raid", help="single raid; requires separate research and queue paths")
+    parser.add_argument("--research-dir", type=Path)
+    parser.add_argument("--queue", type=Path)
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("plan", help="offline: universe, dispositions, candidate pools")
     spend = commands.add_parser("resolve", help="online: faction and metric checks (cached)")
@@ -1004,18 +1296,26 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     commands.add_parser("summary", help="print dispositions and readiness")
     args = parser.parse_args(argv)
+    try:
+        ctx = queue_context(args.raid, args.research_dir, args.queue)
+    except ValueError as error:
+        parser.error(str(error))
     if args.command == "plan":
-        _write_json(PLAN, build_plan())
-        return summary()
+        _write_json(ctx.plan, build_plan(ctx))
+        return summary(ctx)
     if args.command == "resolve":
-        return resolve(args.budget)
+        return resolve(args.budget, context=ctx)
     if args.command == "leaderboard":
-        return leaderboard(args.budget)
+        return leaderboard(args.budget, context=ctx)
     if args.command == "emit":
-        return emit()
+        return emit(ctx)
     if args.command == "verify":
-        return verify_snapshot(args.rev) if args.snapshot else verify(args.rev)
-    return summary()
+        return (
+            verify_snapshot(args.rev, context=ctx)
+            if args.snapshot
+            else verify(args.rev, context=ctx)
+        )
+    return summary(ctx)
 
 
 if __name__ == "__main__":

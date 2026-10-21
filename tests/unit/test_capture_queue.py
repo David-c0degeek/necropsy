@@ -122,10 +122,14 @@ def _report_zip(path: Path, role: str) -> None:
             "code": "R1",
             "visibility": "public",
             "zone": {"id": 2000},
+            "fights": [{"id": 1, "kill": True, "encounterID": 1}],
             "rankings": {
                 "data": [
                     {
                         "encounter": {"id": 1},
+                        "fightID": 1,
+                        "partition": 1,
+                        "kill": 1,
                         "guild": {"faction": 1},
                         "roles": {
                             role: {
@@ -135,6 +139,7 @@ def _report_zip(path: Path, role: str) -> None:
                                         "name": "N",
                                         "class": "Druid",
                                         "spec": "Balance",
+                                        "amount": 100,
                                         "server": {"name": "S", "region": "EU"},
                                     }
                                 ]

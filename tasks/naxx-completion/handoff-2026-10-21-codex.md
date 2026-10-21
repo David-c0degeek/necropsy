@@ -22,11 +22,23 @@ No server changes. A bounded normal user-endpoint readiness probe at
 before subject/report/event requests. Quota availability is unknown. Detailed
 local receipt: `workspace/codex-naxx/measurement-readiness-probe/budget.json`.
 
-Next: scope queue preparation to Naxx without modifying the parked queue;
-validate candidates when WCL recovers; stage the released wheel with the
-reviewed queue/pin; build a separate image, then obtain the actual v2 smoke and
-normal quota measurement. Subject 03 stays open. The older release checklist
-below is historical and must not trigger another release.
+Offline continuation: queue commands now carry an immutable raid/artifact
+context and keep the legacy default at 102 runs. Naxx planning has 34 runs and
+all still need v2 capture; 32 have unchecked pools, two Balance-HPS pools need
+leaderboard discovery. `research/capture-queue-plan.json` pins 68 inputs,
+including 64 scanned raw archives. No Naxx queue is emitted without checked
+candidates. The parked queue and Tower state are unchanged. A real-archive
+verifier now checks the ZIP, entries manifest, exact entry/subject/fight and v2
+encounter/critical scopes; synthetic negatives include critical-not-in-All.
+Targeted queue/archive checks: 81 passed; whole-tree mypy and changed-file Ruff
+pass. Full checkpoint gate evidence is in
+`workspace/codex-naxx/scoped-capture-full-gate.log` once complete.
+
+The owner confirmed WCL maintenance: leave WCL alone until it ends. Continue
+offline work-order/verifier preparation in subject 02. Later validate candidates,
+stage the released wheel with a reviewed queue/pin, build a separate image, then
+obtain actual v2 smoke and normal quota measurement. Subject 03 stays open.
+The older release checklist below is historical and must not trigger another release.
 
 The owner instructed Claude to hand over: "codex will take it from here with localpilot".
 Codex accepted ownership at pair epoch 2 and is the only tree writer. LocalPilot stays an adviser only (D009).

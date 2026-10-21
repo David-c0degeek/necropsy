@@ -166,7 +166,7 @@ with a source.
 | [x] | 00 | `00-tooling-research-and-readiness.md` | DONE | agent; product-owner (XMP) | yes |
 | [x] | 01 | `01-naxx-register-and-strategy-seam.md` | DONE | agent; released 0.6.0, close-out recorded | n/a |
 | [ ] | 02 | `02-local-work-orders.md` | TODO | agent | n/a |
-| [ ] | 03 | `03-naxx-captures.md` | TODO | agent; product-owner (Tower restart) | yes |
+| [ ] | 03 | `03-naxx-captures.md` | IN_PROGRESS — offline queue and verifier prepared; WCL maintenance blocks live checks | agent; product-owner (Tower restart) | yes |
 | [ ] | 04 | `04-boss-research-and-raw-facts.md` | TODO | agent | n/a |
 | [ ] | 05 | `05-ranking-oracles.md` | TODO | agent | n/a |
 | [ ] | 06 | `06-content-receipts-and-batches.md` | TODO | agent | n/a |

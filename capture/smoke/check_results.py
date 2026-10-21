@@ -5,6 +5,7 @@ uv run python capture/smoke/check_results.py RESULTS_DIR
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -20,7 +21,7 @@ def lines(path: Path) -> list[Any]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
 
 
-def main(results: Path) -> int:
+def main(results: Path, queue: Path | None = None) -> int:
     failures: list[str] = []
 
     def expect(ok: bool, what: str) -> None:
@@ -51,7 +52,9 @@ def main(results: Path) -> int:
     expect(stop["exit_code"] == 0 and stop["stop_seconds"] <= 90, f"S2 graceful stop {stop}")
     after = json.loads((s2 / "state-after-stop.json").read_text(encoding="utf-8"))
     expect(bool(after["inflight"] and after["inflight"]["stop_requested"]), "S2 stop recorded")
-    _, entries = cr.load_queue(REPOSITORY / "tasks" / "raid-completion" / "capture-queue.json")
+    _, entries = cr.load_queue(
+        queue or REPOSITORY / "tasks" / "raid-completion" / "capture-queue.json"
+    )
     by_id = {entry.entry_id: entry for entry in entries}
     calls = lines(s2 / "argv.jsonl")
     mismatched = 0
@@ -104,4 +107,8 @@ def main(results: Path) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(Path(sys.argv[1])))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("results", type=Path)
+    parser.add_argument("--queue", type=Path, help="exact queue staged into the tested image")
+    args = parser.parse_args()
+    raise SystemExit(main(args.results, args.queue))

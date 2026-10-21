@@ -63,6 +63,30 @@ capture queue. Hardware stability is D004 and is tracked here as PM-5 for calibr
 
 ## Calibration
 
+### Scoped queue follow-up, 2026-10-21
+
+**PM-7 — High — scope and evidence bleed into a new queue.** A regenerated
+queue schedules the parked raids, or omits Naxx captures because v1 actor
+evidence was mistaken for whole-fight context. Evidence: `universe()` currently
+enumerates 136 runs and `dispositions()` treats a registered actor source as
+capture-ready without checking encounter streams. Shared global artifact paths
+also point every command at the parked research. Inference: a Naxx run can
+silently reuse the wrong scope despite successful pin verification.
+
+Guardrails before implementation: pass one immutable context through planning,
+resolution, emission and both verification modes; default to the original three
+raids; require explicit research and queue paths for an explicit raid; reject
+unknown/inconsistent scopes; filter other-raid records before identity lookup;
+require strict v2 complete encounter/critical scope before Naxx capture reuse.
+Keep owner exclusions, exact configuration/partition/metric checks and the
+parked queue unchanged. Test contamination and v1 false-reuse negatives.
+Detection: before merge and again with committed queue pins before deployment.
+Rollback: discard only the new research/queue; no state migration or production
+restart. Verdict: PROCEED WITH GUARDRAILS. Resolution: Mitigated by immutable
+context plumbing, exact configuration checks, strict v2 scope reuse, pinned raw
+archive inputs (including LFS), owner exclusions at mining and resolution, and
+negative tests. Actual capture, image smoke and deployment remain pending.
+
 ### Capture staging follow-up, 2026-10-21
 
 **Failed future:** the new release image silently bakes the parked MC/BWL/AQ
