@@ -62,7 +62,7 @@ can certify a COMPLETE cell, assignment, position, phase, opportunity or ranking
 The ten original orders remain immutable historical artifacts. Their 2/10
 original machine score and coordinator rejection are in
 `guidance-trial-results.json`. Later source research changes the boss ledger's
-input hash; reproduce the trial from committed revision `d53811d85986`, not by
+input hash; reproduce the trial from committed revision `46bc94dbb5fe`, not by
 repinning or repairing old orders. Machine validity is separate from content
 review; exact quote presence cannot establish that a new claim follows from it.
 
@@ -70,3 +70,7 @@ The new capability catalog and boss `capability_refs` are research references.
 The existing guidance linter does not resolve them into allowed support keys.
 Any future capability-aware contract needs independent applicability/citation
 checks before those references can support a draft.
+
+Replay distinction: `46bc94dbb5fe` contains the original trial verifier;
+`d53811d85986` adds the later spacing check. The audit records both lint hashes.
+Keep the original machine score and the later rejection separate.

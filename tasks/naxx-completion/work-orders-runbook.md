@@ -8,7 +8,7 @@ The first frozen trial is complete and rejected: 2/10 original machine passes,
 zero promotions. See `research/guidance-trial-results.json`. Do not rerun its
 orders to repair that score. WCL maintenance is separate; this workflow calls no WCL.
 Later source research changed the ledger hash. Historical replay uses revision
-`d53811d85986`; do not repin old orders to the new ledger. Other offline verifier
+`46bc94dbb5fe`; do not repin old orders to the new ledger. Other offline verifier
 contracts and their readiness are in `research/offline-verifier-contracts.md`.
 
 ## Contract and verification
@@ -98,3 +98,7 @@ Stop LocalBox when local inference is no longer authorized or needed. If startup
 is still running, end that launcher first: it can retry a stopped child. Then
 run `localbox stop` and `localbox status`, and confirm no `llama-server` process
 remains. An interrupted startup reply check is not evidence of model quality.
+
+Replay distinction: `46bc94dbb5fe` contains the original trial verifier;
+`d53811d85986` adds the later spacing check. The audit records both lint hashes.
+Keep the original machine score and the later rejection separate.
