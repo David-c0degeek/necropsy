@@ -63,6 +63,31 @@ capture queue. Hardware stability is D004 and is tracked here as PM-5 for calibr
 
 ## Calibration
 
+### Capture staging follow-up, 2026-10-21
+
+**Failed future:** the new release image silently bakes the parked MC/BWL/AQ
+queue because staging always reads its global queue path. A successful build
+and version check do not detect that the wrong acquisition work was selected.
+
+**PM-6 — High — wrong queue in an otherwise valid image.**
+Basis: `scripts/stage_capture_image.py:QUEUE` and `stage` hardcode the parked
+queue; the read-only integration audit identified the same gap. The failure
+story is an inference from that inspected implementation. Existing staging
+tests cover only the default queue and its pin. Preserve that default for
+existing callers, accept an explicit queue and pin only together, verify the
+selected bytes before creating output, and bind those bytes and the selected
+pin into the manifest and Docker build checks. Detection: before merge with
+custom-queue and wrong-pin tests; before production with staged-manifest and
+real archive checks. Rollback: discard the fresh context; the parked image,
+queue, state and archives stay available. Verdict: PROCEED WITH GUARDRAILS.
+
+Plan guardrail: [PM-6] pair queue selection with an explicit pin, retain legacy
+defaults, reject missing pairs and mismatches without creating output, and
+verify the staged queue hash. This prevents accidental fallback during staging;
+it does not prove candidate eligibility, Naxx-only scope or real v2 acquisition.
+Those checks remain in 03.1/03.2 before production use. Resolution: Mitigated
+by explicit inputs and rejection checks; deployment validation remains pending.
+
 | ID | Outcome | Severity | Detected | Guardrail | Prediction | Evidence |
 |---|---|---|---|---|---|---|
 | PM-5 | Inconclusive | None observed | Before production | Effective so far | Unestablished | Subject 00: with XMP off, seven baseline runs (three 8-worker seed gates, three byte-identical serial inventories, CI fast suite) and two later full gates passed at cc637a7 and 61cdb30 (`workspace/naxx-baseline-20261021/`). Root cause and long-horizon stability remain unproven; evidence work may proceed under D006. |

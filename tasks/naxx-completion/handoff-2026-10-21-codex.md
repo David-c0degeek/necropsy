@@ -1,5 +1,33 @@
 # Handoff to Codex (with LocalPilot), 2026-10-21
 
+## Current continuation, 2026-10-21
+
+This section supersedes the release and active-pair state below. Release 0.6.0
+is published from 65b1154; release close-out is recorded in 89e9450. The owner
+reported Claude has no usage and directed Codex to pick up the work (D013).
+Codex recorded Claude's quota pause and parked session
+20261021T120145Z-a4a14bde; pending reviews codex:31 and codex:32 remain pending,
+not approved. Ordinary implementation continues solo. LocalPilot remains
+advisory under D009, and production restart prerequisites remain required.
+
+Preparation now adds explicit `--queue` and `--queue-pin` staging inputs, which
+must be supplied together and match before any output is created. The old
+defaults remain available. Eleven focused tests, Ruff and targeted mypy pass.
+No Naxx queue or image is declared ready by this change.
+
+Fresh Tower read-only check at 17:48:59 UTC: runner exited on 0.5.2, status
+server running, parked backup directory present and 305 GiB visible free space.
+No server changes. A bounded normal user-endpoint readiness probe at
+17:48:59–17:49:33 UTC failed on its initial rateLimitData query with HTTP 503,
+before subject/report/event requests. Quota availability is unknown. Detailed
+local receipt: `workspace/codex-naxx/measurement-readiness-probe/budget.json`.
+
+Next: scope queue preparation to Naxx without modifying the parked queue;
+validate candidates when WCL recovers; stage the released wheel with the
+reviewed queue/pin; build a separate image, then obtain the actual v2 smoke and
+normal quota measurement. Subject 03 stays open. The older release checklist
+below is historical and must not trigger another release.
+
 The owner instructed Claude to hand over: "codex will take it from here with localpilot".
 Codex accepted ownership at pair epoch 2 and is the only tree writer. LocalPilot stays an adviser only (D009).
 Claude remains required reviewer in the harness until an explicit authorized transfer.

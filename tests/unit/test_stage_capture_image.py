@@ -78,8 +78,46 @@ def test_a_queue_that_does_not_match_its_pin_is_refused(
     queue = tmp_path / "queue.json"
     queue.write_bytes(b"{}")
     monkeypatch.setattr(stage, "QUEUE", queue)
-    with pytest.raises(ValueError, match=r"does not match capture/queue.sha256"):
+    with pytest.raises(ValueError, match=r"does not match .*capture/queue.sha256"):
         stage.stage(_release(tmp_path), tmp_path / "context", VERSION)
+
+
+def test_an_explicit_queue_is_baked_with_its_own_pin(tmp_path: Path) -> None:
+    queue = tmp_path / "naxx.json"
+    queue.write_bytes(b'{"version":1,"entries":[]}\n')
+    pin = tmp_path / "naxx.sha256"
+    digest = hashlib.sha256(queue.read_bytes()).hexdigest()
+    pin.write_text(digest + "\n", encoding="ascii")
+    out = tmp_path / "context"
+
+    stage.stage(_release(tmp_path), out, VERSION, queue=queue, queue_pin=pin)
+
+    manifest = json.loads((out / "manifest.json").read_bytes())
+    assert (out / "queue/capture-queue.json").read_bytes() == queue.read_bytes()
+    assert (out / "queue/capture-queue.sha256").read_bytes() == digest.encode() + b"\n"
+    assert manifest["queue_sha256"] == digest
+    assert manifest["files"]["queue/capture-queue.json"] == digest
+
+
+def test_an_explicit_queue_with_the_wrong_pin_leaves_no_context(tmp_path: Path) -> None:
+    queue = tmp_path / "naxx.json"
+    queue.write_bytes(b"{}")
+    pin = tmp_path / "naxx.sha256"
+    pin.write_text("0" * 64 + "\n", encoding="ascii")
+    out = tmp_path / "context"
+
+    with pytest.raises(ValueError, match="does not match"):
+        stage.stage(_release(tmp_path), out, VERSION, queue=queue, queue_pin=pin)
+
+    assert not out.exists()
+
+
+@pytest.mark.parametrize("argument", ["queue", "queue_pin"])
+def test_a_custom_queue_and_pin_must_be_supplied_together(tmp_path: Path, argument: str) -> None:
+    out = tmp_path / "context"
+    with pytest.raises(ValueError, match="supply both"):
+        stage.stage(_release(tmp_path), out, VERSION, **{argument: tmp_path / "missing"})
+    assert not out.exists()
 
 
 def test_a_non_empty_output_directory_is_refused(tmp_path: Path) -> None:

@@ -10,6 +10,9 @@ again.
 
     gh release download vX.Y.Z -p 'necropsy-X.Y.Z-py3-none-any.whl' -p SHA256SUMS -D REL
     uv run python scripts/stage_capture_image.py --release REL --out CONTEXT
+
+For a separate reviewed queue, supply both --queue QUEUE and --queue-pin PIN.
+The pin file contains the queue's SHA-256 alone, as capture/queue.sha256 does.
 """
 
 from __future__ import annotations
@@ -61,22 +64,33 @@ def release_wheel(release: Path, version: str) -> tuple[Path, str]:
     return wheel, f"{sums[name]}  {name}\n"
 
 
-def stage(release: Path, out: Path, version: str) -> dict[str, str]:
+def stage(
+    release: Path,
+    out: Path,
+    version: str,
+    *,
+    queue: Path | None = None,
+    queue_pin: Path | None = None,
+) -> dict[str, str]:
+    if (queue is None) != (queue_pin is None):
+        raise ValueError("supply both --queue and --queue-pin")
+    queue = QUEUE if queue is None else queue
+    queue_pin = CAPTURE / "queue.sha256" if queue_pin is None else queue_pin
     if out.exists() and any(out.iterdir()):
         raise ValueError(f"{out} is not empty; stage into a fresh directory")
     requirements = (CAPTURE / "requirements.txt").read_bytes()
     if requirements != lock_requirements():
         raise ValueError("capture/requirements.txt does not match uv.lock; re-export it")
-    pin = (CAPTURE / "queue.sha256").read_text(encoding="ascii").strip()
-    if sha256(QUEUE) != pin:
-        raise ValueError("the capture queue does not match capture/queue.sha256")
+    pin = queue_pin.read_text(encoding="ascii").strip()
+    if sha256(queue) != pin:
+        raise ValueError(f"the capture queue does not match {queue_pin.as_posix()}")
     wheel, sums_line = release_wheel(release, version)
     files = {
         "Dockerfile": CAPTURE / "Dockerfile",
         "entrypoint.sh": CAPTURE / "entrypoint.sh",
         "requirements.txt": CAPTURE / "requirements.txt",
         "capture_runner.py": REPOSITORY / "scripts" / "capture_runner.py",
-        "queue/capture-queue.json": QUEUE,
+        "queue/capture-queue.json": queue,
         "www/index.html": CAPTURE / "www" / "index.html",
         "www/status.mjs": CAPTURE / "www" / "status.mjs",
         f"wheel/{wheel.name}": wheel,
@@ -101,11 +115,15 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--release", type=Path, required=True, help="downloaded release assets")
     parser.add_argument("--out", type=Path, required=True, help="fresh build-context directory")
+    parser.add_argument("--queue", type=Path, help="reviewed queue (requires --queue-pin)")
+    parser.add_argument("--queue-pin", type=Path, help="queue SHA-256 file (requires --queue)")
     args = parser.parse_args(argv)
     from necropsy import __version__
 
     try:
-        staged = stage(args.release, args.out, __version__)
+        staged = stage(
+            args.release, args.out, __version__, queue=args.queue, queue_pin=args.queue_pin
+        )
     except ValueError as error:
         print(f"stage refused: {error}", file=sys.stderr)
         return 2
