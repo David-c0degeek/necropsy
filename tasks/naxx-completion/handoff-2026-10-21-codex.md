@@ -60,6 +60,13 @@ existing linter support keys do not resolve them. Historical guidance orders
 retain their old input pin; the trial audit records the original committed revision
 for replay. 02.2, 04.1 and all capture-dependent completion remain open.
 
+Next offline pass: capability catalog expanded to 25 sources, with explicit
+Consecration talent applicability and disease-removal sources. Combined-class
+Faerlina/Maexxna fragments are now excluded by conflicts. A real v1 Sapphiron
+actor-cast pilot independently matches six Remove Curse casts; research receipt
+`research/sapphiron-actor-cast-pilot.json` records locators and limits. No successful
+removal, encounter-wide coverage, actor-source registration or completion is implied.
+
 The owner instructed Claude to hand over: "codex will take it from here with localpilot".
 Codex accepted ownership at pair epoch 2 and is the only tree writer. LocalPilot stays an adviser only (D009).
 Claude remains required reviewer in the harness until an explicit authorized transfer.

@@ -305,6 +305,109 @@
         "spell-name": "Disease Cleansing Totem"
       },
       "boundary": "Corrects the earlier scratchpad misidentification of 8170 as Poison Cleansing Totem. No class attribution is taken from this page."
+    },
+    {
+      "id": "warrior-demoralizing-shout",
+      "spell_id": 1160,
+      "name": "Demoralizing Shout",
+      "class": "Warrior",
+      "class_id": 11,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "url": "https://www.wowhead.com/classic/spell=1160/demoralizing-shout",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only; player comments and retail/TBC/Wrath/SoD/Forever variants excluded.",
+      "excerpts": {
+        "warrior-demoralizing-shout-class-level": "Requires Warrior Requires level 14",
+        "warrior-demoralizing-shout-scope": "Reduces melee attack power by 45."
+      },
+      "boundary": "Rank-specific Warrior capability. Tooltip and effect fields differ on magnitude, so no effect magnitude, threat, taunt or guaranteed spider control is certified.",
+      "required_level": 14
+    },
+    {
+      "id": "paladin-consecration",
+      "spell_id": 26573,
+      "name": "Consecration",
+      "class": "Paladin",
+      "class_id": 6,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "url": "https://www.wowhead.com/classic/spell=26573/consecration",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only; player comments and retail/TBC/Wrath/SoD/Forever variants excluded.",
+      "excerpts": {
+        "paladin-consecration-talent": "ConsecrationTalent",
+        "paladin-consecration-class": "Requires Paladin",
+        "paladin-consecration-scope": "Consecrates the land beneath Paladin"
+      },
+      "boundary": "Classic talent, not baseline availability for every Paladin. No individual talent selection, threat, taunt or spider assignment follows from class alone.",
+      "requires_talent": true
+    },
+    {
+      "id": "priest-cure-disease",
+      "spell_id": 528,
+      "name": "Cure Disease",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "url": "https://www.wowhead.com/classic/spell=528/cure-disease",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only; player comments and retail/TBC/Wrath/SoD/Forever variants excluded.",
+      "excerpts": {
+        "priest-cure-disease-class-level": "Requires Priest Requires level 14",
+        "priest-cure-disease-scope": "Removes 1 disease from the friendly target."
+      },
+      "boundary": "Classic Cure Disease, not later-game Dispel Magic sharing ID 528. Positive capability does not prove a removable boss debuff or actual dispel opportunity.",
+      "required_level": 14
+    },
+    {
+      "id": "priest-abolish-disease",
+      "spell_id": 552,
+      "name": "Abolish Disease",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "url": "https://www.wowhead.com/classic/spell=552/abolish-disease",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only; player comments and retail/TBC/Wrath/SoD/Forever variants excluded.",
+      "excerpts": {
+        "priest-abolish-disease-class-level": "Requires Priest Requires level 32",
+        "priest-abolish-disease-scope": "Attempts to dispel 1 disease every 5 seconds."
+      },
+      "boundary": "Periodic disease-removal attempt, not a guaranteed removal or a raw observation.",
+      "required_level": 32
+    },
+    {
+      "id": "shaman-cure-disease",
+      "spell_id": 2870,
+      "name": "Cure Disease",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "url": "https://www.wowhead.com/classic/spell=2870/cure-disease",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only; player comments and retail/TBC/Wrath/SoD/Forever variants excluded.",
+      "excerpts": {
+        "shaman-cure-disease-class-level": "Requires Shaman Requires level 22",
+        "shaman-cure-disease-scope": "Cures 1 disease on the target."
+      },
+      "boundary": "Shaman cast ID 2870, distinct from Priest spell 528. No assignment or actual successful removal is inferred.",
+      "required_level": 22
+    },
+    {
+      "id": "shaman-disease-cleansing-totem",
+      "spell_id": 8170,
+      "name": "Disease Cleansing Totem",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "url": "https://www.wowhead.com/classic/spell=8170/disease-cleansing-totem",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only; player comments and retail/TBC/Wrath/SoD/Forever variants excluded.",
+      "excerpts": {
+        "shaman-disease-cleansing-totem-class-level": "Requires Shaman Requires level 38",
+        "shaman-disease-cleansing-totem-scope": "attempts to remove 1 disease effect from party members"
+      },
+      "boundary": "Cast/summon ID 8170. The periodic effect 8171 is separate. Neither pet ownership nor raid-wide removal coverage is certified.",
+      "required_level": 38
     }
   ]
 }

@@ -263,7 +263,11 @@
       },
       "capability_refs": [
         "classic-faction-classes",
-        "paladin-cleanse"
+        "paladin-cleanse",
+        "priest-cure-disease",
+        "priest-abolish-disease",
+        "shaman-cure-disease",
+        "shaman-disease-cleansing-totem"
       ]
     },
     {
@@ -375,7 +379,17 @@
         "classic-faction-classes",
         "paladin-cleanse",
         "shaman-cure-poison",
-        "shaman-poison-cleansing-totem"
+        "shaman-poison-cleansing-totem",
+        "priest-mind-control"
+      ],
+      "conflicts": [
+        {
+          "keys": [
+            "strat_cleansers"
+          ],
+          "issue": "The sentence combines Paladins and Shaman under Cleanse, but the sourced spell Cleanse is Paladin; Shaman poison removal has separate spells.",
+          "rule": "Exclude the combined sentence from draft support. Any replacement must cite each class spell separately and retain unknown assignment/opportunity boundaries."
+        }
       ]
     },
     {
@@ -445,6 +459,13 @@
           ],
           "issue": "The sentence names Web Wrap, but it sits in tank-survival advice about the enraged Web Spray; the main tank is not a Web Wrap target per phase_web_wrap context.",
           "rule": "Not used for guidance until a second source or raw evidence shows which ability it means; never silently corrected."
+        },
+        {
+          "keys": [
+            "warrior_taunt"
+          ],
+          "issue": "The fragment combines Warrior Demoralizing Shout and Paladin Consecration, then says Demoralizing Shout for both; the key name also incorrectly suggests a taunt.",
+          "rule": "Exclude this fragment from support. Warrior and Paladin capabilities must be separate; Consecration requires the Classic talent, and neither tooltip proves taunt, threat or observed spider control."
         }
       ],
       "capability_refs": [
@@ -452,7 +473,9 @@
         "paladin-cleanse",
         "shaman-cure-poison",
         "shaman-poison-cleansing-totem",
-        "druid-abolish-poison"
+        "druid-abolish-poison",
+        "warrior-demoralizing-shout",
+        "paladin-consecration"
       ]
     },
     {
@@ -688,13 +711,13 @@
     "Thaddius polarity, Four Horsemen marks, Gothik waves and Loatheb's healing restriction need raw-observed spell and NPC identities (PM-3, research/oracle-design.md) before any measured policy; the sentences above support guidance only.",
     "Grobbulus missing tip subjects were recovered from cached text, with image/link labels preserved. Specific class capabilities are referenced separately; no cleansing timing, buff stacking or observed coverage follows from the sentence.",
     "Heigan strategy_red_safe_zone and strategy_phase1_raid_position refer to a diagram the fetch did not return; positions are also not recorded in logs, so they support no positional advice.",
-    "Faerlina strat_cleansers attributes Cleanse to Paladins and Shaman. Capability evidence now identifies Paladin Cleanse 4987, Shaman Cure Poison 526 and Poison Cleansing Totem cast 8166/effect 8168. Do not retain Shaman Cleanse wording. Maexxna warrior_taunt still pairs Warrior Demoralizing Shout with Paladin Consecrate; capability proof for those remains open.",
+    "Faerlina strat_cleansers and Maexxna warrior_taunt are now excluded by explicit conflicts, not merely prose cautions. Separate class capability sources are linked; Paladin Consecration is a talent. A class-specific replacement still requires its own complete source/citation and applicability review; no assignment, taunt, threat or observed control is inferred.",
     "Fragments cut by the 125-character cap (marked '...' or ending mid-sentence) cannot support categorical advice; any item citing one must state only what the fragment says.",
     "Conflicts are recorded per source under `conflicts`; an item may not rely on any key named in a conflict until that conflict's rule is met."
   ],
   "capability_source_review": {
     "path": "naxx-capability-source-review.json",
-    "sha256": "cf239f28109952d3c6adbc435cd8f6a097e239428537d726a1f298e643777e38",
+    "sha256": "f21a5981a3f9f16b950590fc67899f9b1a074a1df0c2e0dd3d1d1a5ddb554274",
     "use": "Research references only; existing guidance support-key loading remains fail-closed."
   }
 }
