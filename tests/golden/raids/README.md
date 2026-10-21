@@ -17,7 +17,12 @@ contexts,9 actor-effect contexts,12 summon contexts,18 removal contexts,
 uv run python scripts/check_raid_coverage.py --inventory
 uv run python scripts/check_raid_coverage.py --inventory --staged
 uv run python scripts/check_raid_coverage.py --require-complete
+uv run python scripts/check_raid_coverage.py --inventory --raid naxxramas
 ```
+
+`--raid` audits one raid's cells and records only. An engine change for one raid
+makes another raid's batch-complete cells stale until that batch is re-attested;
+the scoped audit keeps each raid's own state readable.
 
 Inventory reports every outstanding obligation. The strict command exits 1
 until all cells are COMPLETE and their receipts validate. An inventory exit 0

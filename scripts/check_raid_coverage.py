@@ -1,7 +1,11 @@
 """Audit durable raid evidence. Inventory exit 0 never means acceptance.
 
-Usage: uv run python scripts/check_raid_coverage.py --inventory
-       uv run python scripts/check_raid_coverage.py --require-complete
+Usage: uv run python scripts/check_raid_coverage.py --inventory [--raid SLUG]
+       uv run python scripts/check_raid_coverage.py --require-complete [--raid SLUG]
+
+`--raid` audits one raid's cells and records only, so a parked raid whose batches
+went stale under another raid's engine change does not hide that raid's state.
+Without it every raid is audited.
 """
 
 from __future__ import annotations
@@ -293,11 +297,16 @@ def batch_problems(root: Path, receipt: Receipt) -> list[str]:
     )
 
 
-def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str]]:
-    cells = {cell.key: cell for cell in coverage_cells()}
+def audit(
+    register: Register, root: Path = ROOT, raid: str | None = None
+) -> tuple[Counter[str], list[str]]:
+    every = {cell.key: cell for cell in coverage_cells()}
+    cells = {key: cell for key, cell in every.items() if raid in (None, cell.raid)}
     records: dict[str, Receipt] = {}
     problems = []
     for record in register.records:
+        if record.cell_id in every and record.cell_id not in cells:
+            continue
         if record.cell_id in records:
             problems.append(f"duplicate cell: {record.cell_id}")
         if record.cell_id not in cells:
@@ -348,10 +357,12 @@ def _batch_artifacts(root: Path, ref: Reference) -> list[Reference]:
     ]
 
 
-def staged_problems(register: Register, root: Path = ROOT) -> list[str]:
+def staged_problems(register: Register, root: Path = ROOT, raid: str | None = None) -> list[str]:
     """Working-tree hashes must also identify the bytes a fresh checkout receives."""
     references = {}
     for receipt in register.records:
+        if raid is not None and receipt.cell_id.split("/", 1)[0] != raid:
+            continue
         source = receipt.real_actor_source
         refs = [source.archive, source.entries, source.provenance] if source else []
         refs.extend(ref for values in receipt.references.values() for ref in values)
@@ -399,11 +410,16 @@ def main() -> int:
     parser.add_argument(
         "--staged", action="store_true", help="also verify receipt hashes against staged Git bytes"
     )
+    parser.add_argument(
+        "--raid",
+        choices=sorted(load_rules("classic_era", "raid_scope")["raids"]),
+        help="audit only this raid's cells and records",
+    )
     args = parser.parse_args()
     register = Register.model_validate_json(args.register.read_text(encoding="utf-8"))
-    counts, problems = audit(register)
+    counts, problems = audit(register, raid=args.raid)
     if args.staged:
-        problems.extend(staged_problems(register))
+        problems.extend(staged_problems(register, raid=args.raid))
     print(
         json.dumps(
             {"cells": sum(counts.values()), "statuses": dict(counts), "problems": problems},

@@ -57,9 +57,18 @@ def test_git_preserves_evidence_bytes_including_windows_line_endings(relative: s
 def test_era_scope_contains_every_legal_configuration_and_variant() -> None:
     cells = coverage_cells()
     configs = configurations()
-    assert len(cells) == len({c.key for c in cells}) == 952
+    assert len(cells) == len({c.key for c in cells}) == 1462
     assert len(configs) == 34
-    assert len({c.encounter_id for c in cells}) == 28
+    assert len({c.encounter_id for c in cells}) == 43
+    by_raid = {raid: [c for c in cells if c.raid == raid] for raid in {c.raid for c in cells}}
+    assert {raid: len(rows) for raid, rows in by_raid.items()} == {
+        "aq40": 306,
+        "bwl": 306,
+        "mc": 340,
+        "naxxramas": 510,
+    }
+    assert {c.zone_id for c in by_raid["naxxramas"]} == {2006}
+    assert len({c.encounter_id for c in by_raid["naxxramas"]}) == 15
     assert len({(c.class_id, c.category) for c in configs}) == 19
     assert {c.variant for c in cells if c.encounter_id == 50631} == {"combined"}
     assert not any(c.class_id == 6 and c.faction == "Horde" for c in configs)
@@ -78,8 +87,22 @@ def test_era_scope_contains_every_legal_configuration_and_variant() -> None:
 
 def test_inventory_preserves_every_missing_obligation() -> None:
     counts, errors = audit(Register(version=1, records=[]))
-    assert counts == {"TODO": 952}
+    assert counts == {"TODO": 1462}
     assert errors == []
+
+
+def test_raid_scoped_audit_skips_other_raids_but_not_unknown_cells() -> None:
+    mc = next(c for c in coverage_cells() if c.raid == "mc")
+    records = [
+        Receipt(cell_id=mc.key, status="COMPLETE"),
+        Receipt(cell_id="naxxramas/99999/1/Fury/dps/Horde", status="TODO"),
+    ]
+    counts, errors = audit(Register(version=1, records=records), raid="naxxramas")
+    assert counts == {"TODO": 510}
+    assert errors == ["unknown or illegal cell: naxxramas/99999/1/Fury/dps/Horde"]
+    counts, errors = audit(Register(version=1, records=records[:1]), raid="mc")
+    assert counts == {"TODO": 339, "COMPLETE": 1}
+    assert any(e.startswith(f"{mc.key}: missing completion evidence") for e in errors)
 
 
 @pytest.mark.parametrize("content_available", [True, False])
@@ -98,7 +121,7 @@ def test_forged_complete_status_requires_content_and_real_independent_evidence(
     counts, errors = audit(
         Register(version=1, records=[Receipt(cell_id=cell.key, status="COMPLETE")])
     )
-    assert counts == {"TODO": 951, "COMPLETE": 1}
+    assert counts == {"TODO": 1461, "COMPLETE": 1}
     assert any("missing completion evidence" in e for e in errors)
     assert any("no usable real actor source" in e for e in errors)
     assert any("no sourced encounter facts" in e for e in errors) is (not content_available)

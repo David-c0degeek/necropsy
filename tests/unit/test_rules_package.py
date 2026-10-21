@@ -22,7 +22,7 @@ PROBE = (
     "assert plugin_for('classic_era', 2).name == 'Druid'; "
     "from necropsy.raids import RAIDS, encounters; "
     "assert len(RAIDS) == 4; assert all(encounters(raid) for raid in RAIDS); "
-    "from necropsy.raids.scope import coverage_cells; assert len(coverage_cells()) == 952; "
+    "from necropsy.raids.scope import coverage_cells; assert len(coverage_cells()) == 1462; "
     "print(r.load_rules('classic_era', 'racials')['racials'][0]['race'])"
 )
 

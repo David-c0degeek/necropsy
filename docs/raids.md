@@ -220,10 +220,13 @@ The durable validation inventory is available to checkout contributors:
 ```sh
 uv run python scripts/check_raid_coverage.py --inventory
 uv run python scripts/check_raid_coverage.py --require-complete
+uv run python scripts/check_raid_coverage.py --inventory --raid naxxramas
 ```
 
-The first command reports progress; the second refuses incomplete evidence.
-Current domain completion remains open for all 952 configurations. See the
+The first command reports progress; the second refuses incomplete evidence;
+`--raid` limits either to one raid's cells. The register enumerates 1,462
+boss and configuration cells: 952 for Molten Core, Blackwing Lair and AQ40 and
+510 for Naxxramas. Domain completion remains open for them. See the
 [evidence register](../tests/golden/raids/README.md) for receipt requirements.
 This inventory is developer tooling; report generation does not read development
 tracking files. The packaged scope enumerates Era partitions 1/2; other partitions

@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Developer: the raid evidence register now includes Naxxramas, 510 boss and
+  configuration cells, and `scripts/check_raid_coverage.py --raid <raid>` audits
+  one raid's cells on their own. Existing Naxxramas captures are registered as
+  actor sources where their actor streams qualify.
 - Lucifron Holy Paladin analyses count Cleanse removals of Impending Doom,
   show an exposure that ended with your own Cleanse, and add sourced Paladin
   guidance on Cleanse priorities and Lucifron's Curse range. Reference fights
