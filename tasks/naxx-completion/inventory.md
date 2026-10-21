@@ -71,7 +71,7 @@ zone 2006, partition 1. None is a v2 snapshot with whole-fight encounter streams
 |---|---|---|
 | `analysis/encounters/strategy.py:34` | `encounter_strategy` returns None for `naxxramas` | No strategy items for Naxx (01.2) |
 | `report/analysis_json.py:819` | Skips the whole encounter-context block for `naxxramas`: raid interrupts, duty, effects, mechanic removals, exposure-removal correlations, control, curses, target aura windows, summons, cohort examples, strategy | Naxx pages lack every encounter-context section that MC cells were judged on |
-| `analysis/encounters/duty.py:24` | `applies` only for zones 2000, 2002, 2005 | No duty context for Naxx |
+| `analysis/encounters/duty.py:24` | `applies` only for zones 2000, 2002, 2005; called by class role inference (`classes/classic_era/combat.py:165,200`, `druid.py:245`) and by `control.py`, `effects.py`, `interrupts.py` | No duty context for Naxx; widening it changes role inference upstream of the pages (PM-1) |
 | `snapshot/v2.py:67` | A v2 snapshot outside zones 2000, 2002, 2005 is rejected | A Naxx capture cannot carry encounter streams |
 | `wcl/acquire.py:1014` | `supports_encounter_context` only for zones 2000, 2002, 2005 | Acquisition never collects Naxx encounter streams |
 | `rules/classic_era/raid_scope.yaml` | Lists aq40, bwl, mc only | Naxx has no cells (01.1) |
@@ -82,13 +82,32 @@ zone 2006, partition 1. None is a v2 snapshot with whole-fight encounter streams
 ## Gap that 01 must add
 
 The 01 integration analysis names the strategy seam only. The larger gap is encounter context.
-Before any Naxx cell can be COMPLETE to the bar used for MC, Naxx needs:
+Before a Naxx cell can be COMPLETE on a dimension that needs encounter context, Naxx needs:
 
 1. Encounter-stream acquisition and the v2 snapshot for zone 2006 (`acquire.py`, `snapshot/v2.py`).
 2. The encounter-context block in `analysis_json.py` for Naxx, with Naxx `control`, `curses`,
-   `effects`, `removals` and `strategy` rules. Duty applies to zone 2006 too.
-3. Byte-identical output for every existing v1 Naxx archive and for the legacy Hunter and Druid
+   `effects`, `removals` and `strategy` rules.
+3. `duty.applies` gated on the archive's encounter-stream capability, not on the zone. It runs
+   upstream of the page, in class role inference (`duty.guard_action_duty` and `duty.applies`
+   in `analysis/classes/classic_era/combat.py` and `druid.py`), and in `control.py`,
+   `effects.py` and `interrupts.py`.
+4. Byte-identical output for every existing v1 Naxx archive and for the legacy Hunter and Druid
    pages, because those archives have no encounter streams.
 
-So no existing archive can be the cell evidence for encounter context. Every one of the 510 cells
-needs a new v2 capture. The existing archives stay as compatibility replays.
+## What existing archives can and cannot supply
+
+The v1 archives cannot supply whole-fight encounter or critical streams. Any dimension that
+reads them (raid interrupts, encounter effects and removals, exposure-removal pairs, control and
+curse applications, target aura windows, summons, reference fight context) needs new v2 evidence.
+
+They can still supply evidence where their scope is enough. `actor_problems` accepts a v1
+archive with live identity, a public report and complete source and target actor streams.
+Actor streams carry actor-target effects and boss-melee observations, and the archives carry
+ranking metadata and the existing frozen facts and regression replays. D036 does not require
+encounter streams for every dimension. 01.1 decides per archive and per cell which dimensions
+each one covers; nothing here registers or rejects a cell.
+
+**Acquisition strategy (proposal for 00.7/03.1):** recapture all 34 configurations in v2 so
+that every cell has full encounter coverage from one capture, and keep the v1 archives as
+reusable actor, fact, ranking and regression evidence where 01.1 accepts them. This is a
+deliberate choice for uniform encounter coverage, not a finding that v1 evidence is unusable.

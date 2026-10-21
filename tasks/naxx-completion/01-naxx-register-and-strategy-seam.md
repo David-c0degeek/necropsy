@@ -20,7 +20,7 @@ To be completed before 01.1, from 00.5. Known so far:
 - [ ] **01.2** (agent) Strategy seam for Naxx: `encounter_strategy` serves Naxx `strategy` items when present; with none present, Naxx analysis and both pages are byte-identical to the 00.2 baseline (saved-output replays).
 - [ ] **01.3** (agent) `unit_preflight`, `raid_batch` and `check_raid_coverage` accept Naxx cells; one synthetic Naxx batch test.
 - [ ] **01.4** (agent) Coverage gate scoped by raid (`--require-complete --raid naxxramas` or equivalent) so the parked raids do not block Naxx sign-off.
-- [ ] **01.5** (agent) Encounter context for zone 2006: v2 snapshot, acquisition of encounter and critical streams, duty, and the analysis_json block, gated on the archive's v2 encounter streams and never on the zone alone (PM-1). Every v1 Naxx archive, the Haplina export and the demo subset stay byte-identical to the 00.2 baseline. Released before 03 queues any capture (PM-2).
+- [ ] **01.5** (agent) Encounter context for zone 2006: v2 snapshot, acquisition of encounter and critical streams, duty, and the analysis_json block, gated on the archive's v2 encounter streams and never on the zone alone (PM-1). The gate is in `duty.applies` itself, because class role inference (`duty.guard_action_duty`, `combat.py`, `druid.py`) calls it upstream of rendering. Every v1 Naxx archive, the Haplina export and the demo subset stay byte-identical to the 00.2 baseline. Released before 03 queues any capture (PM-2).
 
 ## Hindsight checkpoint
 - [ ] Captain Hindsight review recorded
