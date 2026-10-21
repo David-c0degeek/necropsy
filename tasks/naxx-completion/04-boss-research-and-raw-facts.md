@@ -23,3 +23,4 @@ fact checks. Do not duplicate existing Naxx fact registers; extend them.
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
+2026-10-21 · 04.1 (first pass) · `tests/golden/raids/naxx-boss-source-review.json`, same shape as `mc-boss-source-review.json` (version, subject, retrieval, sources, open): 15 bosses, 420 verbatim excerpts from the 15 warcraft.wiki.gg Classic pages that `naxxramas_facts.yaml` already cites (URLs asserted equal), each with its page-last-edited line. Limits recorded in the file: the fetch tool caps quotes at 125 characters, so some excerpts are fragments; three pages omitted their longest sentences and Kel'Thuzad came back as a selection; level 70, Wrath, Season and loot lines excluded. Box stays open: capability sources (race, faction and class spell availability) and second fetches for Kel'Thuzad, Heigan, Anub'Rekhan and Gothik are listed under `open`.
