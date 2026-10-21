@@ -159,7 +159,7 @@ with a source.
 
 | Done | # | File | Status | Owner summary | Human actions mirrored? |
 |---|---|---|---|---|---|
-| [ ] | 00 | `00-tooling-research-and-readiness.md` | IN_PROGRESS | agent; product-owner (XMP) | yes |
+| [x] | 00 | `00-tooling-research-and-readiness.md` | DONE | agent; product-owner (XMP) | yes |
 | [ ] | 01 | `01-naxx-register-and-strategy-seam.md` | TODO | agent | n/a |
 | [ ] | 02 | `02-local-work-orders.md` | TODO | agent | n/a |
 | [ ] | 03 | `03-naxx-captures.md` | TODO | agent; product-owner (Tower restart) | yes |
