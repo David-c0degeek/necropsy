@@ -70,8 +70,10 @@ promised gains.
 ### What FULLY implemented means
 
 The D036 layers (see `scripts/raid_batch.py` and `tasks/RaidCompletion-Plan.md`
-D036) applied to Naxx, all 510 cells COMPLETE or explicitly OPEN with a recorded
-evidence reason. Prior Naxx acceptance (AllClasses/ClassExpansion, 2026-10-15) is
+D036) applied to Naxx: **every applicable cell COMPLETE**. OPEN tracks progress
+only; an OPEN cell (for example, scarce logs) is an explicit blocker to full
+acceptance, never a reduced denominator. Partial delivery would need a separate,
+explicit owner scope decision and could not be called full completion. Prior Naxx acceptance (AllClasses/ClassExpansion, 2026-10-15) is
 **not inherited** (D005): its accepted limits (Holy Priest fixture without live
 healing evidence, retired Druid SME review) are re-opened as cells. Lack of logs is
 OPEN, never N/A; N/A needs ruleset illegality or demonstrated WCL unavailability
@@ -84,7 +86,7 @@ with a source.
 | Adding Naxx strategy and cells changes existing Naxx pages | Saved analyses and legacy views regress | Naxx legacy/live/browser/package controls in every gate (§2); additive rules; byte-compare saved-output replays; revert the module change. |
 | Local runner output is wrong but plausible | Bad facts or advice enter the tree | Work orders produce drafts only; every field has a machine verifier; raw oracles are independent of the analyzer; Claude reads and Codex reviews every content diff. Revert the batch. |
 | Content errors in class/race/faction capability | Misleading coaching | Capability source ledger per class; guidance_lint; review checks every claim against its excerpt. |
-| PC memory instability corrupts evidence or gates | False failures, or worse, bad bytes | XMP off before start (owner); 8-worker gate re-run in 00; hashes and pins catch bit flips; Tower and CI provide second hosts. |
+| PC memory instability corrupts evidence or gates | False failures, or worse, bad bytes | XMP off before start (owner); trusted baseline in 00.3 before any evidence work (D004); hashes and pins catch later bit flips but not corruption before hashing; Tower and CI provide second hosts. |
 | WCL quota limits captures | Cells stay OPEN for want of logs | One reviewed queue on Tower using the whole quota; reuse existing archives; quota stops resume. |
 | Naxx DPS ranking needs a policy family not built yet | DPS cells cannot validate | 05 builds the DPS generator first on one boss and proves it against raw before scaling. |
 
@@ -144,7 +146,7 @@ with a source.
 | D001 | 2026-10-21 | Park MC/BWL/AQ40; Naxx first | MC/BWL/AQ40 work stops after the D036 (a)/(b) landing (main 2bc1a30, 821e67f). Their register, closures, batch and Tower archives stay as they are; nothing is deleted. The Tower runner is stopped and its watchdog disabled (unraid-tower c779d5b); it restarts only with a reviewed Naxx queue. | Owner: "Park MC, BWL and AQ40. Lets fully complete Naxx to the highest standard." Answered: stop Tower now and requeue Naxx; land D036 first. | RaidCompletion-Plan; 03 |
 | D002 | 2026-10-21 | Completion bar | Naxx cells use the D036 layer model unchanged: engine digest, receipt per capture, content digest per boss × configuration, batch manifest. Extensions go into the same tools, not copies. | Proven on 17 MC cells; one bar for all raids. | 01; 06 |
 | D003 | 2026-10-21 | Three-seat work split | Local runner (Qwen3.6 35B-A3B on LocalBox, LocalPilot) executes work orders and drafts; Claude specifies, verifies, extracts sources, writes the tree and reviews content; Codex reviews batches. Ornith 35B is not the runner (used injected project context 0/30). The local runner's review verdicts are advisory only. | Owner question and setup, 2026-10-21; LocalX evidence in §2. Expected: frontier use roughly halved, not removed. | 02 |
-| D004 | 2026-10-21 | Hardware precondition | Owner disables XMP before 00 starts. 00 re-runs the 8-worker seed gate three times; until it is clean, gates run at 4 workers and the earlier 8-worker failures stay recorded. | 2026-10-20 bit flip ("nuln") and access violations under 8-way load. | 00.3 |
+| D004 | 2026-10-21 | Hardware precondition and trusted baseline | Owner disables XMP before 00 starts. No new Naxx evidence is generated or accepted until 00.3 establishes a trustworthy baseline on the selected host and settings. Failures are classified and all are kept: ordinary assertion failures (code defects) versus suspected corruption or native crashes (garbled bytes, access violations, stdout-less exits, nondeterministic subset failures). Fewer workers alone does not establish stability; a later pass never overrides an earlier failure. Hashes catch corruption only after hashing, so evidence produced on an unstable host is regenerated, not reused. | 2026-10-20 bit flip ("nuln") and access violations under 8-way load; 2026-10-21 serial `check_raid_coverage --inventory` at 83d1b1d: one run 9 false subset failures, one clean, one died without output (Codex #196). Root cause unconfirmed. | 00.3 |
 | D005 | 2026-10-21 | No inherited Naxx waiver | Prior Naxx acceptance does not complete any cell. Its limits become OPEN cells to close. | Highest-standard instruction. | 01 |
 
 ---
@@ -194,7 +196,7 @@ paths. Plan-specific:
 - [ ] `manual-actions.md` resolved or deferred
 - [ ] `cleanup-audit` run or waived; findings triaged
 - [ ] Lessons migrated to `tasks/lessons.md`
-- [ ] All 510 Naxx cells COMPLETE or OPEN with a recorded evidence reason; `check_raid_coverage --require-complete` (Naxx scope) passes for every closable cell
+- [ ] Every applicable Naxx cell (510, or the 01 recount) COMPLETE; `check_raid_coverage --require-complete` (Naxx scope) passes with no OPEN cell. Any OPEN cell blocks this gate unless a separate owner decision accepts partial delivery, which then cannot be called full completion
 - [ ] Every boss has verified targets, sourced facts, boss × class guidance and reconciled ranking policies for every configuration
 - [ ] Naxx legacy/live/saved-output, browser and package controls pass; intended changes reviewed
 - [ ] Every PM-* risk has a terminal Resolution and Captain Hindsight calibration
