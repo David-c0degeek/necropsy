@@ -3,7 +3,7 @@
   "records": [
     {
       "cell_id": "mc/50663/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
@@ -26,20 +26,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-holy-raid-context-330"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "healing-mc-holy-raid-context-330"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50663/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Normal installed full-raid format2 capture;120 player directions and114 global scopes complete, two pet ownership listings remain missing. Independent actor/recipient/context facts; full duty, physical opportunity, ranking and acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "bwl/50631/7/Holy/hps/Alliance",
@@ -743,7 +738,7 @@
     },
     {
       "cell_id": "mc/50665/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
@@ -766,20 +761,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-holy-raid-context-345"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "healing-mc-holy-raid-context-345"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50665/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Normal installed full-raid format2 capture;120 player directions and114 global scopes complete, two pet ownership listings remain missing. Independent actor/recipient/context facts; full duty, physical opportunity, ranking and acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50665/4/Fire/dps/Horde",
@@ -818,7 +808,7 @@
     },
     {
       "cell_id": "mc/50668/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
@@ -841,50 +831,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-holy-raid-context-333"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "healing-mc-holy-raid-context-333"
-          },
-          {
-            "path": "tests/golden/raids/removal-facts.json",
-            "sha256": "65793f53706d4c5b723b6816d8f9309fb19097936e1ed7db5cf6bce40695dea6",
-            "locator": "geddon-priest-ignite-mana-removals-1"
-          },
-          {
-            "path": "tests/golden/raids/removal-facts.json",
-            "sha256": "65793f53706d4c5b723b6816d8f9309fb19097936e1ed7db5cf6bce40695dea6",
-            "locator": "geddon-priest-ignite-mana-removals-2"
-          },
-          {
-            "path": "tests/golden/raids/removal-facts.json",
-            "sha256": "65793f53706d4c5b723b6816d8f9309fb19097936e1ed7db5cf6bce40695dea6",
-            "locator": "geddon-priest-ignite-mana-removals-3"
-          },
-          {
-            "path": "tests/golden/raids/removal-facts.json",
-            "sha256": "65793f53706d4c5b723b6816d8f9309fb19097936e1ed7db5cf6bce40695dea6",
-            "locator": "geddon-priest-ignite-mana-removals-4"
-          },
-          {
-            "path": "tests/golden/raids/removal-facts.json",
-            "sha256": "65793f53706d4c5b723b6816d8f9309fb19097936e1ed7db5cf6bce40695dea6",
-            "locator": "geddon-priest-ignite-mana-removals-5"
-          },
-          {
-            "path": "tests/golden/raids/removal-facts.json",
-            "sha256": "65793f53706d4c5b723b6816d8f9309fb19097936e1ed7db5cf6bce40695dea6",
-            "locator": "geddon-priest-ignite-mana-removals-6"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50668/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Normal installed full-raid format2 capture;120 player directions and114 global scopes complete, two pet ownership listings remain missing. Independent actor/recipient/context facts; full duty, physical opportunity, ranking and acceptance remain open. Independently frozen Geddon Priest removal facts: one owned effect and five known-zero contexts; exposure pairing does not establish reaction quality or opportunity."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50668/3/Marksmanship/dps/Alliance",
@@ -928,7 +883,7 @@
     },
     {
       "cell_id": "mc/50667/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
@@ -951,20 +906,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-holy-raid-context-348"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "healing-mc-holy-raid-context-348"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50667/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Normal installed full-raid format2 capture;120 player directions and114 global scopes complete, two pet ownership listings remain missing. Independent actor/recipient/context facts; full duty, physical opportunity, ranking and acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50667/3/Marksmanship/dps/Alliance",
@@ -1003,7 +953,7 @@
     },
     {
       "cell_id": "mc/50669/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
@@ -1026,20 +976,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-holy-raid-context-298"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "healing-mc-holy-raid-context-298"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50669/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Normal installed full-raid format2 capture;120 player directions and114 global scopes complete, two pet ownership listings remain missing. Independent actor/recipient/context facts; full duty, physical opportunity, ranking and acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50669/8/Assassination/dps/Alliance",
@@ -1078,7 +1023,7 @@
     },
     {
       "cell_id": "mc/50670/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-golemagg-context-holy.zip",
@@ -1101,19 +1046,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-golemagg-context-holy-185"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50670/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Usable actor and encounter-context seed; independent actor arithmetic verified. Ranking, phases, opportunities and full acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50671/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-majordomo-context-holy.zip",
@@ -1136,15 +1081,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-majordomo-context-holy-192"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50671/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Usable actor and encounter-context seed; independent actor arithmetic verified. Ranking, phases, opportunities and full acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50670/11/Fury/dps/Alliance",
@@ -1253,7 +1198,7 @@
     },
     {
       "cell_id": "mc/50666/7/Holy/hps/Alliance",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
@@ -1276,20 +1221,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-holy-raid-context-289"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "healing-mc-holy-raid-context-289"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50666/7/Holy/hps/Alliance"
           }
         ]
       },
-      "note": "Normal installed full-raid format2 capture;120 player directions and114 global scopes complete, two pet ownership listings remain missing. Independent actor/recipient/context facts; full duty, physical opportunity, ranking and acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50672/7/Holy/hps/Alliance",
@@ -2651,7 +2591,7 @@
           },
           {
             "path": "tests/golden/raids/mc-boss-source-review.json",
-            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb",
             "locator": "sources"
           }
         ],
@@ -2736,7 +2676,7 @@
           },
           {
             "path": "tests/golden/raids/mc-boss-source-review.json",
-            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb",
             "locator": "sources"
           }
         ],
@@ -2821,7 +2761,7 @@
           },
           {
             "path": "tests/golden/raids/mc-boss-source-review.json",
-            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb",
             "locator": "sources"
           }
         ],
@@ -2906,7 +2846,7 @@
           },
           {
             "path": "tests/golden/raids/mc-boss-source-review.json",
-            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb",
             "locator": "sources"
           }
         ],
@@ -3111,7 +3051,7 @@
           },
           {
             "path": "tests/golden/raids/mc-boss-source-review.json",
-            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb",
             "locator": "sources"
           }
         ],
@@ -3196,7 +3136,7 @@
           },
           {
             "path": "tests/golden/raids/mc-boss-source-review.json",
-            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb",
             "locator": "sources"
           }
         ],
@@ -3281,7 +3221,7 @@
           },
           {
             "path": "tests/golden/raids/mc-boss-source-review.json",
-            "sha256": "6a000c6cfbe4c22ca0832bdff072891f9af58dcadefb202b9e265e09e11ac315",
+            "sha256": "87d1a7977758137cfbc4bced4aecf863b12f0a640fa17fc92711d6912428a5eb",
             "locator": "sources"
           }
         ],
@@ -3368,7 +3308,7 @@
     },
     {
       "cell_id": "mc/50663/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3391,20 +3331,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-20"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-20"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50663/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50664/9/Restoration/hps/Horde",
@@ -3448,7 +3383,7 @@
     },
     {
       "cell_id": "mc/50665/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3471,24 +3406,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-21"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-21"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50665/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50666/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3511,24 +3441,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-35"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-35"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50666/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50667/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3551,24 +3476,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-45"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-45"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50667/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50668/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3591,24 +3511,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-19"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-19"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50668/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50669/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3631,24 +3546,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-18"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-18"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50669/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50670/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3671,24 +3581,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-41"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-41"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50670/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50671/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3711,24 +3616,19 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-9"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-9"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50671/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50672/9/Restoration/hps/Horde",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "real_actor_source": {
         "archive": {
           "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
@@ -3751,20 +3651,15 @@
         "partition": 1
       },
       "references": {
-        "independent_facts": [
+        "batch": [
           {
-            "path": "tests/golden/raids/facts.json",
-            "sha256": "d888b39c615bfe55ea6bd28d26f765c3117e6cfcf22ea02e6feae25f9525b685",
-            "locator": "mc-restoration-shaman-actor-29"
-          },
-          {
-            "path": "tests/golden/raids/healing-facts.json",
-            "sha256": "df668158fa0caadc4b82dfb7251d873bc4b1342c86314c93d7cf136e1f95ce3b",
-            "locator": "mc-restoration-shaman-healing-recipients-29"
+            "path": "tests/golden/raids/batches/mc-healers-1.json",
+            "sha256": "7a0d629ceeeb1b1792f385e445bf5135762f73d8a5da478af47b4d245ffdcf4c",
+            "locator": "mc/50672/9/Restoration/hps/Horde"
           }
         ]
       },
-      "note": "All10 personal Horde Restoration/HPS bosses and five comparisons each.60 actor/context and60 recipient cases;59 owner contexts retain17 totem units. Avaztwo pet104 owner remains unresolved and the missing listing is excluded from pet facts. Recorded score policy, assignments, summon coaching, mechanic bounds and domain/product acceptance remain open."
+      "note": "Layer-based completion (D036), batch mc-healers-1, receipts at 2bc1a3074fe2. The earlier closure in tests/golden/raids/closures/ is history, not this approval. Removal and support duties are guidance only; class cooldowns are observations without expected-use targets; loadout is a declared source limitation."
     },
     {
       "cell_id": "mc/50663/9/Elemental/dps/Horde",

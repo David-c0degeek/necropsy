@@ -1,0 +1,119 @@
+{
+  "commit": "2bc1a3074fe26333cd2745f0dc5cc1840de93a35",
+  "unit": {
+    "zone": 2000,
+    "partition": 1,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "archive": {
+    "path": "tests\\golden\\raids\\raw\\mc-golemagg-context-holy.zip",
+    "sha256": "1a7cbe671ee9a10f3aa5ac40f7253f38631209dc5ff00bf346ae0d0ac33882cc"
+  },
+  "entries": {
+    "path": "tests\\golden\\raids\\raw\\mc-golemagg-context-holy.entries",
+    "sha256": "353fd3f32b82934ab6512cb532c17f38aad2d6b77a8bf74278de4579fdcb5276"
+  },
+  "wheel": {
+    "name": "necropsy-0.5.2-py3-none-any.whl",
+    "sha256": "ce596fcc4be0baa7dea1aea1a67ffa8ac744fb3cf693828c5cb29bfda383aad4",
+    "payload": {
+      "files": 147,
+      "mismatched": [],
+      "not_in_git": [],
+      "missing_from_wheel": []
+    }
+  },
+  "installed_from": "C:\\repos\\necropsy\\workspace\\rp-d036-golemagg\\venv\\Lib\\site-packages\\necropsy\\__init__.py",
+  "outputs": {
+    "analysis.json": {
+      "source": "4797070c0e6b4b8a1e62543e76c5886826c41675e4a898deb12de3b1bc19ce86",
+      "installed": "4797070c0e6b4b8a1e62543e76c5886826c41675e4a898deb12de3b1bc19ce86"
+    },
+    "report.html": {
+      "source": "c02015d9c88639b0d2c5b2d754d6b38809ec7a75c5e533300573b6360d43316e",
+      "installed": "c02015d9c88639b0d2c5b2d754d6b38809ec7a75c5e533300573b6360d43316e"
+    },
+    "playbook.html": {
+      "source": "fa329ca2a04abec694500afdcb8bb22f139cdbb392ae6ea4e089f8cb9f613850",
+      "installed": "fa329ca2a04abec694500afdcb8bb22f139cdbb392ae6ea4e089f8cb9f613850"
+    },
+    "necropsy-74578049-2000.zip": {
+      "source": "5bd89f37d0367b1d9eca30a6c9273c750b31e615f48c50fd0f4afb3e418b19e4",
+      "installed": "5bd89f37d0367b1d9eca30a6c9273c750b31e615f48c50fd0f4afb3e418b19e4"
+    }
+  },
+  "source_equals_installed": true,
+  "content": {
+    "bosses": {
+      "50670": {
+        "outcome": "checked",
+        "sections_missing": [],
+        "strategy": {
+          "expected": 8,
+          "missing": {
+            "report.html": [],
+            "playbook.html": []
+          }
+        },
+        "facts": {
+          "expected": 2,
+          "missing": {
+            "report.html": [],
+            "playbook.html": []
+          }
+        },
+        "class_notes": {
+          "expected": 2,
+          "missing": {
+            "report.html": [],
+            "playbook.html": []
+          }
+        },
+        "removals": {
+          "expected": 0,
+          "missing": {
+            "report.html": [],
+            "playbook.html": []
+          }
+        }
+      }
+    },
+    "missing_texts": 0,
+    "missing_sections": 0,
+    "unchecked_bosses": []
+  },
+  "content_source_missing": 0,
+  "visual": {
+    "report.html": {
+      "exit": 0,
+      "summary": "5 screens, 0 with findings",
+      "findings_sha256": "3665f972f97a1b22e78d55f6518625abec7e61236c5c4d4a746d78ab0a45a886",
+      "anchors": 2
+    },
+    "playbook.html": {
+      "exit": 0,
+      "summary": "5 screens, 0 with findings",
+      "findings_sha256": "f74f3461155ef811a9389d580138f2c8fa0ca4b862c02f184f6b309f85a52afe",
+      "anchors": 2
+    }
+  },
+  "sample_by_eye": [
+    "report/report.html-1440-dark-at-boss-50670-plan.png",
+    "report/report.html-390-light-at-boss-50670-plan.png",
+    "playbook/playbook.html-1440-light-at-boss-50670-during.png",
+    "playbook/playbook.html-390-dark-at-boss-50670-during.png",
+    "playbook/playbook.html-1440-light-print-at-boss-50670-during.png"
+  ],
+  "tools": {
+    "python": "3.14.6",
+    "uv": "uv 0.11.21 (5aa65dd7a 2026-06-11 x86_64-pc-windows-msvc)",
+    "render_parity_sha256": "ecf5548ce9c2bd6371133a5bcc052f1e0b1ff9e5dc568d255a0e6b2fe7891516",
+    "visual_check_sha256": "06f45bed35289abe4b1de1872142621795632cbd37896e29667e517e67d3e937",
+    "requirements_sha256": "63c0fd74553731588dd98d7c937a31962c2074118a48431f36a6906fb51f4bdb",
+    "uv_lock_sha256": "77a2980b10e7adff34b199c0bd3b15d479d5f6908193b0978ee72c5c29319ab4"
+  },
+  "note": "Evidence for review only; not a closure and not visual or domain approval."
+}

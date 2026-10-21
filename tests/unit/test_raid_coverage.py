@@ -35,6 +35,8 @@ from scripts.check_raid_coverage import (
         "raw/mc-holy.sha256",
         "raw/mc-holy-raid/74578049-2000-20261017T175812.entries",
         "raw/mc-holy-raid/74578049-2000-20261017T175812.sha256",
+        "batches/mc-healers-1.json",
+        "receipts/mc-healers-1-priest.json",
     ],
 )
 def test_git_preserves_evidence_bytes_including_windows_line_endings(relative: str) -> None:

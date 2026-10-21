@@ -1,0 +1,515 @@
+{
+  "version": 1,
+  "batch": "mc-healers-1",
+  "commit": "2bc1a3074fe26333cd2745f0dc5cc1840de93a35",
+  "attested_at": "2bc1a3074fe26333cd2745f0dc5cc1840de93a35",
+  "engine": {
+    "mc": "c0284678748ef9c6834b9004583e657657b1601229e3d8a11eb07c5fc10bb2e7"
+  },
+  "captures": {
+    "priest": {
+      "archive": {
+        "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+        "sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249"
+      },
+      "entries": {
+        "path": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.entries",
+        "sha256": "186d9c2f60ffcd2f8907c658305389f64975da5f4dcb5b54c6948f754c56a0f3"
+      },
+      "receipt": {
+        "path": "tests/golden/raids/receipts/mc-healers-1-priest.json",
+        "sha256": "b1c1788967d570b85f9664ab4270ca3de9c9a11d45135e099066756fb368e147"
+      },
+      "receipt_commit": "2bc1a3074fe26333cd2745f0dc5cc1840de93a35",
+      "visual_sample": {
+        "picture": "playbook/playbook.html-390-dark-at-boss-50663-during.png",
+        "by": "claude (shared-tree writer), picture opened and read",
+        "result": "Text legible, no overlap or overflow at 390 dark; class-specific items and recorded opener shown. The anchored section heading sits under the sticky boss menu (pre-existing scroll offset, not a content defect)."
+      }
+    },
+    "golemagg": {
+      "archive": {
+        "path": "tests/golden/raids/raw/mc-golemagg-context-holy.zip",
+        "sha256": "1a7cbe671ee9a10f3aa5ac40f7253f38631209dc5ff00bf346ae0d0ac33882cc"
+      },
+      "entries": {
+        "path": "tests/golden/raids/raw/mc-golemagg-context-holy.entries",
+        "sha256": "353fd3f32b82934ab6512cb532c17f38aad2d6b77a8bf74278de4579fdcb5276"
+      },
+      "receipt": {
+        "path": "tests/golden/raids/receipts/mc-healers-1-golemagg.json",
+        "sha256": "650e7b1fddf4c9778dfe74e4f4391f1ea8e64f207df4aa776a2fddd52a1c8e3d"
+      },
+      "receipt_commit": "2bc1a3074fe26333cd2745f0dc5cc1840de93a35",
+      "visual_sample": {
+        "picture": "playbook/playbook.html-390-dark-at-boss-50670-during.png",
+        "by": "claude (shared-tree writer), picture opened and read",
+        "result": "Text legible, no overlap or overflow at 390 dark; class-specific items and recorded opener shown. The anchored section heading sits under the sticky boss menu (pre-existing scroll offset, not a content defect)."
+      }
+    },
+    "majordomo": {
+      "archive": {
+        "path": "tests/golden/raids/raw/mc-majordomo-context-holy.zip",
+        "sha256": "956df5589c5eeca96ec7759e0f9388818bbf09bfb37b7b67ccd037078e0a79a6"
+      },
+      "entries": {
+        "path": "tests/golden/raids/raw/mc-majordomo-context-holy.entries",
+        "sha256": "1676cff9bd9dc868bee7c96b67296222343fb20410a0fe970de6a3005348efab"
+      },
+      "receipt": {
+        "path": "tests/golden/raids/receipts/mc-healers-1-majordomo.json",
+        "sha256": "0ef4faf6c739b99ac4ce5e53ab68d98c9e0ed4dfc4a7700fa923660f41406f95"
+      },
+      "receipt_commit": "2bc1a3074fe26333cd2745f0dc5cc1840de93a35",
+      "visual_sample": {
+        "picture": "playbook/playbook.html-390-dark-at-boss-50671-during.png",
+        "by": "claude (shared-tree writer), picture opened and read",
+        "result": "Text legible, no overlap or overflow at 390 dark; class-specific items and recorded opener shown. The anchored section heading sits under the sticky boss menu (pre-existing scroll offset, not a content defect)."
+      }
+    },
+    "shaman": {
+      "archive": {
+        "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+        "sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed"
+      },
+      "entries": {
+        "path": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.entries",
+        "sha256": "a8a56ae8395f82682e8b54a3f341cfbf5ed8e5883247cc3614a84322fe165656"
+      },
+      "receipt": {
+        "path": "tests/golden/raids/receipts/mc-healers-1-shaman.json",
+        "sha256": "48d7517452df9ce76cd0e4e47c8d2232abf0513fe100ac3fbd0f05f2c25644c6"
+      },
+      "receipt_commit": "2bc1a3074fe26333cd2745f0dc5cc1840de93a35",
+      "visual_sample": {
+        "picture": "playbook/playbook.html-390-dark-at-boss-50663-during.png",
+        "by": "claude (shared-tree writer), picture opened and read",
+        "result": "Text legible, no overlap or overflow at 390 dark; class-specific items and recorded opener shown. The anchored section heading sits under the sticky boss menu (pre-existing scroll offset, not a content defect)."
+      }
+    }
+  },
+  "cells": {
+    "mc/50663/7/Holy/hps/Alliance": {
+      "capture": "priest",
+      "report": "ZzYr1NR6LpHkyjTc",
+      "fight": 3,
+      "actor": 32,
+      "content": "6b624d712f5a72c8a872f84206b2c9500d7a33c89690f0c425af5bcea2e7a0be",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-holy-raid-context-330",
+          "digest": "5c3529173fc814297e71652dad293bd7d8d3a77bc1b5feb8f30be20a501d9904"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-holy-raid-context-330",
+          "digest": "b66b16c40b017f414ad8eaa612ac6cf8e656fdbffe81e825ba2c912c545113e7"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-lucifron-holy-priest.json",
+        "sha256": "ffe3a231b672a1f89fe0808e4981380e2d37f28d538667cb04fe2a0d86f02778"
+      }
+    },
+    "mc/50665/7/Holy/hps/Alliance": {
+      "capture": "priest",
+      "report": "wjWt8JCzRKqV1gkG",
+      "fight": 6,
+      "actor": 28,
+      "content": "42572f0df7f6692b70ad694eeafc3dd509e51426d13d62a079fc91caef0520d5",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-holy-raid-context-345",
+          "digest": "ff3a248404ff2ed05aca3c54e527bc2dfcd49a35f5fc87bd353f34b1b3a670e1"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-holy-raid-context-345",
+          "digest": "adc12bc426466b8f4196065818cb23e2eb179dacfda6ed36372e01ed3b2445c6"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-gehennas-holy-priest.json",
+        "sha256": "da1e3eb59b22f12f92d8b4ed4eefd65d6ace9c811fb7bd7e1f102249878d06ee"
+      }
+    },
+    "mc/50668/7/Holy/hps/Alliance": {
+      "capture": "priest",
+      "report": "fdRrFwaKmvy3xJZD",
+      "fight": 10,
+      "actor": 7,
+      "content": "4b09a6c678c1924b7c5021597e1a43ae076f4db36c7a4e285a761e1bc53a8777",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-holy-raid-context-333",
+          "digest": "c5f98c79e369dda4e7dab7401c03d1a0416822b331f5395447ae26b1fa98edc9"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-holy-raid-context-333",
+          "digest": "287b641a96ae0beaaaab99974d3d32287bf2d04459465000204e38074e749862"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-geddon-holy-priest.json",
+        "sha256": "75a677119981f518357697c8b3c0d178bdbb685e445054909f4f418057571417"
+      }
+    },
+    "mc/50667/7/Holy/hps/Alliance": {
+      "capture": "priest",
+      "report": "yGLZpJgXT3nW1CFK",
+      "fight": 17,
+      "actor": 10,
+      "content": "c8fa7c36d3fe43bf0334b2534626e7ba1ff52659a76140abbe0d172b32d8358b",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-holy-raid-context-348",
+          "digest": "77580e873fd7a85621ef750746f8631756733e04e0555dd4804748f4e9f7de13"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-holy-raid-context-348",
+          "digest": "2d81e2d9a072996cee453c82e0bf5ae23e43b5271050eda250f8aa1e0c5efc72"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-shazzrah-holy-priest.json",
+        "sha256": "96364ebcb4e9d4005e12a0edfb511a04b27138e7ccb652d5c39ff6cf84665360"
+      }
+    },
+    "mc/50669/7/Holy/hps/Alliance": {
+      "capture": "priest",
+      "report": "7HRVn849AKpbGcmv",
+      "fight": 26,
+      "actor": 27,
+      "content": "9807c3ff891afe005b29bd96b215dcd6edfb302f3ea2060b855433cc17a8f785",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-holy-raid-context-298",
+          "digest": "79c4f879b10ea0bdfa0921ebc5241556fc192182d087e673b79a9f2238a0b56e"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-holy-raid-context-298",
+          "digest": "c2946e744eb98c97df8603620b2c58d5282e8a3a1509c0ca2888e4906fc290b4"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-sulfuron-holy-priest.json",
+        "sha256": "c321d219368efc5e0ac7e3184c69712663c12b759ef30f81dbfe0db118fbac6c"
+      }
+    },
+    "mc/50670/7/Holy/hps/Alliance": {
+      "capture": "golemagg",
+      "report": "fdRrFwaKmvy3xJZD",
+      "fight": 16,
+      "actor": 7,
+      "content": "ed2852632a33f7508010865f22aeaa321b31f265aa1d74040218aae099432c79",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-golemagg-context-holy-185",
+          "digest": "4ea2a9983a75c250023d566d8156d8198893e8d56febdba2e90346d2f682b23e"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-golemagg-context-holy-185",
+          "digest": "254fa202c7fcaba895adb7c820d4a4f049e0d1f2b216c97efd8bc814f787e82b"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-golemagg-holy-priest.json",
+        "sha256": "f78b6ae6e027ac68f84389481a0b4a36a0c1c23106d9fee9fce67310bed9fc3c"
+      }
+    },
+    "mc/50671/7/Holy/hps/Alliance": {
+      "capture": "majordomo",
+      "report": "wjWt8JCzRKqV1gkG",
+      "fight": 21,
+      "actor": 28,
+      "content": "99b178b84b384a208053d4949c54aedc576689c18af8df69c4696b4baaa55d56",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-majordomo-context-holy-192",
+          "digest": "0ae3cc8f6cbbc08632a696863a714aee25d508774ed0ea9d89694eeff6f7e10b"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-majordomo-context-holy-192",
+          "digest": "991a9c8afe0246f395433b2d903d8f8324ffe17162abc982cdedcd8ce19a383b"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-majordomo-holy-priest.json",
+        "sha256": "dee4b23f532967749037405ab69122f48f720e6a06b0d88668e6358e5458e071"
+      }
+    },
+    "mc/50666/7/Holy/hps/Alliance": {
+      "capture": "priest",
+      "report": "18D4MtX7JvPjxZg3",
+      "fight": 8,
+      "actor": 3,
+      "content": "1866d1a4850d31734848dd766359185e2a3a02e52ef46301d0904029dec4a0b9",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-holy-raid-context-289",
+          "digest": "9cb13437deb78b1163262f744d65b20b6abfae65261781ff466ca8f4f5b2e147"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "healing-mc-holy-raid-context-289",
+          "digest": "c045e34572d3ef230610fd238e44e4436812c9b96f47c69b6a855622785d951c"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-garr-holy-priest.json",
+        "sha256": "ce7bf83890764ee7a4f4610746cf673102f6921b41542541bf6137caa0077085"
+      }
+    },
+    "mc/50663/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "PGcA1rjZMKVvFw2f",
+      "fight": 6,
+      "actor": 40,
+      "content": "8e0f3d20dd6b1f42f6b7a88fecbfcd28880256790794a65c700b0a98613d07b2",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-20",
+          "digest": "7b0a0a8b443aadc48a290bd9cd6b785ec9582981f495eaec28eaaabe6970ec69"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-20",
+          "digest": "ae6b08a7ad5367e31ca37d6e3d41dfced30ccb9a3b29b40bb6eca18bd26f32c9"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-lucifron-restoration-shaman.json",
+        "sha256": "8fc59f9491967252caf2d05f6ac6d619acfbccada8e0ee3ae299a3e707c2865e"
+      }
+    },
+    "mc/50665/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "PGcA1rjZMKVvFw2f",
+      "fight": 17,
+      "actor": 40,
+      "content": "92798dfc83a99f25c9bd26a90d15ffa5167a7e9de639c6ac70328fe6f14814ee",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-21",
+          "digest": "bde474def335cc9f55e8826342ff62f83af7281ec2f97c2230fa2a9ba89926cf"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-21",
+          "digest": "dd7411bc6feaa509ea2e689192ef3365a4f9a0f03033450fb8ddf4cbb513c4d9"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-gehennas-restoration-shaman.json",
+        "sha256": "f785ea4bc7875ade11810389629b4aaa04c11f09f2ec053c69f2a07838aab56e"
+      }
+    },
+    "mc/50666/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "bLXQg1Wn4ac9xrZh",
+      "fight": 29,
+      "actor": 28,
+      "content": "255a65fd3e6f878860125812a28282a1673a1857ca0613e67bb93fdd9dc37150",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-35",
+          "digest": "a3b368e8a17d8454e89fe6a997a2101c1ed2e50dd32ec2ad4c387e6762c29ec7"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-35",
+          "digest": "8b641beb6f287b54ec516cd8998d0e25759164d8a6e7644f7b625495fce955c3"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-garr-restoration-shaman.json",
+        "sha256": "7a10e90af7f7c62c0b0aecb33ca9bb02d0d17984aebe0176b065c96391c0dfa9"
+      }
+    },
+    "mc/50667/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "hkvpYaLB4D3f1C6m",
+      "fight": 41,
+      "actor": 38,
+      "content": "3ba34096bd91a2262bbc25a9d0521aeb811e96dda331c1653243b8c3e22361ec",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-45",
+          "digest": "043f5fa58ae9ee07a98b7a7039b0b0ce9175d9f179031f170ae2101b2b4af01c"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-45",
+          "digest": "cc5fa37cb259b7886154c7ac1bc00da2fc1c9b0f1fce61d9f93f501834d9ec69"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-shazzrah-restoration-shaman.json",
+        "sha256": "edef378484a0bee08ff9fc671015a4a1d5cbd527b4c0baf585c9b2099834cd56"
+      }
+    },
+    "mc/50668/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "P4qjV3dbt7HMaZBf",
+      "fight": 29,
+      "actor": 18,
+      "content": "039c58a68e0ab0b32ac080b1e0bb32e73f77cbd197c9472a10bd49a29f9099dd",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-19",
+          "digest": "84624ce722f80ca9b62199143426e6be6cee67bb6da56ad703c7ddca067000a3"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-19",
+          "digest": "683ab0859f02351d2c35d261561446d8f4a9f4f7e5d3892c77ae9f37a432644b"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-geddon-restoration-shaman.json",
+        "sha256": "b1a3e72ac5ec09a33e3fe4a94ab85f8625406b27821cf5ef32689f1eb4849091"
+      }
+    },
+    "mc/50669/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "P2tLhDTdzZnVQ31j",
+      "fight": 41,
+      "actor": 3,
+      "content": "3d409b45c68fe4857d88dd6101348f1f3f5ba70f4bf99241623732b3c3a28b0f",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-18",
+          "digest": "c0975fb84e9701869e51cd4af02dafda2813a12c1b06b2b64e373258bc4bf245"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-18",
+          "digest": "d7691bef04d30abe7cece57010969120d570e463a0d5c615da4e6f3c9dfe7767"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-sulfuron-restoration-shaman.json",
+        "sha256": "7b3c73993249a4e8828acb0c0b49394e9e15f24992e8aeab298e1f515094fff3"
+      }
+    },
+    "mc/50670/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "fvwTh2JHyZgCz4B3",
+      "fight": 37,
+      "actor": 27,
+      "content": "467b2c38eeb7e2193149bdd19d318c3c35498e9cd54466480dbbbc8231f1aae1",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-41",
+          "digest": "f6c292ad76ea60ca3376ef9431377b639375a2c5ea10f3c33d61eceed26624f8"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-41",
+          "digest": "ce4cf8492474ecc9487d91eaab372b4d3136880d8462d625c5ce4b2a3c9c7a89"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-golemagg-restoration-shaman.json",
+        "sha256": "036406bd33e7a7bb82764282284739369c312c04afa08567300b96c562a096dd"
+      }
+    },
+    "mc/50671/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "GDjyfQ4BW29cwd7J",
+      "fight": 36,
+      "actor": 18,
+      "content": "52a20b1599ad8f538169447822ff6867faba2c9e5f0c77866e460a169591c61e",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-9",
+          "digest": "f7ec81e0f387c6a0af8d2b231f7f1205488964b666291b2b9c983e2abad8b9fb"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-9",
+          "digest": "0235939193fbbda8ad65b683ffa0c3e619f8592c64fc7d24b3ff6659173df3f7"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-majordomo-restoration-shaman.json",
+        "sha256": "64f14265786e3ba4defa76f4486948d0777b7c75981e836072512bf2e224e5f6"
+      }
+    },
+    "mc/50672/9/Restoration/hps/Horde": {
+      "capture": "shaman",
+      "report": "WRBPN6VZ7H4A9vYL",
+      "fight": 44,
+      "actor": 26,
+      "content": "c4051266a0e3b8ae04e12487631ef09d40bc039b97cbc25ec9b03cb8d13f50d9",
+      "facts": [
+        {
+          "path": "tests/golden/raids/facts.json",
+          "locator": "mc-restoration-shaman-actor-29",
+          "digest": "446e668df9daaf6cfa38d1ff217a4e0afcb1da173f6e93063ec0e76b8a2201ee"
+        },
+        {
+          "path": "tests/golden/raids/healing-facts.json",
+          "locator": "mc-restoration-shaman-healing-recipients-29",
+          "digest": "5c1751dbca719e49762c9670015bb5022f06e6ed3f3964127d9d83f96b3e0eba"
+        }
+      ],
+      "ranking": {
+        "path": "tests/golden/raids/hps-ranking-ragnaros-restoration-shaman.json",
+        "sha256": "4745934df2ffe1ba3fc88f9c59da43194a31b73ba5b2743e67c009b8a768331e"
+      }
+    }
+  },
+  "artifacts": {
+    "tests/golden/raids/hps-ranking-garr-holy-priest.json": "ce7bf83890764ee7a4f4610746cf673102f6921b41542541bf6137caa0077085",
+    "tests/golden/raids/hps-ranking-garr-restoration-shaman.json": "7a10e90af7f7c62c0b0aecb33ca9bb02d0d17984aebe0176b065c96391c0dfa9",
+    "tests/golden/raids/hps-ranking-geddon-holy-priest.json": "75a677119981f518357697c8b3c0d178bdbb685e445054909f4f418057571417",
+    "tests/golden/raids/hps-ranking-geddon-restoration-shaman.json": "b1a3e72ac5ec09a33e3fe4a94ab85f8625406b27821cf5ef32689f1eb4849091",
+    "tests/golden/raids/hps-ranking-gehennas-holy-priest.json": "da1e3eb59b22f12f92d8b4ed4eefd65d6ace9c811fb7bd7e1f102249878d06ee",
+    "tests/golden/raids/hps-ranking-gehennas-restoration-shaman.json": "f785ea4bc7875ade11810389629b4aaa04c11f09f2ec053c69f2a07838aab56e",
+    "tests/golden/raids/hps-ranking-golemagg-holy-priest.json": "f78b6ae6e027ac68f84389481a0b4a36a0c1c23106d9fee9fce67310bed9fc3c",
+    "tests/golden/raids/hps-ranking-golemagg-restoration-shaman.json": "036406bd33e7a7bb82764282284739369c312c04afa08567300b96c562a096dd",
+    "tests/golden/raids/hps-ranking-lucifron-holy-priest.json": "ffe3a231b672a1f89fe0808e4981380e2d37f28d538667cb04fe2a0d86f02778",
+    "tests/golden/raids/hps-ranking-lucifron-restoration-shaman.json": "8fc59f9491967252caf2d05f6ac6d619acfbccada8e0ee3ae299a3e707c2865e",
+    "tests/golden/raids/hps-ranking-majordomo-holy-priest.json": "dee4b23f532967749037405ab69122f48f720e6a06b0d88668e6358e5458e071",
+    "tests/golden/raids/hps-ranking-majordomo-restoration-shaman.json": "64f14265786e3ba4defa76f4486948d0777b7c75981e836072512bf2e224e5f6",
+    "tests/golden/raids/hps-ranking-ragnaros-restoration-shaman.json": "4745934df2ffe1ba3fc88f9c59da43194a31b73ba5b2743e67c009b8a768331e",
+    "tests/golden/raids/hps-ranking-shazzrah-holy-priest.json": "96364ebcb4e9d4005e12a0edfb511a04b27138e7ccb652d5c39ff6cf84665360",
+    "tests/golden/raids/hps-ranking-shazzrah-restoration-shaman.json": "edef378484a0bee08ff9fc671015a4a1d5cbd527b4c0baf585c9b2099834cd56",
+    "tests/golden/raids/hps-ranking-sulfuron-holy-priest.json": "c321d219368efc5e0ac7e3184c69712663c12b759ef30f81dbfe0db118fbac6c",
+    "tests/golden/raids/hps-ranking-sulfuron-restoration-shaman.json": "7b3c73993249a4e8828acb0c0b49394e9e15f24992e8aeab298e1f515094fff3",
+    "tests/golden/raids/raw/mc-golemagg-context-holy.entries": "353fd3f32b82934ab6512cb532c17f38aad2d6b77a8bf74278de4579fdcb5276",
+    "tests/golden/raids/raw/mc-golemagg-context-holy.zip": "1a7cbe671ee9a10f3aa5ac40f7253f38631209dc5ff00bf346ae0d0ac33882cc",
+    "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.entries": "186d9c2f60ffcd2f8907c658305389f64975da5f4dcb5b54c6948f754c56a0f3",
+    "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+    "tests/golden/raids/raw/mc-majordomo-context-holy.entries": "1676cff9bd9dc868bee7c96b67296222343fb20410a0fe970de6a3005348efab",
+    "tests/golden/raids/raw/mc-majordomo-context-holy.zip": "956df5589c5eeca96ec7759e0f9388818bbf09bfb37b7b67ccd037078e0a79a6",
+    "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.entries": "a8a56ae8395f82682e8b54a3f341cfbf5ed8e5883247cc3614a84322fe165656",
+    "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+    "tests/golden/raids/receipts/mc-healers-1-golemagg.json": "650e7b1fddf4c9778dfe74e4f4391f1ea8e64f207df4aa776a2fddd52a1c8e3d",
+    "tests/golden/raids/receipts/mc-healers-1-majordomo.json": "0ef4faf6c739b99ac4ce5e53ab68d98c9e0ed4dfc4a7700fa923660f41406f95",
+    "tests/golden/raids/receipts/mc-healers-1-priest.json": "b1c1788967d570b85f9664ab4270ca3de9c9a11d45135e099066756fb368e147",
+    "tests/golden/raids/receipts/mc-healers-1-shaman.json": "48d7517452df9ce76cd0e4e47c8d2232abf0513fe100ac3fbd0f05f2c25644c6"
+  }
+}
