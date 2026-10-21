@@ -72,6 +72,14 @@ through the separate scanner. `research/sapphiron-actor-dispel-pilot.json` retai
 positive observations only; no response-time, missed-opportunity or encounter
 completeness claim is made. The earlier cast receipt remains unchanged.
 
+2026-10-22 continuation: 05.1 DPS oracle generator implemented without analyzer
+imports. Two real Patchwerk rows independently re-enumerated and frozen under
+`research/dps-ranking-pilot/`; both replay with zero differences. One includes
+Battle Chicken damage and self damage, and rejects dropped-owned/self-included
+policies. Ten sampled rows remain refused for missing/inconsistent ownership.
+Fifteen synthetic/interface tests pass. Per-cell policies, HPS, real v2 validation
+and capture-dependent work remain open; do not infer them from arithmetic matches.
+
 The owner instructed Claude to hand over: "codex will take it from here with localpilot".
 Codex accepted ownership at pair epoch 2 and is the only tree writer. LocalPilot stays an adviser only (D009).
 Claude remains required reviewer in the harness until an explicit authorized transfer.

@@ -27,6 +27,43 @@ capture queue. Hardware stability is D004 and is tracked here as PM-5 for calibr
 
 ## Prediction register
 
+### Independent DPS oracle follow-up, 2026-10-22
+
+Scope: offline raw ranking arithmetic only; no analyzer, metric rule, acquisition,
+register or production behavior changes. Existing HPS raw helpers require v2
+encounter-All and do not accept the available actor-only Naxx archives, so do
+not weaken them. Reuse the standard-library fact-freeze page validator for
+actor-page completion while independently measuring DPS and published rows.
+
+**PM-8 — High — circular or fitted ranking validation.** A generator reads the
+analyzer's totals or searches exclusions until published DPS matches. Basis:
+the legacy Naxx exclusion rule documents empirical target-set fitting and the
+legacy golden test calls production `ranking_damage`. Guardrail: explicit
+reviewed exclusion IDs supplied before calculation; no search or automatic
+policy adjustment, no production imports. Bind an actual published leaderboard
+row by report/fight/name/realm/class/spec and retain its raw amount token and
+duration. Compare exact rational arithmetic at publication precision; a mismatch
+fails without changing the policy. Negative mutations must distinguish wrong
+duration, self damage, excluded targets and dropped owned-unit damage where
+the fixture has those contributions. Resolution: Mitigated by raw-only imports, explicit exclusions, exact publication comparison, two independently enumerated real rows and wrong-policy negatives.
+
+**PM-9 — High — false precision from incomplete ownership or stream evidence.**
+A class without permanent pets is assumed to have no owned damage; overlapping
+SOURCE/TARGET rows are double-counted, or a truncated stream yields a plausible
+published total. Basis: existing Druid feral archives list Battle Chicken as an
+owned unit; actor streams repeat observations in both directions. Guardrail:
+require explicit pet listing agreement with fight and actor catalogs, bound
+request identities and hashes, progressive terminal pagination, strict integer
+IDs/amounts and maximum multiplicity. Refuse missing listings, invalid rows or
+unresolved targets. Preserve all contributing/excluded raw locators. An actor
+oracle is not encounter-wide evidence, complete snapshot eligibility, a
+validated configuration policy, opportunity or a player grade. Resolution: Mitigated by strict ownership/request/page validation, duplicate-preserving Counters, missing-data negatives and ten retained real refusals. Full snapshot eligibility remains outside this tool.
+
+Verdict: PROCEED WITH GUARDRAILS. Detection: before promotion with constructed
+adverse archives and a real Patchwerk arithmetic pilot. Retain failures and
+unknowns; no legacy output or existing HPS contract changes. Reversibility:
+discard the draft tool/evidence without editing production rules or registers.
+
 > `PM-*` IDs are stable and plan-scoped. Never renumber or reuse an ID. If a later
 > pre-mortem adds risks to the same plan, continue from the highest number.
 >

@@ -209,3 +209,18 @@ rows are validated before exclusion. Partial coverage or malformed rows withhold
 the total while independently qualified positive effects remain observed. A zero
 describes matching retained raid-roster effects, not personal non-use. These
 measurements imply no opportunities, assignment, reaction or quality grade.
+
+Independent DPS ranking drafts can be frozen with
+`scripts/freeze_dps_ranking.py freeze SPEC.json --out ORACLE.json` and replayed
+with `scripts/freeze_dps_ranking.py check ORACLE.json`. The explicit spec pins
+the archive and selected report/fight/actor, class/spec/role, an actual published
+leaderboard row and any excluded target game IDs. The tool reads raw actor and
+owned-unit streams without the analyzer. It preserves SOURCE/TARGET maximum
+multiplicity, requires explicit ownership listings, separates self and excluded
+damage, and compares exact rational DPS against the published decimal token.
+Exclusions are never searched or fitted. A mismatch, malformed identity/amount,
+missing ownership or incomplete stream refuses the draft. Publication precision
+is a comparison bound; upstream rounding is not established. These actor-scoped
+drafts do not establish full snapshot eligibility, encounter-wide completeness,
+a validated configuration policy or a player-quality grade. Existing HPS oracle
+requirements, including encounter-All checks, remain separate.

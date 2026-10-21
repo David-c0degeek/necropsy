@@ -1,0 +1,172 @@
+{
+  "date": "2026-10-22",
+  "status": "two reviewed actor arithmetic rows; no validated cell policies",
+  "tool_sha256": "e664a8d57a07e94ae48b2b788ae11cc56afb21755d2b25db3c4829b6652cb547",
+  "independent_enumeration_sha256": "166ab215cac2779aa34936b132499db05929b3535931503683dc9b26e10ea89b",
+  "interpreter": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "method": "Separate stdlib raw ZIP Counter re-enumeration, without importing generator, page helper or production analyzer. Compared every raw event multiplicity and manually recorded totals; exact Fraction publication comparison and wrong-policy checks.",
+  "verified": [
+    {
+      "oracle": "druid-balance-WzGF9BjdrHCk8N1X.oracle.json",
+      "sha256": "550bd204ec9e8df6ab46bae02a3df79b50c8d2e0bbab48ca39d3b2168cdee85f",
+      "report": "WzGF9BjdrHCk8N1X",
+      "fight": 36,
+      "independent_totals": {
+        "raw": 68395,
+        "self": 0,
+        "ranked": 68395,
+        "pet": 0
+      },
+      "published": "535.273",
+      "wrong_policies": {
+        "wrong_duration": "rejected"
+      },
+      "raw_multiset_match": true
+    },
+    {
+      "oracle": "druid-feral-hVrBkcXqvHm8YL9d.oracle.json",
+      "sha256": "eb6b0f2dfd89fedc977bf205b9ee58f5dfffaad123d6b1add9d4fbb3206da731",
+      "report": "hVrBkcXqvHm8YL9d",
+      "fight": 29,
+      "independent_totals": {
+        "raw": 163371,
+        "self": 1034,
+        "ranked": 162337,
+        "pet": 1256
+      },
+      "published": "1500",
+      "wrong_policies": {
+        "wrong_duration": "rejected",
+        "owned_damage_dropped": "rejected",
+        "self_damage_included": "rejected"
+      },
+      "raw_multiset_match": true
+    }
+  ],
+  "attempts": [
+    {
+      "archive": "druid-balance.zip",
+      "archive_sha256": "d64911258bfbae991a1025f5fb5732ca48950195fccf923c5d34bda39c2d8870",
+      "report": "WzGF9BjdrHCk8N1X",
+      "fight": 36,
+      "actor": 1,
+      "status": "arithmetic-match",
+      "published": "535.273",
+      "totals": {
+        "raw": 68395,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 68395
+      },
+      "owned_actor_ids": [],
+      "residual": "-1339/3993000",
+      "oracle_sha256": "295c1d1d6898721aa8f456b406aeae06a52369a0b1399f2f05c18ca82567db69"
+    },
+    {
+      "archive": "druid-balance.zip",
+      "report": "DQPTVJRKZL6Wvt7B",
+      "fight": 61,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/DQPTVJRKZL6Wvt7B/fight_61/player_29_Urbansombero/pets.json' in the archive\""
+    },
+    {
+      "archive": "druid-balance.zip",
+      "report": "tbfAmd3WrhXCyPND",
+      "fight": 33,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/tbfAmd3WrhXCyPND/fight_33/player_17_Teris/pets.json' in the archive\""
+    },
+    {
+      "archive": "druid-balance.zip",
+      "report": "xPcF84yD3mBLb1AN",
+      "fight": 30,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/xPcF84yD3mBLb1AN/fight_30/player_21_x/pets.json' in the archive\""
+    },
+    {
+      "archive": "druid-balance.zip",
+      "report": "TtP64VnWfN8rZMB2",
+      "fight": 10,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "druid-balance.zip",
+      "report": "cRnXxrKZHVWk9J8h",
+      "fight": 15,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/cRnXxrKZHVWk9J8h/fight_15/player_20_Saitl/pets.json' in the archive\""
+    },
+    {
+      "archive": "druid-feral.zip",
+      "report": "maHpk8K4hvLQzFRf",
+      "fight": 35,
+      "status": "refused",
+      "error": "ValueError",
+      "reason": "pet listings disagree"
+    },
+    {
+      "archive": "druid-feral.zip",
+      "report": "hwxP34cHf9gKBv8N",
+      "fight": 13,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/hwxP34cHf9gKBv8N/fight_13/player_30_Mckitty/pets.json' in the archive\""
+    },
+    {
+      "archive": "druid-feral.zip",
+      "archive_sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+      "report": "hVrBkcXqvHm8YL9d",
+      "fight": 29,
+      "actor": 29,
+      "status": "arithmetic-match",
+      "published": "1500",
+      "totals": {
+        "raw": 163371,
+        "self": 1034,
+        "excluded": 0,
+        "ranked": 162337
+      },
+      "owned_actor_ids": [
+        150
+      ],
+      "residual": "-20/4329",
+      "oracle_sha256": "da9d9d43af573a60a231ee1ea154eb86a4a2ca350d8ca4b504505bc6cc33af92"
+    },
+    {
+      "archive": "druid-feral.zip",
+      "report": "hprJxjB6PzcVbXYR",
+      "fight": 38,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/hprJxjB6PzcVbXYR/fight_38/player_32_Suncat/pets.json' in the archive\""
+    },
+    {
+      "archive": "druid-feral.zip",
+      "report": "ghcYNKWwn3PkQpR1",
+      "fight": 28,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/ghcYNKWwn3PkQpR1/fight_28/player_45_Helios/pets.json' in the archive\""
+    },
+    {
+      "archive": "druid-feral.zip",
+      "report": "aWX6AnwHJmzxTGd9",
+      "fight": 30,
+      "status": "refused",
+      "error": "KeyError",
+      "reason": "\"There is no item named 'events/aWX6AnwHJmzxTGd9/fight_30/player_33_Mcbear/pets.json' in the archive\""
+    }
+  ],
+  "limits": [
+    "Ten other rows refused for absent or inconsistent ownership; no defaults or synthetic zero pets.",
+    "Published precision is lexical: 535.273 has millidps precision, 1500 has integer precision. Upstream rounding mode is unknown.",
+    "No encounter-wide completeness, configuration policy, actor-source registration or COMPLETE cell.",
+    "An initial development probe was interrupted for repeated page decompression; no output from it is used. Final archived rows use the pinned final tool."
+  ]
+}
