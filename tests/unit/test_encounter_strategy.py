@@ -1,12 +1,16 @@
 """Static strategy stays separate from measurements, assignments and game variants."""
 
+from typing import Any
+
 import pytest
 
 from necropsy.analysis.class_catalog import CLASS_NAMES
+from necropsy.analysis.encounters import strategy as strategy_module
 from necropsy.analysis.encounters.strategy import encounter_strategy
 from necropsy.raids.scope import configurations
 from necropsy.report.render.playbook_view import with_strategy
 from necropsy.report.serialize import to_data
+from necropsy.rules import load_rules
 
 
 def test_sourced_strategy_is_available_to_all_legal_seed_configurations() -> None:
@@ -224,6 +228,26 @@ def test_unverified_bosses_and_partitions_do_not_inherit_strategy() -> None:
     for partition in (3, 7, 11, True):
         assert encounter_strategy("mc", 50663, partition, 3, "dps") is None
     assert encounter_strategy("naxxramas", 51118, 1, 3, "dps") is None
+
+
+def test_naxx_strategy_items_are_served_once_sourced(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Naxxramas uses the same seam; it has no sourced items yet, so none are served."""
+    original = load_rules
+    row = {"rule": "patchwerk-test-v1", "section": "during", "text": "Test item.", "classes": [3]}
+    entry = {"source": "https://example.test/patchwerk", "retrieved": "2026-10-21", "items": [row]}
+
+    def with_naxx_item(game: str, name: str) -> dict[str, Any]:
+        data = original(game, name)
+        if name == "zones/naxxramas_guidance":
+            return {**data, "strategy": {51118: entry}}
+        return data
+
+    monkeypatch.setattr(strategy_module, "load_rules", with_naxx_item)
+    hunter = encounter_strategy("naxxramas", 51118, 1, 3, "dps")
+    assert hunter is not None
+    assert [(i.rule, i.section) for i in hunter.items] == [("patchwerk-test-v1", "during")]
+    assert encounter_strategy("naxxramas", 51118, 1, 4, "dps") is None
+    assert encounter_strategy("naxxramas", 51118, 3, 3, "dps") is None
 
 
 def test_chromaggus_removal_capabilities_do_not_cross_affliction_types() -> None:

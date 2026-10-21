@@ -31,8 +31,6 @@ def encounter_strategy(
     zone: str, encounter_id: int, partition: int, class_id: int, metric: str
 ) -> EncounterStrategy | None:
     """Only documented ruleset/class/metric applicability; no inferred assignment."""
-    if zone == "naxxramas":
-        return None
     if (
         type(partition) is not int
         or partition not in load_rules("classic_era", "raid_scope")["partitions"]
