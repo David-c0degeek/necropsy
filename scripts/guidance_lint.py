@@ -69,7 +69,9 @@ REMOVAL_CAPABILITY = re.compile(
 def _keys(source: dict[str, Any]) -> set[str]:
     keys = set(source.get("excerpts") or {})
     for extra in source.get("capability_sources") or ():
-        keys |= set(extra.get("excerpts") or {})
+        keys |= _keys(extra)
+    for conflict in source.get("conflicts") or ():
+        keys -= set(conflict.get("keys") or ())
     return keys
 
 
@@ -103,6 +105,8 @@ def lint(
     class_id: int,
     faction: str,
     reviews: dict[int, dict[str, Any]],
+    *,
+    require_healer_loadout: bool = True,
 ) -> list[str]:
     tag = CLASS_TAGS[class_id]
     findings: list[str] = []
@@ -110,7 +114,9 @@ def lint(
         review = reviews.get(encounter)
         items = boss.get("items") or []
         rules = {i.get("rule") for i in items}
-        if not any(r and r.endswith(f"-{tag}-healer-loadout-applicability-v1") for r in rules):
+        if require_healer_loadout and not any(
+            r and r.endswith(f"-{tag}-healer-loadout-applicability-v1") for r in rules
+        ):
             findings.append(f"{encounter}: no {tag} loadout-applicability item")
         missing = [c for c in CATEGORIES if c not in (boss.get("categories") or {})]
         if missing:

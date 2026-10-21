@@ -3,6 +3,8 @@ draft passes; it never certifies content."""
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
 from typing import Any
 
 from scripts import guidance_lint as gl
@@ -72,3 +74,39 @@ def test_missing_categories_and_loadout_items_are_flagged() -> None:
     findings = gl.lint({50664: {"items": [], "categories": {}}}, 7, "Alliance", REVIEWS)
     assert any("no priest loadout-applicability item" in f for f in findings)
     assert any("categories missing preparation" in f for f in findings)
+
+
+def test_source_and_capability_conflicts_cannot_be_used_as_support(tmp_path: Path) -> None:
+    path = tmp_path / "review.json"
+    path.write_text(
+        json.dumps(
+            {
+                "retrieval": {"date": "2026-10-20"},
+                "sources": [
+                    {
+                        "encounter_id": 50664,
+                        "url": URL,
+                        "excerpts": {"panic": "Fear.", "contradiction": "Unsettled."},
+                        "conflicts": [{"keys": ["contradiction"]}],
+                        "capability_sources": [
+                            {
+                                "excerpts": {"fear_ward": "Unsettled capability."},
+                                "conflicts": [{"keys": ["fear_ward"]}],
+                            }
+                        ],
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    reviews = gl.load_reviews([path])
+    assert reviews[50664]["keys"] == {"panic"}
+    draft = {
+        50664: {
+            "items": [LOADOUT, item("magmadar-priest-x-v1", "Claim.", support=["fear_ward"])],
+            "categories": CATEGORIES,
+        }
+    }
+    findings = gl.lint(draft, 7, "Alliance", reviews)
+    assert any("support keys not in the review: fear_ward" in f for f in findings)

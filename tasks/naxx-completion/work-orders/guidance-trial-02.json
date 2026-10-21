@@ -1,0 +1,24 @@
+{
+  "id": "guidance-trial-02",
+  "kind": "guidance-draft-v1",
+  "input": {
+    "path": "tests/golden/raids/naxx-boss-source-review.json",
+    "sha256": "179cdcf170da1718a9df9866d1093c251664c6a8bd0240ef176813bfba21052c"
+  },
+  "encounter_id": 51119,
+  "boss": "Sapphiron",
+  "class_id": 7,
+  "faction": "Horde",
+  "metric": "hps",
+  "category": "Holy",
+  "allowed_keys": [
+    "sapphiron_lead_resistance",
+    "frost_resist_mandatory",
+    "tip_prepot",
+    "tip_spread_phase_one",
+    "frost_resist_healers"
+  ],
+  "wall_seconds": 600,
+  "max_output_tokens": 4096,
+  "max_prompt_bytes": 20000
+}
