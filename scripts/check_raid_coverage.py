@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import subprocess
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Literal
@@ -32,6 +33,11 @@ from necropsy.snapshot.v0 import V0Snapshot
 from necropsy.snapshot.v1 import open_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:  # run as a script: make the sibling tools importable
+    sys.path.insert(0, str(ROOT))
+
+from scripts.raid_batch import manifest_problems  # noqa: E402
+
 REGISTER = ROOT / "tests/golden/raids/coverage.json"
 DIMENSIONS = (
     "implementation",
@@ -41,6 +47,9 @@ DIMENSIONS = (
     "ranking_reconciliation",
     "render_review",
 )
+# A layer-based completion (D036) references one batch manifest instead of the
+# six per-cell dimensions; scripts/raid_batch.py documents the layers.
+BATCH = "batch"
 Status = Literal["TODO", "IN_PROGRESS", "BLOCKED_EVIDENCE", "BLOCKED_REVIEW", "COMPLETE"]
 
 
@@ -266,6 +275,24 @@ def ranking_problem(cell: CoverageCell) -> str | None:
     return None
 
 
+def batch_problems(root: Path, receipt: Receipt) -> list[str]:
+    """One batch reference, naming this cell, whose layers all verify now."""
+    refs = receipt.references[BATCH]
+    if len(refs) != 1 or len(receipt.references) != 1:
+        return ["a batch completion references exactly one manifest and nothing else"]
+    if refs[0].locator != receipt.cell_id:
+        return ["batch reference names another cell"]
+    if receipt.real_actor_source is None:
+        return []  # reported by the caller
+    try:
+        manifest = json.loads(checked_path(root, refs[0]).read_text(encoding="utf-8"))
+    except ValueError as exc:
+        return [str(exc)]
+    return manifest_problems(
+        root, manifest, receipt.cell_id, receipt.real_actor_source.model_dump()
+    )
+
+
 def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str]]:
     cells = {cell.key: cell for cell in coverage_cells()}
     records: dict[str, Receipt] = {}
@@ -276,7 +303,7 @@ def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str
         if record.cell_id not in cells:
             problems.append(f"unknown or illegal cell: {record.cell_id}")
         records[record.cell_id] = record
-        unknown = set(record.references) - set(DIMENSIONS)
+        unknown = set(record.references) - {*DIMENSIONS, BATCH}
         if unknown:
             problems.append(f"{record.cell_id}: unknown evidence dimensions {sorted(unknown)}")
         for refs in record.references.values():
@@ -291,9 +318,12 @@ def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str
         counts[receipt.status if receipt else "TODO"] += 1
         if receipt is None or receipt.status != "COMPLETE":
             continue
-        missing = [d for d in DIMENSIONS if not receipt.references.get(d)]
-        if missing:
-            problems.append(f"{key}: missing completion evidence {', '.join(missing)}")
+        if BATCH in receipt.references:
+            problems.extend(f"{key}: {p}" for p in batch_problems(root, receipt))
+        else:
+            missing = [d for d in DIMENSIONS if not receipt.references.get(d)]
+            if missing:
+                problems.append(f"{key}: missing completion evidence {', '.join(missing)}")
         problems.extend(f"{key}: {p}" for p in content_problems(cell))
         if receipt.real_actor_source is None:
             problems.append(f"{key}: no usable real actor source")
@@ -307,6 +337,17 @@ def audit(register: Register, root: Path = ROOT) -> tuple[Counter[str], list[str
     return counts, problems
 
 
+def _batch_artifacts(root: Path, ref: Reference) -> list[Reference]:
+    try:
+        manifest = json.loads(checked_path(root, ref).read_text(encoding="utf-8"))
+    except ValueError, OSError:
+        return []  # the audit reports an unusable manifest
+    return [
+        Reference(path=path, sha256=digest, locator=f"{ref.path}#artifacts")
+        for path, digest in (manifest.get("artifacts") or {}).items()
+    ]
+
+
 def staged_problems(register: Register, root: Path = ROOT) -> list[str]:
     """Working-tree hashes must also identify the bytes a fresh checkout receives."""
     references = {}
@@ -314,6 +355,8 @@ def staged_problems(register: Register, root: Path = ROOT) -> list[str]:
         source = receipt.real_actor_source
         refs = [source.archive, source.entries, source.provenance] if source else []
         refs.extend(ref for values in receipt.references.values() for ref in values)
+        for ref in receipt.references.get(BATCH, ()):
+            refs.extend(_batch_artifacts(root, ref))
         for ref in refs:
             references[ref.path, ref.sha256] = ref
     problems = []
