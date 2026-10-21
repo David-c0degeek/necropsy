@@ -1,0 +1,260 @@
+{
+  "date": "2026-10-21",
+  "fact_freeze": {
+    "command": "uv run pytest tests/unit/test_fact_freeze.py -q",
+    "result": "55 passed",
+    "real_check": "uv run python scripts/fact_freeze.py check tests/golden/raids/lucifron-paladin-mechanics.json",
+    "real_result": "0 difference(s)",
+    "tool_sha256": "ccb7d85d6c1f4c6b2d219d1c145258fd97aca1e7ec89fd67322dc1e369316b46",
+    "negative_cases": [
+      "edited fact value",
+      "missing All stream",
+      "foreign/incomplete stream",
+      "archive SHA mismatch",
+      "boolean/float identity aliases",
+      "ambiguous NPC identities",
+      "same-time conflicting aura transitions"
+    ],
+    "boundary": "Reusable fact-freeze spec verifier; MC fixture proves plumbing, not Naxx completeness. No second wrapper or model execution is needed."
+  },
+  "raw_discovery": {
+    "prototype": "workspace/codex-naxx/oracle-tool/scanner.py",
+    "synthetic_tests": "23 passed",
+    "independent_v1_smoke": {
+      "archive_sha256": "934d7a43f50ad27af2966a3f4efb852a3c791e56926ae87548734e4960783078",
+      "tool_sha256": "b298e5b8bfc3a11ae14b05746a14d019b5f0e6a8732114caad666acc6c74664c",
+      "limitations": [
+        "partial actor-union observations only",
+        "candidate boss IDs from repository and raw catalogs; no external mechanic certification",
+        "does not test real v2 or certify complete cells"
+      ],
+      "cases": [
+        {
+          "boss": "four-horsemen",
+          "query": {
+            "name": "four-horsemen-v1-raw-source-observations",
+            "report": "WzGF9BjdrHCk8N1X",
+            "fight": 27,
+            "encounter": 51121,
+            "scope": "union",
+            "source_ids": [
+              123,
+              124,
+              125,
+              126
+            ]
+          },
+          "scope_complete": false,
+          "count": 1878,
+          "per_direction": {
+            "source": 31,
+            "target": 1878
+          },
+          "actor_game_ids": {
+            "123": 16065,
+            "124": 16063,
+            "125": 16064,
+            "126": 16062
+          },
+          "by_spell": {
+            "1": 480,
+            "28832": 157,
+            "28833": 263,
+            "28834": 227,
+            "28835": 247,
+            "28836": 304,
+            "28863": 26,
+            "28882": 62,
+            "28883": 53,
+            "28884": 44,
+            "29061": 15
+          },
+          "by_type": {
+            "damage": 676,
+            "cast": 310,
+            "applydebuffstack": 318,
+            "applydebuff": 140,
+            "refreshdebuff": 326,
+            "removedebuff": 86,
+            "summon": 12,
+            "applybuff": 5,
+            "removebuff": 5
+          },
+          "unresolved_count": 2,
+          "boundary_ambiguities": [],
+          "result_sha256": "2603b742f9b2567a4aa6f962095507be4464efb9a2359c1f017b6785b03d98b0"
+        },
+        {
+          "boss": "gothik",
+          "query": {
+            "name": "gothik-v1-raw-source-observations",
+            "report": "qD1Yc8Wk2dmP79wB",
+            "fight": 19,
+            "encounter": 51109,
+            "scope": "union",
+            "source_ids": [
+              106
+            ]
+          },
+          "scope_complete": false,
+          "count": 129,
+          "per_direction": {
+            "source": 1,
+            "target": 129
+          },
+          "actor_game_ids": {
+            "106": 16060
+          },
+          "by_spell": {
+            "1": 18,
+            "28679": 80,
+            "29317": 31
+          },
+          "by_type": {
+            "damage": 25,
+            "cast": 26,
+            "applydebuffstack": 20,
+            "applydebuff": 38,
+            "refreshdebuff": 20
+          },
+          "unresolved_count": 2,
+          "boundary_ambiguities": [],
+          "result_sha256": "2f1eeee135cff2fa5be3f519704628adc9f58e8e25604081f4d374c328e64dd4"
+        },
+        {
+          "boss": "thaddius",
+          "query": {
+            "name": "thaddius-v1-raw-source-observations",
+            "report": "HAJnjRQqyc7TNpk9",
+            "fight": 29,
+            "encounter": 51120,
+            "scope": "union",
+            "source_ids": [
+              127
+            ]
+          },
+          "scope_complete": false,
+          "count": 259,
+          "per_direction": {
+            "source": 3,
+            "target": 259
+          },
+          "actor_game_ids": {
+            "127": 15928
+          },
+          "by_spell": {
+            "1": 110,
+            "1706": 1,
+            "28089": 4,
+            "28167": 144
+          },
+          "by_type": {
+            "damage": 190,
+            "cast": 66,
+            "aurabroken": 1,
+            "begincast": 2
+          },
+          "unresolved_count": 2,
+          "boundary_ambiguities": [],
+          "result_sha256": "1cbe25fc452134448684c5102d4cd6aef718eb5d225b8441157c3edfa4102443"
+        },
+        {
+          "boss": "loatheb",
+          "query": {
+            "name": "loatheb-v1-raw-source-observations",
+            "report": "Dyd43zV2xht6Mkmv",
+            "fight": 42,
+            "encounter": 51115,
+            "scope": "union",
+            "source_ids": [
+              136
+            ]
+          },
+          "scope_complete": false,
+          "count": 918,
+          "per_direction": {
+            "source": 10,
+            "target": 918
+          },
+          "actor_game_ids": {
+            "136": 16011
+          },
+          "by_spell": {
+            "1": 164,
+            "29185": 50,
+            "29194": 20,
+            "29196": 50,
+            "29201": 10,
+            "29234": 18,
+            "29865": 593,
+            "30281": 13
+          },
+          "by_type": {
+            "damage": 357,
+            "cast": 113,
+            "applydebuff": 175,
+            "refreshdebuff": 108,
+            "summon": 9,
+            "removedebuff": 147,
+            "dispel": 9
+          },
+          "unresolved_count": 2,
+          "boundary_ambiguities": [],
+          "result_sha256": "737453a0b8e886d1315347b1fac80320ada03130c4400c0d3e7af8c69d6c360e"
+        },
+        {
+          "boss": "kelthuzad",
+          "query": {
+            "name": "kelthuzad-v1-raw-source-observations",
+            "report": "KPqATnBvMZVXNH3r",
+            "fight": 49,
+            "encounter": 51114,
+            "scope": "union",
+            "source_ids": [
+              200
+            ]
+          },
+          "scope_complete": false,
+          "count": 1145,
+          "per_direction": {
+            "source": 19,
+            "target": 1145
+          },
+          "actor_game_ids": {
+            "200": 15990
+          },
+          "by_spell": {
+            "1": 191,
+            "15571": 71,
+            "27808": 25,
+            "27810": 12,
+            "27819": 17,
+            "28408": 1,
+            "28410": 10,
+            "28478": 15,
+            "28479": 755,
+            "29879": 47,
+            "364341": 1
+          },
+          "by_type": {
+            "damage": 490,
+            "cast": 119,
+            "applydebuff": 259,
+            "removedebuff": 256,
+            "summon": 6,
+            "begincast": 15
+          },
+          "unresolved_count": 1,
+          "boundary_ambiguities": [],
+          "result_sha256": "e6e5a9af9a6f4858db1be6a1e22023e17da19e7ffea809f2719251ba359962b3"
+        }
+      ]
+    },
+    "independence_limit": "Separate Counter enumeration reads raw member bytes from the same validated archive loader; it independently checks selected event multiplicities, not the whole parser or full eligibility.",
+    "status": "Not promoted. Real certified v2 validation, full eligibility and explicit unknown/absence handling still required. No cells COMPLETE and no new capture."
+  },
+  "guidance": {
+    "trial": "guidance-trial-results.json",
+    "status": "Delegation rejected; drafting stays with Codex."
+  }
+}

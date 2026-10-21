@@ -4,7 +4,11 @@
   "retrieval": {
     "date": "2026-10-21",
     "method": "Fetched once per page through the implementing agent's fetch tool (wiki.gg blocks plain HTTP clients), asking for verbatim sentences only. The tool caps each quote at 125 characters: longer sentences come back cut, sometimes marked with '...', and on some pages (Heigan, Anub'Rekhan, Gothik) the longest sentences were left out instead. Kel'Thuzad came back as a selection, not every qualifying sentence. Season of Discovery, Season of Mastery, Wrath of the Lich King, level 70 and loot lines were excluded.",
-    "boundary": "Excerpts are guide text, not observations. Strategy sentences describe one guild approach among several; a rule built on them must say so and must not grade a player against an assignment the log cannot show. Fragments are quoted as returned and cannot carry a claim about the part that was cut."
+    "boundary": "Excerpts are guide text, not observations. Strategy sentences describe one guild approach among several; a rule built on them must say so and must not grade a player against an assignment the log cannot show. Fragments are quoted as returned and cannot carry a claim about the part that was cut.",
+    "followup": {
+      "date": "2026-10-21",
+      "method": "Targeted expanded search results supplied cached Classic page text despite direct wiki.gg HTTP 403. The same fetch can select different sections; omitted context remains unresolved. No SoD, Wrath or level-70 advice used."
+    }
   },
   "sources": [
     {
@@ -39,7 +43,10 @@
         "two_primary_ot_allocation": "2 Primary OTs and 1 sponge OT: Allows 2.4 sec to top a primary OT up, less coordination required compared to 1&2.",
         "reactive_healing": "3 OTs with even priority. Healers start casting only after their respective OT takes a Hateful Strike.",
         "reactive_latency": "Due to interface lag/latency/human reaction time, it works well with low latency only."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes"
+      ]
     },
     {
       "boss": "Grobbulus",
@@ -70,8 +77,16 @@
         "ramp_hazard": "Sometimes the ramp seems safe but there is a poison cloud effect at the base of the ramp.",
         "cloud_awareness": "Everyone always needs to be aware of the growing green clouds at all times.",
         "hunter_shaman_nature_tip": "are really useful because Grobbulus has many Nature-damage abilities",
-        "aspect_stacking": "They don´t stack so if you have hunter in your raid, you should use Aspect of the Wild."
-      }
+        "aspect_stacking": "They don´t stack so if you have hunter in your raid, you should use Aspect of the Wild.",
+        "hunter_shaman_nature_tip_subjects": "Hunters Image [Aspect of the Wild] and Shamans Image [Nature Resistance Totem]/Image [Poison Cleansing Totem]"
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "hunter-aspect-of-the-wild",
+        "shaman-nature-resistance-totem",
+        "shaman-poison-cleansing-totem"
+      ],
+      "followup_boundary": "Image/link labels retained exactly from cached text. This recovers the missing spell names; it is not an endorsement of poison cleansing at any particular Injection timing or of buff stacking."
     },
     {
       "boss": "Gluth",
@@ -114,7 +129,14 @@
         "shackle_undead_restriction": "should be used only on stray zombies that may have aggro'd on to healers and such.",
         "turn_evil_warning": "Using Turn Evil or Turn Undead is extremely unwise",
         "turn_evil_feared_zombie": "if the zombie is feared and runs toward Gluth, Gluth will eat it and heal himself."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "hunter-tranquilizing-shot",
+        "priest-shackle-undead",
+        "priest-fear-ward",
+        "dwarf-fear-ward-quest"
+      ]
     },
     {
       "boss": "Thaddius",
@@ -143,7 +165,10 @@
         "strategy_no_rez": "It is therefore never advisable to use a battle rez or soulstone during phase two.",
         "healing_tanks": "Thaddius doesn't deal very much melee damage to an appropriately geared main tank",
         "tanking_damage": "Thaddius hits for about 2k normal, 3.3k crushing."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes"
+      ]
     },
     {
       "boss": "Noth the Plaguebringer",
@@ -195,6 +220,13 @@
           "other_source": "https://www.wowhead.com/classic/spell=29214/wrath-of-the-plaguebringer: its prose tooltip and its extracted school and tick fields disagree (reviewer-verified, Codex #19).",
           "rule": "No item states the school, tick interval or damage of Wrath of the Plaguebringer until raw-observed spell 29214 events settle it; guidance may only say the curse must be removed before it spreads."
         }
+      ],
+      "capability_refs": [
+        "classic-faction-classes",
+        "mage-remove-lesser-curse",
+        "druid-remove-curse",
+        "priest-dispel-magic",
+        "paladin-cleanse"
       ]
     },
     {
@@ -228,7 +260,11 @@
         "tip_aggro": "Aggro does NOT reset between phases.",
         "tip_rogue_vanish": "It is possible for Rogues to vanish and walk freely inside the Eye Stalk tunnel.",
         "tip_death_cause": "One of the most common reasons for death is running too far on either side of the room."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "paladin-cleanse"
+      ]
     },
     {
       "boss": "Loatheb",
@@ -262,7 +298,10 @@
         "doom_fast_cadence": "5 minutes into the fight, it's cast every 15 seconds.",
         "doom_late_unlikely": "It's very unlikely a player will survive another doom when it hits at 5:40.",
         "lightwell": "Lightwells are not afflicted by the cooldown, so you can use them to heal people who are about to die."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes"
+      ]
     },
     {
       "boss": "Anub'Rekhan",
@@ -291,8 +330,13 @@
         "kill_speed": "As you gain more and more practice on it, you can kill him in as little as one kite phase.",
         "tank_backup": "If you are the MT, save your shield wall in case you miss the tail lift or are slow to react.",
         "swiftness_potions": "Swiftness potions can be used on alternative kites for safety.",
-        "hunter_tip": "Hunters can feign death + frost trap to slow the spread of bugs"
-      }
+        "hunter_tip": "Hunters can feign death + frost trap to slow the spread of bugs",
+        "impale_targeting_followup": "Cast on a random player and hits anyone nearby in its path.",
+        "impale_fall_followup": "The knockup causes moderate falling damage."
+      },
+      "capability_refs": [
+        "classic-faction-classes"
+      ]
     },
     {
       "boss": "Grand Widow Faerlina",
@@ -326,7 +370,13 @@
         "strat_healer_assignment": "Assigning 4 healers with the most +healing to cover 2 groups each with rank 5 renews and Rank 6 rejuvenate...",
         "strat_priest_mc_heal": "Have your mind controlling priest heal a tank that is tanking a follower, so he can move into position...",
         "strat_sacrifice_scaling": "If your whole raid lives through the first sacrifice, this fight gets easier and easier."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "paladin-cleanse",
+        "shaman-cure-poison",
+        "shaman-poison-cleansing-totem"
+      ]
     },
     {
       "boss": "Maexxna",
@@ -396,6 +446,13 @@
           "issue": "The sentence names Web Wrap, but it sits in tank-survival advice about the enraged Web Spray; the main tank is not a Web Wrap target per phase_web_wrap context.",
           "rule": "Not used for guidance until a second source or raw evidence shows which ability it means; never silently corrected."
         }
+      ],
+      "capability_refs": [
+        "classic-faction-classes",
+        "paladin-cleanse",
+        "shaman-cure-poison",
+        "shaman-poison-cleansing-totem",
+        "druid-abolish-poison"
       ]
     },
     {
@@ -436,7 +493,11 @@
         "sunder_armor": "Sunder Armor should never be used against the Understudies at any time.",
         "sunder_consequence": "Doing so will cause them to take excessive damage from Razuvious, and will tax the healers' mana.",
         "debuff_dispel": "Attack speed debuffs (such as the effect from Thunderfury) should be dispelled if possible..."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "priest-mind-control"
+      ]
     },
     {
       "boss": "Gothik the Harvester",
@@ -473,8 +534,23 @@
         "teleport_cycle": "Gothik lands on the living side, and then will teleport to the melee side after 15 to 20 seconds, repeating this cycle.",
         "gate_opening": "Once Gothik is reduced to 30% health, the central gate will open and the raid is free to run across and finish him up.",
         "adds_after_defeat": "Notably, after Gothik's defeat, any remaining adds must be killed as they do not despawn.",
-        "living_adds_respawn": "Slain living adds will continue to spawn their spectral counterparts on the undead side."
-      }
+        "living_adds_respawn": "Slain living adds will continue to spawn their spectral counterparts on the undead side.",
+        "harvest_soul_strategy_frequency": "Harvest Soul is cast immediately when Gothik lands and about every 20 seconds after"
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "priest-shackle-undead"
+      ],
+      "conflicts": [
+        {
+          "keys": [
+            "harvest_soul_frequency",
+            "harvest_soul_strategy_frequency"
+          ],
+          "issue": "Ability section says every 15 seconds; strategy says about every 20 seconds after landing.",
+          "rule": "Do not use either cadence as a timer, opportunity, rotation or player assessment until independent evidence resolves it."
+        }
+      ]
     },
     {
       "boss": "The Four Horsemen",
@@ -512,7 +588,10 @@
         "taunt_spell_hit": "tanks may want to consider some form of spell hit to counter taunt's resist chance (16% vs. bosses).",
         "warrior_tier_bonus": "Warrior tanks should prioritize Tier 3 for its 4-set bonus (+5% hit on taunt).",
         "taunt_resist_wipes": "Following proper strategy otherwise, taunt resists are generally the cause of wipes on this encounter."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes"
+      ]
     },
     {
       "boss": "Sapphiron",
@@ -542,7 +621,14 @@
         "tip_decurse_assignments": "Ensure healers and decursers are assigned locations spread throughout the raid, and decurse quickly...",
         "tip_air_phase_spread": "Remain spread out at the start of the air phase and ensure that no one is within 10 yards of each other.",
         "tip_iceblock_timing": "Move to the ice blocks only after the third icebolt cast."
-      }
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "mage-remove-lesser-curse",
+        "druid-remove-curse",
+        "paladin-frost-resistance-aura",
+        "shaman-frost-resistance-totem"
+      ]
     },
     {
       "boss": "Kel'Thuzad",
@@ -574,20 +660,41 @@
         "priest_shackles": "Three priests should be assigned to shackling these (no more or Kel'Thuzad will dispel your shackles).",
         "guardian_tanks": "Two tanks need to be tanking Guardians that are free and they will be taking a lot of damage.",
         "guardian_taunt": "Guardians are tauntable.",
-        "raid_buffs": "Raid buffs such as an Onyxia head turnin and full flasks are VERY helpful for the last 40%."
-      }
+        "raid_buffs": "Raid buffs such as an Onyxia head turnin and full flasks are VERY helpful for the last 40%.",
+        "frost_blast_strategy_damage": "Frost Blast hits for 130% of their HP."
+      },
+      "capability_refs": [
+        "classic-faction-classes",
+        "priest-shackle-undead"
+      ],
+      "conflicts": [
+        {
+          "keys": [
+            "frost_blast_damage",
+            "frost_blast_strategy_damage"
+          ],
+          "issue": "Ability section says 104% maximum HP over five seconds; strategy says 130%.",
+          "rule": "Do not emit either percentage or derive a healing threshold/player grade from it until independent evidence resolves it."
+        }
+      ],
+      "followup_boundary": "Cached follow-up recovered Frost Blast targeting text and the conflicting damage sentence. Full Frost Blast, Shadow Fissure and phase-one add excerpts remain open; no inferred mechanic or ranking is enabled."
     }
   ],
   "open": [
-    "No capability sources are attached yet. Race and faction limits (Fear Ward Dwarf-only, no Horde Paladins or Alliance Shamans, Shackle Undead and Mind Control as Priest spells, Tranquilizing Shot as Hunter) need a primary capability source before any item states them, as in the MC review.",
+    "Positive class/spell, faction and Dwarf quest evidence is attached by capability_refs to naxx-capability-source-review.json. This is not an exhaustive capability matrix; other named class spells, Fear Ward race exclusivity and boss-specific applicability remain unresolved. Existing guidance support-key loading intentionally does not resolve those references.",
     "Kel'Thuzad was returned as a selection; a second fetch for the omitted sentences (Frost Blast, Shadow Fissure, phase-one add list) is needed before Kel'Thuzad guidance is reviewed.",
     "Long sentences omitted on Heigan, Anub'Rekhan (Impale) and Gothik need a second, targeted fetch before items rely on them.",
     "Three pages were edited on or after 2026-10-13, the facts file's retrieval date: Grand Widow Faerlina (15 October 2026), Maexxna (14 October 2026) and Instructor Razuvious (13 October 2026). Their naxxramas_facts.yaml timings must be re-checked against these excerpts in 04.4.",
     "Thaddius polarity, Four Horsemen marks, Gothik waves and Loatheb's healing restriction need raw-observed spell and NPC identities (PM-3, research/oracle-design.md) before any measured policy; the sentences above support guidance only.",
-    "Grobbulus hunter_shaman_nature_tip is a fragment without its subject (which Hunter and Shaman abilities); it cannot support any item until refetched in full.",
+    "Grobbulus missing tip subjects were recovered from cached text, with image/link labels preserved. Specific class capabilities are referenced separately; no cleansing timing, buff stacking or observed coverage follows from the sentence.",
     "Heigan strategy_red_safe_zone and strategy_phase1_raid_position refer to a diagram the fetch did not return; positions are also not recorded in logs, so they support no positional advice.",
-    "Faerlina strat_cleansers names Paladins and Shaman for Cleanse, but Cleanse is a Paladin spell (capability source pending for Shaman poison removal: Cure Poison, Poison Cleansing Totem). Maexxna warrior_taunt pairs Warrior Demoralizing Shout with Paladin Consecrate. Neither maps literally onto every named class; each class needs its own capability proof.",
+    "Faerlina strat_cleansers attributes Cleanse to Paladins and Shaman. Capability evidence now identifies Paladin Cleanse 4987, Shaman Cure Poison 526 and Poison Cleansing Totem cast 8166/effect 8168. Do not retain Shaman Cleanse wording. Maexxna warrior_taunt still pairs Warrior Demoralizing Shout with Paladin Consecrate; capability proof for those remains open.",
     "Fragments cut by the 125-character cap (marked '...' or ending mid-sentence) cannot support categorical advice; any item citing one must state only what the fragment says.",
     "Conflicts are recorded per source under `conflicts`; an item may not rely on any key named in a conflict until that conflict's rule is met."
-  ]
+  ],
+  "capability_source_review": {
+    "path": "naxx-capability-source-review.json",
+    "sha256": "cf239f28109952d3c6adbc435cd8f6a097e239428537d726a1f298e643777e38",
+    "use": "Research references only; existing guidance support-key loading remains fail-closed."
+  }
 }

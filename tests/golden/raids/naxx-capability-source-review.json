@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "subject": "Classic Era capability source evidence; research only",
+  "retrieval": {
+    "date": "2026-10-21",
+    "boundary": "Positive spell capabilities and faction/race evidence only. Not an exhaustive class matrix, observed removals, loadout, assignment, opportunity or a validated rule."
+  },
+  "integration": "Boss ledger capability_refs resolve into this catalog for coordinator research. guidance_lint does not resolve these references into allowed support keys; no capability certificate or production advice is enabled.",
+  "sources": [
+    {
+      "id": "paladin-cleanse",
+      "spell_id": 4987,
+      "name": "Cleanse",
+      "class": "Paladin",
+      "class_id": 6,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 42,
+      "url": "https://www.wowhead.com/classic/spell=4987/cleanse",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "paladin-cleanse-class-level": "Requires Paladin Requires level 42",
+        "paladin-cleanse-scope": "removing 1 poison effect, 1 disease effect, and 1 magic effect."
+      },
+      "boundary": "Poison, disease and magic scope only; does not attribute Cleanse to Shaman."
+    },
+    {
+      "id": "shaman-cure-poison",
+      "spell_id": 526,
+      "name": "Cure Poison",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 16,
+      "url": "https://www.wowhead.com/classic/spell=526/cure-poison",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "shaman-cure-poison-class-level": "Requires Shaman Requires level 16",
+        "shaman-cure-poison-scope": "Cures 1 poison effect on the target."
+      },
+      "boundary": "This is the Shaman spell; a same-name Druid spell must not be conflated with it."
+    },
+    {
+      "id": "shaman-poison-cleansing-totem",
+      "spell_id": 8166,
+      "name": "Poison Cleansing Totem",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 22,
+      "url": "https://www.wowhead.com/classic/spell=8166/poison-cleansing-totem",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "shaman-poison-cleansing-totem-class-level": "Requires Shaman Requires level 22",
+        "shaman-poison-cleansing-totem-scope": "attempts to remove 1 poison effect from party members"
+      },
+      "boundary": "Cast/summon ID 8166. Effect ID 8168 is separate; 8170 names Disease Cleansing Totem. No removal-event ownership is certified."
+    },
+    {
+      "id": "mage-remove-lesser-curse",
+      "spell_id": 475,
+      "name": "Remove Lesser Curse",
+      "class": "Mage",
+      "class_id": 4,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 18,
+      "url": "https://www.wowhead.com/classic/spell=475/remove-lesser-curse",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "mage-remove-lesser-curse-class-level": "Requires Mage Requires level 18",
+        "mage-remove-lesser-curse-scope": "Removes 1 Curse from a friendly target."
+      },
+      "boundary": "Curse scope only. No general Magic dispel or Season of Discovery rune capability is inferred."
+    },
+    {
+      "id": "druid-remove-curse",
+      "spell_id": 2782,
+      "name": "Remove Curse",
+      "class": "Druid",
+      "class_id": 2,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 24,
+      "url": "https://www.wowhead.com/classic/spell=2782/remove-curse",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "druid-remove-curse-class-level": "Requires Druid Requires level 24",
+        "druid-remove-curse-scope": "Dispels 1 Curse from a friendly target."
+      },
+      "boundary": "Distinct from Mage spell 475; this is a positive capability, not an exhaustive removal matrix."
+    },
+    {
+      "id": "druid-abolish-poison",
+      "spell_id": 2893,
+      "name": "Abolish Poison",
+      "class": "Druid",
+      "class_id": 2,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 26,
+      "url": "https://www.wowhead.com/classic/spell=2893/abolish-poison",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "druid-abolish-poison-class-level": "Requires Druid Requires level 26",
+        "druid-abolish-poison-scope": "Attempts to cure 1 poison every 2 seconds."
+      },
+      "boundary": "Periodic poison-removal attempt. No guaranteed removal, actor loadout or boss-specific opportunity is inferred."
+    },
+    {
+      "id": "priest-shackle-undead",
+      "spell_id": 9484,
+      "name": "Shackle Undead",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 20,
+      "url": "https://www.wowhead.com/classic/spell=9484/shackle-undead",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "priest-shackle-undead-class-level": "Requires Priest Requires level 20",
+        "priest-shackle-undead-scope": "Shackles the target undead enemy"
+      },
+      "boundary": "Rank-specific source. Undead targeting alone does not prove that any particular raid NPC can be controlled."
+    },
+    {
+      "id": "priest-mind-control",
+      "spell_id": 10912,
+      "name": "Mind Control",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 58,
+      "url": "https://www.wowhead.com/classic/spell=10912/mind-control",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "priest-mind-control-class-level": "Requires Priest Requires level 58",
+        "priest-mind-control-scope": "Controls a humanoid mind up to level 64"
+      },
+      "boundary": "Rank-specific source, not a raw observation of Razuvious control or an assignment."
+    },
+    {
+      "id": "priest-fear-ward",
+      "spell_id": 6346,
+      "name": "Fear Ward",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 20,
+      "url": "https://www.wowhead.com/classic/spell=6346/fear-ward",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "priest-fear-ward-class-level": "Requires Priest Requires level 20",
+        "priest-fear-ward-scope": "Wards the friendly target against Fear."
+      },
+      "boundary": "Priest class attribution only. Dwarf quest evidence is separate; its existence alone does not establish an exhaustive race exclusion."
+    },
+    {
+      "id": "hunter-tranquilizing-shot",
+      "spell_id": 19801,
+      "name": "Tranquilizing Shot",
+      "class": "Hunter",
+      "class_id": 3,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 60,
+      "url": "https://www.wowhead.com/classic/spell=19801/tranquilizing-shot",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "hunter-tranquilizing-shot-class-level": "Requires Hunter Requires level 60",
+        "hunter-tranquilizing-shot-scope": "Attempts to remove 1 Frenzy effect from an enemy creature."
+      },
+      "boundary": "Classic Frenzy wording, not retail/Wrath generic Magic removal. No boss aura ID or successful dispel is certified."
+    },
+    {
+      "id": "paladin-frost-resistance-aura",
+      "spell_id": 19898,
+      "name": "Frost Resistance Aura",
+      "class": "Paladin",
+      "class_id": 6,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 56,
+      "url": "https://www.wowhead.com/classic/spell=19898/frost-resistance-aura",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "paladin-frost-resistance-aura-class-level": "Requires Paladin Requires level 56",
+        "paladin-frost-resistance-aura-scope": "Gives 60 additional Frost resistance to all party members within 30 yards."
+      },
+      "boundary": "Rank-specific party aura. No raid-wide application, stacking or coverage is inferred."
+    },
+    {
+      "id": "shaman-frost-resistance-totem",
+      "spell_id": 10479,
+      "name": "Frost Resistance Totem",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 54,
+      "url": "https://www.wowhead.com/classic/spell=10479/frost-resistance-totem",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "shaman-frost-resistance-totem-class-level": "Requires Shaman Requires level 54",
+        "shaman-frost-resistance-totem-scope": "The totem increases party members' frost resistance by 60, if within 20 yards."
+      },
+      "boundary": "Rank-specific party totem; not a raw pet ownership mapping or measured buff window."
+    },
+    {
+      "id": "hunter-aspect-of-the-wild",
+      "spell_id": 20043,
+      "name": "Aspect of the Wild",
+      "class": "Hunter",
+      "class_id": 3,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 46,
+      "url": "https://www.wowhead.com/classic/spell=20043/aspect-of-the-wild",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "hunter-aspect-of-the-wild-class-level": "Requires Hunter Requires level 46",
+        "hunter-aspect-of-the-wild-scope": "Nature resistance increased by 45."
+      },
+      "boundary": "Rank-specific capability; no stacking claim or encounter-wide range proof."
+    },
+    {
+      "id": "shaman-nature-resistance-totem",
+      "spell_id": 10601,
+      "name": "Nature Resistance Totem",
+      "class": "Shaman",
+      "class_id": 9,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 60,
+      "url": "https://www.wowhead.com/classic/spell=10601/nature-resistance-totem",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "shaman-nature-resistance-totem-class-level": "Requires Shaman Requires level 60",
+        "shaman-nature-resistance-totem-scope": "increases the nature resistance of party members within 20 yards by 60."
+      },
+      "boundary": "Rank-specific party totem, not modern raid-wide resistance or raw coverage."
+    },
+    {
+      "id": "priest-dispel-magic",
+      "spell_id": 527,
+      "name": "Dispel Magic",
+      "class": "Priest",
+      "class_id": 7,
+      "class_id_namespace": "WCL Classic category IDs used by guidance_lint.CLASS_TAGS",
+      "required_level": 18,
+      "url": "https://www.wowhead.com/classic/spell=527/dispel-magic",
+      "retrieved": "2026-10-21",
+      "method": "Expanded search result: Classic tooltip/details only. Direct Wowhead opens returned a JavaScript robot challenge; comments and other game variants excluded.",
+      "excerpts": {
+        "priest-dispel-magic-class-level": "Requires Priest Requires level 18",
+        "priest-dispel-magic-scope": "removing 1 harmful spell from a friend or 1 beneficial spell from an enemy."
+      },
+      "boundary": "Classic rank-specific Magic removal, not the modern Purify spell sharing numeric ID 527."
+    },
+    {
+      "id": "classic-faction-classes",
+      "url": "https://worldofwarcraft.blizzard.com/en-us/news/23090134/wow-classic-primer-for-new-players",
+      "retrieved": "2026-10-21",
+      "method": "Expanded official Blizzard search result; direct page returned HTTP 403.",
+      "excerpts": {
+        "paladin-shaman-factions": "the Paladin and the Shaman classes are restricted to the Alliance and the Horde respectively."
+      },
+      "boundary": "Original Classic scope. This does not describe Burning Crusade, Season of Discovery or later variants."
+    },
+    {
+      "id": "dwarf-fear-ward-quest",
+      "url": "https://classicdb.ch/?quest=5641",
+      "retrieved": "2026-10-21",
+      "method": "Directly opened ClassicDB quest page.",
+      "excerpts": {
+        "quest-race": "Side: Dwarf",
+        "quest-reward": "Fear Ward"
+      },
+      "boundary": "Positive Dwarf racial quest evidence, combined with the Priest spell source for class. Other race availability is not proved absent by one quest."
+    },
+    {
+      "id": "poison-cleansing-effect",
+      "spell_id": 8168,
+      "url": "https://classicdb.ch/?spell=8168",
+      "retrieved": "2026-10-21",
+      "method": "Directly opened ClassicDB spell page.",
+      "excerpts": {
+        "effect-name": "Poison Cleansing Totem Effect",
+        "effect-kind": "Effect #1 (38) Dispel (4)"
+      },
+      "boundary": "Effect ID only; do not count it as a cast or infer owner from its name."
+    },
+    {
+      "id": "disease-cleansing-totem-identity",
+      "spell_id": 8170,
+      "url": "https://classicdb.ch/?spell=8170",
+      "retrieved": "2026-10-21",
+      "method": "Directly opened ClassicDB spell page.",
+      "excerpts": {
+        "spell-name": "Disease Cleansing Totem"
+      },
+      "boundary": "Corrects the earlier scratchpad misidentification of 8170 as Poison Cleansing Totem. No class attribution is taken from this page."
+    }
+  ]
+}

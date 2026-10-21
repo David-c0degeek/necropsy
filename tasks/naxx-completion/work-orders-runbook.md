@@ -7,6 +7,9 @@ Always use a saved **balanced** tune when one exists, as subsequently directed.
 The first frozen trial is complete and rejected: 2/10 original machine passes,
 zero promotions. See `research/guidance-trial-results.json`. Do not rerun its
 orders to repair that score. WCL maintenance is separate; this workflow calls no WCL.
+Later source research changed the ledger hash. Historical replay uses revision
+`d53811d85986`; do not repin old orders to the new ledger. Other offline verifier
+contracts and their readiness are in `research/offline-verifier-contracts.md`.
 
 ## Contract and verification
 

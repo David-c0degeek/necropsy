@@ -50,6 +50,16 @@ explicitly because its old measurement version loses to a current pure entry in
 automatic selection. Do not use that pure fallback again. Never edit old receipts
 or retry failed orders into acceptance. WCL maintenance remains in force.
 
+Further offline progress: fact-freeze kind (b) reuses the existing script, with
+55 tests and a zero-difference real fact replay. Raw scanner prototype passes
+23 synthetic tests plus five independently enumerated partial v1 cases; real
+v2/full eligibility is still required. See `research/offline-verifier-readiness.json`.
+The boss source ledger now pins a 19-source capability catalog and records new
+Gothik cadence/Kel'Thuzad damage conflicts. Capability refs are research only;
+existing linter support keys do not resolve them. Historical guidance orders
+retain their old input pin; the trial audit records the original committed revision
+for replay. 02.2, 04.1 and all capture-dependent completion remain open.
+
 The owner instructed Claude to hand over: "codex will take it from here with localpilot".
 Codex accepted ownership at pair epoch 2 and is the only tree writer. LocalPilot stays an adviser only (D009).
 Claude remains required reviewer in the harness until an explicit authorized transfer.
