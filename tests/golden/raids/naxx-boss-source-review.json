@@ -184,7 +184,18 @@
         "damage_gauge_second": "Second balcony stage: 50%",
         "damage_gauge_third": "Third balcony stage: 0%",
         "note_pull": "NOTE: At the pull the entire raid must be in the room or they will be locked out until Noth resets"
-      }
+      },
+      "conflicts": [
+        {
+          "keys": [
+            "wrath_desc",
+            "wrath_damage"
+          ],
+          "issue": "wrath_desc says Nature damage then more every 5 sec for 10 sec; wrath_damage says 875 to 1125 shadow damage every 2 sec.",
+          "other_source": "https://www.wowhead.com/classic/spell=29214/wrath-of-the-plaguebringer: its prose tooltip and its extracted school and tick fields disagree (reviewer-verified, Codex #19).",
+          "rule": "No item states the school, tick interval or damage of Wrath of the Plaguebringer until raw-observed spell 29214 events settle it; guidance may only say the curse must be removed before it spreads."
+        }
+      ]
     },
     {
       "boss": "Heigan the Unclean",
@@ -365,8 +376,27 @@
         "enrage_crit_risk": "Maexxna will often kill the tank during the Web Spray if she lands a crit during the Enrage...",
         "second_spray_cover": "For the second Web Spray have a healer with SS or Divine Shield ready.",
         "rogue_mage_avoidance": "It has been witnessed that with surgical timing Rogues (using Vanish) and Mages (with Iceblock) can avoid the Web Spray...",
-        "tank_enrage_healing": "It's very important for the tank to spam Shield Block and healers should heal the MT non-stop during the enrage phase..."
-      }
+        "tank_enrage_healing": "It's very important for the tank to spam Shield Block and healers should heal the MT non-stop during the enrage phase...",
+        "phase_web_wrap": "20-30 seconds - At 20 seconds, Maexxna will toss 3 random raid members (not MT) onto the nearest wall, and will..."
+      },
+      "conflicts": [
+        {
+          "keys": [
+            "web_spray_avoidance",
+            "web_spray_avoidance_2",
+            "rogue_mage_avoidance"
+          ],
+          "issue": "The first two present death, Flask of Petrification, Divine Intervention or Web Wrap as the only ways to avoid Web Spray; rogue_mage_avoidance reports Vanish and Ice Block avoiding it with precise timing.",
+          "rule": "No item claims an exhaustive list of ways to avoid Web Spray; class-specific avoidance stays unasserted until raw events show it."
+        },
+        {
+          "keys": [
+            "warrior_shield_wall"
+          ],
+          "issue": "The sentence names Web Wrap, but it sits in tank-survival advice about the enraged Web Spray; the main tank is not a Web Wrap target per phase_web_wrap context.",
+          "rule": "Not used for guidance until a second source or raw evidence shows which ability it means; never silently corrected."
+        }
+      ]
     },
     {
       "boss": "Instructor Razuvious",
@@ -553,6 +583,11 @@
     "Kel'Thuzad was returned as a selection; a second fetch for the omitted sentences (Frost Blast, Shadow Fissure, phase-one add list) is needed before Kel'Thuzad guidance is reviewed.",
     "Long sentences omitted on Heigan, Anub'Rekhan (Impale) and Gothik need a second, targeted fetch before items rely on them.",
     "Three pages were edited on or after 2026-10-13, the facts file's retrieval date: Grand Widow Faerlina (15 October 2026), Maexxna (14 October 2026) and Instructor Razuvious (13 October 2026). Their naxxramas_facts.yaml timings must be re-checked against these excerpts in 04.4.",
-    "Thaddius polarity, Four Horsemen marks, Gothik waves and Loatheb's healing restriction need raw-observed spell and NPC identities (PM-3, research/oracle-design.md) before any measured policy; the sentences above support guidance only."
+    "Thaddius polarity, Four Horsemen marks, Gothik waves and Loatheb's healing restriction need raw-observed spell and NPC identities (PM-3, research/oracle-design.md) before any measured policy; the sentences above support guidance only.",
+    "Grobbulus hunter_shaman_nature_tip is a fragment without its subject (which Hunter and Shaman abilities); it cannot support any item until refetched in full.",
+    "Heigan strategy_red_safe_zone and strategy_phase1_raid_position refer to a diagram the fetch did not return; positions are also not recorded in logs, so they support no positional advice.",
+    "Faerlina strat_cleansers names Paladins and Shaman for Cleanse, but Cleanse is a Paladin spell (capability source pending for Shaman poison removal: Cure Poison, Poison Cleansing Totem). Maexxna warrior_taunt pairs Warrior Demoralizing Shout with Paladin Consecrate. Neither maps literally onto every named class; each class needs its own capability proof.",
+    "Fragments cut by the 125-character cap (marked '...' or ending mid-sentence) cannot support categorical advice; any item citing one must state only what the fragment says.",
+    "Conflicts are recorded per source under `conflicts`; an item may not rely on any key named in a conflict until that conflict's rule is met."
   ]
 }
