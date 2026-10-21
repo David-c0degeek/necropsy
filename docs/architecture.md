@@ -96,8 +96,10 @@ critical-damage scopes. Their actor is null and direction is `all`; critical
 requests bind the server `isCritical` filter in the immutable identity. They
 use separate cache paths and cannot impersonate an actor source/target stream.
 Normal CLI, terminal and desktop acquisition includes encounter context for Era
-MC/BWL/AQ40 partitions1/2, producing live v2 with separately certified encounter
-and critical scopes. Naxx and other partitions retain actor-only live v1.
+Naxxramas/MC/BWL/AQ40 partitions1/2, producing live v2 with separately certified
+encounter and critical scopes. Other partitions retain actor-only live v1. Earlier
+actor-only Naxxramas archives keep their original analysis: encounter context and
+duty context apply to a Naxxramas archive only when it is live v2.
 The low-level acquisition API retains its explicit opt-in for compatibility.
 Both versions use the same report/finalization, page reader, normalizer and output
 pipeline. Extra scopes obey the existing quota/resume limits; incomplete scopes

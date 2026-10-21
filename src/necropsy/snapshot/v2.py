@@ -9,6 +9,7 @@ from typing import Any, Literal
 
 from pydantic import Field, ValidationError
 
+from necropsy.raids import ENCOUNTER_CONTEXT_PARTITIONS, ENCOUNTER_CONTEXT_ZONES
 from necropsy.snapshot.archive import VerifiedArchive
 from necropsy.snapshot.canonical import canonical_json
 from necropsy.snapshot.model import (
@@ -21,6 +22,8 @@ from necropsy.snapshot.model import (
     StreamStatus,
 )
 from necropsy.snapshot.v1 import MARKER, LiveSnapshotFile, V1Snapshot, _Strict
+
+FORMAT = "necropsy-live-snapshot-v2"
 
 
 class EncounterStream(_Strict):
@@ -64,13 +67,14 @@ class V2Snapshot(V1Snapshot):
 
     def _canonical(self, live: LiveSnapshotFile) -> None:
         super()._canonical(live)
-        if live.zone.id not in {2000, 2002, 2005} or live.zone.partition not in {1, 2}:
+        if (
+            live.zone.id not in ENCOUNTER_CONTEXT_ZONES
+            or live.zone.partition not in ENCOUNTER_CONTEXT_PARTITIONS
+        ):
             raise SnapshotError("encounter context requires a supported new Era raid partition")
 
     def _build_descriptor(self) -> SnapshotDescriptor:
-        return (
-            super()._build_descriptor().model_copy(update={"format": "necropsy-live-snapshot-v2"})
-        )
+        return super()._build_descriptor().model_copy(update={"format": FORMAT})
 
     @staticmethod
     def _names_for(proof: EncounterStream) -> list[str]:

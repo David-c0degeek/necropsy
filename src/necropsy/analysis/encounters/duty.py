@@ -10,19 +10,30 @@ from necropsy.analysis.context import ParticipantFight, coverage
 from necropsy.analysis.encounters import encounter_rules
 from necropsy.analysis.evidence import Evidenced, complete_or_unknown, observed, unknown
 from necropsy.analysis.generic import combat
-from necropsy.raids import raid_for_encounter
+from necropsy.raids import (
+    ENCOUNTER_CONTEXT_PARTITIONS,
+    ENCOUNTER_CONTEXT_ZONES,
+    raid_for_encounter,
+)
+from necropsy.raids.naxxramas import RAID as NAXXRAMAS
 from necropsy.snapshot.model import Direction
+from necropsy.snapshot.v2 import FORMAT as V2_FORMAT
 
 
 def applies(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> bool:
-    """Keep the historical Naxx duty contract and seasonal rules separate."""
-    meta = con.execute("SELECT zone_id, partition_id FROM snapshot_meta").fetchone()
+    """Keep the historical Naxx duty contract and seasonal rules separate.
+
+    A Naxxramas capture gains duty context only when it carries whole-encounter
+    scopes; its earlier actor-only captures keep their original behaviour.
+    """
+    meta = con.execute("SELECT zone_id, partition_id, format FROM snapshot_meta").fetchone()
     if meta is None:
         return False
-    zone, partition = meta
+    zone, partition, snapshot_format = meta
     return (
-        zone in (2000, 2002, 2005)
-        and partition in (1, 2)
+        zone in ENCOUNTER_CONTEXT_ZONES
+        and partition in ENCOUNTER_CONTEXT_PARTITIONS
+        and (zone != NAXXRAMAS.zone_id or snapshot_format == V2_FORMAT)
         and (raid_for_encounter(pf.encounter_id).zone_id == zone)
     )
 

@@ -13,6 +13,13 @@ from necropsy.rules import load_rules
 RAIDS = (NAXXRAMAS, AQ40, BWL, MC)
 DEFAULT_RAID = NAXXRAMAS
 
+# Raids whose live captures may carry whole-encounter event scopes, and the Era
+# partitions those scopes are defined for. Naxxramas captures made before it
+# joined keep their actor-only contract: only a capture that carries the scopes
+# gains encounter context.
+ENCOUNTER_CONTEXT_ZONES = frozenset(r.zone_id for r in RAIDS)
+ENCOUNTER_CONTEXT_PARTITIONS = frozenset({1, 2})
+
 
 def raid_for_zone(zone_id: int) -> Raid:
     for raid in RAIDS:

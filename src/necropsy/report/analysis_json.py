@@ -50,6 +50,7 @@ from necropsy.raids import raid_for_zone
 from necropsy.report.equipment import enrich_gear
 from necropsy.report.serialize import to_data
 from necropsy.rules import load_rules
+from necropsy.snapshot.v2 import FORMAT as V2_FORMAT
 
 SCHEMA_ID = "necropsy.analysis"
 SCHEMA_VERSION = 1
@@ -816,7 +817,7 @@ def build_document(
                 if r["encounter_id"] not in present
             ]
         bosses = [_boss(con, b, cross_faction, names) for b in boss_data]
-    if zone != "naxxramas":
+    if zone != "naxxramas" or meta[2] == V2_FORMAT:
         from necropsy.analysis.encounters import (
             control,
             duty,

@@ -28,7 +28,13 @@ from typing import Any
 from necropsy.analysis.context import realm_key
 from necropsy.analysis.evidence import Faction
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
-from necropsy.raids import DEFAULT_RAID, RAIDS, raid_for_zone
+from necropsy.raids import (
+    DEFAULT_RAID,
+    ENCOUNTER_CONTEXT_PARTITIONS,
+    ENCOUNTER_CONTEXT_ZONES,
+    RAIDS,
+    raid_for_zone,
+)
 from necropsy.rules import load_rules
 from necropsy.wcl.cache import Cache, FightKey, StreamPages, valid_report_code
 from necropsy.wcl.client import (
@@ -1011,10 +1017,10 @@ def _acquire_rankings(run: Run, context: CharacterContext, boss: BossAcquisition
 def supports_encounter_context(context: CharacterContext) -> bool:
     """Whole-fight scopes are defined only for the supported new Era raids."""
     return (
-        context.zone_id in {2000, 2002, 2005}
+        context.zone_id in ENCOUNTER_CONTEXT_ZONES
         and context.partition is not None
         and type(context.partition.id) is int
-        and context.partition.id in {1, 2}
+        and context.partition.id in ENCOUNTER_CONTEXT_PARTITIONS
     )
 
 

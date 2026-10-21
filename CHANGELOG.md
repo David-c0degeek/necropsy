@@ -8,6 +8,10 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Naxxramas analyses for Era partitions 1 and 2 now collect whole-fight and
+  critical-damage context like Molten Core, Blackwing Lair and AQ40, which costs
+  more of the hourly Warcraft Logs budget. Earlier Naxxramas archives keep their
+  original results; boss-specific Naxxramas encounter rules come later.
 - Developer: the raid evidence register now includes Naxxramas, 510 boss and
   configuration cells, and `scripts/check_raid_coverage.py --raid <raid>` audits
   one raid's cells on their own. Existing Naxxramas captures are registered as

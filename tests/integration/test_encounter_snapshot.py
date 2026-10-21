@@ -24,7 +24,7 @@ from necropsy.wcl.cache import Cache
 from necropsy.wcl.context import Field
 from necropsy.wcl.sites import VANILLA
 from tests.integration.test_live_snapshot import _client, _rewrite
-from tests.unit.test_wcl_acquire import FakeWcl, Player, _context
+from tests.unit.test_wcl_acquire import PATCHWERK, FakeWcl, Player, _context
 
 EVENTS = [
     {"timestamp": 1000, "type": "combatantinfo", "sourceID": 5, "faction": 1},
@@ -127,6 +127,58 @@ def _capture(root: Path, enabled: bool) -> Any:
         client.close()
 
 
+class NaxxEncounterWcl(EncounterWcl):
+    """The same encounter events on a Patchwerk kill in Naxxramas."""
+
+    def _report(self, p: Player, wanted: list[int] | None = None) -> dict[str, Any]:
+        report = FakeWcl._report(self, p, wanted)
+        report["masterData"]["actors"] += [
+            {"id": 50, "name": "Patchwerk", "type": "NPC", "gameID": 16028},
+            {"id": 51, "name": "Priest", "type": "NPC", "gameID": 11662},
+            {"id": 17, "name": "OtherMage", "type": "Player", "subType": "Mage"},
+        ]
+        return report
+
+
+def _naxx_capture(root: Path, enabled: bool) -> Any:
+    root.mkdir()
+    (root / "cache").mkdir()
+    fake = NaxxEncounterWcl([Player(f"Ally{i}") for i in range(5)], Player("Haplina"))
+    context = _context()
+    assert context.partition is not None
+    context = replace(context, zone_id=2006, partition=replace(context.partition, id=1))
+    client, store = _client(fake), Cache(root / "cache")
+    try:
+        result = acquire(
+            client, store, VANILLA, context, encounters=(PATCHWERK,), encounter_context=enabled
+        )
+        assert result.stopped is None
+        finalize_reports(Run(client, store, VANILLA), result)
+        return write_snapshot(result, store, root, "capture")
+    finally:
+        client.close()
+
+
+@pytest.mark.parametrize("enabled", [True, False])
+def test_naxx_encounter_context_needs_a_v2_capture(tmp_path: Path, enabled: bool) -> None:
+    """Naxxramas gains encounter context only from a capture that carries its streams."""
+    written = _naxx_capture(tmp_path / "capture", enabled)
+    with VerifiedArchive(written.archive) as archive:
+        reader = open_snapshot(archive)
+        assert reader.issues() == []
+        assert reader.descriptor().format == (
+            "necropsy-live-snapshot-v2" if enabled else "necropsy-live-snapshot-v1"
+        )
+        scopes = {r.role for r in reader.expected_streams() if r.direction is Direction.ALL}
+        assert scopes == ({ActorRole.ENCOUNTER, ActorRole.CRITICAL} if enabled else set())
+    out = tmp_path / "report"
+    run_offline(written.archive, out, db=tmp_path / "analysis.duckdb")
+    doc = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    [boss] = doc["bosses"]
+    assert boss["encounter_id"] == PATCHWERK
+    assert ("duty_context" in boss["playbook"]) is enabled
+
+
 @pytest.fixture(scope="module")
 def encounter_capture(tmp_path_factory: pytest.TempPathFactory) -> Any:
     return _capture(tmp_path_factory.mktemp("encounter") / "capture", True)
@@ -176,7 +228,7 @@ def test_default_acquisition_still_writes_only_v1_actor_streams(tmp_path: Path) 
         )
 
 
-@pytest.mark.parametrize("zone,partition", [(2006, 1), (2000, 3), (2002, 7), (2005, 11)])
+@pytest.mark.parametrize("zone,partition", [(2006, 3), (2000, 3), (2002, 7), (2005, 11)])
 def test_encounter_collection_refuses_other_rulesets_before_any_request(
     tmp_path: Path, zone: int, partition: int
 ) -> None:

@@ -20,13 +20,15 @@ The values are `naxxramas`, `aq40`, `bwl` and `mc`. Character URLs with
 A URL without a zone retains the historical Naxxramas default. Use a separate
 output directory per analysis. Resume with the same command plus `--resume`.
 
-New MC/BWL/AQ40 analyses for Era partitions 1/2 also collect whole-fight and
-critical-damage context through the normal quota-controlled acquisition path.
+New Naxxramas, MC, BWL and AQ40 analyses for Era partitions 1/2 also collect
+whole-fight and critical-damage context through the normal quota-controlled acquisition path.
 These scopes support encounter observations; they do not establish every
 player's assignment, personal stream coverage or a validated ranking policy.
 Resuming an older actor-only run acquires missing context and writes a new
 immutable snapshot. Original archives remain available; old saved analyses
-continue to render their recorded results. Naxx acquisition stays actor-only.
+continue to render their recorded results. Earlier actor-only Naxxramas archives
+keep their original analysis; only a new capture with these scopes gains encounter
+context. Naxxramas has no boss-specific encounter rules for it yet.
 
 | Module | WCL zone | Encounters |
 |---|---|---|
