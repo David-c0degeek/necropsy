@@ -14,7 +14,7 @@ infrastructure if LocalPilot's own invocation suffices.
 ## Boxes
 - [ ] **02.1** (agent) Work-order format: a JSON or Markdown file with id, goal, input bundle (paths with SHA-256, source excerpts), allowed write paths (`workspace/naxx-drafts/<id>/` only), exact output schema, verifier command, time and token caps. A driver script starts LocalPilot on one order, enforces the caps and records the run.
 - [ ] **02.2** (agent) Verifiers for the first three order kinds: (a) raw discovery count script (checked against an independent enumeration), (b) fact-freeze spec (checked by `fact_freeze check`), (c) guidance draft (schema, `guidance_lint`, every claim tied to a quoted excerpt). Each verifier has negative tests with planted defects.
-- [ ] **02.3** (agent) Trial batch: ten orders of kind (a) on a Naxx boss; record pass rate, wall time and defects caught. A pass rate below the §4 threshold (set before the trial) moves that kind back to Claude.
+- [ ] **02.3** (agent) Trial batch: ten orders of kind (c), guidance drafts, on a Naxx boss (kind (a) failed 0 of 3 in 00.4 and stays with Claude, D009); record pass rate, wall time and defects caught. A pass rate below the §4 threshold (set before the trial) moves that kind back to Claude.
 - [ ] **02.4** (agent) Runbook in the plan folder: how to serve, run, verify and discard; what the runner may never do (write the tree, call WCL, review).
 
 ## Hindsight checkpoint
