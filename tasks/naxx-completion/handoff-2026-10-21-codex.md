@@ -66,6 +66,11 @@ Faerlina/Maexxna fragments are now excluded by conflicts. A real v1 Sapphiron
 actor-cast pilot independently matches six Remove Curse casts; research receipt
 `research/sapphiron-actor-cast-pilot.json` records locators and limits. No successful
 removal, encounter-wide coverage, actor-source registration or completion is implied.
+Follow-up independently verifies six explicit personal dispel rows of Life Drain
+28542 by Remove Curse 2782, with selected recipient bindings and matching raw rows
+through the separate scanner. `research/sapphiron-actor-dispel-pilot.json` retains
+positive observations only; no response-time, missed-opportunity or encounter
+completeness claim is made. The earlier cast receipt remains unchanged.
 
 The owner instructed Claude to hand over: "codex will take it from here with localpilot".
 Codex accepted ownership at pair epoch 2 and is the only tree writer. LocalPilot stays an adviser only (D009).

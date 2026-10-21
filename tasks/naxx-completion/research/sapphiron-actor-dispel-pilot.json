@@ -1,0 +1,206 @@
+{
+  "status": "positive actor-scoped dispel observations; not a full-fight absence or opportunity claim",
+  "archive": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+  "archive_sha256": "e827163bcb7832d8e3e83fa67cc73d32c8e1ac8e4cc7d89c2f6f3d46749136d0",
+  "tool_sha256": "45ec86fbba4cf24c328cd58840cf2eb7956ea91b37d36fc56d44240c561d7626",
+  "interpreter": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "report": "arYtVP9kgnjBJp7K",
+  "fight": 48,
+  "actor": 22,
+  "encounter_id": 51119,
+  "duration_ms": 174912,
+  "page_sha256": {
+    "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json": "d81d1499e6709dd35edddf5f77c388e2381a9e2715a7087f69d2019648790075",
+    "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_001.json": "0c1377a590476e486c42a6035ad847f793d8c5f5ba479ea6cf08d184e21bd2b7",
+    "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_002.json": "2d44cb80d4f218d6035fc8425a1b726ab73552bb324372908ba3e1f43a148ee5",
+    "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_003.json": "7c874789a4d629b6f8377390760e61c6309fbb2070f6413463ba1ef3379f1776",
+    "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_004.json": "55334e9bf9a7b456dcbaea9f8bc7dd2640152bb2cb16005a7196d309ec6d985b"
+  },
+  "direction_counts": {
+    "source": 6,
+    "target": 6
+  },
+  "merged_count": 6,
+  "events": [
+    {
+      "raw": {
+        "abilityGameID": 2782,
+        "extraAbilityGameID": 28542,
+        "fight": 48,
+        "isBuff": false,
+        "sourceID": 22,
+        "targetID": 8,
+        "timestamp": 4819961,
+        "type": "dispel"
+      },
+      "time_ms": 37204,
+      "multiplicity": 1,
+      "locators": [
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          "index": 162
+        },
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_001.json",
+          "index": 9332
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 2782,
+        "extraAbilityGameID": 28542,
+        "fight": 48,
+        "isBuff": false,
+        "sourceID": 22,
+        "targetID": 41,
+        "timestamp": 4821478,
+        "type": "dispel"
+      },
+      "time_ms": 38721,
+      "multiplicity": 1,
+      "locators": [
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          "index": 168
+        },
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_001.json",
+          "index": 9676
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 2782,
+        "extraAbilityGameID": 28542,
+        "fight": 48,
+        "isBuff": false,
+        "sourceID": 22,
+        "targetID": 39,
+        "timestamp": 4895324,
+        "type": "dispel"
+      },
+      "time_ms": 112567,
+      "multiplicity": 1,
+      "locators": [
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          "index": 405
+        },
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_003.json",
+          "index": 1247
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 2782,
+        "extraAbilityGameID": 28542,
+        "fight": 48,
+        "isBuff": false,
+        "sourceID": 22,
+        "targetID": 11,
+        "timestamp": 4896894,
+        "type": "dispel"
+      },
+      "time_ms": 114137,
+      "multiplicity": 1,
+      "locators": [
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          "index": 413
+        },
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_003.json",
+          "index": 1614
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 2782,
+        "extraAbilityGameID": 28542,
+        "fight": 48,
+        "isBuff": false,
+        "sourceID": 22,
+        "targetID": 27,
+        "timestamp": 4914049,
+        "type": "dispel"
+      },
+      "time_ms": 131292,
+      "multiplicity": 1,
+      "locators": [
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          "index": 479
+        },
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_003.json",
+          "index": 5540
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 2782,
+        "extraAbilityGameID": 28542,
+        "fight": 48,
+        "isBuff": false,
+        "sourceID": 22,
+        "targetID": 34,
+        "timestamp": 4957243,
+        "type": "dispel"
+      },
+      "time_ms": 174486,
+      "multiplicity": 1,
+      "locators": [
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          "index": 619
+        },
+        {
+          "member": "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_004.json",
+          "index": 511
+        }
+      ]
+    }
+  ],
+  "spell_source": {
+    "url": "https://www.wowhead.com/classic/spell=28542/life-drain",
+    "retrieved": "2026-10-21",
+    "method": "Expanded Classic search tooltip/details; no comments, later-game or seasonal magnitude used.",
+    "excerpts": {
+      "name_type": "Life Drain Curse",
+      "dispel_type": "Dispel type Curse"
+    },
+    "boundary": "Spell identity/type only, not a damage amount, duration, cooldown or measured opportunity."
+  },
+  "method": "Stdlib raw ZIP enumeration; exact integer identities, explicit dispel event type and isBuff false, recipient catalog/fight membership, maximum SOURCE/TARGET multiplicity. Does not import analyzer or fact_freeze.",
+  "limits": [
+    "Actor-only v1 streams cannot establish encounter-wide completeness or other removers.",
+    "No application window, response time, missed opportunity, assignment, grade, ranking or cell completion is inferred.",
+    "Companion cast evidence is separate; no pairing of casts and dispels by nearest timestamp is assumed."
+  ],
+  "independent_replay": {
+    "tool_sha256": "b298e5b8bfc3a11ae14b05746a14d019b5f0e6a8732114caad666acc6c74664c",
+    "query": {
+      "name": "sapphiron-haplina-explicit-dispels",
+      "report": "arYtVP9kgnjBJp7K",
+      "fight": 48,
+      "encounter": 51119,
+      "scope": "union",
+      "types": [
+        "dispel"
+      ],
+      "source_ids": [
+        22
+      ]
+    },
+    "count": 6,
+    "raw_rows_match": true,
+    "scope_complete": false,
+    "boundary": "Separate parser corroboration using the ignored scanner prototype, not a full production eligibility or completeness proof."
+  }
+}
