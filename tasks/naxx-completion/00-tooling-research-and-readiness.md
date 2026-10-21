@@ -13,7 +13,29 @@ asset and evidence, and a pre-mortem whose guardrails are mapped into the plan.
 - [x] **00.5** (agent) Naxx inventory: zone 2006 encounters and WCL encounter IDs; which configurations already have real archives (haplina_naxx, druid, classes) and whether each is full-raid, partition and faction; existing Naxx guidance (8 bosses) and facts (15); every place that treats Naxx specially (`encounter_strategy` returns None for Naxx; others found by search). Write `tasks/naxx-completion/inventory.md`.
 - [x] **00.6** (agent) Pre-mortem for the plan (scope: register/strategy seam, local work orders, capture queue). Create `pre-mortem.md` from retained PM-* risks and map each guardrail to boxes.
 - [x] **00.7** (agent) Partition decision: partition 1 only, or 1 and 2 as separate cell sets; §4 row with the WCL availability evidence. A separate partition 2 scope changes the denominator and needs the partition in the cell identity (current keys omit it).
-- [ ] **00.8** (agent) Readiness summary and pair DESIGN_AGREED on the plan before 01 starts.
+- [x] **00.8** (agent) Readiness summary and pair DESIGN_AGREED on the plan before 01 starts.
+
+## Readiness summary (00.8)
+
+- **Host:** trusted at 2133 MT/s JEDEC (D004, D006). Seven baseline runs and two later full gates
+  passed; a suspected-corruption failure reopens D004.
+- **Baseline:** main at 61cdb30 is pushed and green (`pre_review.py --full`, 8 workers). Naxx
+  compatibility commands are in §2; one stale browser fixture was fixed (7ad535d).
+- **Scope:** partition 1, 15 bosses × 34 configurations = 510 cells (D008). Partition 2 is a
+  separate extension.
+- **Largest gap:** Naxx has no encounter context (`inventory.md`). Box 01.5 adds it, gated on the
+  archive's v2 encounter streams and in `duty.applies` itself; v1 output stays byte-identical
+  (PM-1). Captures wait for that release (PM-2). Existing v1 archives stay reusable where 01.1
+  accepts them.
+- **Seats:** Claude owns and writes; Codex reviews and builds independent oracles, partition and
+  quota evidence and leads UI/UX (D007). The local runner failed the raw-discovery trial 0 of 3,
+  so raw discovery stays with Claude; it gets one guidance-draft trial in 02.3 (D009).
+- **Quota:** no bound yet. The first normal v2 capture measures a short fight and one of the
+  Four Horsemen, Gothik or Kel'Thuzad before the bulk queue (03.1).
+- **Risks:** PM-1 to PM-5 (`pre-mortem.md`), verdict PROCEED WITH GUARDRAILS. PM-3 has an
+  oracle contract (`research/oracle-design.md`).
+- **Next:** 01.1 (Naxx in raid scope, 952 → 1462 cells), 01.5 (encounter context), then 01.2 to
+  01.4.
 
 ## Hindsight checkpoint
 - [ ] Captain Hindsight review recorded
