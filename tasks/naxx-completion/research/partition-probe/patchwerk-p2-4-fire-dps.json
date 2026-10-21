@@ -1,0 +1,2248 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Mage",
+    "spec": "Fire"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:59.237386+00:00",
+  "ended_at": "2026-10-21T12:04:59.615069+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Drewmage",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2154.9,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Jezreal",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2111.22,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Winterly",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2099.5,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Helina",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1649.88,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Nara",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1616.37,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Airdas",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1577.16,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Flareon",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1552.78,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Otix",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1540.29,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Thehellion",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1507.93,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10031,
+                "name": "Gandling",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "木木丨寒冰箭",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1499.24,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "嘤嘤井",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1488.07,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Néwbie",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1466.81,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "藤原豆腐店",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1442.96,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Juz",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1441.39,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Burkinafaso",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1430.33,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "嘉豪丶",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1429.27,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Lilarugula",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1416.87,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "时光丶梦",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1402.84,
+              "hardModeLevel": 0,
+              "duration": 169434,
+              "startTime": 1753370165604,
+              "report": {
+                "code": "NRBJ3d1cQbVg6Z2v",
+                "fightID": -23,
+                "startTime": 1753367862196
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Gamecast",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1396.78,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10095,
+                "name": "Arcanite Reaper",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "赤面魍魉",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1392.83,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "风流倜傥小连",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1392.16,
+              "hardModeLevel": 0,
+              "duration": 160054,
+              "startTime": 1753358121864,
+              "report": {
+                "code": "ZNavMh61cYnKqWyp",
+                "fightID": -25,
+                "startTime": 1753355455559
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "仁太丶",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1388.01,
+              "hardModeLevel": 0,
+              "duration": 142198,
+              "startTime": 1753335671549,
+              "report": {
+                "code": "DZ2NwXGRWBjkPyLd",
+                "fightID": -17,
+                "startTime": 1753333698226
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "叶寒风雪",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1376.38,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "梦辰",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1370.22,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Matuzalem",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1370.15,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Meerlina",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1370,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Demeter",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1369.96,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Maagee",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1369.51,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Louisvuitton",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1369.4,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "狂暴饮水机",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1367,
+              "hardModeLevel": 0,
+              "duration": 164078,
+              "startTime": 1753355868389,
+              "report": {
+                "code": "MX7QFfkrmDHBZTnG",
+                "fightID": -17,
+                "startTime": 1753354744375
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "变羊",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1364.42,
+              "hardModeLevel": 0,
+              "duration": 114521,
+              "startTime": 1753363709771,
+              "report": {
+                "code": "4GPJy9WA8xRzcb1B",
+                "fightID": -25,
+                "startTime": 1753359000174
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "段老板出价了",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1357.3,
+              "hardModeLevel": 0,
+              "duration": 178888,
+              "startTime": 1753320847067,
+              "report": {
+                "code": "RThtBzxG3cZML4Q6",
+                "fightID": -11,
+                "startTime": 1753318558482
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "羊沒吐氣",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1354.53,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "老弟你慢点",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1352,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Tommybolts",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1343.54,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Kastör",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1343.29,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "咖啡喵",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1343.07,
+              "hardModeLevel": 0,
+              "duration": 142198,
+              "startTime": 1753335671549,
+              "report": {
+                "code": "DZ2NwXGRWBjkPyLd",
+                "fightID": -17,
+                "startTime": 1753333698226
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Spor",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1337.45,
+              "hardModeLevel": 0,
+              "duration": 113742,
+              "startTime": 1753294539866,
+              "report": {
+                "code": "NBRLfMvxb7hF1C8w",
+                "fightID": -19,
+                "startTime": 1753291815801
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Mallykith",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1337.12,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Constatin",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1336.61,
+              "hardModeLevel": 0,
+              "duration": 169280,
+              "startTime": 1753361044912,
+              "report": {
+                "code": "MwACHhrFj31vpB6a",
+                "fightID": -26,
+                "startTime": 1753358656416
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "丿殊十二丶",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1333.98,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "火神传说",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1326.16,
+              "hardModeLevel": 0,
+              "duration": 154254,
+              "startTime": 1753360441512,
+              "report": {
+                "code": "QGntwLCYWJDxB9Ra",
+                "fightID": -19,
+                "startTime": 1753356441878
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "梦之類痕",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1325.2,
+              "hardModeLevel": 0,
+              "duration": 162157,
+              "startTime": 1753337990286,
+              "report": {
+                "code": "g3Z1GyhAx8rHpwLK",
+                "fightID": -46,
+                "startTime": 1753332460276
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "一鶸分界线一",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1324.71,
+              "hardModeLevel": 0,
+              "duration": 114521,
+              "startTime": 1753363709771,
+              "report": {
+                "code": "4GPJy9WA8xRzcb1B",
+                "fightID": -25,
+                "startTime": 1753359000174
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "萌萌超可爱",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1322.26,
+              "hardModeLevel": 0,
+              "duration": 160054,
+              "startTime": 1753358121864,
+              "report": {
+                "code": "ZNavMh61cYnKqWyp",
+                "fightID": -25,
+                "startTime": 1753355455559
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Ddnss",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1320.42,
+              "hardModeLevel": 0,
+              "duration": 152296,
+              "startTime": 1753369310678,
+              "report": {
+                "code": "8d7QYMhRJqFVwTa9",
+                "fightID": -7,
+                "startTime": 1753367923836
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Wincey",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1317.91,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Foya",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1317.11,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Snosberry",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1315.45,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10027,
+                "name": "Blaumeux",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "七滴泪",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1314.61,
+              "hardModeLevel": 0,
+              "duration": 114521,
+              "startTime": 1753363709771,
+              "report": {
+                "code": "4GPJy9WA8xRzcb1B",
+                "fightID": -25,
+                "startTime": 1753359000174
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "茫茫鸭",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1313.54,
+              "hardModeLevel": 0,
+              "duration": 142198,
+              "startTime": 1753335671549,
+              "report": {
+                "code": "DZ2NwXGRWBjkPyLd",
+                "fightID": -17,
+                "startTime": 1753333698226
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Diem",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1310.01,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "兀小兀",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1304.95,
+              "hardModeLevel": 0,
+              "duration": 150532,
+              "startTime": 1753369885210,
+              "report": {
+                "code": "Gv6xcgXyYL9jWkVR",
+                "fightID": -29,
+                "startTime": 1753365346625
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "小小可爱多",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1303.36,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "独自沉默",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1301.48,
+              "hardModeLevel": 0,
+              "duration": 164259,
+              "startTime": 1753361302745,
+              "report": {
+                "code": "Fyq7nA2hH9vaKCPt",
+                "fightID": -23,
+                "startTime": 1753359150466
+              },
+              "guild": {
+                "id": 780335,
+                "name": "九月旧约",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "Ogenx",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1300.98,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "挽歌丶",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1297.26,
+              "hardModeLevel": 0,
+              "duration": 172236,
+              "startTime": 1753358775099,
+              "report": {
+                "code": "2Ax4Z78rMCBLGtPW",
+                "fightID": -27,
+                "startTime": 1753356453153
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "请问洗哪个头",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1297.18,
+              "hardModeLevel": 0,
+              "duration": 170126,
+              "startTime": 1753361788175,
+              "report": {
+                "code": "QaGwZTNYVHv6F29J",
+                "fightID": -34,
+                "startTime": 1753358572521
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "混乱是阶梯",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1295.58,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 37
+            },
+            {
+              "name": "爱在彼岸",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1295.25,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "梦之小法",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1293.58,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "五指棋",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1293.5,
+              "hardModeLevel": 0,
+              "duration": 152391,
+              "startTime": 1753334374565,
+              "report": {
+                "code": "PnGBXy3WTc9tJCpV",
+                "fightID": -66,
+                "startTime": 1753311222885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "红色流星",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1293.12,
+              "hardModeLevel": 0,
+              "duration": 152391,
+              "startTime": 1753334374565,
+              "report": {
+                "code": "PnGBXy3WTc9tJCpV",
+                "fightID": -66,
+                "startTime": 1753311222885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "Shmiquorice",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1290.4,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10063,
+                "name": "Rattlegore",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Emmarose",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1289.7,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "火舞云霄",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1288.32,
+              "hardModeLevel": 0,
+              "duration": 160054,
+              "startTime": 1753358121864,
+              "report": {
+                "code": "ZNavMh61cYnKqWyp",
+                "fightID": -25,
+                "startTime": 1753355455559
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "魔域双子",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1286.57,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "丶胭脂",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1285.47,
+              "hardModeLevel": 0,
+              "duration": 161801,
+              "startTime": 1753360763749,
+              "report": {
+                "code": "vmBtqanG1HLfhTWj",
+                "fightID": -51,
+                "startTime": 1753348552253
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "木木丨炎爆",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1284.57,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "壹贰壹太陽",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1271.67,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 37
+            },
+            {
+              "name": "帅八七号",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1270.18,
+              "hardModeLevel": 0,
+              "duration": 169280,
+              "startTime": 1753361044912,
+              "report": {
+                "code": "MwACHhrFj31vpB6a",
+                "fightID": -26,
+                "startTime": 1753358656416
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "冰皇丽桑卓",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1264.92,
+              "hardModeLevel": 0,
+              "duration": 164078,
+              "startTime": 1753355868389,
+              "report": {
+                "code": "MX7QFfkrmDHBZTnG",
+                "fightID": -17,
+                "startTime": 1753354744375
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "云一",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1263.64,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "你的糖掉了丶",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1262.83,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "白清欢",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1262.35,
+              "hardModeLevel": 0,
+              "duration": 169434,
+              "startTime": 1753370165604,
+              "report": {
+                "code": "NRBJ3d1cQbVg6Z2v",
+                "fightID": -23,
+                "startTime": 1753367862196
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "Microburst",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1262.21,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "冰炎雅",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1261.32,
+              "hardModeLevel": 0,
+              "duration": 175222,
+              "startTime": 1753365693931,
+              "report": {
+                "code": "MKYP78pZ2G3Qwmrn",
+                "fightID": -71,
+                "startTime": 1753357859883
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "旺哒",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1259.4,
+              "hardModeLevel": 0,
+              "duration": 152391,
+              "startTime": 1753334374565,
+              "report": {
+                "code": "PnGBXy3WTc9tJCpV",
+                "fightID": -66,
+                "startTime": 1753311222885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Saerdnachen",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1258.48,
+              "hardModeLevel": 0,
+              "duration": 162805,
+              "startTime": 1753364291646,
+              "report": {
+                "code": "aMw9HcXAndTyxKmb",
+                "fightID": -41,
+                "startTime": 1753359294673
+              },
+              "guild": {
+                "id": 601254,
+                "name": "Shadow of Moon 哈霍兰部落",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "霍去病丶",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1258.19,
+              "hardModeLevel": 0,
+              "duration": 183298,
+              "startTime": 1753366980522,
+              "report": {
+                "code": "cPqM4kG9XnrVz6x1",
+                "fightID": -52,
+                "startTime": 1753358771123
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "我的小跟班",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1257.85,
+              "hardModeLevel": 0,
+              "duration": 172236,
+              "startTime": 1753358775099,
+              "report": {
+                "code": "2Ax4Z78rMCBLGtPW",
+                "fightID": -27,
+                "startTime": 1753356453153
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "傻白甜法丝",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1255.13,
+              "hardModeLevel": 0,
+              "duration": 217638,
+              "startTime": 1753337460747,
+              "report": {
+                "code": "VN8jqDhWgM1cmKvx",
+                "fightID": -9,
+                "startTime": 1753317875297
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "喝四方",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1250.87,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "贺小绵",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1249.44,
+              "hardModeLevel": 0,
+              "duration": 170604,
+              "startTime": 1753322447799,
+              "report": {
+                "code": "qcdmYP1WJHQhywBF",
+                "fightID": -24,
+                "startTime": 1753320425443
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "琴墨",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1248.83,
+              "hardModeLevel": 0,
+              "duration": 164078,
+              "startTime": 1753355868389,
+              "report": {
+                "code": "MX7QFfkrmDHBZTnG",
+                "fightID": -17,
+                "startTime": 1753354744375
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "刀我是吧",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1248.44,
+              "hardModeLevel": 0,
+              "duration": 165866,
+              "startTime": 1753361125850,
+              "report": {
+                "code": "jXQ6Kfmhn4qAzDN2",
+                "fightID": -22,
+                "startTime": 1753357324925
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "灬凭风听雨灬",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1246.66,
+              "hardModeLevel": 0,
+              "duration": 189749,
+              "startTime": 1753359805769,
+              "report": {
+                "code": "rkCPx8ATjQgWVwpN",
+                "fightID": -40,
+                "startTime": 1753354877073
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "倪妮着我差点",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1246.34,
+              "hardModeLevel": 0,
+              "duration": 150205,
+              "startTime": 1753334634175,
+              "report": {
+                "code": "7ZYwVqHN4nRKhzCf",
+                "fightID": -26,
+                "startTime": 1753332514879
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "莫莫念",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1245.23,
+              "hardModeLevel": 0,
+              "duration": 175283,
+              "startTime": 1753345040532,
+              "report": {
+                "code": "bL4HMm8RhxNZdjQB",
+                "fightID": -18,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "油扎皮卡丘",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1244.57,
+              "hardModeLevel": 0,
+              "duration": 142198,
+              "startTime": 1753335671549,
+              "report": {
+                "code": "DZ2NwXGRWBjkPyLd",
+                "fightID": -17,
+                "startTime": 1753333698226
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ddns",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1240.58,
+              "hardModeLevel": 0,
+              "duration": 172234,
+              "startTime": 1753334009288,
+              "report": {
+                "code": "vYbryhmzp7JHKDGQ",
+                "fightID": -11,
+                "startTime": 1753332149338
+              },
+              "guild": {
+                "id": 668948,
+                "name": "Victory",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "未語先笑",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1239.71,
+              "hardModeLevel": 0,
+              "duration": 177742,
+              "startTime": 1753365688567,
+              "report": {
+                "code": "ndKJPjvtxYrgwm7R",
+                "fightID": -21,
+                "startTime": 1753362473545
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Haddock",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1239.62,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "柔哥",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1239.59,
+              "hardModeLevel": 0,
+              "duration": 161878,
+              "startTime": 1753359173527,
+              "report": {
+                "code": "nmvhk8WwdYAcVrPC",
+                "fightID": -27,
+                "startTime": 1753356851972
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "抱抱我的猪",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1237.87,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Realx",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1237.81,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "天魔狂舞",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1237.76,
+              "hardModeLevel": 0,
+              "duration": 165560,
+              "startTime": 1753357755058,
+              "report": {
+                "code": "VKkqNbDZYzfHBM76",
+                "fightID": -7,
+                "startTime": 1753357053040
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "统统拿下",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1237.1,
+              "hardModeLevel": 0,
+              "duration": 165608,
+              "startTime": 1753348837899,
+              "report": {
+                "code": "DFtz4VNAHw6BqyCM",
+                "fightID": -45,
+                "startTime": 1753338065522
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "雨阳真人",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1235.69,
+              "hardModeLevel": 0,
+              "duration": 165866,
+              "startTime": 1753361125850,
+              "report": {
+                "code": "jXQ6Kfmhn4qAzDN2",
+                "fightID": -22,
+                "startTime": 1753357324925
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 36
+            },
+            {
+              "name": "欢声笑语",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 1235.36,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 60.26,
+      "pointsResetIn": 3578
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 60.26,
+    "reset_in_s": 3578
+  }
+}

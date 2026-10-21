@@ -29,3 +29,10 @@ tests/golden/raids/receipts/*.json -text
 # The capture queue pins these files by SHA-256; keep their exact bytes.
 tasks/raid-completion/capture-queue.json -text
 tasks/raid-completion/research/capture-*.json -text
+
+# Naxx research pins its raw probe responses and reviewed drafts by SHA-256;
+# keep the exact bytes the reviewer hashed.
+tasks/naxx-completion/research/partition-probe/** -text
+tasks/naxx-completion/research/partition-*.* -text
+tasks/naxx-completion/research/quota-estimate.* -text
+tasks/naxx-completion/research/oracle-design.md -text

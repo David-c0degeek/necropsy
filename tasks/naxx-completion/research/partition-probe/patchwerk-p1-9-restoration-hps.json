@@ -1,0 +1,2353 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:hps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Shaman",
+    "spec": "Restoration"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:55.306684+00:00",
+  "ended_at": "2026-10-21T12:04:56.085440+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Nebzy",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 1097.3,
+              "hardModeLevel": 0,
+              "duration": 95808,
+              "startTime": 1783539478128,
+              "report": {
+                "code": "VFCf6AhGbwMcXHtB",
+                "fightID": 28,
+                "startTime": 1783534548609
+              },
+              "guild": {
+                "id": 658825,
+                "name": "The Gutter",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Skalarwelle",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 1031.54,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": 16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "汝能奈吾何也",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 966.578,
+              "hardModeLevel": 0,
+              "duration": 111333,
+              "startTime": 1652619481628,
+              "report": {
+                "code": "R6ApGkWFgMjm98x1",
+                "fightID": 40,
+                "startTime": 1652616275259
+              },
+              "guild": {
+                "id": 618031,
+                "name": "永久60無畏老友团",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Grumbcuzzler",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 955.277,
+              "hardModeLevel": 0,
+              "duration": 118776,
+              "startTime": 1767760590631,
+              "report": {
+                "code": "62tW7PbJGVgnyhD3",
+                "fightID": 53,
+                "startTime": 1767754596688
+              },
+              "guild": {
+                "id": 789046,
+                "name": "I JUST WORK HERE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "咕禄咕禄",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 951.233,
+              "hardModeLevel": 0,
+              "duration": 106322,
+              "startTime": 1712926638103,
+              "report": {
+                "code": "6Rk2VywqhXZL3z4b",
+                "fightID": 11,
+                "startTime": 1712925793198
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Tollmann",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 945.179,
+              "hardModeLevel": 0,
+              "duration": 197259,
+              "startTime": 1751669897615,
+              "report": {
+                "code": "jG7H6RLFkYgVZKpX",
+                "fightID": 64,
+                "startTime": 1751664586161
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "随手一道",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 936.988,
+              "hardModeLevel": 0,
+              "duration": 155209,
+              "startTime": 1768476949562,
+              "report": {
+                "code": "7YFHkdQqT8apyWmh",
+                "fightID": 23,
+                "startTime": 1768473858020
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Tddqd",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 936.691,
+              "hardModeLevel": 0,
+              "duration": 143613,
+              "startTime": 1671969708564,
+              "report": {
+                "code": "Xz4ynMrx1NKhdQ2g",
+                "fightID": 98,
+                "startTime": 1671946314876
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Zulzerka",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 933.306,
+              "hardModeLevel": 0,
+              "duration": 135980,
+              "startTime": 1724565955479,
+              "report": {
+                "code": "HL7426vkhWVgFqQj",
+                "fightID": 25,
+                "startTime": 1724562731003
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "咋肥四呀",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 929.601,
+              "hardModeLevel": 0,
+              "duration": 135883,
+              "startTime": 1658065234634,
+              "report": {
+                "code": "4yrcpzAYn37RTkND",
+                "fightID": 31,
+                "startTime": 1658061252787
+              },
+              "guild": {
+                "id": 618031,
+                "name": "永久60無畏老友团",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 37
+            },
+            {
+              "name": "此人力挽狂澜",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 929.3,
+              "hardModeLevel": 0,
+              "duration": 176238,
+              "startTime": 1732970318467,
+              "report": {
+                "code": "bVNtJaK6zxHkAp1r",
+                "fightID": 42,
+                "startTime": 1732964115316
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "头号插男",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 915.992,
+              "hardModeLevel": 0,
+              "duration": 160890,
+              "startTime": 1758802946321,
+              "report": {
+                "code": "qGMWnyf9JRakNZFb",
+                "fightID": 43,
+                "startTime": 1758796199841
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Julmaseppo",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 915.135,
+              "hardModeLevel": 0,
+              "duration": 151982,
+              "startTime": 1764879647642,
+              "report": {
+                "code": "64KmNzVRQw2Ypdcn",
+                "fightID": 28,
+                "startTime": 1764877498350
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "电总驾到",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 914.538,
+              "hardModeLevel": 0,
+              "duration": 169222,
+              "startTime": 1661526512329,
+              "report": {
+                "code": "H3246bRAgarfWnNT",
+                "fightID": 84,
+                "startTime": 1661517007721
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "静若凡花",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 912.182,
+              "hardModeLevel": 0,
+              "duration": 158464,
+              "startTime": 1753188560689,
+              "report": {
+                "code": "dY1G9qxWkmTan2Zy",
+                "fightID": 23,
+                "startTime": 1753186234916
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "东莞返乡女孩",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 911.464,
+              "hardModeLevel": 0,
+              "duration": 111333,
+              "startTime": 1652619481628,
+              "report": {
+                "code": "R6ApGkWFgMjm98x1",
+                "fightID": 40,
+                "startTime": 1652616275259
+              },
+              "guild": {
+                "id": 618031,
+                "name": "永久60無畏老友团",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "刀劈电线杆",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 907.308,
+              "hardModeLevel": 0,
+              "duration": 203815,
+              "startTime": 1764772163209,
+              "report": {
+                "code": "kFamTtzDHNLPC4wv",
+                "fightID": 87,
+                "startTime": 1764761890868
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "图小腾灬",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 907.057,
+              "hardModeLevel": 0,
+              "duration": 108282,
+              "startTime": 1664802242043,
+              "report": {
+                "code": "wvhF2TmDYNaJ38Xt",
+                "fightID": 14,
+                "startTime": 1664800804041
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "百达翡俪",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 906.132,
+              "hardModeLevel": 0,
+              "duration": 95485,
+              "startTime": 1657893604552,
+              "report": {
+                "code": "BLRfayQ6zC2qTktv",
+                "fightID": 13,
+                "startTime": 1657890180741
+              },
+              "guild": {
+                "id": 619816,
+                "name": "天启",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "琻龙鱼",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 906.045,
+              "hardModeLevel": 0,
+              "duration": 136448,
+              "startTime": 1629031752695,
+              "report": {
+                "code": "dRczB1yr3xwghGZL",
+                "fightID": 43,
+                "startTime": 1629028477181
+              },
+              "server": {
+                "id": 10131,
+                "name": "比斯巨兽",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "望南丶",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 901.235,
+              "hardModeLevel": 0,
+              "duration": 162852,
+              "startTime": 1691760454871,
+              "report": {
+                "code": "2tBKVTMazWXrHJGy",
+                "fightID": 45,
+                "startTime": 1691749917419
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Gorgi",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 899.03,
+              "hardModeLevel": 0,
+              "duration": 152778,
+              "startTime": 1738271987175,
+              "report": {
+                "code": "DTAKwfvpknWd1G3r",
+                "fightID": 70,
+                "startTime": 1738263505210
+              },
+              "guild": {
+                "id": 663090,
+                "name": "Warriors of Sunlight",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "黎明之光丶",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 897.616,
+              "hardModeLevel": 0,
+              "duration": 172547,
+              "startTime": 1758199547246,
+              "report": {
+                "code": "nRbMzaVTDJGgHFpj",
+                "fightID": 26,
+                "startTime": 1758197199716
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "椒盐大腰子",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 894.943,
+              "hardModeLevel": 0,
+              "duration": 161446,
+              "startTime": 1758173430017,
+              "report": {
+                "code": "F6GMCwaxkfHDyAKb",
+                "fightID": 49,
+                "startTime": 1758166979705
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "我奶不大吗",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 894.467,
+              "hardModeLevel": 0,
+              "duration": 156188,
+              "startTime": 1756961198841,
+              "report": {
+                "code": "d2xq3Q61FC9hjPHN",
+                "fightID": 12,
+                "startTime": 1756959912441
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "奶多毛长",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 890.603,
+              "hardModeLevel": 0,
+              "duration": 144977,
+              "startTime": 1766067894724,
+              "report": {
+                "code": "JaNQYTzCWGtw4DqX",
+                "fightID": 60,
+                "startTime": 1766059235914
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "跳跳牛",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 888.639,
+              "hardModeLevel": 0,
+              "duration": 144853,
+              "startTime": 1672574026032,
+              "report": {
+                "code": "maCVBP28xvyL1MkF",
+                "fightID": 16,
+                "startTime": 1672570618655
+              },
+              "guild": {
+                "id": 668948,
+                "name": "Victory",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Blueranger",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 888.385,
+              "hardModeLevel": 0,
+              "duration": 108749,
+              "startTime": 1789667476951,
+              "report": {
+                "code": "VJ8AGjaPnDwztTLx",
+                "fightID": 39,
+                "startTime": 1789655271092
+              },
+              "guild": {
+                "id": 789635,
+                "name": "WFH Horde",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "八台山天池坝",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 887.746,
+              "hardModeLevel": 0,
+              "duration": 197142,
+              "startTime": 1701094575773,
+              "report": {
+                "code": "TpYkXdNrVWwQCzM1",
+                "fightID": 75,
+                "startTime": 1701084051880
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Baldhoof",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 887.477,
+              "hardModeLevel": 0,
+              "duration": 101046,
+              "startTime": 1752089076089,
+              "report": {
+                "code": "94aGb8CAmWzKpdFw",
+                "fightID": 40,
+                "startTime": 1752083401378
+              },
+              "guild": {
+                "id": 658825,
+                "name": "The Gutter",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "牧歌夏娃",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 887.228,
+              "hardModeLevel": 0,
+              "duration": 147403,
+              "startTime": 1787223392556,
+              "report": {
+                "code": "M32zyGD4jwftKxrd",
+                "fightID": 22,
+                "startTime": 1787221531350
+              },
+              "guild": {
+                "id": 797473,
+                "name": "Eternal 【永恒】",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "琻龙鱼",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 886.929,
+              "hardModeLevel": 0,
+              "duration": 145555,
+              "startTime": 1656165760767,
+              "report": {
+                "code": "BCXZmHd6W34v1g8c",
+                "fightID": 67,
+                "startTime": 1656157506425
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Jishnu",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 886.172,
+              "hardModeLevel": 0,
+              "duration": 198642,
+              "startTime": 1726426938396,
+              "report": {
+                "code": "Jcmd2jk6DYWLRVXG",
+                "fightID": 37,
+                "startTime": 1726423647208
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 39
+            },
+            {
+              "name": "三楼贵宾一位",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 885.514,
+              "hardModeLevel": 0,
+              "duration": 161164,
+              "startTime": 1772543691569,
+              "report": {
+                "code": "gLRMfxNA9Q4tPyWb",
+                "fightID": 20,
+                "startTime": 1772540408294
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 36
+            },
+            {
+              "name": "Wellstwo",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 884.553,
+              "hardModeLevel": 0,
+              "duration": 123555,
+              "startTime": 1774803601784,
+              "report": {
+                "code": "tjWr8RfkVzy9pTGn",
+                "fightID": 29,
+                "startTime": 1774800063235
+              },
+              "guild": {
+                "id": 814416,
+                "name": "WAFFLE HOUSE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "风凌云",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 882.681,
+              "hardModeLevel": 0,
+              "duration": 176527,
+              "startTime": 1779108234558,
+              "report": {
+                "code": "tbLFnwXy4jpcdAfY",
+                "fightID": 53,
+                "startTime": 1779100447145
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 34
+            },
+            {
+              "name": "Zabrakzus",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 881.774,
+              "hardModeLevel": 0,
+              "duration": 95808,
+              "startTime": 1783539478128,
+              "report": {
+                "code": "VFCf6AhGbwMcXHtB",
+                "fightID": 28,
+                "startTime": 1783534548609
+              },
+              "guild": {
+                "id": 658825,
+                "name": "The Gutter",
+                "faction": 1
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "夏焰星辰",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 881.293,
+              "hardModeLevel": 0,
+              "duration": 111333,
+              "startTime": 1652619481628,
+              "report": {
+                "code": "R6ApGkWFgMjm98x1",
+                "fightID": 40,
+                "startTime": 1652616275259
+              },
+              "guild": {
+                "id": 618031,
+                "name": "永久60無畏老友团",
+                "faction": 1
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "新宿",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 881.291,
+              "hardModeLevel": 0,
+              "duration": 152187,
+              "startTime": 1754726531229,
+              "report": {
+                "code": "ZWzA9JvhQCTB7FVR",
+                "fightID": 19,
+                "startTime": 1754724495996
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "春儿爷",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 880.585,
+              "hardModeLevel": 0,
+              "duration": 158045,
+              "startTime": 1652622384423,
+              "report": {
+                "code": "7AzLnkbM9GhBF3fW",
+                "fightID": 43,
+                "startTime": 1652613357562
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Záppér",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 877.629,
+              "hardModeLevel": 0,
+              "duration": 96477,
+              "startTime": 1773865895494,
+              "report": {
+                "code": "Q2GLwKxmY9Vkt73W",
+                "fightID": 29,
+                "startTime": 1773861548012
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Tyleex",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 877.161,
+              "hardModeLevel": 0,
+              "duration": 95947,
+              "startTime": 1789698876896,
+              "report": {
+                "code": "kzYG4Km91LbqcxNp",
+                "fightID": 22,
+                "startTime": 1789695115677
+              },
+              "guild": {
+                "id": 814416,
+                "name": "WAFFLE HOUSE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Bloodlustz",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 876.789,
+              "hardModeLevel": 0,
+              "duration": 197880,
+              "startTime": 1726720414469,
+              "report": {
+                "code": "AZQc19MbYJjX64Kr",
+                "fightID": 65,
+                "startTime": 1726710296482
+              },
+              "guild": {
+                "id": 737636,
+                "name": "Coalition C Team",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "花落心微良",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 876.336,
+              "hardModeLevel": 0,
+              "duration": 161955,
+              "startTime": 1751630291776,
+              "report": {
+                "code": "J4W72tK6XzpDaL1k",
+                "fightID": 24,
+                "startTime": 1751628185704
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Avaz",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 875.717,
+              "hardModeLevel": 0,
+              "duration": 107223,
+              "startTime": 1740107769063,
+              "report": {
+                "code": "8XRVCpfTjxb614tL",
+                "fightID": 39,
+                "startTime": 1740104227607
+              },
+              "guild": {
+                "id": 608076,
+                "name": "Not Prepared",
+                "faction": 1
+              },
+              "server": {
+                "id": 10054,
+                "name": "Kurinnaxx",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "美女请自重",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 874.667,
+              "hardModeLevel": 0,
+              "duration": 179634,
+              "startTime": 1781288814544,
+              "report": {
+                "code": "v9APWYFMGcVdXxgH",
+                "fightID": 24,
+                "startTime": 1781285660164
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "Genzu",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 873.048,
+              "hardModeLevel": 0,
+              "duration": 107245,
+              "startTime": 1733947284909,
+              "report": {
+                "code": "QDnf8ch34zRxywVX",
+                "fightID": 31,
+                "startTime": 1733944681086
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "瞌瞌困困",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 872.884,
+              "hardModeLevel": 0,
+              "duration": 149092,
+              "startTime": 1627822275906,
+              "report": {
+                "code": "VGhcpKkaHTZ6LAjW",
+                "fightID": 49,
+                "startTime": 1627817668315
+              },
+              "server": {
+                "id": 10132,
+                "name": "灵风",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "喯波儿灞",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 872.877,
+              "hardModeLevel": 0,
+              "duration": 149194,
+              "startTime": 1774525601882,
+              "report": {
+                "code": "RC2769nwrf1GWM3d",
+                "fightID": 28,
+                "startTime": 1774523358682
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Hardzen",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 872.309,
+              "hardModeLevel": 0,
+              "duration": 120283,
+              "startTime": 1776365682033,
+              "report": {
+                "code": "py2dxTLJnbrAt4Qf",
+                "fightID": 35,
+                "startTime": 1776362311040
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "我公务在身",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 871.54,
+              "hardModeLevel": 0,
+              "duration": 95485,
+              "startTime": 1657893604552,
+              "report": {
+                "code": "BLRfayQ6zC2qTktv",
+                "fightID": 13,
+                "startTime": 1657890180741
+              },
+              "guild": {
+                "id": 619816,
+                "name": "天启",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "牛小龙",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 868.816,
+              "hardModeLevel": 0,
+              "duration": 144911,
+              "startTime": 1766058136257,
+              "report": {
+                "code": "qQvgKGxfNayz2TM9",
+                "fightID": 39,
+                "startTime": 1766052991634
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "戰猎萨",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 868.689,
+              "hardModeLevel": 0,
+              "duration": 224688,
+              "startTime": 1630768478806,
+              "report": {
+                "code": "VHYLxNjnGX76WARQ",
+                "fightID": 67,
+                "startTime": 1630761398956
+              },
+              "server": {
+                "id": 10042,
+                "name": "碧玉矿洞",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "着火了冒烟了",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 868.417,
+              "hardModeLevel": 0,
+              "duration": 167370,
+              "startTime": 1750592922077,
+              "report": {
+                "code": "fR1Y4HMvpkyawgBd",
+                "fightID": 19,
+                "startTime": 1750590947794
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "花牛婆",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 867.817,
+              "hardModeLevel": 0,
+              "duration": 99128,
+              "startTime": 1750338646060,
+              "report": {
+                "code": "MRhDm1XyjZPnQW3k",
+                "fightID": 28,
+                "startTime": 1750336547552
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "我不认我怂",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 867.412,
+              "hardModeLevel": 0,
+              "duration": 190342,
+              "startTime": 1760530714571,
+              "report": {
+                "code": "yd3CtXMPJ6xBVkHG",
+                "fightID": 25,
+                "startTime": 1760528224079
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "半岛午码",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 867.343,
+              "hardModeLevel": 0,
+              "duration": 168299,
+              "startTime": 1776344825657,
+              "report": {
+                "code": "PqWcfanHyJ7jhYXL",
+                "fightID": 53,
+                "startTime": 1776339889488
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "皮皮赫拉",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 866.236,
+              "hardModeLevel": 0,
+              "duration": 159168,
+              "startTime": 1664901836642,
+              "report": {
+                "code": "FxhwMZRdjfH8XPJK",
+                "fightID": 44,
+                "startTime": 1664895834278
+              },
+              "guild": {
+                "id": 666282,
+                "name": "碧空NAXX速推",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 36
+            },
+            {
+              "name": "Jonxz",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 866.154,
+              "hardModeLevel": 0,
+              "duration": 203577,
+              "startTime": 1696185918533,
+              "report": {
+                "code": "D8Jgktmx9dbYLqV2",
+                "fightID": 78,
+                "startTime": 1696177326549
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 39
+            },
+            {
+              "name": "深渊魔牛",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 865.573,
+              "hardModeLevel": 0,
+              "duration": 190973,
+              "startTime": 1647100588371,
+              "report": {
+                "code": "39BbaRMg8QJHdGKj",
+                "fightID": 125,
+                "startTime": 1647078759398
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "萨月郎",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 864.714,
+              "hardModeLevel": 0,
+              "duration": 167453,
+              "startTime": 1788176140899,
+              "report": {
+                "code": "vC32TMnDkNczX9d4",
+                "fightID": 10,
+                "startTime": 1788175252019
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Jameesp",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 864.709,
+              "hardModeLevel": 0,
+              "duration": 111574,
+              "startTime": 1681865847078,
+              "report": {
+                "code": "bdxhvt9C1NDYZXm4",
+                "fightID": 33,
+                "startTime": 1681862531191
+              },
+              "guild": {
+                "id": 601225,
+                "name": "Forever Classic",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "清水电",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 864.608,
+              "hardModeLevel": 0,
+              "duration": 170675,
+              "startTime": 1742474811004,
+              "report": {
+                "code": "JG74wF2AVyZfYK8x",
+                "fightID": 41,
+                "startTime": 1742470598563
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Lonnert",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 864.036,
+              "hardModeLevel": 0,
+              "duration": 167522,
+              "startTime": 1692988326332,
+              "report": {
+                "code": "Vn6Crq4TwY8HLyWM",
+                "fightID": 43,
+                "startTime": 1692982374592
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 37
+            },
+            {
+              "name": "荣登榜首",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 862.582,
+              "hardModeLevel": 0,
+              "duration": 162322,
+              "startTime": 1752667785313,
+              "report": {
+                "code": "fqTA6kc7vYrLXRZB",
+                "fightID": 29,
+                "startTime": 1752665275044
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "Mooj",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 861.331,
+              "hardModeLevel": 0,
+              "duration": 101046,
+              "startTime": 1752089076089,
+              "report": {
+                "code": "94aGb8CAmWzKpdFw",
+                "fightID": 40,
+                "startTime": 1752083401378
+              },
+              "guild": {
+                "id": 658825,
+                "name": "The Gutter",
+                "faction": 1
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "轻疯丶",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 860.858,
+              "hardModeLevel": 0,
+              "duration": 190323,
+              "startTime": 1772295221208,
+              "report": {
+                "code": "Zt9gAfYyVTBjx8bR",
+                "fightID": 23,
+                "startTime": 1772292373790
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "桥下的夏天",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 860.755,
+              "hardModeLevel": 0,
+              "duration": 151941,
+              "startTime": 1666620689600,
+              "report": {
+                "code": "yhqwaXT2Vj9npzYP",
+                "fightID": 64,
+                "startTime": 1666613847773
+              },
+              "guild": {
+                "id": 668368,
+                "name": "扶山游海",
+                "faction": 1
+              },
+              "server": {
+                "id": 10039,
+                "name": "奥罗",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Hoopty",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 860.005,
+              "hardModeLevel": 0,
+              "duration": 118776,
+              "startTime": 1767760590631,
+              "report": {
+                "code": "62tW7PbJGVgnyhD3",
+                "fightID": 53,
+                "startTime": 1767754596688
+              },
+              "guild": {
+                "id": 789046,
+                "name": "I JUST WORK HERE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Olympus",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 859.028,
+              "hardModeLevel": 0,
+              "duration": 116903,
+              "startTime": 1726798370024,
+              "report": {
+                "code": "6da9hpxvDwnmfHtq",
+                "fightID": 60,
+                "startTime": 1726792653329
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Aquamass",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 857.981,
+              "hardModeLevel": 0,
+              "duration": 93445,
+              "startTime": 1739389424058,
+              "report": {
+                "code": "k7RY4CPwqhZDHVjN",
+                "fightID": 18,
+                "startTime": 1739387310830
+              },
+              "guild": {
+                "id": 658825,
+                "name": "The Gutter",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Nuuksha",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 857.718,
+              "hardModeLevel": 0,
+              "duration": 122496,
+              "startTime": 1762373666368,
+              "report": {
+                "code": "BbQ8tyc2Ngk41APD",
+                "fightID": 38,
+                "startTime": 1762369449005
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "大姑妈煎包",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 857.549,
+              "hardModeLevel": 0,
+              "duration": 153162,
+              "startTime": 1748175366559,
+              "report": {
+                "code": "F9mGdADkZNzxy2VC",
+                "fightID": 25,
+                "startTime": 1748173070282
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "老曹的撒满",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 857.228,
+              "hardModeLevel": 0,
+              "duration": 151122,
+              "startTime": 1786629475796,
+              "report": {
+                "code": "GznNdm7xKTRQDqrP",
+                "fightID": 53,
+                "startTime": 1786624306880
+              },
+              "guild": {
+                "id": 809533,
+                "name": "硬核",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "自疗",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 857.075,
+              "hardModeLevel": 0,
+              "duration": 193640,
+              "startTime": 1733676813045,
+              "report": {
+                "code": "wdJP2ygFH7zhtGpB",
+                "fightID": 40,
+                "startTime": 1733671105036
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "灭了速度放",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 856.919,
+              "hardModeLevel": 0,
+              "duration": 147700,
+              "startTime": 1672487149769,
+              "report": {
+                "code": "G7ZQghVKBq1J92tx",
+                "fightID": 11,
+                "startTime": 1672479100802
+              },
+              "guild": {
+                "id": 668948,
+                "name": "Victory",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "江诗丹顿",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 856.685,
+              "hardModeLevel": 0,
+              "duration": 149566,
+              "startTime": 1768801931108,
+              "report": {
+                "code": "hQ1Btzkc42XR3YfZ",
+                "fightID": 81,
+                "startTime": 1768799830413
+              },
+              "guild": {
+                "id": 797473,
+                "name": "Eternal 【永恒】",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "秀兒",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 856.055,
+              "hardModeLevel": 0,
+              "duration": 153864,
+              "startTime": 1746878657305,
+              "report": {
+                "code": "pgbmGP3BMTYA9dJC",
+                "fightID": 30,
+                "startTime": 1746874992079
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "吃不下腥味大",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 855.419,
+              "hardModeLevel": 0,
+              "duration": 159980,
+              "startTime": 1663422451015,
+              "report": {
+                "code": "k8p3hACw4Fa72rVg",
+                "fightID": 100,
+                "startTime": 1663412009615
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 39
+            },
+            {
+              "name": "棍子大侠",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 855.107,
+              "hardModeLevel": 0,
+              "duration": 153072,
+              "startTime": 1712841343940,
+              "report": {
+                "code": "MZCBFw6b91nPXvDR",
+                "fightID": 35,
+                "startTime": 1712837265293
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "开膛破肚",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 854.732,
+              "hardModeLevel": 0,
+              "duration": 155988,
+              "startTime": 1662644563919,
+              "report": {
+                "code": "qWDApwdCgFf49yzh",
+                "fightID": 68,
+                "startTime": 1662635236812
+              },
+              "guild": {
+                "id": 636531,
+                "name": "岁月如歌",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Draghuk",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 854.594,
+              "hardModeLevel": 0,
+              "duration": 91819,
+              "startTime": 1760663165827,
+              "report": {
+                "code": "hzAt4HFGP8vbNfWn",
+                "fightID": 29,
+                "startTime": 1760660785374
+              },
+              "guild": {
+                "id": 726415,
+                "name": "Land Before Time",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "灬晚晚灬",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 854.505,
+              "hardModeLevel": 0,
+              "duration": 94457,
+              "startTime": 1757597636187,
+              "report": {
+                "code": "Nb7wz9YtQrvdBPgG",
+                "fightID": 26,
+                "startTime": 1757595319432
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "就是这么口",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 852.481,
+              "hardModeLevel": 0,
+              "duration": 157783,
+              "startTime": 1741585323981,
+              "report": {
+                "code": "nbF8APQ2DX9HWYM4",
+                "fightID": 25,
+                "startTime": 1741583272602
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "将君",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 851.826,
+              "hardModeLevel": 0,
+              "duration": 145100,
+              "startTime": 1721478778226,
+              "report": {
+                "code": "aRrZJmTbKpNtxh8Q",
+                "fightID": 8,
+                "startTime": 1721477857950
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 85,
+              "size": 34
+            },
+            {
+              "name": "奔雷手文泰來",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 851.588,
+              "hardModeLevel": 0,
+              "duration": 176414,
+              "startTime": 1698153012452,
+              "report": {
+                "code": "4pzdcL678yJfHhg1",
+                "fightID": 43,
+                "startTime": 1698146402702
+              },
+              "guild": {
+                "id": 709638,
+                "name": "部落的荣耀",
+                "faction": 1
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "风启",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 851.506,
+              "hardModeLevel": 0,
+              "duration": 196829,
+              "startTime": 1772891529533,
+              "report": {
+                "code": "JG6b9HaNmMVfKpBc",
+                "fightID": 17,
+                "startTime": 1772889046330
+              },
+              "guild": {
+                "id": 773335,
+                "name": "云端",
+                "faction": 1
+              },
+              "server": {
+                "id": 10048,
+                "name": "布鲁",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Taal",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 851.416,
+              "hardModeLevel": 0,
+              "duration": 137262,
+              "startTime": 1785788372430,
+              "report": {
+                "code": "mrcHgjxyzp49KFBC",
+                "fightID": 70,
+                "startTime": 1785779210424
+              },
+              "guild": {
+                "id": 668641,
+                "name": "Fancy",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "髌雨",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 851.415,
+              "hardModeLevel": 0,
+              "duration": 164532,
+              "startTime": 1667049844673,
+              "report": {
+                "code": "vmQgjazwLJFNVxRA",
+                "fightID": 50,
+                "startTime": 1667044086671
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "为死而活",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 851.262,
+              "hardModeLevel": 0,
+              "duration": 160598,
+              "startTime": 1790921180818,
+              "report": {
+                "code": "Hg8YprQAy7x4b9Rf",
+                "fightID": 14,
+                "startTime": 1790920189052
+              },
+              "guild": {
+                "id": 797473,
+                "name": "Eternal 【永恒】",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "번개맨",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 851.086,
+              "hardModeLevel": 0,
+              "duration": 136401,
+              "startTime": 1726924698568,
+              "report": {
+                "code": "TCYNVfDvjWXn4MLt",
+                "fightID": 56,
+                "startTime": 1726917427794
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "天启小米",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 850.988,
+              "hardModeLevel": 0,
+              "duration": 148075,
+              "startTime": 1772980993160,
+              "report": {
+                "code": "CmwLDZydkpMG781f",
+                "fightID": 26,
+                "startTime": 1772978824246
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Tyleez",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 850.718,
+              "hardModeLevel": 0,
+              "duration": 119693,
+              "startTime": 1780023240992,
+              "report": {
+                "code": "pQYV69JcTKWAXkBz",
+                "fightID": 36,
+                "startTime": 1780019149332
+              },
+              "guild": {
+                "id": 814416,
+                "name": "WAFFLE HOUSE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Nuuksi",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 850.39,
+              "hardModeLevel": 0,
+              "duration": 106129,
+              "startTime": 1785958690463,
+              "report": {
+                "code": "jqRc1B2WvdNLfGAK",
+                "fightID": 29,
+                "startTime": 1785955943082
+              },
+              "guild": {
+                "id": 658825,
+                "name": "The Gutter",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Fairy",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 850.385,
+              "hardModeLevel": 0,
+              "duration": 182314,
+              "startTime": 1710486759497,
+              "report": {
+                "code": "1WJPxCzm4LfV9nXK",
+                "fightID": 56,
+                "startTime": 1710479090972
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "实际上不安全",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 849.656,
+              "hardModeLevel": 0,
+              "duration": 143843,
+              "startTime": 1789211842606,
+              "report": {
+                "code": "ank1QTNhC697Vjd4",
+                "fightID": 14,
+                "startTime": 1789210796242
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 35
+            },
+            {
+              "name": "Whopperjr",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 849.145,
+              "hardModeLevel": 0,
+              "duration": 149084,
+              "startTime": 1739328909729,
+              "report": {
+                "code": "37fkD41wBKTnrbMt",
+                "fightID": 68,
+                "startTime": 1739322661063
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "奶牛毛毛夫人",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 848.532,
+              "hardModeLevel": 0,
+              "duration": 158509,
+              "startTime": 1753458983990,
+              "report": {
+                "code": "R2FN3BcvX9kjHqp4",
+                "fightID": 50,
+                "startTime": 1753451513791
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "蹄花他哥",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 848.521,
+              "hardModeLevel": 0,
+              "duration": 158464,
+              "startTime": 1753188560689,
+              "report": {
+                "code": "dY1G9qxWkmTan2Zy",
+                "fightID": 23,
+                "startTime": 1753186234916
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Freebies",
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 848.318,
+              "hardModeLevel": 0,
+              "duration": 119197,
+              "startTime": 1710466982282,
+              "report": {
+                "code": "tZW2fxzMJN9a8y37",
+                "fightID": 27,
+                "startTime": 1710464031903
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 45.16,
+      "pointsResetIn": 3582
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 45.16,
+    "reset_in_s": 3582
+  }
+}

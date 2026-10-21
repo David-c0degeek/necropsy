@@ -1,0 +1,263 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Shaman",
+    "spec": "Elemental"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:05:01.965537+00:00",
+  "ended_at": "2026-10-21T12:05:02.264682+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": false,
+          "count": 10,
+          "rankings": [
+            {
+              "name": "十一古栗子",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 79.1727,
+              "hardModeLevel": 0,
+              "duration": 163857,
+              "startTime": 1753369011401,
+              "report": {
+                "code": "wPtqpFCGgfaJ1Ljd",
+                "fightID": -33,
+                "startTime": 1753365359176
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 63,
+              "size": 39
+            },
+            {
+              "name": "呼风唤雨丶",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 150532,
+              "startTime": 1753369885210,
+              "report": {
+                "code": "Gv6xcgXyYL9jWkVR",
+                "fightID": -29,
+                "startTime": 1753365346625
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "满地插",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 163608,
+              "startTime": 1753361585994,
+              "report": {
+                "code": "VrKnvDdwMxPLH1ka",
+                "fightID": -41,
+                "startTime": 1753357591182
+              },
+              "guild": {
+                "id": 642930,
+                "name": "山葵家",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "叁伍零",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 169770,
+              "startTime": 1753364373425,
+              "report": {
+                "code": "Qg83cdKyCYfBvzqj",
+                "fightID": -57,
+                "startTime": 1753357075212
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "夜羽",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 164078,
+              "startTime": 1753355868389,
+              "report": {
+                "code": "MX7QFfkrmDHBZTnG",
+                "fightID": -17,
+                "startTime": 1753354744375
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "忆惜昔",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 152438,
+              "startTime": 1753334670916,
+              "report": {
+                "code": "8K3r7GYmxntqRf9g",
+                "fightID": -13,
+                "startTime": 1753333265462
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "灭团与我无关",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 162477,
+              "startTime": 1753334246839,
+              "report": {
+                "code": "yLDV98R36XnxTqBw",
+                "fightID": -50,
+                "startTime": 1753323323556
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "萨仙",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 166825,
+              "startTime": 1753323132349,
+              "report": {
+                "code": "3RqcMa9dvjKhXH4T",
+                "fightID": -22,
+                "startTime": 1753320706197
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "黑斬",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 163356,
+              "startTime": 1753323143494,
+              "report": {
+                "code": "j92LMv17pahd4fPQ",
+                "fightID": -18,
+                "startTime": 1753319990730
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "胡阿姨",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 163356,
+              "startTime": 1753323143494,
+              "report": {
+                "code": "j92LMv17pahd4fPQ",
+                "fightID": -18,
+                "startTime": 1753319990730
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 68.34,
+      "pointsResetIn": 3576
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 68.34,
+    "reset_in_s": 3576
+  }
+}

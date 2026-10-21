@@ -1,0 +1,1417 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Mage",
+    "spec": "Frost"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:59.623118+00:00",
+  "ended_at": "2026-10-21T12:04:59.968573+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": false,
+          "count": 64,
+          "rankings": [
+            {
+              "name": "贰贰零贰",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 680.23,
+              "hardModeLevel": 0,
+              "duration": 199919,
+              "startTime": 1753360204227,
+              "report": {
+                "code": "bZNDKCaP4wgAdG3k",
+                "fightID": -31,
+                "startTime": 1753353769190
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "转圈儿",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 516.514,
+              "hardModeLevel": 0,
+              "duration": 157016,
+              "startTime": 1753362596970,
+              "report": {
+                "code": "7cVapMyTjtQJZYLz",
+                "fightID": -40,
+                "startTime": 1753358672041
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "冰火小凡凡",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 492.466,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 38
+            },
+            {
+              "name": "一个小发丝",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 470.821,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 37
+            },
+            {
+              "name": "菜鸡互浊",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 463.192,
+              "hardModeLevel": 0,
+              "duration": 165560,
+              "startTime": 1753357755058,
+              "report": {
+                "code": "VKkqNbDZYzfHBM76",
+                "fightID": -7,
+                "startTime": 1753357053040
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Bugs",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 452.581,
+              "hardModeLevel": 0,
+              "duration": 253382,
+              "startTime": 1753298830231,
+              "report": {
+                "code": "kJrwLPFVXzdyKp12",
+                "fightID": -19,
+                "startTime": 1753297070459
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "夜路行走",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 446.785,
+              "hardModeLevel": 0,
+              "duration": 163732,
+              "startTime": 1753363649370,
+              "report": {
+                "code": "LhbRBYry3CQHNpZf",
+                "fightID": -59,
+                "startTime": 1753358018665
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "望北",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 445.143,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Macmiller",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 429.118,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "冰火闪灵",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 415.404,
+              "hardModeLevel": 0,
+              "duration": 160054,
+              "startTime": 1753358121864,
+              "report": {
+                "code": "ZNavMh61cYnKqWyp",
+                "fightID": -25,
+                "startTime": 1753355455559
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 38
+            },
+            {
+              "name": "傻矬子",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 401.368,
+              "hardModeLevel": 0,
+              "duration": 216786,
+              "startTime": 1753327765535,
+              "report": {
+                "code": "vJ4WBz8CPF6rY2Ak",
+                "fightID": -28,
+                "startTime": 1753324544946
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "建筑设计师",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 388.277,
+              "hardModeLevel": 0,
+              "duration": 169392,
+              "startTime": 1753366030263,
+              "report": {
+                "code": "9dQnCLhKpP2JX1rq",
+                "fightID": -30,
+                "startTime": 1753363370956
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "水舞涟香",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 381.559,
+              "hardModeLevel": 0,
+              "duration": 187038,
+              "startTime": 1753352221767,
+              "report": {
+                "code": "qyvQxw3d4AV8bTjG",
+                "fightID": -25,
+                "startTime": 1753350038712
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 73,
+              "size": 37
+            },
+            {
+              "name": "Zhaoyi",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 356.552,
+              "hardModeLevel": 0,
+              "duration": 173896,
+              "startTime": 1753361272913,
+              "report": {
+                "code": "9Rk8pCjTQxGDZWaN",
+                "fightID": -27,
+                "startTime": 1753358848965
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 39
+            },
+            {
+              "name": "Zorcon",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 336.031,
+              "hardModeLevel": 0,
+              "duration": 194881,
+              "startTime": 1753321306472,
+              "report": {
+                "code": "ZPgLnqhQ42WycDJ3",
+                "fightID": -22,
+                "startTime": 1753319192735
+              },
+              "guild": {
+                "id": 712147,
+                "name": "Wanted",
+                "faction": 0
+              },
+              "server": {
+                "id": 10037,
+                "name": "Old Blanchy",
+                "region": "US"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "Aeon",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 334.07,
+              "hardModeLevel": 0,
+              "duration": 171419,
+              "startTime": 1753337222064,
+              "report": {
+                "code": "bgAGPLtW43pJyk1n",
+                "fightID": -29,
+                "startTime": 1753327020215
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Derossi",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 322.791,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 63,
+              "size": 37
+            },
+            {
+              "name": "Amysha",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 290.696,
+              "hardModeLevel": 0,
+              "duration": 184079,
+              "startTime": 1753360568904,
+              "report": {
+                "code": "vLkTqRc8VwGnjJfC",
+                "fightID": -18,
+                "startTime": 1753358605976
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 69,
+              "size": 39
+            },
+            {
+              "name": "霸王丨清羽",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 244.847,
+              "hardModeLevel": 0,
+              "duration": 165867,
+              "startTime": 1753363027181,
+              "report": {
+                "code": "7xn9cgfR68wqZh3V",
+                "fightID": -36,
+                "startTime": 1753356981942
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "混沌小龙暴",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 211.041,
+              "hardModeLevel": 0,
+              "duration": 156126,
+              "startTime": 1753367319471,
+              "report": {
+                "code": "ZVDMApLJygK8xnhj",
+                "fightID": -34,
+                "startTime": 1753364024831
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 71,
+              "size": 39
+            },
+            {
+              "name": "镹綮",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 210.535,
+              "hardModeLevel": 0,
+              "duration": 194348,
+              "startTime": 1753364513753,
+              "report": {
+                "code": "w9aNZmPrQg6zTh31",
+                "fightID": -55,
+                "startTime": 1753354201544
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 49,
+              "size": 39
+            },
+            {
+              "name": "易法哥",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 209.381,
+              "hardModeLevel": 0,
+              "duration": 161801,
+              "startTime": 1753360763749,
+              "report": {
+                "code": "vmBtqanG1HLfhTWj",
+                "fightID": -51,
+                "startTime": 1753348552253
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 67,
+              "size": 39
+            },
+            {
+              "name": "打我胖十斤",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 198.162,
+              "hardModeLevel": 0,
+              "duration": 169765,
+              "startTime": 1753364373650,
+              "report": {
+                "code": "fhkZwyaT2AmF6gLz",
+                "fightID": -56,
+                "startTime": 1753357670221
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 57,
+              "size": 40
+            },
+            {
+              "name": "怪姝姝",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 190.775,
+              "hardModeLevel": 0,
+              "duration": 147273,
+              "startTime": 1753354468969,
+              "report": {
+                "code": "FnA4p2XtzBMDPZJR",
+                "fightID": -11,
+                "startTime": 1753353636184
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 58,
+              "size": 39
+            },
+            {
+              "name": "丶雪落丶",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 172.11,
+              "hardModeLevel": 0,
+              "duration": 194887,
+              "startTime": 1753361554256,
+              "report": {
+                "code": "WnGjX6bB8xqfmgcH",
+                "fightID": -54,
+                "startTime": 1753356669840
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 58,
+              "size": 40
+            },
+            {
+              "name": "Kirch",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 169.358,
+              "hardModeLevel": 0,
+              "duration": 185630,
+              "startTime": 1753367432559,
+              "report": {
+                "code": "zVTXmafMACx4R7ZN",
+                "fightID": -78,
+                "startTime": 1753356515475
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 68,
+              "size": 40
+            },
+            {
+              "name": "碧屿漫行",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 135.956,
+              "hardModeLevel": 0,
+              "duration": 204022,
+              "startTime": 1753362237146,
+              "report": {
+                "code": "2Y1JVQMHB8LFCGNx",
+                "fightID": -42,
+                "startTime": 1753354875636
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 39
+            },
+            {
+              "name": "傲气归来",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 93.1195,
+              "hardModeLevel": 0,
+              "duration": 173476,
+              "startTime": 1753335261166,
+              "report": {
+                "code": "Nx81gjBZ6VbCLKRh",
+                "fightID": -53,
+                "startTime": 1753329147989
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "灬龍少灬",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 73.8328,
+              "hardModeLevel": 0,
+              "duration": 154254,
+              "startTime": 1753360441512,
+              "report": {
+                "code": "QGntwLCYWJDxB9Ra",
+                "fightID": -19,
+                "startTime": 1753356441878
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "老六不是很六",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 49.8569,
+              "hardModeLevel": 0,
+              "duration": 200534,
+              "startTime": 1753350443794,
+              "report": {
+                "code": "g19Tq3KB62XQHaLc",
+                "fightID": -96,
+                "startTime": 1753336633555
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "一后背冰凉一",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 33.7165,
+              "hardModeLevel": 0,
+              "duration": 173476,
+              "startTime": 1753335261166,
+              "report": {
+                "code": "Nx81gjBZ6VbCLKRh",
+                "fightID": -53,
+                "startTime": 1753329147989
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 68,
+              "size": 38
+            },
+            {
+              "name": "Staremoon",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 6.86856,
+              "hardModeLevel": 0,
+              "duration": 172234,
+              "startTime": 1753334009288,
+              "report": {
+                "code": "vYbryhmzp7JHKDGQ",
+                "fightID": -11,
+                "startTime": 1753332149338
+              },
+              "guild": {
+                "id": 668948,
+                "name": "Victory",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 62,
+              "size": 38
+            },
+            {
+              "name": "Hrr",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 4.04995,
+              "hardModeLevel": 0,
+              "duration": 171854,
+              "startTime": 1753331204624,
+              "report": {
+                "code": "pBmVQAGJbcLFNYq6",
+                "fightID": -13,
+                "startTime": 1753330001774
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "冰美式丨寒風",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0.20362,
+              "hardModeLevel": 0,
+              "duration": 171889,
+              "startTime": 1753335797739,
+              "report": {
+                "code": "3zgyFj1GY6Vn9NAq",
+                "fightID": -24,
+                "startTime": 1753331517931
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "丫霸",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0.19768,
+              "hardModeLevel": 0,
+              "duration": 161878,
+              "startTime": 1753359173527,
+              "report": {
+                "code": "nmvhk8WwdYAcVrPC",
+                "fightID": -27,
+                "startTime": 1753356851972
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 60,
+              "size": 40
+            },
+            {
+              "name": "Playerqnbpoa",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 150532,
+              "startTime": 1753369885210,
+              "report": {
+                "code": "Gv6xcgXyYL9jWkVR",
+                "fightID": -29,
+                "startTime": 1753365346625
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "休止",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 185196,
+              "startTime": 1753360356802,
+              "report": {
+                "code": "2tDKf93Y7ZCapTQG",
+                "fightID": -22,
+                "startTime": 1753357514699
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "Fddfgs",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 175243,
+              "startTime": 1753365693751,
+              "report": {
+                "code": "GtrqfWTjg6CH1JwV",
+                "fightID": -70,
+                "startTime": 1753358306238
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "津门炜少",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 194348,
+              "startTime": 1753364513753,
+              "report": {
+                "code": "w9aNZmPrQg6zTh31",
+                "fightID": -55,
+                "startTime": 1753354201544
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "凛冬之盟",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 169280,
+              "startTime": 1753361044912,
+              "report": {
+                "code": "MwACHhrFj31vpB6a",
+                "fightID": -26,
+                "startTime": 1753358656416
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "清新淡雅",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 165645,
+              "startTime": 1753359992759,
+              "report": {
+                "code": "GvHZ7ny4XzqKwMFT",
+                "fightID": -20,
+                "startTime": 1753357734548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "幽暗法神",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 167311,
+              "startTime": 1753356997550,
+              "report": {
+                "code": "zTK36Djdpf9HXnG1",
+                "fightID": -28,
+                "startTime": 1753336900811
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "杀戮喵喵",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 185113,
+              "startTime": 1753362781192,
+              "report": {
+                "code": "G8aRQTzWdA3gYr6w",
+                "fightID": -36,
+                "startTime": 1753356057763
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "冰火双拥",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 194363,
+              "startTime": 1753361006765,
+              "report": {
+                "code": "FM39hWXa6BQtcxmP",
+                "fightID": -25,
+                "startTime": 1753358154493
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "申申和弟弟",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 174374,
+              "startTime": 1753361370257,
+              "report": {
+                "code": "LrKZdFwhV2z6819A",
+                "fightID": -31,
+                "startTime": 1753358555236
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "姜老板",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 181099,
+              "startTime": 1753361231455,
+              "report": {
+                "code": "6vPLrFKftdn7N29A",
+                "fightID": -24,
+                "startTime": 1753358407592
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "王者归来女王",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 158664,
+              "startTime": 1753360361633,
+              "report": {
+                "code": "waBAK6bMNrmThYd3",
+                "fightID": -23,
+                "startTime": 1753358202569
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "艾尼维亚哟",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "便宜没好货",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 182981,
+              "startTime": 1753359290294,
+              "report": {
+                "code": "Jvr3dYTKXApm9Hha",
+                "fightID": -30,
+                "startTime": 1753355895714
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "無灋無兲",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "麻河法神",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "中场绞肉机",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 173440,
+              "startTime": 1753357890105,
+              "report": {
+                "code": "gZ6KkC8DAYj9pztN",
+                "fightID": -21,
+                "startTime": 1753355680631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "颠沛法",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "哥眯思尼",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 165608,
+              "startTime": 1753348837899,
+              "report": {
+                "code": "DFtz4VNAHw6BqyCM",
+                "fightID": -45,
+                "startTime": 1753338065522
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "马上疯",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 165608,
+              "startTime": 1753348837899,
+              "report": {
+                "code": "DFtz4VNAHw6BqyCM",
+                "fightID": -45,
+                "startTime": 1753338065522
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "筱文",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 189396,
+              "startTime": 1753337716582,
+              "report": {
+                "code": "zB8AMxyQcZj6R2NT",
+                "fightID": -28,
+                "startTime": 1753334804453
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "大雨曾经滂沱",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 166467,
+              "startTime": 1753333905968,
+              "report": {
+                "code": "AR94Y7CyrbvpXZjx",
+                "fightID": -24,
+                "startTime": 1753331904256
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "虾忍不眨眼",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 171352,
+              "startTime": 1753335902155,
+              "report": {
+                "code": "7bG3wXdcJhTnLq9V",
+                "fightID": -29,
+                "startTime": 1753332781435
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 38
+            },
+            {
+              "name": "隔壁老刘",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 216786,
+              "startTime": 1753327765535,
+              "report": {
+                "code": "vJ4WBz8CPF6rY2Ak",
+                "fightID": -28,
+                "startTime": 1753324544946
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 69,
+              "size": 39
+            },
+            {
+              "name": "宝贝琪",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 216786,
+              "startTime": 1753327765535,
+              "report": {
+                "code": "vJ4WBz8CPF6rY2Ak",
+                "fightID": -28,
+                "startTime": 1753324544946
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "没带梳子",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 217683,
+              "startTime": 1753337465033,
+              "report": {
+                "code": "jychkDt7dHLprXav",
+                "fightID": -20,
+                "startTime": 1753329404104
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "艺潇丶",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 199408,
+              "startTime": 1753337169865,
+              "report": {
+                "code": "hLWw6Z7dvy39xRj2",
+                "fightID": -21,
+                "startTime": 1753329217134
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "月乐",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 170569,
+              "startTime": 1753334898970,
+              "report": {
+                "code": "G7yTrkLYp3xnZXDM",
+                "fightID": -28,
+                "startTime": 1753332365627
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "都安肉肉",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 166825,
+              "startTime": 1753323132349,
+              "report": {
+                "code": "3RqcMa9dvjKhXH4T",
+                "fightID": -22,
+                "startTime": 1753320706197
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 61.27,
+      "pointsResetIn": 3578
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 61.27,
+    "reset_in_s": 3578
+  }
+}

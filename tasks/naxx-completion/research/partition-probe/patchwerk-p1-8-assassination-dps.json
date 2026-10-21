@@ -1,0 +1,2428 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Rogue",
+    "spec": "Assassination"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:53.929253+00:00",
+  "ended_at": "2026-10-21T12:04:54.283843+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Runíc",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1974.93,
+              "hardModeLevel": 0,
+              "duration": 95900,
+              "startTime": 1789572399945,
+              "report": {
+                "code": "2znpkmv8FRj61A3q",
+                "fightID": 12,
+                "startTime": 1789571501111
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Bloomrogue",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1893.76,
+              "hardModeLevel": 0,
+              "duration": 82095,
+              "startTime": 1770665748922,
+              "report": {
+                "code": "rvBAh2kXTaxwQHnW",
+                "fightID": 15,
+                "startTime": 1770664833684
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Noitaredeef",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1864.48,
+              "hardModeLevel": 0,
+              "duration": 113487,
+              "startTime": 1715398666763,
+              "report": {
+                "code": "2hT6cDaGPCymAKj4",
+                "fightID": 41,
+                "startTime": 1715395148194
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "南开卡米",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1858.45,
+              "hardModeLevel": 0,
+              "duration": 107362,
+              "startTime": 1657975008503,
+              "report": {
+                "code": "BZLfJWpzjn7m94P2",
+                "fightID": 19,
+                "startTime": 1657973730461
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Convict",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1855.91,
+              "hardModeLevel": 0,
+              "duration": 91004,
+              "startTime": 1792438062976,
+              "report": {
+                "code": "q8jtvVpM2WraAKR1",
+                "fightID": 15,
+                "startTime": 1792435600892
+              },
+              "server": {
+                "id": 10031,
+                "name": "Gandling",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Awo",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1852.25,
+              "hardModeLevel": 0,
+              "duration": 98057,
+              "startTime": 1783445071753,
+              "report": {
+                "code": "7HrQTRPnxZmwyfpB",
+                "fightID": 12,
+                "startTime": 1783443873044
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Jacckal",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1849.84,
+              "hardModeLevel": 0,
+              "duration": 109003,
+              "startTime": 1649212525411,
+              "report": {
+                "code": "wqaJXZMvKPY2LGVt",
+                "fightID": 27,
+                "startTime": 1649210303716
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "窫然",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1832.55,
+              "hardModeLevel": 0,
+              "duration": 129550,
+              "startTime": 1781528999692,
+              "report": {
+                "code": "VfvT97CwWx4RHFJc",
+                "fightID": 23,
+                "startTime": 1781525701236
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Rbbt",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1820.83,
+              "hardModeLevel": 0,
+              "duration": 112899,
+              "startTime": 1754511746427,
+              "report": {
+                "code": "BTKAaCRLgYD1Nyj3",
+                "fightID": 14,
+                "startTime": 1754497672584
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Machitikos",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1807.14,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": 16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Behindya",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1806.21,
+              "hardModeLevel": 0,
+              "duration": 107070,
+              "startTime": 1786394184036,
+              "report": {
+                "code": "Afa9kZhCyxLMJXtQ",
+                "fightID": 14,
+                "startTime": 1786392411544
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Tusqaiprime",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1806,
+              "hardModeLevel": 0,
+              "duration": 106663,
+              "startTime": 1779211726556,
+              "report": {
+                "code": "JyBhLzMdXrpRZPt7",
+                "fightID": 13,
+                "startTime": 1779210392577
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Rob",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1805.79,
+              "hardModeLevel": 0,
+              "duration": 116202,
+              "startTime": 1739700544598,
+              "report": {
+                "code": "RFWGcBnZKNdYkT7f",
+                "fightID": 28,
+                "startTime": 1739695788558
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Delinquent",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1803.8,
+              "hardModeLevel": 0,
+              "duration": 109850,
+              "startTime": 1758947103511,
+              "report": {
+                "code": "gGJCRN8jMcA2Wpxa",
+                "fightID": 30,
+                "startTime": 1758942908416
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Makonnen",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1799.41,
+              "hardModeLevel": 0,
+              "duration": 113030,
+              "startTime": 1783977690608,
+              "report": {
+                "code": "n4fQVrBCGYqwMvDP",
+                "fightID": 30,
+                "startTime": 1783974759617
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Hyeonah",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1799.23,
+              "hardModeLevel": 0,
+              "duration": 104898,
+              "startTime": 1749515344610,
+              "report": {
+                "code": "9ApgQmTLqVy3WFwt",
+                "fightID": 237,
+                "startTime": 1749081543138
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Tattoopopo",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1796.29,
+              "hardModeLevel": 0,
+              "duration": 96286,
+              "startTime": 1657200324746,
+              "report": {
+                "code": "Q3C1gY4P9XDwhVBk",
+                "fightID": 17,
+                "startTime": 1657199001607
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Tunechi",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1792.75,
+              "hardModeLevel": 0,
+              "duration": 127941,
+              "startTime": 1779327441026,
+              "report": {
+                "code": "hYG1gWqAjVxtTLPy",
+                "fightID": 35,
+                "startTime": 1779323613239
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "刀尖有米",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1791.25,
+              "hardModeLevel": 0,
+              "duration": 129550,
+              "startTime": 1781528999692,
+              "report": {
+                "code": "VfvT97CwWx4RHFJc",
+                "fightID": 23,
+                "startTime": 1781525701236
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Backstabbaby",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1791.21,
+              "hardModeLevel": 0,
+              "duration": 114208,
+              "startTime": 1728326678203,
+              "report": {
+                "code": "MNJLR16zhACd3bx2",
+                "fightID": 18,
+                "startTime": 1728325236441
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "Supfresh",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1790.96,
+              "hardModeLevel": 0,
+              "duration": 106012,
+              "startTime": 1783649858092,
+              "report": {
+                "code": "rLxd1K63zVvARQ8N",
+                "fightID": 43,
+                "startTime": 1783645576300
+              },
+              "guild": {
+                "id": 774696,
+                "name": "Ironclad",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Kríshna",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1784.03,
+              "hardModeLevel": 0,
+              "duration": 114401,
+              "startTime": 1791655958702,
+              "report": {
+                "code": "V42pAXMGxDqJYhQB",
+                "fightID": 22,
+                "startTime": 1791653139236
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Valeerá",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1783.47,
+              "hardModeLevel": 0,
+              "duration": 109195,
+              "startTime": 1747096170184,
+              "report": {
+                "code": "1MN624Dd7maRAtYC",
+                "fightID": 19,
+                "startTime": 1747087752841
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Yamazaki",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1782.69,
+              "hardModeLevel": 0,
+              "duration": 89882,
+              "startTime": 1746580302415,
+              "report": {
+                "code": "LzfCmXTGYZvcqM79",
+                "fightID": 33,
+                "startTime": 1746577739068
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Citarix",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1778.74,
+              "hardModeLevel": 0,
+              "duration": 99730,
+              "startTime": 1790883179162,
+              "report": {
+                "code": "XxGcgQa9v6RTqzCy",
+                "fightID": 14,
+                "startTime": 1790880858931
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Convicted",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1777.51,
+              "hardModeLevel": 0,
+              "duration": 97763,
+              "startTime": 1790782039952,
+              "report": {
+                "code": "HPDYBgzqVaJQ6vG9",
+                "fightID": 19,
+                "startTime": 1790780922789
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Norum",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1776.88,
+              "hardModeLevel": 0,
+              "duration": 106715,
+              "startTime": 1649206129980,
+              "report": {
+                "code": "q4mTy21ghAYpaxrQ",
+                "fightID": 40,
+                "startTime": 1649203523719
+              },
+              "guild": {
+                "id": 601225,
+                "name": "Forever Classic",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "贰娟子",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1776.62,
+              "hardModeLevel": 0,
+              "duration": 111879,
+              "startTime": 1660223890303,
+              "report": {
+                "code": "BWnkNxmM6HD4cCVa",
+                "fightID": 20,
+                "startTime": 1660221861771
+              },
+              "guild": {
+                "id": 647180,
+                "name": "nacy",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Eriandrel",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1775.03,
+              "hardModeLevel": 0,
+              "duration": 109114,
+              "startTime": 1760640920104,
+              "report": {
+                "code": "P4vXqV8AnkRfjxWy",
+                "fightID": 13,
+                "startTime": 1760639258501
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "橘子儿的夏天",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1772.3,
+              "hardModeLevel": 0,
+              "duration": 110378,
+              "startTime": 1650289920413,
+              "report": {
+                "code": "xPMTarDdmqH1AhVw",
+                "fightID": 37,
+                "startTime": 1650285898075
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Craeylol",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1772.13,
+              "hardModeLevel": 0,
+              "duration": 109025,
+              "startTime": 1783556011814,
+              "report": {
+                "code": "BFd6c3mhtCxaXJZM",
+                "fightID": 9,
+                "startTime": 1783554451582
+              },
+              "guild": {
+                "id": 705739,
+                "name": "SOM II Waiting Room GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "安澜秀",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1771.99,
+              "hardModeLevel": 0,
+              "duration": 115913,
+              "startTime": 1782219707181,
+              "report": {
+                "code": "V6wXJdQfWRcpaTvB",
+                "fightID": 26,
+                "startTime": 1782215951743
+              },
+              "guild": {
+                "id": 818830,
+                "name": "SHIMMER微光A",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "麦格雷迪",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1767.15,
+              "hardModeLevel": 0,
+              "duration": 141016,
+              "startTime": 1658667598973,
+              "report": {
+                "code": "1VTADpgWCk69xdcy",
+                "fightID": 43,
+                "startTime": 1658663167039
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Reefy",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1765.85,
+              "hardModeLevel": 0,
+              "duration": 106249,
+              "startTime": 1755281212979,
+              "report": {
+                "code": "jnYXNHZDzGy4QpFA",
+                "fightID": 40,
+                "startTime": 1755275006353
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Grifting",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1764.66,
+              "hardModeLevel": 0,
+              "duration": 108703,
+              "startTime": 1691717649235,
+              "report": {
+                "code": "XzP97Yq1G38KBvFL",
+                "fightID": 58,
+                "startTime": 1691712355832
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Kennyr",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1763.61,
+              "hardModeLevel": 0,
+              "duration": 113486,
+              "startTime": 1708202466575,
+              "report": {
+                "code": "XTdqLQAMhw3K4Nxv",
+                "fightID": 24,
+                "startTime": 1708200463761
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Forkenjoyer",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1763.17,
+              "hardModeLevel": 0,
+              "duration": 82059,
+              "startTime": 1783617930332,
+              "report": {
+                "code": "3AQ7KVgmDyG2xkRw",
+                "fightID": 15,
+                "startTime": 1783615691587
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Whoracle",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1761.35,
+              "hardModeLevel": 0,
+              "duration": 105571,
+              "startTime": 1713750856204,
+              "report": {
+                "code": "3aFdPQbrGCxwBLAY",
+                "fightID": 34,
+                "startTime": 1713747924570
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Ralphmen",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1759.29,
+              "hardModeLevel": 0,
+              "duration": 115322,
+              "startTime": 1713497861476,
+              "report": {
+                "code": "PW3qRj7TghtHdbZk",
+                "fightID": 34,
+                "startTime": 1713494936641
+              },
+              "guild": {
+                "id": 705305,
+                "name": "Gnomish Mafia GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Amathea",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1757.26,
+              "hardModeLevel": 0,
+              "duration": 102976,
+              "startTime": 1760474273574,
+              "report": {
+                "code": "frJQ7APyZvXw8Knp",
+                "fightID": 12,
+                "startTime": 1760444582312
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Möbe",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1756.92,
+              "hardModeLevel": 0,
+              "duration": 104886,
+              "startTime": 1750530520939,
+              "report": {
+                "code": "TJjvB62L1tdnNbGg",
+                "fightID": 30,
+                "startTime": 1750526439693
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Untz",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1756.8,
+              "hardModeLevel": 0,
+              "duration": 88849,
+              "startTime": 1747185017418,
+              "report": {
+                "code": "cJHgyACpD3YatBKQ",
+                "fightID": 33,
+                "startTime": 1747182625640
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Virulent",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1756.54,
+              "hardModeLevel": 0,
+              "duration": 83255,
+              "startTime": 1721178829021,
+              "report": {
+                "code": "d7tFRWAg4hqNkBcn",
+                "fightID": 34,
+                "startTime": 1721176047142
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Jerster",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1755.3,
+              "hardModeLevel": 0,
+              "duration": 108963,
+              "startTime": 1715214088178,
+              "report": {
+                "code": "fcmNpDXby18KdkrM",
+                "fightID": 15,
+                "startTime": 1715213028390
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Stivpys",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1752.52,
+              "hardModeLevel": 0,
+              "duration": 119631,
+              "startTime": 1718045882272,
+              "report": {
+                "code": "DZ46tpK3LXH9qGmM",
+                "fightID": 15,
+                "startTime": 1718044577843
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Qasim",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1749.44,
+              "hardModeLevel": 0,
+              "duration": 124358,
+              "startTime": 1717119290439,
+              "report": {
+                "code": "nqj8pyfkdrGm2W6J",
+                "fightID": 50,
+                "startTime": 1717115504528
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Hallowtide",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1746.43,
+              "hardModeLevel": 0,
+              "duration": 110080,
+              "startTime": 1787453783325,
+              "report": {
+                "code": "J7dFY8khBRGrQ2w1",
+                "fightID": 16,
+                "startTime": 1787452236846
+              },
+              "guild": {
+                "id": 814416,
+                "name": "WAFFLE HOUSE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Sílace",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1746.15,
+              "hardModeLevel": 0,
+              "duration": 123659,
+              "startTime": 1723083273658,
+              "report": {
+                "code": "JMfVpFLa7cj6ZHh4",
+                "fightID": 49,
+                "startTime": 1723078171131
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Tamuril",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1745.76,
+              "hardModeLevel": 0,
+              "duration": 99801,
+              "startTime": 1715802443056,
+              "report": {
+                "code": "VRGjK3Q8qHNzfgW7",
+                "fightID": 36,
+                "startTime": 1715799817317
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Executewasp",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1744.9,
+              "hardModeLevel": 0,
+              "duration": 101914,
+              "startTime": 1680830455275,
+              "report": {
+                "code": "9tB2hFd4LHaZzvAj",
+                "fightID": 57,
+                "startTime": 1680825882792
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Unclefurious",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1744.56,
+              "hardModeLevel": 0,
+              "duration": 94672,
+              "startTime": 1786904578208,
+              "report": {
+                "code": "YkNghJcDAVWqjvdT",
+                "fightID": 19,
+                "startTime": 1786903114321
+              },
+              "guild": {
+                "id": 774862,
+                "name": "Awakening",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Citari",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1743.64,
+              "hardModeLevel": 0,
+              "duration": 91321,
+              "startTime": 1746732684922,
+              "report": {
+                "code": "G4Y7yhqHcgtX1K3L",
+                "fightID": 18,
+                "startTime": 1746731238887
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Størmqt",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1743.03,
+              "hardModeLevel": 0,
+              "duration": 92543,
+              "startTime": 1722879280450,
+              "report": {
+                "code": "PqcMHajxDnJvm6tR",
+                "fightID": 12,
+                "startTime": 1722878363148
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Azæliä",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1742.63,
+              "hardModeLevel": 0,
+              "duration": 111479,
+              "startTime": 1728501386844,
+              "report": {
+                "code": "pGZXHfvD9CzAnwkx",
+                "fightID": 16,
+                "startTime": 1728500147325
+              },
+              "guild": {
+                "id": 734024,
+                "name": "Historia",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Repudiation",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1741.37,
+              "hardModeLevel": 0,
+              "duration": 95502,
+              "startTime": 1776820475959,
+              "report": {
+                "code": "GYKpADCcB8dmJ62a",
+                "fightID": 32,
+                "startTime": 1776817874443
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Niyra",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1741.18,
+              "hardModeLevel": 0,
+              "duration": 111056,
+              "startTime": 1789258860175,
+              "report": {
+                "code": "JQvMdz9DFN7HbcXq",
+                "fightID": 18,
+                "startTime": 1789255348330
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Bog",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1740.94,
+              "hardModeLevel": 0,
+              "duration": 103166,
+              "startTime": 1739760294429,
+              "report": {
+                "code": "za4ZcqmQDtpyw6PA",
+                "fightID": 13,
+                "startTime": 1739756954966
+              },
+              "guild": {
+                "id": 654035,
+                "name": "Pasta Sauce",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Arabaella",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1740.72,
+              "hardModeLevel": 0,
+              "duration": 108342,
+              "startTime": 1731268179261,
+              "report": {
+                "code": "fCpVTKvHhMb2aR7G",
+                "fightID": 33,
+                "startTime": 1731264604929
+              },
+              "guild": {
+                "id": 707415,
+                "name": "The Company",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Vicon",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1739.15,
+              "hardModeLevel": 0,
+              "duration": 83792,
+              "startTime": 1750813883657,
+              "report": {
+                "code": "GcRXdbfvMtxhkaB6",
+                "fightID": 33,
+                "startTime": 1750811416067
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Taiin",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1738.54,
+              "hardModeLevel": 0,
+              "duration": 89288,
+              "startTime": 1726706552069,
+              "report": {
+                "code": "zak7QtpLYvfHhqb1",
+                "fightID": 11,
+                "startTime": 1726705868732
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Dolphìn",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1738.06,
+              "hardModeLevel": 0,
+              "duration": 129143,
+              "startTime": 1705720452585,
+              "report": {
+                "code": "rXQDTZYaJm9jG4nA",
+                "fightID": 46,
+                "startTime": 1705716087979
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "咿呀咿哟",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1738.02,
+              "hardModeLevel": 0,
+              "duration": 138232,
+              "startTime": 1734099001407,
+              "report": {
+                "code": "PGnDpMjvNcQ8hRJ1",
+                "fightID": 29,
+                "startTime": 1734094355005
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Pleadfifth",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1737.49,
+              "hardModeLevel": 0,
+              "duration": 93637,
+              "startTime": 1773516044566,
+              "report": {
+                "code": "XKjNc7amb6LJ1V8F",
+                "fightID": 17,
+                "startTime": 1773514919646
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "孟少夫人",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1735.35,
+              "hardModeLevel": 0,
+              "duration": 115781,
+              "startTime": 1758544899460,
+              "report": {
+                "code": "1c79vDLVPJmkgZ2K",
+                "fightID": 23,
+                "startTime": 1758543266388
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Freshcakes",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1734.34,
+              "hardModeLevel": 0,
+              "duration": 104689,
+              "startTime": 1781317504962,
+              "report": {
+                "code": "BhvnxXwdfY2kFZrz",
+                "fightID": 20,
+                "startTime": 1781296516982
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Infectiouz",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1732.89,
+              "hardModeLevel": 0,
+              "duration": 111359,
+              "startTime": 1750538022201,
+              "report": {
+                "code": "mY64dvgN9HCATh3c",
+                "fightID": 18,
+                "startTime": 1750536345493
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Flanker",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1732.52,
+              "hardModeLevel": 0,
+              "duration": 114859,
+              "startTime": 1755439165672,
+              "report": {
+                "code": "AfJXLHYnQaBvdpZC",
+                "fightID": 32,
+                "startTime": 1755436173913
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Titbid",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1730.22,
+              "hardModeLevel": 0,
+              "duration": 103447,
+              "startTime": 1783963261189,
+              "report": {
+                "code": "XZzwVyaMfHWdkrKh",
+                "fightID": 13,
+                "startTime": 1783962189681
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Rrzz",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1729.76,
+              "hardModeLevel": 0,
+              "duration": 112671,
+              "startTime": 1704597851191,
+              "report": {
+                "code": "yzqcAnXBbr8tDkT9",
+                "fightID": 62,
+                "startTime": 1704591717998
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Naffl",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1726.75,
+              "hardModeLevel": 0,
+              "duration": 111164,
+              "startTime": 1723894093567,
+              "report": {
+                "code": "xCLyTzNFaJhPw3f1",
+                "fightID": 22,
+                "startTime": 1723892074923
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Eternia",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1725.37,
+              "hardModeLevel": 0,
+              "duration": 103369,
+              "startTime": 1784946576403,
+              "report": {
+                "code": "RfWdrjmHM3zV41GC",
+                "fightID": 19,
+                "startTime": 1784943735091
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Okcrab",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1725.01,
+              "hardModeLevel": 0,
+              "duration": 114666,
+              "startTime": 1728444630884,
+              "report": {
+                "code": "8cYmZpb3zajh74Mt",
+                "fightID": 32,
+                "startTime": 1728442856191
+              },
+              "guild": {
+                "id": 711098,
+                "name": "Moon Surfers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Westen",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1724.18,
+              "hardModeLevel": 0,
+              "duration": 111707,
+              "startTime": 1752862353474,
+              "report": {
+                "code": "mRZqxGjadgXLhFtc",
+                "fightID": 23,
+                "startTime": 1752859517248
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "天空之城",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1723.45,
+              "hardModeLevel": 0,
+              "duration": 107171,
+              "startTime": 1660998869438,
+              "report": {
+                "code": "4WMQyYrZPa6NL3H7",
+                "fightID": 12,
+                "startTime": 1660997948071
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Omnipresent",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1723.28,
+              "hardModeLevel": 0,
+              "duration": 126858,
+              "startTime": 1742067136519,
+              "report": {
+                "code": "NHPrD6wFGv7LTjbC",
+                "fightID": 23,
+                "startTime": 1742061793956
+              },
+              "guild": {
+                "id": 725186,
+                "name": "Goop Troop",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Aljax",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1722.33,
+              "hardModeLevel": 0,
+              "duration": 123531,
+              "startTime": 1691691438042,
+              "report": {
+                "code": "7Cn6KV8kpDZcTxzP",
+                "fightID": 13,
+                "startTime": 1691690619378
+              },
+              "guild": {
+                "id": 702558,
+                "name": "Core",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Hcmif",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1717.75,
+              "hardModeLevel": 0,
+              "duration": 104658,
+              "startTime": 1750038576584,
+              "report": {
+                "code": "BLV7KxHPrnTDmRfd",
+                "fightID": 30,
+                "startTime": 1750036157087
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Ezmxde",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1717.3,
+              "hardModeLevel": 0,
+              "duration": 111384,
+              "startTime": 1778151947740,
+              "report": {
+                "code": "g36vTZV7qYb1yjhd",
+                "fightID": 47,
+                "startTime": 1778147789957
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Bencur",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1716.99,
+              "hardModeLevel": 0,
+              "duration": 90236,
+              "startTime": 1789843259416,
+              "report": {
+                "code": "4mHhQYpxTF8jt6Pc",
+                "fightID": 15,
+                "startTime": 1789840934034
+              },
+              "guild": {
+                "id": 809577,
+                "name": "Neo GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Cursedfire",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1716.84,
+              "hardModeLevel": 0,
+              "duration": 119038,
+              "startTime": 1786597998429,
+              "report": {
+                "code": "3wvKaTkJfNbZqWc4",
+                "fightID": 22,
+                "startTime": 1786596531311
+              },
+              "guild": {
+                "id": 814416,
+                "name": "WAFFLE HOUSE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Louie",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1715.75,
+              "hardModeLevel": 0,
+              "duration": 123566,
+              "startTime": 1721851531039,
+              "report": {
+                "code": "y8Qp3N7xrCdDYgkT",
+                "fightID": 46,
+                "startTime": 1721847389253
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Larynn",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1715.34,
+              "hardModeLevel": 0,
+              "duration": 103675,
+              "startTime": 1791485078001,
+              "report": {
+                "code": "rHTgY8aqx2zw4MdX",
+                "fightID": 23,
+                "startTime": 1791483514083
+              },
+              "guild": {
+                "id": 816105,
+                "name": "LISTEN",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Likesmoke",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1713.3,
+              "hardModeLevel": 0,
+              "duration": 92739,
+              "startTime": 1783365978400,
+              "report": {
+                "code": "FVMnr4q9Lzf78mp6",
+                "fightID": 14,
+                "startTime": 1783363523375
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Shadowmurder",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1711.55,
+              "hardModeLevel": 0,
+              "duration": 150679,
+              "startTime": 1770815656386,
+              "report": {
+                "code": "VAwRhjt4C1kmqnZ2",
+                "fightID": 25,
+                "startTime": 1770808721369
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 36
+            },
+            {
+              "name": "Jefik",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1710.66,
+              "hardModeLevel": 0,
+              "duration": 96737,
+              "startTime": 1779641467281,
+              "report": {
+                "code": "ga1pdz6MT7LbXARh",
+                "fightID": 14,
+                "startTime": 1779640411786
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Presenter",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1709.77,
+              "hardModeLevel": 0,
+              "duration": 96482,
+              "startTime": 1741815248985,
+              "report": {
+                "code": "n6vPhWY8xVm4drAF",
+                "fightID": 17,
+                "startTime": 1741813072660
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Fearinurrear",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1707.11,
+              "hardModeLevel": 0,
+              "duration": 146504,
+              "startTime": 1726629253746,
+              "report": {
+                "code": "nKWXNZRt4aJfMT7j",
+                "fightID": 95,
+                "startTime": 1726620575213
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Baracko",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1706.16,
+              "hardModeLevel": 0,
+              "duration": 114666,
+              "startTime": 1728444630884,
+              "report": {
+                "code": "8cYmZpb3zajh74Mt",
+                "fightID": 32,
+                "startTime": 1728442856191
+              },
+              "guild": {
+                "id": 711098,
+                "name": "Moon Surfers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Nøpe",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1705.79,
+              "hardModeLevel": 0,
+              "duration": 118465,
+              "startTime": 1671133818358,
+              "report": {
+                "code": "fRyDqamYX4MhbHCc",
+                "fightID": 42,
+                "startTime": 1671130192423
+              },
+              "guild": {
+                "id": 631368,
+                "name": "Sulfuras",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Enyalios",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1705.76,
+              "hardModeLevel": 0,
+              "duration": 118465,
+              "startTime": 1671133818358,
+              "report": {
+                "code": "fRyDqamYX4MhbHCc",
+                "fightID": 42,
+                "startTime": 1671130192423
+              },
+              "guild": {
+                "id": 631368,
+                "name": "Sulfuras",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Cruxz",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1704.48,
+              "hardModeLevel": 0,
+              "duration": 107184,
+              "startTime": 1747335671218,
+              "report": {
+                "code": "nq7aGWzxKhP4dDTw",
+                "fightID": 56,
+                "startTime": 1747332084169
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Sleepytime",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1704.2,
+              "hardModeLevel": 0,
+              "duration": 102313,
+              "startTime": 1765480487740,
+              "report": {
+                "code": "RbkpadcZ4gnq1TjQ",
+                "fightID": 17,
+                "startTime": 1765479347627
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Burnie",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1703.58,
+              "hardModeLevel": 0,
+              "duration": 119350,
+              "startTime": 1683571680928,
+              "report": {
+                "code": "YzTkr69bBGRaCxdX",
+                "fightID": 27,
+                "startTime": 1683567678245
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10075,
+                "name": "Dragon's Call",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Meredith",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1703.19,
+              "hardModeLevel": 0,
+              "duration": 110377,
+              "startTime": 1750273713631,
+              "report": {
+                "code": "rWv72MpKQyAafgw4",
+                "fightID": 33,
+                "startTime": 1750269886982
+              },
+              "guild": {
+                "id": 658825,
+                "name": "The Gutter",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Mcribisback",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1698.84,
+              "hardModeLevel": 0,
+              "duration": 129143,
+              "startTime": 1705720452585,
+              "report": {
+                "code": "rXQDTZYaJm9jG4nA",
+                "fightID": 46,
+                "startTime": 1705716087979
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Animeboy",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1698.83,
+              "hardModeLevel": 0,
+              "duration": 93014,
+              "startTime": 1721410915452,
+              "report": {
+                "code": "21Ltd7j63RTkgXA9",
+                "fightID": 13,
+                "startTime": 1721410104446
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "流行也淘气",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1698.14,
+              "hardModeLevel": 0,
+              "duration": 109989,
+              "startTime": 1646916137944,
+              "report": {
+                "code": "M6RjamkKNnTGrxd8",
+                "fightID": 11,
+                "startTime": 1646914381256
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Jexx",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1697.4,
+              "hardModeLevel": 0,
+              "duration": 106914,
+              "startTime": 1789066593235,
+              "report": {
+                "code": "4DzJ2vM7HPCT8bQr",
+                "fightID": 19,
+                "startTime": 1789063431649
+              },
+              "guild": {
+                "id": 631368,
+                "name": "Sulfuras",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Mayya",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1697.37,
+              "hardModeLevel": 0,
+              "duration": 116451,
+              "startTime": 1731873084167,
+              "report": {
+                "code": "2VpW8fTPFqrH4gaJ",
+                "fightID": 26,
+                "startTime": 1731869799520
+              },
+              "guild": {
+                "id": 707415,
+                "name": "The Company",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Leifdagrun",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1697.28,
+              "hardModeLevel": 0,
+              "duration": 118857,
+              "startTime": 1731156641282,
+              "report": {
+                "code": "HXBRjcQW4aqpPYTg",
+                "fightID": 30,
+                "startTime": 1731153636849
+              },
+              "guild": {
+                "id": 707927,
+                "name": "Angel GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 39.13,
+      "pointsResetIn": 3584
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 39.13,
+    "reset_in_s": 3584
+  }
+}

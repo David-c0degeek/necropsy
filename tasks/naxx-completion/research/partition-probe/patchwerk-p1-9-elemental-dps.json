@@ -1,0 +1,2378 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Shaman",
+    "spec": "Elemental"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:54.291772+00:00",
+  "ended_at": "2026-10-21T12:04:54.851437+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Toast",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1170.62,
+              "hardModeLevel": 0,
+              "duration": 114407,
+              "startTime": 1721269590084,
+              "report": {
+                "code": "zypYfF2gCQmt8MVj",
+                "fightID": 22,
+                "startTime": 1721266995320
+              },
+              "guild": {
+                "id": 699039,
+                "name": "The Cult of Spunions",
+                "faction": 1
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Vitalîs",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1136.7,
+              "hardModeLevel": 0,
+              "duration": 119238,
+              "startTime": 1676577101276,
+              "report": {
+                "code": "CGXRMnhk4Fjf2PLt",
+                "fightID": 49,
+                "startTime": 1676573871059
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Repick",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1122.88,
+              "hardModeLevel": 0,
+              "duration": 103744,
+              "startTime": 1778211857885,
+              "report": {
+                "code": "Ccw6pzgvTaNL8Hyn",
+                "fightID": 28,
+                "startTime": 1778207662922
+              },
+              "guild": {
+                "id": 728200,
+                "name": "Bad Seed",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "天譴",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1105.69,
+              "hardModeLevel": 0,
+              "duration": 158445,
+              "startTime": 1671365086400,
+              "report": {
+                "code": "pVxAYt3FyNP76qd1",
+                "fightID": 54,
+                "startTime": 1671360772346
+              },
+              "guild": {
+                "id": 667936,
+                "name": "SK Gaming",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Proberzk",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1078.79,
+              "hardModeLevel": 0,
+              "duration": 142105,
+              "startTime": 1707774888748,
+              "report": {
+                "code": "F3yPjQvaW1dXzHAp",
+                "fightID": 58,
+                "startTime": 1707767875092
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Kanzen",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1060.06,
+              "hardModeLevel": 0,
+              "duration": 135041,
+              "startTime": 1692328294168,
+              "report": {
+                "code": "nZvW2tHCzpGLAy7Q",
+                "fightID": 89,
+                "startTime": 1692319835652
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "天譴",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1059.2,
+              "hardModeLevel": 0,
+              "duration": 155552,
+              "startTime": 1730725100053,
+              "report": {
+                "code": "3A2fMd4K1JrWFwhv",
+                "fightID": 30,
+                "startTime": 1730722085464
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Demetor",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1058.94,
+              "hardModeLevel": 0,
+              "duration": 144463,
+              "startTime": 1711229841479,
+              "report": {
+                "code": "6F1vMxay49BXbHdt",
+                "fightID": 74,
+                "startTime": 1711222792909
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Ronk",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1057.57,
+              "hardModeLevel": 0,
+              "duration": 134226,
+              "startTime": 1733973504736,
+              "report": {
+                "code": "nxfPTZhycNj8AVJG",
+                "fightID": 45,
+                "startTime": 1733970571153
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Dreakxo",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1053.79,
+              "hardModeLevel": 0,
+              "duration": 112520,
+              "startTime": 1790879080749,
+              "report": {
+                "code": "8a1mhfYcW34627Ad",
+                "fightID": 16,
+                "startTime": 1790877621466
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Akatsuki",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1028.22,
+              "hardModeLevel": 0,
+              "duration": 151504,
+              "startTime": 1773985743947,
+              "report": {
+                "code": "nfxJrDXcVg9wGBaz",
+                "fightID": 31,
+                "startTime": 1773976145766
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Nolá",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1022.83,
+              "hardModeLevel": 0,
+              "duration": 122010,
+              "startTime": 1726026966797,
+              "report": {
+                "code": "FXyJQrZWYzwm9MAg",
+                "fightID": 39,
+                "startTime": 1726024246249
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Guyondacouch",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1020.59,
+              "hardModeLevel": 0,
+              "duration": 160279,
+              "startTime": 1729043006139,
+              "report": {
+                "code": "1zRaKGcxCp6793qV",
+                "fightID": 40,
+                "startTime": 1729036600860
+              },
+              "guild": {
+                "id": 712801,
+                "name": "Temple - Old",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "维克托利亚",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1014.52,
+              "hardModeLevel": 0,
+              "duration": 138504,
+              "startTime": 1649341034228,
+              "report": {
+                "code": "fYXLDAb27y4rTgCN",
+                "fightID": 71,
+                "startTime": 1649333395271
+              },
+              "guild": {
+                "id": 626869,
+                "name": "sstec",
+                "faction": 1
+              },
+              "server": {
+                "id": 10039,
+                "name": "奥罗",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Pythón",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1008.76,
+              "hardModeLevel": 0,
+              "duration": 115323,
+              "startTime": 1739390227623,
+              "report": {
+                "code": "qGAckQNjZ6XPFzgD",
+                "fightID": 34,
+                "startTime": 1739386753909
+              },
+              "guild": {
+                "id": 712340,
+                "name": "Last Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Dégénératé",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 1005.57,
+              "hardModeLevel": 0,
+              "duration": 109207,
+              "startTime": 1760036462368,
+              "report": {
+                "code": "rqjKDWtGdawn3ACH",
+                "fightID": 47,
+                "startTime": 1760032513469
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Bushmilfs",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 999.473,
+              "hardModeLevel": 0,
+              "duration": 132847,
+              "startTime": 1683920943888,
+              "report": {
+                "code": "cMZ2DjFCynqvfHgP",
+                "fightID": 43,
+                "startTime": 1683916544435
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "游鱼珶帝",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 982.395,
+              "hardModeLevel": 0,
+              "duration": 164384,
+              "startTime": 1666442944604,
+              "report": {
+                "code": "bqtYV98hnCMmvQAj",
+                "fightID": 32,
+                "startTime": 1666437938289
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "風语者",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 979.001,
+              "hardModeLevel": 0,
+              "duration": 138247,
+              "startTime": 1729167671240,
+              "report": {
+                "code": "JFpmBHCPwgMzhtcL",
+                "fightID": 38,
+                "startTime": 1729163560565
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "七八六萱",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 973.889,
+              "hardModeLevel": 0,
+              "duration": 154262,
+              "startTime": 1652509687357,
+              "report": {
+                "code": "8BJ1ZAKQxDk2Gb6M",
+                "fightID": 51,
+                "startTime": 1652505098993
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Shamlmdngdng",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 973.752,
+              "hardModeLevel": 0,
+              "duration": 111664,
+              "startTime": 1754619182038,
+              "report": {
+                "code": "tYvFypQLbdk7m1Gg",
+                "fightID": 34,
+                "startTime": 1754616972276
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Potatoe",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 954.349,
+              "hardModeLevel": 0,
+              "duration": 120130,
+              "startTime": 1788201798707,
+              "report": {
+                "code": "tgrRJdf6vTPM8DLY",
+                "fightID": 19,
+                "startTime": 1788197004377
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Colasauce",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 952.272,
+              "hardModeLevel": 0,
+              "duration": 115780,
+              "startTime": 1728621283060,
+              "report": {
+                "code": "hvGK8zwcBfqxd1kR",
+                "fightID": 28,
+                "startTime": 1728619302466
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "风雪迷城",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 947.007,
+              "hardModeLevel": 0,
+              "duration": 157737,
+              "startTime": 1770127197345,
+              "report": {
+                "code": "tDxgNaXk8y1LBqFm",
+                "fightID": 73,
+                "startTime": 1770119690680
+              },
+              "server": {
+                "id": 10122,
+                "name": "震地者",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "香萌兔",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 941.932,
+              "hardModeLevel": 0,
+              "duration": 160210,
+              "startTime": 1673675717429,
+              "report": {
+                "code": "4LVCyYNft6aPQvW3",
+                "fightID": 39,
+                "startTime": 1673670872607
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "七禾页",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 929.641,
+              "hardModeLevel": 0,
+              "duration": 166674,
+              "startTime": 1787923558916,
+              "report": {
+                "code": "vH2Da9JFKjcY4x1h",
+                "fightID": 47,
+                "startTime": 1787918747323
+              },
+              "guild": {
+                "id": 826541,
+                "name": "The New World",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Urshak",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 922.868,
+              "hardModeLevel": 0,
+              "duration": 118356,
+              "startTime": 1699584480821,
+              "report": {
+                "code": "TXzhjVNyY3JcvpbA",
+                "fightID": 51,
+                "startTime": 1699579597350
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "在下丶池萨萨",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 920.643,
+              "hardModeLevel": 0,
+              "duration": 164750,
+              "startTime": 1710421717200,
+              "report": {
+                "code": "M2kxzjGDFfX7dPhg",
+                "fightID": 48,
+                "startTime": 1710415434212
+              },
+              "guild": {
+                "id": 731449,
+                "name": "哎哟喂",
+                "faction": 1
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Herkul",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 919.193,
+              "hardModeLevel": 0,
+              "duration": 144245,
+              "startTime": 1739480245877,
+              "report": {
+                "code": "v8mGhBWX7fAzgKrt",
+                "fightID": 66,
+                "startTime": 1739473040477
+              },
+              "guild": {
+                "id": 663090,
+                "name": "Warriors of Sunlight",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Zebar",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 918.159,
+              "hardModeLevel": 0,
+              "duration": 145000,
+              "startTime": 1665083748356,
+              "report": {
+                "code": "rVa9XT7Jhdmq2Mtc",
+                "fightID": 60,
+                "startTime": 1665079649194
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "可爱小角辫",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 912.313,
+              "hardModeLevel": 0,
+              "duration": 181406,
+              "startTime": 1792324502989,
+              "report": {
+                "code": "kC8bLzYgd3rAjw6R",
+                "fightID": 24,
+                "startTime": 1792322195093
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "软妹布丁",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 911.078,
+              "hardModeLevel": 0,
+              "duration": 183273,
+              "startTime": 1697725606745,
+              "report": {
+                "code": "tMGm3yZX1QRTnf29",
+                "fightID": 72,
+                "startTime": 1697715951000
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Demishock",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 910.079,
+              "hardModeLevel": 0,
+              "duration": 118737,
+              "startTime": 1723688531467,
+              "report": {
+                "code": "rvjgnhDPGbFHcwNY",
+                "fightID": 52,
+                "startTime": 1723683728639
+              },
+              "guild": {
+                "id": 717175,
+                "name": "Key Bumps",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "焚天小牛巴",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 907.568,
+              "hardModeLevel": 0,
+              "duration": 165602,
+              "startTime": 1735995178350,
+              "report": {
+                "code": "KrCXTvth7nM94qLk",
+                "fightID": 14,
+                "startTime": 1735992314432
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "十三忧",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 905.797,
+              "hardModeLevel": 0,
+              "duration": 201565,
+              "startTime": 1671113729932,
+              "report": {
+                "code": "gXLFqVAKdNZRM49a",
+                "fightID": 124,
+                "startTime": 1671087123967
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "寒玦",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 900.164,
+              "hardModeLevel": 0,
+              "duration": 170820,
+              "startTime": 1706183073320,
+              "report": {
+                "code": "7yq9M8af1nGjLZDW",
+                "fightID": 29,
+                "startTime": 1706179810864
+              },
+              "guild": {
+                "id": 703414,
+                "name": "《失乐园》招募+V：mbin1995",
+                "faction": 1
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "帕瓦罗蒂",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 893.066,
+              "hardModeLevel": 0,
+              "duration": 166467,
+              "startTime": 1630590173713,
+              "report": {
+                "code": "W34qAQDcY7kT6LVj",
+                "fightID": 347,
+                "startTime": 1629810765548
+              },
+              "guild": {
+                "id": 602547,
+                "name": "最后的守望",
+                "faction": 1
+              },
+              "server": {
+                "id": 10155,
+                "name": "埃提耶什",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Hate",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 872.824,
+              "hardModeLevel": 0,
+              "duration": 139044,
+              "startTime": 1700516157693,
+              "report": {
+                "code": "LxMcZG39Wb4pm6CN",
+                "fightID": 69,
+                "startTime": 1700509945947
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Stormstrike",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 868.416,
+              "hardModeLevel": 0,
+              "duration": 219503,
+              "startTime": 1714940054853,
+              "report": {
+                "code": "3fgVKxPnQqZpTBYj",
+                "fightID": 77,
+                "startTime": 1714932145296
+              },
+              "guild": {
+                "id": 663090,
+                "name": "Warriors of Sunlight",
+                "faction": 1
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "我公务在身",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 863.991,
+              "hardModeLevel": 0,
+              "duration": 159195,
+              "startTime": 1651240461345,
+              "report": {
+                "code": "YpWVPyw7dxfQBb1n",
+                "fightID": 55,
+                "startTime": 1651234106473
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "吥佬",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 851.802,
+              "hardModeLevel": 0,
+              "duration": 177162,
+              "startTime": 1792323452321,
+              "report": {
+                "code": "ZRa6fV9M7dQz42vJ",
+                "fightID": 25,
+                "startTime": 1792320353523
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 37
+            },
+            {
+              "name": "古一丶",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 847.386,
+              "hardModeLevel": 0,
+              "duration": 153184,
+              "startTime": 1746877787840,
+              "report": {
+                "code": "Bv7LR6GcJk3rYqZx",
+                "fightID": 11,
+                "startTime": 1746876794180
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Dollarb",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 843.63,
+              "hardModeLevel": 0,
+              "duration": 159788,
+              "startTime": 1709694423159,
+              "report": {
+                "code": "DBQmpkJhcg8213nX",
+                "fightID": 74,
+                "startTime": 1709688132487
+              },
+              "guild": {
+                "id": 712801,
+                "name": "Temple - Old",
+                "faction": 1
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Gambah",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 842.243,
+              "hardModeLevel": 0,
+              "duration": 162180,
+              "startTime": 1700073688784,
+              "report": {
+                "code": "Kb1ThA8Bg7GWfFyw",
+                "fightID": 20,
+                "startTime": 1700069343999
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "勃勃大个仔",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 842.053,
+              "hardModeLevel": 0,
+              "duration": 148702,
+              "startTime": 1727072046054,
+              "report": {
+                "code": "VKfzLkdr69pyxtNW",
+                "fightID": 38,
+                "startTime": 1727069417350
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Krosar",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 839.762,
+              "hardModeLevel": 0,
+              "duration": 181049,
+              "startTime": 1683833229106,
+              "report": {
+                "code": "3ATjWmncHqa7fbYL",
+                "fightID": 54,
+                "startTime": 1683828387978
+              },
+              "guild": {
+                "id": 629053,
+                "name": "Trinity",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Dracksar",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 838.105,
+              "hardModeLevel": 0,
+              "duration": 150919,
+              "startTime": 1657588539147,
+              "report": {
+                "code": "cTBvmRKYxPgrbpy9",
+                "fightID": 22,
+                "startTime": 1657586622207
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "Chapsterz",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 830.079,
+              "hardModeLevel": 0,
+              "duration": 172056,
+              "startTime": 1624843440247,
+              "report": {
+                "code": "xn3vM8wdRA4KzybX",
+                "fightID": 28,
+                "startTime": 1624840585053
+              },
+              "server": {
+                "id": 10006,
+                "name": "Herod",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "元素之境",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 825.765,
+              "hardModeLevel": 0,
+              "duration": 146687,
+              "startTime": 1640259913109,
+              "report": {
+                "code": "fb9YDHJy3chKnmBa",
+                "fightID": 20,
+                "startTime": 1640256584470
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Heclerstorm",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 825.392,
+              "hardModeLevel": 0,
+              "duration": 131855,
+              "startTime": 1731356636928,
+              "report": {
+                "code": "PjKFNJLma2yVgMwY",
+                "fightID": 52,
+                "startTime": 1731351844467
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Totemick",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 821.43,
+              "hardModeLevel": 0,
+              "duration": 142751,
+              "startTime": 1706933028093,
+              "report": {
+                "code": "xv1VnbGHK4LYqQTB",
+                "fightID": 33,
+                "startTime": 1706930879408
+              },
+              "guild": {
+                "id": 705749,
+                "name": "Boogeymen",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "老牛慢悠悠",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 815.508,
+              "hardModeLevel": 0,
+              "duration": 143063,
+              "startTime": 1770641868991,
+              "report": {
+                "code": "NdYZ6D2pyLvw1Mgr",
+                "fightID": 33,
+                "startTime": 1770639226127
+              },
+              "guild": {
+                "id": 642930,
+                "name": "山葵家",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "牛小刀",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 803.256,
+              "hardModeLevel": 0,
+              "duration": 175548,
+              "startTime": 1764642252814,
+              "report": {
+                "code": "dNYBhxJTw3bmMVLC",
+                "fightID": 27,
+                "startTime": 1764639496528
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 37
+            },
+            {
+              "name": "太逼真",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 800.674,
+              "hardModeLevel": 0,
+              "duration": 191626,
+              "startTime": 1783263017891,
+              "report": {
+                "code": "FawJLvmH6D2gdN4c",
+                "fightID": 23,
+                "startTime": 1783260168582
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "部落聆听声音",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 798.625,
+              "hardModeLevel": 0,
+              "duration": 169773,
+              "startTime": 1647173801716,
+              "report": {
+                "code": "Yd8gp9BZAWhDHKrz",
+                "fightID": 33,
+                "startTime": 1647169498284
+              },
+              "guild": {
+                "id": 639046,
+                "name": "碧空G团",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 38
+            },
+            {
+              "name": "Troldefar",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 787.483,
+              "hardModeLevel": 0,
+              "duration": 131952,
+              "startTime": 1757530809842,
+              "report": {
+                "code": "RjHXLh2x4v7qdNWb",
+                "fightID": 61,
+                "startTime": 1757527208936
+              },
+              "guild": {
+                "id": 782327,
+                "name": "Next Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "豪友根",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 785.272,
+              "hardModeLevel": 0,
+              "duration": 154721,
+              "startTime": 1761051330666,
+              "report": {
+                "code": "NJW1wf3j4VGqMTdm",
+                "fightID": 33,
+                "startTime": 1761048564586
+              },
+              "guild": {
+                "id": 642930,
+                "name": "山葵家",
+                "faction": 1
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "Mojosodope",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 784.342,
+              "hardModeLevel": 0,
+              "duration": 154198,
+              "startTime": 1699678592653,
+              "report": {
+                "code": "78zmCM1Y9Vxtradq",
+                "fightID": 70,
+                "startTime": 1699670929727
+              },
+              "guild": {
+                "id": 706136,
+                "name": "Primal",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "丨阿浪丨",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 784.257,
+              "hardModeLevel": 0,
+              "duration": 174291,
+              "startTime": 1666272210639,
+              "report": {
+                "code": "GPF7xZakpJRCQnfD",
+                "fightID": 48,
+                "startTime": 1666265766374
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "君情一处",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 781.774,
+              "hardModeLevel": 0,
+              "duration": 171900,
+              "startTime": 1672579361508,
+              "report": {
+                "code": "tR149m63LqXzbNPA",
+                "fightID": 47,
+                "startTime": 1672574029412
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Whopperjr",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 781.088,
+              "hardModeLevel": 0,
+              "duration": 157063,
+              "startTime": 1767147556757,
+              "report": {
+                "code": "hY9NW74J2ZgLPCQx",
+                "fightID": 57,
+                "startTime": 1767142756527
+              },
+              "guild": {
+                "id": 724227,
+                "name": "Tenple",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Gyro",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 775.742,
+              "hardModeLevel": 0,
+              "duration": 162344,
+              "startTime": 1789238155906,
+              "report": {
+                "code": "FzR87PCfGtnmwryT",
+                "fightID": 23,
+                "startTime": 1789235530661
+              },
+              "guild": {
+                "id": 830912,
+                "name": "Valhall",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "北桥地靓坤",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 767.6,
+              "hardModeLevel": 0,
+              "duration": 162582,
+              "startTime": 1652274515682,
+              "report": {
+                "code": "FmG7YDXHPdqNg18B",
+                "fightID": 35,
+                "startTime": 1652268654049
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "丶一抹嫣然",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 759.607,
+              "hardModeLevel": 0,
+              "duration": 199265,
+              "startTime": 1667321567313,
+              "report": {
+                "code": "vQW9cFzj8GtAq7rx",
+                "fightID": 62,
+                "startTime": 1667239111536
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "Ugozug",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 758.898,
+              "hardModeLevel": 0,
+              "duration": 193151,
+              "startTime": 1711301470164,
+              "report": {
+                "code": "RXdP31G4BNAD8Qkx",
+                "fightID": 27,
+                "startTime": 1711299257987
+              },
+              "guild": {
+                "id": 705586,
+                "name": "Rytmiryhmä",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 38
+            },
+            {
+              "name": "Doothedew",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 749.908,
+              "hardModeLevel": 0,
+              "duration": 131024,
+              "startTime": 1744859465493,
+              "report": {
+                "code": "yDPxKTvBt4nZq2QY",
+                "fightID": 81,
+                "startTime": 1744596017665
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Cap",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 746.779,
+              "hardModeLevel": 0,
+              "duration": 137216,
+              "startTime": 1697260503064,
+              "report": {
+                "code": "PCKkNWDMzfbY8Bgn",
+                "fightID": 12,
+                "startTime": 1697252395218
+              },
+              "guild": {
+                "id": 705749,
+                "name": "Boogeymen",
+                "faction": 1
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "调一钓二",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 744.708,
+              "hardModeLevel": 0,
+              "duration": 176026,
+              "startTime": 1759668131539,
+              "report": {
+                "code": "kVCYgx9BFjc1D4Wr",
+                "fightID": 28,
+                "startTime": 1759665182661
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "雷震子",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 743.837,
+              "hardModeLevel": 0,
+              "duration": 165516,
+              "startTime": 1778848000602,
+              "report": {
+                "code": "nkMb86GazrQRgWCB",
+                "fightID": 46,
+                "startTime": 1778841584851
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "踩地板搓链子",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 734.994,
+              "hardModeLevel": 0,
+              "duration": 181588,
+              "startTime": 1708874409774,
+              "report": {
+                "code": "vWt6nHk9CfdzDRBj",
+                "fightID": 68,
+                "startTime": 1708864827476
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "蒙牛雷罚",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 730.497,
+              "hardModeLevel": 0,
+              "duration": 165516,
+              "startTime": 1778848000602,
+              "report": {
+                "code": "nkMb86GazrQRgWCB",
+                "fightID": 46,
+                "startTime": 1778841584851
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Yajo",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 726.055,
+              "hardModeLevel": 0,
+              "duration": 146683,
+              "startTime": 1679104543822,
+              "report": {
+                "code": "Tdx6kt3fqDVFpWXG",
+                "fightID": 19,
+                "startTime": 1679102852637
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Bigduke",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 724.667,
+              "hardModeLevel": 0,
+              "duration": 144236,
+              "startTime": 1697164849767,
+              "report": {
+                "code": "fV2zwHYG6QAxFgbJ",
+                "fightID": 80,
+                "startTime": 1697156987653
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "寒崛",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 724.619,
+              "hardModeLevel": 0,
+              "duration": 194385,
+              "startTime": 1693459789130,
+              "report": {
+                "code": "21hrknW6gvGxZpfm",
+                "fightID": 36,
+                "startTime": 1693456282287
+              },
+              "guild": {
+                "id": 703414,
+                "name": "《失乐园》招募+V：mbin1995",
+                "faction": 1
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Pêanut",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 714.43,
+              "hardModeLevel": 0,
+              "duration": 126365,
+              "startTime": 1711054912194,
+              "report": {
+                "code": "4MVvjDRXcW17gyNk",
+                "fightID": 55,
+                "startTime": 1711050316903
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Luis",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 708.029,
+              "hardModeLevel": 0,
+              "duration": 185669,
+              "startTime": 1715958856923,
+              "report": {
+                "code": "xdY9GWvzNLj7ctQq",
+                "fightID": 498,
+                "startTime": 1714473542595
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Megavolt",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 705.715,
+              "hardModeLevel": 0,
+              "duration": 136684,
+              "startTime": 1726858641354,
+              "report": {
+                "code": "CP8RyTLMQNXvtch1",
+                "fightID": 23,
+                "startTime": 1726856874467
+              },
+              "guild": {
+                "id": 704229,
+                "name": "Demon Pugz",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Theshyshy",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 704.918,
+              "hardModeLevel": 0,
+              "duration": 165744,
+              "startTime": 1702645279455,
+              "report": {
+                "code": "hjM7vQcRmtyAp9T4",
+                "fightID": 38,
+                "startTime": 1702640874323
+              },
+              "guild": {
+                "id": 717533,
+                "name": "雾都",
+                "faction": 1
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 81,
+              "size": 38
+            },
+            {
+              "name": "萨佴",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 703.918,
+              "hardModeLevel": 0,
+              "duration": 159645,
+              "startTime": 1663482549031,
+              "report": {
+                "code": "gK1yCXW7mDPqNT8p",
+                "fightID": 33,
+                "startTime": 1663478316630
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "小脚趾",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 691.565,
+              "hardModeLevel": 0,
+              "duration": 150463,
+              "startTime": 1661517564540,
+              "report": {
+                "code": "xwY2X3nHJjTBgbmW",
+                "fightID": 22,
+                "startTime": 1661515703702
+              },
+              "guild": {
+                "id": 642930,
+                "name": "山葵家",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "漫天飛舞",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 688.377,
+              "hardModeLevel": 0,
+              "duration": 157482,
+              "startTime": 1715859601131,
+              "report": {
+                "code": "gMnvBRVNTbDcXwP1",
+                "fightID": 27,
+                "startTime": 1715857537137
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "仁者之萨",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 659.474,
+              "hardModeLevel": 0,
+              "duration": 192241,
+              "startTime": 1765088602765,
+              "report": {
+                "code": "zGhcJW243VFX8aQr",
+                "fightID": 25,
+                "startTime": 1765086104973
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 37
+            },
+            {
+              "name": "Uaz",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 649.097,
+              "hardModeLevel": 0,
+              "duration": 148494,
+              "startTime": 1714078395593,
+              "report": {
+                "code": "nCDTABbZtg6rN2y8",
+                "fightID": 71,
+                "startTime": 1714070749373
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Potatosmash",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 646.697,
+              "hardModeLevel": 0,
+              "duration": 131564,
+              "startTime": 1778783320093,
+              "report": {
+                "code": "JkWKMA1g9FPvNRCf",
+                "fightID": 20,
+                "startTime": 1778781484328
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Pochui",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 641.635,
+              "hardModeLevel": 0,
+              "duration": 143510,
+              "startTime": 1713119740506,
+              "report": {
+                "code": "Dd2AqQyzpcMkrHNt",
+                "fightID": 11,
+                "startTime": 1713119072951
+              },
+              "guild": {
+                "id": 704229,
+                "name": "Demon Pugz",
+                "faction": 1
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "三散啊",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 638.797,
+              "hardModeLevel": 0,
+              "duration": 160400,
+              "startTime": 1659963559991,
+              "report": {
+                "code": "CfTzd3La4PvtFX2R",
+                "fightID": 50,
+                "startTime": 1659956306791
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "霸王戏奶",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 637.013,
+              "hardModeLevel": 0,
+              "duration": 177144,
+              "startTime": 1657714766750,
+              "report": {
+                "code": "6BdbPWKC2pRFvGNM",
+                "fightID": 54,
+                "startTime": 1657710131955
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Survargs",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 630.894,
+              "hardModeLevel": 0,
+              "duration": 174752,
+              "startTime": 1656379370467,
+              "report": {
+                "code": "fKTVymcPDhtrRkA6",
+                "fightID": 16,
+                "startTime": 1656378240321
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Cowtyson",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 630.075,
+              "hardModeLevel": 0,
+              "duration": 176563,
+              "startTime": 1698866897957,
+              "report": {
+                "code": "y1n2RTJKFzbCmW7V",
+                "fightID": 7,
+                "startTime": 1698862230500
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "暴走的小鸟",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 629.527,
+              "hardModeLevel": 0,
+              "duration": 169467,
+              "startTime": 1756046689726,
+              "report": {
+                "code": "t12H6hrwzTJkcNMb",
+                "fightID": 23,
+                "startTime": 1756044775316
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 37
+            },
+            {
+              "name": "Xarh",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 627.823,
+              "hardModeLevel": 0,
+              "duration": 152629,
+              "startTime": 1775848217846,
+              "report": {
+                "code": "ZwtDkgFWnXLYfx6P",
+                "fightID": 23,
+                "startTime": 1775846445450
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Cyned",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 627.214,
+              "hardModeLevel": 0,
+              "duration": 205654,
+              "startTime": 1774213418770,
+              "report": {
+                "code": "3n8RtXpzFjc7qHDQ",
+                "fightID": 34,
+                "startTime": 1774209243020
+              },
+              "guild": {
+                "id": 700433,
+                "name": "Survivants d Azeroth",
+                "faction": 1
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Baos",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 627.127,
+              "hardModeLevel": 0,
+              "duration": 212815,
+              "startTime": 1781209674728,
+              "report": {
+                "code": "1tTwhrNP36aymQ97",
+                "fightID": 74,
+                "startTime": 1781203731731
+              },
+              "guild": {
+                "id": 700433,
+                "name": "Survivants d Azeroth",
+                "faction": 1
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "出击丶皮卡丘",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 615.827,
+              "hardModeLevel": 0,
+              "duration": 168372,
+              "startTime": 1786109411333,
+              "report": {
+                "code": "xW6Y3qBQwakMLAKp",
+                "fightID": 48,
+                "startTime": 1786103275759
+              },
+              "guild": {
+                "id": 783489,
+                "name": "琅琊榜",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 37
+            },
+            {
+              "name": "熊猫打兔子",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 601.203,
+              "hardModeLevel": 0,
+              "duration": 155490,
+              "startTime": 1712669235502,
+              "report": {
+                "code": "BfVTA9Xvxpj6kGHd",
+                "fightID": 28,
+                "startTime": 1712665598509
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Shargauth",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 596.771,
+              "hardModeLevel": 0,
+              "duration": 184838,
+              "startTime": 1673322721244,
+              "report": {
+                "code": "CBHfPJ1vWRGt82hc",
+                "fightID": 76,
+                "startTime": 1673315097740
+              },
+              "guild": {
+                "id": 666906,
+                "name": "GDKP Daily",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 66,
+              "size": 39
+            },
+            {
+              "name": "紅啵",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 581.123,
+              "hardModeLevel": 0,
+              "duration": 154740,
+              "startTime": 1673180783522,
+              "report": {
+                "code": "RVHtWJGwLN9d7Thp",
+                "fightID": 54,
+                "startTime": 1673175462165
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Mnevis",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 581.03,
+              "hardModeLevel": 0,
+              "duration": 162890,
+              "startTime": 1792351611668,
+              "report": {
+                "code": "9BAzMDFWNR3HZmdq",
+                "fightID": 30,
+                "startTime": 1792349257370
+              },
+              "guild": {
+                "id": 700433,
+                "name": "Survivants d Azeroth",
+                "faction": 1
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "萨儿亲妈",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 570.37,
+              "hardModeLevel": 0,
+              "duration": 231683,
+              "startTime": 1629812800329,
+              "report": {
+                "code": "1wpcfynFXNbdD4Vr",
+                "fightID": 115,
+                "startTime": 1629722055146
+              },
+              "server": {
+                "id": 10119,
+                "name": "诺格弗格",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Morricone",
+              "class": "Shaman",
+              "spec": "Elemental",
+              "amount": 567.987,
+              "hardModeLevel": 0,
+              "duration": 167606,
+              "startTime": 1742851692888,
+              "report": {
+                "code": "fcDwVd8MHNB9Q1vK",
+                "fightID": 54,
+                "startTime": 1742843653120
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 40.14,
+      "pointsResetIn": 3583
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 40.14,
+    "reset_in_s": 3583
+  }
+}

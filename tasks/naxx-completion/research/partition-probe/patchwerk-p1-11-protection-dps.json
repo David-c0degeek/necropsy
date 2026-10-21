@@ -1,0 +1,2423 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Warrior",
+    "spec": "Protection"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:56.844285+00:00",
+  "ended_at": "2026-10-21T12:04:57.188930+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "克瑞斯",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 2038.83,
+              "hardModeLevel": 0,
+              "duration": 145389,
+              "startTime": 1756536045924,
+              "report": {
+                "code": "gZK31FHyqcajdhwt",
+                "fightID": 51,
+                "startTime": 1756531580217
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Kajiki",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1805.2,
+              "hardModeLevel": 0,
+              "duration": 117849,
+              "startTime": 1709691565811,
+              "report": {
+                "code": "PLrMvGJK8t6DRm7b",
+                "fightID": 41,
+                "startTime": 1709687493639
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Alianthus",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1696.42,
+              "hardModeLevel": 0,
+              "duration": 123908,
+              "startTime": 1767462336116,
+              "report": {
+                "code": "mNFf8nRZzg7jrXax",
+                "fightID": 42,
+                "startTime": 1767459614441
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Junsa",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1636.48,
+              "hardModeLevel": 0,
+              "duration": 93199,
+              "startTime": 1752628310381,
+              "report": {
+                "code": "mZGwrVzDkfBCdQTW",
+                "fightID": 35,
+                "startTime": 1752625896379
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Wari",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1622.82,
+              "hardModeLevel": 0,
+              "duration": 120072,
+              "startTime": 1749781563576,
+              "report": {
+                "code": "YGRBhcf2Td4bj3Lq",
+                "fightID": 43,
+                "startTime": 1749778207555
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "Attackerone",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1604.24,
+              "hardModeLevel": 0,
+              "duration": 92085,
+              "startTime": 1726628740032,
+              "report": {
+                "code": "4MJThtng79PWdQ13",
+                "fightID": 27,
+                "startTime": 1726626749923
+              },
+              "guild": {
+                "id": 759748,
+                "name": "B R I C K E D",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Suinchi",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1600.95,
+              "hardModeLevel": 0,
+              "duration": 128951,
+              "startTime": 1713491431040,
+              "report": {
+                "code": "HJXdRQpkNCzLYmgK",
+                "fightID": 58,
+                "startTime": 1713486745868
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Finesse",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1598.48,
+              "hardModeLevel": 0,
+              "duration": 122416,
+              "startTime": 1726606705121,
+              "report": {
+                "code": "6MTQRVxw2pDcWfHy",
+                "fightID": 29,
+                "startTime": 1726603837438
+              },
+              "guild": {
+                "id": 713845,
+                "name": "Fresh Daily",
+                "faction": 0
+              },
+              "server": {
+                "id": 10027,
+                "name": "Blaumeux",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Doljin",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1581.7,
+              "hardModeLevel": 0,
+              "duration": 115875,
+              "startTime": 1740019005724,
+              "report": {
+                "code": "kXwWBYNz8cxZLp6t",
+                "fightID": 35,
+                "startTime": 1740003976658
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Zonka",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1569,
+              "hardModeLevel": 0,
+              "duration": 130101,
+              "startTime": 1673897247735,
+              "report": {
+                "code": "pTvkHZaWdNVwz7BL",
+                "fightID": 31,
+                "startTime": 1673894340050
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10099,
+                "name": "Heartstriker",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Bubzwarr",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1535.21,
+              "hardModeLevel": 0,
+              "duration": 118859,
+              "startTime": 1781112856638,
+              "report": {
+                "code": "GCADazLp9VyRqK4Z",
+                "fightID": 44,
+                "startTime": 1781107908219
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Ralsgin",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1534.51,
+              "hardModeLevel": 0,
+              "duration": 101457,
+              "startTime": 1742345059841,
+              "report": {
+                "code": "h6cBHxQX1gN27rqm",
+                "fightID": 33,
+                "startTime": 1742341910593
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "达摩本尊",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1482.67,
+              "hardModeLevel": 0,
+              "duration": 144365,
+              "startTime": 1760251178150,
+              "report": {
+                "code": "M9cT83Vj7drqY4w6",
+                "fightID": 46,
+                "startTime": 1760247051910
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Aneyh",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1476.65,
+              "hardModeLevel": 0,
+              "duration": 136176,
+              "startTime": 1750278950947,
+              "report": {
+                "code": "jd4MACnXkPwD2gJK",
+                "fightID": 37,
+                "startTime": 1750272898615
+              },
+              "guild": {
+                "id": 773457,
+                "name": "ZUG ZUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Grenger",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1476.28,
+              "hardModeLevel": 0,
+              "duration": 97072,
+              "startTime": 1691890698487,
+              "report": {
+                "code": "aAfK3HTdVzWDPykb",
+                "fightID": 56,
+                "startTime": 1691886301637
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Zessling",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1475.4,
+              "hardModeLevel": 0,
+              "duration": 121643,
+              "startTime": 1735608831193,
+              "report": {
+                "code": "ZN7dgGRaQDLjT842",
+                "fightID": 19,
+                "startTime": 1735607180266
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Krobianxd",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1474.76,
+              "hardModeLevel": 0,
+              "duration": 149429,
+              "startTime": 1779620486143,
+              "report": {
+                "code": "MDKjHmPWLtB7Xbzn",
+                "fightID": 29,
+                "startTime": 1779615401588
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Junsa",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1471.34,
+              "hardModeLevel": 0,
+              "duration": 140340,
+              "startTime": 1744943042910,
+              "report": {
+                "code": "8DNr2YbpWxjnH1q7",
+                "fightID": 29,
+                "startTime": 1744940429240
+              },
+              "guild": {
+                "id": 712521,
+                "name": "Pugs Not Drugs",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "Kimmyjay",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1446.47,
+              "hardModeLevel": 0,
+              "duration": 92454,
+              "startTime": 1737025141441,
+              "report": {
+                "code": "qHhYdV3CvRwnf6pM",
+                "fightID": 35,
+                "startTime": 1737021168931
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Kill",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1438.8,
+              "hardModeLevel": 0,
+              "duration": 99850,
+              "startTime": 1780253044609,
+              "report": {
+                "code": "jYWfpJBT2QmRFHLz",
+                "fightID": 18,
+                "startTime": 1780251987925
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "下雨的宇",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1437.08,
+              "hardModeLevel": 0,
+              "duration": 154896,
+              "startTime": 1775909717799,
+              "report": {
+                "code": "Kpv6GnVZkjc8NWJg",
+                "fightID": 16,
+                "startTime": 1775903905976
+              },
+              "guild": {
+                "id": 818830,
+                "name": "SHIMMER微光A",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "寒脊山扛把子",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1434.05,
+              "hardModeLevel": 0,
+              "duration": 150877,
+              "startTime": 1765607354558,
+              "report": {
+                "code": "qXnVRA2Tb4WycFmt",
+                "fightID": 45,
+                "startTime": 1765603187171
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Zessy",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1425.02,
+              "hardModeLevel": 0,
+              "duration": 72114,
+              "startTime": 1781052890854,
+              "report": {
+                "code": "QX6RcfC7jt2rgmbv",
+                "fightID": 11,
+                "startTime": 1781052089407
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Local",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1423.55,
+              "hardModeLevel": 0,
+              "duration": 97289,
+              "startTime": 1730946238940,
+              "report": {
+                "code": "NhCbwXvtAgV4mzyM",
+                "fightID": 39,
+                "startTime": 1730943955396
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Stormfoe",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1419.73,
+              "hardModeLevel": 0,
+              "duration": 108100,
+              "startTime": 1731552571093,
+              "report": {
+                "code": "maHpk8K4hvLQzFRf",
+                "fightID": 35,
+                "startTime": 1731548482816
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "板筋儿",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1415.52,
+              "hardModeLevel": 0,
+              "duration": 153264,
+              "startTime": 1691856633820,
+              "report": {
+                "code": "7Nnc3yTtCVdWwj2L",
+                "fightID": 26,
+                "startTime": 1691853709393
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Ganibal",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1413.48,
+              "hardModeLevel": 0,
+              "duration": 99337,
+              "startTime": 1792284898931,
+              "report": {
+                "code": "rK7gzMZntFwdyx2h",
+                "fightID": 18,
+                "startTime": 1792283219423
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Snowe",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1411.54,
+              "hardModeLevel": 0,
+              "duration": 135426,
+              "startTime": 1718573284541,
+              "report": {
+                "code": "pcvtK3Bjk4YR8MXm",
+                "fightID": 48,
+                "startTime": 1718569251698
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Kill",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1410.15,
+              "hardModeLevel": 0,
+              "duration": 102961,
+              "startTime": 1780247304032,
+              "report": {
+                "code": "4XghqQ7pNTjzZr3m",
+                "fightID": 14,
+                "startTime": 1780246222315
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Daendelion",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1409.89,
+              "hardModeLevel": 0,
+              "duration": 92733,
+              "startTime": 1676230821943,
+              "report": {
+                "code": "6jdwYkaQZxWNDKv8",
+                "fightID": 18,
+                "startTime": 1676227834041
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Blackswirl",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1409.19,
+              "hardModeLevel": 0,
+              "duration": 122377,
+              "startTime": 1713044430054,
+              "report": {
+                "code": "wG9KRtd1zPbZnBWC",
+                "fightID": 34,
+                "startTime": 1713040917805
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Ladecima",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1407.94,
+              "hardModeLevel": 0,
+              "duration": 123617,
+              "startTime": 1783805262017,
+              "report": {
+                "code": "qTYcPCF6Qtwj7DVW",
+                "fightID": 21,
+                "startTime": 1783803729086
+              },
+              "guild": {
+                "id": 747044,
+                "name": "Infernal",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Vu",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1407.68,
+              "hardModeLevel": 0,
+              "duration": 104027,
+              "startTime": 1781142063747,
+              "report": {
+                "code": "y2TRVB9rza1A3XDk",
+                "fightID": 34,
+                "startTime": 1781138741546
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "段黎",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1402.95,
+              "hardModeLevel": 0,
+              "duration": 159554,
+              "startTime": 1755954071533,
+              "report": {
+                "code": "nLw72HTmkt6cKDBd",
+                "fightID": 44,
+                "startTime": 1755949182712
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Garfazz",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1396.54,
+              "hardModeLevel": 0,
+              "duration": 88514,
+              "startTime": 1722993403961,
+              "report": {
+                "code": "Pyjw7J1HNaRAMCVd",
+                "fightID": 37,
+                "startTime": 1722990586852
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Bigvince",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1392.58,
+              "hardModeLevel": 0,
+              "duration": 100519,
+              "startTime": 1783989977727,
+              "report": {
+                "code": "dhXNQWRKvfJM2gtj",
+                "fightID": 29,
+                "startTime": 1783987556078
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Kaiin",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1388.21,
+              "hardModeLevel": 0,
+              "duration": 92583,
+              "startTime": 1756862678824,
+              "report": {
+                "code": "zbqJYQjk8vGVKdX9",
+                "fightID": 29,
+                "startTime": 1756860246713
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Bootysweat",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1386.37,
+              "hardModeLevel": 0,
+              "duration": 102050,
+              "startTime": 1759885927714,
+              "report": {
+                "code": "t4y1z96FYaDGKrNk",
+                "fightID": 31,
+                "startTime": 1759883654501
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Blamethètank",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1384.59,
+              "hardModeLevel": 0,
+              "duration": 109160,
+              "startTime": 1776101449352,
+              "report": {
+                "code": "mBaGw49pgZr2MWqt",
+                "fightID": 14,
+                "startTime": 1776098183298
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Kaiin",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1384.39,
+              "hardModeLevel": 0,
+              "duration": 112763,
+              "startTime": 1740365039357,
+              "report": {
+                "code": "zNLTQ6ZmCW3Dx4qg",
+                "fightID": 43,
+                "startTime": 1740351160525
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Furi",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1383.78,
+              "hardModeLevel": 0,
+              "duration": 109442,
+              "startTime": 1780966551079,
+              "report": {
+                "code": "yYQC2p4KZM9Hnhar",
+                "fightID": 30,
+                "startTime": 1780963766573
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Vincint",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1381.32,
+              "hardModeLevel": 0,
+              "duration": 80315,
+              "startTime": 1787102204915,
+              "report": {
+                "code": "ZK6R4LHWGvAcyX3p",
+                "fightID": 24,
+                "startTime": 1787099669967
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "幼稚园杀手",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1362.16,
+              "hardModeLevel": 0,
+              "duration": 98312,
+              "startTime": 1766234968549,
+              "report": {
+                "code": "VjCX3AZx6DhtMLzJ",
+                "fightID": 24,
+                "startTime": 1766231860295
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Skyline",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1358.45,
+              "hardModeLevel": 0,
+              "duration": 110875,
+              "startTime": 1763258383570,
+              "report": {
+                "code": "DnHa1zpjTg36XAYd",
+                "fightID": 28,
+                "startTime": 1763256701776
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Bluntforce",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1355.92,
+              "hardModeLevel": 0,
+              "duration": 122879,
+              "startTime": 1715647096897,
+              "report": {
+                "code": "GcLVMk3gzvH8bhJQ",
+                "fightID": 21,
+                "startTime": 1715643405362
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Roselea",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1352.4,
+              "hardModeLevel": 0,
+              "duration": 105078,
+              "startTime": 1744678065811,
+              "report": {
+                "code": "jtDYaC1ZVXRh2Az6",
+                "fightID": 30,
+                "startTime": 1744675716319
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Praetoriian",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1351.03,
+              "hardModeLevel": 0,
+              "duration": 114790,
+              "startTime": 1757700302300,
+              "report": {
+                "code": "NVWqMX6KjQB391az",
+                "fightID": 44,
+                "startTime": 1757696500396
+              },
+              "guild": {
+                "id": 740008,
+                "name": "Work From Home",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Krobian",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1347.29,
+              "hardModeLevel": 0,
+              "duration": 116898,
+              "startTime": 1718565664571,
+              "report": {
+                "code": "bqaV69AdRZPQ2K8T",
+                "fightID": 39,
+                "startTime": 1718561560037
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Kerath",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1346.86,
+              "hardModeLevel": 0,
+              "duration": 113115,
+              "startTime": 1747164127853,
+              "report": {
+                "code": "Bbc7QnDA9ytZPMdw",
+                "fightID": 58,
+                "startTime": 1747159866260
+              },
+              "guild": {
+                "id": 671892,
+                "name": "just a pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Bort",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1345.29,
+              "hardModeLevel": 0,
+              "duration": 114365,
+              "startTime": 1685064958631,
+              "report": {
+                "code": "HhKmcCvPr6MAkNJ2",
+                "fightID": 74,
+                "startTime": 1685059689603
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ettanlös",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1340.16,
+              "hardModeLevel": 0,
+              "duration": 104738,
+              "startTime": 1772050737490,
+              "report": {
+                "code": "jBatHNZVc84G9AQ1",
+                "fightID": 24,
+                "startTime": 1772047862765
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Solowarrior",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1337.61,
+              "hardModeLevel": 0,
+              "duration": 117901,
+              "startTime": 1772418927410,
+              "report": {
+                "code": "B8gnWx4R16jphX2L",
+                "fightID": 26,
+                "startTime": 1772416694446
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Juntza",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1336.78,
+              "hardModeLevel": 0,
+              "duration": 102213,
+              "startTime": 1768185211926,
+              "report": {
+                "code": "3mvMLWACGdByfaZt",
+                "fightID": 26,
+                "startTime": 1768182745768
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Nastyknight",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1336.57,
+              "hardModeLevel": 0,
+              "duration": 120084,
+              "startTime": 1736672890025,
+              "report": {
+                "code": "PnBagFtdGmMqZx16",
+                "fightID": 22,
+                "startTime": 1736671081626
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Djerk",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1332.61,
+              "hardModeLevel": 0,
+              "duration": 95780,
+              "startTime": 1766540862721,
+              "report": {
+                "code": "ZMHLykpDjzGm61rx",
+                "fightID": 6,
+                "startTime": 1766540357771
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Thaitank",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1328.25,
+              "hardModeLevel": 0,
+              "duration": 139236,
+              "startTime": 1783373604779,
+              "report": {
+                "code": "a2VB439jvKRPrcFg",
+                "fightID": 19,
+                "startTime": 1783368666630
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "蝶恋花",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1326.78,
+              "hardModeLevel": 0,
+              "duration": 145774,
+              "startTime": 1757853834391,
+              "report": {
+                "code": "dfh4g29zvCjKGLpt",
+                "fightID": 51,
+                "startTime": 1757849335898
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Ortimus",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1322.14,
+              "hardModeLevel": 0,
+              "duration": 84507,
+              "startTime": 1760664039303,
+              "report": {
+                "code": "rGkhAamxVKCFNq9M",
+                "fightID": 32,
+                "startTime": 1760661401562
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Dandara",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1320.88,
+              "hardModeLevel": 0,
+              "duration": 102173,
+              "startTime": 1761440949733,
+              "report": {
+                "code": "bgXDR2acxjMqYrJB",
+                "fightID": 25,
+                "startTime": 1761438874029
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Bangs",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1320.81,
+              "hardModeLevel": 0,
+              "duration": 117819,
+              "startTime": 1736819741420,
+              "report": {
+                "code": "CWAL3znVP46wBZ2x",
+                "fightID": 17,
+                "startTime": 1736817064845
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "阿尔体",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1319.71,
+              "hardModeLevel": 0,
+              "duration": 147208,
+              "startTime": 1752669669968,
+              "report": {
+                "code": "3a6ztBKmYc7RN92q",
+                "fightID": 44,
+                "startTime": 1752665800007
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Baldurs",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1319.18,
+              "hardModeLevel": 0,
+              "duration": 108416,
+              "startTime": 1721328115520,
+              "report": {
+                "code": "cwrmWMDg9NY6FJan",
+                "fightID": 39,
+                "startTime": 1721325514893
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Neotank",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1317.99,
+              "hardModeLevel": 0,
+              "duration": 90236,
+              "startTime": 1789843259416,
+              "report": {
+                "code": "4mHhQYpxTF8jt6Pc",
+                "fightID": 15,
+                "startTime": 1789840934034
+              },
+              "guild": {
+                "id": 809577,
+                "name": "Neo GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Blåmethetank",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1316.26,
+              "hardModeLevel": 0,
+              "duration": 102017,
+              "startTime": 1780940097703,
+              "report": {
+                "code": "ZmDn1W8xYPqawjkc",
+                "fightID": 13,
+                "startTime": 1780938726232
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "雁玏玏",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1312.35,
+              "hardModeLevel": 0,
+              "duration": 159457,
+              "startTime": 1760856042182,
+              "report": {
+                "code": "GPYc8z2fvJrDp4ma",
+                "fightID": 57,
+                "startTime": 1760850766320
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "花恋蝶",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1311.7,
+              "hardModeLevel": 0,
+              "duration": 157736,
+              "startTime": 1758956144049,
+              "report": {
+                "code": "jCNZcwJVdbP8znYf",
+                "fightID": 43,
+                "startTime": 1758951285215
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Xel",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1311.46,
+              "hardModeLevel": 0,
+              "duration": 127163,
+              "startTime": 1789865980140,
+              "report": {
+                "code": "AnD8YBmXyjKtdqaW",
+                "fightID": 20,
+                "startTime": 1789864449516
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "比利海灵顿丶",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1307.44,
+              "hardModeLevel": 0,
+              "duration": 166653,
+              "startTime": 1716898455807,
+              "report": {
+                "code": "rPFfNkgM7QzdxZhB",
+                "fightID": 30,
+                "startTime": 1716895574651
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 81,
+              "size": 38
+            },
+            {
+              "name": "Gilson",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1306.49,
+              "hardModeLevel": 0,
+              "duration": 114087,
+              "startTime": 1768671699481,
+              "report": {
+                "code": "cQWqXMz87PvmRp6f",
+                "fightID": 35,
+                "startTime": 1768669053403
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Hamstringbro",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1303.41,
+              "hardModeLevel": 0,
+              "duration": 103494,
+              "startTime": 1754774110703,
+              "report": {
+                "code": "pBDThYy2LW68Fr9z",
+                "fightID": 27,
+                "startTime": 1754771132514
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Thompsone",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1298.46,
+              "hardModeLevel": 0,
+              "duration": 96007,
+              "startTime": 1721588447145,
+              "report": {
+                "code": "tA8NgFHJpBWQ41mr",
+                "fightID": 30,
+                "startTime": 1721586054479
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Vn",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1298.13,
+              "hardModeLevel": 0,
+              "duration": 118592,
+              "startTime": 1784855298575,
+              "report": {
+                "code": "91ravpGMVtPjADBK",
+                "fightID": 40,
+                "startTime": 1784852213814
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "灭霸本尊",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1297.44,
+              "hardModeLevel": 0,
+              "duration": 142313,
+              "startTime": 1763296043164,
+              "report": {
+                "code": "rndJxwzcCt8WPHyb",
+                "fightID": 39,
+                "startTime": 1763292061100
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Zacharias",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1294.15,
+              "hardModeLevel": 0,
+              "duration": 133257,
+              "startTime": 1779995836326,
+              "report": {
+                "code": "4LNqR1fdMg3WADF2",
+                "fightID": 21,
+                "startTime": 1779993972540
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Lixê",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1282.9,
+              "hardModeLevel": 0,
+              "duration": 97062,
+              "startTime": 1765481785288,
+              "report": {
+                "code": "vM6LmjdthDZAFYqC",
+                "fightID": 19,
+                "startTime": 1765480471576
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "尘影回笙",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1279.01,
+              "hardModeLevel": 0,
+              "duration": 157157,
+              "startTime": 1792550054223,
+              "report": {
+                "code": "cBYWDFz923byZ7g1",
+                "fightID": 26,
+                "startTime": 1792547570089
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 35
+            },
+            {
+              "name": "Peanutbutta",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1278.06,
+              "hardModeLevel": 0,
+              "duration": 117856,
+              "startTime": 1777947763096,
+              "report": {
+                "code": "186xZcvtLYaRHQ3f",
+                "fightID": 18,
+                "startTime": 1777938678779
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Alias",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1277.85,
+              "hardModeLevel": 0,
+              "duration": 115927,
+              "startTime": 1760390990472,
+              "report": {
+                "code": "mvAX2YxMCLrBP8nF",
+                "fightID": 30,
+                "startTime": 1760386935970
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Aami",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1276.11,
+              "hardModeLevel": 0,
+              "duration": 89722,
+              "startTime": 1780939709787,
+              "report": {
+                "code": "brqfwKx8YRWnmVXa",
+                "fightID": 15,
+                "startTime": 1780938379042
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "小宁宁酱",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1269.39,
+              "hardModeLevel": 0,
+              "duration": 126117,
+              "startTime": 1712924397675,
+              "report": {
+                "code": "VjZwvzJ62AkfFmMW",
+                "fightID": 23,
+                "startTime": 1712919896927
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Riou",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1267.83,
+              "hardModeLevel": 0,
+              "duration": 98873,
+              "startTime": 1681259447709,
+              "report": {
+                "code": "LZCFjTvYbyarpn79",
+                "fightID": 26,
+                "startTime": 1681257854846
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "蓝山黑咖",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1265.16,
+              "hardModeLevel": 0,
+              "duration": 110201,
+              "startTime": 1654930364728,
+              "report": {
+                "code": "mgvpq1JXdtL9GDyT",
+                "fightID": 27,
+                "startTime": 1654925880579
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "조커찡",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1265.14,
+              "hardModeLevel": 0,
+              "duration": 147307,
+              "startTime": 1710600786664,
+              "report": {
+                "code": "f29ayYMHx83CFb6T",
+                "fightID": 61,
+                "startTime": 1710592845452
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Vn",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1264.3,
+              "hardModeLevel": 0,
+              "duration": 100736,
+              "startTime": 1738117507064,
+              "report": {
+                "code": "wLcrQdbhPWqfTCt9",
+                "fightID": 32,
+                "startTime": 1738114453994
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "농담왕조킹",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1262.72,
+              "hardModeLevel": 0,
+              "duration": 121959,
+              "startTime": 1719151305973,
+              "report": {
+                "code": "2RAXt813g9bBkJDK",
+                "fightID": 74,
+                "startTime": 1719143821135
+              },
+              "guild": {
+                "id": 739213,
+                "name": "JK Raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10092,
+                "name": "힐스브래드",
+                "region": "KR"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Krobianxdd",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1262.67,
+              "hardModeLevel": 0,
+              "duration": 126546,
+              "startTime": 1788718612246,
+              "report": {
+                "code": "Tmvjac8Yf9NH3LVG",
+                "fightID": 32,
+                "startTime": 1788715953575
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Raisa",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1261.79,
+              "hardModeLevel": 0,
+              "duration": 131168,
+              "startTime": 1754791021554,
+              "report": {
+                "code": "CdnZtx9vQjMkcJgF",
+                "fightID": 10,
+                "startTime": 1754786619552
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Pugzqt",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1257.28,
+              "hardModeLevel": 0,
+              "duration": 104109,
+              "startTime": 1705100366437,
+              "report": {
+                "code": "agBZ8vdxkzQXHNL7",
+                "fightID": 136,
+                "startTime": 1705001421522
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Tusqaixx",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1255.33,
+              "hardModeLevel": 0,
+              "duration": 117815,
+              "startTime": 1791923959409,
+              "report": {
+                "code": "WvhFPaQDwxZ9tR26",
+                "fightID": 12,
+                "startTime": 1791922883523
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Vou",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1255.19,
+              "hardModeLevel": 0,
+              "duration": 113648,
+              "startTime": 1750642840852,
+              "report": {
+                "code": "MVnQ9yx7ckhN3rgY",
+                "fightID": 30,
+                "startTime": 1750640438179
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Lavley",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1254.26,
+              "hardModeLevel": 0,
+              "duration": 112893,
+              "startTime": 1763788176051,
+              "report": {
+                "code": "89hzmaAkb3wDJ7Np",
+                "fightID": 45,
+                "startTime": 1763784160030
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Absurd",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1251.61,
+              "hardModeLevel": 0,
+              "duration": 90032,
+              "startTime": 1740104067414,
+              "report": {
+                "code": "8hj4V6P1FavRx92n",
+                "fightID": 31,
+                "startTime": 1740101115783
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Dankology",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1250.31,
+              "hardModeLevel": 0,
+              "duration": 94356,
+              "startTime": 1775796824322,
+              "report": {
+                "code": "Z34AFgxMK8DpyvJq",
+                "fightID": 35,
+                "startTime": 1775793958834
+              },
+              "guild": {
+                "id": 817714,
+                "name": "Midnight Margaritas",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Dvii",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1246.86,
+              "hardModeLevel": 0,
+              "duration": 91268,
+              "startTime": 1760577560727,
+              "report": {
+                "code": "tbfAmd3WrhXCyPND",
+                "fightID": 33,
+                "startTime": 1760574990074
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Pugzxd",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1245.81,
+              "hardModeLevel": 0,
+              "duration": 100848,
+              "startTime": 1787430796507,
+              "report": {
+                "code": "R4LAhrHn3jG7xtbY",
+                "fightID": 13,
+                "startTime": 1787429173163
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Yames",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1244.82,
+              "hardModeLevel": 0,
+              "duration": 102597,
+              "startTime": 1744595228354,
+              "report": {
+                "code": "J2aChn4YFVP6grLp",
+                "fightID": 39,
+                "startTime": 1744592415603
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Rainee",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1240.72,
+              "hardModeLevel": 0,
+              "duration": 108517,
+              "startTime": 1740623165884,
+              "report": {
+                "code": "16JYgmzkWQqtKhLd",
+                "fightID": 35,
+                "startTime": 1740619876519
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "战神雪见草",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1240.36,
+              "hardModeLevel": 0,
+              "duration": 155534,
+              "startTime": 1783402848856,
+              "report": {
+                "code": "DzmM68HWnCQrjX1q",
+                "fightID": 50,
+                "startTime": 1783391030838
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Bloodasha",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1240.13,
+              "hardModeLevel": 0,
+              "duration": 96864,
+              "startTime": 1778436668245,
+              "report": {
+                "code": "mdM7wfRxNHrDFL9t",
+                "fightID": 20,
+                "startTime": 1778433547808
+              },
+              "guild": {
+                "id": 750145,
+                "name": "One Piece",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Ramessess",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1239.15,
+              "hardModeLevel": 0,
+              "duration": 100119,
+              "startTime": 1771040834011,
+              "report": {
+                "code": "d64DPGbaWTkMqVZx",
+                "fightID": 25,
+                "startTime": 1771037034278
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 52.19,
+      "pointsResetIn": 3581
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 52.19,
+    "reset_in_s": 3581
+  }
+}

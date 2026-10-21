@@ -1,0 +1,2383 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Druid",
+    "spec": "Guardian"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:49.232003+00:00",
+  "ended_at": "2026-10-21T12:04:49.688665+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Suncat",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 1144.58,
+              "hardModeLevel": 0,
+              "duration": 109356,
+              "startTime": 1786845513952,
+              "report": {
+                "code": "YhxTZy3BDQN7nkcV",
+                "fightID": 34,
+                "startTime": 1786842395142
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Iol",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 1003.5,
+              "hardModeLevel": 0,
+              "duration": 104432,
+              "startTime": 1787074254328,
+              "report": {
+                "code": "2rNV9HnARC6MgwxJ",
+                "fightID": 11,
+                "startTime": 1787073173784
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Hamtaró",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 985.763,
+              "hardModeLevel": 0,
+              "duration": 108732,
+              "startTime": 1718416539879,
+              "report": {
+                "code": "MGcdHDtb4RNyTvkz",
+                "fightID": 30,
+                "startTime": 1718414107781
+              },
+              "server": {
+                "id": 10063,
+                "name": "Rattlegore",
+                "region": "US"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "Harryjam",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 911.064,
+              "hardModeLevel": 0,
+              "duration": 114228,
+              "startTime": 1676600811971,
+              "report": {
+                "code": "vmfnP98zbcVNQpGh",
+                "fightID": 67,
+                "startTime": 1676595845036
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Miskovsky",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 903.016,
+              "hardModeLevel": 0,
+              "duration": 102213,
+              "startTime": 1768185211926,
+              "report": {
+                "code": "3mvMLWACGdByfaZt",
+                "fightID": 26,
+                "startTime": 1768182745768
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Mìlfurion",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 891.174,
+              "hardModeLevel": 0,
+              "duration": 102751,
+              "startTime": 1742318175368,
+              "report": {
+                "code": "2Zhn7tvNKPQJaRzx",
+                "fightID": 16,
+                "startTime": 1742316638323
+              },
+              "guild": {
+                "id": 742625,
+                "name": "Corgi God",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Methoneiros",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 864.911,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": 14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "守猪逮兔",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 793.285,
+              "hardModeLevel": 0,
+              "duration": 143599,
+              "startTime": 1766493697357,
+              "report": {
+                "code": "aDqvzm7gbZw1r4YT",
+                "fightID": 23,
+                "startTime": 1766491664459
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 36
+            },
+            {
+              "name": "Duddly",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 790.371,
+              "hardModeLevel": 0,
+              "duration": 118099,
+              "startTime": 1721008954252,
+              "report": {
+                "code": "fHbqa1ptXYkcNLRM",
+                "fightID": 51,
+                "startTime": 1721001733870
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "守豬",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 769.205,
+              "hardModeLevel": 0,
+              "duration": 153608,
+              "startTime": 1771074541379,
+              "report": {
+                "code": "RmtT3B4fVgC2DAMa",
+                "fightID": 22,
+                "startTime": 1771071273415
+              },
+              "guild": {
+                "id": 773199,
+                "name": "小楼一夜听风雨",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 35
+            },
+            {
+              "name": "Totemcrit",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 767.503,
+              "hardModeLevel": 0,
+              "duration": 105627,
+              "startTime": 1718904594083,
+              "report": {
+                "code": "JgPDpLj4VdynfqCm",
+                "fightID": 17,
+                "startTime": 1718903284999
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Brujah",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 762.926,
+              "hardModeLevel": 0,
+              "duration": 116390,
+              "startTime": 1705605925860,
+              "report": {
+                "code": "GkY83XaHyqMNdvAt",
+                "fightID": 32,
+                "startTime": 1705604285906
+              },
+              "guild": {
+                "id": 702558,
+                "name": "Core",
+                "faction": 0
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Germanicus",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 760.449,
+              "hardModeLevel": 0,
+              "duration": 97094,
+              "startTime": 1723768218111,
+              "report": {
+                "code": "6bTvB3HNzjdx4fcD",
+                "fightID": 26,
+                "startTime": 1723766498620
+              },
+              "guild": {
+                "id": 726415,
+                "name": "Land Before Time",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Schnizz",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 749.727,
+              "hardModeLevel": 0,
+              "duration": 114619,
+              "startTime": 1773193249973,
+              "report": {
+                "code": "RtQgJ9aDxKkMLV4H",
+                "fightID": 40,
+                "startTime": 1773189453106
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Parknoise",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 747.14,
+              "hardModeLevel": 0,
+              "duration": 118619,
+              "startTime": 1790298206419,
+              "report": {
+                "code": "RjQnyzqGTKrJFABZ",
+                "fightID": 37,
+                "startTime": 1790294875517
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Talasi",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 739.831,
+              "hardModeLevel": 0,
+              "duration": 141093,
+              "startTime": 1792095368970,
+              "report": {
+                "code": "wL4pNxZDMvmrChHX",
+                "fightID": 86,
+                "startTime": 1792087222014
+              },
+              "guild": {
+                "id": 781154,
+                "name": "Phoenix Rising",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Electeed",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 725.844,
+              "hardModeLevel": 0,
+              "duration": 148981,
+              "startTime": 1749844924779,
+              "report": {
+                "code": "WgqKhN4jVAYQ7xt6",
+                "fightID": 52,
+                "startTime": 1749838856591
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Arctax",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 724.289,
+              "hardModeLevel": 0,
+              "duration": 101200,
+              "startTime": 1710446205991,
+              "report": {
+                "code": "ZP4a7XdN8bgHvrYK",
+                "fightID": 17,
+                "startTime": 1710445101528
+              },
+              "guild": {
+                "id": 702558,
+                "name": "Core",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Ineersa",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 724.108,
+              "hardModeLevel": 0,
+              "duration": 109492,
+              "startTime": 1784422710411,
+              "report": {
+                "code": "LxCMpQNGbknqYTzP",
+                "fightID": 25,
+                "startTime": 1784420350956
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Crushing",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 720.421,
+              "hardModeLevel": 0,
+              "duration": 110434,
+              "startTime": 1729987189669,
+              "report": {
+                "code": "T6nXNmzp1kxMFqtg",
+                "fightID": 23,
+                "startTime": 1729985466804
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Clownform",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 714.363,
+              "hardModeLevel": 0,
+              "duration": 114999,
+              "startTime": 1730515420984,
+              "report": {
+                "code": "fqXkzwQ8VgHKGdmj",
+                "fightID": 33,
+                "startTime": 1730512667311
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Bengal",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 714.139,
+              "hardModeLevel": 0,
+              "duration": 111096,
+              "startTime": 1783400368680,
+              "report": {
+                "code": "PndvgYrA3JMB78x2",
+                "fightID": 39,
+                "startTime": 1783396647910
+              },
+              "guild": {
+                "id": 728200,
+                "name": "Bad Seed",
+                "faction": 1
+              },
+              "server": {
+                "id": 10054,
+                "name": "Kurinnaxx",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Staminamaen",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 713.086,
+              "hardModeLevel": 0,
+              "duration": 103104,
+              "startTime": 1744998964202,
+              "report": {
+                "code": "bpgwKdxaQVWZtHc2",
+                "fightID": 13,
+                "startTime": 1744997284719
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Kumpir",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 711.4,
+              "hardModeLevel": 0,
+              "duration": 125201,
+              "startTime": 1773689869035,
+              "report": {
+                "code": "WxPHB4nJGy7gkZQC",
+                "fightID": 20,
+                "startTime": 1773687025246
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Garfuzz",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 707.354,
+              "hardModeLevel": 0,
+              "duration": 139862,
+              "startTime": 1673146969812,
+              "report": {
+                "code": "Wa1cqX9n38xMCPzg",
+                "fightID": 61,
+                "startTime": 1673141356763
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Gartog",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 704.007,
+              "hardModeLevel": 0,
+              "duration": 114550,
+              "startTime": 1726281710459,
+              "report": {
+                "code": "1NjhQ8CApzRwYDHM",
+                "fightID": 27,
+                "startTime": 1726279452665
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Marmaluff",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 703.153,
+              "hardModeLevel": 0,
+              "duration": 121012,
+              "startTime": 1770432261251,
+              "report": {
+                "code": "bJ4MhmgHjANQwXLB",
+                "fightID": 25,
+                "startTime": 1770430081720
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Gummý",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 690.205,
+              "hardModeLevel": 0,
+              "duration": 128982,
+              "startTime": 1703210556357,
+              "report": {
+                "code": "TCPzRw9kvp8Ar2HG",
+                "fightID": 39,
+                "startTime": 1703206076208
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Kilswift",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 687.878,
+              "hardModeLevel": 0,
+              "duration": 124368,
+              "startTime": 1650247633615,
+              "report": {
+                "code": "w2Ln1VcNk4R3WGPv",
+                "fightID": 38,
+                "startTime": 1650244849150
+              },
+              "guild": {
+                "id": 640488,
+                "name": "RAMPAGE",
+                "faction": 1
+              },
+              "server": {
+                "id": 10063,
+                "name": "Rattlegore",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Stingworm",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 679.184,
+              "hardModeLevel": 0,
+              "duration": 112700,
+              "startTime": 1755168210900,
+              "report": {
+                "code": "V39cpMqm7fg28Fxb",
+                "fightID": 37,
+                "startTime": 1755151434876
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Efc",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 677.023,
+              "hardModeLevel": 0,
+              "duration": 109051,
+              "startTime": 1716267866229,
+              "report": {
+                "code": "xJ78ZBmvgnwKXq2r",
+                "fightID": 40,
+                "startTime": 1716261798537
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Waxes",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 673.408,
+              "hardModeLevel": 0,
+              "duration": 120052,
+              "startTime": 1781120359462,
+              "report": {
+                "code": "f2NLGJHPKgxkhzcQ",
+                "fightID": 47,
+                "startTime": 1781114003163
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Moondog",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 669.961,
+              "hardModeLevel": 0,
+              "duration": 179415,
+              "startTime": 1719802619307,
+              "report": {
+                "code": "zX7LbBGYjyHMhnqA",
+                "fightID": 47,
+                "startTime": 1719799723767
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 37
+            },
+            {
+              "name": "Hidilao",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 660.576,
+              "hardModeLevel": 0,
+              "duration": 133158,
+              "startTime": 1766198194957,
+              "report": {
+                "code": "qxrNfF43KJzP9wQT",
+                "fightID": 26,
+                "startTime": 1766196566515
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Oklion",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 659.813,
+              "hardModeLevel": 0,
+              "duration": 111333,
+              "startTime": 1652619481628,
+              "report": {
+                "code": "R6ApGkWFgMjm98x1",
+                "fightID": 40,
+                "startTime": 1652616275259
+              },
+              "guild": {
+                "id": 618031,
+                "name": "永久60無畏老友团",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Laverne",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 657.896,
+              "hardModeLevel": 0,
+              "duration": 115912,
+              "startTime": 1743385511470,
+              "report": {
+                "code": "hmyBP3ZwrztdWNvA",
+                "fightID": 17,
+                "startTime": 1743383196346
+              },
+              "guild": {
+                "id": 654035,
+                "name": "Pasta Sauce",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Bubblzfluffr",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 656.158,
+              "hardModeLevel": 0,
+              "duration": 150104,
+              "startTime": 1726896339555,
+              "report": {
+                "code": "d42LFwnRYHKXgGqA",
+                "fightID": 35,
+                "startTime": 1726891957331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Littlehencha",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 654.374,
+              "hardModeLevel": 0,
+              "duration": 146540,
+              "startTime": 1683401203449,
+              "report": {
+                "code": "8KCTkQHcrX9RzZLf",
+                "fightID": 33,
+                "startTime": 1683397543316
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Rohme",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 650.503,
+              "hardModeLevel": 0,
+              "duration": 115154,
+              "startTime": 1726657652154,
+              "report": {
+                "code": "pBYwPqL87vNMtJ6c",
+                "fightID": 44,
+                "startTime": 1726654083226
+              },
+              "guild": {
+                "id": 713259,
+                "name": "Min Bid",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Olliejay",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 649.045,
+              "hardModeLevel": 0,
+              "duration": 132188,
+              "startTime": 1726886010736,
+              "report": {
+                "code": "ma8CDFfA3PcdJHjK",
+                "fightID": 44,
+                "startTime": 1726882933118
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Forestgrove",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 645.877,
+              "hardModeLevel": 0,
+              "duration": 116225,
+              "startTime": 1755393274202,
+              "report": {
+                "code": "84mCB1GAjfrqdK9v",
+                "fightID": 40,
+                "startTime": 1755391196081
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Maseleoth",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 645.616,
+              "hardModeLevel": 0,
+              "duration": 136135,
+              "startTime": 1789671797331,
+              "report": {
+                "code": "R6nLHDgYqfcMW7wZ",
+                "fightID": 49,
+                "startTime": 1789667649653
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Dru",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 641.173,
+              "hardModeLevel": 0,
+              "duration": 137448,
+              "startTime": 1731700277882,
+              "report": {
+                "code": "BMWvCHkVrd7nJamX",
+                "fightID": 33,
+                "startTime": 1731696959493
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Kiiza",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 639.699,
+              "hardModeLevel": 0,
+              "duration": 109636,
+              "startTime": 1684717537864,
+              "report": {
+                "code": "18fAWgKpCRXchLxb",
+                "fightID": 10,
+                "startTime": 1684717019460
+              },
+              "guild": {
+                "id": 668230,
+                "name": "Okay Booner",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Arianhrod",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 639.5,
+              "hardModeLevel": 0,
+              "duration": 106455,
+              "startTime": 1739760846198,
+              "report": {
+                "code": "YdhfwqHbF7yv239a",
+                "fightID": 40,
+                "startTime": 1739758099906
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Cisero",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 637.958,
+              "hardModeLevel": 0,
+              "duration": 130330,
+              "startTime": 1754758373528,
+              "report": {
+                "code": "8Fd7JgPz9qRQKBHW",
+                "fightID": 48,
+                "startTime": 1754755177828
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Sauceosaurus",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 637.308,
+              "hardModeLevel": 0,
+              "duration": 119374,
+              "startTime": 1761069590397,
+              "report": {
+                "code": "KV1YHFqrvzwXLnJa",
+                "fightID": 27,
+                "startTime": 1761066307173
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Aratare",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 637.175,
+              "hardModeLevel": 0,
+              "duration": 123853,
+              "startTime": 1746857558804,
+              "report": {
+                "code": "j4YrTMt37vbCRPHk",
+                "fightID": 110,
+                "startTime": 1746842238809
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Moonline",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 636.691,
+              "hardModeLevel": 0,
+              "duration": 104641,
+              "startTime": 1763063152220,
+              "report": {
+                "code": "GFZpLYrhzQ74P9tx",
+                "fightID": 72,
+                "startTime": 1763050940552
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Okchamp",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 632.583,
+              "hardModeLevel": 0,
+              "duration": 130941,
+              "startTime": 1735358408216,
+              "report": {
+                "code": "J4nBbYvhG7V9mCF3",
+                "fightID": 33,
+                "startTime": 1735355679859
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Bageltown",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 632.452,
+              "hardModeLevel": 0,
+              "duration": 146604,
+              "startTime": 1708135290418,
+              "report": {
+                "code": "yPZngGLzWvFrfaVt",
+                "fightID": 51,
+                "startTime": 1708131150395
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Kuhmio",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 628.525,
+              "hardModeLevel": 0,
+              "duration": 119066,
+              "startTime": 1686855825541,
+              "report": {
+                "code": "ybZ86mQzRCf93Wgr",
+                "fightID": 54,
+                "startTime": 1686851774579
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Bibí",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 628.299,
+              "hardModeLevel": 0,
+              "duration": 114358,
+              "startTime": 1694742063353,
+              "report": {
+                "code": "kTmYRgMzHL3nbZ74",
+                "fightID": 23,
+                "startTime": 1694739930830
+              },
+              "guild": {
+                "id": 704477,
+                "name": "Rock Apes ERA",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Bearmanflex",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 627.876,
+              "hardModeLevel": 0,
+              "duration": 145578,
+              "startTime": 1736450450244,
+              "report": {
+                "code": "L9xakmn42wphJFD8",
+                "fightID": 15,
+                "startTime": 1736449136760
+              },
+              "guild": {
+                "id": 629053,
+                "name": "Trinity",
+                "faction": 1
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "海后",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 626.609,
+              "hardModeLevel": 0,
+              "duration": 132135,
+              "startTime": 1668343560566,
+              "report": {
+                "code": "27MykFHphwQfjdZa",
+                "fightID": 17,
+                "startTime": 1668342044238
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Sahren",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 625.669,
+              "hardModeLevel": 0,
+              "duration": 127820,
+              "startTime": 1764393472077,
+              "report": {
+                "code": "z2fqxXC6tm4nvDk1",
+                "fightID": 32,
+                "startTime": 1764389314591
+              },
+              "guild": {
+                "id": 729844,
+                "name": "Synergy",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Mudbuddha",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 624.404,
+              "hardModeLevel": 0,
+              "duration": 114594,
+              "startTime": 1718758877718,
+              "report": {
+                "code": "XbMrGC8dnjWZTm4w",
+                "fightID": 39,
+                "startTime": 1718755163253
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Harkie",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 619.67,
+              "hardModeLevel": 0,
+              "duration": 133266,
+              "startTime": 1643051794433,
+              "report": {
+                "code": "cGQwvrqP3TjH7VkN",
+                "fightID": 25,
+                "startTime": 1643049923251
+              },
+              "guild": {
+                "id": 602349,
+                "name": "Fun Police",
+                "faction": 1
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Diddydrudat",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 616.564,
+              "hardModeLevel": 0,
+              "duration": 105530,
+              "startTime": 1783805046395,
+              "report": {
+                "code": "wx3Vj89ynzckKvRr",
+                "fightID": 23,
+                "startTime": 1783801895573
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Stankfaçe",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 615.122,
+              "hardModeLevel": 0,
+              "duration": 120828,
+              "startTime": 1729654635253,
+              "report": {
+                "code": "LwPmG6M3chTj7QRN",
+                "fightID": 36,
+                "startTime": 1729649203554
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Luucca",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 614.154,
+              "hardModeLevel": 0,
+              "duration": 104622,
+              "startTime": 1744505821398,
+              "report": {
+                "code": "91CtYAkVhWrQDcRj",
+                "fightID": 22,
+                "startTime": 1743726746104
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Galandriel",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 612.263,
+              "hardModeLevel": 0,
+              "duration": 140425,
+              "startTime": 1791486323267,
+              "report": {
+                "code": "JhXKZGtPTcHb2Axv",
+                "fightID": 50,
+                "startTime": 1791482363574
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "Bbearyy",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 610.665,
+              "hardModeLevel": 0,
+              "duration": 106502,
+              "startTime": 1704852827023,
+              "report": {
+                "code": "ZNdqHKa7b4VA3rFC",
+                "fightID": 45,
+                "startTime": 1704848544629
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Benok",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 608.324,
+              "hardModeLevel": 0,
+              "duration": 115399,
+              "startTime": 1689396722674,
+              "report": {
+                "code": "4drWzp3khyQ2CHAK",
+                "fightID": 34,
+                "startTime": 1689393792106
+              },
+              "server": {
+                "id": 10027,
+                "name": "Blaumeux",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Edvatar",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 606.603,
+              "hardModeLevel": 0,
+              "duration": 127365,
+              "startTime": 1771124404342,
+              "report": {
+                "code": "PtRdyhGY2CM1cZvr",
+                "fightID": 31,
+                "startTime": 1771120166992
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Fekeh",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 606.024,
+              "hardModeLevel": 0,
+              "duration": 110466,
+              "startTime": 1754443468396,
+              "report": {
+                "code": "xwzWk16vn82TjPb4",
+                "fightID": 48,
+                "startTime": 1754440472246
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Mantikahn",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 605.495,
+              "hardModeLevel": 0,
+              "duration": 119101,
+              "startTime": 1731836826972,
+              "report": {
+                "code": "gJNL4kMnr1jWGzph",
+                "fightID": 24,
+                "startTime": 1731833532406
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Intruder",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 605.148,
+              "hardModeLevel": 0,
+              "duration": 173703,
+              "startTime": 1762916620139,
+              "report": {
+                "code": "K4FgcNQymXTJYdWj",
+                "fightID": 56,
+                "startTime": 1762911237613
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Bibí",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 604.165,
+              "hardModeLevel": 0,
+              "duration": 117895,
+              "startTime": 1687397842942,
+              "report": {
+                "code": "3yQtF6971kmVYWcN",
+                "fightID": 23,
+                "startTime": 1687395839028
+              },
+              "guild": {
+                "id": 704477,
+                "name": "Rock Apes ERA",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Rsan",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 601.511,
+              "hardModeLevel": 0,
+              "duration": 107767,
+              "startTime": 1697592101358,
+              "report": {
+                "code": "pdFGgCQrwVPmRxcW",
+                "fightID": 47,
+                "startTime": 1697587449652
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Okl",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 600.002,
+              "hardModeLevel": 0,
+              "duration": 105508,
+              "startTime": 1636634777474,
+              "report": {
+                "code": "fhGc829am6qxnPdC",
+                "fightID": 10,
+                "startTime": 1636634118409
+              },
+              "guild": {
+                "id": 618031,
+                "name": "永久60無畏老友团",
+                "faction": 1
+              },
+              "server": {
+                "id": 10142,
+                "name": "巴罗夫",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Löwenpapa",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 599.734,
+              "hardModeLevel": 0,
+              "duration": 104583,
+              "startTime": 1712957260663,
+              "report": {
+                "code": "VzDA3mKW8cGTxq6Y",
+                "fightID": 25,
+                "startTime": 1712954684021
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Cresçent",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 599.204,
+              "hardModeLevel": 0,
+              "duration": 120283,
+              "startTime": 1776365682033,
+              "report": {
+                "code": "py2dxTLJnbrAt4Qf",
+                "fightID": 35,
+                "startTime": 1776362311040
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Fivebogard",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 599.166,
+              "hardModeLevel": 0,
+              "duration": 153480,
+              "startTime": 1784289629975,
+              "report": {
+                "code": "LV3dKft8Q2MPgavk",
+                "fightID": 19,
+                "startTime": 1784287931266
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 74,
+              "size": 35
+            },
+            {
+              "name": "佩二爷",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 598.722,
+              "hardModeLevel": 0,
+              "duration": 95485,
+              "startTime": 1657893604552,
+              "report": {
+                "code": "BLRfayQ6zC2qTktv",
+                "fightID": 13,
+                "startTime": 1657890180741
+              },
+              "guild": {
+                "id": 619816,
+                "name": "天启",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "牛芥末",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 598.057,
+              "hardModeLevel": 0,
+              "duration": 161886,
+              "startTime": 1775537031538,
+              "report": {
+                "code": "2FVm6W7B3tKXfGPA",
+                "fightID": 24,
+                "startTime": 1775533721264
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 37
+            },
+            {
+              "name": "Catshift",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 598.045,
+              "hardModeLevel": 0,
+              "duration": 174669,
+              "startTime": 1760753690457,
+              "report": {
+                "code": "6Q3yprRchtBTJkmC",
+                "fightID": 50,
+                "startTime": 1760745824764
+              },
+              "guild": {
+                "id": 632297,
+                "name": "Alone",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 38
+            },
+            {
+              "name": "Karnuil",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 597.762,
+              "hardModeLevel": 0,
+              "duration": 138065,
+              "startTime": 1775069242084,
+              "report": {
+                "code": "YwRCNxpP7JXnVdG3",
+                "fightID": 33,
+                "startTime": 1775066577228
+              },
+              "guild": {
+                "id": 694879,
+                "name": "Heritage",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Titanforged",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 596.391,
+              "hardModeLevel": 0,
+              "duration": 110617,
+              "startTime": 1781807676717,
+              "report": {
+                "code": "Lz6hv8bN2Z4kPRnJ",
+                "fightID": 15,
+                "startTime": 1781806002960
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 39
+            },
+            {
+              "name": "Thuii",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 596.14,
+              "hardModeLevel": 0,
+              "duration": 112217,
+              "startTime": 1710621362191,
+              "report": {
+                "code": "63bhXJyD18dVtjrP",
+                "fightID": 23,
+                "startTime": 1710619781354
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Calima",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 594.938,
+              "hardModeLevel": 0,
+              "duration": 108687,
+              "startTime": 1778865858063,
+              "report": {
+                "code": "mLMCJnBgzQtNPZ7y",
+                "fightID": 11,
+                "startTime": 1778864469330
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Zourss",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 594.124,
+              "hardModeLevel": 0,
+              "duration": 159502,
+              "startTime": 1785353288858,
+              "report": {
+                "code": "VcRgvMtKDkChYBHb",
+                "fightID": 29,
+                "startTime": 1785350815075
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Shiftydoss",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 593.836,
+              "hardModeLevel": 0,
+              "duration": 119964,
+              "startTime": 1772254833433,
+              "report": {
+                "code": "Lfdy1NZ8FGvAkKxJ",
+                "fightID": 28,
+                "startTime": 1772249837846
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Blairbear",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 593.66,
+              "hardModeLevel": 0,
+              "duration": 136398,
+              "startTime": 1792475300161,
+              "report": {
+                "code": "bB26cfmvCP4RK37x",
+                "fightID": 34,
+                "startTime": 1792470000661
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Lefrena",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 593.474,
+              "hardModeLevel": 0,
+              "duration": 107447,
+              "startTime": 1713209133709,
+              "report": {
+                "code": "1Z3paxdQ6B8YbkCA",
+                "fightID": 578,
+                "startTime": 1710442500454
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Runik",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 591.698,
+              "hardModeLevel": 0,
+              "duration": 115608,
+              "startTime": 1712772429365,
+              "report": {
+                "code": "NQxb1tfk4FhzpgnW",
+                "fightID": 45,
+                "startTime": 1712768944446
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 67,
+              "size": 40
+            },
+            {
+              "name": "Amine",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 589.599,
+              "hardModeLevel": 0,
+              "duration": 116101,
+              "startTime": 1731984740707,
+              "report": {
+                "code": "RV1YFHvXhaJyNWqK",
+                "fightID": 26,
+                "startTime": 1731982656265
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Enkidu",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 586.399,
+              "hardModeLevel": 0,
+              "duration": 153121,
+              "startTime": 1777922768503,
+              "report": {
+                "code": "CDwYTtgBWLMmpJP3",
+                "fightID": 60,
+                "startTime": 1777917352111
+              },
+              "guild": {
+                "id": 638722,
+                "name": "Social Guild",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Yuyan",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 585.917,
+              "hardModeLevel": 0,
+              "duration": 112096,
+              "startTime": 1726082334833,
+              "report": {
+                "code": "39bQWAPmJMcvRDwY",
+                "fightID": 15,
+                "startTime": 1726081479192
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Owwsponge",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 585.329,
+              "hardModeLevel": 0,
+              "duration": 151988,
+              "startTime": 1728768056684,
+              "report": {
+                "code": "rDAZ7VQFCp6w3G4Y",
+                "fightID": 51,
+                "startTime": 1728763565485
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Dreaktwo",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 582.943,
+              "hardModeLevel": 0,
+              "duration": 134068,
+              "startTime": 1769456069135,
+              "report": {
+                "code": "V6aP9kLHctC1qbDw",
+                "fightID": 22,
+                "startTime": 1769450817841
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "逮兎",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 582.902,
+              "hardModeLevel": 0,
+              "duration": 148150,
+              "startTime": 1770463144689,
+              "report": {
+                "code": "AGcLbwVKN4Wv1CFZ",
+                "fightID": 31,
+                "startTime": 1770460226793
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 74,
+              "size": 39
+            },
+            {
+              "name": "Koudebear",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 582.309,
+              "hardModeLevel": 0,
+              "duration": 107740,
+              "startTime": 1770662921127,
+              "report": {
+                "code": "cTwVnrWCMN96Kb2k",
+                "fightID": 26,
+                "startTime": 1770657595501
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Betony",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 580.08,
+              "hardModeLevel": 0,
+              "duration": 110333,
+              "startTime": 1663550378562,
+              "report": {
+                "code": "8FXJpxbV34qByYkd",
+                "fightID": 13,
+                "startTime": 1663549765628
+              },
+              "guild": {
+                "id": 668230,
+                "name": "Okay Booner",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "守猪逮兔",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 579.169,
+              "hardModeLevel": 0,
+              "duration": 145947,
+              "startTime": 1631362748309,
+              "report": {
+                "code": "WYzCHPMd36KcJZtg",
+                "fightID": 21,
+                "startTime": 1631358864997
+              },
+              "server": {
+                "id": 10048,
+                "name": "布鲁",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Li",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 578.733,
+              "hardModeLevel": 0,
+              "duration": 146921,
+              "startTime": 1787273841103,
+              "report": {
+                "code": "aw3Gnzk617XA8PYx",
+                "fightID": 33,
+                "startTime": 1787268447573
+              },
+              "server": {
+                "id": 10095,
+                "name": "Arcanite Reaper",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "断角明眸",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 578.014,
+              "hardModeLevel": 0,
+              "duration": 161894,
+              "startTime": 1668431642445,
+              "report": {
+                "code": "NFPw6HTrMQKnBXt3",
+                "fightID": 61,
+                "startTime": 1668424756321
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "Gdkpmr",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 577.534,
+              "hardModeLevel": 0,
+              "duration": 160408,
+              "startTime": 1759452691335,
+              "report": {
+                "code": "1NYgQkThbvA3Z7Fz",
+                "fightID": 50,
+                "startTime": 1759450119046
+              },
+              "guild": {
+                "id": 670667,
+                "name": "The Unyielding",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Supershy",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 577.14,
+              "hardModeLevel": 0,
+              "duration": 115400,
+              "startTime": 1713019727446,
+              "report": {
+                "code": "k26YhNHBMfXQZrd8",
+                "fightID": 28,
+                "startTime": 1713015547793
+              },
+              "guild": {
+                "id": 708722,
+                "name": "KPNS",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "里亚诺",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 576.776,
+              "hardModeLevel": 0,
+              "duration": 135401,
+              "startTime": 1648129944553,
+              "report": {
+                "code": "fxJKbjCFPgGt7qTL",
+                "fightID": 76,
+                "startTime": 1648123088164
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 72,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 17.03,
+      "pointsResetIn": 3588
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 17.03,
+    "reset_in_s": 3588
+  }
+}

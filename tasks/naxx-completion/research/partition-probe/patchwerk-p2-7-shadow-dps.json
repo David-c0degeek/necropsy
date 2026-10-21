@@ -1,0 +1,552 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Priest",
+    "spec": "Shadow"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:05:01.314326+00:00",
+  "ended_at": "2026-10-21T12:05:01.611925+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": false,
+          "count": 24,
+          "rankings": [
+            {
+              "name": "Onlyou",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 118.026,
+              "hardModeLevel": 0,
+              "duration": 142198,
+              "startTime": 1753335671549,
+              "report": {
+                "code": "DZ2NwXGRWBjkPyLd",
+                "fightID": -17,
+                "startTime": 1753333698226
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 69,
+              "size": 40
+            },
+            {
+              "name": "宫外晕",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 52.3653,
+              "hardModeLevel": 0,
+              "duration": 147044,
+              "startTime": 1753358181175,
+              "report": {
+                "code": "f8Z6Y2rTM3qA7mGj",
+                "fightID": -24,
+                "startTime": 1753355889713
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "圣光中宝贝",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 17.0301,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "来丶大妈疼你",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 14.1857,
+              "hardModeLevel": 0,
+              "duration": 199919,
+              "startTime": 1753360204227,
+              "report": {
+                "code": "bZNDKCaP4wgAdG3k",
+                "fightID": -31,
+                "startTime": 1753353769190
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 32,
+              "size": 39
+            },
+            {
+              "name": "麦当娜女神",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 13.3972,
+              "hardModeLevel": 0,
+              "duration": 185113,
+              "startTime": 1753362781192,
+              "report": {
+                "code": "G8aRQTzWdA3gYr6w",
+                "fightID": -36,
+                "startTime": 1753356057763
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 38
+            },
+            {
+              "name": "依然很爱你",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 12.1982,
+              "hardModeLevel": 0,
+              "duration": 158630,
+              "startTime": 1753356349001,
+              "report": {
+                "code": "3fVqztZJBm418j6R",
+                "fightID": -8,
+                "startTime": 1753353401819
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 59,
+              "size": 37
+            },
+            {
+              "name": "吉喆嚞",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 203299,
+              "startTime": 1753365300980,
+              "report": {
+                "code": "rhvDbNF74Kw6m3Wy",
+                "fightID": -38,
+                "startTime": 1753360652579
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "幽影三绝",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 169392,
+              "startTime": 1753366030263,
+              "report": {
+                "code": "9dQnCLhKpP2JX1rq",
+                "fightID": -30,
+                "startTime": 1753363370956
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "心賊",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "Rather",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 162496,
+              "startTime": 1753358969628,
+              "report": {
+                "code": "ctVDPydAfCvG3rz7",
+                "fightID": -22,
+                "startTime": 1753355856818
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "穆穆沐沐",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 157016,
+              "startTime": 1753362596970,
+              "report": {
+                "code": "7cVapMyTjtQJZYLz",
+                "fightID": -40,
+                "startTime": 1753358672041
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 51,
+              "size": 40
+            },
+            {
+              "name": "紙書",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 204022,
+              "startTime": 1753362237146,
+              "report": {
+                "code": "2Y1JVQMHB8LFCGNx",
+                "fightID": -42,
+                "startTime": 1753354875636
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "家里养猫",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 200463,
+              "startTime": 1753363607924,
+              "report": {
+                "code": "3ad1gAXjx2KFQD6h",
+                "fightID": -26,
+                "startTime": 1753358725440
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 36
+            },
+            {
+              "name": "小牧囡囡",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 193023,
+              "startTime": 1753359822039,
+              "report": {
+                "code": "NgKC4fknAt897y6H",
+                "fightID": -25,
+                "startTime": 1753357026746
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "吴阿姨",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 162097,
+              "startTime": 1753358522913,
+              "report": {
+                "code": "Fd3J4v2mzHQNZWRr",
+                "fightID": -80,
+                "startTime": 1753333992939
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "一哭泣天使一",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 160054,
+              "startTime": 1753358121864,
+              "report": {
+                "code": "ZNavMh61cYnKqWyp",
+                "fightID": -25,
+                "startTime": 1753355455559
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "灬安筱亦",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 187816,
+              "startTime": 1753358072982,
+              "report": {
+                "code": "Q8TJCth1qmz9M6jb",
+                "fightID": -27,
+                "startTime": 1753355504679
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "啰嘶沐牧",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 200534,
+              "startTime": 1753350443794,
+              "report": {
+                "code": "g19Tq3KB62XQHaLc",
+                "fightID": -96,
+                "startTime": 1753336633555
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "石头好可爱",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 173476,
+              "startTime": 1753335261166,
+              "report": {
+                "code": "Nx81gjBZ6VbCLKRh",
+                "fightID": -53,
+                "startTime": 1753329147989
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "梓灵妹妹",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 217638,
+              "startTime": 1753337460747,
+              "report": {
+                "code": "VN8jqDhWgM1cmKvx",
+                "fightID": -9,
+                "startTime": 1753317875297
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 36
+            },
+            {
+              "name": "清新醉人",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 199408,
+              "startTime": 1753337169865,
+              "report": {
+                "code": "hLWw6Z7dvy39xRj2",
+                "fightID": -21,
+                "startTime": 1753329217134
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "奥琳吖",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 199408,
+              "startTime": 1753337169865,
+              "report": {
+                "code": "hLWw6Z7dvy39xRj2",
+                "fightID": -21,
+                "startTime": 1753329217134
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "雪瑾宝",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 168394,
+              "startTime": 1753335616913,
+              "report": {
+                "code": "JMQNkWfFj1cdAnvy",
+                "fightID": -22,
+                "startTime": 1753332970713
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "陈丶风暴烈酒",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 193676,
+              "startTime": 1753335108757,
+              "report": {
+                "code": "2NaH981yXjmdDwqZ",
+                "fightID": -43,
+                "startTime": 1753329089434
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 66.32,
+      "pointsResetIn": 3576
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 66.32,
+    "reset_in_s": 3576
+  }
+}

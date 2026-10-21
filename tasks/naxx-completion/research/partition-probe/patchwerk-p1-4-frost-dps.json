@@ -1,0 +1,2363 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Mage",
+    "spec": "Frost"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:50.922228+00:00",
+  "ended_at": "2026-10-21T12:04:51.306588+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Koldskaal",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1450.54,
+              "hardModeLevel": 0,
+              "duration": 105978,
+              "startTime": 1762983212628,
+              "report": {
+                "code": "V1FjzgHAvh93NCwQ",
+                "fightID": 12,
+                "startTime": 1762981470079
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "小迷你",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1277.48,
+              "hardModeLevel": 0,
+              "duration": 170652,
+              "startTime": 1644589217352,
+              "report": {
+                "code": "h8xQTGaWn6KwDb1j",
+                "fightID": 86,
+                "startTime": 1644580648419
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Aisle",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1243.22,
+              "hardModeLevel": 0,
+              "duration": 105221,
+              "startTime": 1792143687621,
+              "report": {
+                "code": "M3nc2AKFdBZj4r6P",
+                "fightID": 22,
+                "startTime": 1792139502006
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Ymage",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1237.49,
+              "hardModeLevel": 0,
+              "duration": 105803,
+              "startTime": 1760401456260,
+              "report": {
+                "code": "2R7tvMPzaynXDGfh",
+                "fightID": 16,
+                "startTime": 1760400231022
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Pumpmage",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1227.1,
+              "hardModeLevel": 0,
+              "duration": 101606,
+              "startTime": 1769030758140,
+              "report": {
+                "code": "gthJ9fmKk71ncYRy",
+                "fightID": 13,
+                "startTime": 1769029142527
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Fizzwhistle",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1190.5,
+              "hardModeLevel": 0,
+              "duration": 117765,
+              "startTime": 1689125355951,
+              "report": {
+                "code": "qD2ZvyYm6g8FRbKM",
+                "fightID": 55,
+                "startTime": 1689120208801
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Shivanna",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1168.83,
+              "hardModeLevel": 0,
+              "duration": 114014,
+              "startTime": 1719290369897,
+              "report": {
+                "code": "p362D4GbQhwcFtM1",
+                "fightID": 23,
+                "startTime": 1719288451979
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "会下雪的佩奇",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1166.59,
+              "hardModeLevel": 0,
+              "duration": 166083,
+              "startTime": 1745155165712,
+              "report": {
+                "code": "KHz8RqfZJvmdwtn2",
+                "fightID": 27,
+                "startTime": 1745152779090
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "Tôast",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1165.71,
+              "hardModeLevel": 0,
+              "duration": 119733,
+              "startTime": 1781862147672,
+              "report": {
+                "code": "PkZKpC6r1QcAN8wq",
+                "fightID": 24,
+                "startTime": 1781859602108
+              },
+              "guild": {
+                "id": 796198,
+                "name": "Brev GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Excusex",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1161.77,
+              "hardModeLevel": 0,
+              "duration": 105382,
+              "startTime": 1713663806917,
+              "report": {
+                "code": "w7yRHvApGD6tcJ9x",
+                "fightID": 60,
+                "startTime": 1713659456486
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "围兜兜吃手手",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1156.74,
+              "hardModeLevel": 0,
+              "duration": 157890,
+              "startTime": 1670245333845,
+              "report": {
+                "code": "X28vLb3K6JMpjhVm",
+                "fightID": 34,
+                "startTime": 1670242157368
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 34
+            },
+            {
+              "name": "Rôn",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1148.87,
+              "hardModeLevel": 0,
+              "duration": 150271,
+              "startTime": 1780141565575,
+              "report": {
+                "code": "JQzL7T9AFtvnwVcp",
+                "fightID": 41,
+                "startTime": 1780137026325
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "趙致",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1145.66,
+              "hardModeLevel": 0,
+              "duration": 160769,
+              "startTime": 1745673844018,
+              "report": {
+                "code": "qkcWDfYLQ26NtRpx",
+                "fightID": 28,
+                "startTime": 1745671176263
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 89,
+              "size": 38
+            },
+            {
+              "name": "Varlex",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1135.56,
+              "hardModeLevel": 0,
+              "duration": 130410,
+              "startTime": 1705370154602,
+              "report": {
+                "code": "yrwFCcAWPHY293k8",
+                "fightID": 31,
+                "startTime": 1705367654829
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "会奥爆的佩奇",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1122.93,
+              "hardModeLevel": 0,
+              "duration": 158673,
+              "startTime": 1666701311639,
+              "report": {
+                "code": "GRXgv4Tp7kZ1Hy3J",
+                "fightID": 19,
+                "startTime": 1666699944864
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Desicrate",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1119.15,
+              "hardModeLevel": 0,
+              "duration": 130413,
+              "startTime": 1668309256212,
+              "report": {
+                "code": "TAQYH4z3tGBhgjKP",
+                "fightID": 66,
+                "startTime": 1668303003953
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Serwa",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1117.88,
+              "hardModeLevel": 0,
+              "duration": 133897,
+              "startTime": 1670554975047,
+              "report": {
+                "code": "N2FvATj3WLPyDYx9",
+                "fightID": 73,
+                "startTime": 1670548456577
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "丷小师妹丷",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1106.03,
+              "hardModeLevel": 0,
+              "duration": 144988,
+              "startTime": 1668430240251,
+              "report": {
+                "code": "LBT2d4tV1PKwrxvb",
+                "fightID": 22,
+                "startTime": 1668428808238
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "小知秋",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1103.82,
+              "hardModeLevel": 0,
+              "duration": 178575,
+              "startTime": 1668087047635,
+              "report": {
+                "code": "Wrgx6bfyqJdKpQnj",
+                "fightID": 39,
+                "startTime": 1668082893770
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 33
+            },
+            {
+              "name": "魅儿眉儿媚",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1100.88,
+              "hardModeLevel": 0,
+              "duration": 164357,
+              "startTime": 1670481837873,
+              "report": {
+                "code": "2Tp96wX1nmPWG3Bd",
+                "fightID": 34,
+                "startTime": 1670478800059
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Walina",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1098.29,
+              "hardModeLevel": 0,
+              "duration": 114853,
+              "startTime": 1757642131371,
+              "report": {
+                "code": "DT9maZP1V8dNWLGq",
+                "fightID": 57,
+                "startTime": 1757638757036
+              },
+              "guild": {
+                "id": 705492,
+                "name": "Mass Invite",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "八及大狂风",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1095.89,
+              "hardModeLevel": 0,
+              "duration": 171850,
+              "startTime": 1782220370351,
+              "report": {
+                "code": "GgFqVWhtJHQ3jY7x",
+                "fightID": 31,
+                "startTime": 1782217591642
+              },
+              "guild": {
+                "id": 797396,
+                "name": "傲気",
+                "faction": 1
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Lädy",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1095.73,
+              "hardModeLevel": 0,
+              "duration": 105978,
+              "startTime": 1762983212628,
+              "report": {
+                "code": "V1FjzgHAvh93NCwQ",
+                "fightID": 12,
+                "startTime": 1762981470079
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "一水滴",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1089.85,
+              "hardModeLevel": 0,
+              "duration": 130217,
+              "startTime": 1642256704178,
+              "report": {
+                "code": "A8jdBNDv6K9ZwLrf",
+                "fightID": 84,
+                "startTime": 1642248561978
+              },
+              "guild": {
+                "id": 625198,
+                "name": "银色黎明",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Foire",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1089.03,
+              "hardModeLevel": 0,
+              "duration": 81928,
+              "startTime": 1787336919717,
+              "report": {
+                "code": "P42apCKgq93GAr7w",
+                "fightID": 13,
+                "startTime": 1787334604521
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ronkuby",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1088.02,
+              "hardModeLevel": 0,
+              "duration": 152270,
+              "startTime": 1724551321082,
+              "report": {
+                "code": "cHfZAv2Lj9gprV1d",
+                "fightID": 55,
+                "startTime": 1724545732432
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "兔二",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1079.67,
+              "hardModeLevel": 0,
+              "duration": 161538,
+              "startTime": 1763385202892,
+              "report": {
+                "code": "tb6nz4VNrvjfQaXL",
+                "fightID": 29,
+                "startTime": 1763381892261
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 36
+            },
+            {
+              "name": "Legss",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1072.41,
+              "hardModeLevel": 0,
+              "duration": 159628,
+              "startTime": 1654713488957,
+              "report": {
+                "code": "bNjmQxDJc8nHwq3Z",
+                "fightID": 16,
+                "startTime": 1654712237897
+              },
+              "guild": {
+                "id": 601368,
+                "name": "the old raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "咖啡配豆包",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1072.17,
+              "hardModeLevel": 0,
+              "duration": 151429,
+              "startTime": 1646917482239,
+              "report": {
+                "code": "AM9txkn6hG3bHBPK",
+                "fightID": 36,
+                "startTime": 1646912908297
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 39
+            },
+            {
+              "name": "半枝半夏",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1060.71,
+              "hardModeLevel": 0,
+              "duration": 148017,
+              "startTime": 1781271539161,
+              "report": {
+                "code": "74pMAhaQdmCwT1r9",
+                "fightID": 39,
+                "startTime": 1781267599608
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "么朵欧欧",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1060.54,
+              "hardModeLevel": 0,
+              "duration": 154975,
+              "startTime": 1663764933022,
+              "report": {
+                "code": "hy7b1gWYVMnRZPdC",
+                "fightID": 24,
+                "startTime": 1663762084723
+              },
+              "guild": {
+                "id": 622761,
+                "name": "nacy的号",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "相逢何必邂逅",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1058.36,
+              "hardModeLevel": 0,
+              "duration": 171240,
+              "startTime": 1670428853260,
+              "report": {
+                "code": "Wk72P64qjCGgdJzb",
+                "fightID": 28,
+                "startTime": 1670426030556
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 36
+            },
+            {
+              "name": "三尺地灵魔",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1057.9,
+              "hardModeLevel": 0,
+              "duration": 162117,
+              "startTime": 1734011106637,
+              "report": {
+                "code": "63x4ZHVAXnFLqBKd",
+                "fightID": 65,
+                "startTime": 1734000857119
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "余独怅怏",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1057.07,
+              "hardModeLevel": 0,
+              "duration": 156984,
+              "startTime": 1733897267831,
+              "report": {
+                "code": "BprMTPWD8jaRgJnx",
+                "fightID": 19,
+                "startTime": 1733893495775
+              },
+              "guild": {
+                "id": 772014,
+                "name": "<笨笨> - 极速G团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 37
+            },
+            {
+              "name": "Petrapink",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1056.9,
+              "hardModeLevel": 0,
+              "duration": 146264,
+              "startTime": 1745610073868,
+              "report": {
+                "code": "FybPACh3NZcavKnQ",
+                "fightID": 68,
+                "startTime": 1745604113115
+              },
+              "guild": {
+                "id": 710980,
+                "name": "Classic Enjoyers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Neuron",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1056.15,
+              "hardModeLevel": 0,
+              "duration": 94835,
+              "startTime": 1759859195601,
+              "report": {
+                "code": "Y6x2DjcC8yndta4K",
+                "fightID": 12,
+                "startTime": 1759838917982
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "零舞",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1054.98,
+              "hardModeLevel": 0,
+              "duration": 134306,
+              "startTime": 1651928087405,
+              "report": {
+                "code": "zDT7prGm4Z3NWcaF",
+                "fightID": 35,
+                "startTime": 1651925366757
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "孟少奶奶",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1048.73,
+              "hardModeLevel": 0,
+              "duration": 180906,
+              "startTime": 1787918283221,
+              "report": {
+                "code": "KHx6r3QqPtLAhDa8",
+                "fightID": 25,
+                "startTime": 1787916079637
+              },
+              "guild": {
+                "id": 797963,
+                "name": "湛蓝的天空",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "還我漂漂拳",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1043.07,
+              "hardModeLevel": 0,
+              "duration": 163646,
+              "startTime": 1662900352286,
+              "report": {
+                "code": "qM3m91AJ8Y2CaQjn",
+                "fightID": 32,
+                "startTime": 1662896814776
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Myer",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1042.7,
+              "hardModeLevel": 0,
+              "duration": 106919,
+              "startTime": 1776418786960,
+              "report": {
+                "code": "vmTtJnMzHr1w27GL",
+                "fightID": 26,
+                "startTime": 1776416288484
+              },
+              "guild": {
+                "id": 796198,
+                "name": "Brev GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "那个水法丶",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1039.04,
+              "hardModeLevel": 0,
+              "duration": 169585,
+              "startTime": 1636638198201,
+              "report": {
+                "code": "YKCWZ4afpTMRhgtL",
+                "fightID": 70,
+                "startTime": 1636631425545
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "小顽法",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1038.54,
+              "hardModeLevel": 0,
+              "duration": 176918,
+              "startTime": 1789620936559,
+              "report": {
+                "code": "3QdTAKHmbMjN1tR7",
+                "fightID": 20,
+                "startTime": 1789618766940
+              },
+              "guild": {
+                "id": 772014,
+                "name": "<笨笨> - 极速G团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Arhiman",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1037.37,
+              "hardModeLevel": 0,
+              "duration": 140104,
+              "startTime": 1757704692897,
+              "report": {
+                "code": "W2kwvNxGmPtQf4ny",
+                "fightID": 59,
+                "startTime": 1757700203312
+              },
+              "guild": {
+                "id": 710980,
+                "name": "Classic Enjoyers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Klokovmagi",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1036.89,
+              "hardModeLevel": 0,
+              "duration": 101646,
+              "startTime": 1776713840164,
+              "report": {
+                "code": "ZfmDnPLcq7wKzVRv",
+                "fightID": 17,
+                "startTime": 1776710824569
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "可爱的呼拉圈",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1034.06,
+              "hardModeLevel": 0,
+              "duration": 159916,
+              "startTime": 1775658199378,
+              "report": {
+                "code": "Xjmf1whGVJ7b38Tc",
+                "fightID": 18,
+                "startTime": 1775656434813
+              },
+              "guild": {
+                "id": 788240,
+                "name": "蛋仔派对",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "Megatronus",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1033.69,
+              "hardModeLevel": 0,
+              "duration": 122230,
+              "startTime": 1694568332272,
+              "report": {
+                "code": "YZJRTrfywCaD1dbM",
+                "fightID": 50,
+                "startTime": 1694562978445
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "抹神",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1033.23,
+              "hardModeLevel": 0,
+              "duration": 222232,
+              "startTime": 1681395424188,
+              "report": {
+                "code": "qbwPkLABzyhKgavn",
+                "fightID": 41,
+                "startTime": 1681390629181
+              },
+              "server": {
+                "id": 10053,
+                "name": "瑪拉頓",
+                "region": "TW"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "尤斯丨蒂娅",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1030.08,
+              "hardModeLevel": 0,
+              "duration": 170380,
+              "startTime": 1767445438181,
+              "report": {
+                "code": "rCFxtMBfvdwZ1Hkh",
+                "fightID": 64,
+                "startTime": 1767438456725
+              },
+              "guild": {
+                "id": 773004,
+                "name": "青澜",
+                "faction": 0
+              },
+              "server": {
+                "id": 10041,
+                "name": "寒脊山小径",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "不打架",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1029.95,
+              "hardModeLevel": 0,
+              "duration": 172775,
+              "startTime": 1640439167826,
+              "report": {
+                "code": "yzR1WT2xAwpM4tLK",
+                "fightID": 75,
+                "startTime": 1640431901935
+              },
+              "guild": {
+                "id": 609010,
+                "name": "车神联盟",
+                "faction": 0
+              },
+              "server": {
+                "id": 10041,
+                "name": "寒脊山小径",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Magicalbussy",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1025.92,
+              "hardModeLevel": 0,
+              "duration": 136046,
+              "startTime": 1719112861689,
+              "report": {
+                "code": "L2WMJYHQT13VRpCr",
+                "fightID": 45,
+                "startTime": 1719104978124
+              },
+              "guild": {
+                "id": 737572,
+                "name": "Deduction",
+                "faction": 0
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Niporte",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1025.71,
+              "hardModeLevel": 0,
+              "duration": 107186,
+              "startTime": 1765920224482,
+              "report": {
+                "code": "YHt9gCd1bQPcJj6W",
+                "fightID": 11,
+                "startTime": 1765918761437
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Mizuno",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1023.67,
+              "hardModeLevel": 0,
+              "duration": 153500,
+              "startTime": 1665816757397,
+              "report": {
+                "code": "2LmyAjY3TJnarDq6",
+                "fightID": 26,
+                "startTime": 1665812752037
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "花印紅",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1021.96,
+              "hardModeLevel": 0,
+              "duration": 167497,
+              "startTime": 1661432684085,
+              "report": {
+                "code": "Awn7hCtX6x8NFTWf",
+                "fightID": 32,
+                "startTime": 1661429258008
+              },
+              "guild": {
+                "id": 622761,
+                "name": "nacy的号",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "無氧呼吸",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1021.71,
+              "hardModeLevel": 0,
+              "duration": 151692,
+              "startTime": 1661863956211,
+              "report": {
+                "code": "KXx1NrZ7a3fpvBty",
+                "fightID": 27,
+                "startTime": 1661861937047
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Trollussy",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1021.55,
+              "hardModeLevel": 0,
+              "duration": 108198,
+              "startTime": 1724373227774,
+              "report": {
+                "code": "rcNwMJjx91pQFB2b",
+                "fightID": 26,
+                "startTime": 1724371320428
+              },
+              "guild": {
+                "id": 726415,
+                "name": "Land Before Time",
+                "faction": 1
+              },
+              "server": {
+                "id": 10059,
+                "name": "Smolderweb",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "夜孔雀",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1020.09,
+              "hardModeLevel": 0,
+              "duration": 158823,
+              "startTime": 1665979699809,
+              "report": {
+                "code": "JLbmc3FWkAztqN1h",
+                "fightID": 28,
+                "startTime": 1665974163060
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "Warhell",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1018.68,
+              "hardModeLevel": 0,
+              "duration": 114351,
+              "startTime": 1783883763724,
+              "report": {
+                "code": "ap4bhc2CYmjwxDWq",
+                "fightID": 44,
+                "startTime": 1783878244818
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "夏维安猎手",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1018.54,
+              "hardModeLevel": 0,
+              "duration": 163683,
+              "startTime": 1665121435259,
+              "report": {
+                "code": "QrZf3Hx1caGgXjKt",
+                "fightID": 45,
+                "startTime": 1665117683780
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 36
+            },
+            {
+              "name": "武林夜市",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1016.41,
+              "hardModeLevel": 0,
+              "duration": 150291,
+              "startTime": 1791175360543,
+              "report": {
+                "code": "vzWQC1HKtJLxTmMG",
+                "fightID": 25,
+                "startTime": 1791172912319
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "Pyrofizzle",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1015.93,
+              "hardModeLevel": 0,
+              "duration": 152746,
+              "startTime": 1787856849965,
+              "report": {
+                "code": "azTZdnXjYpv26QK4",
+                "fightID": 39,
+                "startTime": 1787853457309
+              },
+              "guild": {
+                "id": 708503,
+                "name": "Infinite Oblivion",
+                "faction": 0
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "甜柠檬之恋",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1013.46,
+              "hardModeLevel": 0,
+              "duration": 171850,
+              "startTime": 1782220370351,
+              "report": {
+                "code": "GgFqVWhtJHQ3jY7x",
+                "fightID": 31,
+                "startTime": 1782217591642
+              },
+              "guild": {
+                "id": 797396,
+                "name": "傲気",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Rytmedorthe",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1013.21,
+              "hardModeLevel": 0,
+              "duration": 86344,
+              "startTime": 1775763195401,
+              "report": {
+                "code": "A83JxpbknzPw2NXm",
+                "fightID": 15,
+                "startTime": 1775760597665
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "小混子输出",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1012.96,
+              "hardModeLevel": 0,
+              "duration": 160432,
+              "startTime": 1645619593091,
+              "report": {
+                "code": "tgbqm6aRAYwhLd1n",
+                "fightID": 26,
+                "startTime": 1645618107549
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Milkshake",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1010.15,
+              "hardModeLevel": 0,
+              "duration": 176443,
+              "startTime": 1746645906411,
+              "report": {
+                "code": "NnVa6DFcQCjYdXtK",
+                "fightID": 64,
+                "startTime": 1746639916663
+              },
+              "guild": {
+                "id": 755306,
+                "name": "Lichtbringer",
+                "faction": 0
+              },
+              "server": {
+                "id": 10021,
+                "name": "Everlook",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "猪猪带你飞",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1006.79,
+              "hardModeLevel": 0,
+              "duration": 170652,
+              "startTime": 1644589217352,
+              "report": {
+                "code": "h8xQTGaWn6KwDb1j",
+                "fightID": 86,
+                "startTime": 1644580648419
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "美三三",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1002.05,
+              "hardModeLevel": 0,
+              "duration": 199873,
+              "startTime": 1740057301455,
+              "report": {
+                "code": "TwhytPHpmvfbWk4X",
+                "fightID": 61,
+                "startTime": 1740048569678
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "앞마당이다",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1001.85,
+              "hardModeLevel": 0,
+              "duration": 138557,
+              "startTime": 1790862749172,
+              "report": {
+                "code": "2WRkBLvfaD7AKg8V",
+                "fightID": 76,
+                "startTime": 1790856557520
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "感谢楼层不高",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1000.92,
+              "hardModeLevel": 0,
+              "duration": 159300,
+              "startTime": 1669207172157,
+              "report": {
+                "code": "Vm7FZpMPawXKQR2W",
+                "fightID": 31,
+                "startTime": 1669200715856
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "是昔流芳",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 1000.16,
+              "hardModeLevel": 0,
+              "duration": 145959,
+              "startTime": 1649511282836,
+              "report": {
+                "code": "RvhBypFaTzq9Xj2r",
+                "fightID": 87,
+                "startTime": 1649505083951
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Redfox",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 997.717,
+              "hardModeLevel": 0,
+              "duration": 100754,
+              "startTime": 1791724433672,
+              "report": {
+                "code": "LFpa38c9MJqZXN1T",
+                "fightID": 100,
+                "startTime": 1791710369202
+              },
+              "guild": {
+                "id": 810780,
+                "name": "The World of Cats",
+                "faction": 0
+              },
+              "server": {
+                "id": 10091,
+                "name": "라그나로스",
+                "region": "KR"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "佛山黄老邪",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 997.326,
+              "hardModeLevel": 0,
+              "duration": 177286,
+              "startTime": 1657977215952,
+              "report": {
+                "code": "7L6PAwJWpgjfVtKb",
+                "fightID": 50,
+                "startTime": 1657972579366
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "爱尔琳妮",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 994.582,
+              "hardModeLevel": 0,
+              "duration": 152642,
+              "startTime": 1770382480242,
+              "report": {
+                "code": "LJY8FT79n1zgMmRD",
+                "fightID": 20,
+                "startTime": 1770380358597
+              },
+              "guild": {
+                "id": 807562,
+                "name": "无忧G团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 37
+            },
+            {
+              "name": "問題灬少女",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 991.868,
+              "hardModeLevel": 0,
+              "duration": 178558,
+              "startTime": 1729599370204,
+              "report": {
+                "code": "qnfdxJ4cDyN1X6rg",
+                "fightID": 23,
+                "startTime": 1729597372913
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "Bambuzl",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 990.492,
+              "hardModeLevel": 0,
+              "duration": 118528,
+              "startTime": 1718572631308,
+              "report": {
+                "code": "9yFhavDzpKMcgkPQ",
+                "fightID": 35,
+                "startTime": 1718569458039
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Gnomussy",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 987.707,
+              "hardModeLevel": 0,
+              "duration": 109822,
+              "startTime": 1737339208729,
+              "report": {
+                "code": "T3atmRKhqn6k2PXA",
+                "fightID": 25,
+                "startTime": 1737336935278
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "这河狸吗",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 986.854,
+              "hardModeLevel": 0,
+              "duration": 146817,
+              "startTime": 1767962865095,
+              "report": {
+                "code": "c4BvMmJF3kqfw1Nt",
+                "fightID": 71,
+                "startTime": 1767939511545
+              },
+              "guild": {
+                "id": 773004,
+                "name": "青澜",
+                "faction": 0
+              },
+              "server": {
+                "id": 10177,
+                "name": "法拉克斯",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "奥斯奥特曼",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 986.585,
+              "hardModeLevel": 0,
+              "duration": 190166,
+              "startTime": 1763790113714,
+              "report": {
+                "code": "QcNd12ZfpAW4nFzy",
+                "fightID": 27,
+                "startTime": 1763784684110
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "Gschpusi",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 984.174,
+              "hardModeLevel": 0,
+              "duration": 110328,
+              "startTime": 1787403757122,
+              "report": {
+                "code": "BT92KH3RVMafnAxh",
+                "fightID": 16,
+                "startTime": 1787402425760
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "小阿喳",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 984.073,
+              "hardModeLevel": 0,
+              "duration": 170151,
+              "startTime": 1671196879592,
+              "report": {
+                "code": "bV4cwXxvpdWDHy1B",
+                "fightID": 44,
+                "startTime": 1671191481923
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Nukiee",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 983.725,
+              "hardModeLevel": 0,
+              "duration": 138619,
+              "startTime": 1674008260528,
+              "report": {
+                "code": "vm8Tq9fxXPR7n6F4",
+                "fightID": 39,
+                "startTime": 1674003945033
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "不打架",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 983.544,
+              "hardModeLevel": 0,
+              "duration": 159026,
+              "startTime": 1754832141648,
+              "report": {
+                "code": "PkYZVAC6qwLpgj81",
+                "fightID": 47,
+                "startTime": 1754827207182
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Ehbim",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 983.381,
+              "hardModeLevel": 0,
+              "duration": 105422,
+              "startTime": 1786798488816,
+              "report": {
+                "code": "HxLQYWyRNjKMka37",
+                "fightID": 15,
+                "startTime": 1786797142693
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "逍遥小仙人",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 983.356,
+              "hardModeLevel": 0,
+              "duration": 154650,
+              "startTime": 1733146181713,
+              "report": {
+                "code": "kFGr62LnNhR4QmPB",
+                "fightID": 63,
+                "startTime": 1733138247111
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "浅唱初夏",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 981.38,
+              "hardModeLevel": 0,
+              "duration": 178468,
+              "startTime": 1737811128549,
+              "report": {
+                "code": "9zmncbh4NJ8fBvyq",
+                "fightID": 69,
+                "startTime": 1737803245326
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "吕不韦",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 981.238,
+              "hardModeLevel": 0,
+              "duration": 172213,
+              "startTime": 1742736930277,
+              "report": {
+                "code": "79hYLkxbjPrcHQW3",
+                "fightID": 29,
+                "startTime": 1742733868621
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "Smilelee",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 979.295,
+              "hardModeLevel": 0,
+              "duration": 192031,
+              "startTime": 1667790448966,
+              "report": {
+                "code": "rDQvnbFRj81g4ZJ2",
+                "fightID": 42,
+                "startTime": 1667785821885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "雷炎之怒",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 978.661,
+              "hardModeLevel": 0,
+              "duration": 163881,
+              "startTime": 1749985609382,
+              "report": {
+                "code": "7qLnTztmPQv8dMK1",
+                "fightID": 27,
+                "startTime": 1749983222847
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Brioche",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 978.551,
+              "hardModeLevel": 0,
+              "duration": 112082,
+              "startTime": 1790934215390,
+              "report": {
+                "code": "qAmBGYgn2v3pN8CZ",
+                "fightID": 23,
+                "startTime": 1790931823798
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "緻命霜火",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 978.158,
+              "hardModeLevel": 0,
+              "duration": 156352,
+              "startTime": 1644580748838,
+              "report": {
+                "code": "r7DQaYT8V1kKWHp4",
+                "fightID": 19,
+                "startTime": 1644579825236
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "黑仔仔",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 975.196,
+              "hardModeLevel": 0,
+              "duration": 160093,
+              "startTime": 1765456740268,
+              "report": {
+                "code": "4da2mVAbjhLryqtp",
+                "fightID": 32,
+                "startTime": 1765453891530
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Click",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 974.485,
+              "hardModeLevel": 0,
+              "duration": 118165,
+              "startTime": 1772133485881,
+              "report": {
+                "code": "xVfMKdbRG8Qh4NJ9",
+                "fightID": 23,
+                "startTime": 1772128630832
+              },
+              "guild": {
+                "id": 708503,
+                "name": "Infinite Oblivion",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 38
+            },
+            {
+              "name": "Lillianvoss",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 974.229,
+              "hardModeLevel": 0,
+              "duration": 181599,
+              "startTime": 1746555696427,
+              "report": {
+                "code": "KvyFpJZnMjh9wYDq",
+                "fightID": 22,
+                "startTime": 1746553374662
+              },
+              "guild": {
+                "id": 755306,
+                "name": "Lichtbringer",
+                "faction": 0
+              },
+              "server": {
+                "id": 10021,
+                "name": "Everlook",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "香榭丿落叶",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 973.453,
+              "hardModeLevel": 0,
+              "duration": 121105,
+              "startTime": 1646569284856,
+              "report": {
+                "code": "V6mvR8TFtqgNAdhH",
+                "fightID": 23,
+                "startTime": 1646567034612
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "人帅枪很",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 971.328,
+              "hardModeLevel": 0,
+              "duration": 158445,
+              "startTime": 1665061700102,
+              "report": {
+                "code": "vVZ6tARzYJHQ2GFw",
+                "fightID": 75,
+                "startTime": 1665053336060
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Pombussy",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 969.702,
+              "hardModeLevel": 0,
+              "duration": 121723,
+              "startTime": 1716602506284,
+              "report": {
+                "code": "YBJhknRNaFG4bK8P",
+                "fightID": 37,
+                "startTime": 1716599364770
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Belterx",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 968.872,
+              "hardModeLevel": 0,
+              "duration": 104859,
+              "startTime": 1776027443932,
+              "report": {
+                "code": "ZRxqAag9zn8v6pKd",
+                "fightID": 16,
+                "startTime": 1776024273992
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Xsheep",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 967.863,
+              "hardModeLevel": 0,
+              "duration": 113920,
+              "startTime": 1791636922919,
+              "report": {
+                "code": "pmhyw6NQD7vgRWKM",
+                "fightID": 19,
+                "startTime": 1791635484416
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Minibang",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 967.38,
+              "hardModeLevel": 0,
+              "duration": 113367,
+              "startTime": 1780431809142,
+              "report": {
+                "code": "yHbwNBt4Jxm2TK1G",
+                "fightID": 14,
+                "startTime": 1780430493846
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "薯片啊",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 967.354,
+              "hardModeLevel": 0,
+              "duration": 172025,
+              "startTime": 1669638870614,
+              "report": {
+                "code": "tCv8cTmV21GxHJY3",
+                "fightID": 21,
+                "startTime": 1669636751611
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "Herea",
+              "class": "Mage",
+              "spec": "Frost",
+              "amount": 962.809,
+              "hardModeLevel": 0,
+              "duration": 130246,
+              "startTime": 1668913727693,
+              "report": {
+                "code": "py6AgrKTmf8zQkZG",
+                "fightID": 70,
+                "startTime": 1668906666473
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 24.07,
+      "pointsResetIn": 3587
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 24.07,
+    "reset_in_s": 3587
+  }
+}

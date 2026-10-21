@@ -1,0 +1,275 @@
+{
+  "query": "query NaxxEncounterSchema { __type(name:\"Encounter\") { fields { name args { name type { kind name ofType { kind name } } } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": null,
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:37.735519+00:00",
+  "ended_at": "2026-10-21T12:04:37.992981+00:00",
+  "data": {
+    "__type": {
+      "fields": [
+        {
+          "name": "id",
+          "args": []
+        },
+        {
+          "name": "name",
+          "args": []
+        },
+        {
+          "name": "characterRankings",
+          "args": [
+            {
+              "name": "bracket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "page",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "partition",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverRegion",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverSlug",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "leaderboard",
+              "type": {
+                "kind": "ENUM",
+                "name": "LeaderboardRank",
+                "ofType": null
+              }
+            },
+            {
+              "name": "hardModeLevel",
+              "type": {
+                "kind": "ENUM",
+                "name": "HardModeLevelRankFilter",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metric",
+              "type": {
+                "kind": "ENUM",
+                "name": "CharacterRankingMetricType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeCombatantInfo",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeOtherPlayers",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "className",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "specName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "externalBuffs",
+              "type": {
+                "kind": "ENUM",
+                "name": "ExternalBuffRankFilter",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "fightRankings",
+          "args": [
+            {
+              "name": "bracket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "difficulty",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "page",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "partition",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverRegion",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "serverSlug",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "leaderboard",
+              "type": {
+                "kind": "ENUM",
+                "name": "LeaderboardRank",
+                "ofType": null
+              }
+            },
+            {
+              "name": "hardModeLevel",
+              "type": {
+                "kind": "ENUM",
+                "name": "HardModeLevelRankFilter",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metric",
+              "type": {
+                "kind": "ENUM",
+                "name": "FightRankingMetricType",
+                "ofType": null
+              }
+            },
+            {
+              "name": "includeOtherPlayers",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "zone",
+          "args": []
+        },
+        {
+          "name": "journalID",
+          "args": []
+        }
+      ]
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 2,
+      "pointsResetIn": 3600
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 2.0,
+    "reset_in_s": 3600
+  }
+}

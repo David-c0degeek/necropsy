@@ -1,0 +1,2383 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Paladin",
+    "spec": "Retribution"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:52.153014+00:00",
+  "ended_at": "2026-10-21T12:04:52.803228+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Craey",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 1120.01,
+              "hardModeLevel": 0,
+              "duration": 114616,
+              "startTime": 1731122124680,
+              "report": {
+                "code": "pntwXcWkD2J8CAML",
+                "fightID": 31,
+                "startTime": 1731118322431
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Derillian",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 1060.67,
+              "hardModeLevel": 0,
+              "duration": 99169,
+              "startTime": 1789065224774,
+              "report": {
+                "code": "HnKjaFmQ6b2gtAy9",
+                "fightID": 19,
+                "startTime": 1789062954790
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Markofmir",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 1059.81,
+              "hardModeLevel": 0,
+              "duration": 103787,
+              "startTime": 1718825824552,
+              "report": {
+                "code": "hNLgcXz8kG1Q27PW",
+                "fightID": 34,
+                "startTime": 1718822147646
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "最终剑帝",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 993.778,
+              "hardModeLevel": 0,
+              "duration": 145936,
+              "startTime": 1734160547788,
+              "report": {
+                "code": "qYN6Qdgt4Pcxbymw",
+                "fightID": 64,
+                "startTime": 1734154137843
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Dungeonman",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 985.079,
+              "hardModeLevel": 0,
+              "duration": 112659,
+              "startTime": 1781230095346,
+              "report": {
+                "code": "7H2XTL6AgCmQJFvY",
+                "fightID": 48,
+                "startTime": 1781225821756
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "华丶天命已拟",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 984.292,
+              "hardModeLevel": 0,
+              "duration": 160432,
+              "startTime": 1773413978640,
+              "report": {
+                "code": "XGkQ9ctjP3Jaxq8p",
+                "fightID": 21,
+                "startTime": 1773409211326
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Ciker",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 964.877,
+              "hardModeLevel": 0,
+              "duration": 144892,
+              "startTime": 1762718560298,
+              "report": {
+                "code": "V6nDbW8q4pmxvhzM",
+                "fightID": 33,
+                "startTime": 1762716338511
+              },
+              "guild": {
+                "id": 775073,
+                "name": "Malice In Wonderland",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Löwennest",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 952.557,
+              "hardModeLevel": 0,
+              "duration": 120819,
+              "startTime": 1753468151559,
+              "report": {
+                "code": "V94MKA8vnf7BcQXF",
+                "fightID": 24,
+                "startTime": 1753463411289
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Toriel",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 932.167,
+              "hardModeLevel": 0,
+              "duration": 109268,
+              "startTime": 1792112751694,
+              "report": {
+                "code": "NAqmV7hzBda3G8bD",
+                "fightID": 37,
+                "startTime": 1792109554287
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "银色麒麟",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 919.905,
+              "hardModeLevel": 0,
+              "duration": 117198,
+              "startTime": 1742645318558,
+              "report": {
+                "code": "MjtnPz8NVRCxh34m",
+                "fightID": 8,
+                "startTime": 1742643596595
+              },
+              "guild": {
+                "id": 666071,
+                "name": "湛蓝的天空",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "小弥撒",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 909.653,
+              "hardModeLevel": 0,
+              "duration": 152390,
+              "startTime": 1783601924103,
+              "report": {
+                "code": "Nb93FVD1C2QKZHtG",
+                "fightID": 42,
+                "startTime": 1783597612427
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Zhor",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 901.487,
+              "hardModeLevel": 0,
+              "duration": 139840,
+              "startTime": 1699647068594,
+              "report": {
+                "code": "w1VZ3gAGXrRBDbKT",
+                "fightID": 38,
+                "startTime": 1699643277506
+              },
+              "guild": {
+                "id": 703488,
+                "name": "Just A Pug GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Pwnela",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 897.208,
+              "hardModeLevel": 0,
+              "duration": 121508,
+              "startTime": 1773604814896,
+              "report": {
+                "code": "KFvMqh1PnjV3Yz6Q",
+                "fightID": 35,
+                "startTime": 1773602617801
+              },
+              "guild": {
+                "id": 775073,
+                "name": "Malice In Wonderland",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Krinos",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 892.827,
+              "hardModeLevel": 0,
+              "duration": 126916,
+              "startTime": 1748394375546,
+              "report": {
+                "code": "V41pyjxAD38vBqbm",
+                "fightID": 37,
+                "startTime": 1748374735605
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Kronek",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 865.25,
+              "hardModeLevel": 0,
+              "duration": 100668,
+              "startTime": 1776126008518,
+              "report": {
+                "code": "AKPRN29LvbkxtWQB",
+                "fightID": 17,
+                "startTime": 1776124928080
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Attavulpa",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 863.647,
+              "hardModeLevel": 0,
+              "duration": 132978,
+              "startTime": 1704742259375,
+              "report": {
+                "code": "69p1ntJzBCDRLaH7",
+                "fightID": 34,
+                "startTime": 1704740111014
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10099,
+                "name": "Heartstriker",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Tulkas",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 863.557,
+              "hardModeLevel": 0,
+              "duration": 149542,
+              "startTime": 1713122464456,
+              "report": {
+                "code": "8DWF7wrNGPnA9cVz",
+                "fightID": 51,
+                "startTime": 1713117927105
+              },
+              "guild": {
+                "id": 707415,
+                "name": "The Company",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Ipump",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 861.729,
+              "hardModeLevel": 0,
+              "duration": 123844,
+              "startTime": 1788125454412,
+              "report": {
+                "code": "N3P4L287aWtCT9xf",
+                "fightID": 20,
+                "startTime": 1788123117776
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Striver",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 851.28,
+              "hardModeLevel": 0,
+              "duration": 138374,
+              "startTime": 1744426043429,
+              "report": {
+                "code": "cYRXTKW943F7rPz2",
+                "fightID": 49,
+                "startTime": 1744418504910
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Georgy",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 843.911,
+              "hardModeLevel": 0,
+              "duration": 124307,
+              "startTime": 1756314295731,
+              "report": {
+                "code": "6LgPKZCbca9q1d83",
+                "fightID": 23,
+                "startTime": 1756312454275
+              },
+              "guild": {
+                "id": 700956,
+                "name": "TEMHOE MOPE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Palsnubb",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 840.648,
+              "hardModeLevel": 0,
+              "duration": 153503,
+              "startTime": 1760232309636,
+              "report": {
+                "code": "7x6hfzBZXMAnypcY",
+                "fightID": 16,
+                "startTime": 1760230905986
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Ariadne",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 840.03,
+              "hardModeLevel": 0,
+              "duration": 107120,
+              "startTime": 1759869384356,
+              "report": {
+                "code": "6XAvVrnyzbRWfLHa",
+                "fightID": 10,
+                "startTime": 1759867354099
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Lumpan",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 833.293,
+              "hardModeLevel": 0,
+              "duration": 146317,
+              "startTime": 1724960759326,
+              "report": {
+                "code": "h3AJDYQXWnz2m1pr",
+                "fightID": 58,
+                "startTime": 1724955125181
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "布爪",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 827.181,
+              "hardModeLevel": 0,
+              "duration": 164264,
+              "startTime": 1786019761729,
+              "report": {
+                "code": "arTBMC1bJ8cgV4AH",
+                "fightID": 32,
+                "startTime": 1786015484218
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "玩儿个棒子",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 826.348,
+              "hardModeLevel": 0,
+              "duration": 176030,
+              "startTime": 1760966959074,
+              "report": {
+                "code": "hqTVGdw2NBkHvMm4",
+                "fightID": 44,
+                "startTime": 1760959905897
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "Phebus",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 821.321,
+              "hardModeLevel": 0,
+              "duration": 160836,
+              "startTime": 1704919467272,
+              "report": {
+                "code": "zvqXRn4h9aAFLCDr",
+                "fightID": 38,
+                "startTime": 1704916031195
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Patadin",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 809.392,
+              "hardModeLevel": 0,
+              "duration": 137570,
+              "startTime": 1725557854926,
+              "report": {
+                "code": "yR82dfC3pDY6wAtG",
+                "fightID": 90,
+                "startTime": 1725473354486
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Mineva",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 804.029,
+              "hardModeLevel": 0,
+              "duration": 147930,
+              "startTime": 1660655417233,
+              "report": {
+                "code": "JHbntBNp7DCrMk4A",
+                "fightID": 27,
+                "startTime": 1660647119485
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 38
+            },
+            {
+              "name": "Tren",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 796.033,
+              "hardModeLevel": 0,
+              "duration": 187702,
+              "startTime": 1720729530762,
+              "report": {
+                "code": "LMhxQaC8pqVtgXyf",
+                "fightID": 74,
+                "startTime": 1720721870529
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "Yoyis",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 794.092,
+              "hardModeLevel": 0,
+              "duration": 157706,
+              "startTime": 1784082810050,
+              "report": {
+                "code": "H3kKxpw8cMjaVBQL",
+                "fightID": 53,
+                "startTime": 1784078223998
+              },
+              "guild": {
+                "id": 826787,
+                "name": "The Ordained",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Compton",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 790.356,
+              "hardModeLevel": 0,
+              "duration": 148819,
+              "startTime": 1731530515598,
+              "report": {
+                "code": "W9GyJBaxhzZqVPHm",
+                "fightID": 73,
+                "startTime": 1731524327438
+              },
+              "guild": {
+                "id": 712774,
+                "name": "Nocturnal",
+                "faction": 0
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Krumjorn",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 790.21,
+              "hardModeLevel": 0,
+              "duration": 152033,
+              "startTime": 1754506169745,
+              "report": {
+                "code": "wQXx2ZAhvDW8J1RG",
+                "fightID": 59,
+                "startTime": 1754502444326
+              },
+              "guild": {
+                "id": 755306,
+                "name": "Lichtbringer",
+                "faction": 0
+              },
+              "server": {
+                "id": 10021,
+                "name": "Everlook",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 39
+            },
+            {
+              "name": "元帅小楠",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 787.584,
+              "hardModeLevel": 0,
+              "duration": 162808,
+              "startTime": 1774013580831,
+              "report": {
+                "code": "H2afD7pn8rA3ZxwW",
+                "fightID": 35,
+                "startTime": 1774009975990
+              },
+              "guild": {
+                "id": 811784,
+                "name": "宝可梦联盟",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Euterpe",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 777.992,
+              "hardModeLevel": 0,
+              "duration": 132554,
+              "startTime": 1729474183947,
+              "report": {
+                "code": "BKm1nDtQyg6wP2Fz",
+                "fightID": 12,
+                "startTime": 1729473029097
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "伊然乄小骑",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 773.011,
+              "hardModeLevel": 0,
+              "duration": 128733,
+              "startTime": 1760791757994,
+              "report": {
+                "code": "yrT9RVBfQ37j14YZ",
+                "fightID": 38,
+                "startTime": 1760787611226
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "库尔拉龙",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 764.792,
+              "hardModeLevel": 0,
+              "duration": 187387,
+              "startTime": 1772546723092,
+              "report": {
+                "code": "JzK7CQch3bY9wXga",
+                "fightID": 29,
+                "startTime": 1772528975962
+              },
+              "guild": {
+                "id": 795219,
+                "name": "白銀之手",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 38
+            },
+            {
+              "name": "Anduinwrynn",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 763.67,
+              "hardModeLevel": 0,
+              "duration": 189265,
+              "startTime": 1711171442672,
+              "report": {
+                "code": "xAf4dvcQBXHK16t7",
+                "fightID": 3,
+                "startTime": 1711170007516
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "Kennor",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 760.057,
+              "hardModeLevel": 0,
+              "duration": 126055,
+              "startTime": 1778091796061,
+              "report": {
+                "code": "mtgFPHrCB1VJhvdb",
+                "fightID": 40,
+                "startTime": 1778088835196
+              },
+              "guild": {
+                "id": 777433,
+                "name": "Moist",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "卑微工具人",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 758.014,
+              "hardModeLevel": 0,
+              "duration": 117800,
+              "startTime": 1637411795511,
+              "report": {
+                "code": "cqHyZB67C4MktQhT",
+                "fightID": 32,
+                "startTime": 1637408528218
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Deude",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 744.759,
+              "hardModeLevel": 0,
+              "duration": 160076,
+              "startTime": 1723059116738,
+              "report": {
+                "code": "xNymn1XvtzBTGPdY",
+                "fightID": 51,
+                "startTime": 1723055673538
+              },
+              "guild": {
+                "id": 714297,
+                "name": "Les Trois Fromages",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Retforceone",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 740.014,
+              "hardModeLevel": 0,
+              "duration": 111710,
+              "startTime": 1791235055190,
+              "report": {
+                "code": "TMtR8dP4Wx7KfGD9",
+                "fightID": 21,
+                "startTime": 1791230895316
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "就这丫",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 737.895,
+              "hardModeLevel": 0,
+              "duration": 175327,
+              "startTime": 1668688934298,
+              "report": {
+                "code": "8pVbZWaQLj4nT7zP",
+                "fightID": 50,
+                "startTime": 1668683098885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Sargonredox",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 728.065,
+              "hardModeLevel": 0,
+              "duration": 194179,
+              "startTime": 1645645003436,
+              "report": {
+                "code": "kr4cqhQvmBHYCL9D",
+                "fightID": 20,
+                "startTime": 1645643373218
+              },
+              "guild": {
+                "id": 601368,
+                "name": "the old raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Humanx",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 726.935,
+              "hardModeLevel": 0,
+              "duration": 150616,
+              "startTime": 1754249208623,
+              "report": {
+                "code": "VTKJ9y1AnFrwgj3v",
+                "fightID": 33,
+                "startTime": 1754246499268
+              },
+              "guild": {
+                "id": 775073,
+                "name": "Malice In Wonderland",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Eboron",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 726.587,
+              "hardModeLevel": 0,
+              "duration": 181180,
+              "startTime": 1663798104347,
+              "report": {
+                "code": "j73qm4fNH6xJyTzP",
+                "fightID": 121,
+                "startTime": 1663786719178
+              },
+              "guild": {
+                "id": 638722,
+                "name": "Social Guild",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Invisusira",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 724.593,
+              "hardModeLevel": 0,
+              "duration": 133624,
+              "startTime": 1697480775182,
+              "report": {
+                "code": "1DhKgPCQTw3Z4AYV",
+                "fightID": 30,
+                "startTime": 1697478473918
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10088,
+                "name": "Venoxis",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Dondrakiss",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 719.72,
+              "hardModeLevel": 0,
+              "duration": 174743,
+              "startTime": 1780526033784,
+              "report": {
+                "code": "G1QXzNkZt9hvfHT8",
+                "fightID": 35,
+                "startTime": 1780520629059
+              },
+              "guild": {
+                "id": 812779,
+                "name": "Late Night Raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Marwain",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 704.318,
+              "hardModeLevel": 0,
+              "duration": 152299,
+              "startTime": 1774297726642,
+              "report": {
+                "code": "r9Y8HCGARFjqfcVJ",
+                "fightID": 58,
+                "startTime": 1774292310346
+              },
+              "guild": {
+                "id": 638722,
+                "name": "Social Guild",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Shaq",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 699.727,
+              "hardModeLevel": 0,
+              "duration": 104195,
+              "startTime": 1751506349600,
+              "report": {
+                "code": "JVdv7KgDkpNQbLrX",
+                "fightID": 34,
+                "startTime": 1751501450518
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Falcons",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 698.128,
+              "hardModeLevel": 0,
+              "duration": 158216,
+              "startTime": 1761442263802,
+              "report": {
+                "code": "gQpXN1bMC3vnta6F",
+                "fightID": 27,
+                "startTime": 1761440737352
+              },
+              "guild": {
+                "id": 727700,
+                "name": "Descendants of Hope",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Saintanais",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 693.543,
+              "hardModeLevel": 0,
+              "duration": 124148,
+              "startTime": 1729359938581,
+              "report": {
+                "code": "aphVnXQjMrzTJAZP",
+                "fightID": 34,
+                "startTime": 1729356602880
+              },
+              "guild": {
+                "id": 710506,
+                "name": "Mellon",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Fjordur",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 692.773,
+              "hardModeLevel": 0,
+              "duration": 141641,
+              "startTime": 1771442180868,
+              "report": {
+                "code": "Dd6NKbZTcJpCPL2x",
+                "fightID": 33,
+                "startTime": 1771440068668
+              },
+              "guild": {
+                "id": 777433,
+                "name": "Moist",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "有个防骑",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 691.539,
+              "hardModeLevel": 0,
+              "duration": 172920,
+              "startTime": 1770643268528,
+              "report": {
+                "code": "6z1xABhMmnZtq3NL",
+                "fightID": 25,
+                "startTime": 1770639735609
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 36
+            },
+            {
+              "name": "Fortinbras",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 689.796,
+              "hardModeLevel": 0,
+              "duration": 212873,
+              "startTime": 1736046574085,
+              "report": {
+                "code": "XnTgCxBrfwJdYvV1",
+                "fightID": 30,
+                "startTime": 1736042040189
+              },
+              "guild": {
+                "id": 754739,
+                "name": "Delusions of Grandeur",
+                "faction": 0
+              },
+              "server": {
+                "id": 10069,
+                "name": "Azuresong",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "战神小白",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 683.796,
+              "hardModeLevel": 0,
+              "duration": 208530,
+              "startTime": 1655383466796,
+              "report": {
+                "code": "JdrTgLAjGp4tQD3x",
+                "fightID": 37,
+                "startTime": 1655379338382
+              },
+              "guild": {
+                "id": 628098,
+                "name": "香草时代",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "Sealariz",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 681.205,
+              "hardModeLevel": 0,
+              "duration": 116269,
+              "startTime": 1731959270955,
+              "report": {
+                "code": "K8jFBDZ43yzQAPmV",
+                "fightID": 21,
+                "startTime": 1731957887404
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Pigqs",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 679.162,
+              "hardModeLevel": 0,
+              "duration": 189613,
+              "startTime": 1692374619586,
+              "report": {
+                "code": "nQh1WCHmvZqgzrdR",
+                "fightID": 32,
+                "startTime": 1692371581138
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 79,
+              "size": 38
+            },
+            {
+              "name": "Theorik",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 678.418,
+              "hardModeLevel": 0,
+              "duration": 138369,
+              "startTime": 1791228514987,
+              "report": {
+                "code": "dk6GBMnLxcH4KvqY",
+                "fightID": 68,
+                "startTime": 1791220867293
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Docholy",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 673.225,
+              "hardModeLevel": 0,
+              "duration": 154724,
+              "startTime": 1661797713931,
+              "report": {
+                "code": "mQWfvRXwkCaLzAcD",
+                "fightID": 40,
+                "startTime": 1661794778033
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10088,
+                "name": "Venoxis",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Innocence",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 671.159,
+              "hardModeLevel": 0,
+              "duration": 163374,
+              "startTime": 1710511737022,
+              "report": {
+                "code": "gaQ7APKTWBjmpFnL",
+                "fightID": 43,
+                "startTime": 1710506719053
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "罒海王罒",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 669.963,
+              "hardModeLevel": 0,
+              "duration": 174556,
+              "startTime": 1668235653839,
+              "report": {
+                "code": "qkCNXVBbGxwjfDMt",
+                "fightID": 65,
+                "startTime": 1668226700188
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "Thread",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 666.065,
+              "hardModeLevel": 0,
+              "duration": 115801,
+              "startTime": 1720982667932,
+              "report": {
+                "code": "XfRqtz9C8nLVcpFM",
+                "fightID": 18,
+                "startTime": 1720976650646
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 39
+            },
+            {
+              "name": "Blackrider",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 657.721,
+              "hardModeLevel": 0,
+              "duration": 158102,
+              "startTime": 1738008258065,
+              "report": {
+                "code": "c23BQCfhGJkYV94a",
+                "fightID": 28,
+                "startTime": 1738004358078
+              },
+              "guild": {
+                "id": 710980,
+                "name": "Classic Enjoyers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Dsccavailer",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 655.961,
+              "hardModeLevel": 0,
+              "duration": 139519,
+              "startTime": 1628339391890,
+              "report": {
+                "code": "n4GYRLqzvCH2A3Qj",
+                "fightID": 11,
+                "startTime": 1628338410834
+              },
+              "server": {
+                "id": 10152,
+                "name": "怀特迈恩",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Aurolaque",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 651.447,
+              "hardModeLevel": 0,
+              "duration": 170353,
+              "startTime": 1773605447492,
+              "report": {
+                "code": "FZnpYB63yMCmLXag",
+                "fightID": 50,
+                "startTime": 1773600701219
+              },
+              "guild": {
+                "id": 795865,
+                "name": "ASGARD",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Bbheinrich",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 651.357,
+              "hardModeLevel": 0,
+              "duration": 212722,
+              "startTime": 1649817159407,
+              "report": {
+                "code": "12wvWnGmhQtKX6Ny",
+                "fightID": 85,
+                "startTime": 1649808626793
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "帝獒",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 650.973,
+              "hardModeLevel": 0,
+              "duration": 160664,
+              "startTime": 1788572830348,
+              "report": {
+                "code": "j17GH9vy3NxJA4Rk",
+                "fightID": 38,
+                "startTime": 1788569238901
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Antimiracle",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 650.271,
+              "hardModeLevel": 0,
+              "duration": 116516,
+              "startTime": 1781054081592,
+              "report": {
+                "code": "hFD7mVkrYaxpjHfK",
+                "fightID": 40,
+                "startTime": 1781051226955
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "一冢中之虎一",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 648.896,
+              "hardModeLevel": 0,
+              "duration": 142687,
+              "startTime": 1773386436632,
+              "report": {
+                "code": "YCJqZywnbANdtxHV",
+                "fightID": 26,
+                "startTime": 1773383698214
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Buffvendor",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 645.011,
+              "hardModeLevel": 0,
+              "duration": 177456,
+              "startTime": 1712261730792,
+              "report": {
+                "code": "8Cr63qWc7vFQXLDt",
+                "fightID": 80,
+                "startTime": 1712254630655
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 36
+            },
+            {
+              "name": "Sunwar",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 644.692,
+              "hardModeLevel": 0,
+              "duration": 187702,
+              "startTime": 1720729530762,
+              "report": {
+                "code": "LMhxQaC8pqVtgXyf",
+                "fightID": 74,
+                "startTime": 1720721870529
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 39
+            },
+            {
+              "name": "Moorgeist",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 642.59,
+              "hardModeLevel": 0,
+              "duration": 167911,
+              "startTime": 1719517845238,
+              "report": {
+                "code": "LQp67mCvyrxhYNFP",
+                "fightID": 19,
+                "startTime": 1719516792674
+              },
+              "guild": {
+                "id": 713883,
+                "name": "Krieger des Lichts",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 38
+            },
+            {
+              "name": "伊达朴朴",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 638.815,
+              "hardModeLevel": 0,
+              "duration": 176815,
+              "startTime": 1711803298743,
+              "report": {
+                "code": "LwnmNDKqC91cHfWz",
+                "fightID": 25,
+                "startTime": 1711799976153
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Tychus",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 637.899,
+              "hardModeLevel": 0,
+              "duration": 121527,
+              "startTime": 1765072804920,
+              "report": {
+                "code": "DYm2vjyHpwxr14RA",
+                "fightID": 27,
+                "startTime": 1765071059766
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Ecclesia",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 637.336,
+              "hardModeLevel": 0,
+              "duration": 114864,
+              "startTime": 1707271447272,
+              "report": {
+                "code": "Nfa2dWVCtFRTJc36",
+                "fightID": 42,
+                "startTime": 1707267619359
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Bigdealbiggs",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 629.756,
+              "hardModeLevel": 0,
+              "duration": 108064,
+              "startTime": 1754876377787,
+              "report": {
+                "code": "R1hP4Lv6dZan7AtM",
+                "fightID": 32,
+                "startTime": 1754873845649
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Sevotarthe",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 629.665,
+              "hardModeLevel": 0,
+              "duration": 179200,
+              "startTime": 1700965795344,
+              "report": {
+                "code": "vb4MZXzByD2QJkxt",
+                "fightID": 18,
+                "startTime": 1700964415542
+              },
+              "guild": {
+                "id": 713557,
+                "name": "Uncensored",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "湖山春色",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 627.764,
+              "hardModeLevel": 0,
+              "duration": 133993,
+              "startTime": 1755347982420,
+              "report": {
+                "code": "vhFWfGDgB8naxZMY",
+                "fightID": 36,
+                "startTime": 1755342612925
+              },
+              "guild": {
+                "id": 663268,
+                "name": "湖畔自强村",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Hadkilz",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 624.605,
+              "hardModeLevel": 0,
+              "duration": 158356,
+              "startTime": 1718220656793,
+              "report": {
+                "code": "xchj1bVMdg37QmaL",
+                "fightID": 25,
+                "startTime": 1718218258991
+              },
+              "guild": {
+                "id": 710422,
+                "name": "Constellation",
+                "faction": 0
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Retricholic",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 624.091,
+              "hardModeLevel": 0,
+              "duration": 155192,
+              "startTime": 1765741575165,
+              "report": {
+                "code": "7XVykaNf2CKcqgMb",
+                "fightID": 29,
+                "startTime": 1765738638931
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "白银的圣曲",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 613.709,
+              "hardModeLevel": 0,
+              "duration": 169499,
+              "startTime": 1629622421995,
+              "report": {
+                "code": "VKTJh1v9Wp872dj3",
+                "fightID": 101,
+                "startTime": 1629611202227
+              },
+              "guild": {
+                "id": 612687,
+                "name": "灰烬使者",
+                "faction": 0
+              },
+              "server": {
+                "id": 10128,
+                "name": "法尔班克斯",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Plated",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 613.128,
+              "hardModeLevel": 0,
+              "duration": 123917,
+              "startTime": 1653446422533,
+              "report": {
+                "code": "yMAPvcqNdKC8pLFa",
+                "fightID": 40,
+                "startTime": 1653444004392
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Dsccavailer",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 609.588,
+              "hardModeLevel": 0,
+              "duration": 155282,
+              "startTime": 1624712270522,
+              "report": {
+                "code": "tcXJkm8whW2nfrbG",
+                "fightID": 50,
+                "startTime": 1624708715276
+              },
+              "server": {
+                "id": 5152,
+                "name": "怀特迈恩",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Chevion",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 603.387,
+              "hardModeLevel": 0,
+              "duration": 187702,
+              "startTime": 1720729530762,
+              "report": {
+                "code": "LMhxQaC8pqVtgXyf",
+                "fightID": 74,
+                "startTime": 1720721870529
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 39
+            },
+            {
+              "name": "Cathorist",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 597.731,
+              "hardModeLevel": 0,
+              "duration": 203513,
+              "startTime": 1651026822836,
+              "report": {
+                "code": "Hzg4MaDJjLPZdpbc",
+                "fightID": 84,
+                "startTime": 1651017911363
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "圣裁",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 597.369,
+              "hardModeLevel": 0,
+              "duration": 178059,
+              "startTime": 1764336376453,
+              "report": {
+                "code": "AcGaB4mCk8j19HbF",
+                "fightID": 58,
+                "startTime": 1764330662020
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "飞龙子",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 596.835,
+              "hardModeLevel": 0,
+              "duration": 229028,
+              "startTime": 1652190262574,
+              "report": {
+                "code": "dwfVkWQrZ42yjxgF",
+                "fightID": 42,
+                "startTime": 1652183389149
+              },
+              "server": {
+                "id": 10041,
+                "name": "寒脊山小径",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Dscco",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 593.357,
+              "hardModeLevel": 0,
+              "duration": 143546,
+              "startTime": 1636029732688,
+              "report": {
+                "code": "83x4jRk6HqDAMw9B",
+                "fightID": 32,
+                "startTime": 1636027598671
+              },
+              "guild": {
+                "id": 628597,
+                "name": "Cool Cultured",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Pottibution",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 591.959,
+              "hardModeLevel": 0,
+              "duration": 126708,
+              "startTime": 1743963382197,
+              "report": {
+                "code": "rGM1aXQJ2hgZdPqf",
+                "fightID": 19,
+                "startTime": 1743961487965
+              },
+              "guild": {
+                "id": 750145,
+                "name": "One Piece",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Valkirie",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 588.554,
+              "hardModeLevel": 0,
+              "duration": 136934,
+              "startTime": 1792015547266,
+              "report": {
+                "code": "pCRkDxrKt4aGwvhA",
+                "fightID": 54,
+                "startTime": 1792011080586
+              },
+              "guild": {
+                "id": 812779,
+                "name": "Late Night Raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Healmecarl",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 587.892,
+              "hardModeLevel": 0,
+              "duration": 186080,
+              "startTime": 1774811469683,
+              "report": {
+                "code": "H9hg81jvY3Kb7zaw",
+                "fightID": 47,
+                "startTime": 1774807302085
+              },
+              "guild": {
+                "id": 795865,
+                "name": "ASGARD",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Holybluff",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 586.666,
+              "hardModeLevel": 0,
+              "duration": 223282,
+              "startTime": 1746989792962,
+              "report": {
+                "code": "4DfQY6kZzphCV9HP",
+                "fightID": 26,
+                "startTime": 1746986260867
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 70,
+              "size": 38
+            },
+            {
+              "name": "Knoss",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 581.72,
+              "hardModeLevel": 0,
+              "duration": 187267,
+              "startTime": 1754851490727,
+              "report": {
+                "code": "MKnHZ7tv8FxYrRVa",
+                "fightID": 31,
+                "startTime": 1754848538875
+              },
+              "guild": {
+                "id": 710573,
+                "name": "Whiskers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Smellybeard",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 577.04,
+              "hardModeLevel": 0,
+              "duration": 189831,
+              "startTime": 1768012409919,
+              "report": {
+                "code": "7z9gfDJC4WLBwqkv",
+                "fightID": 18,
+                "startTime": 1768010344301
+              },
+              "guild": {
+                "id": 676709,
+                "name": "Legacy",
+                "faction": 0
+              },
+              "server": {
+                "id": 10005,
+                "name": "Grobbulus",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Rajken",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 573.857,
+              "hardModeLevel": 0,
+              "duration": 184802,
+              "startTime": 1732825425279,
+              "report": {
+                "code": "yz9N3nb1r42QBmvk",
+                "fightID": 36,
+                "startTime": 1732821721729
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 39
+            },
+            {
+              "name": "Brodarin",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 570.911,
+              "hardModeLevel": 0,
+              "duration": 139076,
+              "startTime": 1724610596994,
+              "report": {
+                "code": "6xDyHFLAcRbq2jWm",
+                "fightID": 14,
+                "startTime": 1724606928981
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "生气之光",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 567.94,
+              "hardModeLevel": 0,
+              "duration": 168266,
+              "startTime": 1652965350202,
+              "report": {
+                "code": "FYrqVGxzJtvP61df",
+                "fightID": 42,
+                "startTime": 1652961121470
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Sharental",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 566.898,
+              "hardModeLevel": 0,
+              "duration": 216104,
+              "startTime": 1751339203118,
+              "report": {
+                "code": "LCHnh163FmfjxybN",
+                "fightID": 60,
+                "startTime": 1751332140487
+              },
+              "guild": {
+                "id": 712147,
+                "name": "Wanted",
+                "faction": 0
+              },
+              "server": {
+                "id": 10008,
+                "name": "Myzrael",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Geofram",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 565.758,
+              "hardModeLevel": 0,
+              "duration": 142575,
+              "startTime": 1777251043533,
+              "report": {
+                "code": "tWPpr2RTZXjaJvDd",
+                "fightID": 30,
+                "startTime": 1777245271209
+              },
+              "guild": {
+                "id": 801695,
+                "name": "Bisforlife",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Retridværgen",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 564.203,
+              "hardModeLevel": 0,
+              "duration": 184414,
+              "startTime": 1642624082596,
+              "report": {
+                "code": "AJFqYdHgTD6GhtmV",
+                "fightID": 54,
+                "startTime": 1642619719876
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 29.1,
+      "pointsResetIn": 3585
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 29.1,
+    "reset_in_s": 3585
+  }
+}

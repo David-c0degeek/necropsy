@@ -1,0 +1,2188 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:hps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Priest",
+    "spec": "Holy"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:05:00.951700+00:00",
+  "ended_at": "2026-10-21T12:05:01.306297+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Colmanotrans",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 840.182,
+              "hardModeLevel": 0,
+              "duration": 113742,
+              "startTime": 1753294539866,
+              "report": {
+                "code": "NBRLfMvxb7hF1C8w",
+                "fightID": -19,
+                "startTime": 1753291815801
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "水月姬",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 753.756,
+              "hardModeLevel": 0,
+              "duration": 182953,
+              "startTime": 1753359285771,
+              "report": {
+                "code": "2JdQPVb7X6Tftxgm",
+                "fightID": -29,
+                "startTime": 1753356629610
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Symmetry",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 728.891,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "夜雪暮蓝",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 719.396,
+              "hardModeLevel": 0,
+              "duration": 186822,
+              "startTime": 1753361378543,
+              "report": {
+                "code": "rhMN7Cw8DtRqpHn4",
+                "fightID": -29,
+                "startTime": 1753358343058
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 37
+            },
+            {
+              "name": "Zarzies",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 700.747,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "雨浥红渠",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 685.533,
+              "hardModeLevel": 0,
+              "duration": 185571,
+              "startTime": 1753361487570,
+              "report": {
+                "code": "1dhDqjXxnJryHBLk",
+                "fightID": -112,
+                "startTime": 1753330625132
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Ratzarzs",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 681.935,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "圣徒拉菲尔",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 666.015,
+              "hardModeLevel": 0,
+              "duration": 185571,
+              "startTime": 1753361487570,
+              "report": {
+                "code": "1dhDqjXxnJryHBLk",
+                "fightID": -112,
+                "startTime": 1753330625132
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "斩丶赤红之曈",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 660.014,
+              "hardModeLevel": 0,
+              "duration": 176322,
+              "startTime": 1753363553140,
+              "report": {
+                "code": "A6acbw8YMdTgxGrN",
+                "fightID": -29,
+                "startTime": 1753360117291
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "夜空下的繁星",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 657.238,
+              "hardModeLevel": 0,
+              "duration": 216786,
+              "startTime": 1753327765535,
+              "report": {
+                "code": "vJ4WBz8CPF6rY2Ak",
+                "fightID": -28,
+                "startTime": 1753324544946
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "爱人如己啊",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 629.096,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Elskeleto",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 625.148,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": -16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Voodoomaker",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 621.672,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Retrex",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 612.235,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "阿棘",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 610.774,
+              "hardModeLevel": 0,
+              "duration": 187038,
+              "startTime": 1753352221767,
+              "report": {
+                "code": "qyvQxw3d4AV8bTjG",
+                "fightID": -25,
+                "startTime": 1753350038712
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 37
+            },
+            {
+              "name": "Lmu",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 604.705,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Elie",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 598.802,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "난소중하니까",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 593.532,
+              "hardModeLevel": 0,
+              "duration": 142267,
+              "startTime": 1753367148305,
+              "report": {
+                "code": "takLnVZdK6NF9PMp",
+                "fightID": -67,
+                "startTime": 1753360294512
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Geminope",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 591.461,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "大饼替",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 589.522,
+              "hardModeLevel": 0,
+              "duration": 166467,
+              "startTime": 1753333905968,
+              "report": {
+                "code": "AR94Y7CyrbvpXZjx",
+                "fightID": -24,
+                "startTime": 1753331904256
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "放鸽子大仙",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 589.109,
+              "hardModeLevel": 0,
+              "duration": 145153,
+              "startTime": 1753362986248,
+              "report": {
+                "code": "aXJ7gvqcGjPk4mVQ",
+                "fightID": -30,
+                "startTime": 1753360349349
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "奥利卡",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 587.548,
+              "hardModeLevel": 0,
+              "duration": 180581,
+              "startTime": 1753365186426,
+              "report": {
+                "code": "a7pNygf16t2k3Tv8",
+                "fightID": -58,
+                "startTime": 1753359135731
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "叉子替",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 586.885,
+              "hardModeLevel": 0,
+              "duration": 170604,
+              "startTime": 1753322447799,
+              "report": {
+                "code": "qcdmYP1WJHQhywBF",
+                "fightID": -24,
+                "startTime": 1753320425443
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Wydm",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 586.284,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "피리아",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 585.062,
+              "hardModeLevel": 0,
+              "duration": 142267,
+              "startTime": 1753367148305,
+              "report": {
+                "code": "takLnVZdK6NF9PMp",
+                "fightID": -67,
+                "startTime": 1753360294512
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "沐沐的仙",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 584.472,
+              "hardModeLevel": 0,
+              "duration": 181622,
+              "startTime": 1753344079809,
+              "report": {
+                "code": "gpXQMj2NB6KhTALH",
+                "fightID": -9,
+                "startTime": 1753342865514
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Gloves",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 583.588,
+              "hardModeLevel": 0,
+              "duration": 150332,
+              "startTime": 1753292434622,
+              "report": {
+                "code": "JLqkA9Zj4h2GPWcw",
+                "fightID": -31,
+                "startTime": 1753286152050
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "横滨",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 582.958,
+              "hardModeLevel": 0,
+              "duration": 171889,
+              "startTime": 1753335797739,
+              "report": {
+                "code": "3zgyFj1GY6Vn9NAq",
+                "fightID": -24,
+                "startTime": 1753331517931
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "牧絲絲",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 575.905,
+              "hardModeLevel": 0,
+              "duration": 193676,
+              "startTime": 1753335108757,
+              "report": {
+                "code": "2NaH981yXjmdDwqZ",
+                "fightID": -43,
+                "startTime": 1753329089434
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "香辣猪排汉堡",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 573.995,
+              "hardModeLevel": 0,
+              "duration": 170944,
+              "startTime": 1753359898342,
+              "report": {
+                "code": "dRvw2mMxQfbrzCcX",
+                "fightID": -26,
+                "startTime": 1753357133025
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Moxuan",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 572.113,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "紫桦",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 566.607,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "寂寞小贝贝",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 566.477,
+              "hardModeLevel": 0,
+              "duration": 191434,
+              "startTime": 1753321334805,
+              "report": {
+                "code": "v8Cwc3P4y1ZpQdbN",
+                "fightID": -37,
+                "startTime": 1753316333903
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Hömeless",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 566.183,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Gerhardt",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 565.182,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "我奶我奶我奶",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 565.097,
+              "hardModeLevel": 0,
+              "duration": 185630,
+              "startTime": 1753367432559,
+              "report": {
+                "code": "zVTXmafMACx4R7ZN",
+                "fightID": -78,
+                "startTime": 1753356515475
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "棒棒虫丨",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 562.382,
+              "hardModeLevel": 0,
+              "duration": 157016,
+              "startTime": 1753362596970,
+              "report": {
+                "code": "7cVapMyTjtQJZYLz",
+                "fightID": -40,
+                "startTime": 1753358672041
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Cameila",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 557.057,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "深蓝菲菲",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 556.201,
+              "hardModeLevel": 0,
+              "duration": 179960,
+              "startTime": 1753360578060,
+              "report": {
+                "code": "CT3kbQHVKFLtvm2W",
+                "fightID": -40,
+                "startTime": 1753355542199
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "兽医站长丶",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 555.541,
+              "hardModeLevel": 0,
+              "duration": 165608,
+              "startTime": 1753348837899,
+              "report": {
+                "code": "DFtz4VNAHw6BqyCM",
+                "fightID": -45,
+                "startTime": 1753338065522
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "小药球儿",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 555.058,
+              "hardModeLevel": 0,
+              "duration": 200534,
+              "startTime": 1753350443794,
+              "report": {
+                "code": "g19Tq3KB62XQHaLc",
+                "fightID": -96,
+                "startTime": 1753336633555
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Maleb",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 554.751,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Thornbird",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 554.551,
+              "hardModeLevel": 0,
+              "duration": 179960,
+              "startTime": 1753360578060,
+              "report": {
+                "code": "CT3kbQHVKFLtvm2W",
+                "fightID": -40,
+                "startTime": 1753355542199
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "穆师丶",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 553.925,
+              "hardModeLevel": 0,
+              "duration": 152990,
+              "startTime": 1753368066229,
+              "report": {
+                "code": "dMhTQRNv3AXZYfgt",
+                "fightID": -11,
+                "startTime": 1753366446865
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "荼毒保镖",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 551.948,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "喜西",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 551.213,
+              "hardModeLevel": 0,
+              "duration": 154376,
+              "startTime": 1753365772306,
+              "report": {
+                "code": "L2cVNbYraG7gpFqm",
+                "fightID": -10,
+                "startTime": 1753364891688
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "血蹄卡洛",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 549.031,
+              "hardModeLevel": 0,
+              "duration": 156126,
+              "startTime": 1753367319471,
+              "report": {
+                "code": "ZVDMApLJygK8xnhj",
+                "fightID": -34,
+                "startTime": 1753364024831
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "冰火逊安",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 547.479,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Fát",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 544.668,
+              "hardModeLevel": 0,
+              "duration": 150332,
+              "startTime": 1753292434622,
+              "report": {
+                "code": "JLqkA9Zj4h2GPWcw",
+                "fightID": -31,
+                "startTime": 1753286152050
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "铁棒有何用",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 542.411,
+              "hardModeLevel": 0,
+              "duration": 181099,
+              "startTime": 1753361231455,
+              "report": {
+                "code": "6vPLrFKftdn7N29A",
+                "fightID": -24,
+                "startTime": 1753358407592
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "不皮皮熙",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 539.085,
+              "hardModeLevel": 0,
+              "duration": 157016,
+              "startTime": 1753362596970,
+              "report": {
+                "code": "7cVapMyTjtQJZYLz",
+                "fightID": -40,
+                "startTime": 1753358672041
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "符文布满满",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 539.024,
+              "hardModeLevel": 0,
+              "duration": 145153,
+              "startTime": 1753362986248,
+              "report": {
+                "code": "aXJ7gvqcGjPk4mVQ",
+                "fightID": -30,
+                "startTime": 1753360349349
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "大神渡你归西",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 537.06,
+              "hardModeLevel": 0,
+              "duration": 204022,
+              "startTime": 1753362237146,
+              "report": {
+                "code": "2Y1JVQMHB8LFCGNx",
+                "fightID": -42,
+                "startTime": 1753354875636
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Allmaa",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 534.849,
+              "hardModeLevel": 0,
+              "duration": 173836,
+              "startTime": 1753296267716,
+              "report": {
+                "code": "jryaVf8kPmTHqFzc",
+                "fightID": -34,
+                "startTime": 1753292424924
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Blueberrycat",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 532.315,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Yara",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 532.28,
+              "hardModeLevel": 0,
+              "duration": 166467,
+              "startTime": 1753333905968,
+              "report": {
+                "code": "AR94Y7CyrbvpXZjx",
+                "fightID": -24,
+                "startTime": 1753331904256
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "月光下的恨",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 532.057,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "半城灬樱花",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 531.119,
+              "hardModeLevel": 0,
+              "duration": 167311,
+              "startTime": 1753356997550,
+              "report": {
+                "code": "zTK36Djdpf9HXnG1",
+                "fightID": -28,
+                "startTime": 1753336900811
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "天天小宝贝",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 529.865,
+              "hardModeLevel": 0,
+              "duration": 170604,
+              "startTime": 1753322447799,
+              "report": {
+                "code": "qcdmYP1WJHQhywBF",
+                "fightID": -24,
+                "startTime": 1753320425443
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 37
+            },
+            {
+              "name": "曰昭君",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 529.717,
+              "hardModeLevel": 0,
+              "duration": 203299,
+              "startTime": 1753365300980,
+              "report": {
+                "code": "rhvDbNF74Kw6m3Wy",
+                "fightID": -38,
+                "startTime": 1753360652579
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "赵雪",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 529.541,
+              "hardModeLevel": 0,
+              "duration": 200534,
+              "startTime": 1753350443794,
+              "report": {
+                "code": "g19Tq3KB62XQHaLc",
+                "fightID": -96,
+                "startTime": 1753336633555
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "朔澜",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 529.446,
+              "hardModeLevel": 0,
+              "duration": 162026,
+              "startTime": 1753362342324,
+              "report": {
+                "code": "chQv9k6f2WyjMY47",
+                "fightID": -22,
+                "startTime": 1753350038712
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "一夜丶牧逸尘",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 529.138,
+              "hardModeLevel": 0,
+              "duration": 163859,
+              "startTime": 1753335427651,
+              "report": {
+                "code": "AyWjatRhdmKFZpvg",
+                "fightID": -22,
+                "startTime": 1753331985727
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Koldskaalq",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 529.068,
+              "hardModeLevel": 0,
+              "duration": 173836,
+              "startTime": 1753296267716,
+              "report": {
+                "code": "jryaVf8kPmTHqFzc",
+                "fightID": -34,
+                "startTime": 1753292424924
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "冰丿影",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 528.432,
+              "hardModeLevel": 0,
+              "duration": 189396,
+              "startTime": 1753337716582,
+              "report": {
+                "code": "zB8AMxyQcZj6R2NT",
+                "fightID": -28,
+                "startTime": 1753334804453
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "下雪的哈尔滨",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 527.617,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "牛肉粉干",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 527.233,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "奶自己一口",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 525.46,
+              "hardModeLevel": 0,
+              "duration": 156126,
+              "startTime": 1753367319471,
+              "report": {
+                "code": "ZVDMApLJygK8xnhj",
+                "fightID": -34,
+                "startTime": 1753364024831
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "馒头片快点儿",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 523.188,
+              "hardModeLevel": 0,
+              "duration": 162026,
+              "startTime": 1753362342324,
+              "report": {
+                "code": "chQv9k6f2WyjMY47",
+                "fightID": -22,
+                "startTime": 1753350038712
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Drhealth",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 522.077,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "椰汁牧",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 521.985,
+              "hardModeLevel": 0,
+              "duration": 167026,
+              "startTime": 1753334453369,
+              "report": {
+                "code": "ZK2gyaADdXB3k8rb",
+                "fightID": -45,
+                "startTime": 1753326543639
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "芄芓",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 519.934,
+              "hardModeLevel": 0,
+              "duration": 184079,
+              "startTime": 1753360568904,
+              "report": {
+                "code": "vLkTqRc8VwGnjJfC",
+                "fightID": -18,
+                "startTime": 1753358605976
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "张佬尸",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 519.34,
+              "hardModeLevel": 0,
+              "duration": 170944,
+              "startTime": 1753359898342,
+              "report": {
+                "code": "dRvw2mMxQfbrzCcX",
+                "fightID": -26,
+                "startTime": 1753357133025
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "絲絲",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 519.072,
+              "hardModeLevel": 0,
+              "duration": 191434,
+              "startTime": 1753321334805,
+              "report": {
+                "code": "v8Cwc3P4y1ZpQdbN",
+                "fightID": -37,
+                "startTime": 1753316333903
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "萌三岁",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 517.453,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "老僧鸠摩智",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 516.513,
+              "hardModeLevel": 0,
+              "duration": 177742,
+              "startTime": 1753365688567,
+              "report": {
+                "code": "ndKJPjvtxYrgwm7R",
+                "fightID": -21,
+                "startTime": 1753362473545
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "小馋貓丶喵喵",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 515.218,
+              "hardModeLevel": 0,
+              "duration": 186822,
+              "startTime": 1753361378543,
+              "report": {
+                "code": "rhMN7Cw8DtRqpHn4",
+                "fightID": -29,
+                "startTime": 1753358343058
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "皮革厂小姨子",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 513.534,
+              "hardModeLevel": 0,
+              "duration": 168392,
+              "startTime": 1753335616723,
+              "report": {
+                "code": "CF3LdjZNzrkaxwhQ",
+                "fightID": -24,
+                "startTime": 1753333340852
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 37
+            },
+            {
+              "name": "沐沐给我灌注",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 512.801,
+              "hardModeLevel": 0,
+              "duration": 163732,
+              "startTime": 1753363649370,
+              "report": {
+                "code": "LhbRBYry3CQHNpZf",
+                "fightID": -59,
+                "startTime": 1753358018665
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Treya",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 512.721,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "这女孩",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 512.644,
+              "hardModeLevel": 0,
+              "duration": 171419,
+              "startTime": 1753337222064,
+              "report": {
+                "code": "bgAGPLtW43pJyk1n",
+                "fightID": -29,
+                "startTime": 1753327020215
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Daydream",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 512.512,
+              "hardModeLevel": 0,
+              "duration": 138032,
+              "startTime": 1753355938430,
+              "report": {
+                "code": "3npZPyLabYrRvdm4",
+                "fightID": -42,
+                "startTime": 1753347503469
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "莫灬忘",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 509.25,
+              "hardModeLevel": 0,
+              "duration": 185630,
+              "startTime": 1753367432559,
+              "report": {
+                "code": "zVTXmafMACx4R7ZN",
+                "fightID": -78,
+                "startTime": 1753356515475
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "奥特曼小小牧",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 508.138,
+              "hardModeLevel": 0,
+              "duration": 181622,
+              "startTime": 1753344079809,
+              "report": {
+                "code": "gpXQMj2NB6KhTALH",
+                "fightID": -9,
+                "startTime": 1753342865514
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Nbms",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 507.421,
+              "hardModeLevel": 0,
+              "duration": 171282,
+              "startTime": 1753335902333,
+              "report": {
+                "code": "Y3Wwv2db7ncC6fz8",
+                "fightID": -29,
+                "startTime": 1753332051221
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "Rolinehc",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 505.025,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "笑里轻轻语",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 503.447,
+              "hardModeLevel": 0,
+              "duration": 161878,
+              "startTime": 1753359173527,
+              "report": {
+                "code": "nmvhk8WwdYAcVrPC",
+                "fightID": -27,
+                "startTime": 1753356851972
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Ximilu",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 503.125,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "莞尔揉揉头",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 501.811,
+              "hardModeLevel": 0,
+              "duration": 174488,
+              "startTime": 1753337360932,
+              "report": {
+                "code": "WzBbncyKpkhtTDxw",
+                "fightID": -25,
+                "startTime": 1753335132285
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "一筒加一筒",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 501.137,
+              "hardModeLevel": 0,
+              "duration": 160054,
+              "startTime": 1753358121864,
+              "report": {
+                "code": "ZNavMh61cYnKqWyp",
+                "fightID": -25,
+                "startTime": 1753355455559
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 38
+            },
+            {
+              "name": "专业牧",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 500.699,
+              "hardModeLevel": 0,
+              "duration": 170126,
+              "startTime": 1753361788175,
+              "report": {
+                "code": "QaGwZTNYVHv6F29J",
+                "fightID": -34,
+                "startTime": 1753358572521
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 38
+            },
+            {
+              "name": "喂勒联盟",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 499.611,
+              "hardModeLevel": 0,
+              "duration": 143850,
+              "startTime": 1753332736589,
+              "report": {
+                "code": "jcLTtvnVWad19hwC",
+                "fightID": -9,
+                "startTime": 1753331955429
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 37
+            },
+            {
+              "name": "暮日耀光",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 499.205,
+              "hardModeLevel": 0,
+              "duration": 182953,
+              "startTime": 1753359285771,
+              "report": {
+                "code": "2JdQPVb7X6Tftxgm",
+                "fightID": -29,
+                "startTime": 1753356629610
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "梅奈何",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 496.749,
+              "hardModeLevel": 0,
+              "duration": 170545,
+              "startTime": 1753334896829,
+              "report": {
+                "code": "jpwXmYG9CkhfMAFg",
+                "fightID": -29,
+                "startTime": 1753332404878
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "亡者之眼",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 496.231,
+              "hardModeLevel": 0,
+              "duration": 152296,
+              "startTime": 1753369310678,
+              "report": {
+                "code": "8d7QYMhRJqFVwTa9",
+                "fightID": -7,
+                "startTime": 1753367923836
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "急诊科",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 494.085,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 37
+            },
+            {
+              "name": "宙斯丶之翼",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 492.611,
+              "hardModeLevel": 0,
+              "duration": 143931,
+              "startTime": 1753355941088,
+              "report": {
+                "code": "aky3vnBQK2GxJH4X",
+                "fightID": -17,
+                "startTime": 1753354451159
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "纤雪乀",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 492.007,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "菲儿暮夏",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 490.069,
+              "hardModeLevel": 0,
+              "duration": 157947,
+              "startTime": 1753359930215,
+              "report": {
+                "code": "HKVQq9PZWfbNjd34",
+                "fightID": -20,
+                "startTime": 1753358026879
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "特浪仆",
+              "class": "Priest",
+              "spec": "Holy",
+              "amount": 489.318,
+              "hardModeLevel": 0,
+              "duration": 168314,
+              "startTime": 1753359826896,
+              "report": {
+                "code": "ybJfXq3VFNHvTcm1",
+                "fightID": -22,
+                "startTime": 1753357153786
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 65.31,
+      "pointsResetIn": 3577
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 65.31,
+    "reset_in_s": 3577
+  }
+}

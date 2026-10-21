@@ -1,0 +1,510 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Druid",
+    "spec": "Balance"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:57.197820+00:00",
+  "ended_at": "2026-10-21T12:04:57.544456+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": false,
+          "count": 22,
+          "rankings": [
+            {
+              "name": "Teris",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 686.576,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "三猫",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 30.9316,
+              "hardModeLevel": 0,
+              "duration": 199828,
+              "startTime": 1753354498543,
+              "report": {
+                "code": "jNh6AKQptW7TkDwF",
+                "fightID": -35,
+                "startTime": 1753343506763
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 66,
+              "size": 36
+            },
+            {
+              "name": "奶个嘚儿",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 19.5154,
+              "hardModeLevel": 0,
+              "duration": 176322,
+              "startTime": 1753363553140,
+              "report": {
+                "code": "A6acbw8YMdTgxGrN",
+                "fightID": -29,
+                "startTime": 1753360117291
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 24,
+              "size": 40
+            },
+            {
+              "name": "牛定洋",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 9.05553,
+              "hardModeLevel": 0,
+              "duration": 150074,
+              "startTime": 1753322716842,
+              "report": {
+                "code": "krTDb9Fj7RnQq1zv",
+                "fightID": -22,
+                "startTime": 1753320009542
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "蒙牛哞哞",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0.405332,
+              "hardModeLevel": 0,
+              "duration": 177632,
+              "startTime": 1753360479208,
+              "report": {
+                "code": "KAaTBtbrqg9z1hm3",
+                "fightID": -51,
+                "startTime": 1753354326378
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 65,
+              "size": 39
+            },
+            {
+              "name": "这是一个鸟德",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "切叽叽",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 185630,
+              "startTime": 1753367432559,
+              "report": {
+                "code": "zVTXmafMACx4R7ZN",
+                "fightID": -78,
+                "startTime": 1753356515475
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "莱雅娜",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 185113,
+              "startTime": 1753362781192,
+              "report": {
+                "code": "G8aRQTzWdA3gYr6w",
+                "fightID": -36,
+                "startTime": 1753356057763
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "格林特",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 194363,
+              "startTime": 1753361006765,
+              "report": {
+                "code": "FM39hWXa6BQtcxmP",
+                "fightID": -25,
+                "startTime": 1753358154493
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "穷徳",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 174454,
+              "startTime": 1753357605203,
+              "report": {
+                "code": "2Dcwy7MQvmRNFWjJ",
+                "fightID": -40,
+                "startTime": 1753353851593
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "战复那个贼",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 170172,
+              "startTime": 1753361784982,
+              "report": {
+                "code": "yNKbV4Ax3aPQT6H2",
+                "fightID": -34,
+                "startTime": 1753359156929
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "笑德",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 156011,
+              "startTime": 1753361440268,
+              "report": {
+                "code": "wmjBvQNcZqJ8fzax",
+                "fightID": -33,
+                "startTime": 1753356079253
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 66,
+              "size": 39
+            },
+            {
+              "name": "不想当哀木涕",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "丨瑞秋丨",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 170944,
+              "startTime": 1753359898342,
+              "report": {
+                "code": "dRvw2mMxQfbrzCcX",
+                "fightID": -26,
+                "startTime": 1753357133025
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "牛尔蒂尼",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 147044,
+              "startTime": 1753358181175,
+              "report": {
+                "code": "f8Z6Y2rTM3qA7mGj",
+                "fightID": -24,
+                "startTime": 1753355889713
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "自然之力萨",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 186943,
+              "startTime": 1753357024420,
+              "report": {
+                "code": "3Q1dnWtwBMXTpgK2",
+                "fightID": -27,
+                "startTime": 1753354686795
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "莫海",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 186943,
+              "startTime": 1753357024420,
+              "report": {
+                "code": "3Q1dnWtwBMXTpgK2",
+                "fightID": -27,
+                "startTime": 1753354686795
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "挠痒痒",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 165608,
+              "startTime": 1753348837899,
+              "report": {
+                "code": "DFtz4VNAHw6BqyCM",
+                "fightID": -45,
+                "startTime": 1753338065522
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "你缺德吗",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 161828,
+              "startTime": 1753338182750,
+              "report": {
+                "code": "Aa2YvDFL6hpnTK7t",
+                "fightID": -26,
+                "startTime": 1753334122111
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 36
+            },
+            {
+              "name": "月静风清",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 191855,
+              "startTime": 1753335392451,
+              "report": {
+                "code": "kAqhzJTjZ8Rc9wmb",
+                "fightID": -25,
+                "startTime": 1753332512850
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "翻滚吧牛宝宝",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 202629,
+              "startTime": 1753332809977,
+              "report": {
+                "code": "pq63J2FrHRzwvg9c",
+                "fightID": -24,
+                "startTime": 1753330256011
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 53,
+              "size": 39
+            },
+            {
+              "name": "晓晓伊",
+              "class": "Druid",
+              "spec": "Balance",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 191463,
+              "startTime": 1753321339113,
+              "report": {
+                "code": "FN2wdtAgqpY3BVhJ",
+                "fightID": -37,
+                "startTime": 1753314852785
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 25,
+              "size": 38
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 53.2,
+      "pointsResetIn": 3580
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 53.2,
+    "reset_in_s": 3580
+  }
+}

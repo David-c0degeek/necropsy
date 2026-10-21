@@ -1,0 +1,463 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Paladin",
+    "spec": "Retribution"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:05:00.626022+00:00",
+  "ended_at": "2026-10-21T12:05:00.943459+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": false,
+          "count": 20,
+          "rankings": [
+            {
+              "name": "波波圣光",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 200.738,
+              "hardModeLevel": 0,
+              "duration": 204022,
+              "startTime": 1753362237146,
+              "report": {
+                "code": "2Y1JVQMHB8LFCGNx",
+                "fightID": -42,
+                "startTime": 1753354875636
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 74,
+              "size": 39
+            },
+            {
+              "name": "纳兰彦烁",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 93.4075,
+              "hardModeLevel": 0,
+              "duration": 194963,
+              "startTime": 1753360045748,
+              "report": {
+                "code": "GhfrQcDqXyw4nZ17",
+                "fightID": -42,
+                "startTime": 1753354365319
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 39,
+              "size": 40
+            },
+            {
+              "name": "黑仔發",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 18.2293,
+              "hardModeLevel": 0,
+              "duration": 173896,
+              "startTime": 1753361272913,
+              "report": {
+                "code": "9Rk8pCjTQxGDZWaN",
+                "fightID": -27,
+                "startTime": 1753358848965
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 39
+            },
+            {
+              "name": "熊性鶏素",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 17.6139,
+              "hardModeLevel": 0,
+              "duration": 191837,
+              "startTime": 1753335391862,
+              "report": {
+                "code": "c8y2jrd6Mqp9Fw7K",
+                "fightID": -24,
+                "startTime": 1753331758717
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 37
+            },
+            {
+              "name": "奶酪布丁酱",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 40
+            },
+            {
+              "name": "青丝蘸白雪",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "小救星小渡",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "慕子轩",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "闪电暴击",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 169280,
+              "startTime": 1753361044912,
+              "report": {
+                "code": "MwACHhrFj31vpB6a",
+                "fightID": -26,
+                "startTime": 1753358656416
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 70,
+              "size": 38
+            },
+            {
+              "name": "程大力",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 194363,
+              "startTime": 1753361006765,
+              "report": {
+                "code": "FM39hWXa6BQtcxmP",
+                "fightID": -25,
+                "startTime": 1753358154493
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "圣裁",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 194363,
+              "startTime": 1753361006765,
+              "report": {
+                "code": "FM39hWXa6BQtcxmP",
+                "fightID": -25,
+                "startTime": 1753358154493
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "帕拉丁",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 168314,
+              "startTime": 1753359826896,
+              "report": {
+                "code": "ybJfXq3VFNHvTcm1",
+                "fightID": -22,
+                "startTime": 1753357153786
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "横刀立马",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "晴光",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 172660,
+              "startTime": 1753359092274,
+              "report": {
+                "code": "fJq4MXvpdN8ckYBP",
+                "fightID": -29,
+                "startTime": 1753355604416
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 38
+            },
+            {
+              "name": "远方有你",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 218560,
+              "startTime": 1753336019762,
+              "report": {
+                "code": "hqNWxApmbY6XHtQB",
+                "fightID": -23,
+                "startTime": 1753332952002
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 36
+            },
+            {
+              "name": "Kongling",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 36
+            },
+            {
+              "name": "那个奶骑丶",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 216786,
+              "startTime": 1753327765535,
+              "report": {
+                "code": "vJ4WBz8CPF6rY2Ak",
+                "fightID": -28,
+                "startTime": 1753324544946
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            },
+            {
+              "name": "狂曝战",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 217638,
+              "startTime": 1753337460747,
+              "report": {
+                "code": "VN8jqDhWgM1cmKvx",
+                "fightID": -9,
+                "startTime": 1753317875297
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 36
+            },
+            {
+              "name": "鱼书雁信",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 206251,
+              "startTime": 1753335924126,
+              "report": {
+                "code": "zDW4nqVAhLdryYTF",
+                "fightID": -7,
+                "startTime": 1753335356041
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 35
+            },
+            {
+              "name": "长江街溜子",
+              "class": "Paladin",
+              "spec": "Retribution",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 193676,
+              "startTime": 1753335108757,
+              "report": {
+                "code": "2NaH981yXjmdDwqZ",
+                "fightID": -43,
+                "startTime": 1753329089434
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 64.3,
+      "pointsResetIn": 3577
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 64.3,
+    "reset_in_s": 3577
+  }
+}

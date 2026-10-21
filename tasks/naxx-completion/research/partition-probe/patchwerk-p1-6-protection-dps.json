@@ -1,0 +1,2007 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Paladin",
+    "spec": "Protection"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:51.718109+00:00",
+  "ended_at": "2026-10-21T12:04:52.144249+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": false,
+          "count": 88,
+          "rankings": [
+            {
+              "name": "Raenarth",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 638.559,
+              "hardModeLevel": 0,
+              "duration": 116957,
+              "startTime": 1763868430702,
+              "report": {
+                "code": "WLnY4Dmz2jbFrp7w",
+                "fightID": 43,
+                "startTime": 1763863320433
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Kornek",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 538.194,
+              "hardModeLevel": 0,
+              "duration": 153257,
+              "startTime": 1777604198916,
+              "report": {
+                "code": "yDAGnRYq1fCFHbXJ",
+                "fightID": 8,
+                "startTime": 1777596115907
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Cisternina",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 532.753,
+              "hardModeLevel": 0,
+              "duration": 121178,
+              "startTime": 1719275873306,
+              "report": {
+                "code": "8GBwqztFxTcHv7dY",
+                "fightID": 22,
+                "startTime": 1719274356465
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Ecclesia",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 480.221,
+              "hardModeLevel": 0,
+              "duration": 102961,
+              "startTime": 1739929856895,
+              "report": {
+                "code": "GaF7z3TrWR2jQ8Vd",
+                "fightID": 45,
+                "startTime": 1739927202707
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "玩儿个棒子",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 478.022,
+              "hardModeLevel": 0,
+              "duration": 155518,
+              "startTime": 1734093361686,
+              "report": {
+                "code": "zrTRNW8VHnb74j1v",
+                "fightID": 56,
+                "startTime": 1734088141225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Antimiracle",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 439.597,
+              "hardModeLevel": 0,
+              "duration": 116591,
+              "startTime": 1781658974178,
+              "report": {
+                "code": "mdWc13gR6KNBD7Xk",
+                "fightID": 46,
+                "startTime": 1781656297441
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "成都宝剑哥",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 430.796,
+              "hardModeLevel": 0,
+              "duration": 177202,
+              "startTime": 1741954157522,
+              "report": {
+                "code": "hFc9qTfJDVKgpZBz",
+                "fightID": 24,
+                "startTime": 1741920535417
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Basandra",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 368.323,
+              "hardModeLevel": 0,
+              "duration": 159094,
+              "startTime": 1716763915151,
+              "report": {
+                "code": "ztnbLW627p3X9DHa",
+                "fightID": 59,
+                "startTime": 1716757741794
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Gothal",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 356.986,
+              "hardModeLevel": 0,
+              "duration": 187702,
+              "startTime": 1720729530762,
+              "report": {
+                "code": "LMhxQaC8pqVtgXyf",
+                "fightID": 74,
+                "startTime": 1720721870529
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "Amarict",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 330.134,
+              "hardModeLevel": 0,
+              "duration": 334906,
+              "startTime": 1739245276200,
+              "report": {
+                "code": "FfQtgh3VGq1ar94W",
+                "fightID": 21,
+                "startTime": 1739243484230
+              },
+              "guild": {
+                "id": 676709,
+                "name": "Legacy",
+                "faction": 0
+              },
+              "server": {
+                "id": 10005,
+                "name": "Grobbulus",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 36
+            },
+            {
+              "name": "Taseman",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 322.376,
+              "hardModeLevel": 0,
+              "duration": 257625,
+              "startTime": 1693756511707,
+              "report": {
+                "code": "7gxaLRTqZWp1Bynv",
+                "fightID": 65,
+                "startTime": 1693749730701
+              },
+              "guild": {
+                "id": 704774,
+                "name": "Raid Alliance",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 38
+            },
+            {
+              "name": "Saintanais",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 316.276,
+              "hardModeLevel": 0,
+              "duration": 165207,
+              "startTime": 1713031780481,
+              "report": {
+                "code": "qALXBpFmZ69HMCrR",
+                "fightID": 23,
+                "startTime": 1713030195637
+              },
+              "guild": {
+                "id": 710506,
+                "name": "Mellon",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Dossius",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 302.531,
+              "hardModeLevel": 0,
+              "duration": 134872,
+              "startTime": 1780270365998,
+              "report": {
+                "code": "LWmGBr6fjXxdFgkC",
+                "fightID": 6,
+                "startTime": 1780269528130
+              },
+              "guild": {
+                "id": 713845,
+                "name": "Fresh Daily",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Killerduki",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 241.118,
+              "hardModeLevel": 0,
+              "duration": 144892,
+              "startTime": 1762718560298,
+              "report": {
+                "code": "V6nDbW8q4pmxvhzM",
+                "fightID": 33,
+                "startTime": 1762716338511
+              },
+              "guild": {
+                "id": 775073,
+                "name": "Malice In Wonderland",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 39
+            },
+            {
+              "name": "传奇的马库斯",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 239.91,
+              "hardModeLevel": 0,
+              "duration": 171464,
+              "startTime": 1776567326841,
+              "report": {
+                "code": "46YLt9ZhgTbdHpra",
+                "fightID": 45,
+                "startTime": 1776553281822
+              },
+              "guild": {
+                "id": 795219,
+                "name": "白銀之手",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 37
+            },
+            {
+              "name": "提里奥丶坲玎",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 235.334,
+              "hardModeLevel": 0,
+              "duration": 181844,
+              "startTime": 1708091257503,
+              "report": {
+                "code": "VnawC8b6P1rRYGyM",
+                "fightID": 33,
+                "startTime": 1708088214401
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "库尔拉龙",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 229.448,
+              "hardModeLevel": 0,
+              "duration": 166674,
+              "startTime": 1738504577630,
+              "report": {
+                "code": "mMZLtRbjFHz4kwfQ",
+                "fightID": 30,
+                "startTime": 1738500099271
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Blackrider",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 214.968,
+              "hardModeLevel": 0,
+              "duration": 201053,
+              "startTime": 1747424340126,
+              "report": {
+                "code": "ZkK3RNDmy4CpbcLz",
+                "fightID": 68,
+                "startTime": 1747418398533
+              },
+              "guild": {
+                "id": 710980,
+                "name": "Classic Enjoyers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "元帅小楠",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 213.251,
+              "hardModeLevel": 0,
+              "duration": 182977,
+              "startTime": 1777207991180,
+              "report": {
+                "code": "x3j49nf8kHPQbcDR",
+                "fightID": 30,
+                "startTime": 1777205027778
+              },
+              "guild": {
+                "id": 811784,
+                "name": "宝可梦联盟",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "牛力大教授",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 205.01,
+              "hardModeLevel": 0,
+              "duration": 160909,
+              "startTime": 1655522917781,
+              "report": {
+                "code": "2Bcg8fjzdkCqHpxR",
+                "fightID": 52,
+                "startTime": 1655517549173
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 37
+            },
+            {
+              "name": "Dagreodan",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 193.002,
+              "hardModeLevel": 0,
+              "duration": 218537,
+              "startTime": 1788287754038,
+              "report": {
+                "code": "41kz6WCvYgPL9dw2",
+                "fightID": 20,
+                "startTime": 1788286148631
+              },
+              "guild": {
+                "id": 778429,
+                "name": "Never Give Up",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 37
+            },
+            {
+              "name": "圣羽翔龙",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 169.439,
+              "hardModeLevel": 0,
+              "duration": 182042,
+              "startTime": 1762582579334,
+              "report": {
+                "code": "BhZDRVMagxdj7mA1",
+                "fightID": 29,
+                "startTime": 1762580014616
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 37
+            },
+            {
+              "name": "Heliona",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 154.765,
+              "hardModeLevel": 0,
+              "duration": 195787,
+              "startTime": 1762380510884,
+              "report": {
+                "code": "wC89yJD7Mjx2GkgB",
+                "fightID": 81,
+                "startTime": 1762372357844
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Ankxenamun",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 117.513,
+              "hardModeLevel": 0,
+              "duration": 214845,
+              "startTime": 1641239537067,
+              "report": {
+                "code": "VJrZk1vTfPn28KHR",
+                "fightID": 24,
+                "startTime": 1641237519979
+              },
+              "guild": {
+                "id": 601368,
+                "name": "the old raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 71,
+              "size": 39
+            },
+            {
+              "name": "野外小巡警",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 95.9695,
+              "hardModeLevel": 0,
+              "duration": 158592,
+              "startTime": 1776401451080,
+              "report": {
+                "code": "4Qmgr6nRW1K8FGt2",
+                "fightID": 22,
+                "startTime": 1776398240011
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 72,
+              "size": 33
+            },
+            {
+              "name": "Buffvendor",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 86.9354,
+              "hardModeLevel": 0,
+              "duration": 250761,
+              "startTime": 1772395013916,
+              "report": {
+                "code": "RhCZ3KQPyrVg8pGf",
+                "fightID": 25,
+                "startTime": 1772391543057
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Freewheelers",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 66.2683,
+              "hardModeLevel": 0,
+              "duration": 163185,
+              "startTime": 1777553517833,
+              "report": {
+                "code": "N3jWZ9LPvCbqx7tc",
+                "fightID": 35,
+                "startTime": 1777550106100
+              },
+              "guild": {
+                "id": 625384,
+                "name": "青云志A团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 67,
+              "size": 37
+            },
+            {
+              "name": "咕道西風瘦馬",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 51.7818,
+              "hardModeLevel": 0,
+              "duration": 193543,
+              "startTime": 1783518432803,
+              "report": {
+                "code": "n4mYkq9P2v1ztjV7",
+                "fightID": 37,
+                "startTime": 1783514606004
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Oomther",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 42.2696,
+              "hardModeLevel": 0,
+              "duration": 315215,
+              "startTime": 1730750101066,
+              "report": {
+                "code": "6BgapGNMywkvFK3J",
+                "fightID": 2,
+                "startTime": 1730749646758
+              },
+              "guild": {
+                "id": 710573,
+                "name": "Whiskers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 38
+            },
+            {
+              "name": "一凯撒一",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 14.8165,
+              "hardModeLevel": 0,
+              "duration": 149495,
+              "startTime": 1768656886450,
+              "report": {
+                "code": "1XaV9KDBdcgFChyp",
+                "fightID": 38,
+                "startTime": 1768646297535
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 68,
+              "size": 39
+            },
+            {
+              "name": "污喵王",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 6.92502,
+              "hardModeLevel": 0,
+              "duration": 188014,
+              "startTime": 1783866094462,
+              "report": {
+                "code": "3m6GbBwQtxHzDa1r",
+                "fightID": 26,
+                "startTime": 1783863405034
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 37
+            },
+            {
+              "name": "冷泪蝶",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0.414957,
+              "hardModeLevel": 0,
+              "duration": 173512,
+              "startTime": 1665664172987,
+              "report": {
+                "code": "cNAhyq2Q8CZKfVDF",
+                "fightID": 41,
+                "startTime": 1665660211123
+              },
+              "guild": {
+                "id": 625384,
+                "name": "青云志A团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 73,
+              "size": 37
+            },
+            {
+              "name": "Paragon",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 115590,
+              "startTime": 1789696655225,
+              "report": {
+                "code": "awBYqDAVK37hTgMk",
+                "fightID": 52,
+                "startTime": 1789693559787
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "小啊杰",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 177953,
+              "startTime": 1788698379910,
+              "report": {
+                "code": "D81vwJGjgLhBQ9KR",
+                "fightID": 26,
+                "startTime": 1788694141195
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "夕阳恋歌",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 167601,
+              "startTime": 1787919343122,
+              "report": {
+                "code": "nQK2HAkmWzTXLNxr",
+                "fightID": 26,
+                "startTime": 1787915790161
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "撕烂你裤衩丶",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 185608,
+              "startTime": 1785737499026,
+              "report": {
+                "code": "N8gCT2dZP7v6DXKM",
+                "fightID": 67,
+                "startTime": 1785724496660
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 42,
+              "size": 39
+            },
+            {
+              "name": "桉树小骑",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 164291,
+              "startTime": 1785472768439,
+              "report": {
+                "code": "K1XvfQaJFTNrgmwd",
+                "fightID": 17,
+                "startTime": 1785470358510
+              },
+              "guild": {
+                "id": 772014,
+                "name": "<笨笨> - 极速G团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Qsqsqs",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 155553,
+              "startTime": 1783402848479,
+              "report": {
+                "code": "FxhPJ6LXz7YatHcT",
+                "fightID": 26,
+                "startTime": 1783400151314
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "哦泡牛奶",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 161245,
+              "startTime": 1783219717509,
+              "report": {
+                "code": "k3nTQCpHhjcMBD8Y",
+                "fightID": 23,
+                "startTime": 1783215670687
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 36
+            },
+            {
+              "name": "醉清丶风",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 179778,
+              "startTime": 1782952222417,
+              "report": {
+                "code": "9VwQXL1vCBc87ZAp",
+                "fightID": 19,
+                "startTime": 1782949048808
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "糖糖",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 140943,
+              "startTime": 1782046955822,
+              "report": {
+                "code": "RXcdgxrWT3mKkywG",
+                "fightID": 30,
+                "startTime": 1782044572268
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "心頭滅却",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 182192,
+              "startTime": 1780316919261,
+              "report": {
+                "code": "cpvtYQLyVTJBz8w4",
+                "fightID": 16,
+                "startTime": 1780315264964
+              },
+              "guild": {
+                "id": 812622,
+                "name": "天堂",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 34
+            },
+            {
+              "name": "Flatticus",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 144464,
+              "startTime": 1779586616348,
+              "report": {
+                "code": "9nvXAgtLG12WNPRa",
+                "fightID": 49,
+                "startTime": 1779580873226
+              },
+              "guild": {
+                "id": 809170,
+                "name": "FREAKS",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "神兵天赐",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 160773,
+              "startTime": 1776945704547,
+              "report": {
+                "code": "MrW3GND6RyvcBYHV",
+                "fightID": 21,
+                "startTime": 1776943530793
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 72,
+              "size": 37
+            },
+            {
+              "name": "小阿姨爱猫咪",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 158211,
+              "startTime": 1775746906629,
+              "report": {
+                "code": "3ANgzvHnBQ7y9w4V",
+                "fightID": 32,
+                "startTime": 1775743130017
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "秋双",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 198477,
+              "startTime": 1775390892838,
+              "report": {
+                "code": "P9zV8W3bpMQN76GL",
+                "fightID": 26,
+                "startTime": 1775387695350
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "丨小四",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 166605,
+              "startTime": 1775131612179,
+              "report": {
+                "code": "jfTvLDqzxpNbyrQX",
+                "fightID": 23,
+                "startTime": 1775129041314
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Melany",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 167445,
+              "startTime": 1775048941087,
+              "report": {
+                "code": "XAZCvTRHGcwty1hn",
+                "fightID": 47,
+                "startTime": 1775043446737
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "汐晗",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 186844,
+              "startTime": 1774698492563,
+              "report": {
+                "code": "bTnYZdwqmz2RMvpN",
+                "fightID": 23,
+                "startTime": 1774694458459
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 34
+            },
+            {
+              "name": "迷迭香",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 156520,
+              "startTime": 1774272119005,
+              "report": {
+                "code": "XY3tLwCzWvmc1FGM",
+                "fightID": 61,
+                "startTime": 1774266862688
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "小四丶",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 160999,
+              "startTime": 1773836928869,
+              "report": {
+                "code": "rqT9gcAdbm17NxhH",
+                "fightID": 23,
+                "startTime": 1773834609527
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "星儿",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 170426,
+              "startTime": 1772779852040,
+              "report": {
+                "code": "Th7V2fFRtpW4Lx8k",
+                "fightID": 48,
+                "startTime": 1772774891084
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "阮沅芷",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 177026,
+              "startTime": 1771418374543,
+              "report": {
+                "code": "ADvhrp7GwzVB9QXH",
+                "fightID": 23,
+                "startTime": 1771416388078
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 65,
+              "size": 39
+            },
+            {
+              "name": "无聊的奶骑",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 168242,
+              "startTime": 1771161426246,
+              "report": {
+                "code": "TjvNLmYtBH9QpJ6M",
+                "fightID": 49,
+                "startTime": 1771155790090
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "中怿破",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 154915,
+              "startTime": 1771124362911,
+              "report": {
+                "code": "3pRBNgyA8ZjwMcmX",
+                "fightID": 46,
+                "startTime": 1771119348063
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "大骑奇",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 170597,
+              "startTime": 1767012887756,
+              "report": {
+                "code": "2QaPvWTVZBAcXyH7",
+                "fightID": 23,
+                "startTime": 1767009934454
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Kuther",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 137643,
+              "startTime": 1766542600408,
+              "report": {
+                "code": "9cdgaGw6k4xTNJCL",
+                "fightID": 51,
+                "startTime": 1766538350665
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "公丿主",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 182365,
+              "startTime": 1766213243439,
+              "report": {
+                "code": "kj6JcdHD9ZwYWXnN",
+                "fightID": 39,
+                "startTime": 1766208916254
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 35
+            },
+            {
+              "name": "将军阿比迪斯",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 157931,
+              "startTime": 1764085517953,
+              "report": {
+                "code": "vYLjfmWpcnZC9714",
+                "fightID": 37,
+                "startTime": 1764081511128
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 38
+            },
+            {
+              "name": "忆丹",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 199377,
+              "startTime": 1763825323895,
+              "report": {
+                "code": "MRHgd7zxWjfv3bFV",
+                "fightID": 94,
+                "startTime": 1763808413503
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "大奇骑",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 180613,
+              "startTime": 1763272769373,
+              "report": {
+                "code": "MZWh9XBcqYFJwmAV",
+                "fightID": 27,
+                "startTime": 1763268607366
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 35
+            },
+            {
+              "name": "没忍住",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 157272,
+              "startTime": 1762787230454,
+              "report": {
+                "code": "n8h9X4YjqdzcxDRN",
+                "fightID": 21,
+                "startTime": 1762784968422
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "冰狩丨魄",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 194884,
+              "startTime": 1759406780426,
+              "report": {
+                "code": "PgKcV67JGqQtyXvY",
+                "fightID": 40,
+                "startTime": 1759401256581
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Anonymous",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 128769,
+              "startTime": 1758995112567,
+              "report": {
+                "code": "a:FYrtZzdcAwW7PVBp",
+                "fightID": 17,
+                "startTime": 1758992176601
+              },
+              "hidden": true,
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Skilful",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 188135,
+              "startTime": 1756558417506,
+              "report": {
+                "code": "VrbtC426zY1TPRGD",
+                "fightID": 24,
+                "startTime": 1756555367586
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Doublemay",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 146112,
+              "startTime": 1756557374172,
+              "report": {
+                "code": "xQaFNnYvLW7TchrZ",
+                "fightID": 20,
+                "startTime": 1756555816278
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "爷爷能无敌",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 190813,
+              "startTime": 1751294211809,
+              "report": {
+                "code": "kGdWT3JPhjgM4AYB",
+                "fightID": 25,
+                "startTime": 1751291542177
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "彼岸顺子",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 170871,
+              "startTime": 1751177690536,
+              "report": {
+                "code": "jFHZLtXAdqvfkCNP",
+                "fightID": 89,
+                "startTime": 1751161214916
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "贪婪的外乡人",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 166404,
+              "startTime": 1748522147932,
+              "report": {
+                "code": "hjfPRkzyBNKq79dp",
+                "fightID": 19,
+                "startTime": 1748518977503
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "蒋德俊哟",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 276447,
+              "startTime": 1747143885133,
+              "report": {
+                "code": "kgmVxcdrwf4H2vq8",
+                "fightID": 43,
+                "startTime": 1747136555462
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "Sakurminerva",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 162017,
+              "startTime": 1743859082738,
+              "report": {
+                "code": "xZ6qkwmLjFrVpv37",
+                "fightID": 26,
+                "startTime": 1743855732648
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Lanz",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 124280,
+              "startTime": 1743628849423,
+              "report": {
+                "code": "y94MD7qG3ZjLbV1A",
+                "fightID": 13,
+                "startTime": 1743623812383
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Viraa",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 139987,
+              "startTime": 1742847969091,
+              "report": {
+                "code": "xnZ8qmTN3WaRX7yD",
+                "fightID": 30,
+                "startTime": 1742844782301
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "卜奎大呲花",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 179509,
+              "startTime": 1742822469030,
+              "report": {
+                "code": "HTR7DnxF3yPk2hKV",
+                "fightID": 32,
+                "startTime": 1742819213373
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "泸州肥儿粉丶",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 209130,
+              "startTime": 1740501352272,
+              "report": {
+                "code": "2hqnCr6jmPGp8fWt",
+                "fightID": 4,
+                "startTime": 1740500746940
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "杀你只讲道理",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 169769,
+              "startTime": 1737871972859,
+              "report": {
+                "code": "pdtZrMgkV3bCJ8hL",
+                "fightID": 18,
+                "startTime": 1737868887971
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 36
+            },
+            {
+              "name": "人参归脾丸",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 195773,
+              "startTime": 1733460884947,
+              "report": {
+                "code": "bH3PVpxgXZ49rJvt",
+                "fightID": 28,
+                "startTime": 1733457923523
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "마리엘트루하트",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 145701,
+              "startTime": 1723958343912,
+              "report": {
+                "code": "D19JpC8TN3FXrcPG",
+                "fightID": 24,
+                "startTime": 1723956312445
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Anarra",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 90483,
+              "startTime": 1722999493882,
+              "report": {
+                "code": "8rqpaAnLMPJwR921",
+                "fightID": 34,
+                "startTime": 1722996217831
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Påìñgøðx",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 125796,
+              "startTime": 1722114625451,
+              "report": {
+                "code": "JwN9TtApf7bMa2d6",
+                "fightID": 23,
+                "startTime": 1722110936599
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Minnodin",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 133173,
+              "startTime": 1720755665263,
+              "report": {
+                "code": "kJPVhYq3zxZbKQL1",
+                "fightID": 38,
+                "startTime": 1720751633585
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Denoth",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 150890,
+              "startTime": 1719512378625,
+              "report": {
+                "code": "B6W3RZCz1AcV2QYK",
+                "fightID": 13,
+                "startTime": 1719511359455
+              },
+              "guild": {
+                "id": 708503,
+                "name": "Infinite Oblivion",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "沙拉曼德",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 210436,
+              "startTime": 1709447522465,
+              "report": {
+                "code": "xnZQWj1mNFAHYzr4",
+                "fightID": 30,
+                "startTime": 1709444240289
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Palabama",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 112688,
+              "startTime": 1704597851968,
+              "report": {
+                "code": "2r4pdN6gtx79PAvL",
+                "fightID": 64,
+                "startTime": 1704590795452
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Icecoldmilk",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 283206,
+              "startTime": 1690805642074,
+              "report": {
+                "code": "ZbwB2R47mnfVYxpc",
+                "fightID": 36,
+                "startTime": 1690800669579
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "无影光",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 179446,
+              "startTime": 1670219675662,
+              "report": {
+                "code": "G2AvaQm71BhTDqRZ",
+                "fightID": 25,
+                "startTime": 1670216935118
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 34
+            },
+            {
+              "name": "帝释天",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 207434,
+              "startTime": 1668519156752,
+              "report": {
+                "code": "Y4FTZyKCcJwdP6fG",
+                "fightID": 143,
+                "startTime": 1668478956401
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 37
+            },
+            {
+              "name": "云想依花想容",
+              "class": "Paladin",
+              "spec": "Protection",
+              "amount": 0,
+              "hardModeLevel": 0,
+              "duration": 155367,
+              "startTime": 1651322136986,
+              "report": {
+                "code": "9GdZz64qDXcgp8QN",
+                "fightID": 16,
+                "startTime": 1651320856118
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 72,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 27.09,
+      "pointsResetIn": 3586
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 27.09,
+    "reset_in_s": 3586
+  }
+}

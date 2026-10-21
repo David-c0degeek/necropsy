@@ -1,0 +1,2453 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Druid",
+    "spec": "Feral"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:48.773547+00:00",
+  "ended_at": "2026-10-21T12:04:49.224016+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Mckitty",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1588.26,
+              "hardModeLevel": 0,
+              "duration": 96030,
+              "startTime": 1744762848882,
+              "report": {
+                "code": "hwxP34cHf9gKBv8N",
+                "fightID": 13,
+                "startTime": 1744762094763
+              },
+              "guild": {
+                "id": 705739,
+                "name": "SOM II Waiting Room GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Stinkface",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1526.05,
+              "hardModeLevel": 0,
+              "duration": 108100,
+              "startTime": 1731552571093,
+              "report": {
+                "code": "maHpk8K4hvLQzFRf",
+                "fightID": 35,
+                "startTime": 1731548482816
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Hamtaró",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1500,
+              "hardModeLevel": 0,
+              "duration": 108225,
+              "startTime": 1745028148413,
+              "report": {
+                "code": "hVrBkcXqvHm8YL9d",
+                "fightID": 29,
+                "startTime": 1745024817808
+              },
+              "server": {
+                "id": 10063,
+                "name": "Rattlegore",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Suncat",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1456.59,
+              "hardModeLevel": 0,
+              "duration": 108494,
+              "startTime": 1787449583878,
+              "report": {
+                "code": "hprJxjB6PzcVbXYR",
+                "fightID": 38,
+                "startTime": 1787446757121
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Hélios",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1454.44,
+              "hardModeLevel": 0,
+              "duration": 102690,
+              "startTime": 1749925371338,
+              "report": {
+                "code": "ghcYNKWwn3PkQpR1",
+                "fightID": 28,
+                "startTime": 1749921193165
+              },
+              "guild": {
+                "id": 725186,
+                "name": "Goop Troop",
+                "faction": 0
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Mcbear",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1445.04,
+              "hardModeLevel": 0,
+              "duration": 118137,
+              "startTime": 1754704892259,
+              "report": {
+                "code": "aWX6AnwHJmzxTGd9",
+                "fightID": 30,
+                "startTime": 1754701059504
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Dyzzxy",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1426.84,
+              "hardModeLevel": 0,
+              "duration": 96284,
+              "startTime": 1789324174724,
+              "report": {
+                "code": "D6VCXFLm8kvZTrRj",
+                "fightID": 19,
+                "startTime": 1789322397955
+              },
+              "guild": {
+                "id": 774862,
+                "name": "Awakening",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Löwenpapa",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1426.7,
+              "hardModeLevel": 0,
+              "duration": 111936,
+              "startTime": 1755282290753,
+              "report": {
+                "code": "fxagXj2LJvz3crkw",
+                "fightID": 23,
+                "startTime": 1755278835086
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Esdo",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1403.65,
+              "hardModeLevel": 0,
+              "duration": 120440,
+              "startTime": 1778114358748,
+              "report": {
+                "code": "WNrmhLcqajG8RAgy",
+                "fightID": 34,
+                "startTime": 1778110279299
+              },
+              "guild": {
+                "id": 801695,
+                "name": "Bisforlife",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Stay",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1393.18,
+              "hardModeLevel": 0,
+              "duration": 106717,
+              "startTime": 1699558275957,
+              "report": {
+                "code": "HX14hg7yWdxQmnZr",
+                "fightID": 26,
+                "startTime": 1699554363797
+              },
+              "guild": {
+                "id": 631368,
+                "name": "Sulfuras",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Bodhisattva",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1376.34,
+              "hardModeLevel": 0,
+              "duration": 102739,
+              "startTime": 1731611732868,
+              "report": {
+                "code": "GDk19Y4ZMKyQAwrm",
+                "fightID": 13,
+                "startTime": 1731610226012
+              },
+              "guild": {
+                "id": 708503,
+                "name": "Infinite Oblivion",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Brujah",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1373.71,
+              "hardModeLevel": 0,
+              "duration": 113905,
+              "startTime": 1700766553052,
+              "report": {
+                "code": "nAw3ZNFJvLyRHfbB",
+                "fightID": 9,
+                "startTime": 1700765874907
+              },
+              "guild": {
+                "id": 702558,
+                "name": "Core",
+                "faction": 0
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Thunderoot",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1373.25,
+              "hardModeLevel": 0,
+              "duration": 101386,
+              "startTime": 1791511782491,
+              "report": {
+                "code": "Mmh1xTNHZ382tnyY",
+                "fightID": 55,
+                "startTime": 1791508979880
+              },
+              "guild": {
+                "id": 705492,
+                "name": "Mass Invite",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Skullfuqqer",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1362.08,
+              "hardModeLevel": 0,
+              "duration": 105306,
+              "startTime": 1749514878195,
+              "report": {
+                "code": "ajM6zk1nxTtp2PfA",
+                "fightID": 14,
+                "startTime": 1749512653423
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Frelseren",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1361.24,
+              "hardModeLevel": 0,
+              "duration": 81351,
+              "startTime": 1783358793567,
+              "report": {
+                "code": "A4aBTLH62Dypzv9g",
+                "fightID": 16,
+                "startTime": 1783356198662
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Babyspínach",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1360.57,
+              "hardModeLevel": 0,
+              "duration": 104329,
+              "startTime": 1776039492712,
+              "report": {
+                "code": "K7Mgn9HwDyrFPJVf",
+                "fightID": 9,
+                "startTime": 1776038394441
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Stankfaçe",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1360.22,
+              "hardModeLevel": 0,
+              "duration": 118219,
+              "startTime": 1723606386380,
+              "report": {
+                "code": "ykqbzHTR2ntBFVPv",
+                "fightID": 39,
+                "startTime": 1723599617317
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Elwin",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1357.48,
+              "hardModeLevel": 0,
+              "duration": 119350,
+              "startTime": 1683571680928,
+              "report": {
+                "code": "YzTkr69bBGRaCxdX",
+                "fightID": 27,
+                "startTime": 1683567678245
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10088,
+                "name": "Venoxis",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Ficfuc",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1349.92,
+              "hardModeLevel": 0,
+              "duration": 126367,
+              "startTime": 1745028646987,
+              "report": {
+                "code": "d2CqTYDjayVFRwz6",
+                "fightID": 17,
+                "startTime": 1744988700066
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Manglemarcus",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1349.86,
+              "hardModeLevel": 0,
+              "duration": 94718,
+              "startTime": 1773343035920,
+              "report": {
+                "code": "HvbpndfNXA6MB4J1",
+                "fightID": 15,
+                "startTime": 1773341979263
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Shredxd",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1347.06,
+              "hardModeLevel": 0,
+              "duration": 113189,
+              "startTime": 1765740516487,
+              "report": {
+                "code": "dc7xzr8YKkfWDqCQ",
+                "fightID": 70,
+                "startTime": 1765729681556
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Cisero",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1323.68,
+              "hardModeLevel": 0,
+              "duration": 103408,
+              "startTime": 1725928143032,
+              "report": {
+                "code": "2BZcg9LwHVPJvdrn",
+                "fightID": 20,
+                "startTime": 1725926173694
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Remors",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1316.6,
+              "hardModeLevel": 0,
+              "duration": 113246,
+              "startTime": 1713119181913,
+              "report": {
+                "code": "YqafxPbHw4Kr98W3",
+                "fightID": 24,
+                "startTime": 1713117860356
+              },
+              "guild": {
+                "id": 711154,
+                "name": "Nightshade",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Andyrius",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1280.04,
+              "hardModeLevel": 0,
+              "duration": 121512,
+              "startTime": 1719023142539,
+              "report": {
+                "code": "ytpHNxhV87RmATDF",
+                "fightID": 59,
+                "startTime": 1719017090559
+              },
+              "guild": {
+                "id": 735958,
+                "name": "Eyes Crossed",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Efc",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1279.09,
+              "hardModeLevel": 0,
+              "duration": 102476,
+              "startTime": 1731292855159,
+              "report": {
+                "code": "BtrYKFGknj7bJdgC",
+                "fightID": 29,
+                "startTime": 1731290605102
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Flaghoe",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1275.51,
+              "hardModeLevel": 0,
+              "duration": 122804,
+              "startTime": 1726164978246,
+              "report": {
+                "code": "qtnCBYhXTd8r7DWv",
+                "fightID": 13,
+                "startTime": 1726163816190
+              },
+              "guild": {
+                "id": 708503,
+                "name": "Infinite Oblivion",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Digedi",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1274.87,
+              "hardModeLevel": 0,
+              "duration": 132741,
+              "startTime": 1676318589337,
+              "report": {
+                "code": "MBxFwN72cTndvWft",
+                "fightID": 42,
+                "startTime": 1676313971037
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10075,
+                "name": "Dragon's Call",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "님폰없찐",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1259.13,
+              "hardModeLevel": 0,
+              "duration": 105182,
+              "startTime": 1723987777341,
+              "report": {
+                "code": "NT8vJDgHK7yhGL92",
+                "fightID": 66,
+                "startTime": 1723980660503
+              },
+              "guild": {
+                "id": 739213,
+                "name": "JK Raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10090,
+                "name": "얼음피",
+                "region": "KR"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Fignastasia",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1256.57,
+              "hardModeLevel": 0,
+              "duration": 120713,
+              "startTime": 1720581892209,
+              "report": {
+                "code": "6PjDraFtnCZWbM34",
+                "fightID": 17,
+                "startTime": 1720578203294
+              },
+              "guild": {
+                "id": 711098,
+                "name": "Moon Surfers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 39
+            },
+            {
+              "name": "엉아팀누구냐",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1249.24,
+              "hardModeLevel": 0,
+              "duration": 145140,
+              "startTime": 1776428555336,
+              "report": {
+                "code": "AGdF3yfHqh2Zp6M7",
+                "fightID": 20,
+                "startTime": 1776426988360
+              },
+              "guild": {
+                "id": 802435,
+                "name": "소금평원의개척자들",
+                "faction": 0
+              },
+              "server": {
+                "id": 10051,
+                "name": "소금 평원",
+                "region": "KR"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Fadera",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1241.76,
+              "hardModeLevel": 0,
+              "duration": 113754,
+              "startTime": 1673751711104,
+              "report": {
+                "code": "rL2tXkGn38HRBmY9",
+                "fightID": 77,
+                "startTime": 1673745183827
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "缺得的德",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1238.01,
+              "hardModeLevel": 0,
+              "duration": 157128,
+              "startTime": 1792238784036,
+              "report": {
+                "code": "aLX36MRzKVxmQkyF",
+                "fightID": 22,
+                "startTime": 1792233348290
+              },
+              "guild": {
+                "id": 818830,
+                "name": "SHIMMER微光A",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 38
+            },
+            {
+              "name": "Mondmöwe",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1235.06,
+              "hardModeLevel": 0,
+              "duration": 112280,
+              "startTime": 1726688038432,
+              "report": {
+                "code": "zL63kTBvpqX1ndmF",
+                "fightID": 33,
+                "startTime": 1726682510777
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Xertdruid",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1225.97,
+              "hardModeLevel": 0,
+              "duration": 107426,
+              "startTime": 1760064227897,
+              "report": {
+                "code": "vnCF6yZQN8XRL2A3",
+                "fightID": 48,
+                "startTime": 1760058384081
+              },
+              "guild": {
+                "id": 713166,
+                "name": "Full Send",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 39
+            },
+            {
+              "name": "Freye",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1217.41,
+              "hardModeLevel": 0,
+              "duration": 105797,
+              "startTime": 1720837053338,
+              "report": {
+                "code": "mZqDYCWrcbKGMTgk",
+                "fightID": 41,
+                "startTime": 1720832452034
+              },
+              "guild": {
+                "id": 735958,
+                "name": "Eyes Crossed",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Ritavrataski",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1216.07,
+              "hardModeLevel": 0,
+              "duration": 108940,
+              "startTime": 1788915625479,
+              "report": {
+                "code": "8QXNyt4YGVvCzF1K",
+                "fightID": 26,
+                "startTime": 1788913436290
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Mìlfurion",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1214.1,
+              "hardModeLevel": 0,
+              "duration": 114082,
+              "startTime": 1754674977622,
+              "report": {
+                "code": "KBFNhAXnmR97yCZP",
+                "fightID": 29,
+                "startTime": 1754671963293
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Blackpaw",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1210.28,
+              "hardModeLevel": 0,
+              "duration": 121910,
+              "startTime": 1746988410181,
+              "report": {
+                "code": "c8vbaRWD2QVwxB9f",
+                "fightID": 41,
+                "startTime": 1746985191449
+              },
+              "guild": {
+                "id": 774862,
+                "name": "Awakening",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "天生凉薄",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1204.52,
+              "hardModeLevel": 0,
+              "duration": 141660,
+              "startTime": 1746535013059,
+              "report": {
+                "code": "jarKghJtMTk6x3QW",
+                "fightID": 17,
+                "startTime": 1746532439662
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 36
+            },
+            {
+              "name": "Empathic",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1200.56,
+              "hardModeLevel": 0,
+              "duration": 108025,
+              "startTime": 1705782267056,
+              "report": {
+                "code": "NyPYhvRMDFaGACKr",
+                "fightID": 27,
+                "startTime": 1705780853114
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Production",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1185.6,
+              "hardModeLevel": 0,
+              "duration": 142184,
+              "startTime": 1725240337923,
+              "report": {
+                "code": "Dhk248aJZwdg6yFN",
+                "fightID": 14,
+                "startTime": 1725239054374
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "半转身",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1177.77,
+              "hardModeLevel": 0,
+              "duration": 144623,
+              "startTime": 1742214071786,
+              "report": {
+                "code": "ZbpxKcR3GHaj6BCg",
+                "fightID": 28,
+                "startTime": 1742211375180
+              },
+              "guild": {
+                "id": 628098,
+                "name": "香草时代",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "Arctax",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1174.77,
+              "hardModeLevel": 0,
+              "duration": 109379,
+              "startTime": 1724351916576,
+              "report": {
+                "code": "481HjtPL3YTNMnAh",
+                "fightID": 20,
+                "startTime": 1724349297081
+              },
+              "guild": {
+                "id": 702558,
+                "name": "Core",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Bruthien",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1172.91,
+              "hardModeLevel": 0,
+              "duration": 123449,
+              "startTime": 1734038494937,
+              "report": {
+                "code": "ZYGFrD9HaXmjvndJ",
+                "fightID": 88,
+                "startTime": 1734030442802
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "Dreaktwo",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1171.86,
+              "hardModeLevel": 0,
+              "duration": 123563,
+              "startTime": 1763494628211,
+              "report": {
+                "code": "DrXpAFLn3KYtRHdg",
+                "fightID": 19,
+                "startTime": 1763489371659
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Ineersa",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1170.7,
+              "hardModeLevel": 0,
+              "duration": 117548,
+              "startTime": 1774745788358,
+              "report": {
+                "code": "Qb6vR439ZABkGjga",
+                "fightID": 21,
+                "startTime": 1774744149000
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Iol",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1169.78,
+              "hardModeLevel": 0,
+              "duration": 110560,
+              "startTime": 1773345838120,
+              "report": {
+                "code": "MRrj1xvLYq4Df8Nb",
+                "fightID": 31,
+                "startTime": 1773344039441
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Lorfan",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1168.78,
+              "hardModeLevel": 0,
+              "duration": 119248,
+              "startTime": 1787881524976,
+              "report": {
+                "code": "mtNQndcDfPhLa91j",
+                "fightID": 25,
+                "startTime": 1787878311605
+              },
+              "guild": {
+                "id": 771863,
+                "name": "<Gary and Friends>",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Bighoofter",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1157.63,
+              "hardModeLevel": 0,
+              "duration": 157888,
+              "startTime": 1655496476018,
+              "report": {
+                "code": "76n9t1QG8afZPbCw",
+                "fightID": 59,
+                "startTime": 1655490692112
+              },
+              "guild": {
+                "id": 601089,
+                "name": "Fun Police PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Boohai",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1156.45,
+              "hardModeLevel": 0,
+              "duration": 143642,
+              "startTime": 1778549186914,
+              "report": {
+                "code": "cHtg6mMFjQ8PvWJ4",
+                "fightID": 15,
+                "startTime": 1778547907965
+              },
+              "guild": {
+                "id": 793700,
+                "name": "boat",
+                "faction": 1
+              },
+              "server": {
+                "id": 10069,
+                "name": "Azuresong",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 38
+            },
+            {
+              "name": "Kittyfufu",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1152.95,
+              "hardModeLevel": 0,
+              "duration": 143882,
+              "startTime": 1699326980089,
+              "report": {
+                "code": "c9hR1kGVM6Nw2nJg",
+                "fightID": 38,
+                "startTime": 1699322636384
+              },
+              "guild": {
+                "id": 709710,
+                "name": "M U T A N T S",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "Chchchanges",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1147.93,
+              "hardModeLevel": 0,
+              "duration": 104574,
+              "startTime": 1786851174199,
+              "report": {
+                "code": "H9wkrfPGWYyvXn4d",
+                "fightID": 22,
+                "startTime": 1786848895880
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Curve",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1147.76,
+              "hardModeLevel": 0,
+              "duration": 102721,
+              "startTime": 1718845057072,
+              "report": {
+                "code": "7YT4cxPZ8tV2DNCb",
+                "fightID": 35,
+                "startTime": 1718841359349
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 71,
+              "size": 39
+            },
+            {
+              "name": "Shapy",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1143.21,
+              "hardModeLevel": 0,
+              "duration": 130296,
+              "startTime": 1737314313193,
+              "report": {
+                "code": "VXJLygzwjc8WPpD6",
+                "fightID": 33,
+                "startTime": 1737311190431
+              },
+              "guild": {
+                "id": 750145,
+                "name": "One Piece",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Wolfboy",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1141.78,
+              "hardModeLevel": 0,
+              "duration": 124467,
+              "startTime": 1715305528105,
+              "report": {
+                "code": "M1AVNntv6pLyB78Y",
+                "fightID": 56,
+                "startTime": 1715299974779
+              },
+              "guild": {
+                "id": 705749,
+                "name": "Boogeymen",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Greatdruid",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1140.9,
+              "hardModeLevel": 0,
+              "duration": 144111,
+              "startTime": 1639831073175,
+              "report": {
+                "code": "PyjQzMA7fdZbraL9",
+                "fightID": 19,
+                "startTime": 1639829585698
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 73,
+              "size": 39
+            },
+            {
+              "name": "哆哆猫",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1140.26,
+              "hardModeLevel": 0,
+              "duration": 153415,
+              "startTime": 1700743880879,
+              "report": {
+                "code": "R3kWpD97TgdHKNnZ",
+                "fightID": 41,
+                "startTime": 1700738802712
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Giminiufnsak",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1140.24,
+              "hardModeLevel": 0,
+              "duration": 130171,
+              "startTime": 1770836347735,
+              "report": {
+                "code": "6t3Gv7b4DYWMkJyp",
+                "fightID": 12,
+                "startTime": 1770835360572
+              },
+              "guild": {
+                "id": 755306,
+                "name": "Lichtbringer",
+                "faction": 0
+              },
+              "server": {
+                "id": 10076,
+                "name": "Lakeshire",
+                "region": "EU"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Gangstarr",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1134.53,
+              "hardModeLevel": 0,
+              "duration": 125456,
+              "startTime": 1732505438056,
+              "report": {
+                "code": "8KJCa6ZjW3zhfPRg",
+                "fightID": 40,
+                "startTime": 1732500974040
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Momokiller",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1129.89,
+              "hardModeLevel": 0,
+              "duration": 113823,
+              "startTime": 1718479605845,
+              "report": {
+                "code": "2mXBbWhJLKNfD9Zt",
+                "fightID": 21,
+                "startTime": 1718478229458
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 71,
+              "size": 39
+            },
+            {
+              "name": "Fekeh",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1122.97,
+              "hardModeLevel": 0,
+              "duration": 104229,
+              "startTime": 1767751837791,
+              "report": {
+                "code": "4LHfD1PaxB7tpG6R",
+                "fightID": 31,
+                "startTime": 1767749484742
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "兜里没有糖罐",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1120.43,
+              "hardModeLevel": 0,
+              "duration": 108698,
+              "startTime": 1663331888740,
+              "report": {
+                "code": "T6wHNMDn18hLfGF7",
+                "fightID": 18,
+                "startTime": 1663330642325
+              },
+              "guild": {
+                "id": 642930,
+                "name": "山葵家",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Schnizz",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1114.9,
+              "hardModeLevel": 0,
+              "duration": 127163,
+              "startTime": 1789865980140,
+              "report": {
+                "code": "AnD8YBmXyjKtdqaW",
+                "fightID": 20,
+                "startTime": 1789864449516
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Riloh",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1112.64,
+              "hardModeLevel": 0,
+              "duration": 121836,
+              "startTime": 1778093505420,
+              "report": {
+                "code": "Qqh79D6zG2RYLnx1",
+                "fightID": 50,
+                "startTime": 1778090288069
+              },
+              "guild": {
+                "id": 737321,
+                "name": "Hooked for Life",
+                "faction": 0
+              },
+              "server": {
+                "id": 10033,
+                "name": "Nethergarde Keep",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "여캐뒤태보려만듬",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1105.47,
+              "hardModeLevel": 0,
+              "duration": 158665,
+              "startTime": 1696604275340,
+              "report": {
+                "code": "wRVX9GzJdBbm4xnk",
+                "fightID": 67,
+                "startTime": 1696596747562
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Bageltown",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1103.21,
+              "hardModeLevel": 0,
+              "duration": 149713,
+              "startTime": 1699928583568,
+              "report": {
+                "code": "Cj12NwbXFRaVqDZB",
+                "fightID": 46,
+                "startTime": 1699923993654
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "Nyequil",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1094.25,
+              "hardModeLevel": 0,
+              "duration": 118212,
+              "startTime": 1742692798255,
+              "report": {
+                "code": "qHt87CGx4gRQp6Dd",
+                "fightID": 44,
+                "startTime": 1742689287670
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "熊灞",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1092.94,
+              "hardModeLevel": 0,
+              "duration": 148476,
+              "startTime": 1764506565990,
+              "report": {
+                "code": "k6LKmPyRMcrb2qnY",
+                "fightID": 20,
+                "startTime": 1764504453232
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 35
+            },
+            {
+              "name": "Gluth",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1089.23,
+              "hardModeLevel": 0,
+              "duration": 136572,
+              "startTime": 1780698954105,
+              "report": {
+                "code": "rpVJcB2bfQjmnqPD",
+                "fightID": 25,
+                "startTime": 1780686035441
+              },
+              "guild": {
+                "id": 747044,
+                "name": "Infernal",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Wiggum",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1085.05,
+              "hardModeLevel": 0,
+              "duration": 110927,
+              "startTime": 1727662726749,
+              "report": {
+                "code": "YQJVdHqNary6tG4x",
+                "fightID": 42,
+                "startTime": 1727658545559
+              },
+              "guild": {
+                "id": 654035,
+                "name": "Pasta Sauce",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Rollow",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1084.96,
+              "hardModeLevel": 0,
+              "duration": 136035,
+              "startTime": 1716490532402,
+              "report": {
+                "code": "jQ2XMDJbnATzYNPH",
+                "fightID": 42,
+                "startTime": 1716485835266
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 70,
+              "size": 38
+            },
+            {
+              "name": "Midinvaerne",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1081.07,
+              "hardModeLevel": 0,
+              "duration": 116573,
+              "startTime": 1741895525672,
+              "report": {
+                "code": "fp4rVDZ7BdPmaKhR",
+                "fightID": 43,
+                "startTime": 1741890751404
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Kumpir",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1075.85,
+              "hardModeLevel": 0,
+              "duration": 125095,
+              "startTime": 1761244250501,
+              "report": {
+                "code": "1YkVwZy9rpPRLfGN",
+                "fightID": 20,
+                "startTime": 1761240824740
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 69,
+              "size": 40
+            },
+            {
+              "name": "Totemcrit",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1074.75,
+              "hardModeLevel": 0,
+              "duration": 123760,
+              "startTime": 1718558973721,
+              "report": {
+                "code": "QgNfZLwBKY1tTMFy",
+                "fightID": 21,
+                "startTime": 1718557575955
+              },
+              "guild": {
+                "id": 707927,
+                "name": "Angel GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Brackenhawk",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1072.14,
+              "hardModeLevel": 0,
+              "duration": 193534,
+              "startTime": 1713728187491,
+              "report": {
+                "code": "MGfdHK3n6zAXWtYR",
+                "fightID": 31,
+                "startTime": 1713724692095
+              },
+              "guild": {
+                "id": 663090,
+                "name": "Warriors of Sunlight",
+                "faction": 1
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 71,
+              "size": 40
+            },
+            {
+              "name": "Ahram",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1067.06,
+              "hardModeLevel": 0,
+              "duration": 128494,
+              "startTime": 1715143067511,
+              "report": {
+                "code": "p6yQ7DaAd1qfBPnZ",
+                "fightID": 28,
+                "startTime": 1715139077825
+              },
+              "guild": {
+                "id": 732934,
+                "name": "Fun Coupons",
+                "faction": 1
+              },
+              "server": {
+                "id": 10027,
+                "name": "Blaumeux",
+                "region": "US"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "Habii",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1061.81,
+              "hardModeLevel": 0,
+              "duration": 134326,
+              "startTime": 1678132417768,
+              "report": {
+                "code": "DqL1Khz2PdVcgbrY",
+                "fightID": 40,
+                "startTime": 1678128715567
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10075,
+                "name": "Dragon's Call",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 39
+            },
+            {
+              "name": "Jabun",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1056.52,
+              "hardModeLevel": 0,
+              "duration": 145018,
+              "startTime": 1779910610872,
+              "report": {
+                "code": "dQGmN2Rh4AfjXVzt",
+                "fightID": 41,
+                "startTime": 1779904814606
+              },
+              "guild": {
+                "id": 782327,
+                "name": "Next Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 68,
+              "size": 39
+            },
+            {
+              "name": "孤鸣",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1053.48,
+              "hardModeLevel": 0,
+              "duration": 180370,
+              "startTime": 1767535487944,
+              "report": {
+                "code": "rh7mpXQWtB1yNfwj",
+                "fightID": 42,
+                "startTime": 1767527643626
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 38
+            },
+            {
+              "name": "Weedze",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1053.31,
+              "hardModeLevel": 0,
+              "duration": 127539,
+              "startTime": 1686595186093,
+              "report": {
+                "code": "YZfLM6qhWHFcQyNm",
+                "fightID": 30,
+                "startTime": 1686591836818
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10099,
+                "name": "Heartstriker",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Zerofox",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1051.88,
+              "hardModeLevel": 0,
+              "duration": 123028,
+              "startTime": 1756256321239,
+              "report": {
+                "code": "HY1CrtFyT3faG68k",
+                "fightID": 26,
+                "startTime": 1756252143003
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Rake",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1051.45,
+              "hardModeLevel": 0,
+              "duration": 151485,
+              "startTime": 1726106583005,
+              "report": {
+                "code": "3M6PwLKHX1RnmhVt",
+                "fightID": 50,
+                "startTime": 1726102320753
+              },
+              "server": {
+                "id": 10095,
+                "name": "Arcanite Reaper",
+                "region": "US"
+              },
+              "bracketData": 66,
+              "size": 40
+            },
+            {
+              "name": "五行代德",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1045.46,
+              "hardModeLevel": 0,
+              "duration": 194407,
+              "startTime": 1656167960116,
+              "report": {
+                "code": "KPQLZxkC3hpMq94G",
+                "fightID": 73,
+                "startTime": 1656159608500
+              },
+              "guild": {
+                "id": 628098,
+                "name": "香草时代",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 37
+            },
+            {
+              "name": "Nabdru",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1045.09,
+              "hardModeLevel": 0,
+              "duration": 149799,
+              "startTime": 1724018700121,
+              "report": {
+                "code": "36a4ytDBHgQmfXZn",
+                "fightID": 46,
+                "startTime": 1724015881838
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Manáras",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1044.91,
+              "hardModeLevel": 0,
+              "duration": 118039,
+              "startTime": 1729189008143,
+              "report": {
+                "code": "WPnmAqwDF4gVJYc6",
+                "fightID": 13,
+                "startTime": 1729187581903
+              },
+              "guild": {
+                "id": 708503,
+                "name": "Infinite Oblivion",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Bengal",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1044.62,
+              "hardModeLevel": 0,
+              "duration": 117734,
+              "startTime": 1763444008269,
+              "report": {
+                "code": "9RDQ8nJaxTWqgFz2",
+                "fightID": 23,
+                "startTime": 1763412970223
+              },
+              "guild": {
+                "id": 728200,
+                "name": "Bad Seed",
+                "faction": 1
+              },
+              "server": {
+                "id": 10054,
+                "name": "Kurinnaxx",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 39
+            },
+            {
+              "name": "悠米是只猫喵",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1043.44,
+              "hardModeLevel": 0,
+              "duration": 153490,
+              "startTime": 1770987380074,
+              "report": {
+                "code": "LMjvq3cPtFRGBV6a",
+                "fightID": 23,
+                "startTime": 1770984902658
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 37
+            },
+            {
+              "name": "Bearmanflex",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1040.82,
+              "hardModeLevel": 0,
+              "duration": 143836,
+              "startTime": 1727207617745,
+              "report": {
+                "code": "zTx9pVYJ2Zbw4kDG",
+                "fightID": 82,
+                "startTime": 1727200754348
+              },
+              "guild": {
+                "id": 629053,
+                "name": "Trinity",
+                "faction": 1
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 37
+            },
+            {
+              "name": "Ksix",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1039.16,
+              "hardModeLevel": 0,
+              "duration": 153840,
+              "startTime": 1711498937259,
+              "report": {
+                "code": "8zX3t17wpx6g9ZGq",
+                "fightID": 18,
+                "startTime": 1711496869717
+              },
+              "guild": {
+                "id": 708988,
+                "name": "Hearthstone",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Rake",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1038.6,
+              "hardModeLevel": 0,
+              "duration": 134334,
+              "startTime": 1761818264656,
+              "report": {
+                "code": "VcvXmdHZqGD6QAfj",
+                "fightID": 22,
+                "startTime": 1761782496169
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Koudebear",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1038.51,
+              "hardModeLevel": 0,
+              "duration": 108309,
+              "startTime": 1786474773536,
+              "report": {
+                "code": "LAVjrTPYp4B3HR7W",
+                "fightID": 29,
+                "startTime": 1786469588586
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "阿普莉亚",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1035.91,
+              "hardModeLevel": 0,
+              "duration": 170159,
+              "startTime": 1783252333956,
+              "report": {
+                "code": "JxhbV4DAmtan9pK8",
+                "fightID": 29,
+                "startTime": 1783248517171
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 72,
+              "size": 37
+            },
+            {
+              "name": "Pookbear",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1033.06,
+              "hardModeLevel": 0,
+              "duration": 114465,
+              "startTime": 1734721052649,
+              "report": {
+                "code": "AqG9hZaKr2BpJC4N",
+                "fightID": 30,
+                "startTime": 1734718411581
+              },
+              "guild": {
+                "id": 740008,
+                "name": "Work From Home",
+                "faction": 0
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Luxxy",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1030.67,
+              "hardModeLevel": 0,
+              "duration": 182286,
+              "startTime": 1718044725822,
+              "report": {
+                "code": "cT2gM1t7HX9hW6rw",
+                "fightID": 42,
+                "startTime": 1718041534575
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10099,
+                "name": "Heartstriker",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 36
+            },
+            {
+              "name": "Niernen",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1027.72,
+              "hardModeLevel": 0,
+              "duration": 117412,
+              "startTime": 1777921262133,
+              "report": {
+                "code": "r2HvBWp8xkNb9MPA",
+                "fightID": 27,
+                "startTime": 1777917309960
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Miskovsky",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1023.07,
+              "hardModeLevel": 0,
+              "duration": 107376,
+              "startTime": 1742175795235,
+              "report": {
+                "code": "6krFmfwGnARyXxLK",
+                "fightID": 40,
+                "startTime": 1742088172571
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 40
+            },
+            {
+              "name": "Bibí",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1021.32,
+              "hardModeLevel": 0,
+              "duration": 135148,
+              "startTime": 1684980102771,
+              "report": {
+                "code": "3qRnxJhtNGCkY8bv",
+                "fightID": 55,
+                "startTime": 1684975881293
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "素渡咩",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1019.65,
+              "hardModeLevel": 0,
+              "duration": 190310,
+              "startTime": 1760099603536,
+              "report": {
+                "code": "dWcq29nkMyZfA1wY",
+                "fightID": 26,
+                "startTime": 1760097093276
+              },
+              "guild": {
+                "id": 797685,
+                "name": "微光",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Moolsky",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1017.88,
+              "hardModeLevel": 0,
+              "duration": 136449,
+              "startTime": 1660360309981,
+              "report": {
+                "code": "Tr2LmHDdpVRancBF",
+                "fightID": 75,
+                "startTime": 1660354147948
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Aeluin",
+              "class": "Druid",
+              "spec": "Feral",
+              "amount": 1017.8,
+              "hardModeLevel": 0,
+              "duration": 123672,
+              "startTime": 1789520426611,
+              "report": {
+                "code": "g7NQWdcxJbYPDVmq",
+                "fightID": 26,
+                "startTime": 1789518260587
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 15.02,
+      "pointsResetIn": 3589
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 15.02,
+    "reset_in_s": 3589
+  }
+}

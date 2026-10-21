@@ -1,0 +1,97 @@
+{
+  "query": "query NaxxPartitions($zone:Int!) { worldData { zone(id:$zone) { id name partitions { id name compactName default } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "zone": 2006
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:37.030730+00:00",
+  "ended_at": "2026-10-21T12:04:37.727926+00:00",
+  "data": {
+    "worldData": {
+      "zone": {
+        "id": 2006,
+        "name": "Naxxramas",
+        "partitions": [
+          {
+            "id": 1,
+            "name": "S0",
+            "compactName": "S0",
+            "default": true
+          },
+          {
+            "id": 2,
+            "name": "S0 (Without World Buffs)",
+            "compactName": "S0 (No WB)",
+            "default": false
+          },
+          {
+            "id": 3,
+            "name": "SoM P1 & P2",
+            "compactName": "SoM P1 & P2",
+            "default": false
+          },
+          {
+            "id": 4,
+            "name": "SoM P3 & P4",
+            "compactName": "SoM P3 & P4",
+            "default": false
+          },
+          {
+            "id": 5,
+            "name": "SoM P5",
+            "compactName": "SoM P5",
+            "default": false
+          },
+          {
+            "id": 6,
+            "name": "SoM P6",
+            "compactName": "SoM P6",
+            "default": false
+          },
+          {
+            "id": 7,
+            "name": "Hardcore",
+            "compactName": "HC",
+            "default": false
+          },
+          {
+            "id": 8,
+            "name": "Hardcore (Fresh)",
+            "compactName": "HC2",
+            "default": false
+          },
+          {
+            "id": 9,
+            "name": "Hardcore (Fresh P2)",
+            "compactName": "HC2P2",
+            "default": false
+          },
+          {
+            "id": 10,
+            "name": "Hardcore (Fresh P3)",
+            "compactName": "HC2P3",
+            "default": false
+          },
+          {
+            "id": 11,
+            "name": "Hardcore (Fresh P4)",
+            "compactName": "HC2P4",
+            "default": false
+          }
+        ]
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 1,
+      "pointsResetIn": 3600
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 1.0,
+    "reset_in_s": 3600
+  }
+}

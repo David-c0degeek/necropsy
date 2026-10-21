@@ -1,0 +1,2328 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:hps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Druid",
+    "spec": "Restoration"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:49.697568+00:00",
+  "ended_at": "2026-10-21T12:04:50.115389+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Mujo",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 1131.71,
+              "hardModeLevel": 0,
+              "duration": 106065,
+              "startTime": 1779672649239,
+              "report": {
+                "code": "vAtPfnr14XyQGHzj",
+                "fightID": 19,
+                "startTime": 1779670646423
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Patunia",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 1114.09,
+              "hardModeLevel": 0,
+              "duration": 102961,
+              "startTime": 1739929856895,
+              "report": {
+                "code": "GaF7z3TrWR2jQ8Vd",
+                "fightID": 45,
+                "startTime": 1739927202707
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Leanaria",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 1076.6,
+              "hardModeLevel": 0,
+              "duration": 118978,
+              "startTime": 1783183923289,
+              "report": {
+                "code": "bN6JmC1nr3vPqRh9",
+                "fightID": 32,
+                "startTime": 1783180843881
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Beansprout",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 1064.05,
+              "hardModeLevel": 0,
+              "duration": 118568,
+              "startTime": 1780598484447,
+              "report": {
+                "code": "3C2XJmwRB6dcZADq",
+                "fightID": 23,
+                "startTime": 1780595903298
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Healing",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 1021.66,
+              "hardModeLevel": 0,
+              "duration": 115528,
+              "startTime": 1751747126954,
+              "report": {
+                "code": "LwAYt9MVc1ZHvTDN",
+                "fightID": 15,
+                "startTime": 1751731920943
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "指尖丶生灵",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 1018.16,
+              "hardModeLevel": 0,
+              "duration": 143083,
+              "startTime": 1746854835312,
+              "report": {
+                "code": "CtM3GfFBKwbXkQqp",
+                "fightID": 28,
+                "startTime": 1746852183115
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Itari",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 984.256,
+              "hardModeLevel": 0,
+              "duration": 133952,
+              "startTime": 1741896888688,
+              "report": {
+                "code": "A8c4KqYtTMy2DVbh",
+                "fightID": 60,
+                "startTime": 1741892776198
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "南瓜罐头",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 971.192,
+              "hardModeLevel": 0,
+              "duration": 183039,
+              "startTime": 1708611110315,
+              "report": {
+                "code": "nKqPWchGbj4BD3NV",
+                "fightID": 95,
+                "startTime": 1708601466349
+              },
+              "server": {
+                "id": 10053,
+                "name": "瑪拉頓",
+                "region": "TW"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Kahlmah",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 954.385,
+              "hardModeLevel": 0,
+              "duration": 117747,
+              "startTime": 1747789523679,
+              "report": {
+                "code": "8gVkp2rPJANLdGzC",
+                "fightID": 53,
+                "startTime": 1747785690876
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Careerhealer",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 928.15,
+              "hardModeLevel": 0,
+              "duration": 107029,
+              "startTime": 1781835022225,
+              "report": {
+                "code": "Z47RnjHMdaNg8bk9",
+                "fightID": 40,
+                "startTime": 1781830581850
+              },
+              "guild": {
+                "id": 774696,
+                "name": "Ironclad",
+                "faction": 0
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "初照人",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 909.202,
+              "hardModeLevel": 0,
+              "duration": 159750,
+              "startTime": 1658665632292,
+              "report": {
+                "code": "FjAKpWfXVqvYDZkN",
+                "fightID": 36,
+                "startTime": 1658661822937
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "抓住我的尾巴",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 899.101,
+              "hardModeLevel": 0,
+              "duration": 153173,
+              "startTime": 1668860244295,
+              "report": {
+                "code": "2xnZ8ktFjJXGrgCP",
+                "fightID": 26,
+                "startTime": 1668854925937
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 34
+            },
+            {
+              "name": "夜以柔",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 898.235,
+              "hardModeLevel": 0,
+              "duration": 150740,
+              "startTime": 1784549984001,
+              "report": {
+                "code": "K2jdZJByh8rqaGzf",
+                "fightID": 27,
+                "startTime": 1784544629396
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "团长我没钱",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 897.171,
+              "hardModeLevel": 0,
+              "duration": 158963,
+              "startTime": 1778133465150,
+              "report": {
+                "code": "mcPtMx96GaDvYHkJ",
+                "fightID": 21,
+                "startTime": 1778131343591
+              },
+              "guild": {
+                "id": 797678,
+                "name": "SHIMMER微光",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "鲁谷老崔",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 895.019,
+              "hardModeLevel": 0,
+              "duration": 172269,
+              "startTime": 1747329640608,
+              "report": {
+                "code": "v4gkMWTQ8cFtR1qA",
+                "fightID": 29,
+                "startTime": 1747324874409
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "Équina",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 886.227,
+              "hardModeLevel": 0,
+              "duration": 122780,
+              "startTime": 1753666871826,
+              "report": {
+                "code": "qHfkZXFyLNxcTnpP",
+                "fightID": 32,
+                "startTime": 1753664143980
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Craamestra",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 879.458,
+              "hardModeLevel": 0,
+              "duration": 180426,
+              "startTime": 1749844010161,
+              "report": {
+                "code": "Z84xAT9kFfHgYDhV",
+                "fightID": 69,
+                "startTime": 1749837858155
+              },
+              "guild": {
+                "id": 710980,
+                "name": "Classic Enjoyers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Zeejimme",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 873.146,
+              "hardModeLevel": 0,
+              "duration": 163660,
+              "startTime": 1722276715147,
+              "report": {
+                "code": "bZkvqFGD1myMPjJB",
+                "fightID": 56,
+                "startTime": 1722270591604
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "阿瓦达呆德",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 869.389,
+              "hardModeLevel": 0,
+              "duration": 157513,
+              "startTime": 1777552644027,
+              "report": {
+                "code": "zajknbwGHmTWLvyg",
+                "fightID": 5,
+                "startTime": 1777549305825
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 36
+            },
+            {
+              "name": "Maode",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 860.534,
+              "hardModeLevel": 0,
+              "duration": 160440,
+              "startTime": 1744681577915,
+              "report": {
+                "code": "p7J2h6HzGxmX9Mqd",
+                "fightID": 42,
+                "startTime": 1744676333873
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "墨夜龍葵",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 860.051,
+              "hardModeLevel": 0,
+              "duration": 152284,
+              "startTime": 1769775067200,
+              "report": {
+                "code": "AjgC9V43DMvJnW8F",
+                "fightID": 19,
+                "startTime": 1769773090981
+              },
+              "guild": {
+                "id": 797678,
+                "name": "SHIMMER微光",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "陌氵言",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 856.317,
+              "hardModeLevel": 0,
+              "duration": 149802,
+              "startTime": 1770961628604,
+              "report": {
+                "code": "jBz2Tvtahxy4wRQL",
+                "fightID": 22,
+                "startTime": 1770959227235
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Drunkbear",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 849.47,
+              "hardModeLevel": 0,
+              "duration": 88268,
+              "startTime": 1783881796584,
+              "report": {
+                "code": "hMGaWYwnqD2bZjTm",
+                "fightID": 28,
+                "startTime": 1783879467319
+              },
+              "guild": {
+                "id": 751236,
+                "name": "ofc",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Nelly",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 846.565,
+              "hardModeLevel": 0,
+              "duration": 132545,
+              "startTime": 1714676387974,
+              "report": {
+                "code": "hV3trvdkXAMCT2xg",
+                "fightID": 26,
+                "startTime": 1714672344925
+              },
+              "guild": {
+                "id": 631368,
+                "name": "Sulfuras",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Spyker",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 845.228,
+              "hardModeLevel": 0,
+              "duration": 145608,
+              "startTime": 1705799940208,
+              "report": {
+                "code": "ywzv6tC9NgBTjqAL",
+                "fightID": 81,
+                "startTime": 1705791395290
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Size",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 836.387,
+              "hardModeLevel": 0,
+              "duration": 110358,
+              "startTime": 1767927590042,
+              "report": {
+                "code": "Bdnq7X3L9KwyRQkW",
+                "fightID": 52,
+                "startTime": 1767923930958
+              },
+              "guild": {
+                "id": 705492,
+                "name": "Mass Invite",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "德偿所汪",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 834.984,
+              "hardModeLevel": 0,
+              "duration": 152131,
+              "startTime": 1783141443339,
+              "report": {
+                "code": "fDxrWpdMqtkLVY3J",
+                "fightID": 29,
+                "startTime": 1783137171573
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Michaeljoe",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 832.135,
+              "hardModeLevel": 0,
+              "duration": 165657,
+              "startTime": 1773925646824,
+              "report": {
+                "code": "pWDBa9A4G7TJ2hMd",
+                "fightID": 41,
+                "startTime": 1773921124709
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 36
+            },
+            {
+              "name": "小柠檬檬",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 832.066,
+              "hardModeLevel": 0,
+              "duration": 168828,
+              "startTime": 1773580462396,
+              "report": {
+                "code": "2nK4kMvA9FfLWcpd",
+                "fightID": 28,
+                "startTime": 1773576952383
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "德道不道德",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 829.612,
+              "hardModeLevel": 0,
+              "duration": 161062,
+              "startTime": 1659018054787,
+              "report": {
+                "code": "PgVn7wRGpDzKcYmC",
+                "fightID": 46,
+                "startTime": 1659013484916
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "疯人愿丶",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 829.235,
+              "hardModeLevel": 0,
+              "duration": 155963,
+              "startTime": 1772371854925,
+              "report": {
+                "code": "mkN8j19TPM7xLhwq",
+                "fightID": 29,
+                "startTime": 1772369623065
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 34
+            },
+            {
+              "name": "百变阿凡达",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 828.442,
+              "hardModeLevel": 0,
+              "duration": 169529,
+              "startTime": 1778676895889,
+              "report": {
+                "code": "bqXTtgkCrp1nKwFj",
+                "fightID": 30,
+                "startTime": 1778667687299
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "洗洗睡呀",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 828.117,
+              "hardModeLevel": 0,
+              "duration": 184399,
+              "startTime": 1695916720887,
+              "report": {
+                "code": "MLNQjf6Jg43nVrPH",
+                "fightID": 25,
+                "startTime": 1695913810312
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 78,
+              "size": 37
+            },
+            {
+              "name": "国内知名男星",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 826.135,
+              "hardModeLevel": 0,
+              "duration": 176183,
+              "startTime": 1777637240620,
+              "report": {
+                "code": "8ygt2NVAapQWkMLR",
+                "fightID": 20,
+                "startTime": 1777634643889
+              },
+              "guild": {
+                "id": 818830,
+                "name": "SHIMMER微光A",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "Bodiuan",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 826.039,
+              "hardModeLevel": 0,
+              "duration": 152879,
+              "startTime": 1746474435188,
+              "report": {
+                "code": "94nYHgArdPFjcvLb",
+                "fightID": 16,
+                "startTime": 1746468447087
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Silvira",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 823.504,
+              "hardModeLevel": 0,
+              "duration": 109583,
+              "startTime": 1699302308652,
+              "report": {
+                "code": "xqkgC7fpz8Yjn63d",
+                "fightID": 38,
+                "startTime": 1699299558571
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Layman",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 821.479,
+              "hardModeLevel": 0,
+              "duration": 147574,
+              "startTime": 1746687124367,
+              "report": {
+                "code": "t3vX9BzMJRAkWHCy",
+                "fightID": 31,
+                "startTime": 1746682670734
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Astaria",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 819.355,
+              "hardModeLevel": 0,
+              "duration": 126231,
+              "startTime": 1746037791720,
+              "report": {
+                "code": "9CtTrhkRLJWZH3vf",
+                "fightID": 14,
+                "startTime": 1746036094575
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Innovindil",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 818.561,
+              "hardModeLevel": 0,
+              "duration": 199654,
+              "startTime": 1715631860125,
+              "report": {
+                "code": "FVaKG6n3xAvpmhgY",
+                "fightID": 111,
+                "startTime": 1715623268263
+              },
+              "guild": {
+                "id": 734814,
+                "name": "ZERO",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Eblis",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 818.482,
+              "hardModeLevel": 0,
+              "duration": 233387,
+              "startTime": 1641520932492,
+              "report": {
+                "code": "zJVGcMTq7Dvw4bKr",
+                "fightID": 28,
+                "startTime": 1641518911415
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "爱与她",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 818.019,
+              "hardModeLevel": 0,
+              "duration": 106566,
+              "startTime": 1651930046983,
+              "report": {
+                "code": "71ZL3THAg9MrPBxy",
+                "fightID": 29,
+                "startTime": 1651927890914
+              },
+              "guild": {
+                "id": 655887,
+                "name": "SS one",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Custodian",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 816.823,
+              "hardModeLevel": 0,
+              "duration": 116718,
+              "startTime": 1694915331168,
+              "report": {
+                "code": "wpjbPRTgYWJVFncr",
+                "fightID": 61,
+                "startTime": 1694909957894
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Manacca",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 815.571,
+              "hardModeLevel": 0,
+              "duration": 107288,
+              "startTime": 1789670279328,
+              "report": {
+                "code": "dPRBhYyTjv7JaW8q",
+                "fightID": 35,
+                "startTime": 1789667658854
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Animal",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 814.834,
+              "hardModeLevel": 0,
+              "duration": 153716,
+              "startTime": 1713314291024,
+              "report": {
+                "code": "PkG37g94wFbpnJtW",
+                "fightID": 24,
+                "startTime": 1713312139738
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "紫烨",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 813.17,
+              "hardModeLevel": 0,
+              "duration": 156308,
+              "startTime": 1792421280973,
+              "report": {
+                "code": "acv1p924AjmGwhqX",
+                "fightID": 29,
+                "startTime": 1792418701272
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "丶王雪球丶",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 811.984,
+              "hardModeLevel": 0,
+              "duration": 162151,
+              "startTime": 1765719194906,
+              "report": {
+                "code": "Wc6R4FQT28zvwPHN",
+                "fightID": 27,
+                "startTime": 1765715382609
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "Sargaryas",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 808.894,
+              "hardModeLevel": 0,
+              "duration": 186964,
+              "startTime": 1705246961155,
+              "report": {
+                "code": "QzHLxWVZjFTGwBpf",
+                "fightID": 74,
+                "startTime": 1705236464933
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Sa",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 807.362,
+              "hardModeLevel": 0,
+              "duration": 147551,
+              "startTime": 1731037240726,
+              "report": {
+                "code": "Q9F2pGKCLyXYjkP8",
+                "fightID": 49,
+                "startTime": 1731031791627
+              },
+              "guild": {
+                "id": 716503,
+                "name": "Naughty Astronauts",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Ttink",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 806.741,
+              "hardModeLevel": 0,
+              "duration": 151429,
+              "startTime": 1646917482239,
+              "report": {
+                "code": "AM9txkn6hG3bHBPK",
+                "fightID": 36,
+                "startTime": 1646912908297
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "卡多芮",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 804.963,
+              "hardModeLevel": 0,
+              "duration": 181140,
+              "startTime": 1765861672083,
+              "report": {
+                "code": "V3LFW7Mzv6ChqcPf",
+                "fightID": 46,
+                "startTime": 1765855400458
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Softkitten",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 804.627,
+              "hardModeLevel": 0,
+              "duration": 124004,
+              "startTime": 1725131482510,
+              "report": {
+                "code": "qkpFYdHvzhnL7GPX",
+                "fightID": 46,
+                "startTime": 1725126602384
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "为爱拯救世界",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 803.687,
+              "hardModeLevel": 0,
+              "duration": 177105,
+              "startTime": 1780197721722,
+              "report": {
+                "code": "W4fLQpZvjMbJwTxF",
+                "fightID": 27,
+                "startTime": 1780192803836
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Pyroc",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 799.522,
+              "hardModeLevel": 0,
+              "duration": 140963,
+              "startTime": 1783366616102,
+              "report": {
+                "code": "r13LDMZvdJ4VcAB9",
+                "fightID": 44,
+                "startTime": 1783362487329
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Gabriellah",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 798.8,
+              "hardModeLevel": 0,
+              "duration": 156859,
+              "startTime": 1779391963316,
+              "report": {
+                "code": "baVCgwPcnJ1BWhdR",
+                "fightID": 66,
+                "startTime": 1779386398289
+              },
+              "guild": {
+                "id": 638722,
+                "name": "Social Guild",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Evandre",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 796.136,
+              "hardModeLevel": 0,
+              "duration": 125206,
+              "startTime": 1748053826734,
+              "report": {
+                "code": "x683nphqGBJNjDMA",
+                "fightID": 57,
+                "startTime": 1748048373664
+              },
+              "guild": {
+                "id": 722018,
+                "name": "Disposable Heroes",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Visnicious",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 796.126,
+              "hardModeLevel": 0,
+              "duration": 118107,
+              "startTime": 1762077686599,
+              "report": {
+                "code": "XRtg4DW8fz2MLQyv",
+                "fightID": 36,
+                "startTime": 1762073162712
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Camell",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 795.223,
+              "hardModeLevel": 0,
+              "duration": 161947,
+              "startTime": 1695261473303,
+              "report": {
+                "code": "npRgbZWFfcHG9tPx",
+                "fightID": 51,
+                "startTime": 1695258348970
+              },
+              "guild": {
+                "id": 687483,
+                "name": "Paradigm",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Umberhoof",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 794.728,
+              "hardModeLevel": 0,
+              "duration": 138835,
+              "startTime": 1624820087711,
+              "report": {
+                "code": "M3y6HCv9mZGrhaTg",
+                "fightID": 42,
+                "startTime": 1624816797358
+              },
+              "guild": {
+                "id": 602349,
+                "name": "Fun Police",
+                "faction": 1
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "恺撒之心",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 794.362,
+              "hardModeLevel": 0,
+              "duration": 156022,
+              "startTime": 1758381162732,
+              "report": {
+                "code": "Jxw1G3WCzyMn2Yjd",
+                "fightID": 46,
+                "startTime": 1758375584148
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Willitheal",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 794.165,
+              "hardModeLevel": 0,
+              "duration": 125834,
+              "startTime": 1773799066194,
+              "report": {
+                "code": "QBvV1C7fm8ZMPRqt",
+                "fightID": 49,
+                "startTime": 1773794374930
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Bubbibjørn",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 793.991,
+              "hardModeLevel": 0,
+              "duration": 123844,
+              "startTime": 1699906677476,
+              "report": {
+                "code": "ALVv7tkR1PxhFXwr",
+                "fightID": 42,
+                "startTime": 1699903849516
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "加谁谁倒",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 791.851,
+              "hardModeLevel": 0,
+              "duration": 150993,
+              "startTime": 1776750438146,
+              "report": {
+                "code": "zkVNQFjMGfY4H6Rm",
+                "fightID": 22,
+                "startTime": 1776748583683
+              },
+              "guild": {
+                "id": 797473,
+                "name": "Eternal 【永恒】",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "喔鹊嘚",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 791.737,
+              "hardModeLevel": 0,
+              "duration": 173857,
+              "startTime": 1774072333298,
+              "report": {
+                "code": "PRZbnQFKBVLMqfkv",
+                "fightID": 27,
+                "startTime": 1774069956102
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 35
+            },
+            {
+              "name": "Stuntbum",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 789.163,
+              "hardModeLevel": 0,
+              "duration": 112409,
+              "startTime": 1698369824494,
+              "report": {
+                "code": "vnXYRqBZTVF892zG",
+                "fightID": 58,
+                "startTime": 1698365584481
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "倦意澄澄",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 788.453,
+              "hardModeLevel": 0,
+              "duration": 169688,
+              "startTime": 1753705543011,
+              "report": {
+                "code": "wP3M12KzdCGJvBVR",
+                "fightID": 27,
+                "startTime": 1753702592828
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "翻身越岭小德",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 787.661,
+              "hardModeLevel": 0,
+              "duration": 181733,
+              "startTime": 1780121686727,
+              "report": {
+                "code": "jXQVHMdBbwNR6mtx",
+                "fightID": 15,
+                "startTime": 1780119564271
+              },
+              "guild": {
+                "id": 797678,
+                "name": "SHIMMER微光",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "熊孩子楽园",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 786.234,
+              "hardModeLevel": 0,
+              "duration": 153743,
+              "startTime": 1662039785445,
+              "report": {
+                "code": "6Xr9LmNdKqn2zQGR",
+                "fightID": 79,
+                "startTime": 1662031482278
+              },
+              "guild": {
+                "id": 649049,
+                "name": "爱泽名门",
+                "faction": 0
+              },
+              "server": {
+                "id": 10041,
+                "name": "寒脊山小径",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "公关佳丽",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 785.706,
+              "hardModeLevel": 0,
+              "duration": 192353,
+              "startTime": 1758376111899,
+              "report": {
+                "code": "HNBkvqg9crAL4wja",
+                "fightID": 45,
+                "startTime": 1758369757736
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Nerun",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 783.97,
+              "hardModeLevel": 0,
+              "duration": 204374,
+              "startTime": 1736304168475,
+              "report": {
+                "code": "MmnxjfPLBtcVawY6",
+                "fightID": 58,
+                "startTime": 1736298817921
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "艾谁谁艾谁谁",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 782.712,
+              "hardModeLevel": 0,
+              "duration": 180838,
+              "startTime": 1766840103554,
+              "report": {
+                "code": "jCFb9KpANrZWGvVn",
+                "fightID": 26,
+                "startTime": 1766837415679
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Brittanija",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 782.362,
+              "hardModeLevel": 0,
+              "duration": 152294,
+              "startTime": 1782678497289,
+              "report": {
+                "code": "YKQkjVWfTDnqZhv7",
+                "fightID": 87,
+                "startTime": 1782669294577
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Nøisia",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 780.248,
+              "hardModeLevel": 0,
+              "duration": 100709,
+              "startTime": 1781288567105,
+              "report": {
+                "code": "T3XFAmHrLJ4d7gB1",
+                "fightID": 22,
+                "startTime": 1781286256448
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "南非谢广坤",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 778.587,
+              "hardModeLevel": 0,
+              "duration": 177347,
+              "startTime": 1736598794342,
+              "report": {
+                "code": "3qmBzDXjt7Qwh6Ld",
+                "fightID": 33,
+                "startTime": 1736593789672
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "Hagar",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 777.762,
+              "hardModeLevel": 0,
+              "duration": 150685,
+              "startTime": 1727634439056,
+              "report": {
+                "code": "8abTtQ3gxBDVR9Fh",
+                "fightID": 56,
+                "startTime": 1727629364356
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "一只大德",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 777.145,
+              "hardModeLevel": 0,
+              "duration": 138103,
+              "startTime": 1778156326142,
+              "report": {
+                "code": "Q7w6tKkFcL3HnADN",
+                "fightID": 28,
+                "startTime": 1778154001499
+              },
+              "guild": {
+                "id": 811784,
+                "name": "宝可梦联盟",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "抹茶小乖巧",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 776.744,
+              "hardModeLevel": 0,
+              "duration": 173478,
+              "startTime": 1785068646411,
+              "report": {
+                "code": "j718zvXtYVMaf2yR",
+                "fightID": 28,
+                "startTime": 1785064514951
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "愿圣光守护你",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 776.742,
+              "hardModeLevel": 0,
+              "duration": 160850,
+              "startTime": 1662385211735,
+              "report": {
+                "code": "3QGabBtNT4DJKFZq",
+                "fightID": 60,
+                "startTime": 1662378241526
+              },
+              "guild": {
+                "id": 609010,
+                "name": "车神联盟",
+                "faction": 0
+              },
+              "server": {
+                "id": 10041,
+                "name": "寒脊山小径",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "黑猫警長",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 775.724,
+              "hardModeLevel": 0,
+              "duration": 167459,
+              "startTime": 1759323064337,
+              "report": {
+                "code": "rwdWctfFTDX6Jgqn",
+                "fightID": 25,
+                "startTime": 1759320583101
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "专业小德",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 775.436,
+              "hardModeLevel": 0,
+              "duration": 164853,
+              "startTime": 1788534176278,
+              "report": {
+                "code": "Xx9tTQGPzgW1Vna3",
+                "fightID": 41,
+                "startTime": 1788528045314
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Hiddenkitty",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 775.079,
+              "hardModeLevel": 0,
+              "duration": 129214,
+              "startTime": 1764960961724,
+              "report": {
+                "code": "rW3favA7KmyzMJPH",
+                "fightID": 27,
+                "startTime": 1764952265561
+              },
+              "guild": {
+                "id": 740008,
+                "name": "Work From Home",
+                "faction": 0
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Cylin",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 774.662,
+              "hardModeLevel": 0,
+              "duration": 138574,
+              "startTime": 1717697301468,
+              "report": {
+                "code": "w6TMbZD81ahpGNFz",
+                "fightID": 23,
+                "startTime": 1717693757661
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "卖萌专业户",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 773.208,
+              "hardModeLevel": 0,
+              "duration": 189407,
+              "startTime": 1751457949451,
+              "report": {
+                "code": "9YNCHmv32nAGp7fW",
+                "fightID": 29,
+                "startTime": 1751453523348
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Curly",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 772.838,
+              "hardModeLevel": 0,
+              "duration": 105911,
+              "startTime": 1684694021721,
+              "report": {
+                "code": "hL9MRqBTz4Hc8WXN",
+                "fightID": 35,
+                "startTime": 1684691524108
+              },
+              "guild": {
+                "id": 602349,
+                "name": "Fun Police",
+                "faction": 1
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Jb",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 772.751,
+              "hardModeLevel": 0,
+              "duration": 177308,
+              "startTime": 1702165872107,
+              "report": {
+                "code": "Ybc7mgQ2HaAR3jyn",
+                "fightID": 65,
+                "startTime": 1702159496041
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Ashflower",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 771.976,
+              "hardModeLevel": 0,
+              "duration": 130508,
+              "startTime": 1734290427826,
+              "report": {
+                "code": "JfgRwXCt4PWLQqMv",
+                "fightID": 1,
+                "startTime": 1734290427826
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "呲花",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 769.968,
+              "hardModeLevel": 0,
+              "duration": 158917,
+              "startTime": 1765541914256,
+              "report": {
+                "code": "JRf89rYAzTQkV2Zj",
+                "fightID": 23,
+                "startTime": 1765538754538
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "花開花蘿",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 766.561,
+              "hardModeLevel": 0,
+              "duration": 171839,
+              "startTime": 1756040200221,
+              "report": {
+                "code": "gBbaHr3tf1qRvLNX",
+                "fightID": 33,
+                "startTime": 1756036981689
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "糖晓蜜",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 766.32,
+              "hardModeLevel": 0,
+              "duration": 161285,
+              "startTime": 1766902205237,
+              "report": {
+                "code": "N9C3GfrwZhmXAx47",
+                "fightID": 22,
+                "startTime": 1766899196839
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "Noésia",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 765.344,
+              "hardModeLevel": 0,
+              "duration": 130003,
+              "startTime": 1723060188362,
+              "report": {
+                "code": "c9FVprC4TQRxK8Lw",
+                "fightID": 41,
+                "startTime": 1723056998001
+              },
+              "guild": {
+                "id": 734024,
+                "name": "Historia",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Oski",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 764.423,
+              "hardModeLevel": 0,
+              "duration": 158776,
+              "startTime": 1711135250224,
+              "report": {
+                "code": "wPgTfzpB7Fvnq4kJ",
+                "fightID": 15,
+                "startTime": 1711134297339
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "秋日之实",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 763.952,
+              "hardModeLevel": 0,
+              "duration": 162573,
+              "startTime": 1792066242014,
+              "report": {
+                "code": "W38C4wLnhX1RZJdq",
+                "fightID": 32,
+                "startTime": 1792061124845
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Plzgosex",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 762.902,
+              "hardModeLevel": 0,
+              "duration": 151992,
+              "startTime": 1730028653590,
+              "report": {
+                "code": "p8qxaDz9jLN1Z4GA",
+                "fightID": 13,
+                "startTime": 1730026165884
+              },
+              "guild": {
+                "id": 636869,
+                "name": "Johannes Pugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "两把西瓜刀",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 761.421,
+              "hardModeLevel": 0,
+              "duration": 163648,
+              "startTime": 1774791436299,
+              "report": {
+                "code": "Am1GbxqBVdMKTQaZ",
+                "fightID": 36,
+                "startTime": 1774773217934
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "来看看而已",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 760.609,
+              "hardModeLevel": 0,
+              "duration": 156777,
+              "startTime": 1787402982730,
+              "report": {
+                "code": "JD4MH9mqXThdzCx8",
+                "fightID": 26,
+                "startTime": 1787397574203
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "蠢萌德",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 759.789,
+              "hardModeLevel": 0,
+              "duration": 194267,
+              "startTime": 1761892422628,
+              "report": {
+                "code": "TfCH8nNKYZtAPzk1",
+                "fightID": 27,
+                "startTime": 1761889440628
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Kallën",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 759.712,
+              "hardModeLevel": 0,
+              "duration": 111300,
+              "startTime": 1778181403603,
+              "report": {
+                "code": "1XHKd27AZ86kWhyL",
+                "fightID": 24,
+                "startTime": 1778178238699
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Chillis",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 757.715,
+              "hardModeLevel": 0,
+              "duration": 159110,
+              "startTime": 1753903169353,
+              "report": {
+                "code": "v1qryM9GaC43mnxX",
+                "fightID": 65,
+                "startTime": 1753899099356
+              },
+              "guild": {
+                "id": 782327,
+                "name": "Next Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Sakurami",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 757.168,
+              "hardModeLevel": 0,
+              "duration": 169286,
+              "startTime": 1747854752284,
+              "report": {
+                "code": "vMctbrFmwhBkyxgY",
+                "fightID": 34,
+                "startTime": 1747851673938
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "风雷电",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 756.896,
+              "hardModeLevel": 0,
+              "duration": 213267,
+              "startTime": 1768915017092,
+              "report": {
+                "code": "yR3K2dHBhTNXa1mj",
+                "fightID": 45,
+                "startTime": 1768910403257
+              },
+              "guild": {
+                "id": 797678,
+                "name": "SHIMMER微光",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "夜风",
+              "class": "Druid",
+              "spec": "Restoration",
+              "amount": 755.357,
+              "hardModeLevel": 0,
+              "duration": 161926,
+              "startTime": 1753963038508,
+              "report": {
+                "code": "QbCAMvL2F6rGTp4J",
+                "fightID": 25,
+                "startTime": 1753940369386
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 19.04,
+      "pointsResetIn": 3588
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 19.04,
+    "reset_in_s": 3588
+  }
+}

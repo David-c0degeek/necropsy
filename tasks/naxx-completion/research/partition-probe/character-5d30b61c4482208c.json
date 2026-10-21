@@ -1,0 +1,45 @@
+{
+  "query": "query NaxxCandidateIdentity($name:String!,$server:String!,$region:String!) { characterData { character(name:$name,serverSlug:$server,serverRegion:$region) { id name classID hidden faction { id name } server { id name slug region { slug } } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "name": "Clicker",
+    "server": "mograine",
+    "region": "eu"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:07:58.668520+00:00",
+  "data": {
+    "characterData": {
+      "character": {
+        "id": 78061561,
+        "name": "Clicker",
+        "classID": 3,
+        "hidden": false,
+        "faction": {
+          "id": 0,
+          "name": "Unknown"
+        },
+        "server": {
+          "id": 10032,
+          "name": "Mograine",
+          "slug": "mograine",
+          "region": {
+            "slug": "EU"
+          }
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 229.4,
+      "pointsResetIn": 3399
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 229.4,
+    "reset_in_s": 3399
+  },
+  "ended_at": "2026-10-21T12:07:58.965278+00:00"
+}

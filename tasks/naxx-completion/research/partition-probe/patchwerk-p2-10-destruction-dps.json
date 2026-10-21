@@ -1,0 +1,2283 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Warlock",
+    "spec": "Destruction"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:05:02.912724+00:00",
+  "ended_at": "2026-10-21T12:05:03.248217+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Glittercake",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 1197.79,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10059,
+                "name": "Smolderweb",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Kareni",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 1194.86,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "勇敢者先行",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 1113.8,
+              "hardModeLevel": 0,
+              "duration": 184079,
+              "startTime": 1753360568904,
+              "report": {
+                "code": "vLkTqRc8VwGnjJfC",
+                "fightID": -18,
+                "startTime": 1753358605976
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "Xinor",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 1061.18,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "桃之丶夭夭",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 1043.71,
+              "hardModeLevel": 0,
+              "duration": 152158,
+              "startTime": 1753346427911,
+              "report": {
+                "code": "jCy14LWRvPqrYMaf",
+                "fightID": -22,
+                "startTime": 1753344968136
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "Zakala",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 1018.38,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Columb",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 1003.8,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Swamp",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 999.981,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "元寳元寳",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 959.218,
+              "hardModeLevel": 0,
+              "duration": 152296,
+              "startTime": 1753369310678,
+              "report": {
+                "code": "8d7QYMhRJqFVwTa9",
+                "fightID": -7,
+                "startTime": 1753367923836
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "夏迎春",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 943.908,
+              "hardModeLevel": 0,
+              "duration": 156011,
+              "startTime": 1753361440268,
+              "report": {
+                "code": "wmjBvQNcZqJ8fzax",
+                "fightID": -33,
+                "startTime": 1753356079253
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Lovepony",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 942.788,
+              "hardModeLevel": 0,
+              "duration": 153796,
+              "startTime": 1753332428051,
+              "report": {
+                "code": "tVWyKC96hZX3BdLm",
+                "fightID": -65,
+                "startTime": 1753324874809
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "天肚英才",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 911.362,
+              "hardModeLevel": 0,
+              "duration": 190144,
+              "startTime": 1753105044358,
+              "report": {
+                "code": "PyRJ1agNHqF6wv2D",
+                "fightID": -29,
+                "startTime": 1753101161395
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Vallkyria",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 907.877,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10021,
+                "name": "Everlook",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "我要吃柚子",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 906.616,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 38
+            },
+            {
+              "name": "西南毛不易",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 903.008,
+              "hardModeLevel": 0,
+              "duration": 163859,
+              "startTime": 1753335427651,
+              "report": {
+                "code": "AyWjatRhdmKFZpvg",
+                "fightID": -22,
+                "startTime": 1753331985727
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "克索诺斯之魂",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 901.398,
+              "hardModeLevel": 0,
+              "duration": 114521,
+              "startTime": 1753363709771,
+              "report": {
+                "code": "4GPJy9WA8xRzcb1B",
+                "fightID": -25,
+                "startTime": 1753359000174
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Soup",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 874.724,
+              "hardModeLevel": 0,
+              "duration": 153796,
+              "startTime": 1753332428051,
+              "report": {
+                "code": "tVWyKC96hZX3BdLm",
+                "fightID": -65,
+                "startTime": 1753324874809
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "大海无靓",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 874.709,
+              "hardModeLevel": 0,
+              "duration": 199919,
+              "startTime": 1753360204227,
+              "report": {
+                "code": "bZNDKCaP4wgAdG3k",
+                "fightID": -31,
+                "startTime": 1753353769190
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Escape",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 861.353,
+              "hardModeLevel": 0,
+              "duration": 113742,
+              "startTime": 1753294539866,
+              "report": {
+                "code": "NBRLfMvxb7hF1C8w",
+                "fightID": -19,
+                "startTime": 1753291815801
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Soty",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 856.96,
+              "hardModeLevel": 0,
+              "duration": 124448,
+              "startTime": 1753353880930,
+              "report": {
+                "code": "7rjRGPvMBxYLgfVw",
+                "fightID": -36,
+                "startTime": 1753351573772
+              },
+              "guild": {
+                "id": 788730,
+                "name": "OnlyTards",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Vestica",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 850.827,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10021,
+                "name": "Everlook",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "轻掬你心",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 846.254,
+              "hardModeLevel": 0,
+              "duration": 158664,
+              "startTime": 1753360361633,
+              "report": {
+                "code": "waBAK6bMNrmThYd3",
+                "fightID": -23,
+                "startTime": 1753358202569
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Docturfel",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 827.184,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "다비아",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 823.431,
+              "hardModeLevel": 0,
+              "duration": 142267,
+              "startTime": 1753367148305,
+              "report": {
+                "code": "takLnVZdK6NF9PMp",
+                "fightID": -67,
+                "startTime": 1753360294512
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10090,
+                "name": "얼음피",
+                "region": "KR"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "모리나",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 820.436,
+              "hardModeLevel": 0,
+              "duration": 142267,
+              "startTime": 1753367148305,
+              "report": {
+                "code": "takLnVZdK6NF9PMp",
+                "fightID": -67,
+                "startTime": 1753360294512
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Qwertylock",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 813.197,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "布莱恩丶马尾",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 794.479,
+              "hardModeLevel": 0,
+              "duration": 168314,
+              "startTime": 1753359826896,
+              "report": {
+                "code": "ybJfXq3VFNHvTcm1",
+                "fightID": -22,
+                "startTime": 1753357153786
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "丨嘤嘤怪丨",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 793.661,
+              "hardModeLevel": 0,
+              "duration": 199919,
+              "startTime": 1753360204227,
+              "report": {
+                "code": "bZNDKCaP4wgAdG3k",
+                "fightID": -31,
+                "startTime": 1753353769190
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "嫖城二老爷",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 792.967,
+              "hardModeLevel": 0,
+              "duration": 165867,
+              "startTime": 1753363027181,
+              "report": {
+                "code": "7xn9cgfR68wqZh3V",
+                "fightID": -36,
+                "startTime": 1753356981942
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "大地春如海",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 791.773,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Nieves",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 782.402,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10021,
+                "name": "Everlook",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "蒂娅伯罗斯",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 781.293,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 36
+            },
+            {
+              "name": "Dothot",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 778.338,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": -16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "四两玄紫",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 776.998,
+              "hardModeLevel": 0,
+              "duration": 156106,
+              "startTime": 1753363778841,
+              "report": {
+                "code": "3tpWqrBnwdgVQ7fA",
+                "fightID": -51,
+                "startTime": 1753358224565
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "丨夜丶一丨",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 775.363,
+              "hardModeLevel": 0,
+              "duration": 184079,
+              "startTime": 1753360568904,
+              "report": {
+                "code": "vLkTqRc8VwGnjJfC",
+                "fightID": -18,
+                "startTime": 1753358605976
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "安静的胖胖",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 772.46,
+              "hardModeLevel": 0,
+              "duration": 152158,
+              "startTime": 1753346427911,
+              "report": {
+                "code": "jCy14LWRvPqrYMaf",
+                "fightID": -22,
+                "startTime": 1753344968136
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "氯噻西泮",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 767.592,
+              "hardModeLevel": 0,
+              "duration": 193023,
+              "startTime": 1753359822039,
+              "report": {
+                "code": "NgKC4fknAt897y6H",
+                "fightID": -25,
+                "startTime": 1753357026746
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Gnomié",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 766.141,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Wutspaupin",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 758.057,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Baenki",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 744.399,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10076,
+                "name": "Lakeshire",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "呐灬给你糖",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 741.053,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "京沪小混子",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 732.323,
+              "hardModeLevel": 0,
+              "duration": 173896,
+              "startTime": 1753361272913,
+              "report": {
+                "code": "9Rk8pCjTQxGDZWaN",
+                "fightID": -27,
+                "startTime": 1753358848965
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "Aelthalyst",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 731.174,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "遁强",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 731.092,
+              "hardModeLevel": 0,
+              "duration": 187131,
+              "startTime": 1753362163346,
+              "report": {
+                "code": "MPrkXnmqfHxRT71p",
+                "fightID": -35,
+                "startTime": 1753358386740
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "爱情转移筱术",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 729.642,
+              "hardModeLevel": 0,
+              "duration": 170126,
+              "startTime": 1753361788175,
+              "report": {
+                "code": "QaGwZTNYVHv6F29J",
+                "fightID": -34,
+                "startTime": 1753358572521
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Kono",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 726.634,
+              "hardModeLevel": 0,
+              "duration": 171854,
+              "startTime": 1753331204624,
+              "report": {
+                "code": "pBmVQAGJbcLFNYq6",
+                "fightID": -13,
+                "startTime": 1753330001774
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Splintz",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 724.162,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "陌然青衣",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 720.812,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "宽星星",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 720.114,
+              "hardModeLevel": 0,
+              "duration": 167150,
+              "startTime": 1753358792078,
+              "report": {
+                "code": "Ad1bkWYCQG2cNRp4",
+                "fightID": -92,
+                "startTime": 1753340287816
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Brieosten",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 711.513,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Usadapekora",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 708.979,
+              "hardModeLevel": 0,
+              "duration": 124448,
+              "startTime": 1753353880930,
+              "report": {
+                "code": "7rjRGPvMBxYLgfVw",
+                "fightID": -36,
+                "startTime": 1753351573772
+              },
+              "guild": {
+                "id": 788730,
+                "name": "OnlyTards",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "善啦",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 707.335,
+              "hardModeLevel": 0,
+              "duration": 156011,
+              "startTime": 1753361440268,
+              "report": {
+                "code": "wmjBvQNcZqJ8fzax",
+                "fightID": -33,
+                "startTime": 1753356079253
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Evander",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 703.263,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Karathir",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 702.519,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "木童",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 701.743,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 36
+            },
+            {
+              "name": "Aiden",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 700.145,
+              "hardModeLevel": 0,
+              "duration": 163859,
+              "startTime": 1753335427651,
+              "report": {
+                "code": "AyWjatRhdmKFZpvg",
+                "fightID": -22,
+                "startTime": 1753331985727
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "Bernadots",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 696.857,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "没学拉人",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 696.422,
+              "hardModeLevel": 0,
+              "duration": 150205,
+              "startTime": 1753334634175,
+              "report": {
+                "code": "7ZYwVqHN4nRKhzCf",
+                "fightID": -26,
+                "startTime": 1753332514879
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "扑你老木",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 692.87,
+              "hardModeLevel": 0,
+              "duration": 154254,
+              "startTime": 1753360441512,
+              "report": {
+                "code": "QGntwLCYWJDxB9Ra",
+                "fightID": -19,
+                "startTime": 1753356441878
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Acgv",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 691.139,
+              "hardModeLevel": 0,
+              "duration": 150074,
+              "startTime": 1753322716842,
+              "report": {
+                "code": "krTDb9Fj7RnQq1zv",
+                "fightID": -22,
+                "startTime": 1753320009542
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "烈酒有数",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 688.398,
+              "hardModeLevel": 0,
+              "duration": 164078,
+              "startTime": 1753355868389,
+              "report": {
+                "code": "MX7QFfkrmDHBZTnG",
+                "fightID": -17,
+                "startTime": 1753354744375
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "四季宝鸽鸽",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 687.526,
+              "hardModeLevel": 0,
+              "duration": 156106,
+              "startTime": 1753363778841,
+              "report": {
+                "code": "3tpWqrBnwdgVQ7fA",
+                "fightID": -51,
+                "startTime": 1753358224565
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "花无缺博彦",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 686.541,
+              "hardModeLevel": 0,
+              "duration": 203299,
+              "startTime": 1753365300980,
+              "report": {
+                "code": "rhvDbNF74Kw6m3Wy",
+                "fightID": -38,
+                "startTime": 1753360652579
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Ihumankiller",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 685.79,
+              "hardModeLevel": 0,
+              "duration": 162805,
+              "startTime": 1753364291646,
+              "report": {
+                "code": "aMw9HcXAndTyxKmb",
+                "fightID": -41,
+                "startTime": 1753359294673
+              },
+              "guild": {
+                "id": 601254,
+                "name": "Shadow of Moon 哈霍兰部落",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "人称猛將兄丶",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 683.098,
+              "hardModeLevel": 0,
+              "duration": 159958,
+              "startTime": 1753365328734,
+              "report": {
+                "code": "cRqyxpfM9JYWwKat",
+                "fightID": -24,
+                "startTime": 1753363440860
+              },
+              "guild": {
+                "id": 788240,
+                "name": "蛋仔派对",
+                "faction": 0
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "射脚座",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 681.153,
+              "hardModeLevel": 0,
+              "duration": 184079,
+              "startTime": 1753360568904,
+              "report": {
+                "code": "vLkTqRc8VwGnjJfC",
+                "fightID": -18,
+                "startTime": 1753358605976
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "小小恶魔女",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 674.384,
+              "hardModeLevel": 0,
+              "duration": 163220,
+              "startTime": 1753357508191,
+              "report": {
+                "code": "jF4phzZd6D1Bag9N",
+                "fightID": -21,
+                "startTime": 1753355006190
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "暗黑审判",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 670.228,
+              "hardModeLevel": 0,
+              "duration": 156126,
+              "startTime": 1753367319471,
+              "report": {
+                "code": "ZVDMApLJygK8xnhj",
+                "fightID": -34,
+                "startTime": 1753364024831
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "芬芬",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 669.058,
+              "hardModeLevel": 0,
+              "duration": 162805,
+              "startTime": 1753364291646,
+              "report": {
+                "code": "aMw9HcXAndTyxKmb",
+                "fightID": -41,
+                "startTime": 1753359294673
+              },
+              "guild": {
+                "id": 601254,
+                "name": "Shadow of Moon 哈霍兰部落",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "小幽魂",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 669.007,
+              "hardModeLevel": 0,
+              "duration": 160076,
+              "startTime": 1753319647226,
+              "report": {
+                "code": "vTfr7Ca8G4txmK1q",
+                "fightID": -33,
+                "startTime": 1753316545685
+              },
+              "guild": {
+                "id": 610324,
+                "name": "英雄传说",
+                "faction": 0
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "雨傍晚车窗外",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 663.604,
+              "hardModeLevel": 0,
+              "duration": 203299,
+              "startTime": 1753365300980,
+              "report": {
+                "code": "rhvDbNF74Kw6m3Wy",
+                "fightID": -38,
+                "startTime": 1753360652579
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "泥鳅丶幼稚园",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 662.781,
+              "hardModeLevel": 0,
+              "duration": 155083,
+              "startTime": 1753356841654,
+              "report": {
+                "code": "xFhBwndDLjkapJZ6",
+                "fightID": -7,
+                "startTime": 1753355168491
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "伈灵捕手",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 648.238,
+              "hardModeLevel": 0,
+              "duration": 167150,
+              "startTime": 1753358792078,
+              "report": {
+                "code": "Ad1bkWYCQG2cNRp4",
+                "fightID": -92,
+                "startTime": 1753340287816
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Haloa",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 643.237,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "黑死灵",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 636.59,
+              "hardModeLevel": 0,
+              "duration": 168314,
+              "startTime": 1753359826896,
+              "report": {
+                "code": "ybJfXq3VFNHvTcm1",
+                "fightID": -22,
+                "startTime": 1753357153786
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "夏筱筱",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 636.564,
+              "hardModeLevel": 0,
+              "duration": 175222,
+              "startTime": 1753365693931,
+              "report": {
+                "code": "MKYP78pZ2G3Qwmrn",
+                "fightID": -71,
+                "startTime": 1753357859883
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "秋阳多多",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 634.752,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "飞翼零式",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 632.983,
+              "hardModeLevel": 0,
+              "duration": 194348,
+              "startTime": 1753364513753,
+              "report": {
+                "code": "w9aNZmPrQg6zTh31",
+                "fightID": -55,
+                "startTime": 1753354201544
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "江婠婠",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 628.696,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "身高零点六",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 626.707,
+              "hardModeLevel": 0,
+              "duration": 163732,
+              "startTime": 1753363649370,
+              "report": {
+                "code": "LhbRBYry3CQHNpZf",
+                "fightID": -59,
+                "startTime": 1753358018665
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Andorielle",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 624.965,
+              "hardModeLevel": 0,
+              "duration": 253382,
+              "startTime": 1753298830231,
+              "report": {
+                "code": "kJrwLPFVXzdyKp12",
+                "fightID": -19,
+                "startTime": 1753297070459
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Soddy",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 622.173,
+              "hardModeLevel": 0,
+              "duration": 163220,
+              "startTime": 1753357508191,
+              "report": {
+                "code": "jF4phzZd6D1Bag9N",
+                "fightID": -21,
+                "startTime": 1753355006190
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "欢愉夜百合",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 620.24,
+              "hardModeLevel": 0,
+              "duration": 170126,
+              "startTime": 1753361788175,
+              "report": {
+                "code": "QaGwZTNYVHv6F29J",
+                "fightID": -34,
+                "startTime": 1753358572521
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "阿張",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 618.099,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "术魔",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 617.765,
+              "hardModeLevel": 0,
+              "duration": 183298,
+              "startTime": 1753366980522,
+              "report": {
+                "code": "cPqM4kG9XnrVz6x1",
+                "fightID": -52,
+                "startTime": 1753358771123
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "柒小柒",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 615.358,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "永恒魔皇",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 614.143,
+              "hardModeLevel": 0,
+              "duration": 176322,
+              "startTime": 1753363553140,
+              "report": {
+                "code": "A6acbw8YMdTgxGrN",
+                "fightID": -29,
+                "startTime": 1753360117291
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "贪婪的宝宝",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 610.28,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Bleedbot",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 606.7,
+              "hardModeLevel": 0,
+              "duration": 138032,
+              "startTime": 1753355938430,
+              "report": {
+                "code": "3npZPyLabYrRvdm4",
+                "fightID": -42,
+                "startTime": 1753347503469
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "醉顏",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 604.694,
+              "hardModeLevel": 0,
+              "duration": 202491,
+              "startTime": 1753343484147,
+              "report": {
+                "code": "RNp2dD6Jt8vzcrfg",
+                "fightID": -24,
+                "startTime": 1753340980261
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 36
+            },
+            {
+              "name": "叶北洛",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 602.504,
+              "hardModeLevel": 0,
+              "duration": 186895,
+              "startTime": 1753360663664,
+              "report": {
+                "code": "x3WrZ4bVYtRq7Mda",
+                "fightID": -23,
+                "startTime": 1753357521888
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "乖的无名",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 601.835,
+              "hardModeLevel": 0,
+              "duration": 143850,
+              "startTime": 1753332736589,
+              "report": {
+                "code": "jcLTtvnVWad19hwC",
+                "fightID": -9,
+                "startTime": 1753331955429
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "芷芷",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 601.573,
+              "hardModeLevel": 0,
+              "duration": 185196,
+              "startTime": 1753360356802,
+              "report": {
+                "code": "2tDKf93Y7ZCapTQG",
+                "fightID": -22,
+                "startTime": 1753357514699
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "杀手明",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 600.568,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "黑眼大蝮蛇",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 600.347,
+              "hardModeLevel": 0,
+              "duration": 158630,
+              "startTime": 1753356349001,
+              "report": {
+                "code": "3fVqztZJBm418j6R",
+                "fightID": -8,
+                "startTime": 1753353401819
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "刘程图丶",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 593.433,
+              "hardModeLevel": 0,
+              "duration": 177742,
+              "startTime": 1753365688567,
+              "report": {
+                "code": "ndKJPjvtxYrgwm7R",
+                "fightID": -21,
+                "startTime": 1753362473545
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "往事回首",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 592.848,
+              "hardModeLevel": 0,
+              "duration": 179960,
+              "startTime": 1753360578060,
+              "report": {
+                "code": "CT3kbQHVKFLtvm2W",
+                "fightID": -40,
+                "startTime": 1753355542199
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "马小辫",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 590.28,
+              "hardModeLevel": 0,
+              "duration": 152990,
+              "startTime": 1753368066229,
+              "report": {
+                "code": "dMhTQRNv3AXZYfgt",
+                "fightID": -11,
+                "startTime": 1753366446865
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "小逸",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 588.808,
+              "hardModeLevel": 0,
+              "duration": 194887,
+              "startTime": 1753361554256,
+              "report": {
+                "code": "WnGjX6bB8xqfmgcH",
+                "fightID": -54,
+                "startTime": 1753356669840
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Kittles",
+              "class": "Warlock",
+              "spec": "Destruction",
+              "amount": 581.344,
+              "hardModeLevel": 0,
+              "duration": 142198,
+              "startTime": 1753335671549,
+              "report": {
+                "code": "DZ2NwXGRWBjkPyLd",
+                "fightID": -17,
+                "startTime": 1753333698226
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 71.37,
+      "pointsResetIn": 3575
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 71.37,
+    "reset_in_s": 3575
+  }
+}

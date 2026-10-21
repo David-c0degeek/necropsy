@@ -1,0 +1,45 @@
+{
+  "query": "query NaxxCandidateIdentity($name:String!,$server:String!,$region:String!) { characterData { character(name:$name,serverSlug:$server,serverRegion:$region) { id name classID hidden faction { id name } server { id name slug region { slug } } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "name": "Greatkristi",
+    "server": "ashbringer",
+    "region": "eu"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:08:05.407551+00:00",
+  "data": {
+    "characterData": {
+      "character": {
+        "id": 76607851,
+        "name": "Greatkristi",
+        "classID": 6,
+        "hidden": false,
+        "faction": {
+          "id": 0,
+          "name": "Unknown"
+        },
+        "server": {
+          "id": 10071,
+          "name": "Ashbringer",
+          "slug": "ashbringer",
+          "region": {
+            "slug": "EU"
+          }
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 248.4,
+      "pointsResetIn": 3392
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 248.4,
+    "reset_in_s": 3392
+  },
+  "ended_at": "2026-10-21T12:08:05.681905+00:00"
+}

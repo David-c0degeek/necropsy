@@ -1,0 +1,331 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Druid",
+    "spec": "Guardian"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:58.184955+00:00",
+  "ended_at": "2026-10-21T12:04:58.502165+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": false,
+          "count": 13,
+          "rankings": [
+            {
+              "name": "Methoneiros",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 864.911,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "小宇丶丶",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 517.604,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "黄姥姥",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 473.794,
+              "hardModeLevel": 0,
+              "duration": 167311,
+              "startTime": 1753356997550,
+              "report": {
+                "code": "zTK36Djdpf9HXnG1",
+                "fightID": -28,
+                "startTime": 1753336900811
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "壹队牛霸霸",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 472.87,
+              "hardModeLevel": 0,
+              "duration": 163857,
+              "startTime": 1753369011401,
+              "report": {
+                "code": "wPtqpFCGgfaJ1Ljd",
+                "fightID": -33,
+                "startTime": 1753365359176
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "帕拉图牌火机",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 460.183,
+              "hardModeLevel": 0,
+              "duration": 166825,
+              "startTime": 1753323132349,
+              "report": {
+                "code": "3RqcMa9dvjKhXH4T",
+                "fightID": -22,
+                "startTime": 1753320706197
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "柠檬德味道",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 441.937,
+              "hardModeLevel": 0,
+              "duration": 162496,
+              "startTime": 1753358969628,
+              "report": {
+                "code": "ctVDPydAfCvG3rz7",
+                "fightID": -22,
+                "startTime": 1753355856818
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "Dingydruid",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 424.25,
+              "hardModeLevel": 0,
+              "duration": 173836,
+              "startTime": 1753296267716,
+              "report": {
+                "code": "jryaVf8kPmTHqFzc",
+                "fightID": -34,
+                "startTime": 1753292424924
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "熊墩墩",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 414.177,
+              "hardModeLevel": 0,
+              "duration": 171854,
+              "startTime": 1753331204624,
+              "report": {
+                "code": "pBmVQAGJbcLFNYq6",
+                "fightID": -13,
+                "startTime": 1753330001774
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 75,
+              "size": 38
+            },
+            {
+              "name": "Judethedrood",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 401.642,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "神棍小混混",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 345.493,
+              "hardModeLevel": 0,
+              "duration": 186895,
+              "startTime": 1753360663664,
+              "report": {
+                "code": "x3WrZ4bVYtRq7Mda",
+                "fightID": -23,
+                "startTime": 1753357521888
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "Giminiufnsak",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 319.88,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10076,
+                "name": "Lakeshire",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "别丢鱼",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 219.433,
+              "hardModeLevel": 0,
+              "duration": 193676,
+              "startTime": 1753335108757,
+              "report": {
+                "code": "2NaH981yXjmdDwqZ",
+                "fightID": -43,
+                "startTime": 1753329089434
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 39
+            },
+            {
+              "name": "拙劣的马魁",
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 41.4858,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 67,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 56.23,
+      "pointsResetIn": 3579
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 56.23,
+    "reset_in_s": 3579
+  }
+}

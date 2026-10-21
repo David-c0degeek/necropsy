@@ -1,0 +1,45 @@
+{
+  "query": "query NaxxCandidateIdentity($name:String!,$server:String!,$region:String!) { characterData { character(name:$name,serverSlug:$server,serverRegion:$region) { id name classID hidden faction { id name } server { id name slug region { slug } } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "name": "Ramessess",
+    "server": "whitemane",
+    "region": "us"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:06:49.660205+00:00",
+  "data": {
+    "characterData": {
+      "character": {
+        "id": 84262234,
+        "name": "Ramessess",
+        "classID": 11,
+        "hidden": false,
+        "faction": {
+          "id": 2,
+          "name": "Horde"
+        },
+        "server": {
+          "id": 10012,
+          "name": "Whitemane",
+          "slug": "whitemane",
+          "region": {
+            "slug": "US"
+          }
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 93.4,
+      "pointsResetIn": 3468
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 93.4,
+    "reset_in_s": 3468
+  },
+  "ended_at": "2026-10-21T12:06:49.964161+00:00"
+}

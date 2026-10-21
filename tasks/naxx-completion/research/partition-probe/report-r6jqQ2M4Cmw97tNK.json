@@ -1,0 +1,261 @@
+{
+  "query": "query NaxxCandidateReport($code:String!) { reportData { report(code:$code) { code visibility fights { id encounterID kill } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "code": "r6jqQ2M4Cmw97tNK"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:06:44.201011+00:00",
+  "data": {
+    "reportData": {
+      "report": {
+        "code": "r6jqQ2M4Cmw97tNK",
+        "visibility": "public",
+        "fights": [
+          {
+            "id": 1,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 2,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 3,
+            "encounterID": 51107,
+            "kill": true
+          },
+          {
+            "id": 4,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 5,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 6,
+            "encounterID": 51110,
+            "kill": true
+          },
+          {
+            "id": 7,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 8,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 9,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 10,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 11,
+            "encounterID": 51116,
+            "kill": true
+          },
+          {
+            "id": 12,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 13,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 14,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 15,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 16,
+            "encounterID": 51113,
+            "kill": true
+          },
+          {
+            "id": 17,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 18,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 19,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 20,
+            "encounterID": 51109,
+            "kill": true
+          },
+          {
+            "id": 21,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 22,
+            "encounterID": 51121,
+            "kill": true
+          },
+          {
+            "id": 23,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 24,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 25,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 26,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 27,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 28,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 29,
+            "encounterID": 51118,
+            "kill": true
+          },
+          {
+            "id": 30,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 31,
+            "encounterID": 51111,
+            "kill": true
+          },
+          {
+            "id": 32,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 33,
+            "encounterID": 51108,
+            "kill": true
+          },
+          {
+            "id": 34,
+            "encounterID": 51120,
+            "kill": true
+          },
+          {
+            "id": 35,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 36,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 37,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 38,
+            "encounterID": 51117,
+            "kill": true
+          },
+          {
+            "id": 39,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 40,
+            "encounterID": 51112,
+            "kill": true
+          },
+          {
+            "id": 41,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 42,
+            "encounterID": 51115,
+            "kill": true
+          },
+          {
+            "id": 43,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 44,
+            "encounterID": 51119,
+            "kill": true
+          },
+          {
+            "id": 45,
+            "encounterID": 0,
+            "kill": null
+          },
+          {
+            "id": 46,
+            "encounterID": 51114,
+            "kill": true
+          }
+        ]
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 85.4,
+      "pointsResetIn": 3473
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 85.4,
+    "reset_in_s": 3473
+  },
+  "ended_at": "2026-10-21T12:06:44.777244+00:00"
+}

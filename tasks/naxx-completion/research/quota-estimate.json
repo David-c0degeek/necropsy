@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "status": "D007 independent read-only research draft; not completion or acquisition approval",
+  "created_at_utc": "2026-10-21T12:07:33.375365+00:00",
+  "runs": [
+    {
+      "run": "mc-holy-paladin-full",
+      "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+      "archive_sha256": "3955ae0ef899d87467a151ce390aeb0fb0e6cfac1d3c185e5476f3b7a2d2cd32",
+      "contexts": 60,
+      "unique_fights": 59,
+      "player_pages": 127,
+      "pet_pages": 0,
+      "encounter_all_pages": 66,
+      "critical_pages": 59,
+      "stream_meta_positive_account_delta_points": {
+        "player": 242.13,
+        "encounter": 66.0,
+        "critical": 61.13
+      },
+      "journal_requests": 476,
+      "window_start": "2026-10-18T12:08:25.121315+00:00",
+      "window_end": "2026-10-18T13:41:31.794627+00:00",
+      "spent_first": 2.0,
+      "spent_last": 530.89,
+      "resets": 1,
+      "positive_adjacent_delta_sum": 1547.3,
+      "journal_catalog_sha256": "e94d474928b5cd1d17dc776f0741dd48bb49521cabf9b647f8caa238a9a2e265",
+      "bosses": 10,
+      "historical_limit_per_hour": 1800,
+      "journal_dir": "workspace/raid-research/mc-holy-paladin-full/.necropsy-run/requests",
+      "checkpoint_path": "workspace/raid-research/mc-holy-paladin-full/.necropsy-run/run.json",
+      "checkpoint_sha256": "c8c966179f1da1730e678d6f1772f59b33075d46ad1e1cf28aea5722f132a89b"
+    },
+    {
+      "run": "mc-holy-full",
+      "archive": "tests/golden/raids/raw/mc-holy-raid-context/74578049-2000-20261017T185708.zip",
+      "archive_sha256": "a1bfc4c0f07cd4282108aac60a3e2181d84410b5c639833cfb8053e73a6d1249",
+      "contexts": 60,
+      "unique_fights": 57,
+      "player_pages": 122,
+      "pet_pages": 0,
+      "encounter_all_pages": 59,
+      "critical_pages": 57,
+      "stream_meta_positive_account_delta_points": {
+        "player": 241.81,
+        "encounter": 79.04,
+        "critical": 58.46
+      },
+      "journal_requests": 357,
+      "window_start": "2026-10-17T15:04:32.589614+00:00",
+      "window_end": "2026-10-17T18:57:08.205938+00:00",
+      "spent_first": 1.0,
+      "spent_last": 11.4,
+      "resets": 2,
+      "positive_adjacent_delta_sum": 1471.84,
+      "journal_catalog_sha256": "5b16f8684ceef0728080893d8caba5170f7edb55d9c750984088f3c420ead86c",
+      "bosses": 10,
+      "historical_limit_per_hour": 1800,
+      "journal_dir": "workspace/raid-research/mc-holy-full/.necropsy-run/requests",
+      "checkpoint_path": "workspace/raid-research/mc-holy-full/.necropsy-run/run.json",
+      "checkpoint_sha256": "af922ac1866e6ca31cd54e0758bd301ecd95ba7e0ba1b8578b753f44e2216e7b"
+    },
+    {
+      "run": "mc-restoration-shaman-full",
+      "archive": "tests/golden/raids/raw/mc-restoration-shaman-raid-context/73386773-2000-20261018T144929.zip",
+      "archive_sha256": "3614d02e1c3b48ce112a47d196471b93f4be7579a3d5f211d88764a675b89eed",
+      "contexts": 60,
+      "unique_fights": 58,
+      "player_pages": 132,
+      "pet_pages": 37,
+      "encounter_all_pages": 70,
+      "critical_pages": 58,
+      "stream_meta_positive_account_delta_points": {
+        "player": 252.24,
+        "pet": 37.0,
+        "encounter": 70.0,
+        "critical": 58.0
+      },
+      "journal_requests": 538,
+      "window_start": "2026-10-18T14:20:53.396478+00:00",
+      "window_end": "2026-10-18T14:49:29.593427+00:00",
+      "spent_first": 537.9,
+      "spent_last": 994.34,
+      "resets": 1,
+      "positive_adjacent_delta_sum": 1687.45,
+      "journal_catalog_sha256": "4ace6050b15acf81d12b904a9a413059d0da73a7eb913c5ed824f599f5e83aa3",
+      "bosses": 10,
+      "historical_limit_per_hour": 1800,
+      "journal_dir": "workspace/raid-research/mc-restoration-shaman-full/.necropsy-run/requests",
+      "checkpoint_path": "workspace/raid-research/mc-restoration-shaman-full/.necropsy-run/run.json",
+      "checkpoint_sha256": "026950ef7b8bf6701c4f625a95e1fa73c0fc24f96df0c96a090744e5d97fea71"
+    }
+  ],
+  "request_delta_samples": {
+    "NecropsyEvents": {
+      "median_each_run": 1.0,
+      "observed_max_each_run": [
+        11.02,
+        8.01,
+        11.02
+      ]
+    },
+    "NecropsyReport": {
+      "median_each_run": 6.01,
+      "observed_max_each_run": [
+        16.01,
+        8.01,
+        8.02
+      ]
+    },
+    "NecropsyLeaderboard": {
+      "median_each_run": 1.01
+    }
+  },
+  "current_limit_context": {
+    "limit_per_hour": 3000,
+    "observed_by": "root zone probe, reported in D007 task message",
+    "observed_date": "2026-10-21",
+    "exact_probe_time_and_key_identity": "not independently inspected by this reviewer"
+  },
+  "illustrative_mc_shaped_scaling": {
+    "assumption": "Multiply ten-boss retained account-delta sums by15/10; 34 configurations inferred from510cells/15bosses; no extra longfight/owned-unit/identity/metadata/cache adjustment",
+    "per_configuration_points_low": 2207.76,
+    "per_configuration_points_high": 2531.175,
+    "34_configurations_points_low": 75063.84,
+    "34_configurations_points_high": 86059.95,
+    "at3000_gross_hourly_cap_equivalents": [
+      25.02128,
+      28.68665
+    ],
+    "meaning": "Scenario only; not reliable cost bound, wall time, number of resets or a promise of completion. Normal budget_share, initial spend and reserve rules reduce usable capacity."
+  },
+  "official_sources": [
+    {
+      "url": "https://www.warcraftlogs.com/v2-api-docs/warcraft/ratelimitdata.doc.html",
+      "supports": "Hourly key point ceiling, spent points, seconds to reset; common schema also exposes currentRequest JSON, not selected in these historical journals."
+    },
+    {
+      "url": "https://www.warcraftlogs.com/api/docs",
+      "supports": "Official API overview; search-index content available, direct fetch403."
+    }
+  ],
+  "official_cost_formula": "No authoritative per-page/per-event numerical tariff established by this research. Vanilla-specific schema pages returned403; common-schema currentRequest support on Vanilla was not live-verified.",
+  "limitations": [
+    "These are account-wide readings, not exact request or stream costs. Other account activity can inflate deltas; resets, missing/forgotten journal records, failures and cache reuse can remove expenditure. Neither a cold-capture lower bound nor upper bound is established.",
+    "Journals were read-only scanned and sorted by captured_at; positive adjacent pointsSpentThisHour differences were summed, negative reset edges omitted; the first request cost and reset-edge request costs are not recovered.",
+    "Journal catalog hash is SHA256(json.dumps(sorted([(filename,SHA256(raw_file_bytes)),...]),separators=(comma,colon)).encode()); values include every journal JSON file.",
+    "Snapshot stream metadata predates later rendering and can be reused from cache; never add stream metadata deltas to journal sums. Snapshot metadata itself explicitly labels these as account-wide between-readings measurements.",
+    "One event page approximately one point is an empirical pattern in these captures, not a verified official tariff. Query shape, report metadata/faction checks/finalization, pagination, owned units, failures, freshness and shared cache all affect cost.",
+    "Historical 1800 limits are from 2026-10-17/18; current 3000 was reported by root from its 2026-10-21 zone probe. This reviewer did not make a live API call; no inference of unchanged account/key/window or available balance is made.",
+    "No v2 Naxx capture exists in this sample. Horsemen multi-NPC/long duration, Gothik waves and KelThuzad phases can substantially raise All and critical pages. MC scaling is neither a forecast nor a floor."
+  ]
+}

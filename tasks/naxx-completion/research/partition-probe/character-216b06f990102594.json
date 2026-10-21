@@ -1,0 +1,45 @@
+{
+  "query": "query NaxxCandidateIdentity($name:String!,$server:String!,$region:String!) { characterData { character(name:$name,serverSlug:$server,serverRegion:$region) { id name classID hidden faction { id name } server { id name slug region { slug } } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "name": "Ywfvniefjioe",
+    "server": "pyrewood-village",
+    "region": "eu"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:07:30.317509+00:00",
+  "data": {
+    "characterData": {
+      "character": {
+        "id": 67769082,
+        "name": "Ywfvniefjioe",
+        "classID": 7,
+        "hidden": false,
+        "faction": {
+          "id": 2,
+          "name": "Horde"
+        },
+        "server": {
+          "id": 10016,
+          "name": "Pyrewood Village",
+          "slug": "pyrewood-village",
+          "region": {
+            "slug": "EU"
+          }
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 164.4,
+      "pointsResetIn": 3427
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 164.4,
+    "reset_in_s": 3427
+  },
+  "ended_at": "2026-10-21T12:07:30.623802+00:00"
+}

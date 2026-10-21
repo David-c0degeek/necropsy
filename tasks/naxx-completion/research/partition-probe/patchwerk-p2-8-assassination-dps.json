@@ -1,0 +1,2213 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Rogue",
+    "spec": "Assassination"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:05:01.620699+00:00",
+  "ended_at": "2026-10-21T12:05:01.957089+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Machitikos",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1807.14,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": -16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Jerster",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1740.74,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "熏螂",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1601.29,
+              "hardModeLevel": 0,
+              "duration": 158630,
+              "startTime": 1753356349001,
+              "report": {
+                "code": "3fVqztZJBm418j6R",
+                "fightID": -8,
+                "startTime": 1753353401819
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "歪哥",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1573.83,
+              "hardModeLevel": 0,
+              "duration": 158630,
+              "startTime": 1753356349001,
+              "report": {
+                "code": "3fVqztZJBm418j6R",
+                "fightID": -8,
+                "startTime": 1753353401819
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Jefik",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1545.28,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "源源滴月亮",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1544.91,
+              "hardModeLevel": 0,
+              "duration": 191837,
+              "startTime": 1753335391862,
+              "report": {
+                "code": "c8y2jrd6Mqp9Fw7K",
+                "fightID": -24,
+                "startTime": 1753331758717
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "开心耙耙",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1537.43,
+              "hardModeLevel": 0,
+              "duration": 170126,
+              "startTime": 1753361788175,
+              "report": {
+                "code": "QaGwZTNYVHv6F29J",
+                "fightID": -34,
+                "startTime": 1753358572521
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "尽情愚弄",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1468.1,
+              "hardModeLevel": 0,
+              "duration": 143931,
+              "startTime": 1753355941088,
+              "report": {
+                "code": "aky3vnBQK2GxJH4X",
+                "fightID": -17,
+                "startTime": 1753354451159
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "乱舞步",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1465.22,
+              "hardModeLevel": 0,
+              "duration": 147273,
+              "startTime": 1753354468969,
+              "report": {
+                "code": "FnA4p2XtzBMDPZJR",
+                "fightID": -11,
+                "startTime": 1753353636184
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "文刀隐杰",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1464.61,
+              "hardModeLevel": 0,
+              "duration": 172234,
+              "startTime": 1753334009288,
+              "report": {
+                "code": "vYbryhmzp7JHKDGQ",
+                "fightID": -11,
+                "startTime": 1753332149338
+              },
+              "guild": {
+                "id": 668948,
+                "name": "Victory",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "无支祁",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1463.97,
+              "hardModeLevel": 0,
+              "duration": 165607,
+              "startTime": 1753359952638,
+              "report": {
+                "code": "w973cQTxnPYaXHqF",
+                "fightID": -23,
+                "startTime": 1753357194695
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Umaga",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1449.43,
+              "hardModeLevel": 0,
+              "duration": 150532,
+              "startTime": 1753369885210,
+              "report": {
+                "code": "Gv6xcgXyYL9jWkVR",
+                "fightID": -29,
+                "startTime": 1753365346625
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "贼顺",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1443.71,
+              "hardModeLevel": 0,
+              "duration": 145153,
+              "startTime": 1753362986248,
+              "report": {
+                "code": "aXJ7gvqcGjPk4mVQ",
+                "fightID": -30,
+                "startTime": 1753360349349
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "狂刃杀手",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1442.13,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "裘卡咪",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1435.7,
+              "hardModeLevel": 0,
+              "duration": 172864,
+              "startTime": 1753335580250,
+              "report": {
+                "code": "6tgvZJjTzwqamyRD",
+                "fightID": -52,
+                "startTime": 1753327868586
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "潜刹",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1435.4,
+              "hardModeLevel": 0,
+              "duration": 186895,
+              "startTime": 1753360663664,
+              "report": {
+                "code": "x3WrZ4bVYtRq7Mda",
+                "fightID": -23,
+                "startTime": 1753357521888
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "Skandy",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1431.75,
+              "hardModeLevel": 0,
+              "duration": 113742,
+              "startTime": 1753294539866,
+              "report": {
+                "code": "NBRLfMvxb7hF1C8w",
+                "fightID": -19,
+                "startTime": 1753291815801
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Villainx",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1430.18,
+              "hardModeLevel": 0,
+              "duration": 138032,
+              "startTime": 1753355938430,
+              "report": {
+                "code": "3npZPyLabYrRvdm4",
+                "fightID": -42,
+                "startTime": 1753347503469
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "农夫叁醛",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1428.71,
+              "hardModeLevel": 0,
+              "duration": 147273,
+              "startTime": 1753354468969,
+              "report": {
+                "code": "FnA4p2XtzBMDPZJR",
+                "fightID": -11,
+                "startTime": 1753353636184
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "心无奈",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1424.46,
+              "hardModeLevel": 0,
+              "duration": 162805,
+              "startTime": 1753364291646,
+              "report": {
+                "code": "aMw9HcXAndTyxKmb",
+                "fightID": -41,
+                "startTime": 1753359294673
+              },
+              "guild": {
+                "id": 601254,
+                "name": "Shadow of Moon 哈霍兰部落",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "Cassie",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1422.27,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "梦之无痕",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1419.69,
+              "hardModeLevel": 0,
+              "duration": 152990,
+              "startTime": 1753368066229,
+              "report": {
+                "code": "dMhTQRNv3AXZYfgt",
+                "fightID": -11,
+                "startTime": 1753366446865
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "幸免之刃",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1418.28,
+              "hardModeLevel": 0,
+              "duration": 152296,
+              "startTime": 1753369310678,
+              "report": {
+                "code": "8d7QYMhRJqFVwTa9",
+                "fightID": -7,
+                "startTime": 1753367923836
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Primalwish",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1413.71,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "伍孚",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1412.89,
+              "hardModeLevel": 0,
+              "duration": 147273,
+              "startTime": 1753354468969,
+              "report": {
+                "code": "FnA4p2XtzBMDPZJR",
+                "fightID": -11,
+                "startTime": 1753353636184
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "哐哐猛锤",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1412.7,
+              "hardModeLevel": 0,
+              "duration": 172236,
+              "startTime": 1753358775099,
+              "report": {
+                "code": "2Ax4Z78rMCBLGtPW",
+                "fightID": -27,
+                "startTime": 1753356453153
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "伴夜",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1409.44,
+              "hardModeLevel": 0,
+              "duration": 143931,
+              "startTime": 1753355941088,
+              "report": {
+                "code": "aky3vnBQK2GxJH4X",
+                "fightID": -17,
+                "startTime": 1753354451159
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Tichondria",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1399.89,
+              "hardModeLevel": 0,
+              "duration": 113742,
+              "startTime": 1753294539866,
+              "report": {
+                "code": "NBRLfMvxb7hF1C8w",
+                "fightID": -19,
+                "startTime": 1753291815801
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "鬼五马六",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1397.82,
+              "hardModeLevel": 0,
+              "duration": 165608,
+              "startTime": 1753348837899,
+              "report": {
+                "code": "DFtz4VNAHw6BqyCM",
+                "fightID": -45,
+                "startTime": 1753338065522
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "呼嘶哟嗲哋",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1395.83,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Odisai",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1391.93,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Sasquash",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1388.22,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "故我落笔迟迟",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1386.05,
+              "hardModeLevel": 0,
+              "duration": 152296,
+              "startTime": 1753369310678,
+              "report": {
+                "code": "8d7QYMhRJqFVwTa9",
+                "fightID": -7,
+                "startTime": 1753367923836
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "千世",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1385.74,
+              "hardModeLevel": 0,
+              "duration": 162805,
+              "startTime": 1753364291646,
+              "report": {
+                "code": "aMw9HcXAndTyxKmb",
+                "fightID": -41,
+                "startTime": 1753359294673
+              },
+              "guild": {
+                "id": 601254,
+                "name": "Shadow of Moon 哈霍兰部落",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "茶韵丶清萫",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1382.26,
+              "hardModeLevel": 0,
+              "duration": 170604,
+              "startTime": 1753322447799,
+              "report": {
+                "code": "qcdmYP1WJHQhywBF",
+                "fightID": -24,
+                "startTime": 1753320425443
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "天上的死神",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1372.77,
+              "hardModeLevel": 0,
+              "duration": 175283,
+              "startTime": 1753345040532,
+              "report": {
+                "code": "bL4HMm8RhxNZdjQB",
+                "fightID": -18,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "無雙劒",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1370.27,
+              "hardModeLevel": 0,
+              "duration": 170604,
+              "startTime": 1753322447799,
+              "report": {
+                "code": "qcdmYP1WJHQhywBF",
+                "fightID": -24,
+                "startTime": 1753320425443
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "发财日记",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1366.91,
+              "hardModeLevel": 0,
+              "duration": 179960,
+              "startTime": 1753360578060,
+              "report": {
+                "code": "CT3kbQHVKFLtvm2W",
+                "fightID": -40,
+                "startTime": 1753355542199
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "安以",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1365.69,
+              "hardModeLevel": 0,
+              "duration": 150532,
+              "startTime": 1753369885210,
+              "report": {
+                "code": "Gv6xcgXyYL9jWkVR",
+                "fightID": -29,
+                "startTime": 1753365346625
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Bloodfox",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1363.45,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Microrogue",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1361.34,
+              "hardModeLevel": 0,
+              "duration": 162097,
+              "startTime": 1753358522913,
+              "report": {
+                "code": "Fd3J4v2mzHQNZWRr",
+                "fightID": -80,
+                "startTime": 1753333992939
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Kabal",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1361,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Pookeypook",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1358.4,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10027,
+                "name": "Blaumeux",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "红颜知己",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1358.1,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "人闲桂花落",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1353.73,
+              "hardModeLevel": 0,
+              "duration": 186895,
+              "startTime": 1753360663664,
+              "report": {
+                "code": "x3WrZ4bVYtRq7Mda",
+                "fightID": -23,
+                "startTime": 1753357521888
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "雪夜幽灵",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1353.46,
+              "hardModeLevel": 0,
+              "duration": 159958,
+              "startTime": 1753365328734,
+              "report": {
+                "code": "cRqyxpfM9JYWwKat",
+                "fightID": -24,
+                "startTime": 1753363440860
+              },
+              "guild": {
+                "id": 788240,
+                "name": "蛋仔派对",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "小枫丶",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1351.49,
+              "hardModeLevel": 0,
+              "duration": 193676,
+              "startTime": 1753335108757,
+              "report": {
+                "code": "2NaH981yXjmdDwqZ",
+                "fightID": -43,
+                "startTime": 1753329089434
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "背后的影子丶",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1349.68,
+              "hardModeLevel": 0,
+              "duration": 162453,
+              "startTime": 1753334178094,
+              "report": {
+                "code": "QXPRtGWkHMKnpy4A",
+                "fightID": -50,
+                "startTime": 1753326750451
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Meredith",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1343.3,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "安小五",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1340.69,
+              "hardModeLevel": 0,
+              "duration": 164259,
+              "startTime": 1753361302745,
+              "report": {
+                "code": "Fyq7nA2hH9vaKCPt",
+                "fightID": -23,
+                "startTime": 1753359150466
+              },
+              "guild": {
+                "id": 780335,
+                "name": "九月旧约",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "重庆烟哥",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1339.77,
+              "hardModeLevel": 0,
+              "duration": 170944,
+              "startTime": 1753359898342,
+              "report": {
+                "code": "dRvw2mMxQfbrzCcX",
+                "fightID": -26,
+                "startTime": 1753357133025
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "八神",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1337.6,
+              "hardModeLevel": 0,
+              "duration": 185113,
+              "startTime": 1753362781192,
+              "report": {
+                "code": "G8aRQTzWdA3gYr6w",
+                "fightID": -36,
+                "startTime": 1753356057763
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "枭戰",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1337.56,
+              "hardModeLevel": 0,
+              "duration": 186822,
+              "startTime": 1753361378543,
+              "report": {
+                "code": "rhMN7Cw8DtRqpHn4",
+                "fightID": -29,
+                "startTime": 1753358343058
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "窃丿格瓦拉",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1336.04,
+              "hardModeLevel": 0,
+              "duration": 172660,
+              "startTime": 1753359092274,
+              "report": {
+                "code": "fJq4MXvpdN8ckYBP",
+                "fightID": -29,
+                "startTime": 1753355604416
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Jurmungandr",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1334.38,
+              "hardModeLevel": 0,
+              "duration": 143850,
+              "startTime": 1753332736589,
+              "report": {
+                "code": "jcLTtvnVWad19hwC",
+                "fightID": -9,
+                "startTime": 1753331955429
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Hashbrownies",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1333.91,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "你的水哥哥",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1333.31,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "老猫种鱼",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1333.31,
+              "hardModeLevel": 0,
+              "duration": 165608,
+              "startTime": 1753348837899,
+              "report": {
+                "code": "DFtz4VNAHw6BqyCM",
+                "fightID": -45,
+                "startTime": 1753338065522
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "小奶柔",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1332.01,
+              "hardModeLevel": 0,
+              "duration": 189396,
+              "startTime": 1753337716582,
+              "report": {
+                "code": "zB8AMxyQcZj6R2NT",
+                "fightID": -28,
+                "startTime": 1753334804453
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Yana",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1329.65,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "整多了",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1328.61,
+              "hardModeLevel": 0,
+              "duration": 167026,
+              "startTime": 1753334453369,
+              "report": {
+                "code": "ZK2gyaADdXB3k8rb",
+                "fightID": -45,
+                "startTime": 1753326543639
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "壹月贰拾三",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1326.82,
+              "hardModeLevel": 0,
+              "duration": 167311,
+              "startTime": 1753356997550,
+              "report": {
+                "code": "zTK36Djdpf9HXnG1",
+                "fightID": -28,
+                "startTime": 1753336900811
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "浩之星辰",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1325.72,
+              "hardModeLevel": 0,
+              "duration": 162496,
+              "startTime": 1753358969628,
+              "report": {
+                "code": "ctVDPydAfCvG3rz7",
+                "fightID": -22,
+                "startTime": 1753355856818
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Andröid",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1324.24,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Shadowxue",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1319.13,
+              "hardModeLevel": 0,
+              "duration": 152391,
+              "startTime": 1753334374565,
+              "report": {
+                "code": "PnGBXy3WTc9tJCpV",
+                "fightID": -66,
+                "startTime": 1753311222885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "天堂丶魔鬼",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1319.11,
+              "hardModeLevel": 0,
+              "duration": 169392,
+              "startTime": 1753366030263,
+              "report": {
+                "code": "9dQnCLhKpP2JX1rq",
+                "fightID": -30,
+                "startTime": 1753363370956
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "刀九",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1319.07,
+              "hardModeLevel": 0,
+              "duration": 147273,
+              "startTime": 1753354468969,
+              "report": {
+                "code": "FnA4p2XtzBMDPZJR",
+                "fightID": -11,
+                "startTime": 1753353636184
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "回归者轨迹",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1318.71,
+              "hardModeLevel": 0,
+              "duration": 156011,
+              "startTime": 1753361440268,
+              "report": {
+                "code": "wmjBvQNcZqJ8fzax",
+                "fightID": -33,
+                "startTime": 1753356079253
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "狼之狂刃",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1313.36,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "历丸",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1312.32,
+              "hardModeLevel": 0,
+              "duration": 163857,
+              "startTime": 1753369011401,
+              "report": {
+                "code": "wPtqpFCGgfaJ1Ljd",
+                "fightID": -33,
+                "startTime": 1753365359176
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "咔咔猛揣",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1310.76,
+              "hardModeLevel": 0,
+              "duration": 174488,
+              "startTime": 1753337360932,
+              "report": {
+                "code": "WzBbncyKpkhtTDxw",
+                "fightID": -25,
+                "startTime": 1753335132285
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "理哥",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1309.79,
+              "hardModeLevel": 0,
+              "duration": 157016,
+              "startTime": 1753362596970,
+              "report": {
+                "code": "7cVapMyTjtQJZYLz",
+                "fightID": -40,
+                "startTime": 1753358672041
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "红浪漫头牌",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1309.78,
+              "hardModeLevel": 0,
+              "duration": 162805,
+              "startTime": 1753364291646,
+              "report": {
+                "code": "aMw9HcXAndTyxKmb",
+                "fightID": -41,
+                "startTime": 1753359294673
+              },
+              "guild": {
+                "id": 601254,
+                "name": "Shadow of Moon 哈霍兰部落",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 38
+            },
+            {
+              "name": "偷心贼儿",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1309.21,
+              "hardModeLevel": 0,
+              "duration": 154376,
+              "startTime": 1753365772306,
+              "report": {
+                "code": "L2cVNbYraG7gpFqm",
+                "fightID": -10,
+                "startTime": 1753364891688
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "三五香烟",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1308.49,
+              "hardModeLevel": 0,
+              "duration": 170944,
+              "startTime": 1753359898342,
+              "report": {
+                "code": "dRvw2mMxQfbrzCcX",
+                "fightID": -26,
+                "startTime": 1753357133025
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "丨龍乄龍丨",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1301.09,
+              "hardModeLevel": 0,
+              "duration": 173476,
+              "startTime": 1753335261166,
+              "report": {
+                "code": "Nx81gjBZ6VbCLKRh",
+                "fightID": -53,
+                "startTime": 1753329147989
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "那夜你好坏",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1298.25,
+              "hardModeLevel": 0,
+              "duration": 191837,
+              "startTime": 1753335391862,
+              "report": {
+                "code": "c8y2jrd6Mqp9Fw7K",
+                "fightID": -24,
+                "startTime": 1753331758717
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Sdy",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1297.91,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "安之若素丶",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1297.24,
+              "hardModeLevel": 0,
+              "duration": 161801,
+              "startTime": 1753360763749,
+              "report": {
+                "code": "vmBtqanG1HLfhTWj",
+                "fightID": -51,
+                "startTime": 1753348552253
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "暗夜卡卡",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1296.74,
+              "hardModeLevel": 0,
+              "duration": 185196,
+              "startTime": 1753360356802,
+              "report": {
+                "code": "2tDKf93Y7ZCapTQG",
+                "fightID": -22,
+                "startTime": 1753357514699
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "丹莫罗的白雪",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1296.41,
+              "hardModeLevel": 0,
+              "duration": 170604,
+              "startTime": 1753322447799,
+              "report": {
+                "code": "qcdmYP1WJHQhywBF",
+                "fightID": -24,
+                "startTime": 1753320425443
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 37
+            },
+            {
+              "name": "清茶浅尝",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1292.92,
+              "hardModeLevel": 0,
+              "duration": 173476,
+              "startTime": 1753335261166,
+              "report": {
+                "code": "Nx81gjBZ6VbCLKRh",
+                "fightID": -53,
+                "startTime": 1753329147989
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "毛细血管扩张",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1291.86,
+              "hardModeLevel": 0,
+              "duration": 165867,
+              "startTime": 1753363027181,
+              "report": {
+                "code": "7xn9cgfR68wqZh3V",
+                "fightID": -36,
+                "startTime": 1753356981942
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Elvan",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1291.15,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "走过不惑",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1288.47,
+              "hardModeLevel": 0,
+              "duration": 189396,
+              "startTime": 1753337716582,
+              "report": {
+                "code": "zB8AMxyQcZj6R2NT",
+                "fightID": -28,
+                "startTime": 1753334804453
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "疾风剑豪",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1288.41,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "若羅小同学",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1287.88,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "菊花下的暖流",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1286.43,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "人中龙凤之白",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1283.83,
+              "hardModeLevel": 0,
+              "duration": 194348,
+              "startTime": 1753364513753,
+              "report": {
+                "code": "w9aNZmPrQg6zTh31",
+                "fightID": -55,
+                "startTime": 1753354201544
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "我家大露露",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1279.37,
+              "hardModeLevel": 0,
+              "duration": 170604,
+              "startTime": 1753322447799,
+              "report": {
+                "code": "qcdmYP1WJHQhywBF",
+                "fightID": -24,
+                "startTime": 1753320425443
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "常应觕",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1278.55,
+              "hardModeLevel": 0,
+              "duration": 185196,
+              "startTime": 1753360356802,
+              "report": {
+                "code": "2tDKf93Y7ZCapTQG",
+                "fightID": -22,
+                "startTime": 1753357514699
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "素丶鸢",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1277.77,
+              "hardModeLevel": 0,
+              "duration": 193676,
+              "startTime": 1753335108757,
+              "report": {
+                "code": "2NaH981yXjmdDwqZ",
+                "fightID": -43,
+                "startTime": 1753329089434
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "江湖路仁",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1277.14,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "姐傲奈我何",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1276.55,
+              "hardModeLevel": 0,
+              "duration": 165530,
+              "startTime": 1753372190012,
+              "report": {
+                "code": "N6zmykVFtRj8hnGH",
+                "fightID": -128,
+                "startTime": 1753363789613
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "天上來",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1275.93,
+              "hardModeLevel": 0,
+              "duration": 163732,
+              "startTime": 1753363649370,
+              "report": {
+                "code": "LhbRBYry3CQHNpZf",
+                "fightID": -59,
+                "startTime": 1753358018665
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "瑪法大帝",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1275.76,
+              "hardModeLevel": 0,
+              "duration": 172660,
+              "startTime": 1753359092274,
+              "report": {
+                "code": "fJq4MXvpdN8ckYBP",
+                "fightID": -29,
+                "startTime": 1753355604416
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "蹲在草丛别动",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1274.82,
+              "hardModeLevel": 0,
+              "duration": 150205,
+              "startTime": 1753334634175,
+              "report": {
+                "code": "7ZYwVqHN4nRKhzCf",
+                "fightID": -26,
+                "startTime": 1753332514879
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "大橘猫会隐身",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1274.82,
+              "hardModeLevel": 0,
+              "duration": 179960,
+              "startTime": 1753360578060,
+              "report": {
+                "code": "CT3kbQHVKFLtvm2W",
+                "fightID": -40,
+                "startTime": 1753355542199
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Assgawd",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1273.47,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "逗比帕拉斯",
+              "class": "Rogue",
+              "spec": "Assassination",
+              "amount": 1272.59,
+              "hardModeLevel": 0,
+              "duration": 171854,
+              "startTime": 1753331204624,
+              "report": {
+                "code": "pBmVQAGJbcLFNYq6",
+                "fightID": -13,
+                "startTime": 1753330001774
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 67.33,
+      "pointsResetIn": 3576
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 67.33,
+    "reset_in_s": 3576
+  }
+}

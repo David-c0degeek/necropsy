@@ -1,0 +1,45 @@
+{
+  "query": "query NaxxCandidateIdentity($name:String!,$server:String!,$region:String!) { characterData { character(name:$name,serverSlug:$server,serverRegion:$region) { id name classID hidden faction { id name } server { id name slug region { slug } } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "name": "饮酒醇酒美人",
+    "server": "哈霍兰",
+    "region": "cn"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:08:07.396950+00:00",
+  "data": {
+    "characterData": {
+      "character": {
+        "id": 66294552,
+        "name": "饮酒醇酒美人",
+        "classID": 6,
+        "hidden": false,
+        "faction": {
+          "id": 0,
+          "name": "Unknown"
+        },
+        "server": {
+          "id": 10044,
+          "name": "哈霍兰",
+          "slug": "哈霍兰",
+          "region": {
+            "slug": "CN"
+          }
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 253.4,
+      "pointsResetIn": 3390
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 253.4,
+    "reset_in_s": 3390
+  },
+  "ended_at": "2026-10-21T12:08:07.682000+00:00"
+}

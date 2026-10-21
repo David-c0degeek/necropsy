@@ -1,0 +1,2413 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Hunter",
+    "spec": "Marksmanship"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:50.123021+00:00",
+  "ended_at": "2026-10-21T12:04:50.528644+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Smcadogx",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1409.79,
+              "hardModeLevel": 0,
+              "duration": 105930,
+              "startTime": 1788810081644,
+              "report": {
+                "code": "zcX2KFYTtqh3Jbg9",
+                "fightID": 60,
+                "startTime": 1788803760480
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Charies",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1367.86,
+              "hardModeLevel": 0,
+              "duration": 109356,
+              "startTime": 1786845513952,
+              "report": {
+                "code": "YhxTZy3BDQN7nkcV",
+                "fightID": 34,
+                "startTime": 1786842395142
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Andrenn",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1349.35,
+              "hardModeLevel": 0,
+              "duration": 101253,
+              "startTime": 1768181272059,
+              "report": {
+                "code": "pMR2dL7mQ6Dc3Gj8",
+                "fightID": 19,
+                "startTime": 1768179961898
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Xert",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1347.27,
+              "hardModeLevel": 0,
+              "duration": 119790,
+              "startTime": 1720835802441,
+              "report": {
+                "code": "v7ctXKCx3MDqp84Y",
+                "fightID": 29,
+                "startTime": 1720832427481
+              },
+              "guild": {
+                "id": 666906,
+                "name": "GDKP Daily",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Xal",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1333.04,
+              "hardModeLevel": 0,
+              "duration": 104269,
+              "startTime": 1720640736686,
+              "report": {
+                "code": "rZDLJxkm4GpgPTa7",
+                "fightID": 38,
+                "startTime": 1720634584451
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Snipex",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1323.06,
+              "hardModeLevel": 0,
+              "duration": 93014,
+              "startTime": 1721410915452,
+              "report": {
+                "code": "21Ltd7j63RTkgXA9",
+                "fightID": 13,
+                "startTime": 1721410104446
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Cornyterror",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1315.63,
+              "hardModeLevel": 0,
+              "duration": 114477,
+              "startTime": 1710985337377,
+              "report": {
+                "code": "8YrA7xh2cqRBMtNn",
+                "fightID": 26,
+                "startTime": 1710983107546
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Tagx",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1306.1,
+              "hardModeLevel": 0,
+              "duration": 121400,
+              "startTime": 1731472783510,
+              "report": {
+                "code": "1NH84GbmkBy76xJD",
+                "fightID": 32,
+                "startTime": 1731469339555
+              },
+              "guild": {
+                "id": 711098,
+                "name": "Moon Surfers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Gazelle",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1303.19,
+              "hardModeLevel": 0,
+              "duration": 105637,
+              "startTime": 1701722125482,
+              "report": {
+                "code": "m63hYZPVyN7p8nvr",
+                "fightID": 21,
+                "startTime": 1701720861321
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Folk",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1303.16,
+              "hardModeLevel": 0,
+              "duration": 101350,
+              "startTime": 1724611335581,
+              "report": {
+                "code": "MHnWXDpkC46P739R",
+                "fightID": 23,
+                "startTime": 1724609336193
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Xelown",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1300.93,
+              "hardModeLevel": 0,
+              "duration": 101207,
+              "startTime": 1773536314040,
+              "report": {
+                "code": "9HAYk2tp4ahmLXJw",
+                "fightID": 23,
+                "startTime": 1773534657211
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Mudra",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1292.63,
+              "hardModeLevel": 0,
+              "duration": 120723,
+              "startTime": 1731896208527,
+              "report": {
+                "code": "K3kB2ApdjmtF4YJz",
+                "fightID": 12,
+                "startTime": 1731895433508
+              },
+              "guild": {
+                "id": 732189,
+                "name": "Valkyrie",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "黑月之潮",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1290.1,
+              "hardModeLevel": 0,
+              "duration": 143519,
+              "startTime": 1790598357090,
+              "report": {
+                "code": "yHrpJhq4PftVm7gB",
+                "fightID": 33,
+                "startTime": 1790595992978
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Zerodahero",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1284.53,
+              "hardModeLevel": 0,
+              "duration": 110664,
+              "startTime": 1778299659037,
+              "report": {
+                "code": "j9Akx74QCqctnGH1",
+                "fightID": 29,
+                "startTime": 1778295840071
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Folkx",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1276.52,
+              "hardModeLevel": 0,
+              "duration": 94502,
+              "startTime": 1773603858979,
+              "report": {
+                "code": "tKQTFx8pGhqbBVRX",
+                "fightID": 33,
+                "startTime": 1773599206695
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Exploretruth",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1274.53,
+              "hardModeLevel": 0,
+              "duration": 114709,
+              "startTime": 1728337185332,
+              "report": {
+                "code": "Qhtkvn3mJcWFrqGw",
+                "fightID": 28,
+                "startTime": 1728334466184
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "随逸",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1272.4,
+              "hardModeLevel": 0,
+              "duration": 138628,
+              "startTime": 1673526819951,
+              "report": {
+                "code": "3akCK2tFX867mjNx",
+                "fightID": 18,
+                "startTime": 1673525212957
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "Toy",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1271.87,
+              "hardModeLevel": 0,
+              "duration": 112217,
+              "startTime": 1710621362191,
+              "report": {
+                "code": "63bhXJyD18dVtjrP",
+                "fightID": 23,
+                "startTime": 1710619781354
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Zerksy",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1268.4,
+              "hardModeLevel": 0,
+              "duration": 125657,
+              "startTime": 1727057139605,
+              "report": {
+                "code": "23mkda9YMBDFWLyC",
+                "fightID": 59,
+                "startTime": 1727051868753
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Nelenya",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1265.87,
+              "hardModeLevel": 0,
+              "duration": 97158,
+              "startTime": 1783795005496,
+              "report": {
+                "code": "T9WXD8bwmBHk7cyx",
+                "fightID": 20,
+                "startTime": 1783793955043
+              },
+              "guild": {
+                "id": 809577,
+                "name": "Neo GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Clicker",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1264.46,
+              "hardModeLevel": 0,
+              "duration": 89315,
+              "startTime": 1781710619109,
+              "report": {
+                "code": "zdKtaP6qbYwcvxAD",
+                "fightID": 14,
+                "startTime": 1781707287201
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Bloodstyle",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1262.32,
+              "hardModeLevel": 0,
+              "duration": 110095,
+              "startTime": 1785675435677,
+              "report": {
+                "code": "MtpG3NBzDqgncAyP",
+                "fightID": 11,
+                "startTime": 1785674115245
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Zakki",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1261.32,
+              "hardModeLevel": 0,
+              "duration": 100749,
+              "startTime": 1657067854606,
+              "report": {
+                "code": "mz4d8tHQGBVNvfKT",
+                "fightID": 31,
+                "startTime": 1657065831030
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Cazadora",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1260.88,
+              "hardModeLevel": 0,
+              "duration": 110267,
+              "startTime": 1768532081005,
+              "report": {
+                "code": "nAjZLyGz2w7QRXPN",
+                "fightID": 48,
+                "startTime": 1768528556523
+              },
+              "guild": {
+                "id": 705492,
+                "name": "Mass Invite",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Cornyterror",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1254.71,
+              "hardModeLevel": 0,
+              "duration": 112199,
+              "startTime": 1723688459986,
+              "report": {
+                "code": "tG6Yc8DRqmhp3PTZ",
+                "fightID": 41,
+                "startTime": 1723684044298
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Wild",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1254.14,
+              "hardModeLevel": 0,
+              "duration": 103462,
+              "startTime": 1773109832506,
+              "report": {
+                "code": "jKd84cgJqHMCpxAX",
+                "fightID": 25,
+                "startTime": 1773098862007
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Rigel",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1252.01,
+              "hardModeLevel": 0,
+              "duration": 95218,
+              "startTime": 1713314970318,
+              "report": {
+                "code": "V1rDA3WZjTJqPhH4",
+                "fightID": 17,
+                "startTime": 1713313641212
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Llolx",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1250.54,
+              "hardModeLevel": 0,
+              "duration": 123512,
+              "startTime": 1708108583382,
+              "report": {
+                "code": "AaP9ZDqxJCRdWHLF",
+                "fightID": 21,
+                "startTime": 1708105994583
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Noscope",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1249.8,
+              "hardModeLevel": 0,
+              "duration": 107500,
+              "startTime": 1759955392775,
+              "report": {
+                "code": "4kMyJa8YVPpF9mvd",
+                "fightID": 12,
+                "startTime": 1759953832458
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10103,
+                "name": "Dragonfang",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Crishacea",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1248.37,
+              "hardModeLevel": 0,
+              "duration": 105366,
+              "startTime": 1712603015778,
+              "report": {
+                "code": "2JTMZcHwmhfPxFV7",
+                "fightID": 17,
+                "startTime": 1712601291277
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "Cizero",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1248.01,
+              "hardModeLevel": 0,
+              "duration": 115540,
+              "startTime": 1789264949587,
+              "report": {
+                "code": "YXBv8r3bdpkTF4nR",
+                "fightID": 48,
+                "startTime": 1789261111542
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Meritt",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1247.51,
+              "hardModeLevel": 0,
+              "duration": 127554,
+              "startTime": 1696562458340,
+              "report": {
+                "code": "x6vPwVpJcbQyN8nq",
+                "fightID": 39,
+                "startTime": 1696559776422
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Arrowman",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1239.78,
+              "hardModeLevel": 0,
+              "duration": 100607,
+              "startTime": 1755130697252,
+              "report": {
+                "code": "YyFNMpZbn7AkxrzJ",
+                "fightID": 18,
+                "startTime": 1755127429508
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Merit",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1238.33,
+              "hardModeLevel": 0,
+              "duration": 120843,
+              "startTime": 1684374095048,
+              "report": {
+                "code": "QdZAPtNLpwYrmn2f",
+                "fightID": 28,
+                "startTime": 1684371657223
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Kasvo",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1237.66,
+              "hardModeLevel": 0,
+              "duration": 112284,
+              "startTime": 1746938416225,
+              "report": {
+                "code": "gVj69PCmMHwn8ZJG",
+                "fightID": 30,
+                "startTime": 1746934859137
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Slarp",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1235.94,
+              "hardModeLevel": 0,
+              "duration": 102492,
+              "startTime": 1731123662423,
+              "report": {
+                "code": "pg3XRj67wTWPQvCf",
+                "fightID": 32,
+                "startTime": 1731121613378
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Bloodmoon",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1232.26,
+              "hardModeLevel": 0,
+              "duration": 105750,
+              "startTime": 1781442916353,
+              "report": {
+                "code": "xZCHdkJW1fvXNpMP",
+                "fightID": 23,
+                "startTime": 1781440325795
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "德服叁少",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1231.13,
+              "hardModeLevel": 0,
+              "duration": 140413,
+              "startTime": 1783689391456,
+              "report": {
+                "code": "GchByXd1jTrRz687",
+                "fightID": 24,
+                "startTime": 1783685311418
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Poshspice",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1228.96,
+              "hardModeLevel": 0,
+              "duration": 106687,
+              "startTime": 1775607711959,
+              "report": {
+                "code": "Z69fTy4MKVNAn2Wr",
+                "fightID": 10,
+                "startTime": 1775604137009
+              },
+              "guild": {
+                "id": 705739,
+                "name": "SOM II Waiting Room GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "悼亡者之瞳",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1227.66,
+              "hardModeLevel": 0,
+              "duration": 159776,
+              "startTime": 1790943229851,
+              "report": {
+                "code": "vD4tgqWVZHbLmFYf",
+                "fightID": 24,
+                "startTime": 1790941333877
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Laèthriel",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1227.2,
+              "hardModeLevel": 0,
+              "duration": 115938,
+              "startTime": 1734377299380,
+              "report": {
+                "code": "PTwZzRCmXvgMKtHY",
+                "fightID": 29,
+                "startTime": 1734374285229
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "风二娘",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1226.07,
+              "hardModeLevel": 0,
+              "duration": 143894,
+              "startTime": 1770727732980,
+              "report": {
+                "code": "cHVhkbnTfG9y6QFB",
+                "fightID": 23,
+                "startTime": 1770725193618
+              },
+              "guild": {
+                "id": 795219,
+                "name": "白銀之手",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Fikklepick",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1224.64,
+              "hardModeLevel": 0,
+              "duration": 118864,
+              "startTime": 1702582063281,
+              "report": {
+                "code": "dqCHMgzVb6NrmGLj",
+                "fightID": 14,
+                "startTime": 1702581337821
+              },
+              "guild": {
+                "id": 702558,
+                "name": "Core",
+                "faction": 0
+              },
+              "server": {
+                "id": 10031,
+                "name": "Gandling",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Eiwen",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1223.12,
+              "hardModeLevel": 0,
+              "duration": 134152,
+              "startTime": 1731585915954,
+              "report": {
+                "code": "2Vp84PYnNXawkBzF",
+                "fightID": 49,
+                "startTime": 1731578598589
+              },
+              "guild": {
+                "id": 732994,
+                "name": "Dragon Snacks",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "Kroll",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1223.01,
+              "hardModeLevel": 0,
+              "duration": 148438,
+              "startTime": 1778245518288,
+              "report": {
+                "code": "b2TJYphWqQza7tg9",
+                "fightID": 24,
+                "startTime": 1778242013562
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 36
+            },
+            {
+              "name": "Bloodline",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1221.88,
+              "hardModeLevel": 0,
+              "duration": 116595,
+              "startTime": 1785432144981,
+              "report": {
+                "code": "NaH6hv8tbBZKVdTk",
+                "fightID": 16,
+                "startTime": 1785430848624
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "他心通",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1221.45,
+              "hardModeLevel": 0,
+              "duration": 224939,
+              "startTime": 1784291971671,
+              "report": {
+                "code": "jJd7YNW3rtFaAxhD",
+                "fightID": 44,
+                "startTime": 1784286064098
+              },
+              "guild": {
+                "id": 795219,
+                "name": "白銀之手",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Moosetrack",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1217.42,
+              "hardModeLevel": 0,
+              "duration": 117707,
+              "startTime": 1700014461051,
+              "report": {
+                "code": "7wFDmQda6q2AjGW8",
+                "fightID": 50,
+                "startTime": 1700010186091
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Jte",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1217.04,
+              "hardModeLevel": 0,
+              "duration": 91764,
+              "startTime": 1771185205718,
+              "report": {
+                "code": "kqL4vNdrjZRCcM9K",
+                "fightID": 33,
+                "startTime": 1771177375736
+              },
+              "guild": {
+                "id": 602349,
+                "name": "Fun Police",
+                "faction": 1
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "叁拾贰",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1216.72,
+              "hardModeLevel": 0,
+              "duration": 138017,
+              "startTime": 1783602994371,
+              "report": {
+                "code": "pwym7fR3qb8rVWZg",
+                "fightID": 27,
+                "startTime": 1783599285269
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Freed",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1216.39,
+              "hardModeLevel": 0,
+              "duration": 157723,
+              "startTime": 1656136851478,
+              "report": {
+                "code": "yp7Rf9vthTbPKXLg",
+                "fightID": 27,
+                "startTime": 1656134460414
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Karnass",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1213.75,
+              "hardModeLevel": 0,
+              "duration": 153603,
+              "startTime": 1731449886937,
+              "report": {
+                "code": "1QqAvRNTZaMztGmd",
+                "fightID": 44,
+                "startTime": 1731444874318
+              },
+              "guild": {
+                "id": 737674,
+                "name": "Tucky Pugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Robro",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1213.08,
+              "hardModeLevel": 0,
+              "duration": 107223,
+              "startTime": 1740107769063,
+              "report": {
+                "code": "8XRVCpfTjxb614tL",
+                "fightID": 39,
+                "startTime": 1740104227607
+              },
+              "guild": {
+                "id": 608076,
+                "name": "Not Prepared",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Kurassa",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1212.86,
+              "hardModeLevel": 0,
+              "duration": 88100,
+              "startTime": 1775611972476,
+              "report": {
+                "code": "DgBkC8yPQvpdbnwa",
+                "fightID": 27,
+                "startTime": 1775609729106
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Drizzit",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1211.97,
+              "hardModeLevel": 0,
+              "duration": 102161,
+              "startTime": 1786905682288,
+              "report": {
+                "code": "2xvnPWTf3M97YtLC",
+                "fightID": 28,
+                "startTime": 1786903415776
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Rinzx",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1211.69,
+              "hardModeLevel": 0,
+              "duration": 99510,
+              "startTime": 1770747765967,
+              "report": {
+                "code": "1LP9pfxtX7DwcWm8",
+                "fightID": 16,
+                "startTime": 1770738114242
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Bamboos",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1210.79,
+              "hardModeLevel": 0,
+              "duration": 95750,
+              "startTime": 1729040949732,
+              "report": {
+                "code": "k9XjRzcyAYmrQaGJ",
+                "fightID": 48,
+                "startTime": 1729036410331
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Grimitar",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1210.31,
+              "hardModeLevel": 0,
+              "duration": 93911,
+              "startTime": 1792024937584,
+              "report": {
+                "code": "ZB9Wm6pnVDYNRCFG",
+                "fightID": 29,
+                "startTime": 1792022473714
+              },
+              "guild": {
+                "id": 687483,
+                "name": "Paradigm",
+                "faction": 0
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Scattered",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1208.22,
+              "hardModeLevel": 0,
+              "duration": 111652,
+              "startTime": 1719255241825,
+              "report": {
+                "code": "DA789BMGkQgCpbVR",
+                "fightID": 18,
+                "startTime": 1719253800437
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "尐狐狸",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1208.21,
+              "hardModeLevel": 0,
+              "duration": 141537,
+              "startTime": 1781008959763,
+              "report": {
+                "code": "FBHyPfm1n4vkzaWZ",
+                "fightID": 31,
+                "startTime": 1781005916374
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Whittyz",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1207.33,
+              "hardModeLevel": 0,
+              "duration": 99024,
+              "startTime": 1721523328922,
+              "report": {
+                "code": "2pGBPNXQy7cHY8hb",
+                "fightID": 16,
+                "startTime": 1721521771328
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Fappy",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1206.2,
+              "hardModeLevel": 0,
+              "duration": 109926,
+              "startTime": 1730861707528,
+              "report": {
+                "code": "Y1PVGcBH4QMqAWkr",
+                "fightID": 51,
+                "startTime": 1730856134324
+              },
+              "guild": {
+                "id": 711092,
+                "name": "no name",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Oliie",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1205.76,
+              "hardModeLevel": 0,
+              "duration": 107767,
+              "startTime": 1697592101358,
+              "report": {
+                "code": "pdFGgCQrwVPmRxcW",
+                "fightID": 47,
+                "startTime": 1697587449652
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ixtlan",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1202.31,
+              "hardModeLevel": 0,
+              "duration": 119101,
+              "startTime": 1731836826972,
+              "report": {
+                "code": "gJNL4kMnr1jWGzph",
+                "fightID": 24,
+                "startTime": 1731833532406
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Asep",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1202.2,
+              "hardModeLevel": 0,
+              "duration": 114853,
+              "startTime": 1757642131371,
+              "report": {
+                "code": "DT9maZP1V8dNWLGq",
+                "fightID": 57,
+                "startTime": 1757638757036
+              },
+              "guild": {
+                "id": 705492,
+                "name": "Mass Invite",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Labarath",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1201.49,
+              "hardModeLevel": 0,
+              "duration": 122115,
+              "startTime": 1688952837861,
+              "report": {
+                "code": "yxmhkX2PYJMV7fH8",
+                "fightID": 29,
+                "startTime": 1688950619849
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Marek",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1194.79,
+              "hardModeLevel": 0,
+              "duration": 111826,
+              "startTime": 1752199121290,
+              "report": {
+                "code": "xbfqdJpg7WQ4LXZm",
+                "fightID": 19,
+                "startTime": 1752196367114
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Timecöp",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1193.03,
+              "hardModeLevel": 0,
+              "duration": 101026,
+              "startTime": 1791425389866,
+              "report": {
+                "code": "7RyVL42AaFQJBgmr",
+                "fightID": 7,
+                "startTime": 1791422016363
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Jeyt",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1192.96,
+              "hardModeLevel": 0,
+              "duration": 101184,
+              "startTime": 1784325200691,
+              "report": {
+                "code": "vTwMtX6RxgjN4DWf",
+                "fightID": 19,
+                "startTime": 1784323113187
+              },
+              "guild": {
+                "id": 784074,
+                "name": "cloak check",
+                "faction": 1
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "晓月如眸",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1192.94,
+              "hardModeLevel": 0,
+              "duration": 111879,
+              "startTime": 1660223890303,
+              "report": {
+                "code": "BWnkNxmM6HD4cCVa",
+                "fightID": 20,
+                "startTime": 1660221861771
+              },
+              "guild": {
+                "id": 647180,
+                "name": "nacy",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Cowstomper",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1192.86,
+              "hardModeLevel": 0,
+              "duration": 120245,
+              "startTime": 1750014399434,
+              "report": {
+                "code": "KCBX1gDbFY4LdfN9",
+                "fightID": 40,
+                "startTime": 1750011589151
+              },
+              "guild": {
+                "id": 775073,
+                "name": "Malice In Wonderland",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Nyuff",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1191.77,
+              "hardModeLevel": 0,
+              "duration": 128798,
+              "startTime": 1732477088928,
+              "report": {
+                "code": "AXcn67gWqfZYzyR4",
+                "fightID": 40,
+                "startTime": 1732469884249
+              },
+              "guild": {
+                "id": 708193,
+                "name": "Vanilla Logs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Canitouchit",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1189.54,
+              "hardModeLevel": 0,
+              "duration": 115210,
+              "startTime": 1731899471659,
+              "report": {
+                "code": "2vVjLA7TbQF6rCNX",
+                "fightID": 42,
+                "startTime": 1731894497993
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Pacal",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1187.39,
+              "hardModeLevel": 0,
+              "duration": 113429,
+              "startTime": 1783478580421,
+              "report": {
+                "code": "hwNyVf2ZT9DtxAbc",
+                "fightID": 20,
+                "startTime": 1783476277404
+              },
+              "guild": {
+                "id": 816694,
+                "name": "More Gressils (Saturday)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Southparkwow",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1186.47,
+              "hardModeLevel": 0,
+              "duration": 100400,
+              "startTime": 1719545392124,
+              "report": {
+                "code": "pfLXMVDKZrah1FWJ",
+                "fightID": 25,
+                "startTime": 1719541344779
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Argeltar",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1186.2,
+              "hardModeLevel": 0,
+              "duration": 103399,
+              "startTime": 1694741322061,
+              "report": {
+                "code": "qF7GxzBLrCWvaMpN",
+                "fightID": 60,
+                "startTime": 1694736818499
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Beefsteak",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1186.15,
+              "hardModeLevel": 0,
+              "duration": 169296,
+              "startTime": 1699561021761,
+              "report": {
+                "code": "q3yWHGzD2TPbtAxL",
+                "fightID": 57,
+                "startTime": 1699556601251
+              },
+              "guild": {
+                "id": 629053,
+                "name": "Trinity",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Hakis",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1185.56,
+              "hardModeLevel": 0,
+              "duration": 94998,
+              "startTime": 1789071875845,
+              "report": {
+                "code": "zcdfk6WqTJ81Zrgp",
+                "fightID": 13,
+                "startTime": 1789070571070
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ministeri",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1185.32,
+              "hardModeLevel": 0,
+              "duration": 111012,
+              "startTime": 1723138935821,
+              "report": {
+                "code": "7fhGYm1R8zxJkDvL",
+                "fightID": 17,
+                "startTime": 1723136249304
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ky",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1184.68,
+              "hardModeLevel": 0,
+              "duration": 122978,
+              "startTime": 1713487369141,
+              "report": {
+                "code": "yL7kHcv9A1bFX48z",
+                "fightID": 34,
+                "startTime": 1713484418201
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Durzag",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1183.9,
+              "hardModeLevel": 0,
+              "duration": 102644,
+              "startTime": 1789038934476,
+              "report": {
+                "code": "wRZ2VPyM78c6frCK",
+                "fightID": 48,
+                "startTime": 1789034720222
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "炼狱白虎",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1183.61,
+              "hardModeLevel": 0,
+              "duration": 150463,
+              "startTime": 1755431147415,
+              "report": {
+                "code": "3vnj72LbdWZcyNg1",
+                "fightID": 29,
+                "startTime": 1755427873429
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Seczdemon",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1183.39,
+              "hardModeLevel": 0,
+              "duration": 111625,
+              "startTime": 1700018964005,
+              "report": {
+                "code": "CArfyTKLw8NDd2nG",
+                "fightID": 32,
+                "startTime": 1700012004150
+              },
+              "server": {
+                "id": 10027,
+                "name": "Blaumeux",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Cokie",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1181.46,
+              "hardModeLevel": 0,
+              "duration": 125650,
+              "startTime": 1718758654920,
+              "report": {
+                "code": "kG2ph9xZVDWm6NKq",
+                "fightID": 33,
+                "startTime": 1718756447811
+              },
+              "guild": {
+                "id": 709610,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "君奉月",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1180.74,
+              "hardModeLevel": 0,
+              "duration": 150727,
+              "startTime": 1783946599235,
+              "report": {
+                "code": "LaWKCrXNwnbAzPDg",
+                "fightID": 25,
+                "startTime": 1783943772575
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "喵锁",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1180.16,
+              "hardModeLevel": 0,
+              "duration": 166241,
+              "startTime": 1671297237713,
+              "report": {
+                "code": "8ZVbMcN7xJBDqLPz",
+                "fightID": 37,
+                "startTime": 1671289831990
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 37
+            },
+            {
+              "name": "Alveriatwo",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1179.58,
+              "hardModeLevel": 0,
+              "duration": 156178,
+              "startTime": 1702927623920,
+              "report": {
+                "code": "3AaHmX9y71Yvw2Cq",
+                "fightID": 21,
+                "startTime": 1702923907559
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Karatekid",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1179.53,
+              "hardModeLevel": 0,
+              "duration": 126321,
+              "startTime": 1743204480456,
+              "report": {
+                "code": "NKWQVHvCx7q3TJPt",
+                "fightID": 29,
+                "startTime": 1743190922456
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Valko",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1179.46,
+              "hardModeLevel": 0,
+              "duration": 127837,
+              "startTime": 1710099360056,
+              "report": {
+                "code": "jPqRmpTQLZCWJBD8",
+                "fightID": 44,
+                "startTime": 1710094918870
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Azzith",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1179.18,
+              "hardModeLevel": 0,
+              "duration": 99800,
+              "startTime": 1716168950010,
+              "report": {
+                "code": "FnGdXB2wpDK1736J",
+                "fightID": 41,
+                "startTime": 1716166776711
+              },
+              "guild": {
+                "id": 687483,
+                "name": "Paradigm",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "缥缈的云",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1178.69,
+              "hardModeLevel": 0,
+              "duration": 114648,
+              "startTime": 1665665140196,
+              "report": {
+                "code": "dFxLQkD9ZBh83Ppf",
+                "fightID": 11,
+                "startTime": 1665664426039
+              },
+              "guild": {
+                "id": 666071,
+                "name": "湛蓝的天空",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "艾菊迷迭香",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1178.34,
+              "hardModeLevel": 0,
+              "duration": 151243,
+              "startTime": 1791550499164,
+              "report": {
+                "code": "rYAvn9KWpJkGBHg6",
+                "fightID": 30,
+                "startTime": 1791540978979
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Bobcrossbow",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1178.08,
+              "hardModeLevel": 0,
+              "duration": 107610,
+              "startTime": 1665943718535,
+              "report": {
+                "code": "NHL2ncdFvK8wtAzZ",
+                "fightID": 16,
+                "startTime": 1665942532888
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Hush",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1176.79,
+              "hardModeLevel": 0,
+              "duration": 128954,
+              "startTime": 1715830698202,
+              "report": {
+                "code": "4Y9cTjHgMvkGt8PJ",
+                "fightID": 32,
+                "startTime": 1715828064368
+              },
+              "guild": {
+                "id": 734202,
+                "name": "Coalition",
+                "faction": 1
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Lysandra",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1176.71,
+              "hardModeLevel": 0,
+              "duration": 112815,
+              "startTime": 1763088812888,
+              "report": {
+                "code": "gPN89VqB2GmHKRkn",
+                "fightID": 48,
+                "startTime": 1763085330521
+              },
+              "guild": {
+                "id": 705492,
+                "name": "Mass Invite",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "最冷的夏天",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1175.81,
+              "hardModeLevel": 0,
+              "duration": 165410,
+              "startTime": 1782999749991,
+              "report": {
+                "code": "Cvwc1hAkPzJTa62g",
+                "fightID": 32,
+                "startTime": 1782993920483
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Fehlix",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1175.74,
+              "hardModeLevel": 0,
+              "duration": 121728,
+              "startTime": 1705779275884,
+              "report": {
+                "code": "QRPZ82HCWYjc6VJg",
+                "fightID": 27,
+                "startTime": 1705777740249
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Egolas",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1175.7,
+              "hardModeLevel": 0,
+              "duration": 136531,
+              "startTime": 1725476831792,
+              "report": {
+                "code": "NVa1CtgwBznM6FHA",
+                "fightID": 32,
+                "startTime": 1725473732701
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Slîmer",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1174.94,
+              "hardModeLevel": 0,
+              "duration": 110684,
+              "startTime": 1787604472765,
+              "report": {
+                "code": "23XQaKqFbmAtd8YW",
+                "fightID": 16,
+                "startTime": 1787603345495
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Aurel",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 1174.24,
+              "hardModeLevel": 0,
+              "duration": 108387,
+              "startTime": 1726960893874,
+              "report": {
+                "code": "QvpRPmYkWGD9gLj7",
+                "fightID": 37,
+                "startTime": 1726956757887
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 21.05,
+      "pointsResetIn": 3587
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 21.05,
+    "reset_in_s": 3587
+  }
+}

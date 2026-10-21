@@ -1,0 +1,2283 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Hunter",
+    "spec": "Marksmanship"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:58.892870+00:00",
+  "ended_at": "2026-10-21T12:04:59.229573+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "悼亡者之瞳",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 972.054,
+              "hardModeLevel": 0,
+              "duration": 174373,
+              "startTime": 1753361369853,
+              "report": {
+                "code": "xjKZkrNaWwXympLM",
+                "fightID": -31,
+                "startTime": 1753358509404
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "猎兽行者",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 938.964,
+              "hardModeLevel": 0,
+              "duration": 174373,
+              "startTime": 1753361369853,
+              "report": {
+                "code": "xjKZkrNaWwXympLM",
+                "fightID": -31,
+                "startTime": 1753358509404
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Inyourdreams",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 923.299,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "뻐꺼삼호",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 912.727,
+              "hardModeLevel": 0,
+              "duration": 142267,
+              "startTime": 1753367148305,
+              "report": {
+                "code": "takLnVZdK6NF9PMp",
+                "fightID": -67,
+                "startTime": 1753360294512
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "힘민체지정",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 908.833,
+              "hardModeLevel": 0,
+              "duration": 142267,
+              "startTime": 1753367148305,
+              "report": {
+                "code": "takLnVZdK6NF9PMp",
+                "fightID": -67,
+                "startTime": 1753360294512
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10091,
+                "name": "라그나로스",
+                "region": "KR"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Alonwe",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 907.757,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "复仇者玩联盟",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 904.69,
+              "hardModeLevel": 0,
+              "duration": 150205,
+              "startTime": 1753334634175,
+              "report": {
+                "code": "7ZYwVqHN4nRKhzCf",
+                "fightID": -26,
+                "startTime": 1753332514879
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Ruug",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 902.914,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "雅典娜加朵",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 897.506,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Wwrrdd",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 893.883,
+              "hardModeLevel": 0,
+              "duration": 124448,
+              "startTime": 1753353880930,
+              "report": {
+                "code": "7rjRGPvMBxYLgfVw",
+                "fightID": -36,
+                "startTime": 1753351573772
+              },
+              "guild": {
+                "id": 788730,
+                "name": "OnlyTards",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "怼烎",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 892.435,
+              "hardModeLevel": 0,
+              "duration": 152391,
+              "startTime": 1753334374565,
+              "report": {
+                "code": "PnGBXy3WTc9tJCpV",
+                "fightID": -66,
+                "startTime": 1753311222885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "林福生",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 888.25,
+              "hardModeLevel": 0,
+              "duration": 176475,
+              "startTime": 1753368553698,
+              "report": {
+                "code": "rv6DNzf2mdxacH7W",
+                "fightID": -9,
+                "startTime": 1753355179299
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "紫雪狼",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 885.175,
+              "hardModeLevel": 0,
+              "duration": 156011,
+              "startTime": 1753361440268,
+              "report": {
+                "code": "wmjBvQNcZqJ8fzax",
+                "fightID": -33,
+                "startTime": 1753356079253
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Shotgun",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 881.579,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "喵锁",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 881.566,
+              "hardModeLevel": 0,
+              "duration": 161828,
+              "startTime": 1753338182750,
+              "report": {
+                "code": "Aa2YvDFL6hpnTK7t",
+                "fightID": -26,
+                "startTime": 1753334122111
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "九月安生",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 872.933,
+              "hardModeLevel": 0,
+              "duration": 179960,
+              "startTime": 1753360578060,
+              "report": {
+                "code": "CT3kbQHVKFLtvm2W",
+                "fightID": -40,
+                "startTime": 1753355542199
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 38
+            },
+            {
+              "name": "Mycology",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 862.3,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ashogargho",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 858.117,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "May",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 852.718,
+              "hardModeLevel": 0,
+              "duration": 109321,
+              "startTime": 1753316402248,
+              "report": {
+                "code": "fRLKa8n9PcbztTWG",
+                "fightID": -15,
+                "startTime": 1753315257331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Clicker",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 849.032,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ministeri",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 842.466,
+              "hardModeLevel": 0,
+              "duration": 173836,
+              "startTime": 1753296267716,
+              "report": {
+                "code": "jryaVf8kPmTHqFzc",
+                "fightID": -34,
+                "startTime": 1753292424924
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Schmuckers",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 840.57,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Luxuriaa",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 828.658,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "老年人的猎",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 808.301,
+              "hardModeLevel": 0,
+              "duration": 167064,
+              "startTime": 1753335961909,
+              "report": {
+                "code": "8PdVM4cLhwqKXBCA",
+                "fightID": -32,
+                "startTime": 1753332532697
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 36
+            },
+            {
+              "name": "Daníel",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 795.912,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "埃米尔",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 791.4,
+              "hardModeLevel": 0,
+              "duration": 177742,
+              "startTime": 1753365688567,
+              "report": {
+                "code": "ndKJPjvtxYrgwm7R",
+                "fightID": -21,
+                "startTime": 1753362473545
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ashten",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 780.456,
+              "hardModeLevel": 0,
+              "duration": 162077,
+              "startTime": 1753328145258,
+              "report": {
+                "code": "87T2zKZxbQDXywFn",
+                "fightID": -92,
+                "startTime": 1753320281246
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Ollandos",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 780.289,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Burr",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 777.803,
+              "hardModeLevel": 0,
+              "duration": 194881,
+              "startTime": 1753321306472,
+              "report": {
+                "code": "ZPgLnqhQ42WycDJ3",
+                "fightID": -22,
+                "startTime": 1753319192735
+              },
+              "guild": {
+                "id": 712147,
+                "name": "Wanted",
+                "faction": 0
+              },
+              "server": {
+                "id": 10000,
+                "name": "Atiesh",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Bierschützer",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 774.966,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10076,
+                "name": "Lakeshire",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Nyxie",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 773.947,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "牙没了",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 771.702,
+              "hardModeLevel": 0,
+              "duration": 157947,
+              "startTime": 1753359930215,
+              "report": {
+                "code": "HKVQq9PZWfbNjd34",
+                "fightID": -20,
+                "startTime": 1753358026879
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "我醉超狂",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 766.984,
+              "hardModeLevel": 0,
+              "duration": 162049,
+              "startTime": 1753361070237,
+              "report": {
+                "code": "NVr7jmJbL61ypAxT",
+                "fightID": -18,
+                "startTime": 1753358602301
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "阿诺斯",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 764.031,
+              "hardModeLevel": 0,
+              "duration": 188296,
+              "startTime": 1753366660806,
+              "report": {
+                "code": "wDLv1BgTm8yHkKRZ",
+                "fightID": -256,
+                "startTime": 1753326280693
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "二号陈",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 760.09,
+              "hardModeLevel": 0,
+              "duration": 157947,
+              "startTime": 1753359930215,
+              "report": {
+                "code": "HKVQq9PZWfbNjd34",
+                "fightID": -20,
+                "startTime": 1753358026879
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Hÿde",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 757.503,
+              "hardModeLevel": 0,
+              "duration": 194881,
+              "startTime": 1753321306472,
+              "report": {
+                "code": "ZPgLnqhQ42WycDJ3",
+                "fightID": -22,
+                "startTime": 1753319192735
+              },
+              "guild": {
+                "id": 712147,
+                "name": "Wanted",
+                "faction": 0
+              },
+              "server": {
+                "id": 10069,
+                "name": "Azuresong",
+                "region": "US"
+              },
+              "bracketData": 65,
+              "size": 40
+            },
+            {
+              "name": "毛毛丶牛牛哒",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 755.557,
+              "hardModeLevel": 0,
+              "duration": 165867,
+              "startTime": 1753363027181,
+              "report": {
+                "code": "7xn9cgfR68wqZh3V",
+                "fightID": -36,
+                "startTime": 1753356981942
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "霁月清风",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 755.155,
+              "hardModeLevel": 0,
+              "duration": 202491,
+              "startTime": 1753343484147,
+              "report": {
+                "code": "RNp2dD6Jt8vzcrfg",
+                "fightID": -24,
+                "startTime": 1753340980261
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 36
+            },
+            {
+              "name": "Talea",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 754.132,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "玥翎",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 751.222,
+              "hardModeLevel": 0,
+              "duration": 173440,
+              "startTime": 1753357890105,
+              "report": {
+                "code": "gZ6KkC8DAYj9pztN",
+                "fightID": -21,
+                "startTime": 1753355680631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "田蕊",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 750.087,
+              "hardModeLevel": 0,
+              "duration": 203299,
+              "startTime": 1753365300980,
+              "report": {
+                "code": "rhvDbNF74Kw6m3Wy",
+                "fightID": -38,
+                "startTime": 1753360652579
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "呀诺哒娣",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 748.103,
+              "hardModeLevel": 0,
+              "duration": 171419,
+              "startTime": 1753337222064,
+              "report": {
+                "code": "bgAGPLtW43pJyk1n",
+                "fightID": -29,
+                "startTime": 1753327020215
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Xraa",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 743.081,
+              "hardModeLevel": 0,
+              "duration": 124448,
+              "startTime": 1753353880930,
+              "report": {
+                "code": "7rjRGPvMBxYLgfVw",
+                "fightID": -36,
+                "startTime": 1753351573772
+              },
+              "guild": {
+                "id": 788730,
+                "name": "OnlyTards",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "丶潘妮",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 741.948,
+              "hardModeLevel": 0,
+              "duration": 173209,
+              "startTime": 1753361041506,
+              "report": {
+                "code": "ncNjV62bYLyD3phB",
+                "fightID": -25,
+                "startTime": 1753356129548
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "昔日勇猛",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 731.945,
+              "hardModeLevel": 0,
+              "duration": 176475,
+              "startTime": 1753368553698,
+              "report": {
+                "code": "rv6DNzf2mdxacH7W",
+                "fightID": -9,
+                "startTime": 1753355179299
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Lamagrà",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 727.259,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "艾菊迷迭香",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 725.914,
+              "hardModeLevel": 0,
+              "duration": 187131,
+              "startTime": 1753362163346,
+              "report": {
+                "code": "MPrkXnmqfHxRT71p",
+                "fightID": -35,
+                "startTime": 1753358386740
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Pavlovian",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 716.743,
+              "hardModeLevel": 0,
+              "duration": 128710,
+              "startTime": 1753320491241,
+              "report": {
+                "code": "kAZBvRgbC1tr6cJ3",
+                "fightID": -42,
+                "startTime": 1753315769314
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Trumpsting",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 692.492,
+              "hardModeLevel": 0,
+              "duration": 138032,
+              "startTime": 1753355938430,
+              "report": {
+                "code": "3npZPyLabYrRvdm4",
+                "fightID": -42,
+                "startTime": 1753347503469
+              },
+              "server": {
+                "id": 10095,
+                "name": "Arcanite Reaper",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Pieers",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 691.763,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": -16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Wolfstooth",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 680.282,
+              "hardModeLevel": 0,
+              "duration": 194881,
+              "startTime": 1753321306472,
+              "report": {
+                "code": "ZPgLnqhQ42WycDJ3",
+                "fightID": -22,
+                "startTime": 1753319192735
+              },
+              "guild": {
+                "id": 712147,
+                "name": "Wanted",
+                "faction": 0
+              },
+              "server": {
+                "id": 10008,
+                "name": "Myzrael",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Penthesilea",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 676.994,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "四季枫",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 674.174,
+              "hardModeLevel": 0,
+              "duration": 168314,
+              "startTime": 1753359826896,
+              "report": {
+                "code": "ybJfXq3VFNHvTcm1",
+                "fightID": -22,
+                "startTime": 1753357153786
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "咖妃",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 669.532,
+              "hardModeLevel": 0,
+              "duration": 156106,
+              "startTime": 1753363778841,
+              "report": {
+                "code": "3tpWqrBnwdgVQ7fA",
+                "fightID": -51,
+                "startTime": 1753358224565
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "韵澜",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 668.538,
+              "hardModeLevel": 0,
+              "duration": 163859,
+              "startTime": 1753335427651,
+              "report": {
+                "code": "AyWjatRhdmKFZpvg",
+                "fightID": -22,
+                "startTime": 1753331985727
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "负担是科学",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 663.29,
+              "hardModeLevel": 0,
+              "duration": 155083,
+              "startTime": 1753356841654,
+              "report": {
+                "code": "xFhBwndDLjkapJZ6",
+                "fightID": -7,
+                "startTime": 1753355168491
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "闻到有好吃的",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 661.867,
+              "hardModeLevel": 0,
+              "duration": 145159,
+              "startTime": 1753367823340,
+              "report": {
+                "code": "Y4nkZK3WdJyjDamv",
+                "fightID": -36,
+                "startTime": 1753364070777
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "只会打凝神",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 661.494,
+              "hardModeLevel": 0,
+              "duration": 163220,
+              "startTime": 1753357508191,
+              "report": {
+                "code": "jF4phzZd6D1Bag9N",
+                "fightID": -21,
+                "startTime": 1753355006190
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "龙哥哥很菜哦",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 656.636,
+              "hardModeLevel": 0,
+              "duration": 186895,
+              "startTime": 1753360663664,
+              "report": {
+                "code": "x3WrZ4bVYtRq7Mda",
+                "fightID": -23,
+                "startTime": 1753357521888
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Monshie",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 656.411,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 69,
+              "size": 40
+            },
+            {
+              "name": "六叔不会",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 649.727,
+              "hardModeLevel": 0,
+              "duration": 181099,
+              "startTime": 1753361231455,
+              "report": {
+                "code": "6vPLrFKftdn7N29A",
+                "fightID": -24,
+                "startTime": 1753358407592
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Annîka",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 642.015,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10076,
+                "name": "Lakeshire",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "贼潇洒",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 638.181,
+              "hardModeLevel": 0,
+              "duration": 167150,
+              "startTime": 1753358792078,
+              "report": {
+                "code": "Ad1bkWYCQG2cNRp4",
+                "fightID": -92,
+                "startTime": 1753340287816
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "北云冥王",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 637.738,
+              "hardModeLevel": 0,
+              "duration": 206229,
+              "startTime": 1753335928214,
+              "report": {
+                "code": "Rt4NazdhZkMrnGHD",
+                "fightID": -25,
+                "startTime": 1753332576277
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 37
+            },
+            {
+              "name": "天天楽",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 636.93,
+              "hardModeLevel": 0,
+              "duration": 183298,
+              "startTime": 1753366980522,
+              "report": {
+                "code": "cPqM4kG9XnrVz6x1",
+                "fightID": -52,
+                "startTime": 1753358771123
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "傲慢",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 632.259,
+              "hardModeLevel": 0,
+              "duration": 194887,
+              "startTime": 1753361554256,
+              "report": {
+                "code": "WnGjX6bB8xqfmgcH",
+                "fightID": -54,
+                "startTime": 1753356669840
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "一箭未命中",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 625.084,
+              "hardModeLevel": 0,
+              "duration": 186895,
+              "startTime": 1753360663664,
+              "report": {
+                "code": "x3WrZ4bVYtRq7Mda",
+                "fightID": -23,
+                "startTime": 1753357521888
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Elanwe",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 623.613,
+              "hardModeLevel": 0,
+              "duration": 150332,
+              "startTime": 1753292434622,
+              "report": {
+                "code": "JLqkA9Zj4h2GPWcw",
+                "fightID": -31,
+                "startTime": 1753286152050
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "蜂舞",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 620.802,
+              "hardModeLevel": 0,
+              "duration": 217638,
+              "startTime": 1753337460747,
+              "report": {
+                "code": "VN8jqDhWgM1cmKvx",
+                "fightID": -9,
+                "startTime": 1753317875297
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 36
+            },
+            {
+              "name": "狩猎星辰",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 607.744,
+              "hardModeLevel": 0,
+              "duration": 170126,
+              "startTime": 1753361788175,
+              "report": {
+                "code": "QaGwZTNYVHv6F29J",
+                "fightID": -34,
+                "startTime": 1753358572521
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "喵菟",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 605.479,
+              "hardModeLevel": 0,
+              "duration": 162496,
+              "startTime": 1753358969628,
+              "report": {
+                "code": "ctVDPydAfCvG3rz7",
+                "fightID": -22,
+                "startTime": 1753355856818
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "猎刃",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 605.46,
+              "hardModeLevel": 0,
+              "duration": 145159,
+              "startTime": 1753367823340,
+              "report": {
+                "code": "Y4nkZK3WdJyjDamv",
+                "fightID": -36,
+                "startTime": 1753364070777
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "鸡爱慕乃犬尔",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 603.333,
+              "hardModeLevel": 0,
+              "duration": 184079,
+              "startTime": 1753360568904,
+              "report": {
+                "code": "vLkTqRc8VwGnjJfC",
+                "fightID": -18,
+                "startTime": 1753358605976
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "魅力小强",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 597.075,
+              "hardModeLevel": 0,
+              "duration": 164259,
+              "startTime": 1753361302745,
+              "report": {
+                "code": "Fyq7nA2hH9vaKCPt",
+                "fightID": -23,
+                "startTime": 1753359150466
+              },
+              "guild": {
+                "id": 780335,
+                "name": "九月旧约",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "豆宝的月亮",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 587.368,
+              "hardModeLevel": 0,
+              "duration": 114521,
+              "startTime": 1753363709771,
+              "report": {
+                "code": "4GPJy9WA8xRzcb1B",
+                "fightID": -25,
+                "startTime": 1753359000174
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "卜解释",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 585.489,
+              "hardModeLevel": 0,
+              "duration": 143931,
+              "startTime": 1753355941088,
+              "report": {
+                "code": "aky3vnBQK2GxJH4X",
+                "fightID": -17,
+                "startTime": 1753354451159
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Yellowfoot",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 581.067,
+              "hardModeLevel": 0,
+              "duration": 194881,
+              "startTime": 1753321306472,
+              "report": {
+                "code": "ZPgLnqhQ42WycDJ3",
+                "fightID": -22,
+                "startTime": 1753319192735
+              },
+              "guild": {
+                "id": 712147,
+                "name": "Wanted",
+                "faction": 0
+              },
+              "server": {
+                "id": 10000,
+                "name": "Atiesh",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "纳兰突突",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 578.09,
+              "hardModeLevel": 0,
+              "duration": 189396,
+              "startTime": 1753337716582,
+              "report": {
+                "code": "zB8AMxyQcZj6R2NT",
+                "fightID": -28,
+                "startTime": 1753334804453
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "Bigrack",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 577.088,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "铃儿想叮当",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 572.294,
+              "hardModeLevel": 0,
+              "duration": 193023,
+              "startTime": 1753359822039,
+              "report": {
+                "code": "NgKC4fknAt897y6H",
+                "fightID": -25,
+                "startTime": 1753357026746
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "离不开我",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 571.907,
+              "hardModeLevel": 0,
+              "duration": 158664,
+              "startTime": 1753360361633,
+              "report": {
+                "code": "waBAK6bMNrmThYd3",
+                "fightID": -23,
+                "startTime": 1753358202569
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Coffeelake",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 571.314,
+              "hardModeLevel": 0,
+              "duration": 169280,
+              "startTime": 1753361044912,
+              "report": {
+                "code": "MwACHhrFj31vpB6a",
+                "fightID": -26,
+                "startTime": 1753358656416
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "富贵闲人",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 571.216,
+              "hardModeLevel": 0,
+              "duration": 170944,
+              "startTime": 1753359898342,
+              "report": {
+                "code": "dRvw2mMxQfbrzCcX",
+                "fightID": -26,
+                "startTime": 1753357133025
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "爱的呵护",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 562.499,
+              "hardModeLevel": 0,
+              "duration": 181099,
+              "startTime": 1753361231455,
+              "report": {
+                "code": "6vPLrFKftdn7N29A",
+                "fightID": -24,
+                "startTime": 1753358407592
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Hideyshooty",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 562.471,
+              "hardModeLevel": 0,
+              "duration": 138032,
+              "startTime": 1753355938430,
+              "report": {
+                "code": "3npZPyLabYrRvdm4",
+                "fightID": -42,
+                "startTime": 1753347503469
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "楠木正成",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 555.093,
+              "hardModeLevel": 0,
+              "duration": 163124,
+              "startTime": 1753370468412,
+              "report": {
+                "code": "wV4nt61bPrXQcHZN",
+                "fightID": -104,
+                "startTime": 1753358683981
+              },
+              "guild": {
+                "id": 669484,
+                "name": "落日余晖",
+                "faction": 1
+              },
+              "server": {
+                "id": 10131,
+                "name": "比斯巨兽",
+                "region": "CN"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Rodilard",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 551.176,
+              "hardModeLevel": 0,
+              "duration": 253382,
+              "startTime": 1753298830231,
+              "report": {
+                "code": "kJrwLPFVXzdyKp12",
+                "fightID": -19,
+                "startTime": 1753297070459
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "弓弯兽猝",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 539.992,
+              "hardModeLevel": 0,
+              "duration": 159958,
+              "startTime": 1753365328734,
+              "report": {
+                "code": "cRqyxpfM9JYWwKat",
+                "fightID": -24,
+                "startTime": 1753363440860
+              },
+              "guild": {
+                "id": 788240,
+                "name": "蛋仔派对",
+                "faction": 0
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "橙橙美式",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 533.372,
+              "hardModeLevel": 0,
+              "duration": 163608,
+              "startTime": 1753361585994,
+              "report": {
+                "code": "VrKnvDdwMxPLH1ka",
+                "fightID": -41,
+                "startTime": 1753357591182
+              },
+              "guild": {
+                "id": 642930,
+                "name": "山葵家",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "超级瞄准",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 530.245,
+              "hardModeLevel": 0,
+              "duration": 190144,
+              "startTime": 1753105044358,
+              "report": {
+                "code": "PyRJ1agNHqF6wv2D",
+                "fightID": -29,
+                "startTime": 1753101161395
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "免费试玩猎",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 524.882,
+              "hardModeLevel": 0,
+              "duration": 216786,
+              "startTime": 1753327765535,
+              "report": {
+                "code": "vJ4WBz8CPF6rY2Ak",
+                "fightID": -28,
+                "startTime": 1753324544946
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "羊羊得易",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 520.072,
+              "hardModeLevel": 0,
+              "duration": 169392,
+              "startTime": 1753366030263,
+              "report": {
+                "code": "9dQnCLhKpP2JX1rq",
+                "fightID": -30,
+                "startTime": 1753363370956
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 38
+            },
+            {
+              "name": "Cazy",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 517.441,
+              "hardModeLevel": 0,
+              "duration": 177773,
+              "startTime": 1753293992477,
+              "report": {
+                "code": "A9FPnMXYj1B4Vyb7",
+                "fightID": -15,
+                "startTime": 1753292625237
+              },
+              "server": {
+                "id": 10021,
+                "name": "Everlook",
+                "region": "EU"
+              },
+              "bracketData": 74,
+              "size": 40
+            },
+            {
+              "name": "玉兰花",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 516.708,
+              "hardModeLevel": 0,
+              "duration": 171830,
+              "startTime": 1753367173846,
+              "report": {
+                "code": "9vh7CtT6YDfy8MjA",
+                "fightID": -24,
+                "startTime": 1753365030644
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "予予师父",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 511.236,
+              "hardModeLevel": 0,
+              "duration": 191837,
+              "startTime": 1753335391862,
+              "report": {
+                "code": "c8y2jrd6Mqp9Fw7K",
+                "fightID": -24,
+                "startTime": 1753331758717
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "召唤和平",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 510.637,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "炮车",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 503.66,
+              "hardModeLevel": 0,
+              "duration": 173752,
+              "startTime": 1753368910321,
+              "report": {
+                "code": "xGKJ6H7fTV1XkM2L",
+                "fightID": -80,
+                "startTime": 1753356355438
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "绝世猎魂",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 502.626,
+              "hardModeLevel": 0,
+              "duration": 172864,
+              "startTime": 1753335580250,
+              "report": {
+                "code": "6tgvZJjTzwqamyRD",
+                "fightID": -52,
+                "startTime": 1753327868586
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "沈秦骏翕",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 498.507,
+              "hardModeLevel": 0,
+              "duration": 160076,
+              "startTime": 1753319647226,
+              "report": {
+                "code": "vTfr7Ca8G4txmK1q",
+                "fightID": -33,
+                "startTime": 1753316545685
+              },
+              "guild": {
+                "id": 610324,
+                "name": "英雄传说",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "交易失败",
+              "class": "Hunter",
+              "spec": "Marksmanship",
+              "amount": 496.284,
+              "hardModeLevel": 0,
+              "duration": 238962,
+              "startTime": 1753359402024,
+              "report": {
+                "code": "rvW12xdB6aQpJ3YK",
+                "fightID": -21,
+                "startTime": 1753355682129
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 59.25,
+      "pointsResetIn": 3579
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 59.25,
+    "reset_in_s": 3579
+  }
+}

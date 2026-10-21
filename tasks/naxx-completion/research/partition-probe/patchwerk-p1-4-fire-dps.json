@@ -1,0 +1,2458 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Mage",
+    "spec": "Fire"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:50.537390+00:00",
+  "ended_at": "2026-10-21T12:04:50.913574+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Ljhart",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 3153.39,
+              "hardModeLevel": 0,
+              "duration": 117765,
+              "startTime": 1689125355951,
+              "report": {
+                "code": "qD2ZvyYm6g8FRbKM",
+                "fightID": 55,
+                "startTime": 1689120208801
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Tremelin",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 3132.88,
+              "hardModeLevel": 0,
+              "duration": 117765,
+              "startTime": 1689125355951,
+              "report": {
+                "code": "qD2ZvyYm6g8FRbKM",
+                "fightID": 55,
+                "startTime": 1689120208801
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Maithanet",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 3112.27,
+              "hardModeLevel": 0,
+              "duration": 80956,
+              "startTime": 1739930951481,
+              "report": {
+                "code": "8NWw79ATF4vJGPMd",
+                "fightID": 33,
+                "startTime": 1739928450408
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Maibae",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 3070.51,
+              "hardModeLevel": 0,
+              "duration": 80956,
+              "startTime": 1739930951481,
+              "report": {
+                "code": "8NWw79ATF4vJGPMd",
+                "fightID": 33,
+                "startTime": 1739928450408
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Koldskaal",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 3012.53,
+              "hardModeLevel": 0,
+              "duration": 107556,
+              "startTime": 1777311409892,
+              "report": {
+                "code": "k6gJXbRFCBnDyHT9",
+                "fightID": 14,
+                "startTime": 1777307535854
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Linnt",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2951.89,
+              "hardModeLevel": 0,
+              "duration": 83244,
+              "startTime": 1731464240599,
+              "report": {
+                "code": "QvfWMGHTxtXDY37Z",
+                "fightID": 39,
+                "startTime": 1731451310142
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Phenomenon",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2949.49,
+              "hardModeLevel": 0,
+              "duration": 107556,
+              "startTime": 1777311409892,
+              "report": {
+                "code": "k6gJXbRFCBnDyHT9",
+                "fightID": 14,
+                "startTime": 1777307535854
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Ignitegoesbr",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2867.69,
+              "hardModeLevel": 0,
+              "duration": 91695,
+              "startTime": 1782671463731,
+              "report": {
+                "code": "DxH9G4kYRaAqLBZy",
+                "fightID": 10,
+                "startTime": 1782670534991
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Pyx",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2791.32,
+              "hardModeLevel": 0,
+              "duration": 93041,
+              "startTime": 1758676477958,
+              "report": {
+                "code": "pnx2gFQXMKLhGmTR",
+                "fightID": 30,
+                "startTime": 1758673962661
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "Fijou",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2756.5,
+              "hardModeLevel": 0,
+              "duration": 91695,
+              "startTime": 1782671463731,
+              "report": {
+                "code": "DxH9G4kYRaAqLBZy",
+                "fightID": 10,
+                "startTime": 1782670534991
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Serwa",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2740.23,
+              "hardModeLevel": 0,
+              "duration": 97343,
+              "startTime": 1738722095626,
+              "report": {
+                "code": "NM23QYyBVxXvjamC",
+                "fightID": 33,
+                "startTime": 1738711076048
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Pumpach",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2722.78,
+              "hardModeLevel": 0,
+              "duration": 110328,
+              "startTime": 1787403757122,
+              "report": {
+                "code": "BT92KH3RVMafnAxh",
+                "fightID": 16,
+                "startTime": 1787402425760
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Rôn",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2677.16,
+              "hardModeLevel": 0,
+              "duration": 107939,
+              "startTime": 1784060790043,
+              "report": {
+                "code": "zWvm1JXVQyxM7aYH",
+                "fightID": 12,
+                "startTime": 1784059651279
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Liska",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2650.55,
+              "hardModeLevel": 0,
+              "duration": 110328,
+              "startTime": 1787403757122,
+              "report": {
+                "code": "BT92KH3RVMafnAxh",
+                "fightID": 16,
+                "startTime": 1787402425760
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Skipzxx",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2647.44,
+              "hardModeLevel": 0,
+              "duration": 107939,
+              "startTime": 1784060790043,
+              "report": {
+                "code": "zWvm1JXVQyxM7aYH",
+                "fightID": 12,
+                "startTime": 1784059651279
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Skipzx",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2626.58,
+              "hardModeLevel": 0,
+              "duration": 100166,
+              "startTime": 1765315637314,
+              "report": {
+                "code": "cfh2WBzyLKGZPkgH",
+                "fightID": 11,
+                "startTime": 1765314570275
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Strauch",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2624.51,
+              "hardModeLevel": 0,
+              "duration": 108703,
+              "startTime": 1691717649235,
+              "report": {
+                "code": "XzP97Yq1G38KBvFL",
+                "fightID": 58,
+                "startTime": 1691712355832
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Lilkleine",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2574.95,
+              "hardModeLevel": 0,
+              "duration": 107186,
+              "startTime": 1765920224482,
+              "report": {
+                "code": "YHt9gCd1bQPcJj6W",
+                "fightID": 11,
+                "startTime": 1765918761437
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Frostbawl",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2568.71,
+              "hardModeLevel": 0,
+              "duration": 108703,
+              "startTime": 1691717649235,
+              "report": {
+                "code": "XzP97Yq1G38KBvFL",
+                "fightID": 58,
+                "startTime": 1691712355832
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Pumpmage",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2565.52,
+              "hardModeLevel": 0,
+              "duration": 111921,
+              "startTime": 1758302908671,
+              "report": {
+                "code": "PnH3NTJVrt6DmjcY",
+                "fightID": 17,
+                "startTime": 1758301312073
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Macherie",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2556.25,
+              "hardModeLevel": 0,
+              "duration": 113367,
+              "startTime": 1780431809142,
+              "report": {
+                "code": "yHbwNBt4Jxm2TK1G",
+                "fightID": 14,
+                "startTime": 1780430493846
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Mallay",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2552.37,
+              "hardModeLevel": 0,
+              "duration": 94672,
+              "startTime": 1786904578208,
+              "report": {
+                "code": "YkNghJcDAVWqjvdT",
+                "fightID": 19,
+                "startTime": 1786903114321
+              },
+              "guild": {
+                "id": 774862,
+                "name": "Awakening",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Waite",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2547.8,
+              "hardModeLevel": 0,
+              "duration": 94672,
+              "startTime": 1786904578208,
+              "report": {
+                "code": "YkNghJcDAVWqjvdT",
+                "fightID": 19,
+                "startTime": 1786903114321
+              },
+              "guild": {
+                "id": 774862,
+                "name": "Awakening",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Tesnjak",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2546.3,
+              "hardModeLevel": 0,
+              "duration": 86477,
+              "startTime": 1791736516486,
+              "report": {
+                "code": "WHwz6aXD41YVL7fm",
+                "fightID": 16,
+                "startTime": 1791733639934
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Layawei",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2543.66,
+              "hardModeLevel": 0,
+              "duration": 107089,
+              "startTime": 1708830070809,
+              "report": {
+                "code": "F8DqcHX1wWKRvry9",
+                "fightID": 58,
+                "startTime": 1708825450506
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Mueslii",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2522.4,
+              "hardModeLevel": 0,
+              "duration": 91504,
+              "startTime": 1765660429868,
+              "report": {
+                "code": "LgbjVfpcHqn6JRGF",
+                "fightID": 10,
+                "startTime": 1765659168431
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Foire",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2516.42,
+              "hardModeLevel": 0,
+              "duration": 85260,
+              "startTime": 1779474459058,
+              "report": {
+                "code": "K1ydkNJMBDrPgpAm",
+                "fightID": 17,
+                "startTime": 1779472923823
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Firebawl",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2486.53,
+              "hardModeLevel": 0,
+              "duration": 125202,
+              "startTime": 1689472687190,
+              "report": {
+                "code": "VBTcvynYApRZbJL8",
+                "fightID": 54,
+                "startTime": 1689466475580
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Icebreeze",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2475.79,
+              "hardModeLevel": 0,
+              "duration": 122717,
+              "startTime": 1755725071624,
+              "report": {
+                "code": "zX6gMBC9j1ak83ry",
+                "fightID": 21,
+                "startTime": 1755706616744
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Avatarr",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2471.89,
+              "hardModeLevel": 0,
+              "duration": 103216,
+              "startTime": 1765401532744,
+              "report": {
+                "code": "DVP8BZ3jaRt71M4G",
+                "fightID": 10,
+                "startTime": 1765387707768
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Otix",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2468.83,
+              "hardModeLevel": 0,
+              "duration": 81351,
+              "startTime": 1783358793567,
+              "report": {
+                "code": "A4aBTLH62Dypzv9g",
+                "fightID": 16,
+                "startTime": 1783356198662
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Ronkuby",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2467.44,
+              "hardModeLevel": 0,
+              "duration": 125202,
+              "startTime": 1689472687190,
+              "report": {
+                "code": "VBTcvynYApRZbJL8",
+                "fightID": 54,
+                "startTime": 1689466475580
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Portalbull",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2464.18,
+              "hardModeLevel": 0,
+              "duration": 108781,
+              "startTime": 1686274467110,
+              "report": {
+                "code": "pKzMZnrmwHc4tbVF",
+                "fightID": 66,
+                "startTime": 1686269542101
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Pumpaj",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2449.53,
+              "hardModeLevel": 0,
+              "duration": 103485,
+              "startTime": 1791998599957,
+              "report": {
+                "code": "c87VdTDXkAfy3FJB",
+                "fightID": 17,
+                "startTime": 1791994260205
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Billymage",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2445.03,
+              "hardModeLevel": 0,
+              "duration": 98547,
+              "startTime": 1779417940266,
+              "report": {
+                "code": "fxd8PrGJ2H6Lka1c",
+                "fightID": 40,
+                "startTime": 1779411526832
+              },
+              "guild": {
+                "id": 608076,
+                "name": "Not Prepared",
+                "faction": 1
+              },
+              "server": {
+                "id": 10004,
+                "name": "Fairbanks",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Tesnjak",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2426.97,
+              "hardModeLevel": 0,
+              "duration": 106652,
+              "startTime": 1775504696134,
+              "report": {
+                "code": "A823vLQHxVXkTrKp",
+                "fightID": 17,
+                "startTime": 1775501870121
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Tesnjaak",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2420.05,
+              "hardModeLevel": 0,
+              "duration": 106652,
+              "startTime": 1775504696134,
+              "report": {
+                "code": "A823vLQHxVXkTrKp",
+                "fightID": 17,
+                "startTime": 1775501870121
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Combustya",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2405.44,
+              "hardModeLevel": 0,
+              "duration": 111167,
+              "startTime": 1783774317810,
+              "report": {
+                "code": "vpNRrB8JgbPYCHk1",
+                "fightID": 14,
+                "startTime": 1783772972324
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Coldhartd",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2395.51,
+              "hardModeLevel": 0,
+              "duration": 129542,
+              "startTime": 1696901960417,
+              "report": {
+                "code": "cDw9FBVtJdZqrz2H",
+                "fightID": 63,
+                "startTime": 1696896418714
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Porpo",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2388.99,
+              "hardModeLevel": 0,
+              "duration": 96165,
+              "startTime": 1789692871063,
+              "report": {
+                "code": "9cNwy6YdapGtFBfj",
+                "fightID": 32,
+                "startTime": 1789690202373
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Winterly",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2375.68,
+              "hardModeLevel": 0,
+              "duration": 72114,
+              "startTime": 1781052890854,
+              "report": {
+                "code": "QX6RcfC7jt2rgmbv",
+                "fightID": 11,
+                "startTime": 1781052089407
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Lumberyak",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2362.63,
+              "hardModeLevel": 0,
+              "duration": 72114,
+              "startTime": 1781052890854,
+              "report": {
+                "code": "QX6RcfC7jt2rgmbv",
+                "fightID": 11,
+                "startTime": 1781052089407
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Minibang",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2359.22,
+              "hardModeLevel": 0,
+              "duration": 103216,
+              "startTime": 1765401532744,
+              "report": {
+                "code": "DVP8BZ3jaRt71M4G",
+                "fightID": 10,
+                "startTime": 1765387707768
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Belterx",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2342.35,
+              "hardModeLevel": 0,
+              "duration": 92739,
+              "startTime": 1783365978400,
+              "report": {
+                "code": "FVMnr4q9Lzf78mp6",
+                "fightID": 14,
+                "startTime": 1783363523375
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Zmage",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2340.4,
+              "hardModeLevel": 0,
+              "duration": 93279,
+              "startTime": 1762308809051,
+              "report": {
+                "code": "k46M9pawtL1GKXxF",
+                "fightID": 29,
+                "startTime": 1762306405064
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Shiah",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2338.63,
+              "hardModeLevel": 0,
+              "duration": 103012,
+              "startTime": 1787952158783,
+              "report": {
+                "code": "WjCh4dqa8QMJxGN7",
+                "fightID": 23,
+                "startTime": 1787949988406
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Xmage",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2334.87,
+              "hardModeLevel": 0,
+              "duration": 72114,
+              "startTime": 1781052890854,
+              "report": {
+                "code": "QX6RcfC7jt2rgmbv",
+                "fightID": 11,
+                "startTime": 1781052089407
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Drekt",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2326.35,
+              "hardModeLevel": 0,
+              "duration": 84121,
+              "startTime": 1770776034546,
+              "report": {
+                "code": "yFAb1N8JK2c6drh7",
+                "fightID": 26,
+                "startTime": 1770773874728
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Edwiltordy",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2319.97,
+              "hardModeLevel": 0,
+              "duration": 103456,
+              "startTime": 1765506103601,
+              "report": {
+                "code": "XFGanRCBvwdAcxV9",
+                "fightID": 33,
+                "startTime": 1765503664043
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Råiny",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2316.73,
+              "hardModeLevel": 0,
+              "duration": 81928,
+              "startTime": 1787336919717,
+              "report": {
+                "code": "P42apCKgq93GAr7w",
+                "fightID": 13,
+                "startTime": 1787334604521
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Bigherm",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2302.94,
+              "hardModeLevel": 0,
+              "duration": 103456,
+              "startTime": 1765506103601,
+              "report": {
+                "code": "XFGanRCBvwdAcxV9",
+                "fightID": 33,
+                "startTime": 1765503664043
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Jezreal",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2297.12,
+              "hardModeLevel": 0,
+              "duration": 97387,
+              "startTime": 1752715610715,
+              "report": {
+                "code": "7fkyvmgHXQTbKxdC",
+                "fightID": 34,
+                "startTime": 1752712530721
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Drastm",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2296.71,
+              "hardModeLevel": 0,
+              "duration": 96737,
+              "startTime": 1779641467281,
+              "report": {
+                "code": "ga1pdz6MT7LbXARh",
+                "fightID": 14,
+                "startTime": 1779640411786
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Stortz",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2292.49,
+              "hardModeLevel": 0,
+              "duration": 98547,
+              "startTime": 1779417940266,
+              "report": {
+                "code": "fxd8PrGJ2H6Lka1c",
+                "fightID": 40,
+                "startTime": 1779411526832
+              },
+              "guild": {
+                "id": 608076,
+                "name": "Not Prepared",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Onesan",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2289.39,
+              "hardModeLevel": 0,
+              "duration": 103485,
+              "startTime": 1791998599957,
+              "report": {
+                "code": "c87VdTDXkAfy3FJB",
+                "fightID": 17,
+                "startTime": 1791994260205
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Ggs",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2289.39,
+              "hardModeLevel": 0,
+              "duration": 118106,
+              "startTime": 1792517933827,
+              "report": {
+                "code": "GkcAPdWHahJC4xyn",
+                "fightID": 11,
+                "startTime": 1792516784049
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Darkfriend",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2280.07,
+              "hardModeLevel": 0,
+              "duration": 114385,
+              "startTime": 1706411406100,
+              "report": {
+                "code": "x6aRdztXnhQbM4fm",
+                "fightID": 78,
+                "startTime": 1706405125248
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Harith",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2278.72,
+              "hardModeLevel": 0,
+              "duration": 118106,
+              "startTime": 1792517933827,
+              "report": {
+                "code": "GkcAPdWHahJC4xyn",
+                "fightID": 11,
+                "startTime": 1792516784049
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Drewmage",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2271.85,
+              "hardModeLevel": 0,
+              "duration": 97387,
+              "startTime": 1752715610715,
+              "report": {
+                "code": "7fkyvmgHXQTbKxdC",
+                "fightID": 34,
+                "startTime": 1752712530721
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Cuaz",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2256.2,
+              "hardModeLevel": 0,
+              "duration": 93291,
+              "startTime": 1760318898533,
+              "report": {
+                "code": "tJKqhzMb3WTjQNDv",
+                "fightID": 32,
+                "startTime": 1760309872053
+              },
+              "guild": {
+                "id": 772889,
+                "name": "Land Before Time - Alliance",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Chooselife",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2247.13,
+              "hardModeLevel": 0,
+              "duration": 96737,
+              "startTime": 1779641467281,
+              "report": {
+                "code": "ga1pdz6MT7LbXARh",
+                "fightID": 14,
+                "startTime": 1779640411786
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Penance",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2239.58,
+              "hardModeLevel": 0,
+              "duration": 104998,
+              "startTime": 1778606625045,
+              "report": {
+                "code": "y2PNqmG3pT9KBwFc",
+                "fightID": 14,
+                "startTime": 1778605206598
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "Pombussy",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2237.82,
+              "hardModeLevel": 0,
+              "duration": 109329,
+              "startTime": 1730669480383,
+              "report": {
+                "code": "hNPWQbf8C3F6MG71",
+                "fightID": 31,
+                "startTime": 1730666198743
+              },
+              "guild": {
+                "id": 737572,
+                "name": "Deduction",
+                "faction": 0
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Vgood",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2236.26,
+              "hardModeLevel": 0,
+              "duration": 93291,
+              "startTime": 1760318898533,
+              "report": {
+                "code": "tJKqhzMb3WTjQNDv",
+                "fightID": 32,
+                "startTime": 1760309872053
+              },
+              "guild": {
+                "id": 772889,
+                "name": "Land Before Time - Alliance",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Inamess",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2229.12,
+              "hardModeLevel": 0,
+              "duration": 90203,
+              "startTime": 1792091613209,
+              "report": {
+                "code": "g9C7W1N3nH2w8ZMY",
+                "fightID": 20,
+                "startTime": 1792082686509
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Opentrade",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2222.78,
+              "hardModeLevel": 0,
+              "duration": 109329,
+              "startTime": 1730669480383,
+              "report": {
+                "code": "hNPWQbf8C3F6MG71",
+                "fightID": 31,
+                "startTime": 1730666198743
+              },
+              "guild": {
+                "id": 737572,
+                "name": "Deduction",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Gurú",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2221.95,
+              "hardModeLevel": 0,
+              "duration": 94980,
+              "startTime": 1754852069296,
+              "report": {
+                "code": "zcZCm3FaADhrQK74",
+                "fightID": 31,
+                "startTime": 1754849905391
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Winecooler",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2214.29,
+              "hardModeLevel": 0,
+              "duration": 96165,
+              "startTime": 1789692871063,
+              "report": {
+                "code": "9cNwy6YdapGtFBfj",
+                "fightID": 32,
+                "startTime": 1789690202373
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Kryotik",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2213.99,
+              "hardModeLevel": 0,
+              "duration": 103497,
+              "startTime": 1702867829596,
+              "report": {
+                "code": "HnTC2Kp79FcvZwjq",
+                "fightID": 26,
+                "startTime": 1702865364979
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Raeburn",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2211.91,
+              "hardModeLevel": 0,
+              "duration": 122144,
+              "startTime": 1791658786916,
+              "report": {
+                "code": "496AXmVkPQ7zbtpD",
+                "fightID": 21,
+                "startTime": 1791655276031
+              },
+              "guild": {
+                "id": 809577,
+                "name": "Neo GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Daysukeaoe",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2205.67,
+              "hardModeLevel": 0,
+              "duration": 90015,
+              "startTime": 1786670088567,
+              "report": {
+                "code": "2nYHFjKxwDrqt6vm",
+                "fightID": 28,
+                "startTime": 1786667589331
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "凌佳",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2196.42,
+              "hardModeLevel": 0,
+              "duration": 190166,
+              "startTime": 1763790113714,
+              "report": {
+                "code": "QcNd12ZfpAW4nFzy",
+                "fightID": 27,
+                "startTime": 1763784684110
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 0,
+              "size": 37
+            },
+            {
+              "name": "Niporte",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2195.66,
+              "hardModeLevel": 0,
+              "duration": 102258,
+              "startTime": 1776544028054,
+              "report": {
+                "code": "LCW7xPy6Q8G2DkRV",
+                "fightID": 14,
+                "startTime": 1776542640656
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Smokess",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2190.14,
+              "hardModeLevel": 0,
+              "duration": 86348,
+              "startTime": 1789060929249,
+              "report": {
+                "code": "WKR7bv8PAB1a2DZG",
+                "fightID": 13,
+                "startTime": 1789060058251
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Rytmedorthe",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2187.67,
+              "hardModeLevel": 0,
+              "duration": 86348,
+              "startTime": 1789060929249,
+              "report": {
+                "code": "WKR7bv8PAB1a2DZG",
+                "fightID": 13,
+                "startTime": 1789060058251
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Bootyluvr",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2187.12,
+              "hardModeLevel": 0,
+              "duration": 96216,
+              "startTime": 1765677733737,
+              "report": {
+                "code": "XAgpVaK4zYnQ8MF6",
+                "fightID": 24,
+                "startTime": 1765655573318
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Lumirage",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2176.58,
+              "hardModeLevel": 0,
+              "duration": 106542,
+              "startTime": 1792005581795,
+              "report": {
+                "code": "dwyrZRN7TAhHj43V",
+                "fightID": 48,
+                "startTime": 1792000232502
+              },
+              "guild": {
+                "id": 782327,
+                "name": "Next Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Ivoker",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2174.83,
+              "hardModeLevel": 0,
+              "duration": 96216,
+              "startTime": 1765677733737,
+              "report": {
+                "code": "XAgpVaK4zYnQ8MF6",
+                "fightID": 24,
+                "startTime": 1765655573318
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Smokesjr",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2169.39,
+              "hardModeLevel": 0,
+              "duration": 105809,
+              "startTime": 1788456304950,
+              "report": {
+                "code": "RF1NtJfQKLnPmrvx",
+                "fightID": 13,
+                "startTime": 1788454954446
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Kaiku",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2163.76,
+              "hardModeLevel": 0,
+              "duration": 106542,
+              "startTime": 1792005581795,
+              "report": {
+                "code": "dwyrZRN7TAhHj43V",
+                "fightID": 48,
+                "startTime": 1792000232502
+              },
+              "guild": {
+                "id": 782327,
+                "name": "Next Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Magicmerguez",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2163.08,
+              "hardModeLevel": 0,
+              "duration": 96377,
+              "startTime": 1773264525983,
+              "report": {
+                "code": "ArkpG2Dg61TXBPfa",
+                "fightID": 17,
+                "startTime": 1773263295585
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Ehbim",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2163,
+              "hardModeLevel": 0,
+              "duration": 112246,
+              "startTime": 1788975461459,
+              "report": {
+                "code": "2JtxcTdhmGvLZNzy",
+                "fightID": 17,
+                "startTime": 1788973584325
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Covcutie",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2157.96,
+              "hardModeLevel": 0,
+              "duration": 116897,
+              "startTime": 1791510284455,
+              "report": {
+                "code": "ymJfK2Wjcbx7z341",
+                "fightID": 28,
+                "startTime": 1791506048189
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Ashak",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2152.72,
+              "hardModeLevel": 0,
+              "duration": 131740,
+              "startTime": 1775074934112,
+              "report": {
+                "code": "7CH6RbGD2fr8ptFJ",
+                "fightID": 14,
+                "startTime": 1775073427161
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Thraxes",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2152,
+              "hardModeLevel": 0,
+              "duration": 96165,
+              "startTime": 1789692871063,
+              "report": {
+                "code": "9cNwy6YdapGtFBfj",
+                "fightID": 32,
+                "startTime": 1789690202373
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Enders",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2150.72,
+              "hardModeLevel": 0,
+              "duration": 102306,
+              "startTime": 1792322536668,
+              "report": {
+                "code": "2WFVn36YMdkxG9gR",
+                "fightID": 14,
+                "startTime": 1792321154506
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Lisska",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2149.14,
+              "hardModeLevel": 0,
+              "duration": 122144,
+              "startTime": 1791658786916,
+              "report": {
+                "code": "496AXmVkPQ7zbtpD",
+                "fightID": 21,
+                "startTime": 1791655276031
+              },
+              "guild": {
+                "id": 809577,
+                "name": "Neo GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Conjurevodka",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2145.29,
+              "hardModeLevel": 0,
+              "duration": 92419,
+              "startTime": 1791743540794,
+              "report": {
+                "code": "xn4yGvbgwNCZ7zht",
+                "fightID": 16,
+                "startTime": 1791741194086
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Portimus",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2143.16,
+              "hardModeLevel": 0,
+              "duration": 103003,
+              "startTime": 1769740069590,
+              "report": {
+                "code": "jV64HY8h9FfKZRWx",
+                "fightID": 33,
+                "startTime": 1769737497510
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Biglez",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2140.8,
+              "hardModeLevel": 0,
+              "duration": 94998,
+              "startTime": 1789071875845,
+              "report": {
+                "code": "zcdfk6WqTJ81Zrgp",
+                "fightID": 13,
+                "startTime": 1789070571070
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Moënghus",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2140.57,
+              "hardModeLevel": 0,
+              "duration": 93168,
+              "startTime": 1767147074518,
+              "report": {
+                "code": "VJDZTg1cyP8Xp2Mw",
+                "fightID": 28,
+                "startTime": 1767139971226
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Noportals",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2138.78,
+              "hardModeLevel": 0,
+              "duration": 107973,
+              "startTime": 1731188288589,
+              "report": {
+                "code": "zFGdZ2XKnhHyQmBk",
+                "fightID": 34,
+                "startTime": 1731185201641
+              },
+              "guild": {
+                "id": 737572,
+                "name": "Deduction",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Bubsa",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2138.32,
+              "hardModeLevel": 0,
+              "duration": 99919,
+              "startTime": 1724202949211,
+              "report": {
+                "code": "mLwRQtfMN38JAv9P",
+                "fightID": 31,
+                "startTime": 1724200133018
+              },
+              "guild": {
+                "id": 709951,
+                "name": "Pugs not drugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Lädy",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2137.55,
+              "hardModeLevel": 0,
+              "duration": 104998,
+              "startTime": 1778606625045,
+              "report": {
+                "code": "y2PNqmG3pT9KBwFc",
+                "fightID": 14,
+                "startTime": 1778605206598
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 88,
+              "size": 39
+            },
+            {
+              "name": "Asharladon",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2133.38,
+              "hardModeLevel": 0,
+              "duration": 109051,
+              "startTime": 1716267866229,
+              "report": {
+                "code": "xJ78ZBmvgnwKXq2r",
+                "fightID": 40,
+                "startTime": 1716261798537
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Jackinthebox",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2123.8,
+              "hardModeLevel": 0,
+              "duration": 101984,
+              "startTime": 1786760472285,
+              "report": {
+                "code": "VyKNx6rZ4bYTchpj",
+                "fightID": 12,
+                "startTime": 1786759381406
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Amitheda",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2123.23,
+              "hardModeLevel": 0,
+              "duration": 116897,
+              "startTime": 1791510284455,
+              "report": {
+                "code": "ymJfK2Wjcbx7z341",
+                "fightID": 28,
+                "startTime": 1791506048189
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Stormkrowe",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2121.92,
+              "hardModeLevel": 0,
+              "duration": 102265,
+              "startTime": 1707876666289,
+              "report": {
+                "code": "yg9mahA1CNkqrpBv",
+                "fightID": 42,
+                "startTime": 1707872669082
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Bluebell",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2121.86,
+              "hardModeLevel": 0,
+              "duration": 100516,
+              "startTime": 1739670918941,
+              "report": {
+                "code": "Af26RDKVdPmq1ZWQ",
+                "fightID": 20,
+                "startTime": 1739669296807
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Mouseratx",
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 2121.08,
+              "hardModeLevel": 0,
+              "duration": 88787,
+              "startTime": 1756085757025,
+              "report": {
+                "code": "XrK4F7zpfA1dRN2H",
+                "fightID": 28,
+                "startTime": 1756083253942
+              },
+              "guild": {
+                "id": 668230,
+                "name": "Okay Booner",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 87,
+              "size": 40
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 23.06,
+      "pointsResetIn": 3587
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 23.06,
+    "reset_in_s": 3587
+  }
+}

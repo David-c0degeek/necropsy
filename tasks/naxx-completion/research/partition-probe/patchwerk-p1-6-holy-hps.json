@@ -1,0 +1,2403 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:hps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Paladin",
+    "spec": "Holy"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:51.314345+00:00",
+  "ended_at": "2026-10-21T12:04:51.709570+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Stimorol",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1463.19,
+              "hardModeLevel": 0,
+              "duration": 115318,
+              "startTime": 1771435320912,
+              "report": {
+                "code": "6gjVyL8zvmJakXxd",
+                "fightID": 37,
+                "startTime": 1771429515398
+              },
+              "guild": {
+                "id": 700956,
+                "name": "TEMHOE MOPE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Gwyar",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1210.98,
+              "hardModeLevel": 0,
+              "duration": 166981,
+              "startTime": 1689967774978,
+              "report": {
+                "code": "fVNkC6d39vg1hBHy",
+                "fightID": 40,
+                "startTime": 1689962762821
+              },
+              "guild": {
+                "id": 703488,
+                "name": "Just A Pug GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Bössanqt",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1118.48,
+              "hardModeLevel": 0,
+              "duration": 114468,
+              "startTime": 1768858474114,
+              "report": {
+                "code": "YnxqZr64wBjJgTMD",
+                "fightID": 36,
+                "startTime": 1768844700539
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Whosyourmama",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1089.15,
+              "hardModeLevel": 0,
+              "duration": 115070,
+              "startTime": 1698196525758,
+              "report": {
+                "code": "mwvX8qGkF9YbTCQ2",
+                "fightID": 45,
+                "startTime": 1698192284053
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Gua",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1063.88,
+              "hardModeLevel": 0,
+              "duration": 126184,
+              "startTime": 1716340099479,
+              "report": {
+                "code": "N6gDwHrxVnRaT97v",
+                "fightID": 46,
+                "startTime": 1716336168444
+              },
+              "guild": {
+                "id": 657909,
+                "name": "Renegades and Heretics",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Eqt",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1062.03,
+              "hardModeLevel": 0,
+              "duration": 91232,
+              "startTime": 1744570926753,
+              "report": {
+                "code": "tx8AmZVwPX7gbvDT",
+                "fightID": 24,
+                "startTime": 1744568322785
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Laputa",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1057.91,
+              "hardModeLevel": 0,
+              "duration": 143402,
+              "startTime": 1698445164487,
+              "report": {
+                "code": "zdHcZQmwfa3rNk2p",
+                "fightID": 40,
+                "startTime": 1698440114538
+              },
+              "guild": {
+                "id": 703488,
+                "name": "Just A Pug GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Lumio",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1053.07,
+              "hardModeLevel": 0,
+              "duration": 134432,
+              "startTime": 1789067826741,
+              "report": {
+                "code": "37VKQGBbm8JAxw4j",
+                "fightID": 60,
+                "startTime": 1789063121925
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Lucker",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1051.19,
+              "hardModeLevel": 0,
+              "duration": 114709,
+              "startTime": 1728337185332,
+              "report": {
+                "code": "Qhtkvn3mJcWFrqGw",
+                "fightID": 28,
+                "startTime": 1728334466184
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Zires",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1018.6,
+              "hardModeLevel": 0,
+              "duration": 115778,
+              "startTime": 1769120228631,
+              "report": {
+                "code": "MhBAXPKkan8bpTxN",
+                "fightID": 20,
+                "startTime": 1769117937253
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Alpha",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1017.33,
+              "hardModeLevel": 0,
+              "duration": 117220,
+              "startTime": 1738967447615,
+              "report": {
+                "code": "MXYaC1nqhF3Hf97L",
+                "fightID": 36,
+                "startTime": 1738963723306
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Deilar",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1011.92,
+              "hardModeLevel": 0,
+              "duration": 118818,
+              "startTime": 1775845343453,
+              "report": {
+                "code": "1HxA7ZNDGLB3w9jM",
+                "fightID": 22,
+                "startTime": 1775842606396
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "九纹龙丶欧霸",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1010.81,
+              "hardModeLevel": 0,
+              "duration": 129550,
+              "startTime": 1781528999692,
+              "report": {
+                "code": "VfvT97CwWx4RHFJc",
+                "fightID": 23,
+                "startTime": 1781525701236
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Ihealanders",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1008.21,
+              "hardModeLevel": 0,
+              "duration": 120233,
+              "startTime": 1790458283245,
+              "report": {
+                "code": "FPN6Y8DbTk3jgxQA",
+                "fightID": 14,
+                "startTime": 1790456856759
+              },
+              "guild": {
+                "id": 809516,
+                "name": "Prime",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Noqzin",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1004.6,
+              "hardModeLevel": 0,
+              "duration": 159894,
+              "startTime": 1716718661978,
+              "report": {
+                "code": "Db8c6vnMJVPCQ1Zf",
+                "fightID": 8,
+                "startTime": 1716717900991
+              },
+              "guild": {
+                "id": 636869,
+                "name": "Johannes Pugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Mattskees",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 1001.14,
+              "hardModeLevel": 0,
+              "duration": 126926,
+              "startTime": 1728351289057,
+              "report": {
+                "code": "MW7pQGN4yncrVawh",
+                "fightID": 31,
+                "startTime": 1728349119984
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Enelÿa",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 995.781,
+              "hardModeLevel": 0,
+              "duration": 105478,
+              "startTime": 1783793706323,
+              "report": {
+                "code": "3hRpCyJqdxgAGcwz",
+                "fightID": 20,
+                "startTime": 1783791373960
+              },
+              "server": {
+                "id": 10013,
+                "name": "Golemagg",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Holybloodelf",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 994.979,
+              "hardModeLevel": 0,
+              "duration": 113332,
+              "startTime": 1756326519965,
+              "report": {
+                "code": "FCqbzM4jv3pKtW6B",
+                "fightID": 14,
+                "startTime": 1756312203221
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Lightoftruth",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 991.465,
+              "hardModeLevel": 0,
+              "duration": 108493,
+              "startTime": 1726197830992,
+              "report": {
+                "code": "wX6dgJ1BMh2TpR7D",
+                "fightID": 36,
+                "startTime": 1726194454435
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "让娜贞德",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 990.329,
+              "hardModeLevel": 0,
+              "duration": 109911,
+              "startTime": 1631193172536,
+              "report": {
+                "code": "nH2Xcp43LFmYfyjV",
+                "fightID": 11,
+                "startTime": 1631192584831
+              },
+              "guild": {
+                "id": 608779,
+                "name": "Cool Cultured (转服前)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10116,
+                "name": "怒炉",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Jammie",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 986.042,
+              "hardModeLevel": 0,
+              "duration": 128599,
+              "startTime": 1756405719564,
+              "report": {
+                "code": "mPwd6GDRbtyTAVM4",
+                "fightID": 27,
+                "startTime": 1756402663984
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Kyera",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 985.756,
+              "hardModeLevel": 0,
+              "duration": 122441,
+              "startTime": 1711936594637,
+              "report": {
+                "code": "NQjGzRy96LBdAZvV",
+                "fightID": 42,
+                "startTime": 1711933559218
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Bluz",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 977.168,
+              "hardModeLevel": 0,
+              "duration": 136697,
+              "startTime": 1727605535789,
+              "report": {
+                "code": "RLmJ2ACxv89f1VaW",
+                "fightID": 10,
+                "startTime": 1727604990154
+              },
+              "guild": {
+                "id": 636869,
+                "name": "Johannes Pugs",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "Lejru",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 974.576,
+              "hardModeLevel": 0,
+              "duration": 114103,
+              "startTime": 1733945038433,
+              "report": {
+                "code": "fKrJ9XPMG6ZAc2pC",
+                "fightID": 32,
+                "startTime": 1733942163544
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Punkblessing",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 974.491,
+              "hardModeLevel": 0,
+              "duration": 138227,
+              "startTime": 1684691457898,
+              "report": {
+                "code": "YCD3BkgVpmTJ9QXt",
+                "fightID": 9,
+                "startTime": 1684690338305
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "圣関",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 971.302,
+              "hardModeLevel": 0,
+              "duration": 216530,
+              "startTime": 1779623399452,
+              "report": {
+                "code": "Dy2CAQNaJbnkrMGc",
+                "fightID": 26,
+                "startTime": 1779620822952
+              },
+              "guild": {
+                "id": 810236,
+                "name": "非洲特快",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 32
+            },
+            {
+              "name": "Akadypaladin",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 961.542,
+              "hardModeLevel": 0,
+              "duration": 110847,
+              "startTime": 1778188264828,
+              "report": {
+                "code": "6H41cjXQ9bY73DPG",
+                "fightID": 25,
+                "startTime": 1778184697055
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Bambena",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 959.228,
+              "hardModeLevel": 0,
+              "duration": 122706,
+              "startTime": 1708996910278,
+              "report": {
+                "code": "t1DQTg7VpRXcxLzq",
+                "fightID": 20,
+                "startTime": 1708995592031
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Hanargold",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 957.453,
+              "hardModeLevel": 0,
+              "duration": 122240,
+              "startTime": 1740128515641,
+              "report": {
+                "code": "GcYpZzXqfkhNPxtn",
+                "fightID": 42,
+                "startTime": 1740123951945
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Retlol",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 957.241,
+              "hardModeLevel": 0,
+              "duration": 100563,
+              "startTime": 1737315146993,
+              "report": {
+                "code": "ZaDrdKNPXBmpjkv1",
+                "fightID": 20,
+                "startTime": 1737313952785
+              },
+              "guild": {
+                "id": 751236,
+                "name": "ofc",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Gigaunicorn",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 955.52,
+              "hardModeLevel": 0,
+              "duration": 113535,
+              "startTime": 1726605056602,
+              "report": {
+                "code": "Ybkhy46atB1cd3CD",
+                "fightID": 20,
+                "startTime": 1726603851254
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Pancakess",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 955.334,
+              "hardModeLevel": 0,
+              "duration": 104912,
+              "startTime": 1749948988436,
+              "report": {
+                "code": "R13vDJzbpqTWMFBZ",
+                "fightID": 4,
+                "startTime": 1749947426091
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Tramadol",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 955.315,
+              "hardModeLevel": 0,
+              "duration": 113103,
+              "startTime": 1724782923933,
+              "report": {
+                "code": "J3bmYZqnWd1fHaTV",
+                "fightID": 9,
+                "startTime": 1724782021175
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Slieb",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 949.156,
+              "hardModeLevel": 0,
+              "duration": 112482,
+              "startTime": 1725990400201,
+              "report": {
+                "code": "jqr4L7Fc9GYPfMW8",
+                "fightID": 28,
+                "startTime": 1725988307537
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Rilitor",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 948.919,
+              "hardModeLevel": 0,
+              "duration": 124664,
+              "startTime": 1782004830220,
+              "report": {
+                "code": "PxFMHJrpKBgwN2YW",
+                "fightID": 26,
+                "startTime": 1782001463249
+              },
+              "server": {
+                "id": 10038,
+                "name": "Westfall",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Holyfoly",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 948.824,
+              "hardModeLevel": 0,
+              "duration": 111477,
+              "startTime": 1785698945341,
+              "report": {
+                "code": "NBdcfzJxQH9LXwnV",
+                "fightID": 48,
+                "startTime": 1785694380226
+              },
+              "guild": {
+                "id": 751236,
+                "name": "ofc",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Grwndd",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 946.186,
+              "hardModeLevel": 0,
+              "duration": 95013,
+              "startTime": 1767724129600,
+              "report": {
+                "code": "1qByJQ6XAr9nWbL8",
+                "fightID": 12,
+                "startTime": 1767722734417
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Awesomex",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 945.035,
+              "hardModeLevel": 0,
+              "duration": 104193,
+              "startTime": 1778783942919,
+              "report": {
+                "code": "PbhrHC6ay3MgTvYm",
+                "fightID": 19,
+                "startTime": 1778782335771
+              },
+              "guild": {
+                "id": 727341,
+                "name": "Elysium",
+                "faction": 0
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "观夏",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 943.909,
+              "hardModeLevel": 0,
+              "duration": 174735,
+              "startTime": 1747831454441,
+              "report": {
+                "code": "3t4AkpaZTDQn1WJH",
+                "fightID": 46,
+                "startTime": 1747824658846
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Lexand",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 942.133,
+              "hardModeLevel": 0,
+              "duration": 124181,
+              "startTime": 1759515828471,
+              "report": {
+                "code": "mGwMrRx9aCvA1phZ",
+                "fightID": 30,
+                "startTime": 1759512814403
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Supmario",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 940.967,
+              "hardModeLevel": 0,
+              "duration": 119696,
+              "startTime": 1770232689779,
+              "report": {
+                "code": "rydDmgPcwQ67XHZh",
+                "fightID": 23,
+                "startTime": 1770229713066
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Dhurim",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 936.361,
+              "hardModeLevel": 0,
+              "duration": 125600,
+              "startTime": 1718130676575,
+              "report": {
+                "code": "wWra7FpV9f4ZNXYk",
+                "fightID": 10,
+                "startTime": 1718127332413
+              },
+              "guild": {
+                "id": 671892,
+                "name": "just a pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Lightgodx",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 936.123,
+              "hardModeLevel": 0,
+              "duration": 127964,
+              "startTime": 1752529542000,
+              "report": {
+                "code": "v3thJ9mLBpZyqNWg",
+                "fightID": 33,
+                "startTime": 1752525593083
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Mended",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 935.653,
+              "hardModeLevel": 0,
+              "duration": 105801,
+              "startTime": 1786646631096,
+              "report": {
+                "code": "41kcZwagfqpQATnY",
+                "fightID": 18,
+                "startTime": 1786645198884
+              },
+              "guild": {
+                "id": 816105,
+                "name": "LISTEN",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Diddydodat",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 931.845,
+              "hardModeLevel": 0,
+              "duration": 116616,
+              "startTime": 1726163998748,
+              "report": {
+                "code": "VgAKTBzfX1r46Gvh",
+                "fightID": 16,
+                "startTime": 1726162549023
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Jeffoneboton",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 931.715,
+              "hardModeLevel": 0,
+              "duration": 166201,
+              "startTime": 1770927758547,
+              "report": {
+                "code": "dpZND73n9vb6C1xB",
+                "fightID": 21,
+                "startTime": 1770925661456
+              },
+              "guild": {
+                "id": 747044,
+                "name": "Infernal",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "Legynds",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 931.05,
+              "hardModeLevel": 0,
+              "duration": 114721,
+              "startTime": 1750637881359,
+              "report": {
+                "code": "HvGmLXN74RDxn1rB",
+                "fightID": 16,
+                "startTime": 1750636816580
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Zhmex",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 930.639,
+              "hardModeLevel": 0,
+              "duration": 125791,
+              "startTime": 1645386016527,
+              "report": {
+                "code": "xcPqTf9Rr7XtJbn3",
+                "fightID": 40,
+                "startTime": 1645381333092
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "初本",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 928.983,
+              "hardModeLevel": 0,
+              "duration": 202642,
+              "startTime": 1782657299663,
+              "report": {
+                "code": "3nbYpxcz4B8LPwTk",
+                "fightID": 22,
+                "startTime": 1782653581348
+              },
+              "guild": {
+                "id": 810236,
+                "name": "非洲特快",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 32
+            },
+            {
+              "name": "Hilpal",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 925.319,
+              "hardModeLevel": 0,
+              "duration": 104565,
+              "startTime": 1743024783756,
+              "report": {
+                "code": "aw2vMXLA6JPBWRV8",
+                "fightID": 17,
+                "startTime": 1743022991316
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Miniunicorn",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 925.255,
+              "hardModeLevel": 0,
+              "duration": 105492,
+              "startTime": 1772821475905,
+              "report": {
+                "code": "8Q4Mfd9KG7xvFtpD",
+                "fightID": 10,
+                "startTime": 1772819940228
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Eryo",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 922.81,
+              "hardModeLevel": 0,
+              "duration": 133658,
+              "startTime": 1778267245627,
+              "report": {
+                "code": "8rGPkBcnqyJghRYM",
+                "fightID": 38,
+                "startTime": 1778263059645
+              },
+              "guild": {
+                "id": 710980,
+                "name": "Classic Enjoyers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Rukai",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 922.712,
+              "hardModeLevel": 0,
+              "duration": 116086,
+              "startTime": 1749616170727,
+              "report": {
+                "code": "Hc18wKbXpnDNARfd",
+                "fightID": 32,
+                "startTime": 1749611481075
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Zankerli",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 922.486,
+              "hardModeLevel": 0,
+              "duration": 134040,
+              "startTime": 1717871765964,
+              "report": {
+                "code": "JCmRL498rbfAZyFQ",
+                "fightID": 43,
+                "startTime": 1717868341213
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Windofvalor",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 922.363,
+              "hardModeLevel": 0,
+              "duration": 113412,
+              "startTime": 1726452719274,
+              "report": {
+                "code": "bmCAnGxYN73WJVf2",
+                "fightID": 32,
+                "startTime": 1726446880884
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Kyphi",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 920.225,
+              "hardModeLevel": 0,
+              "duration": 132159,
+              "startTime": 1697235497948,
+              "report": {
+                "code": "nZ1CANrxJct7RyL3",
+                "fightID": 40,
+                "startTime": 1697230904653
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Macarzhu",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 918.939,
+              "hardModeLevel": 0,
+              "duration": 139093,
+              "startTime": 1777724841861,
+              "report": {
+                "code": "9h423JLHMdcFbknG",
+                "fightID": 37,
+                "startTime": 1777722153273
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Kenshen",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 918.308,
+              "hardModeLevel": 0,
+              "duration": 115213,
+              "startTime": 1743186949586,
+              "report": {
+                "code": "FG6TBvbA4X3CxW8k",
+                "fightID": 14,
+                "startTime": 1743185428517
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Adeus",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 917.638,
+              "hardModeLevel": 0,
+              "duration": 115636,
+              "startTime": 1770499481400,
+              "report": {
+                "code": "DT3vmYAJKkN97z4n",
+                "fightID": 12,
+                "startTime": 1770498122930
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Potnia",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 916.545,
+              "hardModeLevel": 0,
+              "duration": 112660,
+              "startTime": 1768685069387,
+              "report": {
+                "code": "vbHgzw1fKJD68njG",
+                "fightID": 19,
+                "startTime": 1768683183045
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Varrex",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 916.208,
+              "hardModeLevel": 0,
+              "duration": 99818,
+              "startTime": 1743556174520,
+              "report": {
+                "code": "3bwV4DYMGTA9FxHW",
+                "fightID": 24,
+                "startTime": 1743553545446
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Mustangg",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 914.657,
+              "hardModeLevel": 0,
+              "duration": 111936,
+              "startTime": 1755282290753,
+              "report": {
+                "code": "fxagXj2LJvz3crkw",
+                "fightID": 23,
+                "startTime": 1755278835086
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Arazospala",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 913.633,
+              "hardModeLevel": 0,
+              "duration": 110575,
+              "startTime": 1759170570225,
+              "report": {
+                "code": "R7g1JCmB84VPdYa3",
+                "fightID": 26,
+                "startTime": 1759168862140
+              },
+              "guild": {
+                "id": 796425,
+                "name": "Casual ofc",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Idkfa",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 913.396,
+              "hardModeLevel": 0,
+              "duration": 115087,
+              "startTime": 1702154405377,
+              "report": {
+                "code": "MLm6znX8PrYHNARp",
+                "fightID": 34,
+                "startTime": 1702152095999
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 70,
+              "size": 40
+            },
+            {
+              "name": "Mikaw",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 912.662,
+              "hardModeLevel": 0,
+              "duration": 119101,
+              "startTime": 1731836826972,
+              "report": {
+                "code": "gJNL4kMnr1jWGzph",
+                "fightID": 24,
+                "startTime": 1731833532406
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Cotos",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 912.432,
+              "hardModeLevel": 0,
+              "duration": 99682,
+              "startTime": 1778963310829,
+              "report": {
+                "code": "BRgHMGnxTJ36rbKk",
+                "fightID": 13,
+                "startTime": 1778962329824
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Glancealott",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 912.028,
+              "hardModeLevel": 0,
+              "duration": 112081,
+              "startTime": 1753727637898,
+              "report": {
+                "code": "PcHjvhaYByzFKGdg",
+                "fightID": 16,
+                "startTime": 1753725979951
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Sulfurrix",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 910.638,
+              "hardModeLevel": 0,
+              "duration": 131062,
+              "startTime": 1770589469349,
+              "report": {
+                "code": "vrBWLA8M1qPnbK7k",
+                "fightID": 29,
+                "startTime": 1770586575959
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Anrylla",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 907.898,
+              "hardModeLevel": 0,
+              "duration": 112625,
+              "startTime": 1743787306892,
+              "report": {
+                "code": "p4GJthB8Kg3fNR19",
+                "fightID": 18,
+                "startTime": 1743785790593
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Rarlin",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 905.937,
+              "hardModeLevel": 0,
+              "duration": 80956,
+              "startTime": 1739930951481,
+              "report": {
+                "code": "8NWw79ATF4vJGPMd",
+                "fightID": 33,
+                "startTime": 1739928450408
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Äsdîs",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 904.423,
+              "hardModeLevel": 0,
+              "duration": 100317,
+              "startTime": 1754795215795,
+              "report": {
+                "code": "XyCb7MNZjaLBKwJH",
+                "fightID": 30,
+                "startTime": 1754791143168
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "轨迹",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 903.995,
+              "hardModeLevel": 0,
+              "duration": 146368,
+              "startTime": 1746799427444,
+              "report": {
+                "code": "vzMbm8wVZ2ByFHrA",
+                "fightID": 26,
+                "startTime": 1746795718273
+              },
+              "server": {
+                "id": 10113,
+                "name": "德姆塞卡尔",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Holytrash",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 903.78,
+              "hardModeLevel": 0,
+              "duration": 107420,
+              "startTime": 1748803136134,
+              "report": {
+                "code": "4vtfNbx2AkPhT69q",
+                "fightID": 27,
+                "startTime": 1748800854951
+              },
+              "guild": {
+                "id": 601865,
+                "name": "ACTIVE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Tights",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 902.467,
+              "hardModeLevel": 0,
+              "duration": 107912,
+              "startTime": 1714611529553,
+              "report": {
+                "code": "xZ6gDp47j2d9TWJn",
+                "fightID": 36,
+                "startTime": 1714608755408
+              },
+              "guild": {
+                "id": 707777,
+                "name": "Fora GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Onlypals",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 901.807,
+              "hardModeLevel": 0,
+              "duration": 139267,
+              "startTime": 1725818502473,
+              "report": {
+                "code": "fGwZ6FMJpL9qcvba",
+                "fightID": 14,
+                "startTime": 1725817122069
+              },
+              "guild": {
+                "id": 750145,
+                "name": "One Piece",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Truttefrut",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 901.079,
+              "hardModeLevel": 0,
+              "duration": 147047,
+              "startTime": 1702842290126,
+              "report": {
+                "code": "nGmrv9pA4f6cy8aF",
+                "fightID": 49,
+                "startTime": 1702837235182
+              },
+              "guild": {
+                "id": 702713,
+                "name": "not a good look",
+                "faction": 0
+              },
+              "server": {
+                "id": 10073,
+                "name": "Skullflame",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Holydiverr",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 900.541,
+              "hardModeLevel": 0,
+              "duration": 132427,
+              "startTime": 1730507910992,
+              "report": {
+                "code": "bh1V8x9NFzBaYtCr",
+                "fightID": 27,
+                "startTime": 1730501311517
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Tricia",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 900.125,
+              "hardModeLevel": 0,
+              "duration": 112030,
+              "startTime": 1755884159449,
+              "report": {
+                "code": "vFKZYG4LAyj3789X",
+                "fightID": 15,
+                "startTime": 1755882056168
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "大疤弟",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 899.802,
+              "hardModeLevel": 0,
+              "duration": 187409,
+              "startTime": 1742297616471,
+              "report": {
+                "code": "J4bdcxVt2AHKC9QL",
+                "fightID": 27,
+                "startTime": 1742294532744
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "善良的雨",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 899.003,
+              "hardModeLevel": 0,
+              "duration": 148974,
+              "startTime": 1745126985598,
+              "report": {
+                "code": "VKdfPR2pvmgrD9Aj",
+                "fightID": 23,
+                "startTime": 1745124795620
+              },
+              "guild": {
+                "id": 773148,
+                "name": "莽村",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Damper",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 898.641,
+              "hardModeLevel": 0,
+              "duration": 116448,
+              "startTime": 1790618489830,
+              "report": {
+                "code": "bWp4qZmTtdCQ7RGJ",
+                "fightID": 26,
+                "startTime": 1790615935771
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "青岛小牡蛎",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 898.186,
+              "hardModeLevel": 0,
+              "duration": 129550,
+              "startTime": 1781528999692,
+              "report": {
+                "code": "VfvT97CwWx4RHFJc",
+                "fightID": 23,
+                "startTime": 1781525701236
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 37
+            },
+            {
+              "name": "Holeesheet",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 897.729,
+              "hardModeLevel": 0,
+              "duration": 122567,
+              "startTime": 1722278975604,
+              "report": {
+                "code": "QX684jFHYR7GMf1T",
+                "fightID": 20,
+                "startTime": 1722277362604
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Purgesboyfrd",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 897.065,
+              "hardModeLevel": 0,
+              "duration": 138174,
+              "startTime": 1741521184855,
+              "report": {
+                "code": "LV2zJQMDvcAqTy6B",
+                "fightID": 5,
+                "startTime": 1741520097994
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Beerathlète",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 896.227,
+              "hardModeLevel": 0,
+              "duration": 108294,
+              "startTime": 1780334531103,
+              "report": {
+                "code": "MKJNy7YZzF1nTtH6",
+                "fightID": 13,
+                "startTime": 1780333408405
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Nottryin",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 895.841,
+              "hardModeLevel": 0,
+              "duration": 116168,
+              "startTime": 1748135545662,
+              "report": {
+                "code": "ZxyTz6gtfGb9KJLm",
+                "fightID": 16,
+                "startTime": 1748133842358
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Suzakü",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 893.23,
+              "hardModeLevel": 0,
+              "duration": 121242,
+              "startTime": 1743877794535,
+              "report": {
+                "code": "NqjfGYmJ81Pyp67F",
+                "fightID": 48,
+                "startTime": 1743873874148
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Luxuryheals",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 893.17,
+              "hardModeLevel": 0,
+              "duration": 115557,
+              "startTime": 1757617102855,
+              "report": {
+                "code": "Wq6p1yZaGXCT2Fcz",
+                "fightID": 14,
+                "startTime": 1757615522239
+              },
+              "guild": {
+                "id": 725109,
+                "name": "Tusqai GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Skido",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 892.644,
+              "hardModeLevel": 0,
+              "duration": 119239,
+              "startTime": 1785262914898,
+              "report": {
+                "code": "qwLbaj8CMcVZPrJN",
+                "fightID": 26,
+                "startTime": 1785260235784
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Takfir",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 890.243,
+              "hardModeLevel": 0,
+              "duration": 216479,
+              "startTime": 1697946392391,
+              "report": {
+                "code": "PyMZCRNFc81YhTpm",
+                "fightID": 86,
+                "startTime": 1697938281591
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 73,
+              "size": 39
+            },
+            {
+              "name": "Ole",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 889.713,
+              "hardModeLevel": 0,
+              "duration": 122780,
+              "startTime": 1747161615192,
+              "report": {
+                "code": "7frmCtnX9wWhj6VN",
+                "fightID": 30,
+                "startTime": 1747158100217
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Lebavc",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 889.532,
+              "hardModeLevel": 0,
+              "duration": 128897,
+              "startTime": 1715797456678,
+              "report": {
+                "code": "m3cN4AQtyWC1VDZL",
+                "fightID": 20,
+                "startTime": 1715795836439
+              },
+              "guild": {
+                "id": 710671,
+                "name": "Old School Gamers",
+                "faction": 0
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Landik",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 888.685,
+              "hardModeLevel": 0,
+              "duration": 112168,
+              "startTime": 1752715851365,
+              "report": {
+                "code": "9zcDKG8Z4wyg6Qph",
+                "fightID": 31,
+                "startTime": 1752711833623
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "Braydin",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 887.193,
+              "hardModeLevel": 0,
+              "duration": 115011,
+              "startTime": 1720991275346,
+              "report": {
+                "code": "QX3WjTbRMarZnvct",
+                "fightID": 37,
+                "startTime": 1720985439065
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Lightcaster",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 886.446,
+              "hardModeLevel": 0,
+              "duration": 115179,
+              "startTime": 1790098519981,
+              "report": {
+                "code": "gtykTMAxaCNZfB9W",
+                "fightID": 13,
+                "startTime": 1790097313611
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Vitamin",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 886.14,
+              "hardModeLevel": 0,
+              "duration": 101844,
+              "startTime": 1765306160925,
+              "report": {
+                "code": "TQpCc9t467zPGw1D",
+                "fightID": 28,
+                "startTime": 1765302447469
+              },
+              "server": {
+                "id": 10079,
+                "name": "Anathema",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Ljubav",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 885.661,
+              "hardModeLevel": 0,
+              "duration": 157147,
+              "startTime": 1722538336394,
+              "report": {
+                "code": "BRkNbtw7gdY8Kcp1",
+                "fightID": 22,
+                "startTime": 1722536328970
+              },
+              "guild": {
+                "id": 727195,
+                "name": "Evolution",
+                "faction": 0
+              },
+              "server": {
+                "id": 10081,
+                "name": "Bloodfang",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 38
+            },
+            {
+              "name": "Larethian",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 884.975,
+              "hardModeLevel": 0,
+              "duration": 111211,
+              "startTime": 1754009714838,
+              "report": {
+                "code": "BtT7yg3YKHJqb4WN",
+                "fightID": 32,
+                "startTime": 1754006963440
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Exany",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 882.691,
+              "hardModeLevel": 0,
+              "duration": 136128,
+              "startTime": 1726511592174,
+              "report": {
+                "code": "f2b1Az4r3tKV8FNg",
+                "fightID": 38,
+                "startTime": 1726507936280
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10088,
+                "name": "Venoxis",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "老娘捶死你",
+              "class": "Paladin",
+              "spec": "Holy",
+              "amount": 882.542,
+              "hardModeLevel": 0,
+              "duration": 162603,
+              "startTime": 1771158189067,
+              "report": {
+                "code": "DP8m3CwKL21cTVQa",
+                "fightID": 31,
+                "startTime": 1771154094946
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 26.08,
+      "pointsResetIn": 3586
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 26.08,
+    "reset_in_s": 3586
+  }
+}

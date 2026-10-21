@@ -1,0 +1,2233 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 2,
+    "cls": "Warrior",
+    "spec": "Protection"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:05:03.614158+00:00",
+  "ended_at": "2026-10-21T12:05:03.932002+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "幼稚园杀手",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1092.81,
+              "hardModeLevel": 0,
+              "duration": 114521,
+              "startTime": 1753363709771,
+              "report": {
+                "code": "4GPJy9WA8xRzcb1B",
+                "fightID": -25,
+                "startTime": 1753359000174
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Flameheart",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1012.3,
+              "hardModeLevel": 0,
+              "duration": 124448,
+              "startTime": 1753353880930,
+              "report": {
+                "code": "7rjRGPvMBxYLgfVw",
+                "fightID": -36,
+                "startTime": 1753351573772
+              },
+              "guild": {
+                "id": 788730,
+                "name": "OnlyTards",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Micky",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 1010.47,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Smikz",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 948.779,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": -16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Ramessess",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 912.457,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10067,
+                "name": "Thunderfury",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "布林德",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 890.902,
+              "hardModeLevel": 0,
+              "duration": 147299,
+              "startTime": 1753368922178,
+              "report": {
+                "code": "KdN6JHakpZL2xG1m",
+                "fightID": -11,
+                "startTime": 1753367818534
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "朝气",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 858.6,
+              "hardModeLevel": 0,
+              "duration": 159958,
+              "startTime": 1753365328734,
+              "report": {
+                "code": "cRqyxpfM9JYWwKat",
+                "fightID": -24,
+                "startTime": 1753363440860
+              },
+              "guild": {
+                "id": 788240,
+                "name": "蛋仔派对",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 37
+            },
+            {
+              "name": "Sicksyboy",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 858.5,
+              "hardModeLevel": 0,
+              "duration": 98933,
+              "startTime": 1753320895373,
+              "report": {
+                "code": "yAnVXNaQCMJqcWZg",
+                "fightID": -30,
+                "startTime": 1753317816482
+              },
+              "guild": {
+                "id": 733508,
+                "name": "Altimate Warriors",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "我是女战神",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 855.796,
+              "hardModeLevel": 0,
+              "duration": 159150,
+              "startTime": 1753362742544,
+              "report": {
+                "code": "QRxcW96rKn8qgXGf",
+                "fightID": -26,
+                "startTime": 1753360484724
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "半島鐵鐵盒丶",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 854.242,
+              "hardModeLevel": 0,
+              "duration": 166825,
+              "startTime": 1753323132349,
+              "report": {
+                "code": "3RqcMa9dvjKhXH4T",
+                "fightID": -22,
+                "startTime": 1753320706197
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "衝鋒號",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 843.894,
+              "hardModeLevel": 0,
+              "duration": 172236,
+              "startTime": 1753358775099,
+              "report": {
+                "code": "2Ax4Z78rMCBLGtPW",
+                "fightID": -27,
+                "startTime": 1753356453153
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Khalleesi",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 838.564,
+              "hardModeLevel": 0,
+              "duration": 104314,
+              "startTime": 1753319823699,
+              "report": {
+                "code": "7H8D2fFtbyndBJVc",
+                "fightID": -29,
+                "startTime": 1753316607215
+              },
+              "guild": {
+                "id": 729420,
+                "name": "Loong",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "战御",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 836.11,
+              "hardModeLevel": 0,
+              "duration": 174373,
+              "startTime": 1753361369853,
+              "report": {
+                "code": "xjKZkrNaWwXympLM",
+                "fightID": -31,
+                "startTime": 1753358509404
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Zugyzugy",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 830.503,
+              "hardModeLevel": 0,
+              "duration": 153796,
+              "startTime": 1753332428051,
+              "report": {
+                "code": "tVWyKC96hZX3BdLm",
+                "fightID": -65,
+                "startTime": 1753324874809
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "臭鳜鱼",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 829.668,
+              "hardModeLevel": 0,
+              "duration": 143931,
+              "startTime": 1753355941088,
+              "report": {
+                "code": "aky3vnBQK2GxJH4X",
+                "fightID": -17,
+                "startTime": 1753354451159
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "苍之炎",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 824.939,
+              "hardModeLevel": 0,
+              "duration": 152158,
+              "startTime": 1753346427911,
+              "report": {
+                "code": "jCy14LWRvPqrYMaf",
+                "fightID": -22,
+                "startTime": 1753344968136
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "画浅影",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 823.293,
+              "hardModeLevel": 0,
+              "duration": 158630,
+              "startTime": 1753356349001,
+              "report": {
+                "code": "3fVqztZJBm418j6R",
+                "fightID": -8,
+                "startTime": 1753353401819
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "Zyxs",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 823.04,
+              "hardModeLevel": 0,
+              "duration": 173836,
+              "startTime": 1753296267716,
+              "report": {
+                "code": "jryaVf8kPmTHqFzc",
+                "fightID": -34,
+                "startTime": 1753292424924
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "富贵在天吖",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 822.774,
+              "hardModeLevel": 0,
+              "duration": 150074,
+              "startTime": 1753322716842,
+              "report": {
+                "code": "krTDb9Fj7RnQq1zv",
+                "fightID": -22,
+                "startTime": 1753320009542
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Amii",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 812.46,
+              "hardModeLevel": 0,
+              "duration": 108473,
+              "startTime": 1753304583057,
+              "report": {
+                "code": "yRnD9zJTL2d3cmK7",
+                "fightID": -17,
+                "startTime": 1753303511144
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Ners",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 812.274,
+              "hardModeLevel": 0,
+              "duration": 145153,
+              "startTime": 1753362986248,
+              "report": {
+                "code": "aXJ7gvqcGjPk4mVQ",
+                "fightID": -30,
+                "startTime": 1753360349349
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "盾爷",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 801.911,
+              "hardModeLevel": 0,
+              "duration": 152603,
+              "startTime": 1753357915429,
+              "report": {
+                "code": "hR9mHfdZPgFjrDyv",
+                "fightID": -35,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "奔跑的芋头酱",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 801.016,
+              "hardModeLevel": 0,
+              "duration": 173476,
+              "startTime": 1753335261166,
+              "report": {
+                "code": "Nx81gjBZ6VbCLKRh",
+                "fightID": -53,
+                "startTime": 1753329147989
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "扬眉鸟出鞘",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 797.752,
+              "hardModeLevel": 0,
+              "duration": 168392,
+              "startTime": 1753335616723,
+              "report": {
+                "code": "CF3LdjZNzrkaxwhQ",
+                "fightID": -24,
+                "startTime": 1753333340852
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "Pauldavis",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 796.617,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 88,
+              "size": 40
+            },
+            {
+              "name": "Rottank",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 793.392,
+              "hardModeLevel": 0,
+              "duration": 124448,
+              "startTime": 1753353880930,
+              "report": {
+                "code": "7rjRGPvMBxYLgfVw",
+                "fightID": -36,
+                "startTime": 1753351573772
+              },
+              "guild": {
+                "id": 788730,
+                "name": "OnlyTards",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Katesit",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 788.573,
+              "hardModeLevel": 0,
+              "duration": 162496,
+              "startTime": 1753358969628,
+              "report": {
+                "code": "ctVDPydAfCvG3rz7",
+                "fightID": -22,
+                "startTime": 1753355856818
+              },
+              "guild": {
+                "id": 776481,
+                "name": "碧空碧空",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "萨灬馒",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 788.262,
+              "hardModeLevel": 0,
+              "duration": 152391,
+              "startTime": 1753334374565,
+              "report": {
+                "code": "PnGBXy3WTc9tJCpV",
+                "fightID": -66,
+                "startTime": 1753311222885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "曾宝仪",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 787.872,
+              "hardModeLevel": 0,
+              "duration": 150532,
+              "startTime": 1753369885210,
+              "report": {
+                "code": "Gv6xcgXyYL9jWkVR",
+                "fightID": -29,
+                "startTime": 1753365346625
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "霸气回眸",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 783.948,
+              "hardModeLevel": 0,
+              "duration": 161878,
+              "startTime": 1753359173527,
+              "report": {
+                "code": "nmvhk8WwdYAcVrPC",
+                "fightID": -27,
+                "startTime": 1753356851972
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "霑湿丶",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 776.067,
+              "hardModeLevel": 0,
+              "duration": 163857,
+              "startTime": 1753369011401,
+              "report": {
+                "code": "wPtqpFCGgfaJ1Ljd",
+                "fightID": -33,
+                "startTime": 1753365359176
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Hamstring",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 768.828,
+              "hardModeLevel": 0,
+              "duration": 113742,
+              "startTime": 1753294539866,
+              "report": {
+                "code": "NBRLfMvxb7hF1C8w",
+                "fightID": -19,
+                "startTime": 1753291815801
+              },
+              "server": {
+                "id": 10071,
+                "name": "Ashbringer",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Bawbie",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 768.698,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "刻意练习",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 767.034,
+              "hardModeLevel": 0,
+              "duration": 155083,
+              "startTime": 1753356841654,
+              "report": {
+                "code": "xFhBwndDLjkapJZ6",
+                "fightID": -7,
+                "startTime": 1753355168491
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "万吨吊车",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 766.375,
+              "hardModeLevel": 0,
+              "duration": 169434,
+              "startTime": 1753370165604,
+              "report": {
+                "code": "NRBJ3d1cQbVg6Z2v",
+                "fightID": -23,
+                "startTime": 1753367862196
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 37
+            },
+            {
+              "name": "末秋",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 766.245,
+              "hardModeLevel": 0,
+              "duration": 178888,
+              "startTime": 1753320847067,
+              "report": {
+                "code": "RThtBzxG3cZML4Q6",
+                "fightID": -11,
+                "startTime": 1753318558482
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "老巴鲁",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 765.977,
+              "hardModeLevel": 0,
+              "duration": 163356,
+              "startTime": 1753323143494,
+              "report": {
+                "code": "j92LMv17pahd4fPQ",
+                "fightID": -18,
+                "startTime": 1753319990730
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "人造肉",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 764.685,
+              "hardModeLevel": 0,
+              "duration": 194348,
+              "startTime": 1753364513753,
+              "report": {
+                "code": "w9aNZmPrQg6zTh31",
+                "fightID": -55,
+                "startTime": 1753354201544
+              },
+              "server": {
+                "id": 10162,
+                "name": "法琳娜",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "牧野乄孤魂",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 763.72,
+              "hardModeLevel": 0,
+              "duration": 171889,
+              "startTime": 1753335797739,
+              "report": {
+                "code": "3zgyFj1GY6Vn9NAq",
+                "fightID": -24,
+                "startTime": 1753331517931
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Dorkus",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 759.278,
+              "hardModeLevel": 0,
+              "duration": 138587,
+              "startTime": 1753297148545,
+              "report": {
+                "code": "1fhHaLKpWjTwFGJn",
+                "fightID": -36,
+                "startTime": 1753295085223
+              },
+              "guild": {
+                "id": 756085,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "血洛",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 757.755,
+              "hardModeLevel": 0,
+              "duration": 193676,
+              "startTime": 1753335108757,
+              "report": {
+                "code": "2NaH981yXjmdDwqZ",
+                "fightID": -43,
+                "startTime": 1753329089434
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Kyzu",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 755.231,
+              "hardModeLevel": 0,
+              "duration": 138032,
+              "startTime": 1753355938430,
+              "report": {
+                "code": "3npZPyLabYrRvdm4",
+                "fightID": -42,
+                "startTime": 1753347503469
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Rynoh",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 755.073,
+              "hardModeLevel": 0,
+              "duration": 102398,
+              "startTime": 1753321829275,
+              "report": {
+                "code": "XwAT18FHDk2KW3gq",
+                "fightID": -31,
+                "startTime": 1753318960392
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "艾兰克",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 754.377,
+              "hardModeLevel": 0,
+              "duration": 161801,
+              "startTime": 1753360763749,
+              "report": {
+                "code": "vmBtqanG1HLfhTWj",
+                "fightID": -51,
+                "startTime": 1753348552253
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 39
+            },
+            {
+              "name": "帅得没道理",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 749.968,
+              "hardModeLevel": 0,
+              "duration": 147273,
+              "startTime": 1753354468969,
+              "report": {
+                "code": "FnA4p2XtzBMDPZJR",
+                "fightID": -11,
+                "startTime": 1753353636184
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "九玄再战",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 746.355,
+              "hardModeLevel": 0,
+              "duration": 174488,
+              "startTime": 1753337360932,
+              "report": {
+                "code": "WzBbncyKpkhtTDxw",
+                "fightID": -25,
+                "startTime": 1753335132285
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "牛释天",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 739.786,
+              "hardModeLevel": 0,
+              "duration": 148820,
+              "startTime": 1753335694550,
+              "report": {
+                "code": "mnb8Cq6fMDvdFRLH",
+                "fightID": -79,
+                "startTime": 1753321283352
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "傲气小牛",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 738.947,
+              "hardModeLevel": 0,
+              "duration": 164078,
+              "startTime": 1753355868389,
+              "report": {
+                "code": "MX7QFfkrmDHBZTnG",
+                "fightID": -17,
+                "startTime": 1753354744375
+              },
+              "guild": {
+                "id": 778798,
+                "name": "涅槃",
+                "faction": 1
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "上门女婿",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 731.799,
+              "hardModeLevel": 0,
+              "duration": 167311,
+              "startTime": 1753356997550,
+              "report": {
+                "code": "zTK36Djdpf9HXnG1",
+                "fightID": -28,
+                "startTime": 1753336900811
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "吴昊小哥",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 731.024,
+              "hardModeLevel": 0,
+              "duration": 152296,
+              "startTime": 1753369310678,
+              "report": {
+                "code": "8d7QYMhRJqFVwTa9",
+                "fightID": -7,
+                "startTime": 1753367923836
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "Crushhoof",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 727.51,
+              "hardModeLevel": 0,
+              "duration": 125010,
+              "startTime": 1753301261326,
+              "report": {
+                "code": "QK7xgYHBcq18LTv9",
+                "fightID": -45,
+                "startTime": 1753296362140
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "人生似梦丶",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 726.369,
+              "hardModeLevel": 0,
+              "duration": 172864,
+              "startTime": 1753335580250,
+              "report": {
+                "code": "6tgvZJjTzwqamyRD",
+                "fightID": -52,
+                "startTime": 1753327868586
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "Intecharged",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 723.727,
+              "hardModeLevel": 0,
+              "duration": 114177,
+              "startTime": 1753295137854,
+              "report": {
+                "code": "PhcpbtLFg8CY1fBy",
+                "fightID": -14,
+                "startTime": 1753293934822
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Deuxwar",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 719.31,
+              "hardModeLevel": 0,
+              "duration": 153796,
+              "startTime": 1753332428051,
+              "report": {
+                "code": "tVWyKC96hZX3BdLm",
+                "fightID": -65,
+                "startTime": 1753324874809
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "奔波霸儿丶",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 717.897,
+              "hardModeLevel": 0,
+              "duration": 154376,
+              "startTime": 1753365772306,
+              "report": {
+                "code": "L2cVNbYraG7gpFqm",
+                "fightID": -10,
+                "startTime": 1753364891688
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "火鳥之力",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 714.197,
+              "hardModeLevel": 0,
+              "duration": 152990,
+              "startTime": 1753368066229,
+              "report": {
+                "code": "dMhTQRNv3AXZYfgt",
+                "fightID": -11,
+                "startTime": 1753366446865
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "锦丶幽幽",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 713.978,
+              "hardModeLevel": 0,
+              "duration": 154254,
+              "startTime": 1753360441512,
+              "report": {
+                "code": "QGntwLCYWJDxB9Ra",
+                "fightID": -19,
+                "startTime": 1753356441878
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "髌冰",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 713.529,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "嘟嘟小宝宝",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 712.706,
+              "hardModeLevel": 0,
+              "duration": 151190,
+              "startTime": 1753361115429,
+              "report": {
+                "code": "rDnhQ2RbfTJ6B4cw",
+                "fightID": -24,
+                "startTime": 1753358845469
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "海洋传说",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 712.455,
+              "hardModeLevel": 0,
+              "duration": 190144,
+              "startTime": 1753105044358,
+              "report": {
+                "code": "PyRJ1agNHqF6wv2D",
+                "fightID": -29,
+                "startTime": 1753101161395
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "Worriah",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 708.847,
+              "hardModeLevel": 0,
+              "duration": 101208,
+              "startTime": 1753296922256,
+              "report": {
+                "code": "bWK87Q49F31JBtYp",
+                "fightID": -16,
+                "startTime": 1753295790759
+              },
+              "guild": {
+                "id": 712575,
+                "name": "Borgus PUG",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "老表老表",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 707.694,
+              "hardModeLevel": 0,
+              "duration": 168392,
+              "startTime": 1753335616723,
+              "report": {
+                "code": "CF3LdjZNzrkaxwhQ",
+                "fightID": -24,
+                "startTime": 1753333340852
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "跳大懿行",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 705.581,
+              "hardModeLevel": 0,
+              "duration": 238962,
+              "startTime": 1753359402024,
+              "report": {
+                "code": "rvW12xdB6aQpJ3YK",
+                "fightID": -21,
+                "startTime": 1753355682129
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 39
+            },
+            {
+              "name": "Oldwarrior",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 702.141,
+              "hardModeLevel": 0,
+              "duration": 162805,
+              "startTime": 1753364291646,
+              "report": {
+                "code": "aMw9HcXAndTyxKmb",
+                "fightID": -41,
+                "startTime": 1753359294673
+              },
+              "guild": {
+                "id": 601254,
+                "name": "Shadow of Moon 哈霍兰部落",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 38
+            },
+            {
+              "name": "丶彪",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 701.749,
+              "hardModeLevel": 0,
+              "duration": 147044,
+              "startTime": 1753358181175,
+              "report": {
+                "code": "f8Z6Y2rTM3qA7mGj",
+                "fightID": -24,
+                "startTime": 1753355889713
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "绯村釰心",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 701.357,
+              "hardModeLevel": 0,
+              "duration": 175283,
+              "startTime": 1753345040532,
+              "report": {
+                "code": "bL4HMm8RhxNZdjQB",
+                "fightID": -18,
+                "startTime": 1753343609631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 36
+            },
+            {
+              "name": "一戰成名",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 700.994,
+              "hardModeLevel": 0,
+              "duration": 170545,
+              "startTime": 1753334896829,
+              "report": {
+                "code": "jpwXmYG9CkhfMAFg",
+                "fightID": -29,
+                "startTime": 1753332404878
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "凯恩丶血蹄",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 700.547,
+              "hardModeLevel": 0,
+              "duration": 163124,
+              "startTime": 1753370468412,
+              "report": {
+                "code": "wV4nt61bPrXQcHZN",
+                "fightID": -104,
+                "startTime": 1753358683981
+              },
+              "guild": {
+                "id": 669484,
+                "name": "落日余晖",
+                "faction": 1
+              },
+              "server": {
+                "id": 10142,
+                "name": "巴罗夫",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "铁血山风",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 699.082,
+              "hardModeLevel": 0,
+              "duration": 181099,
+              "startTime": 1753361231455,
+              "report": {
+                "code": "6vPLrFKftdn7N29A",
+                "fightID": -24,
+                "startTime": 1753358407592
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "公民凱恩",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 695.069,
+              "hardModeLevel": 0,
+              "duration": 162453,
+              "startTime": 1753334178094,
+              "report": {
+                "code": "QXPRtGWkHMKnpy4A",
+                "fightID": -50,
+                "startTime": 1753326750451
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "我不是牛才怪",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 692.71,
+              "hardModeLevel": 0,
+              "duration": 174454,
+              "startTime": 1753357605203,
+              "report": {
+                "code": "2Dcwy7MQvmRNFWjJ",
+                "fightID": -40,
+                "startTime": 1753353851593
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "一百块",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 691.012,
+              "hardModeLevel": 0,
+              "duration": 156126,
+              "startTime": 1753367319471,
+              "report": {
+                "code": "ZVDMApLJygK8xnhj",
+                "fightID": -34,
+                "startTime": 1753364024831
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "铜战",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 688.819,
+              "hardModeLevel": 0,
+              "duration": 170126,
+              "startTime": 1753361788175,
+              "report": {
+                "code": "QaGwZTNYVHv6F29J",
+                "fightID": -34,
+                "startTime": 1753358572521
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "灬风行无痕",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 688.051,
+              "hardModeLevel": 0,
+              "duration": 186822,
+              "startTime": 1753361378543,
+              "report": {
+                "code": "rhMN7Cw8DtRqpHn4",
+                "fightID": -29,
+                "startTime": 1753358343058
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "铭小欣丶",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 686.439,
+              "hardModeLevel": 0,
+              "duration": 161828,
+              "startTime": 1753338182750,
+              "report": {
+                "code": "Aa2YvDFL6hpnTK7t",
+                "fightID": -26,
+                "startTime": 1753334122111
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 36
+            },
+            {
+              "name": "치즈스틱",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 686.357,
+              "hardModeLevel": 0,
+              "duration": 142267,
+              "startTime": 1753367148305,
+              "report": {
+                "code": "takLnVZdK6NF9PMp",
+                "fightID": -67,
+                "startTime": 1753360294512
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "东方牛",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 684.751,
+              "hardModeLevel": 0,
+              "duration": 153691,
+              "startTime": 1753356262901,
+              "report": {
+                "code": "VDcTHKFZdBQkRtnL",
+                "fightID": -14,
+                "startTime": 1753355253225
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "麻麻郎晓",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 684.437,
+              "hardModeLevel": 0,
+              "duration": 152391,
+              "startTime": 1753334374565,
+              "report": {
+                "code": "PnGBXy3WTc9tJCpV",
+                "fightID": -66,
+                "startTime": 1753311222885
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 38
+            },
+            {
+              "name": "小石头灬灬",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 683.311,
+              "hardModeLevel": 0,
+              "duration": 185630,
+              "startTime": 1753367432559,
+              "report": {
+                "code": "zVTXmafMACx4R7ZN",
+                "fightID": -78,
+                "startTime": 1753356515475
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "神奇崽崽",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 682.567,
+              "hardModeLevel": 0,
+              "duration": 162097,
+              "startTime": 1753358522913,
+              "report": {
+                "code": "Fd3J4v2mzHQNZWRr",
+                "fightID": -80,
+                "startTime": 1753333992939
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 38
+            },
+            {
+              "name": "清夢壓星河",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 682.112,
+              "hardModeLevel": 0,
+              "duration": 142198,
+              "startTime": 1753335671549,
+              "report": {
+                "code": "DZ2NwXGRWBjkPyLd",
+                "fightID": -17,
+                "startTime": 1753333698226
+              },
+              "guild": {
+                "id": 627540,
+                "name": "To be continued",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "有缘一剑",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 679.658,
+              "hardModeLevel": 0,
+              "duration": 175222,
+              "startTime": 1753365693931,
+              "report": {
+                "code": "MKYP78pZ2G3Qwmrn",
+                "fightID": -71,
+                "startTime": 1753357859883
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "冰凉的风剑",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 678.054,
+              "hardModeLevel": 0,
+              "duration": 189749,
+              "startTime": 1753359805769,
+              "report": {
+                "code": "rkCPx8ATjQgWVwpN",
+                "fightID": -40,
+                "startTime": 1753354877073
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "孤马饮玄月",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 677.323,
+              "hardModeLevel": 0,
+              "duration": 176322,
+              "startTime": 1753363553140,
+              "report": {
+                "code": "A6acbw8YMdTgxGrN",
+                "fightID": -29,
+                "startTime": 1753360117291
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "傲雪飞飞",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 676.047,
+              "hardModeLevel": 0,
+              "duration": 156106,
+              "startTime": 1753363778841,
+              "report": {
+                "code": "3tpWqrBnwdgVQ7fA",
+                "fightID": -51,
+                "startTime": 1753358224565
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 87,
+              "size": 40
+            },
+            {
+              "name": "Lilsilace",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 673.65,
+              "hardModeLevel": 0,
+              "duration": 114659,
+              "startTime": 1753322037637,
+              "report": {
+                "code": "VPmwKLD6vjazNn92",
+                "fightID": -30,
+                "startTime": 1753319293819
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "丶一路向右",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 672.356,
+              "hardModeLevel": 0,
+              "duration": 177632,
+              "startTime": 1753360479208,
+              "report": {
+                "code": "KAaTBtbrqg9z1hm3",
+                "fightID": -51,
+                "startTime": 1753354326378
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "楠溪懒人",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 671.873,
+              "hardModeLevel": 0,
+              "duration": 181622,
+              "startTime": 1753344079809,
+              "report": {
+                "code": "gpXQMj2NB6KhTALH",
+                "fightID": -9,
+                "startTime": 1753342865514
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 37
+            },
+            {
+              "name": "最爱冲锋",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 671.125,
+              "hardModeLevel": 0,
+              "duration": 156126,
+              "startTime": 1753367319471,
+              "report": {
+                "code": "ZVDMApLJygK8xnhj",
+                "fightID": -34,
+                "startTime": 1753364024831
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "丁大牛",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 669.099,
+              "hardModeLevel": 0,
+              "duration": 172236,
+              "startTime": 1753358775099,
+              "report": {
+                "code": "2Ax4Z78rMCBLGtPW",
+                "fightID": -27,
+                "startTime": 1753356453153
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "黑黑的感觉",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 667.707,
+              "hardModeLevel": 0,
+              "duration": 182953,
+              "startTime": 1753359285771,
+              "report": {
+                "code": "2JdQPVb7X6Tftxgm",
+                "fightID": -29,
+                "startTime": 1753356629610
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 37
+            },
+            {
+              "name": "库穆恩",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 666.929,
+              "hardModeLevel": 0,
+              "duration": 163857,
+              "startTime": 1753369011401,
+              "report": {
+                "code": "wPtqpFCGgfaJ1Ljd",
+                "fightID": -33,
+                "startTime": 1753365359176
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 39
+            },
+            {
+              "name": "兽兵衞",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 665.473,
+              "hardModeLevel": 0,
+              "duration": 165867,
+              "startTime": 1753363027181,
+              "report": {
+                "code": "7xn9cgfR68wqZh3V",
+                "fightID": -36,
+                "startTime": 1753356981942
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "心碎了无痕",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 664.756,
+              "hardModeLevel": 0,
+              "duration": 159111,
+              "startTime": 1753356979576,
+              "report": {
+                "code": "kWDxjmvgzXpCqQnN",
+                "fightID": -33,
+                "startTime": 1753354061209
+              },
+              "guild": {
+                "id": 610324,
+                "name": "英雄传说",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Bloodthirst",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 663.03,
+              "hardModeLevel": 0,
+              "duration": 173440,
+              "startTime": 1753357890105,
+              "report": {
+                "code": "gZ6KkC8DAYj9pztN",
+                "fightID": -21,
+                "startTime": 1753355680631
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 39
+            },
+            {
+              "name": "无情回归",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 660.798,
+              "hardModeLevel": 0,
+              "duration": 157947,
+              "startTime": 1753359930215,
+              "report": {
+                "code": "HKVQq9PZWfbNjd34",
+                "fightID": -20,
+                "startTime": 1753358026879
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "灭世毛毛虫",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 659.963,
+              "hardModeLevel": 0,
+              "duration": 179960,
+              "startTime": 1753360578060,
+              "report": {
+                "code": "CT3kbQHVKFLtvm2W",
+                "fightID": -40,
+                "startTime": 1753355542199
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 38
+            },
+            {
+              "name": "張辽",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 659.493,
+              "hardModeLevel": 0,
+              "duration": 143850,
+              "startTime": 1753332736589,
+              "report": {
+                "code": "jcLTtvnVWad19hwC",
+                "fightID": -9,
+                "startTime": 1753331955429
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 85,
+              "size": 37
+            },
+            {
+              "name": "Relivewarior",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 658.044,
+              "hardModeLevel": 0,
+              "duration": 145159,
+              "startTime": 1753367823340,
+              "report": {
+                "code": "Y4nkZK3WdJyjDamv",
+                "fightID": -36,
+                "startTime": 1753364070777
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 86,
+              "size": 40
+            },
+            {
+              "name": "澐闓",
+              "class": "Warrior",
+              "spec": "Protection",
+              "amount": 652.952,
+              "hardModeLevel": 0,
+              "duration": 166467,
+              "startTime": 1753333905968,
+              "report": {
+                "code": "AR94Y7CyrbvpXZjx",
+                "fightID": -24,
+                "startTime": 1753331904256
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 73.39,
+      "pointsResetIn": 3574
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 73.39,
+    "reset_in_s": 3574
+  }
+}

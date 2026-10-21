@@ -1,0 +1,2398 @@
+{
+  "query": "query NaxxPartitionSample($enc:Int!,$partition:Int!,$cls:String!,$spec:String!) {\nworldData { encounter(id:$enc) { id characterRankings(partition:$partition,metric:dps,className:$cls,specName:$spec,page:1) } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+  "variables": {
+    "enc": 51118,
+    "partition": 1,
+    "cls": "Priest",
+    "spec": "Shadow"
+  },
+  "endpoint": "user",
+  "site": "vanilla.warcraftlogs.com",
+  "head": "d23505c2d9835ba8307a904b9e26c15d3ad573ca",
+  "started_at": "2026-10-21T12:04:53.200277+00:00",
+  "ended_at": "2026-10-21T12:04:53.919685+00:00",
+  "data": {
+    "worldData": {
+      "encounter": {
+        "id": 51118,
+        "characterRankings": {
+          "page": 1,
+          "hasMorePages": true,
+          "count": 100,
+          "rankings": [
+            {
+              "name": "Ywfvniefjioe",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 1044.69,
+              "hardModeLevel": 0,
+              "duration": 126703,
+              "startTime": 1760554719951,
+              "report": {
+                "code": "WPxyrnqYh2J8D6LN",
+                "fightID": 57,
+                "startTime": 1760551037360
+              },
+              "guild": {
+                "id": 782327,
+                "name": "Next Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Varjo",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 894.399,
+              "hardModeLevel": 0,
+              "duration": 133711,
+              "startTime": 1712802498842,
+              "report": {
+                "code": "bHhRtQr4LKmGpc21",
+                "fightID": 41,
+                "startTime": 1712799617793
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Solex",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 879.429,
+              "hardModeLevel": 0,
+              "duration": 127916,
+              "startTime": 1748305996569,
+              "report": {
+                "code": "VKFGA3Bvhr4tyRLY",
+                "fightID": 23,
+                "startTime": 1748304259306
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Zaera",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 872.85,
+              "hardModeLevel": 0,
+              "duration": 119355,
+              "startTime": 1721068898813,
+              "report": {
+                "code": "Z6XmnQ7wV2cfvgbK",
+                "fightID": 16,
+                "startTime": 1721067646046
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Kach",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 866.895,
+              "hardModeLevel": 0,
+              "duration": 160152,
+              "startTime": 1699558600878,
+              "report": {
+                "code": "dD1XmanHC3rkAz98",
+                "fightID": 101,
+                "startTime": 1699548773585
+              },
+              "guild": {
+                "id": 703802,
+                "name": "Atomic Heart",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Riffriff",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 859.14,
+              "hardModeLevel": 0,
+              "duration": 126530,
+              "startTime": 1708072986574,
+              "report": {
+                "code": "tq63BwCNP2J1yhxA",
+                "fightID": 34,
+                "startTime": 1708070639379
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Truhae",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 848.467,
+              "hardModeLevel": 0,
+              "duration": 101958,
+              "startTime": 1718645710405,
+              "report": {
+                "code": "nC8YRFVyv2dGTZ7K",
+                "fightID": 16,
+                "startTime": 1718644498636
+              },
+              "guild": {
+                "id": 711183,
+                "name": "Amii GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Dabezd",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 825.223,
+              "hardModeLevel": 0,
+              "duration": 116543,
+              "startTime": 1739733976602,
+              "report": {
+                "code": "AWvKRzT4kP9MhFgx",
+                "fightID": 18,
+                "startTime": 1739732365960
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "Schattenmal",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 818.932,
+              "hardModeLevel": 0,
+              "duration": 146304,
+              "startTime": 1729893264278,
+              "report": {
+                "code": "RrtQFmBzaThvH41w",
+                "fightID": 72,
+                "startTime": 1729886332497
+              },
+              "guild": {
+                "id": 703333,
+                "name": "Eule - Late Raids",
+                "faction": 0
+              },
+              "server": {
+                "id": 10076,
+                "name": "Lakeshire",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "你好安度因",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 816.113,
+              "hardModeLevel": 0,
+              "duration": 137160,
+              "startTime": 1783167917475,
+              "report": {
+                "code": "gKyqnkvbaLf7prdG",
+                "fightID": 26,
+                "startTime": 1783165481849
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "春秋五霸丨穆",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 816.064,
+              "hardModeLevel": 0,
+              "duration": 134101,
+              "startTime": 1657198132856,
+              "report": {
+                "code": "CRKJPf48YzFgqrL7",
+                "fightID": 15,
+                "startTime": 1657196967451
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 39
+            },
+            {
+              "name": "Kerzon",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 801.007,
+              "hardModeLevel": 0,
+              "duration": 105637,
+              "startTime": 1773102210775,
+              "report": {
+                "code": "ZL924hN1HAyQCYX7",
+                "fightID": 18,
+                "startTime": 1773096916062
+              },
+              "guild": {
+                "id": 794215,
+                "name": "Pugs not drugs (GDKP)",
+                "faction": 0
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 85,
+              "size": 40
+            },
+            {
+              "name": "Jyrina",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 783.034,
+              "hardModeLevel": 0,
+              "duration": 143474,
+              "startTime": 1679175050625,
+              "report": {
+                "code": "XZ2BRmMcx3q7zDLQ",
+                "fightID": 41,
+                "startTime": 1679170363241
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "中到大雨",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 775.458,
+              "hardModeLevel": 0,
+              "duration": 133672,
+              "startTime": 1647178520420,
+              "report": {
+                "code": "bV3KMCqYQGLJNjz8",
+                "fightID": 67,
+                "startTime": 1647173543625
+              },
+              "guild": {
+                "id": 610324,
+                "name": "英雄传说",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Peve",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 769.817,
+              "hardModeLevel": 0,
+              "duration": 117841,
+              "startTime": 1688670844009,
+              "report": {
+                "code": "kFCKm79vHVfbA8rN",
+                "fightID": 61,
+                "startTime": 1688666240151
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Frighten",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 766.677,
+              "hardModeLevel": 0,
+              "duration": 145429,
+              "startTime": 1726712252493,
+              "report": {
+                "code": "4m3R1cNVqCkjQWTJ",
+                "fightID": 44,
+                "startTime": 1726709084104
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "凯撒色拉",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 763.733,
+              "hardModeLevel": 0,
+              "duration": 129510,
+              "startTime": 1775305302105,
+              "report": {
+                "code": "jKJ2Z1LQFrPhHBWT",
+                "fightID": 35,
+                "startTime": 1775302624105
+              },
+              "server": {
+                "id": 10150,
+                "name": "厄运之槌",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "小棉花",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 759.049,
+              "hardModeLevel": 0,
+              "duration": 129578,
+              "startTime": 1626527815722,
+              "report": {
+                "code": "6kcwW3AtzNdG81LK",
+                "fightID": 42,
+                "startTime": 1626523212903
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Nanaomena",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 755.481,
+              "hardModeLevel": 0,
+              "duration": 139805,
+              "startTime": 1752177840815,
+              "report": {
+                "code": "Y1fWqMJgVPxD7yQT",
+                "fightID": 67,
+                "startTime": 1752170328257
+              },
+              "guild": {
+                "id": 663090,
+                "name": "Warriors of Sunlight",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Lekar",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 729.243,
+              "hardModeLevel": 0,
+              "duration": 191759,
+              "startTime": 1697593476002,
+              "report": {
+                "code": "Xh1J9NwFkY7xBKPv",
+                "fightID": 46,
+                "startTime": 1697591009724
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Umbranaxx",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 727.629,
+              "hardModeLevel": 0,
+              "duration": 130025,
+              "startTime": 1781469146836,
+              "report": {
+                "code": "4tx2PGXT9NnFd61v",
+                "fightID": 95,
+                "startTime": 1781459732347
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Ruptura",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 725.604,
+              "hardModeLevel": 0,
+              "duration": 110767,
+              "startTime": 1744219066102,
+              "report": {
+                "code": "7NmBydcX8HFRh1tA",
+                "fightID": 14,
+                "startTime": 1744217767678
+              },
+              "guild": {
+                "id": 700956,
+                "name": "TEMHOE MOPE",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "Soolia",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 725.559,
+              "hardModeLevel": 0,
+              "duration": 152007,
+              "startTime": 1731642849015,
+              "report": {
+                "code": "thJKWmCrZzYAL6vp",
+                "fightID": 57,
+                "startTime": 1731636155049
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "伊然乄小牧",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 721.78,
+              "hardModeLevel": 0,
+              "duration": 129139,
+              "startTime": 1776515586719,
+              "report": {
+                "code": "YHPgDqwZ1pmKXbtx",
+                "fightID": 31,
+                "startTime": 1776512836301
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Karai",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 719.555,
+              "hardModeLevel": 0,
+              "duration": 195539,
+              "startTime": 1731351329831,
+              "report": {
+                "code": "X7VaCNjvJ8MdyA94",
+                "fightID": 20,
+                "startTime": 1731349442014
+              },
+              "guild": {
+                "id": 731776,
+                "name": "Schwarzer Drachenschwarm",
+                "faction": 0
+              },
+              "server": {
+                "id": 10076,
+                "name": "Lakeshire",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Oozes",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 703.654,
+              "hardModeLevel": 0,
+              "duration": 128711,
+              "startTime": 1719025459944,
+              "report": {
+                "code": "6g8zfRPaxpMDVwk3",
+                "fightID": 59,
+                "startTime": 1719022220345
+              },
+              "guild": {
+                "id": 708136,
+                "name": "FURY",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Stardrops",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 698.073,
+              "hardModeLevel": 0,
+              "duration": 191891,
+              "startTime": 1701234103096,
+              "report": {
+                "code": "hKGtHByvRFCj7gxp",
+                "fightID": 77,
+                "startTime": 1701225141565
+              },
+              "guild": {
+                "id": 713689,
+                "name": "Pride of the Alliance",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Soliel",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 695.318,
+              "hardModeLevel": 0,
+              "duration": 158014,
+              "startTime": 1745721068585,
+              "report": {
+                "code": "DpYkd4t36Nb9wZg8",
+                "fightID": 57,
+                "startTime": 1745715859859
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Eltias",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 691.688,
+              "hardModeLevel": 0,
+              "duration": 171307,
+              "startTime": 1701225228622,
+              "report": {
+                "code": "pVQm72NFM3ZGPdhL",
+                "fightID": 14,
+                "startTime": 1701223451085
+              },
+              "guild": {
+                "id": 707511,
+                "name": "Midnight Rodoe Era",
+                "faction": 0
+              },
+              "server": {
+                "id": 10036,
+                "name": "Bigglesworth",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Lanpriest",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 687.495,
+              "hardModeLevel": 0,
+              "duration": 113627,
+              "startTime": 1773691406471,
+              "report": {
+                "code": "xkdCV2L1MRnzarG9",
+                "fightID": 23,
+                "startTime": 1773686811228
+              },
+              "guild": {
+                "id": 638489,
+                "name": "m&m's pug",
+                "faction": 0
+              },
+              "server": {
+                "id": 10031,
+                "name": "Gandling",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Aph",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 686.761,
+              "hardModeLevel": 0,
+              "duration": 162598,
+              "startTime": 1789593514432,
+              "report": {
+                "code": "CY1rtymG6cJpNLdh",
+                "fightID": 15,
+                "startTime": 1789591977426
+              },
+              "guild": {
+                "id": 812779,
+                "name": "Late Night Raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "牧汁",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 684.561,
+              "hardModeLevel": 0,
+              "duration": 127362,
+              "startTime": 1712986076564,
+              "report": {
+                "code": "aBVqJPcxgvXZDykG",
+                "fightID": 24,
+                "startTime": 1712983308258
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Renevieve",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 684.038,
+              "hardModeLevel": 0,
+              "duration": 117856,
+              "startTime": 1777947763096,
+              "report": {
+                "code": "186xZcvtLYaRHQ3f",
+                "fightID": 18,
+                "startTime": 1777938678779
+              },
+              "server": {
+                "id": 10070,
+                "name": "Windseeker",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Bookeeper",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 677.906,
+              "hardModeLevel": 0,
+              "duration": 146454,
+              "startTime": 1767907839799,
+              "report": {
+                "code": "6YbC4pRdhPcgDkHV",
+                "fightID": 99,
+                "startTime": 1767898923703
+              },
+              "guild": {
+                "id": 663090,
+                "name": "Warriors of Sunlight",
+                "faction": 1
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Hottin",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 676.362,
+              "hardModeLevel": 0,
+              "duration": 114208,
+              "startTime": 1728326678203,
+              "report": {
+                "code": "MNJLR16zhACd3bx2",
+                "fightID": 18,
+                "startTime": 1728325236441
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 70,
+              "size": 39
+            },
+            {
+              "name": "民大第一圣光",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 676.027,
+              "hardModeLevel": 0,
+              "duration": 167381,
+              "startTime": 1662646127514,
+              "report": {
+                "code": "Dg83jh7wzVy2JLT9",
+                "fightID": 55,
+                "startTime": 1662638884537
+              },
+              "guild": {
+                "id": 627156,
+                "name": "青云志追忆团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 38
+            },
+            {
+              "name": "Sylvi",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 675.527,
+              "hardModeLevel": 0,
+              "duration": 123804,
+              "startTime": 1712947270988,
+              "report": {
+                "code": "qJZ9YwGDfWp3y2j4",
+                "fightID": 36,
+                "startTime": 1712943719582
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "心肝宝贝",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 674.822,
+              "hardModeLevel": 0,
+              "duration": 117800,
+              "startTime": 1637411795511,
+              "report": {
+                "code": "cqHyZB67C4MktQhT",
+                "fightID": 32,
+                "startTime": 1637408528218
+              },
+              "guild": {
+                "id": 609386,
+                "name": "Mafia（黑手党）",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Tafticus",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 672.864,
+              "hardModeLevel": 0,
+              "duration": 142485,
+              "startTime": 1772080194196,
+              "report": {
+                "code": "xt2c7BJMGYPw169L",
+                "fightID": 80,
+                "startTime": 1772072647426
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "跳躍時空",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 672.292,
+              "hardModeLevel": 0,
+              "duration": 136466,
+              "startTime": 1719067748473,
+              "report": {
+                "code": "q2nkgj3FA9WTbhBX",
+                "fightID": 54,
+                "startTime": 1719060766477
+              },
+              "guild": {
+                "id": 638549,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10053,
+                "name": "瑪拉頓",
+                "region": "TW"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Dummythiccx",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 666.601,
+              "hardModeLevel": 0,
+              "duration": 132328,
+              "startTime": 1715825346856,
+              "report": {
+                "code": "v9afHrkWgGNpcPq8",
+                "fightID": 22,
+                "startTime": 1715822954340
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "点丶牧",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 665.281,
+              "hardModeLevel": 0,
+              "duration": 155841,
+              "startTime": 1648122540162,
+              "report": {
+                "code": "x1cYH6BrXPAzNVLD",
+                "fightID": 1,
+                "startTime": 1648122540162
+              },
+              "server": {
+                "id": 10106,
+                "name": "碧空之歌",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "奶水哆哆",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 663.789,
+              "hardModeLevel": 0,
+              "duration": 143624,
+              "startTime": 1751891367841,
+              "report": {
+                "code": "F84Qdp3tj19cVNrW",
+                "fightID": 21,
+                "startTime": 1751888976190
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Minuria",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 662.24,
+              "hardModeLevel": 0,
+              "duration": 224748,
+              "startTime": 1734292696664,
+              "report": {
+                "code": "gbQYH6f7FMk9aVZC",
+                "fightID": 37,
+                "startTime": 1734288877208
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Sulfi",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 657.155,
+              "hardModeLevel": 0,
+              "duration": 130957,
+              "startTime": 1678391971937,
+              "report": {
+                "code": "mtBWfDgMPKj6Xb4T",
+                "fightID": 54,
+                "startTime": 1678388566768
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 39
+            },
+            {
+              "name": "Holybâllz",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 655.044,
+              "hardModeLevel": 0,
+              "duration": 117441,
+              "startTime": 1747458645213,
+              "report": {
+                "code": "q16pTYjbkNh2rBFZ",
+                "fightID": 36,
+                "startTime": 1747454434331
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "黑不溜啾",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 651.535,
+              "hardModeLevel": 0,
+              "duration": 122150,
+              "startTime": 1657200115682,
+              "report": {
+                "code": "JVpczbPr1wDHWCYF",
+                "fightID": 18,
+                "startTime": 1657197729558
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "云梦渺",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 649.487,
+              "hardModeLevel": 0,
+              "duration": 174992,
+              "startTime": 1699601374384,
+              "report": {
+                "code": "QZCVt1m7NcHpWaxj",
+                "fightID": 28,
+                "startTime": 1699597424309
+              },
+              "server": {
+                "id": 10052,
+                "name": "伊弗斯",
+                "region": "TW"
+              },
+              "bracketData": 84,
+              "size": 35
+            },
+            {
+              "name": "Deyada",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 649.359,
+              "hardModeLevel": 0,
+              "duration": 106040,
+              "startTime": 1729474231206,
+              "report": {
+                "code": "7zjDwJRpZyWv8FCX",
+                "fightID": 16,
+                "startTime": 1729473068798
+              },
+              "guild": {
+                "id": 654035,
+                "name": "Pasta Sauce",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Sibbeh",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 648.545,
+              "hardModeLevel": 0,
+              "duration": 180811,
+              "startTime": 1728843392685,
+              "report": {
+                "code": "N2hKW83b7ayPMLrn",
+                "fightID": 13,
+                "startTime": 1728841570761
+              },
+              "guild": {
+                "id": 710643,
+                "name": "Immortal",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "Voodini",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 647.855,
+              "hardModeLevel": 0,
+              "duration": 136174,
+              "startTime": 1731554632937,
+              "report": {
+                "code": "Y19zJxphV2nBRtAD",
+                "fightID": 56,
+                "startTime": 1731551360785
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Bølta",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 647.533,
+              "hardModeLevel": 0,
+              "duration": 135482,
+              "startTime": 1668713474544,
+              "report": {
+                "code": "khcbaxLJn2P87QHT",
+                "fightID": 33,
+                "startTime": 1668710425726
+              },
+              "guild": {
+                "id": 629795,
+                "name": "Classic GmbH",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Aleistër",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 645.933,
+              "hardModeLevel": 0,
+              "duration": 154098,
+              "startTime": 1784755680951,
+              "report": {
+                "code": "k8MHAfwBzPG4VJQg",
+                "fightID": 21,
+                "startTime": 1784753643541
+              },
+              "guild": {
+                "id": 812779,
+                "name": "Late Night Raiders",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Pontifex",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 644.033,
+              "hardModeLevel": 0,
+              "duration": 149084,
+              "startTime": 1739328909729,
+              "report": {
+                "code": "37fkD41wBKTnrbMt",
+                "fightID": 68,
+                "startTime": 1739322661063
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Lambo",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 640.701,
+              "hardModeLevel": 0,
+              "duration": 130824,
+              "startTime": 1756664971592,
+              "report": {
+                "code": "vh6JXVfzRZmLFpQC",
+                "fightID": 27,
+                "startTime": 1756659946916
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10032,
+                "name": "Mograine",
+                "region": "EU"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Relativism",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 638.313,
+              "hardModeLevel": 0,
+              "duration": 133173,
+              "startTime": 1733947445713,
+              "report": {
+                "code": "vfARXTjBpnYVg1a2",
+                "fightID": 52,
+                "startTime": 1733943796240
+              },
+              "guild": {
+                "id": 712340,
+                "name": "Last Pull",
+                "faction": 1
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 38
+            },
+            {
+              "name": "주라구",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 630.725,
+              "hardModeLevel": 0,
+              "duration": 143901,
+              "startTime": 1728053495276,
+              "report": {
+                "code": "bLfNGaZtdmBTQP8q",
+                "fightID": 65,
+                "startTime": 1728046759314
+              },
+              "server": {
+                "id": 10050,
+                "name": "로크홀라",
+                "region": "KR"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "该死的薛文",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 622.591,
+              "hardModeLevel": 0,
+              "duration": 178875,
+              "startTime": 1761656406893,
+              "report": {
+                "code": "XQAJawp2HkM69zFy",
+                "fightID": 22,
+                "startTime": 1761652431332
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "迪卡凱恩",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 620.75,
+              "hardModeLevel": 0,
+              "duration": 184836,
+              "startTime": 1696340214339,
+              "report": {
+                "code": "d2Dmrk1RA89nCJVL",
+                "fightID": 16,
+                "startTime": 1696338767600
+              },
+              "guild": {
+                "id": 638549,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10053,
+                "name": "瑪拉頓",
+                "region": "TW"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Sik",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 618.659,
+              "hardModeLevel": 0,
+              "duration": 162941,
+              "startTime": 1729041044570,
+              "report": {
+                "code": "hwgfJCjytMLPYK7b",
+                "fightID": 49,
+                "startTime": 1729036908096
+              },
+              "guild": {
+                "id": 728321,
+                "name": "Euphoria",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "喝我的汤",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 614.273,
+              "hardModeLevel": 0,
+              "duration": 132783,
+              "startTime": 1754138795261,
+              "report": {
+                "code": "JtVZQT4jm3WCFrAc",
+                "fightID": 40,
+                "startTime": 1754134995966
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Coast",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 613.312,
+              "hardModeLevel": 0,
+              "duration": 102597,
+              "startTime": 1744595228354,
+              "report": {
+                "code": "J2aChn4YFVP6grLp",
+                "fightID": 39,
+                "startTime": 1744592415603
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "云横",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 612.821,
+              "hardModeLevel": 0,
+              "duration": 185697,
+              "startTime": 1642254859855,
+              "report": {
+                "code": "KW9vdRwXPaCgLqMy",
+                "fightID": 80,
+                "startTime": 1642246506711
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 39
+            },
+            {
+              "name": "大治疗",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 611.716,
+              "hardModeLevel": 0,
+              "duration": 168114,
+              "startTime": 1755149623557,
+              "report": {
+                "code": "7DLmaY4Zk9cPWNpd",
+                "fightID": 23,
+                "startTime": 1755147433152
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 37
+            },
+            {
+              "name": "Iyzo",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 610.032,
+              "hardModeLevel": 0,
+              "duration": 132370,
+              "startTime": 1686191493847,
+              "report": {
+                "code": "bxDkJG9gpMcXZNtd",
+                "fightID": 38,
+                "startTime": 1686187467061
+              },
+              "guild": {
+                "id": 612614,
+                "name": "Loot the Dog",
+                "faction": 1
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "마니또",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 608.761,
+              "hardModeLevel": 0,
+              "duration": 139186,
+              "startTime": 1753455802051,
+              "report": {
+                "code": "7KF4ZRmyw12LTPDN",
+                "fightID": 64,
+                "startTime": 1753448400441
+              },
+              "guild": {
+                "id": 787962,
+                "name": "잘껄",
+                "faction": 0
+              },
+              "server": {
+                "id": 10090,
+                "name": "얼음피",
+                "region": "KR"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Octura",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 607.085,
+              "hardModeLevel": 0,
+              "duration": 176799,
+              "startTime": 1707272475026,
+              "report": {
+                "code": "Cm1rNjXzWntP9w87",
+                "fightID": 15,
+                "startTime": 1707270352698
+              },
+              "guild": {
+                "id": 708988,
+                "name": "Hearthstone",
+                "faction": 0
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Kattk",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 606.819,
+              "hardModeLevel": 0,
+              "duration": 149664,
+              "startTime": 1742162669206,
+              "report": {
+                "code": "8WZ7AvtPc1zVd9pk",
+                "fightID": 88,
+                "startTime": 1742153520280
+              },
+              "guild": {
+                "id": 775073,
+                "name": "Malice In Wonderland",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "那矮子牧",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 605.892,
+              "hardModeLevel": 0,
+              "duration": 145851,
+              "startTime": 1674197628209,
+              "report": {
+                "code": "y8qL9JYAxmctPRDg",
+                "fightID": 19,
+                "startTime": 1674195266097
+              },
+              "guild": {
+                "id": 610230,
+                "name": "永久60哈霍兰减肥团",
+                "faction": 0
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 80,
+              "size": 39
+            },
+            {
+              "name": "安沛里伊丶",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 605.331,
+              "hardModeLevel": 0,
+              "duration": 144055,
+              "startTime": 1673522761650,
+              "report": {
+                "code": "NjQc7TbB4WKkGxy6",
+                "fightID": 17,
+                "startTime": 1673521496940
+              },
+              "server": {
+                "id": 10164,
+                "name": "湖畔镇",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 40
+            },
+            {
+              "name": "Nananomana",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 602.378,
+              "hardModeLevel": 0,
+              "duration": 187193,
+              "startTime": 1758741785313,
+              "report": {
+                "code": "nQ1rmZTx8dAkwaGY",
+                "fightID": 50,
+                "startTime": 1758736787003
+              },
+              "guild": {
+                "id": 737321,
+                "name": "Hooked for Life",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 72,
+              "size": 40
+            },
+            {
+              "name": "Happyguy",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 602.144,
+              "hardModeLevel": 0,
+              "duration": 168571,
+              "startTime": 1692581516419,
+              "report": {
+                "code": "Zc7q632zD1Ypf4FW",
+                "fightID": 23,
+                "startTime": 1692579682236
+              },
+              "server": {
+                "id": 10007,
+                "name": "Mankrik",
+                "region": "US"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "不孤独美食家",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 601.551,
+              "hardModeLevel": 0,
+              "duration": 138846,
+              "startTime": 1653573775373,
+              "report": {
+                "code": "AYaCc7mhxnbVN2Lw",
+                "fightID": 77,
+                "startTime": 1653566727871
+              },
+              "server": {
+                "id": 10039,
+                "name": "奥罗",
+                "region": "CN"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Xylvastanos",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 601.317,
+              "hardModeLevel": 0,
+              "duration": 122142,
+              "startTime": 1660442345412,
+              "report": {
+                "code": "WmTkc3Pfzha9XKjR",
+                "fightID": 69,
+                "startTime": 1660436843632
+              },
+              "guild": {
+                "id": 601429,
+                "name": "Encore",
+                "faction": 0
+              },
+              "server": {
+                "id": 10061,
+                "name": "Ashkandi",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Megera",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 600.91,
+              "hardModeLevel": 0,
+              "duration": 173705,
+              "startTime": 1705695108033,
+              "report": {
+                "code": "AqNYjpKv7cTbdZDm",
+                "fightID": 47,
+                "startTime": 1705690442284
+              },
+              "guild": {
+                "id": 713789,
+                "name": "Gorilla GDKP",
+                "faction": 0
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Mynd",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 600.157,
+              "hardModeLevel": 0,
+              "duration": 137639,
+              "startTime": 1710444269264,
+              "report": {
+                "code": "1Z3paxdQ6B8YbkCA",
+                "fightID": 12,
+                "startTime": 1710442500454
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Hydrame",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 599.099,
+              "hardModeLevel": 0,
+              "duration": 187288,
+              "startTime": 1709438846577,
+              "report": {
+                "code": "Rp8NWAP9jLfmHw1c",
+                "fightID": 56,
+                "startTime": 1709434286984
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Happyguy",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 592.082,
+              "hardModeLevel": 0,
+              "duration": 161829,
+              "startTime": 1690941886927,
+              "report": {
+                "code": "mjMA8dFvTDbCXh6G",
+                "fightID": 52,
+                "startTime": 1690935251761
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Bettý",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 590.622,
+              "hardModeLevel": 0,
+              "duration": 121003,
+              "startTime": 1791420231330,
+              "report": {
+                "code": "Vp4XFy9hTHCxLqar",
+                "fightID": 32,
+                "startTime": 1791417121188
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Ideaus",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 589.57,
+              "hardModeLevel": 0,
+              "duration": 163950,
+              "startTime": 1646682532834,
+              "report": {
+                "code": "x3gWqdV1BTj4C78z",
+                "fightID": 60,
+                "startTime": 1646677894383
+              },
+              "guild": {
+                "id": 614590,
+                "name": "Blutmond",
+                "faction": 0
+              },
+              "server": {
+                "id": 10088,
+                "name": "Venoxis",
+                "region": "EU"
+              },
+              "bracketData": 77,
+              "size": 40
+            },
+            {
+              "name": "Krydon",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 586.791,
+              "hardModeLevel": 0,
+              "duration": 186535,
+              "startTime": 1782873115685,
+              "report": {
+                "code": "jYfP2K9X3rA4B1TC",
+                "fightID": 52,
+                "startTime": 1782866732973
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Stepbro",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 584.644,
+              "hardModeLevel": 0,
+              "duration": 183267,
+              "startTime": 1709494480717,
+              "report": {
+                "code": "rhA1Z9fNayF7zqdR",
+                "fightID": 27,
+                "startTime": 1709492316648
+              },
+              "server": {
+                "id": 10057,
+                "name": "Noggenfogger",
+                "region": "EU"
+              },
+              "bracketData": 76,
+              "size": 40
+            },
+            {
+              "name": "Darkshape",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 580.718,
+              "hardModeLevel": 0,
+              "duration": 162926,
+              "startTime": 1648127003026,
+              "report": {
+                "code": "KZyY32kpALVGBMHJ",
+                "fightID": 54,
+                "startTime": 1648121261995
+              },
+              "guild": {
+                "id": 628616,
+                "name": "忙里偷闲",
+                "faction": 1
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 77,
+              "size": 39
+            },
+            {
+              "name": "Arv",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 579.376,
+              "hardModeLevel": 0,
+              "duration": 162397,
+              "startTime": 1789329161798,
+              "report": {
+                "code": "V78GHDAcdMLxNaXv",
+                "fightID": 59,
+                "startTime": 1789322096693
+              },
+              "server": {
+                "id": 10015,
+                "name": "Mirage Raceway",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 39
+            },
+            {
+              "name": "Jaybirb",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 578.677,
+              "hardModeLevel": 0,
+              "duration": 158014,
+              "startTime": 1731119811530,
+              "report": {
+                "code": "Qpnf4kamC2PXMqW1",
+                "fightID": 16,
+                "startTime": 1731118492757
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 72,
+              "size": 39
+            },
+            {
+              "name": "Nymphetamíne",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 577.577,
+              "hardModeLevel": 0,
+              "duration": 212815,
+              "startTime": 1781209674728,
+              "report": {
+                "code": "1tTwhrNP36aymQ97",
+                "fightID": 74,
+                "startTime": 1781203731731
+              },
+              "guild": {
+                "id": 700433,
+                "name": "Survivants d Azeroth",
+                "faction": 1
+              },
+              "server": {
+                "id": 10019,
+                "name": "Auberdine",
+                "region": "EU"
+              },
+              "bracketData": 75,
+              "size": 40
+            },
+            {
+              "name": "Omoro",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 574.499,
+              "hardModeLevel": 0,
+              "duration": 176916,
+              "startTime": 1648820154926,
+              "report": {
+                "code": "p9gkDG6R43WfjvdM",
+                "fightID": 1,
+                "startTime": 1648820154926
+              },
+              "server": {
+                "id": 10106,
+                "name": "碧空之歌",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Fancyqt",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 573.043,
+              "hardModeLevel": 0,
+              "duration": 155608,
+              "startTime": 1701227030939,
+              "report": {
+                "code": "qXjwJcAhFDgV74n9",
+                "fightID": 79,
+                "startTime": 1701220230948
+              },
+              "guild": {
+                "id": 709610,
+                "name": "Phoenix",
+                "faction": 0
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Pïckle",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 570.373,
+              "hardModeLevel": 0,
+              "duration": 118475,
+              "startTime": 1699560392487,
+              "report": {
+                "code": "8Bx7WajYp3f9Q2qz",
+                "fightID": 55,
+                "startTime": 1699556075476
+              },
+              "guild": {
+                "id": 706841,
+                "name": "Nothing Satisfies",
+                "faction": 1
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "Resonation",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 569.264,
+              "hardModeLevel": 0,
+              "duration": 200213,
+              "startTime": 1733448232615,
+              "report": {
+                "code": "CKyxfQrPBXdHjFq8",
+                "fightID": 22,
+                "startTime": 1733444733866
+              },
+              "server": {
+                "id": 10009,
+                "name": "Pagle",
+                "region": "US"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Immâculate",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 568.019,
+              "hardModeLevel": 0,
+              "duration": 152347,
+              "startTime": 1771875784071,
+              "report": {
+                "code": "wyNYa4gM8PckLWQr",
+                "fightID": 333,
+                "startTime": 1771830481463
+              },
+              "server": {
+                "id": 10029,
+                "name": "Firemaw",
+                "region": "EU"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "Hungry",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 567.141,
+              "hardModeLevel": 0,
+              "duration": 122035,
+              "startTime": 1783363006127,
+              "report": {
+                "code": "GpWmynZwg64JtjcK",
+                "fightID": 21,
+                "startTime": 1783361355731
+              },
+              "guild": {
+                "id": 791668,
+                "name": "PPC",
+                "faction": 1
+              },
+              "server": {
+                "id": 10084,
+                "name": "Earthshaker",
+                "region": "EU"
+              },
+              "bracketData": 78,
+              "size": 40
+            },
+            {
+              "name": "Shaddow",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 566.731,
+              "hardModeLevel": 0,
+              "duration": 147532,
+              "startTime": 1692152253165,
+              "report": {
+                "code": "BYzTLNMxhp24Zg8f",
+                "fightID": 18,
+                "startTime": 1692150666463
+              },
+              "guild": {
+                "id": 705714,
+                "name": "The Boys",
+                "faction": 1
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 79,
+              "size": 40
+            },
+            {
+              "name": "暗影之波",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 563.304,
+              "hardModeLevel": 0,
+              "duration": 159026,
+              "startTime": 1754832141648,
+              "report": {
+                "code": "PkYZVAC6qwLpgj81",
+                "fightID": 47,
+                "startTime": 1754827207182
+              },
+              "guild": {
+                "id": 776580,
+                "name": "迷雾谷",
+                "faction": 0
+              },
+              "server": {
+                "id": 10046,
+                "name": "匕首岭",
+                "region": "CN"
+              },
+              "bracketData": 83,
+              "size": 40
+            },
+            {
+              "name": "再见卓越",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 562.35,
+              "hardModeLevel": 0,
+              "duration": 148797,
+              "startTime": 1665491790722,
+              "report": {
+                "code": "8LNaHngRZhzT4Amc",
+                "fightID": 2,
+                "startTime": 1665490648094
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 84,
+              "size": 39
+            },
+            {
+              "name": "Amphetamean",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 560.376,
+              "hardModeLevel": 0,
+              "duration": 118640,
+              "startTime": 1743895583008,
+              "report": {
+                "code": "rY1ygnFwDZBfjAX3",
+                "fightID": 46,
+                "startTime": 1743890461885
+              },
+              "server": {
+                "id": 10012,
+                "name": "Whitemane",
+                "region": "US"
+              },
+              "bracketData": 80,
+              "size": 40
+            },
+            {
+              "name": "哥哥球",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 559.844,
+              "hardModeLevel": 0,
+              "duration": 139771,
+              "startTime": 1664197402870,
+              "report": {
+                "code": "gywpWb8rKLz4m1xf",
+                "fightID": 30,
+                "startTime": 1664193353547
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 78,
+              "size": 39
+            },
+            {
+              "name": "春秋五霸丨穆",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 558.994,
+              "hardModeLevel": 0,
+              "duration": 171957,
+              "startTime": 1623335450005,
+              "report": {
+                "code": "LDbVJTM39rfR41nc",
+                "fightID": 105,
+                "startTime": 1623325771596
+              },
+              "server": {
+                "id": 5105,
+                "name": "娅尔罗",
+                "region": "CN"
+              },
+              "bracketData": 82,
+              "size": 40
+            },
+            {
+              "name": "Classified",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 557.039,
+              "hardModeLevel": 0,
+              "duration": 135759,
+              "startTime": 1757679807292,
+              "report": {
+                "code": "V1NyYF26pB7b4gzq",
+                "fightID": 43,
+                "startTime": 1757668826736
+              },
+              "server": {
+                "id": 10044,
+                "name": "哈霍兰",
+                "region": "CN"
+              },
+              "bracketData": 81,
+              "size": 40
+            },
+            {
+              "name": "Shania",
+              "class": "Priest",
+              "spec": "Shadow",
+              "amount": 556.958,
+              "hardModeLevel": 0,
+              "duration": 199979,
+              "startTime": 1684958092896,
+              "report": {
+                "code": "dDfTRH2XMZrQxnKw",
+                "fightID": 27,
+                "startTime": 1684955375967
+              },
+              "guild": {
+                "id": 638722,
+                "name": "Social Guild",
+                "faction": 0
+              },
+              "server": {
+                "id": 10016,
+                "name": "Pyrewood Village",
+                "region": "EU"
+              },
+              "bracketData": 81,
+              "size": 39
+            }
+          ]
+        }
+      }
+    },
+    "rateLimitData": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 34.12,
+      "pointsResetIn": 3584
+    }
+  },
+  "rate": {
+    "limit_per_hour": 3000,
+    "points_spent": 34.12,
+    "reset_in_s": 3584
+  }
+}
