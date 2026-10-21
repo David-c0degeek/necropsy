@@ -38,8 +38,16 @@ asset and evidence, and a pre-mortem whose guardrails are mapped into the plan.
   01.4.
 
 ## Hindsight checkpoint
-- [ ] Captain Hindsight review recorded
+- [x] Captain Hindsight review recorded
 - [ ] Verdict is `CLOSE`
+
+### Captain Hindsight, 2026-10-21 (cc637a7..56fa625)
+
+- **Keep:** the trusted baseline with every log kept; the narrowed inventory; D007 to D009 recorded with evidence; research promoted byte-exact with hashes; the local-runner trial bounded by an independent verifier and a tree hash. Verification cited: `workspace/naxx-baseline-20261021/summary.tsv`, `pre-review-full-3.log` (PASS at 61cdb30, pushed).
+- **Fix before closing:** the reviewer's verdict and DESIGN_AGREED on 5e1f3ca and 56fa625 (00.8 requires it).
+- **Record:** five lessons in `lessons.md` (plan references in three commit bodies; browser suite outside the gate; no commits during a gate; per-dimension evidence claims; local-runner result). PM-4 and PM-5 calibrated and CH-MISS-1 added in `pre-mortem.md`. No human action pending: 00.1 done, LocalPilot grants removed.
+- **Risk:** host stability rests on an operational baseline, not a root cause. Quota cost is a scenario until the first v2 Naxx capture measures it. No shipped behaviour changed except one test fixture; no user docs drifted.
+- **Verdict:** DO NOT CLOSE until the reviewer agrees; then CLOSE with no further action.
 
 ## Progress log
 2026-10-21 · 00.1 · Owner rebooted with XMP off (boot 11:54 CEST). Verified with Win32_PhysicalMemory: four F4-3600C16-16GTZNC modules at ConfiguredClockSpeed 2133. No memtest run.

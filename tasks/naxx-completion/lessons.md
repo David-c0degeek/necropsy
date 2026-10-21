@@ -1,3 +1,9 @@
 # Lessons
 
 Per-plan run notes, added as they happen. Lasting lessons migrate to `tasks/lessons.md` at §7.
+
+- 2026-10-21 · 00 · Three commit messages (34bf7ea, 9938253, d23505c) name boxes, decisions or PM IDs, against the plan-agnostic commit-text rule. History is not rewritten. Write commit bodies about the change ("record the trusted host baseline"), never the plan coordinates.
+- 2026-10-21 · 00 · No gate runs the browser suite unless a browser test file changes, so `tests/browser/test_paladin_capture_browser.py` went stale at 7930e66 unseen until 00.2. Run `uv run pytest -m browser` at every checkpoint that changes rules or rendering (§2).
+- 2026-10-21 · 00 · Committing while `pre_review.py --full` runs makes that run worthless (its unchanged-tree check fails, and its scope is the old HEAD). Commit first, then gate, and push only the gated SHA.
+- 2026-10-21 · 00 · The first inventory inferred "no reusable evidence" from the archive format version; the reviewer narrowed it to what the code proves (actor streams stay reusable, encounter streams do not). State per-dimension what evidence can and cannot supply.
+- 2026-10-21 · 00 · The local runner (Qwen3.6 35B-A3B via LocalPilot `print`) failed a verified raw-count order 0 of 3, even with exact layout excerpts and narrow script grants. An independent verifier and a before/after tree hash made each failure visible and harmless. Do not route raw discovery to it without a new trial.
