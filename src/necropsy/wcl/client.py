@@ -172,7 +172,9 @@ def _classify(errors: list[Any]) -> type[WclError]:
         return PermissionDenied
     if "not found" in text or "does not exist" in text:
         return NotFound
-    if "rate limit" in text or "too many" in text:
+    # WCL reports an exhausted hourly budget mid-request as a partial-data error
+    # ("no database points remaining"); it is a quota stop, not a failed request.
+    if "rate limit" in text or "too many" in text or "points remaining" in text:
         return RateLimited
     return InvalidRequest
 

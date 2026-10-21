@@ -53,7 +53,18 @@ def test_missing_referenced_unusable_and_class_scoped_outcomes(tmp_path: Path) -
     assert lucifron["class_scoped_rules"]["strategy_items"] > 0
     magmadar = cells["mc/50664/6/Holy/hps/Alliance"]
     assert magmadar["real_actor_source"].startswith("unusable: ")
-    assert magmadar["class_scoped_rules"] == {
+    assert set(magmadar["class_scoped_rules"]) == {
+        "strategy_items",
+        "removal_policies",
+        "presence_rules",
+    }
+    # A class with no boss rules of its own reports zeros, not missing counts.
+    (rogue,) = [
+        c
+        for c in up.unit_cells("mc", 8, "Assassination", "dps", "Alliance")
+        if c.encounter_id == 50664
+    ]
+    assert up.class_scoped(rogue) == {
         "strategy_items": 0,
         "removal_policies": 0,
         "presence_rules": 0,

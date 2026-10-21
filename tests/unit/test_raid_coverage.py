@@ -115,8 +115,8 @@ def test_scoped_hps_policy_validates_only_its_exact_cell() -> None:
     assert coverage_check.ranking_problem(_cell(PILOT)) is None
     assert coverage_check.ranking_problem(_cell("mc/50663/6/Holy/hps/Alliance")) is None
     for key in (
-        "mc/50668/7/Holy/hps/Alliance",
-        "mc/50665/6/Holy/hps/Alliance",
+        "mc/50664/7/Holy/hps/Alliance",
+        "mc/50672/6/Holy/hps/Alliance",
         "mc/50668/6/Protection/dps/Alliance",
         "mc/50668/7/Holy/hps/Horde",
         "bwl/50610/6/Holy/hps/Alliance",
