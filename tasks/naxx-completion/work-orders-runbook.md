@@ -2,7 +2,14 @@
 
 ## Current authorization and outcome
 
-The owner lifted the local inference hold with "local model approved now".
+Current disposition, 2026-10-22 (D016): local inference is off and no further
+local-model experiments are planned for Naxx. Both tested work kinds failed
+acceptance; Codex continues the work without local inference. The serving and
+trial instructions below are historical procedures, not a pending task or
+authorization to launch. A future owner-requested use must still verify the
+saved balanced tune and actual launch arguments.
+
+Earlier, the owner lifted the local inference hold with "local model approved now".
 Always use a saved **balanced** tune when one exists, as subsequently directed.
 The first frozen trial is complete and rejected: 2/10 original machine passes,
 zero promotions. See `research/guidance-trial-results.json`. Do not rerun its

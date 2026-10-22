@@ -1,5 +1,12 @@
 # 02 - Local Work Orders
 
+Current disposition (2026-10-22, D016): local inference is out of the active
+Naxx workflow. No further model experiments are scheduled. Codex owns the
+remaining implementation, source/content work and verification. Existing trial
+results and reusable verifier tools stay intact; real-v2 verifier readiness
+still needs capture evidence. No model is needed to finish that work, and local
+inference is not a substitute for independent review.
+
 ## Goal
 A repeatable way to hand bounded tasks to the local runner (LocalPilot on
 LocalBox, Qwen3.6 35B-A3B) and accept only results that pass a machine verifier,
