@@ -109,3 +109,15 @@ pins, exact scope, result classifications and the one portable fact reference.
 This exhausts this bounded query over registered sources, not all comparison
 actors or all mechanic families. Further complete encounter discovery and
 actor/recipient fact coverage remain open.
+
+2026-10-22 · Exact capability-ID cast inventory · All 26 registered actor
+references were separately checked against the 42-source class catalog's
+exact spell IDs. Two contexts have positive matches: one Druid 2893 cast on
+Maexxna at 36974 ms, and six 2782 casts plus one 17116 cast at 96968 ms on
+Sapphiron. Independent raw maximum-multiplicity enumeration reproduces every
+named time and witness locator. Two portable specs/fact files in
+`research/actor-cast-facts-20261022/` replay with zero differences; the inventory
+binds source/page/tool/catalog hashes. The other 24 selections have no positive
+match to these exact IDs, which are not exhaustive rank families. No zero-use,
+missing-capability, talent-build, removal-success, cooldown or opportunity
+claim is inferred. These are drafts, not registrations or encounter proof.

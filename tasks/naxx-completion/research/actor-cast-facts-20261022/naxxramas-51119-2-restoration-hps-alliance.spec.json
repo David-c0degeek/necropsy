@@ -1,0 +1,42 @@
+{
+  "fixture": "registered-naxx-positive-capability-id-casts-draft",
+  "archive": "../../../../tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+  "sha256": "e827163bcb7832d8e3e83fa67cc73d32c8e1ac8e4cc7d89c2f6f3d46749136d0",
+  "note": "Positive casts of exact class-source catalog IDs only. No complete rank family, build availability, cooldown readiness, duty, opportunity or grade; omitted groups are not absence.",
+  "contexts": [
+    {
+      "report": "arYtVP9kgnjBJp7K",
+      "fight": 48,
+      "actor": 22,
+      "player": "Haplina",
+      "subject": true
+    }
+  ],
+  "queries": {
+    "capability_id_cast_times_ms": {
+      "kind": "casts",
+      "ids": {
+        "druid-remove-curse": [
+          2782
+        ],
+        "druid-abolish-poison": [
+          2893
+        ],
+        "druid-natures-swiftness": [
+          17116
+        ],
+        "druid-swiftmend": [
+          18562
+        ],
+        "druid-regrowth": [
+          8936
+        ],
+        "druid-rejuvenation": [
+          774
+        ]
+      },
+      "stream": "actor",
+      "unit": "ms"
+    }
+  }
+}

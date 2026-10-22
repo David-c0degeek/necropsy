@@ -1,0 +1,42 @@
+{
+  "fixture": "registered-naxx-positive-capability-id-casts-draft",
+  "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+  "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+  "note": "Positive casts of exact class-source catalog IDs only. No complete rank family, build availability, cooldown readiness, duty, opportunity or grade; omitted groups are not absence.",
+  "contexts": [
+    {
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 11,
+      "actor": 2,
+      "player": "Haplina",
+      "subject": true
+    }
+  ],
+  "queries": {
+    "capability_id_cast_times_ms": {
+      "kind": "casts",
+      "ids": {
+        "druid-remove-curse": [
+          2782
+        ],
+        "druid-abolish-poison": [
+          2893
+        ],
+        "druid-natures-swiftness": [
+          17116
+        ],
+        "druid-swiftmend": [
+          18562
+        ],
+        "druid-regrowth": [
+          8936
+        ],
+        "druid-rejuvenation": [
+          774
+        ]
+      },
+      "stream": "actor",
+      "unit": "ms"
+    }
+  }
+}
