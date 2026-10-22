@@ -1,0 +1,3146 @@
+{
+  "date": "2026-10-22",
+  "status": "positive unfinished-journal follow-up; no source-key activation, certified scope or completion",
+  "journal_tar_sha256": "ae339aeb5d4f333140f805b62e3a0c2a5874e5c54250599f996db7ddb0324053",
+  "scanner_sha256": "7cc86b2337ee0dc86c8ed0d8282526ead3f7aaa7ef89005fd7d5611cbbe844a3",
+  "full_survey_sha256": "eb3189d9c1e10c9704fe7ca26c82d16d8d0b75400d45612d00ce1e5e85303a8c",
+  "method": "Every retained response digest rechecked. Catalog and fight identity must agree across metadata at one report revision. Numeric NPC sources, event fight/times and instances bound to those catalogs. Source/target/All/critical streams unite by maximum raw multiplicity; a separate maximum calculation matches. Only positive occurrences are reported.",
+  "surveyed_encounters": [
+    51109,
+    51114,
+    51117
+  ],
+  "surveyed_fight_contexts": 12,
+  "positive_npc_source_occurrences_in_survey": 5866,
+  "excluded_metadata": [
+    {
+      "member": ".necropsy-run/requests/24bb5b872c8d3d86d25ae6d1e7f1580a6efcc4555ee4a4466f00f260f8e787ed.json",
+      "report": "9bF4kZJ7q6dCpvD1",
+      "visibility": "public",
+      "zone": {
+        "id": 2003,
+        "name": "Zul'Gurub"
+      },
+      "reason": "outside public Naxx metadata scope"
+    },
+    {
+      "member": ".necropsy-run/requests/c05b28c75785f1477feae99b49dec0b4fb06acc9837aa2c523886adcd108b3f4.json",
+      "report": "9bF4kZJ7q6dCpvD1",
+      "visibility": "public",
+      "zone": {
+        "id": 2003,
+        "name": "Zul'Gurub"
+      },
+      "reason": "outside public Naxx metadata scope"
+    },
+    {
+      "member": ".necropsy-run/requests/994f604088d4241b455d6c2befaf110cae4b40deafc01b393febaa14d09a46fc.json",
+      "report": "yFAN6cBVaCkJwtTG",
+      "visibility": "public",
+      "zone": {
+        "id": 2005,
+        "name": "Temple of Ahn'Qiraj"
+      },
+      "reason": "outside public Naxx metadata scope"
+    },
+    {
+      "member": ".necropsy-run/requests/2ead23e6b9d74f883bf9fc611eb254715ac4c05bdff8d1a48cd8c3f6e58749a8.json",
+      "report": "fAG9akqvhg8VKtzX",
+      "visibility": "public",
+      "zone": {
+        "id": 2003,
+        "name": "Zul'Gurub"
+      },
+      "reason": "outside public Naxx metadata scope"
+    }
+  ],
+  "findings": [
+    {
+      "topic": "Gothik Harvest Soul",
+      "report": "wrthmWFb428kXG1Y",
+      "fight": 54,
+      "source_game_id": 16060,
+      "ability_game_id": 28679,
+      "positive_cast_timestamps": [
+        4148680,
+        4168125
+      ],
+      "observed_pair_difference_ms": 19445,
+      "interpretation": "One retained pair is 19445 ms apart. This is compatible with the guide branch saying about 20 seconds, but does not establish a fixed recurrence, absence of omitted casts, a phase origin or encounter-wide completeness. Both conflicting original cadence keys remain blocked."
+    },
+    {
+      "topic": "Kelthuzad Frost Blast identifiers",
+      "observations": "Five selected fight contexts contain boss-source apply/cast/remove rows under ID 27808 and damage rows under ID 29879, sharing the upstream Frost Blast label. Keep numeric identities separate.",
+      "limits": "Some resources use maxHitPoints=100, and other damage rows lack resource fields or are absorbed. Do not divide damage by normalized health or infer full-health damage percentage from a sample. The 104% versus 130% source conflict remains blocked."
+    },
+    {
+      "topic": "Noth Wrath 29214",
+      "observations": "No positive 29214 row was returned by this bounded survey of six Noth fight contexts.",
+      "limits": "This is not absence, successful raid-wide curse removal, zero opportunities, verified damage school or recurrence. No mechanic threshold is enabled."
+    }
+  ],
+  "positive_groups": [
+    {
+      "report": "1fZbDXm4jdat9vnq",
+      "fight": {
+        "id": 37,
+        "encounterID": 51114,
+        "startTime": 5330589,
+        "endTime": 5424127,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 207,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "applydebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 15,
+        "first_ms": 30334,
+        "last_ms": 60687,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 37,
+              "sourceID": 207,
+              "targetID": 5,
+              "timestamp": 5360923,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 6993,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 6993,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 37,
+              "sourceID": 207,
+              "targetID": 19,
+              "timestamp": 5360923,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 6994,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 6994,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 37,
+              "sourceID": 207,
+              "targetID": 36,
+              "timestamp": 5360924,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 6995,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 6995,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "1fZbDXm4jdat9vnq",
+      "fight": {
+        "id": 37,
+        "encounterID": 51114,
+        "startTime": 5330589,
+        "endTime": 5424127,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 207,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "cast",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 2,
+        "first_ms": 30328,
+        "last_ms": 60668,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3710,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -460,
+              "fight": 37,
+              "hitPoints": 2186703,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 207,
+              "spellPower": 0,
+              "targetID": 5,
+              "timestamp": 5360917,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510547,
+              "y": 371057
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 6989,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 6989,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3710,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -460,
+              "fight": 37,
+              "hitPoints": 1358931,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 207,
+              "spellPower": 0,
+              "targetID": 1,
+              "timestamp": 5391257,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510542,
+              "y": 371003
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/98389b59b48c438ba92b0f43a51fda2702a1808031fbabea6114a76f3d15c0b8.json",
+                "data_index": 3828,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/184bc2461076a73975d7eb6de30ef9384b0e12ab2e2cb756d68c1ccad319406a.json",
+                "data_index": 3828,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "1fZbDXm4jdat9vnq",
+      "fight": {
+        "id": 37,
+        "encounterID": 51114,
+        "startTime": 5330589,
+        "endTime": 5424127,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 207,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "damage",
+        "ability_game_id": 29879,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 60,
+        "first_ms": 31335,
+        "last_ms": 64697,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 2012,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3711,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -318,
+              "fight": 37,
+              "hitPoints": 74,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 82,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 207,
+              "spellPower": 0,
+              "targetID": 5,
+              "timestamp": 5361924,
+              "type": "damage",
+              "unmitigatedAmount": 2012,
+              "versatility": 0,
+              "x": 511422,
+              "y": 371156
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 7119,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 7119,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 2191,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3710,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -316,
+              "fight": 37,
+              "hitPoints": 74,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 77,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 207,
+              "spellPower": 0,
+              "targetID": 36,
+              "timestamp": 5361924,
+              "type": "damage",
+              "unmitigatedAmount": 2191,
+              "versatility": 0,
+              "x": 511404,
+              "y": 371066
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 7120,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 7120,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 2275,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3711,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -314,
+              "fight": 37,
+              "hitPoints": 74,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 81,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 207,
+              "spellPower": 0,
+              "targetID": 19,
+              "timestamp": 5361925,
+              "type": "damage",
+              "unmitigatedAmount": 2275,
+              "versatility": 0,
+              "x": 511456,
+              "y": 371131
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 7121,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 7121,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "1fZbDXm4jdat9vnq",
+      "fight": {
+        "id": 37,
+        "encounterID": 51114,
+        "startTime": 5330589,
+        "endTime": 5424127,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 207,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "removedebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 15,
+        "first_ms": 34345,
+        "last_ms": 65685,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 37,
+              "sourceID": 207,
+              "targetID": 22,
+              "timestamp": 5364934,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 7549,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 7549,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 37,
+              "sourceID": 207,
+              "targetID": 31,
+              "timestamp": 5365917,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 7690,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 7690,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 37,
+              "sourceID": 207,
+              "targetID": 19,
+              "timestamp": 5365917,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/d4ac18744ff77f2472929e202e0d961dc79416d3e024d0ce9c376a210905dc51.json",
+                "data_index": 7691,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 41
+              },
+              {
+                "member": ".necropsy-run/requests/0c8bce83986a9fb365e3c0ba4fb56f0fb39343060e6441e10d23bdd01bc1168e.json",
+                "data_index": 7691,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "69GyY7r2atXgzdfZ",
+      "fight": {
+        "id": 40,
+        "encounterID": 51114,
+        "startTime": 3508507,
+        "endTime": 3603362,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 200,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "applydebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 7,
+        "first_ms": 41496,
+        "last_ms": 75323,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 40,
+              "sourceID": 200,
+              "targetID": 36,
+              "timestamp": 3550003,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 8859,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 8859,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 40,
+              "sourceID": 200,
+              "targetID": 17,
+              "timestamp": 3550003,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 8860,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 8860,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 40,
+              "sourceID": 200,
+              "targetID": 33,
+              "timestamp": 3550004,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 8861,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 8861,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "69GyY7r2atXgzdfZ",
+      "fight": {
+        "id": 40,
+        "encounterID": 51114,
+        "startTime": 3508507,
+        "endTime": 3603362,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 200,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "cast",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 2,
+        "first_ms": 41495,
+        "last_ms": 75309,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3712,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -480,
+              "fight": 40,
+              "hitPoints": 1897264,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 200,
+              "spellPower": 0,
+              "targetID": 36,
+              "timestamp": 3550002,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510609,
+              "y": 371240
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 8855,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 8855,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3712,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -481,
+              "fight": 40,
+              "hitPoints": 870733,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 200,
+              "spellPower": 0,
+              "targetID": 11,
+              "targetMarker": 8,
+              "timestamp": 3583816,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510610,
+              "y": 371207
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/417473efc8fc2ab9ff56713c3b4035690f64bd9acdbc6ff9794ea165eba883d9.json",
+                "data_index": 6071,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/8d23f945f938f3abff90114f84d3676290db8734e672b20161425a8780b7d07d.json",
+                "data_index": 6071,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "69GyY7r2atXgzdfZ",
+      "fight": {
+        "id": 40,
+        "encounterID": 51114,
+        "startTime": 3508507,
+        "endTime": 3603362,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 200,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "damage",
+        "ability_game_id": 29879,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 28,
+        "first_ms": 42517,
+        "last_ms": 79342,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorbed": 2280,
+              "amount": 0,
+              "fight": 40,
+              "hitType": 1,
+              "isAoE": false,
+              "sourceID": 200,
+              "targetID": 17,
+              "timestamp": 3551024,
+              "type": "damage",
+              "unmitigatedAmount": 2280
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 9102,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 9102,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorbed": 2256,
+              "amount": 0,
+              "fight": 40,
+              "hitType": 1,
+              "isAoE": false,
+              "sourceID": 200,
+              "targetID": 36,
+              "timestamp": 3551024,
+              "type": "damage",
+              "unmitigatedAmount": 2256
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 9104,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 9104,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorbed": 1610,
+              "amount": 0,
+              "fight": 40,
+              "hitType": 1,
+              "isAoE": false,
+              "sourceID": 200,
+              "targetID": 33,
+              "timestamp": 3551024,
+              "type": "damage",
+              "unmitigatedAmount": 1610
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 9106,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 9106,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "69GyY7r2atXgzdfZ",
+      "fight": {
+        "id": 40,
+        "encounterID": 51114,
+        "startTime": 3508507,
+        "endTime": 3603362,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 200,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "removedebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 7,
+        "first_ms": 46511,
+        "last_ms": 80317,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 40,
+              "sourceID": 200,
+              "targetID": 36,
+              "timestamp": 3555018,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 9696,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 9696,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 40,
+              "sourceID": 200,
+              "targetID": 17,
+              "timestamp": 3555018,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 9697,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 9697,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 40,
+              "sourceID": 200,
+              "targetID": 42,
+              "timestamp": 3555018,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/2a2c5141644e90371428c63ebaae2b9787c449962dd0522f111d1da5c20e950e.json",
+                "data_index": 9698,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 7
+              },
+              {
+                "member": ".necropsy-run/requests/f9f17b0307110f3dd3e7caecad309c1a2800d81931e54d6b0b9058eedecee04e.json",
+                "data_index": 9698,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "NQtca47MB9jZfF8L",
+      "fight": {
+        "id": 50,
+        "encounterID": 51114,
+        "startTime": 5160630,
+        "endTime": 5274351,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 195,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "applydebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 4,
+        "first_ms": 46190,
+        "last_ms": 88601,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 50,
+              "sourceID": 195,
+              "targetID": 52,
+              "timestamp": 5206820,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/9b5f07a29037775a7f013a85322330ec750836985ba70838d1ff1584d3da5d28.json",
+                "data_index": 9348,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/25f4deb9ce66ec1832ebdcf28930c1c32425ecbab93b8f939bb609cb4902f447.json",
+                "data_index": 9348,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 50,
+              "sourceID": 195,
+              "targetID": 11,
+              "timestamp": 5206821,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/9b5f07a29037775a7f013a85322330ec750836985ba70838d1ff1584d3da5d28.json",
+                "data_index": 9349,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/25f4deb9ce66ec1832ebdcf28930c1c32425ecbab93b8f939bb609cb4902f447.json",
+                "data_index": 9349,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 50,
+              "sourceID": 195,
+              "targetID": 29,
+              "timestamp": 5249230,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/b72cb2e1c109ca04877b56ab218e2b69cb07f0ee5dfc9549a5c40cd6c7741460.json",
+                "data_index": 7170,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/ad5f4372a6ea09744a1877c172b443e0220ec70f3f47660ce946aaa32ea0b9e1.json",
+                "data_index": 7170,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "NQtca47MB9jZfF8L",
+      "fight": {
+        "id": 50,
+        "encounterID": 51114,
+        "startTime": 5160630,
+        "endTime": 5274351,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 195,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "cast",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 2,
+        "first_ms": 46166,
+        "last_ms": 88584,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3715,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -436,
+              "fight": 50,
+              "hitPoints": 1826235,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 195,
+              "spellPower": 0,
+              "targetID": 52,
+              "timestamp": 5206796,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510700,
+              "y": 371596
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/9b5f07a29037775a7f013a85322330ec750836985ba70838d1ff1584d3da5d28.json",
+                "data_index": 9342,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/25f4deb9ce66ec1832ebdcf28930c1c32425ecbab93b8f939bb609cb4902f447.json",
+                "data_index": 9342,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3715,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -428,
+              "fight": 50,
+              "hitPoints": 835276,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 195,
+              "spellPower": 0,
+              "targetID": 29,
+              "timestamp": 5249214,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510597,
+              "y": 371552
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/b72cb2e1c109ca04877b56ab218e2b69cb07f0ee5dfc9549a5c40cd6c7741460.json",
+                "data_index": 7166,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/ad5f4372a6ea09744a1877c172b443e0220ec70f3f47660ce946aaa32ea0b9e1.json",
+                "data_index": 7166,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "NQtca47MB9jZfF8L",
+      "fight": {
+        "id": 50,
+        "encounterID": 51114,
+        "startTime": 5160630,
+        "endTime": 5274351,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 195,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "damage",
+        "ability_game_id": 29879,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 16,
+        "first_ms": 47201,
+        "last_ms": 92611,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 2073,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3721,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -598,
+              "fight": 50,
+              "hitPoints": 74,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 87,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 195,
+              "spellPower": 0,
+              "targetID": 52,
+              "timestamp": 5207831,
+              "type": "damage",
+              "unmitigatedAmount": 2073,
+              "versatility": 0,
+              "x": 507604,
+              "y": 372141
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/9b5f07a29037775a7f013a85322330ec750836985ba70838d1ff1584d3da5d28.json",
+                "data_index": 9553,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/25f4deb9ce66ec1832ebdcf28930c1c32425ecbab93b8f939bb609cb4902f447.json",
+                "data_index": 9553,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 1782,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3723,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -576,
+              "fight": 50,
+              "hitPoints": 74,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 83,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 195,
+              "spellPower": 0,
+              "targetID": 11,
+              "timestamp": 5207831,
+              "type": "damage",
+              "unmitigatedAmount": 1782,
+              "versatility": 0,
+              "x": 508553,
+              "y": 372366
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/9b5f07a29037775a7f013a85322330ec750836985ba70838d1ff1584d3da5d28.json",
+                "data_index": 9554,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/25f4deb9ce66ec1832ebdcf28930c1c32425ecbab93b8f939bb609cb4902f447.json",
+                "data_index": 9554,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 1783,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3723,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -576,
+              "fight": 50,
+              "hitPoints": 48,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 83,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 195,
+              "spellPower": 0,
+              "targetID": 11,
+              "timestamp": 5208837,
+              "type": "damage",
+              "unmitigatedAmount": 1783,
+              "versatility": 0,
+              "x": 508553,
+              "y": 372366
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/9b5f07a29037775a7f013a85322330ec750836985ba70838d1ff1584d3da5d28.json",
+                "data_index": 9684,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/25f4deb9ce66ec1832ebdcf28930c1c32425ecbab93b8f939bb609cb4902f447.json",
+                "data_index": 9684,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "NQtca47MB9jZfF8L",
+      "fight": {
+        "id": 50,
+        "encounterID": 51114,
+        "startTime": 5160630,
+        "endTime": 5274351,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 195,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "removedebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 4,
+        "first_ms": 51200,
+        "last_ms": 93616,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 50,
+              "sourceID": 195,
+              "targetID": 52,
+              "targetMarker": 8,
+              "timestamp": 5211830,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/b72cb2e1c109ca04877b56ab218e2b69cb07f0ee5dfc9549a5c40cd6c7741460.json",
+                "data_index": 93,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/ad5f4372a6ea09744a1877c172b443e0220ec70f3f47660ce946aaa32ea0b9e1.json",
+                "data_index": 93,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 50,
+              "sourceID": 195,
+              "targetID": 11,
+              "timestamp": 5211830,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/b72cb2e1c109ca04877b56ab218e2b69cb07f0ee5dfc9549a5c40cd6c7741460.json",
+                "data_index": 94,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/ad5f4372a6ea09744a1877c172b443e0220ec70f3f47660ce946aaa32ea0b9e1.json",
+                "data_index": 94,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 50,
+              "sourceID": 195,
+              "targetID": 29,
+              "timestamp": 5254245,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/b72cb2e1c109ca04877b56ab218e2b69cb07f0ee5dfc9549a5c40cd6c7741460.json",
+                "data_index": 8107,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 56
+              },
+              {
+                "member": ".necropsy-run/requests/ad5f4372a6ea09744a1877c172b443e0220ec70f3f47660ce946aaa32ea0b9e1.json",
+                "data_index": 8107,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "ZxjAaNHTgQRwBhyv",
+      "fight": {
+        "id": 3,
+        "encounterID": 51114,
+        "startTime": 578846,
+        "endTime": 696739,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 52,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "applydebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 12,
+        "first_ms": 34792,
+        "last_ms": 87009,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 3,
+              "sourceID": 52,
+              "targetID": 23,
+              "timestamp": 613638,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5238,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5238,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 3,
+              "sourceID": 52,
+              "targetID": 37,
+              "targetMarker": 7,
+              "timestamp": 613659,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5239,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5239,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 3,
+              "sourceID": 52,
+              "targetID": 26,
+              "timestamp": 613659,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5240,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5240,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "ZxjAaNHTgQRwBhyv",
+      "fight": {
+        "id": 3,
+        "encounterID": 51114,
+        "startTime": 578846,
+        "endTime": 696739,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 52,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "cast",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 2,
+        "first_ms": 34792,
+        "last_ms": 86997,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "armor": 0,
+              "attackPower": 0,
+              "classResources": [],
+              "facing": -454,
+              "fight": 3,
+              "hitPoints": 2202942,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 52,
+              "spellPower": 0,
+              "targetID": 23,
+              "timestamp": 613638,
+              "type": "cast",
+              "x": 510572,
+              "y": 370732
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5237,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5237,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "armor": 0,
+              "attackPower": 0,
+              "classResources": [],
+              "facing": -444,
+              "fight": 3,
+              "hitPoints": 843209,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 52,
+              "spellPower": 0,
+              "targetID": 24,
+              "timestamp": 665843,
+              "type": "cast",
+              "x": 510425,
+              "y": 370295
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/3d1bfc58cac123efda15c50bf5cd29414ee590f91652bf083e371b25497c61b6.json",
+                "data_index": 2923,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/b7e7372c3d75f08b97921e0f64563f08fd07b909e277b11c500efdbce1b9f8cb.json",
+                "data_index": 2923,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "ZxjAaNHTgQRwBhyv",
+      "fight": {
+        "id": 3,
+        "encounterID": 51114,
+        "startTime": 578846,
+        "endTime": 696739,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 52,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "damage",
+        "ability_game_id": 29879,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 47,
+        "first_ms": 35820,
+        "last_ms": 91010,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorbed": 1761,
+              "amount": 0,
+              "fight": 3,
+              "hitType": 1,
+              "isAoE": false,
+              "sourceID": 52,
+              "targetID": 23,
+              "timestamp": 614666,
+              "type": "damage",
+              "unmitigatedAmount": 1601
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5359,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5359,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorbed": 1392,
+              "amount": 0,
+              "fight": 3,
+              "hitType": 1,
+              "isAoE": false,
+              "sourceID": 52,
+              "targetID": 37,
+              "targetMarker": 7,
+              "timestamp": 614666,
+              "type": "damage",
+              "unmitigatedAmount": 1392
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5361,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5361,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorbed": 2133,
+              "amount": 0,
+              "fight": 3,
+              "hitType": 1,
+              "isAoE": false,
+              "sourceID": 52,
+              "targetID": 31,
+              "timestamp": 614666,
+              "type": "damage",
+              "unmitigatedAmount": 1939
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5363,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5363,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "ZxjAaNHTgQRwBhyv",
+      "fight": {
+        "id": 3,
+        "encounterID": 51114,
+        "startTime": 578846,
+        "endTime": 696739,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 52,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "removedebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 12,
+        "first_ms": 39811,
+        "last_ms": 92017,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 3,
+              "sourceID": 52,
+              "targetID": 23,
+              "timestamp": 618657,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5914,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5914,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 3,
+              "sourceID": 52,
+              "targetID": 31,
+              "timestamp": 618657,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5915,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5915,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 3,
+              "sourceID": 52,
+              "targetID": 24,
+              "timestamp": 618657,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/5c061fdb4c48ad9decc85e746780fa94ac8f60538e2e6acc1baa2b4f86e90c74.json",
+                "data_index": 5916,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 8
+              },
+              {
+                "member": ".necropsy-run/requests/a7dba56270fe6819f09cf0b0f88d397633a210a144cbdb68e16ffe5c1da1ab44.json",
+                "data_index": 5916,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "rqbRXMtfcaC93P8m",
+      "fight": {
+        "id": 62,
+        "encounterID": 51114,
+        "startTime": 7701168,
+        "endTime": 7818888,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 185,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "applydebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 7,
+        "first_ms": 30343,
+        "last_ms": 103594,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 62,
+              "sourceID": 185,
+              "targetID": 15,
+              "timestamp": 7731511,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/041606e5cefbfb5c7fe15b304625cfb464131fa500394d135a8d0edff29912ba.json",
+                "data_index": 4838,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/9fe42b09e688c0683cce774c51718fe4fe0f5e5f71185a5e898c84bb59902b5f.json",
+                "data_index": 4838,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 62,
+              "sourceID": 185,
+              "targetID": 31,
+              "timestamp": 7772748,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/6697a459b4e9261160ce8ea1a8d71114d795aaf2a2b1a68497c76be6ac82b872.json",
+                "data_index": 1875,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/7ae38a37f4125d2a48811ca59f73b3db4515de2ec55aa3a7cbf9d3280f873955.json",
+                "data_index": 1875,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 62,
+              "sourceID": 185,
+              "targetID": 41,
+              "timestamp": 7772749,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/6697a459b4e9261160ce8ea1a8d71114d795aaf2a2b1a68497c76be6ac82b872.json",
+                "data_index": 1876,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/7ae38a37f4125d2a48811ca59f73b3db4515de2ec55aa3a7cbf9d3280f873955.json",
+                "data_index": 1876,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "rqbRXMtfcaC93P8m",
+      "fight": {
+        "id": 62,
+        "encounterID": 51114,
+        "startTime": 7701168,
+        "endTime": 7818888,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 185,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "cast",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 3,
+        "first_ms": 30341,
+        "last_ms": 103576,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3718,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -455,
+              "fight": 62,
+              "hitPoints": 2464133,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 185,
+              "spellPower": 0,
+              "targetID": 15,
+              "timestamp": 7731509,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510777,
+              "y": 371868
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/041606e5cefbfb5c7fe15b304625cfb464131fa500394d135a8d0edff29912ba.json",
+                "data_index": 4831,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/9fe42b09e688c0683cce774c51718fe4fe0f5e5f71185a5e898c84bb59902b5f.json",
+                "data_index": 4831,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3708,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -639,
+              "fight": 62,
+              "hitPoints": 1428987,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 185,
+              "spellPower": 0,
+              "targetID": 31,
+              "timestamp": 7772730,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510982,
+              "y": 370886
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/6697a459b4e9261160ce8ea1a8d71114d795aaf2a2b1a68497c76be6ac82b872.json",
+                "data_index": 1874,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/7ae38a37f4125d2a48811ca59f73b3db4515de2ec55aa3a7cbf9d3280f873955.json",
+                "data_index": 1874,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "absorb": -1,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3708,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -639,
+              "fight": 62,
+              "hitPoints": 401952,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 3198000,
+              "resourceActor": 1,
+              "sourceID": 185,
+              "spellPower": 0,
+              "targetID": 12,
+              "timestamp": 7804744,
+              "type": "cast",
+              "versatility": 0,
+              "x": 510968,
+              "y": 370885
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/6697a459b4e9261160ce8ea1a8d71114d795aaf2a2b1a68497c76be6ac82b872.json",
+                "data_index": 8118,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/7ae38a37f4125d2a48811ca59f73b3db4515de2ec55aa3a7cbf9d3280f873955.json",
+                "data_index": 8118,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "rqbRXMtfcaC93P8m",
+      "fight": {
+        "id": 62,
+        "encounterID": 51114,
+        "startTime": 7701168,
+        "endTime": 7818888,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 185,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "damage",
+        "ability_game_id": 29879,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 28,
+        "first_ms": 31380,
+        "last_ms": 107620,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 2384,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3749,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -496,
+              "fight": 62,
+              "hitPoints": 74,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 80,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 185,
+              "spellPower": 0,
+              "targetID": 15,
+              "timestamp": 7732548,
+              "type": "damage",
+              "unmitigatedAmount": 2384,
+              "versatility": 0,
+              "x": 509889,
+              "y": 374989
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/041606e5cefbfb5c7fe15b304625cfb464131fa500394d135a8d0edff29912ba.json",
+                "data_index": 5034,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/9fe42b09e688c0683cce774c51718fe4fe0f5e5f71185a5e898c84bb59902b5f.json",
+                "data_index": 5034,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 2384,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3749,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -496,
+              "fight": 62,
+              "hitPoints": 48,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 80,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 185,
+              "spellPower": 0,
+              "targetID": 15,
+              "timestamp": 7733524,
+              "type": "damage",
+              "unmitigatedAmount": 2384,
+              "versatility": 0,
+              "x": 509889,
+              "y": 374989
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/041606e5cefbfb5c7fe15b304625cfb464131fa500394d135a8d0edff29912ba.json",
+                "data_index": 5190,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/9fe42b09e688c0683cce774c51718fe4fe0f5e5f71185a5e898c84bb59902b5f.json",
+                "data_index": 5190,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 29879,
+              "absorb": -1,
+              "amount": 2384,
+              "armor": 0,
+              "attackPower": 0,
+              "avoidance": 0,
+              "classResources": [
+                {
+                  "amount": 0,
+                  "cost": 3749,
+                  "max": 0,
+                  "type": 0
+                }
+              ],
+              "facing": -496,
+              "fight": 62,
+              "hitPoints": 22,
+              "hitType": 1,
+              "isAoE": false,
+              "itemLevel": 80,
+              "mapID": 0,
+              "maxHitPoints": 100,
+              "resourceActor": 2,
+              "sourceID": 185,
+              "spellPower": 0,
+              "targetID": 15,
+              "timestamp": 7734527,
+              "type": "damage",
+              "unmitigatedAmount": 2384,
+              "versatility": 0,
+              "x": 509889,
+              "y": 374989
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/041606e5cefbfb5c7fe15b304625cfb464131fa500394d135a8d0edff29912ba.json",
+                "data_index": 5276,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/9fe42b09e688c0683cce774c51718fe4fe0f5e5f71185a5e898c84bb59902b5f.json",
+                "data_index": 5276,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "rqbRXMtfcaC93P8m",
+      "fight": {
+        "id": 62,
+        "encounterID": 51114,
+        "startTime": 7701168,
+        "endTime": 7818888,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 185,
+          "name": "Kel'Thuzad",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 15990,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "removedebuff",
+        "ability_game_id": 27808,
+        "catalog_names": [
+          "Frost Blast"
+        ],
+        "occurrences": 7,
+        "first_ms": 35351,
+        "last_ms": 108587,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 62,
+              "sourceID": 185,
+              "targetID": 15,
+              "timestamp": 7736519,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/041606e5cefbfb5c7fe15b304625cfb464131fa500394d135a8d0edff29912ba.json",
+                "data_index": 5510,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/9fe42b09e688c0683cce774c51718fe4fe0f5e5f71185a5e898c84bb59902b5f.json",
+                "data_index": 5510,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 62,
+              "sourceID": 185,
+              "targetID": 31,
+              "timestamp": 7776771,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/6697a459b4e9261160ce8ea1a8d71114d795aaf2a2b1a68497c76be6ac82b872.json",
+                "data_index": 2435,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/7ae38a37f4125d2a48811ca59f73b3db4515de2ec55aa3a7cbf9d3280f873955.json",
+                "data_index": 2435,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 27808,
+              "fight": 62,
+              "sourceID": 185,
+              "targetID": 41,
+              "timestamp": 7777729,
+              "type": "removedebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/6697a459b4e9261160ce8ea1a8d71114d795aaf2a2b1a68497c76be6ac82b872.json",
+                "data_index": 2563,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 39
+              },
+              {
+                "member": ".necropsy-run/requests/7ae38a37f4125d2a48811ca59f73b3db4515de2ec55aa3a7cbf9d3280f873955.json",
+                "data_index": 2563,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "wrthmWFb428kXG1Y",
+      "fight": {
+        "id": 54,
+        "encounterID": 51109,
+        "startTime": 3875076,
+        "endTime": 4179040,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 165,
+          "name": "Gothik the Harvester",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 16060,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "applydebuff",
+        "ability_game_id": 28679,
+        "catalog_names": [
+          "Harvest Soul"
+        ],
+        "occurrences": 37,
+        "first_ms": 273604,
+        "last_ms": 293080,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 28679,
+              "fight": 54,
+              "sourceID": 165,
+              "targetID": 4,
+              "timestamp": 4148680,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/816d53c7b3fb6e45be82c3cb631e197f69ecd10a01038c175cb0d4d5cf7749c9.json",
+                "data_index": 755,
+                "scope": "actor",
+                "source_id": 4,
+                "target_id": null
+              },
+              {
+                "member": ".necropsy-run/requests/e2c2fd0ba00305e87aec764ab7b6fdc9437af0ace2f01d6ceab2845c6c574f9e.json",
+                "data_index": 1858,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 4
+              },
+              {
+                "member": ".necropsy-run/requests/274f41d23526491a439ade25ed696071e093a2cd02918ebd4668d419ace5f405.json",
+                "data_index": 1858,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 28679,
+              "fight": 54,
+              "sourceID": 165,
+              "targetID": 19,
+              "timestamp": 4148680,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/e2c2fd0ba00305e87aec764ab7b6fdc9437af0ace2f01d6ceab2845c6c574f9e.json",
+                "data_index": 1855,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 4
+              },
+              {
+                "member": ".necropsy-run/requests/274f41d23526491a439ade25ed696071e093a2cd02918ebd4668d419ace5f405.json",
+                "data_index": 1855,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 28679,
+              "fight": 54,
+              "sourceID": 165,
+              "targetID": 37,
+              "timestamp": 4148680,
+              "type": "applydebuff"
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/e2c2fd0ba00305e87aec764ab7b6fdc9437af0ace2f01d6ceab2845c6c574f9e.json",
+                "data_index": 1856,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 4
+              },
+              {
+                "member": ".necropsy-run/requests/274f41d23526491a439ade25ed696071e093a2cd02918ebd4668d419ace5f405.json",
+                "data_index": 1856,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "report": "wrthmWFb428kXG1Y",
+      "fight": {
+        "id": 54,
+        "encounterID": 51109,
+        "startTime": 3875076,
+        "endTime": 4179040,
+        "kill": true
+      },
+      "observation": {
+        "actor": {
+          "id": 165,
+          "name": "Gothik the Harvester",
+          "type": "NPC",
+          "subType": "Boss",
+          "gameID": 16060,
+          "petOwner": null
+        },
+        "repository_boss_candidate": true,
+        "type": "cast",
+        "ability_game_id": 28679,
+        "catalog_names": [
+          "Harvest Soul"
+        ],
+        "occurrences": 2,
+        "first_ms": 273604,
+        "last_ms": 293049,
+        "samples": [
+          {
+            "raw": {
+              "abilityGameID": 28679,
+              "armor": 0,
+              "attackPower": 0,
+              "classResources": [],
+              "facing": -158,
+              "fight": 54,
+              "hitPoints": 394042,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 399750,
+              "resourceActor": 1,
+              "sourceID": 165,
+              "spellPower": 0,
+              "targetID": -1,
+              "timestamp": 4148680,
+              "type": "cast",
+              "x": 339927,
+              "y": 269200
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/e2c2fd0ba00305e87aec764ab7b6fdc9437af0ace2f01d6ceab2845c6c574f9e.json",
+                "data_index": 1852,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 4
+              },
+              {
+                "member": ".necropsy-run/requests/274f41d23526491a439ade25ed696071e093a2cd02918ebd4668d419ace5f405.json",
+                "data_index": 1852,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          },
+          {
+            "raw": {
+              "abilityGameID": 28679,
+              "armor": 0,
+              "attackPower": 0,
+              "classResources": [],
+              "facing": -158,
+              "fight": 54,
+              "hitPoints": 222598,
+              "itemLevel": 63,
+              "mapID": 0,
+              "maxHitPoints": 399750,
+              "resourceActor": 1,
+              "sourceID": 165,
+              "spellPower": 0,
+              "targetID": -1,
+              "timestamp": 4168125,
+              "type": "cast",
+              "x": 332186,
+              "y": 269200
+            },
+            "multiplicity": 1,
+            "locators": [
+              {
+                "member": ".necropsy-run/requests/e2c2fd0ba00305e87aec764ab7b6fdc9437af0ace2f01d6ceab2845c6c574f9e.json",
+                "data_index": 2978,
+                "scope": "actor",
+                "source_id": null,
+                "target_id": 4
+              },
+              {
+                "member": ".necropsy-run/requests/274f41d23526491a439ade25ed696071e093a2cd02918ebd4668d419ace5f405.json",
+                "data_index": 2978,
+                "scope": "encounter",
+                "source_id": null,
+                "target_id": null
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "fight_provenance": [
+    {
+      "report": "1fZbDXm4jdat9vnq",
+      "revision": 3,
+      "fight": {
+        "id": 37,
+        "encounterID": 51114,
+        "startTime": 5330589,
+        "endTime": 5424127,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/77b4fad90679231dc5805068eb6b46db63ca3aeb2bd231af7f2c1522d8f5226f.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "6f9ca91e9e242aae44727f25485eedf336ef11b70a4894e887fa89ba3cceb0b4"
+    },
+    {
+      "report": "69GyY7r2atXgzdfZ",
+      "revision": 1,
+      "fight": {
+        "id": 40,
+        "encounterID": 51114,
+        "startTime": 3508507,
+        "endTime": 3603362,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/97e84d515fa133026b3ac39b1504eea6781e01c1b5a540d618825b9b2cacb8c0.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "a370d28f48bb5c14400a22db9237a4c3d3bbf3bc8f2ce10c0b3de8aec2ad4c1d"
+    },
+    {
+      "report": "9qJ3ZtTHrcwnL8CR",
+      "revision": 91,
+      "fight": {
+        "id": 28,
+        "encounterID": 51117,
+        "startTime": 2439426,
+        "endTime": 2491880,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/bcffc656a5fa178d120f70a63656df69f97acf38ab673c4c316dd034f95348bb.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "5406e4c17830fe7ed53ecfbe01886552cae5c78214088ead6a0bdb9c74353842"
+    },
+    {
+      "report": "AZLXrwtvgamfWc18",
+      "revision": 46,
+      "fight": {
+        "id": 28,
+        "encounterID": 51117,
+        "startTime": 2318948,
+        "endTime": 2357323,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/73233594e683856021ab2c7f5d3a2c242e773e3b2aead4b0157894def5852221.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "249b5366f9509d5541915d14b9d4861b03cc2af34f7ac1110ca88bf698e955e8"
+    },
+    {
+      "report": "Dyd43zV2xht6Mkmv",
+      "revision": 57,
+      "fight": {
+        "id": 37,
+        "encounterID": 51117,
+        "startTime": 2586013,
+        "endTime": 2628342,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/62858d8fac5ca3d59840020e9492e8ae2035dd161d4c23762cb7f5ab1c46ad26.json",
+        ".necropsy-run/requests/72835bb053fae8c5c234b877f8488c3ae553b0e79b53904c63a035d2835bdf99.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "faee9743330f27cfb079a83f78e2863e872dafca6550aef3c2a15fb4c26a594f"
+    },
+    {
+      "report": "NQtca47MB9jZfF8L",
+      "revision": 10028,
+      "fight": {
+        "id": 50,
+        "encounterID": 51114,
+        "startTime": 5160630,
+        "endTime": 5274351,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/4d1055201e4ff195b77dc7d8e34a4c56a54935cdc1d68f80fcac739220a57955.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "305520e7d2ec88e8f12468df8dff5e5b9b95bec23aff0dae787e9ffae22e9381"
+    },
+    {
+      "report": "XwFMTVWPGBj3qbL7",
+      "revision": 1,
+      "fight": {
+        "id": 25,
+        "encounterID": 51117,
+        "startTime": 4287735,
+        "endTime": 4362811,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/3b5dd1ff9924c6943a482b95c0325ba32190314a97442b18e08cc1e5663449ee.json",
+        ".necropsy-run/requests/bb177ceccccc7ce3ead3d9568422533e4f093ab4a72d942b9eb853f188bd9169.json",
+        ".necropsy-run/requests/da0c698231390a4ce1970479240bd732b51c38ce74437e9d163c63c0ede06489.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "e1d00fa6b17aaf9f6c4f6746f417ecedf7358c21103e3697bbc7132a87444295"
+    },
+    {
+      "report": "ZxjAaNHTgQRwBhyv",
+      "revision": 10002,
+      "fight": {
+        "id": 3,
+        "encounterID": 51114,
+        "startTime": 578846,
+        "endTime": 696739,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/037eebff112992140e1ad7368f053984a4a30f481c846ae7546e5cf2687abcc0.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "73a730c3787caba88211955c419328019247205cccedc7cb47c9ba4e246839e7"
+    },
+    {
+      "report": "brqfwKx8YRWnmVXa",
+      "revision": 2,
+      "fight": {
+        "id": 28,
+        "encounterID": 51117,
+        "startTime": 2046255,
+        "endTime": 2080200,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/0ed188a8f06ca820161a5a40f3cd4f76669eec709aa5dc83e275df5c22ae5afa.json",
+        ".necropsy-run/requests/170d8b797f37b732e5ccb071ac6ebd131295d4b602e042dc4c912930237e20d4.json",
+        ".necropsy-run/requests/191584d18e8dac1c7e3e5d7aa4ac682a3187ec27736c3cc17d8d43d4f3de82b1.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "2fa05024a411fc340a037e83df3d48171cf5d3242bbfacf808c7cad2f6ae6e8c"
+    },
+    {
+      "report": "g8f9nGyRTpNLMqWm",
+      "revision": 14,
+      "fight": {
+        "id": 22,
+        "encounterID": 51117,
+        "startTime": 1592404,
+        "endTime": 1639302,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/093ef17b472e7467701d1c2daabb682fa5d517db0da7c0580efd3d2931ad22a5.json",
+        ".necropsy-run/requests/67bfa70ffb47bc7b08076d0987382f4e04c3a3ea082028ad12e4056682d17c06.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "5d10d49fd7e1af75222425130fc088df976996e562321618f22db383dea18ecd"
+    },
+    {
+      "report": "rqbRXMtfcaC93P8m",
+      "revision": 67,
+      "fight": {
+        "id": 62,
+        "encounterID": 51114,
+        "startTime": 7701168,
+        "endTime": 7818888,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/4595d941d60e0d8de33cdd40a361b8bc5501ba550d7b6d85792e50b16ed03901.json",
+        ".necropsy-run/requests/c10c77d43ef39e73dedaeda9f67083a273da94c301c15445e13cfcb9eb9b4e4e.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "f458615f50128ac16f8ca4ec792cfabf69f133f8442b3f7e88d3c7846e2be569"
+    },
+    {
+      "report": "wrthmWFb428kXG1Y",
+      "revision": 10060,
+      "fight": {
+        "id": 54,
+        "encounterID": 51109,
+        "startTime": 3875076,
+        "endTime": 4179040,
+        "kill": true
+      },
+      "catalog_members": [
+        ".necropsy-run/requests/45c6c9605aecf35988d4853495f43923d36fb822193543943294933c79abfffe.json"
+      ],
+      "scope_complete": false,
+      "raw_multiset_sha256": "73f080bf1f103cb18538936622f760fb975f735b17d3a4687a2a798f835846cf"
+    }
+  ],
+  "limits": [
+    "Raw journal records are not a completed snapshot or independently authenticated upstream response.",
+    "Combatant-prelude event responses are excluded; they do not bind one selected fight.",
+    "Catalog NPC type is not proof of hostility or mechanic ownership; petOwner and raw instances retained.",
+    "Catalog names are raw upstream labels, not independent Classic spell certification; reused terminology must not override numeric identities.",
+    "Repository boss IDs are candidates, not a new target or ranking policy.",
+    "No completeness, zero absence, spawn lifetime, wave/phase, position, assignment, opportunity or grade claim.",
+    "Raw event rows across directions/pages overlap; counts are not unique raid events until scoped multiplicity is considered.",
+    "The initial attempt-002 scanner assumption that every metadata answer was Naxx was rejected by the newer journal: four public metadata answers are other raids. The reviewed scanner records and excludes those answers explicitly before selecting Naxx event contexts. The failed scan log is preserved.",
+    "Samples retain positive locators only. The full survey and original journal stay in ignored private workspace; their digests bind this bounded follow-up. No actor source, oracle policy, source ledger or completion register is changed."
+  ]
+}

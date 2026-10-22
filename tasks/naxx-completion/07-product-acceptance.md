@@ -44,3 +44,15 @@ category selection preserves all 57 controlled legacy outputs byte-for-byte;
 exercise category selection and v1/v2 boundaries. The source proposals remain
 research, and no new class-content visual acceptance, installed release
 candidate or owner acceptance is claimed. 07.1–07.5 stay open.
+
+2026-10-22 · Operational patch checks, not final Naxx acceptance · Released
+0.6.1 preserves the earlier 0.6.0 acquisition baseline and fixes resume scheduling.
+The release commit passes 2698 tests/29 skips, all four native fresh-install and
+failed-upgrade checks, installed synthetic three-window recovery and offline replay.
+A separate installed-wheel probe passed read/replace/delete on real Windows
+WinVaultKeyring with disposable synthetic values and confirmed cleanup. All nine
+release files passed fresh-download comparison. The fixed Tower image is bound
+to the published wheel and passed network-disabled preflight; real capture/smoke
+remains pending. These checks do not establish independent-user/live-account
+acceptance, class-content visual review or final Naxx content approval. No 07
+completion box is checked by this operational patch.

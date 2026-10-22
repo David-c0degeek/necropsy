@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-22",
+  "status": "published operational patch and isolated fixed-image retry waiting; real v2 smoke and final Naxx acceptance still pending",
+  "release": {
+    "version": "0.6.1",
+    "url": "https://github.com/David-c0degeek/necropsy/releases/tag/v0.6.1",
+    "commit": "c10c4612917d3b3b061a8925068d1651cc0f56de",
+    "wheel_sha256": "b331510f6ca9e82b7752fa518cde1083b68156b77681d186089cd3f2e42d079e",
+    "native_ci_run": 39857939829,
+    "native_targets": [
+      "linux-x86_64",
+      "windows-x86_64",
+      "macos-arm64",
+      "macos-x86_64"
+    ],
+    "asset_roundtrip": "all nine release files freshly downloaded; all eight asset digests and checksum file matched before publication",
+    "main_installer_switch": "fast-forwarded only after verified assets published; old 0.6.0 release preserved"
+  },
+  "verification": {
+    "full_gate": "2698 passed, 29 skipped, eight workers; immutable release commit",
+    "distribution": "wheel built through sdist; extracted-member secret scans, installed public synthetic flow, offline replay and package integrity pass outside checkout",
+    "installed_resume": "three synthetic quota windows: no first-window publication, independent finalization before new acquisition in second, normal acquisition completes in third; earlier partial bytes preserved; real HTTP forbidden",
+    "windows_credential_backend": {
+      "version": "0.6.1",
+      "kind": "installed package on real Windows OS credential backend",
+      "backend": "keyring.backends.Windows.WinVaultKeyring",
+      "store_read_replace_delete": "passed",
+      "credential_service": "disposable random necropsy-install-probe namespace",
+      "values": "synthetic only",
+      "live_public_account": "not performed",
+      "independent_user": "not performed",
+      "cleanup": "probe entry deleted and absence checked in finally"
+    },
+    "four_platform_bootstraps": "fresh install, private runtime, GUI engine readiness, staged update, checksum refusal and failed-upgrade preservation pass"
+  },
+  "tower": {
+    "checked_at_utc": "2026-10-22T21:54:25Z",
+    "image": "necropsy-capture:0.6.1-naxx-measurement",
+    "image_id": "sha256:0d462ae2e039fd4f9a9a4ff840658077ebdb97460048cfb5ee1c0ae47ccd16fe",
+    "image_user": "99:100",
+    "manifest_sha256": "d7030180cd0ac09ab2ee147a7e438dbae6234f97e89c1b12e6fd36681b70e089",
+    "context_tar_sha256": "e2bbbab72fdead2fbcd0ff9d9ef06e9adb51bd9c4d9102f4d8c93886ff1e04a8",
+    "container": "necropsy-naxx-measurement-fixed-061-20261022",
+    "container_id": "cf613d6bfa15a215e3e794002ce8e934f98b145d189e556d8c11ecde634db507",
+    "started_at_utc": "2026-10-22T21:52:29Z",
+    "not_before_utc": "2026-10-22T22:24:12Z",
+    "max_new_attempts": 2,
+    "attempt_numbers": [
+      7,
+      8
+    ],
+    "controller_limit_seconds": 14400,
+    "child_limit_seconds": 7200,
+    "free_space_floor_gib": 50,
+    "stop_timeout_seconds": 90,
+    "restart": "no",
+    "init": true,
+    "logs": "json-file 10m x3",
+    "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+    "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+    "seed": "checked attempt 006 quota-reset outcome; reset plus two minutes",
+    "preflight": "network-disabled fixed-version/wheel/queue/checkpoint/seed checks pass; zero API or model calls",
+    "production": "0.5.2 runner still exited; watchdog off, no production restart",
+    "status_page": "running",
+    "necropsy_cron_entries": 0,
+    "available_space_kib": 316113444
+  },
+  "collector": {
+    "process_id": 30028,
+    "status_path": "workspace/codex-naxx/measurement-20261022/fixed-061-collector-status.json",
+    "policy": "exact container/image required; copy outcome/controller/child log and any archive/entries; verify downloaded archive hash, all members and selected strict short/complex v2 scopes; no API query or promotion",
+    "retirement": "after successful collection, archive private definition/logs/receipts and retire only the exact exited zero-layer expected-bind controller; preserve all mounts/images. Running, wrong-ID, writable-layer and volume mutations were rejected in metadata-only guard checks. No actual fixed-controller retirement yet.",
+    "line_endings": "initial bash syntax probe rejected Windows text-mode CRLF stdin; fixed to send UTF-8 bytes. Corrected syntax/guard probes pass; failed probe retained in session evidence."
+  },
+  "script_sha256": {
+    "resume-fixed-061.py": "c1bd5ae3acf88f5d915fac7a5bfacb069f04905e7e47f2aed57b7a88ecc50ad4",
+    "collect-fixed-061.py": "4907431f3ac98c05f23ca066781ac917b12bc37548139ce32f6589b3cf966243",
+    "cleanup-fixed-061.py": "643dca144b85b10d92565494a5e31658b7710c6e740b152ec8fee7419c9acc9a",
+    "replay-real-journal-offline.py": "eef238cc5376a8c88277e56acb142e760dd6414a12587cb55779db09e34cba5b"
+  },
+  "local_ai": "off; fresh model-process/listener checks empty on 8080/11435; no inference dependency",
+  "limits": [
+    "This release fixes acquisition and developer infrastructure; it is not final Naxx content acceptance or a completed cell.",
+    "Real independent report finalization, published archive/smoke and measured database throughput remain pending. Hourly readings do not establish database allowance.",
+    "No bulk queue emission/review, production restart, new actor registration, live-account acceptance or independent review is claimed."
+  ]
+}

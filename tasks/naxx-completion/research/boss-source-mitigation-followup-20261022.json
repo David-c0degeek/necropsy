@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-22",
+  "status": "additional source review and bounded replacement candidates; no activation, registration or independent approval",
+  "baseline_ledger_path": "tests/golden/raids/naxx-boss-source-review.json",
+  "baseline_ledger_sha256": "d337634b99e76594a13751ca0a4453b366cec842a6faf2cb440999a50deaf3f0",
+  "sources": [
+    {
+      "id": "icyveins-classic-naxx-maexxna-heigan",
+      "url": "https://www.icy-veins.com/wow-classic/naxxramas-raid-guides",
+      "author": "Abide",
+      "displayed_updated": "2020-07-22 17:59 (site display; timezone unspecified)",
+      "method": "Direct authored guide body: Classic 40-player introduction, Maexxna 9.3 and Heigan 10.2 only. Excludes SoD/SoM sections.",
+      "excerpts": {
+        "spray-enrage-shield-wall": "Try to save Shield Wall and similar defensives for Web Sprays during Enrage."
+      },
+      "findings": [
+        "Explicit Shield Wall/Web Spray advice supports a new conditional candidate; the original Web Wrap excerpt stays blocked.",
+        "Heigan prose separates ground/platform movement. Its illustration is different from the missing wiki diagram."
+      ],
+      "limits": [
+        "No observed assignment, availability, cooldown grade or cast expectation.",
+        "Mixed-edition page; displayed update date does not certify all content. No coordinates or timers imported."
+      ],
+      "diagram": {
+        "url": "https://static.icy-veins.com/images/classic/naxxramas/naxx-dance.jpg",
+        "sha256": "948500d6a1af69287b2a42595b3d91209c42ba75f3da61ae790011516728230d",
+        "inspection": "Visually inspected: four green floor divisions, white boundaries, red numerals 1\u20134 and raised platform; no red-square legend.",
+        "redistribution": "Ignored visual reference only; no image shipped."
+      }
+    },
+    {
+      "id": "wowhead-classic-maexxna",
+      "url": "https://www.wowhead.com/classic/guide/maexxna-naxxramas-raid-strategy",
+      "author": "Rokman",
+      "displayed_updated": "2025-09-03",
+      "patch": "1.15.8",
+      "method": "Successful direct guide-body open, excluding comments, trinket claims and other editions. No verbatim excerpt retained.",
+      "findings": [
+        "Tank guidance associates mitigation planning with Web Spray and names Stoneshield, Lifegiving Gem and Last Stand. The inspected tank section does not independently name Shield Wall.",
+        "Poison removal appears separately in Druid, Shaman and Paladin advice. This does not rescue the original mixed Druid/Priest Regrowth fragment."
+      ],
+      "limits": [
+        "No immune-trinket policy, universal class capability, spell-rank binding, assignment or measured safe window is established. Original ambiguous keys stay blocked."
+      ]
+    },
+    {
+      "id": "wowhead-classic-heigan",
+      "url": "https://www.wowhead.com/classic/guide/heigan-the-unclean-naxxramas-raid-strategy",
+      "author": "Rokman",
+      "displayed_updated": "2025-09-07",
+      "patch": "1.15.8",
+      "method": "Successful direct guide-body open, no further verbatim quotation; complements the earlier follow-up without recovering its missing diagram.",
+      "findings": [
+        "Written guidance distinguishes the ground phase from the platform phase and the disease-removal job from the dance. This supplies preparation context only."
+      ],
+      "limits": [
+        "The original diagram-dependent red-square/platform-placement keys remain blocked. No log coordinates, observed safe path, positional grade or measured recurrence is supplied."
+      ]
+    },
+    {
+      "id": "wowhead-classic-noth-29214",
+      "url": "https://www.wowhead.com/classic/spell=29214/wrath-of-the-plaguebringer",
+      "method": "Successful Classic spell-details page open, excluding comments and other editions; no verbatim excerpt retained.",
+      "ability_id": 29214,
+      "findings": [
+        "The same page contains contradictory text: the short description names Nature damage and five-second intervals, while the buff description names Shadow damage every two seconds.",
+        "Structured details identify Shadow school, ten-second duration, a Shadow direct-damage effect and periodic damage every two seconds. This narrows the source of the contradiction to description versus effect fields; it does not verify real observed behavior."
+      ],
+      "limits": [
+        "Do not choose a school or cadence by counting supporting web pages. The original conflict remains blocked until a positive raw event series or other suitable current runtime evidence is available. The earlier zero-positive survey is not absence.",
+        "Neither total tick count nor triggering curse/recipient pairing, cast opportunities, damage threshold or culpability is inferred."
+      ]
+    }
+  ],
+  "replacement_candidates": [
+    {
+      "id": "maexxna-warrior-tank-enraged-spray-defensive",
+      "encounter_id": 51116,
+      "boss": "Maexxna",
+      "source_id": "icyveins-classic-naxx-maexxna-heigan",
+      "support": "spray-enrage-shield-wall",
+      "text": "If you are assigned to tank Maexxna, plan Shield Wall or another available defensive for Web Spray during Enrage.",
+      "eligibility": "Warrior tank-category proposal only, both legal factions; instruction remains conditional on actual assignment and availability. Verify the numeric encounter binding and category projection against the current scope before integration.",
+      "status": "unpromoted author candidate; independent source/content review and supported category projection required"
+    }
+  ],
+  "unchanged_blocks": [
+    "Original Maexxna warrior_shield_wall excerpt still says web wrap and is not silently corrected or unblocked.",
+    "Original mixed Druid/Priest Regrowth fragment remains unsupported.",
+    "Original Heigan strategy_red_safe_zone and strategy_phase1_raid_position remain unusable without their own diagram; the independent image does not supply log positions.",
+    "Noth Wrath 29214 description/effect contradiction is now independently located on the Classic spell page; actual school and cadence still require suitable runtime evidence."
+  ],
+  "no_runtime_change": true,
+  "independent_review": "pending"
+}

@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-22",
+  "kind": "bounded 0.6.0 measurement exhausted; no archive; retained successful requests only",
+  "attempt_005_outcome": {
+    "version": 1,
+    "exit_code": 3,
+    "stop_class": "quota-reset",
+    "reset_at_utc": "2026-10-22T21:20:10+00:00",
+    "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+    "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+    "snapshot": null,
+    "incomplete_bosses": null,
+    "written_at_utc": "2026-10-22T20:24:22+00:00"
+  },
+  "attempt_006_outcome": {
+    "version": 1,
+    "exit_code": 3,
+    "stop_class": "quota-reset",
+    "reset_at_utc": "2026-10-22T22:22:12+00:00",
+    "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+    "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+    "snapshot": null,
+    "incomplete_bosses": null,
+    "written_at_utc": "2026-10-22T21:27:23+00:00"
+  },
+  "controller": {
+    "api_owner": "this measurement; no concurrent queries",
+    "attempts": [
+      {
+        "number": 3,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-22T19:16:06+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-22T18:18:22+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-22T19:18:06+00:00"
+        }
+      },
+      {
+        "number": 4,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-22T20:18:08+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-22T19:20:27+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-22T20:20:08+00:00"
+        }
+      },
+      {
+        "number": 5,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-22T21:20:10+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-22T20:24:22+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-22T21:22:10+00:00"
+        }
+      },
+      {
+        "number": 6,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-22T22:22:12+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-22T21:27:23+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-22T22:24:12+00:00"
+        }
+      }
+    ],
+    "checked_at": "2026-10-22T21:27:24+00:00",
+    "current_attempt": 6,
+    "kind": "isolated measurement only",
+    "local_ai": "off; no model calls",
+    "max_new_attempts": 4,
+    "next_retry_at": "2026-10-22T21:22:10+00:00",
+    "promotion": false,
+    "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+    "started_at": "2026-10-22T17:24:21+00:00",
+    "status": "bounded-attempt-limit"
+  },
+  "journal_tar_sha256": "ae339aeb5d4f333140f805b62e3a0c2a5874e5c54250599f996db7ddb0324053",
+  "successful_requests": 693,
+  "successful_requests_by_scope": {
+    "acquisition": 693
+  },
+  "new_since_attempt_004": 405,
+  "previous_requests_unchanged": true,
+  "all_data_digests_verified": true,
+  "new_in_attempt_005": 141,
+  "new_in_attempt_006": 264,
+  "last_successful_request": {
+    "captured_at": "2026-10-22T21:27:22.103578+00:00",
+    "scope": "acquisition",
+    "operation": "query NecropsyReport($code: String!, $fightIDs: [Int]) {",
+    "variables": {
+      "code": "p4vBFtkRMgWzyh1C",
+      "fightIDs": [
+        57
+      ]
+    },
+    "rate": {
+      "limitPerHour": 3000,
+      "pointsResetIn": 3291,
+      "pointsSpentThisHour": 1192.28
+    }
+  },
+  "container_retired_after_collection": {
+    "name": "necropsy-naxx-measurement-autopilot-20261022",
+    "private_archive": "/mnt/user/appdata/necropsy-naxx-measurement-20261022/retired-containers/20261022T213030Z",
+    "all_mounted_state_and_images_preserved": true
+  },
+  "limits": [
+    "No successful finalization-scope answer, snapshot, report, certified v2 smoke or completed cell.",
+    "Hourly readings do not measure the separate database allowance or guarantee success after reset.",
+    "The 0.6.1 scheduling fix is verified offline and installed; its native release builds and real deployment remain separate.",
+    "Production remains parked and local AI off. No API requests were made by this verifier."
+  ]
+}

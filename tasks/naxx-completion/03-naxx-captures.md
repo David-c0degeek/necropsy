@@ -164,3 +164,27 @@ reproduction and all 57 unchanged legacy output hashes. Forty-five focused
 client/replay/failure checks pass, and the scoped Naxx inventory remains clean
 at 26 IN_PROGRESS/484 TODO. Full gate and browser receipts are retained under
 the ignored `workspace/codex-naxx/finalization-priority-*` logs.
+
+2026-10-22 · Bounded run collected, fixed release deployed · All six 0.6.0
+attempts stopped on database quota without an archive; 693 acquisition responses
+are retained with all digests and prior bytes verified. The completed controller
+was collected, privately archived and removed. `research/capture-attempt-006-20261022.json`
+records that historical outcome. Offline replay of a copy reused all 693 answers
+with HTTP/tokens forbidden, reconstructing 74 complete acquisition entries that
+need 59 independent report finalizations (`research/saved-journal-replay-20261022.json`).
+A first replay without the context-resolution meter stopped safely before reuse;
+the successful replay explicitly seeds the last historical meter, not a live reading.
+
+Version 0.6.1 is now published at c10c461 after the immutable full gate, installed
+three-window recovery, real Windows credential-backend probe and all four native
+bootstrap checks. All release assets passed fresh-download digest comparison;
+main's installers advanced only after publication. This is an operational patch,
+not final Naxx content acceptance. The release-bound isolated image passed
+network-disabled version/UID/manifest/queue/checkpoint/seed checks. Attempts
+007–008 are bounded to four hours overall/two hours each with a 50 GiB floor,
+waiting until 22:24:12 UTC / October23 00:24 Amsterdam. The same cache/checkpoint
+and private file-mode session remain; no new API request has occurred at this
+checkpoint. The exact-container collector verifies outputs and has guarded
+private archival/removal after collection. Production remains parked, local AI
+off and smoke/cost/bulk-queue review open. Full provenance, limits and cancel
+identity are in `research/capture-fixed-release-20261022.json`.

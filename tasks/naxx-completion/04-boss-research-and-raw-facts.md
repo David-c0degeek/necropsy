@@ -139,3 +139,23 @@ source ownership, phase, uptime, assignment, opportunity or grade is inferred.
 `research/registered-actor-debuff-inventory-20261022.json` records the precise
 scope and limits. The files remain drafts, with no cell/source registration,
 rule activation, encounter-All certificate or completion tick.
+
+2026-10-22 · Targeted source/raw conflict follow-up ·
+`research/boss-source-mitigation-followup-20261022.json` retains an independently
+authored Classic Maexxna instruction explicitly naming Shield Wall for enraged
+Web Spray. It supplies a conditional warrior-tank replacement candidate; the
+original Web Wrap key remains blocked and unchanged. An inspected independent
+Heigan image depicts four floor divisions, but is not the missing red-square
+wiki diagram and supplies no observed path. The third-party image stays outside
+Git. Noth 29214's Classic page itself repeats the summary/effect-field conflict.
+
+`research/journal-conflict-followup-20261022.json` checks the newer 693-request
+journal without API calls. Twelve Noth/Gothik/Kel'Thuzad contexts supply 5866
+positive NPC-source occurrences. Four metadata answers from other raids are
+explicitly excluded; the old scanner's all-Naxx assertion failed before output,
+and that failed log is retained. One positive Gothik 28679 cast pair is 19445 ms
+apart, which does not establish a fixed cadence or complete phase. Five
+Kel'Thuzad contexts distinguish 27808 cast/aura rows from 29879 damage; normalized
+health/absorbed rows do not settle the 104%/130% disagreement. No positive Noth
+29214 row in six surveyed contexts is not absence. All source keys remain
+blocked; no certified scope, actor registration, grading rule or completed cell.
