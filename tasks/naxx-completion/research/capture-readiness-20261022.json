@@ -1,0 +1,4300 @@
+{
+  "date": "2026-10-22",
+  "status": "WCL maintenance hold lifted by owner; partial candidate checks, database-quota cooldown, isolated measurement scheduled",
+  "head_at_start": "e6f2e826e1236fdf208dd5c085c35c07655679b1",
+  "resolved_characters": 177,
+  "ranking_checks": 62,
+  "configurations": 34,
+  "candidate_ready_configurations": 23,
+  "unfilled_configurations": [
+    "naxxramas-druid-balance-dps-horde",
+    "naxxramas-druid-balance-hps-alliance",
+    "naxxramas-druid-balance-hps-horde",
+    "naxxramas-druid-feral-dps-horde",
+    "naxxramas-shaman-enhancement-dps-horde",
+    "naxxramas-warlock-destruction-dps-alliance",
+    "naxxramas-warlock-destruction-dps-horde",
+    "naxxramas-warrior-fury-dps-alliance",
+    "naxxramas-warrior-fury-dps-horde",
+    "naxxramas-warrior-protection-dps-alliance",
+    "naxxramas-warrior-protection-dps-horde"
+  ],
+  "source_pins": {
+    "tasks/naxx-completion/research/capture-queue-plan.json": "ba255c4fe76c40a826d8c27c32a6e08bc8204b9f0e505a33f3ea38a660f6f4eb",
+    "tasks/naxx-completion/research/capture-candidate-resolutions.json": "bc4708a48e4553dd61b1baaf66846b96d5ae9e59ef6a72a4ca85952f1a53e2a9",
+    "tasks/naxx-completion/research/capture-candidate-rankings.json": "77e8c2c1376594017cc03d959673c25f07b70e85e2803cdc6520d63c5fc3a166"
+  },
+  "initial_quota_reading": {
+    "query": "query MeasurementReadinessBudget { rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+    "variables": {},
+    "head": "e6f2e826e1236fdf208dd5c085c35c07655679b1",
+    "site": "vanilla.warcraftlogs.com",
+    "endpoint": "user",
+    "started_at": "2026-10-22T10:35:57.008051+00:00",
+    "data": {
+      "rateLimitData": {
+        "limitPerHour": 3000,
+        "pointsSpentThisHour": 1,
+        "pointsResetIn": 3600
+      }
+    },
+    "rate": {
+      "limit_per_hour": 3000,
+      "points_spent": 1.0,
+      "reset_in_s": 3600
+    },
+    "ended_at": "2026-10-22T10:35:57.669352+00:00"
+  },
+  "report_readiness_failure": {
+    "query": "query MeasurementReport($code:String!) { reportData { report(code:$code) { code visibility revision fights { id encounterID kill startTime endTime } } } rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+    "variables": {
+      "code": "7NmBydcX8HFRh1tA"
+    },
+    "head": "e6f2e826e1236fdf208dd5c085c35c07655679b1",
+    "site": "vanilla.warcraftlogs.com",
+    "endpoint": "user",
+    "started_at": "2026-10-22T10:35:57.962378+00:00",
+    "error_class": "ServerError",
+    "ended_at": "2026-10-22T10:37:58.034292+00:00"
+  },
+  "resolution_batches": [
+    {
+      "budget": 8,
+      "completed_operations": 8
+    },
+    {
+      "budget": 128,
+      "completed_operations": 128
+    },
+    {
+      "budget": 128,
+      "completed_operations": 103,
+      "stop": "RateLimited: no database points remaining"
+    }
+  ],
+  "operation_boundary": "These are resolve/ranking helper operations, not a count or price of HTTP requests; a resolution may issue multiple queries.",
+  "post_stop_quota_reading": {
+    "started_at": "2026-10-22T10:48:53.245085+00:00",
+    "query": "query ResumedCaptureBudget { rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn } }",
+    "endpoint": "user",
+    "rate": {
+      "limit_per_hour": 3000,
+      "points_spent": 1230.0,
+      "reset_in_s": 2824
+    },
+    "ended_at": "2026-10-22T10:48:53.532632+00:00"
+  },
+  "quota_boundary": "The separate hourly reading is 1230/3000, not proof database access is available. Do not equate this database-limit response with hourly-point exhaustion, infer a per-query tariff or bypass the stop. No further data queries before the observed reset plus margin.",
+  "measurement": {
+    "state": "scheduled; actual v2 scope checks pending",
+    "not_before_utc": "2026-10-22T11:36:27Z",
+    "image": "necropsy-capture:0.6.0-naxx-measurement",
+    "image_id": "sha256:71afa601f60aee4c5e19c75c0cf7f12fa430dee48073330dbe0b94a830dbeb6f",
+    "release_commit": "65b1154144167da141799321ae2b6a508f1fa9c9",
+    "wheel_sha256": "29e33fe0b3a1b99bbceb76734b9c747d4612267e420dc114cc20ac3e9ecfd18d",
+    "build_context_tar_sha256": "9a9db77d0f6c49e4e3ea8f2cac2ed7f7425b5cb35403c7a998f5c0eb6aa697ca",
+    "start_script_sha256": "2d53f6deb80f6ba5d8bbde9dcf3907005745c6c6a845da52c205a8f1b4ffc82c",
+    "collector_sha256": "0c2f3b0ded27dd1be7debe7f75e575959fb972eb84481e59e2c9240af60f2ac5",
+    "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+    "entry": {
+      "entry_id": "naxxramas-druid-balance-dps-alliance",
+      "raid": "naxxramas",
+      "zone": 2006,
+      "partition": 1,
+      "class_id": 2,
+      "class": "Druid",
+      "category": "Balance",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2006"
+      ],
+      "candidate_evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2006",
+          "character": "Teris",
+          "character_id": "77619978",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:38:14+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+            "member": "reports/Dyd43zV2xht6Mkmv/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[1]"
+          }
+        }
+      ]
+    },
+    "guards": [
+      "fresh output/cache/attempt/secrets paths",
+      "one automatic attempt only; no resume or automatic retry",
+      "same normal analyze arguments as production, behind a reset wait and two-hour timeout",
+      "default quota reserve unchanged; no forced faction, alternate API endpoint or custom cache",
+      "capture runs as 99:100; no restart policy; bounded logs",
+      "collector makes no WCL calls, compares transferred archive hashes and checks short/complex v2 scopes",
+      "no automatic registration, grading, policy acceptance, full-raid or COMPLETE claim"
+    ]
+  },
+  "production": {
+    "runner": "parked on 0.5.2",
+    "watchdog": "still disabled; no necropsy cron entry in fresh check",
+    "status_page": "old frozen status remains served",
+    "bulk_queue_emitted": false,
+    "remaining_restart_conditions": [
+      "measured capture and actual v2 smoke",
+      "fully checked queue and required review",
+      "production image bound to that queue"
+    ]
+  },
+  "rows": [
+    {
+      "entry_id": "naxxramas-druid-balance-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 11,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75453514?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99159637?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90226882?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78057025?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82700201?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99381618?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104342803?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73532967?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 11 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75840207?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76878447?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77049481?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82404094?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/87250846?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102270503?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109459723?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110073722?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66970878?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94790564?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63777548?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65603754?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70204305?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70591100?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77090312?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77910880?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102270807?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-balance-dps-horde",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 0,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75453514?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99159637?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90226882?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78057025?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82700201?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99381618?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104342803?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66970878?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94790564?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63777548?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65603754?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70204305?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70591100?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73532967?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75840207?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76878447?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77049481?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77090312?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77910880?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82404094?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/87250846?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102270503?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102270807?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109459723?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110073722?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-balance-hps-alliance",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 0,
+      "state": "unfilled",
+      "candidates": []
+    },
+    {
+      "entry_id": "naxxramas-druid-balance-hps-horde",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 0,
+      "state": "unfilled",
+      "candidates": []
+    },
+    {
+      "entry_id": "naxxramas-druid-feral-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 4,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95677954?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81817416?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85339890?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71386896?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74197702?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77108402?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 14 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80638154?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88114427?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110540476?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/101676355?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94640397?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60769838?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62257405?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65951178?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77500188?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77715594?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85345257?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95821601?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-feral-dps-horde",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 0,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77500188?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95677954?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81817416?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/101676355?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85339890?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94640397?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60769838?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62257405?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65951178?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71386896?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74197702?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77108402?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77715594?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80638154?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85345257?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88114427?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95821601?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110540476?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-guardian-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 6,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74914851?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77293769?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85345257?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71386896?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61342197?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74522188?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76087863?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77363580?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80638154?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83862315?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/84432285?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60769838?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61358798?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325819?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65951178?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70621233?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77619836?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88058183?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104528608?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110661237?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-guardian-dps-horde",
+      "checked_candidate_count": 2,
+      "unresolved_candidate_count": 0,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325819?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70621233?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 13 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77619836?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74914851?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77293769?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85345257?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71386896?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60769838?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61342197?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61358798?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65951178?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74522188?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76087863?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77363580?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80638154?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83862315?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/84432285?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88058183?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 11 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104528608?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110661237?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-restoration-hps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 8,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/106891419?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60117765?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62257405?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62375023?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63777548?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63854063?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65463598?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65603754?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69970706?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73794813?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90947721?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110397328?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77896229?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64279189?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75049812?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76718699?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77577270?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77649323?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80740229?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82123280?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90711216?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95716699?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98138119?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-restoration-hps-horde",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 4,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64279189?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77577270?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77649323?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80740229?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/106891419?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77896229?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60117765?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62257405?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62375023?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63777548?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63854063?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65463598?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65603754?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66485944?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69970706?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73794813?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75049812?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76718699?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82123280?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90711216?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 14 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90947721?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95716699?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98138119?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110397328?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-hunter-marksmanship-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 24,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82094191?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/84008886?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102344396?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75435691?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82137260?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104707664?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69504047?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75928820?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102501008?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76309001?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85382005?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75116776?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78622007?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82402367?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/91701303?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104573085?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105458488?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83408971?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100721689?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102178090?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105137536?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61480958?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65715029?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104001662?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62254741?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64028139?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65613687?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/68035741?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70028594?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74532739?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-hunter-marksmanship-dps-horde",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 16,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62513561?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64181902?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66981090?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76723996?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 14 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76826978?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80857746?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/91801212?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/92693504?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82094191?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/84008886?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102344396?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75435691?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82137260?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104707664?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69504047?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75928820?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102501008?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/108473294?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76309001?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85382005?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74562661?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75116776?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78622007?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81830879?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82176427?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82402367?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/91701303?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102079733?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104573085?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105458488?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-mage-fire-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 23,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/103402039?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80733022?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110089147?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110915416?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/111805571?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75578708?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80716374?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81754046?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85927536?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102033173?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88804779?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88995206?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62428883?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73057479?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75595687?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76837167?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81072249?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82114603?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95848535?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104620264?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105140994?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90368233?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96357551?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97320814?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85003225?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70645859?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74883904?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76762117?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76800434?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76856228?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-mage-fire-dps-horde",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 16,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60118117?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74565554?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60717517?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62086084?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62508348?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65762594?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70496868?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73386775?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74078901?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74229612?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74482519?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74626945?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76469030?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76906579?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77635915?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77751612?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78886757?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81711263?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95741242?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96457532?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97792650?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/103402039?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80733022?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110089147?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110915416?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/111805571?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75578708?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80716374?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81754046?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85927536?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-mage-frost-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 2,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104910598?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 13 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75931147?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 2 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77312438?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82234813?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96494133?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99677549?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105621040?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110426789?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90942729?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97339152?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99127107?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/101757941?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/72461525?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76211534?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82494089?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83910414?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96372998?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/112249399?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-mage-frost-dps-horde",
+      "checked_candidate_count": 1,
+      "unresolved_candidate_count": 0,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90942729?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97339152?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99127107?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/101757941?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104910598?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/72461525?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75931147?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76211534?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77312438?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82234813?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82494089?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83910414?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 6 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96372998?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96494133?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99677549?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105621040?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110426789?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/112249399?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-paladin-holy-hps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 24,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/79149619?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77214807?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77600095?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102719959?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105602726?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74770795?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75452140?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76052013?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94022653?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99128776?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/59538306?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60341606?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61247218?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62248114?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63252336?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65214999?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65669534?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65956699?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67625818?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67763267?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67830809?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69827535?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73626232?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74981291?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75716309?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76170940?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76685199?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77087518?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77595477?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78410001?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-paladin-protection-dps-alliance",
+      "checked_candidate_count": 1,
+      "unresolved_candidate_count": 0,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67666001?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65669534?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82824656?zone=2006",
+          "accepted": false,
+          "reason": "no Protection dps amount on any boss"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-paladin-retribution-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 6,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76186825?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76716431?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 14 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77063025?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 14 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77152471?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 2 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81383855?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82390961?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83715084?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85887213?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102719959?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104522677?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109810998?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-priest-holy-hps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 25,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100977977?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94858163?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98303571?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74085601?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80932992?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100658702?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100755943?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/107948808?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/111567096?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105289700?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90682266?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61021531?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71433569?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75245104?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/91426928?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60683531?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62348588?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62452523?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62506056?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63161107?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63467811?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64647243?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65118340?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65369485?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65538160?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65587545?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65790010?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66362368?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66872267?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67668804?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-priest-holy-hps-horde",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 16,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60117178?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63315200?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325801?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63381902?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63381904?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71054242?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77516109?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77595687?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77731465?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85292854?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/92693506?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100074522?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100578419?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/101018025?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100977977?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94858163?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98303571?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74085601?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80932992?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100658702?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100755943?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/107948808?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/111567096?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105289700?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90682266?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61021531?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71433569?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75245104?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/91426928?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60683531?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-priest-shadow-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 22,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77573539?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76273724?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73002680?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 3 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74562323?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75572830?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 2 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77122652?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77435782?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78630635?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81805145?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82888762?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83206660?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/86966565?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88822345?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97656766?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97844638?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99240199?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104343774?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105136012?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/107948808?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/112360515?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105787685?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60141027?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62348984?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63544942?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66195792?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73820332?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74229739?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74562394?zone=2006",
+          "accepted": false,
+          "reason": "faction Horde, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74796696?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-priest-shadow-dps-horde",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 22,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66195792?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74562394?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74796696?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75823112?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77573539?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76273724?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105787685?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60141027?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62348984?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63544942?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73002680?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73820332?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74229739?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74562323?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75572830?zone=2006",
+          "accepted": false,
+          "reason": "faction Alliance, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76536243?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76693453?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77122652?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77166523?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77168674?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77435782?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77526642?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78630635?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78663743?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81805145?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82888762?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83206660?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/86966565?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88822345?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-rogue-assassination-dps-alliance",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 23,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/79715384?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97084577?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/111946094?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69504042?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Alliance"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95755683?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75492003?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66757794?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77416770?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88399498?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109159323?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64139362?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74747162?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76158927?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81022783?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81480223?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/103150357?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77487334?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97839046?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98135356?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110043604?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67281272?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75285463?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81631800?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65639509?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73843638?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76290779?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77022735?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77467731?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78663916?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/91003957?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-rogue-assassination-dps-horde",
+      "checked_candidate_count": 3,
+      "unresolved_candidate_count": 25,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63869059?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77155951?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62246596?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62246600?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62246619?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62353694?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63098736?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63102628?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63354753?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66580980?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69623004?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73556916?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73961988?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74048804?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74533153?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75298691?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75596240?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76266095?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76288413?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76578321?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76665969?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76688578?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77199763?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77540383?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81211819?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83168270?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/84714037?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85975670?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88178602?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95561902?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-shaman-elemental-dps-horde",
+      "checked_candidate_count": 1,
+      "unresolved_candidate_count": 0,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78237703?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80764809?zone=2006",
+          "accepted": true,
+          "reason": "dps ranked on 14 boss(es)"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-shaman-enhancement-dps-horde",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 0,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73961992?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75946416?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-shaman-restoration-hps-horde",
+      "checked_candidate_count": 2,
+      "unresolved_candidate_count": 27,
+      "state": "checked candidates available",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62259058?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62299945?zone=2006",
+          "accepted": true,
+          "reason": "hps ranked on 15 boss(es)"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62524592?zone=2006",
+          "accepted": false,
+          "reason": "faction unknown, entry needs Horde"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62664824?zone=2006",
+          "accepted": null,
+          "reason": "metric not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63315190?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325807?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63343859?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64018325?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64055735?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64148084?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66353853?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69054796?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74022627?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74269779?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75930054?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76199985?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76655031?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76661257?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77595290?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82909812?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83059895?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85689519?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85841198?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/87167191?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/87197198?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/89882070?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95492701?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/97559533?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99568622?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/100762042?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warlock-destruction-dps-alliance",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 30,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109108343?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/106671000?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73369269?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82589953?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71113424?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81804021?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98300493?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75688294?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77149403?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98351134?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95815694?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75776378?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81244806?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66353169?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/68459031?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75464989?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77751784?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81391321?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82261672?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90316728?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/92663779?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96165071?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109616656?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76534299?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81054316?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82217227?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85740766?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62729343?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67708977?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78150868?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warlock-destruction-dps-horde",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 30,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74452995?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/59604947?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63442942?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63806858?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64064833?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64322945?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64724977?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/68239764?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73648606?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73815326?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73952387?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73988180?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74562393?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75820043?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77618623?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83194778?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83399937?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90579864?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96798464?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109108343?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/106671000?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73369269?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82589953?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71113424?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81804021?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98300493?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75688294?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77149403?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98351134?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/95815694?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warrior-fury-dps-alliance",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 30,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82731475?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/92315734?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/111896598?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104140552?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/92966969?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/102060776?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78916874?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/87605065?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76007004?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98702916?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75434461?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96510928?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/110448579?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74111503?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/101884080?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80106614?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81807141?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82347040?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/108562857?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/109777767?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81716118?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/91780308?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/112780529?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/71853085?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75519998?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76296293?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76688264?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76779054?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88251017?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90068257?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warrior-fury-dps-horde",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 30,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75322236?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77046856?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77214210?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77288821?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78399750?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81923857?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/59552187?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60117066?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62246613?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62304872?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62319604?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62490413?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62508358?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62577706?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62668233?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62697459?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62901367?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63049001?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63068441?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63294833?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63315194?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63315206?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325796?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325798?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325811?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63689392?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64016644?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64034812?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64450979?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64566644?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warrior-protection-dps-alliance",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 30,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94217211?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96510928?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/107019521?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75466963?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73162988?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60118190?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75475848?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/99578244?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76594122?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73974052?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74660854?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74852809?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75487496?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75773179?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76719426?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77603813?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80852373?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82172254?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82729309?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/87605065?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88728018?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/101884080?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/105137537?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77193140?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88597947?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61370710?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60120245?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/69888632?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75055873?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76224987?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warrior-protection-dps-horde",
+      "checked_candidate_count": 0,
+      "unresolved_candidate_count": 30,
+      "state": "unfilled",
+      "candidates": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60118220?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61334639?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62319601?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63325810?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63937964?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64222466?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66413021?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67487146?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67563015?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/68036666?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74469040?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75339541?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75489458?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75911168?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75943262?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77213043?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78042497?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78696677?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81371608?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82492777?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/89635572?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/92736847?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98144230?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/94217211?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96510928?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/107019521?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75466963?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73162988?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60118190?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75475848?zone=2006",
+          "accepted": null,
+          "reason": "faction not checked"
+        }
+      ]
+    }
+  ]
+}

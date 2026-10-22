@@ -7,6 +7,7 @@ Later solo continuation under D013 also retains these bounded offline audits:
 
 | File | Content |
 |---|---|
+| [capture-readiness-20261022.json](capture-readiness-20261022.json) | Maintenance hold lifted; 23/34 configurations have checked candidates; database-quota stop and one isolated measurement scheduled after the observed reset, with no production restart |
 | [offline-dps-inventory.json](offline-dps-inventory.json) | 102 supported rows attempted; 39 independently re-enumerated matches, 63 refusals; pinned recipes and actor-source checks, no validated cell policies |
 | [edited-source-timing-audit.json](edited-source-timing-audit.json) | Three edited Classic encounter pages compared with static facts; guide claims and unresolved qualifiers, no observed mechanic or production change |
 

@@ -2,6 +2,24 @@
 
 ## Current continuation, 2026-10-21
 
+Live continuation, 2026-10-22: owner confirms WCL is back; the maintenance hold
+is lifted. Candidate checking has 177 identities/62 ranking answers, covering
+23 configurations; 11 remain unfilled and bulk emission refuses. WCL then
+returns `no database points remaining` despite a separate 1230/3000 hourly
+reading. Respect the stop. A single isolated Tower measurement is scheduled
+for 11:36:27 UTC / 13:36 Amsterdam, after the observed reset plus margin,
+using the published 0.6.0 wheel and checked Teris Balance-DPS Alliance entry.
+It has a two-hour cap, default reserve, no restart/retry and fresh paths;
+production runner/watchdog remain parked. No actual v2 smoke passed yet.
+See `research/capture-readiness-20261022.json` and 03 progress. The background
+collector status is `workspace/codex-naxx/measurement-20261022/collector-status.json`;
+it copies and verifies any snapshot but never promotes evidence. **Do not run
+other WCL calls until this attempt exits.** Its credential-file copy is now
+the API owner; reconcile any refreshed sign-in before returning API ownership
+to the PC. Inspect the outcome, quotas/journals and short/complex receipts,
+then finish remaining candidate checks/leaderboard discovery and queue review.
+
+
 Latest offline checkpoint, 2026-10-22: capability catalog has 42 sources; the
 additional mixed Druid/Priest Maexxna fragment is blocked. Edited-page timing
 audit is in `research/edited-source-timing-audit.json`; no production content
