@@ -100,6 +100,31 @@ discard the draft tool/evidence without editing production rules or registers.
 
 ## Calibration
 
+### Operational retry review before activation, 2026-10-22
+
+**PM-10 — High — an isolated smoke stops making progress or overlaps another API owner.**
+Observed failure: the one-attempt job correctly stopped at a database restriction,
+but its coordinator treated that limit as the end of the wider autonomous task.
+A second verified resume retained 623798 raw event rows, then stopped while
+finalizing report sets. A successful checkpoint is not a certified snapshot.
+Reusing output directories without binding the prior checkpoint, or running
+candidate discovery concurrently, could turn useful retries into conflicting
+acquisitions. The failure and regression risk are grounded in both outcome
+receipts and the retained journal; the database restriction's cause remains unknown.
+
+Guardrails: one checked entry and pinned released image/queue, unchanged normal
+analyze arguments, source-controlled receipt validation and retry decisions from
+`capture_runner`, one API owner, fresh numbered attempt/receipt paths, verified
+prior checkpoint, default quota reserve, the runner's two-minute reset margin,
+50 GiB floor before/during attempts, four further attempts within six hours and
+two hours per child, owner-stop forwarding, no automatic candidate change,
+notifications or evidence promotion. Missing/mismatched outcomes and unknown
+resets require attention. Validate the seed with networking disabled before
+activation; keep ordinary source/content work moving during external waits.
+Rollback: stop only the isolated coordinator; retain receipts/cache/checkpoints,
+leave the parked production runner and watchdog untouched. Verdict: PROCEED WITH
+GUARDRAILS; actual retries/capture acceptance remain pending.
+
 ### Scoped queue follow-up, 2026-10-21
 
 **PM-7 — High — scope and evidence bleed into a new queue.** A regenerated

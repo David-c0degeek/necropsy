@@ -1,3 +1,11 @@
+> Current continuation, 2026-10-22: the release checklist and local commits
+> below are historical. 0.6.0 was published from `65b1154`; do not recut it.
+> Codex continues under the authorized solo implementation decision. Local AI
+> is paused during the owner's raid/WoW until explicit resume. A separate bounded
+> WCL measurement owns the API session; production capture and its watchdog stay
+> parked. See [remaining work](remaining-work.md), subjects 03/04/06 and the
+> current measurement receipt for progress and genuine dependencies.
+
 # Handoff to Codex (with LocalPilot), 2026-10-21
 
 ## Current continuation, 2026-10-21

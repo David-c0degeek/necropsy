@@ -72,3 +72,25 @@ Published 0.6.0 wheel staged into a separate single-entry measurement image, ver
 2026-10-21 · Preparation · Owner directs Codex to continue while Claude has no usage (D013). Existing pair session parked with pending Claude reviews retained. Fresh read-only SSH at 17:48:59 UTC confirms runner exited on 0.5.2, status server running, parked backup directory present and 305 GiB visible free space. Image staging now accepts an explicit queue/pin pair and retains the old defaults. PM-6 records wrong-queue staging and its guardrails. No image deployed, production restart or watchdog enablement; 03.1/03.2/03.4 remain open.
 2026-10-21 · Preparation validation · Eleven staging tests pass, including custom-queue binding, wrong-pin refusal without output, and requiring both custom inputs. Ruff lint/format and targeted mypy pass; `check_docs` checks 297 links. Initial normal user-endpoint quota query failed with HTTP 503 at 17:49:33 UTC (start 17:48:59); no subject/report/event requests or capture followed, and available quota remains unknown. Full checkpoint gate uses eight pytest workers via `PYTEST_ADDOPTS=-n 8 --dist worksteal` and `NECROPSY_GATE_WORKERS=8`; its result is retained in the ignored workspace log, with no completion tick inferred while it runs.
 2026-10-21 · 03.3 · Owner approval "Approved" relayed verbatim by Claude in mailbox claude:16, session 20261021T120145Z-a4a14bde. Conditional on all of: released 0.6.0 and Tower image built from its wheel; real 03.2 smoke proving v2 encounter and critical streams; one measured normal v2 capture with a short and complex fight and timestamped quota evidence; Naxx queue passing `capture_queue verify` and pair review. Approval is DONE and mirrored in manual-actions.md. No restart, image deployment or watchdog change has occurred; 03.4 remains open. These records are separate from the frozen release candidate 65b1154.
+
+2026-10-22 · Isolated capture resumed with bounded supervision · Attempt 001
+stopped at 11:38:35 UTC with quota-reset/exit 3 and no snapshot. After ordinary
+report/quota probes succeeded, attempt 002 resumed the pinned checkpoint and
+stopped at 17:18:21 UTC with the same database-points refusal, no snapshot and
+no report. Last successful hourly API usage was 1048.15/3000; database readiness
+must not be equated with hourly API headroom. Retained successful responses are
+usable for explicitly partial positive observations, not smoke acceptance.
+
+A separate isolated coordinator now owns the credential-file session and the
+same one-entry queue/image. It uses the shipped runner's receipt verification
+and reset decision, unchanged quota reserve, a two-minute reset margin, at most
+four further attempts (003–006), a six-hour controller limit, two-hour child
+limits and a 50 GiB free-space floor. Network-disabled seed validation passes;
+a modified checkpoint digest is rejected. Next eligible attempt is
+18:16:03 UTC (20:16 Amsterdam). No candidate switching, model use, notification,
+promotion, production restart or watchdog enablement occurs. Stop only
+`necropsy-naxx-measurement-autopilot-20261022` to cancel; preserve its cache and
+receipts. Do not make competing PC WCL/candidate calls while it owns the API.
+The current collector is `bounded-collector-status.json` under the ignored
+measurement workspace; the older `collector-status.json` is historical.
+See `remaining-work.md` for work that continues independently of the capture.

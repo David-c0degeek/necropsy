@@ -1,0 +1,107 @@
+{
+  "status": "additional authored Classic-guide evidence; research only, no support-key activation or production rule change",
+  "baseline_ledger_path": "tests/golden/raids/naxx-boss-source-review.json",
+  "baseline_ledger_sha256": "96b612813e8de4951ad1f3f854212ce94514ea11ce93c5cd140dc0a35bf2957c",
+  "sources": [
+    {
+      "encounter_id": 51107,
+      "boss": "Anub'Rekhan",
+      "url": "https://www.wowhead.com/classic/guide/anubrekhan-naxxramas-raid-strategy",
+      "method": "Expanded Classic guide search text; guide body only, no comments or other expansions.",
+      "excerpts": {
+        "impale-line": "All players caught in the line of spikes will be Impaled, taking significant damage and getting launched into the air."
+      },
+      "findings": [
+        "Guide describes a selected Impale direction affecting players along that line, followed by launch and possible fall damage; healers are advised to respond before landing.",
+        "Locust Swarm discussion separates the boss kite from Crypt Guard and corpse-scarab handling. Class help remains conditional; a suggested Hunter movement buff is not an observed safe window."
+      ],
+      "remaining": "No exact logged Impale target set, range, fall-damage threshold, assignment or new Hunter capability certificate.",
+      "retrieved": "2026-10-22"
+    },
+    {
+      "encounter_id": 51112,
+      "boss": "Heigan the Unclean",
+      "url": "https://www.wowhead.com/classic/guide/heigan-the-unclean-naxxramas-raid-strategy",
+      "method": "Expanded Classic guide search text; diagram not recovered, comments and TBC/Wrath pages excluded.",
+      "excerpts": {
+        "eruption-channel": "This ability is channeled for 45 seconds",
+        "tunnel": "Players teleported into the Eye Stalk Tunnel will need to fight their way out."
+      },
+      "findings": [
+        "Written strategy describes the platform channel and moving safe gaps; the tank and raid have distinct jobs. This supports phase-aware preparation without reconstructing missing diagram coordinates.",
+        "Guide claims later eruption phases accelerate. This remains a guide claim requiring observed cadence, not a measured recurrence model or player movement grade."
+      ],
+      "remaining": "No diagram, room coordinates, observed safe-zone path, resolved disease attribution or actual opportunity.",
+      "retrieved": "2026-10-22"
+    },
+    {
+      "encounter_id": 51109,
+      "boss": "Gothik the Harvester",
+      "url": "https://www.wowhead.com/classic/guide/gothik-the-harvester-naxxramas-raid-strategy",
+      "method": "Expanded Classic guide body, Patch 1.15.8, author Rokman, updated 2025-09-08; no NPC comments or other expansions.",
+      "excerpts": {
+        "pacing": "you don't want to kill the live side too quickly or it will overwhelm the undead side",
+        "persistent-adds": "The adds do not despawn"
+      },
+      "findings": [
+        "Guide describes live-side deaths producing undead-side enemies and emphasizes communication so live-side killing does not overrun the other group.",
+        "It supplies separate live/undead add priorities and specific control claims, which remain source candidates until numeric NPC/spell bindings and capability review qualify them.",
+        "Landing is described approximately around four and a half minutes. This is not an observed timestamp and does not resolve the original Harvest Soul cadence conflict."
+      ],
+      "remaining": "No raw wave schedule, complete add roster, immunity/control policy or exact phase clock.",
+      "retrieved": "2026-10-22"
+    },
+    {
+      "encounter_id": 51114,
+      "boss": "Kel'Thuzad",
+      "url": "https://www.wowhead.com/classic/guide/kelthuzad-naxxramas-raid-strategy",
+      "method": "Direct successful guide-body open, Patch 1.15.8, author Rokman, updated 2025-09-14; comments excluded.",
+      "excerpts": {
+        "abomination": "Unstoppable Abomination",
+        "soldier": "Soldier of the Frozen Wastes",
+        "weaver": "Soul Weaver",
+        "fissure-guide-delay": "After 3 seconds, it explodes and deals 62,000 shadow damage",
+        "blast-guide-proportion": "104% of their health"
+      },
+      "findings": [
+        "Phase-one sections distinguish the three add types and separate melee tanked-add work from ranged interception of approaching enemies.",
+        "Body supplies Shadow Fissure delay/damage and Frost Blast health-fraction claims. The latter corroborates one branch of the original conflict, but neither percentage becomes a threshold or grade without raw evidence.",
+        "The introduction ties phase change to clearing the portal mobs, while the original ledger supplies an elapsed full-pull timer. Do not infer a selected logged fight starts at that full-pull origin.",
+        "The guide itself combines Nature-protection preparation with an Arcane Detonate Mana description. That inconsistency is retained, not repaired from comments."
+      ],
+      "candidate_identities": [
+        {
+          "game_id": 16428,
+          "name": "Unstoppable Abomination",
+          "url": "https://www.wowhead.com/classic/npc=16428/unstoppable-abomination",
+          "verified": "Classic database heading/location, reached through the guide link"
+        },
+        {
+          "game_id": 16427,
+          "name": "Soldier of the Frozen Wastes",
+          "url": "https://www.wowhead.com/classic/npc=16427/soldier-of-the-frozen-wastes",
+          "verified": "Classic database heading/location, reached through the guide link"
+        },
+        {
+          "game_id": 16429,
+          "name": "Soul Weaver",
+          "url": "https://www.wowhead.com/classic/npc=16429/soul-weaver",
+          "verified": "Classic database heading/location, reached through the guide link"
+        },
+        {
+          "ability_id": 27810,
+          "name": "Shadow Fissure",
+          "url": "https://www.wowhead.com/classic/spell=27810/shadow-fissure",
+          "verified": "Guide link only; spell page returned a JavaScript challenge, no numeric effect independently verified"
+        }
+      ],
+      "remaining": "No control policy, observed NPC roster, phase completeness or logged time-origin claim. Existing conflicting Frost Blast keys stay blocked.",
+      "retrieved": "2026-10-22"
+    }
+  ],
+  "limits": [
+    "Authored guides and database identities are not log observations.",
+    "Existing conflicts and capability boundaries stay in force; no change to original frozen orders or scores.",
+    "Four omitted-topic follow-ups do not complete the class/race matrix or original diagram review."
+  ]
+}

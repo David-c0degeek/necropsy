@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-22",
+  "status": "bounded isolated coordinator active; no certified snapshot or production restart",
+  "image_sha256": "71afa601f60aee4c5e19c75c0cf7f12fa430dee48073330dbe0b94a830dbeb6f",
+  "container": "necropsy-naxx-measurement-autopilot-20261022",
+  "attempt_002_outcome": {
+    "version": 1,
+    "exit_code": 3,
+    "stop_class": "quota-reset",
+    "reset_at_utc": "2026-10-22T18:14:03+00:00",
+    "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+    "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+    "snapshot": null,
+    "incomplete_bosses": null,
+    "written_at_utc": "2026-10-22T17:18:21+00:00"
+  },
+  "next_eligible_utc": "2026-10-22T18:16:03Z",
+  "limits": {
+    "additional_attempts": 4,
+    "attempt_ids": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "controller_hours": 6,
+    "child_hours": 2,
+    "free_space_floor_gib": 50,
+    "reset_margin_seconds": 120,
+    "quota_reserve": "shipped default"
+  },
+  "inputs": {
+    "resume-bounded.py": "e28e77440aef4893e33e711b64717f14e6ab43960a6bc9080521859a72c527d8",
+    "collect-bounded.py": "e53bcf7bdb301256e6327ea48a7b2e78f84aa0c3a6f3d4501046f9576215cca3",
+    "bounded-resume-preflight.log": "f440a2a25431413c7d990031f70a430606a1e0baa2bc8f44236bb9bf5da3f698",
+    "negative-preflight.log": "61b7a7515db3d4460b5e80a31f9788858279340005ef3ba1d7ee4a6872d99407",
+    "attempt-002-journal.tar.gz": "2c196f1a88feeb6ec43db2a48a581e5163048028d6e4703dc8fae6293ae1a302",
+    "measurement-queue.json": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078"
+  },
+  "preflight": {
+    "network_disabled_seed": "pass",
+    "checkpoint_digest_mismatch": "rejected",
+    "model_calls": 0
+  },
+  "journal": {
+    "successful_requests": 191,
+    "event_rows_across_overlapping_responses": 623798,
+    "positive_npc_source_occurrences": 8276,
+    "selected_fights": 9,
+    "scope_complete": false
+  },
+  "local_ai": "paused by owner during raid/WoW; explicit resume required",
+  "cancellation": "docker stop necropsy-naxx-measurement-autopilot-20261022; retain checkpoint/cache/receipts",
+  "api_ownership": "isolated coordinator only; no parallel PC WCL/candidate data calls",
+  "production": "0.5.2 capture stopped; watchdog off; no queue/state/cache promotion"
+}

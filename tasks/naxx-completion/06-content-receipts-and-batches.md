@@ -5,10 +5,23 @@ Sourced boss × class guidance for all 15 bosses and every configuration, a clea
 receipt for every capture, and batch registrations that turn cells COMPLETE.
 
 ## Integration analysis
-To be completed before 06.1. Reuse the 01.2 strategy seam, `guidance_lint.py`,
-class notes (`healer_notes.yaml` and DPS equivalents if any), `render_parity.py`,
-`raid_batch.py`. Existing Naxx `encounters` guidance (8 bosses) is either migrated
-into strategy items or kept, by decision; no duplicate rendering.
+Reuse the existing strategy seam, `guidance_lint.py`, `render_parity.py` and
+`raid_batch.py`. `analysis/encounters/strategy.py` selects items by class and
+metric, not ranking category. Keep the two tank-category-only draft profiles
+out of the proposed YAML: class/metric selection would broaden them to DPS.
+Any future category-aware seam needs its own implementation review and tests.
+
+The eight existing Hunter `encounters` blocks stay in place for this proposal.
+Do not repeat their Rapid Fire/Refocus instructions in new strategy items.
+`report/combat.py` renders healer class notes only for the healer role;
+`rules/classic_era/healer_notes.yaml` currently covers Paladin, Priest and Shaman.
+Druid healer review is separate in `report/druid.py`. Recorded gear/build
+presentation already shares `report/equipment.py`; source applicability and
+actual captured loadouts still need review before 06.2 can close.
+
+The proposed strategy file is research, not a production rule file. Mechanical
+verifier success does not replace semantic source review, independent review,
+rendering checks or per-capture receipts.
 
 ## Boxes
 - [ ] **06.1** (agent) Content per boss, all classes at once: drafts by work order from 04.1 excerpts, lint-clean, Claude-verified against excerpts, then one content review per boss group.
@@ -21,3 +34,21 @@ into strategy items or kept, by decision; no duplicate rendering.
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
+
+2026-10-22 · Coordinator drafts prepared without local inference ·
+`research/coordinator-guidance-drafts.json` records finite source-bound profiles
+and 510 boss/configuration recipes (15 bosses × 34 legal configurations).
+Every draft passes the existing work-order verifier. A separate reconstruction
+reproduces all 510 orders and drafts byte for byte, checks source/tool hashes and
+matches each projected section against `research/naxx-strategy-proposal.yaml`.
+All eight work-order categories are accounted for; unsupported categories stay
+explicitly unknown. The proposal contains before/during/raid sections for every
+legal projection. Patchwerk hateful-tank loadout and Sapphiron tank duty remain
+withheld because their category restriction is not expressible by the current
+strategy selector. Existing Hunter guidance and all production rules are
+unchanged. This is draft preparation, not 510 completed cells or approval.
+Semantic/source review, capability/loadout coverage, independent review,
+integration, visual checks, receipts and batches remain open. Historical local
+model trial scores and frozen source-ledger pins are unchanged.
+
+Verification: all 510 independent reconstructions pass; 119 existing guidance, queue, staging and archive checks pass. The docs checker passes 297 maintained links, and the research secret scan finds no leaks. Full unchanged-tree gate follows commit.

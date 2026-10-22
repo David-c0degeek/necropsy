@@ -41,3 +41,24 @@ Verification: the 19-source catalog hash, all capability references and WCL clas
 2026-10-21 · Continued offline capability review · Catalog now has 25 sources: added Warrior Demoralizing Shout, Paladin Consecration (explicit Classic talent boundary), Priest Cure/Abolish Disease and Shaman Cure Disease/Disease Cleansing Totem. Heigan references the disease capabilities without claiming observed removals. Faerlina `strat_cleansers` and Maexxna `warrior_taunt` are now explicitly excluded by conflicts, closing the gap between prose warnings and usable support keys. Neither mixed-class sentence may be copied into guidance; separate class attribution and talent applicability remain required. No production rule or content item changed.
 2026-10-21 · 04.3 pilot, not registration · Existing v1 Sapphiron Restoration archive, report `arYtVP9kgnjBJp7K`, fight 48, Druid actor 22 Haplina: `fact_freeze` actor-stream query found six spell-2782 cast times at 37202, 38720, 112566, 114135, 131290 and 174485 ms from the fight start (duration 174912 ms). A separate standard-library ZIP/event Counter enumeration reproduced all six timestamps and raw locators without the fact-freeze event parser or analyzer. SOURCE and TARGET each contain the six casts; max multiplicity gives six, not twelve. `research/sapphiron-actor-cast-pilot.json` retains raw events, locators, archive/tool hashes, interpreter and limits. A cast is not a successful removal or a removed-debuff identity. No actor-source registration, new frozen-fact register, ranking policy or COMPLETE cell is claimed; full eligibility and fact review remain open.
 2026-10-21 · 04.2 positive removal pilot · Same selected actor/fight has six explicit `dispel` rows, separately from its six cast rows: `abilityGameID=2782`, `extraAbilityGameID=28542`, `isBuff=false`, recipients 8, 41, 39, 11, 27 and 34. Exact integer IDs bind to the report catalog and selected friendly-player list. SOURCE and TARGET each contain the six rows; maximum-multiplicity union remains six. Independent direct ZIP enumeration and the separate scanner parser agree on every raw row. `research/sapphiron-actor-dispel-pilot.json` retains raw rows, all locators/page hashes, query, tool/interpreter provenance and Classic Life Drain name/Curse source. These are positive personal dispel observations only. No encounter-wide absence/completeness, application-to-removal response time, assignment, missed opportunity, grade or completion is inferred; cast/dispel rows are not paired by nearest timestamp. Both 04.2 and 04.3 remain open.
+
+2026-10-22 · Source follow-up and positive raw evidence ·
+`research/boss-source-followup-20261022.json` recovers authored Classic guide
+context for Anub'Rekhan, Heigan, Gothik and Kel'Thuzad. It retains retrieval,
+short quotations and limits separately from the frozen source ledger. Heigan's
+diagram, Gothik cadence and Kel'Thuzad conflicting damage claims remain open;
+no blocked support key is enabled.
+
+`research/journal-positive-observations.json` independently binds retained
+successful request data to report revision, fight bounds and numeric NPC
+catalog identities. The fixed journal archive contains 191 successful requests
+and 623798 rows across responses, including overlap; these are not unique raid
+events. Maximum raw multiplicity yields 8276 positive NPC-source occurrences
+across nine selected fight contexts. Four Horsemen source identities/marks,
+Thaddius Polarity Shift, Loatheb and Gothik casts and Kel'Thuzad casts are
+positive observations only. All scopes remain incomplete. Upstream spell names
+include reused labels, so names do not override numeric identities or certify
+Classic mechanics. Kel'Thuzad boss-source events near the recorded fight start
+also prevent blindly applying a full-pull guide timer. No absence, phase,
+spawn-lifetime, assignment, opportunity, grading policy, actor registration or
+certified v2 capture follows from this unfinished journal. 04.1–04.4 stay open.
