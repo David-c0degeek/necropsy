@@ -5,9 +5,25 @@ The completed Naxx analysis works for users: pages, desktop app, installed
 build, saved analyses and legacy views, released and accepted by the owner.
 
 ## Integration analysis
-To be completed before 07.1. Reuse the existing browser tests, visual_check,
-release workflow (`scripts/build_release.py`, Desktop workflow) and the
-distribution checks.
+Use the existing normal-acquisition integration harness, saved-document
+renderer and `run_offline` for analysis.json, both pages and packaged output.
+Naxx v1 must retain its existing output: the encounter block is gated by v2
+format. Rendering an old saved document consumes its stored strategy; it must
+not fetch current rules to add new advice. Category applicability is selected
+before serialization, without changing the saved strategy schema.
+
+Keep the 18-archive/54-output v1 comparison and the separate full Haplina export
+as distinct controls. Synthetic v2 acquisition proves wiring, not real WCL
+acceptance. The real short/complex capture receipts and reviewed content are
+prerequisites to final acceptance samples. Existing browser checks cover
+rendered behavior and overflow helpers; they do not replace inspecting new
+content at desktop/mobile/print sizes per class.
+
+Reuse `scripts/build_release.py`, the Desktop workflow and distribution checks
+for the eventual reviewed candidate. Install/replay that candidate outside the
+checkout and test live, saved and legacy paths before owner acceptance. The
+published 0.6.0 release is the acquisition baseline, not proof that unfinished
+Naxx content is accepted. Do not recut it or publish a new release early.
 
 ## Boxes
 - [ ] **07.1** (agent) Naxx controls: legacy/live/saved replays, both pages, package; intended changes listed and reviewed.
@@ -21,3 +37,10 @@ distribution checks.
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
+
+2026-10-22 · Compatibility checkpoint, not final acceptance · Optional strategy
+category selection preserves all 57 controlled legacy outputs byte-for-byte;
+92 existing browser tests pass. Four synthetic normal acquisition/render cases
+exercise category selection and v1/v2 boundaries. The source proposals remain
+research, and no new class-content visual acceptance, installed release
+candidate or owner acceptance is claimed. 07.1–07.5 stay open.

@@ -1,8 +1,11 @@
 """Static strategy stays separate from measurements, assignments and game variants."""
 
+import json
+from pathlib import Path
 from typing import Any
 
 import pytest
+import yaml
 
 from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.analysis.encounters import strategy as strategy_module
@@ -248,6 +251,123 @@ def test_naxx_strategy_items_are_served_once_sourced(monkeypatch: pytest.MonkeyP
     assert [(i.rule, i.section) for i in hunter.items] == [("patchwerk-test-v1", "during")]
     assert encounter_strategy("naxxramas", 51118, 1, 4, "dps") is None
     assert encounter_strategy("naxxramas", 51118, 3, 3, "dps") is None
+
+
+def test_category_restricted_strategy_requires_a_known_matching_selection(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original = load_rules
+    entry: dict[str, Any] = {
+        "source": "https://example.test/patchwerk",
+        "retrieved": "2026-10-22",
+        "items": [
+            {"rule": "patchwerk-general-test-v1", "section": "before", "text": "General."},
+            {
+                "rule": "patchwerk-tank-test-v1",
+                "section": "raid",
+                "text": "Confirm your assignment.",
+                "classes": [2, 6, 11],
+                "metrics": ["dps"],
+                "categories": ["Guardian", "Protection"],
+            },
+        ],
+    }
+
+    def with_categories(game: str, name: str) -> dict[str, Any]:
+        data = original(game, name)
+        return {**data, "strategy": {51118: entry}} if name == "zones/naxxramas_guidance" else data
+
+    monkeypatch.setattr(strategy_module, "load_rules", with_categories)
+    for config in configurations():
+        strategy = encounter_strategy(
+            "naxxramas", 51118, 1, config.class_id, config.metric, category=config.category
+        )
+        assert strategy is not None
+        assert ("patchwerk-tank-test-v1" in {i.rule for i in strategy.items}) is (
+            config.category in {"Guardian", "Protection"}
+        )
+    unknown = encounter_strategy("naxxramas", 51118, 1, 2, "dps")
+    assert unknown and [i.rule for i in unknown.items] == ["patchwerk-general-test-v1"]
+    entry["items"][1]["categories"] = ["Protection"]
+    alias = encounter_strategy("naxxramas", 51118, 1, 11, "dps", category="Guardian")
+    assert alias and "patchwerk-tank-test-v1" in {i.rule for i in alias.items}
+    for class_id, category, metric in [
+        (2, "Protection", "dps"),
+        (2, "Guardian", "hps"),
+        (11, "Restoration", "dps"),
+    ]:
+        with pytest.raises(ValueError):
+            encounter_strategy("naxxramas", 51118, 1, class_id, metric, category=category)
+
+
+@pytest.mark.parametrize("categories", [None, [], "Guardian", [2]])
+def test_invalid_category_restriction_never_becomes_general_advice(
+    monkeypatch: pytest.MonkeyPatch,
+    categories: Any,
+) -> None:
+    original = load_rules
+
+    def invalid(game: str, name: str) -> dict[str, Any]:
+        if name != "zones/naxxramas_guidance":
+            return original(game, name)
+        return {
+            "strategy": {
+                51118: {
+                    "source": "https://example.test/patchwerk",
+                    "retrieved": "2026-10-22",
+                    "items": [
+                        {
+                            "rule": "bad-v1",
+                            "section": "before",
+                            "text": "Invalid.",
+                            "categories": categories,
+                        }
+                    ],
+                }
+            }
+        }
+
+    monkeypatch.setattr(strategy_module, "load_rules", invalid)
+    with pytest.raises(ValueError, match="categories"):
+        encounter_strategy("naxxramas", 51118, 1, 2, "dps")
+
+
+def test_research_tank_proposal_preserves_frozen_text_and_exact_legal_scope(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    research = Path(__file__).resolve().parents[2] / "tasks/naxx-completion/research"
+    bundle = json.loads((research / "coordinator-guidance-drafts.json").read_bytes())
+    proposal = yaml.safe_load((research / "naxx-category-strategy-proposal.yaml").read_bytes())
+    original = load_rules
+
+    def proposed(game: str, name: str) -> dict[str, Any]:
+        return proposal if name == "zones/naxxramas_guidance" else original(game, name)
+
+    monkeypatch.setattr(strategy_module, "load_rules", proposed)
+    assert set(proposal["strategy"]) == {51118, 51119}
+    for encounter, entry in proposal["strategy"].items():
+        profile = next(
+            p for p in bundle["profiles"][str(encounter)] if p["applies"] == "tank-category"
+        )
+        assert len(entry["items"]) == 3
+        for row in entry["items"]:
+            assert row["text"] == profile["text"] and row["support"] == profile["support"]
+            assert row["section"] == profile["proposed_section"]
+        for config in configurations():
+            strategy = encounter_strategy(
+                "naxxramas", encounter, 1, config.class_id, config.metric, category=config.category
+            )
+            assert (strategy is not None) is (config.category in {"Guardian", "Protection"})
+            if strategy is not None:
+                assert len(strategy.items) == 1
+                assert strategy.items[0].text == profile["text"]
+                assert (
+                    "assignment" in strategy.items[0].text or "assigned" in strategy.items[0].text
+                )
+            assert (
+                encounter_strategy("naxxramas", encounter, 1, config.class_id, config.metric)
+                is None
+            )
 
 
 def test_chromaggus_removal_capabilities_do_not_cross_affliction_types() -> None:

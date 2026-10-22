@@ -118,3 +118,10 @@ def test_source_and_capability_conflicts_cannot_be_used_as_support(tmp_path: Pat
     }
     findings = gl.lint(draft, 7, "Alliance", reviews)
     assert any("support keys not in the review: fear_ward" in f for f in findings)
+
+
+def test_sapphiron_ambiguous_movement_trigger_is_not_usable_support() -> None:
+    path = Path(__file__).resolve().parents[2] / "tests/golden/raids/naxx-boss-source-review.json"
+    keys = gl.load_reviews([path])[51119]["keys"]
+    assert "tip_iceblock_timing" not in keys
+    assert "icebolt_count" in keys

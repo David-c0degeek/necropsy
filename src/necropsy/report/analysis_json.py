@@ -1026,6 +1026,8 @@ def build_document(
                 boss["playbook"].get("selected_metric")
                 or (acquisition or {}).get("selected_metric")
                 or "dps",
+                category=boss["playbook"].get("selected_category")
+                or (acquisition or {}).get("selected_category"),
             )
             if strategy is not None:
                 boss["playbook"]["encounter_strategy"] = to_data(strategy)

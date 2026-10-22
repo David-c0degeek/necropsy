@@ -637,92 +637,6 @@ strategy:
       text: The guide advises spreading during phase one to reduce grouped blizzard exposure. Confirm
         the raid's positioning plan; these logs do not record positions.
       support: *id008
-    - rule: sapphiron-druid-icebolt-sequence-v1
-      section: during
-      classes:
-      - 2
-      metrics:
-      - dps
-      - hps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: &id009
-      - tip_iceblock_timing
-    - rule: sapphiron-hunter-icebolt-sequence-v1
-      section: during
-      classes:
-      - 3
-      metrics:
-      - dps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
-    - rule: sapphiron-mage-icebolt-sequence-v1
-      section: during
-      classes:
-      - 4
-      metrics:
-      - dps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
-    - rule: sapphiron-paladin-icebolt-sequence-v1
-      section: during
-      classes:
-      - 6
-      metrics:
-      - dps
-      - hps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
-    - rule: sapphiron-priest-icebolt-sequence-v1
-      section: during
-      classes:
-      - 7
-      metrics:
-      - dps
-      - hps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
-    - rule: sapphiron-rogue-icebolt-sequence-v1
-      section: during
-      classes:
-      - 8
-      metrics:
-      - dps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
-    - rule: sapphiron-shaman-icebolt-sequence-v1
-      section: during
-      classes:
-      - 9
-      metrics:
-      - dps
-      - hps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
-    - rule: sapphiron-warlock-icebolt-sequence-v1
-      section: during
-      classes:
-      - 10
-      metrics:
-      - dps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
-    - rule: sapphiron-warrior-icebolt-sequence-v1
-      section: during
-      classes:
-      - 11
-      metrics:
-      - dps
-      text: The guide says to move to the ice blocks only after the third Icebolt cast. Confirm the raid's
-        call for this sequence; these logs do not record positions.
-      support: *id009
     - rule: sapphiron-druid-takeoff-call-v1
       section: raid
       classes:
@@ -733,7 +647,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: &id010
+      support: &id009
       - air_phase_start
     - rule: sapphiron-hunter-takeoff-call-v1
       section: raid
@@ -744,7 +658,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
     - rule: sapphiron-mage-takeoff-call-v1
       section: raid
       classes:
@@ -754,7 +668,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
     - rule: sapphiron-paladin-takeoff-call-v1
       section: raid
       classes:
@@ -765,7 +679,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
     - rule: sapphiron-priest-takeoff-call-v1
       section: raid
       classes:
@@ -776,7 +690,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
     - rule: sapphiron-rogue-takeoff-call-v1
       section: raid
       classes:
@@ -786,7 +700,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
     - rule: sapphiron-shaman-takeoff-call-v1
       section: raid
       classes:
@@ -797,7 +711,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
     - rule: sapphiron-warlock-takeoff-call-v1
       section: raid
       classes:
@@ -807,7 +721,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
     - rule: sapphiron-warrior-takeoff-call-v1
       section: raid
       classes:
@@ -817,7 +731,7 @@ strategy:
       text: The guide describes a knockback of nearby players when Sapphiron takes to the air. Confirm
         the raid's transition call; this description does not establish who was nearby or whether a player
         moved correctly.
-      support: *id010
+      support: *id009
   51107:
     boss: Anub'Rekhan
     source: https://warcraft.wiki.gg/wiki/Anub%27Rekhan_(Classic)
@@ -833,7 +747,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: &id011
+      support: &id010
       - ability_locust_swarm
       - ability_corpse_scarabs
     - rule: anub-rekhan-hunter-locust-plan-v1
@@ -845,7 +759,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-mage-locust-plan-v1
       section: before
       classes:
@@ -855,7 +769,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-paladin-locust-plan-v1
       section: before
       classes:
@@ -866,7 +780,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-priest-locust-plan-v1
       section: before
       classes:
@@ -877,7 +791,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-rogue-locust-plan-v1
       section: before
       classes:
@@ -887,7 +801,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-shaman-locust-plan-v1
       section: before
       classes:
@@ -898,7 +812,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-warlock-locust-plan-v1
       section: before
       classes:
@@ -908,7 +822,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-warrior-locust-plan-v1
       section: before
       classes:
@@ -918,7 +832,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies while the boss moves more slowly,
         and scarabs appearing from corpses. Confirm the raid's swarm response and add assignments before
         the pull; these logs do not record positions.
-      support: *id011
+      support: *id010
     - rule: anub-rekhan-druid-locust-restriction-v1
       section: during
       classes:
@@ -929,7 +843,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: &id012
+      support: &id011
       - ability_locust_swarm
       - ability_locust_pacify
     - rule: anub-rekhan-hunter-locust-restriction-v1
@@ -941,7 +855,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-mage-locust-restriction-v1
       section: during
       classes:
@@ -951,7 +865,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-paladin-locust-restriction-v1
       section: during
       classes:
@@ -962,7 +876,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-priest-locust-restriction-v1
       section: during
       classes:
@@ -973,7 +887,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-rogue-locust-restriction-v1
       section: during
       classes:
@@ -983,7 +897,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-shaman-locust-restriction-v1
       section: during
       classes:
@@ -994,7 +908,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-warlock-locust-restriction-v1
       section: during
       classes:
@@ -1004,7 +918,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-warrior-locust-restriction-v1
       section: during
       classes:
@@ -1014,7 +928,7 @@ strategy:
       text: The guide describes Locust Swarm damaging nearby enemies and preventing affected players from
         attacking or casting. Review the raid's response to that restriction; it does not establish a
         missed action or an available cast window for you.
-      support: *id012
+      support: *id011
     - rule: anub-rekhan-druid-scarab-plan-v1
       section: raid
       classes:
@@ -1025,7 +939,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: &id013
+      support: &id012
       - ability_corpse_scarabs
     - rule: anub-rekhan-hunter-scarab-plan-v1
       section: raid
@@ -1036,7 +950,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
     - rule: anub-rekhan-mage-scarab-plan-v1
       section: raid
       classes:
@@ -1046,7 +960,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
     - rule: anub-rekhan-paladin-scarab-plan-v1
       section: raid
       classes:
@@ -1057,7 +971,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
     - rule: anub-rekhan-priest-scarab-plan-v1
       section: raid
       classes:
@@ -1068,7 +982,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
     - rule: anub-rekhan-rogue-scarab-plan-v1
       section: raid
       classes:
@@ -1078,7 +992,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
     - rule: anub-rekhan-shaman-scarab-plan-v1
       section: raid
       classes:
@@ -1089,7 +1003,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
     - rule: anub-rekhan-warlock-scarab-plan-v1
       section: raid
       classes:
@@ -1099,7 +1013,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
     - rule: anub-rekhan-warrior-scarab-plan-v1
       section: raid
       classes:
@@ -1109,7 +1023,7 @@ strategy:
       text: The guide describes corpse scarabs appearing from a Crypt Guard or player corpse. Confirm
         who handles those adds before the pull; this source does not establish which corpses or scarabs
         appeared in the recorded fight.
-      support: *id013
+      support: *id012
   51108:
     boss: Gluth
     source: https://warcraft.wiki.gg/wiki/Gluth_(Classic)
@@ -1125,7 +1039,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: &id014
+      support: &id013
       - decimate_effect
     - rule: gluth-hunter-decimate-recovery-v1
       section: before
@@ -1136,7 +1050,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-mage-decimate-recovery-v1
       section: before
       classes:
@@ -1146,7 +1060,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-paladin-decimate-recovery-v1
       section: before
       classes:
@@ -1157,7 +1071,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-priest-decimate-recovery-v1
       section: before
       classes:
@@ -1168,7 +1082,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-rogue-decimate-recovery-v1
       section: before
       classes:
@@ -1178,7 +1092,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-shaman-decimate-recovery-v1
       section: before
       classes:
@@ -1189,7 +1103,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-warlock-decimate-recovery-v1
       section: before
       classes:
@@ -1199,7 +1113,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-warrior-decimate-recovery-v1
       section: before
       classes:
@@ -1209,7 +1123,7 @@ strategy:
       text: The guide describes Decimate reducing raid members and zombies to 5% of maximum health. Agree
         the raid's recovery and add-handling plan before the pull; the guide does not establish an individual
         player's healing assignment.
-      support: *id014
+      support: *id013
     - rule: gluth-druid-wound-healing-context-v1
       section: during
       classes:
@@ -1220,7 +1134,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: &id015
+      support: &id014
       - mortal_wound
     - rule: gluth-hunter-wound-healing-context-v1
       section: during
@@ -1231,7 +1145,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-mage-wound-healing-context-v1
       section: during
       classes:
@@ -1241,7 +1155,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-paladin-wound-healing-context-v1
       section: during
       classes:
@@ -1252,7 +1166,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-priest-wound-healing-context-v1
       section: during
       classes:
@@ -1263,7 +1177,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-rogue-wound-healing-context-v1
       section: during
       classes:
@@ -1273,7 +1187,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-shaman-wound-healing-context-v1
       section: during
       classes:
@@ -1284,7 +1198,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-warlock-wound-healing-context-v1
       section: during
       classes:
@@ -1294,7 +1208,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-warrior-wound-healing-context-v1
       section: during
       classes:
@@ -1304,7 +1218,7 @@ strategy:
       text: The guide describes Mortal Wound as a stacking healing reduction on the main tank. Account
         for that restriction when discussing tank survival; the ranking category alone does not establish
         who tanked or which stacks were present.
-      support: *id015
+      support: *id014
     - rule: gluth-druid-zombie-duty-v1
       section: raid
       classes:
@@ -1314,7 +1228,7 @@ strategy:
       - hps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: &id016
+      support: &id015
       - devour_zombie_spawn
     - rule: gluth-hunter-zombie-duty-v1
       section: raid
@@ -1324,7 +1238,7 @@ strategy:
       - dps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
     - rule: gluth-mage-zombie-duty-v1
       section: raid
       classes:
@@ -1333,7 +1247,7 @@ strategy:
       - dps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
     - rule: gluth-paladin-zombie-duty-v1
       section: raid
       classes:
@@ -1343,7 +1257,7 @@ strategy:
       - hps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
     - rule: gluth-priest-zombie-duty-v1
       section: raid
       classes:
@@ -1353,7 +1267,7 @@ strategy:
       - hps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
     - rule: gluth-rogue-zombie-duty-v1
       section: raid
       classes:
@@ -1362,7 +1276,7 @@ strategy:
       - dps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
     - rule: gluth-shaman-zombie-duty-v1
       section: raid
       classes:
@@ -1372,7 +1286,7 @@ strategy:
       - hps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
     - rule: gluth-warlock-zombie-duty-v1
       section: raid
       classes:
@@ -1381,7 +1295,7 @@ strategy:
       - dps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
     - rule: gluth-warrior-zombie-duty-v1
       section: raid
       classes:
@@ -1390,7 +1304,7 @@ strategy:
       - dps
       text: The guide describes zombies spawning during the encounter. Confirm add assignments with the
         raid; no target count, successful control or duty follows from the guide alone.
-      support: *id016
+      support: *id015
   51109:
     boss: Gothik the Harvester
     source: https://warcraft.wiki.gg/wiki/Gothik_the_Harvester_(Classic)
@@ -1405,7 +1319,7 @@ strategy:
       - hps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: &id017
+      support: &id016
       - phase_one_start
     - rule: gothik-the-harvester-hunter-split-before-pull-v1
       section: before
@@ -1415,7 +1329,7 @@ strategy:
       - dps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-mage-split-before-pull-v1
       section: before
       classes:
@@ -1424,7 +1338,7 @@ strategy:
       - dps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-paladin-split-before-pull-v1
       section: before
       classes:
@@ -1434,7 +1348,7 @@ strategy:
       - hps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-priest-split-before-pull-v1
       section: before
       classes:
@@ -1444,7 +1358,7 @@ strategy:
       - hps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-rogue-split-before-pull-v1
       section: before
       classes:
@@ -1453,7 +1367,7 @@ strategy:
       - dps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-shaman-split-before-pull-v1
       section: before
       classes:
@@ -1463,7 +1377,7 @@ strategy:
       - hps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-warlock-split-before-pull-v1
       section: before
       classes:
@@ -1472,7 +1386,7 @@ strategy:
       - dps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-warrior-split-before-pull-v1
       section: before
       classes:
@@ -1481,7 +1395,7 @@ strategy:
       - dps
       text: The guide describes Gothik becoming invulnerable and the dividing gate closing at the start.
         Confirm the raid's side assignments before engaging; these logs do not record positions.
-      support: *id017
+      support: *id016
     - rule: gothik-the-harvester-druid-volley-mark-context-v1
       section: during
       classes:
@@ -1492,7 +1406,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: &id018
+      support: &id017
       - rider_shadow_bolt_volley
       - rider_shadow_bolt_restriction
     - rule: gothik-the-harvester-hunter-volley-mark-context-v1
@@ -1504,7 +1418,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-mage-volley-mark-context-v1
       section: during
       classes:
@@ -1514,7 +1428,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-paladin-volley-mark-context-v1
       section: during
       classes:
@@ -1525,7 +1439,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-priest-volley-mark-context-v1
       section: during
       classes:
@@ -1536,7 +1450,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-rogue-volley-mark-context-v1
       section: during
       classes:
@@ -1546,7 +1460,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-shaman-volley-mark-context-v1
       section: during
       classes:
@@ -1557,7 +1471,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-warlock-volley-mark-context-v1
       section: during
       classes:
@@ -1567,7 +1481,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-warrior-volley-mark-context-v1
       section: during
       classes:
@@ -1577,7 +1491,7 @@ strategy:
       text: The guide ties the rider's Shadow Bolt Volley targeting to Shadow Mark. Keep that mechanic
         in the raid's add plan; the source alone does not establish which player had the mark or why a
         recorded hit occurred.
-      support: *id018
+      support: *id017
     - rule: gothik-the-harvester-druid-gate-transition-v1
       section: raid
       classes:
@@ -1588,7 +1502,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: &id019
+      support: &id018
       - phase_two_trigger
     - rule: gothik-the-harvester-hunter-gate-transition-v1
       section: raid
@@ -1599,7 +1513,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
     - rule: gothik-the-harvester-mage-gate-transition-v1
       section: raid
       classes:
@@ -1609,7 +1523,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
     - rule: gothik-the-harvester-paladin-gate-transition-v1
       section: raid
       classes:
@@ -1620,7 +1534,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
     - rule: gothik-the-harvester-priest-gate-transition-v1
       section: raid
       classes:
@@ -1631,7 +1545,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
     - rule: gothik-the-harvester-rogue-gate-transition-v1
       section: raid
       classes:
@@ -1641,7 +1555,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
     - rule: gothik-the-harvester-shaman-gate-transition-v1
       section: raid
       classes:
@@ -1652,7 +1566,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
     - rule: gothik-the-harvester-warlock-gate-transition-v1
       section: raid
       classes:
@@ -1662,7 +1576,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
     - rule: gothik-the-harvester-warrior-gate-transition-v1
       section: raid
       classes:
@@ -1672,7 +1586,7 @@ strategy:
       text: The guide describes the gate opening and Gothik stopping his teleports at 30% health. Confirm
         the raid's transition call; this is a guide threshold, not an observed phase boundary or a personal
         damage window.
-      support: *id019
+      support: *id018
   51110:
     boss: Grand Widow Faerlina
     source: https://warcraft.wiki.gg/wiki/Grand_Widow_Faerlina_(Classic)
@@ -1687,7 +1601,7 @@ strategy:
       - hps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: &id020
+      support: &id019
       - followers_two_ways
     - rule: grand-widow-faerlina-hunter-followers-plan-v1
       section: before
@@ -1697,7 +1611,7 @@ strategy:
       - dps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-mage-followers-plan-v1
       section: before
       classes:
@@ -1706,7 +1620,7 @@ strategy:
       - dps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-paladin-followers-plan-v1
       section: before
       classes:
@@ -1716,7 +1630,7 @@ strategy:
       - hps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-priest-followers-plan-v1
       section: before
       classes:
@@ -1726,7 +1640,7 @@ strategy:
       - hps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-rogue-followers-plan-v1
       section: before
       classes:
@@ -1735,7 +1649,7 @@ strategy:
       - dps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-shaman-followers-plan-v1
       section: before
       classes:
@@ -1745,7 +1659,7 @@ strategy:
       - hps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-warlock-followers-plan-v1
       section: before
       classes:
@@ -1754,7 +1668,7 @@ strategy:
       - dps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-warrior-followers-plan-v1
       section: before
       classes:
@@ -1763,7 +1677,7 @@ strategy:
       - dps
       text: 'The guide offers two plans for Followers: hold them for the fight or kill them first. Confirm
         which plan the raid chose before copying another group''s target selection.'
-      support: *id020
+      support: *id019
     - rule: grand-widow-faerlina-druid-rain-of-fire-v1
       section: during
       classes:
@@ -1774,7 +1688,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: &id021
+      support: &id020
       - rain_of_fire
     - rule: grand-widow-faerlina-hunter-rain-of-fire-v1
       section: during
@@ -1785,7 +1699,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-mage-rain-of-fire-v1
       section: during
       classes:
@@ -1795,7 +1709,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-paladin-rain-of-fire-v1
       section: during
       classes:
@@ -1806,7 +1720,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-priest-rain-of-fire-v1
       section: during
       classes:
@@ -1817,7 +1731,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-rogue-rain-of-fire-v1
       section: during
       classes:
@@ -1827,7 +1741,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-shaman-rain-of-fire-v1
       section: during
       classes:
@@ -1838,7 +1752,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-warlock-rain-of-fire-v1
       section: during
       classes:
@@ -1848,7 +1762,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-warrior-rain-of-fire-v1
       section: during
       classes:
@@ -1858,7 +1772,7 @@ strategy:
       text: The guide describes Rain of Fire damaging a selected area. Follow the raid's avoidance plan;
         these logs do not record positions and this description does not prove who could have avoided
         an event.
-      support: *id021
+      support: *id020
     - rule: grand-widow-faerlina-druid-worshipper-coordination-v1
       section: raid
       classes:
@@ -1869,7 +1783,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: &id022
+      support: &id021
       - worshippers_role
     - rule: grand-widow-faerlina-hunter-worshipper-coordination-v1
       section: raid
@@ -1880,7 +1794,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
     - rule: grand-widow-faerlina-mage-worshipper-coordination-v1
       section: raid
       classes:
@@ -1890,7 +1804,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
     - rule: grand-widow-faerlina-paladin-worshipper-coordination-v1
       section: raid
       classes:
@@ -1901,7 +1815,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
     - rule: grand-widow-faerlina-priest-worshipper-coordination-v1
       section: raid
       classes:
@@ -1912,7 +1826,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
     - rule: grand-widow-faerlina-rogue-worshipper-coordination-v1
       section: raid
       classes:
@@ -1922,7 +1836,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
     - rule: grand-widow-faerlina-shaman-worshipper-coordination-v1
       section: raid
       classes:
@@ -1933,7 +1847,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
     - rule: grand-widow-faerlina-warlock-worshipper-coordination-v1
       section: raid
       classes:
@@ -1943,7 +1857,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
     - rule: grand-widow-faerlina-warrior-worshipper-coordination-v1
       section: raid
       classes:
@@ -1953,7 +1867,7 @@ strategy:
       text: The guide describes holding Worshippers for much of the fight and later sacrificing them.
         Confirm the add and sacrifice calls with the raid; this does not establish that your class can
         control an add or that you had that duty.
-      support: *id022
+      support: *id021
   51111:
     boss: Grobbulus
     source: https://warcraft.wiki.gg/wiki/Grobbulus_(Classic)
@@ -1969,7 +1883,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: &id023
+      support: &id022
       - mutating_injection
     - rule: grobbulus-hunter-injection-response-v1
       section: before
@@ -1980,7 +1894,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-mage-injection-response-v1
       section: before
       classes:
@@ -1990,7 +1904,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-paladin-injection-response-v1
       section: before
       classes:
@@ -2001,7 +1915,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-priest-injection-response-v1
       section: before
       classes:
@@ -2012,7 +1926,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-rogue-injection-response-v1
       section: before
       classes:
@@ -2022,7 +1936,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-shaman-injection-response-v1
       section: before
       classes:
@@ -2033,7 +1947,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-warlock-injection-response-v1
       section: before
       classes:
@@ -2043,7 +1957,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-warrior-injection-response-v1
       section: before
       classes:
@@ -2053,7 +1967,7 @@ strategy:
       text: The guide describes Mutating Injection causing physical area damage after its delay. Agree
         the raid's response plan before the pull; no class capability, successful handling or affected-player
         list is established by this source alone.
-      support: *id023
+      support: *id022
     - rule: grobbulus-druid-cloud-response-v1
       section: during
       classes:
@@ -2063,7 +1977,7 @@ strategy:
       - hps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: &id024
+      support: &id023
       - poison_cloud_effect
       - poison_cloud_damage
     - rule: grobbulus-hunter-cloud-response-v1
@@ -2074,7 +1988,7 @@ strategy:
       - dps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-mage-cloud-response-v1
       section: during
       classes:
@@ -2083,7 +1997,7 @@ strategy:
       - dps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-paladin-cloud-response-v1
       section: during
       classes:
@@ -2093,7 +2007,7 @@ strategy:
       - hps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-priest-cloud-response-v1
       section: during
       classes:
@@ -2103,7 +2017,7 @@ strategy:
       - hps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-rogue-cloud-response-v1
       section: during
       classes:
@@ -2112,7 +2026,7 @@ strategy:
       - dps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-shaman-cloud-response-v1
       section: during
       classes:
@@ -2122,7 +2036,7 @@ strategy:
       - hps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-warlock-cloud-response-v1
       section: during
       classes:
@@ -2131,7 +2045,7 @@ strategy:
       - dps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-warrior-cloud-response-v1
       section: during
       classes:
@@ -2140,7 +2054,7 @@ strategy:
       - dps
       text: The guide describes poison clouds dealing Nature damage and requiring the main tank to keep
         moving. Confirm the raid's movement plan; these logs do not record positions.
-      support: *id024
+      support: *id023
     - rule: grobbulus-druid-spray-add-plan-v1
       section: raid
       classes:
@@ -2150,7 +2064,7 @@ strategy:
       - hps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: &id025
+      support: &id024
       - slime_spray_spawn
     - rule: grobbulus-hunter-spray-add-plan-v1
       section: raid
@@ -2160,7 +2074,7 @@ strategy:
       - dps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
     - rule: grobbulus-mage-spray-add-plan-v1
       section: raid
       classes:
@@ -2169,7 +2083,7 @@ strategy:
       - dps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
     - rule: grobbulus-paladin-spray-add-plan-v1
       section: raid
       classes:
@@ -2179,7 +2093,7 @@ strategy:
       - hps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
     - rule: grobbulus-priest-spray-add-plan-v1
       section: raid
       classes:
@@ -2189,7 +2103,7 @@ strategy:
       - hps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
     - rule: grobbulus-rogue-spray-add-plan-v1
       section: raid
       classes:
@@ -2198,7 +2112,7 @@ strategy:
       - dps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
     - rule: grobbulus-shaman-spray-add-plan-v1
       section: raid
       classes:
@@ -2208,7 +2122,7 @@ strategy:
       - hps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
     - rule: grobbulus-warlock-spray-add-plan-v1
       section: raid
       classes:
@@ -2217,7 +2131,7 @@ strategy:
       - dps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
     - rule: grobbulus-warrior-spray-add-plan-v1
       section: raid
       classes:
@@ -2226,7 +2140,7 @@ strategy:
       - dps
       text: The guide says party members hit by Slime Spray spawn a Fallout Slime. Confirm add pickup
         and target calls; the statement is not evidence that any particular player spawned an add.
-      support: *id025
+      support: *id024
   51112:
     boss: Heigan the Unclean
     source: https://warcraft.wiki.gg/wiki/Heigan_the_Unclean_(Classic)
@@ -2241,7 +2155,7 @@ strategy:
       - hps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: &id026
+      support: &id025
       - strategy_phase1_timer
       - strategy_phase2_timer
     - rule: heigan-the-unclean-hunter-phase-call-v1
@@ -2252,7 +2166,7 @@ strategy:
       - dps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-mage-phase-call-v1
       section: before
       classes:
@@ -2261,7 +2175,7 @@ strategy:
       - dps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-paladin-phase-call-v1
       section: before
       classes:
@@ -2271,7 +2185,7 @@ strategy:
       - hps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-priest-phase-call-v1
       section: before
       classes:
@@ -2281,7 +2195,7 @@ strategy:
       - hps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-rogue-phase-call-v1
       section: before
       classes:
@@ -2290,7 +2204,7 @@ strategy:
       - dps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-shaman-phase-call-v1
       section: before
       classes:
@@ -2300,7 +2214,7 @@ strategy:
       - hps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-warlock-phase-call-v1
       section: before
       classes:
@@ -2309,7 +2223,7 @@ strategy:
       - dps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-warrior-phase-call-v1
       section: before
       classes:
@@ -2318,7 +2232,7 @@ strategy:
       - dps
       text: The guide distinguishes a field phase from a platform phase. Confirm the raid's phase calls
         before the pull; the published cycle is not an observed phase timeline for these logs.
-      support: *id026
+      support: *id025
     - rule: heigan-the-unclean-druid-platform-eruptions-v1
       section: during
       classes:
@@ -2329,7 +2243,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: &id027
+      support: &id026
       - strategy_phase2_timer
       - strategy_phase2_eruptions
     - rule: heigan-the-unclean-hunter-platform-eruptions-v1
@@ -2341,7 +2255,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-mage-platform-eruptions-v1
       section: during
       classes:
@@ -2351,7 +2265,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-paladin-platform-eruptions-v1
       section: during
       classes:
@@ -2362,7 +2276,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-priest-platform-eruptions-v1
       section: during
       classes:
@@ -2373,7 +2287,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-rogue-platform-eruptions-v1
       section: during
       classes:
@@ -2383,7 +2297,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-shaman-platform-eruptions-v1
       section: during
       classes:
@@ -2394,7 +2308,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-warlock-platform-eruptions-v1
       section: during
       classes:
@@ -2404,7 +2318,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-warrior-platform-eruptions-v1
       section: during
       classes:
@@ -2414,7 +2328,7 @@ strategy:
       text: During the platform phase, the guide describes faster eruptions and the raid moving through
         safe zones. Confirm the route with the raid; these logs do not record positions and no diagram
         coordinates are inferred here.
-      support: *id027
+      support: *id026
     - rule: heigan-the-unclean-druid-fever-phase-context-v1
       section: raid
       classes:
@@ -2425,7 +2339,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: &id028
+      support: &id027
       - heigan_decrepit_fever_health
       - heigan_decrepit_fever_phase
     - rule: heigan-the-unclean-hunter-fever-phase-context-v1
@@ -2437,7 +2351,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
     - rule: heigan-the-unclean-mage-fever-phase-context-v1
       section: raid
       classes:
@@ -2447,7 +2361,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
     - rule: heigan-the-unclean-paladin-fever-phase-context-v1
       section: raid
       classes:
@@ -2458,7 +2372,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
     - rule: heigan-the-unclean-priest-fever-phase-context-v1
       section: raid
       classes:
@@ -2469,7 +2383,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
     - rule: heigan-the-unclean-rogue-fever-phase-context-v1
       section: raid
       classes:
@@ -2479,7 +2393,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
     - rule: heigan-the-unclean-shaman-fever-phase-context-v1
       section: raid
       classes:
@@ -2490,7 +2404,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
     - rule: heigan-the-unclean-warlock-fever-phase-context-v1
       section: raid
       classes:
@@ -2500,7 +2414,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
     - rule: heigan-the-unclean-warrior-fever-phase-context-v1
       section: raid
       classes:
@@ -2510,7 +2424,7 @@ strategy:
       text: The guide describes Decrepit Fever reducing maximum health during the field phase. Coordinate
         the raid's response in that phase context; this does not establish a personal assignment or a
         successful response.
-      support: *id028
+      support: *id027
   51113:
     boss: Instructor Razuvious
     source: https://warcraft.wiki.gg/wiki/Instructor_Razuvious_(Classic)
@@ -2525,7 +2439,7 @@ strategy:
       - hps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: &id029
+      support: &id028
       - understudy_shield_wall
     - rule: instructor-razuvious-hunter-understudy-ability-boundary-v1
       section: before
@@ -2535,7 +2449,7 @@ strategy:
       - dps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-mage-understudy-ability-boundary-v1
       section: before
       classes:
@@ -2544,7 +2458,7 @@ strategy:
       - dps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-paladin-understudy-ability-boundary-v1
       section: before
       classes:
@@ -2554,7 +2468,7 @@ strategy:
       - hps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-priest-understudy-ability-boundary-v1
       section: before
       classes:
@@ -2564,7 +2478,7 @@ strategy:
       - hps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-rogue-understudy-ability-boundary-v1
       section: before
       classes:
@@ -2573,7 +2487,7 @@ strategy:
       - dps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-shaman-understudy-ability-boundary-v1
       section: before
       classes:
@@ -2583,7 +2497,7 @@ strategy:
       - hps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-warlock-understudy-ability-boundary-v1
       section: before
       classes:
@@ -2592,7 +2506,7 @@ strategy:
       - dps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-warrior-understudy-ability-boundary-v1
       section: before
       classes:
@@ -2601,7 +2515,7 @@ strategy:
       - dps
       text: The guide's Shield Wall description refers to the understudy, not a player's defensive spell.
         Confirm the controlled-understudy plan before copying those values into a personal cooldown review.
-      support: *id029
+      support: *id028
     - rule: instructor-razuvious-druid-shout-line-of-sight-v1
       section: during
       classes:
@@ -2611,7 +2525,7 @@ strategy:
       - hps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: &id030
+      support: &id029
       - disrupting_shout_line_of_sight
     - rule: instructor-razuvious-hunter-shout-line-of-sight-v1
       section: during
@@ -2621,7 +2535,7 @@ strategy:
       - dps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-mage-shout-line-of-sight-v1
       section: during
       classes:
@@ -2630,7 +2544,7 @@ strategy:
       - dps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-paladin-shout-line-of-sight-v1
       section: during
       classes:
@@ -2640,7 +2554,7 @@ strategy:
       - hps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-priest-shout-line-of-sight-v1
       section: during
       classes:
@@ -2650,7 +2564,7 @@ strategy:
       - hps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-rogue-shout-line-of-sight-v1
       section: during
       classes:
@@ -2659,7 +2573,7 @@ strategy:
       - dps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-shaman-shout-line-of-sight-v1
       section: during
       classes:
@@ -2669,7 +2583,7 @@ strategy:
       - hps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-warlock-shout-line-of-sight-v1
       section: during
       classes:
@@ -2678,7 +2592,7 @@ strategy:
       - dps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-warrior-shout-line-of-sight-v1
       section: during
       classes:
@@ -2687,7 +2601,7 @@ strategy:
       - dps
       text: The guide says Disrupting Shout only strikes players within line of sight. Confirm the raid's
         line-of-sight plan; these logs do not record positions and cannot establish where a player stood.
-      support: *id030
+      support: *id029
     - rule: instructor-razuvious-druid-control-handoff-v1
       section: raid
       classes:
@@ -2698,7 +2612,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: &id031
+      support: &id030
       - understudy_mind_exhaustion
     - rule: instructor-razuvious-hunter-control-handoff-v1
       section: raid
@@ -2709,7 +2623,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
     - rule: instructor-razuvious-mage-control-handoff-v1
       section: raid
       classes:
@@ -2719,7 +2633,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
     - rule: instructor-razuvious-paladin-control-handoff-v1
       section: raid
       classes:
@@ -2730,7 +2644,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
     - rule: instructor-razuvious-priest-control-handoff-v1
       section: raid
       classes:
@@ -2741,7 +2655,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
     - rule: instructor-razuvious-rogue-control-handoff-v1
       section: raid
       classes:
@@ -2751,7 +2665,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
     - rule: instructor-razuvious-shaman-control-handoff-v1
       section: raid
       classes:
@@ -2762,7 +2676,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
     - rule: instructor-razuvious-warlock-control-handoff-v1
       section: raid
       classes:
@@ -2772,7 +2686,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
     - rule: instructor-razuvious-warrior-control-handoff-v1
       section: raid
       classes:
@@ -2782,7 +2696,7 @@ strategy:
       text: The guide describes an understudy becoming temporarily immune to charm when Mind Control ends.
         Coordinate control handoffs with the raid rather than assuming the same understudy can immediately
         be controlled again.
-      support: *id031
+      support: *id030
   51114:
     boss: Kel'Thuzad
     source: https://warcraft.wiki.gg/wiki/Kel%27Thuzad_(Classic)
@@ -2797,7 +2711,7 @@ strategy:
       - hps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: &id032
+      support: &id031
       - phase_one_ranged
       - phase_one_melee
     - rule: kel-thuzad-hunter-opening-add-jobs-v1
@@ -2808,7 +2722,7 @@ strategy:
       - dps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-mage-opening-add-jobs-v1
       section: before
       classes:
@@ -2817,7 +2731,7 @@ strategy:
       - dps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-paladin-opening-add-jobs-v1
       section: before
       classes:
@@ -2827,7 +2741,7 @@ strategy:
       - hps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-priest-opening-add-jobs-v1
       section: before
       classes:
@@ -2837,7 +2751,7 @@ strategy:
       - hps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-rogue-opening-add-jobs-v1
       section: before
       classes:
@@ -2846,7 +2760,7 @@ strategy:
       - dps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-shaman-opening-add-jobs-v1
       section: before
       classes:
@@ -2856,7 +2770,7 @@ strategy:
       - hps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-warlock-opening-add-jobs-v1
       section: before
       classes:
@@ -2865,7 +2779,7 @@ strategy:
       - dps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-warrior-opening-add-jobs-v1
       section: before
       classes:
@@ -2874,7 +2788,7 @@ strategy:
       - dps
       text: 'Agree the opening add jobs: the guide puts ranged on Soldiers and Soul Weavers and melee
         on Abominations. This does not establish the logged fight''s starting phase or any player''s assignment.'
-      support: *id032
+      support: *id031
     - rule: kel-thuzad-druid-frostbolt-distinction-v1
       section: during
       classes:
@@ -2885,7 +2799,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: &id033
+      support: &id032
       - frost_bolt_single
       - frost_bolt_multiple
     - rule: kel-thuzad-hunter-frostbolt-distinction-v1
@@ -2897,7 +2811,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-mage-frostbolt-distinction-v1
       section: during
       classes:
@@ -2907,7 +2821,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-paladin-frostbolt-distinction-v1
       section: during
       classes:
@@ -2918,7 +2832,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-priest-frostbolt-distinction-v1
       section: during
       classes:
@@ -2929,7 +2843,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-rogue-frostbolt-distinction-v1
       section: during
       classes:
@@ -2939,7 +2853,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-shaman-frostbolt-distinction-v1
       section: during
       classes:
@@ -2950,7 +2864,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-warlock-frostbolt-distinction-v1
       section: during
       classes:
@@ -2960,7 +2874,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-warrior-frostbolt-distinction-v1
       section: during
       classes:
@@ -2970,7 +2884,7 @@ strategy:
       text: The guide calls for interrupting the single-target Frostbolt and distinguishes it from the
         instant, uninterruptible room-wide version. Confirm the raid's interrupt rotation; the source
         does not establish that your class supplied an interrupt or had an opportunity.
-      support: *id033
+      support: *id032
     - rule: kel-thuzad-druid-guardian-plan-v1
       section: raid
       classes:
@@ -2981,7 +2895,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: &id034
+      support: &id033
       - phase_three_trigger
     - rule: kel-thuzad-hunter-guardian-plan-v1
       section: raid
@@ -2992,7 +2906,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
     - rule: kel-thuzad-mage-guardian-plan-v1
       section: raid
       classes:
@@ -3002,7 +2916,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
     - rule: kel-thuzad-paladin-guardian-plan-v1
       section: raid
       classes:
@@ -3013,7 +2927,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
     - rule: kel-thuzad-priest-guardian-plan-v1
       section: raid
       classes:
@@ -3024,7 +2938,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
     - rule: kel-thuzad-rogue-guardian-plan-v1
       section: raid
       classes:
@@ -3034,7 +2948,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
     - rule: kel-thuzad-shaman-guardian-plan-v1
       section: raid
       classes:
@@ -3045,7 +2959,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
     - rule: kel-thuzad-warlock-guardian-plan-v1
       section: raid
       classes:
@@ -3055,7 +2969,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
     - rule: kel-thuzad-warrior-guardian-plan-v1
       section: raid
       classes:
@@ -3065,7 +2979,7 @@ strategy:
       text: The guide describes five Guardians arriving at 40% health. Confirm the raid's add-control
         and handoff plan; these guide counts do not establish observed spawns, successful control or a
         personal duty.
-      support: *id034
+      support: *id033
   51115:
     boss: Loatheb
     source: https://warcraft.wiki.gg/wiki/Loatheb_(Classic)
@@ -3081,7 +2995,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: &id035
+      support: &id034
       - inevitable_doom_damage
     - rule: loatheb-hunter-doom-recovery-plan-v1
       section: before
@@ -3092,7 +3006,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-mage-doom-recovery-plan-v1
       section: before
       classes:
@@ -3102,7 +3016,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-paladin-doom-recovery-plan-v1
       section: before
       classes:
@@ -3113,7 +3027,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-priest-doom-recovery-plan-v1
       section: before
       classes:
@@ -3124,7 +3038,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-rogue-doom-recovery-plan-v1
       section: before
       classes:
@@ -3134,7 +3048,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-shaman-doom-recovery-plan-v1
       section: before
       classes:
@@ -3145,7 +3059,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-warlock-doom-recovery-plan-v1
       section: before
       classes:
@@ -3155,7 +3069,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-warrior-doom-recovery-plan-v1
       section: before
       classes:
@@ -3165,7 +3079,7 @@ strategy:
       text: The guide describes Inevitable Doom as delayed Shadow damage. Confirm the raid's recovery
         plan before the pull; its description does not establish an individual's resource availability
         or a missed survival action.
-      support: *id035
+      support: *id034
     - rule: loatheb-druid-healing-restriction-v1
       section: during
       classes:
@@ -3175,7 +3089,7 @@ strategy:
       - hps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: &id036
+      support: &id035
       - corrupted_mind
     - rule: loatheb-hunter-healing-restriction-v1
       section: during
@@ -3185,7 +3099,7 @@ strategy:
       - dps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-mage-healing-restriction-v1
       section: during
       classes:
@@ -3194,7 +3108,7 @@ strategy:
       - dps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-paladin-healing-restriction-v1
       section: during
       classes:
@@ -3204,7 +3118,7 @@ strategy:
       - hps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-priest-healing-restriction-v1
       section: during
       classes:
@@ -3214,7 +3128,7 @@ strategy:
       - hps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-rogue-healing-restriction-v1
       section: during
       classes:
@@ -3223,7 +3137,7 @@ strategy:
       - dps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-shaman-healing-restriction-v1
       section: during
       classes:
@@ -3233,7 +3147,7 @@ strategy:
       - hps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-warlock-healing-restriction-v1
       section: during
       classes:
@@ -3242,7 +3156,7 @@ strategy:
       - dps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-warrior-healing-restriction-v1
       section: during
       classes:
@@ -3251,7 +3165,7 @@ strategy:
       - dps
       text: The guide describes a 1 minute shared cooldown on healing spells under Corrupted Mind. Agree
         healing order and emergency coverage rather than judging this encounter by ordinary healing cadence.
-      support: *id036
+      support: *id035
     - rule: loatheb-druid-spore-order-v1
       section: raid
       classes:
@@ -3261,7 +3175,7 @@ strategy:
       - hps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: &id037
+      support: &id036
       - spore_order
     - rule: loatheb-hunter-spore-order-v1
       section: raid
@@ -3271,7 +3185,7 @@ strategy:
       - dps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
     - rule: loatheb-mage-spore-order-v1
       section: raid
       classes:
@@ -3280,7 +3194,7 @@ strategy:
       - dps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
     - rule: loatheb-paladin-spore-order-v1
       section: raid
       classes:
@@ -3290,7 +3204,7 @@ strategy:
       - hps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
     - rule: loatheb-priest-spore-order-v1
       section: raid
       classes:
@@ -3300,7 +3214,7 @@ strategy:
       - hps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
     - rule: loatheb-rogue-spore-order-v1
       section: raid
       classes:
@@ -3309,7 +3223,7 @@ strategy:
       - dps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
     - rule: loatheb-shaman-spore-order-v1
       section: raid
       classes:
@@ -3319,7 +3233,7 @@ strategy:
       - hps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
     - rule: loatheb-warlock-spore-order-v1
       section: raid
       classes:
@@ -3328,7 +3242,7 @@ strategy:
       - dps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
     - rule: loatheb-warrior-spore-order-v1
       section: raid
       classes:
@@ -3337,7 +3251,7 @@ strategy:
       - dps
       text: The guide calls for an assigned group order for Spores. Confirm your group's turn before copying
         a damage window; the guide alone does not establish who received Fungal Bloom.
-      support: *id037
+      support: *id036
   51116:
     boss: Maexxna
     source: https://warcraft.wiki.gg/wiki/Maexxna_(Classic)
@@ -3353,7 +3267,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: &id038
+      support: &id037
       - web_wrap_effect
       - cocoon_destruction
     - rule: maexxna-hunter-wrap-rescue-plan-v1
@@ -3365,7 +3279,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-mage-wrap-rescue-plan-v1
       section: before
       classes:
@@ -3375,7 +3289,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-paladin-wrap-rescue-plan-v1
       section: before
       classes:
@@ -3386,7 +3300,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-priest-wrap-rescue-plan-v1
       section: before
       classes:
@@ -3397,7 +3311,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-rogue-wrap-rescue-plan-v1
       section: before
       classes:
@@ -3407,7 +3321,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-shaman-wrap-rescue-plan-v1
       section: before
       classes:
@@ -3418,7 +3332,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-warlock-wrap-rescue-plan-v1
       section: before
       classes:
@@ -3428,7 +3342,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-warrior-wrap-rescue-plan-v1
       section: before
       classes:
@@ -3438,7 +3352,7 @@ strategy:
       text: The guide describes players incapacitated in Web Wrap cocoons that can be destroyed from outside.
         Confirm rescue targets and assigned helpers before the pull; no individual rescue duty is inferred
         from a ranking category.
-      support: *id038
+      support: *id037
     - rule: maexxna-druid-spray-restriction-v1
       section: during
       classes:
@@ -3449,7 +3363,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: &id039
+      support: &id038
       - web_spray_effect
     - rule: maexxna-hunter-spray-restriction-v1
       section: during
@@ -3460,7 +3374,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-mage-spray-restriction-v1
       section: during
       classes:
@@ -3470,7 +3384,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-paladin-spray-restriction-v1
       section: during
       classes:
@@ -3481,7 +3395,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-priest-spray-restriction-v1
       section: during
       classes:
@@ -3492,7 +3406,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-rogue-spray-restriction-v1
       section: during
       classes:
@@ -3502,7 +3416,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-shaman-spray-restriction-v1
       section: during
       classes:
@@ -3513,7 +3427,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-warlock-spray-restriction-v1
       section: during
       classes:
@@ -3523,7 +3437,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-warrior-spray-restriction-v1
       section: during
       classes:
@@ -3533,7 +3447,7 @@ strategy:
       text: The guide describes Web Spray incapacitating the raid for 8 seconds every 40 seconds. Coordinate
         the raid's survival plan around that guide restriction; it is not an observed cast timeline, an
         exhaustive immunity list or a missed-use grade.
-      support: *id039
+      support: *id038
     - rule: maexxna-druid-wrap-damage-response-v1
       section: raid
       classes:
@@ -3544,7 +3458,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: &id040
+      support: &id039
       - web_wrap_damage
     - rule: maexxna-hunter-wrap-damage-response-v1
       section: raid
@@ -3555,7 +3469,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
     - rule: maexxna-mage-wrap-damage-response-v1
       section: raid
       classes:
@@ -3565,7 +3479,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
     - rule: maexxna-paladin-wrap-damage-response-v1
       section: raid
       classes:
@@ -3576,7 +3490,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
     - rule: maexxna-priest-wrap-damage-response-v1
       section: raid
       classes:
@@ -3587,7 +3501,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
     - rule: maexxna-rogue-wrap-damage-response-v1
       section: raid
       classes:
@@ -3597,7 +3511,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
     - rule: maexxna-shaman-wrap-damage-response-v1
       section: raid
       classes:
@@ -3608,7 +3522,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
     - rule: maexxna-warlock-wrap-damage-response-v1
       section: raid
       classes:
@@ -3618,7 +3532,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
     - rule: maexxna-warrior-wrap-damage-response-v1
       section: raid
       classes:
@@ -3628,7 +3542,7 @@ strategy:
       text: The guide describes continuing Nature damage while a player is encased. Coordinate healing
         and rescue coverage with the raid; the source does not establish which player was wrapped or which
         helper could act.
-      support: *id040
+      support: *id039
   51117:
     boss: Noth the Plaguebringer
     source: https://warcraft.wiki.gg/wiki/Noth_the_Plaguebringer_(Classic)
@@ -3644,7 +3558,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: &id041
+      support: &id040
       - curse_failure
     - rule: noth-the-plaguebringer-hunter-curse-response-plan-v1
       section: before
@@ -3655,7 +3569,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-mage-curse-response-plan-v1
       section: before
       classes:
@@ -3665,7 +3579,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-paladin-curse-response-plan-v1
       section: before
       classes:
@@ -3676,7 +3590,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-priest-curse-response-plan-v1
       section: before
       classes:
@@ -3687,7 +3601,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-rogue-curse-response-plan-v1
       section: before
       classes:
@@ -3697,7 +3611,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-shaman-curse-response-plan-v1
       section: before
       classes:
@@ -3708,7 +3622,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-warlock-curse-response-plan-v1
       section: before
       classes:
@@ -3718,7 +3632,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-warrior-curse-response-plan-v1
       section: before
       classes:
@@ -3728,7 +3642,7 @@ strategy:
       text: The guide warns that its curse can infect nearby allies if not handled. Agree the raid's response
         plan; no class capability or personal assignment is established here, and no disputed damage school
         or tick interval is asserted.
-      support: *id041
+      support: *id040
     - rule: noth-the-plaguebringer-druid-blink-threat-context-v1
       section: during
       classes:
@@ -3738,7 +3652,7 @@ strategy:
       - hps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: &id042
+      support: &id041
       - blink_desc
     - rule: noth-the-plaguebringer-hunter-blink-threat-context-v1
       section: during
@@ -3748,7 +3662,7 @@ strategy:
       - dps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-mage-blink-threat-context-v1
       section: during
       classes:
@@ -3757,7 +3671,7 @@ strategy:
       - dps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-paladin-blink-threat-context-v1
       section: during
       classes:
@@ -3767,7 +3681,7 @@ strategy:
       - hps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-priest-blink-threat-context-v1
       section: during
       classes:
@@ -3777,7 +3691,7 @@ strategy:
       - hps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-rogue-blink-threat-context-v1
       section: during
       classes:
@@ -3786,7 +3700,7 @@ strategy:
       - dps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-shaman-blink-threat-context-v1
       section: during
       classes:
@@ -3796,7 +3710,7 @@ strategy:
       - hps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-warlock-blink-threat-context-v1
       section: during
       classes:
@@ -3805,7 +3719,7 @@ strategy:
       - dps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-warrior-blink-threat-context-v1
       section: during
       classes:
@@ -3814,7 +3728,7 @@ strategy:
       - dps
       text: The guide describes a threat wipe when Noth blinks. Review the raid's response to that mechanic
         rather than assuming a target change establishes a tank or damage player's error.
-      support: *id042
+      support: *id041
     - rule: noth-the-plaguebringer-druid-blink-handoff-v1
       section: raid
       classes:
@@ -3824,7 +3738,7 @@ strategy:
       - hps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: &id043
+      support: &id042
       - blink_desc
     - rule: noth-the-plaguebringer-hunter-blink-handoff-v1
       section: raid
@@ -3834,7 +3748,7 @@ strategy:
       - dps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
     - rule: noth-the-plaguebringer-mage-blink-handoff-v1
       section: raid
       classes:
@@ -3843,7 +3757,7 @@ strategy:
       - dps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
     - rule: noth-the-plaguebringer-paladin-blink-handoff-v1
       section: raid
       classes:
@@ -3853,7 +3767,7 @@ strategy:
       - hps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
     - rule: noth-the-plaguebringer-priest-blink-handoff-v1
       section: raid
       classes:
@@ -3863,7 +3777,7 @@ strategy:
       - hps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
     - rule: noth-the-plaguebringer-rogue-blink-handoff-v1
       section: raid
       classes:
@@ -3872,7 +3786,7 @@ strategy:
       - dps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
     - rule: noth-the-plaguebringer-shaman-blink-handoff-v1
       section: raid
       classes:
@@ -3882,7 +3796,7 @@ strategy:
       - hps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
     - rule: noth-the-plaguebringer-warlock-blink-handoff-v1
       section: raid
       classes:
@@ -3891,7 +3805,7 @@ strategy:
       - dps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
     - rule: noth-the-plaguebringer-warrior-blink-handoff-v1
       section: raid
       classes:
@@ -3900,7 +3814,7 @@ strategy:
       - dps
       text: Confirm the raid's tank and target calls around Blink. Its guide description is not evidence
         that an individual had threat, a charge ability or an assigned recovery duty.
-      support: *id043
+      support: *id042
   51120:
     boss: Thaddius
     source: https://warcraft.wiki.gg/wiki/Thaddius_(Classic)
@@ -3915,7 +3829,7 @@ strategy:
       - hps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: &id044
+      support: &id043
       - strategy_phase_one_roles
     - rule: thaddius-hunter-wight-target-jobs-v1
       section: before
@@ -3925,7 +3839,7 @@ strategy:
       - dps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-mage-wight-target-jobs-v1
       section: before
       classes:
@@ -3934,7 +3848,7 @@ strategy:
       - dps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-paladin-wight-target-jobs-v1
       section: before
       classes:
@@ -3944,7 +3858,7 @@ strategy:
       - hps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-priest-wight-target-jobs-v1
       section: before
       classes:
@@ -3954,7 +3868,7 @@ strategy:
       - hps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-rogue-wight-target-jobs-v1
       section: before
       classes:
@@ -3963,7 +3877,7 @@ strategy:
       - dps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-shaman-wight-target-jobs-v1
       section: before
       classes:
@@ -3973,7 +3887,7 @@ strategy:
       - hps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-warlock-wight-target-jobs-v1
       section: before
       classes:
@@ -3982,7 +3896,7 @@ strategy:
       - dps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-warrior-wight-target-jobs-v1
       section: before
       classes:
@@ -3991,7 +3905,7 @@ strategy:
       - dps
       text: The guide separates caster and melee jobs across Stalagg and Feugen. Confirm your target assignment
         before copying another player's opener; the category alone does not establish that assignment.
-      support: *id044
+      support: *id043
     - rule: thaddius-druid-charge-groups-v1
       section: during
       classes:
@@ -4001,7 +3915,7 @@ strategy:
       - hps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: &id045
+      support: &id044
       - polarity_shift
       - strategy_charge_movement
     - rule: thaddius-hunter-charge-groups-v1
@@ -4012,7 +3926,7 @@ strategy:
       - dps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-mage-charge-groups-v1
       section: during
       classes:
@@ -4021,7 +3935,7 @@ strategy:
       - dps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-paladin-charge-groups-v1
       section: during
       classes:
@@ -4031,7 +3945,7 @@ strategy:
       - hps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-priest-charge-groups-v1
       section: during
       classes:
@@ -4041,7 +3955,7 @@ strategy:
       - hps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-rogue-charge-groups-v1
       section: during
       classes:
@@ -4050,7 +3964,7 @@ strategy:
       - dps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-shaman-charge-groups-v1
       section: during
       classes:
@@ -4060,7 +3974,7 @@ strategy:
       - hps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-warlock-charge-groups-v1
       section: during
       classes:
@@ -4069,7 +3983,7 @@ strategy:
       - dps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-warrior-charge-groups-v1
       section: during
       classes:
@@ -4078,7 +3992,7 @@ strategy:
       - dps
       text: The guide describes positive and negative charges and movement when polarity changes. Confirm
         the raid's charge groups and movement calls; these logs do not record positions.
-      support: *id045
+      support: *id044
     - rule: thaddius-druid-revival-charge-context-v1
       section: raid
       classes:
@@ -4089,7 +4003,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: &id046
+      support: &id045
       - strategy_charge_loss
     - rule: thaddius-hunter-revival-charge-context-v1
       section: raid
@@ -4100,7 +4014,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
     - rule: thaddius-mage-revival-charge-context-v1
       section: raid
       classes:
@@ -4110,7 +4024,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
     - rule: thaddius-paladin-revival-charge-context-v1
       section: raid
       classes:
@@ -4121,7 +4035,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
     - rule: thaddius-priest-revival-charge-context-v1
       section: raid
       classes:
@@ -4132,7 +4046,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
     - rule: thaddius-rogue-revival-charge-context-v1
       section: raid
       classes:
@@ -4142,7 +4056,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
     - rule: thaddius-shaman-revival-charge-context-v1
       section: raid
       classes:
@@ -4153,7 +4067,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
     - rule: thaddius-warlock-revival-charge-context-v1
       section: raid
       classes:
@@ -4163,7 +4077,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
     - rule: thaddius-warrior-revival-charge-context-v1
       section: raid
       classes:
@@ -4173,7 +4087,7 @@ strategy:
       text: The guide says players lose their charge on death and have neither charge after a combat revival.
         If the raid plans a revival, confirm how it will handle that state; this is not a universal ban
         on reviving players.
-      support: *id046
+      support: *id045
   51121:
     boss: The Four Horsemen
     source: https://warcraft.wiki.gg/wiki/Four_Horsemen_(Classic)
@@ -4188,7 +4102,7 @@ strategy:
       - hps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: &id047
+      support: &id046
       - shield_wall
       - shield_wall_timing
     - rule: the-four-horsemen-hunter-shield-window-plan-v1
@@ -4199,7 +4113,7 @@ strategy:
       - dps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-mage-shield-window-plan-v1
       section: before
       classes:
@@ -4208,7 +4122,7 @@ strategy:
       - dps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-paladin-shield-window-plan-v1
       section: before
       classes:
@@ -4218,7 +4132,7 @@ strategy:
       - hps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-priest-shield-window-plan-v1
       section: before
       classes:
@@ -4228,7 +4142,7 @@ strategy:
       - hps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-rogue-shield-window-plan-v1
       section: before
       classes:
@@ -4237,7 +4151,7 @@ strategy:
       - dps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-shaman-shield-window-plan-v1
       section: before
       classes:
@@ -4247,7 +4161,7 @@ strategy:
       - hps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-warlock-shield-window-plan-v1
       section: before
       classes:
@@ -4256,7 +4170,7 @@ strategy:
       - dps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-warrior-shield-window-plan-v1
       section: before
       classes:
@@ -4265,7 +4179,7 @@ strategy:
       - dps
       text: The guide places each Horseman's Shield Wall at 50% and 20% health. Coordinate targets and
         damage windows with the raid; a threshold alone does not establish a missed personal cooldown.
-      support: *id047
+      support: *id046
     - rule: the-four-horsemen-druid-lingering-spirit-v1
       section: during
       classes:
@@ -4276,7 +4190,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: &id048
+      support: &id047
       - summon_spirit
       - summon_spirit_behavior
     - rule: the-four-horsemen-hunter-lingering-spirit-v1
@@ -4288,7 +4202,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-mage-lingering-spirit-v1
       section: during
       classes:
@@ -4298,7 +4212,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-paladin-lingering-spirit-v1
       section: during
       classes:
@@ -4309,7 +4223,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-priest-lingering-spirit-v1
       section: during
       classes:
@@ -4320,7 +4234,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-rogue-lingering-spirit-v1
       section: during
       classes:
@@ -4330,7 +4244,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-shaman-lingering-spirit-v1
       section: during
       classes:
@@ -4341,7 +4255,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-warlock-lingering-spirit-v1
       section: during
       classes:
@@ -4351,7 +4265,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-warrior-lingering-spirit-v1
       section: during
       classes:
@@ -4361,7 +4275,7 @@ strategy:
       text: The guide says a defeated Horseman remains as a rooted spirit retaining its abilities. Keep
         the raid's post-kill handling plan active; this does not establish an observed spirit or any player's
         position.
-      support: *id048
+      support: *id047
     - rule: the-four-horsemen-druid-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4371,7 +4285,7 @@ strategy:
       - hps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: &id049
+      support: &id048
       - mark_duration
     - rule: the-four-horsemen-hunter-mark-rotation-plan-v1
       section: raid
@@ -4381,7 +4295,7 @@ strategy:
       - dps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048
     - rule: the-four-horsemen-mage-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4390,7 +4304,7 @@ strategy:
       - dps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048
     - rule: the-four-horsemen-paladin-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4400,7 +4314,7 @@ strategy:
       - hps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048
     - rule: the-four-horsemen-priest-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4410,7 +4324,7 @@ strategy:
       - hps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048
     - rule: the-four-horsemen-rogue-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4419,7 +4333,7 @@ strategy:
       - dps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048
     - rule: the-four-horsemen-shaman-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4429,7 +4343,7 @@ strategy:
       - hps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048
     - rule: the-four-horsemen-warlock-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4438,7 +4352,7 @@ strategy:
       - dps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048
     - rule: the-four-horsemen-warrior-mark-rotation-plan-v1
       section: raid
       classes:
@@ -4447,4 +4361,4 @@ strategy:
       - dps
       text: The guide gives Marks a 75 second duration. Confirm the raid's rotation and callouts; that
         duration does not establish who had a Mark, an individual rotation duty or a safe movement route.
-      support: *id049
+      support: *id048

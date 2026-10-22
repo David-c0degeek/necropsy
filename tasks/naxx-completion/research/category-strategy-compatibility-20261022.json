@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-22",
+  "base_commit": "ba58c616a32d637c82dbed8bfb394aab9cec5c87",
+  "scope": "optional comparison-category strategy selection; no production draft activation or archive migration",
+  "v1_archives": 18,
+  "v1_outputs": 54,
+  "full_haplina_archive_sha256": "f249c944ed1c604eff4382f8e4041102d47a5d53c928c88affafcd7f7db39d95",
+  "full_haplina_outputs": {
+    "analysis.json": "7d1e211c3f947176faa2d1ceb5dc8a29cc4db37427587a8978bdfdb0d42d4a08",
+    "report.html": "1eab60cc198b45e5ab22bb3b3d700dacb7df045ce4a98af280783bb0a6093a07",
+    "playbook.html": "b1f1b15fe0a537f95203542f31afc147d463d5e6159ffcde4061f6f8f85a9b3f"
+  },
+  "byte_comparison": "all 57 outputs identical",
+  "source_inputs": {
+    "src/necropsy/analysis/encounters/strategy.py": "3fd4cdf0763bfb7c80bfbb55b99f6183dfd1f2e1ee9ed34beadc61f06ba4b04d",
+    "src/necropsy/report/analysis_json.py": "c6dba8e98026dd555305a58a6e890bbbe02ed6c582eb619e913113c4a11faee1",
+    "tests/unit/test_encounter_strategy.py": "27f31d6d969ad427069f683ed81423e38bb90c22b1bd4a0e7d5ea0e11376f55a",
+    "tests/integration/test_encounter_snapshot.py": "f07698c18304bd6fe9e358bbf9551c3eef5d26a5d971a0a1bd2579caccd4d8f9",
+    "tasks/naxx-completion/research/naxx-category-strategy-proposal.yaml": "e29017774bf73f7db5f5abec6e450ddb729fece1f06375fc94a7a81fb53e8870"
+  },
+  "baseline_artifacts": {
+    "workspace\\naxx-compat\\before-category-selector.json": "02e681c1751bf181110252eacc96f4cb4c0339bf8cb0a0f53ff30e5f99dc0275",
+    "workspace\\naxx-compat\\after-category-selector.json": "02e681c1751bf181110252eacc96f4cb4c0339bf8cb0a0f53ff30e5f99dc0275",
+    "workspace\\naxx-compat\\full-before-category-selector.json": "1f7e15f095fae315a2029bb4fada54de2f1f5a22cdba7cccc5bd615283956e3f",
+    "workspace\\naxx-compat\\full-after-category-selector.json": "1f7e15f095fae315a2029bb4fada54de2f1f5a22cdba7cccc5bd615283956e3f"
+  },
+  "targeted_tests": "84 passed",
+  "guidance_verifier_tests": "44 passed",
+  "category_proposal": {
+    "encounters": 2,
+    "rows": 6,
+    "legal_configurations_checked_per_encounter": 34,
+    "applicable_projections": 10,
+    "source_content_review": "pending independent review"
+  },
+  "local_model_calls": 0,
+  "wcl_calls": 0,
+  "browser_status": "92 passed in 475.34s",
+  "full_gate_status": "pending"
+}

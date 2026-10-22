@@ -140,13 +140,15 @@ class NaxxEncounterWcl(EncounterWcl):
         return report
 
 
-def _naxx_capture(root: Path, enabled: bool) -> Any:
+def _naxx_capture(root: Path, enabled: bool, category: str | None = None) -> Any:
     root.mkdir()
     (root / "cache").mkdir()
     fake = NaxxEncounterWcl([Player(f"Ally{i}") for i in range(5)], Player("Haplina"))
     context = _context()
     assert context.partition is not None
-    context = replace(context, zone_id=2006, partition=replace(context.partition, id=1))
+    context = replace(
+        context, zone_id=2006, partition=replace(context.partition, id=1), ranking_category=category
+    )
     client, store = _client(fake), Cache(root / "cache")
     try:
         result = acquire(
@@ -177,6 +179,55 @@ def test_naxx_encounter_context_needs_a_v2_capture(tmp_path: Path, enabled: bool
     [boss] = doc["bosses"]
     assert boss["encounter_id"] == PATCHWERK
     assert ("duty_context" in boss["playbook"]) is enabled
+
+
+@pytest.mark.parametrize("enabled", [True, False])
+@pytest.mark.parametrize("category", [None, "Marksmanship"])
+def test_selected_category_reaches_strategy_only_on_the_v2_path(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    enabled: bool,
+    category: str | None,
+) -> None:
+    from necropsy.analysis.encounters import strategy as strategy_module
+    from necropsy.rules import load_rules
+
+    original = load_rules
+    text = "Confirm the selected-category test assignment."
+
+    def with_category_row(game: str, name: str) -> dict[str, Any]:
+        data = original(game, name)
+        if name != "zones/naxxramas_guidance":
+            return data
+        return {
+            **data,
+            "strategy": {
+                PATCHWERK: {
+                    "source": "https://example.test/patchwerk",
+                    "retrieved": "2026-10-22",
+                    "items": [
+                        {
+                            "rule": "patchwerk-category-test-v1",
+                            "section": "before",
+                            "text": text,
+                            "classes": [3],
+                            "metrics": ["dps"],
+                            "categories": ["Marksmanship"],
+                        }
+                    ],
+                }
+            },
+        }
+
+    monkeypatch.setattr(strategy_module, "load_rules", with_category_row)
+    written = _naxx_capture(tmp_path / "capture", enabled, category)
+    out = tmp_path / "report"
+    run_offline(written.archive, out, db=tmp_path / "analysis.duckdb")
+    document = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
+    playbook = document["bosses"][0]["playbook"]
+    expected = enabled and category == "Marksmanship"
+    assert ("encounter_strategy" in playbook) is expected
+    assert (text in (out / "playbook.html").read_text(encoding="utf-8")) is expected
 
 
 @pytest.fixture(scope="module")

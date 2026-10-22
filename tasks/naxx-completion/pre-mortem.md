@@ -212,3 +212,38 @@ API ownership. Rollback: revert this planning-only filter; keep all raw board
 and resolution evidence. Verdict: PROCEED WITH GUARDRAILS.
 
 PM-11 implementation: the original reproduction failed with zero fetches where the second boss was required. Shared board filtering now uses exact cached `check()` verdicts before truncation; the three focused discovery/merge/applicability regressions pass. No WCL call, queue emission or production deployment is inferred. Full gate and live discovery remain separate.
+
+### Category-scoped static strategy, 2026-10-22
+
+**PM-12 — High — a missing category broadens tank-only guidance.** Failed
+future: a Druid Balance DPS page receives Guardian preparation because both
+use class 2 and metric dps, or an old saved page gains new advice during render.
+Evidence: `encounter_strategy()` currently accepts only class/metric filters;
+all 510 proposal projections explicitly withhold two tank-category profiles.
+`analysis_json` already retains the selected category in combat/Druid playbooks;
+`with_strategy()` consumes saved context without looking up current rules.
+Inference: treating a missing category as a wildcard would recreate this gap.
+
+Guardrails before implementation: optional keyword-only category selector;
+category-restricted rows require an explicit matching, legal class/category/
+metric combination through `ranking_policy`. General rows retain current
+behavior when no category is available. Pass the selected comparison category
+from each boss playbook/acquisition, never infer duty from it or from talents.
+Do not activate any draft content, rewrite frozen trials or alter saved render
+lookup. Capture same-version baseline outputs before editing runtime code,
+then compare all 54 v1 outputs plus the full Haplina export byte-for-byte.
+Use synthetic normal v2 acquisition to prove the category reaches the selector,
+with missing/mismatched-category and invalid-selection tests. Run browser
+checks at the engine checkpoint. Rollback is a code revert; no archive or
+saved-document migration. Source/content and independent review remain open.
+Verdict: PROCEED WITH GUARDRAILS.
+
+PM-12 implementation evidence: all 34 legal configuration selections and
+unknown/mismatched-category cases are covered. Canonical role aliases use the
+existing class-aware taxonomy. Normal synthetic acquisition proves the selected
+category reaches rendering only on the v2 Naxx path. All 57 legacy outputs are
+byte-identical; 92 browser checks pass. Content remains unpromoted. Full gate
+follows commit. Author review also caught the Sapphiron timing ambiguity that
+mechanical quotation checks do not detect; the current key is blocked and the
+34 affected coordinator drafts were revised explicitly, preserving old Git
+bytes and original model trials. Independent content approval stays pending.

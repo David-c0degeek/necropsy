@@ -71,3 +71,13 @@ older positive Dwarf quest. `research/priest-racial-source-followup-20261022.jso
 retains the short quote, table, derivation and variant limits. It does not prove
 any captured player knew the spell or had an opportunity. No original source
 pin, trial, rule, capability support key or completion tick changes.
+
+2026-10-22 · Sapphiron movement ambiguity · The retained ability excerpt says
+five Icebolts per air phase, while a separate tip prescribes moving after the
+third. A direct authored Classic guide also describes five. Count alone does
+not establish a safe movement trigger or explain the remaining casts; the two
+statements are not declared logically incompatible. Added an explicit source
+conflict for `tip_iceblock_timing` with a no-replacement-by-inference rule.
+Current coordinator drafts withdraw the prescription; original model trials
+and their historical pins stay unchanged. The author review binds the new
+ledger/current draft revision. No raw movement or observed timing is inferred.

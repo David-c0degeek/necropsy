@@ -6,10 +6,13 @@ receipt for every capture, and batch registrations that turn cells COMPLETE.
 
 ## Integration analysis
 Reuse the existing strategy seam, `guidance_lint.py`, `render_parity.py` and
-`raid_batch.py`. `analysis/encounters/strategy.py` selects items by class and
-metric, not ranking category. Keep the two tank-category-only draft profiles
-out of the proposed YAML: class/metric selection would broaden them to DPS.
-Any future category-aware seam needs its own implementation review and tests.
+`raid_batch.py`. `analysis/encounters/strategy.py` now accepts an optional
+comparison category, canonicalized by the existing ranking taxonomy. Restricted
+rows require a known matching category; unknown does not broaden them. The
+original general proposal still withholds its two tank-only profiles. Their
+separate `research/naxx-category-strategy-proposal.yaml` is ready for review,
+with six rows and ten applicable boss/configuration projections. No draft
+content is activated by the seam change.
 
 The eight existing Hunter `encounters` blocks stay in place for this proposal.
 Do not repeat their Rapid Fire/Refocus instructions in new strategy items.
@@ -64,3 +67,26 @@ starts no model and leaves content review pending. Sixteen tests cover the real
 bundle and planted coverage, source/digest, applicability and projection defects.
 This replaces dependence on the ignored replay helper for future verification;
 the historical replay receipt and its script digest remain unchanged.
+
+2026-10-22 · Category selection and author source review · Optional category
+filtering is wired through each boss playbook/acquisition selection. General
+rows retain legacy behavior; restricted rows require an explicit legal
+class/category/metric combination. Existing class aliases are canonicalized,
+without assigning encounter duty. Four normal synthetic acquisition/render
+cases cover selected/unknown category and v1/v2. All 84 focused strategy/snapshot
+tests pass, plus 44 guidance/work-order/proposal checks and 92 browser checks.
+All 54 outputs from 18 v1 archives and the three full Haplina outputs are
+byte-identical before/after. `research/category-strategy-compatibility-20261022.json`
+records hashes and limits. Production strategy items are still unpopulated.
+
+Author review of all 15 profile groups found an ambiguous Sapphiron instruction:
+the third-Icebolt movement tip lacks context for the five-cast air phase. This
+is not proof the statements are logically incompatible. The key is now blocked
+in the current source ledger, and coordinator revision 2 withdraws that item
+from 34 drafts without substituting another trigger. The revised source pin
+is applied to all 510 current coordinator orders, which replay successfully.
+Previous coordinator bytes remain in Git; the original model orders and trial
+receipts are unchanged. `research/guidance-author-source-review-20261022.json`
+binds all 50 remaining profiles and records each group's source boundaries.
+This is author review, not independent approval. Class/loadout review, content
+integration, capture receipts, formal review and completion remain open.

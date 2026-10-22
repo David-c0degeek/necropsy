@@ -1,0 +1,88 @@
+# Research proposal only; source/content and independent review pending.
+# Category filters describe the comparison pool, never an observed assignment.
+# The original proposal and frozen recipes remain unchanged.
+strategy:
+  51118:
+    boss: Patchwerk
+    source: https://warcraft.wiki.gg/wiki/Patchwerk_(Classic)
+    retrieved: '2026-10-21'
+    items:
+    - rule: patchwerk-druid-hateful-tank-loadout-v1
+      section: before
+      classes:
+      - 2
+      metrics:
+      - dps
+      categories:
+      - Guardian
+      text: For Hateful Strike tanks, the guide recommends Flasks of the Titans and Stoneshield Potions.
+        If that is your assignment, confirm the consumable plan with the raid; the ranking category alone
+        does not establish your duty or loadout.
+      support: &id001
+      - tank_buffs_and_spec
+    - rule: patchwerk-paladin-hateful-tank-loadout-v1
+      section: before
+      classes:
+      - 6
+      metrics:
+      - dps
+      categories:
+      - Protection
+      text: For Hateful Strike tanks, the guide recommends Flasks of the Titans and Stoneshield Potions.
+        If that is your assignment, confirm the consumable plan with the raid; the ranking category alone
+        does not establish your duty or loadout.
+      support: *id001
+    - rule: patchwerk-warrior-hateful-tank-loadout-v1
+      section: before
+      classes:
+      - 11
+      metrics:
+      - dps
+      categories:
+      - Protection
+      text: For Hateful Strike tanks, the guide recommends Flasks of the Titans and Stoneshield Potions.
+        If that is your assignment, confirm the consumable plan with the raid; the ranking category alone
+        does not establish your duty or loadout.
+      support: *id001
+  51119:
+    boss: Sapphiron
+    source: https://warcraft.wiki.gg/wiki/Sapphiron_(Classic)
+    retrieved: '2026-10-21'
+    items:
+    - rule: sapphiron-druid-tank-category-duty-v1
+      section: before
+      classes:
+      - 2
+      metrics:
+      - dps
+      categories:
+      - Guardian
+      text: The guide describes a single-tank encounter, with additional tanks doing damage instead. Confirm
+        your assigned job before copying a tank or damage comparison; a tank ranking category does not
+        prove that this fight assigned you to tank.
+      support: &id002
+      - composition_tank
+    - rule: sapphiron-paladin-tank-category-duty-v1
+      section: before
+      classes:
+      - 6
+      metrics:
+      - dps
+      categories:
+      - Protection
+      text: The guide describes a single-tank encounter, with additional tanks doing damage instead. Confirm
+        your assigned job before copying a tank or damage comparison; a tank ranking category does not
+        prove that this fight assigned you to tank.
+      support: *id002
+    - rule: sapphiron-warrior-tank-category-duty-v1
+      section: before
+      classes:
+      - 11
+      metrics:
+      - dps
+      categories:
+      - Protection
+      text: The guide describes a single-tank encounter, with additional tanks doing damage instead. Confirm
+        your assigned job before copying a tank or damage comparison; a tank ranking category does not
+        prove that this fight assigned you to tank.
+      support: *id002

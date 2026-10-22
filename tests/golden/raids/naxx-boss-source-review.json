@@ -679,6 +679,23 @@
         "druid-remove-curse",
         "paladin-frost-resistance-aura",
         "shaman-frost-resistance-totem"
+      ],
+      "conflicts": [
+        {
+          "keys": [
+            "tip_iceblock_timing"
+          ],
+          "issue": "The isolated tip says move only after the third Icebolt, while the ability section says five Icebolts per air phase. A second authored Classic guide also describes five. Total count alone does not establish a safe movement trigger or explain the remaining casts.",
+          "rule": "Withhold the third-cast movement prescription until full source context and, for observed timing, independent raw evidence qualify it. Do not replace it with a fifth-cast rule by inference.",
+          "followup": {
+            "url": "https://www.wowhead.com/classic/guide/sapphiron-naxxramas-raid-strategy",
+            "retrieved": "2026-10-22",
+            "author": "Rokman",
+            "displayed_patch": "1.15.8",
+            "quote": "When Sapphiron flies into the air, she will cast 5 Icebolts on players before casting her next ability.",
+            "method": "Direct authored guide-body open; comments excluded."
+          }
+        }
       ]
     },
     {
@@ -741,7 +758,8 @@
     "Heigan strategy_red_safe_zone and strategy_phase1_raid_position refer to a diagram the fetch did not return; positions are also not recorded in logs, so they support no positional advice.",
     "Faerlina strat_cleansers and Maexxna warrior_taunt are now excluded by explicit conflicts, not merely prose cautions. Separate class capability sources are linked; Paladin Consecration is a talent. A class-specific replacement still requires its own complete source/citation and applicability review; no assignment, taunt, threat or observed control is inferred.",
     "Fragments cut by the 125-character cap (marked '...' or ending mid-sentence) cannot support categorical advice; any item citing one must state only what the fragment says.",
-    "Conflicts are recorded per source under `conflicts`; an item may not rely on any key named in a conflict until that conflict's rule is met."
+    "Conflicts are recorded per source under `conflicts`; an item may not rely on any key named in a conflict until that conflict's rule is met.",
+    "Sapphiron: qualify the third-Icebolt movement tip against the five-cast air phase before it can support advice; neither a safe route nor a replacement trigger follows from the total count."
   ],
   "capability_source_review": {
     "path": "naxx-capability-source-review.json",
