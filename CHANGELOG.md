@@ -8,6 +8,19 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+## 0.6.1 - 2026-10-22
+
+- Resuming a capture prioritizes independent finalization of complete saved
+  entries before fetching additional comparisons. This preserves usable partial
+  output across quota windows while retaining incomplete-coverage labels and
+  report revision checks.
+- Candidate discovery progresses past cached candidates that failed verification,
+  allowing it to reach eligible candidates from later bosses.
+- Developer: encounter guidance can be restricted to a canonical comparison
+  category, with the same selection enforced by rendering and coverage checks.
+- Developer: independent fact freezing supports explicit dispel rows with removed
+  ability and recipient identities, without inferring opportunities or aura timing.
+
 ## 0.6.0 - 2026-10-21
 
 - Holy Priest and Restoration Shaman analyses show recorded class cooldown
