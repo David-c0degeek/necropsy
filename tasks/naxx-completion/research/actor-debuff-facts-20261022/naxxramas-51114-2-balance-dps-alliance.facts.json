@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+    "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "KPqATnBvMZVXNH3r",
+        "fight": 49,
+        "actor": 2,
+        "player": "Haplina",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          28479
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 49,
+      "actor": 2,
+      "player": "Haplina",
+      "subject": true,
+      "observed_debuff_transitions_ms": [
+        [
+          17280,
+          "applydebuff",
+          28479
+        ],
+        [
+          21302,
+          "removedebuff",
+          28479
+        ],
+        [
+          33028,
+          "applydebuff",
+          28479
+        ],
+        [
+          37029,
+          "removedebuff",
+          28479
+        ],
+        [
+          48797,
+          "applydebuff",
+          28479
+        ],
+        [
+          52791,
+          "removedebuff",
+          28479
+        ],
+        [
+          64549,
+          "applydebuff",
+          28479
+        ],
+        [
+          68549,
+          "removedebuff",
+          28479
+        ],
+        [
+          127856,
+          "applydebuff",
+          28479
+        ],
+        [
+          131861,
+          "removedebuff",
+          28479
+        ],
+        [
+          143626,
+          "applydebuff",
+          28479
+        ],
+        [
+          147632,
+          "removedebuff",
+          28479
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 49,
+      "actor": 2,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          61
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          73
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          105
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          113
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          152
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          164
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          186
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          196
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          290
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          295
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          315
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json",
+          320
+        ]
+      ]
+    }
+  ]
+}

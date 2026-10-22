@@ -1,0 +1,260 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+    "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 48,
+        "actor": 23,
+        "player": "Haplina",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          29194,
+          29204,
+          29232
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 48,
+      "actor": 23,
+      "player": "Haplina",
+      "subject": true,
+      "observed_debuff_transitions_ms": [
+        [
+          6488,
+          "applydebuff",
+          29194
+        ],
+        [
+          17786,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          29118,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          40452,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          51802,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          63122,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          74421,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          79837,
+          "applydebuff",
+          29232
+        ],
+        [
+          85723,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          98623,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          109957,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          121292,
+          "applydebuff",
+          29204
+        ],
+        [
+          121316,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          131306,
+          "removedebuff",
+          29204
+        ],
+        [
+          132609,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          143926,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          150376,
+          "applydebuff",
+          29204
+        ],
+        [
+          155228,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          160375,
+          "removedebuff",
+          29204
+        ],
+        [
+          166547,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          169842,
+          "removedebuff",
+          29232
+        ],
+        [
+          177909,
+          "refreshdebuff",
+          29194
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 48,
+      "actor": 23,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          6
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          30
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          50
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          73
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          94
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          115
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          135
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          149
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          178
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          228
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          262
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          285
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          286
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          323
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          328
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          348
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          369
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          383
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          397
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          417
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          424
+        ],
+        [
+          "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json",
+          440
+        ]
+      ]
+    }
+  ]
+}

@@ -117,3 +117,16 @@ rows, resolved owner exclusion and offline merge. No live discovery request or
 parked-queue mutation occurs while the isolated measurement owns the API.
 The considered one-candidate target is unnecessary for the current cached
 pools and was not added. Source evidence and full gate precede publication.
+
+## Latest isolated measurement follow-up
+
+2026-10-22 · Attempt 004 ended 19:20:27 UTC on database-points refusal during
+the same first combined-report finalization. No archive/report was written.
+The retained journal now contains 288 successful acquisition responses,
+45 new; every response-data digest checks and every prior request is unchanged.
+`research/capture-attempt-004-20261022.json` binds the private journal digest,
+controller receipt and limits. The last returned hourly reading, 393/3000,
+does not establish database readiness or an exact cost for the failed request.
+Next bounded retry is 20:20:08 UTC / 22:20 Amsterdam, with attempts 005–006
+remaining. Coordinator owns the API; production stays parked and local AI off.
+No v2 smoke, quota-throughput measurement or new capture eligibility is claimed.

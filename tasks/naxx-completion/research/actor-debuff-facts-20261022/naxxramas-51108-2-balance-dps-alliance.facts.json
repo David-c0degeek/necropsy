@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+    "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 38,
+        "actor": 23,
+        "player": "Haplina",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          6788
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 38,
+      "actor": 23,
+      "player": "Haplina",
+      "subject": true,
+      "observed_debuff_transitions_ms": [
+        [
+          9481,
+          "removedebuff",
+          6788
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "zqdQLVyTJnp9B176",
+      "fight": 38,
+      "actor": 23,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/source_001.json",
+          13
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-22",
+  "status": "attempt 004 quota-reset without snapshot; bounded coordinator waiting",
+  "controller": {
+    "api_owner": "this measurement; no concurrent queries",
+    "attempts": [
+      {
+        "number": 3,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-22T19:16:06+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-22T18:18:22+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-22T19:18:06+00:00"
+        }
+      },
+      {
+        "number": 4,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-22T20:18:08+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-22T19:20:27+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-22T20:20:08+00:00"
+        }
+      }
+    ],
+    "checked_at": "2026-10-22T19:38:28+00:00",
+    "current_attempt": 4,
+    "kind": "isolated measurement only",
+    "local_ai": "off; no model calls",
+    "max_new_attempts": 4,
+    "next_retry_at": "2026-10-22T20:20:08+00:00",
+    "promotion": false,
+    "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+    "started_at": "2026-10-22T17:24:21+00:00",
+    "status": "waiting"
+  },
+  "journal_tar_sha256": "d6017a0b7013900520c4b31c34e7cae78c4ae548bf44643ad2c76094db11035a",
+  "previous_journal_tar_sha256": "3ec2ec0de15c7a8264925aca3d88f2a7d0ed8f6be01a781d885e3bf8ca870039",
+  "retained_successful_requests": 288,
+  "new_successful_requests": 45,
+  "removed_previous_requests": 0,
+  "all_previous_request_bytes_unchanged": true,
+  "all_response_data_digests_checked": true,
+  "last_new_successful_request": {
+    "captured_at": "2026-10-22T19:20:26.215142+00:00",
+    "scope": "acquisition",
+    "variables": {
+      "code": "4Gd9wNXcFvAVn7Dh",
+      "fightIDs": [
+        31
+      ]
+    },
+    "query": "",
+    "rate": {
+      "limitPerHour": 3000,
+      "pointsResetIn": 3463,
+      "pointsSpentThisHour": 393
+    }
+  },
+  "limits": [
+    "Successful acquisition requests are progress, not a certified archive or completed capture.",
+    "No successful finalization-scope request is retained; the first combined report still refuses on database points.",
+    "Returned hourly readings do not explain database readiness or establish exact per-query costs.",
+    "No change to quota reserve, endpoint, production runner/watchdog, model hold or candidate-validation gates."
+  ],
+  "remaining_bounded_attempts": [
+    5,
+    6
+  ],
+  "next_retry_at_utc": "2026-10-22T20:20:08Z",
+  "local_ai": "off until explicit owner resume"
+}

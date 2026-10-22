@@ -1,0 +1,1033 @@
+{
+  "date": "2026-10-22",
+  "kind": "positive personal debuff transitions over registered actor sources; draft facts only",
+  "enumerator_sha256": "967b358a66cb03cf1919cd7f5ad538ed8ff8fa6c79c5086fab7ea4f73037e32d",
+  "coverage_register_sha256": "616b400c21d32ed84c9e33eeacae35352736f5e39c48ebfa6d0c9f78211381f0",
+  "fact_freeze_sha256": "76b98352562cb611022eb05a134b59739c019fc2254f2aafefd6507e1b8aad3e",
+  "method": "Strict actor eligibility, then independent stdlib raw ZIP/JSON/Counter enumeration before fact-freeze. Select exact numeric target actor and explicit debuff transition types, discover IDs from those raw rows and merge SOURCE/TARGET by maximum multiplicity. Compare the complete projected multiset and each retained locator. Strict replay each portable draft.",
+  "limits": [
+    "Actor-target observations only, not encounter-All evidence or complete mechanic identities.",
+    "No event pairing, uptime, source ownership, dispeller attribution, boss phase, assignment, opportunity or grade.",
+    "Observed IDs retain their numeric identity; API names do not resolve Classic-versus-Wrath conflicts.",
+    "No actor registration, rule/content activation or cell completion. Empty selections are not absence."
+  ],
+  "rows": [
+    {
+      "cell": "naxxramas/51107/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 2,
+        "actor": 17,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/qD1Yc8Wk2dmP79wB/fight_2/player_17_Haplina/source_001.json": "b97bc7763160f58ca56ff8c9fe0d754b27cf59c229a2a6273ad7303f7fe878f4",
+        "events/qD1Yc8Wk2dmP79wB/fight_2/player_17_Haplina/target_001.json": "bebb7407aeeee1b7ec873bbfbb065f921a837aa8141616bd3d355c012c7a781e",
+        "events/qD1Yc8Wk2dmP79wB/fight_2/player_17_Haplina/target_002.json": "1e20bc774c4214fcfd9188a364a2c726a729900fdf9989903fa5ff3839106a6b"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51108/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 38,
+        "actor": 23,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/source_001.json": "ed29c21719e0f84934f0c7b7169e1619314de6c90b1556485a0c366607ce704f",
+        "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/target_001.json": "3f11021b44fde1883c19e61444a3cd91ba3d174595e88d97075eed6cc4631d21",
+        "events/zqdQLVyTJnp9B176/fight_38/player_23_Haplina/target_002.json": "0e11060386a8ac9ba18c30ba6d540d4ab9686525915f58e4b26256f05bcdccb2"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        6788
+      ],
+      "observed_raw_transition_count": 1,
+      "transitions_by_id": {
+        "6788": 1
+      },
+      "raw_multiset_sha256": "ed0c509f3c874502bd7f0ebd760e7443144d36fd4330d12eabdfcb82bec30a1a",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51108-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "2fa77888d39aa741d77784bfcf05644ca9066c50c3f3f915f84595625e971750",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51108-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "e314acf59bf88d76a11f118c1905ffc39cd0a5ec4c7fda698a18c75e58e53f66"
+    },
+    {
+      "cell": "naxxramas/51109/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 19,
+        "actor": 17,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/source_001.json": "9cd57a4ffed24626b330f9658f700184a831697c592eff7c6d231426f99af009",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/target_001.json": "fb7f4b3f26fbaec919646a0bbe6fd0b1306ad32929b3fb9ed816419f4091fdf3",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/target_002.json": "7721b409a095fe4d5c6b2765f0c5c0d275a2a50c90c24683f7c69797b02e2a83",
+        "events/qD1Yc8Wk2dmP79wB/fight_19/player_17_Haplina/target_003.json": "6c6777fb15c490a833abc62768364b18e3a447b56575146beb6c8f1a7e5a624c"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        27825,
+        28679
+      ],
+      "observed_raw_transition_count": 5,
+      "transitions_by_id": {
+        "27825": 4,
+        "28679": 1
+      },
+      "raw_multiset_sha256": "300f1263a721345d7736d5ad13251e98ca8ded7e506291f7e05b1c8652a26a24",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51109-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "f062b9cb74d7b03505a0703337e1dbb2bbb2a2a8f52b28fa784433c8ce1a1c0b",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51109-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "ace3e07cb9ccf362f54804ae22d6e6a4ea1db3b9d8b7c90b849722f05f0b4fe7"
+    },
+    {
+      "cell": "naxxramas/51110/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "KPqATnBvMZVXNH3r",
+        "fight": 8,
+        "actor": 2,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/source_001.json": "d8cc4bb825f3e1ba67111cafaa9de5c737402b7c373c87f593789e8954ec56da",
+        "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/target_001.json": "26618f896a73e4999b927fd6523f1ba7fade3be20414c660a8b6a33bc9824e67",
+        "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/target_002.json": "ba78a2326f0758a659df8c9b9aa3776856b9656e25827b24ef10f16da2ee73ed"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        28732,
+        28794
+      ],
+      "observed_raw_transition_count": 3,
+      "transitions_by_id": {
+        "28732": 2,
+        "28794": 1
+      },
+      "raw_multiset_sha256": "e5375ed550ae56a73fd57ac8d511aa6abe1555852c97eea5da4bdeae8d270a31",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51110-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "7c0ea1954bebdc0993dc05ae212d4a9c00d56ff067aaed04f4b3ad2463a8b9a5",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51110-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "e2edf4c8f6744c8b973b2cddbae237c6344db3e85ed40029537f9a45a347b940"
+    },
+    {
+      "cell": "naxxramas/51111/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 37,
+        "actor": 17,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/qD1Yc8Wk2dmP79wB/fight_37/player_17_Haplina/source_001.json": "99a916fe56c47aeba61db5a9234b5574db956c7fa86f5320cae28321f897f847",
+        "events/qD1Yc8Wk2dmP79wB/fight_37/player_17_Haplina/target_001.json": "9a9eda94b6f850d89e6d78865283ded38d6da99993fe87e722d2fbdf44514dd7",
+        "events/qD1Yc8Wk2dmP79wB/fight_37/player_17_Haplina/target_002.json": "49f3b4a5d9bad331ed7b321dee12935141a5fafe96dc666d5433fd3ebd358d9c"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51112/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 46,
+        "actor": 23,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/zqdQLVyTJnp9B176/fight_46/player_23_Haplina/source_001.json": "c278c3a27e95e460d5cc0f252c68d8fb31928ac2a3f50c2c6f222ca5d58858b6",
+        "events/zqdQLVyTJnp9B176/fight_46/player_23_Haplina/target_001.json": "04614c2766e9f79bed5fcd546e39d8faf84f66e57eda37b66b3a6fe16a0c42f3",
+        "events/zqdQLVyTJnp9B176/fight_46/player_23_Haplina/target_002.json": "19fd23e3972b239885fe7b0cb198fa611d944499dc1f7cbc14f1912ee172f052"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51113/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 15,
+        "actor": 23,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/zqdQLVyTJnp9B176/fight_15/player_23_Haplina/source_001.json": "a2645063a3e31d668a74f6c36fc632e0a04f3171c9fe887deb63349cd966f5b8",
+        "events/zqdQLVyTJnp9B176/fight_15/player_23_Haplina/target_001.json": "283a9026e2277c67e99893dd06bb4f65a73510f1bbbc2c596f7d9b8c8defe6da",
+        "events/zqdQLVyTJnp9B176/fight_15/player_23_Haplina/target_002.json": "de1b9494db1f5124a9c90c201fb266daaf0af4e17ec108eb296fb9e0c3ee9999"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51114/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "KPqATnBvMZVXNH3r",
+        "fight": 49,
+        "actor": 2,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/source_001.json": "9ac6d93a6d3043d3b9af80bbe40ddab581aec535743a854c6116cd9182584109",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/target_001.json": "5980039658ac8aedba507bb7d05710f11c613efcd717339ccdf72340d65cd242",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/target_002.json": "0a6d22dfda28cff46f8a71dc64343420284f23e0398dbea76ff395cb51b18d0a",
+        "events/KPqATnBvMZVXNH3r/fight_49/player_2_Haplina/target_003.json": "11e1e87b9e57db6074d373724414c545277867b8276e6feeccbcead97b7e47e9"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        28479
+      ],
+      "observed_raw_transition_count": 12,
+      "transitions_by_id": {
+        "28479": 12
+      },
+      "raw_multiset_sha256": "f21e9ce1fcaafa965f70bc071747ac921d29bb09d672e67381e6c3b64aee10d9",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51114-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "705f54945282313c9ff7bf6ee0ce5b6f3a6bc36c819110add70e688313018b19",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51114-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "258259b00ece732ecb17ce0158a9c2c5b12e4a70b9e6b4746c65fbf0f5f8e309"
+    },
+    {
+      "cell": "naxxramas/51115/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "zqdQLVyTJnp9B176",
+        "fight": 48,
+        "actor": 23,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/source_001.json": "db2dddb85e872fb8f3c1cf307da4702b2ccef4cdaf8c87f8b4e6b221ec005c6c",
+        "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/target_001.json": "dd312f9d62b7e68210f069c325cc0e91bd39b95ce9bcf6bdff9d78cc488189fa",
+        "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/target_002.json": "3dd5768511aa2a69ac2d1c3224231500b12cbd899aef5cb9c35537a7d7a2dfe3",
+        "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/target_003.json": "ca6fd885be4f726c2d23aa71166944b7b4ed05ddeb7308f53e29d423d34c576c",
+        "events/zqdQLVyTJnp9B176/fight_48/player_23_Haplina/target_004.json": "6bb98a7c99309d26a437e3d376402d9a7c412ab0d0f09f21dbaf8e37ac70e1bf"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        29194,
+        29204,
+        29232
+      ],
+      "observed_raw_transition_count": 22,
+      "transitions_by_id": {
+        "29194": 16,
+        "29204": 4,
+        "29232": 2
+      },
+      "raw_multiset_sha256": "8c556faf7af198832eb9a1960a4e0de16e7b9f9f23c68e687ee47f8a60d64945",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51115-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "ff9cb07af32cf859b27a74d58c869290fd530657a0c725819c1a1e122fd36a07",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51115-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "991bd21aa83aec860584532834e24a3b00d73d31289ce1558703e595f2692868"
+    },
+    {
+      "cell": "naxxramas/51116/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "KPqATnBvMZVXNH3r",
+        "fight": 11,
+        "actor": 2,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/KPqATnBvMZVXNH3r/fight_11/player_2_Haplina/source_001.json": "0e97fd23bb7a4b2903955c25b01ae6d5c221144d2a54864982812417811c40f8",
+        "events/KPqATnBvMZVXNH3r/fight_11/player_2_Haplina/target_001.json": "ef9b02cd57e9989ca6702d88d9624578eacc7dac6a69f170d154d3c440bf65f7",
+        "events/KPqATnBvMZVXNH3r/fight_11/player_2_Haplina/target_002.json": "53db27b6974b5f74df11a3d35e13f168bf1e171bcfe2b09b27d93c6a43084195"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        6788,
+        29484
+      ],
+      "observed_raw_transition_count": 4,
+      "transitions_by_id": {
+        "6788": 2,
+        "29484": 2
+      },
+      "raw_multiset_sha256": "4e0292f0c38c20a04949015e62f77cc6c1299b252da26be8a90232b052d743e5",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51116-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "e93fa04725edcb12a0eb51e1132b08e90247aed544d4c2cf471f96ee123653c8",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51116-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "60905508292829180e38d46461e1241790f21fabf460be6abb176d40838b8393"
+    },
+    {
+      "cell": "naxxramas/51117/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 46,
+        "actor": 17,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/qD1Yc8Wk2dmP79wB/fight_46/player_17_Haplina/source_001.json": "dee99e0a3a4272624e2f04ded40260843fa593faeb53d67803ecf09b667ad184",
+        "events/qD1Yc8Wk2dmP79wB/fight_46/player_17_Haplina/target_001.json": "63d65c91373ef03ff07e66262a4b27f74d02a0cbb8a88cd9ed9604f31ca0eca8",
+        "events/qD1Yc8Wk2dmP79wB/fight_46/player_17_Haplina/target_002.json": "92a3c3ad3cb6411864f19e62bfdaff8a40cba337186f3a611e5b43036eee5486"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        29325
+      ],
+      "observed_raw_transition_count": 1,
+      "transitions_by_id": {
+        "29325": 1
+      },
+      "raw_multiset_sha256": "af06ec1cffa48d118a6618eece1edea0cbdd45d7d015797035f76f34e5607828",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51117-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "98dbacbb4bbbbc9420a2a8a5ceb98620b4eee5dc286cbb89d3b8b5d5bba25c90",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51117-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "a6be42c7b768c97c7f76546867b718cf5099d6eca60ccc3630ee7fc3ba0b9130"
+    },
+    {
+      "cell": "naxxramas/51118/10/Destruction/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/classes/raw/class-warlock-destruction.zip",
+          "sha256": "53d6d97e89cd8e4e3bd64d86ca85e14e3f508d96216d3633cfddfd3250d44458",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/classes/raw/class-warlock-destruction.entries",
+          "sha256": "cb482b258ccdf69dd7e0ea70615a9fbd7727ab0d5c2744bb89febe383373f9cb",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/classes/provenance.json",
+          "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+          "locator": "warlock-destruction"
+        },
+        "report": "7NmBydcX8HFRh1tA",
+        "fight": 14,
+        "actor": 38,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/7NmBydcX8HFRh1tA/fight_14/player_38_Sobr/source_001.json": "471bec539ccc0bdce385de66ced01cd1ab0e50fd9e90129feb05f56d51ba2258",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_38_Sobr/target_001.json": "d483d35fec612088ba1cc8133c41e527dd9d85521982d5a160a4b2e04770f475",
+        "events/7NmBydcX8HFRh1tA/fight_14/player_38_Sobr/target_002.json": "6546cc1ea291e14731fd21eaf710859db82c2769ae401a49a41ead34050a8232"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51118/11/Protection/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/classes/raw/class-warrior-protection.zip",
+          "sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/classes/raw/class-warrior-protection.entries",
+          "sha256": "a96b2acdad90b95197fff8b16b1730c544a588bc21f324ad88435e04512a5e4a",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/classes/provenance.json",
+          "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+          "locator": "warrior-protection"
+        },
+        "report": "mNFf8nRZzg7jrXax",
+        "fight": 42,
+        "actor": 129,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/source_001.json": "8074ef89131e17e2d53c432d5470e3e51592c42410bee45b7ec41fb9102b3d55",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/target_001.json": "e41c2cc48b9a5db0f579b900b2f816588c41fe2d7134c2265e28e2c672b99a10",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/target_002.json": "b3d45d208ca0da628833936f23d42f3738df426e7df7e2d2d36423e545c92ca4",
+        "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/target_003.json": "21096f91ec6b6cac5a5a8a26f1decd3c38498cb0f9d71d2dce014e22dd90e877"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        12328
+      ],
+      "observed_raw_transition_count": 2,
+      "transitions_by_id": {
+        "12328": 2
+      },
+      "raw_multiset_sha256": "f2cfcaa253e2b149db70cb6c047ae3267d5d7b1d41d9b903ea7651d1eace1d09",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51118-11-protection-dps-alliance.facts.json",
+      "facts_sha256": "2e95eea28476caf02b42d82535a08c18a492e64d4f06c7b24ca6ea1d340cf630",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51118-11-protection-dps-alliance.spec.json",
+      "spec_sha256": "12d6a99889c720e70b6d1cc4519d32518138ef251689ac2866cc8447eccf4fa3"
+    },
+    {
+      "cell": "naxxramas/51118/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "WzGF9BjdrHCk8N1X",
+        "fight": 36,
+        "actor": 1,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/source_001.json": "71bab37f1ca4ba0fea4b6043efaabbc6cbd69e97da703bec096023f83a25ad52",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/target_001.json": "9fef761aab695ac507f3b4872227e882bf5f657f4c341a39ee2b588e4b81e2a2",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/target_002.json": "837049e6a2daa62f6415a0cc2cf6d748921320967676a6b009cbf33c67d92013",
+        "events/WzGF9BjdrHCk8N1X/fight_36/player_1_Haplina/target_003.json": "5c1d1d40e74ebab29f60855cd1a3a6a92925f24a0dee7d0faeb014bb5bd78987"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51118/2/Feral/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-feral.zip",
+          "sha256": "df75c0c904c65fe476ad10cd808de2a98bd16c568891c5ebfe74e8338de767f5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-feral.entries",
+          "sha256": "df56f6325091bf621f3cdd725a6851d5c81616092886f5f2f6d5bcdaa9c7380a",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-feral.zip"
+        },
+        "report": "maHpk8K4hvLQzFRf",
+        "fight": 35,
+        "actor": 20,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/maHpk8K4hvLQzFRf/fight_35/player_20_Stinkface/source_001.json": "af50e0c2d53ad9d76b25d7627491bda5096c2484dfc22ceacf4f46276379d817",
+        "events/maHpk8K4hvLQzFRf/fight_35/player_20_Stinkface/target_001.json": "0ebb02e5060359150993e6f54c6072516c03e674019daa526eb714ab3121158f",
+        "events/maHpk8K4hvLQzFRf/fight_35/player_20_Stinkface/target_002.json": "a35dae863eebc8f08af56e014653c179b30f30ee4bffc40cb632aa74d75c49a5",
+        "events/maHpk8K4hvLQzFRf/fight_35/player_20_Stinkface/target_003.json": "0867e0b58e515e519e660ee53b9797ed6cfac4bf0ac45a3633a7931e4bf70095"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51118/2/Guardian/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-guardian.zip",
+          "sha256": "12e6e3198804b39e3005c31f48a74e2ff7d8fdcdb70d8a7cf57aa2efef15ffd6",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-guardian.entries",
+          "sha256": "9e048d204e57a75cb1c50b732cbcef54636260e8ac8055906c947d254259fd81",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-guardian.zip"
+        },
+        "report": "YhxTZy3BDQN7nkcV",
+        "fight": 34,
+        "actor": 9,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/YhxTZy3BDQN7nkcV/fight_34/player_9_Suncat/source_001.json": "49412a66858087a27c0a06962111570b3777738f473e8146421dd6fa3b31f618",
+        "events/YhxTZy3BDQN7nkcV/fight_34/player_9_Suncat/target_001.json": "e253ae405020d92aa4ee9b5dfd7e064dad518abb1f53162025d69cafd04ab94e",
+        "events/YhxTZy3BDQN7nkcV/fight_34/player_9_Suncat/target_002.json": "599db47ef5622e578202e93ad802a2647ca39c3b63928349dceddf61cbce1f92",
+        "events/YhxTZy3BDQN7nkcV/fight_34/player_9_Suncat/target_003.json": "0865256f22e56be86385d3079d489dd64fd5587b6ee52002abee05a32e85fd53"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51118/4/Fire/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/classes/raw/class-mage-fire.zip",
+          "sha256": "eec781e061dafaea5c6c862a8bdc9f4d45c505191870496a1ffc494fbb5973ff",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/classes/raw/class-mage-fire.entries",
+          "sha256": "bf05cd268bf415a7ae8939d45e94525b0bbe4c1f9d60c4e8d7d3e35e4d1b548d",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/classes/provenance.json",
+          "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+          "locator": "mage-fire"
+        },
+        "report": "qD2ZvyYm6g8FRbKM",
+        "fight": 55,
+        "actor": 43,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/qD2ZvyYm6g8FRbKM/fight_55/player_43_Ljhart/source_001.json": "b2a8d8a406923126c299d0be6bcd629726bb5c22d0372fa10b3d910c66f9d6ea",
+        "events/qD2ZvyYm6g8FRbKM/fight_55/player_43_Ljhart/target_001.json": "2902598d090a7ec15b3888e430ee9671449d308ed83d4fdbe9baada68cd54d42",
+        "events/qD2ZvyYm6g8FRbKM/fight_55/player_43_Ljhart/target_002.json": "629c922a72c4005af416805769dd6677c69903acabc5348aad59c029ef8e0a61",
+        "events/qD2ZvyYm6g8FRbKM/fight_55/player_43_Ljhart/target_003.json": "3669a1e823e7d4b47202141026f67845c51576d4021d2a7f5377cd702ae4c65b"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        6788
+      ],
+      "observed_raw_transition_count": 2,
+      "transitions_by_id": {
+        "6788": 2
+      },
+      "raw_multiset_sha256": "30be5eaf8aa91690ca0077e89d2f624fd3e57b04176c8b621b32d7d3d5fb619f",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51118-4-fire-dps-alliance.facts.json",
+      "facts_sha256": "31a16322f427da4b013903f1f5fc33f5e6288035690b54085526d2519bf1d30e",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51118-4-fire-dps-alliance.spec.json",
+      "spec_sha256": "5276fe658257e0a2463e33a60740332ea2fc2d573dfd5f9d71f7959393d7d31b"
+    },
+    {
+      "cell": "naxxramas/51118/6/Holy/hps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/classes/raw/class-paladin-holy.zip",
+          "sha256": "c2b581ff7b66de387cf92d80a5211da2030081a8b330a617cab5adf216c2cc19",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/classes/raw/class-paladin-holy.entries",
+          "sha256": "27c8c61095ecadbd0783575ce740009789be23836f774cb70dcd7ae7d363361b",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/classes/provenance.json",
+          "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+          "locator": "paladin-holy"
+        },
+        "report": "6gjVyL8zvmJakXxd",
+        "fight": 37,
+        "actor": 27,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/6gjVyL8zvmJakXxd/fight_37/player_27_Stimorol/source_001.json": "54683211bdc413231b371424f14f1b48ed588307d94ea8fb2479f708e6c56e92",
+        "events/6gjVyL8zvmJakXxd/fight_37/player_27_Stimorol/target_001.json": "1653db23e5797118dd796d6a42c28d98dfc50f16904d77561dfc35efed0a5dc1",
+        "events/6gjVyL8zvmJakXxd/fight_37/player_27_Stimorol/target_002.json": "4c37733477d46a9f89f7fd17813209caa42acf3382c0024605b6744aa756e0ef",
+        "events/6gjVyL8zvmJakXxd/fight_37/player_27_Stimorol/target_003.json": "c4d1a0a99002885594434eb50b292f1762ec606cbaab54431c8a0f3b2b541011"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51118/7/Shadow/dps/Horde",
+      "source": {
+        "archive": {
+          "path": "tests/golden/classes/raw/class-priest-shadow.zip",
+          "sha256": "c3d314f7dae704c0b6940eea73835c389e5585bf03f2b1bd61484ef954e92239",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/classes/raw/class-priest-shadow.entries",
+          "sha256": "4b1836e261015a09a533433f9cc04297b2f459f10f20820439defddcf5e52514",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/classes/provenance.json",
+          "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+          "locator": "priest-shadow"
+        },
+        "report": "WPxyrnqYh2J8D6LN",
+        "fight": 57,
+        "actor": 43,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/WPxyrnqYh2J8D6LN/fight_57/player_43_Ywfvniefjioe/source_001.json": "adc95060aeb1ecf605f6b991fdd9d91fbb11765cf2c72d974bd28b64b8476666",
+        "events/WPxyrnqYh2J8D6LN/fight_57/player_43_Ywfvniefjioe/target_001.json": "46efc2c5078e55b7e0010a88037a2b88bafa42c0113941086d38e9ee8717cd3d",
+        "events/WPxyrnqYh2J8D6LN/fight_57/player_43_Ywfvniefjioe/target_002.json": "8bb82d85904b97ee469ee2f7d5e79705b2fae2009a72b38c3c57d7727554908a",
+        "events/WPxyrnqYh2J8D6LN/fight_57/player_43_Ywfvniefjioe/target_003.json": "0e596597e99d6edcb43550fe0081294129776885c3c88050f56088d2c46a669f"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51118/8/Assassination/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/classes/raw/class-rogue-assassination.zip",
+          "sha256": "fdf019efe4dc5ea381d7660743b6ac238fefe8a5591b78e1d9d1635281eabcd1",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/classes/raw/class-rogue-assassination.entries",
+          "sha256": "eea84f9073e92e39349cf6152c5c25d90716831ed21d695dd051ba2a16f6aa6d",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/classes/provenance.json",
+          "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+          "locator": "rogue-assassination"
+        },
+        "report": "2hT6cDaGPCymAKj4",
+        "fight": 41,
+        "actor": 34,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/2hT6cDaGPCymAKj4/fight_41/player_34_Noitaredeef/source_001.json": "c45730719c446bd14c9a8442260286a8280ae2b9df72e72b02e6d93f74fad4d0",
+        "events/2hT6cDaGPCymAKj4/fight_41/player_34_Noitaredeef/target_001.json": "4b26d118efee2d3ef2a44aa672e0a7df9e62c580dab5ec7ac4123d9b07e76db9",
+        "events/2hT6cDaGPCymAKj4/fight_41/player_34_Noitaredeef/target_002.json": "a3e383c133a83d0e0742ab9f2278c63989448369f6541ce35079ccbeb1ac0643",
+        "events/2hT6cDaGPCymAKj4/fight_41/player_34_Noitaredeef/target_003.json": "c035e622802205a917ff71587e195869e7e44489ca841bd4439e6ff0953a2d98"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51118/9/Restoration/hps/Horde",
+      "source": {
+        "archive": {
+          "path": "tests/golden/classes/raw/class-shaman-restoration.zip",
+          "sha256": "398cb1c160cb385183c7d60831ab6935d724a1095a721056feec32b44627a8e7",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/classes/raw/class-shaman-restoration.entries",
+          "sha256": "67ea8bdc807183bf333aeea8c235aea6cbae5e16edd0e517f348f6676226bcd0",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/classes/provenance.json",
+          "sha256": "f9c246553c901cd5b9fa4ff6255f446b9cc1c8d05938d1fcc8c4250725b4a786",
+          "locator": "shaman-restoration"
+        },
+        "report": "VFCf6AhGbwMcXHtB",
+        "fight": 28,
+        "actor": 15,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/VFCf6AhGbwMcXHtB/fight_28/player_15_Nebzy/source_001.json": "34a56d2b619370e53c651aeccb3bc1df9d7534fb9f8511f6ce0ecad5bfc99edb",
+        "events/VFCf6AhGbwMcXHtB/fight_28/player_15_Nebzy/target_001.json": "3613416b8d8f3fbb2486e3ac3f0be2fa3f13557bff804cd8c6b98d6c227812c0",
+        "events/VFCf6AhGbwMcXHtB/fight_28/player_15_Nebzy/target_002.json": "88dcc288f9c8307a9d071ba7af5f3bf040f05dc24d6cd66a4e514532ae982cb2",
+        "events/VFCf6AhGbwMcXHtB/fight_28/player_15_Nebzy/target_003.json": "7b802502a94e099c6105216da1d3c43884050ac454457f484e2ab60f2c5facbe"
+      },
+      "status": "no-positive-selected-transitions; no absence inference"
+    },
+    {
+      "cell": "naxxramas/51119/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "1xN2P46ChrgYLW3j",
+        "fight": 28,
+        "actor": 40,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json": "91696e384ef217fbc5287299a3411e8877e6383ea070fc878a2f7986fc2b4bb0",
+        "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json": "5bc3965db73bc8fe24a17a2c722cbbaa4df986db9cb2d86195cce994c30b4341"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        28531
+      ],
+      "observed_raw_transition_count": 2,
+      "transitions_by_id": {
+        "28531": 2
+      },
+      "raw_multiset_sha256": "44aa7ca1fc72af92bd8185118d0bad5d8699cb8c0901fef4617ba2533250fbe9",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51119-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "df30deab61d1da374404a1b4c0ddea3ca6b40db85bfd48aff28fc0131fef603f",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51119-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "1d08407a763d3f6885eb78bcc0d450cbd9b1a2b7e720d97d123ce60c997ac5e6"
+    },
+    {
+      "cell": "naxxramas/51119/2/Restoration/hps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+          "sha256": "e827163bcb7832d8e3e83fa67cc73d32c8e1ac8e4cc7d89c2f6f3d46749136d0",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-sapphiron-restoration.entries",
+          "sha256": "463e6a007ff0a2cd5793f353ace7e43e91f6cc98fd6d7f49877ff0765eb053bf",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-sapphiron-restoration.zip"
+        },
+        "report": "arYtVP9kgnjBJp7K",
+        "fight": 48,
+        "actor": 22,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json": "d81d1499e6709dd35edddf5f77c388e2381a9e2715a7087f69d2019648790075",
+        "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_001.json": "0c1377a590476e486c42a6035ad847f793d8c5f5ba479ea6cf08d184e21bd2b7",
+        "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_002.json": "2d44cb80d4f218d6035fc8425a1b726ab73552bb324372908ba3e1f43a148ee5",
+        "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_003.json": "7c874789a4d629b6f8377390760e61c6309fbb2070f6413463ba1ef3379f1776",
+        "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/target_004.json": "55334e9bf9a7b456dcbaea9f8bc7dd2640152bb2cb16005a7196d309ec6d985b"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        28522,
+        28531
+      ],
+      "observed_raw_transition_count": 4,
+      "transitions_by_id": {
+        "28522": 2,
+        "28531": 2
+      },
+      "raw_multiset_sha256": "2d61b5764be35994a6d610bf38100b2746d07df2fc08efd012e3495f83dbb386",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51119-2-restoration-hps-alliance.facts.json",
+      "facts_sha256": "e4a601fd617a6297621821501985c99f94407597ed82dc5d381935e17cbc9d78",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51119-2-restoration-hps-alliance.spec.json",
+      "spec_sha256": "eed68c3349765cf59d4d7a473b2ecad07c5e226a63eeb3f5b8b4362c512be8a1"
+    },
+    {
+      "cell": "naxxramas/51120/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 42,
+        "actor": 17,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/source_001.json": "0325ab9183b45194d7398f63c6775f2b6cc3ad09bc55bec4e5fe6ea6ea36a68f",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/target_001.json": "d97c22621547d826a00ceda52d84d247d8ece44706039130811600a5be68bb5e",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/target_002.json": "f57eb105073e6587c8a7585416749e98d817a001983d5e56e3358e042721e5a2",
+        "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/target_003.json": "a37b3905bdac6b9920b2bf49319f56482febd1260df3a39c565a98d2c3e2e4e4"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        28059,
+        28084
+      ],
+      "observed_raw_transition_count": 4,
+      "transitions_by_id": {
+        "28059": 2,
+        "28084": 2
+      },
+      "raw_multiset_sha256": "7be9efbb64494d6f13d14e3a56fa65adf0d9064327b7093695618d76d84447ad",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51120-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "2e3dc3ef9497013b625cc0fd0e165f5e830ff42c2dd2bd970c5f7279703c23f5",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51120-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "5be2403f3fe1503810df7f219beccccc3dab288eb2759f4aaabf555128033221"
+    },
+    {
+      "cell": "naxxramas/51121/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.zip",
+          "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-balance-comparisons.entries",
+          "sha256": "00296ce01f8cdcbce1a8096e391abd9f0a2bccbcca2042c91e30e0568250fd6c",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-balance-comparisons.zip"
+        },
+        "report": "WzGF9BjdrHCk8N1X",
+        "fight": 27,
+        "actor": 1,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json": "beef79769266be3f134b0a96a592b07b63097c02af950ce5847eb33920c5e8d7",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/target_001.json": "e038fcaa741eae07dc99ebd870fa4dbe357b46eb7cc58f49052587c2b535bf94",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/target_002.json": "edf7171ccbcd95f3bfe4036bbc01dc7bef11809d1caa53cbdeabfc70cee38a0e",
+        "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/target_003.json": "4045ed4802c96e21f11571f435bf27df486ebae80c3be39d52f722c588483e21"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        28832,
+        28833,
+        28835
+      ],
+      "observed_raw_transition_count": 21,
+      "transitions_by_id": {
+        "28832": 6,
+        "28833": 8,
+        "28835": 7
+      },
+      "raw_multiset_sha256": "820fbb3e6155e0c79c86891633acd41fd93b1bd3c4649fd4f2249e53405c83f9",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51121-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "8e36aca4fc2692d252cba8561ffcdf3876b5112ca3ab4dbc929f76c724f4256a",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51121-2-balance-dps-alliance.spec.json",
+      "spec_sha256": "2f0ef01c5208f4394f5d24f292dc043965329f85179b3f622c79f0754f688574"
+    },
+    {
+      "cell": "naxxramas/51121/2/Guardian/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/druid/raw/druid-mixed.zip",
+          "sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/druid/raw/druid-mixed.entries",
+          "sha256": "d0096197faa755e0bd3289d2579d9692073374eaf9ac998602ff5194550c791e",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/druid/provenance.json",
+          "sha256": "a608b2cc6f8f19560cb7ab22520d0696fbbb0cdafd807cde02d0ab4d0a11d1db",
+          "locator": "raw/druid-mixed.zip"
+        },
+        "report": "ZKbwBpmxnHvFC2DT",
+        "fight": 19,
+        "actor": 40,
+        "partition": 1
+      },
+      "eligibility": "strict actor_problems clean",
+      "page_hashes": {
+        "events/ZKbwBpmxnHvFC2DT/fight_19/player_40_Suncat/source_001.json": "5c2020cd69fe6e988b0763821c1a868191060b83c44aa564c220f1c6908a4f2c",
+        "events/ZKbwBpmxnHvFC2DT/fight_19/player_40_Suncat/target_001.json": "77c854af8d36e59f116960b5753eb3c445d2a20f863379432a35142e151180e3",
+        "events/ZKbwBpmxnHvFC2DT/fight_19/player_40_Suncat/target_002.json": "4099a072d1cf1de5a8b20bb631b874530db7cef2433e1a7712f7ea304d5dadda",
+        "events/ZKbwBpmxnHvFC2DT/fight_19/player_40_Suncat/target_003.json": "6f475185b7b6814ddfb0ff8b6dec425b2e94920bf59f5db06fc5cde6d4c8e665"
+      },
+      "status": "independently-matched-draft",
+      "observed_ids": [
+        6788,
+        28833,
+        28835
+      ],
+      "observed_raw_transition_count": 37,
+      "transitions_by_id": {
+        "6788": 2,
+        "28833": 16,
+        "28835": 19
+      },
+      "raw_multiset_sha256": "e451421e25a29d3bbdda08843a38bf33b102d5ca28f28fa400aea69ba31a42d7",
+      "facts_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51121-2-guardian-dps-alliance.facts.json",
+      "facts_sha256": "4ed630b3d546f46284681cfb4dee4c9100ab31802c223793df504c995aa7d953",
+      "spec_path": "tasks/naxx-completion/research/actor-debuff-facts-20261022/naxxramas-51121-2-guardian-dps-alliance.spec.json",
+      "spec_sha256": "2a0b30b9e17046a01d638e3d6ce8af8ddbf86c32c2f2382e415d0ed20426df0d"
+    }
+  ],
+  "counts": {
+    "no-positive-selected-transitions; no absence inference": 12,
+    "independently-matched-draft": 14
+  }
+}

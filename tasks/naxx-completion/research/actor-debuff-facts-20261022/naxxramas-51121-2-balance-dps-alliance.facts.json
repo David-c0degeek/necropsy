@@ -1,0 +1,251 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+    "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "WzGF9BjdrHCk8N1X",
+        "fight": 27,
+        "actor": 1,
+        "player": "Haplina",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          28832,
+          28833,
+          28835
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "WzGF9BjdrHCk8N1X",
+      "fight": 27,
+      "actor": 1,
+      "player": "Haplina",
+      "subject": true,
+      "observed_debuff_transitions_ms": [
+        [
+          21032,
+          "applydebuff",
+          28832
+        ],
+        [
+          33953,
+          "applydebuffstack",
+          28832
+        ],
+        [
+          33953,
+          "refreshdebuff",
+          28832
+        ],
+        [
+          46870,
+          "applydebuffstack",
+          28832
+        ],
+        [
+          46870,
+          "refreshdebuff",
+          28832
+        ],
+        [
+          59804,
+          "applydebuff",
+          28833
+        ],
+        [
+          72723,
+          "applydebuffstack",
+          28833
+        ],
+        [
+          72723,
+          "refreshdebuff",
+          28833
+        ],
+        [
+          85673,
+          "applydebuffstack",
+          28833
+        ],
+        [
+          85673,
+          "refreshdebuff",
+          28833
+        ],
+        [
+          98608,
+          "applydebuffstack",
+          28833
+        ],
+        [
+          98608,
+          "refreshdebuff",
+          28833
+        ],
+        [
+          111554,
+          "applydebuff",
+          28835
+        ],
+        [
+          121870,
+          "removedebuff",
+          28832
+        ],
+        [
+          124522,
+          "applydebuffstack",
+          28835
+        ],
+        [
+          124522,
+          "refreshdebuff",
+          28835
+        ],
+        [
+          137423,
+          "applydebuffstack",
+          28835
+        ],
+        [
+          137423,
+          "refreshdebuff",
+          28835
+        ],
+        [
+          150339,
+          "applydebuffstack",
+          28835
+        ],
+        [
+          150339,
+          "refreshdebuff",
+          28835
+        ],
+        [
+          173607,
+          "removedebuff",
+          28833
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "WzGF9BjdrHCk8N1X",
+      "fight": 27,
+      "actor": 1,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          65
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          96
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          97
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          129
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          130
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          151
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          181
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          182
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          210
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          211
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          244
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          245
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          275
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          299
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          306
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          307
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          353
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          354
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          380
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          381
+        ],
+        [
+          "events/WzGF9BjdrHCk8N1X/fight_27/player_1_Haplina/source_001.json",
+          426
+        ]
+      ]
+    }
+  ]
+}

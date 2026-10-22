@@ -1,0 +1,34 @@
+{
+  "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+  "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+  "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+  "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+  "contexts": [
+    {
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 19,
+      "actor": 17,
+      "player": "Haplina",
+      "subject": true
+    }
+  ],
+  "queries": {
+    "observed_debuff_transitions_ms": {
+      "kind": "aura_transitions",
+      "ids": [
+        27825,
+        28679
+      ],
+      "types": [
+        "applydebuff",
+        "removedebuff",
+        "applydebuffstack",
+        "removedebuffstack",
+        "refreshdebuff"
+      ],
+      "stream": "actor",
+      "unit": "ms",
+      "with_ability": true
+    }
+  }
+}

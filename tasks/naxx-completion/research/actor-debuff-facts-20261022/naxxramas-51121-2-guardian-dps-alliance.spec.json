@@ -1,0 +1,35 @@
+{
+  "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+  "archive": "../../../../tests/golden/druid/raw/druid-mixed.zip",
+  "sha256": "62779cff4dd1b637b8a5ba12bbcd40134696aac5956630aa4be22245b122bf56",
+  "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+  "contexts": [
+    {
+      "report": "ZKbwBpmxnHvFC2DT",
+      "fight": 19,
+      "actor": 40,
+      "player": "Suncat",
+      "subject": true
+    }
+  ],
+  "queries": {
+    "observed_debuff_transitions_ms": {
+      "kind": "aura_transitions",
+      "ids": [
+        6788,
+        28833,
+        28835
+      ],
+      "types": [
+        "applydebuff",
+        "removedebuff",
+        "applydebuffstack",
+        "removedebuffstack",
+        "refreshdebuff"
+      ],
+      "stream": "actor",
+      "unit": "ms",
+      "with_ability": true
+    }
+  }
+}

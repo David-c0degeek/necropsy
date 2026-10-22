@@ -121,3 +121,21 @@ binds source/page/tool/catalog hashes. The other 24 selections have no positive
 match to these exact IDs, which are not exhaustive rank families. No zero-use,
 missing-capability, talent-build, removal-success, cooldown or opportunity
 claim is inferred. These are drafts, not registrations or encounter proof.
+
+2026-10-22 · Positive personal debuff transitions · Independent raw
+ZIP/JSON/Counter enumeration of all 26 strictly eligible registered actor
+references found 120 explicit actor-target debuff transitions in 14 contexts.
+Fourteen portable specs/fact files in `research/actor-debuff-facts-20261022/`
+match the complete independently enumerated multiset and every retained raw
+locator; each strict replay reports zero differences. The inventory pins the
+coverage register, source/page/tool digests and observed numeric IDs. IDs are
+discovered from raw rows, without using analyzer/rule mechanic assumptions.
+
+These include stack and refresh observations where explicitly present, without
+pairing them into aura lifetimes. They may include player-caused debuffs;
+neither their presence nor an API name attributes a mechanic to the boss.
+The 12 empty selections are not absence or zero opportunity. No dispeller,
+source ownership, phase, uptime, assignment, opportunity or grade is inferred.
+`research/registered-actor-debuff-inventory-20261022.json` records the precise
+scope and limits. The files remain drafts, with no cell/source registration,
+rule activation, encounter-All certificate or completion tick.

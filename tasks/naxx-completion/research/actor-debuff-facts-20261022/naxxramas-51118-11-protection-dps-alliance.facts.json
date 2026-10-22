@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/classes/raw/class-warrior-protection.zip",
+    "sha256": "c15d846f4d582e7c941e576a4e8c766d38e887dd8354d8ca7b1e94abf826fa99",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "mNFf8nRZzg7jrXax",
+        "fight": 42,
+        "actor": 129,
+        "player": "Alianthus",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          12328
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "mNFf8nRZzg7jrXax",
+      "fight": 42,
+      "actor": 129,
+      "player": "Alianthus",
+      "subject": true,
+      "observed_debuff_transitions_ms": [
+        [
+          5328,
+          "applydebuff",
+          12328
+        ],
+        [
+          35337,
+          "removedebuff",
+          12328
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "mNFf8nRZzg7jrXax",
+      "fight": 42,
+      "actor": 129,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/source_001.json",
+          65
+        ],
+        [
+          "events/mNFf8nRZzg7jrXax/fight_42/player_129_Alianthus/source_001.json",
+          629
+        ]
+      ]
+    }
+  ]
+}

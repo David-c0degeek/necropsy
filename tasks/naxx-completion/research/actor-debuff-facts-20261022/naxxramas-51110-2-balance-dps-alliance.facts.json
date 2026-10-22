@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+    "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "KPqATnBvMZVXNH3r",
+        "fight": 8,
+        "actor": 2,
+        "player": "Haplina",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          28732,
+          28794
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 8,
+      "actor": 2,
+      "player": "Haplina",
+      "subject": true,
+      "observed_debuff_transitions_ms": [
+        [
+          20246,
+          "applydebuff",
+          28732
+        ],
+        [
+          30828,
+          "removedebuff",
+          28732
+        ],
+        [
+          43711,
+          "applydebuff",
+          28794
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "KPqATnBvMZVXNH3r",
+      "fight": 8,
+      "actor": 2,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/source_001.json",
+          60
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/source_001.json",
+          79
+        ],
+        [
+          "events/KPqATnBvMZVXNH3r/fight_8/player_2_Haplina/source_001.json",
+          111
+        ]
+      ]
+    }
+  ]
+}

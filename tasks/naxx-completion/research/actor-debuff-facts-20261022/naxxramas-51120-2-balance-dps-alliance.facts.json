@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+    "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "qD1Yc8Wk2dmP79wB",
+        "fight": 42,
+        "actor": 17,
+        "player": "Haplina",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          28059,
+          28084
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 42,
+      "actor": 17,
+      "player": "Haplina",
+      "subject": true,
+      "observed_debuff_transitions_ms": [
+        [
+          74186,
+          "applydebuff",
+          28059
+        ],
+        [
+          106592,
+          "removedebuff",
+          28059
+        ],
+        [
+          106592,
+          "applydebuff",
+          28084
+        ],
+        [
+          140592,
+          "refreshdebuff",
+          28084
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "qD1Yc8Wk2dmP79wB",
+      "fight": 42,
+      "actor": 17,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/source_001.json",
+          121
+        ],
+        [
+          "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/source_001.json",
+          241
+        ],
+        [
+          "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/source_001.json",
+          242
+        ],
+        [
+          "events/qD1Yc8Wk2dmP79wB/fight_42/player_17_Haplina/source_001.json",
+          320
+        ]
+      ]
+    }
+  ]
+}

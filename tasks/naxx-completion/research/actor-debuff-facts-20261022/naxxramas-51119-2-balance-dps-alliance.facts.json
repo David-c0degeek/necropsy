@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "registered-naxx-positive-personal-debuff-transitions-draft",
+    "archive": "../../../../tests/golden/druid/raw/druid-balance-comparisons.zip",
+    "sha256": "1c670a28e56ddf98b7df7b3e003817519ec9514a52ef7374eaa07836953d6a57",
+    "note": "Positive actor-target raw debuff transitions. IDs discovered directly from raw rows, without mechanic/rule assumptions. No aura pairing, uptime, source ownership, removal attribution, boss phase, opportunity, grade or raid-wide completeness. Missing transitions are not absence.",
+    "contexts": [
+      {
+        "report": "1xN2P46ChrgYLW3j",
+        "fight": 28,
+        "actor": 40,
+        "player": "Pissdoff",
+        "subject": false
+      }
+    ],
+    "queries": {
+      "observed_debuff_transitions_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          28531
+        ],
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "1xN2P46ChrgYLW3j",
+      "fight": 28,
+      "actor": 40,
+      "player": "Pissdoff",
+      "subject": false,
+      "observed_debuff_transitions_ms": [
+        [
+          15,
+          "applydebuff",
+          28531
+        ],
+        [
+          22504,
+          "removedebuff",
+          28531
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "1xN2P46ChrgYLW3j",
+      "fight": 28,
+      "actor": 40,
+      "observed_debuff_transitions_ms": [
+        [
+          "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          1
+        ],
+        [
+          "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          84
+        ]
+      ]
+    }
+  ]
+}
