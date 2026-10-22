@@ -130,3 +130,13 @@ does not establish database readiness or an exact cost for the failed request.
 Next bounded retry is 20:20:08 UTC / 22:20 Amsterdam, with attempts 005–006
 remaining. Coordinator owns the API; production stays parked and local AI off.
 No v2 smoke, quota-throughput measurement or new capture eligibility is claimed.
+
+Public official-source follow-up in
+`research/wcl-quota-source-followup-20261022.json` records Archon's September
+API-cost announcement, Vanilla caching/reset guidance and the documented
+Warcraft `currentRequest` field. Direct opens returned 403; retrieval uses
+indexed official text. These sources do not diagnose this credential or
+establish a Vanilla database budget/reset. No new schema/data query, alternate
+endpoint, finalization bypass or in-place image change was made. Endpoint
+confirmation and separately validated telemetry remain possible follow-up
+after the bounded measurement releases API ownership.

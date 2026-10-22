@@ -1,0 +1,689 @@
+{
+  "date": "2026-10-22",
+  "kind": "existing class/loadout presentation audit; content acceptance remains open",
+  "source_hashes": {
+    "src/necropsy/report/render/class_view.py": "f24fb866d42fb8bb1acec97f363f76f2e6cd468404a268014f96834fb496d7df",
+    "src/necropsy/report/render/templates/class-report.html.j2": "4fc0e7ba61a881896898218f51f55c250fd4853c114557c38e961caab334fef3",
+    "src/necropsy/report/render/playbook_view.py": "02e66cd3fd0ae91aa1361e06d63011e0102e2fed1f4bb556922309046d3e3e62",
+    "src/necropsy/report/combat.py": "8983fd2db6caf386c22ef89a9316a43b11e8bf4f861860efc2dadf30c3d26815",
+    "src/necropsy/report/druid.py": "bd6377926ebbfa71a51a301c2242c646f56677ada254791484ff0939b27d7501",
+    "src/necropsy/analysis/classes/classic_era/healer_notes.py": "44a1be657b1ef1d2dbdcecc80d70327c57f2aa5e52ad7bac00848c363bd50e83",
+    "src/necropsy/rules/classic_era/healer_notes.yaml": "32621f62b211187e73365908bea827d86ba2715b53e60c116d31a262c694fbe2",
+    "src/necropsy/report/equipment.py": "07c7c7aea9c344289e22e915e9310a5e919f00062a3654e87f4f34791d2a1235"
+  },
+  "counts": {
+    "legal_configurations": 34,
+    "synthetic_class_view_probes": 32,
+    "dedicated_hunter_configurations": 2
+  },
+  "rows": [
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Separate Druid healer-cohort review in report/druid.py; not the combat healer_notes path. Category selection alone does not establish healing duty."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Separate Druid healer-cohort review in report/druid.py; not the combat healer_notes path. Category selection alone does not establish healing duty."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Feral",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Feral",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Guardian",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Guardian",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Separate Druid healer-cohort review in report/druid.py; not the combat healer_notes path. Category selection alone does not establish healing duty."
+    },
+    {
+      "configuration": {
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Separate Druid healer-cohort review in report/druid.py; not the combat healer_notes path. Category selection alone does not establish healing duty."
+    },
+    {
+      "configuration": {
+        "class_id": 3,
+        "category": "Marksmanship",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "Hunter playbook",
+      "probe": "not synthesized; existing dedicated path retained",
+      "evidence": "src/necropsy/report/render/playbook_view.py:911",
+      "observations": [
+        "Existing Weapons, Trinkets, Pet and Weaving rows; separate Rapid Fire and Refocus execution rows."
+      ],
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 3,
+        "category": "Marksmanship",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "Hunter playbook",
+      "probe": "not synthesized; existing dedicated path retained",
+      "evidence": "src/necropsy/report/render/playbook_view.py:911",
+      "observations": [
+        "Existing Weapons, Trinkets, Pet and Weaving rows; separate Rapid Fire and Refocus execution rows."
+      ],
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 4,
+        "category": "Fire",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 4,
+        "category": "Fire",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 4,
+        "category": "Frost",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 4,
+        "category": "Frost",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "combat.py emits sourced healer_notes only for an eligible personal healer selection.",
+      "configured_planned_note_names": [
+        "Divine Favor"
+      ]
+    },
+    {
+      "configuration": {
+        "class_id": 6,
+        "category": "Protection",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 6,
+        "category": "Retribution",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "combat.py emits sourced healer_notes only for an eligible personal healer selection.",
+      "configured_planned_note_names": [
+        "Inner Focus",
+        "Power Infusion"
+      ]
+    },
+    {
+      "configuration": {
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "combat.py emits sourced healer_notes only for an eligible personal healer selection.",
+      "configured_planned_note_names": [
+        "Inner Focus",
+        "Power Infusion"
+      ]
+    },
+    {
+      "configuration": {
+        "class_id": 7,
+        "category": "Shadow",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 7,
+        "category": "Shadow",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 8,
+        "category": "Assassination",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 8,
+        "category": "Assassination",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 9,
+        "category": "Elemental",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 9,
+        "category": "Enhancement",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Relic",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "combat.py emits sourced healer_notes only for an eligible personal healer selection.",
+      "configured_planned_note_names": [
+        "Nature's Swiftness",
+        "Mana Tide Totem"
+      ]
+    },
+    {
+      "configuration": {
+        "class_id": 10,
+        "category": "Destruction",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs",
+        "Pet / summons"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 10,
+        "category": "Destruction",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs",
+        "Pet / summons"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 11,
+        "category": "Fury",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 11,
+        "category": "Fury",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 11,
+        "category": "Protection",
+        "metric": "dps",
+        "faction": "Alliance"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    },
+    {
+      "configuration": {
+        "class_id": 11,
+        "category": "Protection",
+        "metric": "dps",
+        "faction": "Horde"
+      },
+      "renderer": "class_view.bosses",
+      "probe": "synthetic selected category/metric/faction with unavailable personal/reference data",
+      "loadout_labels": [
+        "Weapons",
+        "Trinkets",
+        "Ranged",
+        "World buffs"
+      ],
+      "all_missing_data_lines_explicitly_unknown": true,
+      "evidence": "src/necropsy/report/render/class_view.py:160",
+      "class_note_path": "Healer notes intentionally gated away; existing class/execution paths require per-category content review."
+    }
+  ],
+  "findings": [
+    "The 32 non-Hunter configurations already have shared loadout presentation; adding duplicate per-class slot rows is unnecessary.",
+    "All 32 minimal missing-data projections label every loadout line Unknown. This is a presentation probe, not normal acquisition, analysis, HTML, visual or actual-player acceptance.",
+    "Two Hunter configurations retain their dedicated playbook; no Hunter synthetic projection or new Hunter advice is claimed.",
+    "Paladin, Priest and Shaman HPS configurations already have sourced combat healer notes; Druid healing review is separate.",
+    "These code paths do not establish complete sourced Naxx class advice, available talents, assigned duties, resistance loadouts or opportunity grading."
+  ],
+  "remaining": [
+    "Review actual class/category guidance and recorded loadouts against eligible captures, including Balance HPS and tank duty boundaries.",
+    "Review source/rank/talent/race applicability before adding new class-specific recommendations.",
+    "Independently review the unpromoted boss and tank proposals; then integrate and perform new-content visual/product acceptance."
+  ],
+  "completion": "06.2 remains open; no production change, content activation or cell completion"
+}

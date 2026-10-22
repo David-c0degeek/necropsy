@@ -26,6 +26,15 @@ The proposed strategy file is research, not a production rule file. Mechanical
 verifier success does not replace semantic source review, independent review,
 rendering checks or per-capture receipts.
 
+`research/class-loadout-path-audit-20261022.json` pins the existing presentation
+and healer-note paths for all 34 configurations. The 32 non-Hunter categories
+already share Weapons, Trinkets, Relic/Ranged and World buffs rows; Warlock also
+has owned-pet/summon presentation. Two Hunter configurations retain the dedicated
+playbook. Separate missing-data view probes check all 32 shared projections;
+they are not actual-player, normal acquisition or visual acceptance. Reuse these
+rows when reviewing 06.2; remaining work concerns source/class/category content
+and eligible recorded loadouts, rather than duplicating slot presentation.
+
 ## Boxes
 - [ ] **06.1** (agent) Content per boss, all classes at once: drafts by work order from 04.1 excerpts, lint-clean, Claude-verified against excerpts, then one content review per boss group.
 - [ ] **06.2** (agent) Class notes and loadout rows for any class or spec that lacks them on Naxx.
@@ -37,6 +46,17 @@ rendering checks or per-capture receipts.
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
+
+2026-10-22 · Class/loadout path audit · All 34 legal configurations are mapped
+to their existing render and class-note paths, with source hashes. Thirty-two
+synthetic missing-data projections through `class_view.bosses` retain explicit
+Unknown labels for all loadout lines. Hunter's separate Weapons, Trinkets, Pet,
+Weaving, Rapid Fire and Refocus paths are inspected separately, without claiming
+a new Hunter projection. Paladin, Priest and Shaman healing views already have
+sourced healer notes; Druid's healer review is separate, and selecting Balance
+HPS does not itself establish healing duty. No new class/rank/talent/duty advice,
+production row, visual claim or completion tick is introduced. 06.2 remains
+open for the source and actual-capture review described in the audit.
 
 2026-10-22 · Coordinator drafts prepared without local inference ·
 `research/coordinator-guidance-drafts.json` records finite source-bound profiles

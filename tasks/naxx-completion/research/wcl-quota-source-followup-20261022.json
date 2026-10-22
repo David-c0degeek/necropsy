@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-22",
+  "kind": "public official-source quota follow-up; no authenticated API calls or operational changes",
+  "retrieval": "Direct opens returned HTTP 403; retained text came from web-search indexed official pages. No authenticated schema query was sent while the isolated coordinator owns the API.",
+  "sources": [
+    {
+      "url": "https://www.archon.gg/fellowship/articles/news/api-updates-are-on-the-way",
+      "title": "API updates are on the way!",
+      "page_updated": "2026-09-29",
+      "short_quote": "The current costs of API calls don't reflect the actual underlying processing time to query the data",
+      "supports": "Archon announced API cost rebalancing for database-heavy requests and temporary lower limits for new keys; the announcement said existing keys were unaffected until rollout.",
+      "limits": "This is a cross-product Archon announcement. It does not establish rollout state, this credential's age or entitlement, a Classic endpoint's database budget, a specific failed query's cost, or a reset guarantee. It is context, not a diagnosis of these attempts."
+    },
+    {
+      "url": "https://www.archon.gg/classic-vanilla/articles/help/API-documentation",
+      "title": "API Documentation, WoW - Vanilla",
+      "short_quote": "If you hit the limit, add all your requests to a queue and wait until your points reset before re-sending them.",
+      "supports": "Official Vanilla guidance recommends caching finished report data, queueing requests through hourly resets and monitoring limitPerHour, pointsSpentThisHour and pointsResetIn.",
+      "limits": "This general hourly guidance supplies no separate database-point capacity, refill calculation or guarantee that the finalization request will succeed at its next hourly reset. Cache advice does not override the current archive finalization/revision contract."
+    },
+    {
+      "url": "https://www.warcraftlogs.com/v2-api-docs/warcraft/ratelimitdata.doc.html",
+      "title": "RateLimitData GraphQL schema",
+      "short_quote": "currentRequest: JSON!",
+      "supports": "The indexed Warcraft schema lists an additional currentRequest JSON field alongside the familiar hourly fields.",
+      "limits": "This page does not define the JSON shape or certify that the selected Vanilla endpoint exposes this field. No query was added to the released running image and no live schema request was sent. A future diagnostic needs endpoint/schema confirmation and tolerant, secret-safe parsing before use."
+    }
+  ],
+  "observed_local_evidence": {
+    "receipt": "tasks/naxx-completion/research/capture-attempt-004-20261022.json",
+    "successful_acquisition_responses": 288,
+    "last_returned_hourly_spent": 393,
+    "last_returned_hourly_limit": 3000,
+    "finalization": "first combined report 1fZbDXm4jdat9vnq fight 37 still refused on database points; no successful finalization response retained"
+  },
+  "decision": "Retain current bounded receipt-driven retries and sole API ownership. Do not infer database readiness from hourly headroom, fabricate a cost measurement, bypass fresh finalization, change endpoint/credentials, inject acquisition responses into finalization, or change production/model holds. Reassess after the bounded outcome; diagnostic changes require separate implementation and validation, not an in-place image edit.",
+  "status": "Research only; no confirmed account-specific diagnosis or successful capture"
+}
