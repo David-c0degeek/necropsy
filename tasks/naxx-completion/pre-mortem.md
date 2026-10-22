@@ -283,3 +283,10 @@ outputs are identical apart from that intentional provenance hash. Original
 files/check strictness are preserved; two fresh draft oracles pass current
 strict checks. No analyzer policy, aura reconstruction, registration or full
 scope acceptance is introduced. Full unchanged-tree gate follows commit.
+
+PM-12 consumer follow-up: the coverage audit also has an explicit cell category.
+It now passes that category to the selector, so future restricted rows are
+judged in the same view as rendering. The regression distinguishes Guardian
+from other Druid DPS categories while preserving unvalidated ranking policy.
+41 tests pass; current real inventory remains 26 IN_PROGRESS/484 TODO with no
+problems. No content is activated or completed by this caller correction.

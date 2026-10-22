@@ -97,3 +97,15 @@ independently committed pilot. Fresh-checkout `fact_freeze check` reports zero
 differences. `research/sapphiron-actor-freeze-review-20261022.json` binds the
 inputs and limitations. The fact file remains a draft; no cell registration,
 full encounter certificate or 04 completion is claimed.
+
+2026-10-22 · Registered actor dispel inventory · All 26 current Naxx actor
+references pass the strict actor-source checker. Separate stdlib ZIP/Counter
+enumeration finds positive source-actor dispel rows only in the Sapphiron case
+already frozen above; all six values and raw witnesses match. The other 25
+selected actor streams have no positive rows for this query; they are not
+frozen as zero opportunities, missing capabilities or raid-wide absence.
+`research/registered-actor-dispel-inventory-20261022.json` retains source/page
+pins, exact scope, result classifications and the one portable fact reference.
+This exhausts this bounded query over registered sources, not all comparison
+actors or all mechanic families. Further complete encounter discovery and
+actor/recipient fact coverage remain open.

@@ -90,3 +90,12 @@ receipts are unchanged. `research/guidance-author-source-review-20261022.json`
 binds all 50 remaining profiles and records each group's source boundaries.
 This is author review, not independent approval. Class/loadout review, content
 integration, capture receipts, formal review and completion remain open.
+
+2026-10-22 · Coverage consumer follows category selection · The coverage
+content audit now forwards the exact legal cell category to the same strategy
+selector as the report path. A restricted Guardian-only three-section test
+counts as available for Guardian and remains unavailable to Balance/Feral;
+the independent ranking-policy requirement remains unvalidated in every case.
+All 41 coverage tests pass. The real Naxx inventory still reports 26
+IN_PROGRESS/484 TODO, no problems and no COMPLETE cells. This fixes a consumer
+of the optional selector; no production source proposal or acceptance is added.

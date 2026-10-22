@@ -102,6 +102,51 @@ def test_a_raid_wide_ranking_rule_never_reconciles_a_cell() -> None:
     }
 
 
+def test_content_audit_passes_the_exact_cell_category_to_strategy(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from necropsy.analysis.encounters import strategy as strategy_module
+
+    def with_tank_strategy(game: str, name: str) -> dict[str, Any]:
+        if name != "zones/naxxramas_guidance":
+            return load_rules(game, name)
+        return {
+            "strategy": {
+                51118: {
+                    "source": "https://example.test/patchwerk",
+                    "retrieved": "2026-10-22",
+                    "items": [
+                        {
+                            "rule": f"patchwerk-guardian-{section}-v1",
+                            "section": section,
+                            "classes": [2],
+                            "metrics": ["dps"],
+                            "categories": ["Guardian"],
+                            "text": "Confirm the raid assignment.",
+                        }
+                        for section in ("before", "during", "raid")
+                    ],
+                }
+            }
+        }
+
+    monkeypatch.setattr(strategy_module, "load_rules", with_tank_strategy)
+    cells = [
+        c
+        for c in coverage_cells()
+        if c.raid == "naxxramas"
+        and c.encounter_id == 51118
+        and c.configuration.class_id == 2
+        and c.configuration.metric == "dps"
+    ]
+    for cell in cells:
+        problems = coverage_check.content_problems(cell)
+        assert ("no boss-specific guidance" in problems) is (
+            cell.configuration.category != "Guardian"
+        )
+        assert "ranking policy remains unvalidated" in problems
+
+
 def test_raid_scoped_audit_skips_other_raids_but_not_unknown_cells() -> None:
     mc = next(c for c in coverage_cells() if c.raid == "mc")
     records = [
@@ -127,7 +172,7 @@ def test_forged_complete_status_requires_content_and_real_independent_evidence(
             return {"encounters": []} if name.endswith("_facts") else original_load(game, name)
 
         monkeypatch.setattr(coverage_check, "load_rules", missing_facts)
-        monkeypatch.setattr(coverage_check, "encounter_strategy", lambda *_args: None)
+        monkeypatch.setattr(coverage_check, "encounter_strategy", lambda *_args, **_kwargs: None)
     cell = coverage_cells()[0]
     counts, errors = audit(
         Register(version=1, records=[Receipt(cell_id=cell.key, status="COMPLETE")])

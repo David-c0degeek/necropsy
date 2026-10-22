@@ -206,7 +206,12 @@ def content_problems(cell: CoverageCell) -> list[str]:
     if not fact or not fact.get("source"):
         problems.append("no sourced encounter facts")
     strategy = encounter_strategy(
-        cell.raid, cell.encounter_id, 1, cell.configuration.class_id, cell.configuration.metric
+        cell.raid,
+        cell.encounter_id,
+        1,
+        cell.configuration.class_id,
+        cell.configuration.metric,
+        category=cell.configuration.category,
     )
     if strategy is None or {i.section for i in strategy.items} != {"before", "during", "raid"}:
         problems.append("no boss-specific guidance")
