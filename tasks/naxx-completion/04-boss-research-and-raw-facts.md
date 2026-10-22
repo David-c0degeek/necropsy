@@ -62,3 +62,12 @@ Classic mechanics. Kel'Thuzad boss-source events near the recorded fight start
 also prevent blindly applying a full-pull guide timer. No absence, phase,
 spawn-lifetime, assignment, opportunity, grading policy, actor registration or
 certified v2 capture follows from this unfinished journal. 04.1–04.4 stay open.
+
+2026-10-22 · Priest racial applicability follow-up · Direct authored Classic
+guide body now supplies the complete five-race table and an explicit statement
+that only Desperate Prayer is shared. This supports Dwarf-only Fear Ward for
+the guide's Classic Era ruleset, closing that specific source gap beyond the
+older positive Dwarf quest. `research/priest-racial-source-followup-20261022.json`
+retains the short quote, table, derivation and variant limits. It does not prove
+any captured player knew the spell or had an opportunity. No original source
+pin, trial, rule, capability support key or completion tick changes.

@@ -52,3 +52,15 @@ integration, visual checks, receipts and batches remain open. Historical local
 model trial scores and frozen source-ledger pins are unchanged.
 
 Verification: all 510 independent reconstructions pass; 119 existing guidance, queue, staging and archive checks pass. The docs checker passes 297 maintained links, and the research secret scan finds no leaks. Full unchanged-tree gate follows commit.
+
+2026-10-22 · Portable proposal verification ·
+`uv run python scripts/check_guidance_proposal.py tasks/naxx-completion/research/coordinator-guidance-drafts.json`
+now reconstructs all 510 frozen drafts from a fresh checkout and reuses the
+existing work-order verifier. It compares the complete proposed YAML with the
+verified projections, including exact class/metric scope, citations, text,
+support and section mapping; duplicate JSON/YAML keys, orphan rows, missing or
+duplicate legal cells and tank-only leakage are refused. It is read-only,
+starts no model and leaves content review pending. Sixteen tests cover the real
+bundle and planted coverage, source/digest, applicability and projection defects.
+This replaces dependence on the ignored replay helper for future verification;
+the historical replay receipt and its script digest remain unchanged.
