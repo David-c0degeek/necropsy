@@ -429,42 +429,63 @@ def _run(
         client.journal = Journal(plain_dir(checkpoint.root / "requests", "request checkpoint"))
     store = Cache(cache_dir)
     before = Reading(client.last_rate, client.last_rate_at)
-    acquisition = acquire(
-        client,
-        store,
-        ref.site,
-        context,
-        endpoint=endpoint,
-        cross_faction=cross_faction,
-        progress=progress,
-        encounter_context=supports_encounter_context(context),
-    )
-    notify("Finalizing acquired reports")
-    if client.journal is not None:
-        client.journal.scope = "finalization"
-    try:
-        finalize_reports(
-            Run(
-                client,
-                store,
-                ref.site,
-                endpoint,
-                class_id=context.class_id.value,
-                category=category,
-                metric=metric,
-            ),
-            acquisition,
+
+    def collect(observer: Callable[[str], None] | None) -> Acquisition:
+        return acquire(
+            client,
+            store,
+            ref.site,
+            context,
+            endpoint=endpoint,
+            cross_faction=cross_faction,
+            progress=observer,
+            encounter_context=supports_encounter_context(context),
         )
-    except RunStopped as stop:
-        raise AnalyzeError(
-            f"stopped while finalizing reports: {stop}; no snapshot or report was written "
-            f"(fetched data stays in the cache {cache_dir} for the next run)",
-            code=3,
-            stop_class="quota-reset",
-            reset_at=reset_at(client),
-        ) from None
-    except MixedRevision as error:
-        raise AnalyzeError(f"{error}; rerun to fetch the changed report again") from None
+
+    def finalize(collected: Acquisition) -> None:
+        previous_scope = client.journal.scope if client.journal is not None else None
+        if client.journal is not None:
+            client.journal.scope = "finalization"
+        try:
+            finalize_reports(
+                Run(
+                    client,
+                    store,
+                    ref.site,
+                    endpoint,
+                    class_id=context.class_id.value,
+                    category=category,
+                    metric=metric,
+                ),
+                collected,
+            )
+        except RunStopped as stop:
+            raise AnalyzeError(
+                f"stopped while finalizing reports: {stop}; no snapshot or report was written "
+                f"(fetched data stays in the cache {cache_dir} for the next run)",
+                code=3,
+                stop_class="quota-reset",
+                reset_at=reset_at(client),
+            ) from None
+        except MixedRevision as error:
+            raise AnalyzeError(f"{error}; rerun to fetch the changed report again") from None
+        finally:
+            if client.journal is not None and previous_scope is not None:
+                client.journal.scope = previous_scope
+
+    if resume and client.journal is not None:
+        notify("Finalizing saved reports before fetching additional data")
+        previous_replay = client.replay_only
+        try:
+            client.replay_only = True
+            saved = collect(None)
+        finally:
+            client.replay_only = previous_replay
+        finalize(saved)
+
+    acquisition = collect(progress)
+    notify("Finalizing acquired reports")
+    finalize(acquisition)
     after = Reading(client.last_rate, client.last_rate_at)
     stem = name or "{}-{}-{}".format(
         context.character_id.value, context.zone_id, datetime.now(UTC).strftime("%Y%m%dT%H%M%S")

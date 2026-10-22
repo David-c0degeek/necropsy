@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-22",
+  "kind": "author verification of resume finalization priority; independent review and real deployment checks remain open",
+  "base_commit": "6431089",
+  "source_sha256": {
+    "src/necropsy/wcl/client.py": "c30fe438bd6cf532338938ce09e9c32ff43d0dbcf83e888efca5a4c1c36a15dd",
+    "src/necropsy/wcl/analyze.py": "7316e9921205e3a6c126321d037986fb89b03941e4ac34ef4a5e54d0e00cf03d",
+    "tests/unit/test_wcl_client.py": "1c8f6cef14ffa07407de48d07291925066a7dcb0f7d1b7ef9d0671f92e397430",
+    "tests/integration/test_analyze_cli.py": "5185f7854ae6615e39aead8becee932111d8bf370c69141fb666a609015fc7d1"
+  },
+  "reproduction": {
+    "input": "synthetic HTTP transport and fake clock only; database allowance exhausted on a new comparison event while hourly points retain headroom",
+    "before": "first resumed HTTP request is acquisition; finalization repeatedly refuses and no snapshot is written",
+    "before_log": "workspace/codex-naxx/finalization-priority-before.log",
+    "after": "first resumed HTTP request is independent report finalization; both legacy and v2 paths can publish a structurally valid partial archive despite the later comparison stop",
+    "complete_coverage": false,
+    "after_log": "workspace/codex-naxx/finalization-priority-regressions.log",
+    "regression_group": "45 tests pass: client replay guard plus legacy/v2 quota, exception restoration and revision invalidation cases"
+  },
+  "compatibility": {
+    "v1_archives": 18,
+    "v1_output_hashes": {
+      "tests/fixtures/haplina_naxx_subset.zip": {
+        "analysis.json": "5b6f68410c92188e552fcda3db578ea879ef6dfbbd87786b572cfcde050aeb26",
+        "report.html": "07db9ea2f63076a36206457e910ff74766ad8fbf44629c14e984adc486c3aa75",
+        "playbook.html": "ab59287995575196411b6e75b4e36cb8b918ac3825de281d602dde95c620df1b"
+      },
+      "tests/golden/classes/raw/class-mage-fire.zip": {
+        "analysis.json": "f42e5041f8436056f8a19f4eff4c59c71cd875da226ed6cdf19e77f436d6cb25",
+        "report.html": "ad11fd2571b663cb3037fa605e2694a039c8083e20d88be69ac85b25ed5794e0",
+        "playbook.html": "c77abf39ebb9ffd90f0b6596eab819cee885add2b4af27c0d216364190286978"
+      },
+      "tests/golden/classes/raw/class-paladin-holy.zip": {
+        "analysis.json": "4ccd8a85390eead8002f805de92129fe2faef3676673a2057e3a78a635525d30",
+        "report.html": "50a9e77028210d97f5bcab70f1751b5d37a024595fe20f8fb2fd1538d1cd9c2f",
+        "playbook.html": "3c34582c53bfd6e692944150b7ff382157f34ab2a9e2a25e1e76b6cdb1a27f0e"
+      },
+      "tests/golden/classes/raw/class-priest-holy.zip": {
+        "analysis.json": "8784ce800e5c2e18a5933e03d3fcf76d17664afb142c0beb7c2900aaf2760d8c",
+        "report.html": "b202c3aa72c5c8134c0d56373a1ba21655b9ce10af159b099cf1804950995b61",
+        "playbook.html": "899d9a4977f0f3b4abe7d1241a73fe551bc415acbea4fef9f99555436d72c266"
+      },
+      "tests/golden/classes/raw/class-priest-shadow.zip": {
+        "analysis.json": "5aa237e01d842b542ebaec158094728ca398bf3160f92ea5b8d9f7395f07f4ad",
+        "report.html": "2d84721f21814b07a97e01588a99722b702cec7cedc9e7338890f7f66de047e9",
+        "playbook.html": "d61aab2bca8766dd6d71bf48b2750f54caa6646f5627154dcffbb6d63f5721f0"
+      },
+      "tests/golden/classes/raw/class-rogue-assassination.zip": {
+        "analysis.json": "d33b98b6ff7cf447b7b98808bee00921709ee07cde860836e44dd1cbbebfe63e",
+        "report.html": "edbfb47190577af6a8230a61acf3ad4d02a720753231b68bef0d2a22b78f545f",
+        "playbook.html": "611801dbba0367da0cf3fc1397181e3352d308410eb1e1fcea5c145ff313b7bd"
+      },
+      "tests/golden/classes/raw/class-shaman-restoration.zip": {
+        "analysis.json": "575b882e0be43182fd226f00c1569b3037852009a07aebd8c2fabd2ebc67241c",
+        "report.html": "5ec80da3b0367c3e69749a9cbb5ced131876947e20495e21110e03a3a690c6a5",
+        "playbook.html": "adce036e6af2aa1ba1889c324b8cd53d00d5d55a1d5236f09b98471546d23d93"
+      },
+      "tests/golden/classes/raw/class-warlock-destruction.zip": {
+        "analysis.json": "1043c4168116d4b8a2f2fe874d966d2f0a9d5c9fb813c7c366c003f3c0eb4ea1",
+        "report.html": "49a43c517b405f776f90184db7775e5ca0dd28f478c140550bb2e5ae3f5795cf",
+        "playbook.html": "904f597a4a82622ec7207c22072ab16a1b12917194fc0be525cf4bd0a380b7eb"
+      },
+      "tests/golden/classes/raw/class-warrior-protection.zip": {
+        "analysis.json": "01bd7c90b46fb7bc56f8a37897a7af91757b3666a24acfe0ec3f60a53d042d73",
+        "report.html": "1bfcbed491aa9a8b33f3c54c983b9c0f7b31c2ffba46fa36d4beac87929edd89",
+        "playbook.html": "94e4b732f623dbc56fb5c6e9b8e125e9ecc34f7e983d37448309446a3fa98b66"
+      },
+      "tests/golden/druid/raw/druid-balance-comparisons.zip": {
+        "analysis.json": "e9916b02e679c21786ff50e8507f30879cccfd18aa4d0d808d7e875bec942dd9",
+        "report.html": "f1b16d341cd2b3aec252bd518a71459258c1c42d7935352db26c9d07cc4cd4ec",
+        "playbook.html": "6786a208dacbe76718a0070425aa56f40eba68a7bc1550abc5cd6656f02927b6"
+      },
+      "tests/golden/druid/raw/druid-balance-view.zip": {
+        "analysis.json": "a72623bf867fe7a3370c61a4077994c85169f5315a606c646e7e79590bfaad5e",
+        "report.html": "306c6527ee04ab6a1daf77782cde6fdd046bd0375cd9652400be4a12c5848427",
+        "playbook.html": "f4e0190a40dc117f7d70177b92425eb5d4818ff9337243b949be0854afa31eda"
+      },
+      "tests/golden/druid/raw/druid-balance.zip": {
+        "analysis.json": "0cf4e29c44b5702f36dccbdab0ae73b5757c1a03700ced5ebc47e77e42926cc3",
+        "report.html": "8617f26ee139595fcabdaef885c05652d821802add74d68aa9f551e4b2921c89",
+        "playbook.html": "8fdf280295ccfc44a539f9181ce4372c2edd6cc361afef8c64faa98857113909"
+      },
+      "tests/golden/druid/raw/druid-feral.zip": {
+        "analysis.json": "3902c1079201551361117580f79505825d1995a9ae02a2ae3ab750e1c1989cc9",
+        "report.html": "871f77546fcb9fb0caf506750d03ba2592b347423b43b3998495285464cba909",
+        "playbook.html": "3b1ea8d552c8a78d67da7ac2429e8cb9d0c365ea7c5934cfe8559e1b959e2f2d"
+      },
+      "tests/golden/druid/raw/druid-guardian.zip": {
+        "analysis.json": "c826eb0fddcee3a8ab924da10112969364e70b611033acc7573391511a023713",
+        "report.html": "82d00972840e5d979cfb902fcbe9b67749dd3948dfb7a8f7147fbfdcc9ac37a0",
+        "playbook.html": "606892935b076312f8233e79d0899d0bfa7715f893059ce27257b3ba3aec8ac6"
+      },
+      "tests/golden/druid/raw/druid-mixed.zip": {
+        "analysis.json": "c3bed18cf7b0d258f51c673622c9122b7d645661a573ffdbc3ab297ba5f47935",
+        "report.html": "38e736a1ca6de52b1ff0ea8ace9ae7f938295afc525e108fdd44bd2287f4ebb4",
+        "playbook.html": "df8d41fe1b7d334b6d888acce364162b0f9815ffaf0c597a43ed3542886487c1"
+      },
+      "tests/golden/druid/raw/druid-restoration.zip": {
+        "analysis.json": "fc88587570c77e37a3df82e577fbbbbba45954d27dd73681150e13d0ed5e3639",
+        "report.html": "1afaafced3a64ce71f81fec711234b16a4c15923b62880b6dcaa6553c4df83f9",
+        "playbook.html": "8bdde84d84fe0bbd390397559f434cc60b0f472c6e99dbc5c1f798c6c420b0b6"
+      },
+      "tests/golden/druid/raw/druid-sapphiron-restoration.zip": {
+        "analysis.json": "6b387cb04c2fbbe5fa4aec39222c4b62af71e2c5f9e88aed7def2d03f67fcc54",
+        "report.html": "64ac6158f4e60d83b6ff7ea15fd4cb2d11e7a6d9bc325b41e9196007ef369dc6",
+        "playbook.html": "d77e3a71bb5a909bfa50203b622651ca633a4f3cbf020c8778d93d9a881b52b7"
+      },
+      "tests/golden/druid/raw/druid-tank-view.zip": {
+        "analysis.json": "84e647ae0df9e023a199174d411458c17a28c935cc1ebdeb32641b66f05cffb3",
+        "report.html": "7049ac3d85cb0f585453772bce27575577d7f0d506a430f065e26fd68a14a3e7",
+        "playbook.html": "31e065aef31b9849987460709fac9f37800dafe1e747189c8caf0bb59a82b708"
+      }
+    },
+    "full_archive_sha256": "f249c944ed1c604eff4382f8e4041102d47a5d53c928c88affafcd7f7db39d95",
+    "full_output_hashes": {
+      "analysis.json": "7d1e211c3f947176faa2d1ceb5dc8a29cc4db37427587a8978bdfdb0d42d4a08",
+      "report.html": "1eab60cc198b45e5ab22bb3b3d700dacb7df045ce4a98af280783bb0a6093a07",
+      "playbook.html": "b1f1b15fe0a537f95203542f31afc147d463d5e6159ffcde4061f6f8f85a9b3f"
+    },
+    "byte_identical_outputs": 57,
+    "method": "Recompute analysis.json, report.html and playbook.html from the same pinned archives, compare complete output maps with retained pre-change baselines."
+  },
+  "invariants": [
+    "Preliminary acquisition uses verified journal requests only; a miss cannot access credentials or HTTP.",
+    "Only complete saved entries enter existing exact-fight-set finalization with independent scope and unchanged revision/actor/pet checks.",
+    "The preliminary pass publishes nothing. Normal acquisition and finalization still determine final coverage, cohort and output.",
+    "Replay mode and journal scope restore on success/failure; cached rates never rewind the live account budget.",
+    "No new persisted schema/options, lowered cohort requirement, source substitution or existing checkpoint repair."
+  ],
+  "limits": [
+    "This proves a synthetic scheduling failure and its correction, not the real account database capacity/refill or guaranteed live success.",
+    "Newly acquired fights can enlarge a report set and require another independent answer, so real request cost still needs measurement.",
+    "The active released 0.6.0 Tower image and its final scheduled attempt are unchanged.",
+    "Full gate/browser logs, release/image verification and real smoke remain separate checks; this receipt does not approve deployment or a cell."
+  ]
+}

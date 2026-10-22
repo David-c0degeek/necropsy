@@ -201,6 +201,8 @@ class WclClient:
     progress: Callable[[str], None] | None = None
     """Optional activity observer; no query contents or credentials are emitted."""
     journal: Journal | None = None
+    replay_only: bool = False
+    """Allow verified journal hits only; misses cannot access tokens or HTTP."""
 
     def __post_init__(self) -> None:
         require_supported(self.site)
@@ -233,6 +235,11 @@ class WclClient:
                 if rate is None:
                     raise InvalidResponse("saved request has no rateLimitData")
                 return Result(cached, rate, captured_at=self.journal.captured_at)
+        if self.replay_only:
+            raise BudgetExceeded(
+                "saved acquisition boundary; new requests reserved for report finalization",
+                self.last_rate,
+            )
         url = self.site.client_api if endpoint == "client" else self.site.user_api
         deadline = self.clock.monotonic() + self.policy.call_deadline_s
         attempt = 0

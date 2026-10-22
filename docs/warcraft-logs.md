@@ -168,6 +168,11 @@ and the same output directory. Keep `.necropsy-run` alongside the outputs. Saved
 spec/faction choices are restored and completed requests cost no new API points.
 Finalization is separate from acquisition: each report is verified once for its
 exact fight set, with successfully finalized answers retained across attempts.
+On resume, complete saved entries are finalized before new acquisition spends
+more points. That preliminary acquisition pass reads only saved requests; a
+missing request stops the pass locally. Normal acquisition then continues,
+followed by finalization of its exact report/fight sets. A partial comparison
+cohort remains partial even when its available data can now be written.
 A report revision change discards that report's saved requests before retrying.
 Snapshots from earlier attempts are preserved. Resume validates options and
 owned output digests before credentials are accessed; unrelated/modified files

@@ -290,3 +290,61 @@ judged in the same view as rendering. The regression distinguishes Guardian
 from other Druid DPS categories while preserving unvalidated ranking policy.
 41 tests pass; current real inventory remains 26 IN_PROGRESS/484 TODO with no
 problems. No content is activated or completed by this caller correction.
+
+## Resume finalization priority — 2026-10-22
+
+Failed future: the resume change either spends quota during its supposed
+saved-data pass, or publishes a saved partial selection as if acquisition had
+finished. Existing resume tests cover cached requests and partial finalization
+reuse, but not a separate exhausted database allowance with hourly headroom.
+The new offline reproduction fails because its first resumed HTTP request is
+an acquisition event rather than an independent report finalization.
+
+**PM-14 — High — Replay leaks new requests or leaves live acquisition disabled.**
+Basis: `[evidence: WclClient.query; acquire._acquire_spec_view; analyze._run]`.
+Add a client replay-only guard after verified journal lookup and before HTTP or
+token access. A miss exhausts this pass's zero-new-request budget through the
+existing controlled acquisition stop. Enable it only around the preliminary
+resume acquisition, restore it in `finally`, and test missing/cached/no-journal
+cases and exception restoration. Detection: before merge. Resolution target:
+Prevented by the client guard and scope/flag restoration.
+
+**PM-15 — High — Saved acquisition replaces independent finalization or completion.**
+Basis: `[evidence: finalize_reports; snapshot.v1_writer; test_resume_reuses_reports_finalized_before_a_quota_stop]`.
+The preliminary pass only reconstructs complete saved entries, then uses the
+existing finalization scope, exact fight set, revision/actor/pet checks and
+report cache. It publishes nothing. Normal acquisition and normal finalization
+still follow before the unchanged writer, completeness and cohort checks.
+Never copy acquisition data into finalization or repair checkpoint pins.
+Test partial completion, finalization quota, mixed revisions and cached-prefix
+reuse. Detection: before merge. Resolution target: Mitigated by unchanged
+validation plus targeted integration checks.
+
+**PM-16 — Medium — Extra report sets increase cost or alter unrelated fresh runs.**
+Basis: `[evidence: finalize_reports groups exact fight IDs; Journal.identity includes scope and variables]`;
+`[inference]` newly acquired fights can enlarge a report set, requiring a
+different finalization answer. Apply the preliminary pass only to resume.
+Reuse exact successful finalization requests; retain their historical answer
+semantics. Preserve fresh-run order/defaults and existing archived outputs.
+Do not claim this proves the real account's database refill/capacity or removes
+every quota stop. Verify offline ordering/continuation and compatibility, then
+require a separately built/released image and real smoke before deployment.
+Detection: before merge and before production. Resolution target: Mitigated;
+incremental report-set cost remains a measured rollout concern.
+
+Plan guardrails: [PM-14] no HTTP in the preliminary acquisition, guaranteed
+restoration; [PM-15] no preliminary publication or validation bypass;
+[PM-16] resume-only scheduling, exact-query reuse and real deployment checks.
+No persisted schema/options change is needed. Rollback is the code revert;
+existing checkpoints and captured answers remain readable. The current Tower
+0.6.0 measurement is unchanged. Verdict: PROCEED WITH GUARDRAILS.
+
+Verification before the full checkpoint gate: PM-14 Prevented by the guarded
+journal-miss path and tested flag/scope restoration. PM-15 Mitigated by the
+unchanged finalizer plus legacy/v2 quota regressions, structural archive checks,
+explicit partial coverage and changed-revision invalidation. PM-16 Mitigated
+offline: all 57 retained legacy outputs are byte-identical; the 45-test replay
+and failure group passes. Real incremental report-set cost and deployment
+remain separate checks. `research/resume-finalization-priority-20261022.json`
+records source/output hashes and limitations. Existing pending independent
+reviews are not replaced by this author verification.

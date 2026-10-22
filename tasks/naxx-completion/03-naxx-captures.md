@@ -140,3 +140,27 @@ establish a Vanilla database budget/reset. No new schema/data query, alternate
 endpoint, finalization bypass or in-place image change was made. Endpoint
 confirmation and separately validated telemetry remain possible follow-up
 after the bounded measurement releases API ownership.
+
+2026-10-22 · Offline resume correction · A synthetic database allowance can
+exhaust while the returned hourly reading still has headroom. The original
+resume then starts new acquisition events before finalizing saved complete
+entries and fails again. The new regression reproduces this without WCL or
+credentials. Resume now reconstructs saved entries under a zero-new-request
+client guard, finalizes them through the existing independent report scope,
+then continues normal acquisition and finalization. The preliminary pass
+publishes nothing, changes no checkpoint/options schema and never copies
+acquisition answers into finalization.
+
+Both legacy and v2 regressions now produce a structurally valid partial archive
+after that repeated quota scenario; source/cohort completeness stays false.
+Missing cache requests, exception recovery and changed-report invalidation are
+covered. This demonstrates a client scheduling failure and its offline fix,
+not the exact database budget or guaranteed success on the real account.
+PM-14–PM-16 guardrails remain in `pre-mortem.md`. The current released Tower
+measurement and its remaining attempt are unchanged; release/image validation
+and real smoke are still required before using the fix operationally.
+`research/resume-finalization-priority-20261022.json` records the before/after
+reproduction and all 57 unchanged legacy output hashes. Forty-five focused
+client/replay/failure checks pass, and the scoped Naxx inventory remains clean
+at 26 IN_PROGRESS/484 TODO. Full gate and browser receipts are retained under
+the ignored `workspace/codex-naxx/finalization-priority-*` logs.

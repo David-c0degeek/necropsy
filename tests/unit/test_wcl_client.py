@@ -283,6 +283,54 @@ def test_request_checkpoint_does_not_rewind_the_live_budget(tmp_path: Path) -> N
     second.close()
 
 
+@pytest.mark.parametrize("with_journal", [False, True])
+def test_replay_only_miss_never_accesses_tokens_or_http(tmp_path: Path, with_journal: bool) -> None:
+    from necropsy.wcl.checkpoint import Journal
+
+    script = Script()
+    client = _client(script)
+
+    def no_tokens(endpoint: c.Endpoint) -> str:
+        raise AssertionError("replay must not request credentials")
+
+    client.tokens = no_tokens
+    client.replay_only = True
+    if with_journal:
+        client.journal = Journal(tmp_path / "requests")
+    try:
+        with pytest.raises(c.BudgetExceeded, match="saved acquisition boundary"):
+            client.query(Q)
+        assert script.requests == []
+        assert client.last_rate is None
+    finally:
+        client.close()
+
+
+def test_replay_only_preserves_saved_answer_live_budget_and_scope(tmp_path: Path) -> None:
+    from necropsy.wcl.checkpoint import Journal
+
+    script = Script()
+    client = _client(script)
+    journal = Journal(tmp_path / "requests")
+    journal.write(
+        journal.identity(VANILLA.host, "client", Q, None), {"x": 1, "rateLimitData": rate()}
+    )
+    client.journal = journal
+    client.replay_only = True
+    client.last_rate = c.RateLimit(3600, 2000, 300)
+    client.last_rate_at = 99.0
+    try:
+        assert client.query(Q).data["x"] == 1
+        assert client.last_rate == c.RateLimit(3600, 2000, 300)
+        assert client.last_rate_at == 99.0
+        journal.scope = "finalization"
+        with pytest.raises(c.BudgetExceeded, match="saved acquisition boundary"):
+            client.query(Q)
+        assert script.requests == []
+    finally:
+        client.close()
+
+
 def test_checkpoint_separates_finalization_and_drops_changed_report(tmp_path: Path) -> None:
     from necropsy.wcl.checkpoint import Journal
 

@@ -111,7 +111,11 @@ generations per endpoint. Metadata can change at the same report revision, so
 each new acquisition fetches a fresh combined report and binds its exact
 generation. Checkpoint-backed continuation reuses successfully finalized answers
 for the exact same fight set; report revision mismatches invalidate that report's
-saved requests. A resumed capture spans attempts and is not a global point-in-time
+saved requests. Before live acquisition on resume, a journal-only acquisition
+pass reconstructs complete saved entries and gives their finalization requests
+priority. Journal misses cannot access tokens or HTTP during this pass. It
+publishes nothing; normal acquisition, finalization and coverage checks still
+follow. A resumed capture spans attempts and is not a global point-in-time
 view. Replayed leaderboards retain their original capture timestamps. Local
 event-cache reuse preserves recorded fetch provenance; it does not promise current
 server data. An older cache format requires a new directory, leaving previous

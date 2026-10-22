@@ -919,6 +919,135 @@ def test_resume_reuses_reports_finalized_before_a_quota_stop(
     assert all(request["variables"]["code"] != finalized[0] for request in new_requests)
 
 
+@pytest.mark.parametrize("encounter_context", [False, True])
+def test_resume_finalizes_saved_entries_before_spending_on_new_acquisition(
+    tmp_path: Path, fake: dict[str, Any], encounter_context: bool
+) -> None:
+    server: FakeWcl = fake["server"]
+    options: list[str] = []
+    if encounter_context:
+
+        class Server(EncounterWcl):
+            def _report(self, player: Player, wanted: list[int] | None = None) -> dict[str, Any]:
+                report = super()._report(player, wanted)
+                for fight in report["fights"]:
+                    fight["encounterID"] = PATCHWERK
+                return report
+
+        server = Server([Player(f"Ally{i}") for i in range(1, 31)], Player("Haplina"))
+        context = _context()
+        assert context.partition is not None
+        chosen = replace(context.partition, id=1)
+        fake["context"] = replace(context, partition=chosen, partitions=(chosen,))
+        options = ["--raid", "naxxramas", "--partition", "1"]
+    exhausted = False
+    requests: list[tuple[str, str, str | None]] = []
+
+    def database_limited(request: httpx.Request) -> httpx.Response:
+        nonlocal exhausted
+        body = json.loads(request.content)
+        scope = fake["client"].journal.scope
+        code = body["variables"].get("code")
+        requests.append((scope, body["query"], code))
+        if "NecropsyEvents" in body["query"] and code == "RAlly2":
+            exhausted = True
+        if exhausted:
+            return httpx.Response(
+                200,
+                json={
+                    "data": {
+                        "rateLimitData": {
+                            "limitPerHour": 36000,
+                            "pointsSpentThisHour": 10,
+                            "pointsResetIn": 1800,
+                        }
+                    },
+                    "errors": [{"message": "no database points remaining"}],
+                },
+            )
+        return server(request)
+
+    fake["server"] = database_limited
+    first = _run(tmp_path, *options)
+    assert first.exit_code == 3, first.output
+    assert any(scope == "finalization" for scope, _, _ in requests)
+    before = len(requests)
+    exhausted = False
+    second = _run(tmp_path, *options, "--resume")
+    new = requests[before:]
+    assert new
+    # The first window retained a complete personal entry and comparison. Their
+    # independent combined reports must get the fresh budget before new events.
+    assert new[0][0] == "finalization", new
+    assert "NecropsyReport" in new[0][1]
+    assert second.exit_code == 4, second.output
+    snapshots = list((tmp_path / "out/.necropsy-run/snapshots").glob("*/*.zip"))
+    assert len(snapshots) == 1
+    with VerifiedArchive(snapshots[0]) as archive:
+        assert open_snapshot(archive).issues() == []
+        marker = archive.read_json("necropsy-snapshot.json")
+        assert marker["bosses"][0]["coverage"]["complete"] is False
+        assert any(f["reportID"] == "RHaplina" for f in marker["fights"])
+        if encounter_context:
+            assert len(marker["encounter_streams"]) == 4
+    document = json.loads((tmp_path / "out/analysis.json").read_bytes())
+    assert document["acquisition"]["bosses"][0]["coverage"]["complete"] is False
+
+
+@pytest.mark.parametrize("failure", ["acquisition", "finalization"])
+def test_saved_finalization_pass_restores_client_after_failure(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch, failure: str
+) -> None:
+    def quota(*args: Any, **kwargs: Any) -> None:
+        raise acquire_mod.RunStopped("database points unavailable")
+
+    original = acquire_mod.finalize_reports
+    monkeypatch.setattr(analyze_mod, "finalize_reports", quota)
+    first = _run(tmp_path)
+    assert first.exit_code == 3, first.output
+    monkeypatch.setattr(analyze_mod, "finalize_reports", original)
+    if failure == "acquisition":
+
+        def fail_replay(*args: Any, **kwargs: Any) -> Any:
+            assert args[0].replay_only is True
+            raise RuntimeError("saved acquisition failed")
+
+        monkeypatch.setattr(analyze_mod, "acquire", fail_replay)
+    else:
+        monkeypatch.setattr(analyze_mod, "finalize_reports", quota)
+    before = len(fake["server"].requests)
+    second = _run(tmp_path, "--resume")
+    assert second.exit_code == (1 if failure == "acquisition" else 3), second.output
+    assert fake["client"].replay_only is False
+    assert fake["client"].journal.scope == "acquisition"
+    assert len(fake["server"].requests) == before
+    assert not list((tmp_path / "out/.necropsy-run/snapshots").glob("*/*.zip"))
+
+
+def test_saved_finalization_refuses_new_revision_and_invalidates_report(
+    tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def quota(*args: Any, **kwargs: Any) -> None:
+        raise acquire_mod.RunStopped("database points unavailable")
+
+    original = acquire_mod.finalize_reports
+    monkeypatch.setattr(analyze_mod, "finalize_reports", quota)
+    first = _run(tmp_path)
+    assert first.exit_code == 3, first.output
+    monkeypatch.setattr(analyze_mod, "finalize_reports", original)
+    # Sorted report finalization starts with this saved comparison; its fresh
+    # answer must still match the revision of the cached acquisition entries.
+    fake["server"].revisions["RAlly1"] = [5]
+    second = _run(tmp_path, "--resume")
+    assert second.exit_code == 1 and "revision" in second.output, second.output
+    assert fake["client"].replay_only is False
+    assert fake["client"].journal.scope == "acquisition"
+    for path in (tmp_path / "out/.necropsy-run/requests").glob("*.json"):
+        row = json.loads(path.read_bytes())
+        assert row["identity"]["variables"].get("code") != "RAlly1"
+    assert not list((tmp_path / "out/.necropsy-run/snapshots").glob("*/*.zip"))
+
+
 def test_refused_context_can_be_corrected_without_a_resume(
     tmp_path: Path, fake: dict[str, Any]
 ) -> None:
