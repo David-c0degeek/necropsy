@@ -575,12 +575,13 @@ def test_offline_plan_uses_the_same_filtered_board_pool(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     _plan(tmp_path, monkeypatch, [])
-    for name, data in {
+    fixtures: dict[str, dict[str, Any]] = {
         "REGISTER": {"records": []},
         "PROVENANCE": {"fixtures": []},
         "MATRIX": {},
         "EXCLUDED": {"characters": []},
-    }.items():
+    }
+    for name, data in fixtures.items():
         path = tmp_path / f"{name.lower()}.json"
         path.write_text(json.dumps(data), encoding="utf-8")
         monkeypatch.setattr(cq, name, path)
