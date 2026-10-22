@@ -94,3 +94,26 @@ receipts. Do not make competing PC WCL/candidate calls while it owns the API.
 The current collector is `bounded-collector-status.json` under the ignored
 measurement workspace; the older `collector-status.json` is historical.
 See `remaining-work.md` for work that continues independently of the capture.
+
+2026-10-22 · Further capture progress and candidate-pool fix · Attempt 003
+ran 18:16–18:18 UTC and stopped on database points during finalization of
+report `1fZbDXm4jdat9vnq`, fight 37. It retained 52 additional successful
+acquisition responses (243 total), with all response-data digests checked and
+no previous request removed. No snapshot/report was written. Last returned
+hourly reading is 188/3000, which does not explain database readiness or exact
+request costs. The coordinator has three bounded attempts left and next waits
+until 19:18:06 UTC / 21:18 Amsterdam. Receipt:
+`research/capture-attempt-003-20261022.json`. Model hold remains active.
+
+Offline readiness inspection identifies six configurations with unresolved
+identity checks and five with empty/exhausted pools. A regression reproduces
+leaderboard discovery stopping on 30 cached candidates already rejected for
+the current faction. Both discovery and offline board merge now reuse the
+existing per-configuration `check()` before their candidate cap: only explicit
+rejections are removed; unknown and accepted candidates remain. Emission still
+requires both gates, owner exclusions and scoped pins. Regression cases cover
+later-boss discovery, live-call budget, metric/faction boundaries, unresolved
+rows, resolved owner exclusion and offline merge. No live discovery request or
+parked-queue mutation occurs while the isolated measurement owns the API.
+The considered one-candidate target is unnecessary for the current cached
+pools and was not added. Source evidence and full gate precede publication.

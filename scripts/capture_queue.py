@@ -509,7 +509,13 @@ def leaderboard_key(run: dict[str, Any], encounter: str) -> str:
 
 
 def leaderboard_pool(
-    run: dict[str, Any], encounters: dict[str, str], boards: dict[str, Any], excluded: set[str]
+    run: dict[str, Any],
+    encounters: dict[str, str],
+    boards: dict[str, Any],
+    excluded: set[str],
+    *,
+    resolutions: dict[str, Any] | None = None,
+    rankings: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Characters on WCL's first leaderboard page for this spec and metric, used
     only where the mined pool ran dry. Realms without an ASCII slug are skipped."""
@@ -523,14 +529,19 @@ def leaderboard_pool(
                 continue
             path = f"{region.lower()}/{_slug(server)}/{quote(name)}"
             url = f"{SITE}/character/{path}?zone={run['zone']}"
-            found.setdefault(
-                url,
-                {
-                    "url": url,
-                    "origin": "WCL leaderboard, first page",
-                    "evidence": {"boss": boss, "amount": row["amount"], "page": 1},
-                },
-            )
+            candidate = {
+                "url": url,
+                "origin": "WCL leaderboard, first page",
+                "evidence": {"boss": boss, "amount": row["amount"], "page": 1},
+            }
+            # Rejected names must not fill the cap forever. Unknowns remain
+            # candidates, not accepted evidence; emission still checks both gates.
+            if (
+                resolutions is not None
+                and check(run, candidate, resolutions, rankings or {}, excluded)[0] is False
+            ):
+                continue
+            found.setdefault(url, candidate)
     return list(found.values())[:POOL_SIZE]
 
 
@@ -614,6 +625,7 @@ def build_plan(context: QueueContext | None = None) -> dict[str, Any]:
     mined = mine(raw_archives, runs)
     excluded = _excluded(ctx)
     boards = _read_json(ctx.leaderboards) if ctx.leaderboards.is_file() else {}
+    resolutions, rankings = _load_caches(ctx)
     entries = []
     for run in runs:
         state = states.get(run["entry_id"])
@@ -621,7 +633,14 @@ def build_plan(context: QueueContext | None = None) -> dict[str, Any]:
         pool = rank_pool(run, mined[run["entry_id"]], state, excluded) if queued else []
         if queued:
             known = {c["url"] for c in pool}
-            extra = leaderboard_pool(run, encounters[run["raid"]], boards, excluded)
+            extra = leaderboard_pool(
+                run,
+                encounters[run["raid"]],
+                boards,
+                excluded,
+                resolutions=resolutions,
+                rankings=rankings,
+            )
             pool += [c for c in extra if c["url"] not in known]
         entries.append(
             run
@@ -950,7 +969,19 @@ def leaderboard(
             print(f"{item['entry_id']}: check its pool with `resolve` first")
             continue
         for encounter in encounters[item["raid"]]:
-            if len(leaderboard_pool(item, encounters[item["raid"]], boards, set())) >= POOL_SIZE:
+            if (
+                len(
+                    leaderboard_pool(
+                        item,
+                        encounters[item["raid"]],
+                        boards,
+                        _excluded(ctx),
+                        resolutions=resolutions,
+                        rankings=rankings,
+                    )
+                )
+                >= POOL_SIZE
+            ):
                 break
             key = leaderboard_key(item, encounter)
             if key in boards:

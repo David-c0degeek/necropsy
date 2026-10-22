@@ -483,3 +483,121 @@ def test_leaderboard_rows_become_name_urls_for_ascii_us_eu_realms_with_an_amount
         f"{cq.SITE}/character/eu/pyrewood-village/Xav%C3%ADus?zone=2000"
     ]
     assert pool[0]["evidence"] == {"boss": "Lucifron", "amount": 312.3, "page": 1}
+
+
+def test_rejected_leaderboard_page_does_not_hide_the_next_boss(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    rows = [
+        {"name": f"Player{i}", "server": "Firemaw", "region": "EU", "amount": 100}
+        for i in range(cq.POOL_SIZE)
+    ]
+    boards = {cq.leaderboard_key(RUN, "1"): rows}
+    pool = cq.leaderboard_pool(RUN, {"1": "First"}, boards, set())
+    _plan(tmp_path, monkeypatch, pool)
+    resolutions = {
+        c["url"]: {
+            "exit": 0,
+            "fields": {"id": str(i + 1), "faction": "Alliance", "partition": "S0"},
+        }
+        for i, c in enumerate(pool)
+    }
+    (tmp_path / "resolutions.json").write_text(json.dumps(resolutions), encoding="utf-8")
+    (tmp_path / "leaderboards.json").write_text(json.dumps(boards), encoding="utf-8")
+    monkeypatch.setattr(
+        cq, "universe", lambda **_: ([], {RUN["raid"]: {"1": "First", "2": "Second", "3": "Third"}})
+    )
+    calls = []
+
+    def fetch(item: dict[str, Any], encounter: str) -> list[dict[str, Any]]:
+        calls.append(encounter)
+        return [{"name": "New", "server": "Firemaw", "region": "EU", "amount": 200}]
+
+    assert cq.leaderboard(1, fetch=fetch) == 0
+    assert calls == ["2"]
+    fresh = json.loads((tmp_path / "leaderboards.json").read_text(encoding="utf-8"))
+    merged = cq.leaderboard_pool(
+        RUN,
+        {"1": "First", "2": "Second"},
+        fresh,
+        set(),
+        resolutions=resolutions,
+        rankings={},
+    )
+    assert [c["evidence"]["boss"] for c in merged] == ["Second"]
+
+
+def test_board_filter_keeps_unknown_and_accepted_candidates_and_binds_the_configuration() -> None:
+    names = ["Unknown", "Pending", "Rejected", "Accepted", "Alliance", "Owner"]
+    rows = [{"name": n, "server": "Firemaw", "region": "EU", "amount": 100} for n in names]
+    boards = {cq.leaderboard_key(RUN, "1"): rows}
+    raw = cq.leaderboard_pool(RUN, {"1": "First"}, boards, set())
+    resolutions = {
+        c["url"]: {
+            "exit": 0,
+            "fields": {
+                "id": str(i + 1),
+                "faction": "Alliance" if i == 4 else "Horde",
+                "partition": "S0",
+            },
+        }
+        for i, c in enumerate(raw)
+        if i
+    }
+    rankings = {
+        cq.ranking_key(i, RUN): _ranked(bestAmount=0 if i == 3 else 100) for i in (3, 4, 5, 6)
+    }
+    horde = cq.leaderboard_pool(
+        RUN,
+        {"1": "First"},
+        boards,
+        {"6"},
+        resolutions=resolutions,
+        rankings=rankings,
+    )
+    assert [c["url"].split("/")[-1].split("?")[0] for c in horde] == [
+        "Unknown",
+        "Pending",
+        "Accepted",
+    ]
+    alliance = cq.leaderboard_pool(
+        RUN | {"faction": "Alliance"},
+        {"1": "First"},
+        boards,
+        {"6"},
+        resolutions=resolutions,
+        rankings=rankings,
+    )
+    assert [c["url"].split("/")[-1].split("?")[0] for c in alliance] == ["Unknown", "Alliance"]
+
+
+def test_offline_plan_uses_the_same_filtered_board_pool(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _plan(tmp_path, monkeypatch, [])
+    for name, data in {
+        "REGISTER": {"records": []},
+        "PROVENANCE": {"fixtures": []},
+        "MATRIX": {},
+        "EXCLUDED": {"characters": []},
+    }.items():
+        path = tmp_path / f"{name.lower()}.json"
+        path.write_text(json.dumps(data), encoding="utf-8")
+        monkeypatch.setattr(cq, name, path)
+    monkeypatch.setattr(cq, "RAW", tmp_path / "raw")
+    monkeypatch.setattr(cq, "universe", lambda **_: ([RUN], BOSSES))
+    rows = [
+        {"name": n, "server": "Firemaw", "region": "EU", "amount": 100}
+        for n in ("Wrong", "Unknown")
+    ]
+    boards = {cq.leaderboard_key(RUN, "1"): rows}
+    wrong = cq.leaderboard_pool(RUN, {"1": "First"}, boards, set())[0]["url"]
+    (tmp_path / "resolutions.json").write_text(
+        json.dumps(
+            {wrong: {"exit": 0, "fields": {"id": "7", "faction": "Alliance", "partition": "S0"}}}
+        ),
+        encoding="utf-8",
+    )
+    (tmp_path / "leaderboards.json").write_text(json.dumps(boards), encoding="utf-8")
+    pool = cq.build_plan()["entries"][0]["pool"]
+    assert len(pool) == 1 and "Unknown?" in pool[0]["url"]

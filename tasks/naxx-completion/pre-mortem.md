@@ -184,3 +184,31 @@ by explicit inputs and rejection checks; deployment validation remains pending.
 | PM-3 | Inconclusive | No new boss-specific measured policy accepted | Before content promotion | Raw-oracle draft remains unpromoted | Observation horizon open | The independent stdlib prototype has 23 synthetic checks and five raw v1 smoke cases with independently matched Counters. It always reports incomplete scope; no real v2 fixture, mechanic family or full eligibility certificate has been accepted. Multi-boss/phase/healing risks remain open for 04–06. |
 | PM-5 | Inconclusive | No new corruption observed | Local and independent CI hosts before release | Effective so far | Root cause and long horizon unestablished | 65b1154 full local gate and browser suite passed; three-OS CI and four native packaging/bootstrap jobs passed. This supports the operational baseline, not a permanent memory-stability claim or a proven cause of the earlier failures. |
 | CH-MISS-2 | Miss (pre-existing) | High potential; no false Naxx completion accepted | 01.3 preflight and review, before cell validation | Exact-cell policy gate added | Not predicted specifically | Raid-wide empirical Hunter damage exclusions would have passed every Naxx ranking dimension, including HPS. The pre-mortem focused on event semantics rather than validation-scope leakage. D011 removes the fallback; all 510 Naxx cells remain unvalidated until their exact policy is proved. Lesson recorded. |
+
+### Exhausted leaderboard pools, 2026-10-22
+
+**PM-11 — Medium — rejected leaderboard candidates permanently fill discovery.**
+Failed future: an unfilled configuration exhausts a first-page pool, but
+`leaderboard()` counts the same 30 cached names toward its stopping limit and
+never reaches the next boss. `build_plan()` then caps the board pool before
+any newer candidate can enter it. Evidence: both callers use the unqualified
+length of `leaderboard_pool()`, whose first-page deduplication caps at 30
+without consulting the existing per-configuration `check()` verdict. Current
+Naxx evidence has five empty/exhausted pools; the exact 30-row dead end is
+reproduced with a synthetic cached first page before changing implementation.
+
+Guardrails: reuse `check()` with the same scoped resolution/ranking caches and
+owner exclusions before counting/truncating board candidates. Remove only
+explicit False verdicts for that configuration; None remains eligible for
+normal resolution. Apply the same filtering in network discovery and offline
+plan merge. Do not change `MAX_CANDIDATES`, live budgets, queue emission,
+identity/faction/metric requirements, cached answers, snapshots or the parked
+queue. Emitted queues already pin their plan and both verification caches;
+existing snapshot replay must remain valid. Test a later-boss candidate after
+30 rejected rows, unknown rows, opposite-faction applicability, owners and the
+unchanged live-call ceiling. Detection: targeted tests and full gate before
+push; actual missing-pool discovery waits for the isolated capture to release
+API ownership. Rollback: revert this planning-only filter; keep all raw board
+and resolution evidence. Verdict: PROCEED WITH GUARDRAILS.
+
+PM-11 implementation: the original reproduction failed with zero fetches where the second boss was required. Shared board filtering now uses exact cached `check()` verdicts before truncation; the three focused discovery/merge/applicability regressions pass. No WCL call, queue emission or production deployment is inferred. Full gate and live discovery remain separate.
