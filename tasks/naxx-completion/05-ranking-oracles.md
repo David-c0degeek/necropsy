@@ -41,3 +41,16 @@ policy registration still needs the exact cell, reviewed scope and raw evidence.
 2026-10-22 · 05.1 · Added `scripts/freeze_dps_ranking.py` with 15 synthetic/interface tests, including repeated observations, owned damage, self damage, explicit exclusions, hash/identity aliases, missing/foreign ownership, missing/noninteger amounts, out-of-bounds/unterminated streams, wrong published identity/duration/amount, duplicate/nonfinite JSON, output relocation, stale/tampered replay and refusal to overwrite. `research/dps-ranking-pilot/` retains two raw Patchwerk oracles and their review: Balance Haplina 68395 external damage versus published 535.273 DPS; Feral Hamtaro 163371 raw minus 1034 self = 162337 ranked, including 1256 Battle Chicken damage, versus published 1500 DPS at its integer lexical precision. Separate stdlib enumeration matches every raw occurrence and the manually recorded totals; real wrong-duration, dropped-owned-damage and included-self-damage mutations fail where applicable. Both frozen files replay with zero differences. Ten other sampled rows remain refused for missing/inconsistent ownership, without defaulting to zero pets or adjusting exclusions. No policy, actor-source or cell registration. PM-8/PM-9 are mitigated by these guards; 05.2–05.4 stay open.
 
 Verification: targeted 15 tests, Ruff lint/format and mypy pass. Both committed draft paths replay with zero differences. Full checkpoint gate runs after commit with eight workers (`NECROPSY_GATE_WORKERS=8`, `PYTEST_ADDOPTS=-n 8 --dist worksteal`); receipt `workspace/codex-naxx/dps-oracle-full-gate.log`. No production engine/rule/render change, so no additional visual claim. Public WCL site fetches returned HTTP 403; maintenance status remains unknown and no authenticated API query was sent.
+
+2026-10-22 · Page-validator provenance after dispel-query addition · DPS
+freezing records the complete `fact_freeze.py` source hash. Its new optional
+query changes that hash even though the reused raw page parser is unchanged.
+All 39 earlier matches were recomputed: every spec, raw row, member digest,
+ownership, total and publication residual is identical; only
+`page_validator_sha256` differs. Original pilots/inventory remain unchanged and
+belong to their historical source version. Strict `check` is deliberately not
+weakened to ignore provenance. Two fresh drafts in
+`research/dps-ranking-validator-20261022/` carry the new hash and both pass
+strict check with zero differences. `research/dps-validator-compatibility-20261022.json`
+retains all old/new hashes and the sole allowed difference. This is provenance
+maintenance, not a new ranking policy or registration.

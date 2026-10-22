@@ -16,6 +16,7 @@ A spec names the archive (relative to the spec), its SHA-256, the contexts
     aura_transitions  ids                aura events on the actor (default apply/remove)
     npc_buff_windows  ids                buff apply/remove pairs per target, instance and ability
     casts             ids | {name: ids}  casts by the actor
+    dispels           ids                explicit dispel rows by the actor, with recipients
     ability_damage    ids                fight-wide damage, from/to the actor, first locator
 
 Options: "stream" is "all" (the fight's encounter All pages, the default) or
@@ -26,6 +27,9 @@ transitions take "types" and "with_ability"; buff windows take "flat" for a
 plain [[start, end]] list, refused unless exactly one target/instance/ability
 is involved. Every value keeps the archive member and index of the events it
 came from.
+
+Dispels retain the removed ability, recipient, isBuff and raw instances. They
+do not pair casts, infer friendliness, measure response times or grade opportunities.
 """
 
 from __future__ import annotations
@@ -53,9 +57,17 @@ OPTIONS = {
     "aura_transitions": {"kind", "ids", "stream", "unit", "types", "with_ability"},
     "npc_buff_windows": {"kind", "ids", "stream", "unit", "flat"},
     "casts": {"kind", "ids", "stream", "unit"},
+    "dispels": {"kind", "ids", "stream", "unit"},
     "ability_damage": {"kind", "ids", "stream"},
 }
-KINDS = {"duration_ms", "aura_transitions", "npc_buff_windows", "casts", "ability_damage"}
+KINDS = {
+    "duration_ms",
+    "aura_transitions",
+    "npc_buff_windows",
+    "casts",
+    "dispels",
+    "ability_damage",
+}
 IDENTITY_FIELDS = ("abilityGameID", "sourceID", "targetID", "sourceInstance", "targetInstance")
 """Raw identities the queries filter on: when present they must be exact integers
 (sentinels such as -1 included), never coerced or silently filtered out."""
@@ -344,6 +356,48 @@ def _casts(stream: list[Located], q: dict[str, Any], actor: int, start: int) -> 
     return [at(x[0]["timestamp"]) for x in hits], [_where(x) for x in hits]
 
 
+def _dispels(
+    stream: list[Located],
+    q: dict[str, Any],
+    actor: int,
+    start: int,
+    catalog: list[dict[str, Any]],
+) -> Any:
+    """Explicit rows only; no cast pairing, aura reconstruction or assignment."""
+    ids, at = _ids(q["ids"]), _clock(q, start)
+    values, locators = [], []
+    for located in stream:
+        event = located[0]
+        if (
+            event["type"] != "dispel"
+            or event.get("sourceID") != actor
+            or event.get("abilityGameID") not in ids
+        ):
+            continue
+        removed = _int(event.get("extraAbilityGameID"), "a removed ability id")
+        recipient = _int(event.get("targetID"), "a dispel recipient id")
+        if removed <= 0 or recipient <= 0:
+            raise FreezeError("dispel removed ability and recipient ids must be positive")
+        if type(event.get("isBuff")) is not bool:
+            raise FreezeError("a dispel needs an explicit boolean isBuff")
+        matching = [a for a in catalog if type(a.get("id")) is int and a["id"] == recipient]
+        if len(matching) != 1:
+            raise FreezeError("a dispel recipient must bind exactly one catalog actor")
+        values.append(
+            {
+                "time": at(event["timestamp"]),
+                "ability": event["abilityGameID"],
+                "removed_ability": removed,
+                "recipient": recipient,
+                "is_buff": event["isBuff"],
+                "source_instance": event.get("sourceInstance"),
+                "recipient_instance": event.get("targetInstance"),
+            }
+        )
+        locators.append(_where(located))
+    return values, locators
+
+
 def _damage(stream: list[Located], q: dict[str, Any], actor: int) -> Any:
     ids = _ids(q["ids"])
     hits = [
@@ -439,7 +493,8 @@ def _context(
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     """One context's values and their raw locators."""
     report, fight, actor = ctx["report"], ctx["fight"], ctx["actor"]
-    start, end, npcs = _fight(json.loads(archive.read(f"reports/{report}/bundle.json")), ctx)
+    bundle = json.loads(archive.read(f"reports/{report}/bundle.json"))
+    start, end, npcs = _fight(bundle, ctx)
     streams: dict[str, list[Located]] = {}
     values: dict[str, Any] = {}
     where: dict[str, Any] = {"report": report, "fight": fight, "actor": actor}
@@ -461,6 +516,10 @@ def _context(
             values[name], where[name] = _windows(events, q, start, npcs)
         elif kind == "casts":
             values[name], where[name] = _casts(events, q, actor, start)
+        elif kind == "dispels":
+            values[name], where[name] = _dispels(
+                events, q, actor, start, bundle["reportData"]["report"]["masterData"]["actors"]
+            )
         else:
             values[name], where[name] = _damage(events, q, actor)
     return {**ctx, **values}, where

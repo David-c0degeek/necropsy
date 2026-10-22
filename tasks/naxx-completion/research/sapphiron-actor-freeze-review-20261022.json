@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-22",
+  "status": "independently matched draft actor facts; no cell registration or complete encounter certificate",
+  "tool_sha256": "76b98352562cb611022eb05a134b59739c019fc2254f2aafefd6507e1b8aad3e",
+  "tests_sha256": "6c0ba08613a63dbe0d757aad41c8794b829c08d17b3a062e72dff325a29e7ea7",
+  "frozen_path": "tasks/naxx-completion/research/sapphiron-druid-actor-facts.json",
+  "frozen_sha256": "a795180e6b3bd7b50df6e3e002972c0a92ec6a82b330242763da82367a7659f1",
+  "independent_preexisting_evidence": {
+    "tasks/naxx-completion/research/sapphiron-actor-cast-pilot.json": "f00a3d3cbbc7401e04451509d26c72b4ae75d378cbe3c52f5e501b1825c4f943",
+    "tasks/naxx-completion/research/sapphiron-actor-dispel-pilot.json": "37ea0031bc5eb8c1403d42a2c5b7f3d7c1d48ed6f844cfe22a658c5f27c68ca4"
+  },
+  "observations": {
+    "casts": 6,
+    "explicit_dispel_rows": 6,
+    "ability_id": 2782,
+    "removed_ability_id": 28542,
+    "recipient_ids": [
+      8,
+      41,
+      39,
+      11,
+      27,
+      34
+    ],
+    "times_identities_flags_instances": "all match earlier independent raw rows",
+    "locators": "all match earlier independent raw witnesses"
+  },
+  "verification": {
+    "tests": "70 passed",
+    "mypy": "282 files pass",
+    "draft_check": "0 differences",
+    "lucifron_check": "0 differences",
+    "existing_lucifron_and_geddon_specs": "byte-identical outputs before/after query extension",
+    "geddon_legacy_manual_format": "direct check is unsupported by design; every generated query value matches its existing manual contexts",
+    "dps": "39 raw/arithmetic outputs unchanged except the exact page-validator source hash; fresh pilot drafts pass strict current check"
+  },
+  "limits": [
+    "Positive personal actor stream observations only; no encounter-wide absence or eligibility.",
+    "No cast/dispel pairing, reaction time, friendliness, observed duty, opportunity or grade.",
+    "Unknown instances remain null; numeric catalog binding does not certify aura lifetime or target faction.",
+    "Existing source and ranking policies, original frozen pilots, model trials and registrations are unchanged."
+  ],
+  "local_model_calls": 0,
+  "wcl_calls": 0
+}

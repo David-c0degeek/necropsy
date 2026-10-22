@@ -1,0 +1,36 @@
+{
+  "fixture": "naxx-sapphiron-druid-restoration-actor-draft",
+  "archive": "../../../../tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+  "sha256": "e827163bcb7832d8e3e83fa67cc73d32c8e1ac8e4cc7d89c2f6f3d46749136d0",
+  "note": "Draft positive personal cast/dispel observations from actor SOURCE/TARGET union; not full encounter scope, a response opportunity, a player grade or registered cell facts. Original independently enumerated pilot receipts precede this query extension.",
+  "contexts": [
+    {
+      "report": "arYtVP9kgnjBJp7K",
+      "fight": 48,
+      "actor": 22,
+      "player": "Haplina",
+      "subject": true
+    }
+  ],
+  "queries": {
+    "duration_ms": {
+      "kind": "duration_ms"
+    },
+    "remove_curse_cast_times_ms": {
+      "kind": "casts",
+      "ids": [
+        2782
+      ],
+      "stream": "actor",
+      "unit": "ms"
+    },
+    "explicit_dispels": {
+      "kind": "dispels",
+      "ids": [
+        2782
+      ],
+      "stream": "actor",
+      "unit": "ms"
+    }
+  }
+}

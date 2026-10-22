@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "naxx-sapphiron-druid-restoration-actor-draft",
+    "archive": "../../../tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+    "sha256": "e827163bcb7832d8e3e83fa67cc73d32c8e1ac8e4cc7d89c2f6f3d46749136d0",
+    "note": "Draft positive personal cast/dispel observations from actor SOURCE/TARGET union; not full encounter scope, a response opportunity, a player grade or registered cell facts. Original independently enumerated pilot receipts precede this query extension.",
+    "contexts": [
+      {
+        "report": "arYtVP9kgnjBJp7K",
+        "fight": 48,
+        "actor": 22,
+        "player": "Haplina",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "duration_ms": {
+        "kind": "duration_ms"
+      },
+      "remove_curse_cast_times_ms": {
+        "kind": "casts",
+        "ids": [
+          2782
+        ],
+        "stream": "actor",
+        "unit": "ms"
+      },
+      "explicit_dispels": {
+        "kind": "dispels",
+        "ids": [
+          2782
+        ],
+        "stream": "actor",
+        "unit": "ms"
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "arYtVP9kgnjBJp7K",
+      "fight": 48,
+      "actor": 22,
+      "player": "Haplina",
+      "subject": true,
+      "duration_ms": 174912,
+      "remove_curse_cast_times_ms": [
+        37202,
+        38720,
+        112566,
+        114135,
+        131290,
+        174485
+      ],
+      "explicit_dispels": [
+        {
+          "time": 37204,
+          "ability": 2782,
+          "removed_ability": 28542,
+          "recipient": 8,
+          "is_buff": false,
+          "source_instance": null,
+          "recipient_instance": null
+        },
+        {
+          "time": 38721,
+          "ability": 2782,
+          "removed_ability": 28542,
+          "recipient": 41,
+          "is_buff": false,
+          "source_instance": null,
+          "recipient_instance": null
+        },
+        {
+          "time": 112567,
+          "ability": 2782,
+          "removed_ability": 28542,
+          "recipient": 39,
+          "is_buff": false,
+          "source_instance": null,
+          "recipient_instance": null
+        },
+        {
+          "time": 114137,
+          "ability": 2782,
+          "removed_ability": 28542,
+          "recipient": 11,
+          "is_buff": false,
+          "source_instance": null,
+          "recipient_instance": null
+        },
+        {
+          "time": 131292,
+          "ability": 2782,
+          "removed_ability": 28542,
+          "recipient": 27,
+          "is_buff": false,
+          "source_instance": null,
+          "recipient_instance": null
+        },
+        {
+          "time": 174486,
+          "ability": 2782,
+          "removed_ability": 28542,
+          "recipient": 34,
+          "is_buff": false,
+          "source_instance": null,
+          "recipient_instance": null
+        }
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "arYtVP9kgnjBJp7K",
+      "fight": 48,
+      "actor": 22,
+      "duration_ms": [],
+      "remove_curse_cast_times_ms": [
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          161
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          167
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          404
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          412
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          478
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          618
+        ]
+      ],
+      "explicit_dispels": [
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          162
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          168
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          405
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          413
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          479
+        ],
+        [
+          "events/arYtVP9kgnjBJp7K/fight_48/player_22_Haplina/source_001.json",
+          619
+        ]
+      ]
+    }
+  ]
+}

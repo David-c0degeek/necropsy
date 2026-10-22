@@ -156,6 +156,125 @@ def test_values_and_locators_come_from_the_raw_pages(tmp_path: Path) -> None:
     assert result["tool"] == {"name": "scripts/fact_freeze.py", "version": ff.TOOL_VERSION}
 
 
+def test_dispels_keep_raw_identity_instances_and_maximum_multiplicity(tmp_path: Path) -> None:
+    first = ev(
+        4000,
+        "dispel",
+        4987,
+        ACTOR,
+        80,
+        extraAbilityGameID=20475,
+        isBuff=False,
+        sourceInstance=1,
+        targetInstance=2,
+    )
+    second = ev(5000, "dispel", 4987, ACTOR, ACTOR, extraAbilityGameID=20475, isBuff=True)
+    other = ev(6000, "dispel", 4987, BOSS, ACTOR)  # not the selected source
+    cast = ev(4000, "cast", 4987, ACTOR, 80)
+    removed = ev(4000, "removedebuff", 4987, ACTOR, 80)
+    result = run(
+        make(
+            tmp_path,
+            pages={
+                f"{SOURCE}001.json": page([first, first, second, other, cast, removed]),
+                f"{TARGET}001.json": page([first, second]),
+            },
+            queries={
+                "dispels": {"kind": "dispels", "ids": [4987], "stream": "actor", "unit": "ms"}
+            },
+        )
+    )
+    rows = result["contexts"][0]["dispels"]
+    assert rows == [
+        {
+            "time": 4000,
+            "ability": 4987,
+            "removed_ability": 20475,
+            "recipient": 80,
+            "is_buff": False,
+            "source_instance": 1,
+            "recipient_instance": 2,
+        }
+    ] * 2 + [
+        {
+            "time": 5000,
+            "ability": 4987,
+            "removed_ability": 20475,
+            "recipient": ACTOR,
+            "is_buff": True,
+            "source_instance": None,
+            "recipient_instance": None,
+        }
+    ]
+    assert result["locators"][0]["dispels"] == [[f"{SOURCE}001.json", i] for i in (0, 1, 2)]
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("extraAbilityGameID", None),
+        ("extraAbilityGameID", True),
+        ("extraAbilityGameID", 20475.0),
+        ("extraAbilityGameID", 0),
+        ("targetID", None),
+        ("targetID", True),
+        ("targetID", -1),
+        ("isBuff", None),
+        ("isBuff", 0),
+        ("isBuff", "false"),
+    ],
+)
+def test_dispel_identity_or_flag_is_not_defaulted(
+    tmp_path: Path,
+    field: str,
+    value: Any,
+) -> None:
+    event = ev(4000, "dispel", 4987, ACTOR, BOSS, extraAbilityGameID=20475, isBuff=False)
+    event[field] = value
+    spec = make(
+        tmp_path,
+        pages={f"{ALL}001.json": page([event])},
+        queries={"dispels": {"kind": "dispels", "ids": [4987]}},
+    )
+    with pytest.raises(ff.FreezeError):
+        run(spec)
+
+
+@pytest.mark.parametrize("catalog", ["missing", "duplicate", "float-id"])
+def test_dispel_recipient_needs_one_exact_catalog_binding(tmp_path: Path, catalog: str) -> None:
+    meta = bundle()
+    actors = meta["reportData"]["report"]["masterData"]["actors"]
+    if catalog == "missing":
+        actors[:] = [a for a in actors if a["id"] != BOSS]
+    elif catalog == "duplicate":
+        actors.append({"id": BOSS, "type": "Player", "name": "Alias"})
+    else:
+        next(a for a in actors if a["id"] == BOSS)["id"] = float(BOSS)
+    spec = make(
+        tmp_path,
+        meta=meta,
+        pages={
+            f"{ALL}001.json": page(
+                [ev(4000, "dispel", 4987, ACTOR, BOSS, extraAbilityGameID=20475, isBuff=False)]
+            )
+        },
+        queries={"dispels": {"kind": "dispels", "ids": [4987]}},
+    )
+    with pytest.raises(ff.FreezeError, match="recipient"):
+        run(spec)
+
+
+def test_dispel_scope_is_explicit_and_does_not_fall_back_to_actor(tmp_path: Path) -> None:
+    event = ev(4000, "dispel", 4987, ACTOR, BOSS, extraAbilityGameID=20475, isBuff=False)
+    spec = make(
+        tmp_path,
+        pages={f"{SOURCE}001.json": page([event]), f"{TARGET}001.json": page([event])},
+        queries={"dispels": {"kind": "dispels", "ids": [4987]}},
+    )
+    with pytest.raises(ff.FreezeError):
+        run(spec)
+
+
 def test_check_passes_on_a_fresh_freeze_and_fails_on_an_edited_value(tmp_path: Path) -> None:
     spec = make(tmp_path)
     out = tmp_path / "facts.json"

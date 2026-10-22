@@ -47,3 +47,12 @@ draft directory. Do not send WCL credentials, raw captures or API access to it.
 Verification: 27 targeted guidance tests passed before formatting; the real order-07 draft is rejected by the strengthened verifier. Full checkpoint gate runs after commit with `NECROPSY_GATE_WORKERS=8` and fast pytest at eight workers; log `workspace/codex-naxx/guidance-trial-full-gate.log`. This checkpoint does not close 02.2 or the subject.
 
 2026-10-21 · 02.2 partial readiness · Reuse `scripts/fact_freeze.py` for kind (b); all 55 tests pass, including edited values, wrong hashes/identity, absent/foreign/incomplete streams and ambiguous aura/NPC cases. Its committed Lucifron fact file replays with zero differences. The independent raw scanner stays an ignored prototype: 23 synthetic tests pass and five real v1 boss cases (4329 selected occurrences) match a separate raw Counter enumeration, but real certified v2/full-eligibility validation is still missing. `research/offline-verifier-readiness.json` records exact hashes, commands, counts and limits. This verifies plumbing, not Naxx facts or complete cells. Guidance stays with Codex after the failed trial. 02.2 remains open for production-ready raw discovery verification; no duplicate fact-freeze wrapper or new local model trial is added.
+
+2026-10-22 · Fact-freeze verifier extension · Explicit actor dispels are now a
+supported query through the existing tool, with exact removed/recipient IDs,
+boolean flags and optional raw instances. Seventy tests pass; the real six-row
+Sapphiron draft and original Lucifron file replay with zero differences. Both
+existing Lucifron/Geddon specs produce byte-identical output across the tool
+extension; Geddon's older manually enumerated format remains unchanged and its
+supported values match. The raw discovery full-eligibility verifier still
+needs certified real v2 input; 02.2 stays open. No local model trial is run.

@@ -81,3 +81,19 @@ conflict for `tip_iceblock_timing` with a no-replacement-by-inference rule.
 Current coordinator drafts withdraw the prescription; original model trials
 and their historical pins stay unchanged. The author review binds the new
 ledger/current draft revision. No raw movement or observed timing is inferred.
+
+2026-10-22 · Portable positive actor facts · The existing independent
+`fact_freeze.py` now supports an opt-in `dispels` query. It reuses the bound
+All or actor stream and maximum-multiplicity merge, retains explicit removed
+ability/recipient/flag/instance fields and refuses malformed or ambiguous
+bindings. It neither pairs casts nor infers an aura lifetime, friendliness,
+response time, assignment or opportunity. Seventy tests pass, including 15
+new multiplicity, scope, missing/type-alias and catalog-binding cases.
+
+`research/fact-specs/sapphiron-druid-actor.spec.json` freezes the prior personal
+Sapphiron pilot into `research/sapphiron-druid-actor-facts.json`: six casts and
+six explicit 2782/28542 dispel rows. Every value and locator matches the earlier
+independently committed pilot. Fresh-checkout `fact_freeze check` reports zero
+differences. `research/sapphiron-actor-freeze-review-20261022.json` binds the
+inputs and limitations. The fact file remains a draft; no cell registration,
+full encounter certificate or 04 completion is claimed.

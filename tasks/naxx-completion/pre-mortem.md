@@ -247,3 +247,39 @@ follows commit. Author review also caught the Sapphiron timing ambiguity that
 mechanical quotation checks do not detect; the current key is blocked and the
 34 affected coordinator drafts were revised explicitly, preserving old Git
 bytes and original model trials. Independent content approval stays pending.
+
+### Explicit dispel facts, 2026-10-22
+
+**PM-13 — High — a removal freeze invents recipient identity or double-counts.**
+Failed future: six personal dispels become twelve because SOURCE and TARGET
+are added; an absent removed-spell/recipient field becomes zero; or a same-time
+cast is paired with a dispel and treated as a response opportunity. Evidence:
+the committed Sapphiron pilot independently records six explicit dispel rows,
+each in both directions, with 2782/28542 and six recipient IDs. Existing
+`fact_freeze.actor_stream()` already implements maximum multiplicity; its query
+kinds do not yet expose dispels. No new stream reader or event matching is needed.
+
+Guardrails before implementation: add an opt-in `dispels` query using existing
+bound streams and clocks. Select only explicit `type=dispel`, source actor and
+numeric requested removal ability; retain removed ability, recipient, isBuff
+and raw instances. Require exact positive removed/recipient IDs, explicit
+boolean isBuff and one numeric recipient catalog binding. Missing/malformed
+fields refuse, not partial results. Missing instances stay null, never 1.
+Do not assert friendliness, successful aura lifetime, paired casts, response
+time, eligible opportunity, absence or grading. No new analyzer import or
+production mechanic policy. Test repeated occurrences, scope, timestamps,
+identity aliases/missing/duplicate recipients and malformed removed IDs/flags.
+Replay existing frozen files byte-for-byte and compare the real six rows with
+the earlier independently frozen observations. New file remains a draft,
+without registering a cell or completing encounter proof. Rollback: revert the
+new optional query kind; old specs/outputs remain unchanged. Verdict: PROCEED
+WITH GUARDRAILS.
+
+PM-13 verification: 70 fact-freeze tests pass. The real six casts and six
+explicit dispel rows match the earlier independent values and all raw witness
+locators. Old Lucifron/Geddon specs remain byte-identical across the extension.
+Dependency check found DPS oracles pin the entire helper source: 39 complete
+outputs are identical apart from that intentional provenance hash. Original
+files/check strictness are preserved; two fresh draft oracles pass current
+strict checks. No analyzer policy, aura reconstruction, registration or full
+scope acceptance is introduced. Full unchanged-tree gate follows commit.
