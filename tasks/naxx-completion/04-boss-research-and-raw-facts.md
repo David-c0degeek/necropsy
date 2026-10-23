@@ -159,3 +159,24 @@ Kel'Thuzad contexts distinguish 27808 cast/aura rows from 29879 damage; normaliz
 health/absorbed rows do not settle the 104%/130% disagreement. No positive Noth
 29214 row in six surveyed contexts is not absence. All source keys remain
 blocked; no certified scope, actor registration, grading rule or completed cell.
+
+2026-10-23 · Faerlina silence-school correction · The earlier timing audit
+identified that the existing static sacrifice description omitted Nature.
+A direct Classic spell28732 tooltip open explicitly confirms Nature spells for
+30 seconds. The existing wiki excerpt also identifies that school. Corrected
+only the description in naxxramas_facts.yaml; no timing, trigger, control policy
+or assignment is added. Existing frozen source/order pins are unchanged.
+`research/faerlina-nature-silence-20261023.json` records the exact short quote,
+retrieval and limits. Regenerated affected analyses/review keys intentionally
+change; historical saved documents and published assets are not rewritten.
+
+Verification: all19 real v1 before/after replays pass. Three contain the changed
+fact; all other analysis bytes are identical. Both pages differ only by that
+text and the resulting full/shortened analysis-review digests. The first checker
+omitted shortened footer hashes; its failed log was retained and the corrected
+comparison passes. All96 browser tests,10 static-data tests and isolated
+installed/source analysis/pages/package parity pass. All147 wheel files match
+26c5b00; no published release assets changed. Author inspection of the actual
+Faerlina paragraph at desktop/mobile/print CSS finds no clipping and retains
+the explicit guide-fact qualification. Naxx inventory stays26 IN_PROGRESS,
+484 TODO, no problems. Source wording is corrected; no content/cell acceptance.

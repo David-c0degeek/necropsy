@@ -80,3 +80,17 @@ final evidence commit, with eight workers and log
 `workspace/codex-naxx/mobile-pull-final-full-gate.log`; no pass is inferred here.
 These draft previews do not activate production guidance or replace independent
 content/loadout review and real capture-specific acceptance. All 07 boxes stay open.
+
+The mobile checkpoint38eb4a5 subsequently passed the full unchanged-tree gate:
+2703 passed/29 skipped,46 related browser checks, Ruff/format/mypy/docs clean,
+eight workers. Initial run rejected CRLF working bytes; after LF normalization
+the same committed code passed and was pushed. Full browser96 and full-export4
+checks are separate. Log: mobile-pull-final-full-gate-normalized.log under the
+ignored workspace. GitHub CI/package verification is a separate pending check.
+
+GitHub later completed successfully for38eb4a5: all three OS lint/type/test jobs
+and all four native package/bootstrap jobs pass (runs39948788934/39948788903).
+This verifies the mobile checkpoint, not the later Faerlina wording candidate.
+The latter passes96 browser checks,19 controlled archive comparisons and isolated
+installed parity; its full unchanged-tree gate follows the evidence commit with
+eight workers and logworkspace/codex-naxx/faerlina-final-full-gate.log.

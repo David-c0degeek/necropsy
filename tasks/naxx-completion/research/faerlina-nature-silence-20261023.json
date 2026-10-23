@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-23",
+  "kind": "Narrow correction of an existing guide description; no measured mechanic or new policy",
+  "existing_review": "research/edited-source-timing-audit.json identifies the missing Nature qualifier",
+  "source": {
+    "url": "https://www.wowhead.com/classic/spell=28732/widows-embrace",
+    "retrieval": "Direct successful Classic spell-page body open; tooltip and buff text, comments excluded",
+    "short_quote": "Silences nature spells for 30 sec.",
+    "variant": "Classic spell28732; no Wrath/SoD page used"
+  },
+  "existing_source": {
+    "path": "tests/golden/raids/naxx-boss-source-review.json",
+    "boss": "Grand Widow Faerlina",
+    "key": "worshippers_mind_control",
+    "support": "Existing excerpt explicitly limits the silence to her Nature school."
+  },
+  "change": {
+    "path": "src/necropsy/rules/classic_era/zones/naxxramas_facts.yaml",
+    "key": "enrage_sacrifice",
+    "before": "silences her for 30 s",
+    "after": "silences her Nature spells for 30 s"
+  },
+  "limits": [
+    "Does not infer observed control, successful sacrifice, player assignment, actual window or opportunity.",
+    "Existing guide timing remains a guide claim; no new numeric timer or raw policy is introduced.",
+    "Historical frozen orders/source pins and published release assets remain unchanged.",
+    "Regenerated analysis and review keys intentionally change for affected captures; existing saved analysis bytes are not rewritten."
+  ],
+  "verification": {
+    "gamedata_tests": 10,
+    "browser_tests": 96,
+    "installed_parity": {
+      "commit": "26c5b00383fe206e06d1e722be6a103098f92107",
+      "wheel_sha256": "851cb74e094a8b2ef8e412a0b9ba8a5fcfa6463d535ec30a1d11badf7b45e7c4",
+      "package_files": 147,
+      "source_equals_installed": true,
+      "outputs": {
+        "analysis.json": {
+          "source": "d469a66066f6fc33ebeaf0acca4af36fde294beb799cbb8f6bd5acd3a704abf1",
+          "installed": "d469a66066f6fc33ebeaf0acca4af36fde294beb799cbb8f6bd5acd3a704abf1"
+        },
+        "report.html": {
+          "source": "fcadef9f9d122fcac43b3812c3ea2cb987990f16c1064835e6a2138091b66d64",
+          "installed": "fcadef9f9d122fcac43b3812c3ea2cb987990f16c1064835e6a2138091b66d64"
+        },
+        "playbook.html": {
+          "source": "f1632d3df593094a512cedd2bb8b125bad49ddbe226df6e9f6dccc1eb1137b4b",
+          "installed": "f1632d3df593094a512cedd2bb8b125bad49ddbe226df6e9f6dccc1eb1137b4b"
+        },
+        "necropsy-110733843-2006.zip": {
+          "source": "7f6cf8bb3ac6972829041d8378b0d47272985b59c87094b4ac14a35fff7a9dfe",
+          "installed": "7f6cf8bb3ac6972829041d8378b0d47272985b59c87094b4ac14a35fff7a9dfe"
+        }
+      },
+      "receipt_sha256": "e7da6b79eb7295f4d4f155524c2831c6369f63805907673623fb4817bde2be67",
+      "scope": "Private unreleased development wheel; published assets unchanged"
+    },
+    "author_visual_sample": {
+      "scope": "Druid Faerlina encounter-description paragraph only, desktop/mobile/print CSS",
+      "checks": [
+        {
+          "mode": "desktop",
+          "visible": true,
+          "page_overflow": false
+        },
+        {
+          "mode": "mobile",
+          "visible": true,
+          "page_overflow": false
+        },
+        {
+          "mode": "print",
+          "visible": true,
+          "page_overflow": false
+        }
+      ],
+      "screenshots": {
+        "desktop": "de8c5aa6540c9674dc78912b71c07bb4ed46312ba5055622ea2bd98a662dffc9",
+        "mobile": "46e506e86ff7e39734ac722c2694598fb3a52e521c7435f9aee8c4a09597d6ac",
+        "print": "7afb8e02d4d44943a4ecbd85e1fdef01a293a7bd29745b02391d00ebd233aad2"
+      }
+    },
+    "harness_correction": "Initial comparison accounted for full analysis SHA only and failed on the displayed 12-character SHA. Inspection of the Druid output found exactly that expected digest difference. Corrected checker includes both full and shortened digests; failed log retained separately.",
+    "legacy_replays": {
+      "archives": 19,
+      "affected": 3,
+      "scope": "Full before/after analysis replay; only wording and resulting full/shortened analysis-review hashes differ on both pages",
+      "receipt_sha256": "b2ebbdc47604fb83dfa86fe50e97c40e30212949c6959d1c51c1e7cdc69ccd06"
+    }
+  }
+}

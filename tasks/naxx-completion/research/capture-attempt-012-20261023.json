@@ -1,0 +1,139 @@
+{
+  "observed_at_utc": "2026-10-23T11:49:46.889294+00:00",
+  "kind": "Read-only copied finalization follow-up; no API/model calls",
+  "attempt": 12,
+  "new_finalizations": [
+    {
+      "member": "225c4e46a6c7fb969eabe77080c5670bf48c682cda75e036e15a04bb0f6e1bc1.json",
+      "record_sha256": "319bf4674fd1189f9c78faf6b5fdaffa5dec4097ff6ea6161f983a401fadd98f",
+      "code": "CLZBpGHbRM2Kz4a8",
+      "fights": [
+        6,
+        13
+      ],
+      "captured_at": "2026-10-23T11:05:32.339400+00:00",
+      "data_digest_verified": true
+    },
+    {
+      "member": "d02cf3ef7d7fd6dc4c7c5c4347728007790c7cb44c104c98bdf62ca5641754df.json",
+      "record_sha256": "c93e338f0645f2f9924047e5ba03d3e4b11a18c2d3f5d5284cdb79eddbd4608a",
+      "code": "CjpBWdHyrgAGYFLt",
+      "fights": [
+        21
+      ],
+      "captured_at": "2026-10-23T11:06:42.655682+00:00",
+      "data_digest_verified": true
+    }
+  ],
+  "previous_verified_finalizations": 18,
+  "saved_finalizations": 20,
+  "saved_entry_report_sets_from_prior_replay": 59,
+  "snapshot": null,
+  "controller": {
+    "api_owner": "this measurement; no concurrent queries",
+    "attempts": [
+      {
+        "number": 9,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-23T08:58:46+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-23T08:00:42+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-23T09:00:46+00:00"
+        }
+      },
+      {
+        "number": 10,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-23T10:00:48+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-23T09:02:41+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-23T10:02:48+00:00"
+        }
+      },
+      {
+        "number": 11,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-23T11:02:49+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-23T10:04:51+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-23T11:04:49+00:00"
+        }
+      },
+      {
+        "number": 12,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-23T12:04:51+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-23T11:06:43+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-23T12:06:51+00:00"
+        }
+      }
+    ],
+    "checked_at": "2026-10-23T11:49:30+00:00",
+    "current_attempt": 12,
+    "kind": "isolated measurement only",
+    "local_ai": "off; no model calls",
+    "max_new_attempts": 6,
+    "next_retry_at": "2026-10-23T12:06:51+00:00",
+    "promotion": false,
+    "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+    "started_at": "2026-10-23T07:56:44+00:00",
+    "status": "waiting"
+  },
+  "limits": [
+    "Prior full706 and incremental five-response checks retain original timestamps.",
+    "Count is not unconditional archive-completion percentage."
+  ]
+}

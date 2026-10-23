@@ -205,3 +205,26 @@ container/image and verifies outputs before guarded private archival/removal.
 First attempt is due 07:58:44 UTC / 09:58 Amsterdam. No production restart or
 model use. `research/capture-resume-20261023.json` binds limits, scripts and
 current status/cancel identity. No archive/smoke or completed cell is claimed.
+
+2026-10-23 · Continued quota progress · Attempts009–012 all stopped on
+database quota, with seven additional independent finalization answers saved
+since008 (20 in total). The new records were copied and canonical data/record
+hashes checked; their exact report/fight sets match the prior59-set replay.
+The full706-request check retains its historical timestamp; incremental checks
+do not claim a fresh blanket rehash. Attempt012 ended11:06:43UTC, no snapshot;
+next retry12:06:51UTC /14:06 Amsterdam, attempts013/014 remain under the same
+bound. Research receipts cover010/011 and012 separately. No competing PC WCL
+request, production restart or model use. Archive/smoke/cost gates stay open.
+
+2026-10-23 · Bounded controller finished with attention required · Attempt013
+saved one more verified finalization, now21, before four request attempts ended
+in ReadTimeout. Attempt014 then received HTTP429 during character resolution;
+no reset time was available, so shipped policy stopped with needs-attention
+rather than inventing a retry. Collector copied logs/outcomes and privately
+archived/removed the exact exited controller at12:15:13UTC, preserving mounted
+state/images. No worker remains; production is still parked. The stale collector
+TimeoutExpired key is historical after a recovered inspection timeout, not an
+uncollected-output or cleanup failure. `research/capture-attempts-013-014-20261023.json`
+records outcomes, one new digest-checked response and successful retirement.
+No archive/smoke exists. Inspect rate-limit state before any further measured
+retry; sole ownership and bounded operation still apply.
