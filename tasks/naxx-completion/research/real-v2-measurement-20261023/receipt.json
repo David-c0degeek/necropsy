@@ -7,8 +7,9 @@
     "cleanup.json": "e0a5730df1594af9a1c7e29dc9b82a7f39984c37d94821758b95c4a1a8436cdc",
     "complex-smoke.json": "f0df3e442308216c174daf2f1cad30e5fd1ffb0d4c3b7eab780f862dd9464e8a",
     "controller.json": "90e06707dab45dc8555a8282a3dffeca3898b3de2aa9be238aea1f7f1600d785",
-    "installed-parity.json": "c1250add21104a3c461909fb23c3bce402e54062d94ce23b0f4b38d39548bce2",
+    "installed-parity.json": "3e1e9889d47f9d1ae3aade19f507e53bf0af95c25803967b01b8f18a24e76c84",
     "rate-readings.json": "af58da90b138bfa1e0a4f62bb0a576d7c09f786e812143e842387c831ccf198d",
+    "reuse.json": "2129e24ea2818654ffd81b430ee5a4cde89a06a9bfd9ca3ff91d80d4ba01128a",
     "scope-inventory.json": "e92c90e1a94fa61eaaa3ae9473a5e073b8787dd4a6e1b3195e415ee7c92b6238",
     "short-smoke.json": "d18c9f035318688b01634733904593bac0ce874f6cb1f5a0acdc735b61a1ec02",
     "summary.json": "6e1b26369b4680f3b9307a7d6f024b14baa34dae8af4173471c09345cc3ecea6",
@@ -46,5 +47,25 @@
     "No new draft strategy was activated and no cell is COMPLETE.",
     "Supplemental catalogs are explicitly pinned, not a rewrite of existing shared provenance.",
     "Actual archive includes14 subject fights plus75 comparison fights; Teris own KelThuzad faction remains unknown."
-  ]
+  ],
+  "original_installed_parity_receipt_sha256": "c1250add21104a3c461909fb23c3bce402e54062d94ce23b0f4b38d39548bce2",
+  "actor_intake_summary": {
+    "registered_sources": 15,
+    "subject_sources": 14,
+    "separately_observed_cohort_sources": 1,
+    "cell_status_changes": 0,
+    "queue_reuse_bosses": 11,
+    "queue_needs_capture": [
+      "Instructor Razuvious",
+      "Loatheb",
+      "Maexxna",
+      "Patchwerk"
+    ]
+  },
+  "raw_secret_scan": {
+    "command": "gitleaks stdin --redact --no-banner",
+    "expanded_bytes_scanned": 856951518,
+    "result": "no leaks found",
+    "log_sha256": "3fda2d9b3f1e9320a11616c368f41467e508b570184e60309c8d7d78d8274f82"
+  }
 }

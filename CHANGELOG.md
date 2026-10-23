@@ -12,6 +12,8 @@ Development changes appear under **Unreleased** until built and published.
   sticky boss picker, including direct links and keyboard navigation.
 - Faerlina's encounter description specifies that a Worshipper sacrifice
   silences Nature spells, avoiding the implication of an all-school silence.
+- Developer: capture planning verifies and pins provenance catalogs referenced
+  by individual registered sources, alongside the shared catalog.
 
 ## 0.6.1 - 2026-10-22
 

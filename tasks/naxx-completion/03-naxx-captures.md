@@ -47,7 +47,7 @@ The archive verifier separately takes `ARCHIVE --sha256 HASH --entries MANIFEST
 
 ## Boxes
 - [ ] **03.1** (agent) Before the bulk queue, one normal v2 capture measures quota with timestamped readings, page and event counts, including a short fight and at least one of the Four Horsemen, Gothik or Kel'Thuzad (`research/quota-estimate.md`). Then the Naxx queue: 34 configurations minus usable existing archives, 1–3 reviewed public candidates each (owner's characters excluded), pinned research, `capture_queue verify` clean. Pair review.
-- [ ] **03.2** (agent) Image and smoke: current release wheel (cut a release only if the runner needs a change), smoke with the exact production argv on a Naxx entry. The smoke asserts the produced archive is a v2 snapshot with encounter and critical streams for the entry's fight, not only argv and exit (PM-2).
+- [x] **03.2** (agent) Image and smoke: current release wheel (cut a release only if the runner needs a change), smoke with the exact production argv on a Naxx entry. The smoke asserts the produced archive is a v2 snapshot with encounter and critical streams for the entry's fight, not only argv and exit (PM-2). Real released0.6.1 capture and selected short/complex scope checks passed2026-10-23; bulk queue and production remain open.
 - [x] **03.3** (product-owner) Approve restarting the Tower runner with the Naxx queue; approval mirrored. Execution and watchdog re-enablement remain in 03.4 after all approval conditions are met.
 - [ ] **03.4** (agent) Tower restart per the unraid-tower skill with a change record; monitor; handle attention states.
 - [ ] **03.5** (agent) Intake: copy finished archives to the PC, verify hashes, add provenance, register actor sources (`actor_problems` clean). Partial captures classified with evidence; missing configurations stay OPEN with the reason.
@@ -250,3 +250,55 @@ while it owns the API, no production restart or model use. Provenance/cancel and
 limits: `research/capture-recovery-20261023.json`; actual additions:
 `research/capture-attempt-015-20261023.json`. Neither count is a completeness
 percentage, archive certificate or cell closure.
+
+2026-10-23 · First real v2 archive, smoke and partial intake · Attempt017
+finished15:30:08UTC/source-limit after writing the55,836,308-byte archive
+`tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip`.
+Whole digestcaa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5
+and all917 member digests pass. All89 encounter scopes,89 critical scopes,
+178 player streams and16 known-pet streams are complete;14 unresolved pet
+scopes remain explicitly missing. Selected25.598s Sapphiron and303.964s Gothik
+smoke checks pass, including three-page All scope.03.2 is complete on observed
+archive behavior, not on exit code alone.
+
+The capture reports10 complete/five incomplete bosses: four ownership-limited
+cohorts and Teris's missing-faction Kel'Thuzad fight. Fourteen primary actor
+sources plus separately observed Alliance comparison actor Hotsndots at
+Kel'Thuzad pass actor_problems and replace the corresponding v1 references.
+Previous typed records are retained in tests/golden/raids/naxx-v2-intake.json.
+All other records/statuses are unchanged:26 IN_PROGRESS,484 TODO,zero COMPLETE.
+Kel'Thuzad's five eligible comparison fights can be reused without inventing
+Teris's identity. Actual queue projection recognizes11 bosses and retains
+Patchwerk,Loatheb,Maexxna and Razuvious needing capture. Capture dispositions
+are not completed configuration policies or cells.
+
+The separate pinned provenance file avoids rewriting107 shared-catalog refs.
+Planning now verifies each registered catalog's portable path/digest, merges
+only its matching archive fixture and pins those catalogs in generated inputs.
+Wrong archive,stale/escaping/absolute paths and duplicate/conflicting fixtures
+are refused by seven new cases;75 queue tests,41 coverage tests and mypy pass.
+Existing identity/cohort/v2 suppression semantics are unchanged. The initial
+five-boss reuse assertion was an incorrect expectation about missing primary
+subjects; it led to checking separate comparison evidence, not weakening rules.
+
+Fresh final-journal scan verifies all916 canonical data digests:842 acquisition
+and74 finalization records. Timestamped readings and stream page/event counts
+are in research/real-v2-measurement-20261023/. Positive adjacent account deltas
+sum9524.43 across14 decreases/reset transitions and failed windows: not a
+per-stream invoice, cold-capture cost or bulk forecast. The final attempt
+reported650 reused requests and402 account points between readings. Collector
+copied/verified results and privately archived/removed the exact controller
+15:32:24UTC, retaining mounted state/images. No capture worker remains;
+production parked/local AI off. Queue research resumed with bounded PC API
+calls after Tower released ownership. Full queue verification/independent
+review and content/product acceptance remain open.
+
+2026-10-23 · Candidate research completed · After Tower released API ownership,
+198 bounded resolution/ranking calls (6+40+62+90) and four leaderboard fetches
+produce325 cached resolutions/112 metric checks. All34 configurations have
+one to three checked candidates (94 selections); no owner or unknown-faction
+exception is made. The plan is regenerated against committed raw evidence and
+supplemental provenance. Queue emission/pin verification and independent review
+follow before production restart. An expanded856,951,518-byte archive-content
+Gitleaks stream scan finds no leaks. Data acquisition cost remains governed by
+the measured limits; filled candidate pools do not imply complete captures.

@@ -99,3 +99,14 @@ The Faerlina checkpoint08bf05f subsequently passed its unchanged-tree gate:
 52 golden seed replays,2703 fast tests/29 skips and docs pass with eight workers.
 It is pushed; GitHub CI/native packaging for that exact SHA is still separately
 in progress. This operational/source correction does not close07.1–07.5.
+
+2026-10-23 · Real new-v2 replay checkpoint · The first partial real archive
+replays identically from source and an isolated private wheel at2e5a516: strict
+analysis,both pages and package hashes match; all147 package files match Git.
+Both pages pass desktop1440/mobile390,dark/light and print-CSS checks, including
+30 anchors per page. Author inspected actual Sapphiron/Gothik plans, partial
+Patchwerk context and Gothik playbook at desktop/mobile/print CSS. These are
+one-configuration samples, not all-class or physical-pagination acceptance.
+No draft strategy was activated; unknown ownership/faction remains explicit.
+Published assets are unchanged. Runtime smoke is complete;07 boxes, independent
+content review and owner acceptance remain open.

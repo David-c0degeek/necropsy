@@ -1,6 +1,6 @@
 # NaxxCompletion-Plan.md — Complete Classic Era Naxxramas for every class, spec and faction
 
-> **Status: IN_PROGRESS — subjects 00–01 complete; 0.6.1 operational patch published; bounded isolated fixed-image capture continues across quota windows; local inference out of the active workflow.** Created 2026-10-21.
+> **Status: IN_PROGRESS — subjects 00–01 complete; 0.6.1 operational patch published; real v2 archive/smoke verified; all34 candidate pools checked; local inference out of the active workflow.** Created 2026-10-21.
 > **Purpose.** Bring Naxxramas (zone 2006, 15 bosses) to the layer-based
 > completion bar that the parked raid work reached for Molten Core: every legal
 > boss × configuration cell COMPLETE with real actor evidence, raw-first
@@ -28,7 +28,7 @@
 | Coordinator | Codex |
 | Resume safety | required |
 | Parallel branches | `no` — the local runner writes drafts outside the repository only |
-| Notes | Current authority is D013, superseding the active pairing requirement in D012 while Claude is unavailable. **Codex** writes the shared tree, continues implementation and leads UI/UX. The prior pair session is parked with Claude's reported quota pause and its outstanding review requests retained; no Claude verdict is implied. **Local runner**: LocalPilot on LocalBox serving Qwen3.6 35B-A3B (APEX-I-Quality, 256k) on the owner's RTX 4090. Its guidance-draft trial failed (D015); raw discovery and guidance remain with Codex. LocalPilot is never a reviewer of record and never writes the shared tree. One shared-tree writer at a time. Tower runs WCL captures from a reviewed queue only; the recorded restart prerequisites remain. |
+| Notes | Current authority is D013, superseding the active pairing requirement in D012 while Claude is unavailable. **Codex** writes the shared tree, continues implementation and leads UI/UX. The prior pair session is parked with Claude's reported quota pause and its outstanding review requests retained; no Claude verdict is implied. **Local runner**: OFF and removed from active work under D016 after failed raw/guidance trials. Codex owns implementation and source/content work; unavailable inference is no completion dependency or reviewer. Future explicitly requested LocalBox use must select an available saved balanced tune and verify its effective launch arguments. One shared-tree writer at a time. Tower runs WCL captures from a reviewed queue only; the recorded restart prerequisites remain. |
 
 ### Parallel work tracker
 
@@ -168,12 +168,12 @@ with a source.
 |---|---|---|---|---|---|
 | [x] | 00 | `00-tooling-research-and-readiness.md` | DONE | agent; product-owner (XMP) | yes |
 | [x] | 01 | `01-naxx-register-and-strategy-seam.md` | DONE | agent; released 0.6.0, close-out recorded | n/a |
-| [ ] | 02 | `02-local-work-orders.md` | IN_PROGRESS — verifier and ten orders prepared; local inference held during owner's raid | agent; product-owner (local inference hold) | yes |
-| [ ] | 03 | `03-naxx-captures.md` | IN_PROGRESS — offline queue and verifier prepared; WCL maintenance blocks live checks | agent; product-owner (Tower restart) | yes |
-| [ ] | 04 | `04-boss-research-and-raw-facts.md` | TODO | agent | n/a |
-| [ ] | 05 | `05-ranking-oracles.md` | TODO | agent | n/a |
-| [ ] | 06 | `06-content-receipts-and-batches.md` | TODO | agent | n/a |
-| [ ] | 07 | `07-product-acceptance.md` | TODO | agent; product-owner | yes |
+| [ ] | 02 | `02-local-work-orders.md` | IN_PROGRESS — verifiers and510 drafts prepared; inference removed under D016; independent review open | agent; product-owner (local inference hold) | yes |
+| [ ] | 03 | `03-naxx-captures.md` | IN_PROGRESS — real v2 smoke passed; partial archive intaken; full queue/review and production remain open | agent; product-owner (Tower restart) | yes |
+| [ ] | 04 | `04-boss-research-and-raw-facts.md` | IN_PROGRESS — source/capability review and prior actor facts prepared; new v2 raw work open | agent | n/a |
+| [ ] | 05 | `05-ranking-oracles.md` | IN_PROGRESS — raw DPS generator and39 prior matches; exact-cell/HPS policies open | agent | n/a |
+| [ ] | 06 | `06-content-receipts-and-batches.md` | IN_PROGRESS —510 source-bound drafts and layout packet prepared; independent content approval/batches open | agent | n/a |
+| [ ] | 07 | `07-product-acceptance.md` | IN_PROGRESS — legacy and real-v2 installed/visual controls pass; all-class final acceptance open | agent; product-owner | yes |
 
 ---
 

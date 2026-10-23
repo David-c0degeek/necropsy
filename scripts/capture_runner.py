@@ -1,4 +1,4 @@
-"""Unattended serial capture queue for a server (tasks/raid-completion/tower-capture-design.md).
+"""Unattended serial capture queue for a server.
 
 Runs `necropsy analyze` once per queue entry and candidate, one at a time, and
 decides what happens next only from the attempt's `--outcome-json` receipt,
