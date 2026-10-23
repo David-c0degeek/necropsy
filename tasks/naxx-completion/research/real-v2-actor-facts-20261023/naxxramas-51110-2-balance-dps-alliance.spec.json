@@ -1,0 +1,33 @@
+{
+  "fixture": "real-v2-positive-selected-actor-draft",
+  "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+  "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+  "note": "Positive observations only; no ownership, absence, lifetime, opportunity or grade.",
+  "contexts": [
+    {
+      "report": "WPXMf8Jt7ZhDpkd4",
+      "fight": 8,
+      "actor": 5,
+      "player": "Teris",
+      "subject": true
+    }
+  ],
+  "queries": {
+    "personal_debuffs_ms": {
+      "kind": "aura_transitions",
+      "ids": [
+        28794
+      ],
+      "stream": "actor",
+      "unit": "ms",
+      "types": [
+        "applydebuff",
+        "removedebuff",
+        "applydebuffstack",
+        "removedebuffstack",
+        "refreshdebuff"
+      ],
+      "with_ability": true
+    }
+  }
+}

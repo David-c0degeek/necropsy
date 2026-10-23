@@ -1,0 +1,571 @@
+{
+  "kind": "Author independent raw enumeration versus fact-freeze; no reviewer approval or registration",
+  "recipe_sha256": "4213d34a22381c7e54a21a28bfb805be2f2350889b6b05b3a9a05e5741e9ba62",
+  "intake_sha256": "93c689b60fe601a83fcf66cf861a151c69751da964686031fa4632f9dd2aa2ff",
+  "catalog_sha256": "de46f0cfe560f45524f76cffcfbed3ee82e8d361064127653946737e2ee5618b",
+  "fact_freeze_sha256": "76b98352562cb611022eb05a134b59739c019fc2254f2aafefd6507e1b8aad3e",
+  "rows": [
+    {
+      "cell_id": "naxxramas/51116/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "7ATY62QycLzknrPN",
+        "fight": 7,
+        "actor": 9,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/7ATY62QycLzknrPN/fight_7/player_9_Teris/source_001.json": "1ae4c8c4028c79592b2120953147e65486502e286c2cdc0f9380c77c74624820",
+        "events/7ATY62QycLzknrPN/fight_7/player_9_Teris/target_001.json": "855f2093a1bd2438cf500ff6c91f6357c82db368684638fe47a6f6e542161215"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 0,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "no selected positive rows; no absence inference"
+    },
+    {
+      "cell_id": "naxxramas/51120/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "9fFYrZPRQvp7wL2H",
+        "fight": 19,
+        "actor": 39,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/9fFYrZPRQvp7wL2H/fight_19/player_39_Teris/source_001.json": "31c5b5a6d3495984cebe51766f989fa1514a1dbbe9e6aeae3a17a73b630d2494",
+        "events/9fFYrZPRQvp7wL2H/fight_19/player_39_Teris/target_001.json": "c66342d70111d010610a9fc347665727e1c046f47efa2a4077334b4d820faa26",
+        "events/9fFYrZPRQvp7wL2H/fight_19/player_39_Teris/target_002.json": "f2bbc3ad5040dbf0b4837f0456845d3ee6a81becb9a44a69e48b980a729e5eb8"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 3,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51120-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "158d819c2bd9e38ec8d1ca63ab8f58e83c09015b41bbc545dd4018d095a84ade"
+    },
+    {
+      "cell_id": "naxxramas/51107/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "9fFYrZPRQvp7wL2H",
+        "fight": 32,
+        "actor": 39,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/9fFYrZPRQvp7wL2H/fight_32/player_39_Teris/source_001.json": "45edfe9631acf0bdccaadfd1a654dc6797055b7beef37ef1f642d0a870836dd1",
+        "events/9fFYrZPRQvp7wL2H/fight_32/player_39_Teris/target_001.json": "1811ca8442f8206ac41db2a74134f3716b0e732fa38046cff391f7f048558e78"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 0,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "no selected positive rows; no absence inference"
+    },
+    {
+      "cell_id": "naxxramas/51121/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "9fFYrZPRQvp7wL2H",
+        "fight": 62,
+        "actor": 39,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/9fFYrZPRQvp7wL2H/fight_62/player_39_Teris/source_001.json": "d1c67a8112bd47529b905d4fcb0f1234422a323499557a4882753eb94651fe69",
+        "events/9fFYrZPRQvp7wL2H/fight_62/player_39_Teris/target_001.json": "a792796e918fcbce85aeb258041f434368ce61950dd6a7c03be1f146ba36e16e",
+        "events/9fFYrZPRQvp7wL2H/fight_62/player_39_Teris/target_002.json": "94344cdd16fb12ec771d4ff58aaec2bea92401b7ff38de29d9f0148ac830cb71",
+        "events/9fFYrZPRQvp7wL2H/fight_62/player_39_Teris/target_003.json": "eff74c805a94bd73a92ebe01b0cc87ad95be6b6ece85854ee382dcebd41e9c8c"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 37,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51121-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "b16b4efada0d3afddfea55a81e30b2ab2a02c076056f1703a6afc0d4e8466640"
+    },
+    {
+      "cell_id": "naxxramas/51113/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "BJhT9XWnFM3V1k2a",
+        "fight": 18,
+        "actor": 39,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/BJhT9XWnFM3V1k2a/fight_18/player_39_Teris/source_001.json": "e8afbd44cf60a36fb496eb50ce2242fe085a689cc93470f030a83567671c686f",
+        "events/BJhT9XWnFM3V1k2a/fight_18/player_39_Teris/target_001.json": "4bb6326784223365f8b70c8bdd27d255acb32772e0299b910113194035f97d68",
+        "events/BJhT9XWnFM3V1k2a/fight_18/player_39_Teris/target_002.json": "c2af8a269425e72078960086089b6eca00a85ebb48e7c36cc3126124407fcff2"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 0,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "no selected positive rows; no absence inference"
+    },
+    {
+      "cell_id": "naxxramas/51117/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "Dyd43zV2xht6Mkmv",
+        "fight": 37,
+        "actor": 7,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/Dyd43zV2xht6Mkmv/fight_37/player_7_Teris/source_001.json": "80d0109e0d007b86d2a5a108fe11cb174c6687bcb21f9ca7fa6dc7f79879bf83",
+        "events/Dyd43zV2xht6Mkmv/fight_37/player_7_Teris/target_001.json": "e474f3e3513aa15e829a8fe6b5c8e4091923babda76d7955b69a1dc2e6381ddd"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 1,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51117-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "b93d7863c2aef0d2c599b0cdb60a488ddf5dc59e6306e69c2e8f98ca7835688c"
+    },
+    {
+      "cell_id": "naxxramas/51115/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "Dyd43zV2xht6Mkmv",
+        "fight": 42,
+        "actor": 7,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json": "38b96450ce99e32715a287c1eaf5ab26af91704e1c97b82573e53ab3a00008e4",
+        "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/target_001.json": "b9e2469ca89861615dfb328b3da2ebb555434c90f01ffc229aa232de0097e589",
+        "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/target_002.json": "c09202646bfcec9ded9bb4587ff20da95db52b452a0126d8d64ce0e84fbccf4e",
+        "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/target_003.json": "a7833ba36b0ad1249a4d09999dd9ca0f87614ae64398cf4caab0bb33ea3fe345"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 14,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51115-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "348c874ae785c6aef1b7ca055e976462afe782550ade68767d7cdb7488b7747e"
+    },
+    {
+      "cell_id": "naxxramas/51111/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "HkQMCbx4Jy7w3DRn",
+        "fight": 13,
+        "actor": 1,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/HkQMCbx4Jy7w3DRn/fight_13/player_1_Teris/source_001.json": "4b5317a30168acc84e2941f2a1fe1c7a0886d26192c645f5ea8e76cfce43814e",
+        "events/HkQMCbx4Jy7w3DRn/fight_13/player_1_Teris/target_001.json": "1e818c91ed914219a49742e18a4aec9ccea4cde18834e0def68982fa2e10fcf2",
+        "events/HkQMCbx4Jy7w3DRn/fight_13/player_1_Teris/target_002.json": "44240f7b48d86a3b33af9f70a0a1c398e95ad7aff98c99ee00d78414f6f77617"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 0,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "no selected positive rows; no absence inference"
+    },
+    {
+      "cell_id": "naxxramas/51112/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "NhCbwXvtAgV4mzyM",
+        "fight": 26,
+        "actor": 6,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/NhCbwXvtAgV4mzyM/fight_26/player_6_Teris/source_001.json": "9ac717e4a21198882327f13a191d767ef4a5c96a650b4803a669c3ab1873e84b",
+        "events/NhCbwXvtAgV4mzyM/fight_26/player_6_Teris/target_001.json": "f389875445cf5c68ef0685ac9b61a8e05efe5c77a7e870d64c65c5438a2dc9ce"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 0,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "no selected positive rows; no absence inference"
+    },
+    {
+      "cell_id": "naxxramas/51108/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "Pya8MzbgJ4ndXhKp",
+        "fight": 19,
+        "actor": 16,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/Pya8MzbgJ4ndXhKp/fight_19/player_16_Teris/source_001.json": "675632dd8d35e34d56b3616410d3dd87b06ec1e6291f1deecd47773621ab536b",
+        "events/Pya8MzbgJ4ndXhKp/fight_19/player_16_Teris/target_001.json": "c176c564ed7ac091e2393a6ece0f45c9da0cabe23fa81677a786adc20be20de7"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 0,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "no selected positive rows; no absence inference"
+    },
+    {
+      "cell_id": "naxxramas/51110/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "WPXMf8Jt7ZhDpkd4",
+        "fight": 8,
+        "actor": 5,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/WPXMf8Jt7ZhDpkd4/fight_8/player_5_Teris/source_001.json": "f16e6b4bb4623b44d63fffd538960073fb0e9064bcd19316435dd8b169a2cb1a",
+        "events/WPXMf8Jt7ZhDpkd4/fight_8/player_5_Teris/target_001.json": "c558c3fe7a88275b4e6779bdcd82c8dd52be2ceba66b4dc85eff790da65cf5b6"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 2,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51110-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "4ead0b3c45f3984a89e133dc1b02a2c1bb5495834b7dfe65cbdca807e0bc2176"
+    },
+    {
+      "cell_id": "naxxramas/51118/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "tbfAmd3WrhXCyPND",
+        "fight": 33,
+        "actor": 17,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/tbfAmd3WrhXCyPND/fight_33/player_17_Teris/source_001.json": "666e2f901a9d3a3641c4378fc2d6edeebe2c111dbf701fd2a3283e27942eed51",
+        "events/tbfAmd3WrhXCyPND/fight_33/player_17_Teris/target_001.json": "be97b6fc1234e85e6ffe5c0a141a1bc09dfa23f4aa7eeff391f2713de3835aaf",
+        "events/tbfAmd3WrhXCyPND/fight_33/player_17_Teris/target_002.json": "cb9462cd0ffc1b18c184f047a3692aacb9de3ded208573a88c81323590d3a379",
+        "events/tbfAmd3WrhXCyPND/fight_33/player_17_Teris/target_003.json": "61e2e139350404708182ab217df648555066907c61c33fe924568e71baf6d7db"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 0,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "no selected positive rows; no absence inference"
+    },
+    {
+      "cell_id": "naxxramas/51109/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "wrthmWFb428kXG1Y",
+        "fight": 54,
+        "actor": 4,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json": "11f1be95bd29e1a46afc4f1526a36ebebbdd5ee2f0ddad8de3e22444083df896",
+        "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json": "f1fc7487b43a0897b36f663c420f6a63ec7c46c4ab6a8fa450a87de206800b61",
+        "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json": "29afdaa80209927a89062b836b7e8b615cd604857882983d6083ebeae41804f2",
+        "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json": "925afa76606f80605a7fafe559317e1ac6163d660cbe5596d8ccf37d755d82e0"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 35,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51109-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "f9c34d0980853e49f494a5cea33af1faedf75f67daa16c47a77fd8ef7c1a76a6"
+    },
+    {
+      "cell_id": "naxxramas/51119/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "xyPf6G8JkDbV3r2a",
+        "fight": 43,
+        "actor": 16,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/xyPf6G8JkDbV3r2a/fight_43/player_16_Teris/source_001.json": "4fb81eccf28987b622a1f83aa44fe14fa4622e2175bad18fa927e75dd665c055",
+        "events/xyPf6G8JkDbV3r2a/fight_43/player_16_Teris/target_001.json": "2b1a42cd2018c8236ddea44e7f4c4f8dd03a526c105c799463abde32329d3e24"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 1,
+        "personal_debuffs_ms": 2,
+        "explicit_dispels": 1
+      },
+      "observed_catalog_groups": {
+        "druid-remove-curse": [
+          2782
+        ]
+      },
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51119-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "fb009115b0e0e1683e9886dd884d4426c4f3a6d28af1a457b4e6e2407c9e181b"
+    },
+    {
+      "cell_id": "naxxramas/51114/2/Balance/dps/Alliance",
+      "source": {
+        "archive": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+          "locator": "necropsy-snapshot.json"
+        },
+        "entries": {
+          "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.entries",
+          "sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+          "locator": "all members"
+        },
+        "provenance": {
+          "path": "tests/golden/raids/naxx-v2-provenance.json",
+          "sha256": "0d244aa1af5ea369fbeef2e573864f286b5b9bfcb6687d28000453a821c69874",
+          "locator": "naxx-balance-v2-measurement"
+        },
+        "report": "ZxjAaNHTgQRwBhyv",
+        "fight": 3,
+        "actor": 8,
+        "partition": 1
+      },
+      "actor_page_sha256": {
+        "events/ZxjAaNHTgQRwBhyv/fight_3/player_8_Hotsndots/source_001.json": "e9ba50a5276d0ef0f614e03cd75d67d9ae57f80aa470cd0bfb1e774f29c51186",
+        "events/ZxjAaNHTgQRwBhyv/fight_3/player_8_Hotsndots/target_001.json": "f82650988172581e1416bbaecc6563060c5a460f68bc1fcd51cdad982cfab168",
+        "events/ZxjAaNHTgQRwBhyv/fight_3/player_8_Hotsndots/target_002.json": "4a1b4d8c71436fa9fec46b058c8976bdab4112eaf97c9426fdaa88ed85888273"
+      },
+      "positive_counts": {
+        "capability_casts_ms": 0,
+        "personal_debuffs_ms": 2,
+        "explicit_dispels": 0
+      },
+      "observed_catalog_groups": {},
+      "status": "raw multiset and every retained witness agree",
+      "facts": "naxxramas-51114-2-balance-dps-alliance.facts.json",
+      "facts_sha256": "1a999674bccb6c9b877f6b95844da3c9ac410738b207ed11ddb6db5234c3c63a"
+    }
+  ],
+  "totals": {
+    "capability_casts_ms": 1,
+    "personal_debuffs_ms": 96,
+    "explicit_dispels": 1
+  }
+}

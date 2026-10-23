@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "real-v2-positive-selected-actor-draft",
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "note": "Positive observations only; no ownership, absence, lifetime, opportunity or grade.",
+    "contexts": [
+      {
+        "report": "xyPf6G8JkDbV3r2a",
+        "fight": 43,
+        "actor": 16,
+        "player": "Teris",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "capability_casts_ms": {
+        "kind": "casts",
+        "ids": [
+          2782
+        ],
+        "stream": "actor",
+        "unit": "ms"
+      },
+      "personal_debuffs_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          28531
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "with_ability": true
+      },
+      "explicit_dispels": {
+        "kind": "dispels",
+        "ids": [
+          2782
+        ],
+        "stream": "actor",
+        "unit": "ms"
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "xyPf6G8JkDbV3r2a",
+      "fight": 43,
+      "actor": 16,
+      "player": "Teris",
+      "subject": true,
+      "capability_casts_ms": [
+        16432
+      ],
+      "personal_debuffs_ms": [
+        [
+          3,
+          "applydebuff",
+          28531
+        ],
+        [
+          25591,
+          "removedebuff",
+          28531
+        ]
+      ],
+      "explicit_dispels": [
+        {
+          "time": 16432,
+          "ability": 2782,
+          "removed_ability": 28542,
+          "recipient": 28,
+          "is_buff": false,
+          "source_instance": null,
+          "recipient_instance": null
+        }
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "xyPf6G8JkDbV3r2a",
+      "fight": 43,
+      "actor": 16,
+      "capability_casts_ms": [
+        [
+          "events/xyPf6G8JkDbV3r2a/fight_43/player_16_Teris/source_001.json",
+          53
+        ]
+      ],
+      "personal_debuffs_ms": [
+        [
+          "events/xyPf6G8JkDbV3r2a/fight_43/player_16_Teris/source_001.json",
+          1
+        ],
+        [
+          "events/xyPf6G8JkDbV3r2a/fight_43/player_16_Teris/source_001.json",
+          84
+        ]
+      ],
+      "explicit_dispels": [
+        [
+          "events/xyPf6G8JkDbV3r2a/fight_43/player_16_Teris/source_001.json",
+          54
+        ]
+      ]
+    }
+  ]
+}

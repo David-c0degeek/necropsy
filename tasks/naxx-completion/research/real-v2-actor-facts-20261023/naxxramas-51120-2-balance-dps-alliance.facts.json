@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "real-v2-positive-selected-actor-draft",
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "note": "Positive observations only; no ownership, absence, lifetime, opportunity or grade.",
+    "contexts": [
+      {
+        "report": "9fFYrZPRQvp7wL2H",
+        "fight": 19,
+        "actor": 39,
+        "player": "Teris",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "personal_debuffs_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          28059,
+          28084
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "9fFYrZPRQvp7wL2H",
+      "fight": 19,
+      "actor": 39,
+      "player": "Teris",
+      "subject": true,
+      "personal_debuffs_ms": [
+        [
+          66619,
+          "applydebuff",
+          28084
+        ],
+        [
+          99154,
+          "removedebuff",
+          28084
+        ],
+        [
+          99154,
+          "applydebuff",
+          28059
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "9fFYrZPRQvp7wL2H",
+      "fight": 19,
+      "actor": 39,
+      "personal_debuffs_ms": [
+        [
+          "events/9fFYrZPRQvp7wL2H/fight_19/player_39_Teris/source_001.json",
+          168
+        ],
+        [
+          "events/9fFYrZPRQvp7wL2H/fight_19/player_39_Teris/source_001.json",
+          266
+        ],
+        [
+          "events/9fFYrZPRQvp7wL2H/fight_19/player_39_Teris/source_001.json",
+          267
+        ]
+      ]
+    }
+  ]
+}

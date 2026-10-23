@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "real-v2-positive-selected-actor-draft",
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "note": "Positive observations only; no ownership, absence, lifetime, opportunity or grade.",
+    "contexts": [
+      {
+        "report": "Dyd43zV2xht6Mkmv",
+        "fight": 42,
+        "actor": 7,
+        "player": "Teris",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "personal_debuffs_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          6788,
+          29194,
+          29232
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "Dyd43zV2xht6Mkmv",
+      "fight": 42,
+      "actor": 7,
+      "player": "Teris",
+      "subject": true,
+      "personal_debuffs_ms": [
+        [
+          6467,
+          "applydebuff",
+          29194
+        ],
+        [
+          17751,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          21087,
+          "applydebuff",
+          29232
+        ],
+        [
+          24357,
+          "applydebuff",
+          6788
+        ],
+        [
+          29111,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          39352,
+          "removedebuff",
+          6788
+        ],
+        [
+          40469,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          51780,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          63114,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          74432,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          85739,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          98667,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          109993,
+          "refreshdebuff",
+          29194
+        ],
+        [
+          111110,
+          "removedebuff",
+          29232
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "Dyd43zV2xht6Mkmv",
+      "fight": 42,
+      "actor": 7,
+      "personal_debuffs_ms": [
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          8
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          36
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          39
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          48
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          71
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          134
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          140
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          203
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          262
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          318
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          380
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          440
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          494
+        ],
+        [
+          "events/Dyd43zV2xht6Mkmv/fight_42/player_7_Teris/source_001.json",
+          500
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "tool": {
+    "name": "scripts/fact_freeze.py",
+    "version": 1
+  },
+  "spec": {
+    "fixture": "real-v2-positive-selected-actor-draft",
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "note": "Positive observations only; no ownership, absence, lifetime, opportunity or grade.",
+    "contexts": [
+      {
+        "report": "wrthmWFb428kXG1Y",
+        "fight": 54,
+        "actor": 4,
+        "player": "Teris",
+        "subject": true
+      }
+    ],
+    "queries": {
+      "personal_debuffs_ms": {
+        "kind": "aura_transitions",
+        "ids": [
+          6788,
+          20615,
+          27825,
+          28679,
+          30285
+        ],
+        "stream": "actor",
+        "unit": "ms",
+        "types": [
+          "applydebuff",
+          "removedebuff",
+          "applydebuffstack",
+          "removedebuffstack",
+          "refreshdebuff"
+        ],
+        "with_ability": true
+      }
+    }
+  },
+  "contexts": [
+    {
+      "report": "wrthmWFb428kXG1Y",
+      "fight": 54,
+      "actor": 4,
+      "player": "Teris",
+      "subject": true,
+      "personal_debuffs_ms": [
+        [
+          70083,
+          "applydebuff",
+          6788
+        ],
+        [
+          85049,
+          "removedebuff",
+          6788
+        ],
+        [
+          89519,
+          "applydebuff",
+          6788
+        ],
+        [
+          89938,
+          "applydebuff",
+          30285
+        ],
+        [
+          104553,
+          "removedebuff",
+          6788
+        ],
+        [
+          104964,
+          "removedebuff",
+          30285
+        ],
+        [
+          110559,
+          "applydebuff",
+          30285
+        ],
+        [
+          111006,
+          "applydebuff",
+          6788
+        ],
+        [
+          125604,
+          "removedebuff",
+          30285
+        ],
+        [
+          126011,
+          "removedebuff",
+          6788
+        ],
+        [
+          136430,
+          "applydebuff",
+          30285
+        ],
+        [
+          146628,
+          "applydebuff",
+          6788
+        ],
+        [
+          150998,
+          "applydebuffstack",
+          30285
+        ],
+        [
+          150998,
+          "refreshdebuff",
+          30285
+        ],
+        [
+          161630,
+          "removedebuff",
+          6788
+        ],
+        [
+          165800,
+          "applydebuff",
+          6788
+        ],
+        [
+          166039,
+          "removedebuff",
+          30285
+        ],
+        [
+          170402,
+          "applydebuff",
+          30285
+        ],
+        [
+          178155,
+          "applydebuff",
+          20615
+        ],
+        [
+          180718,
+          "removedebuff",
+          6788
+        ],
+        [
+          181089,
+          "removedebuff",
+          20615
+        ],
+        [
+          181354,
+          "applydebuff",
+          27825
+        ],
+        [
+          184693,
+          "applydebuff",
+          6788
+        ],
+        [
+          185417,
+          "removedebuff",
+          30285
+        ],
+        [
+          194286,
+          "applydebuff",
+          30285
+        ],
+        [
+          196390,
+          "removedebuff",
+          27825
+        ],
+        [
+          199700,
+          "removedebuff",
+          6788
+        ],
+        [
+          205739,
+          "applydebuff",
+          6788
+        ],
+        [
+          209290,
+          "removedebuff",
+          30285
+        ],
+        [
+          210417,
+          "applydebuff",
+          30285
+        ],
+        [
+          220789,
+          "removedebuff",
+          6788
+        ],
+        [
+          225430,
+          "removedebuff",
+          30285
+        ],
+        [
+          231500,
+          "applydebuff",
+          30285
+        ],
+        [
+          246500,
+          "removedebuff",
+          30285
+        ],
+        [
+          273604,
+          "applydebuff",
+          28679
+        ]
+      ]
+    }
+  ],
+  "locators": [
+    {
+      "report": "wrthmWFb428kXG1Y",
+      "fight": 54,
+      "actor": 4,
+      "personal_debuffs_ms": [
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          33
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          71
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          89
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          94
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          127
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          130
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          155
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          159
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          218
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          220
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          253
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          296
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          316
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          317
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          379
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          389
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          390
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          405
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          446
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          453
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          454
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          455
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          464
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          472
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          506
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          512
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          518
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          545
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          561
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          569
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          600
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          608
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          628
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          684
+        ],
+        [
+          "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          755
+        ]
+      ]
+    }
+  ]
+}

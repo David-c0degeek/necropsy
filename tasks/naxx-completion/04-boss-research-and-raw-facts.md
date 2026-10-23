@@ -191,3 +191,15 @@ witness. No canonical page-boundary overlap occurs in this sample. Ownership
 unknowns remain unknown; no absence, phase, lifetime, fixed cadence, opportunity,
 source-conflict resolution, mechanic policy or grade follows. Generator output
 is restricted to a fresh workspace file. No source/cell status changes.
+
+2026-10-23 · New-v2 positive actor observations · All15 replacement actor
+contexts were scanned against the exact class-capability catalog IDs and raw
+personal debuff/dispel rows. `research/real-v2-actor-facts-20261023/` retains
+96 personal debuff transitions, one Remove Curse cast and one explicit dispel
+across eight nonempty contexts; seven contexts have no selected positive rows,
+without absence inference. Separate raw SOURCE/TARGET maximum-multiplicity
+counts agree with fact-freeze projections and every retained witness. All eight
+portable facts replay with zero differences. The generator pins intake, catalog,
+archive, scanned pages and tool bytes, and only writes a fresh workspace folder.
+No complete rank family, source ownership, aura lifetime, friendliness,
+assignment, opportunity, mechanic rule, grade or cell acceptance is inferred.
