@@ -66,3 +66,12 @@ active containers, all prior data/images preserved. Next retry at 21:41:39 UTC
 Capture-specific intake and per-cell HPS/DPS policies, content and receipts still
 require real evidence. Earlier references to rollout being next are historical;
 the completed deployment and preserved failed guards are in the latest receipts.
+
+2026-10-24 01:07Amsterdam follow-up supersedes the earlier scheduled retry:
+three automatic rounds/102 attempts all quota-reset, all34 deferred until
+01:45:44Amsterdam. There are zero completed/usable runs. All33 unique partial
+archives are empty (no fights or streams) and remain ineligible;26 successful
+leading-run journal records verify and differing finalization stop reports show
+saved progress. No attention, pendingalerts or active child. Continue automatic
+capture, then verify usable output before actor/policy intake. This is quota
+waiting with retained work, not an archive accepted because it exists.

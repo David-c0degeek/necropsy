@@ -353,3 +353,17 @@ and heartbeat timestamp-precision checks failed safely and were corrected using
 actual process/start/mtime evidence; no state was reset. Scheduled retry remains
 21:41:39 UTC, pending alerts 0, local AI off. Receipts are retained in
 research/production-promotion-20261023/. Full capture/intake remain open.
+
+2026-10-24 · First three production rounds checked · At23:07UTC/01:07Amsterdam,
+all102 attempts ended quota-reset and all34 entries remain deferred, next retry
+23:45:44UTC/01:45Amsterdam. Thirty-three unique partial archives total46841B;
+whole SHA checks pass, but they contain zero fights/actor/encounter streams and
+cannot enter intake. The leading run has no finalized archive and did retain26
+successful saved requests; every canonical data digest was independently checked.
+Its quota stops advance across three different report/fight finalizations.
+Stable run.json bytes do not mean the separate request journal is unchanged.
+These observations establish saved progress, not a completion ETA or quota-cost
+forecast. Pendingalerts0, one historical failure, no attention or active child.
+No WCL query, state/queue/image change, localAI or evidence registration in this
+follow-up. Full raw/refusal inventory and timestamped readings retained in
+research/production-followup-20261024/. Production resumes automatically.
