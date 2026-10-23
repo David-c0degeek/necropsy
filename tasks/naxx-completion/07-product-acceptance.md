@@ -71,6 +71,12 @@ all 96 browser tests pass. The same saved analysis rendered across 19 legacy
 archives yields 38 pages differing only by the intended CSS substitution;
 18 desktop/print sample images are byte-identical before/after. See
 `research/guidance-layout-20261023/README.md` and its hashed receipt.
-Installed parity and the checkpoint gate are recorded separately when complete.
+All four full-export tests pass. Isolated source/installed parity from6fcf509
+matches analysis, both pages and package and all147 Git-bound package files.
+The private wheel is an unreleased development build; published0.6.1 assets are
+unchanged. `research/guidance-layout-20261023/hindsight.md` records the bounded
+author close-out and PM-17 calibration. Full unchanged-tree gate follows the
+final evidence commit, with eight workers and log
+`workspace/codex-naxx/mobile-pull-final-full-gate.log`; no pass is inferred here.
 These draft previews do not activate production guidance or replace independent
 content/loadout review and real capture-specific acceptance. All 07 boxes stay open.

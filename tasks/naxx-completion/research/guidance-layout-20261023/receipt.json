@@ -53,7 +53,8 @@
     "legacy_html_pages": 38,
     "legacy_difference": "Only the intended inline CSS substitution when rendering identical saved analysis bytes",
     "desktop_and_print_samples": "18 screenshot files byte-identical before/after",
-    "full_browser_tests": 96
+    "full_browser_tests": 96,
+    "full_export_tests": 4
   },
   "evidence_sha256": {
     "guidance-layout-repro-20261023/manifest.json": "25d12eade83df314364c7b462ebef34b197c4c3cdc05324e8465c0ee1c7c8c33",
@@ -68,5 +69,31 @@
     "Source/content/loadout and independent review remain open",
     "No final capture, cell completion, installed release-candidate acceptance or owner acceptance claimed",
     "Published release assets remain unchanged"
-  ]
+  ],
+  "installed_parity": {
+    "commit": "6fcf509f95bf194a9adad87524e41c917ed9b1c1",
+    "wheel_sha256": "2e82c19a47c3c7f115f9a64d503cb773261eb61b0d8440b94f27a1b6ba05a07b",
+    "package_files": 147,
+    "source_equals_installed": true,
+    "outputs": {
+      "analysis.json": {
+        "source": "08db7805b517555b2e439f46c3f5424f81182f9dcd6a08ce85395cbb93bdb5c6",
+        "installed": "08db7805b517555b2e439f46c3f5424f81182f9dcd6a08ce85395cbb93bdb5c6"
+      },
+      "report.html": {
+        "source": "aaff4bf9395f5a535edea8e2a4682ad1abf1855e63063dde365fe24d9156a216",
+        "installed": "aaff4bf9395f5a535edea8e2a4682ad1abf1855e63063dde365fe24d9156a216"
+      },
+      "playbook.html": {
+        "source": "1acffcceca5c5cc610aeaa27decfabb582aadb44dd176ad8838a2ed47ae51163",
+        "installed": "1acffcceca5c5cc610aeaa27decfabb582aadb44dd176ad8838a2ed47ae51163"
+      },
+      "necropsy-110733843-2006.zip": {
+        "source": "c75ce0cc33904ae0185cd9f8064219b4eee062c9a5a95d9b5bb1d37029bbbe42",
+        "installed": "c75ce0cc33904ae0185cd9f8064219b4eee062c9a5a95d9b5bb1d37029bbbe42"
+      }
+    },
+    "receipt_sha256": "9437a2f9b8ba4cfa9bcb27f229c4ec998ba63542544409ed75c182e2d6803349",
+    "scope": "Private unreleased development wheel, not the published 0.6.1 wheel; no release assets changed"
+  }
 }

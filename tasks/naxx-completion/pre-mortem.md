@@ -365,3 +365,14 @@ navigation at320/390/768/1050/1400px, plus class paths and print controls. HTML
 CSS bytes intentionally change; saved analysis values must not. Source and
 installed render parity remain required before receipts, not silently reattested.
 Rollback is the one-selector revert. Verdict: PROCEED WITH GUARDRAILS.
+
+PM-17 calibration, 2026-10-23: Prevented Prediction. The media-scoped selector
+fixes the reproduced mobile occlusion while all nine desktop and nine print-CSS
+sample screenshots remain byte-identical. The 19-archive saved-document control
+changes only the intended CSS in 38 HTML pages; the full export's four tests and
+all 96 browser tests pass. Isolated installed/source outputs and all 147 package
+files match commit6fcf509. Actual fragment/keyboard regression failed before the
+fix at320/390/768/1050px and passes after, including1400px desktop. Guardrail was
+effective for the tested layouts; this is bounded author verification, not final
+content/physical-print/live acceptance. Detection was actual viewport navigation
+after draft screenshots suggested a problem. No additional material miss found.

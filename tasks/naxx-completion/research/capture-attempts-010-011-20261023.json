@@ -1,0 +1,129 @@
+{
+  "observed_at_utc": "2026-10-23T10:32:32.672840+00:00",
+  "kind": "Read-only copied successful finalization follow-up; no API/model calls",
+  "attempts": [
+    10,
+    11
+  ],
+  "new_finalizations": [
+    {
+      "member": "32b2a1d09b5748917d3cb2569b468670b2b73e4a9a6b47c25e8ec58c78718040.json",
+      "record_sha256": "e82334a8b755ba1e3a6404f98ca6c7f23fe98f7788affebc3222f3ed52a157eb",
+      "code": "BFwnKkG9z4amctT8",
+      "fights": [
+        35
+      ],
+      "captured_at": "2026-10-23T09:02:40.247751+00:00",
+      "data_digest_verified": true
+    },
+    {
+      "member": "f63a47be9498ec467a757885dc37e5162c1bc3e3e63500dabb578edec018f09c.json",
+      "record_sha256": "f7f33e2fdc7a1e8a2338d7189027afbc4521b3a0f7b318076003926693959401",
+      "code": "BJhT9XWnFM3V1k2a",
+      "fights": [
+        18
+      ],
+      "captured_at": "2026-10-23T10:03:34.254587+00:00",
+      "data_digest_verified": true
+    },
+    {
+      "member": "4312c7883a0af2954e7f83490f099faa72d8fe5cab6eaa46083761fc5c608f64.json",
+      "record_sha256": "d97e3904a4d6ab3bbb5064b908ffce278a6f623e72bfda29cb1f3e393d50dc59",
+      "code": "C83YckmDTgWq71nw",
+      "fights": [
+        1
+      ],
+      "captured_at": "2026-10-23T10:04:50.916281+00:00",
+      "data_digest_verified": true
+    }
+  ],
+  "previous_verified_finalizations": 15,
+  "saved_finalizations": 18,
+  "saved_entry_report_sets_from_prior_replay": 59,
+  "snapshot": null,
+  "controller": {
+    "api_owner": "this measurement; no concurrent queries",
+    "attempts": [
+      {
+        "number": 9,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-23T08:58:46+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-23T08:00:42+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-23T09:00:46+00:00"
+        }
+      },
+      {
+        "number": 10,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-23T10:00:48+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-23T09:02:41+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-23T10:02:48+00:00"
+        }
+      },
+      {
+        "number": 11,
+        "outcome": {
+          "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+          "exit_code": 3,
+          "incomplete_bosses": null,
+          "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+          "reset_at_utc": "2026-10-23T11:02:49+00:00",
+          "snapshot": null,
+          "stop_class": "quota-reset",
+          "version": 1,
+          "written_at_utc": "2026-10-23T10:04:51+00:00"
+        },
+        "verdict": {
+          "archive": null,
+          "entry_state": "deferred",
+          "next_candidate": false,
+          "pause": false,
+          "reason": "quota-reset stop",
+          "retry_at": "2026-10-23T11:04:49+00:00"
+        }
+      }
+    ],
+    "checked_at": "2026-10-23T10:31:52+00:00",
+    "current_attempt": 11,
+    "kind": "isolated measurement only",
+    "local_ai": "off; no model calls",
+    "max_new_attempts": 6,
+    "next_retry_at": "2026-10-23T11:04:49+00:00",
+    "promotion": false,
+    "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+    "started_at": "2026-10-23T07:56:44+00:00",
+    "status": "waiting"
+  },
+  "limits": [
+    "Prior 706 request full verification remains historical; 2 attempt009 and these new records verified separately.",
+    "Finalization count is not archive-completion percentage or v2 certification."
+  ]
+}
