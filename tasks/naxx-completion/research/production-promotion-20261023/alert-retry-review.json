@@ -1,0 +1,18 @@
+{
+  "reviewer": "Separate Codex /root/queue_reviewer",
+  "verdict": "PASS source/test change before new image rollout",
+  "runner_sha256": "277598ac652c79c8f0b266d27ec993e9cf8bcdb509a218fa8e67ada65bc495a7",
+  "independent_focused_tests": "5 passed, including active-child retry, send limits, stop during delivery and child timeout",
+  "root_runner_tests": "74 passed,3 skipped",
+  "regression_proof": "All4 new cases fail against prior HEAD runner, no live calls",
+  "preserved": [
+    "Retry delays and durable outbox",
+    "Default flush behavior except stopping prevents further sends",
+    "Existing child cleanup, stop/deadline/floor checks, queue and state schemas"
+  ],
+  "limits": [
+    "One nominal30s request per supervise cycle; urllib timeout is not hard total deadline",
+    "Rollout requires no-child quota wait, exactnewimage/runner digest and state preservation",
+    "No live operations or manual notifications by reviewer"
+  ]
+}

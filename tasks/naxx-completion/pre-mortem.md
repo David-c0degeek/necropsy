@@ -390,7 +390,7 @@ preserve their previous typed sources in an intake receipt and portable prior
 archive/entries/provenance references, leave Kel'Thuzad and every other cell
 unchanged. Retain missing pet-discovery scopes, with no inferred owners or zeros.
 Use a separate capture provenance file so107 unrelated existing provenance pins
-are not rewritten. Require all917 member hashes, per-stream inventory, selected
+are not rewritten. Require all 917 member hashes, per-stream inventory, selected
 short/complex smoke and source/installed parity; queue suppression still needs
 its independent complete-cohort gate. Rollback restores the14 prior sources and
 removes only new intake artifacts; no production state changes. Verdict:
@@ -424,7 +424,7 @@ guardrail, not an inferred faction or a silent change to dispositions/_cohort_me
 Actual projection registers11 bosses and retains four ownership-limited bosses.
 
 PM-18: Prevented Prediction, resolution Mitigated for intake. All26 statuses stay
-IN_PROGRESS,484 TODO; all917 member hashes and all89 encounter/critical scopes
+IN_PROGRESS,484 TODO; all 917 member hashes and all89 encounter/critical scopes
 pass, with14 missing pet-discovery scopes preserved. The15 replaced references
 (14 subject and one separately observed comparison actor) pass strict actor
 checks; prior typed records are retained in a portable intake file. Every other
@@ -444,3 +444,63 @@ wheel files and source/installed outputs match the pinned renderer. The original
 bulk-cost prediction remains Inconclusive: account-wide readings across failed
 windows/cache replay do not establish a cold-capture tariff or34-run forecast.
 Retain PM-2 as Mitigated overall while full queue/review remains open.
+
+2026-10-23 · Controlled Naxx production promotion pre-mortem · Independent
+Codex queue/image review passes at5dc4b9a under explicit owner authorization.
+Failed future: a new queue is attached to old MC state, or its status/watchdog
+still reports the parked run; capture either refuses immediately or silently
+loses supervision. Existing reviewed image and normal capture evidence remain
+unchanged. No model or unrelated server change is in scope.
+
+PM-20 (High, state mismatch/lost rollback): [evidence: capture_runner.py queue
+state guard; Tower parked record2026-10-21 and private20:31UTC definition/state
+backup] old state belongs to another queue. Mitigation: isolated fresh Naxx
+state/out/cache/www, copied verified measured cache and independent protected
+credentials, with all old paths/images preserved. Archive exact old definitions,
+logs and affected settings before replacement; refuse removal of unexpected or
+nonempty writable layers. Validate candidate image ID/queue before launch.
+Detection: before production. Resolution path: Mitigated by guarded deployment.
+
+PM-21 (High, false supervision): [evidence: entrypoint status directory binding;
+Tower disabled watchdog schedule and its old base path] new worker can run while
+www/cron reads old MC status. Mitigation: bind new www directory at the same LAN
+endpoint, update watchdog base and helper to the reviewed runner bytes, restore
+only its15-minute schedule preserving other entries, verify heartbeat, queueSHA,
+new bind paths, observed UID/GID and no competing API worker. Preserve/reverify
+private rollback settings and status definition first. Existing notification
+settings are copied without a manual test message. Detection: before production
+and fresh post-start status/watchdog inspection. Resolution path: Mitigated.
+
+Guardrails: [PM-20] fresh state and preserved data/definitions; [PM-21] aligned
+www/watchdog with independent heartbeat verification. Root's live20:30UTC check
+finds two old containers, no capture/cron and316432904KiB available. Old data,
+measured journals and general verified recovery20261006T210950Z remain distinct;
+new runtime backups are not claimed cloud-backed up. Rollback stops only the new
+worker, restores old definitions/www/watchdog settings and keeps both data trees.
+Verdict: PROCEED WITH GUARDRAILS, after retaining actual independent PASS.
+
+PM-21 prelaunch review correction: independent reviewer identified that a fresh
+attention status would pass the initial queue/container check and a watchdog
+exit0 (attention is deliberately quiet). Before execution, tightened readiness
+to exact34 persisted entry IDs/queueSHA, fresh postlaunch heartbeat, running or
+expected quota waiting, and both exact new container IDs/images/mounts/UID/GID.
+Schedule/parked-cron prerequisites now validate before handover. This is a
+Prevented Prediction; no production operation had run when found. Watchdog
+success alone remains insufficient evidence of capture health.
+
+2026-10-23 · PM-22 (Medium, alert retries delayed by active capture) · Actual
+start notification failed once and was delivered on a later attempt transition.
+[evidence: capture_runner.supervise only calls heartbeat; idle/wait call flush;
+actual pending then delivered start outbox] a due alert during a six-hour child
+can otherwise wait until that child finishes. Existing wait/idle retry tests do
+not detect it. Independent Codex reviewer confirmed the gap. Mitigation: optional
+flush max_attempts preserving default behavior, count only actual send attempts,
+skip future-dated alerts, stop sends once stopping is set, and call max1 flush
+from the supervision loop after stop/deadline/floor checks. Preserve durable
+outbox ordering/delays and all child cleanup. Focused tests cover running-child
+retry, one-send bound and stop during send. Nominal one30s request+1s poll+20s
+child grace+30s drain fits existing90s stop budget; urllib timeout is not a hard
+whole-operation wall-clock guarantee. Existing limitation is retained, not
+misrepresented as strict timing proof. Resolution path Mitigated; verdict
+PROCEED WITH GUARDRAILS. Rollout only during observed quota wait/no live child,
+with a separate reviewed runner image and unchanged queue/wheel/state schema.

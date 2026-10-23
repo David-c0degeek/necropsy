@@ -1,0 +1,34 @@
+{
+  "reviewer": "Separate Codex agent /root/queue_reviewer; user authorized 2026-10-23",
+  "verdict": "PASS for queue/image controlled restart prerequisite only",
+  "reviewed_commit": "5dc4b9a13d03b57555b55debe15c43f762f440b4",
+  "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+  "runs": 34,
+  "candidate_selections": 94,
+  "pins_verified": 75,
+  "manifest_sha256": "7229f6486d55b67bce22329f1490fdab94252f7a43549955b0574ac6389554bc",
+  "published_wheel_sha256": "b331510f6ca9e82b7752fa518cde1083b68156b77681d186089cd3f2e42d079e",
+  "candidate_image_id": "sha256:1f75e59266408c2bc89ef0550b80ebeae2d913ae88d6bf38167cad35aeeb424e",
+  "image_preflight_sha256": "6764418f2a6903a8f4b272870133bbec6cbdb4e2cfa6b1fb7366a29d0f3a70e3",
+  "archive_sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+  "archive_members_independently_verified": 917,
+  "blocking_findings": [],
+  "checks": [
+    "Scoped verify and snapshot exit0, emitted bf87149283a8 intact",
+    "34 unique legal configurations match partition CSV exactly",
+    "All94 selections bind cached identities/factions and positive matching spec/metric zone2006 partition1",
+    "No missing metric evidence, faction-note exception or owner identity selected",
+    "Every staged manifest hash and eight source/queue Git blobs match",
+    "Published wheel, image-preflight and archive whole digests independently match; ZIP CRC and917 member hashes/sizes pass",
+    "Inspected entrypoint/build pin checks and runner requested raid/partition/spec/metric/faction arguments"
+  ],
+  "operational_guardrails": [
+    "Fresh Naxx state mandatory: existing runner rejects another queue state; preserve old MC state/output/definitions",
+    "Live image, credentials, disk, watchdog and promotion backup remain root deployment checks"
+  ],
+  "limits": [
+    "No writes, live WCL calls, Local AI or production operations by reviewer",
+    "Independent Codex verdict, not Claude or a pair-session verdict",
+    "No510-cell, full-raid, content/policy or final product acceptance"
+  ]
+}

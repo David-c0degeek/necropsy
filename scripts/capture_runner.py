@@ -91,8 +91,8 @@ LOG_PART_BYTES = 50 * 1024**2
 """Each attempt keeps log.txt plus one rotated log.1.txt: at most 100 MB."""
 CLEAR_REQUEST = "clear-attention.request"
 STOP_BUDGET_S = 90
-"""The container's stop grace (docker --stop-timeout) must exceed noticing a stop
-(poll, 1 s), the child's termination grace (20 s) and the log drain (30 s)."""
+"""Allow a poll (1 s), one alert request (nominal 30 s), child grace (20 s)
+and log drain (30 s). urllib's timeout is not a hard total wall-clock deadline."""
 
 
 class QueueError(Exception):
@@ -686,15 +686,20 @@ class Runner:
             {"key": key, "title": title, "text": text, "tries": 0, "next_try_utc": None}
         )
 
-    def flush(self) -> None:
+    def flush(self, max_attempts: int | None = None) -> None:
+        """Deliver due alerts; supervision bounds network work between stop checks."""
         if self.notifier is None or not self.state["outbox"]:
             return
         now, changed = self.now(), False
+        attempts = 0
         for item in list(self.state["outbox"]):
+            if self.stopping.is_set() or (max_attempts is not None and attempts >= max_attempts):
+                break
             when = parse_iso(item["next_try_utc"])
             if when is not None and when > now:
                 continue
             changed = True
+            attempts += 1
             if self.notifier.send(item["title"], item["text"]):
                 self.state["outbox"].remove(item)
                 self.state["delivered"].append(item["key"])
@@ -1004,6 +1009,7 @@ class Runner:
                     if self.floor_problem():
                         return "floor", None
                 self.heartbeat()
+                self.flush(max_attempts=1)
         finally:
             _stop_child(child, self.stop_grace_s)
             copier.join(timeout=30)

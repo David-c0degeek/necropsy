@@ -29,7 +29,8 @@ digest, full entries manifest, queue entry, resolved subject and exact selected
 report/fight/encounter. It uses the strict v2 reader, requires both complete
 encounter scopes and complete actor streams for that fight, and writes a fresh
 receipt with Python/tool/package/input digests and page/event counts. Its
-synthetic tests are verifier evidence only. A real Tower capture is still needed.
+synthetic tests are verifier evidence only. The real0.6.1 Tower capture and
+short/complex smoke passed2026-10-23 as recorded below.
 
 Offline preparation command (options precede the subcommand):
 
@@ -38,8 +39,8 @@ uv run python scripts/capture_queue.py --raid naxxramas --research-dir tasks/nax
 ```
 
 Use those same three options with `resolve --budget N`, `leaderboard --budget N`,
-`emit`, `verify` and `verify --snapshot`. Resolution/leaderboards wait for WCL
-maintenance to finish. Once emitted and verified, stage with explicit `--queue`
+`emit`, `verify` and `verify --snapshot`. Candidate research has completed. Tower owns the API during production capture;
+do not run concurrent PC resolution/leaderboard calls. Once emitted and verified, stage with explicit `--queue`
 and `--queue-pin`; controller results take `check_results.py RESULTS --queue QUEUE`.
 The archive verifier separately takes `ARCHIVE --sha256 HASH --entries MANIFEST
 --queue QUEUE --entry ID --subject-id ID --report CODE --fight ID --encounter ID
@@ -255,7 +256,7 @@ percentage, archive certificate or cell closure.
 finished15:30:08UTC/source-limit after writing the55,836,308-byte archive
 `tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip`.
 Whole digestcaa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5
-and all917 member digests pass. All89 encounter scopes,89 critical scopes,
+and all 917 member digests pass. All89 encounter scopes,89 critical scopes,
 178 player streams and16 known-pet streams are complete;14 unresolved pet
 scopes remain explicitly missing. Selected25.598s Sapphiron and303.964s Gothik
 smoke checks pass, including three-page All scope.03.2 is complete on observed
@@ -314,3 +315,26 @@ The local image context binds that published wheel and eight exact committed
 source/queue files. Production is untouched; capture is not started by staging.
 Full unchanged-tree gate follows the final evidence commit with eight workers,
 logworkspace/codex-naxx/measurement-20261022/real-v2-final-full-gate.log.
+
+2026-10-23 · Independent review and production restart · Owner explicitly
+selected a separate Codex reviewer while Claude was unavailable. Read-only
+review of5dc4b9a passes for the34-run/94-candidate queue,75 pins, exact image
+context/public wheel and raw archive/all 917members. No Claude verdict or cell
+acceptance is implied. A separate handover review caught attention-state false
+readiness; checks were corrected before execution. The reviewed0.6.1 Naxx image
+started20:39UTC in isolatedNaxx paths with fresh state, preservedold MC data/images,
+1941 copied/hash-verified cache files and privately copied protected credentials.
+Status/watchdog align to new paths; only the existing15-minute schedule restored.
+Two exactold containers were privately archived/retired after verification;
+only two active Necropsy containers remain. All34 entries subsequently quota-deferred
+to21:41:39UTC (23:41Amsterdam). Heartbeats live,0 completed/usable runs; partial
+quota artifacts are not accepted evidence. One start alert failure retried and
+delivered; pending 0. No local AI or competing PC WCL calls.
+
+Actual source/operational receipts live in research/production-promotion-20261023/
+and Tower changes/2026-10-23-necropsy-naxx-production-restart.md. Follow-up source
+review found due alerts do not retry while a long child runs. Boundedmax1 retry
+was implemented,74 runner tests pass/3skip, and4newcases fail againstoldsource.
+Independentreview passes the fix; separate image build/full gate/promotion follow
+without changing public release wheel, queue or persisted state.03.4 monitoring
+and03.5 remaining intake stayopen; full configuration/cell acceptance is separate.

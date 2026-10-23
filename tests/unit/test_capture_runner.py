@@ -515,6 +515,49 @@ def test_alert_retries_are_bounded(tmp_path: Path) -> None:
     assert runner.state["outbox"] == [] and runner.state["alert_failures"] == cr.ALERT_TRIES
 
 
+@pytest.mark.parametrize("failed", [False, True])
+def test_flush_send_limit_skips_future_alerts_and_counts_failures(
+    tmp_path: Path, failed: bool
+) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    sent: list[str] = []
+
+    def post(url: str, body: bytes) -> None:
+        sent.append(json.loads(body)["discord"]["text"]["title"])
+        if failed:
+            raise OSError("temporarily unavailable")
+
+    runner.notifier = cr.Notifier(runner.paths.secrets, post=post)
+    for key in ("future", "first", "second"):
+        runner.alert(key, key, "text")
+    runner.state["outbox"][0]["next_try_utc"] = cr.iso(clock.at + timedelta(hours=1))
+    runner.flush(max_attempts=1)
+    assert sent == ["first"]
+    persisted = _state(tmp_path)
+    assert next(a for a in persisted["outbox"] if a["key"] == "second")["tries"] == 0
+    assert persisted["alert_failures"] == int(failed)
+    runner.flush()
+    assert sent == ["first", "second"]
+
+
+def test_a_stop_during_alert_delivery_does_not_send_another_alert(tmp_path: Path) -> None:
+    runner = _runner(tmp_path, Clock())
+    sent: list[str] = []
+
+    def post(url: str, body: bytes) -> None:
+        sent.append(json.loads(body)["discord"]["text"]["title"])
+        runner.stopping.set()
+
+    runner.notifier = cr.Notifier(runner.paths.secrets, post=post)
+    runner.alert("first", "first", "text")
+    runner.alert("second", "second", "text")
+    runner.flush()
+    assert sent == ["first"]
+    assert _state(tmp_path)["delivered"] == ["first"]
+    assert [a["key"] for a in _state(tmp_path)["outbox"]] == ["second"]
+
+
 def test_alert_requests_name_their_own_user_agent(monkeypatch: pytest.MonkeyPatch) -> None:
     # Cloudflare in front of Notifiarr refuses urllib's default "Python-urllib/x.y".
     sent: list[Any] = []
@@ -586,6 +629,36 @@ def _real_runner(tmp_path: Path) -> cr.Runner:
 
 
 SLEEPER = [sys.executable, "-c", "import time; print('child', flush=True); time.sleep(30)"]
+
+
+def test_a_due_failed_alert_retries_while_the_capture_child_is_running(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    runner = _real_runner(tmp_path)
+    runner.attempt_timeout_s = 0.6
+    runner.notifier = cr.Notifier(runner.paths.secrets, post=Alerts(fail=True))
+    runner.alert("start", "start", "text")
+    runner.flush()
+    assert runner.state["alert_failures"] == 1
+    runner.state["outbox"][0]["next_try_utc"] = cr.iso(cr.utcnow() - timedelta(seconds=1))
+    started: list[subprocess.Popen[bytes]] = []
+    real_popen = subprocess.Popen
+
+    def tracking(*args: Any, **kwargs: Any) -> subprocess.Popen[bytes]:
+        child = real_popen(*args, **kwargs)
+        started.append(child)
+        return child
+
+    def post(url: str, body: bytes) -> None:
+        assert started and started[0].poll() is None
+        runner.stopping.set()
+
+    monkeypatch.setattr(subprocess, "Popen", tracking)
+    runner.notifier = cr.Notifier(runner.paths.secrets, post=post)
+    assert runner.supervise(SLEEPER, tmp_path / "log.txt") == ("stopped", None)
+    assert started[0].poll() is not None
+    assert _state(tmp_path)["delivered"] == ["start"]
+    assert _state(tmp_path)["outbox"] == []
 
 
 def test_a_hung_attempt_is_terminated_at_its_timeout(tmp_path: Path) -> None:
