@@ -302,3 +302,15 @@ supplemental provenance. Queue emission/pin verification and independent review
 follow before production restart. An expanded856,951,518-byte archive-content
 Gitleaks stream scan finds no leaks. Data acquisition cost remains governed by
 the measured limits; filled candidate pools do not imply complete captures.
+
+2026-10-23 · Full queue emitted and machine-verified ·
+capture-queue.json contains34 runs/94 checked selections; SHA256
+888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552.
+All75 direct/transitive pins match committed blobs and working bytes; snapshot
+verification is intact atbf87149283a8. The author-review packet records every
+configuration,candidate and evidence reference; independent review is explicitly
+pending. A fresh public0.6.1 wheel download matchesb331510f6ca9e82b7752fa518cde1083b68156b77681d186089cd3f2e42d079e.
+The local image context binds that published wheel and eight exact committed
+source/queue files. Production is untouched; capture is not started by staging.
+Full unchanged-tree gate follows the final evidence commit with eight workers,
+logworkspace/codex-naxx/measurement-20261022/real-v2-final-full-gate.log.

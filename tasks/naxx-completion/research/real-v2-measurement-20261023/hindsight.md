@@ -12,8 +12,8 @@ intact; planning consumes each registered source's verified catalog instead.
 
 ## Fix before closing
 
-Subject03 stays open: all34 candidate pools are now checked; emit/verify/pin
-and independently review the bulk queue, then satisfy the recorded
+Subject03 stays open: all34 candidate pools are checked and the emitted queue
+passes all75 pins/snapshot checks; independently review the bulk queue, then satisfy the recorded
 production restart conditions and monitor/intake the remaining captures. Four
 boss cohorts in the measured configuration still lack ownership evidence.
 Checkpoint publication still requires the full unchanged-tree gate, LFS upload
