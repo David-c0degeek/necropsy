@@ -10,6 +10,8 @@ Development changes appear under **Unreleased** until built and published.
 
 - Mobile playbook section links keep the destination heading visible below the
   sticky boss picker, including direct links and keyboard navigation.
+- Faerlina's encounter description specifies that a Worshipper sacrifice
+  silences Nature spells, avoiding the implication of an all-school silence.
 
 ## 0.6.1 - 2026-10-22
 
