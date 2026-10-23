@@ -1,0 +1,31 @@
+{
+  "site": "vanilla.warcraftlogs.com",
+  "endpoint": "user",
+  "visibility": "public",
+  "fixtures": [
+    {
+      "label": "naxx-balance-v2-measurement",
+      "url": "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2006",
+      "subject_id": 77619978,
+      "class_id": 2,
+      "category": "Balance",
+      "metric": "dps",
+      "faction": "Alliance",
+      "partition": 1,
+      "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+      "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+      "entries_sha256": "72943a8af9c3f27c9f8648ca8da1cacdd6cf466e8845c2bbebdc8782860d3007",
+      "captured_date": "2026-10-23",
+      "format": "necropsy-live-snapshot-v2",
+      "selected_fights": 89,
+      "subject_fights": 14,
+      "complete_boss_cohorts": 10,
+      "incomplete_boss_cohorts": 5,
+      "stop_class": "source-limit",
+      "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+      "released_version": "0.6.1",
+      "wheel_sha256": "b331510f6ca9e82b7752fa518cde1083b68156b77681d186089cd3f2e42d079e",
+      "note": "Partial normal capture across bounded quota windows. Pet ownership remains unknown in four boss cohorts; KelThuzad subject lacks faction evidence. Complete personal streams are reusable, not domain or cell acceptance."
+    }
+  ]
+}

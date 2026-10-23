@@ -376,3 +376,38 @@ fix at320/390/768/1050px and passes after, including1400px desktop. Guardrail wa
 effective for the tested layouts; this is bounded author verification, not final
 content/physical-print/live acceptance. Detection was actual viewport navigation
 after draft screenshots suggested a problem. No additional material miss found.
+
+## 2026-10-23: first real v2 archive intake
+
+PM-18: after intake, the partial capture is treated as complete, suppressing
+needed comparisons or replacing earlier actor evidence with an ineligible scope.
+Evidence: the strict archive contains14 subject fights,10 complete boss cohorts,
+four unresolved pet-ownership cohorts and no eligible Kel'Thuzad subject.
+actor_problems proves personal source/target streams but does not certify owned
+damage, cohort completeness or policy. Guardrails: keep all records IN_PROGRESS;
+replace only14 exact Balance/DPS/Alliance subject references after strict checks,
+preserve their previous typed sources in an intake receipt and portable prior
+archive/entries/provenance references, leave Kel'Thuzad and every other cell
+unchanged. Retain missing pet-discovery scopes, with no inferred owners or zeros.
+Use a separate capture provenance file so107 unrelated existing provenance pins
+are not rewritten. Require all917 member hashes, per-stream inventory, selected
+short/complex smoke and source/installed parity; queue suppression still needs
+its independent complete-cohort gate. Rollback restores the14 prior sources and
+removes only new intake artifacts; no production state changes. Verdict:
+PROCEED WITH GUARDRAILS. Observation horizon is intake/queue projection, not
+future capture or domain acceptance.
+
+PM-19: queue planning trusts a supplemental provenance file without its pin or
+matches a different archive, then skips an unsupported capture. Evidence:
+build_plan currently supplies only the shared raid provenance catalog, while
+ActorSource already pins each capture's own provenance. Adding the new capture
+to that old shared file would invalidate107 unrelated reference hashes.
+Guardrail: load only registered, portable, hash-matching provenance references;
+merge only the fixture matching that source's exact archive digest; reject
+ambiguous matching fixtures; pin supplemental provenance in generated plan inputs.
+Leave dispositions' identity, complete-cohort and strict v2 checks unchanged.
+Test correct matching, wrong archive, stale hash, escape and duplicate fixtures;
+verify real reuse recognizes only the10 complete cohorts. Existing main catalog
+and parked records stay unchanged. Rollback is the lookup helper/wiring revert;
+the capture remains valid evidence but needs another queue review. Verdict:
+PROCEED WITH GUARDRAILS.

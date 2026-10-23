@@ -116,6 +116,71 @@ def test_runs_without_registered_captures_are_not_decided() -> None:
     assert cq.dispositions([RUN], BOSSES, {"records": []}, PROVENANCE, lambda _: {}) == {}
 
 
+def _source_catalog(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[dict[str, Any], Path]:
+    monkeypatch.setattr(cq, "ROOT", tmp_path)
+    shared = tmp_path / "shared.json"
+    shared.write_text(json.dumps({"fixtures": []}), encoding="utf-8")
+    monkeypatch.setattr(cq, "PROVENANCE", shared)
+    path = tmp_path / "capture.json"
+    path.write_text(json.dumps(PROVENANCE), encoding="utf-8")
+    register = _register(1, 2)
+    for record in register["records"]:
+        record["real_actor_source"]["provenance"] = {
+            "path": "capture.json",
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        }
+    return register, path
+
+
+def test_pinned_capture_catalog_enables_only_the_verified_encounter(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    register, path = _source_catalog(tmp_path, monkeypatch)
+    provenance, inputs = cq.registered_provenance(register["records"])
+    decided = cq.dispositions(
+        [RUN], BOSSES, register, provenance, lambda _: _snapshot(), lambda _p, _h: {1}
+    )[RUN["entry_id"]]
+    assert decided["needs_capture"] == ["Magmadar"]
+    assert decided["bosses"][0]["disposition"] == "registered"
+    assert set(inputs) == {path, cq.PROVENANCE}
+    assert json.loads(cq.PROVENANCE.read_bytes()) == {"fixtures": []}
+
+
+def test_catalog_for_another_archive_cannot_enable_reuse(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    register, _ = _source_catalog(tmp_path, monkeypatch)
+    for record in register["records"]:
+        record["real_actor_source"]["archive"]["sha256"] = "another-archive"
+    provenance, _ = cq.registered_provenance(register["records"])
+    assert _decide(register, _snapshot(), provenance)["needs_capture"] == [
+        "Lucifron",
+        "Magmadar",
+    ]
+
+
+@pytest.mark.parametrize("mutation", ["stale", "escape", "absolute", "duplicate", "conflict"])
+def test_source_catalog_rejects_untrusted_or_ambiguous_provenance(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mutation: str
+) -> None:
+    register, path = _source_catalog(tmp_path, monkeypatch)
+    source = register["records"][0]["real_actor_source"]
+    if mutation == "stale":
+        path.write_text("{}", encoding="utf-8")
+    elif mutation == "escape":
+        source["provenance"]["path"] = "../capture.json"
+    elif mutation == "absolute":
+        source["provenance"]["path"] = str(path)
+    elif mutation == "duplicate":
+        path.write_text(json.dumps({"fixtures": PROVENANCE["fixtures"] * 2}), encoding="utf-8")
+        source["provenance"]["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+    else:
+        shared = {"fixtures": [PROVENANCE["fixtures"][0] | {"url": "https://other.invalid"}]}
+        cq.PROVENANCE.write_text(json.dumps(shared), encoding="utf-8")
+    with pytest.raises(ValueError, match="provenance"):
+        cq.registered_provenance(register["records"])
+
+
 def _report_zip(path: Path, role: str) -> None:
     report = {
         "report": {

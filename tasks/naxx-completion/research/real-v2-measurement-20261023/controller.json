@@ -1,0 +1,87 @@
+{
+  "api_owner": "this measurement; no concurrent queries",
+  "attempts": [
+    {
+      "number": 15,
+      "outcome": {
+        "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+        "exit_code": 3,
+        "incomplete_bosses": null,
+        "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+        "reset_at_utc": "2026-10-23T14:15:15+00:00",
+        "snapshot": null,
+        "stop_class": "quota-reset",
+        "version": 1,
+        "written_at_utc": "2026-10-23T13:21:11+00:00"
+      },
+      "verdict": {
+        "archive": null,
+        "entry_state": "deferred",
+        "next_candidate": false,
+        "pause": false,
+        "reason": "quota-reset stop",
+        "retry_at": "2026-10-23T14:17:15+00:00"
+      }
+    },
+    {
+      "number": 16,
+      "outcome": {
+        "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+        "exit_code": 3,
+        "incomplete_bosses": null,
+        "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+        "reset_at_utc": "2026-10-23T15:17:17+00:00",
+        "snapshot": null,
+        "stop_class": "quota-reset",
+        "version": 1,
+        "written_at_utc": "2026-10-23T14:21:11+00:00"
+      },
+      "verdict": {
+        "archive": null,
+        "entry_state": "deferred",
+        "next_candidate": false,
+        "pause": false,
+        "reason": "quota-reset stop",
+        "retry_at": "2026-10-23T15:19:17+00:00"
+      }
+    },
+    {
+      "number": 17,
+      "outcome": {
+        "checkpoint_sha256": "8f87d8d9c71635482d70efc77b1910f471339cad4d162fcce33c646fce08a8e8",
+        "exit_code": 4,
+        "incomplete_bosses": 5,
+        "out": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0",
+        "reset_at_utc": "2026-10-23T16:19:18+00:00",
+        "snapshot": {
+          "archive": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0/.necropsy-run/snapshots/6b2cf7d6a18c456baef37b774fa9f1bf/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+        },
+        "stop_class": "source-limit",
+        "version": 1,
+        "written_at_utc": "2026-10-23T15:30:08+00:00"
+      },
+      "verdict": {
+        "archive": {
+          "archive": "/data/out/naxxramas-druid-balance-dps-alliance/candidate-0/.necropsy-run/snapshots/6b2cf7d6a18c456baef37b774fa9f1bf/77619978-2006-20261023T152230.zip",
+          "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+        },
+        "entry_state": "partial",
+        "next_candidate": false,
+        "pause": false,
+        "reason": "finished with incomplete source data",
+        "retry_at": null
+      }
+    }
+  ],
+  "checked_at": "2026-10-23T15:30:10+00:00",
+  "current_attempt": 17,
+  "kind": "isolated measurement only",
+  "local_ai": "off; no model calls",
+  "max_new_attempts": 6,
+  "next_retry_at": "2026-10-23T15:19:17+00:00",
+  "promotion": false,
+  "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+  "started_at": "2026-10-23T13:18:06+00:00",
+  "status": "capture-ended-pending-verification"
+}

@@ -584,6 +584,45 @@ def complete_encounter_coverage(path: str, digest: str) -> set[int]:
         }
 
 
+def registered_provenance(records: list[dict[str, Any]]) -> tuple[dict[str, Any], tuple[Path, ...]]:
+    """Read each source's pinned catalog without changing the shared catalog."""
+    provenance = _read_json(PROVENANCE)
+    fixtures = list(provenance["fixtures"])
+    inputs = {PROVENANCE}
+    for record in records:
+        source = record.get("real_actor_source")
+        if not source:
+            continue
+        ref = source["provenance"]
+        relative = Path(ref["path"])
+        path = (ROOT / relative).resolve()
+        if (
+            relative.is_absolute()
+            or not path.is_relative_to(ROOT.resolve())
+            or any(p in {"tasks", "workspace", ".git"} for p in relative.parts)
+            or not path.is_file()
+            or _sha256(path) != ref["sha256"]
+        ):
+            raise ValueError(f"{relative}: missing, changed or nonportable source provenance")
+        if path == PROVENANCE.resolve():
+            continue
+        inputs.add(path)
+        matches = [
+            f
+            for f in _read_json(path).get("fixtures", [])
+            if f.get("sha256") == source["archive"]["sha256"]
+        ]
+        if len(matches) > 1:
+            raise ValueError(f"{relative}: ambiguous source provenance fixture")
+        if matches:
+            existing = [f for f in fixtures if f.get("sha256") == matches[0]["sha256"]]
+            if any(f != matches[0] for f in existing):
+                raise ValueError(f"{relative}: conflicting source provenance fixture")
+            if not existing:
+                fixtures.append(matches[0])
+    return provenance | {"fixtures": fixtures}, tuple(sorted(inputs))
+
+
 def build_plan(context: QueueContext | None = None) -> dict[str, Any]:
     ctx = context or queue_context()
     runs, encounters = universe(raids=ctx.raids)
@@ -595,11 +634,12 @@ def build_plan(context: QueueContext | None = None) -> dict[str, Any]:
         )
         if _sha256(ROOT / path) != recorded:
             raise SystemExit(f"{path}: sha256 is not the registered one")
+    provenance, provenance_inputs = registered_provenance(records)
     states = dispositions(
         runs,
         encounters,
         register,
-        _read_json(PROVENANCE),
+        provenance,
         lambda path: read_snapshot(ROOT / path),
         complete_encounter_coverage if "naxxramas" in ctx.raids else None,
     )
@@ -656,7 +696,7 @@ def build_plan(context: QueueContext | None = None) -> dict[str, Any]:
         "generated": datetime.now(UTC).isoformat(timespec="seconds"),
         "inputs": {
             p.relative_to(ROOT).as_posix(): _sha256(p)
-            for p in (MATRIX, REGISTER, PROVENANCE, ctx.excluded, *raw_archives)
+            for p in (MATRIX, REGISTER, *provenance_inputs, ctx.excluded, *raw_archives)
             if p.is_file()
         },
         "excluded_characters": len(excluded),
