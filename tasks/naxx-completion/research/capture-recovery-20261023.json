@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-23",
+  "kind": "Fresh bounded same-image resume after successful hourly budget recheck, not production restart",
+  "prior_result": "Attempts009-014 collected/retired after ReadTimeout and unknown-reset HTTP429; later budget CLI also429. Recheck succeeded at13:15:12UTC, 1/3000 hourly points, allowing a fresh measured attempt.",
+  "budget_probe": {
+    "completed_at_utc": "2026-10-23T13:15:12.839868+00:00",
+    "prepared_at_utc": "2026-10-23T13:16:38.221673+00:00",
+    "stdout_sha256": "95bbf28e869f41f6810dc94d68729521187c512a959293d5a76abdc05149c744",
+    "exit_code": 0,
+    "points_spent_rounded": 1,
+    "hourly_limit": 3000,
+    "reset_minutes_rounded": 60,
+    "limits": "Endpoint health/hourly headroom only, not a separate database-capacity guarantee."
+  },
+  "container": "necropsy-naxx-measurement-recovered-061-20261023",
+  "container_id": "e29709ea5687dc6b41ef035c9b9c34e9d4fc9efdcc4e3fc9bc20d2aefa291878",
+  "image_id": "sha256:0d462ae2e039fd4f9a9a4ff840658077ebdb97460048cfb5ee1c0ae47ccd16fe",
+  "wheel_sha256": "b331510f6ca9e82b7752fa518cde1083b68156b77681d186089cd3f2e42d079e",
+  "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+  "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+  "started_at_utc": "2026-10-23T13:18:06Z",
+  "first_not_before_utc": "2026-10-23T13:18:38.221673+00:00",
+  "attempt_ids": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "maximum_attempts": 6,
+  "controller_timeout_seconds": 28800,
+  "child_timeout_seconds": 7200,
+  "free_space_floor_gib": 50,
+  "init": true,
+  "restart_policy": "no",
+  "stop_timeout_seconds": 90,
+  "logs": "json-file10m x3",
+  "user": "99:100",
+  "preflight": "Network disabled: released version/wheel, original checked queue/checkpoint, saved012 seed and fresh successful budget probe; zero API/model calls.",
+  "helper_sha256": "6813ddde07d018297c34e640e1523970a780c271cea65ddad6b23369794aca51",
+  "collector": {
+    "process_id": 17404,
+    "status": "workspace/codex-naxx/measurement-20261022/recovered-061-collector-status.json",
+    "bound": "nine hours, exact container/image pins; strict output collection before guarded archival/removal",
+    "sha256": "257d77960579a91b386338e1dd10ebabd6125396e9264f4a1cf14828f08de231",
+    "cleanup_sha256": "f79f3b4358206e6edea9698bc3d4e99bfdc046264888f0228b3e58ccc7c31e75",
+    "guard_checks": [
+      {
+        "case": "valid",
+        "accepted": true
+      },
+      {
+        "case": "running",
+        "accepted": false
+      },
+      {
+        "case": "layer",
+        "accepted": false
+      },
+      {
+        "case": "identity",
+        "accepted": false
+      },
+      {
+        "case": "mount",
+        "accepted": false
+      }
+    ],
+    "waiting_refusal": "Waiting status refuses cleanup before any SSH call.",
+    "inspection_errors": "Successful inspection clears current error while retaining historical inspection_errors entries."
+  },
+  "runtime_observation": {
+    "production": "parked0.5.2",
+    "status_page": "running",
+    "available_space_kib": 317228388,
+    "checked_at_utc": "2026-10-23T13:19:34Z",
+    "local_ai": "off"
+  },
+  "first_outcome": {
+    "attempt": 15,
+    "new_verified_finalizations": 13,
+    "saved_finalizations": 34,
+    "stop_class": "quota-reset",
+    "snapshot": null,
+    "next_retry_utc": "2026-10-23T14:17:15+00:00"
+  },
+  "cancel": "docker stop --time 90 necropsy-naxx-measurement-recovered-061-20261023",
+  "limits": [
+    "Same cache, credentials, endpoint, checked one-entry queue and original checkpoint; no candidate switching or bulk queue.",
+    "Stops on unknown-reset/attention, bounds, space floor or owner signal; no guessed quota reset.",
+    "No production promotion, model use, finished archive, strict smoke or COMPLETE cell.",
+    "Earlier full/incremental request checks retain their original timestamps.",
+    "Private journals/retirement archives are not claimed as cloud-backed up."
+  ]
+}

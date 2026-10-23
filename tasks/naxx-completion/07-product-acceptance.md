@@ -94,3 +94,8 @@ This verifies the mobile checkpoint, not the later Faerlina wording candidate.
 The latter passes96 browser checks,19 controlled archive comparisons and isolated
 installed parity; its full unchanged-tree gate follows the evidence commit with
 eight workers and logworkspace/codex-naxx/faerlina-final-full-gate.log.
+
+The Faerlina checkpoint08bf05f subsequently passed its unchanged-tree gate:
+52 golden seed replays,2703 fast tests/29 skips and docs pass with eight workers.
+It is pushed; GitHub CI/native packaging for that exact SHA is still separately
+in progress. This operational/source correction does not close07.1–07.5.

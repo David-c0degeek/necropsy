@@ -228,3 +228,25 @@ uncollected-output or cleanup failure. `research/capture-attempts-013-014-202610
 records outcomes, one new digest-checked response and successful retirement.
 No archive/smoke exists. Inspect rate-limit state before any further measured
 retry; sole ownership and bounded operation still apply.
+
+2026-10-23 · API recovered; fresh bounded resume · An isolated budget recheck
+succeeded at13:15:12UTC (1/3000 hourly points, reset displayed60 minutes).
+That is endpoint health, not database readiness. Under standing autopilot a
+network-disabled preflight verified the same released image/wheel, checked
+queue/checkpoint, saved012 seed and recent successful probe before a new
+six-attempt/eight-hour coordinator started13:18:06UTC (015–020). Existing
+two-hour child limit,50GiB floor, shared lock, default reserve, attention stops
+and mounted state apply. First not-before13:18:38UTC. Exact-ID/image collector
+PID17404 verifies outputs before guarded retirement; transformed metadata
+accepts only expected exited/zero-layer/binds and refuses running, altered ID,
+layer or mount. Waiting cleanup refuses before SSH. Current inspection errors
+are cleared on recovery while historical errors remain recorded.
+
+Attempt015 ended13:21:11UTC on quota-reset without archive, but saved13 more
+independent finalization responses, now34. Each copied data/record hash and exact
+report/fight set was checked against the earlier59-set replay. Next known retry
+14:17:15UTC /16:17 Amsterdam; five bounded attempts remain. No PC WCL calls
+while it owns the API, no production restart or model use. Provenance/cancel and
+limits: `research/capture-recovery-20261023.json`; actual additions:
+`research/capture-attempt-015-20261023.json`. Neither count is a completeness
+percentage, archive certificate or cell closure.

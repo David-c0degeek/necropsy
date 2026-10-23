@@ -7,7 +7,7 @@ stopping source, content or verification work. Those streams continue.
 | Work | Current evidence | What remains and dependency |
 |---|---|---|
 | Local inference | Off and removed from active Naxx work under D016; tested work kinds failed acceptance | No further model experiments scheduled and no completion dependency. Codex continues the work. A future explicitly requested use must verify a saved balanced tune and actual launch arguments. |
-| Measured v2 capture and smoke | All six 0.6.0 attempts stopped on database points, retaining 693 successful responses without an archive. Resume-priority fix released as 0.6.1 after full/installed/four-platform checks; fixed-image attempts 007–008 also hit quota but saved 13 independent finalizations. Attempts 009–014 ended: 21 finalizations saved in total, no archive; final ReadTimeout then HTTP429 without a known reset caused needs-attention. Results collected and exact temporary controller retired12:15:13UTC | A finished archive, strict short/complex-fight encounter/critical/actor checks and real quota/page/event measurements. The released fixed image passed network-disabled preflight; real finalization, archive and smoke checks remain. Waiting on WCL does not block offline work. |
+| Measured v2 capture and smoke | All six 0.6.0 attempts stopped on database points, retaining 693 successful responses without an archive. Resume-priority fix released as 0.6.1 after full/installed/four-platform checks; fixed-image attempts 007–008 also hit quota but saved 13 independent finalizations. Attempts009–014 collected/retired after unknown-reset HTTP429. Fresh successful budget recheck enabled a newly bounded same-image015–020 controller.015 saved13 more finalizations, now34, then quota stop; next known retry14:17:15UTC /16:17 Amsterdam, five attempts remain | A finished archive, strict short/complex-fight encounter/critical/actor checks and real quota/page/event measurements. The released fixed image passed network-disabled preflight; real finalization, archive and smoke checks remain. Waiting on WCL does not block offline work. |
 | Candidate queue | 177 identity resolutions, 62 ranking checks, 23/34 configurations ready | Finish six unresolved identity pools and five empty/exhausted pools (rejected-candidate cap fixed offline), then emit/verify/pin and independently review the bulk queue after the measurement releases API ownership. Unknown faction or ranking evidence must not be bypassed. |
 | Tower production and intake | Production capture parked on 0.5.2; watchdog off; separate published 0.6.1 fixed measurement image | Conditional restart already approved, but measured smoke and the reviewed bulk queue must pass first. Then monitor, copy/check archives and register eligible actor sources. The 0.6.1 operational patch preserves 0.6.0; final Naxx content acceptance remains separate. |
 | Work-order acceptance | Fact-freeze replay and 70 tests pass, including explicit dispels; historical local trials failed acceptance | Validate raw-scanner full-scope behavior against real v2 evidence. Do not retry or edit historical trials into acceptance. Codex owns source/content work. |
@@ -18,12 +18,15 @@ stopping source, content or verification work. Those streams continue.
 | Product acceptance | Published 0.6.0/0.6.1 assets retained; shared mobile anchor fix passes 96 browser tests; 38 legacy HTML pages change only by intended CSS on identical saved analysis; sampled desktop/print pixels unchanged | Real new-v2/live/package checks, final new-content desktop/mobile/print visual review, installed release-candidate checks and owner acceptance. Draft author layout inspection is preparation, with no capture/content acceptance claimed. |
 
 Current runtime evidence is in the ignored
-`workspace/codex-naxx/measurement-20261022/next-061-collector-status.json` and
-Tower's `data/measurement-controller-061-next-20261023/status.json`. Initial and older bounded
-collector records are historical. The fixed coordinator finished and was retired after collection/private archival;
-no capture worker remains at the latest check. Preserve its mounted state.
-Further measured retries require inspection of the unknown-reset rate limit,
-sole API ownership and a fresh bounded attempt. Production stays parked.
+`workspace/codex-naxx/measurement-20261022/recovered-061-collector-status.json` and
+Tower's `data/measurement-controller-061-recovered-20261023/status.json`. Initial and older bounded
+collector records are historical. The earlier fixed coordinator was collected and retired; the recovered controller
+now owns WCL exclusively after a successful budget recheck. Do not run competing
+PC API calls. Current status is in recovered-061-collector-status.json locally
+and measurement-controller-061-recovered-20261023/status.json on Tower.
+Cancel only necropsy-naxx-measurement-recovered-061-20261023 and preserve its
+mounted state. Its collector verifies outputs before guarded retirement.
+Production stays parked.
 
 Offline reconstruction of the real saved journal reused all 693 requests without
 HTTP or token access: 74 complete acquisition entries across 15 encounter IDs,
