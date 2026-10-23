@@ -1,0 +1,5490 @@
+{
+  "version": 1,
+  "status": "draft actor-scoped arithmetic; not a validated cell policy",
+  "spec": {
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "report": "p4vBFtkRMgWzyh1C",
+    "fight": 57,
+    "actor": 24,
+    "player": "\u5357\u74dc\u7f50\u5934",
+    "realm": "\u5315\u9996\u5cad",
+    "class": "Druid",
+    "category": "Balance",
+    "role": "balance-dps",
+    "encounter": 51109,
+    "excluded_game_ids": [],
+    "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+    "page": 1,
+    "row": 3
+  },
+  "duration_ms": 308781,
+  "published": "261.065",
+  "residual": "17647/61756200",
+  "totals": {
+    "raw": 81323,
+    "self": 711,
+    "excluded": 0,
+    "ranked": 80612
+  },
+  "source_damage": {
+    "24": 81323
+  },
+  "owned_actor_ids": [],
+  "events": [
+    {
+      "raw": {
+        "abilityGameID": 16666,
+        "absorb": -1,
+        "amount": 711,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2689,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -772,
+        "fight": 57,
+        "hitPoints": 91,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 85,
+        "mapID": 0,
+        "maxHitPoints": 100,
+        "resourceActor": 1,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 24,
+        "timestamp": 6383573,
+        "type": "damage",
+        "unmitigatedAmount": 711,
+        "versatility": 0,
+        "x": 341320,
+        "y": 268926
+      },
+      "multiplicity": 1,
+      "disposition": "self",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 103
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2508
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 16922,
+        "amount": 0,
+        "fight": 57,
+        "hitType": 10,
+        "isAoE": false,
+        "sourceID": 24,
+        "targetID": 162,
+        "timestamp": 6571300,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 568
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 9274
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 1665,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -731,
+        "fight": 57,
+        "hitPoints": 378579,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6562200,
+        "type": "damage",
+        "unmitigatedAmount": 1665,
+        "versatility": 0,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 555
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 8548
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 1681,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2718,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -246,
+        "fight": 57,
+        "hitPoints": 15279,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 13,
+        "timestamp": 6532865,
+        "type": "damage",
+        "unmitigatedAmount": 1681,
+        "versatility": 0,
+        "x": 341039,
+        "y": 271825
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 500
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 6060
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 1687,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2718,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -690,
+        "fight": 57,
+        "hitPoints": 614,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 13,
+        "timestamp": 6539398,
+        "type": "damage",
+        "unmitigatedAmount": 1687,
+        "versatility": 0,
+        "x": 341703,
+        "y": 271808
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 519
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 6582
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 1692,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -185,
+        "fight": 57,
+        "hitPoints": 332566,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6568269,
+        "type": "damage",
+        "unmitigatedAmount": 1692,
+        "versatility": 0,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 562
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 9102
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 2491,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -185,
+        "fight": 57,
+        "hitPoints": 284177,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resisted": 415,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6573849,
+        "type": "damage",
+        "unmitigatedAmount": 1660,
+        "versatility": 0,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 574
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 9476
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 3205,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -492,
+        "fight": 57,
+        "hitPoints": 7424,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 13,
+        "timestamp": 6536748,
+        "type": "damage",
+        "unmitigatedAmount": 1602,
+        "versatility": 0,
+        "x": 341126,
+        "y": 271399
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 507
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 6301
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 3374,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -185,
+        "fight": 57,
+        "hitPoints": 309104,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6571281,
+        "type": "damage",
+        "unmitigatedAmount": 1686,
+        "versatility": 0,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 567
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 9273
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 3391,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -760,
+        "fight": 57,
+        "hitPoints": 261243,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6576348,
+        "type": "damage",
+        "unmitigatedAmount": 1695,
+        "versatility": 0,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 580
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 9633
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "absorb": -1,
+        "amount": 835,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -288,
+        "fight": 57,
+        "hitPoints": 11397,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "mitigated": 833,
+        "resisted": 834,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 1,
+        "timestamp": 6431132,
+        "type": "damage",
+        "unmitigatedAmount": 1668,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 204
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5654
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 0,
+        "fight": 57,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 24,
+        "targetID": 162,
+        "timestamp": 6565264,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 559
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 8887
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 134,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 10917,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "mitigated": 133,
+        "resisted": 134,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "tick": true,
+        "timestamp": 6490214,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 380
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 1769
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 201,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2694,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -739,
+        "fight": 57,
+        "hitPoints": 19316,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "mitigated": 66,
+        "resisted": 67,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "tick": true,
+        "timestamp": 6443514,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 341379,
+        "y": 269472
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 238
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6681
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 237,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2712,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -403,
+        "fight": 57,
+        "hitPoints": 0,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "overkill": 18,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 19,
+        "tick": true,
+        "timestamp": 6442015,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342521,
+        "y": 271251
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 233
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6622
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 1139,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 21,
+        "tick": true,
+        "timestamp": 6457265,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342989,
+        "y": 269222
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 284
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8361
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 549,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 21,
+        "tick": true,
+        "timestamp": 6463266,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342989,
+        "y": 269222
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 313
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9142
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 844,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 21,
+        "tick": true,
+        "timestamp": 6460266,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342989,
+        "y": 269222
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 297
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8766
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2693,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -489,
+        "fight": 57,
+        "hitPoints": 163,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 17,
+        "tick": true,
+        "timestamp": 6423714,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 341346,
+        "y": 269337
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 179
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5134
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2695,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -434,
+        "fight": 57,
+        "hitPoints": 3482,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 17,
+        "tick": true,
+        "timestamp": 6420714,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 341306,
+        "y": 269566
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 165
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 4896
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2708,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -430,
+        "fight": 57,
+        "hitPoints": 3737,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 17,
+        "tick": true,
+        "timestamp": 6417716,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 341731,
+        "y": 270831
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 162
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 4633
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2710,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -410,
+        "fight": 57,
+        "hitPoints": 364,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 22,
+        "tick": true,
+        "timestamp": 6467766,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342122,
+        "y": 271094
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 328
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9580
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2711,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -227,
+        "fight": 57,
+        "hitPoints": 1543,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 22,
+        "tick": true,
+        "timestamp": 6461766,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342430,
+        "y": 271194
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 305
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8999
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2711,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -227,
+        "fight": 57,
+        "hitPoints": 1906,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 22,
+        "tick": true,
+        "timestamp": 6458766,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342430,
+        "y": 271194
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 289
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8555
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2712,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -662,
+        "fight": 57,
+        "hitPoints": 795,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 22,
+        "tick": true,
+        "timestamp": 6464767,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 342503,
+        "y": 271216
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 321
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9296
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2714,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -218,
+        "fight": 57,
+        "hitPoints": 1684,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 28,
+        "tick": true,
+        "timestamp": 6525316,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 341926,
+        "y": 271496
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 479
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 5592
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2714,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -218,
+        "fight": 57,
+        "hitPoints": 2786,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 28,
+        "tick": true,
+        "timestamp": 6522365,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 341926,
+        "y": 271496
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 465
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 5161
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 255,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2714,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -218,
+        "fight": 57,
+        "hitPoints": 3898,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 28,
+        "tick": true,
+        "timestamp": 6519318,
+        "type": "damage",
+        "unmitigatedAmount": 255,
+        "versatility": 0,
+        "x": 341926,
+        "y": 271496
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 455
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 4717
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 256,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2669,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 2077,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 1,
+        "tick": true,
+        "timestamp": 6380516,
+        "type": "damage",
+        "unmitigatedAmount": 256,
+        "versatility": 0,
+        "x": 343069,
+        "y": 266916
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 94
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2334
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2672,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -420,
+        "fight": 57,
+        "hitPoints": 5586,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 1,
+        "tick": true,
+        "timestamp": 6370482,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 342944,
+        "y": 267270
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 63
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1790
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2684,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -399,
+        "fight": 57,
+        "hitPoints": 14861,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 3,
+        "tick": true,
+        "timestamp": 6393617,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 342047,
+        "y": 268410
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 123
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3199
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2684,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -399,
+        "fight": 57,
+        "hitPoints": 2015,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 3,
+        "tick": true,
+        "timestamp": 6396636,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 342047,
+        "y": 268410
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 134
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3506
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 14513,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "tick": true,
+        "timestamp": 6460266,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 298
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8767
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 7363,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "tick": true,
+        "timestamp": 6463266,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 314
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9143
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -288,
+        "fight": 57,
+        "hitPoints": 11130,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 1,
+        "tick": true,
+        "timestamp": 6431199,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 206
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5659
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -318,
+        "fight": 57,
+        "hitPoints": 17637,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "tick": true,
+        "timestamp": 6487215,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 369
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 1406
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -318,
+        "fight": 57,
+        "hitPoints": 18678,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 1,
+        "tick": true,
+        "timestamp": 6428214,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 197
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5462
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2694,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -726,
+        "fight": 57,
+        "hitPoints": 16601,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "tick": true,
+        "timestamp": 6446517,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 341406,
+        "y": 269452
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 247
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6848
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2699,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -392,
+        "fight": 57,
+        "hitPoints": 10803,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 2,
+        "tick": true,
+        "timestamp": 6371865,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 341272,
+        "y": 269924
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 67
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1868
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2699,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -392,
+        "fight": 57,
+        "hitPoints": 17619,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 2,
+        "tick": true,
+        "timestamp": 6368882,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 341272,
+        "y": 269924
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 57
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1677
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2705,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -351,
+        "fight": 57,
+        "hitPoints": 14210,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "tick": true,
+        "timestamp": 6497581,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 340583,
+        "y": 270524
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 401
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 2556
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2712,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -670,
+        "fight": 57,
+        "hitPoints": 2195,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "tick": true,
+        "timestamp": 6503584,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 340894,
+        "y": 271297
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 414
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 3139
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 18442,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 4,
+        "tick": true,
+        "timestamp": 6392017,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 343094,
+        "y": 271380
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 121
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3040
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 268,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2702,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -490,
+        "fight": 57,
+        "hitPoints": 10016,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "tick": true,
+        "timestamp": 6449533,
+        "type": "damage",
+        "unmitigatedAmount": 268,
+        "versatility": 0,
+        "x": 341649,
+        "y": 270215
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 260
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 7208
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 268,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2704,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -186,
+        "fight": 57,
+        "hitPoints": 18199,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 5,
+        "tick": true,
+        "timestamp": 6419216,
+        "type": "damage",
+        "unmitigatedAmount": 268,
+        "versatility": 0,
+        "x": 341555,
+        "y": 270476
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 163
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 4774
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 268,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2707,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -750,
+        "fight": 57,
+        "hitPoints": 11986,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 9,
+        "tick": true,
+        "timestamp": 6474917,
+        "type": "damage",
+        "unmitigatedAmount": 268,
+        "versatility": 0,
+        "x": 341766,
+        "y": 270777
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 342
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 99
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 268,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2711,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -590,
+        "fight": 57,
+        "hitPoints": 10584,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "tick": true,
+        "timestamp": 6500583,
+        "type": "damage",
+        "unmitigatedAmount": 268,
+        "versatility": 0,
+        "x": 340633,
+        "y": 271183
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 413
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 2843
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 268,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 14680,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 4,
+        "tick": true,
+        "timestamp": 6395015,
+        "type": "damage",
+        "unmitigatedAmount": 268,
+        "versatility": 0,
+        "x": 343094,
+        "y": 271380
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 129
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3341
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 293,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2699,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -392,
+        "fight": 57,
+        "hitPoints": 3641,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 2,
+        "tick": true,
+        "timestamp": 6374882,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 341272,
+        "y": 269924
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 74
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2043
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 293,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2704,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -186,
+        "fight": 57,
+        "hitPoints": 10385,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 5,
+        "tick": true,
+        "timestamp": 6422214,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 341555,
+        "y": 270476
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 173
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5054
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 294,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2694,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -332,
+        "fight": 57,
+        "hitPoints": 7670,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 4,
+        "tick": true,
+        "timestamp": 6398032,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 341763,
+        "y": 269471
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 141
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3593
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 294,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2703,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -506,
+        "fight": 57,
+        "hitPoints": 5040,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 9,
+        "tick": true,
+        "timestamp": 6477920,
+        "type": "damage",
+        "unmitigatedAmount": 267,
+        "versatility": 0,
+        "x": 342272,
+        "y": 270367
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 346
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 331
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 364,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2705,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -614,
+        "fight": 57,
+        "hitPoints": 0,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "overkill": 520,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 22,
+        "timestamp": 6470415,
+        "type": "damage",
+        "unmitigatedAmount": 442,
+        "versatility": 0,
+        "x": 341508,
+        "y": 270559
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 337
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9811
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 416,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 3523,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 7,
+        "timestamp": 6353068,
+        "type": "damage",
+        "unmitigatedAmount": 416,
+        "versatility": 0,
+        "x": 342924,
+        "y": 269298
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 35
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1182
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 420,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -318,
+        "fight": 57,
+        "hitPoints": 20404,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 6457267,
+        "type": "damage",
+        "unmitigatedAmount": 420,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 287
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8365
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 420,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2704,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -186,
+        "fight": 57,
+        "hitPoints": 19835,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 5,
+        "timestamp": 6416217,
+        "type": "damage",
+        "unmitigatedAmount": 420,
+        "versatility": 0,
+        "x": 341555,
+        "y": 270476
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 161
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 4530
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 421,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2669,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 3355,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 1,
+        "timestamp": 6377500,
+        "type": "damage",
+        "unmitigatedAmount": 421,
+        "versatility": 0,
+        "x": 343069,
+        "y": 266916
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 85
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2218
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 421,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -323,
+        "fight": 57,
+        "hitPoints": 3992,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 17,
+        "timestamp": 6414699,
+        "type": "damage",
+        "unmitigatedAmount": 421,
+        "versatility": 0,
+        "x": 342932,
+        "y": 271382
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 156
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 4415
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 423,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2707,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -750,
+        "fight": 57,
+        "hitPoints": 16111,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 9,
+        "timestamp": 6471917,
+        "type": "damage",
+        "unmitigatedAmount": 423,
+        "versatility": 0,
+        "x": 341766,
+        "y": 270777
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 340
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9894
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 425,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2710,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -334,
+        "fight": 57,
+        "hitPoints": 4153,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 28,
+        "timestamp": 6516322,
+        "type": "damage",
+        "unmitigatedAmount": 425,
+        "versatility": 0,
+        "x": 342264,
+        "y": 271006
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 448
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 4370
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 433,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 3724,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 10,
+        "timestamp": 6374266,
+        "type": "damage",
+        "unmitigatedAmount": 433,
+        "versatility": 0,
+        "x": 342989,
+        "y": 269222
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 73
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1999
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 435,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -299,
+        "fight": 57,
+        "hitPoints": 19372,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 2,
+        "timestamp": 6365870,
+        "type": "damage",
+        "unmitigatedAmount": 435,
+        "versatility": 0,
+        "x": 343120,
+        "y": 271375
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 51
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1514
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 439,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2689,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -233,
+        "fight": 57,
+        "hitPoints": 19389,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 3,
+        "timestamp": 6390617,
+        "type": "damage",
+        "unmitigatedAmount": 439,
+        "versatility": 0,
+        "x": 342967,
+        "y": 268981
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 119
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2936
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 441,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2669,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 55,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 8,
+        "timestamp": 6355303,
+        "type": "damage",
+        "unmitigatedAmount": 441,
+        "versatility": 0,
+        "x": 343069,
+        "y": 266916
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 40
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1276
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 441,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 3411,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 4,
+        "timestamp": 6332899,
+        "type": "damage",
+        "unmitigatedAmount": 441,
+        "versatility": 0,
+        "x": 342924,
+        "y": 269298
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 16
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 751
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 444,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2673,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -586,
+        "fight": 57,
+        "hitPoints": 13363,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 1,
+        "timestamp": 6367484,
+        "type": "damage",
+        "unmitigatedAmount": 444,
+        "versatility": 0,
+        "x": 342840,
+        "y": 267338
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 54
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1555
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 445,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -323,
+        "fight": 57,
+        "hitPoints": 3076,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 6,
+        "timestamp": 6338052,
+        "type": "damage",
+        "unmitigatedAmount": 445,
+        "versatility": 0,
+        "x": 342932,
+        "y": 271382
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 26
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 895
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 455,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -299,
+        "fight": 57,
+        "hitPoints": 19824,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 4,
+        "timestamp": 6389016,
+        "type": "damage",
+        "unmitigatedAmount": 455,
+        "versatility": 0,
+        "x": 343120,
+        "y": 271375
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 115
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2854
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 461,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2710,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -410,
+        "fight": 57,
+        "hitPoints": 19975,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "timestamp": 6440515,
+        "type": "damage",
+        "unmitigatedAmount": 461,
+        "versatility": 0,
+        "x": 342518,
+        "y": 271091
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 231
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6542
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 813,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -323,
+        "fight": 57,
+        "hitPoints": 2682,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 9,
+        "timestamp": 6356803,
+        "type": "damage",
+        "unmitigatedAmount": 406,
+        "versatility": 0,
+        "x": 342932,
+        "y": 271382
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 45
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1322
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 829,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2698,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -388,
+        "fight": 57,
+        "hitPoints": 3749,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 11,
+        "timestamp": 6375768,
+        "type": "damage",
+        "unmitigatedAmount": 414,
+        "versatility": 0,
+        "x": 341457,
+        "y": 269898
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 80
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2109
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 834,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -315,
+        "fight": 57,
+        "hitPoints": 2168,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 19,
+        "timestamp": 6439015,
+        "type": "damage",
+        "unmitigatedAmount": 417,
+        "versatility": 0,
+        "x": 342725,
+        "y": 271329
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 227
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6436
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 862,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -318,
+        "fight": 57,
+        "hitPoints": 23681,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 1,
+        "timestamp": 6425199,
+        "type": "damage",
+        "unmitigatedAmount": 431,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 190
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5213
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 871,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 1434,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 21,
+        "timestamp": 6454251,
+        "type": "damage",
+        "unmitigatedAmount": 435,
+        "versatility": 0,
+        "x": 342989,
+        "y": 269222
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 276
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 7909
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 871,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -306,
+        "fight": 57,
+        "hitPoints": 2082,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 16,
+        "timestamp": 6413217,
+        "type": "damage",
+        "unmitigatedAmount": 435,
+        "versatility": 0,
+        "x": 342989,
+        "y": 269222
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 152
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 4278
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 879,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2669,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 3101,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 2,
+        "timestamp": 6314523,
+        "type": "damage",
+        "unmitigatedAmount": 439,
+        "versatility": 0,
+        "x": 343069,
+        "y": 266916
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 4
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 322
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 879,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2711,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -227,
+        "fight": 57,
+        "hitPoints": 2546,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 22,
+        "timestamp": 6455769,
+        "type": "damage",
+        "unmitigatedAmount": 439,
+        "versatility": 0,
+        "x": 342430,
+        "y": 271194
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 281
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8119
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 887,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2669,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 2561,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 5,
+        "timestamp": 6334417,
+        "type": "damage",
+        "unmitigatedAmount": 443,
+        "versatility": 0,
+        "x": 343069,
+        "y": 266916
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 20
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 802
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 897,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2670,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -491,
+        "fight": 57,
+        "hitPoints": 105,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 3,
+        "timestamp": 6509299,
+        "type": "damage",
+        "unmitigatedAmount": 448,
+        "versatility": 0,
+        "x": 342660,
+        "y": 267018
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 439
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 3660
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 910,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2713,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -315,
+        "fight": 57,
+        "hitPoints": 18357,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "timestamp": 6494567,
+        "type": "damage",
+        "unmitigatedAmount": 454,
+        "versatility": 0,
+        "x": 342756,
+        "y": 271349
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 392
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 2226
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 912,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -318,
+        "fight": 57,
+        "hitPoints": 23110,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "timestamp": 6484214,
+        "type": "damage",
+        "unmitigatedAmount": 456,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 363
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 1032
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 972,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2687,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -204,
+        "fight": 57,
+        "hitPoints": 8604,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 6,
+        "timestamp": 6434835,
+        "type": "damage",
+        "unmitigatedAmount": 456,
+        "versatility": 0,
+        "x": 341591,
+        "y": 268724
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 218
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5969
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 0,
+        "fight": 57,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 24,
+        "targetID": 169,
+        "targetInstance": 13,
+        "timestamp": 6528539,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 490
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 5835
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1010,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 13132,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "timestamp": 6488801,
+        "type": "damage",
+        "unmitigatedAmount": 896,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 375
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 1597
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1379,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 12832,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resisted": 230,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 6460882,
+        "type": "damage",
+        "unmitigatedAmount": 919,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 301
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 8870
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1684,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2714,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -218,
+        "fight": 57,
+        "hitPoints": 0,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "overkill": 26,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 28,
+        "timestamp": 6526498,
+        "type": "damage",
+        "unmitigatedAmount": 854,
+        "versatility": 0,
+        "x": 341926,
+        "y": 271496
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 486
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 5684
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1729,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2669,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -295,
+        "fight": 57,
+        "hitPoints": 292,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 1,
+        "timestamp": 6381185,
+        "type": "damage",
+        "unmitigatedAmount": 864,
+        "versatility": 0,
+        "x": 343069,
+        "y": 266916
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 98
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 2349
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1797,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -209,
+        "fight": 57,
+        "hitPoints": 74118,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6591546,
+        "type": "damage",
+        "unmitigatedAmount": 898,
+        "versatility": 0,
+        "x": 332186,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 594
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_003.json",
+          "index": 1159
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1814,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2695,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -710,
+        "fight": 57,
+        "hitPoints": 14787,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "timestamp": 6447382,
+        "type": "damage",
+        "unmitigatedAmount": 907,
+        "versatility": 0,
+        "x": 341268,
+        "y": 269557
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 251
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6906
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1829,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -209,
+        "fight": 57,
+        "hitPoints": 10220,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6594047,
+        "type": "damage",
+        "unmitigatedAmount": 914,
+        "versatility": 0,
+        "x": 332186,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 603
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_003.json",
+          "index": 1509
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1846,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2708,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -729,
+        "fight": 57,
+        "hitPoints": 4620,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "timestamp": 6451148,
+        "type": "damage",
+        "unmitigatedAmount": 922,
+        "versatility": 0,
+        "x": 342004,
+        "y": 270852
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 267
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 7439
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1855,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2712,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -179,
+        "fight": 57,
+        "hitPoints": 12355,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "timestamp": 6498864,
+        "type": "damage",
+        "unmitigatedAmount": 927,
+        "versatility": 0,
+        "x": 340413,
+        "y": 271240
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 405
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 2672
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 369,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2684,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -399,
+        "fight": 57,
+        "hitPoints": 0,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "overkill": 531,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 3,
+        "timestamp": 6397371,
+        "type": "damage",
+        "unmitigatedAmount": 900,
+        "versatility": 0,
+        "x": 342047,
+        "y": 268410
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 138
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3556
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 847,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2714,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -218,
+        "fight": 57,
+        "hitPoints": 1939,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 28,
+        "timestamp": 6522997,
+        "type": "damage",
+        "unmitigatedAmount": 847,
+        "versatility": 0,
+        "x": 341926,
+        "y": 271496
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 471
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 5254
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 857,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2714,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -218,
+        "fight": 57,
+        "hitPoints": 3041,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 165,
+        "targetInstance": 28,
+        "timestamp": 6519499,
+        "type": "damage",
+        "unmitigatedAmount": 857,
+        "versatility": 0,
+        "x": 341926,
+        "y": 271496
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 457
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 4749
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 893,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2694,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -726,
+        "fight": 57,
+        "hitPoints": 16868,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "timestamp": 6445965,
+        "type": "damage",
+        "unmitigatedAmount": 893,
+        "versatility": 0,
+        "x": 341406,
+        "y": 269452
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 246
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6825
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 894,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2694,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -565,
+        "fight": 57,
+        "hitPoints": 18422,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "timestamp": 6443667,
+        "type": "damage",
+        "unmitigatedAmount": 894,
+        "versatility": 0,
+        "x": 341397,
+        "y": 269458
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 240
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 6713
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 895,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 7276,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "timestamp": 6490547,
+        "type": "damage",
+        "unmitigatedAmount": 895,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 381
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 1790
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 895,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -185,
+        "fight": 57,
+        "hitPoints": 387749,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6560048,
+        "type": "damage",
+        "unmitigatedAmount": 895,
+        "versatility": 0,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 552
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 8334
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 895,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2692,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -209,
+        "fight": 57,
+        "hitPoints": 54823,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 162,
+        "timestamp": 6592565,
+        "type": "damage",
+        "unmitigatedAmount": 895,
+        "versatility": 0,
+        "x": 332186,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 598
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_003.json",
+          "index": 1288
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 896,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2672,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -420,
+        "fight": 57,
+        "hitPoints": 4526,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 1,
+        "timestamp": 6371315,
+        "type": "damage",
+        "unmitigatedAmount": 896,
+        "versatility": 0,
+        "x": 342944,
+        "y": 267270
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 64
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 1823
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 898,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2678,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -508,
+        "fight": 57,
+        "hitPoints": 16931,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 6,
+        "timestamp": 6422699,
+        "type": "damage",
+        "unmitigatedAmount": 898,
+        "versatility": 0,
+        "x": 342045,
+        "y": 267833
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 178
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5083
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 899,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 719,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 6465090,
+        "type": "damage",
+        "unmitigatedAmount": 899,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 322
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9330
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 900,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 5413,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resisted": 450,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 6464081,
+        "type": "damage",
+        "unmitigatedAmount": 900,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 318
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9221
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 900,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2705,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -351,
+        "fight": 57,
+        "hitPoints": 14477,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "timestamp": 6497331,
+        "type": "damage",
+        "unmitigatedAmount": 900,
+        "versatility": 0,
+        "x": 340583,
+        "y": 270524
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 399
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 2513
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 904,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2701,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -733,
+        "fight": 57,
+        "hitPoints": 10284,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 8,
+        "timestamp": 6449075,
+        "type": "damage",
+        "unmitigatedAmount": 904,
+        "versatility": 0,
+        "x": 341595,
+        "y": 270121
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 257
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 7160
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 911,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2691,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -276,
+        "fight": 57,
+        "hitPoints": 8488,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 6462574,
+        "type": "damage",
+        "unmitigatedAmount": 911,
+        "versatility": 0,
+        "x": 343139,
+        "y": 269144
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 307
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 9088
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 912,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2684,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -399,
+        "fight": 57,
+        "hitPoints": 4509,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 3,
+        "timestamp": 6395799,
+        "type": "damage",
+        "unmitigatedAmount": 912,
+        "versatility": 0,
+        "x": 342047,
+        "y": 268410
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 133
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3426
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 921,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2678,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -508,
+        "fight": 57,
+        "hitPoints": 16010,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 6,
+        "timestamp": 6424917,
+        "type": "damage",
+        "unmitigatedAmount": 921,
+        "versatility": 0,
+        "x": 342045,
+        "y": 267833
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 185
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 5201
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 921,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2712,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -590,
+        "fight": 57,
+        "hitPoints": 11421,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "timestamp": 6499914,
+        "type": "damage",
+        "unmitigatedAmount": 921,
+        "versatility": 0,
+        "x": 340561,
+        "y": 271213
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 408
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 2774
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 926,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 2684,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -399,
+        "fight": 57,
+        "hitPoints": 13935,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 24,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 3,
+        "timestamp": 6394215,
+        "type": "damage",
+        "unmitigatedAmount": 926,
+        "versatility": 0,
+        "x": 342047,
+        "y": 268410
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 126
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json",
+          "index": 3256
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 0,
+        "fight": 57,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 24,
+        "targetID": 169,
+        "targetInstance": 11,
+        "timestamp": 6495318,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json",
+          "index": 394
+        },
+        {
+          "member": "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json",
+          "index": 2302
+        }
+      ]
+    }
+  ],
+  "members_used": {
+    "necropsy-snapshot.json": "047abee1cee6d6e6b6d002027a6b3266bfbd4b6655de0c14e7441385123e5422",
+    "reports/p4vBFtkRMgWzyh1C/bundle.json": "5f07a7253b5dc2848bdd714d3ef9f0f1a1333d368db0d60d11b9666dae845a38",
+    "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/source_001.json": "319abebf6df162542f163bc38884f89232b59d8f900c71840decdf01c2db9842",
+    "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_001.json": "145b2001e6f3be0d1f8241dca281bf4005a50433534f73710774d36ae0f3e364",
+    "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_002.json": "42a4645cfe3ccb94f634ad31410a26d2af5180ceec2928282930a7c71215a27c",
+    "events/p4vBFtkRMgWzyh1C/fight_57/player_24_x/target_003.json": "6f4445b7dcde204841c1a1c631104d85526318e53a690ddecf6565792037e60c",
+    "leaderboards/51109_Gothik_the_Harvester.json": "ebefb2c02dfda3bf3025d63a2a8fbea561f2e6318e8cdb6f9c1413946a772a62"
+  },
+  "tool_sha256": "e664a8d57a07e94ae48b2b788ae11cc56afb21755d2b25db3c4829b6652cb547",
+  "page_validator_sha256": "76b98352562cb611022eb05a134b59739c019fc2254f2aafefd6507e1b8aad3e",
+  "limits": [
+    "Actor streams only; no encounter-wide completeness or full snapshot eligibility.",
+    "Exclusions are explicit inputs, never fitted; a match is not a cell policy.",
+    "No inferred assignment, opportunity, phase, position or player grade."
+  ]
+}

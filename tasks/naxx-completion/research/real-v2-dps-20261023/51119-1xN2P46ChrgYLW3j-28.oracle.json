@@ -1,0 +1,663 @@
+{
+  "version": 1,
+  "status": "draft actor-scoped arithmetic; not a validated cell policy",
+  "spec": {
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "report": "1xN2P46ChrgYLW3j",
+    "fight": 28,
+    "actor": 40,
+    "player": "Pissdoff",
+    "realm": "Whitemane",
+    "class": "Druid",
+    "category": "Balance",
+    "role": "balance-dps",
+    "encounter": 51119,
+    "excluded_game_ids": [],
+    "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+    "page": 1,
+    "row": 3
+  },
+  "duration_ms": 22507,
+  "published": "1188.56",
+  "residual": "2002/562675",
+  "totals": {
+    "raw": 26751,
+    "self": 0,
+    "excluded": 0,
+    "ranked": 26751
+  },
+  "source_damage": {
+    "40": 26751,
+    "230": 0
+  },
+  "owned_actor_ids": [
+    230
+  ],
+  "events": [
+    {
+      "raw": {
+        "abilityGameID": 4507,
+        "amount": 0,
+        "fight": 28,
+        "hitType": 10,
+        "isAoE": false,
+        "sourceID": 230,
+        "targetID": 223,
+        "timestamp": 3638003,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/pet_230_Masterwork_Target_Dummy/source_001.json",
+          "index": 2
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/pet_230_Masterwork_Target_Dummy/target_001.json",
+          "index": 3664
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "absorb": -1,
+        "amount": 1079,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 39786,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3647521,
+        "type": "damage",
+        "unmitigatedAmount": 1079,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 80
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 6269
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1067,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 1647628,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "mitigated": 1066,
+        "resisted": 1067,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3638455,
+        "type": "damage",
+        "unmitigatedAmount": 2133,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 43
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 3862
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1593,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 56640,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "mitigated": 530,
+        "resisted": 531,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3647240,
+        "type": "damage",
+        "unmitigatedAmount": 2123,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 76
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 6197
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 1600,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 2643182,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "mitigated": 533,
+        "resisted": 533,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3631339,
+        "type": "damage",
+        "unmitigatedAmount": 2133,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 12
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 1565
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 2120,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 2462718,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3632935,
+        "type": "damage",
+        "unmitigatedAmount": 2120,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 17
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 2054
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 2121,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 821679,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3643036,
+        "type": "damage",
+        "unmitigatedAmount": 2121,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 59
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 5147
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 2131,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 2227889,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3634442,
+        "type": "damage",
+        "unmitigatedAmount": 2131,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 21
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 2563
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 2162,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 402613,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3645568,
+        "type": "damage",
+        "unmitigatedAmount": 2162,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 70
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 5794
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 2188,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 1043522,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3641550,
+        "type": "damage",
+        "unmitigatedAmount": 2188,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 52
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 4766
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 2194,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 1972577,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3636019,
+        "type": "damage",
+        "unmitigatedAmount": 2194,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 24
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 3009
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 4229,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 676965,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3644552,
+        "type": "damage",
+        "unmitigatedAmount": 2114,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 69
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 5540
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "absorb": -1,
+        "amount": 4267,
+        "armor": 0,
+        "attackPower": 0,
+        "avoidance": 0,
+        "classResources": [
+          {
+            "amount": 0,
+            "cost": 3522,
+            "max": 0,
+            "type": 0
+          }
+        ],
+        "facing": -608,
+        "fight": 28,
+        "hitPoints": 1764534,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 3164450,
+        "resourceActor": 2,
+        "sourceID": 40,
+        "spellPower": 0,
+        "targetID": 223,
+        "timestamp": 3637446,
+        "type": "damage",
+        "unmitigatedAmount": 2133,
+        "versatility": 0,
+        "x": 523678,
+        "y": 352239
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json",
+          "index": 33
+        },
+        {
+          "member": "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json",
+          "index": 3469
+        }
+      ]
+    }
+  ],
+  "members_used": {
+    "necropsy-snapshot.json": "047abee1cee6d6e6b6d002027a6b3266bfbd4b6655de0c14e7441385123e5422",
+    "reports/1xN2P46ChrgYLW3j/bundle.json": "400fab25a018e9f40735ebc3f34df13dea430586da2e572fa35c1fa6bfbb710a",
+    "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/pets.json": "311a836f4a57b5949945a28cb7bc6e110f4c3887702e04431205a6cd6df63db0",
+    "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/source_001.json": "91696e384ef217fbc5287299a3411e8877e6383ea070fc878a2f7986fc2b4bb0",
+    "events/1xN2P46ChrgYLW3j/fight_28/player_40_Pissdoff/target_001.json": "5bc3965db73bc8fe24a17a2c722cbbaa4df986db9cb2d86195cce994c30b4341",
+    "events/1xN2P46ChrgYLW3j/fight_28/pet_230_Masterwork_Target_Dummy/source_001.json": "a4fead76c3a76c211a2efd123018fd135e65c40beb65cebffcd93e69907d6d40",
+    "events/1xN2P46ChrgYLW3j/fight_28/pet_230_Masterwork_Target_Dummy/target_001.json": "5bc3965db73bc8fe24a17a2c722cbbaa4df986db9cb2d86195cce994c30b4341",
+    "leaderboards/51119_Sapphiron.json": "103e6272cbbc5c9485ae14f1d08fe4d4ba21aaddbe0fe29b66057003ca8ce358"
+  },
+  "tool_sha256": "e664a8d57a07e94ae48b2b788ae11cc56afb21755d2b25db3c4829b6652cb547",
+  "page_validator_sha256": "76b98352562cb611022eb05a134b59739c019fc2254f2aafefd6507e1b8aad3e",
+  "limits": [
+    "Actor streams only; no encounter-wide completeness or full snapshot eligibility.",
+    "Exclusions are explicit inputs, never fitted; a match is not a cell policy.",
+    "No inferred assignment, opportunity, phase, position or player grade."
+  ]
+}

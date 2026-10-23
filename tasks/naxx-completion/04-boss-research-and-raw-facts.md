@@ -180,3 +180,14 @@ installed/source analysis/pages/package parity pass. All147 wheel files match
 Faerlina paragraph at desktop/mobile/print CSS finds no clipping and retains
 the explicit guide-fact qualification. Naxx inventory stays26 IN_PROGRESS,
 484 TODO, no problems. Source wording is corrected; no content/cell acceptance.
+
+2026-10-23 · Complete-scope positive NPC observations · The reproducible packet
+in `research/real-v2-npc-20261023/` binds 15 registered encounter-All contexts,
+including the separately eligible Kel'Thuzad comparison actor. It retains 8947
+NPC-source occurrences, including 1766 casts, with raw catalog identities,
+page witnesses and fight-relative timestamps. A separate enumeration using the
+existing raw page validator reproduces every positive group, cast multiset and
+witness. No canonical page-boundary overlap occurs in this sample. Ownership
+unknowns remain unknown; no absence, phase, lifetime, fixed cadence, opportunity,
+source-conflict resolution, mechanic policy or grade follows. Generator output
+is restricted to a fresh workspace file. No source/cell status changes.

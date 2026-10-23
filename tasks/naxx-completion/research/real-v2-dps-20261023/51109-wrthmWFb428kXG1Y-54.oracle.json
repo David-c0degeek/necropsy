@@ -1,0 +1,3193 @@
+{
+  "version": 1,
+  "status": "draft actor-scoped arithmetic; not a validated cell policy",
+  "spec": {
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "report": "wrthmWFb428kXG1Y",
+    "fight": 54,
+    "actor": 4,
+    "player": "Teris",
+    "realm": "Mankrik",
+    "class": "Druid",
+    "category": "Balance",
+    "role": "balance-dps",
+    "encounter": 51109,
+    "excluded_game_ids": [],
+    "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+    "page": 1,
+    "row": 44
+  },
+  "duration_ms": 303964,
+  "published": "169.448",
+  "residual": "-2871/9498875",
+  "totals": {
+    "raw": 52584,
+    "self": 1078,
+    "excluded": 0,
+    "ranked": 51506
+  },
+  "source_damage": {
+    "4": 52584
+  },
+  "owned_actor_ids": [],
+  "events": [
+    {
+      "raw": {
+        "abilityGameID": 16666,
+        "absorbed": 16,
+        "amount": 1078,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -584,
+        "fight": 54,
+        "hitPoints": 80,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 78,
+        "mapID": 0,
+        "maxHitPoints": 100,
+        "resourceActor": 1,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 4,
+        "timestamp": 3996446,
+        "type": "damage",
+        "unmitigatedAmount": 1094,
+        "x": 341955,
+        "y": 267517
+      },
+      "multiplicity": 1,
+      "disposition": "self",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 209
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 9023
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 0,
+        "fight": 54,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 4,
+        "targetID": 169,
+        "targetInstance": 18,
+        "timestamp": 4005793,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 234
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 9879
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 196,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -779,
+        "fight": 54,
+        "hitPoints": 263413,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "mitigated": 65,
+        "resisted": 65,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "tick": true,
+        "timestamp": 4163947,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 789
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2687
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -195,
+        "fight": 54,
+        "hitPoints": 1198,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 18,
+        "tick": true,
+        "timestamp": 4010276,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 341969,
+        "y": 268783
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 248
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 124
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -233,
+        "fight": 54,
+        "hitPoints": 370,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 14,
+        "tick": true,
+        "timestamp": 3989796,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 341952,
+        "y": 267898
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 183
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8894
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -233,
+        "fight": 54,
+        "hitPoints": 3909,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 14,
+        "tick": true,
+        "timestamp": 3986766,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 341952,
+        "y": 267898
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 162
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8715
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -245,
+        "fight": 54,
+        "hitPoints": 3918,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 19,
+        "tick": true,
+        "timestamp": 4026155,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 342481,
+        "y": 267272
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 318
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1219
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -275,
+        "fight": 54,
+        "hitPoints": 34,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 19,
+        "tick": true,
+        "timestamp": 4029154,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 342411,
+        "y": 267300
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 340
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1555
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -281,
+        "fight": 54,
+        "hitPoints": 2663,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 23,
+        "tick": true,
+        "timestamp": 4046986,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 342222,
+        "y": 267267
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 411
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 3114
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -281,
+        "fight": 54,
+        "hitPoints": 767,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 23,
+        "tick": true,
+        "timestamp": 4049964,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 342222,
+        "y": 267267
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 428
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 3385
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -356,
+        "fight": 54,
+        "hitPoints": 2153,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 32,
+        "tick": true,
+        "timestamp": 4111030,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 342008,
+        "y": 266854
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 652
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 9171
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -356,
+        "fight": 54,
+        "hitPoints": 3249,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 32,
+        "tick": true,
+        "timestamp": 4108015,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 342008,
+        "y": 266854
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 634
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 8812
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 249,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -421,
+        "fight": 54,
+        "hitPoints": 2693,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 27,
+        "tick": true,
+        "timestamp": 4069703,
+        "type": "damage",
+        "unmitigatedAmount": 249,
+        "x": 341645,
+        "y": 267406
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 507
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 5495
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -158,
+        "fight": 54,
+        "hitPoints": 12984,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "tick": true,
+        "timestamp": 3979575,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342869,
+        "y": 268304
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 124
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8084
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -158,
+        "fight": 54,
+        "hitPoints": 241774,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "tick": true,
+        "timestamp": 4166847,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 332186,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 800
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2852
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -164,
+        "fight": 54,
+        "hitPoints": 5528,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 5,
+        "tick": true,
+        "timestamp": 4011752,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 340006,
+        "y": 269855
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 254
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 218
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -216,
+        "fight": 54,
+        "hitPoints": 14151,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 10,
+        "tick": true,
+        "timestamp": 4085855,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 341191,
+        "y": 267732
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 571
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 6845
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -231,
+        "fight": 54,
+        "hitPoints": 10852,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 10,
+        "tick": true,
+        "timestamp": 4088930,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 340521,
+        "y": 268419
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 580
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 7109
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -257,
+        "fight": 54,
+        "hitPoints": 163762,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "tick": true,
+        "timestamp": 4172881,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 332834,
+        "y": 269139
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 809
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 3539
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -261,
+        "fight": 54,
+        "hitPoints": 7615,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 5,
+        "tick": true,
+        "timestamp": 4008713,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342164,
+        "y": 268446
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 242
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 42
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -285,
+        "fight": 54,
+        "hitPoints": 18682,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 10,
+        "tick": true,
+        "timestamp": 4082805,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342026,
+        "y": 267315
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 552
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 6511
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -285,
+        "fight": 54,
+        "hitPoints": 19720,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 10,
+        "tick": true,
+        "timestamp": 4079833,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342062,
+        "y": 267304
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 538
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 6161
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -352,
+        "fight": 54,
+        "hitPoints": 2162,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "tick": true,
+        "timestamp": 3985596,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 341442,
+        "y": 269292
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 153
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8603
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -363,
+        "fight": 54,
+        "hitPoints": 6710,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "tick": true,
+        "timestamp": 3982599,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342652,
+        "y": 268456
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 140
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8420
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -621,
+        "fight": 54,
+        "hitPoints": 198623,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "tick": true,
+        "timestamp": 4169849,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 332273,
+        "y": 269193
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 806
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 3185
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -717,
+        "fight": 54,
+        "hitPoints": 18125,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "tick": true,
+        "timestamp": 3957296,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342797,
+        "y": 268896
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 57
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 6781
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -720,
+        "fight": 54,
+        "hitPoints": 13490,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 5,
+        "tick": true,
+        "timestamp": 4005793,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342536,
+        "y": 268052
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 232
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 9877
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 261,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -761,
+        "fight": 54,
+        "hitPoints": 13554,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "tick": true,
+        "timestamp": 3960199,
+        "type": "damage",
+        "unmitigatedAmount": 261,
+        "x": 342813,
+        "y": 268960
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 72
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 6979
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 268,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 54,
+        "hitPoints": 1384,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "tick": true,
+        "timestamp": 3967207,
+        "type": "damage",
+        "unmitigatedAmount": 268,
+        "x": 341579,
+        "y": 268353
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 97
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 7387
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 280,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -586,
+        "fight": 54,
+        "hitPoints": 20877,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 177,
+        "targetInstance": 1,
+        "tick": true,
+        "timestamp": 4018950,
+        "type": "damage",
+        "unmitigatedAmount": 280,
+        "x": 340087,
+        "y": 269577
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 283
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 587
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 4,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -275,
+        "fight": 54,
+        "hitPoints": 0,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "overkill": 244,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 19,
+        "tick": true,
+        "timestamp": 4032144,
+        "type": "damage",
+        "unmitigatedAmount": 248,
+        "x": 342411,
+        "y": 267300
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 352
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1790
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 411,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -239,
+        "fight": 54,
+        "hitPoints": 4167,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 19,
+        "timestamp": 4023163,
+        "type": "damage",
+        "unmitigatedAmount": 411,
+        "x": 343012,
+        "y": 266892
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 305
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1049
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 416,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -781,
+        "fight": 54,
+        "hitPoints": 291949,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4160839,
+        "type": "damage",
+        "unmitigatedAmount": 416,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 785
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2537
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 418,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -220,
+        "fight": 54,
+        "hitPoints": 4160,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 27,
+        "timestamp": 4066803,
+        "type": "damage",
+        "unmitigatedAmount": 418,
+        "x": 341676,
+        "y": 268504
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 492
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 5237
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 420,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -233,
+        "fight": 54,
+        "hitPoints": 4158,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 14,
+        "timestamp": 3983719,
+        "type": "damage",
+        "unmitigatedAmount": 420,
+        "x": 342142,
+        "y": 267695
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 146
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8487
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 433,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -233,
+        "fight": 54,
+        "hitPoints": 4145,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 11,
+        "timestamp": 3964212,
+        "type": "damage",
+        "unmitigatedAmount": 433,
+        "x": 342500,
+        "y": 267313
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 86
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 7244
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 435,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -612,
+        "fight": 54,
+        "hitPoints": 19135,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 3954175,
+        "type": "damage",
+        "unmitigatedAmount": 435,
+        "x": 341349,
+        "y": 268321
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 49
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 6547
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 447,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -180,
+        "fight": 54,
+        "hitPoints": 42216,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4177692,
+        "type": "damage",
+        "unmitigatedAmount": 447,
+        "x": 332834,
+        "y": 269139
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 815
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 4221
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 447,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -324,
+        "fight": 54,
+        "hitPoints": 25271,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 177,
+        "targetInstance": 1,
+        "timestamp": 4015918,
+        "type": "damage",
+        "unmitigatedAmount": 447,
+        "x": 341737,
+        "y": 269260
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 271
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 385
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 453,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -292,
+        "fight": 54,
+        "hitPoints": 19983,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "timestamp": 3976612,
+        "type": "damage",
+        "unmitigatedAmount": 453,
+        "x": 343064,
+        "y": 266888
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 119
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 7813
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 455,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -292,
+        "fight": 54,
+        "hitPoints": 19981,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 10,
+        "timestamp": 4076822,
+        "type": "damage",
+        "unmitigatedAmount": 455,
+        "x": 343064,
+        "y": 266888
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 527
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 6011
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 819,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -360,
+        "fight": 54,
+        "hitPoints": 3759,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 32,
+        "timestamp": 4105008,
+        "type": "damage",
+        "unmitigatedAmount": 409,
+        "x": 342131,
+        "y": 266914
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 621
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 8528
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 832,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -295,
+        "fight": 54,
+        "hitPoints": 3746,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 9,
+        "timestamp": 3942892,
+        "type": "damage",
+        "unmitigatedAmount": 416,
+        "x": 343069,
+        "y": 266916
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 28
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 6234
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 833,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -768,
+        "fight": 54,
+        "hitPoints": 3535,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 18,
+        "timestamp": 4007287,
+        "type": "damage",
+        "unmitigatedAmount": 416,
+        "x": 342245,
+        "y": 268902
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 238
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 9966
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 843,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -279,
+        "fight": 54,
+        "hitPoints": 3735,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 23,
+        "timestamp": 4043964,
+        "type": "damage",
+        "unmitigatedAmount": 421,
+        "x": 342664,
+        "y": 267104
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 397
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 2953
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 879,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -266,
+        "fight": 54,
+        "hitPoints": 18541,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 5,
+        "timestamp": 4002758,
+        "type": "damage",
+        "unmitigatedAmount": 439,
+        "x": 342161,
+        "y": 267407
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 226
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 9625
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9907,
+        "amount": 0,
+        "fight": 54,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 4,
+        "targetID": 165,
+        "timestamp": 4148783,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 757
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 1871
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 0,
+        "fight": 54,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 4,
+        "targetID": 165,
+        "timestamp": 4157217,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 773
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2328
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 0,
+        "fight": 54,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 4,
+        "targetID": 165,
+        "timestamp": 4161714,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 786
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2578
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 0,
+        "fight": 54,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 4,
+        "targetID": 165,
+        "timestamp": 4164808,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 792
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2732
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 0,
+        "fight": 54,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 4,
+        "targetID": 177,
+        "targetInstance": 4,
+        "timestamp": 4117783,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 677
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 9699
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1349,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -717,
+        "fight": 54,
+        "hitPoints": 14823,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resisted": 225,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 3958928,
+        "type": "damage",
+        "unmitigatedAmount": 898,
+        "x": 342797,
+        "y": 268896
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 65
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 6895
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1628,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -233,
+        "fight": 54,
+        "hitPoints": 1464,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 14,
+        "timestamp": 3988681,
+        "type": "damage",
+        "unmitigatedAmount": 813,
+        "x": 341952,
+        "y": 267898
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 175
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8831
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1647,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -281,
+        "fight": 54,
+        "hitPoints": 1016,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 23,
+        "timestamp": 4049173,
+        "type": "damage",
+        "unmitigatedAmount": 823,
+        "x": 342222,
+        "y": 267267
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 426
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 3309
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1677,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -356,
+        "fight": 54,
+        "hitPoints": 476,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 32,
+        "timestamp": 4111091,
+        "type": "damage",
+        "unmitigatedAmount": 838,
+        "x": 342008,
+        "y": 266854
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 653
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 9175
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1679,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -245,
+        "fight": 54,
+        "hitPoints": 2239,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 19,
+        "timestamp": 4026327,
+        "type": "damage",
+        "unmitigatedAmount": 839,
+        "x": 342481,
+        "y": 267272
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 325
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1260
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1732,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 54,
+        "hitPoints": 659,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 6,
+        "timestamp": 4036930,
+        "type": "damage",
+        "unmitigatedAmount": 866,
+        "x": 341673,
+        "y": 268301
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 380
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 2464
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1749,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 54,
+        "hitPoints": 11146,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 6,
+        "timestamp": 4034581,
+        "type": "damage",
+        "unmitigatedAmount": 874,
+        "x": 341618,
+        "y": 268098
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 366
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 2098
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1780,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -759,
+        "fight": 54,
+        "hitPoints": 5727,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 6,
+        "timestamp": 4035947,
+        "type": "damage",
+        "unmitigatedAmount": 890,
+        "x": 341643,
+        "y": 268190
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 373
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 2293
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1786,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -779,
+        "fight": 54,
+        "hitPoints": 246812,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4166216,
+        "type": "damage",
+        "unmitigatedAmount": 892,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 797
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2823
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1788,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 54,
+        "hitPoints": 14516,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 6,
+        "timestamp": 4033786,
+        "type": "damage",
+        "unmitigatedAmount": 893,
+        "x": 341422,
+        "y": 268161
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 360
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1990
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1917,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -612,
+        "fight": 54,
+        "hitPoints": 14724,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 62,
+        "mapID": 0,
+        "maxHitPoints": 25900,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 177,
+        "targetInstance": 1,
+        "timestamp": 4019952,
+        "type": "damage",
+        "unmitigatedAmount": 958,
+        "x": 340331,
+        "y": 269535
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 287
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 649
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 476,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -356,
+        "fight": 54,
+        "hitPoints": 0,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "overkill": 1155,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 32,
+        "timestamp": 4112549,
+        "type": "damage",
+        "unmitigatedAmount": 815,
+        "x": 342008,
+        "y": 266854
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 663
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 9293
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 767,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -281,
+        "fight": 54,
+        "hitPoints": 0,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "overkill": 861,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 23,
+        "timestamp": 4050641,
+        "type": "damage",
+        "unmitigatedAmount": 813,
+        "x": 342222,
+        "y": 267267
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 435
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 3426
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 817,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -233,
+        "fight": 54,
+        "hitPoints": 3092,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 14,
+        "timestamp": 3987178,
+        "type": "damage",
+        "unmitigatedAmount": 817,
+        "x": 341952,
+        "y": 267898
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 165
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8741
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 823,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -281,
+        "fight": 54,
+        "hitPoints": 2912,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 23,
+        "timestamp": 4046688,
+        "type": "damage",
+        "unmitigatedAmount": 823,
+        "x": 342222,
+        "y": 267267
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 410
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 3105
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 833,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -245,
+        "fight": 54,
+        "hitPoints": 1406,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 19,
+        "timestamp": 4027361,
+        "type": "damage",
+        "unmitigatedAmount": 833,
+        "x": 342481,
+        "y": 267272
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 331
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1362
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 840,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -195,
+        "fight": 54,
+        "hitPoints": 1447,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 18,
+        "timestamp": 4010214,
+        "type": "damage",
+        "unmitigatedAmount": 840,
+        "x": 341993,
+        "y": 268723
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 247
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 116
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 845,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -233,
+        "fight": 54,
+        "hitPoints": 619,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 14,
+        "timestamp": 3989796,
+        "type": "damage",
+        "unmitigatedAmount": 845,
+        "x": 341952,
+        "y": 267898
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 182
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8893
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 847,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -356,
+        "fight": 54,
+        "hitPoints": 2402,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 32,
+        "timestamp": 4108533,
+        "type": "damage",
+        "unmitigatedAmount": 847,
+        "x": 342008,
+        "y": 266854
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 639
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 8884
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 866,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -169,
+        "fight": 54,
+        "hitPoints": 17554,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 6,
+        "timestamp": 4031991,
+        "type": "damage",
+        "unmitigatedAmount": 866,
+        "x": 340890,
+        "y": 268110
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 350
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 1769
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 869,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -781,
+        "fight": 54,
+        "hitPoints": 356420,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4155689,
+        "type": "damage",
+        "unmitigatedAmount": 869,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 769
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2238
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 870,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -781,
+        "fight": 54,
+        "hitPoints": 323803,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4158674,
+        "type": "damage",
+        "unmitigatedAmount": 870,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 777
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2400
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 887,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -363,
+        "fight": 54,
+        "hitPoints": 9484,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "timestamp": 3981769,
+        "type": "damage",
+        "unmitigatedAmount": 887,
+        "x": 342652,
+        "y": 268456
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 139
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8302
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 893,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -158,
+        "fight": 54,
+        "hitPoints": 366449,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4154279,
+        "type": "damage",
+        "unmitigatedAmount": 893,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 766
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2157
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 894,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -158,
+        "fight": 54,
+        "hitPoints": 239677,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4167173,
+        "type": "damage",
+        "unmitigatedAmount": 894,
+        "x": 332186,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 801
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2869
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 895,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -158,
+        "fight": 54,
+        "hitPoints": 11420,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 3,
+        "timestamp": 3980150,
+        "type": "damage",
+        "unmitigatedAmount": 895,
+        "x": 342868,
+        "y": 268570
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 131
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 8131
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 896,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -781,
+        "fight": 54,
+        "hitPoints": 310871,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 399750,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 165,
+        "timestamp": 4160258,
+        "type": "damage",
+        "unmitigatedAmount": 896,
+        "x": 339927,
+        "y": 269200
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 780
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json",
+          "index": 2486
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 900,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -717,
+        "fight": 54,
+        "hitPoints": 17225,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 3957296,
+        "type": "damage",
+        "unmitigatedAmount": 900,
+        "x": 342797,
+        "y": 268896
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 58
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 6786
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 915,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -455,
+        "fight": 54,
+        "hitPoints": 0,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 60,
+        "mapID": 0,
+        "maxHitPoints": 4578,
+        "overkill": 749,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 169,
+        "targetInstance": 18,
+        "timestamp": 4012478,
+        "type": "damage",
+        "unmitigatedAmount": 832,
+        "x": 341838,
+        "y": 268009
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 259
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json",
+          "index": 267
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 970,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -315,
+        "fight": 54,
+        "hitPoints": 6539,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 3961834,
+        "type": "damage",
+        "unmitigatedAmount": 970,
+        "x": 342739,
+        "y": 269371
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 78
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 7100
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 977,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -717,
+        "fight": 54,
+        "hitPoints": 13815,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 61,
+        "mapID": 0,
+        "maxHitPoints": 20436,
+        "resourceActor": 2,
+        "sourceID": 4,
+        "spellPower": 0,
+        "targetID": 173,
+        "targetInstance": 2,
+        "timestamp": 3959905,
+        "type": "damage",
+        "unmitigatedAmount": 977,
+        "x": 342797,
+        "y": 268896
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json",
+          "index": 70
+        },
+        {
+          "member": "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json",
+          "index": 6967
+        }
+      ]
+    }
+  ],
+  "members_used": {
+    "necropsy-snapshot.json": "047abee1cee6d6e6b6d002027a6b3266bfbd4b6655de0c14e7441385123e5422",
+    "reports/wrthmWFb428kXG1Y/bundle.json": "bca2034fbce279a66240c634aad486ccde9dcc98d4287ecdf0d838b292f2c8d7",
+    "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/source_001.json": "11f1be95bd29e1a46afc4f1526a36ebebbdd5ee2f0ddad8de3e22444083df896",
+    "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_001.json": "f1fc7487b43a0897b36f663c420f6a63ec7c46c4ab6a8fa450a87de206800b61",
+    "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_002.json": "29afdaa80209927a89062b836b7e8b615cd604857882983d6083ebeae41804f2",
+    "events/wrthmWFb428kXG1Y/fight_54/player_4_Teris/target_003.json": "925afa76606f80605a7fafe559317e1ac6163d660cbe5596d8ccf37d755d82e0",
+    "leaderboards/51109_Gothik_the_Harvester.json": "ebefb2c02dfda3bf3025d63a2a8fbea561f2e6318e8cdb6f9c1413946a772a62"
+  },
+  "tool_sha256": "e664a8d57a07e94ae48b2b788ae11cc56afb21755d2b25db3c4829b6652cb547",
+  "page_validator_sha256": "76b98352562cb611022eb05a134b59739c019fc2254f2aafefd6507e1b8aad3e",
+  "limits": [
+    "Actor streams only; no encounter-wide completeness or full snapshot eligibility.",
+    "Exclusions are explicit inputs, never fitted; a match is not a cell policy.",
+    "No inferred assignment, opportunity, phase, position or player grade."
+  ]
+}

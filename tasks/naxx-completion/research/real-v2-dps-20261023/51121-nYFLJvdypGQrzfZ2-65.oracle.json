@@ -1,0 +1,4596 @@
+{
+  "version": 1,
+  "status": "draft actor-scoped arithmetic; not a validated cell policy",
+  "spec": {
+    "archive": "../../../../tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+    "report": "nYFLJvdypGQrzfZ2",
+    "fight": 65,
+    "actor": 232,
+    "player": "Go\u00e1t",
+    "realm": "Firemaw",
+    "class": "Druid",
+    "category": "Balance",
+    "role": "balance-dps",
+    "encounter": 51121,
+    "excluded_game_ids": [],
+    "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+    "page": 1,
+    "row": 1
+  },
+  "duration_ms": 247583,
+  "published": "427.667",
+  "residual": "-78861/247583000",
+  "totals": {
+    "raw": 107417,
+    "self": 1534,
+    "excluded": 0,
+    "ranked": 105883
+  },
+  "source_damage": {
+    "232": 107417
+  },
+  "owned_actor_ids": [],
+  "events": [
+    {
+      "raw": {
+        "abilityGameID": 16922,
+        "amount": 0,
+        "fight": 65,
+        "hitType": 10,
+        "isAoE": false,
+        "sourceID": 232,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8197885,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 136
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 9442
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 16922,
+        "amount": 0,
+        "fight": 65,
+        "hitType": 10,
+        "isAoE": false,
+        "sourceID": 232,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8157421,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 50
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 4091
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 17291,
+        "amount": 1563,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -654,
+        "fight": 65,
+        "hitPoints": 156034,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8282704,
+        "type": "damage",
+        "unmitigatedAmount": 1563,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 326
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8732
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 17291,
+        "amount": 1579,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -194,
+        "fight": 65,
+        "hitPoints": 531270,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8135948,
+        "type": "damage",
+        "unmitigatedAmount": 1579,
+        "x": 298568,
+        "y": 254714
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 6
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 373
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 17291,
+        "amount": 1610,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -493,
+        "fight": 65,
+        "hitPoints": 498040,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8135948,
+        "type": "damage",
+        "unmitigatedAmount": 1610,
+        "x": 298740,
+        "y": 254875
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 4
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 371
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 17291,
+        "amount": 1688,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -772,
+        "fight": 65,
+        "hitPoints": 497962,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8135948,
+        "type": "damage",
+        "unmitigatedAmount": 1688,
+        "x": 298617,
+        "y": 254833
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 5
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 372
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 24977,
+        "amount": 207,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 64523,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8318836,
+        "type": "damage",
+        "unmitigatedAmount": 207,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 450
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1792
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 24977,
+        "amount": 208,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 43299,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8322830,
+        "type": "damage",
+        "unmitigatedAmount": 208,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 462
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 2171
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 24977,
+        "amount": 208,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 52530,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8320829,
+        "type": "damage",
+        "unmitigatedAmount": 208,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 455
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 2006
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 24977,
+        "amount": 52,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 71759,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 155,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8316837,
+        "type": "damage",
+        "unmitigatedAmount": 207,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 440
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1630
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 24977,
+        "amount": 52,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 74765,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 155,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8314838,
+        "type": "damage",
+        "unmitigatedAmount": 207,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 435
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1446
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 24977,
+        "amount": 60,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 76706,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 147,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8312854,
+        "type": "damage",
+        "unmitigatedAmount": 207,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 433
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1295
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 0,
+        "fight": 65,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 232,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8148890,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 30
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 2512
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1447,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 138172,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 305,
+        "resisted": 438,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8288097,
+        "type": "damage",
+        "unmitigatedAmount": 1752,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 344
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9118
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1545,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -637,
+        "fight": 65,
+        "hitPoints": 352396,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8252501,
+        "type": "damage",
+        "unmitigatedAmount": 1545,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 251
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 5824
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1576,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -649,
+        "fight": 65,
+        "hitPoints": 431452,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8233951,
+        "type": "damage",
+        "unmitigatedAmount": 1576,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 206
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 3968
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1588,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -336,
+        "fight": 65,
+        "hitPoints": 335186,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8256546,
+        "type": "damage",
+        "unmitigatedAmount": 1588,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 261
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 6475
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1617,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 441125,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8192367,
+        "type": "damage",
+        "unmitigatedAmount": 1617,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 121
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 8589
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1639,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -649,
+        "fight": 65,
+        "hitPoints": 420461,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8239464,
+        "type": "damage",
+        "unmitigatedAmount": 1639,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 221
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 4337
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1707,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -722,
+        "fight": 65,
+        "hitPoints": 77338,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8173973,
+        "type": "damage",
+        "unmitigatedAmount": 1551,
+        "x": 304355,
+        "y": 252265
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 90
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 6684
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1779,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 82429,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8356637,
+        "type": "damage",
+        "unmitigatedAmount": 1617,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 515
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4217
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1788,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 56459,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8364319,
+        "type": "damage",
+        "unmitigatedAmount": 1625,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 536
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4589
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1807,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 66473,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8361317,
+        "type": "damage",
+        "unmitigatedAmount": 1642,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 530
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4449
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 1959,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -335,
+        "fight": 65,
+        "hitPoints": 403883,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8145890,
+        "type": "damage",
+        "unmitigatedAmount": 1780,
+        "x": 304198,
+        "y": 252302
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 26
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 1984
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 2348,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -637,
+        "fight": 65,
+        "hitPoints": 368343,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resisted": 391,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8249995,
+        "type": "damage",
+        "unmitigatedAmount": 1565,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 246
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 5511
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 2432,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 362958,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "resisted": 405,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8195386,
+        "type": "damage",
+        "unmitigatedAmount": 1620,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 128
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 9072
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 3079,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -649,
+        "fight": 65,
+        "hitPoints": 426732,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8236965,
+        "type": "damage",
+        "unmitigatedAmount": 1539,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 212
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 4129
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 3103,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -637,
+        "fight": 65,
+        "hitPoints": 377767,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8247480,
+        "type": "damage",
+        "unmitigatedAmount": 1551,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 240
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 5223
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 3130,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 297438,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8197885,
+        "type": "damage",
+        "unmitigatedAmount": 1565,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 135
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 9441
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 3215,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -637,
+        "fight": 65,
+        "hitPoints": 403593,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8242475,
+        "type": "damage",
+        "unmitigatedAmount": 1607,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 229
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 4655
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 3268,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -637,
+        "fight": 65,
+        "hitPoints": 389882,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8244964,
+        "type": "damage",
+        "unmitigatedAmount": 1634,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 235
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 4930
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 3502,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -722,
+        "fight": 65,
+        "hitPoints": 25466,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8176969,
+        "type": "damage",
+        "unmitigatedAmount": 1591,
+        "x": 304355,
+        "y": 252265
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 94
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 7063
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 3838,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 126135,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8291096,
+        "type": "damage",
+        "unmitigatedAmount": 1744,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 352
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9372
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 388,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 215230,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "mitigated": 1164,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8202888,
+        "type": "damage",
+        "unmitigatedAmount": 1552,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 147
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 199
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 393,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 163888,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "mitigated": 1176,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8211511,
+        "type": "damage",
+        "unmitigatedAmount": 1569,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 164
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 1532
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 406,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 149066,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "mitigated": 1215,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8214510,
+        "type": "damage",
+        "unmitigatedAmount": 1621,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 168
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 1932
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 410,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 181079,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "mitigated": 1232,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8208500,
+        "type": "damage",
+        "unmitigatedAmount": 1642,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 161
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 1107
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 470,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 232647,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 1238,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8154401,
+        "type": "damage",
+        "unmitigatedAmount": 1708,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 44
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 3580
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 770,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 129565,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "mitigated": 769,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8218507,
+        "type": "damage",
+        "unmitigatedAmount": 1539,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 175
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 2597
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 809,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 197976,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "mitigated": 808,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8205989,
+        "type": "damage",
+        "unmitigatedAmount": 1617,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 156
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 721
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 811,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 236583,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "mitigated": 809,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8200432,
+        "type": "damage",
+        "unmitigatedAmount": 1620,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 142
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 9842
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 850,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 175222,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 695,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8162442,
+        "type": "damage",
+        "unmitigatedAmount": 1545,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 61
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 4898
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 884,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -265,
+        "fight": 65,
+        "hitPoints": 152850,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 723,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8165933,
+        "type": "damage",
+        "unmitigatedAmount": 1607,
+        "x": 304179,
+        "y": 252417
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 70
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 5626
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 896,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 211571,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 733,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8157421,
+        "type": "damage",
+        "unmitigatedAmount": 1629,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 49
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 4089
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 897,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 191495,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 733,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8159909,
+        "type": "damage",
+        "unmitigatedAmount": 1630,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 56
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 4533
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 25298,
+        "amount": 964,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 255441,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 788,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8151890,
+        "type": "damage",
+        "unmitigatedAmount": 1752,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 37
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 3111
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 27869,
+        "amount": 698,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -457,
+        "fight": 65,
+        "hitPoints": 75,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 80,
+        "mapID": 0,
+        "maxHitPoints": 100,
+        "resourceActor": 1,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 232,
+        "timestamp": 8222946,
+        "type": "damage",
+        "unmitigatedAmount": 698,
+        "x": 295937,
+        "y": 255828
+      },
+      "multiplicity": 1,
+      "disposition": "self",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 189
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 3212
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 27869,
+        "amount": 836,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -282,
+        "fight": 65,
+        "hitPoints": 88,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 80,
+        "mapID": 0,
+        "maxHitPoints": 100,
+        "resourceActor": 1,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 232,
+        "timestamp": 8347784,
+        "type": "damage",
+        "unmitigatedAmount": 836,
+        "x": 293436,
+        "y": 252904
+      },
+      "multiplicity": 1,
+      "disposition": "self",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 496
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 3821
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 0,
+        "fight": 65,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 232,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8137361,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 8
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 607
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 1000,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -572,
+        "fight": 65,
+        "hitPoints": 509870,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8140370,
+        "type": "damage",
+        "unmitigatedAmount": 454,
+        "x": 302113,
+        "y": 252879
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 15
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 1095
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 1009,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -654,
+        "fight": 65,
+        "hitPoints": 158822,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8281590,
+        "type": "damage",
+        "unmitigatedAmount": 458,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 318
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8639
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 191,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -343,
+        "fight": 65,
+        "hitPoints": 259047,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 63,
+        "resisted": 64,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "tick": true,
+        "timestamp": 8281751,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 319
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8647
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 191,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -343,
+        "fight": 65,
+        "hitPoints": 275742,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 63,
+        "resisted": 64,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "tick": true,
+        "timestamp": 8272758,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 297
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8037
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 210,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 66383,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 44,
+        "resisted": 64,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8318329,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 445
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1750
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 226,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -335,
+        "fight": 65,
+        "hitPoints": 433976,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 46,
+        "resisted": 68,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "tick": true,
+        "timestamp": 8144901,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 304198,
+        "y": 252302
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 22
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 1819
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 254,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -343,
+        "fight": 65,
+        "hitPoints": 265406,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "tick": true,
+        "timestamp": 8278762,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 310
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8392
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 254,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -343,
+        "fight": 65,
+        "hitPoints": 270889,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "tick": true,
+        "timestamp": 8275762,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 303
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8220
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 256,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -708,
+        "fight": 65,
+        "hitPoints": 91725,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 209,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8300199,
+        "type": "damage",
+        "unmitigatedAmount": 465,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 393
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 247
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 280,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 50154,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8321377,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 457
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 2046
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 300,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 114956,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8293587,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 362
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9593
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 300,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 152146,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8284583,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 332
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8865
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 300,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 351183,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "tick": true,
+        "timestamp": 8147924,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 28
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 2356
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 301,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 130333,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8290583,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 345
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9304
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 301,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 139967,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8287576,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 339
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9081
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 301,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 274422,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "tick": true,
+        "timestamp": 8150884,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 32
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 2894
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 445,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -343,
+        "fight": 65,
+        "hitPoints": 286680,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8269749,
+        "type": "damage",
+        "unmitigatedAmount": 445,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 292
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7798
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 469,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -580,
+        "fight": 65,
+        "hitPoints": 483528,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8141892,
+        "type": "damage",
+        "unmitigatedAmount": 426,
+        "x": 302836,
+        "y": 252478
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 19
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 1331
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 58,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 77017,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 196,
+        "resisted": 70,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8312345,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 429
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1251
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 70,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 74525,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 184,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8315338,
+        "type": "damage",
+        "unmitigatedAmount": 254,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 436
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1491
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 75,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 80639,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 197,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8309192,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 420
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1022
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 75,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -598,
+        "fight": 65,
+        "hitPoints": 235264,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 197,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "tick": true,
+        "timestamp": 8153889,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 304362,
+        "y": 252319
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 39
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 3496
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 75,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -708,
+        "fight": 65,
+        "hitPoints": 84565,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 197,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8306196,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 409
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 691
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 75,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -708,
+        "fight": 65,
+        "hitPoints": 89031,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 197,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "tick": true,
+        "timestamp": 8303191,
+        "type": "damage",
+        "unmitigatedAmount": 272,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 402
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 450
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9835,
+        "amount": 90,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 80549,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 345,
+        "resisted": 109,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8309341,
+        "type": "damage",
+        "unmitigatedAmount": 435,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 423
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1037
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 0,
+        "fight": 65,
+        "hitType": 14,
+        "isAoE": false,
+        "sourceID": 232,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8309561,
+        "type": "damage"
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 424
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1054
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1304,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -627,
+        "fight": 65,
+        "hitPoints": 102248,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "resisted": 217,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8172814,
+        "type": "damage",
+        "unmitigatedAmount": 869,
+        "x": 304315,
+        "y": 252212
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 86
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 6518
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1396,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 150750,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resisted": 233,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8284705,
+        "type": "damage",
+        "unmitigatedAmount": 930,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 333
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8883
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 160,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -708,
+        "fight": 65,
+        "hitPoints": 89106,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 693,
+        "resisted": 213,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8303160,
+        "type": "damage",
+        "unmitigatedAmount": 853,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 401
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 448
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 163,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 86924,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 703,
+        "resisted": 217,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8354485,
+        "type": "damage",
+        "unmitigatedAmount": 866,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 510
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4134
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1678,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 20967,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8372924,
+        "type": "damage",
+        "unmitigatedAmount": 838,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 567
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 5076
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1678,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 84455,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8355977,
+        "type": "damage",
+        "unmitigatedAmount": 838,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 512
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4198
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1683,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -336,
+        "fight": 65,
+        "hitPoints": 306259,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8264504,
+        "type": "damage",
+        "unmitigatedAmount": 841,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 277
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7278
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1702,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 45721,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8367669,
+        "type": "damage",
+        "unmitigatedAmount": 851,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 545
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4788
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1727,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 40131,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8368680,
+        "type": "damage",
+        "unmitigatedAmount": 863,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 550
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4853
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1734,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 5924,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8376613,
+        "type": "damage",
+        "unmitigatedAmount": 866,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 575
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 5276
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1865,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 115474,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8292718,
+        "type": "damage",
+        "unmitigatedAmount": 932,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 358
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9529
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1877,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -668,
+        "fight": 65,
+        "hitPoints": 102284,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8295742,
+        "type": "damage",
+        "unmitigatedAmount": 938,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 371
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9867
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 1880,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -668,
+        "fight": 65,
+        "hitPoints": 95252,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8296764,
+        "type": "damage",
+        "unmitigatedAmount": 940,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 376
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9957
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 209,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -506,
+        "fight": 65,
+        "hitPoints": 128603,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 629,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8171002,
+        "type": "damage",
+        "unmitigatedAmount": 838,
+        "x": 303486,
+        "y": 252407
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 81
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 6278
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 210,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 70839,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 628,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8317215,
+        "type": "damage",
+        "unmitigatedAmount": 838,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 443
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1658
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 214,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -585,
+        "fight": 65,
+        "hitPoints": 141472,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 641,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8168640,
+        "type": "damage",
+        "unmitigatedAmount": 855,
+        "x": 302362,
+        "y": 253436
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 78
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 5928
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 214,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -708,
+        "fight": 65,
+        "hitPoints": 87301,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 639,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8304655,
+        "type": "damage",
+        "unmitigatedAmount": 853,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 405
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 564
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 215,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -708,
+        "fight": 65,
+        "hitPoints": 84640,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 645,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8306162,
+        "type": "damage",
+        "unmitigatedAmount": 860,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 408
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 687
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 217,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -265,
+        "fight": 65,
+        "hitPoints": 142798,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 652,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8168044,
+        "type": "damage",
+        "unmitigatedAmount": 869,
+        "x": 302009,
+        "y": 253591
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 75
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 5885
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 230,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -182,
+        "fight": 65,
+        "hitPoints": 93233,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 691,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8298982,
+        "type": "damage",
+        "unmitigatedAmount": 921,
+        "x": 297929,
+        "y": 247377
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 386
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 132
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 238,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -708,
+        "fight": 65,
+        "hitPoints": 91487,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 714,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8300331,
+        "type": "damage",
+        "unmitigatedAmount": 952,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 394
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 254
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 424,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -336,
+        "fight": 65,
+        "hitPoints": 310954,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 422,
+        "resisted": 423,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8263013,
+        "type": "damage",
+        "unmitigatedAmount": 846,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 273
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7177
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 428,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 80959,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 429,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8308526,
+        "type": "damage",
+        "unmitigatedAmount": 857,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 417
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 973
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 460,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -668,
+        "fight": 65,
+        "hitPoints": 94501,
+        "hitType": 2,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 460,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8297971,
+        "type": "damage",
+        "unmitigatedAmount": 920,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 382
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 40
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 638,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 30232,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "mitigated": 211,
+        "resisted": 212,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8371427,
+        "type": "damage",
+        "unmitigatedAmount": 849,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 560
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 5000
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 696,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -580,
+        "fight": 65,
+        "hitPoints": 484575,
+        "hitType": 16,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 599580,
+        "mitigated": 231,
+        "resisted": 232,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 612,
+        "targetMarker": 8,
+        "timestamp": 8141822,
+        "type": "damage",
+        "unmitigatedAmount": 927,
+        "x": 302788,
+        "y": 252503
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 16
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 1314
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 843,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 43507,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8322746,
+        "type": "damage",
+        "unmitigatedAmount": 843,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 461
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 2167
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 847,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -336,
+        "fight": 65,
+        "hitPoints": 315053,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8261499,
+        "type": "damage",
+        "unmitigatedAmount": 847,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 268
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7052
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 848,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 54568,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8320234,
+        "type": "damage",
+        "unmitigatedAmount": 848,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 454
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1970
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 852,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 34400,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8369914,
+        "type": "damage",
+        "unmitigatedAmount": 852,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 553
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4916
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 853,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -336,
+        "fight": 65,
+        "hitPoints": 293913,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8267287,
+        "type": "damage",
+        "unmitigatedAmount": 853,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 283
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7499
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 853,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 74281,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8359998,
+        "type": "damage",
+        "unmitigatedAmount": 853,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 526
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 4392
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 857,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -343,
+        "fight": 65,
+        "hitPoints": 282030,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8271081,
+        "type": "damage",
+        "unmitigatedAmount": 857,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 293
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7908
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 858,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 10280,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8375114,
+        "type": "damage",
+        "unmitigatedAmount": 858,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 574
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 5206
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 862,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -336,
+        "fight": 65,
+        "hitPoints": 287568,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8268855,
+        "type": "damage",
+        "unmitigatedAmount": 862,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 288
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7735
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 862,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -648,
+        "fight": 65,
+        "hitPoints": 17515,
+        "hitType": 17,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resisted": 431,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8374108,
+        "type": "damage",
+        "unmitigatedAmount": 862,
+        "x": 288296,
+        "y": 254592
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 571
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 5163
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 863,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -336,
+        "fight": 65,
+        "hitPoints": 299041,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 614,
+        "targetMarker": 5,
+        "timestamp": 8265512,
+        "type": "damage",
+        "unmitigatedAmount": 863,
+        "x": 288501,
+        "y": 254576
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 280
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 7362
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 868,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -214,
+        "fight": 65,
+        "hitPoints": 65038,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8318727,
+        "type": "damage",
+        "unmitigatedAmount": 868,
+        "x": 297965,
+        "y": 247412
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 449
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json",
+          "index": 1783
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 869,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -751,
+        "fight": 65,
+        "hitPoints": 462492,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 532960,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 611,
+        "targetMarker": 7,
+        "timestamp": 8191071,
+        "type": "damage",
+        "unmitigatedAmount": 869,
+        "x": 295554,
+        "y": 261998
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 116
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json",
+          "index": 8439
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 923,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 113527,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8293858,
+        "type": "damage",
+        "unmitigatedAmount": 923,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 367
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 9688
+        }
+      ]
+    },
+    {
+      "raw": {
+        "abilityGameID": 9912,
+        "amount": 937,
+        "armor": 0,
+        "attackPower": 0,
+        "classResources": [],
+        "facing": -225,
+        "fight": 65,
+        "hitPoints": 146217,
+        "hitType": 1,
+        "isAoE": false,
+        "itemLevel": 63,
+        "mapID": 0,
+        "maxHitPoints": 499650,
+        "resourceActor": 2,
+        "sourceID": 232,
+        "spellPower": 0,
+        "targetID": 613,
+        "targetMarker": 6,
+        "timestamp": 8285707,
+        "type": "damage",
+        "unmitigatedAmount": 937,
+        "x": 297883,
+        "y": 247033
+      },
+      "multiplicity": 1,
+      "disposition": "ranked",
+      "locators": [
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json",
+          "index": 338
+        },
+        {
+          "member": "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json",
+          "index": 8962
+        }
+      ]
+    }
+  ],
+  "members_used": {
+    "necropsy-snapshot.json": "047abee1cee6d6e6b6d002027a6b3266bfbd4b6655de0c14e7441385123e5422",
+    "reports/nYFLJvdypGQrzfZ2/bundle.json": "9723619ba038de5f47971c1287f7421a8d350655183608236d2e4d4b05d58df4",
+    "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/pets.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/source_001.json": "08df432a22a36d94eb9595918f327c1f7b85b30c88f3b9d3eac87da4d2e95246",
+    "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_001.json": "8b67a0fb91cfde9e66a9bf7ac562e557a241984590eb12c71918756a38938aa5",
+    "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_002.json": "817c1052277ebc031fa8ff9289cbeff87c3f0d286853805af2dcb88e37da3bad",
+    "events/nYFLJvdypGQrzfZ2/fight_65/player_232_Goat/target_003.json": "3c91e31ab15510a08b99930b821a7347b3080e9e1980d3ef647a402eb4c9aaef",
+    "leaderboards/51121_The_Four_Horsemen.json": "dc64551bf23691575119836af19ba8de698e038ca1835bf16ad28029662615ef"
+  },
+  "tool_sha256": "e664a8d57a07e94ae48b2b788ae11cc56afb21755d2b25db3c4829b6652cb547",
+  "page_validator_sha256": "76b98352562cb611022eb05a134b59739c019fc2254f2aafefd6507e1b8aad3e",
+  "limits": [
+    "Actor streams only; no encounter-wide completeness or full snapshot eligibility.",
+    "Exclusions are explicit inputs, never fitted; a match is not a cell policy.",
+    "No inferred assignment, opportunity, phase, position or player grade."
+  ]
+}

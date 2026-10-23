@@ -54,3 +54,16 @@ weakened to ignore provenance. Two fresh drafts in
 strict check with zero differences. `research/dps-validator-compatibility-20261022.json`
 retains all old/new hashes and the sole allowed difference. This is provenance
 maintenance, not a new ranking policy or registration.
+
+2026-10-23 · Exhaustive real-v2 actor arithmetic · All 89 retained participants
+were attempted with explicit empty exclusions. `research/real-v2-dps-20261023/`
+retains 49 strict arithmetic matches across 13 bosses and all 40 refusals:
+26 disagreeing ownership listings and 14 missing pet-discovery files. Loatheb
+and Patchwerk have no admitted row in this new archive. All 49 recipes replay
+with zero differences. A separate stdlib checker independently reproduces raw
+rows, witness multisets, owned-unit bindings, totals and exact publication
+residuals. Its pet-stream witness selection was corrected before acceptance;
+no oracle or refusal was altered to fit. The initial 15-participant trial is
+preserved separately. These new-v2 drafts are separate from the historical
+39 v1 matches; neither set establishes a per-cell or raid-wide policy.
+05.2–05.4 remain open and no coverage status changes.
