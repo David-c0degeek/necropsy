@@ -184,6 +184,32 @@ def test_side_navigation_marks_the_current_boss(page: Any, site: Path) -> None:
     assert page.locator(".sidenav .sr").first.inner_text().strip().startswith("finding")
 
 
+@pytest.mark.parametrize("width", [320, 390, 768, 1050, 1400])
+def test_pull_section_jumps_keep_headings_clear_of_the_picker(
+    browser: Any, site: Path, width: int
+) -> None:
+    context = browser.new_context(viewport={"width": width, "height": 900})
+    page = context.new_page()
+    page.goto((site / "playbook.html").as_uri())
+    anchor = page.locator("section.boss").first.get_attribute("id")
+    for section in ("before", "during", "raid"):
+        target = f"{anchor}-{section}"
+        heading = page.locator(f"#{target}-title")
+        for navigation in ("fragment", "keyboard"):
+            if navigation == "fragment":
+                page.goto((site / "playbook.html").as_uri() + f"#{target}")
+            else:
+                page.locator(f".boss-jumps a[href='#{target}']").focus()
+                page.keyboard.press("Enter")
+            sync_api.expect(heading).to_be_focused()
+            bounds = heading.bounding_box()
+            assert bounds is not None
+            picker = page.locator(".picker")
+            bottom = picker.bounding_box() if picker.is_visible() else None
+            assert bounds["y"] >= (bottom["y"] + bottom["height"] if bottom else 0)
+    context.close()
+
+
 @pytest.mark.parametrize("viewport", [DESKTOP, MOBILE])
 def test_boss_search_keeps_overview_and_truth_links(
     browser: Any, site: Path, viewport: dict[str, int]

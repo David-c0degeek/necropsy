@@ -56,3 +56,21 @@ to the published wheel and passed network-disabled preflight; real capture/smoke
 remains pending. These checks do not establish independent-user/live-account
 acceptance, class-content visual review or final Naxx content approval. No 07
 completion box is checked by this operational patch.
+
+2026-10-23 · Draft layout preparation and mobile navigation correction ·
+All 34 legal configurations now have reproducible, explicitly synthetic previews
+of both pages with all 15 bosses and the unpromoted general/tank proposals.
+The portable research recipe passes 272 desktop/mobile/narrow/print-CSS checks;
+two generations reproduce all 104 files byte-for-byte. Author inspection covers
+nine class samples at desktop/mobile/print CSS, with print pagination excluded.
+This found a real shared mobile defect: fragment/keyboard jumps placed pull-step
+headings beneath the sticky picker. Adding that target to the existing mobile
+scroll-margin selector fixes the observed flow. The regression fails at four
+mobile widths before the fix and passes at all five tested widths afterward;
+all 96 browser tests pass. The same saved analysis rendered across 19 legacy
+archives yields 38 pages differing only by the intended CSS substitution;
+18 desktop/print sample images are byte-identical before/after. See
+`research/guidance-layout-20261023/README.md` and its hashed receipt.
+Installed parity and the checkpoint gate are recorded separately when complete.
+These draft previews do not activate production guidance or replace independent
+content/loadout review and real capture-specific acceptance. All 07 boxes stay open.

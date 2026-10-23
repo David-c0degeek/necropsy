@@ -119,3 +119,14 @@ the independent ranking-policy requirement remains unvalidated in every case.
 All 41 coverage tests pass. The real Naxx inventory still reports 26
 IN_PROGRESS/484 TODO, no problems and no COMPLETE cells. This fixes a consumer
 of the optional selector; no production source proposal or acceptance is added.
+
+2026-10-23 · Reproducible draft review packet ·
+`research/guidance-layout-20261023/` renders the source-bound proposals through
+existing templates without changing production rules or acquiring data. Its
+index links all 34 configurations; the manifest binds inputs, selected text,
+renderer and outputs. Proposal hashes also bind synthetic review keys. All
+510 boss/configuration projections are checked on both pages at four layouts,
+and nine class samples were inspected by the author. A shared mobile heading
+occlusion was fixed and covered by actual fragment/keyboard browser regression.
+This prepares content review; no accepted capture receipt, batch, independent
+content approval or COMPLETE cell is created by synthetic previews.

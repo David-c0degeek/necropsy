@@ -1,0 +1,72 @@
+{
+  "kind": "Author draft-layout review and shared mobile navigation correction; no Naxx acceptance",
+  "inputs": {
+    "tasks/naxx-completion/research/coordinator-guidance-drafts.json": "7cfbefa202962ed5a2073a223f646a136ed508deadd14127f77229c3091cb738",
+    "tasks/naxx-completion/research/naxx-strategy-proposal.yaml": "70d828d85839893861170a98f15b12a0a01f3ce7e2880b9e674946027a29eb47",
+    "tasks/naxx-completion/research/naxx-category-strategy-proposal.yaml": "e29017774bf73f7db5f5abec6e450ddb729fece1f06375fc94a7a81fb53e8870"
+  },
+  "configuration_count": 34,
+  "bosses_per_configuration": 15,
+  "pages": 68,
+  "views": 272,
+  "classes_sampled": [
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "screenshots": 27,
+  "layout_failures": [],
+  "browser_errors": [],
+  "remote_requests": [],
+  "reproducibility": {
+    "identical_files": 104,
+    "command": "generate.py run twice into fresh workspace directories"
+  },
+  "author_visual_inspection": {
+    "desktop": "nine-class contact sheet",
+    "mobile": "all nine individual class screenshots",
+    "print": "nine-class print-CSS contact sheet, not paper pagination",
+    "focus": "Druid and Hunter actual viewport before/after comparison"
+  },
+  "bug": {
+    "before_heading_top": 20.703125,
+    "sticky_picker_bottom": 42,
+    "after_heading_top": 88.703125,
+    "before_width_regressions": [
+      320,
+      390,
+      768,
+      1050
+    ],
+    "desktop_control_width": 1400,
+    "change": "Add .pull-step to existing max-width:1050px scroll-margin selector"
+  },
+  "controls": {
+    "targeted_browser_tests": 46,
+    "legacy_archives": 19,
+    "legacy_html_pages": 38,
+    "legacy_difference": "Only the intended inline CSS substitution when rendering identical saved analysis bytes",
+    "desktop_and_print_samples": "18 screenshot files byte-identical before/after",
+    "full_browser_tests": 96
+  },
+  "evidence_sha256": {
+    "guidance-layout-repro-20261023/manifest.json": "25d12eade83df314364c7b462ebef34b197c4c3cdc05324e8465c0ee1c7c8c33",
+    "guidance-layout-repro-20261023/layout-checks.json": "c774753138f11435a6a31baccffec9dfe80cd6ec40bec84bc1cd00ad9716ba78",
+    "mobile-css-compatibility.json": "33d8b357242b2dd7c40816b9967c1aff2037b34df5ea84bea4439512b4957b31",
+    "mobile-pull-focus/receipt.json": "93cad37154312a6f6b70b63f4780ebf893fc4ffb017c7b491e178e5bbf2c1705",
+    "mobile-pull-jumps-before.log": "84ea5b0c216d2f3ce2ce2f7f6cd149b4d147baf5d5c780fa249886304c9fef69",
+    "mobile-pull-jumps-after.log": "6677c033d93fbef123d691e09f73cc053df43181d0a0b62ea5f9c239460b6931"
+  },
+  "limits": [
+    "Synthetic missing-data view-model overlay; no real acquired observations or production guidance activation",
+    "Source/content/loadout and independent review remain open",
+    "No final capture, cell completion, installed release-candidate acceptance or owner acceptance claimed",
+    "Published release assets remain unchanged"
+  ]
+}

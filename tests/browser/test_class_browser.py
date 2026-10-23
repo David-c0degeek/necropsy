@@ -61,6 +61,18 @@ def test_class_pages_have_ability_execution_sources_and_shared_interactions(
                     assert steps.nth(0).bounding_box()["y"] < steps.nth(1).bounding_box()["y"]
                     assert "Not proof of an optimal opener" in steps.nth(1).inner_text()
                     assert boss.locator('a[href^="report.html#boss-"]').count() >= 1
+                    if width == 390:
+                        for section in ("before", "during", "raid"):
+                            jump = boss.locator(f".boss-jumps a[href$='-{section}']")
+                            target = jump.get_attribute("href")
+                            jump.focus()
+                            page.keyboard.press("Enter")
+                            heading = page.locator(f"{target}-title")
+                            sync_api.expect(heading).to_be_focused()
+                            bounds = heading.bounding_box()
+                            picker = page.locator(".picker").bounding_box()
+                            assert bounds is not None and picker is not None
+                            assert bounds["y"] >= picker["y"] + picker["height"]
                 assert boss.locator("details.overall-comparison[open]").count() == 0
                 check = boss.locator("input[data-review-key]")
                 check.check()

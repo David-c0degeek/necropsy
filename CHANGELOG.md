@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Mobile playbook section links keep the destination heading visible below the
+  sticky boss picker, including direct links and keyboard navigation.
+
 ## 0.6.1 - 2026-10-22
 
 - Resuming a capture prioritizes independent finalization of complete saved

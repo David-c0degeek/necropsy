@@ -348,3 +348,20 @@ and failure group passes. Real incremental report-set cost and deployment
 remain separate checks. `research/resume-finalization-priority-20261022.json`
 records source/output hashes and limitations. Existing pending independent
 reviews are not replaced by this author verification.
+
+## 2026-10-23: mobile pull-section navigation
+
+A draft-layout screenshot exposed a shared navigation defect: direct fragments
+and keyboard jumps place Before/During/Raid headings at about21px, beneath the
+42px sticky boss picker. Hunter and shared class layouts reproduce it.
+
+PM-17: a broad scroll-offset correction moves desktop/print content or changes
+saved analysis semantics while fixing mobile. Evidence: the picker and existing
+anchor offsets are scoped to max-width1050px in report.css; report.js uses the
+fragment target for scrollIntoView and transfers focus separately. Guardrail:
+add only pull-step to that existing media-scoped selector; leave JS, analysis,
+rules, capture and persisted schemas unchanged. Test direct-fragment and keyboard
+navigation at320/390/768/1050/1400px, plus class paths and print controls. HTML
+CSS bytes intentionally change; saved analysis values must not. Source and
+installed render parity remain required before receipts, not silently reattested.
+Rollback is the one-selector revert. Verdict: PROCEED WITH GUARDRAILS.

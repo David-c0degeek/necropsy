@@ -524,7 +524,7 @@ summary::marker { color: var(--class-text); }
 pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 @media (max-width: 1050px) {
   .picker { position: sticky; top: 0; z-index: 4; background: var(--surface-app); border-bottom: 1px solid var(--border-default); }
-  .boss, [id$="-plan"], [id$="-actions"], [id$="-comparison"], [id$="-evidence"] { scroll-margin-top: 68px; }
+  .boss, .pull-step, [id$="-plan"], [id$="-actions"], [id$="-comparison"], [id$="-evidence"] { scroll-margin-top: 68px; }
   .priority-why > summary { min-height: 44px; }
 }
 
