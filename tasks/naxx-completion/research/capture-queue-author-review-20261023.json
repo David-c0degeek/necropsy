@@ -1,0 +1,3589 @@
+{
+  "kind": "Author queue review packet; independent review pending, no production promotion",
+  "checked_at_utc": "2026-10-23T18:00:00.891659+00:00",
+  "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+  "runs": 34,
+  "candidate_selections": 94,
+  "cached_resolutions": 325,
+  "cached_metric_checks": 112,
+  "leaderboard_fetches": 4,
+  "owner_exclusion": "Same existing three excluded identities; checked before and after resolution.",
+  "scoped_rules": "All34 legal Naxx configurations, partition1, observed matching faction and positive requested metric; no inferred or forced identity exception.",
+  "rows": [
+    {
+      "entry_id": "naxxramas-druid-balance-dps-alliance",
+      "class_id": 2,
+      "category": "Balance",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/90226882?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77619978?zone=2006",
+          "character": "Teris",
+          "character_id": "77619978",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:38:14+00:00",
+          "metric_check": "metric shown by an earlier capture of this configuration",
+          "ranked_bosses": null,
+          "origin": "earlier capture subject",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90226882?zone=2006",
+          "character": "Zasko",
+          "character_id": "90226882",
+          "server": "Pagle",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:38:17+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/2R7tvMPzaynXDGfh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77573657?zone=2006",
+          "character": "Atomicuranus",
+          "character_id": "77573657",
+          "server": "Auberdine",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:39:48+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/B8gr62XkGAKpMQqP/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[0]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Instructor Razuvious",
+        "Loatheb",
+        "Maexxna",
+        "Patchwerk"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-balance-dps-horde",
+      "class_id": 2,
+      "category": "Balance",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 2,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Versyth?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/eu/firemaw/Freshbull?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Versyth?zone=2006",
+          "character": "Versyth",
+          "character_id": "64347501",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:25+00:00",
+          "metric_check": "dps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 848.919,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Freshbull?zone=2006",
+          "character": "Freshbull",
+          "character_id": "65253425",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:31+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 739.713,
+            "page": 1
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-druid-balance-hps-alliance",
+      "class_id": 2,
+      "category": "Balance",
+      "metric": "hps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/eu/firemaw/Momokiller?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/eu/firemaw/Arasuruv?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Pissdoff?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Momokiller?zone=2006",
+          "character": "Momokiller",
+          "character_id": "65603754",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:24:29+00:00",
+          "metric_check": "hps ranked on 12 boss(es)",
+          "ranked_bosses": [
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Maexxna",
+            "Instructor Razuvious",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 169.893,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Arasuruv?zone=2006",
+          "character": "Arasuruv",
+          "character_id": "74715124",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:24:35+00:00",
+          "metric_check": "hps ranked on 7 boss(es)",
+          "ranked_bosses": [
+            "Grobbulus",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Instructor Razuvious"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 122.787,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Pissdoff?zone=2006",
+          "character": "Pissdoff",
+          "character_id": "76878447",
+          "server": "Whitemane",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:24:37+00:00",
+          "metric_check": "hps ranked on 11 boss(es)",
+          "ranked_bosses": [
+            "Grobbulus",
+            "Gluth",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 109.952,
+            "page": 1
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-druid-balance-hps-horde",
+      "class_id": 2,
+      "category": "Balance",
+      "metric": "hps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Rmx?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Rosbif?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Grobaw?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Rmx?zone=2006",
+          "character": "Rmx",
+          "character_id": "76376122",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:35+00:00",
+          "metric_check": "hps ranked on 10 boss(es)",
+          "ranked_bosses": [
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 143.562,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Rosbif?zone=2006",
+          "character": "Rosbif",
+          "character_id": "105346435",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:40+00:00",
+          "metric_check": "hps ranked on 3 boss(es)",
+          "ranked_bosses": [
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 104.876,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Grobaw?zone=2006",
+          "character": "Grobaw",
+          "character_id": "76265621",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:43+00:00",
+          "metric_check": "hps ranked on 4 boss(es)",
+          "ranked_bosses": [
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Maexxna"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 66.5419,
+            "page": 1
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-druid-feral-dps-alliance",
+      "class_id": 2,
+      "category": "Feral",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/75650895?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/81817416?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/74197702?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75650895?zone=2006",
+          "character": "Arwenthegray",
+          "character_id": "75650895",
+          "server": "Westfall",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:25+00:00",
+          "metric_check": "dps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/9fFYrZPRQvp7wL2H/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81817416?zone=2006",
+          "character": "Giminiufnsak",
+          "character_id": "81817416",
+          "server": "Lakeshire",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:39:52+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/cRnXxrKZHVWk9J8h/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74197702?zone=2006",
+          "character": "Thunderoot",
+          "character_id": "74197702",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:39:54+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+            "member": "reports/hRMg2jGcWXJdBLQr/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[0]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-feral-dps-horde",
+      "class_id": 2,
+      "category": "Feral",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 2,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/us/blaumeux/Ahram?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/eu/firemaw/Midinvaerne?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/blaumeux/Ahram?zone=2006",
+          "character": "Ahram",
+          "character_id": "77548335",
+          "server": "Blaumeux",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:46+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 1448.23,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/eu/firemaw/Midinvaerne?zone=2006",
+          "character": "Midinvaerne",
+          "character_id": "62508366",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:52+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 1350.26,
+            "page": 1
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-druid-guardian-dps-alliance",
+      "class_id": 2,
+      "category": "Guardian",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/83306366?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/74914851?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/85345257?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83306366?zone=2006",
+          "character": "Arianhrod",
+          "character_id": "83306366",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:29+00:00",
+          "metric_check": "dps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/9fFYrZPRQvp7wL2H/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74914851?zone=2006",
+          "character": "Iol",
+          "character_id": "74914851",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:40:05+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-guardian.zip",
+            "member": "reports/2rNV9HnARC6MgwxJ/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/85345257?zone=2006",
+          "character": "Suncat",
+          "character_id": "85345257",
+          "server": "Ashkandi",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:40:03+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-guardian.zip",
+            "member": "reports/YhxTZy3BDQN7nkcV/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-guardian-dps-horde",
+      "class_id": 2,
+      "category": "Guardian",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 2,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/70621233?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/88058183?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70621233?zone=2006",
+          "character": "Electeed",
+          "character_id": "70621233",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:40:10+00:00",
+          "metric_check": "dps ranked on 13 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/dD1XmanHC3rkAz98/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/88058183?zone=2006",
+          "character": "Talasi",
+          "character_id": "88058183",
+          "server": "Pyrewood Village",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:40:16+00:00",
+          "metric_check": "dps ranked on 11 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/aq40-viscidus-guardian.zip",
+            "member": "reports/2N89T3ALYBxFcDJh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-druid-restoration-hps-alliance",
+      "class_id": 2,
+      "category": "Restoration",
+      "metric": "hps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/60117765?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/62375023?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/65603754?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/60117765?zone=2006",
+          "character": "Aldraie",
+          "character_id": "60117765",
+          "server": "Pagle",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:40:19+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+            "member": "reports/kGWZQDjqxcbwRv6L/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62375023?zone=2006",
+          "character": "Cyoor",
+          "character_id": "62375023",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:40:27+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-paladin-holy.zip",
+            "member": "reports/fVNkC6d39vg1hBHy/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65603754?zone=2006",
+          "character": "Momokiller",
+          "character_id": "65603754",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:39:44+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-paladin-holy.zip",
+            "member": "reports/fVNkC6d39vg1hBHy/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[1]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-druid-restoration-hps-horde",
+      "class_id": 2,
+      "category": "Restoration",
+      "metric": "hps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77577270?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/80740229?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/90711216?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77577270?zone=2006",
+          "character": "Healt\u00e4nk",
+          "character_id": "77577270",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:40:32+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/62tW7PbJGVgnyhD3/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80740229?zone=2006",
+          "character": "Ibrn",
+          "character_id": "80740229",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:40:34+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/VFCf6AhGbwMcXHtB/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/90711216?zone=2006",
+          "character": "Winterhorn",
+          "character_id": "90711216",
+          "server": "Pyrewood Village",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:40:39+00:00",
+          "metric_check": "hps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/aq40-viscidus-guardian.zip",
+            "member": "reports/2N89T3ALYBxFcDJh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[0]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-hunter-marksmanship-dps-alliance",
+      "class_id": 3,
+      "category": "Marksmanship",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/75928820?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/83009857?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/82094191?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75928820?zone=2006",
+          "character": "Kittentots",
+          "character_id": "75928820",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:32+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83009857?zone=2006",
+          "character": "D\u00e4llas",
+          "character_id": "83009857",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:35+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/9fFYrZPRQvp7wL2H/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[4]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82094191?zone=2006",
+          "character": "Biersch\u00fctzer",
+          "character_id": "82094191",
+          "server": "Lakeshire",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:40:40+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/1xycFDXLzPVdqJ79/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[2]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-hunter-marksmanship-dps-horde",
+      "class_id": 3,
+      "category": "Marksmanship",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/64181902?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/76723996?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/92693504?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64181902?zone=2006",
+          "character": "Bakkura",
+          "character_id": "64181902",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:41:46+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76723996?zone=2006",
+          "character": "Huntrace",
+          "character_id": "76723996",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:41:49+00:00",
+          "metric_check": "dps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/dD1XmanHC3rkAz98/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/92693504?zone=2006",
+          "character": "Sevenlegs",
+          "character_id": "92693504",
+          "server": "Pyrewood Village",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:41:52+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/WPxyrnqYh2J8D6LN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[3]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-mage-fire-dps-alliance",
+      "class_id": 4,
+      "category": "Fire",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/62428883?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/81313760?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/82114603?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62428883?zone=2006",
+          "character": "Jezreal",
+          "character_id": "62428883",
+          "server": "Westfall",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:37+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[2]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81313760?zone=2006",
+          "character": "Xmage",
+          "character_id": "81313760",
+          "server": "Ashkandi",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:39+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+            "member": "reports/kGWZQDjqxcbwRv6L/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/82114603?zone=2006",
+          "character": "Bestmage",
+          "character_id": "82114603",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:41+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/2R7tvMPzaynXDGfh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[5]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-mage-fire-dps-horde",
+      "class_id": 4,
+      "category": "Fire",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/62508348?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/65762594?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/70496868?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62508348?zone=2006",
+          "character": "Frozzyman",
+          "character_id": "62508348",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:42:01+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/dD1XmanHC3rkAz98/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/65762594?zone=2006",
+          "character": "Reinh\u00e4uterin",
+          "character_id": "65762594",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:42:03+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/70496868?zone=2006",
+          "character": "Rakijin",
+          "character_id": "70496868",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:42:05+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[2]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-mage-frost-dps-alliance",
+      "class_id": 4,
+      "category": "Frost",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/96494133?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/104910598?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/75931147?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/96494133?zone=2006",
+          "character": "Ymage",
+          "character_id": "96494133",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:42:19+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/2R7tvMPzaynXDGfh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[7]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/104910598?zone=2006",
+          "character": "Meiri",
+          "character_id": "104910598",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:42:07+00:00",
+          "metric_check": "dps ranked on 13 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/VMbhfk8B1rZN3CXx/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[6]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75931147?zone=2006",
+          "character": "Drpew",
+          "character_id": "75931147",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:42:18+00:00",
+          "metric_check": "dps ranked on 2 boss(es)",
+          "ranked_bosses": [
+            "Gluth",
+            "Instructor Razuvious"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/bwl-combined-hunter.zip",
+            "member": "reports/hRMg2jGcWXJdBLQr/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[6]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-mage-frost-dps-horde",
+      "class_id": 4,
+      "category": "Frost",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 1,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/83910414?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/83910414?zone=2006",
+          "character": "Swayze",
+          "character_id": "83910414",
+          "server": "Pyrewood Village",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:42:23+00:00",
+          "metric_check": "dps ranked on 6 boss(es)",
+          "ranked_bosses": [
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/aq40-viscidus-guardian.zip",
+            "member": "reports/2N89T3ALYBxFcDJh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[5]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-paladin-holy-hps-alliance",
+      "class_id": 6,
+      "category": "Holy",
+      "metric": "hps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77152471?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77214807?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77600095?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77152471?zone=2006",
+          "character": "Dirtysheets",
+          "character_id": "77152471",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:44:08+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/mc-holy-paladin-raid-context/61619600-2000-20261018T134132.zip",
+            "member": "reports/vWNnhR1zytxZTKYP/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77214807?zone=2006",
+          "character": "Cassandrah",
+          "character_id": "77214807",
+          "server": "Whitemane",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:43:28+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/4Gd9wNXcFvAVn7Dh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[2]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77600095?zone=2006",
+          "character": "Masumi",
+          "character_id": "77600095",
+          "server": "Everlook",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:43:31+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/1xycFDXLzPVdqJ79/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[2]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-paladin-protection-dps-alliance",
+      "class_id": 6,
+      "category": "Protection",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 2,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/67666001?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/75269092?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67666001?zone=2006",
+          "character": "Raenarth",
+          "character_id": "67666001",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:43:34+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-feral.zip",
+            "member": "reports/hprJxjB6PzcVbXYR/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75269092?zone=2006",
+          "character": "Gothal",
+          "character_id": "75269092",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:17:46+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/F1jKkpxPGY68BVCL/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-paladin-retribution-dps-alliance",
+      "class_id": 6,
+      "category": "Retribution",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/76716431?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77063025?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77152471?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76716431?zone=2006",
+          "character": "Euterpe",
+          "character_id": "76716431",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:43:50+00:00",
+          "metric_check": "dps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/Dyd43zV2xht6Mkmv/bundle.json",
+            "locator": "reportData.report.rankings.data[1].roles.dps.characters[8]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77063025?zone=2006",
+          "character": "Retricholic",
+          "character_id": "77063025",
+          "server": "Nethergarde Keep",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:44:05+00:00",
+          "metric_check": "dps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/mc-shadow-priest-raid-context/74578049-2000-20261018T224704.zip",
+            "member": "reports/RHp2V6QxrTNDcawd/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[8]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77152471?zone=2006",
+          "character": "Dirtysheets",
+          "character_id": "77152471",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:44:08+00:00",
+          "metric_check": "dps ranked on 2 boss(es)",
+          "ranked_bosses": [
+            "Loatheb",
+            "Grand Widow Faerlina"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/Dyd43zV2xht6Mkmv/bundle.json",
+            "locator": "reportData.report.rankings.data[1].roles.dps.characters[9]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-priest-holy-hps-alliance",
+      "class_id": 7,
+      "category": "Holy",
+      "metric": "hps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77573659?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/75245104?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/98303571?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77573659?zone=2006",
+          "character": "Bloomleopold",
+          "character_id": "77573659",
+          "server": "Auberdine",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:18:03+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/B8gr62XkGAKpMQqP/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[7]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75245104?zone=2006",
+          "character": "Lightnado",
+          "character_id": "75245104",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:32+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+            "member": "reports/kGWZQDjqxcbwRv6L/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[4]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/98303571?zone=2006",
+          "character": "Elaria",
+          "character_id": "98303571",
+          "server": "Ashkandi",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:45:11+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-mixed.zip",
+            "member": "reports/2jVh4rvqNMQwT9fR/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[7]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-priest-holy-hps-horde",
+      "class_id": 7,
+      "category": "Holy",
+      "metric": "hps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77516109?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77595687?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77731465?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77516109?zone=2006",
+          "character": "Elskeleto",
+          "character_id": "77516109",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:46:22+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/bWK87Q49F31JBtYp/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[2]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77595687?zone=2006",
+          "character": "Elbandido",
+          "character_id": "77595687",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:46:25+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/62tW7PbJGVgnyhD3/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77731465?zone=2006",
+          "character": "Mesopotamian",
+          "character_id": "77731465",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:46:29+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/bWK87Q49F31JBtYp/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[3]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-priest-shadow-dps-alliance",
+      "class_id": 7,
+      "category": "Shadow",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77122652?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/77435782?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/78630635?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77122652?zone=2006",
+          "character": "Pinopower",
+          "character_id": "77122652",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:35+00:00",
+          "metric_check": "dps ranked on 11 boss(es)",
+          "ranked_bosses": [
+            "Grobbulus",
+            "Gluth",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[6]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77435782?zone=2006",
+          "character": "Geminope",
+          "character_id": "77435782",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:36+00:00",
+          "metric_check": "dps ranked on 7 boss(es)",
+          "ranked_bosses": [
+            "Gluth",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[7]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78630635?zone=2006",
+          "character": "Eelumiss",
+          "character_id": "78630635",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:38+00:00",
+          "metric_check": "dps ranked on 5 boss(es)",
+          "ranked_bosses": [
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Maexxna",
+            "Instructor Razuvious"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/Dyd43zV2xht6Mkmv/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[9]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-priest-shadow-dps-horde",
+      "class_id": 7,
+      "category": "Shadow",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/66195792?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/74562394?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66195792?zone=2006",
+          "character": "Frighten",
+          "character_id": "66195792",
+          "server": "Mankrik",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:46:38+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/4m3R1cNVqCkjQWTJ/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[6]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/67769082?zone=2006",
+          "character": "Ywfvniefjioe",
+          "character_id": "67769082",
+          "server": "Pyrewood Village",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:46:40+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/WPxyrnqYh2J8D6LN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[9]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74562394?zone=2006",
+          "character": "Peve",
+          "character_id": "74562394",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:46:42+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[5]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-rogue-assassination-dps-alliance",
+      "class_id": 8,
+      "category": "Assassination",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77022735?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/78663916?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/66757794?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77022735?zone=2006",
+          "character": "Delinquent",
+          "character_id": "77022735",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:39+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[9]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78663916?zone=2006",
+          "character": "Taiin",
+          "character_id": "78663916",
+          "server": "Ashkandi",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:41+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[10]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/66757794?zone=2006",
+          "character": "Valeer\u00e1",
+          "character_id": "66757794",
+          "server": "Pagle",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-22T10:47:51+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/2R7tvMPzaynXDGfh/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[9]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-rogue-assassination-dps-horde",
+      "class_id": 8,
+      "category": "Assassination",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/62246596?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/62246600?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/62246619?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62246596?zone=2006",
+          "character": "Jerv\u00ees",
+          "character_id": "62246596",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:47:54+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[6]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62246600?zone=2006",
+          "character": "Edelgift",
+          "character_id": "62246600",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:47:57+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[7]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62246619?zone=2006",
+          "character": "F\u00f8ught",
+          "character_id": "62246619",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:47:59+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[8]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-shaman-elemental-dps-horde",
+      "class_id": 9,
+      "category": "Elemental",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 1,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/80764809?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/80764809?zone=2006",
+          "character": "Troldefar",
+          "character_id": "80764809",
+          "server": "Pyrewood Village",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:48:01+00:00",
+          "metric_check": "dps ranked on 14 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/WPxyrnqYh2J8D6LN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[13]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-shaman-enhancement-dps-horde",
+      "class_id": 9,
+      "category": "Enhancement",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Kilrone?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Bigduke?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/us/whitemane/Philzthebest?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Kilrone?zone=2006",
+          "character": "Kilrone",
+          "character_id": "74643978",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:57+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 1248.17,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Bigduke?zone=2006",
+          "character": "Bigduke",
+          "character_id": "75745524",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:24:58+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 1240.73,
+            "page": 1
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/us/whitemane/Philzthebest?zone=2006",
+          "character": "Philzthebest",
+          "character_id": "76484310",
+          "server": "Whitemane",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:25:00+00:00",
+          "metric_check": "dps ranked on 12 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester"
+          ],
+          "origin": "WCL leaderboard, first page",
+          "evidence": {
+            "boss": "Anub'Rekhan",
+            "amount": 1144.67,
+            "page": 1
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-shaman-restoration-hps-horde",
+      "class_id": 9,
+      "category": "Restoration",
+      "metric": "hps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/62259058?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/62299945?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/62664824?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62259058?zone=2006",
+          "character": "Vur\u00f3",
+          "character_id": "62259058",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:48:03+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/bWK87Q49F31JBtYp/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[4]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62299945?zone=2006",
+          "character": "Zkre",
+          "character_id": "62299945",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:48:06+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[6]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62664824?zone=2006",
+          "character": "Zvinzak",
+          "character_id": "62664824",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-22T10:48:07+00:00",
+          "metric_check": "hps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/dD1XmanHC3rkAz98/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.healers.characters[6]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warlock-destruction-dps-alliance",
+      "class_id": 10,
+      "category": "Destruction",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/77751784?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/78588380?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/75464989?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/77751784?zone=2006",
+          "character": "Kareni",
+          "character_id": "77751784",
+          "server": "Ashkandi",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:43+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[12]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78588380?zone=2006",
+          "character": "Background",
+          "character_id": "78588380",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:45+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/2nVDM3HQKLdbBPTm/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[12]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75464989?zone=2006",
+          "character": "Mulletslayer",
+          "character_id": "75464989",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:47+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/BJhT9XWnFM3V1k2a/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[6]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warlock-destruction-dps-horde",
+      "class_id": 10,
+      "category": "Destruction",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/64322945?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/73648606?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/73952387?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64322945?zone=2006",
+          "character": "Ozydead",
+          "character_id": "64322945",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:20:50+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/dD1XmanHC3rkAz98/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[14]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73648606?zone=2006",
+          "character": "Coughsyrup",
+          "character_id": "73648606",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:20:52+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[13]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/73952387?zone=2006",
+          "character": "Rizel",
+          "character_id": "73952387",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:20:54+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/dD1XmanHC3rkAz98/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[15]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-warrior-fury-dps-alliance",
+      "class_id": 11,
+      "category": "Fury",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/76296293?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/76252714?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/75372971?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76296293?zone=2006",
+          "character": "Sh\u00e2rknado",
+          "character_id": "76296293",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:55+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+            "member": "reports/xyPf6G8JkDbV3r2a/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[16]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/76252714?zone=2006",
+          "character": "Sicksyboy",
+          "character_id": "76252714",
+          "server": "Pagle",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:57+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-sapphiron-restoration.zip",
+            "member": "reports/xyPf6G8JkDbV3r2a/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[15]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75372971?zone=2006",
+          "character": "Larryhughes",
+          "character_id": "75372971",
+          "server": "Mankrik",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:20:58+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/7ATY62QycLzknrPN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[16]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-warrior-fury-dps-horde",
+      "class_id": 11,
+      "category": "Fury",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/75322236?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/78399750?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/81923857?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75322236?zone=2006",
+          "character": "Drenggar",
+          "character_id": "75322236",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:21:00+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/VFCf6AhGbwMcXHtB/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[8]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/78399750?zone=2006",
+          "character": "Baconader",
+          "character_id": "78399750",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:21:03+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/VFCf6AhGbwMcXHtB/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[12]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/81923857?zone=2006",
+          "character": "Discopongo",
+          "character_id": "81923857",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:21:05+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/VFCf6AhGbwMcXHtB/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.dps.characters[15]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    },
+    {
+      "entry_id": "naxxramas-warrior-protection-dps-alliance",
+      "class_id": 11,
+      "category": "Protection",
+      "metric": "dps",
+      "faction": "Alliance",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/75466963?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/64745831?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/74660854?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/75466963?zone=2006",
+          "character": "Vn",
+          "character_id": "75466963",
+          "server": "Windseeker",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:21:07+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/druid/raw/druid-guardian.zip",
+            "member": "reports/3mvMLWACGdByfaZt/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[1]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/64745831?zone=2006",
+          "character": "Jethercy",
+          "character_id": "64745831",
+          "server": "Westfall",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:21:09+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/2R7tvMPzaynXDGfh/bundle.json",
+            "locator": "reportData.report.rankings.data[1].roles.tanks.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/74660854?zone=2006",
+          "character": "Kill",
+          "character_id": "74660854",
+          "server": "Firemaw",
+          "resolved_faction": "Alliance",
+          "resolved_at": "2026-10-23T16:21:12+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+            "member": "reports/69GyY7r2atXgzdfZ/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        }
+      ],
+      "remaining_bosses": [
+        "Anub'Rekhan",
+        "Gluth",
+        "Gothik the Harvester",
+        "Grand Widow Faerlina",
+        "Grobbulus",
+        "Heigan the Unclean",
+        "Instructor Razuvious",
+        "Kel'Thuzad",
+        "Loatheb",
+        "Maexxna",
+        "Noth the Plaguebringer",
+        "Patchwerk",
+        "Sapphiron",
+        "Thaddius",
+        "The Four Horsemen"
+      ]
+    },
+    {
+      "entry_id": "naxxramas-warrior-protection-dps-horde",
+      "class_id": 11,
+      "category": "Protection",
+      "metric": "dps",
+      "faction": "Horde",
+      "candidate_count": 3,
+      "candidates": [
+        "https://vanilla.warcraftlogs.com/character/id/61334639?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/62319601?zone=2006",
+        "https://vanilla.warcraftlogs.com/character/id/63937964?zone=2006"
+      ],
+      "evidence": [
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/61334639?zone=2006",
+          "character": "Coline",
+          "character_id": "61334639",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:21:15+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-shaman-restoration.zip",
+            "member": "reports/bWK87Q49F31JBtYp/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/62319601?zone=2006",
+          "character": "Mikki",
+          "character_id": "62319601",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:21:19+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/kFCKm79vHVfbA8rN/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[0]"
+          }
+        },
+        {
+          "url": "https://vanilla.warcraftlogs.com/character/id/63937964?zone=2006",
+          "character": "Fougen",
+          "character_id": "63937964",
+          "server": "Firemaw",
+          "resolved_faction": "Horde",
+          "resolved_at": "2026-10-23T16:21:21+00:00",
+          "metric_check": "dps ranked on 15 boss(es)",
+          "ranked_bosses": [
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+          ],
+          "origin": "ranked in a public report already captured",
+          "evidence": {
+            "archive": "tests/golden/classes/raw/class-priest-shadow.zip",
+            "member": "reports/dD1XmanHC3rkAz98/bundle.json",
+            "locator": "reportData.report.rankings.data[0].roles.tanks.characters[1]"
+          }
+        }
+      ],
+      "remaining_bosses": "No reusable registered capture; all15 bosses scheduled."
+    }
+  ],
+  "independent_review": "Pending under standing conditional production approval; author verification is not a pair verdict.",
+  "production_state": "Parked; existing default/MC queue and production data untouched."
+}
