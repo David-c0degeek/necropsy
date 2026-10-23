@@ -1,4 +1,4 @@
-# Remaining Naxx work — 2026-10-22
+# Remaining Naxx work — 2026-10-23
 
 The plan remains at 26 IN_PROGRESS, 484 TODO and zero COMPLETE cells.
 The earlier single-attempt limit bounded a capture job; it did not require
@@ -7,7 +7,7 @@ stopping source, content or verification work. Those streams continue.
 | Work | Current evidence | What remains and dependency |
 |---|---|---|
 | Local inference | Off and removed from active Naxx work under D016; tested work kinds failed acceptance | No further model experiments scheduled and no completion dependency. Codex continues the work. A future explicitly requested use must verify a saved balanced tune and actual launch arguments. |
-| Measured v2 capture and smoke | All six 0.6.0 attempts stopped on database points, retaining 693 successful responses without an archive. Resume-priority fix released as 0.6.1 after full/installed/four-platform checks; fixed-image attempts 007–008 wait until 22:24:12 UTC | A finished archive, strict short/complex-fight encounter/critical/actor checks and real quota/page/event measurements. The released fixed image passed network-disabled preflight; real finalization, archive and smoke checks remain. Waiting on WCL does not block offline work. |
+| Measured v2 capture and smoke | All six 0.6.0 attempts stopped on database points, retaining 693 successful responses without an archive. Resume-priority fix released as 0.6.1 after full/installed/four-platform checks; fixed-image attempts 007–008 also hit quota but saved 13 independent finalizations. Further attempts 009–014 are supervised under a six-attempt/eight-hour bound | A finished archive, strict short/complex-fight encounter/critical/actor checks and real quota/page/event measurements. The released fixed image passed network-disabled preflight; real finalization, archive and smoke checks remain. Waiting on WCL does not block offline work. |
 | Candidate queue | 177 identity resolutions, 62 ranking checks, 23/34 configurations ready | Finish six unresolved identity pools and five empty/exhausted pools (rejected-candidate cap fixed offline), then emit/verify/pin and independently review the bulk queue after the measurement releases API ownership. Unknown faction or ranking evidence must not be bypassed. |
 | Tower production and intake | Production capture parked on 0.5.2; watchdog off; separate published 0.6.1 fixed measurement image | Conditional restart already approved, but measured smoke and the reviewed bulk queue must pass first. Then monitor, copy/check archives and register eligible actor sources. The 0.6.1 operational patch preserves 0.6.0; final Naxx content acceptance remains separate. |
 | Work-order acceptance | Fact-freeze replay and 70 tests pass, including explicit dispels; historical local trials failed acceptance | Validate raw-scanner full-scope behavior against real v2 evidence. Do not retry or edit historical trials into acceptance. Codex owns source/content work. |
@@ -18,11 +18,11 @@ stopping source, content or verification work. Those streams continue.
 | Product acceptance | Published 0.6.0 compatibility baseline retained | Real new-v2/live/package checks, new-content desktop/mobile/print visual review, installed release-candidate checks and owner acceptance. Current checkpoint preserves all 57 legacy outputs and passes 92 browser checks. |
 
 Current runtime evidence is in the ignored
-`workspace/codex-naxx/measurement-20261022/fixed-061-collector-status.json` and
-Tower's `data/measurement-controller-061/status.json`. Initial and older bounded
+`workspace/codex-naxx/measurement-20261022/next-061-collector-status.json` and
+Tower's `data/measurement-controller-061-next-20261023/status.json`. Initial and older bounded
 collector records are historical. The fixed coordinator is the sole WCL owner;
 do not run competing PC data requests. Cancel only
-`necropsy-naxx-measurement-fixed-061-20261022` and preserve its mounted state.
+`necropsy-naxx-measurement-061-20261023` and preserve its mounted state.
 The collector verifies any archive and retires that exact temporary controller
 only after collection and private archival. Production stays parked.
 

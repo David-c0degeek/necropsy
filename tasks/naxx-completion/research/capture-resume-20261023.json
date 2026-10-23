@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-23",
+  "kind": "bounded continuation of the same isolated released-image capture; no production restart",
+  "observed_at_utc": "2026-10-23T07:58:14Z",
+  "prior_result": "Attempts 007/008 hit database quota without archives; 13 successful independent finalization responses retained, all 693 acquisition bytes unchanged; collected controller retired at 2026-10-22T23:28:38Z. No worker remained until this continuation.",
+  "reason": "Real saved finalization requests demonstrate progress under the fix. Continue across quota windows under standing autopilot, with explicit limits and output verification.",
+  "container": "necropsy-naxx-measurement-061-20261023",
+  "container_id": "c18a517be749b087f29494cadfd11cd301a96799af9374c3dcbcdb99038ea5b8",
+  "image_id": "sha256:0d462ae2e039fd4f9a9a4ff840658077ebdb97460048cfb5ee1c0ae47ccd16fe",
+  "version": "0.6.1",
+  "wheel_sha256": "b331510f6ca9e82b7752fa518cde1083b68156b77681d186089cd3f2e42d079e",
+  "started_at_utc": "2026-10-23T07:56:44Z",
+  "first_not_before_utc": "2026-10-23T07:58:44Z",
+  "attempt_ids": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "maximum_attempts": 6,
+  "controller_timeout_seconds": 28800,
+  "child_timeout_seconds": 7200,
+  "space_floor_gib": 50,
+  "init": true,
+  "restart_policy": "no",
+  "stop_timeout_seconds": 90,
+  "logs": "json-file 10m x3",
+  "queue_sha256": "6f93f538148cfd92fa0a9c4f5e017615b3d67af09bda2072e4fdea7822780078",
+  "checkpoint_sha256": "337e1328cb71f26fa9e1c62ebc1b484b7f43bd42b799414a6a1e5b59bf11863f",
+  "preflight": "network disabled; released version/wheel, unchanged queue/checkpoint and seed 008 verified; zero API/model calls",
+  "controller_state": "data/measurement-controller-061-next-20261023/status.json",
+  "collector": {
+    "process_id": 30316,
+    "status_path": "workspace/codex-naxx/measurement-20261022/next-061-collector-status.json",
+    "bounds": "nine-hour watcher for eight-hour controller",
+    "verification": "exact image/container; copy child log/controller/outcome and any archive/entries, remote/local archive digest, full member hashes and selected strict short/complex v2 checks",
+    "cleanup": "only after collection and private archival, exact exited zero-layer expected-three-bind controller; images and all mounted state retained",
+    "guard_checks": "bash syntax and synthetic metadata checks pass; waiting/uncollected job refuses without SSH; running/nonzero-layer mutations refused; no live removal during probes"
+  },
+  "available_space_kib": 317402964,
+  "production": "parked runner exited, status page running",
+  "local_ai": "off; no model process or listeners on 8080/11435 at fresh PC check",
+  "scripts_sha256": {
+    "resume-fixed-061-next.py": "cf2c1d46ac25b2770c4afb9d16d653b6f9938854f0f6f12d6254fd76ead44ab8",
+    "collect-next-061.py": "bfff648245912837727bceb0018e74234891884c64b61f45c8d126f0642d3a3b",
+    "cleanup-next-061.py": "3cc4316709ab6534ae904978e69fc45f0517d45e6dc82ff8dd576a527f05a311"
+  },
+  "limits": [
+    "No archive, real v2 smoke or new COMPLETE cell as of the prior collected attempts. Current attempt results require collection/verification.",
+    "Thirteen successful finalization requests are not 13 completed cells or an unconditional archive completion percentage; 59 report sets came from the earlier saved-entry replay.",
+    "No competing PC WCL call, queue switch, bulk queue approval, production promotion, live-account acceptance or model launch.",
+    "The six-attempt/eight-hour bound stops on success, attention/owner stop, space floor, deadline or attempt limit; it is not an indefinite retry loop."
+  ]
+}

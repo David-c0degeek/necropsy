@@ -1,6 +1,6 @@
 # NaxxCompletion-Plan.md — Complete Classic Era Naxxramas for every class, spec and faction
 
-> **Status: IN_PROGRESS — subjects 00–01 complete; 0.6.1 operational patch published; isolated fixed-image retry waits for WCL reset; local inference out of the active workflow.** Created 2026-10-21.
+> **Status: IN_PROGRESS — subjects 00–01 complete; 0.6.1 operational patch published; bounded isolated fixed-image capture continues across quota windows; local inference out of the active workflow.** Created 2026-10-21.
 > **Purpose.** Bring Naxxramas (zone 2006, 15 bosses) to the layer-based
 > completion bar that the parked raid work reached for Molten Core: every legal
 > boss × configuration cell COMPLETE with real actor evidence, raw-first

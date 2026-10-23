@@ -188,3 +188,20 @@ checkpoint. The exact-container collector verifies outputs and has guarded
 private archival/removal after collection. Production remains parked, local AI
 off and smoke/cost/bulk-queue review open. Full provenance, limits and cancel
 identity are in `research/capture-fixed-release-20261022.json`.
+
+2026-10-23 · Collected fixed-version progress and continued supervision ·
+Attempts 007/008 again stopped on database quota without archives, but retained
+4 and 9 independent finalization answers respectively. All 693 earlier
+acquisition request bytes are unchanged; all 706 response-data digests pass.
+`research/capture-attempt-008-20261023.json` records the 13 saved finalizations,
+outcomes and successful guarded controller retirement at 23:28:38 UTC. The
+two-attempt bound had ended; no capture worker was active until continuation.
+
+Under standing autopilot, the same released image/cache/checkpoint/checked
+one-entry queue now continues with fresh attempts 009–014, at most six attempts
+in eight hours (two hours each, 50 GiB floor). Network-disabled seed/version/
+wheel/queue/checkpoint preflight passed; collector PID30316 pins the exact
+container/image and verifies outputs before guarded private archival/removal.
+First attempt is due 07:58:44 UTC / 09:58 Amsterdam. No production restart or
+model use. `research/capture-resume-20261023.json` binds limits, scripts and
+current status/cancel identity. No archive/smoke or completed cell is claimed.
