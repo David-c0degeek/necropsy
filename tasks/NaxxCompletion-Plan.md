@@ -1,6 +1,6 @@
 # NaxxCompletion-Plan.md — Complete Classic Era Naxxramas for every class, spec and faction
 
-> **Status: IN_PROGRESS — subjects 00–01 complete; 0.6.1 operational patch published; real v2 archive/smoke verified; all34 candidate pools checked; local inference out of the active workflow.** Created 2026-10-21.
+> **Status: IN_PROGRESS — subjects 00–01 complete; real v2 archive/smoke verified; 34-run queue independently reviewed; production restarted and quota-deferred; local inference off.** Created 2026-10-21.
 > **Purpose.** Bring Naxxramas (zone 2006, 15 bosses) to the layer-based
 > completion bar that the parked raid work reached for Molten Core: every legal
 > boss × configuration cell COMPLETE with real actor evidence, raw-first
@@ -143,6 +143,7 @@ with a source.
 
 | ID | Date | Title | Decision | Rationale | Refs |
 |---|---|---|---|---|---|
+| D017 | 2026-10-23 | Independent Codex restart review | Use a separate Codex reviewer for the prepared queue/image and associated operational fix while Claude is unavailable. Root remains sole writer. Retain actual read-only verdicts and existing restart conditions; no content/cell/product acceptance is waived. | Owner answered "Use a separate Codex reviewer" to the explicit reviewer question. | 03; research/independent-queue-review-20261023.json |
 | D016 | 2026-10-22 | Remove unproven local inference from active Naxx work | Keep local AI off and schedule no further local-model experiments for this plan. Codex continues implementation, source/content work and verification. Preserve failed trials and useful verifier tools; do not present local inference as a completion dependency or independent review. A future explicitly requested model use still requires the saved balanced tune and verified effective arguments. | Owner: "if the local AI gives no value, i dont see the point. next?" Both tested work kinds failed acceptance, current guidance drafts already exist and no critical-path task requires inference. | D009; D013; D015; 02–07 |
 | D012 | 2026-10-21 | Codex accepts implementation ownership | Codex is the sole shared-tree writer and coordinator after pair handoff epoch 2 at 10ba2f2. Continue the owner-authorized 0.6.0 release, then measured Naxx v2 acquisition and remaining subjects. Claude remains required reviewer in the harness; LocalPilot remains advisory under D009. Tower restart and final acceptance remain owner gates. | Claude relayed owner instructions: "codex will take it from here with localpilot" and "Cut v0.6.0 release"; mailbox claude:14/15, handoff-2026-10-21-codex.md. | 01–07 |
 | D013 | 2026-10-21 | Codex continues while Claude has no usage | Continue implementation solo as directed by the owner. Record Claude as rate-limited and park the existing pair session, retaining its pending reviews without manufacturing approval. This supersedes the requirement to await Claude before ordinary implementation; it does not promote LocalPilot to reviewer, waive capture validation or authorize final product acceptance. The conditional Tower restart prerequisites remain recorded and must be satisfied before production restart. | Owner: "since Claude has no more usage - you need to pick up where we left off". | 02–07 |
@@ -169,9 +170,9 @@ with a source.
 | [x] | 00 | `00-tooling-research-and-readiness.md` | DONE | agent; product-owner (XMP) | yes |
 | [x] | 01 | `01-naxx-register-and-strategy-seam.md` | DONE | agent; released 0.6.0, close-out recorded | n/a |
 | [ ] | 02 | `02-local-work-orders.md` | IN_PROGRESS — verifiers and510 drafts prepared; inference removed under D016; independent review open | agent; product-owner (local inference hold) | yes |
-| [ ] | 03 | `03-naxx-captures.md` | IN_PROGRESS — real v2 smoke passed; partial archive intaken; full queue/review and production remain open | agent; product-owner (Tower restart) | yes |
-| [ ] | 04 | `04-boss-research-and-raw-facts.md` | IN_PROGRESS — source/capability review and prior actor facts prepared; new v2 raw work open | agent | n/a |
-| [ ] | 05 | `05-ranking-oracles.md` | IN_PROGRESS — raw DPS generator and39 prior matches; exact-cell/HPS policies open | agent | n/a |
+| [ ] | 03 | `03-naxx-captures.md` | IN_PROGRESS — real v2 smoke and independent queue/image review passed; production restarted, 34 quota-deferred; capture/intake open | agent; product-owner (Tower restart) | yes |
+| [ ] | 04 | `04-boss-research-and-raw-facts.md` | IN_PROGRESS — new-v2 NPC and actor positive facts replay; semantic/source approval open | agent | n/a |
+| [ ] | 05 | `05-ranking-oracles.md` | IN_PROGRESS — 49 new-v2 arithmetic matches/40 ownership refusals, separate 39 v1 matches; exact-cell/HPS policies open | agent | n/a |
 | [ ] | 06 | `06-content-receipts-and-batches.md` | IN_PROGRESS —510 source-bound drafts and layout packet prepared; independent content approval/batches open | agent | n/a |
 | [ ] | 07 | `07-product-acceptance.md` | IN_PROGRESS — legacy and real-v2 installed/visual controls pass; all-class final acceptance open | agent; product-owner | yes |
 

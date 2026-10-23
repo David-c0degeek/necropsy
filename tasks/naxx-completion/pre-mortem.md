@@ -504,3 +504,26 @@ whole-operation wall-clock guarantee. Existing limitation is retained, not
 misrepresented as strict timing proof. Resolution path Mitigated; verdict
 PROCEED WITH GUARDRAILS. Rollout only during observed quota wait/no live child,
 with a separate reviewed runner image and unchanged queue/wheel/state schema.
+
+PM-20 calibration: Mitigated / Prevented Prediction. Fresh Naxx state has the
+exact 34 queue entries; old MC state/status bytes remain identical to private
+backup. Original definitions/logs and all data/images retained; only exact exited
+predecessors retired after private manifest/layer checks. New worker rollout
+preserved every deferred entry/inflight record and left www running.
+
+PM-21 calibration: Mitigated / Prevented Prediction for the independently caught
+attention-state readiness gap. Live queue SHA/heartbeat/new binds and restored
+15-minute watchdog verified against new paths. Deployment misses were host shell
+execution (explicit bash required), Docker top requiring a PID column and mixed
+heartbeat/launch timestamp precision. Failed guards/logs retained. The timestamp
+false failure was resolved using actual Docker start and newer status-file mtime
+plus fresh heartbeat, while retaining readiness/state checks. These were harness
+issues, not evidence of a failed capture; no data was reset or policy approved.
+
+PM-22 calibration: Mitigated / Confirmed Prediction at source review. The original
+start alert failed once, then delivered on a later transition. Four new cases
+fail against the old runner; 74 runner tests and 2714 full fast tests pass for the
+fix. Independent source review and actual network-disabled image/child tests
+pass. Reviewed image 372d7ecc deployed during no-child quota wait; all 34 entry
+records unchanged, exact runner hash and host watchdog verified. Nominal network
+timeout limitation remains explicit. No manual notification or local AI used.

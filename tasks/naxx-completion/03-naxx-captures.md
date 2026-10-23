@@ -338,3 +338,18 @@ was implemented,74 runner tests pass/3skip, and4newcases fail againstoldsource.
 Independentreview passes the fix; separate image build/full gate/promotion follow
 without changing public release wheel, queue or persisted state.03.4 monitoring
 and03.5 remaining intake stayopen; full configuration/cell acceptance is separate.
+
+2026-10-23 · Alert supervision deployed during quota wait · Source 920977f
+passes the full gate with eight workers: 2714 fast/29 skipped, 74 runner/3 skipped,
+lint, format, mypy, docs and unchanged-tree checks. Independent source, context
+and rollout reviews pass. New worker image 372d7ecc uses the same public 0.6.1
+wheel and queue; network-disabled image checks exercise one-send/stop and actual
+active-child retry/cleanup without credentials. Worker-only replacement during
+verified no-child wait preserves all 34 deferred entry records, inflight None,
+attempt paths/cache/output, and the unchanged www container. Exact predecessor
+privately archived/removed after verification; only two active containers remain.
+Host watchdog helper matches the new runner and returns 0. Docker process-format
+and heartbeat timestamp-precision checks failed safely and were corrected using
+actual process/start/mtime evidence; no state was reset. Scheduled retry remains
+21:41:39 UTC, pending alerts 0, local AI off. Receipts are retained in
+research/production-promotion-20261023/. Full capture/intake remain open.

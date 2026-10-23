@@ -1,0 +1,25 @@
+{
+  "reviewer": "Separate Codex /root/queue_reviewer",
+  "verdict": "PASS",
+  "source_commit": "920977f8655c165e79c61daa057d7f99c66a186c",
+  "manifest_sha256": "49310c735f2e3ca166c9e41920c2addd07b793f41ef10b69d8f49f3c7a5f7d7d",
+  "runner_sha256": "277598ac652c79c8f0b266d27ec993e9cf8bcdb509a218fa8e67ada65bc495a7",
+  "wheel_sha256": "b331510f6ca9e82b7752fa518cde1083b68156b77681d186089cd3f2e42d079e",
+  "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+  "checks": [
+    "All nine manifest hashes and eight source/queue Git blobs match",
+    "All nonrunner context files and wheel bytes equal prior reviewed context",
+    "Worker-only rollout reviewed before execution; corrected process guard helper SHA f3a02e0ed63d4bc24848d1e015064de54637dac634a050b8db5aebc283eb38ce"
+  ],
+  "root_full_gate": {
+    "commit": "920977f8655c165e79c61daa057d7f99c66a186c",
+    "workers": 8,
+    "fast_passed": 2714,
+    "fast_skipped": 29,
+    "related_passed": 74,
+    "related_skipped": 3,
+    "all_selected_checks_passed": true,
+    "log": "workspace/codex-naxx/measurement-20261022/alert-retry-full-gate.log"
+  },
+  "scope": "Queue/image/operational retry fix only; no content/policy/cell approval"
+}
