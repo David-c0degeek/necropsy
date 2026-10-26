@@ -1,0 +1,35 @@
+{
+  "kind": "Offline migration proof for a hash-pinned pre-clear production state",
+  "source": {
+    "path": "workspace/quota-gate-20261026/state-before-clear-20261026T1345.json",
+    "sha256": "9dd2a0ffdc7f031f9e8e1797a2e69adf056a5daa74b148e196e314b2146a5dfa"
+  },
+  "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+  "runner_sha256": "de277babdb83c78006848c90f3200bea994614ca0bb63fa81fbb0c792cd4decb",
+  "entries": 34,
+  "entry_records_sha256": "bcaae0edd40b2333ef74263a43ae30edd2e0047dca3fadfa94a094f2f9db3739",
+  "counts": {
+    "deferred": 33,
+    "partial": 1
+  },
+  "preserved_attention_incident": 2,
+  "state_version": 2,
+  "clocks": [
+    {
+      "clock": "2026-10-26T12:41:46+00:00",
+      "expected_gate": "2026-10-26T13:40:47+00:00",
+      "all_other_state_equal": true
+    },
+    {
+      "clock": "2026-10-26T13:43:54+00:00",
+      "expected_gate": null,
+      "all_other_state_equal": true
+    }
+  ],
+  "limits": [
+    "The fixture is a retained on-NAS state copy, not an off-server backup.",
+    "A clean checkout needs the pinned private workspace input restored before replay.",
+    "Expired waits do not create a new deadline or clear an existing attention incident.",
+    "No WCL call, production-state write, credential access or live recovery occurs."
+  ]
+}

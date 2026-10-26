@@ -64,6 +64,17 @@ These checks do not satisfy the pending real-capture or review conditions.
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
+2026-10-26 · Shared quota controller fix prepared · Reproduced both production
+incident orderings offline: the old per-entry scheduler launches a different
+entry before the known account reset, then pauses on its reset-less 429. The
+controller now persists a shared deadline and migrates only future known waits,
+without changing entry records or clearing attention. The pinned pre-clear
+state passes a two-clock migration proof in research/quota-gate-20261026/.
+Review and the eight-worker full gate precede push. The owner approved the fixes,
+release and Tower image rollout (mailbox claude:42); Claude retains live probing
+and incident recovery until the reviewed fixed image is ready. Fight-centric
+capture and report batching are the next unit, after this fix and release.
+
 2026-10-26 · Partial production intake classification · The October24 production
 archive (SHA256 837485a99ae96dfd644d410933f64947a0b4b236f47cd3dbff6cda5e6f293f5b,
 55,832,205 bytes) is retained on Tower and in the ignored intake workspace.

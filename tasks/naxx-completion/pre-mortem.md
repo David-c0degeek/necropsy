@@ -693,3 +693,74 @@ Derived-target calibration before independent review, 2026-10-26:
   structural equality after masking only the two provenance fields, with planted
   self-tests. The freezer change adds only `/tool_sha256` to the strict check of
   all 53 committed DPS oracles (oracle-compat.json).
+
+## 2026-10-26: shared quota deadline in the capture controller
+
+Failed future: one entry correctly waits for a known reset, but a different
+entry immediately spends against the same account and receives a reset-less
+429. Or deployment/restart forgets the shared wait and recreates the incident.
+The October 24 and 26 incident receipts support this failure; `Runner.apply`
+currently updates only the stopping entry, and `next_entry` considers only each
+entry's own retry time. Claude retains live Tower operations during this work.
+
+**PM-31 — High — restart or a partial commit loses the account wait.**
+Basis: [evidence: `capture_runner.Runner.load`, `apply`, `save`, existing
+crash-before/after-commit tests; live state has historical mixed deferrals].
+Guardrail: persist the optional `quota_until_utc` in the same atomic state write
+as the verified outcome and inflight clearing. Keep state version 2, preserve
+every entry/attempt/archive record, and derive legacy waits only from exact
+known quota-stop reasons with a still-future parsed retry time. Refuse malformed
+new gate timestamps. Test restart, both commit crash boundaries, mixed/expired
+legacy retries and a hash-pinned copy of the real pre-clear state. Rollback
+keeps the additive field readable by old code, but old code does not enforce it:
+stop the worker and preserve state before any rollback. Detection: before merge.
+
+**PM-32 — High — a shared wait hides genuine attention or invents a reset.**
+Basis: [evidence: `decide` pauses unknown resets, authentication failures and
+unverified receipts; the quota gate is not a database-readiness guarantee].
+Guardrail: a verified quota receipt may reuse an existing gate only while that
+deadline is future, without extending it. Unknown resets without that evidence,
+expired gates, authentication and corrupt receipts retain attention. Never
+clear a saved incident during migration. Test the October 24 three-minute
+ordering, known/unknown reset pairs, expiry and nonquota failures. The gate is
+shared across this one runner's configured identity, not a lock across unrelated
+processes/accounts. Detection: before merge; live readiness remains observed.
+
+**PM-33 — Medium — scheduling or status waits forever or raises a false alert.**
+Basis: [evidence: `next_entry` also identifies terminal completion, `status`
+publishes retry time, and `run`/watchdog consume the waiting state].
+Guardrail: terminal queues finish even with a future gate; runnable work cannot
+start before the gate, while later individual retry delays still hold. Publish
+the actual earliest gated retry using the existing status fields. Gate waits
+remain `waiting`, with heartbeats and alert retries, and create no attention
+incident. Test terminal/expiry/later-transient cases and status/outbox behavior.
+Detection: before merge.
+
+Verdict: PROCEED WITH GUARDRAILS. Persist these deadlines only from verified
+outcomes or existing known quota deferrals. No API query, WCL limit request,
+credential change, capture-content change or incident auto-clear is involved.
+Code review and the eight-worker full gate precede commit/push; the approved
+release and image rollout use verified artifacts and separate state backups.
+
+Shared-quota checkpoint calibration, 2026-10-26:
+- PM-31 Prevented Prediction at the offline horizon. Existing before/after
+  commit crash tests now assert the same persisted account deadline on both
+  reconciliations. The hash-pinned real-state proof preserves every field except
+  the expected additive deadline, including all 34 entries and attention incident
+  2. Legacy expired waits do not become a new gate; malformed deadlines refuse.
+  Live deployment/rollback behavior remains a rollout horizon.
+- PM-32 Prevented Prediction for receipt handling. Both incident orderings fail
+  on the old scheduler and pass with the gate. Unknown-reset in-flight receipts
+  reuse a future gate without extending it; expiry, authentication and invalid
+  receipts still require attention. This prevents the premature second child,
+  not arbitrary database-quota exhaustion after the observed deadline.
+- PM-33 Confirmed Prediction during pre-merge verification. The first revision
+  briefly published `running` at startup before entering a gate wait, which could
+  make the watchdog treat historical progress as stalled. A publication-level
+  regression caught it; startup now chooses `waiting` before its first write.
+  Terminal work finishes, expiry releases pending work, later transient delays
+  hold, and every gate-wait publication stays quiet with no watchdog alert.
+- Resolution: all three are Mitigated pending independent review and the
+  approved deployment. No new material miss was found; the shared-budget lesson
+  is appended to lessons.md. The code checkpoint does not close 03.4/03.5 or
+  imply any COMPLETE cell.

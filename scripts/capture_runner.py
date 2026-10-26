@@ -5,7 +5,8 @@ decides what happens next only from the attempt's `--outcome-json` receipt,
 checked against what the runner itself observed (the child's exit code, start
 time and output directory) and against the actual files. Anything missing,
 malformed or contradictory stops the queue as Needs attention; nothing is
-inferred as complete, refused or quota-limited.
+inferred as complete, refused or quota-limited. A verified quota deadline gates
+every entry using this runner's account, not only the entry that reached it.
 
 Every attempt is recorded as in flight before the child starts. Its result is
 committed in the same state write that clears it, so a crash before or after
@@ -268,14 +269,19 @@ def public_reason(reason: str) -> str:
         return "Capture ended with source limitations; review the saved evidence."
     if reason == "the Warcraft Logs sign-in needs attention":
         return "Warcraft Logs sign-in needs attention. Capture is paused."
-    if reason in ("quota-reset stop", "quota-reserve stop"):
+    if reason in (
+        "quota-reset stop",
+        "quota-reserve stop",
+        "quota-reset stop using the existing account reset",
+        "quota-reserve stop using the existing account reset",
+    ):
         return "Waiting for the observed quota reset."
     if reason in (
         "quota-reset stop without a known reset time",
         "quota-reserve stop without a known reset time",
     ):
         return "Quota reset time is unknown. Review is needed."
-    if reason == "waiting for the hourly quota reset":
+    if reason in ("waiting for the hourly quota reset", "waiting for the observed quota reset"):
         return "Waiting until a scheduled retry. No new capture is running."
     if reason.startswith(
         (
@@ -400,7 +406,13 @@ def verify_outcome(receipt: Path, inflight: dict[str, Any]) -> dict[str, Any] | 
     return checked
 
 
-def decide(data: dict[str, Any], transient_attempts: int, now: datetime) -> Verdict:
+def decide(
+    data: dict[str, Any],
+    transient_attempts: int,
+    now: datetime,
+    *,
+    quota_until: datetime | None = None,
+) -> Verdict:
     stop = data["stop_class"]
     snapshot = data["snapshot"]
     archive = None if snapshot is None else {k: snapshot[k] for k in ("archive", "sha256")}
@@ -411,8 +423,17 @@ def decide(data: dict[str, Any], transient_attempts: int, now: datetime) -> Verd
     if stop in ("quota-reset", "quota-reserve"):
         reset = parse_iso(data["reset_at_utc"])
         if reset is None:
+            if quota_until is not None and quota_until > now:
+                return Verdict(
+                    DEFERRED,
+                    f"{stop} stop using the existing account reset",
+                    retry_at=quota_until,
+                )
             return Verdict(DEFERRED, f"{stop} stop without a known reset time", pause=True)
-        return Verdict(DEFERRED, f"{stop} stop", retry_at=max(reset, now) + RESET_MARGIN)
+        retry = max(reset, now) + RESET_MARGIN
+        if quota_until is not None:
+            retry = max(retry, quota_until)
+        return Verdict(DEFERRED, f"{stop} stop", retry_at=retry)
     if stop == "refused":
         return Verdict(REFUSED, "this candidate was refused", next_candidate=True)
     if stop == "auth":
@@ -597,6 +618,31 @@ class Runner:
                     "attempts": 0,
                 },
             )
+        self.restore_quota_gate()
+
+    def restore_quota_gate(self) -> None:
+        """Preserve a saved gate and recover future waits from pre-gate state files.
+
+        Entry records and existing attention incidents are deliberately untouched.
+        Older binaries can read the additive field but do not enforce its gate.
+        """
+        value = self.state.get("quota_until_utc")
+        gate = parse_iso(value)
+        if value is not None and gate is None:
+            raise QueueError("the saved account quota deadline is invalid")
+        now = self.now()
+        for info in self.state["entries"].values():
+            if info["state"] != DEFERRED or info["reason"] not in (
+                "quota-reset stop",
+                "quota-reserve stop",
+            ):
+                continue
+            retry = parse_iso(info["retry_at"])
+            if retry is None:
+                raise QueueError("a saved known quota retry deadline is invalid")
+            if retry is not None and retry > now:
+                gate = retry if gate is None else max(gate, retry)
+        self.state["quota_until_utc"] = iso(gate) if gate is not None and gate > now else None
 
     def save(self) -> None:
         write_json(self.state_file, self.state)
@@ -631,6 +677,14 @@ class Runner:
             if info["state"] in (DEFERRED, RETRY)
             and (when := parse_iso(info["retry_at"])) is not None
         ]
+        gate = parse_iso(self.state["quota_until_utc"])
+        now = self.now()
+        if gate is not None and gate > now:
+            due = [
+                max(gate, parse_iso(info["retry_at"]) or now)
+                for info in self.state["entries"].values()
+                if info["state"] not in TERMINAL
+            ]
         inflight = self.state["inflight"]
         current = None
         if inflight is not None and inflight["entry"] in by_id:
@@ -732,12 +786,15 @@ class Runner:
     def next_entry(self) -> tuple[Entry | None, datetime | None]:
         """The next runnable entry, or the earliest retry time when all are waiting."""
         now = self.now()
+        gate = parse_iso(self.state["quota_until_utc"])
         earliest: datetime | None = None
         for entry in self.entries:
             info = self.state["entries"][entry.entry_id]
             if info["state"] in TERMINAL:
                 continue
             retry = parse_iso(info["retry_at"])
+            if gate is not None and gate > now:
+                retry = max(gate, retry or now)
             if retry is not None and retry > now:
                 earliest = retry if earliest is None else min(earliest, retry)
                 continue
@@ -771,7 +828,11 @@ class Runner:
 
     def _run(self) -> int:
         if self.state["controller"]["state"] not in (ATTENTION, FINISHED):
-            self.set_controller(RUNNING)
+            _, wait_until = self.next_entry()
+            if wait_until is not None:
+                self.set_controller(WAITING, "waiting for the observed quota reset")
+            else:
+                self.set_controller(RUNNING)
             self.alert(
                 "start:" + self.state["queue_sha256"],
                 "Necropsy capture started",
@@ -803,7 +864,7 @@ class Runner:
                 continue
             if entry is None:
                 assert wait_until is not None
-                self.set_controller(WAITING, "waiting for the hourly quota reset")
+                self.set_controller(WAITING, "waiting for the observed quota reset")
                 self.commit()
                 self.wait(wait_until)
                 continue
@@ -942,7 +1003,11 @@ class Runner:
             self.commit()
             return
         now = self.now()
-        verdict = decide(data, info["transient"], now)
+        verdict = decide(
+            data, info["transient"], now, quota_until=parse_iso(self.state["quota_until_utc"])
+        )
+        if verdict.entry_state == DEFERRED and verdict.retry_at is not None:
+            self.state["quota_until_utc"] = iso(verdict.retry_at)
         info["reason"] = verdict.reason
         info["retry_at"] = iso(verdict.retry_at)
         if verdict.archive is not None and verdict.archive not in info["archives"]:

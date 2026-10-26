@@ -218,6 +218,224 @@ def test_a_quota_stop_without_a_reset_time_needs_attention(tmp_path: Path) -> No
     assert any("attention" in title for title, _ in alerts.sent)
 
 
+@pytest.mark.parametrize(
+    ("started", "reset", "gap_seconds"),
+    [
+        ("2026-10-24T16:18:00+00:00", "2026-10-24T17:18:00+00:00", 180),
+        ("2026-10-26T12:41:44+00:00", "2026-10-26T13:38:47+00:00", 2),
+    ],
+)
+def test_one_entry_quota_stop_prevents_another_entry_hitting_an_unknown_reset(
+    tmp_path: Path, started: str, reset: str, gap_seconds: int
+) -> None:
+    clock = Clock()
+    clock.at = datetime.fromisoformat(started)
+    deadline = datetime.fromisoformat(reset) + cr.RESET_MARGIN
+    alerts = Alerts()
+    runner = _runner(tmp_path, clock, alerts, queue=_queue(tmp_path, ENTRY, THREE))
+    starts: list[datetime] = []
+
+    def supervise(command: list[str], log: Path) -> tuple[str, int | None]:
+        starts.append(clock.now())
+        if len(starts) == 1:
+            step = {
+                "exit": 3,
+                "stop": "quota-reset",
+                "reset": reset,
+                "minutes": gap_seconds / 60,
+            }
+        elif clock.now() < deadline:
+            # The account still refuses the next entry, but gives no reset metadata.
+            step = {"exit": 1, "stop": "quota-reset", "reset": None, "minutes": 0}
+        else:
+            step = DONE | {"minutes": 0}
+        result: tuple[str, int | None] = Script(clock, [step])(runner)(command, log)
+        return result
+
+    runner.supervise = supervise  # type: ignore[method-assign]
+    assert runner.run() == 0
+    assert len(starts) == 3 and all(t >= deadline for t in starts[1:])
+    assert _status(tmp_path)["counts"]["complete"] == 2
+    assert not any("attention" in title for title, _ in alerts.sent)
+
+
+@pytest.mark.parametrize("stop", ["quota-reset", "quota-reserve"])
+def test_unknown_quota_reset_can_only_use_an_existing_future_account_deadline(stop: str) -> None:
+    data = {"stop_class": stop, "snapshot": None, "reset_at_utc": None}
+    future = START + timedelta(minutes=20)
+    verdict = cr.decide(data, 0, START, quota_until=future)
+    assert verdict.retry_at == future and not verdict.pause
+    for expired in (None, START, START - timedelta(seconds=1)):
+        assert cr.decide(data, 0, START, quota_until=expired).pause
+    assert cr.decide(data | {"stop_class": "auth"}, 0, START, quota_until=future).pause
+    assert cr.decide(data | {"stop_class": "error"}, 0, START, quota_until=future).pause
+    known = data | {"reset_at_utc": cr.iso(START + timedelta(minutes=5))}
+    assert cr.decide(known, 0, START, quota_until=future).retry_at == future
+
+
+@pytest.mark.parametrize(("second_minutes", "expected_minutes"), [(-2880, 20), (30, 30)])
+def test_legacy_state_reconstructs_only_future_known_quota_waits(
+    tmp_path: Path, second_minutes: int, expected_minutes: int
+) -> None:
+    clock = Clock()
+    queue = _queue(tmp_path, ENTRY, THREE)
+    runner = _runner(tmp_path, clock, queue=queue)
+    runner.state.pop("quota_until_utc", None)
+    records = runner.state["entries"]
+    records[ENTRY["entry_id"]].update(
+        state=cr.DEFERRED,
+        reason="quota-reset stop",
+        retry_at=cr.iso(START + timedelta(minutes=20)),
+    )
+    records[THREE["entry_id"]].update(
+        state=cr.DEFERRED,
+        reason="quota-reserve stop",
+        retry_at=cr.iso(START + timedelta(minutes=second_minutes)),
+    )
+    before = json.dumps(records, sort_keys=True)
+    runner.attention("existing incident", "existing")
+    cr.write_json(runner.state_file, runner.state)  # A legacy writer has no account field.
+    resumed = _runner(tmp_path, clock, queue=queue)
+    assert resumed.state["quota_until_utc"] == cr.iso(START + timedelta(minutes=expected_minutes))
+    assert json.dumps(resumed.state["entries"], sort_keys=True) == before
+    assert resumed.state["controller"]["state"] == cr.ATTENTION
+    assert resumed.state["incident"] == runner.state["incident"]
+
+
+@pytest.mark.parametrize("bad", ["not-a-time", "2026-10-24T16:18:00", 123, {}])
+def test_a_malformed_saved_account_deadline_is_refused(tmp_path: Path, bad: Any) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    runner.state["quota_until_utc"] = bad
+    runner.save()
+    with pytest.raises(cr.QueueError, match="quota"):
+        _runner(tmp_path, clock)
+
+
+@pytest.mark.parametrize("individual_delay", [False, True])
+def test_account_wait_is_quiet_and_status_honors_later_individual_delays(
+    tmp_path: Path, individual_delay: bool
+) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    gate = START + timedelta(minutes=20)
+    later = gate + timedelta(minutes=10)
+    runner.state["quota_until_utc"] = cr.iso(gate)
+    if individual_delay:
+        runner.state["entries"][ENTRY["entry_id"]].update(
+            state=cr.RETRY, retry_at=cr.iso(later), reason="transient failure"
+        )
+    runner.supervise = lambda *args: pytest.fail("a child started during the gate")  # type: ignore[method-assign]
+    runner.sleep = lambda seconds: runner.stopping.set()
+    assert runner.run() == 0
+    assert _status(tmp_path)["state"] == cr.WAITING
+    assert _status(tmp_path)["next_retry_utc"] == cr.iso(later if individual_delay else gate)
+    assert runner.state["outbox"] == []
+    assert not any("pause:" in key for key in runner.state["delivered"])
+    assert runner.state.get("incident", 0) == 0
+    assert cr.watchdog_check(_status(tmp_path), clock.now(), clock.now()) is None
+
+
+def test_pending_entries_wait_for_the_account_gate_but_terminal_entries_finish(
+    tmp_path: Path,
+) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    gate = START + timedelta(minutes=20)
+    runner.state["quota_until_utc"] = cr.iso(gate)
+    assert runner.next_entry() == (None, gate)
+    assert runner.status()["next_retry_utc"] == cr.iso(gate)
+    clock.at = gate
+    assert runner.next_entry() == (runner.entries[0], None)
+    clock.at = START
+    runner.state["entries"][ENTRY["entry_id"]]["state"] = cr.COMPLETE
+    assert runner.next_entry() == (None, None)
+
+
+def test_restarting_a_gate_wait_never_briefly_publishes_a_stalled_running_state(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    runner.state["quota_until_utc"] = cr.iso(START + timedelta(minutes=20))
+    runner.state["last_progress_utc"] = cr.iso(START - timedelta(days=2))
+    published: list[dict[str, Any]] = []
+    real_publish = runner.publish
+
+    def publish() -> None:
+        published.append(runner.status())
+        real_publish()
+
+    monkeypatch.setattr(runner, "publish", publish)
+    runner.sleep = lambda seconds: runner.stopping.set()
+    assert runner.run() == 0
+    assert published and all(status["state"] == cr.WAITING for status in published)
+    assert all(cr.watchdog_check(status, clock.now(), clock.now()) is None for status in published)
+
+
+@pytest.mark.parametrize("step", [{"exit": 1, "stop": "auth", "minutes": 0}, None])
+def test_an_inflight_auth_or_invalid_receipt_still_pauses_with_an_account_gate(
+    tmp_path: Path, step: dict[str, Any] | None
+) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    gate = cr.iso(START + timedelta(minutes=20))
+    runner.state["quota_until_utc"] = gate
+    runner.supervise = Script(clock, [step])(runner)  # type: ignore[method-assign]
+    runner.attempt(runner.entries[0])
+    assert runner.state["controller"]["state"] == cr.ATTENTION
+    assert runner.state["quota_until_utc"] == gate
+
+
+def test_expired_or_unknown_legacy_quota_deferrals_do_not_invent_a_gate(tmp_path: Path) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock, queue=_queue(tmp_path, ENTRY, THREE))
+    runner.state.pop("quota_until_utc")
+    records = runner.state["entries"]
+    records[ENTRY["entry_id"]].update(
+        state=cr.DEFERRED,
+        reason="quota-reset stop",
+        retry_at=cr.iso(START - timedelta(days=2)),
+    )
+    records[THREE["entry_id"]].update(
+        state=cr.DEFERRED,
+        reason="quota-reset stop without a known reset time",
+        retry_at=cr.iso(START + timedelta(hours=1)),
+    )
+    cr.write_json(runner.state_file, runner.state)
+    resumed = _runner(tmp_path, clock)
+    assert resumed.state["quota_until_utc"] is None
+
+
+def test_an_inflight_unknown_quota_receipt_uses_but_does_not_extend_the_gate(
+    tmp_path: Path,
+) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    gate = cr.iso(START + timedelta(minutes=20))
+    runner.state["quota_until_utc"] = gate
+    script = Script(clock, [{"exit": 1, "stop": "quota-reset", "reset": None, "minutes": 3}])
+    runner.supervise = script(runner)  # type: ignore[method-assign]
+    runner.attempt(runner.entries[0])
+    saved = _state(tmp_path)
+    info = saved["entries"][ENTRY["entry_id"]]
+    assert info["state"] == cr.DEFERRED and info["retry_at"] == gate
+    assert saved["quota_until_utc"] == gate and saved.get("incident", 0) == 0
+    assert runner.next_entry() == (None, START + timedelta(minutes=20))
+
+
+def test_a_broken_legacy_known_quota_deadline_is_not_silently_ignored(tmp_path: Path) -> None:
+    clock = Clock()
+    runner = _runner(tmp_path, clock)
+    runner.state.pop("quota_until_utc")
+    runner.state["entries"][ENTRY["entry_id"]].update(
+        state=cr.DEFERRED, reason="quota-reset stop", retry_at="broken"
+    )
+    cr.write_json(runner.state_file, runner.state)
+    with pytest.raises(cr.QueueError, match="quota retry"):
+        _runner(tmp_path, clock)
+
+
 def test_a_final_partial_without_a_stop_is_terminal_and_never_retried(tmp_path: Path) -> None:
     clock = Clock()
     script = Script(clock, [{"exit": 4, "stop": "source-limit", "snapshot": True}])
@@ -426,6 +644,9 @@ def test_a_crash_around_the_result_commit_applies_it_exactly_once(
     if step is REFUSE:
         assert info["candidate"] == 1
     assert info["transient"] <= 1 and twice.state["inflight"] is None
+    if step.get("stop") == "quota-reset":
+        expected = cr.iso(START + timedelta(hours=1) + cr.RESET_MARGIN)
+        assert once.state["quota_until_utc"] == twice.state["quota_until_utc"] == expected
 
 
 def test_a_requested_stop_resumes_from_the_checkpoint_on_restart(tmp_path: Path) -> None:

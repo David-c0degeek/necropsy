@@ -1,6 +1,6 @@
 # NaxxCompletion-Plan.md — Complete Classic Era Naxxramas for every class, spec and faction
 
-> **Status: IN_PROGRESS — subjects 00–01 complete; real v2 archive/smoke verified; 34-run queue independently reviewed; production restarted and quota-deferred; local inference off.** Created 2026-10-21.
+> **Status: IN_PROGRESS — subjects 00–01 complete; eight exact-cell DPS policies recorded; v3 target derivation verified in code; shared quota fix prepared; release/image rollout pending; local inference off.** Created 2026-10-21.
 > **Purpose.** Bring Naxxramas (zone 2006, 15 bosses) to the layer-based
 > completion bar that the parked raid work reached for Molten Core: every legal
 > boss × configuration cell COMPLETE with real actor evidence, raw-first
@@ -23,12 +23,12 @@
 
 | Field | Value |
 |---|---|
-| Mode | `solo` (owner-directed continuation while Claude is out of usage, D013) |
-| Primary owner | Codex (shared-tree writer after the 2026-10-21 handoff, D012) |
+| Mode | `coordinated` (Claude/Codex pairing restored 2026-10-26, D018) |
+| Primary owner | Codex (shared-tree writer for the controller/release unit after handoff epoch 4) |
 | Coordinator | Codex |
 | Resume safety | required |
 | Parallel branches | `no` — the local runner writes drafts outside the repository only |
-| Notes | Current authority is D013, superseding the active pairing requirement in D012 while Claude is unavailable. **Codex** writes the shared tree, continues implementation and leads UI/UX. The prior pair session is parked with Claude's reported quota pause and its outstanding review requests retained; no Claude verdict is implied. **Local runner**: OFF and removed from active work under D016 after failed raw/guidance trials. Codex owns implementation and source/content work; unavailable inference is no completion dependency or reviewer. Future explicitly requested LocalBox use must select an available saved balanced tune and verify its effective launch arguments. One shared-tree writer at a time. Tower runs WCL captures from a reviewed queue only; the recorded restart prerequisites remain. |
+| Notes | The pair session is active again under D018. **Codex** owns controller implementation, release preparation and UI/UX; **Claude** is the required reviewer and retains live Tower operations until fixed-image handover. Ownership moves only through explicit pair handoff. D013 records the historical solo interval, not current authority. **Local runner** remains OFF under D016 and is no dependency or reviewer. Future explicitly requested LocalBox use must select an available saved balanced tune and verify its effective launch arguments. Tower uses the reviewed queue; final Naxx product acceptance remains open. |
 
 ### Parallel work tracker
 
@@ -143,6 +143,7 @@ with a source.
 
 | ID | Date | Title | Decision | Rationale | Refs |
 |---|---|---|---|---|---|
+| D018 | 2026-10-26 | Restore pairing and authorize operational follow-through | Claude/Codex pairing is active; after epoch 4 Codex owns the quota-controller fix and release preparation, Claude reviews and retains live Tower operations until fixed-image handover. Owner approved the fixes, release and Tower image rollout; normal artifact verification and state backups remain. After that, investigate fight-centric reuse combined with report batching, starting with a measured offline estimate. No WCL limit request and no local inference. | Owner decisions relayed in pair mailbox claude:42; previous code units independently reviewed and pushed as 7eb1a03, 96f728c and 3062569. Product acceptance is separate. | 03–07; manual-actions.md |
 | D017 | 2026-10-23 | Independent Codex restart review | Use a separate Codex reviewer for the prepared queue/image and associated operational fix while Claude is unavailable. Root remains sole writer. Retain actual read-only verdicts and existing restart conditions; no content/cell/product acceptance is waived. | Owner answered "Use a separate Codex reviewer" to the explicit reviewer question. | 03; research/independent-queue-review-20261023.json |
 | D016 | 2026-10-22 | Remove unproven local inference from active Naxx work | Keep local AI off and schedule no further local-model experiments for this plan. Codex continues implementation, source/content work and verification. Preserve failed trials and useful verifier tools; do not present local inference as a completion dependency or independent review. A future explicitly requested model use still requires the saved balanced tune and verified effective arguments. | Owner: "if the local AI gives no value, i dont see the point. next?" Both tested work kinds failed acceptance, current guidance drafts already exist and no critical-path task requires inference. | D009; D013; D015; 02–07 |
 | D012 | 2026-10-21 | Codex accepts implementation ownership | Codex is the sole shared-tree writer and coordinator after pair handoff epoch 2 at 10ba2f2. Continue the owner-authorized 0.6.0 release, then measured Naxx v2 acquisition and remaining subjects. Claude remains required reviewer in the harness; LocalPilot remains advisory under D009. Tower restart and final acceptance remain owner gates. | Claude relayed owner instructions: "codex will take it from here with localpilot" and "Cut v0.6.0 release"; mailbox claude:14/15, handoff-2026-10-21-codex.md. | 01–07 |
