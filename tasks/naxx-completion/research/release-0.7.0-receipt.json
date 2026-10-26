@@ -1,0 +1,287 @@
+{
+  "kind": "Published 0.7.0 release and deployed capture image; first real resumed output pending",
+  "source_commit": "e0e2ad28494f7fcdb025a1bba48a6f45e83e810f",
+  "release": {
+    "isDraft": false,
+    "isPrerelease": false,
+    "publishedAt": "2026-10-26T15:16:57Z",
+    "tagName": "v0.7.0",
+    "targetCommitish": "e0e2ad28494f7fcdb025a1bba48a6f45e83e810f",
+    "url": "https://github.com/David-c0degeek/necropsy/releases/tag/v0.7.0"
+  },
+  "review": {
+    "session": "20261021T120145Z-a4a14bde",
+    "controller_verdict": "claude:46",
+    "release_verdict": "claude:48",
+    "round": 2,
+    "blocking": 0,
+    "important": 0
+  },
+  "local_gate": {
+    "workers": 8,
+    "fast_passed": 2775,
+    "fast_skipped": 29,
+    "runner_passed": 93,
+    "runner_skipped": 3,
+    "unchanged_tree": true,
+    "log": "workspace/release-0.7.0/full-gate-e0e2ad2.log",
+    "log_sha256": "580bec06d7125ab3658cf3d9dfba5d2b0a8ebf6928277ddec14c0a2093ce5349"
+  },
+  "workflows": [
+    {
+      "databaseId": 40342855847,
+      "headSha": "e0e2ad28494f7fcdb025a1bba48a6f45e83e810f",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342855847",
+      "jobs": [
+        {
+          "name": "lint, types, fast tests (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342855847/job/121641880273"
+        },
+        {
+          "name": "lint, types, fast tests (macos-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342855847/job/121641880337"
+        },
+        {
+          "name": "lint, types, fast tests (ubuntu-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342855847/job/121641880566"
+        }
+      ]
+    },
+    {
+      "databaseId": 40342863499,
+      "headSha": "e0e2ad28494f7fcdb025a1bba48a6f45e83e810f",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342863499",
+      "jobs": [
+        {
+          "name": "Desktop (macos-15-intel)",
+          "conclusion": "success",
+          "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342863499/job/121641909548"
+        },
+        {
+          "name": "Desktop (ubuntu-22.04)",
+          "conclusion": "success",
+          "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342863499/job/121641909848"
+        },
+        {
+          "name": "Desktop (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342863499/job/121641910035"
+        },
+        {
+          "name": "Desktop (macos-15)",
+          "conclusion": "success",
+          "url": "https://github.com/David-c0degeek/necropsy/actions/runs/40342863499/job/121641910139"
+        }
+      ]
+    }
+  ],
+  "artifacts": {
+    "platform_manifests": 4,
+    "release_assets": 8,
+    "shared_assets_identical": true,
+    "bootstrap_receipts_passed": 4,
+    "tracked_wheel_package_files_match_git": 148,
+    "installer_scripts_match_git": 2,
+    "wheel_sha256": "dd723f43a36f6c4504d7ed8a8d9fe52f76a126612f1350b619c0170bf3af816b",
+    "source_binding_receipt": "workspace/release-0.7.0/assets-source-binding.json",
+    "source_binding_receipt_sha256": "94603034ec0be84dfca5faf4e537bfe5d65db184c679f81c1f35e6ad3e20c821"
+  },
+  "draft": {
+    "server_digest_and_size_matches": 9,
+    "receipt_sha256": "20e8d54eaa26b3eadf8d17618b2e6753db8704e2d3d67d239f7fae70ac30a737"
+  },
+  "public_download": {
+    "version": "0.7.0",
+    "unauthenticated": true,
+    "source": "https://github.com/David-c0degeek/necropsy/releases/download/v0.7.0/",
+    "assets": {
+      "SHA256SUMS": {
+        "sha256": "09950a4338410739bed51e35f35ee99c870e26e93279ab59bc2384073b1ada99",
+        "bytes": 775
+      },
+      "install.ps1": {
+        "sha256": "9ca8dbe74efd6f819655910d90bacbc59659532483635ea630d1c3399b2db793",
+        "bytes": 9690
+      },
+      "install.sh": {
+        "sha256": "dfba75d8f7e3d322ed64dc7d0bef81259ef7ec8adc85095c2f90849052d6475b",
+        "bytes": 7922
+      },
+      "necropsy-0.7.0-py3-none-any.whl": {
+        "sha256": "dd723f43a36f6c4504d7ed8a8d9fe52f76a126612f1350b619c0170bf3af816b",
+        "bytes": 457805
+      },
+      "necropsy-0.7.0.tar.gz": {
+        "sha256": "bac456675dd08c6ee622cae1de88523f7c7be8b9d92e724be7f59eac862c2578",
+        "bytes": 374026
+      },
+      "necropsy-desktop-0.7.0-linux-x86_64.tar.gz": {
+        "sha256": "579d4a3804d82aa6e08e93265d5cd9b9657ba7f850f451cc4eae880a595d67ca",
+        "bytes": 163551811
+      },
+      "necropsy-desktop-0.7.0-macos-arm64.tar.gz": {
+        "sha256": "97add089dd595e679a0cf0a8385793243eb7c0ee6fee21f56e7361c965bc6c6e",
+        "bytes": 52093016
+      },
+      "necropsy-desktop-0.7.0-macos-x86_64.tar.gz": {
+        "sha256": "4c9d7d564f2ca7128f993ee8261099a2bf20dc81a1bca25a16c7b58614f8f942",
+        "bytes": 56258800
+      },
+      "necropsy-desktop-0.7.0-windows-x86_64.zip": {
+        "sha256": "2b29c3100fd7aa1eab9ce1ac81bf5b050a8a853a1dfa44b7a9957789a395b262",
+        "bytes": 51703021
+      }
+    }
+  },
+  "installed_distribution": {
+    "version": "necropsy 0.7.0",
+    "platform": "win32",
+    "python": "3.14.7",
+    "artifacts": [
+      {
+        "file": "necropsy-0.7.0-py3-none-any.whl",
+        "sha256": "dd723f43a36f6c4504d7ed8a8d9fe52f76a126612f1350b619c0170bf3af816b",
+        "bytes": 457805,
+        "members": 152,
+        "extracted_bytes": 1559218,
+        "secret_scan": {
+          "status": "passed",
+          "note": "",
+          "limit": "Pattern-based scan of the written output; finding nothing does not prove that no secret is present."
+        }
+      },
+      {
+        "file": "necropsy-0.7.0.tar.gz",
+        "sha256": "bac456675dd08c6ee622cae1de88523f7c7be8b9d92e724be7f59eac862c2578",
+        "bytes": 374026,
+        "members": 151,
+        "extracted_bytes": 1550268,
+        "secret_scan": {
+          "status": "passed",
+          "note": "",
+          "limit": "Pattern-based scan of the written output; finding nothing does not prove that no secret is present."
+        }
+      }
+    ],
+    "installed_public_auth": "installed public CLI + synthetic user API: passed",
+    "installed_offline_replay": "passed",
+    "replay_secret_scan": {
+      "status": "passed",
+      "note": "",
+      "limit": "Pattern-based scan of the written output; finding nothing does not prove that no secret is present."
+    },
+    "snapshot_sha256": "cba1f62b57f5369434dfe31b318e72d3925f91b0a1a4c568e8be43688cf10c8e",
+    "installed_package_integrity": "passed",
+    "credential_backend_probe": "not performed",
+    "live_public_account": "not performed",
+    "independent_user": "not performed",
+    "replay_output_lines": 7
+  },
+  "installed_ci_wheel_proof": {
+    "version": "0.7.0",
+    "synthetic_only": true,
+    "requests": 32,
+    "event_requests": 18,
+    "actor_target_requests": 0,
+    "generated_targets": 6,
+    "fixture_targets": 6,
+    "strict_reader": "PASS",
+    "acquisition_and_finalization": "PASS"
+  },
+  "handover": {
+    "context": "workspace/release-0.7.0/capture-context",
+    "context_manifest": {
+      "version": "0.7.0",
+      "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+      "files": {
+        "Dockerfile": "2ae2b002d8713dbcd1772cf11e9e18f53e581e1190cfbd71e0afbf4bbeca1512",
+        "SHA256SUMS": "dfb1e978c60b984b201f857af169d24df67d834d6ea7301cd27b79a35b56d7dd",
+        "capture_runner.py": "de277babdb83c78006848c90f3200bea994614ca0bb63fa81fbb0c792cd4decb",
+        "entrypoint.sh": "eeb2dfe064cfbe60ce443e92b0942382165820b7eb0a95270c1090019a64f892",
+        "queue/capture-queue.json": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+        "queue/capture-queue.sha256": "d590d8cad440a31f4f14d43de50b83655a8dc578bed4ec0d6f962e766ce559f5",
+        "requirements.txt": "63c0fd74553731588dd98d7c937a31962c2074118a48431f36a6906fb51f4bdb",
+        "www/index.html": "dc7bfe92fb4b0e1d3e40d389f29218b448d333815d23bb5d7b14089b37fbb30a",
+        "www/status.mjs": "24fa893c9f94b90a3639b4253a05ebd07bbdfcd1d05e7ea0a667159d1e320175"
+      }
+    },
+    "context_manifest_sha256": "88b41a777704bffb976c531585e714fe5fd87cb412b82a4c55e6bd517a7d8091",
+    "proof_manifest": {
+      "cassette.json": "9297178112108d0e0600fdd6f0a725a69f27c9f311a819892660c099fd313842",
+      "image-proof.py": "fd1aa62547a79f973649f414fa438c53725ef120702eac70466daa5ef103d0be",
+      "README.md": "48ef5bd6947d7dc99b7163266e5e8283a8129a665780d4ff7dc4b0aacfaad42e",
+      "synthetic.zip": "f188bbdad08a57f96af25129d6cc2f074377260bdfe60e572e14be69c49129cf"
+    },
+    "proof_manifest_sha256": "5c4b7d7c60787c01d14881c039e01183e149ef33a9399bb204e58e436cc5dfc7",
+    "archive": "workspace/release-0.7.0/tower-handoff.tar",
+    "archive_sha256": "ac3ec20332e4f0ad93eb47eabf296fab70063fa6bb7b9b142dc89805fd4ed66d",
+    "operator": "claude",
+    "image_build_and_rollout": "deployed; operator receipt independently retrieved and compared",
+    "rollout_receipt": {
+      "at_utc": "2026-10-26T15:23:39.885977+00:00",
+      "new_worker_id": "54b1f9f9611ac5d8bf697042b54d2b20eea71680a4528e57e07179f03fc8517d",
+      "new_worker_image": "sha256:2123ec9c083a4b8f20da2ba9b913fa34082181d83c6993521e732793c8644c52",
+      "new_worker_started_at": "2026-10-26T15:23:05.467310114Z",
+      "necropsy_version": "necropsy 0.7.0",
+      "old_worker_kept_stopped": {
+        "id": "55dd957494a836bed64716db6bff546301f1730b79dd3cbb2b2d53afff2789f4",
+        "name": "necropsy-capture-before-070-20261026",
+        "image": "sha256:372d7eccb2c7e3b456900bf140836ee659c06ee31a10da7a9f2f6ef2843decd2"
+      },
+      "www_id_unchanged": "74295d409b1677b95859076d418666438d60332185ca67b890460012640f70eb",
+      "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+      "runner_sha256": "de277babdb83c78006848c90f3200bea994614ca0bb63fa81fbb0c792cd4decb",
+      "mounts_equal_by_destination": true,
+      "first_check_failed_on_mount_order_only": true,
+      "entries_unchanged": true,
+      "state_added_fields": [
+        "quota_until_utc"
+      ],
+      "quota_until_utc": "2026-10-26T15:46:13+00:00",
+      "controller_after": {
+        "finished_at": null,
+        "reason": "waiting for the observed quota reset",
+        "state": "waiting"
+      },
+      "inflight_after": null,
+      "status_state": "waiting",
+      "counts": {
+        "complete": 0,
+        "deferred": 33,
+        "partial": 1,
+        "pending": 0,
+        "refused": 0,
+        "retry": 0
+      },
+      "next_retry_utc": "2026-10-26T15:46:13+00:00",
+      "alerts_pending": 0,
+      "watchdog_exit": 0,
+      "private_backup": "/mnt/user/appdata/necropsy-naxx-release-070-20261026/promotion-backup-20261026T152305Z",
+      "private_backup_files": 4
+    },
+    "rollout_receipt_path": "/mnt/user/appdata/necropsy-naxx-release-070-20261026/rollout-receipt.json",
+    "rollout_receipt_sha256": "53bc018ead2479a1009075ec7f06e5b9ce41aaea172cb08f66f094fe5ddaba40",
+    "image_runtime_checks": {
+      "source": "claude:49",
+      "network": "none",
+      "uid": "99:100",
+      "synthetic_acquisition_and_strict_reader": "passed",
+      "copied_live_state_migration": "passed; reconstructed 15:46:13Z; all other fields equal; no write"
+    },
+    "first_real_resumed_archive": "pending strict reader/intake/journal verification",
+    "rollback_limit": "372d7ecc cannot read new v3 archives and ignores shared quota gate"
+  },
+  "limits": [
+    "Local logs and CI artifact inventory are ignored retained artifacts, not clean-checkout files.",
+    "Synthetic fixtures prove installed code paths, not live quota recovery or checkpoint progress.",
+    "No real WCL request, account login, credential-store probe or local inference was run.",
+    "No Naxx cell or final product acceptance is implied."
+  ]
+}

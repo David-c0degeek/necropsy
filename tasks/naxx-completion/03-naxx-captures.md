@@ -397,3 +397,19 @@ forecast. Pendingalerts0, one historical failure, no attention or active child.
 No WCL query, state/queue/image change, localAI or evidence registration in this
 follow-up. Full raw/refusal inventory and timestamped readings retained in
 research/production-followup-20261024/. Production resumes automatically.
+
+2026-10-26 · Quota controller and compatible reader released · The shared
+account quota gate is reviewed and shipped with0.7.0. Committed candidate
+e0e2ad2 passed the full eight-worker gate, required peer review, three-OS CI and
+four native desktop builds/bootstrap checks. All148 wheel package files match
+Git; complete draft hashes and fresh unauthenticated public downloads verify
+before main/tag advance. Installed synthetic acquisition/finalization/v3 reader
+and CLI offline distribution checks pass. The exact published wheel, reviewed
+runner and pinned Naxx queue are staged with manifests and separate offline
+image proof for Claude's already-authorized Tower rollout. Claude deployed
+image2123ec9c at15:23:05UTC after network-none image/reader/migration checks.
+The operator receipt verifies unchanged entries/mounts/web and a passing
+watchdog; Codex retrieved/hash-checked it and compared the handover invariants.
+The first real post-gate resumed archive/journal after15:46:13UTC remains an
+open03.4 follow-up under Claude's sole operational ownership. See
+research/release-0.7.0-20261026.md. No capture/cell or product acceptance follows.

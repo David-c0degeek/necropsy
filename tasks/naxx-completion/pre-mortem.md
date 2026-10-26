@@ -802,3 +802,31 @@ handover; later quota readiness remains observational. No WCL limit request.
 Verdict: PROCEED WITH GUARDRAILS. Publication and image changes are already
 authorized, but require concrete peer-reviewed artifacts and observed handover
 results. No cell completion or final Naxx product acceptance is inferred.
+
+### Release calibration, 2026-10-26
+
+- PM-34: Mitigated. Candidate e0e2ad2 passed its committed eight-worker gate,
+  Claude's round2 review, all three exact-SHA CI jobs and four native builds.
+  Four manifests, bootstrap/failed-upgrade receipts, identical shared bytes,
+  all148 Git-bound wheel files and both Git-bound installers verify. The complete
+  draft's nine server hashes matched. All nine public files were freshly
+  downloaded unauthenticated and verified before main/tag alignment.
+- The earlier b58a5a8 macOS CI job failed to acquire a hosted runner because of
+  reported capacity constraints, not code failure; Windows/Linux passed. That
+  incomplete baseline was not accepted as release coverage. The candidate's
+  independent macOS job acquired a runner and passed. No source workaround or
+  skipped-platform release was introduced; the existing all-platform guardrail
+  caught the infrastructure gap, so this is not a new unpredicted product miss.
+- PM-35: Mitigated for the deployed-image checkpoint, with03.4 monitoring
+  retained. Claude deployed image2123ec9c at15:23:05UTC after network-none
+  installed acquisition/v3 reader and copied-live-state migration checks as
+  UID99:100. The operator receipt records unchanged entry records/mounts/web,
+  preserved stopped predecessor/private backups and watchdog0; Codex retrieved
+  it read-only, matched the remote/local hash and compared its fields to the
+  reviewed handover. The ordered-mount comparison initially stopped safely;
+  all remaining checks reran against mounts keyed by destination. No product
+  regression or guardrail bypass is inferred from that verification correction.
+  First real resumed archive/journal verification after15:46:13UTC stays open
+  under Claude; synthetic checks do not establish real checkpoint progress,
+  source request absence in production or quota recovery. The predecessor's v3
+  reader/gate limitations are recorded. No COMPLETE cell or acceptance follows.
