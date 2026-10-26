@@ -1,5 +1,5 @@
 {
-  "kind": "Published 0.7.0 release and deployed capture image; first real resumed output pending",
+  "kind": "Published 0.7.0 release, deployed capture image and observed shared production wait; first new archive pending",
   "source_commit": "e0e2ad28494f7fcdb025a1bba48a6f45e83e810f",
   "release": {
     "isDraft": false,
@@ -276,6 +276,35 @@
       "copied_live_state_migration": "passed; reconstructed 15:46:13Z; all other fields equal; no write"
     },
     "first_real_resumed_archive": "pending strict reader/intake/journal verification",
+    "first_gated_attempt": {
+      "source": "claude:50; unraid-tower a70fb39e69e2d5afa5a716b098204730e3f93d64",
+      "attempt": "naxxramas-druid-balance-dps-horde/028",
+      "resumed_old_image_checkpoint": true,
+      "ended_at_utc": "2026-10-26T15:49:07Z",
+      "stop": "quota-reset during report finalization: no database points remaining",
+      "report": "3T8XQwDMnKhqjFRx",
+      "fight": 36,
+      "reset_at_utc": "2026-10-26T16:46:15Z",
+      "queue_next_retry_utc": "2026-10-26T16:48:15Z",
+      "other_entry_started": false,
+      "attention": false,
+      "journal_since_utc": "2026-10-26T15:46:00Z",
+      "new_records": 82,
+      "new_record_kinds": {
+        "encounter_all": 3,
+        "actor_source": 1,
+        "actor_target": 0,
+        "critical": 1,
+        "report_acquisition": 56,
+        "report_finalization": 2,
+        "leaderboard": 16,
+        "subject": 1,
+        "combatant_context": 1,
+        "combatant_prelude": 1
+      },
+      "new_archive_produced": false,
+      "limit": "New request absence is observed; archive derivation provenance still needs strict verification."
+    },
     "rollback_limit": "372d7ecc cannot read new v3 archives and ignores shared quota gate"
   },
   "limits": [

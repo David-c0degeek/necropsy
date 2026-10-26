@@ -826,7 +826,10 @@ results. No cell completion or final Naxx product acceptance is inferred.
   reviewed handover. The ordered-mount comparison initially stopped safely;
   all remaining checks reran against mounts keyed by destination. No product
   regression or guardrail bypass is inferred from that verification correction.
-  First real resumed archive/journal verification after15:46:13UTC stays open
-  under Claude; synthetic checks do not establish real checkpoint progress,
-  source request absence in production or quota recovery. The predecessor's v3
-  reader/gate limitations are recorded. No COMPLETE cell or acceptance follows.
+  The first gated attempt resumed the old checkpoint and ended15:49:07UTC in
+  finalization quota-reset; the whole queue waits until16:48:15UTC, with no
+  second entry or attention. Claude checked82 new journal records, including
+  zero target requests (Tower a70fb39). No new archive exists, so its strict v3
+  provenance/reader/intake remains open under Claude. New request absence does
+  not certify archive derivation or quota recovery. The predecessor's v3 reader/
+  gate limitations are recorded. No COMPLETE cell or acceptance follows.

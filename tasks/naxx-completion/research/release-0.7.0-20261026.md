@@ -3,7 +3,7 @@
 Owner-authorized continuation of D018. Codex owns this tree; Claude retains
 live Tower operations. Release publication is verified below; Claude reports the
 image rollout in mailbox49. Independent receipt comparison passed; the first
-real resumed archive/journal remains pending.
+new archive remains pending; the first gated attempt is observed below.
 
 The candidate stamps the ten established version surfaces at 0.7.0, documents
 Naxxramas format 3 compatibility, and corrects the timeout regression test to
@@ -82,4 +82,28 @@ Its runner/queue hashes, image, preservation fields, counts, gate/wait, empty
 inflight/alerts and watchdog result match the reviewed handover and expected
 invariants. This independently compares the operator's receipt; it does not
 claim Codex reran live Docker or WCL operations. First actual post-gate resume
-remains unobserved.
+is recorded below.
+
+## First gated attempt, mailbox50 / Tower a70fb39
+
+The committed Tower change record a70fb39e69e2d5afa5a716b098204730e3f93d64
+was read independently alongside Claude's report. Attempt
+naxxramas-druid-balance-dps-horde/028 resumed its old-image checkpoint after the
+15:46:13UTC gate and stopped at15:49:07UTC during combined report finalization
+(3T8XQwDMnKhqjFRx, fight36: no database points remaining). The known reset was
+16:46:15UTC; the controller moved the whole queue to waiting until16:48:15UTC.
+No other entry started and no attention incident followed. This observes the
+changed shared-budget behavior in production; it does not prove budget recovery.
+
+Claude checked82 journal records captured since15:46: three encounter-All, one
+source, one critical, zero actor target,56 acquisition reports, two finalization
+reports,16 leaderboards, one subject, one combatant context and one prelude.
+The zero target count applies to new records, not retained historical target
+responses. Those legacy records remain reusable history and were not deleted.
+The report-query majority supports the next offline investigation, not a point
+or hidden-database cost forecast.
+
+No new archive was produced. Absence of new target requests is observed, while
+the first real v3 archive's derived provenance, strict open_snapshot and
+check_capture_archive remain open in03.4 under Claude. Source/release/deployed
+image/shared-wait checkpoint closure is separate from that capture-intake gate.
