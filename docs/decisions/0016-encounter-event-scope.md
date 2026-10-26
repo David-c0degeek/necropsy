@@ -53,3 +53,6 @@ Filter semantics are documented by [WCL pins](https://vanilla.warcraftlogs.com/h
 Current transport verification separately tests request identity, terminal
 pagination and raw subset/multiplicity; a documented filter alone does not
 certify an encounter ranking policy.
+
+ADR 0024 (2026-10-26) derives Naxxramas actor target streams from the
+encounter-All scope instead of requesting them, in snapshot format 3.

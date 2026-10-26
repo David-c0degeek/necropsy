@@ -41,3 +41,4 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Owned control integrity](0021-owned-control-integrity.md) | Literal event validation, strict player SOURCE plus event-set proof and target-specific control review prompts |
 | [Owned curse context](0022-owned-curse-context.md) | Separate curse policy kind on the shared occurrence engine, with assignment-confirmation prompts |
 | [Unattended credential file](0023-unattended-credential-file.md) | Explicit POSIX-only private file selected by name, never a fallback; atomic durable rotation and export by direct pipe |
+| [Derived target streams](0024-derived-target-streams.md) | Naxx target streams copied from the certified encounter-All pages with explicit provenance, snapshot format 3 |

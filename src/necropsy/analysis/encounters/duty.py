@@ -17,7 +17,7 @@ from necropsy.raids import (
 )
 from necropsy.raids.naxxramas import RAID as NAXXRAMAS
 from necropsy.snapshot.model import Direction
-from necropsy.snapshot.v2 import FORMAT as V2_FORMAT
+from necropsy.snapshot.v3 import ENCOUNTER_FORMATS
 
 
 def applies(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> bool:
@@ -33,7 +33,7 @@ def applies(con: duckdb.DuckDBPyConnection, pf: ParticipantFight) -> bool:
     return (
         zone in ENCOUNTER_CONTEXT_ZONES
         and partition in ENCOUNTER_CONTEXT_PARTITIONS
-        and (zone != NAXXRAMAS.zone_id or snapshot_format == V2_FORMAT)
+        and (zone != NAXXRAMAS.zone_id or snapshot_format in ENCOUNTER_FORMATS)
         and (raid_for_encounter(pf.encounter_id).zone_id == zone)
     )
 

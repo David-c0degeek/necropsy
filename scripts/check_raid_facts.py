@@ -181,8 +181,8 @@ def raw_encounter_facts(
 ) -> dict[str, Any]:
     """Independent scoped observations, without reconstructing ranking or assigning duties."""
     marker = archive.read_json("necropsy-snapshot.json")
-    if type(marker.get("formatVersion")) is not int or marker["formatVersion"] != 2:
-        raise ValueError("encounter facts require explicit live format2")
+    if type(marker.get("formatVersion")) is not int or marker["formatVersion"] not in (2, 3):
+        raise ValueError("encounter facts require explicit live format 2 or 3")
     streams = {}
     for role, direction in (("encounter", "all"), ("critical", "critical")):
         proofs = [

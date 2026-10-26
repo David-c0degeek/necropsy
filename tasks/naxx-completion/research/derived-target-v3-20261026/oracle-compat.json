@@ -1,0 +1,24 @@
+{
+  "kind": "Strict-check compatibility of committed DPS oracles across the derived-target freezer change",
+  "prior_freezer": {
+    "commit": "96f728c",
+    "sha256": "e664a8d57a07e94ae48b2b788ae11cc56afb21755d2b25db3c4829b6652cb547"
+  },
+  "current_freezer_sha256": "57f3e10bb944418609ef6158f996fc012330f5217d206a528bdc4a6ca8bc069d",
+  "oracles_checked": 53,
+  "only_added_difference": "/tool_sha256",
+  "differences_before": {
+    "tasks/naxx-completion/research/dps-ranking-pilot/druid-balance-WzGF9BjdrHCk8N1X.oracle.json": [
+      "/page_validator_sha256"
+    ],
+    "tasks/naxx-completion/research/dps-ranking-pilot/druid-feral-hVrBkcXqvHm8YL9d.oracle.json": [
+      "/page_validator_sha256"
+    ]
+  },
+  "every_oracle_adds_exactly_tool_sha256": true,
+  "limits": [
+    "Arithmetic, raw rows, witnesses, totals and residuals are recomputed identically; only the freezer's own provenance hash changes.",
+    "Strict check is not weakened; the committed oracles keep the hash of the freezer version that produced them.",
+    "The two historical pilots already differed in page_validator_sha256 (see dps-validator-compatibility-20261022.json)."
+  ]
+}

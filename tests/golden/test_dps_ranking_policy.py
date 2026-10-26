@@ -72,6 +72,7 @@ def _stream_pages(
         and re.fullmatch(rf"{re.escape(stream['direction'])}_\d+\.json", n.rsplit("/", 1)[-1])
     )
     identity = stream["identity"]
+    assert identity is not None, "a derived stream needs a derivation-aware raw check"
     assert identity["start_time"] == fight["startTime"] and identity["end_time"] == fight["endTime"]
     assert identity["revision"] == report["revision"] and identity["code"] == report["code"]
     assert names and stream["pages"] == [hashlib.sha256(z.read(n)).hexdigest() for n in names]

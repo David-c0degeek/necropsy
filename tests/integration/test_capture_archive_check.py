@@ -104,7 +104,7 @@ def test_complete_v2_capture_has_digest_and_interpreter_bound_scope_receipt(capt
 def test_v1_actor_capture_cannot_pass_a_v2_smoke(captures: Any) -> None:
     written = captures[False]
     entry, expected = _expected(written)
-    with pytest.raises(ValueError, match="v2"):
+    with pytest.raises(ValueError, match="encounter snapshot"):
         verify_capture(written.archive, written.sha256, written.entries, entry, **expected)
 
 
@@ -179,6 +179,10 @@ def test_only_complete_v2_context_can_suppress_capture(
         monkeypatch.setattr(cq, "ROOT", written.archive.parent)
         covered = cq.complete_encounter_coverage(written.archive.name, written.sha256)
         assert covered == ({51118} if enabled else set())
+        # Naxx encounter captures derive their target streams (v3) and still count.
+        with VerifiedArchive(written.archive) as archive:
+            version = archive.read_json("necropsy-snapshot.json")["formatVersion"]
+        assert version == (3 if enabled else 1)
 
 
 def test_command_binds_the_queue_and_refuses_to_reuse_a_receipt(

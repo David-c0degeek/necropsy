@@ -447,6 +447,21 @@ def _write_context(root: Path, members: dict[str, Any]) -> Path:
     return register
 
 
+@pytest.mark.parametrize(("version", "accepted"), [(2, True), (3, True), (1, False), (4, False)])
+def test_encounter_facts_accept_only_encounter_snapshot_versions(
+    tmp_path: Path, version: int, accepted: bool
+) -> None:
+    """A v3 capture keeps its certified encounter scopes; v1 and unknown formats do not."""
+    members = _encounter_members()
+    members["necropsy-snapshot.json"]["formatVersion"] = version
+    register = _write_context(tmp_path, members)
+    if accepted:
+        assert check_register(register) == []
+    else:
+        with pytest.raises(ValueError, match="live format 2 or 3"):
+            check_register(register)
+
+
 def _summon_members() -> dict[str, Any]:
     members = _encounter_members()
     members["necropsy-snapshot.json"]["zone"] = {"id": 2000, "partition": 1}

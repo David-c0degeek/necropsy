@@ -597,3 +597,99 @@ C1 calibration before the full gate, 2026-10-26:
   single Maexxna witness. The builder aborts on any non-ownership refusal.
 - Horizon: independent review and the full gate. Engine emission and product
   acceptance remain separate.
+
+## 2026-10-26: derived actor target streams (snapshot v3)
+
+Scope: for Naxx captures with encounter context, stop requesting per-actor and
+per-pet `target` event streams. Record each one as a byte copy of the same
+fight's certified encounter-All stream, with explicit derivation provenance, in
+a new snapshot formatVersion 3. Evidence: the 96f728c receipt shows all 189
+target responses equal All, and the page digests are identical in 97 of 97
+streams. Codex DESIGN_AGREED after two CHALLENGE rounds (codex:54, codex:55).
+No Tower, image or release change is in scope.
+
+Failed future: a Naxx capture skips its target requests and saves archives that
+claim requests nobody made. Or analysis silently drops Naxx encounter context
+because a v2-only gate does not know v3. Or an old archive now reads
+differently. Or a resumed attempt mixes a stale target cache with a new All
+stream.
+
+**PM-26 — High — a derived stream masquerades as an acquired request.** Basis:
+[evidence: cache.py check_identity accepts exactly IDENTITY_FIELDS; v1.py
+_check_stream_identity certifies "fetched with the supported request";
+freeze_dps_ranking.py:316-345 requires actor request fields]. Guardrail: a
+derived stream has `identity: null` and a sibling `derivation` (versioned rule,
+the parent's exact encounter-All identity and its page digests). Its members are
+GENERATED in the entries manifest. No cache entry, journal record, account
+reading or completion marker is created. The reader validates the parent
+identity through the unchanged strict request contract and check_pages over the
+derived pages themselves, then requires byte equality with the parent pages.
+Mixed identity and derivation, unknown rules, non-encounter parents, source or
+critical derivations, and cross-fight or cross-actor bindings are refused.
+
+**PM-27 — High — a v3 archive silently loses capability.** Basis: [evidence:
+duty.py:36 and analysis_json.py:820 enable Naxx encounter context only for the
+v2 FORMAT; check_raid_facts.py:184, capture_queue.py:557,
+check_capture_archive.py:33 and freeze_dps_ranking.py:147 accept fixed versions].
+Guardrail: one ENCOUNTER_FORMATS set ({v2, v3}) replaces the v2-only capability
+gates, while v1 and unknown formats stay refused. A v3 fixture proves that
+duty, analysis encounter context, raid facts, the intake check, queue reuse and
+DPS freezing still work.
+
+**PM-28 — High — existing archives change bytes or meaning.** Basis: [evidence:
+the writer derives formatVersion from encounter_context; 57 legacy outputs, the
+Haplina export and the measurement archive are pinned]. Guardrail: v1/v2 schemas
+and paths stay strict and unchanged, and formatVersion 3 is written only when a
+derived stream exists. Every old archive replays byte-identically under the new
+code. Released 0.6.1 refuses a v3 archive at marker validation, and a test
+proves it. The rewritten v3 measurement copy matches its v2 analysis after an
+enumerated whitelist only: snapshot archive_sha256 and format, and the rendered
+hash/format labels.
+
+**PM-29 — Medium — order, quota and resume mix sources.** Basis: [evidence:
+acquire._generation fetches actor streams before encounter scopes; the shared
+Tower cache keeps old actor-target entries]. Guardrail: for derived zones, fetch
+encounter-All before any actor stream. If All fails or stops on quota, the
+existing stop path runs and nothing is derived. The writer reads derived bytes
+only from the verified All cache key; legacy target cache entries stay unused.
+A revision change invalidates through the parent identity. Finalization keeps
+its independent report re-reads. MC, BWL and AQ40 keep requesting targets
+(DERIVED_TARGET_ZONES = {2006}).
+
+**PM-30 — Medium — server behaviour changes.** Basis: [inference: the equality
+is observed server behaviour on one corpus]. If WCL starts honouring targetID,
+fetched target streams would shrink, while derived ones still equal All. That
+is what current archives already contain, and the v2 containment and owned-event
+proofs still hold. Explicitly accepted, and recorded in the ADR with a
+re-verify trigger. A cheap periodic comparison can be planned separately.
+
+Verdict: PROCEED WITH GUARDRAILS. Reversibility: code revert; v3 archives would
+then be unreadable by the reverted code, so none is produced before review, and
+release and rollout are separate, owner-gated steps.
+
+Derived-target calibration before independent review, 2026-10-26:
+- PM-26 Prevented Prediction. Derived streams carry `identity: null` and a
+  derivation record, and their entries are GENERATED. Fourteen reader refusal
+  cases pass. The DPS freezer refuses seven wrong-parent cases and gives
+  identical totals for a valid derived case.
+- PM-27 Prevented Prediction. Six v2-only gates now accept ENCOUNTER_FORMATS.
+  The intake check, queue reuse, analysis encounter context and Naxx duty run on
+  v3 captures; raid facts accept formats 2 and 3 and refuse 1 and 4.
+- PM-28 Prevented Prediction. All 18 legacy archives (54 outputs), the full
+  Haplina export and the v2 measurement archive replay byte-identically. The v3
+  rewrite matches on 1,860,033 analysis paths, except the two whitelisted
+  fields. Released 0.6.1 refuses v3 with SnapshotError.
+- PM-29 Mitigated offline after review (codex:57). A points-limit stop on the
+  whole-fight request is followed by no actor request and no derivation.
+  Legacy actor-target cache entries never feed a derived stream. A revision
+  change refetches the bundle (generation 2), and every derived parent then
+  carries the new revision. Real Tower behaviour remains a rollout check.
+- PM-30 Explicitly Accepted, with the re-verify trigger in ADR 0024.
+- Gates: pre_review --full PASS (2748 fast), all goldens 569 passed plus 4
+  xfailed, browser 96 passed.
+- Review round 1 (codex:57) also tightened the independent DPS check. The parent
+  envelope and its exact request fields, the parent's complete member set, and
+  the derived zone and partition are now required. The comparison now uses exact
+  structural equality after masking only the two provenance fields, with planted
+  self-tests. The freezer change adds only `/tool_sha256` to the strict check of
+  all 53 committed DPS oracles (oracle-compat.json).

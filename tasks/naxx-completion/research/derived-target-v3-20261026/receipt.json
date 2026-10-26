@@ -1,0 +1,84 @@
+{
+  "kind": "Offline v2-to-v3 rewrite and analysis comparison; no capture or WCL call",
+  "source": {
+    "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+  },
+  "derived_streams": 97,
+  "v3_reader_format": "necropsy-live-snapshot-v3",
+  "analysis_whitelist": [
+    "snapshot.archive_sha256",
+    "snapshot.format"
+  ],
+  "analysis_differences": {
+    "snapshot.archive_sha256": {
+      "v2": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5",
+      "v3": "<sha256 of the v3 copy>"
+    },
+    "snapshot.format": {
+      "v2": "necropsy-live-snapshot-v2",
+      "v3": "necropsy-live-snapshot-v3"
+    }
+  },
+  "analysis_leaf_paths_counted": 1860033,
+  "pages": {
+    "playbook.html": {
+      "v2_sha256": "616b2b865c1f046aac990d700ba80dde7bef4269987d2eafa4d134f26dc7d544",
+      "v3_sha256": "<depends on the v3 copy digest>",
+      "equal_after_label_substitution": true,
+      "label_occurrences": {
+        "<analysis.json sha256>": {
+          "v2": 15,
+          "v3": 15
+        },
+        "<analysis.json sha256[:12]>": {
+          "v2": 1,
+          "v3": 1
+        },
+        "<archive sha256>": {
+          "v2": 0,
+          "v3": 0
+        },
+        "<archive sha256[:12]>": {
+          "v2": 1,
+          "v3": 1
+        },
+        "<snapshot format>": {
+          "v2": 0,
+          "v3": 0
+        }
+      }
+    },
+    "report.html": {
+      "v2_sha256": "7bb59445756c976598903c4dcd7324663ad31cd69d49153efff2582764234d02",
+      "v3_sha256": "<depends on the v3 copy digest>",
+      "equal_after_label_substitution": true,
+      "label_occurrences": {
+        "<analysis.json sha256>": {
+          "v2": 15,
+          "v3": 15
+        },
+        "<analysis.json sha256[:12]>": {
+          "v2": 1,
+          "v3": 1
+        },
+        "<archive sha256>": {
+          "v2": 0,
+          "v3": 0
+        },
+        "<archive sha256[:12]>": {
+          "v2": 1,
+          "v3": 1
+        },
+        "<snapshot format>": {
+          "v2": 0,
+          "v3": 0
+        }
+      }
+    }
+  },
+  "limits": [
+    "The v3 copy's archive digest is environment-independent only up to zip compression; the receipt therefore records the analysis differences by path and value only for the v2 side, with the v3 digest checked as a sha256 shape."
+  ],
+  "script_sha256": "ed02dc8ab7fcfbcd3aeaff02b02f8995ea04a3ab589518fd6d1b0c84e2ee4073"
+}

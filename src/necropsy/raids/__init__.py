@@ -19,6 +19,11 @@ DEFAULT_RAID = NAXXRAMAS
 # gains encounter context.
 ENCOUNTER_CONTEXT_ZONES = frozenset(r.zone_id for r in RAIDS)
 ENCOUNTER_CONTEXT_PARTITIONS = frozenset({1, 2})
+# Raids whose captures take each actor's target stream from the fight's certified
+# encounter-All stream instead of requesting it: the server answered every observed
+# actor target request with exactly the whole-fight data (capture-cost receipt,
+# 2026-10-26). Other raids keep requesting it.
+DERIVED_TARGET_ZONES = frozenset({NAXXRAMAS.zone_id})
 
 
 def raid_for_zone(zone_id: int) -> Raid:

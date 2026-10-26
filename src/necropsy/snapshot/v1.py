@@ -573,6 +573,12 @@ class V1Snapshot(V0Snapshot):
                         raise SnapshotError(f"{source}: leaderboard response is another page")
             yield source, document
 
+    def _check_stream_proof(
+        self, key: tuple[str, int, str, int, str], proof: LiveStream, names: list[str]
+    ) -> None:
+        """An actor stream is certified by the request the cache recorded for it."""
+        self._check_stream_identity(key, proof.identity, names)
+
     def _check_stream_identity(
         self, key: tuple[str, int, str, int | None, str], identity: dict[str, Any], names: list[str]
     ) -> None:
@@ -723,7 +729,7 @@ class V1Snapshot(V0Snapshot):
             digests = tuple(hashlib.sha256(self._archive.read_bytes(n)).hexdigest() for n in names)
             if digests != proof.pages:
                 raise SnapshotError(f"pages of stream {key} differ from the certified digests")
-            self._check_stream_identity(key, proof.identity, names)
+            self._check_stream_proof(key, proof, names)
         if used != set(proofs):
             raise SnapshotError("the provenance lists streams that are not in the archive")
 
@@ -740,6 +746,14 @@ def open_snapshot(archive: VerifiedArchive) -> V0Snapshot:
             from necropsy.snapshot.v2 import V2Snapshot
 
             return V2Snapshot(archive)
+        if (
+            isinstance(marker, dict)
+            and type(marker.get("formatVersion")) is int
+            and marker["formatVersion"] == 3
+        ):
+            from necropsy.snapshot.v3 import V3Snapshot
+
+            return V3Snapshot(archive)
         return V1Snapshot(archive)
     return V0Snapshot(archive)
 

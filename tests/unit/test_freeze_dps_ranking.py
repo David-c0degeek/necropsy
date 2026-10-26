@@ -291,3 +291,107 @@ def test_cli_relocation_replay_tamper_and_no_overwrite(
     changed["totals"]["ranked"] += 1
     output.write_text(json.dumps(changed), encoding="utf-8")
     assert dps.main() == 1
+
+
+def derived_case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
+    """The same capture as v3: both target streams copied from one encounter-All stream."""
+    spec = case(tmp_path)
+    path = tmp_path / spec["archive"]
+    with zipfile.ZipFile(path) as z:
+        files = {n: z.read(n) for n in z.namelist()}
+    marker = json.loads(files["necropsy-snapshot.json"])
+    target = json.loads(files["events/ABC/fight_7/player_1_Example/target_001.json"])
+    pet_rows = json.loads(files["events/ABC/fight_7/pet_6_Example/target_001.json"])["data"]
+    whole = json.dumps({"data": target["data"] + pet_rows, "nextPageTimestamp": None}).encode()
+    files["events/ABC/fight_7/encounter/all_001.json"] = whole
+    digest = hashlib.sha256(whole).hexdigest()
+    parent = {
+        **next(p for p in marker["streams"] if p["direction"] == "target")["identity"],
+        "actor_id": None,
+        "role": "encounter",
+        "direction": "all",
+    }
+    if mutation == "cross_revision":
+        parent["revision"] = 2
+    if mutation == "endpoint":
+        parent["endpoint"] = "client"
+    if mutation == "filtered_parent":
+        parent["filter_expression"] = "sourceID = 999"
+    marker["zone"] = {"id": 2000 if mutation == "zone" else 2006, "partition": 1}
+    marker["encounter_streams"] = [
+        {
+            "report": "ABC",
+            "fight": 8 if mutation == "cross_fight" else 7,
+            "role": "encounter",
+            "actor_id": 999 if mutation == "parent_envelope" else None,
+            "direction": "target" if mutation == "parent_envelope" else "all",
+            "identity": parent,
+            "pages": [digest],
+        }
+    ]
+    if mutation == "extra_parent_page":
+        files["events/ABC/fight_7/encounter/all_002.json"] = whole
+    if mutation == "missing_parent_page":
+        del files["events/ABC/fight_7/encounter/all_001.json"]
+    for proof in marker["streams"]:
+        name = f"events/ABC/fight_7/{proof['role']}_{proof['actor_id']}_Example/target_001.json"
+        if proof["direction"] != "target":
+            if mutation == "derived_source" and proof["role"] == "player":
+                proof["derivation"] = {"rule": "x", "parent": parent, "parent_pages": [digest]}
+            continue
+        files[name] = whole
+        proof["identity"], proof["pages"] = None, [digest]
+        proof["derivation"] = {
+            "rule": "wrong" if mutation == "rule" else "target-equals-encounter-all-v1",
+            "parent": parent,
+            "parent_pages": [digest],
+        }
+    if mutation == "missing_parent":
+        marker["encounter_streams"] = []
+    if mutation == "corrupt":
+        name = "events/ABC/fight_7/player_1_Example/target_001.json"
+        files[name] = json.dumps({"data": target["data"], "nextPageTimestamp": None}).encode()
+        changed = hashlib.sha256(files[name]).hexdigest()
+        player = next(
+            p for p in marker["streams"] if (p["role"], p["direction"]) == ("player", "target")
+        )
+        player["pages"] = [changed]
+    marker["formatVersion"] = 3
+    files["necropsy-snapshot.json"] = json.dumps(marker).encode()
+    with zipfile.ZipFile(path, "w") as z:
+        for name, raw in files.items():
+            z.writestr(name, raw)
+    return spec | {"sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def test_a_derived_target_stream_gives_the_same_independent_totals(tmp_path: Path) -> None:
+    (tmp_path / "fetched").mkdir()
+    (tmp_path / "derived").mkdir()
+    expected = dps.compute(case(tmp_path / "fetched"), tmp_path / "fetched")
+    derived = dps.compute(derived_case(tmp_path / "derived"), tmp_path / "derived")
+    assert derived["totals"] == expected["totals"]
+    assert derived["source_damage"] == expected["source_damage"]
+    assert derived["residual"] == expected["residual"]
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "missing_parent",
+        "corrupt",
+        "cross_fight",
+        "cross_revision",
+        "endpoint",
+        "rule",
+        "derived_source",
+        "filtered_parent",
+        "parent_envelope",
+        "extra_parent_page",
+        "missing_parent_page",
+        "zone",
+    ],
+)
+def test_a_wrong_derived_target_parent_is_refused(tmp_path: Path, mutation: str) -> None:
+    spec = derived_case(tmp_path, mutation)
+    with pytest.raises((ValueError, KeyError)):
+        dps.compute(spec, tmp_path)

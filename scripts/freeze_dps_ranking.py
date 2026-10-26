@@ -27,6 +27,30 @@ if str(ROOT) not in sys.path:
 
 from scripts import fact_freeze as pages  # noqa: E402
 
+# Snapshot format 3 derives actor target streams only for these zones and Era
+# partitions, from an encounter-All request with exactly these fields.
+DERIVED_TARGET_ZONES = frozenset({2006})
+ENCOUNTER_PARTITIONS = frozenset({1, 2})
+ENCOUNTER_ALL_FIELDS = frozenset(
+    {
+        "actor_id",
+        "code",
+        "data_type",
+        "direction",
+        "end_time",
+        "endpoint",
+        "fight",
+        "include_resources",
+        "limit",
+        "query_version",
+        "revision",
+        "role",
+        "site",
+        "start_time",
+        "translate",
+    }
+)
+
 
 def require(condition: bool, reason: str) -> None:
     if not condition:
@@ -144,7 +168,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         marker = read("necropsy-snapshot.json")
         require(marker.get("kind") == "necropsy.live-snapshot", "not a live snapshot")
         require(
-            type(marker.get("formatVersion")) is int and marker["formatVersion"] in (1, 2),
+            type(marker.get("formatVersion")) is int and marker["formatVersion"] in (1, 2, 3),
             "unsupported snapshot version",
         )
         code, fid, owner = spec["report"], spec["fight"], spec["actor"]
@@ -314,12 +338,71 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                     "stream proof not unique",
                 )
                 identity = proof["identity"]
+                requested = {"actor_id": source, "role": role, "direction": direction}
+                parent_names: list[str] = []
+                if "derivation" in proof:
+                    # A derived target stream was never requested: certify its parent,
+                    # the same fight's encounter-All request, and require its bytes.
+                    derivation = proof["derivation"]
+                    require(
+                        marker["formatVersion"] == 3
+                        and direction == "target"
+                        and identity is None
+                        and isinstance(derivation, dict)
+                        and set(derivation) == {"rule", "parent", "parent_pages"}
+                        and derivation["rule"] == "target-equals-encounter-all-v1",
+                        "invalid stream derivation",
+                    )
+                    parent = one(
+                        [
+                            p
+                            for p in marker.get("encounter_streams") or ()
+                            if (p.get("report"), p.get("fight"), p.get("role"))
+                            == (code, fid, "encounter")
+                        ],
+                        "derivation parent not unique",
+                    )
+                    zone = marker.get("zone") or {}
+                    require(
+                        type(zone.get("id")) is int
+                        and zone["id"] in DERIVED_TARGET_ZONES
+                        and type(zone.get("partition")) is int
+                        and zone["partition"] in ENCOUNTER_PARTITIONS,
+                        "derived streams are not defined for this zone or partition",
+                    )
+                    require(
+                        parent.get("actor_id") is None
+                        and parent.get("direction") == "all"
+                        and isinstance(parent.get("identity"), dict)
+                        and set(parent["identity"]) == ENCOUNTER_ALL_FIELDS,
+                        "derivation parent is not an exact encounter-All request",
+                    )
+                    require(
+                        derivation["parent"] == parent["identity"]
+                        and derivation["parent_pages"] == parent.get("pages") == proof["pages"],
+                        "derivation names another request than its parent",
+                    )
+                    identity = parent["identity"]
+                    requested = {"actor_id": None, "role": "encounter", "direction": "all"}
+                    parent_names = [
+                        f"events/{code}/fight_{fid}/encounter/all_{n:03d}.json"
+                        for n in range(1, len(parent["pages"]) + 1)
+                    ]
+                    present = sorted(
+                        n
+                        for n in z.namelist()
+                        if n.startswith(f"events/{code}/fight_{fid}/encounter/all_")
+                    )
+                    require(
+                        present == parent_names
+                        and parent["pages"] == [digest(z.read(n)) for n in parent_names],
+                        "derivation parent pages are not exactly its listed pages",
+                    )
+                require(isinstance(identity, dict), "stream request identity missing")
                 expected = {
                     "code": code,
                     "fight": fid,
-                    "actor_id": source,
-                    "role": role,
-                    "direction": direction,
+                    **requested,
                     "revision": report["revision"],
                     "data_type": "All",
                     "include_resources": True,
@@ -351,6 +434,16 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                 require(
                     bool(names) and proof["pages"] == [digest(z.read(n)) for n in names],
                     "stream page hashes mismatch",
+                )
+                require(
+                    not parent_names
+                    or (
+                        len(parent_names) == len(names)
+                        and all(
+                            z.read(a) == z.read(b) for a, b in zip(names, parent_names, strict=True)
+                        )
+                    ),
+                    "derived pages are not their parent's bytes",
                 )
                 for name in names:
                     read(name)  # reject duplicate keys/nonfinite constants before page validation

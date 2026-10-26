@@ -30,7 +30,7 @@ from necropsy.snapshot.archive import (  # noqa: E402
 )
 from necropsy.snapshot.model import ActorRole, SnapshotError, StreamStatus  # noqa: E402
 from necropsy.snapshot.v1 import MARKER, open_snapshot  # noqa: E402
-from necropsy.snapshot.v2 import FORMAT  # noqa: E402
+from necropsy.snapshot.v3 import ENCOUNTER_FORMATS  # noqa: E402
 from scripts.capture_runner import Entry, QueueError, load_queue  # noqa: E402
 
 
@@ -55,8 +55,10 @@ def verify_capture(
             archive.read_bytes(member)  # Check every member against the supplied manifest.
         reader = open_snapshot(archive)
         descriptor = reader.descriptor()
-        if descriptor.format != FORMAT or reader.issues():
-            raise ValueError("capture must be a recognized v2 snapshot without unplaced content")
+        if descriptor.format not in ENCOUNTER_FORMATS or reader.issues():
+            raise ValueError(
+                "capture must be a recognized encounter snapshot without unplaced content"
+            )
         marker = archive.read_json(MARKER)
         subject = marker["subject"]
         expected = {

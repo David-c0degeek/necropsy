@@ -44,6 +44,7 @@ from necropsy.snapshot.archive import (
 from necropsy.snapshot.model import SnapshotError
 from necropsy.snapshot.v1 import FORMAT_VERSION, KIND, MARKER, open_snapshot
 from necropsy.wcl.acquire import (
+    DERIVATION_RULE,
     Acquisition,
     BossAcquisition,
     Entry,
@@ -201,11 +202,29 @@ def _check_binding(acquisition: Acquisition, boss: BossAcquisition, e: Entry) ->
     if fight is None:
         raise WriteError(f"entry {e.name} fight is not in its combined report")
     bounds = (fight.get("startTime"), fight.get("endTime"))
-    for s in (*e.streams, *e.encounter_streams):
+    whole = [s for s in e.encounter_streams if s.role == "encounter"]
+    for s in e.streams:
+        if s.derivation is None:
+            continue
+        # A derived stream is never requested: it must name exactly this entry's own
+        # certified encounter-All request as its parent.
+        if (
+            s.identity is not None
+            or s.direction != "target"
+            or s.derivation.get("rule") != DERIVATION_RULE
+            or set(s.derivation) != {"rule", "parent"}
+            or len(whole) != 1
+            or s.derivation["parent"] != whole[0].identity
+        ):
+            raise WriteError(f"a derived stream of {e.name} has no certified parent")
+    certified = [s for s in (*e.streams, *e.encounter_streams) if s.derivation is None]
+    for s in certified:
+        assert s.identity is not None
         if (s.identity.get("start_time"), s.identity.get("end_time")) != bounds:
             raise WriteError(f"a stream of {e.name} has other fight bounds than its report")
-    for s in (*e.streams, *e.encounter_streams):
+    for s in certified:
         ident = s.identity
+        assert ident is not None
         if (
             ident.get("code"),
             ident.get("revision"),
@@ -334,23 +353,37 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
             stream_key = (e.report_code, e.fight_id, record.role, record.actor_id, record.direction)
             earlier = next((s for s in streams if s["key"] == stream_key), None)
             if earlier is not None:
-                if earlier["identity"] != record.identity:
+                if (earlier["identity"], earlier.get("derivation_rule")) != (
+                    record.identity,
+                    (record.derivation or {}).get("rule"),
+                ):
                     raise WriteError(f"stream {stream_key} has two different identities")
                 continue
-            pages = store.page_bytes(
-                StreamKey(
-                    e.bundle_key,
-                    record.role,
-                    record.actor_id,
-                    record.direction,
-                    acquisition.endpoint,
-                ),
-                record.identity,
-            )
+            if record.derivation is None:
+                assert record.identity is not None
+                pages = store.page_bytes(
+                    StreamKey(
+                        e.bundle_key,
+                        record.role,
+                        record.actor_id,
+                        record.direction,
+                        acquisition.endpoint,
+                    ),
+                    record.identity,
+                )
+                origin = EntryOrigin.ACQUIRED
+            else:
+                # Copied from the verified encounter-All cache entry, never from an
+                # actor-target entry, and marked as written by Necropsy.
+                pages = store.page_bytes(
+                    StreamKey(e.bundle_key, "encounter", None, "all", acquisition.endpoint),
+                    record.derivation["parent"],
+                )
+                origin = EntryOrigin.GENERATED
             digests = []
             page_kind = "critical" if record.role == "critical" else record.direction
             for n, data in enumerate(pages, 1):
-                members[f"{prefix}{page_kind}_{n:03d}.json"] = (data, EntryOrigin.ACQUIRED)
+                members[f"{prefix}{page_kind}_{n:03d}.json"] = (data, origin)
                 digests.append(hashlib.sha256(data).hexdigest())
             streams.append(
                 {
@@ -358,6 +391,14 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                     "pages": digests,
                     "identity": record.identity,
                     "meta": record.meta,
+                    **(
+                        {
+                            "derivation_rule": record.derivation["rule"],
+                            "derivation_parent": record.derivation["parent"],
+                        }
+                        if record.derivation is not None
+                        else {}
+                    ),
                 }
             )
     for (code, fight_id, _actor), info in actor_dirs.items():
@@ -429,6 +470,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                     },
                 }
             )
+    derived = any("derivation_rule" in s for s in streams)
     limitations = [LIVE_DESCRIPTION]
     for b in bosses:
         for reason in b["coverage"]["reasons"]:
@@ -438,7 +480,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
     assert context.partition is not None and context.faction.value is not None
     marker = {
         "kind": KIND,
-        "formatVersion": 2 if acquisition.encounter_context else FORMAT_VERSION,
+        "formatVersion": (3 if derived else 2 if acquisition.encounter_context else FORMAT_VERSION),
         "subject": {
             "id": context.character_id.value,
             "canonical_id": context.canonical_id.value,
@@ -491,6 +533,21 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                 "pages": s["pages"],
                 "identity": s["identity"],
                 "meta": s["meta"],
+                **(
+                    {
+                        "derivation": {
+                            "rule": s["derivation_rule"],
+                            "parent": s["derivation_parent"],
+                            "parent_pages": next(
+                                p["pages"]
+                                for p in streams
+                                if p["key"] == (*s["key"][:2], "encounter", None, "all")
+                            ),
+                        }
+                    }
+                    if "derivation_rule" in s
+                    else {}
+                ),
             }
             for s in sorted(streams, key=lambda s: s["key"])
             if s["key"][2] in {"player", "pet"}

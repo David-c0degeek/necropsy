@@ -30,6 +30,7 @@ from necropsy.analysis.evidence import Faction
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.raids import (
     DEFAULT_RAID,
+    DERIVED_TARGET_ZONES,
     ENCOUNTER_CONTEXT_PARTITIONS,
     ENCOUNTER_CONTEXT_ZONES,
     RAIDS,
@@ -417,16 +418,23 @@ def fight_pets(
 # -- entries ----------------------------------------------------------------------
 
 
+DERIVATION_RULE = "target-equals-encounter-all-v1"
+"""A target stream taken from its fight's encounter-All pages, never requested."""
+
+
 @dataclass(frozen=True, slots=True)
 class StreamRecord:
     role: str
     actor_id: int | None
     direction: str
-    identity: dict[str, Any]
+    identity: dict[str, Any] | None
+    """The request the cache certified; None for a stream that was never requested."""
     pages: int
     events: int
     reused: bool
     meta: dict[str, Any]
+    derivation: dict[str, Any] | None = None
+    """For a derived stream: the rule and the exact identity of its parent stream."""
 
 
 @dataclass
@@ -464,6 +472,22 @@ class Entry:
         return self.pets if self.pets is not None else self.confirmed_pets
 
 
+def _derived_target(role: str, actor_id: int, parent: StreamRecord) -> StreamRecord:
+    """A target stream taken from the fight's encounter-All stream, never requested."""
+    assert parent.role == "encounter" and parent.identity is not None
+    return StreamRecord(
+        role,
+        actor_id,
+        "target",
+        None,
+        parent.pages,
+        parent.events,
+        True,
+        {},
+        {"rule": DERIVATION_RULE, "parent": dict(parent.identity)},
+    )
+
+
 def _record(role: str, actor_id: int | None, direction: str, stream: StreamPages) -> StreamRecord:
     return StreamRecord(
         role,
@@ -491,10 +515,14 @@ class Run:
         category: str | None = None,
         metric: str | None = None,
         encounter_context: bool = False,
+        derive_targets: bool = False,
     ) -> None:
         self.client, self.store, self.site, self.endpoint = client, store, site, endpoint
         self.policy = ranking_policy(class_id, category, metric)
         self.encounter_context = encounter_context
+        if derive_targets and not encounter_context:
+            raise ValueError("derived target streams need the encounter-All scope")
+        self.derive_targets = derive_targets
         self.report_points_bound = 6.0
         """Conservative floor; observed account-wide report costs may only increase it."""
         self._bundles: dict[tuple[str, int], Bundle] = {}
@@ -612,9 +640,20 @@ class Run:
         discovery = discover_pets(bundle.report, bundle.fight, actor)
         entry.confirmed_pets = list(discovery.confirmed)
         targets = [("player", actor)] + [("pet", pid) for pid in entry.pet_ids]
+        whole = None
+        if self.derive_targets:
+            # The whole-fight scope comes first: every actor's target stream is taken
+            # from it, and nothing is derived when it cannot be acquired.
+            self.stage = f"encounter events for {where}"
+            stream = fetch_stream(self.client, self.store, bundle, "encounter", None, "all")
+            whole = _record("encounter", None, "all", stream)
+            entry.encounter_streams.append(whole)
         player_events = []
         for role, actor_id in targets:
             for direction in ("source", "target"):
+                if whole is not None and direction == "target":
+                    entry.streams.append(_derived_target(role, actor_id, whole))
+                    continue
                 self.stage = f"{role} {actor_id} {direction} events for {where}"
                 stream = fetch_stream(self.client, self.store, bundle, role, actor_id, direction)
                 entry.streams.append(_record(role, actor_id, direction, stream))
@@ -632,7 +671,7 @@ class Run:
                 # Optional enrichment must not discard verified ordinary streams.
                 entry.combatant_context_reason = f"{type(error).__name__}: {error}"
         if self.encounter_context:
-            for role in ("encounter", "critical"):
+            for role in ("critical",) if whole is not None else ("encounter", "critical"):
                 self.stage = f"{role} events for {where}"
                 stream = fetch_stream(self.client, self.store, bundle, role, None, "all")
                 entry.encounter_streams.append(_record(role, None, "all", stream))
@@ -1048,6 +1087,7 @@ def acquire(
         category=context.ranking_category,
         metric=context.ranking_metric,
         encounter_context=encounter_context,
+        derive_targets=encounter_context and context.zone_id in DERIVED_TARGET_ZONES,
     )
     requested = tuple(encounters or boss_order(raid_for_zone(context.zone_id).slug))
     allowed = set(boss_order(raid_for_zone(context.zone_id).slug))

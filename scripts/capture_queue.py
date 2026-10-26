@@ -550,15 +550,15 @@ def complete_encounter_coverage(path: str, digest: str) -> set[int]:
     from necropsy.snapshot.archive import VerifiedArchive
     from necropsy.snapshot.model import ActorRole, StreamStatus
     from necropsy.snapshot.v1 import open_snapshot
-    from necropsy.snapshot.v2 import FORMAT
+    from necropsy.snapshot.v3 import ENCOUNTER_FORMATS
 
     with VerifiedArchive(ROOT / path, expected_sha256=digest) as archive:
         marker = archive.read_json(SNAPSHOT)
-        if marker.get("formatVersion") != 2:
+        if marker.get("formatVersion") not in (2, 3):
             return set()
         reader = open_snapshot(archive)
         descriptor = reader.descriptor()
-        if descriptor.format != FORMAT or reader.issues():
+        if descriptor.format not in ENCOUNTER_FORMATS or reader.issues():
             return set()
         by_boss: dict[int, list[bool]] = defaultdict(list)
         refs = reader.expected_streams()

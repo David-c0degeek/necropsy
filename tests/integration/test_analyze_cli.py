@@ -150,10 +150,17 @@ def test_normal_cli_selects_encounter_scopes_for_new_era_raids(
     with VerifiedArchive(out / "snapshot/scoped.zip") as archive:
         reader = open_snapshot(archive)
         assert reader.issues() == []
+        derived = context_enabled and slug == "naxxramas"
         assert reader.descriptor().format == (
-            "necropsy-live-snapshot-v2" if context_enabled else "necropsy-live-snapshot-v1"
+            "necropsy-live-snapshot-v3"
+            if derived
+            else "necropsy-live-snapshot-v2"
+            if context_enabled
+            else "necropsy-live-snapshot-v1"
         )
         marker = archive.read_json("necropsy-snapshot.json")
+        targets = [s for s in marker["streams"] if s["direction"] == "target"]
+        assert targets and all(("derivation" in s) is derived for s in targets)
         scopes = marker.get("encounter_streams", [])
         assert len(scopes) == (12 if context_enabled else 0)
         assert all(s["actor_id"] is None and s["direction"] == "all" for s in scopes)

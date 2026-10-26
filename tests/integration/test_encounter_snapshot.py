@@ -168,8 +168,9 @@ def test_naxx_encounter_context_needs_a_v2_capture(tmp_path: Path, enabled: bool
     with VerifiedArchive(written.archive) as archive:
         reader = open_snapshot(archive)
         assert reader.issues() == []
+        # Naxx encounter captures derive their actor target streams, so they are v3.
         assert reader.descriptor().format == (
-            "necropsy-live-snapshot-v2" if enabled else "necropsy-live-snapshot-v1"
+            "necropsy-live-snapshot-v3" if enabled else "necropsy-live-snapshot-v1"
         )
         scopes = {r.role for r in reader.expected_streams() if r.direction is Direction.ALL}
         assert scopes == ({ActorRole.ENCOUNTER, ActorRole.CRITICAL} if enabled else set())
