@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-balance-druid-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of the actor's and its listed owned units' SOURCE and TARGET pages, damage events whose sourceID is that stream's own actor; damage to the owner or its owned units is subtracted; no target exclusions; exact rational arithmetic; published amounts kept as text. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+  },
+  "dispositions": {
+    "n": 6,
+    "k": 3,
+    "r": 3,
+    "c": 0,
+    "outside_scope": 0
+  },
+  "rows": [
+    {
+      "id": "AZLXrwtvgamfWc18-28-30",
+      "purpose": "policy-scope",
+      "report": "AZLXrwtvgamfWc18",
+      "fight": 28,
+      "actor": 30,
+      "player": "Zasko",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51117-AZLXrwtvgamfWc18-28.oracle.json",
+      "oracle_sha256": "13b43f9d5a97496dfb4154611c090671a0610c90283dd93737e1a68993123589",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 38375,
+      "published": "1036.82",
+      "totals": {
+        "raw": 39788,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39788
+      },
+      "residual": "13/15350",
+      "ranked_target_game_ids": 2,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "XwFMTVWPGBj3qbL7-25-28",
+      "purpose": "policy-scope",
+      "report": "XwFMTVWPGBj3qbL7",
+      "fight": 25,
+      "actor": 28,
+      "player": "山葵葵",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51117-XwFMTVWPGBj3qbL7-25.oracle.json",
+      "oracle_sha256": "19cef44d3021353afc2f7d870a19e5c3df15aa706528bc854f56bce2d8eba71a",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 75076,
+      "published": "918.136",
+      "totals": {
+        "raw": 69427,
+        "self": 497,
+        "excluded": 0,
+        "ranked": 68930
+      },
+      "residual": "677/2346125",
+      "ranked_target_game_ids": 2,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "brqfwKx8YRWnmVXa-28-12",
+      "purpose": "policy-scope",
+      "report": "brqfwKx8YRWnmVXa",
+      "fight": 28,
+      "actor": 12,
+      "player": "Forceanature",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51117-brqfwKx8YRWnmVXa-28.oracle.json",
+      "oracle_sha256": "eafe5f0b311defad8f7ceb7df8182bb30e97389b9261a9615c583e5786c3536c",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 33945,
+      "published": "1029.31",
+      "totals": {
+        "raw": 34940,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34940
+      },
+      "residual": "1441/678900",
+      "ranked_target_game_ids": 2,
+      "excluded_target_damage": 0
+    }
+  ],
+  "refusals": [
+    {
+      "report": "9qJ3ZtTHrcwnL8CR",
+      "fight": 28,
+      "actor": 24,
+      "player": "Saitl",
+      "realm": "Everlook",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "refused",
+      "reason": "pet listings disagree"
+    },
+    {
+      "report": "Dyd43zV2xht6Mkmv",
+      "fight": 37,
+      "actor": 7,
+      "player": "Teris",
+      "realm": "Mankrik",
+      "kind": "subject",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "refused",
+      "reason": "pet listings disagree"
+    },
+    {
+      "report": "g8f9nGyRTpNLMqWm",
+      "fight": 22,
+      "actor": 27,
+      "player": "Frelserboom",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "refused",
+      "reason": "pet listings disagree"
+    }
+  ]
+}

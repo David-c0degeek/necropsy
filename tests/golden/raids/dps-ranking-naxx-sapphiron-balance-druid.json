@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-balance-druid-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of the actor's and its listed owned units' SOURCE and TARGET pages, damage events whose sourceID is that stream's own actor; damage to the owner or its owned units is subtracted; no target exclusions; exact rational arithmetic; published amounts kept as text. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+  },
+  "dispositions": {
+    "n": 6,
+    "k": 4,
+    "r": 2,
+    "c": 0,
+    "outside_scope": 0
+  },
+  "rows": [
+    {
+      "id": "1xN2P46ChrgYLW3j-28-40",
+      "purpose": "policy-scope",
+      "report": "1xN2P46ChrgYLW3j",
+      "fight": 28,
+      "actor": 40,
+      "player": "Pissdoff",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51119-1xN2P46ChrgYLW3j-28.oracle.json",
+      "oracle_sha256": "d4e35d59ead5e8b2be64b06db69d37b374667d0f22223310b0bebe974e751c88",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        230
+      ],
+      "duration_ms": 22507,
+      "published": "1188.56",
+      "totals": {
+        "raw": 26751,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 26751
+      },
+      "residual": "2002/562675",
+      "ranked_target_game_ids": 1,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "3GRTNr7hxZVcCdbn-39-13",
+      "purpose": "policy-scope",
+      "report": "3GRTNr7hxZVcCdbn",
+      "fight": 39,
+      "actor": 13,
+      "player": "Gdewl",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51119-3GRTNr7hxZVcCdbn-39.oracle.json",
+      "oracle_sha256": "c5c0352cc88925ef2c82b6c6f8564cca2459af14f36bee12bef8f4d3a1cae5f1",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        229
+      ],
+      "duration_ms": 27232,
+      "published": "1303.65",
+      "totals": {
+        "raw": 35501,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 35501
+      },
+      "residual": "1/8510",
+      "ranked_target_game_ids": 1,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "T6WzQLF9ynwvrtaN-42-31",
+      "purpose": "policy-scope",
+      "report": "T6WzQLF9ynwvrtaN",
+      "fight": 42,
+      "actor": 31,
+      "player": "Alyrian",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51119-T6WzQLF9ynwvrtaN-42.oracle.json",
+      "oracle_sha256": "7ff8367eb71eb8cb4ef1ba1788b148d071161e4aa4ab4c4bba6a907a74676a36",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        225
+      ],
+      "duration_ms": 22758,
+      "published": "1379.69",
+      "totals": {
+        "raw": 31399,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 31399
+      },
+      "residual": "749/1137900",
+      "ranked_target_game_ids": 1,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "ajnxYLDTKBd7HfF2-24-37",
+      "purpose": "policy-scope",
+      "report": "ajnxYLDTKBd7HfF2",
+      "fight": 24,
+      "actor": 37,
+      "player": "Tranzerot",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51119-ajnxYLDTKBd7HfF2-24.oracle.json",
+      "oracle_sha256": "f933d8deb3c48f45d22218ae1af9c0e53db6277f73de3ac8f5cca57478b632f6",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [
+        209
+      ],
+      "duration_ms": 21085,
+      "published": "1069.72",
+      "totals": {
+        "raw": 22555,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 22555
+      },
+      "residual": "-231/105425",
+      "ranked_target_game_ids": 1,
+      "excluded_target_damage": 0
+    }
+  ],
+  "refusals": [
+    {
+      "report": "X7W2nP3rtcYANTjd",
+      "fight": 28,
+      "actor": 24,
+      "player": "Bonnibelle",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "refused",
+      "reason": "pet listings disagree"
+    },
+    {
+      "report": "xyPf6G8JkDbV3r2a",
+      "fight": 43,
+      "actor": 16,
+      "player": "Teris",
+      "realm": "Mankrik",
+      "kind": "subject",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "refused",
+      "reason": "pet listings disagree"
+    }
+  ]
+}

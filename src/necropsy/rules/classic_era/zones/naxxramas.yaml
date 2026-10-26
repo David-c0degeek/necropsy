@@ -96,3 +96,183 @@ encounters:
   - id: 51114
     name: Kel'Thuzad
     boss_game_ids: [15990]
+
+# Metric policies apply only to their exact cell scope. They never validate the
+# damage rule above or any other encounter, class, category, metric or faction.
+ranking_metric_policies:
+- rule: naxx-gothik-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 4 admitted of 6 in-scope Gothik the Harvester Balance Druid Alliance rows (3 non-subject); 2 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-balance-druid.json
+- rule: naxx-grobbulus-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 5 admitted of 6 in-scope Grobbulus Balance Druid Alliance rows (4 non-subject); 1 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-balance-druid.json
+- rule: naxx-kelthuzad-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 4 admitted of 5 in-scope Kel'Thuzad Balance Druid Alliance rows (4 non-subject); 1 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-balance-druid.json
+- rule: naxx-maexxna-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 4 admitted of 6 in-scope Maexxna Balance Druid Alliance rows (4 non-subject); 2 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-maexxna-balance-druid.json
+- rule: naxx-noth-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 3 admitted of 6 in-scope Noth the Plaguebringer Balance Druid Alliance rows (3 non-subject); 3 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-noth-balance-druid.json
+- rule: naxx-sapphiron-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 4 admitted of 6 in-scope Sapphiron Balance Druid Alliance rows (4 non-subject); 2 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-balance-druid.json
+- rule: naxx-thaddius-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 4 admitted of 6 in-scope Thaddius Balance Druid Alliance rows (3 non-subject); 2 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-balance-druid.json
+- rule: naxx-horsemen-balance-druid-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: >-
+    WCL DPS equals the actor's damage plus its listed owned units' damage, less
+    damage to the actor or its owned units, divided by the fight duration. No
+    target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is not established.
+  validated: 6 admitted of 6 in-scope The Four Horsemen Balance Druid Alliance rows (5 non-subject); 0 ownership refusals, unknown; 0 contradictions.
+  evidence: tests/golden/raids/dps-ranking-naxx-horsemen-balance-druid.json

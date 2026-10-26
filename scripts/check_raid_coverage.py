@@ -222,15 +222,30 @@ def content_problems(cell: CoverageCell) -> list[str]:
 
 
 VALIDATED_BASES = frozenset({"empirical"})
-POLICY_CONDITIONS = frozenset(
-    {
-        "unique-name-realm-identity",
-        "complete-source-target-streams",
-        "owned-unit-listing-present",
-        "friendly-recipients-only",
-        "ranking-duration-equals-fight-duration",
-    }
-)
+NO_PRODUCTION_EXCLUSIONS = "encounter-has-no-production-ranking-exclusions"
+# Each metric declares exactly the conditions its raw explanation rests on; a
+# metric without a declared set has no validated policy shape.
+POLICY_CONDITIONS = {
+    "hps": frozenset(
+        {
+            "unique-name-realm-identity",
+            "complete-source-target-streams",
+            "owned-unit-listing-present",
+            "friendly-recipients-only",
+            "ranking-duration-equals-fight-duration",
+        }
+    ),
+    "dps": frozenset(
+        {
+            "unique-name-realm-identity",
+            "complete-source-target-streams",
+            "owned-unit-listing-present",
+            "owner-and-owned-unit-targets-subtracted",
+            "ranking-duration-equals-fight-duration",
+            NO_PRODUCTION_EXCLUSIONS,
+        }
+    ),
+}
 POLICY_FIELDS = frozenset(
     {"rule", "basis", "scope", "formula", "conditions", "bound", "validated", "evidence"}
 )
@@ -242,14 +257,6 @@ def _policy_scope(policy: object) -> tuple[int, int, str, str, str]:
         raise ValueError("ranking metric policy fields are incomplete or unknown")
     if policy["basis"] not in VALIDATED_BASES:
         raise ValueError(f"{policy['rule']}: basis {policy['basis']!r} is not validated")
-    conditions = policy["conditions"]
-    if not isinstance(conditions, list) or set(conditions) != POLICY_CONDITIONS:
-        raise ValueError(f"{policy['rule']}: conditions must be exactly the declared set")
-    if len(conditions) != len(POLICY_CONDITIONS):
-        raise ValueError(f"{policy['rule']}: duplicated condition")
-    for field in ("rule", "formula", "bound", "validated", "evidence"):
-        if not isinstance(policy[field], str) or not policy[field].strip():
-            raise ValueError(f"ranking metric policy needs {field}")
     scope = policy["scope"]
     keys = ("encounter_id", "class_id", "category", "metric", "faction")
     if not isinstance(scope, dict) or set(scope) != set(keys):
@@ -258,6 +265,17 @@ def _policy_scope(policy: object) -> tuple[int, int, str, str, str]:
         raise ValueError(f"{policy['rule']}: scope IDs must be integers")
     if not all(isinstance(scope[k], str) for k in keys[2:]):
         raise ValueError(f"{policy['rule']}: scope names must be strings")
+    declared = POLICY_CONDITIONS.get(scope["metric"])
+    if declared is None:
+        raise ValueError(f"{policy['rule']}: no policy shape for metric {scope['metric']!r}")
+    conditions = policy["conditions"]
+    if not isinstance(conditions, list) or set(conditions) != declared:
+        raise ValueError(f"{policy['rule']}: conditions must be exactly the declared set")
+    if len(conditions) != len(declared):
+        raise ValueError(f"{policy['rule']}: duplicated condition")
+    for field in ("rule", "formula", "bound", "validated", "evidence"):
+        if not isinstance(policy[field], str) or not policy[field].strip():
+            raise ValueError(f"ranking metric policy needs {field}")
     return (
         scope["encounter_id"],
         scope["class_id"],
@@ -282,8 +300,19 @@ def ranking_problem(cell: CoverageCell) -> str | None:
             scope = _policy_scope(policy)
         except ValueError as exc:
             return f"malformed ranking metric policy: {exc}"
-        if scope == key:
-            return None
+        if scope != key:
+            continue
+        if NO_PRODUCTION_EXCLUSIONS in policy["conditions"]:
+            encounter = next(
+                (e for e in zone.get("encounters") or () if e.get("id") == cell.encounter_id),
+                None,
+            )
+            if encounter is None or encounter.get("ranking_exclusions"):
+                return (
+                    f"{policy['rule']}: encounter {cell.encounter_id} has production ranking "
+                    "exclusions that its evidence never tested"
+                )
+        return None
     return "ranking policy remains unvalidated"
 
 

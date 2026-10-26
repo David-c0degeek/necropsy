@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-balance-druid-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Independent raw re-enumeration: maximum-multiplicity union of the actor's and its listed owned units' SOURCE and TARGET pages, damage events whose sourceID is that stream's own actor; damage to the owner or its owned units is subtracted; no target exclusions; exact rational arithmetic; published amounts kept as text. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. That bound reflects publication precision only; the upstream rounding mode is not established.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+  },
+  "dispositions": {
+    "n": 6,
+    "k": 4,
+    "r": 2,
+    "c": 0,
+    "outside_scope": 0
+  },
+  "rows": [
+    {
+      "id": "9zw2HpkXA7tgjMG1-7-38",
+      "purpose": "policy-scope",
+      "report": "9zw2HpkXA7tgjMG1",
+      "fight": 7,
+      "actor": 38,
+      "player": "Ovechkin",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51116-9zw2HpkXA7tgjMG1-7.oracle.json",
+      "oracle_sha256": "1e83a0b83e61b11f0ae4378cadb60d3ceb94e0c95c74d17ac5987eeb7d1667af",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 40755,
+      "published": "833.861",
+      "totals": {
+        "raw": 33984,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 33984
+      },
+      "residual": "-337/2717000",
+      "ranked_target_game_ids": 1,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "CLZBpGHbRM2Kz4a8-6-6",
+      "purpose": "policy-scope",
+      "report": "CLZBpGHbRM2Kz4a8",
+      "fight": 6,
+      "actor": 6,
+      "player": "Forceanature",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51116-CLZBpGHbRM2Kz4a8-6.oracle.json",
+      "oracle_sha256": "088254d318e1665e002564425279d3883a667e7de370ff60f311cadc6986c919",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 34896,
+      "published": "923.172",
+      "totals": {
+        "raw": 32215,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 32215
+      },
+      "residual": "-79/272625",
+      "ranked_target_game_ids": 1,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "Rf8KLVdxkwrtQGAY-12-42",
+      "purpose": "policy-scope",
+      "report": "Rf8KLVdxkwrtQGAY",
+      "fight": 12,
+      "actor": 42,
+      "player": "Zasko",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51116-Rf8KLVdxkwrtQGAY-12.oracle.json",
+      "oracle_sha256": "8b8d7345f7e7076928d922c514df9973d6ee35afa740501e8f472d98e331b3a2",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 38109,
+      "published": "1240.18",
+      "totals": {
+        "raw": 47899,
+        "self": 637,
+        "excluded": 0,
+        "ranked": 47262
+      },
+      "residual": "-327/635150",
+      "ranked_target_game_ids": 2,
+      "excluded_target_damage": 0
+    },
+    {
+      "id": "g8f9nGyRTpNLMqWm-9-27",
+      "purpose": "policy-scope",
+      "report": "g8f9nGyRTpNLMqWm",
+      "fight": 9,
+      "actor": 27,
+      "player": "Frelserboom",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "arithmetic-match",
+      "oracle": "tasks/naxx-completion/research/real-v2-dps-20261023/51116-g8f9nGyRTpNLMqWm-9.oracle.json",
+      "oracle_sha256": "99b7bf7dbc6ca3535dc08cb6f6b1c1be81471139ac80ac7d7b7c3c1b5386c47d",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        81
+      ],
+      "duration_ms": 38411,
+      "published": "1033.48",
+      "totals": {
+        "raw": 40038,
+        "self": 341,
+        "excluded": 0,
+        "ranked": 39697
+      },
+      "residual": "-7/960275",
+      "ranked_target_game_ids": 2,
+      "excluded_target_damage": 0
+    }
+  ],
+  "refusals": [
+    {
+      "report": "2JTMZcHwmhfPxFV7",
+      "fight": 11,
+      "actor": 31,
+      "player": "Hotsndots",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "refused",
+      "reason": "\"There is no item named 'events/2JTMZcHwmhfPxFV7/fight_11/player_31_Hotsndots/pets.json' in the archive\""
+    },
+    {
+      "report": "7ATY62QycLzknrPN",
+      "fight": 7,
+      "actor": 9,
+      "player": "Teris",
+      "realm": "Mankrik",
+      "kind": "subject",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "faction_reason": "playerDetails combatantInfo.factionID",
+      "status": "refused",
+      "reason": "\"There is no item named 'events/7ATY62QycLzknrPN/fight_7/player_9_Teris/pets.json' in the archive\""
+    }
+  ]
+}

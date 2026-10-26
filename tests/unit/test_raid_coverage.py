@@ -91,13 +91,18 @@ def test_inventory_preserves_every_missing_obligation() -> None:
     assert errors == []
 
 
+# Naxx bosses whose Balance Druid Alliance DPS cell has a scoped ranking policy.
+NAXX_BALANCE_DPS_POLICY_ENCOUNTERS = (51109, 51111, 51114, 51116, 51117, 51119, 51120, 51121)
+
+
 def test_a_raid_wide_ranking_rule_never_reconciles_a_cell() -> None:
     """Naxxramas's empirical exclusion rule does not stand in for a cell policy."""
     naxx = [c for c in coverage_cells() if c.raid == "naxxramas"]
     assert load_rules("classic_era", "zones/naxxramas")["ranking_exclusions_rule"]["basis"] == (
         "empirical"
     )
-    assert {coverage_check.ranking_problem(c) for c in naxx} == {
+    scoped = {f"naxxramas/{e}/2/Balance/dps/Alliance" for e in NAXX_BALANCE_DPS_POLICY_ENCOUNTERS}
+    assert {coverage_check.ranking_problem(c) for c in naxx if c.key not in scoped} == {
         "ranking policy remains unvalidated"
     }
 
@@ -186,6 +191,7 @@ def test_forged_complete_status_requires_content_and_real_independent_evidence(
 
 
 PILOT = "mc/50668/6/Holy/hps/Alliance"
+DPS_CELL = "naxxramas/{}/2/Balance/dps/Alliance"
 
 
 def _cell(key: str) -> Any:
@@ -205,6 +211,86 @@ def test_scoped_hps_policy_validates_only_its_exact_cell() -> None:
         assert coverage_check.ranking_problem(_cell(key)) == "ranking policy remains unvalidated"
     zone = load_rules("classic_era", "zones/mc")
     assert zone["ranking_exclusions_rule"]["basis"] == "unvalidated"
+
+
+def test_scoped_dps_policy_validates_only_its_exact_cell() -> None:
+    for encounter in NAXX_BALANCE_DPS_POLICY_ENCOUNTERS:
+        assert coverage_check.ranking_problem(_cell(DPS_CELL.format(encounter))) is None
+    for key in (
+        "naxxramas/51109/2/Balance/dps/Horde",
+        "naxxramas/51109/2/Feral/dps/Alliance",
+        "naxxramas/51109/2/Balance/hps/Alliance",
+        "naxxramas/51108/2/Balance/dps/Alliance",  # Gluth: exclusions untested, stays open
+        "naxxramas/51118/2/Balance/dps/Alliance",  # Patchwerk: no admitted row
+    ):
+        assert coverage_check.ranking_problem(_cell(key)) == "ranking policy remains unvalidated"
+
+
+def _with_zone(monkeypatch: pytest.MonkeyPatch, zone_name: str, change: Any) -> None:
+    original_load = load_rules
+
+    def mutated(game: str, name: str) -> dict[str, Any]:
+        data = original_load(game, name)
+        if name != zone_name:
+            return data
+        data = {
+            **data,
+            "encounters": [dict(e) for e in data["encounters"]],
+            "ranking_metric_policies": [
+                {**p, "scope": dict(p["scope"]), "conditions": list(p["conditions"])}
+                for p in data["ranking_metric_policies"]
+            ],
+        }
+        change(data)
+        return data
+
+    monkeypatch.setattr(coverage_check, "load_rules", mutated)
+
+
+def test_an_added_production_exclusion_reopens_an_untested_dps_policy(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def add_exclusion(data: dict[str, Any]) -> None:
+        gothik = next(e for e in data["encounters"] if e["id"] == 51109)
+        gothik["ranking_exclusions"] = [{"game_id": 16124, "name": "Unrelenting Trainee"}]
+
+    _with_zone(monkeypatch, "zones/naxxramas", add_exclusion)
+    problem = coverage_check.ranking_problem(_cell(DPS_CELL.format(51109)))
+    assert problem is not None and "production ranking exclusions" in problem
+    assert coverage_check.ranking_problem(_cell(DPS_CELL.format(51111))) is None
+
+
+@pytest.mark.parametrize(
+    ("zone_name", "key", "change"),
+    [
+        # A DPS policy may not borrow the healing condition set, nor HPS the damage set.
+        (
+            "zones/naxxramas",
+            "naxxramas/51109/2/Balance/dps/Alliance",
+            lambda p: p.update(conditions=sorted(coverage_check.POLICY_CONDITIONS["hps"])),
+        ),
+        (
+            "zones/mc",
+            PILOT,
+            lambda p: p.update(conditions=sorted(coverage_check.POLICY_CONDITIONS["dps"])),
+        ),
+        (
+            "zones/naxxramas",
+            "naxxramas/51109/2/Balance/dps/Alliance",
+            lambda p: p.update(conditions=p["conditions"][:-1]),
+        ),
+        ("zones/mc", PILOT, lambda p: p["scope"].update(metric="tps")),
+    ],
+)
+def test_conditions_are_exactly_the_set_for_the_policy_metric(
+    monkeypatch: pytest.MonkeyPatch, zone_name: str, key: str, change: Any
+) -> None:
+    def mutate_first(data: dict[str, Any]) -> None:
+        change(data["ranking_metric_policies"][0])
+
+    _with_zone(monkeypatch, zone_name, mutate_first)
+    problem = coverage_check.ranking_problem(_cell(key))
+    assert problem is not None and problem.startswith("malformed ranking metric policy")
 
 
 @pytest.mark.parametrize(

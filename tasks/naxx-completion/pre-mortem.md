@@ -527,3 +527,73 @@ fix. Independent source review and actual network-disabled image/child tests
 pass. Reviewed image 372d7ecc deployed during no-child quota wait; all 34 entry
 records unchanged, exact runner hash and host watchdog verified. Nominal network
 timeout limitation remains explicit. No manual notification or local AI used.
+
+## 2026-10-26: first cell-scoped DPS ranking policies (C1)
+
+Scope: eight Druid Balance DPS Alliance policies (Gothik, Grobbulus,
+Kel'Thuzad, Maexxna, Noth, Sapphiron, Thaddius, Four Horsemen), metric-specific
+policy conditions in `check_raid_coverage`, and a DPS golden. No analyzer,
+acquisition, render or capture change. Codex DESIGN_AGREED (codex:48) after one
+CHALLENGE round that removed an engine-reconciliation overclaim and five
+exclusion bosses.
+
+Failed future: the coverage checker accepts a DPS policy for a boss whose
+production rules later gain target exclusions, so a raw explanation that never
+tested those exclusions keeps clearing the ranking dimension. Or the condition
+change silently loosens the existing HPS contract. Or the policies are
+"validated" from the same per-row drafts without an independent re-enumeration,
+or from rows whose faction, scope or ownership was never established.
+
+**PM-23 — High — the metric-specific condition change weakens HPS or malformed
+refusals.** Basis: [evidence: `_policy_scope` compares conditions to one
+metric-agnostic set; test_raid_coverage parametrizes ten malformed mutations
+against the MC HPS pilot]. Guardrail: keep the HPS set byte-for-byte and select
+the set from the policy's own scope metric. An unknown metric fails closed before
+conditions are read. Existing malformed cases still refuse, and new cases cover a
+DPS policy carrying the HPS set, an HPS policy carrying the DPS set and an
+unknown metric. Detection: before merge. Rollback: revert the checker; no
+receipts change.
+
+**PM-24 — High — an added production exclusion still clears an untested DPS
+policy.** Basis: [evidence: all 49 admitted rows have zero ranked damage to
+production-excluded game IDs; `ranking_problem` returned on scope match alone].
+Guardrail: the DPS condition `encounter-has-no-production-ranking-exclusions` is
+enforced in `ranking_problem` against the live zone rules, not just stated, and
+the golden asserts it as well. A synthetic mutation that adds an exclusion to a
+covered encounter must reopen the ranking problem. Detection: before merge, and
+on every inventory run. Rollback: revert the checker; policies become inert.
+
+**PM-25 — High — validation counts are circular or overstated.** Basis:
+[evidence: the per-row oracles come from `freeze_dps_ranking.py`; 40 of 89
+attempts were refused for ownership; the Kel'Thuzad subject has unknown faction].
+Guardrail: the golden re-enumerates raw pages with standard-library code only
+(no freezer, analyzer or metric imports) and recomputes totals, duration,
+published token and exact Fraction residual. Each policy records dispositions
+n = k + r + c with c = 0, k ≥ 3 distinct report/fight/actor samples, at least one
+non-subject actor, and every row's faction verdict `observed`. Refused rows stay
+listed as unknown, never as matches. Wrong-duration, self-damage and
+added-exclusion mutations must fail where the row exercises them. The single
+positive owned-unit witness (Maexxna g8f9nGyRTpNLMqWm fight 9, 442 damage) proves
+dropped-owned failure, and non-exercisable mutations are marked as such.
+Detection: before merge. Rollback: delete the eight policies and evidence files.
+
+Verdict: PROCEED WITH GUARDRAILS. Reversibility: full; this unit changes no
+analysis output, saved document, capture or published asset. `engine_digest`
+already excludes `ranking_metric_policies`, so v1 output byte-compatibility (PM-1)
+is not touched; the full gate confirms it.
+
+C1 calibration before the full gate, 2026-10-26:
+- PM-23 Prevented Prediction. The HPS condition set is unchanged, and all ten
+  existing malformed-policy cases still refuse. Four new cases refuse
+  cross-metric condition sets, a dropped DPS condition and an unknown metric;
+  67 coverage/batch unit tests pass.
+- PM-24 Prevented Prediction. A synthetic Gothik exclusion reopens that cell's
+  ranking problem through `ranking_problem` itself, while Grobbulus stays clear.
+  The golden separately asserts that every policy's encounter has no production
+  exclusions.
+- PM-25 Mitigated. The golden passes 43 cases with standard-library raw
+  enumeration only. Wrong duration fails on all 34 rows, self damage on 15,
+  removing the largest non-boss target on 14, and dropped owned damage on the
+  single Maexxna witness. The builder aborts on any non-ownership refusal.
+- Horizon: independent review and the full gate. Engine emission and product
+  acceptance remain separate.
