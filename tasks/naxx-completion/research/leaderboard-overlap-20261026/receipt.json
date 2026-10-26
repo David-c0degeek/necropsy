@@ -1,0 +1,1296 @@
+{
+ "kind": "Live leaderboard overlap, first pages; faction-blind exact fight coincidence",
+ "bundle": {
+  "path": "workspace/leaderboard-overlap-20261026/leaderboard-overlap-bundle.tar.gz",
+  "sha256": "11edd8eb6ec028330034bc8d11db116685706d817c508c547c5663cd9094806b"
+ },
+ "pages": 300,
+ "leaderboards": 20,
+ "bosses": 15,
+ "rows": {
+  "total": 29691,
+  "kept_class_spec_and_fight": 29691,
+  "duplicate_fight_within_leaderboard": 1246
+ },
+ "definitions": {
+  "top_ranked_rows": "fights of the top N ranked rows (primary)",
+  "first_n_distinct_fights": "first N distinct fights on the page (secondary)",
+  "coalescable_fight_acquisitions": "slots minus distinct fights across leaderboards; an upper count of fight captures that could merge, not requests or points saved"
+ },
+ "by_window": {
+  "top_ranked_rows": {
+   "3": {
+    "board_boss_fight_slots": 874,
+    "slots_whose_fight_is_in_another_leaderboard": 22,
+    "share_of_slots_shared": 0.0252,
+    "distinct_boss_fights_across_leaderboards": 861,
+    "coalescable_fight_acquisitions": 13,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 52,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 5
+     },
+     "51108": {
+      "distinct_fights": 57,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51109": {
+      "distinct_fights": 58,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51110": {
+      "distinct_fights": 59,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51111": {
+      "distinct_fights": 59,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51112": {
+      "distinct_fights": 59,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51113": {
+      "distinct_fights": 57,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51114": {
+      "distinct_fights": 56,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51115": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51116": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51117": {
+      "distinct_fights": 56,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51118": {
+      "distinct_fights": 55,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51119": {
+      "distinct_fights": 58,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51120": {
+      "distinct_fights": 58,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51121": {
+      "distinct_fights": 57,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 3
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 3
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 2
+     },
+     {
+      "a": "Druid/Feral/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Hunter/Marksmanship/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Mage/Fire/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Paladin/Holy/hps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 1
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 0,
+     "Druid/Balance/hps": 0,
+     "Druid/Feral/dps": 1,
+     "Druid/Guardian/dps": 2,
+     "Druid/Restoration/hps": 2,
+     "Hunter/Marksmanship/dps": 2,
+     "Mage/Fire/dps": 2,
+     "Mage/Frost/dps": 0,
+     "Paladin/Holy/hps": 1,
+     "Paladin/Protection/dps": 0,
+     "Paladin/Retribution/dps": 0,
+     "Priest/Holy/hps": 0,
+     "Priest/Shadow/dps": 1,
+     "Rogue/Assassination/dps": 2,
+     "Shaman/Elemental/dps": 0,
+     "Shaman/Enhancement/dps": 0,
+     "Shaman/Restoration/hps": 0,
+     "Warlock/Destruction/dps": 1,
+     "Warrior/Fury/dps": 5,
+     "Warrior/Protection/dps": 3
+    }
+   },
+   "5": {
+    "board_boss_fight_slots": 1449,
+    "slots_whose_fight_is_in_another_leaderboard": 38,
+    "share_of_slots_shared": 0.0262,
+    "distinct_boss_fights_across_leaderboards": 1428,
+    "coalescable_fight_acquisitions": 21,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 90,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 5
+     },
+     "51108": {
+      "distinct_fights": 95,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51109": {
+      "distinct_fights": 94,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51110": {
+      "distinct_fights": 97,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51111": {
+      "distinct_fights": 95,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51112": {
+      "distinct_fights": 99,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51113": {
+      "distinct_fights": 95,
+      "fights_in_2_or_more_leaderboards": 3,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51114": {
+      "distinct_fights": 93,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51115": {
+      "distinct_fights": 100,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51116": {
+      "distinct_fights": 97,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51117": {
+      "distinct_fights": 93,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51118": {
+      "distinct_fights": 91,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51119": {
+      "distinct_fights": 97,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51120": {
+      "distinct_fights": 96,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51121": {
+      "distinct_fights": 96,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 3
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Priest/Shadow/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 3
+     },
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 3
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 2
+     },
+     {
+      "a": "Druid/Balance/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Feral/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Hunter/Marksmanship/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Mage/Fire/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Paladin/Holy/hps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Paladin/Protection/dps",
+      "shared_fights": 1
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 1,
+     "Druid/Balance/hps": 0,
+     "Druid/Feral/dps": 1,
+     "Druid/Guardian/dps": 2,
+     "Druid/Restoration/hps": 3,
+     "Hunter/Marksmanship/dps": 3,
+     "Mage/Fire/dps": 3,
+     "Mage/Frost/dps": 1,
+     "Paladin/Holy/hps": 1,
+     "Paladin/Protection/dps": 1,
+     "Paladin/Retribution/dps": 0,
+     "Priest/Holy/hps": 0,
+     "Priest/Shadow/dps": 3,
+     "Rogue/Assassination/dps": 3,
+     "Shaman/Elemental/dps": 1,
+     "Shaman/Enhancement/dps": 1,
+     "Shaman/Restoration/hps": 1,
+     "Warlock/Destruction/dps": 4,
+     "Warrior/Fury/dps": 6,
+     "Warrior/Protection/dps": 3
+    }
+   },
+   "20": {
+    "board_boss_fight_slots": 5784,
+    "slots_whose_fight_is_in_another_leaderboard": 336,
+    "share_of_slots_shared": 0.0581,
+    "distinct_boss_fights_across_leaderboards": 5610,
+    "coalescable_fight_acquisitions": 174,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 368,
+      "fights_in_2_or_more_leaderboards": 11,
+      "max_leaderboards_sharing_one_fight": 7
+     },
+     "51108": {
+      "distinct_fights": 379,
+      "fights_in_2_or_more_leaderboards": 7,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51109": {
+      "distinct_fights": 375,
+      "fights_in_2_or_more_leaderboards": 11,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51110": {
+      "distinct_fights": 376,
+      "fights_in_2_or_more_leaderboards": 11,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51111": {
+      "distinct_fights": 373,
+      "fights_in_2_or_more_leaderboards": 12,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51112": {
+      "distinct_fights": 379,
+      "fights_in_2_or_more_leaderboards": 5,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51113": {
+      "distinct_fights": 371,
+      "fights_in_2_or_more_leaderboards": 12,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51114": {
+      "distinct_fights": 373,
+      "fights_in_2_or_more_leaderboards": 9,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51115": {
+      "distinct_fights": 386,
+      "fights_in_2_or_more_leaderboards": 8,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51116": {
+      "distinct_fights": 383,
+      "fights_in_2_or_more_leaderboards": 11,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51117": {
+      "distinct_fights": 372,
+      "fights_in_2_or_more_leaderboards": 3,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51118": {
+      "distinct_fights": 370,
+      "fights_in_2_or_more_leaderboards": 11,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51119": {
+      "distinct_fights": 350,
+      "fights_in_2_or_more_leaderboards": 30,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51120": {
+      "distinct_fights": 381,
+      "fights_in_2_or_more_leaderboards": 8,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51121": {
+      "distinct_fights": 374,
+      "fights_in_2_or_more_leaderboards": 13,
+      "max_leaderboards_sharing_one_fight": 3
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Priest/Shadow/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 19
+     },
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 10
+     },
+     {
+      "a": "Paladin/Holy/hps",
+      "b": "Priest/Holy/hps",
+      "shared_fights": 8
+     },
+     {
+      "a": "Druid/Balance/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Shaman/Restoration/hps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Hunter/Marksmanship/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Rogue/Assassination/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Druid/Feral/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 5
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Paladin/Holy/hps",
+      "shared_fights": 5
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 19,
+     "Druid/Balance/hps": 3,
+     "Druid/Feral/dps": 12,
+     "Druid/Guardian/dps": 12,
+     "Druid/Restoration/hps": 19,
+     "Hunter/Marksmanship/dps": 17,
+     "Mage/Fire/dps": 18,
+     "Mage/Frost/dps": 14,
+     "Paladin/Holy/hps": 19,
+     "Paladin/Protection/dps": 5,
+     "Paladin/Retribution/dps": 5,
+     "Priest/Holy/hps": 22,
+     "Priest/Shadow/dps": 23,
+     "Rogue/Assassination/dps": 33,
+     "Shaman/Elemental/dps": 5,
+     "Shaman/Enhancement/dps": 6,
+     "Shaman/Restoration/hps": 14,
+     "Warlock/Destruction/dps": 35,
+     "Warrior/Fury/dps": 32,
+     "Warrior/Protection/dps": 23
+    }
+   },
+   "100": {
+    "board_boss_fight_slots": 28445,
+    "slots_whose_fight_is_in_another_leaderboard": 3404,
+    "share_of_slots_shared": 0.1197,
+    "distinct_boss_fights_across_leaderboards": 26624,
+    "coalescable_fight_acquisitions": 1821,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 1794,
+      "fights_in_2_or_more_leaderboards": 106,
+      "max_leaderboards_sharing_one_fight": 7
+     },
+     "51108": {
+      "distinct_fights": 1871,
+      "fights_in_2_or_more_leaderboards": 74,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51109": {
+      "distinct_fights": 1763,
+      "fights_in_2_or_more_leaderboards": 137,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51110": {
+      "distinct_fights": 1833,
+      "fights_in_2_or_more_leaderboards": 98,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51111": {
+      "distinct_fights": 1767,
+      "fights_in_2_or_more_leaderboards": 100,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51112": {
+      "distinct_fights": 1805,
+      "fights_in_2_or_more_leaderboards": 88,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51113": {
+      "distinct_fights": 1815,
+      "fights_in_2_or_more_leaderboards": 98,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51114": {
+      "distinct_fights": 1758,
+      "fights_in_2_or_more_leaderboards": 106,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51115": {
+      "distinct_fights": 1799,
+      "fights_in_2_or_more_leaderboards": 62,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51116": {
+      "distinct_fights": 1844,
+      "fights_in_2_or_more_leaderboards": 102,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51117": {
+      "distinct_fights": 1760,
+      "fights_in_2_or_more_leaderboards": 104,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51118": {
+      "distinct_fights": 1813,
+      "fights_in_2_or_more_leaderboards": 91,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51119": {
+      "distinct_fights": 1517,
+      "fights_in_2_or_more_leaderboards": 223,
+      "max_leaderboards_sharing_one_fight": 7
+     },
+     "51120": {
+      "distinct_fights": 1803,
+      "fights_in_2_or_more_leaderboards": 71,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51121": {
+      "distinct_fights": 1682,
+      "fights_in_2_or_more_leaderboards": 123,
+      "max_leaderboards_sharing_one_fight": 4
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Priest/Shadow/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 100
+     },
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 82
+     },
+     {
+      "a": "Paladin/Holy/hps",
+      "b": "Priest/Holy/hps",
+      "shared_fights": 76
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Mage/Frost/dps",
+      "shared_fights": 57
+     },
+     {
+      "a": "Rogue/Assassination/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 55
+     },
+     {
+      "a": "Hunter/Marksmanship/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 51
+     },
+     {
+      "a": "Rogue/Assassination/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 50
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 48
+     },
+     {
+      "a": "Druid/Balance/dps",
+      "b": "Druid/Balance/hps",
+      "shared_fights": 46
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Paladin/Holy/hps",
+      "shared_fights": 44
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 151,
+     "Druid/Balance/hps": 108,
+     "Druid/Feral/dps": 129,
+     "Druid/Guardian/dps": 100,
+     "Druid/Restoration/hps": 171,
+     "Hunter/Marksmanship/dps": 218,
+     "Mage/Fire/dps": 243,
+     "Mage/Frost/dps": 110,
+     "Paladin/Holy/hps": 223,
+     "Paladin/Protection/dps": 40,
+     "Paladin/Retribution/dps": 81,
+     "Priest/Holy/hps": 212,
+     "Priest/Shadow/dps": 195,
+     "Rogue/Assassination/dps": 285,
+     "Shaman/Elemental/dps": 76,
+     "Shaman/Enhancement/dps": 106,
+     "Shaman/Restoration/hps": 130,
+     "Warlock/Destruction/dps": 298,
+     "Warrior/Fury/dps": 270,
+     "Warrior/Protection/dps": 258
+    }
+   }
+  },
+  "first_n_distinct_fights": {
+   "3": {
+    "board_boss_fight_slots": 900,
+    "slots_whose_fight_is_in_another_leaderboard": 24,
+    "share_of_slots_shared": 0.0267,
+    "distinct_boss_fights_across_leaderboards": 886,
+    "coalescable_fight_acquisitions": 14,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 56,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 5
+     },
+     "51108": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51109": {
+      "distinct_fights": 58,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51110": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51111": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51112": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51113": {
+      "distinct_fights": 58,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51114": {
+      "distinct_fights": 59,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51115": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51116": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51117": {
+      "distinct_fights": 59,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51118": {
+      "distinct_fights": 59,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51119": {
+      "distinct_fights": 59,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51120": {
+      "distinct_fights": 60,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51121": {
+      "distinct_fights": 58,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 3
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 3
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 2
+     },
+     {
+      "a": "Druid/Feral/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Hunter/Marksmanship/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Mage/Fire/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Paladin/Holy/hps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 1
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 0,
+     "Druid/Balance/hps": 0,
+     "Druid/Feral/dps": 1,
+     "Druid/Guardian/dps": 2,
+     "Druid/Restoration/hps": 2,
+     "Hunter/Marksmanship/dps": 2,
+     "Mage/Fire/dps": 3,
+     "Mage/Frost/dps": 1,
+     "Paladin/Holy/hps": 1,
+     "Paladin/Protection/dps": 0,
+     "Paladin/Retribution/dps": 0,
+     "Priest/Holy/hps": 0,
+     "Priest/Shadow/dps": 1,
+     "Rogue/Assassination/dps": 2,
+     "Shaman/Elemental/dps": 0,
+     "Shaman/Enhancement/dps": 0,
+     "Shaman/Restoration/hps": 0,
+     "Warlock/Destruction/dps": 1,
+     "Warrior/Fury/dps": 5,
+     "Warrior/Protection/dps": 3
+    }
+   },
+   "5": {
+    "board_boss_fight_slots": 1500,
+    "slots_whose_fight_is_in_another_leaderboard": 42,
+    "share_of_slots_shared": 0.028,
+    "distinct_boss_fights_across_leaderboards": 1477,
+    "coalescable_fight_acquisitions": 23,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 96,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 5
+     },
+     "51108": {
+      "distinct_fights": 99,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51109": {
+      "distinct_fights": 98,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51110": {
+      "distinct_fights": 100,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51111": {
+      "distinct_fights": 98,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51112": {
+      "distinct_fights": 100,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51113": {
+      "distinct_fights": 97,
+      "fights_in_2_or_more_leaderboards": 3,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51114": {
+      "distinct_fights": 99,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51115": {
+      "distinct_fights": 100,
+      "fights_in_2_or_more_leaderboards": 0,
+      "max_leaderboards_sharing_one_fight": 1
+     },
+     "51116": {
+      "distinct_fights": 98,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51117": {
+      "distinct_fights": 99,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51118": {
+      "distinct_fights": 98,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51119": {
+      "distinct_fights": 99,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51120": {
+      "distinct_fights": 99,
+      "fights_in_2_or_more_leaderboards": 1,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51121": {
+      "distinct_fights": 97,
+      "fights_in_2_or_more_leaderboards": 2,
+      "max_leaderboards_sharing_one_fight": 3
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Priest/Shadow/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 3
+     },
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 3
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 2
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 2
+     },
+     {
+      "a": "Druid/Balance/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Feral/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Hunter/Marksmanship/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Guardian/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 1
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Mage/Fire/dps",
+      "shared_fights": 1
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 1,
+     "Druid/Balance/hps": 0,
+     "Druid/Feral/dps": 1,
+     "Druid/Guardian/dps": 3,
+     "Druid/Restoration/hps": 3,
+     "Hunter/Marksmanship/dps": 3,
+     "Mage/Fire/dps": 4,
+     "Mage/Frost/dps": 1,
+     "Paladin/Holy/hps": 1,
+     "Paladin/Protection/dps": 1,
+     "Paladin/Retribution/dps": 0,
+     "Priest/Holy/hps": 0,
+     "Priest/Shadow/dps": 3,
+     "Rogue/Assassination/dps": 4,
+     "Shaman/Elemental/dps": 1,
+     "Shaman/Enhancement/dps": 1,
+     "Shaman/Restoration/hps": 1,
+     "Warlock/Destruction/dps": 5,
+     "Warrior/Fury/dps": 6,
+     "Warrior/Protection/dps": 3
+    }
+   },
+   "20": {
+    "board_boss_fight_slots": 6000,
+    "slots_whose_fight_is_in_another_leaderboard": 367,
+    "share_of_slots_shared": 0.0612,
+    "distinct_boss_fights_across_leaderboards": 5810,
+    "coalescable_fight_acquisitions": 190,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 383,
+      "fights_in_2_or_more_leaderboards": 12,
+      "max_leaderboards_sharing_one_fight": 7
+     },
+     "51108": {
+      "distinct_fights": 393,
+      "fights_in_2_or_more_leaderboards": 7,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51109": {
+      "distinct_fights": 387,
+      "fights_in_2_or_more_leaderboards": 13,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51110": {
+      "distinct_fights": 387,
+      "fights_in_2_or_more_leaderboards": 12,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51111": {
+      "distinct_fights": 387,
+      "fights_in_2_or_more_leaderboards": 13,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51112": {
+      "distinct_fights": 394,
+      "fights_in_2_or_more_leaderboards": 6,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51113": {
+      "distinct_fights": 386,
+      "fights_in_2_or_more_leaderboards": 12,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51114": {
+      "distinct_fights": 390,
+      "fights_in_2_or_more_leaderboards": 10,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51115": {
+      "distinct_fights": 390,
+      "fights_in_2_or_more_leaderboards": 9,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51116": {
+      "distinct_fights": 389,
+      "fights_in_2_or_more_leaderboards": 11,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51117": {
+      "distinct_fights": 396,
+      "fights_in_2_or_more_leaderboards": 4,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51118": {
+      "distinct_fights": 388,
+      "fights_in_2_or_more_leaderboards": 12,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51119": {
+      "distinct_fights": 366,
+      "fights_in_2_or_more_leaderboards": 32,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51120": {
+      "distinct_fights": 392,
+      "fights_in_2_or_more_leaderboards": 8,
+      "max_leaderboards_sharing_one_fight": 2
+     },
+     "51121": {
+      "distinct_fights": 382,
+      "fights_in_2_or_more_leaderboards": 16,
+      "max_leaderboards_sharing_one_fight": 3
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Priest/Shadow/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 21
+     },
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 11
+     },
+     {
+      "a": "Paladin/Holy/hps",
+      "b": "Priest/Holy/hps",
+      "shared_fights": 8
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 7
+     },
+     {
+      "a": "Rogue/Assassination/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 7
+     },
+     {
+      "a": "Druid/Balance/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Shaman/Restoration/hps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Hunter/Marksmanship/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Mage/Frost/dps",
+      "shared_fights": 6
+     },
+     {
+      "a": "Druid/Feral/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 5
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 20,
+     "Druid/Balance/hps": 4,
+     "Druid/Feral/dps": 12,
+     "Druid/Guardian/dps": 12,
+     "Druid/Restoration/hps": 20,
+     "Hunter/Marksmanship/dps": 18,
+     "Mage/Fire/dps": 23,
+     "Mage/Frost/dps": 16,
+     "Paladin/Holy/hps": 19,
+     "Paladin/Protection/dps": 5,
+     "Paladin/Retribution/dps": 6,
+     "Priest/Holy/hps": 25,
+     "Priest/Shadow/dps": 25,
+     "Rogue/Assassination/dps": 35,
+     "Shaman/Elemental/dps": 5,
+     "Shaman/Enhancement/dps": 6,
+     "Shaman/Restoration/hps": 14,
+     "Warlock/Destruction/dps": 40,
+     "Warrior/Fury/dps": 37,
+     "Warrior/Protection/dps": 25
+    }
+   },
+   "100": {
+    "board_boss_fight_slots": 28445,
+    "slots_whose_fight_is_in_another_leaderboard": 3404,
+    "share_of_slots_shared": 0.1197,
+    "distinct_boss_fights_across_leaderboards": 26624,
+    "coalescable_fight_acquisitions": 1821,
+    "per_boss": {
+     "51107": {
+      "distinct_fights": 1794,
+      "fights_in_2_or_more_leaderboards": 106,
+      "max_leaderboards_sharing_one_fight": 7
+     },
+     "51108": {
+      "distinct_fights": 1871,
+      "fights_in_2_or_more_leaderboards": 74,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51109": {
+      "distinct_fights": 1763,
+      "fights_in_2_or_more_leaderboards": 137,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51110": {
+      "distinct_fights": 1833,
+      "fights_in_2_or_more_leaderboards": 98,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51111": {
+      "distinct_fights": 1767,
+      "fights_in_2_or_more_leaderboards": 100,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51112": {
+      "distinct_fights": 1805,
+      "fights_in_2_or_more_leaderboards": 88,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51113": {
+      "distinct_fights": 1815,
+      "fights_in_2_or_more_leaderboards": 98,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51114": {
+      "distinct_fights": 1758,
+      "fights_in_2_or_more_leaderboards": 106,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51115": {
+      "distinct_fights": 1799,
+      "fights_in_2_or_more_leaderboards": 62,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51116": {
+      "distinct_fights": 1844,
+      "fights_in_2_or_more_leaderboards": 102,
+      "max_leaderboards_sharing_one_fight": 4
+     },
+     "51117": {
+      "distinct_fights": 1760,
+      "fights_in_2_or_more_leaderboards": 104,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51118": {
+      "distinct_fights": 1813,
+      "fights_in_2_or_more_leaderboards": 91,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51119": {
+      "distinct_fights": 1517,
+      "fights_in_2_or_more_leaderboards": 223,
+      "max_leaderboards_sharing_one_fight": 7
+     },
+     "51120": {
+      "distinct_fights": 1803,
+      "fights_in_2_or_more_leaderboards": 71,
+      "max_leaderboards_sharing_one_fight": 3
+     },
+     "51121": {
+      "distinct_fights": 1682,
+      "fights_in_2_or_more_leaderboards": 123,
+      "max_leaderboards_sharing_one_fight": 4
+     }
+    },
+    "top_pairs": [
+     {
+      "a": "Priest/Shadow/dps",
+      "b": "Warlock/Destruction/dps",
+      "shared_fights": 100
+     },
+     {
+      "a": "Warrior/Fury/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 82
+     },
+     {
+      "a": "Paladin/Holy/hps",
+      "b": "Priest/Holy/hps",
+      "shared_fights": 76
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Mage/Frost/dps",
+      "shared_fights": 57
+     },
+     {
+      "a": "Rogue/Assassination/dps",
+      "b": "Warrior/Protection/dps",
+      "shared_fights": 55
+     },
+     {
+      "a": "Hunter/Marksmanship/dps",
+      "b": "Rogue/Assassination/dps",
+      "shared_fights": 51
+     },
+     {
+      "a": "Rogue/Assassination/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 50
+     },
+     {
+      "a": "Mage/Fire/dps",
+      "b": "Warrior/Fury/dps",
+      "shared_fights": 48
+     },
+     {
+      "a": "Druid/Balance/dps",
+      "b": "Druid/Balance/hps",
+      "shared_fights": 46
+     },
+     {
+      "a": "Druid/Restoration/hps",
+      "b": "Paladin/Holy/hps",
+      "shared_fights": 44
+     }
+    ],
+    "per_leaderboard_shared_slots": {
+     "Druid/Balance/dps": 151,
+     "Druid/Balance/hps": 108,
+     "Druid/Feral/dps": 129,
+     "Druid/Guardian/dps": 100,
+     "Druid/Restoration/hps": 171,
+     "Hunter/Marksmanship/dps": 218,
+     "Mage/Fire/dps": 243,
+     "Mage/Frost/dps": 110,
+     "Paladin/Holy/hps": 223,
+     "Paladin/Protection/dps": 40,
+     "Paladin/Retribution/dps": 81,
+     "Priest/Holy/hps": 212,
+     "Priest/Shadow/dps": 195,
+     "Rogue/Assassination/dps": 285,
+     "Shaman/Elemental/dps": 76,
+     "Shaman/Enhancement/dps": 106,
+     "Shaman/Restoration/hps": 130,
+     "Warlock/Destruction/dps": 298,
+     "Warrior/Fury/dps": 270,
+     "Warrior/Protection/dps": 258
+    }
+   }
+  }
+ },
+ "limits": [
+  "First pages only, one capture time per page (2026-10-26 18:52-18:54 UTC).",
+  "Faction is not present in leaderboard rows; coincidence ignores faction.",
+  "A shared fight is not an eligible comparison for either configuration."
+ ],
+ "analyze_sha256": "a6d062d75769b1669cfa8ef87d082f02a6bd98c7eb1843579b4566f5a39e6ea6"
+}

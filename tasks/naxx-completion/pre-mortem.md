@@ -833,3 +833,63 @@ results. No cell completion or final Naxx product acceptance is inferred.
   provenance/reader/intake remains open under Claude. New request absence does
   not certify archive derivation or quota recovery. The predecessor's v3 reader/
   gate limitations are recorded. No COMPLETE cell or acceptance follows.
+
+## 2026-10-26: live leaderboard overlap window (owner option C)
+
+Scope: one bounded read of the first leaderboard page for each Naxx boss across
+the 20 distinct class, spec and metric leaderboards behind the 34
+configurations, 300 requests in all (510 was the earlier planning count). It runs
+as the sole WCL owner with production stopped. The analysis is offline
+afterwards. There is no standards change; reducing comparisons from 5 to 3 is a
+later unit. Codex DESIGN_AGREED (codex:95) with guardrails.
+
+**PM-36 — High — a competing API owner, or lost production state.** Guardrail:
+`window.py` starts only when the controller is waiting with no inflight attempt,
+a quota gate at least 10 minutes in the future, and only docker-init plus the
+controller running in the worker. It then stops the worker and snapshots the
+state hash. The fetch runs in a separate `--rm` container of the same released
+image, with secrets mounted read-only. A `finally` block restarts the worker
+whatever the fetch did. State bytes must match the post-stop snapshot at the end
+of the window. After the restart, entries and inflight are compared rather than
+timestamp bytes. If the gate has elapsed by the end of the window, production
+may legitimately run straight away.
+
+**PM-37 — High — quota overrun.** Guardrail: the client makes one attempt per
+request, with no retry and no reset wait. A fresh rate reading is taken before
+the first page, and each later decision uses the previous response's rate data.
+The run stops before a request when the remaining points are at or below 600.
+Query cost is unknown in advance, so this limits spending but is not a hard
+bound. Any error stops the run and is logged. A partial run resumes later from
+a frozen worklist and hash-verified pages, never in a retry loop.
+
+**PM-38 — High — false overlap claims.** Guardrail: coincidence is counted only
+on exact (report code, fightID) pairs taken from leaderboard rows, after
+filtering to the page's actual class, spec and metric. Ranking rows carry only a
+guild faction number, so faction stays inferred. Unobserved or failed pages are
+missing, never zero coincidence. Denominators (rows, distinct fights, pairs)
+and duplicate or missing identity counts are reported. A coincidence is not
+cohort eligibility.
+
+Verdict: PROCEED WITH GUARDRAILS. Reversibility: the read has no persistent
+effect beyond quota spent. Production resumes from its preserved state.
+
+Leaderboard window calibration, 2026-10-26:
+- PM-36 Prevented Prediction.
+  - Window 1 stopped production, fetched nothing, and restarted it with
+    byte-identical state, in the waiting state with unchanged entries and
+    counts.
+  - Window 2 waited for the gate with production stopped, then restarted it with
+    the state unchanged during the window.
+  - Both windows' receipts and state snapshots are preserved under distinct
+    identifiers.
+- PM-37 Confirmed Prediction, guardrail effective.
+  - Window 1's single request found "no database points remaining" while hourly
+    points read 1654/3000, so the visible floor does not protect the hidden
+    allowance. The run stopped on that first error, with no retry.
+  - The guardrail was adjusted, after review, to wait for the gate.
+  - Window 2 then fetched all 300 pages just after the reset, ending with about
+    2494 hourly points remaining.
+  - Production as the consumer of the database allowance remains a hypothesis.
+- PM-38 Mitigated. Coincidence is counted on exact (report, fight) pairs after
+  class and spec filtering, is faction-blind as stated, has explicit
+  denominators, and is not treated as cohort eligibility.
