@@ -882,12 +882,24 @@ def test_a_due_failed_alert_retries_while_the_capture_child_is_running(
     assert _state(tmp_path)["outbox"] == []
 
 
-def test_a_hung_attempt_is_terminated_at_its_timeout(tmp_path: Path) -> None:
+def test_a_hung_attempt_is_terminated_at_its_timeout(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     runner = _real_runner(tmp_path)
     runner.attempt_timeout_s = 0.5
+    stopped: list[subprocess.Popen[bytes]] = []
+    real_stop = cr._stop_child
+
+    def stop(child: subprocess.Popen[bytes], grace: float) -> None:
+        if child.poll() is None:
+            stopped.append(child)
+        real_stop(child, grace)
+
+    monkeypatch.setattr(cr, "_stop_child", stop)
     how, code = runner.supervise(SLEEPER, tmp_path / "log.txt")
     assert how == "exit" and code not in (None, 0)
-    assert "child" in (tmp_path / "log.txt").read_text(encoding="utf-8")
+    # Startup can exceed the deadline under load; termination/reaping is the contract.
+    assert stopped and all(child.poll() is not None for child in stopped)
 
 
 def test_a_status_write_failure_still_reaps_the_child(

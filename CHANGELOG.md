@@ -8,12 +8,26 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+## 0.7.0 - 2026-10-26
+
+- Naxxramas captures reuse each fight's complete encounter data for actor target
+  observations, avoiding separate target requests. New captures use snapshot
+  format 3 and require this version or newer; existing archives keep their
+  original reading and analysis behavior. Fewer requests do not establish a
+  guaranteed reduction in Warcraft Logs quota costs.
+- The unattended capture controller waits across its entire queue after a
+  known account quota stop, including after restart. A missing reset time still
+  requires attention unless a trusted future deadline is already saved.
+- Pending capture notifications retry while a child capture is running.
 - Mobile playbook section links keep the destination heading visible below the
   sticky boss picker, including direct links and keyboard navigation.
 - Faerlina's encounter description specifies that a Worshipper sacrifice
   silences Nature spells, avoiding the implication of an all-school silence.
 - Developer: capture planning verifies and pins provenance catalogs referenced
   by individual registered sources, alongside the shared catalog.
+- Developer: eight Naxxramas Balance Druid Alliance DPS cells have raw evidence
+  explaining their published DPS. Untested target-exclusion policies and final raid
+  completion remain open; these policies do not create a Druid ranking score.
 
 ## 0.6.1 - 2026-10-22
 

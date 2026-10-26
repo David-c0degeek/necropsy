@@ -155,12 +155,16 @@ uv run necropsy tui
 ```
 
 Build a wheel with `uv build`. Manual wheel users can use
-`uv tool install --force --python 3.14 dist/necropsy-0.6.1-py3-none-any.whl`.
+`uv tool install --force --python 3.14 dist/necropsy-0.7.0-py3-none-any.whl`.
 This path assumes uv exists; it is not the normal first-time install path.
 The wheel alone does not contain a GUI binary; use `necropsy tui`, or follow
 the [desktop build guide](desktop.md#build-and-run-from-source).
 Saved snapshots replay offline with `necropsy offline SNAPSHOT.zip --out FOLDER`.
 Rendering existing JSON uses `necropsy render analysis.json --out FOLDER`.
+
+Naxxramas snapshots created by 0.7.0 use archive format 3. Earlier releases
+refuse that format, so update before opening those snapshots. Existing archives
+remain readable, and saved analysis JSON can still be rendered offline.
 
 ## Verification and removal
 

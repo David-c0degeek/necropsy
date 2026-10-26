@@ -96,17 +96,21 @@ critical-damage scopes. Their actor is null and direction is `all`; critical
 requests bind the server `isCritical` filter in the immutable identity. They
 use separate cache paths and cannot impersonate an actor source/target stream.
 Normal CLI, terminal and desktop acquisition includes encounter context for Era
-Naxxramas/MC/BWL/AQ40 partitions1/2, producing live v2 with separately certified
-encounter and critical scopes. Other partitions retain actor-only live v1. Earlier
+Naxxramas/MC/BWL/AQ40 partitions1/2, with separately certified encounter and
+critical scopes. MC/BWL/AQ40 produce live v2. Naxxramas produces live v3: each
+selected actor's target pages are copies of its fight's encounter-All pages,
+with an explicit derivation proof instead of an actor target request identity.
+The copied members are generated, and no target request/cache marker is invented.
+Other partitions retain actor-only live v1. Earlier
 actor-only Naxxramas archives keep their original analysis: encounter context and
-duty context apply to a Naxxramas archive only when it is live v2.
+duty context apply to a Naxxramas archive only when it has certified v2/v3 scopes.
 The low-level acquisition API retains its explicit opt-in for compatibility.
-Both versions use the same report/finalization, page reader, normalizer and output
+All live formats use the same report/finalization, page reader, normalizer and output
 pipeline. Extra scopes obey the existing quota/resume limits; incomplete scopes
 cannot certify complete entries. Transport does not enable validated ranking or
 phase analysis.
 
-Format 2 report bundles and combined report sets use full content-digest
+Format 2/3 report bundles and combined report sets use full content-digest
 generations per endpoint. Metadata can change at the same report revision, so
 each new acquisition fetches a fresh combined report and binds its exact
 generation. Checkpoint-backed continuation reuses successfully finalized answers

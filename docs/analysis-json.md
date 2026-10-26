@@ -326,6 +326,12 @@ coverage retains its original shape. Both pages render saved observations only;
 these are not ranking, physical phase, attackability or personal opportunity
 models. See [target instance observations](decisions/0017-target-instance-aura-windows.md).
 
+`snapshot.format` also identifies live format 3 Naxx archives, whose selected
+actor target streams derive from certified encounter-All pages. This changes
+archive provenance, not the analysis JSON schema or actor coverage shape.
+The exact parent and generated-member proofs stay in the archive; no actor
+target request is claimed. See [derived targets](decisions/0024-derived-target-streams.md).
+
 Optional `playbook.summon_observations` and `cohort_summon_observations` retain
 policy-qualified numbered NPC summons. Each target saves `summoned_s`,
 `first_positive_overkill_s` and `elapsed_to_overkill_s` as separate evidence

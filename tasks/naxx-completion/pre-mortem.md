@@ -764,3 +764,41 @@ Shared-quota checkpoint calibration, 2026-10-26:
   approved deployment. No new material miss was found; the shared-budget lesson
   is appended to lessons.md. The code checkpoint does not close 03.4/03.5 or
   imply any COMPLETE cell.
+
+## 2026-10-26: release and fixed-image handover
+
+Failed future: public installers point at assets that are missing or combine
+different candidate versions. Or the new image loses mounted progress or creates
+format 3 archives before the matching reader is available. The owner approved
+this release/rollout (D018); approval is not evidence that the artifacts or live
+handover have passed. Claude retains live Tower operations.
+
+**PM-34 — High — release assets or public pointers disagree.** Basis:
+[evidence: `stage_capture_image` verifies a public wheel checksum; installers,
+Python and native desktop packages all carry versions; Desktop CI builds four
+platform bundles]. Guardrail: prepare 0.7.0 on its own release branch, commit
+before the full gate, and build CI artifacts from the exact candidate SHA through
+workflow dispatch. Verify every platform manifest/bootstrap receipt, refuse
+conflicting shared bytes, compare the wheel payload to Git blobs, and publish a
+complete draft only after review/checks. Download/hash public artifacts before
+advancing main's installers. Never overwrite old release assets or retag.
+Detection: before publication and public-pointer advancement. Rollback: preserve
+the existing public release/main pointer until the new release is verified.
+
+**PM-35 — High — rollout loses progress or leaves incompatible evidence.**
+Basis: [evidence: current image 372d7ecc cannot read v3; preserved state has
+34 entries, candidate checkpoints and legacy target cache; state schema remains
+readable by old code but its gate is ignored]. Guardrail: hand over only the
+published wheel, exact reviewed runner and explicit Naxx queue/pin with a context
+manifest. Run network-disabled image acquisition/reader/migration checks before
+live deployment. Claude preserves private definitions/logs/state/watchdog and
+rolls only at a controlled no-child boundary, preserving mounts/UID/web/cron and
+entry/checkpoint bytes. First real resumed output needs a strict reader/intake
+check and journal confirmation that actor target requests are absent. Keep
+v3 archives with a compatible reader; rollback to the old image cannot consume
+them and does not enforce the shared gate. Detection: image preflight and live
+handover; later quota readiness remains observational. No WCL limit request.
+
+Verdict: PROCEED WITH GUARDRAILS. Publication and image changes are already
+authorized, but require concrete peer-reviewed artifacts and observed handover
+results. No cell completion or final Naxx product acceptance is inferred.

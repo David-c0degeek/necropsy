@@ -74,13 +74,19 @@ Analyses may treat a missing event as "did not happen" only through
 boundary ambiguities and zero multiplicity mismatches. Otherwise the answer is
 UNKNOWN.
 
-Historical/v1 archives contain selected actors and their pets. Optional live v2
+Historical/v1 archives contain selected actors and their pets. Live v2/v3
 archives additionally certify unfiltered whole-fight events and server-filtered
 critical damage. These use actor null, direction `all`, and separate `encounter`/
 `critical` roles. The reader proves their bounds, revision, endpoint, pagination
 and page digests, and requires actor/critical events to be raw subsets of the
 unfiltered data. Existing maximum-multiplicity merging retains each occurrence
 once across these overlapping views. No table or column changes.
+
+Live v3 Naxx target pages are byte copies of the certified encounter-All pages.
+Their archive proof has no actor request identity and binds the actual All
+parent instead. Ingestion retains the same selected actor `target` coverage;
+unselected actors gain no certificate. Earlier formats keep their original
+proof requirements. See [derived targets](decisions/0024-derived-target-streams.md).
 
 Encounter coverage is separate from player/pet source/target coverage. An
 unselected actor's events can be observed without a complete actor-direction
