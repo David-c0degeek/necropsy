@@ -64,6 +64,25 @@ These checks do not satisfy the pending real-capture or review conditions.
 - [ ] Verdict is `CLOSE`
 
 ## Progress log
+2026-10-26 · Partial production intake classification · The October24 production
+archive (SHA256 837485a99ae96dfd644d410933f64947a0b4b236f47cd3dbff6cda5e6f293f5b,
+55,832,205 bytes) is retained on Tower and in the ignored intake workspace.
+All917 member paths match the registered measurement archive:724 members are
+byte-identical and193 wrappers change. Player-role arrays match by unique actor
+ID; report/user rankings and leaderboard rows have refreshed metadata. No event
+member or strict scope improves. Existing sources, dependent facts and all cell
+statuses remain unchanged; missing pet ownership and primary KelThuzad faction
+remain refusals. Reproducible classification and exact input pins are in
+research/production-intake-20261026/. The duplicate payload is not added to LFS.
+03.5 remains open. Claude independently reproduced the comparison and approved
+the original candidate, then verified an on-NAS retention copy outside every
+container mount (maintenance commit74cbbb4, mailboxclaude:25). This is not an
+off-server backup. Revised explicit checker guards preserve verification under
+Python optimization. At09:44UTC Claude cleared queue-scoped attention under the
+owner's delegated recovery decision after preserving state; the Horde Balance
+capture child started. Production owns WCL; no competing PC calls. Final revised
+review and eight-worker full gate precede this intake checkpoint's push.
+
 2026-10-22 · WCL resumed, bounded measurement scheduled · Owner confirms WCL is back. Normal user-endpoint quota and character checks succeed; the earlier report candidate times out after the normal retry budget. Candidate verification caches now retain 177 resolved identities and 62 ranking checks: 23 of 34 configurations have checked candidates, 11 remain unfilled, and `emit` correctly refuses to write the bulk queue. The third bounded resolution batch stops on `RateLimited: no database points remaining`; a separate timestamped quota query reads 1230/3000 with 2824 seconds to reset. This is not proof of hourly-point exhaustion or database readiness. No further data calls before that observed reset plus margin.
 
 Published 0.6.0 wheel staged into a separate single-entry measurement image, verified on Tower as UID 99:100 (`sha256:71afa601f60aee4c5e19c75c0cf7f12fa430dee48073330dbe0b94a830dbeb6f`). Teris, Balance DPS Alliance, resolves as character 77619978 and has positive rankings on all 15 bosses. One detached isolated attempt is scheduled no earlier than 2026-10-22 11:36:27 UTC (13:36 Amsterdam), with fresh data/cache/attempt/secrets paths, normal production analyze arguments, unchanged quota reserve, no restart policy or automatic retry, bounded logs and a two-hour timeout. The local collector makes no WCL calls; it will copy any snapshot, compare hashes and attempt strict short/complex fight v2 checks. No real capture or v2 smoke has passed yet. `research/capture-readiness-20261022.json` pins the caches, selection, wheel/image, start/collector scripts and quota evidence. Production runner remains stopped on 0.5.2; watchdog remains off; old state/output/queue untouched. 03.1/03.2/03.4/03.5 stay open. Reserve the single API owner for this attempt until it exits; inspect `workspace/codex-naxx/measurement-20261022/collector-status.json` before issuing other data calls.

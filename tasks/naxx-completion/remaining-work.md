@@ -1,5 +1,21 @@
 # Remaining Naxx work — 2026-10-23
 
+Latest intake checkpoint, 2026-10-26: the first usable production partial archive
+has the same acquired event members and strict scopes as the already-registered
+measurement archive. All917 members are checked;193 changed wrappers contain
+actor ordering, ranking/leaderboard refreshes and corresponding marker hashes.
+The comparison receipt is in research/production-intake-20261026/. Raw production
+bytes remain on Tower and in the ignored workspace, with exact hash/size pins;
+no redundant LFS object, source replacement or cell completion follows. Missing
+ownership/faction and the other configurations remain open. Claude has returned
+as required reviewer and owns the single operational quota probe; Codex retains
+tree ownership until an explicit handoff. Claude verified an on-NAS retention
+copy outside every container mount (maintenance commit74cbbb4, mailboxclaude:25).
+At09:44UTC the owner-delegated recovery cleared the queue-scoped attention after
+preserving state, and a Horde Balance capture child started. Production owns WCL
+again; no competing PC calls. Historical scheduled-retry/attention statements
+below do not describe this resumed operation.
+
 The plan remains at 26 IN_PROGRESS, 484 TODO and zero COMPLETE cells.
 The earlier single-attempt limit bounded a capture job; it did not require
 stopping source, content or verification work. Those streams continue.
