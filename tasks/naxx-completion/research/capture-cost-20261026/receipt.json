@@ -1,0 +1,284 @@
+{
+  "kind": "Offline capture-cost measurement; no WCL call, capture or engine change",
+  "inputs": {
+    "archive": {
+      "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+      "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+    },
+    "production_copy": {
+      "path": "workspace/codex-naxx/production-intake-20261024/77619978-2006-20261024T121203.zip",
+      "sha256": "837485a99ae96dfd644d410933f64947a0b4b236f47cd3dbff6cda5e6f293f5b"
+    },
+    "journal": {
+      "path": "workspace/capture-cost-20261026/measurement-requests.tar.gz",
+      "sha256": "1beff26a118fb5d80fd86405c59f6bb423f49c5b314d1a9ccfc4c640689a9b5c"
+    }
+  },
+  "streams": {
+    "fights": 89,
+    "report_sets": 73,
+    "stream_report_codes": 73,
+    "actor_streams": 194,
+    "pages_by_kind": {
+      "critical": 89,
+      "encounter-all": 179,
+      "pet-source": 8,
+      "pet-target": 10,
+      "player-source": 89,
+      "player-target": 179
+    },
+    "events_by_kind": {
+      "critical": 98669,
+      "encounter-all": 1334576,
+      "pet-source": 172,
+      "pet-target": 76573,
+      "player-source": 22166,
+      "player-target": 1334576
+    },
+    "target_streams": {
+      "equals All": 97
+    },
+    "source_streams": {
+      "contained in All": 97,
+      "equals rule": 97
+    },
+    "source_rule": "sourceID or targetID in {actor} plus the fight's listed owned units",
+    "source_residuals": [],
+    "critical_streams": {
+      "equal": 89,
+      "contained": 89
+    },
+    "critical_rule": "type == damage and hitType in [2, 5, 17]",
+    "damage_rows_by_hit_type_and_critical_membership": [
+      {
+        "hitType": 0,
+        "in_critical": false,
+        "rows": 10367
+      },
+      {
+        "hitType": 1,
+        "in_critical": false,
+        "rows": 94483
+      },
+      {
+        "hitType": 2,
+        "in_critical": true,
+        "rows": 96835
+      },
+      {
+        "hitType": 3,
+        "in_critical": false,
+        "rows": 5
+      },
+      {
+        "hitType": 4,
+        "in_critical": false,
+        "rows": 3044
+      },
+      {
+        "hitType": 5,
+        "in_critical": true,
+        "rows": 116
+      },
+      {
+        "hitType": 6,
+        "in_critical": false,
+        "rows": 49663
+      },
+      {
+        "hitType": 7,
+        "in_critical": false,
+        "rows": 13950
+      },
+      {
+        "hitType": 8,
+        "in_critical": false,
+        "rows": 6461
+      },
+      {
+        "hitType": 10,
+        "in_critical": false,
+        "rows": 2384
+      },
+      {
+        "hitType": 13,
+        "in_critical": false,
+        "rows": 2
+      },
+      {
+        "hitType": 14,
+        "in_critical": false,
+        "rows": 3684
+      },
+      {
+        "hitType": 15,
+        "in_critical": false,
+        "rows": 628
+      },
+      {
+        "hitType": 16,
+        "in_critical": false,
+        "rows": 6373
+      },
+      {
+        "hitType": 17,
+        "in_critical": true,
+        "rows": 1718
+      }
+    ]
+  },
+  "journal": {
+    "records": 916,
+    "report_queries": {
+      "requests": 322,
+      "by_scope": {
+        "acquisition": 248,
+        "finalization": 74
+      },
+      "distinct_reports": 190,
+      "distinct_variable_sets": 262,
+      "distinct_full_identities": 322,
+      "exact_identity_repeats": 0,
+      "repeated_variable_sets_by_scopes": {
+        "acquisition+finalization": 60
+      },
+      "note": "Variables repeated across acquisition and finalization are independent answers by design (finalization re-reads the report); they are not reusable duplicates.",
+      "requests_by_fight_count": {
+        "1": 308,
+        "2": 12,
+        "3": 2
+      }
+    },
+    "requests_by_kind": {
+      "NecropsyCombatantContext": 5,
+      "NecropsyCombatantPrelude": 5,
+      "NecropsyLeaderboard": 15,
+      "NecropsyReport": 322,
+      "NecropsySubject": 15,
+      "events-actor-source": 97,
+      "events-actor-target": 189,
+      "events-critical": 89,
+      "events-encounter-all": 179
+    },
+    "actor_target_requests_sent_targetID": 189,
+    "actor_target_responses": {
+      "same data as All for that window": 189
+    },
+    "account_point_deltas_by_kind": {
+      "NecropsyCombatantContext": {
+        "requests_with_delta": 5,
+        "sum": 0.0,
+        "median": 0.0,
+        "max": 0.0,
+        "positive": 0
+      },
+      "NecropsyCombatantPrelude": {
+        "requests_with_delta": 5,
+        "sum": 0.0,
+        "median": 0.0,
+        "max": 0.0,
+        "positive": 0
+      },
+      "NecropsyLeaderboard": {
+        "requests_with_delta": 15,
+        "sum": 85.14,
+        "median": 4.01,
+        "max": 23,
+        "positive": 15
+      },
+      "NecropsyReport": {
+        "requests_with_delta": 308,
+        "sum": 6781.27,
+        "median": 10.0,
+        "max": 846,
+        "positive": 298
+      },
+      "NecropsySubject": {
+        "requests_with_delta": 13,
+        "sum": 0,
+        "median": 0,
+        "max": 0,
+        "positive": 0
+      },
+      "events-actor-source": {
+        "requests_with_delta": 97,
+        "sum": 2620.02,
+        "median": 0,
+        "max": 1766,
+        "positive": 38
+      },
+      "events-actor-target": {
+        "requests_with_delta": 189,
+        "sum": 14.0,
+        "median": 0,
+        "max": 1.0,
+        "positive": 14
+      },
+      "events-critical": {
+        "requests_with_delta": 89,
+        "sum": 10.0,
+        "median": 0,
+        "max": 1.0,
+        "positive": 10
+      },
+      "events-encounter-all": {
+        "requests_with_delta": 179,
+        "sum": 13.0,
+        "median": 0,
+        "max": 1.0,
+        "positive": 13
+      }
+    },
+    "window_breaks_or_resets": 15,
+    "points_note": "Account-wide hourly readings between consecutive journal records; other spend, retries, cache reuse and the separate database allowance are not visible here. These are not per-request invoices."
+  },
+  "queue_overlap": {
+    "queue": {
+      "path": "tasks/naxx-completion/capture-queue.json",
+      "sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552"
+    },
+    "entries": 34,
+    "candidates": 94,
+    "distinct_characters": 92,
+    "characters_in_more_than_one_entry": 2,
+    "shared": {
+      "65603754": [
+        "naxxramas-druid-balance-hps-alliance",
+        "naxxramas-druid-restoration-hps-alliance"
+      ],
+      "77152471": [
+        "naxxramas-paladin-holy-hps-alliance",
+        "naxxramas-paladin-retribution-dps-alliance"
+      ]
+    },
+    "unmeasured": "Report/fight overlap across entries: the queue pins characters, and the fights are selected from leaderboards at capture time, so future acquisition overlap cannot be measured from the queue."
+  },
+  "captured_fight_survey": {
+    "legal_configurations": 34,
+    "fights": 89,
+    "configurations_with_a_published_row_per_fight": {
+      "min": 9,
+      "median": 11,
+      "max": 14
+    },
+    "note": "A published row in a captured fight is potential reuse only: cohort selection, ownership, faction and stream completeness for that actor are not established here."
+  },
+  "production_copy": {
+    "event_members": 724,
+    "byte_identical": 724,
+    "note": "A second serialization of the same acquired events, not an independent sample."
+  },
+  "page_shares": {
+    "event_pages": 554,
+    "actor_target_pages_identical_to_All": 189,
+    "actor_source_pages": 97,
+    "critical_pages": 89,
+    "note": "Page shares of this one corpus; points depend on hidden per-request costs and the separate database allowance."
+  },
+  "limits": [
+    "One archive: one configuration, 89 fights, 73 report sets.",
+    "Rules are exact matches for these observed rows, never certified API semantics.",
+    "No acquisition, snapshot, reader or engine change follows without a separate plan."
+  ],
+  "measure_sha256": "e02c79c7f94e199d89c5a2c088f9c91e3b8f41a469d9eb7b4cbb3151c481c2ee"
+}
