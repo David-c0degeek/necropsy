@@ -28,6 +28,8 @@ Hardware, 2026-10-27 (D020, D021): the PC's faulty memory still bars local evide
 
 Release 0.7.1, 2026-10-27: published and live on Tower since 12:36 UTC (`research/release-0.7.1-20261027.md`). New captures take three comparisons per boss. The first real depth-3 archive still needs strict reading and intake. The one-off rollout scripts must not be reused unchanged; reviewed hardened versions are needed before the next worker rollout.
 
+Targeted follow-up, 2026-10-27: designed (D023) and deferred by the owner (D024) behind admission for the five bosses with production ranking exclusions. Decision A stays not fully operational.
+
 The plan remains at 26 IN_PROGRESS, 484 TODO and zero COMPLETE cells.
 The earlier single-attempt limit bounded a capture job; it did not require
 stopping source, content or verification work. Those streams continue.

@@ -975,3 +975,37 @@ the combined catalog, not every report generation.
 Verdict: PROCEED WITH GUARDRAILS. Reversibility: reverting the freezer change
 restores the strict report-wide equality. Rows admitted under D022 then refuse
 again, and nothing else changes.
+
+## 2026-10-27: targeted follow-up supplements (D023)
+
+Scope: a new supplement archive kind, writer, strict reader, an offline
+orchestrator, freezer support and a chain-aware detector. No runner, queue or
+live use in this checkpoint.
+
+**PM-47 — High — a supplement is read as a normal cohort.** Guardrail: a
+distinct kind and its own reader. `open_snapshot`, the analyzer and the pages
+refuse it, and tests prove it. Normal archives and their outputs are
+byte-identical.
+
+**PM-48 — High — the follow-up spends more than its bound.** Guardrail: every
+started deep attempt reserves a slot before it begins. Failures, partial
+attempts and quota stops keep their slot. Resuming the same attempt does not
+charge again. Ranking rows examined have a separate bound. Tests cover resume.
+
+**PM-49 — High — the wrong players are taken.** Guardrail: a fresh pinned
+ranking and an identity-based ledger in unchanged rank order. Identities in the
+source and earlier supplements are excluded; old raw positions never are. A
+moved-rank test proves it.
+
+**PM-50 — High — admission is overstated.** Guardrail: per-candidate admission
+through the freezer's real supplement path. The detector re-admits the source
+and the chain from bytes and refuses forks, cycles, missing parents,
+duplicates and configuration mismatches. Generations are sealed, so a later
+finalization cannot change an admitted candidate's evidence.
+
+Verdict: PROCEED WITH GUARDRAILS (offline checkpoint). Reversibility: the
+supplement kind is additive; removing it leaves every normal archive untouched.
+
+Calibration, 2026-10-27: deferred by D024 before any merge. The first checkpoint confirmed PM-50's risk: the reader
+accepted emptied pages, duplicated candidates and a wrong cell (Codex, mailbox 131). That happened before any
+consumer relied on it.
