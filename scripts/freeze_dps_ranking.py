@@ -274,6 +274,60 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                 )
             )
 
+        def encounter_scope(
+            code: str, fid: int, revision: object, start: int, end: int
+        ) -> tuple[list[dict[str, Any]], list[str]]:
+            """The fight's complete encounter-All events, certified from the marker proof."""
+            proof = one(
+                [
+                    p
+                    for p in marker.get("encounter_streams") or ()
+                    if (p.get("report"), p.get("fight"), p.get("role")) == (code, fid, "encounter")
+                ],
+                "encounter scope not unique",
+            )
+            identity = proof.get("identity")
+            require(
+                proof.get("actor_id") is None
+                and proof.get("direction") == "all"
+                and isinstance(identity, dict)
+                and set(identity) == ENCOUNTER_ALL_FIELDS,
+                "encounter scope is not an exact encounter-All request",
+            )
+            expected = {
+                "code": code,
+                "fight": fid,
+                "actor_id": None,
+                "role": "encounter",
+                "direction": "all",
+                "revision": revision,
+                "data_type": "All",
+                "include_resources": True,
+                "translate": True,
+                "site": "vanilla.warcraftlogs.com",
+                "endpoint": marker["endpoint"],
+                "query_version": 1,
+            }
+            require(
+                all(
+                    type(identity.get(k)) is type(v) and identity[k] == v
+                    for k, v in expected.items()
+                )
+                and integer(identity.get("limit"), positive=True)
+                and identity.get("start_time") == start
+                and identity.get("end_time") == end
+                and type(identity.get("start_time")) in (int, float)
+                and type(identity.get("end_time")) in (int, float),
+                "encounter scope identity mismatch",
+            )
+            prefix = f"events/{code}/fight_{fid}/encounter/all_"
+            names = sorted(n for n in z.namelist() if n.startswith(prefix))
+            digests = [digest(z.read(n)) for n in names]
+            require(bool(names) and proof.get("pages") == digests, "encounter scope pages differ")
+            for name in names:
+                read(name)  # reject duplicate keys/nonfinite constants before page validation
+            return [event for event, _, _ in pages._pages(z, prefix, start, end, fid)], digests
+
         owner_folder = folder(owner, "player")
         listing = read(f"{owner_folder}/pets.json")
         require(isinstance(listing, list), "missing explicit pet listing")
@@ -296,16 +350,32 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
             ),
             "unresolved fight pet ownership",
         )
+        catalog_owned = {
+            a["id"]
+            for a in catalog
+            if a.get("petOwner") == owner and type(a.get("petOwner")) is int
+        }
         require(
-            set(pet_ids)
-            == {p["id"] for p in fight_pets if p["petOwner"] == owner}
-            == {
-                a["id"]
-                for a in catalog
-                if a.get("petOwner") == owner and type(a.get("petOwner")) is int
-            },
+            set(pet_ids) == {p["id"] for p in fight_pets if p["petOwner"] == owner}
+            and set(pet_ids) <= catalog_owned,
             "pet listings disagree",
         )
+        out_of_scope = []
+        if catalog_owned != set(pet_ids):
+            # A report-catalog pet the fight does not list is out of this fight's scope
+            # only if the fight's certified encounter-All pages never name it (D022).
+            listed = {p["id"] for p in fight_pets}
+            extras = sorted(catalog_owned - set(pet_ids))
+            require(not listed & set(extras), "pet listings disagree")
+            scope, scope_pages = encounter_scope(code, fid, report["revision"], start, end)
+            for pet in extras:
+                require(
+                    not any(pet in (e.get("sourceID"), e.get("targetID")) for e in scope),
+                    "pet listings disagree",
+                )
+                out_of_scope.append(
+                    {"pet": pet, "rule": "catalog-pet-absent-from-fight-v1", "pages": scope_pages}
+                )
         for pet in listing:
             require(
                 actors[pet["id"]].get("petOwner") == owner
@@ -547,7 +617,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         require(
             consistent(totals["ranked"], end - start, published), "published DPS contradicts raw"
         )
-        return {
+        result = {
             "version": 1,
             "status": "draft actor-scoped arithmetic; not a validated cell policy",
             "spec": spec,
@@ -567,6 +637,9 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                 "No inferred assignment, opportunity, phase, position or player grade.",
             ],
         }
+        if out_of_scope:
+            result["catalog_pets_out_of_scope"] = out_of_scope
+        return result
 
 
 def main() -> int:

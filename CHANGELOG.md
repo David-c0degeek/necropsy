@@ -8,6 +8,12 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Developer: the DPS ranking freezer leaves a report-catalog pet out of one fight's
+  admission only when that fight neither lists it nor names it anywhere in its
+  certified encounter data. A report-catalog pet the fight lists or that is active
+  in it still refuses admission. Pets the fight lists as owned are still counted,
+  and ownerless guardians stay unresolved.
+
 ## 0.7.1 - 2026-10-27
 
 - New live captures take the 3 top-ranked same-faction comparison players per

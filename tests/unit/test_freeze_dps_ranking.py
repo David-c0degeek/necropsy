@@ -395,3 +395,109 @@ def test_a_wrong_derived_target_parent_is_refused(tmp_path: Path, mutation: str)
     spec = derived_case(tmp_path, mutation)
     with pytest.raises((ValueError, KeyError)):
         dps.compute(spec, tmp_path)
+
+
+def catalog_case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
+    """The same capture with an extra report-catalog pet of the actor (id 9).
+
+    The selected fight does not list it, and the fight's certified encounter-All
+    pages never name it, so only that fight's admission may leave it out (D022).
+    """
+    spec = case(tmp_path)
+    path = tmp_path / spec["archive"]
+    with zipfile.ZipFile(path) as z:
+        files = {n: z.read(n) for n in z.namelist()}
+    marker = json.loads(files["necropsy-snapshot.json"])
+    report = json.loads(files["reports/ABC/bundle.json"])["reportData"]["report"]
+    actors = report["masterData"]["actors"]
+    actors.append({"id": 9, "type": "Pet", "gameID": 510, "petOwner": 1})
+    fight = report["fights"][0]
+    if mutation == "listed_owned":
+        fight["friendlyPets"].append({"id": 9, "type": "Pet", "gameID": 510, "petOwner": 1})
+    if mutation == "listed_other_owner":
+        fight["friendlyPets"].append({"id": 9, "type": "Pet", "gameID": 510, "petOwner": 2})
+    if mutation == "ownerless_guardian":
+        guardian = {"id": 10, "type": "Pet", "gameID": 8836, "petOwner": None}
+        actors.append(guardian)
+        fight["friendlyPets"].append(guardian)
+    rows: list[dict[str, Any]] = []
+    for name in sorted(files):
+        if name.startswith("events/ABC/fight_7/") and name.rsplit("/", 1)[1].startswith("source_"):
+            rows += json.loads(files[name])["data"]
+    if mutation == "as_source":
+        rows.append({"type": "cast", "sourceID": 9, "targetID": 3, "timestamp": 500, "fight": 7})
+    if mutation == "as_target":
+        rows.append({"type": "heal", "sourceID": 1, "targetID": 9, "timestamp": 500, "fight": 7})
+    page: dict[str, Any] = {"data": rows, "nextPageTimestamp": None}
+    if mutation == "unterminated":
+        page["nextPageTimestamp"] = 600
+    whole = json.dumps(page).encode()
+    files["events/ABC/fight_7/encounter/all_001.json"] = whole
+    identity = {
+        **next(p for p in marker["streams"] if p["direction"] == "source")["identity"],
+        "actor_id": None,
+        "role": "encounter",
+        "direction": "all",
+    }
+    if mutation == "wrong_identity":
+        identity["revision"] = 2
+    if mutation == "filtered":
+        identity["filter_expression"] = "sourceID = 1"
+    proof = {
+        "report": "ABC",
+        "fight": 7,
+        "role": "encounter",
+        "actor_id": None,
+        "direction": "all",
+        "identity": identity,
+        "pages": ["0" * 64 if mutation == "page_digest" else hashlib.sha256(whole).hexdigest()],
+    }
+    marker["encounter_streams"] = [] if mutation == "missing_scope" else [proof]
+    files["reports/ABC/bundle.json"] = json.dumps({"reportData": {"report": report}}).encode()
+    marker["report_sets"][0]["sha256"] = hashlib.sha256(
+        json.dumps(report, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode()
+    ).hexdigest()
+    files["necropsy-snapshot.json"] = json.dumps(marker).encode()
+    with zipfile.ZipFile(path, "w") as z:
+        for name, raw in files.items():
+            z.writestr(name, raw)
+    return spec | {"sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def test_agreeing_listings_keep_the_old_output_without_a_scope_record(tmp_path: Path) -> None:
+    result = dps.compute(case(tmp_path), tmp_path)
+    assert "catalog_pets_out_of_scope" not in result
+
+
+def test_a_catalog_pet_absent_from_the_fight_is_out_of_that_fights_scope(tmp_path: Path) -> None:
+    (tmp_path / "plain").mkdir()
+    (tmp_path / "extra").mkdir()
+    plain = dps.compute(case(tmp_path / "plain"), tmp_path / "plain")
+    extra = dps.compute(catalog_case(tmp_path / "extra"), tmp_path / "extra")
+    assert extra["totals"] == plain["totals"] and extra["owned_actor_ids"] == [6]
+    [record] = extra["catalog_pets_out_of_scope"]
+    assert record["pet"] == 9 and record["rule"] == "catalog-pet-absent-from-fight-v1"
+    assert len(record["pages"]) == 1
+
+
+@pytest.mark.parametrize(
+    ("mutation", "reason"),
+    [
+        ("as_source", "pet listings disagree"),
+        ("as_target", "pet listings disagree"),
+        ("listed_owned", "pet listings disagree"),
+        ("listed_other_owner", "pet listings disagree"),
+        ("ownerless_guardian", "unresolved fight pet ownership"),
+        ("missing_scope", "encounter scope not unique"),
+        ("unterminated", "unterminated"),
+        ("wrong_identity", "encounter scope identity mismatch"),
+        ("filtered", "not an exact encounter-All request"),
+        ("page_digest", "encounter scope pages differ"),
+    ],
+)
+def test_a_catalog_pet_seen_in_the_fight_or_an_unproven_scope_is_refused(
+    tmp_path: Path, mutation: str, reason: str
+) -> None:
+    spec = catalog_case(tmp_path, mutation)
+    with pytest.raises(ValueError, match=reason):
+        dps.compute(spec, tmp_path)

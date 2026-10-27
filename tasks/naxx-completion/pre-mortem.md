@@ -933,3 +933,45 @@ Old 0.7.0 readers reject depth-3 archives, and the image rollback note says so.
 
 Verdict: PROCEED WITH GUARDRAILS. Reversibility: reverting the rule restores
 depth 5. Depth-3 archives then need a reader from this or a later release.
+
+## 2026-10-27: fight-scoped catalog pets in DPS admission (D022)
+
+Scope: the DPS freezer's pet-listing check, for report-catalog pets that the
+selected fight does not list. Basis: [evidence: the step-1 diagnosis receipt
+(research/followup-pet-diagnosis-20261027/, Tower, caa19938). 11 refused
+comparisons fail only "pet listings disagree". All 39 catalog-only pets
+across 27 rows are absent from their fight listing and have no source or target
+event in the certified encounter-All scope.] Codex DESIGN_AGREED C1 only
+(mailbox 125).
+
+**PM-43 — High — a real owned pet is scoped out and its damage is lost.**
+Guardrail: an extra is scoped out only when it is absent from the selected
+fight's friendlyPets and absent as both source and target in that fight's
+encounter-All pages. The pages are certified by the freezer itself: unique
+proof, exact identity and bounds, report revision, exactly the listed page
+digests, and the raw page validator's completion and cursor checks. Any
+listing presence, any activity, or a missing, partial, wrong-identity or
+unterminated scope refuses. Mutation tests cover each case.
+
+**PM-44 — High — old oracles or receipts change.** Guardrail: when the
+catalog and fight listings already agree, the code path and output bytes are
+unchanged. The new scoped-out record appears only on rows that use it. Every
+committed oracle replays with the same difference keys under the new
+freezer as under the current one. The oracle-compat check compares the two. The
+existing differences are recorded, not treated as new: `tool_sha256` for all,
+and also `page_validator_sha256` for the two pilot oracles.
+
+**PM-45 — High — ownerless guardians get admitted by arithmetic fit.**
+Guardrail: unresolved fight pet ownership still refuses (C2 unchanged).
+Published residuals never select pets or exclusions. Owned guardians that are
+listed, such as an owned Battle Chicken, stay counted.
+
+**PM-46 — Medium — the register overstates recovery.** Guardrail: the
+register is regenerated on Tower and each newly admitted row's arithmetic is
+reviewed. Rows that later checks refuse keep those reasons. Exclusion cells
+stay unverified. The diagnosis is not an exhaustive ownership audit: it reads
+the combined catalog, not every report generation.
+
+Verdict: PROCEED WITH GUARDRAILS. Reversibility: reverting the freezer change
+restores the strict report-wide equality. Rows admitted under D022 then refuse
+again, and nothing else changes.
