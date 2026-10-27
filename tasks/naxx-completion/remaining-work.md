@@ -26,6 +26,8 @@ all-boss recapture or wider-rank fallback.
 
 Hardware, 2026-10-27 (D020, D021): the PC's faulty memory still bars local evidence. Work verified on Tower may be committed and released. The receipt re-verification since cc637a7 is done (`research/receipt-reconciliation-20261027/`). No corruption is demonstrated in what reproduced. Four records stay flagged as unverified historical observations.
 
+Release 0.7.1, 2026-10-27: published and live on Tower since 12:36 UTC (`research/release-0.7.1-20261027.md`). New captures take three comparisons per boss. The first real depth-3 archive still needs strict reading and intake.
+
 The plan remains at 26 IN_PROGRESS, 484 TODO and zero COMPLETE cells.
 The earlier single-attempt limit bounded a capture job; it did not require
 stopping source, content or verification work. Those streams continue.
