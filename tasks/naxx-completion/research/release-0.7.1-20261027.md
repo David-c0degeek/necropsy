@@ -96,10 +96,18 @@ Each was checked against the actual result on Tower:
 - `quota_until_utc` is unchanged (13:34:27Z), the controller was waiting before
   and after, and the entries are equal with nothing in flight.
 
-So the issues are latent and did not affect this swap. Corrected scripts
-`rollout_fixed.sh` (`abe92f6a9945`) and `rollout_fixed.py` (`6be8fdfb309f`) sit
-beside the executed ones (`cc7c98eec916`, `6a63b25133e4`) for the next rollout.
-They were not executed.
+Codex's independent read-only checks at 12:39:05Z agree (mailbox 120). These
+observations show that this swap succeeded. They do not show that the executed
+scripts handle failures safely. Their error paths are untested: unchecked
+backup, pause and restore steps, an order-sensitive mounts check, and missing
+restart, network and quota assertions.
+
+The executed `rollout_071.sh` (`cc7c98eec916`) and `rollout_071.py`
+(`6a63b25133e4`) must not be reused unchanged. Corrected versions sit beside
+them, not yet executed and pending review: `rollout_fixed.sh` (`abe92f6a9945`)
+and `rollout_fixed.py` (`6be8fdfb309f`). Any future rollout needs reviewed
+hardened scripts first. Arming a wrapper also needs an explicit hold, so that a
+reviewer can act before the boundary is crossed.
 
 Rollback: 0.7.0 cannot read archives captured at depth 3. Stop the worker and
 preserve state before any rollback. The first real depth-3 archive still needs
