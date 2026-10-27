@@ -8,13 +8,18 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+## 0.7.1 - 2026-10-27
+
 - New live captures take the 3 top-ranked same-faction comparison players per
   boss instead of 5. Captures at either depth stay readable; releases up to
   0.7.0 refuse archives captured at depth 3.
 - Developer: `scripts/comparison_followup.py` lists configuration and boss cells
   whose admitted comparisons fall below the minimum of 3. Cells it cannot yet
-  judge are kept apart, never counted as having no valid comparisons. Capturing
-  additional comparisons for those cells is not implemented yet.
+  judge are kept apart, never counted as having no valid comparisons. Only
+  same-faction comparisons whose faction the capture observed count; each is
+  judged against its own player in the report, and the subject is matched by
+  name and realm. Capturing additional comparisons for those cells is not
+  implemented yet.
 
 ## 0.7.0 - 2026-10-26
 
