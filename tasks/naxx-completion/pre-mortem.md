@@ -1009,3 +1009,31 @@ supplement kind is additive; removing it leaves every normal archive untouched.
 Calibration, 2026-10-27: deferred by D024 before any merge. The first checkpoint confirmed PM-50's risk: the reader
 accepted emptied pages, duplicated candidates and a wrong cell (Codex, mailbox 131). That happened before any
 consumer relied on it.
+
+## 2026-10-27: exclusion-neutral admission in the follow-up register (D025)
+
+Scope: `comparison_followup.py` admits comparisons at the five bosses with
+production `ranking_exclusions` when their excluded damage is exactly 0. It
+adds a typed arithmetic-mismatch exception to the DPS freezer. No cell policy,
+exclusion-list validation or live use.
+
+**PM-51 — High — an untested exclusion list decides a row.** Guardrail: admit
+only with excluded damage exactly 0, so the ranked amount does not depend on the
+list. Positive excluded damage stays unverified with the measured amount. An
+arithmetic mismatch under the list stays unverified: it is a typed freezer
+exception, never inferred from message text. The list is always the exact
+packaged one; there is no fallback list and no per-row choice between results.
+
+**PM-52 — Medium — neutral rows are read as a validated list.** Guardrail: each
+row records the applied list and "exclusion-neutral". The records say this
+neither validates the list nor certifies a cell. Zero excluded amount does not
+prove the excluded NPCs had no activity. Rows the freezer stopped before
+measuring excluded damage claim nothing about it.
+
+**PM-53 — Medium — refusal classes blur.** Guardrail: evidence and ownership
+failures stay refused with their reason. Policy-dependent arithmetic failures
+are unverified. Subject rows never count. HPS stays unverified. Tests cover each
+class.
+
+Verdict: PROCEED WITH GUARDRAILS. Reversibility: reverting the detector and the
+freezer exception restores the blanket "unverified" for these bosses.

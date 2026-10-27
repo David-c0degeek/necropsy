@@ -30,6 +30,8 @@ Release 0.7.1, 2026-10-27: published and live on Tower since 12:36 UTC (`researc
 
 Targeted follow-up, 2026-10-27: designed (D023) and deferred by the owner (D024) behind admission for the five bosses with production ranking exclusions. Decision A stays not fully operational.
 
+Exclusion bosses, 2026-10-27 (D025): exclusion-neutral admission clears the five admission-missing cells in the follow-up register. Two of 15 cells (Loatheb, Patchwerk) remain short because of ownerless guardians.
+
 The plan remains at 26 IN_PROGRESS, 484 TODO and zero COMPLETE cells.
 The earlier single-attempt limit bounded a capture job; it did not require
 stopping source, content or verification work. Those streams continue.

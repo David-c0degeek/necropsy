@@ -10,6 +10,7 @@ from typing import Any
 import pytest
 
 from scripts import comparison_followup as followup
+from scripts.freeze_dps_ranking import ArithmeticMismatch
 
 ENCOUNTER_PLAIN = 51118  # Patchwerk: no production ranking exclusions
 ENCOUNTER_EXCLUDED = 51108  # Gluth: production exclusions (Zombie Chow)
@@ -115,13 +116,21 @@ def _archive(
     return path
 
 
-def _admit(names: set[str], seen: list[dict[str, Any]] | None = None) -> Any:
+def _admit(
+    names: set[str],
+    seen: list[dict[str, Any]] | None = None,
+    *,
+    excluded: dict[str, int] | None = None,
+    mismatch: set[str] | None = None,
+) -> Any:
     def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         if seen is not None:
             seen.append(spec)
+        if spec["player"] in (mismatch or set()):
+            raise ArithmeticMismatch("published DPS contradicts raw")
         if spec["player"] not in names:
             raise ValueError("pet listings disagree")
-        return {}
+        return {"totals": {"excluded": (excluded or {}).get(spec["player"], 0)}}
 
     return compute
 
@@ -154,19 +163,65 @@ def test_too_few_admitted_comparisons_need_more_comparisons(
     assert cell["needs_followup"] and cell["followup"] == "more-comparisons"
 
 
-def test_untested_exclusions_and_hps_are_unverified_not_zero(
+def test_exclusion_neutral_comparisons_admit_with_the_packaged_list(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
+    seen: list[dict[str, Any]] = []
+    _patch(monkeypatch, _admit({"Ally1", "Ally2", "Ally3"}, seen))
+    cell = _cell(followup.cells(_archive(tmp_path)), ENCOUNTER_EXCLUDED)
+    assert cell["admitted_distinct_players"] == 3 and not cell["needs_followup"]
+    assert all(
+        a["exclusion_neutral"] and a["applied_exclusions"] == [16360] for a in cell["admitted"]
+    )
+    gluth = [s["excluded_game_ids"] for s in seen if s["encounter"] == ENCOUNTER_EXCLUDED]
+    plain = [s["excluded_game_ids"] for s in seen if s["encounter"] == ENCOUNTER_PLAIN]
+    assert gluth == [[16360]] * 3 and plain == [[]] * 3  # the packaged list, never another
+
+
+def test_excluded_damage_or_a_mismatch_under_the_list_stays_unverified(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _patch(
+        monkeypatch,
+        _admit({"Ally1", "Ally2", "Ally3"}, excluded={"Ally1": 120}, mismatch={"Ally2"}),
+    )
+    cell = _cell(followup.cells(_archive(tmp_path)), ENCOUNTER_EXCLUDED)
+    assert [a["player"] for a in cell["admitted"]] == ["Ally3"] and cell["refused"] == []
+    by_player = {u["player"]: u for u in cell["unverified"]}
+    assert by_player["Ally1"]["reason"] == "production exclusions exercised and untested"
+    assert by_player["Ally1"]["excluded_damage"] == 120
+    assert (
+        by_player["Ally2"]["reason"]
+        == "arithmetic mismatch under the untested production exclusions"
+    )
+    assert cell["needs_followup"] and cell["followup"] == "more-comparisons"
+
+
+def test_a_mismatch_without_exclusions_and_evidence_failures_are_refused(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _patch(monkeypatch, _admit({"Ally1", "Ally3"}, mismatch={"Ally2"}))
+    found = followup.cells(_archive(tmp_path))
+    plain = _cell(found, ENCOUNTER_PLAIN)
+    assert {r["player"]: r["reason"] for r in plain["refused"]} == {
+        "Ally2": "published DPS contradicts raw"
+    }
+    gluth = _cell(found, ENCOUNTER_EXCLUDED)
+    assert [u["player"] for u in gluth["unverified"]] == ["Ally2"]
+    _patch(monkeypatch, _admit({"Ally1", "Ally2"}))
+    (tmp_path / "second").mkdir()
+    gluth = _cell(followup.cells(_archive(tmp_path / "second")), ENCOUNTER_EXCLUDED)
+    assert {r["player"]: r["reason"] for r in gluth["refused"]} == {
+        "Ally3": "pet listings disagree"
+    }
+
+
+def test_hps_stays_unverified(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     def never(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         raise AssertionError("no admission may run for an unverified comparison")
 
-    _patch(monkeypatch, _admit({"Ally1", "Ally2", "Ally3"}))
-    excluded = _cell(followup.cells(_archive(tmp_path)), ENCOUNTER_EXCLUDED)
-    assert excluded["admitted"] == [] and excluded["refused"] == []
-    assert len(excluded["unverified"]) == 3 and excluded["followup"] == "admission-missing"
     _patch(monkeypatch, never)
-    (tmp_path / "hps").mkdir()
-    for cell in followup.cells(_archive(tmp_path / "hps", metric="hps")):
+    for cell in followup.cells(_archive(tmp_path, metric="hps")):
         assert cell["followup"] == "admission-missing" and len(cell["unverified"]) == 3
 
 
@@ -177,7 +232,8 @@ def test_comparisons_sharing_one_fight_are_each_admitted_with_their_own_actor(
     _patch(monkeypatch, _admit({"Ally1", "Ally2", "Ally3"}, seen))
     cell = _cell(followup.cells(_archive(tmp_path, shared_fight=True)), ENCOUNTER_PLAIN)
     assert cell["admitted_distinct_players"] == 3 and cell["refused"] == []
-    assert sorted(s["actor"] for s in seen) == [11, 12, 13]
+    plain = [s["actor"] for s in seen if s["encounter"] == ENCOUNTER_PLAIN]
+    assert sorted(plain) == [11, 12, 13]
 
 
 def test_a_namesake_of_the_subject_on_another_realm_is_a_comparison(

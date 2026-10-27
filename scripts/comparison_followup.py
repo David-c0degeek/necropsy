@@ -9,9 +9,14 @@ the cross-faction ceiling never is, and an unobserved faction is unverified.
 Each participant is resolved to its own report actor, so several selected
 players in one fight are judged separately. Each cell keeps three separate counts: admitted,
 refused (with the freezer's reason) and unverified, where no admission exists
-yet (HPS archives without an HPS admission for their format, or encounters
-whose production ranking exclusions no admitted evidence has tested). An
-unverified comparison is never counted as zero valid players.
+yet. An unverified comparison is never counted as zero valid players.
+
+At a boss with production ranking exclusions, the freezer runs with the exact
+packaged exclusion list. A comparison is admitted only when its excluded damage
+is exactly 0, so the ranked amount does not depend on that untested list; it is
+marked exclusion-neutral (D025). Positive excluded damage, or an arithmetic
+mismatch under the list, stays unverified. HPS stays unverified: there is no
+HPS admission for these archives.
 
 A cell needs follow-up when its admitted comparisons are fewer than the
 packaged minimum (`live_cohort.min_same_faction`), whatever depth the archive
@@ -141,11 +146,6 @@ def cells(archive: Path) -> list[dict[str, Any]]:
             if metric != "dps":
                 cell["unverified"].append(who | {"reason": "no HPS admission for this archive"})
                 continue
-            if exclusions.get(encounter):
-                cell["unverified"].append(
-                    who | {"reason": "production ranking exclusions untested by admitted evidence"}
-                )
-                continue
             # A fight may hold several selected players; resolve this one's actor.
             matches = [
                 a["id"]
@@ -182,6 +182,7 @@ def cells(archive: Path) -> list[dict[str, Any]]:
             if len(rows) != 1:
                 cell["refused"].append(who | {"reason": "no unique matching published row"})
                 continue
+            applied = exclusions.get(encounter) or []
             spec = {
                 "archive": archive.resolve().as_posix(),
                 "sha256": digest,
@@ -194,17 +195,47 @@ def cells(archive: Path) -> list[dict[str, Any]]:
                 "category": category,
                 "role": policy.role,
                 "encounter": encounter,
-                "excluded_game_ids": [],
+                "excluded_game_ids": applied,
                 "leaderboard_member": name,
                 "page": rows[0][0],
                 "row": rows[0][1],
             }
             try:
-                dps.compute(spec, work)
+                result = dps.compute(spec, work)
+            except dps.ArithmeticMismatch as error:
+                if not applied:
+                    cell["refused"].append(who | {"reason": str(error)})
+                    continue
+                # The mismatch depends on an untested exclusion list: no verdict (D025).
+                cell["unverified"].append(
+                    who
+                    | {
+                        "reason": "arithmetic mismatch under the untested production exclusions",
+                        "applied_exclusions": applied,
+                    }
+                )
+                continue
             except (ValueError, KeyError, TypeError) as error:
                 cell["refused"].append(who | {"reason": str(error)})
                 continue
-            cell["admitted"].append(who)
+            if not applied:
+                cell["admitted"].append(who)
+                continue
+            excluded = result["totals"]["excluded"]
+            if excluded == 0:
+                # Exclusion-neutral: the ranked amount is the same with or without the list.
+                cell["admitted"].append(
+                    who | {"exclusion_neutral": True, "applied_exclusions": applied}
+                )
+            else:
+                cell["unverified"].append(
+                    who
+                    | {
+                        "reason": "production exclusions exercised and untested",
+                        "excluded_damage": excluded,
+                        "applied_exclusions": applied,
+                    }
+                )
     scratch.cleanup()
     floor = minimum()
     out = []

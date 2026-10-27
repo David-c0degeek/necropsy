@@ -8,6 +8,11 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Developer: the comparison follow-up register admits comparisons at bosses with
+  production ranking exclusions when their damage to the excluded targets is
+  exactly 0, so the result does not depend on the untested exclusion list. Rows
+  that hit excluded targets, or that only fail the arithmetic under the list, stay
+  unverified.
 - Developer: the DPS ranking freezer leaves a report-catalog pet out of one fight's
   admission only when that fight neither lists it nor names it anywhere in its
   certified encounter data. A report-catalog pet the fight lists or that is active

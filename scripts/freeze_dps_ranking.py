@@ -57,6 +57,12 @@ def require(condition: bool, reason: str) -> None:
         raise ValueError(reason)
 
 
+class ArithmeticMismatch(ValueError):
+    """Every evidence check passed, but the published amount contradicts the raw
+    ranked damage under the given exclusions. With an untested exclusion list this
+    is a policy-dependent result, not proof that the evidence is wrong (D025)."""
+
+
 def digest(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
 
@@ -614,9 +620,8 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         amount = row["amount"]
         require(type(amount) in (str, int), "invalid published amount")
         published = str(amount)
-        require(
-            consistent(totals["ranked"], end - start, published), "published DPS contradicts raw"
-        )
+        if not consistent(totals["ranked"], end - start, published):
+            raise ArithmeticMismatch("published DPS contradicts raw")
         result = {
             "version": 1,
             "status": "draft actor-scoped arithmetic; not a validated cell policy",
