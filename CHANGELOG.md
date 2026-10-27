@@ -8,6 +8,14 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- New live captures take the 3 top-ranked same-faction comparison players per
+  boss instead of 5. Captures at either depth stay readable; releases up to
+  0.7.0 refuse archives captured at depth 3.
+- Developer: `scripts/comparison_followup.py` lists configuration and boss cells
+  whose admitted comparisons fall below the minimum of 3. Cells it cannot yet
+  judge are kept apart, never counted as having no valid comparisons. Capturing
+  additional comparisons for those cells is not implemented yet.
+
 ## 0.7.0 - 2026-10-26
 
 - Naxxramas captures reuse each fight's complete encounter data for actor target

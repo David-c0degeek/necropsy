@@ -163,7 +163,9 @@ Saved snapshots replay offline with `necropsy offline SNAPSHOT.zip --out FOLDER`
 Rendering existing JSON uses `necropsy render analysis.json --out FOLDER`.
 
 Naxxramas snapshots created by 0.7.0 use archive format 3. Earlier releases
-refuse that format, so update before opening those snapshots. Existing archives
+refuse that format, so update before opening those snapshots. Snapshots captured
+with 3 comparisons per boss (the current depth) also need the release that
+introduced that depth; earlier releases refuse them. Existing archives
 remain readable, and saved analysis JSON can still be rendered offline.
 
 ## Verification and removal

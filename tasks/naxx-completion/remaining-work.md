@@ -16,6 +16,16 @@ preserving state, and a Horde Balance capture child started. Production owns WCL
 again; no competing PC calls. Historical scheduled-retry/attention statements
 below do not describe this resumed operation.
 
+Comparison depth, 2026-10-26 (D019): new captures take 3 top-ranked comparisons
+per boss instead of 5, and archives at either depth remain readable. The
+deterministic register `followup-comparisons.json` lists the cells whose admitted
+comparisons fall below 3, kept apart from cells whose admission is still missing.
+**Owner decision A is not fully operational yet**: the targeted capture that
+consumes this register and rechecks admission is still to be built. There is no
+all-boss recapture or wider-rank fallback.
+
+Hardware, 2026-10-27 (D020, D021): the PC's faulty memory still bars local evidence. Work verified on Tower may be committed and released. The receipt re-verification since cc637a7 is done (`research/receipt-reconciliation-20261027/`). No corruption is demonstrated in what reproduced. Four records stay flagged as unverified historical observations.
+
 The plan remains at 26 IN_PROGRESS, 484 TODO and zero COMPLETE cells.
 The earlier single-attempt limit bounded a capture job; it did not require
 stopping source, content or verification work. Those streams continue.

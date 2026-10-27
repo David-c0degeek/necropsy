@@ -166,6 +166,7 @@ def test_guild_rule_only_infers(guild: Any, value: str | None, level: str) -> No
     assert (got.value, got.level) == (value, level)
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_paging_goes_past_the_top_five_until_same_faction_targets() -> None:
     first = [_row(i, guild=1) for i in range(1, 4)] + [_row(i) for i in range(4, 6)]
     second = [_row(i) for i in range(6, 40)]
@@ -250,6 +251,7 @@ def _page(rows: list[dict[str, Any]], more: Any, encounter: int = ENCOUNTER) -> 
     return ok({"worldData": {"encounter": {"id": encounter, "characterRankings": rankings}}})
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_select_boss_pages_until_done_and_records_the_rate() -> None:
     script = Script(
         _page([_row(i, guild=1) for i in range(1, 6)], True),

@@ -159,6 +159,9 @@ Kel'Thuzad contexts distinguish 27808 cast/aura rows from 29879 damage; normaliz
 health/absorbed rows do not settle the 104%/130% disagreement. No positive Noth
 29214 row in six surveyed contexts is not absence. All source keys remain
 blocked; no certified scope, actor registration, grading rule or completed cell.
+(Qualification, 2026-10-27, D021: its survey reproduces on Tower, but its findings
+and positive groups are unverified historical prose that cannot support Naxx
+acceptance; see research/receipt-reconciliation-20261027/.)
 
 2026-10-23 · Faerlina silence-school correction · The earlier timing audit
 identified that the existing static sacrifice description omitted Nature.

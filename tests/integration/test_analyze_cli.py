@@ -120,6 +120,7 @@ def test_a_complete_run_writes_snapshot_and_pages(tmp_path: Path, fake: dict[str
         ("mc", 3, False),
     ],
 )
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_normal_cli_selects_encounter_scopes_for_new_era_raids(
     tmp_path: Path,
     fake: dict[str, Any],
@@ -173,6 +174,7 @@ def test_normal_cli_selects_encounter_scopes_for_new_era_raids(
     assert len(critical) == (6 if context_enabled else 0)
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_normal_encounter_context_quota_resume_preserves_completed_scopes(
     tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:

@@ -397,6 +397,10 @@ forecast. Pendingalerts0, one historical failure, no attention or active child.
 No WCL query, state/queue/image change, localAI or evidence registration in this
 follow-up. Full raw/refusal inventory and timestamped readings retained in
 research/production-followup-20261024/. Production resumes automatically.
+Qualification, 2026-10-27 (D021): these three records could not be reproduced on
+Tower (no producer, no independently retained as-of inputs). They stay as
+unverified historical observations and cannot support Naxx acceptance; see
+research/receipt-reconciliation-20261027/.
 
 2026-10-26 · Quota controller and compatible reader released · The shared
 account quota gate is reviewed and shipped with0.7.0. Committed candidate

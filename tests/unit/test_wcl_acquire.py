@@ -282,6 +282,7 @@ def _archive_answer() -> httpx.Response:
     )
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_archived_stream_entry_is_replaced_from_later_candidates(tmp_path: Path) -> None:
     fake = FakeWcl(_cohort(30), Player("Haplina"))
 
@@ -340,6 +341,7 @@ def _ops(fake: FakeWcl, name: str) -> int:
     return sum(1 for r in fake.requests if name in r["query"])
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_full_boss_acquisition_with_pets(tmp_path: Path) -> None:
     fake = FakeWcl(_cohort(30, pets=[7]), Player("Haplina", pets=[8]))
     result = _run(tmp_path, fake)
@@ -379,6 +381,7 @@ def test_user_endpoint_is_used_for_every_request(tmp_path: Path) -> None:
     assert streams and all(s.identity["endpoint"] == "user" for s in streams)
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_inaccessible_and_contradicted_rows_are_replaced(tmp_path: Path) -> None:
     players = _cohort(8)
     players[0].faction_code = HORDE_CODE  # guild says Alliance, report says Horde
@@ -430,6 +433,7 @@ def test_a_revision_change_restarts_the_whole_entry(tmp_path: Path) -> None:
     assert all(s.identity["revision"] == 5 for s in first.streams)
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_two_revision_changes_fail_the_entry(tmp_path: Path) -> None:
     fake = FakeWcl(_cohort(7), Player("Haplina"), revisions={"RAlly1": [4, 5, 6]})
     boss = _run(tmp_path, fake).bosses[0]
@@ -518,6 +522,7 @@ def test_fight_pets_need_consistent_ownership() -> None:
     assert pets([{"id": 10, "petOwner": 5}]) is None  # absent from masterData
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_metadata_shortfall_is_reported_apart_from_deep(tmp_path: Path) -> None:
     boss = _run(tmp_path, FakeWcl(_cohort(6), Player("Haplina"))).bosses[0]
     assert boss.coverage["usable_deep"] == 5 and not boss.coverage["complete"]
@@ -545,6 +550,7 @@ def test_points_stop_keeps_completed_entries(tmp_path: Path) -> None:
     assert boss.selection is not None and boss.key is not None
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_points_stop_during_a_replacement_check(tmp_path: Path) -> None:
     players = _cohort(8)
     fake = FakeWcl(players, Player("Haplina"), stream_forbidden={"RAlly1"})
@@ -615,6 +621,7 @@ def test_subject_rule_reproduces_the_recorded_export_choice() -> None:
         assert (pick.report_code, pick.fight_id) == chosen[encounter], encounter
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_observed_rows_still_get_deep_slots_after_metadata_is_full() -> None:
     from necropsy.wcl.cohort import Verdict, cohort_key, select
 
@@ -736,6 +743,7 @@ def test_a_cached_bundle_is_never_reused_for_another_boss(tmp_path: Path) -> Non
     assert verdict.status == "unknown" and "invalid report data" in (verdict.reason or "")
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_cross_faction_is_not_applicable_when_number_one_is_own_faction(tmp_path: Path) -> None:
     fake = FakeWcl(_cohort(30), Player("Haplina"))
     boss = _run(tmp_path, fake, cross_faction=True).bosses[0]
@@ -760,6 +768,7 @@ def test_cross_faction_unknown_or_unreachable_number_one_is_partial(tmp_path: Pa
     assert any("cross-faction ceiling not acquired" in r for r in boss.coverage["reasons"])
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_rows_pointing_at_another_boss_never_count(tmp_path: Path) -> None:
     fake = FakeWcl(_cohort(6), Player("Haplina"))
     client = c.WclClient(
@@ -778,3 +787,34 @@ def test_rows_pointing_at_another_boss_never_count(tmp_path: Path) -> None:
     assert second.subject is not None and second.subject.status == "failed"
     assert second.selection is not None
     assert all(v.status != "observed" for v in second.selection.verdicts.values())
+
+
+def test_the_current_depth_takes_three_top_ranked_comparisons(tmp_path: Path) -> None:
+    fake = FakeWcl(_cohort(30, pets=[7]), Player("Haplina", pets=[8]))
+    boss = _run(tmp_path, fake).bosses[0]
+    assert [e.name for e in boss.cohort if e.status == "complete"] == ["Ally1", "Ally2", "Ally3"]
+    assert boss.coverage["complete"], boss.coverage["reasons"]
+    assert boss.coverage["usable_deep"] == 3 and boss.coverage["metadata"] == 25
+    assert boss.selection.rule_set == "live-cohort-v2"
+
+
+def test_a_depth_three_resume_selects_the_prefix_of_a_depth_five_run(tmp_path: Path) -> None:
+    from tests.conftest import cohort_depth
+
+    with cohort_depth(5):
+        first = _run(tmp_path, FakeWcl(_cohort(30, pets=[7]), Player("Haplina", pets=[8])))
+    earlier = [e.name for e in first.bosses[0].cohort if e.status == "complete"]
+    assert earlier == [f"Ally{i}" for i in range(1, 6)]
+    again = FakeWcl(_cohort(30, pets=[7]), Player("Haplina", pets=[8]))
+    boss = _run(tmp_path, again).bosses[0]
+    # The same ordering selects the first three, entirely from verified cached streams;
+    # the two later comparisons stay in the cache and are not selected.
+    chosen = [e for e in boss.cohort if e.status == "complete"]
+    assert [e.name for e in chosen] == earlier[:3]
+    assert _ops(again, "NecropsyEvents") == 0
+    assert all(s.reused for e in chosen for s in e.streams)
+    assert boss.subject.status == "complete" and boss.subject.pets == [8]
+    assert [e.actor_id for e in chosen] == [
+        e.actor_id for e in first.bosses[0].cohort if e.status == "complete"
+    ][:3]
+    assert boss.coverage["usable_deep"] == 3 and boss.coverage["complete"]

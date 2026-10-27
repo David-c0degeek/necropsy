@@ -292,8 +292,9 @@ class V1Snapshot(V0Snapshot):
             raise SnapshotError(f"zone {live.zone.id} is not supported")
         if live.cohort != COHORT:
             raise SnapshotError(f"unknown live cohort {live.cohort!r}")
-        if live.top_n != int(load_rules(GAME, "benchmarks")["live_cohort"]["deep"]):
-            raise SnapshotError("top_n differs from the live cohort rule")
+        accepted = {int(d) for d in load_rules(GAME, "benchmarks")["live_cohort"]["accepted_deep"]}
+        if live.top_n not in accepted:
+            raise SnapshotError("top_n is not a live cohort depth this reader supports")
         names = {
             int(e["id"]): str(e["name"])
             for e in load_rules(GAME, f"zones/{raid_for_zone(live.zone.id).slug}")["encounters"]

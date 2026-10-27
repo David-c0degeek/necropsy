@@ -20,8 +20,9 @@ import pytest
 from necropsy.normalize.ingest import ingest
 from necropsy.report.analysis_json import AnalysisDocument, build_document
 from necropsy.report.render import build_view, render_playbook, render_report
-from necropsy.snapshot.archive import ArchiveError, load_entries_manifest
+from necropsy.snapshot.archive import ArchiveError, VerifiedArchive, load_entries_manifest
 from necropsy.snapshot.model import SnapshotError
+from necropsy.snapshot.v1 import open_snapshot
 from necropsy.snapshot.v1_writer import LIVE_DESCRIPTION, WriteError, write_snapshot
 from necropsy.wcl import client as c
 from necropsy.wcl.acquire import MixedRevision, Run, acquire, finalize_reports
@@ -202,6 +203,7 @@ def _players() -> tuple[list[Player], Player]:
     return cohort, subject
 
 
+@pytest.mark.usefixtures("historical_cohort_depth")
 def test_saved_overall_score_does_not_create_a_foreign_event_sample(tmp_path: Path) -> None:
     (tmp_path / "cache").mkdir()
     (tmp_path / "saved").mkdir()
@@ -276,7 +278,7 @@ def _acquire(tmp: Path, fake: FakeWcl) -> tuple[Any, Cache, Run]:
 
 
 @pytest.fixture
-def written(tmp_path: Path) -> Any:
+def written(tmp_path: Path, historical_cohort_depth: None) -> Any:
     (tmp_path / "cache").mkdir()
     (tmp_path / "out").mkdir()
     cohort, subject = _players()
@@ -689,3 +691,24 @@ def test_malformed_acquisitions_publish_nothing(tmp_path: Path, damage: str) -> 
     with pytest.raises(WriteError):
         write_snapshot(result, store, tmp_path / "out", "live")
     assert not list((tmp_path / "out").glob("live.*"))
+
+
+@pytest.mark.parametrize(("top_n", "readable"), [(3, True), (5, True), (4, False), (6, False)])
+def test_only_supported_cohort_depths_are_readable(
+    tmp_path: Path, top_n: int, readable: bool
+) -> None:
+    (tmp_path / "cache").mkdir()
+    (tmp_path / "out").mkdir()
+    cohort, subject = _players()
+    result, store, run = _acquire(tmp_path, FakeWcl(cohort, subject))
+    finalize_reports(run, result)
+    out = write_snapshot(result, store, tmp_path / "out", "live")
+    with VerifiedArchive(out.archive) as archive:
+        assert archive.read_json("necropsy-snapshot.json")["top_n"] == 3
+    changed = _rewrite_marker(out, tmp_path / "depth.zip", lambda d: d.update(top_n=top_n))
+    with VerifiedArchive(changed) as archive:
+        if readable:
+            assert open_snapshot(archive).descriptor().top_n == top_n
+        else:
+            with pytest.raises(SnapshotError, match="cohort depth"):
+                open_snapshot(archive)

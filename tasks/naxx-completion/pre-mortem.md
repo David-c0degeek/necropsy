@@ -893,3 +893,43 @@ Leaderboard window calibration, 2026-10-26:
 - PM-38 Mitigated. Coincidence is counted on exact (report, fight) pairs after
   class and spec filtering, is faction-blind as stated, has explicit
   denominators, and is not treated as cohort eligibility.
+
+## 2026-10-26: depth 3 with targeted follow-up (owner decision A, D019)
+
+Scope: the live cohort depth goes from 5 to 3 for every Era raid. The reader
+accepts depth 3 or 5 only. A detector writes a follow-up register. Release and
+rollout come afterwards. Codex DESIGN_AGREED (codex:102) with guardrails.
+
+**PM-39 — High — existing archives become unreadable or change.** Basis:
+[evidence: v1.py refused any top_n other than the current depth; every live
+archive records top_n 5]. Guardrail: an explicit `accepted_deep` set of {3, 5}.
+Depth 4 and any other value are refused, and a test proves it. Markers,
+reasons, participant order and outputs of existing archives are byte-identical:
+the 54 legacy outputs, Haplina, the measurement archive and all MC/BWL/AQ/Naxx
+goldens. No golden is regenerated to fit.
+
+**PM-40 — High — a resumed depth-5 partial mixes cohorts.** Basis: [evidence:
+checkpoints key on CLI options, not depth; production holds depth-5 partial
+checkpoints]. Guardrail: an offline fixture resumes a depth-5 partial at depth
+3. It proves that the selected comparisons are the first 3 by the unchanged
+ordering, that subject, faction, category, metric, order and strict actor and
+ownership bindings stay intact including dropped or inaccessible comparisons,
+and that the new archive says top_n 3. Cached extra requests stay in the
+journal and are never presented as selected.
+
+**PM-41 — High — the detector overstates or understates comparisons.** Basis:
+[inference: a separate counting rule would drift from the freezers].
+Guardrail: count distinct admitted comparison players per configuration, boss
+and metric with the subject excluded, by reusing the existing DPS and HPS
+admission. Missing or unverified evidence is kept apart from zero valid
+players. Archive and receipt provenance and typed refusal reasons are kept.
+The minimum of 3 comes from the packaged rule, never from an archive's
+historical target. Meeting the minimum never makes a cell complete.
+
+**PM-42 — Medium — depth 3 ships without the follow-up path.** Guardrail: A is
+tracked as not fully operational until a targeted capture consumes the
+register and rechecks admission. No all-boss recapture or wider-rank fallback.
+Old 0.7.0 readers reject depth-3 archives, and the image rollback note says so.
+
+Verdict: PROCEED WITH GUARDRAILS. Reversibility: reverting the rule restores
+depth 5. Depth-3 archives then need a reader from this or a later release.

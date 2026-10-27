@@ -232,7 +232,9 @@ def test_selected_category_reaches_strategy_only_on_the_v2_path(
 
 
 @pytest.fixture(scope="module")
-def encounter_capture(tmp_path_factory: pytest.TempPathFactory) -> Any:
+def encounter_capture(
+    tmp_path_factory: pytest.TempPathFactory, historical_cohort_depth_module: None
+) -> Any:
     return _capture(tmp_path_factory.mktemp("encounter") / "capture", True)
 
 
