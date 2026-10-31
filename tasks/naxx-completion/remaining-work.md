@@ -1,6 +1,14 @@
 # Remaining Naxx work — 2026-10-23
 
-Latest intake checkpoint, 2026-10-26: the first usable production partial archive
+Intake, 2026-10-31: six new configurations (Balance DPS Horde, Balance HPS
+Alliance/Horde, Feral DPS Alliance/Horde, Guardian DPS Alliance) pass strict
+read and are in Git LFS under `tests/golden/raids/raw/naxx-production-20261031/`
+(`research/production-intake-20261031/`). These include the first depth-3
+archives. The regenerated follow-up register covers 75 DPS cells: 54 meet the
+minimum, 21 need follow-up. HPS stays outside admission. No actor registration,
+policy or cell status follows; 03.5 stays open with 27 configurations uncaptured.
+
+Earlier intake checkpoint, 2026-10-26: the first usable production partial archive
 has the same acquired event members and strict scopes as the already-registered
 measurement archive. All917 members are checked;193 changed wrappers contain
 actor ordering, ranking/leaderboard refreshes and corresponding marker hashes.
@@ -26,7 +34,7 @@ all-boss recapture or wider-rank fallback.
 
 Hardware, 2026-10-27 (D020, D021): the PC's faulty memory still bars local evidence. Work verified on Tower may be committed and released. The receipt re-verification since cc637a7 is done (`research/receipt-reconciliation-20261027/`). No corruption is demonstrated in what reproduced. Four records stay flagged as unverified historical observations.
 
-Release 0.7.1, 2026-10-27: published and live on Tower since 12:36 UTC (`research/release-0.7.1-20261027.md`). New captures take three comparisons per boss. The first real depth-3 archive still needs strict reading and intake. The one-off rollout scripts must not be reused unchanged; reviewed hardened versions are needed before the next worker rollout.
+Release 0.7.1, 2026-10-27: published and live on Tower since 12:36 UTC (`research/release-0.7.1-20261027.md`). New captures take three comparisons per boss. The first depth-3 archives were strictly read and taken in on 2026-10-31. The one-off rollout scripts must not be reused unchanged; reviewed hardened versions are needed before the next worker rollout.
 
 Targeted follow-up, 2026-10-27: designed (D023) and deferred by the owner (D024) behind admission for the five bosses with production ranking exclusions. Decision A stays not fully operational.
 

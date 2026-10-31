@@ -420,3 +420,13 @@ on a known finalization quota reset; the entire queue quietly waits until
 target requests. No new archive exists yet, so strict v3 archive/intake remains
 an open03.4 follow-up under Claude's sole operational ownership. See
 research/release-0.7.0-20261026.md. No capture/cell or product acceptance follows.
+
+2026-10-31 · 03.5 intake of six configurations · Balance DPS Horde (0.7.0,
+depth 5) and the first five depth-3 archives (Balance HPS Alliance/Horde, Feral
+DPS Alliance/Horde, Guardian DPS Alliance) were copied from Tower, hash-checked
+against their sidecars and Tower, and pass a whole-archive strict read
+(`research/production-intake-20261031/`). They are in Git LFS; a read-only
+on-NAS copy is recorded in `unraid-tower` f506efd. Partial only through pet
+ownership and missing subject fights. The regenerated follow-up register lists
+21 of 75 DPS cells needing follow-up. No actor registration, policy or cell
+status follows; 03.5 stays open.

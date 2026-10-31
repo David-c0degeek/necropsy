@@ -1,0 +1,1615 @@
+{
+  "kind": "Naxx production archive intake; source classification only",
+  "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+  "checker_sha256": "bb376cc96876726115df92e7a404e524f02ae8b47b7c139dc8d07b359e8c71ee",
+  "archives": [
+    {
+      "entry": "naxxramas-druid-balance-dps-horde",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+      "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2",
+      "entries_sha256": "ff4bc10c2e00d4c80af0ad8734f8ef804c2514b5f967f4d5aaa2eb96ee21061c",
+      "members": 982,
+      "format": "necropsy-live-snapshot-v3",
+      "kind": "necropsy.live-snapshot",
+      "subject": {
+        "id": 64347501,
+        "name": "Versyth",
+        "server": "Whitemane",
+        "faction": "Horde"
+      },
+      "top_n": 5,
+      "cohort_mode": "same-faction-deep",
+      "stopped": null,
+      "fights": 88,
+      "participants": 89,
+      "streams": {
+        "critical/all": {
+          "complete": 88
+        },
+        "encounter/all": {
+          "complete": 88
+        },
+        "pet-discovery/listing": {
+          "missing": 9
+        },
+        "pet/source": {
+          "complete": 5
+        },
+        "pet/target": {
+          "complete": 5
+        },
+        "player/source": {
+          "complete": 89
+        },
+        "player/target": {
+          "complete": 89
+        }
+      },
+      "bosses": [
+        {
+          "encounter_id": 51107,
+          "boss": "Anub'Rekhan",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51108,
+          "boss": "Gluth",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51109,
+          "boss": "Gothik the Harvester",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51110,
+          "boss": "Grand Widow Faerlina",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51111,
+          "boss": "Grobbulus",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51112,
+          "boss": "Heigan the Unclean",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51113,
+          "boss": "Instructor Razuvious",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Plasmastrike: pet 117 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51114,
+          "boss": "Kel'Thuzad",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51115,
+          "boss": "Loatheb",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "unresolved pet ownership for Versyth: pet 162 has no valid owner; 1 confirmed pet-linked actors acquired",
+            "pets unknown for Crljenac: pet 193 has no valid owner",
+            "pets unknown for Freshbull: pet 279 has no valid owner",
+            "pets unknown for Neakers: pet 148 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51116,
+          "boss": "Maexxna",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51117,
+          "boss": "Noth the Plaguebringer",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "unresolved pet ownership for Freshbull: pet 255 has no valid owner; 2 confirmed pet-linked actors acquired",
+            "pets unknown for Necsta: pet 120 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51118,
+          "boss": "Patchwerk",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Versyth: pet 108 has no valid owner",
+            "pets unknown for Freshbull: pet 202 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51119,
+          "boss": "Sapphiron",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51120,
+          "boss": "Thaddius",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51121,
+          "boss": "The Four Horsemen",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 5,
+          "usable_deep": 5,
+          "target": 5,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; no valid subject fight"
+          ]
+        }
+      ],
+      "complete_bosses": 10,
+      "below_minimum_bosses": 0
+    },
+    {
+      "entry": "naxxramas-druid-balance-hps-alliance",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be",
+      "entries_sha256": "fb7a7899bc8d177d51a6cff9bf2e19e7566494d7a108ede02dedd5b095f9ef43",
+      "members": 609,
+      "format": "necropsy-live-snapshot-v3",
+      "kind": "necropsy.live-snapshot",
+      "subject": {
+        "id": 65603754,
+        "name": "Momokiller",
+        "server": "Firemaw",
+        "faction": "Alliance"
+      },
+      "top_n": 3,
+      "cohort_mode": "same-faction-deep",
+      "stopped": null,
+      "fights": 55,
+      "participants": 60,
+      "streams": {
+        "critical/all": {
+          "complete": 55
+        },
+        "encounter/all": {
+          "complete": 55
+        },
+        "pet-discovery/listing": {
+          "missing": 3
+        },
+        "pet/source": {
+          "complete": 1
+        },
+        "pet/target": {
+          "complete": 1
+        },
+        "player/source": {
+          "complete": 60
+        },
+        "player/target": {
+          "complete": 60
+        }
+      },
+      "bosses": [
+        {
+          "encounter_id": 51107,
+          "boss": "Anub'Rekhan",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51108,
+          "boss": "Gluth",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51109,
+          "boss": "Gothik the Harvester",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51110,
+          "boss": "Grand Widow Faerlina",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51111,
+          "boss": "Grobbulus",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51112,
+          "boss": "Heigan the Unclean",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51113,
+          "boss": "Instructor Razuvious",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51114,
+          "boss": "Kel'Thuzad",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51115,
+          "boss": "Loatheb",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Momokiller: pet 55 has no valid owner",
+            "pets unknown for 子禾集团: pet 56 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51116,
+          "boss": "Maexxna",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Momokiller: pet 94 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51117,
+          "boss": "Noth the Plaguebringer",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51118,
+          "boss": "Patchwerk",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51119,
+          "boss": "Sapphiron",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51120,
+          "boss": "Thaddius",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51121,
+          "boss": "The Four Horsemen",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        }
+      ],
+      "complete_bosses": 13,
+      "below_minimum_bosses": 0
+    },
+    {
+      "entry": "naxxramas-druid-balance-hps-horde",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f",
+      "entries_sha256": "fd368471ef88468e4516cf91d73a288463fab6712ec0e1a1a9d0a13f13e62eb9",
+      "members": 625,
+      "format": "necropsy-live-snapshot-v3",
+      "kind": "necropsy.live-snapshot",
+      "subject": {
+        "id": 76376122,
+        "name": "Rmx",
+        "server": "Whitemane",
+        "faction": "Horde"
+      },
+      "top_n": 3,
+      "cohort_mode": "same-faction-deep",
+      "stopped": null,
+      "fights": 55,
+      "participants": 55,
+      "streams": {
+        "critical/all": {
+          "complete": 55
+        },
+        "encounter/all": {
+          "complete": 55
+        },
+        "pet-discovery/listing": {
+          "missing": 2
+        },
+        "player/source": {
+          "complete": 55
+        },
+        "player/target": {
+          "complete": 55
+        }
+      },
+      "bosses": [
+        {
+          "encounter_id": 51107,
+          "boss": "Anub'Rekhan",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51108,
+          "boss": "Gluth",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51109,
+          "boss": "Gothik the Harvester",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; no valid subject fight"
+          ]
+        },
+        {
+          "encounter_id": 51110,
+          "boss": "Grand Widow Faerlina",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51111,
+          "boss": "Grobbulus",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51112,
+          "boss": "Heigan the Unclean",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51113,
+          "boss": "Instructor Razuvious",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51114,
+          "boss": "Kel'Thuzad",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; no valid subject fight"
+          ]
+        },
+        {
+          "encounter_id": 51115,
+          "boss": "Loatheb",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Rmx: pet 164 has no valid owner",
+            "pets unknown for Baløø: pet 159 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51116,
+          "boss": "Maexxna",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51117,
+          "boss": "Noth the Plaguebringer",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51118,
+          "boss": "Patchwerk",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; no valid subject fight"
+          ]
+        },
+        {
+          "encounter_id": 51119,
+          "boss": "Sapphiron",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; no valid subject fight"
+          ]
+        },
+        {
+          "encounter_id": 51120,
+          "boss": "Thaddius",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51121,
+          "boss": "The Four Horsemen",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; excluded: spec 'Restoration' is not Balance; no valid subject fight"
+          ]
+        }
+      ],
+      "complete_bosses": 9,
+      "below_minimum_bosses": 0
+    },
+    {
+      "entry": "naxxramas-druid-feral-dps-alliance",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+      "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633",
+      "entries_sha256": "b6304cfbef84abf9b0a27c9ca560311f18320d9b7e761d0afe2320fa6066dcab",
+      "members": 662,
+      "format": "necropsy-live-snapshot-v3",
+      "kind": "necropsy.live-snapshot",
+      "subject": {
+        "id": 75650895,
+        "name": "Arwenthegray",
+        "server": "Westfall",
+        "faction": "Alliance"
+      },
+      "top_n": 3,
+      "cohort_mode": "same-faction-deep",
+      "stopped": null,
+      "fights": 58,
+      "participants": 58,
+      "streams": {
+        "critical/all": {
+          "complete": 58
+        },
+        "encounter/all": {
+          "complete": 58
+        },
+        "pet-discovery/listing": {
+          "missing": 5
+        },
+        "pet/source": {
+          "complete": 11
+        },
+        "pet/target": {
+          "complete": 11
+        },
+        "player/source": {
+          "complete": 58
+        },
+        "player/target": {
+          "complete": 58
+        }
+      },
+      "bosses": [
+        {
+          "encounter_id": 51107,
+          "boss": "Anub'Rekhan",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Mcbear: pet 86 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51108,
+          "boss": "Gluth",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51109,
+          "boss": "Gothik the Harvester",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51110,
+          "boss": "Grand Widow Faerlina",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51111,
+          "boss": "Grobbulus",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51112,
+          "boss": "Heigan the Unclean",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51113,
+          "boss": "Instructor Razuvious",
+          "attempted": true,
+          "subject_status": "unknown",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: no factionID in the player details"
+          ]
+        },
+        {
+          "encounter_id": 51114,
+          "boss": "Kel'Thuzad",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51115,
+          "boss": "Loatheb",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "unresolved pet ownership for Mcbear: pet 83 has no valid owner; 1 confirmed pet-linked actors acquired"
+          ]
+        },
+        {
+          "encounter_id": 51116,
+          "boss": "Maexxna",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Arwenthegray: pet 77 has no valid owner",
+            "unresolved pet ownership for Stay: pet 94 has no valid owner; 1 confirmed pet-linked actors acquired"
+          ]
+        },
+        {
+          "encounter_id": 51117,
+          "boss": "Noth the Plaguebringer",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51118,
+          "boss": "Patchwerk",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "unresolved pet ownership for Mckitty: pet 96 has no valid owner; 2 confirmed pet-linked actors acquired"
+          ]
+        },
+        {
+          "encounter_id": 51119,
+          "boss": "Sapphiron",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; excluded: spec 'Restoration' is not Feral; no valid subject fight"
+          ]
+        },
+        {
+          "encounter_id": 51120,
+          "boss": "Thaddius",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51121,
+          "boss": "The Four Horsemen",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        }
+      ],
+      "complete_bosses": 9,
+      "below_minimum_bosses": 0
+    },
+    {
+      "entry": "naxxramas-druid-feral-dps-horde",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
+      "sha256": "4e39a080967408826e0ac36826f90cfb9094230407a7e5b4c5f437c8c7b7a82e",
+      "entries_sha256": "1af46a0798a59113ed2fb90a7f7dc082b83d3f680bd3f8afb35c6e56bd5d8200",
+      "members": 662,
+      "format": "necropsy-live-snapshot-v3",
+      "kind": "necropsy.live-snapshot",
+      "subject": {
+        "id": 77548335,
+        "name": "Ahram",
+        "server": "Blaumeux",
+        "faction": "Horde"
+      },
+      "top_n": 3,
+      "cohort_mode": "same-faction-deep",
+      "stopped": null,
+      "fights": 60,
+      "participants": 60,
+      "streams": {
+        "critical/all": {
+          "complete": 60
+        },
+        "encounter/all": {
+          "complete": 60
+        },
+        "pet-discovery/listing": {
+          "missing": 4
+        },
+        "pet/source": {
+          "complete": 3
+        },
+        "pet/target": {
+          "complete": 3
+        },
+        "player/source": {
+          "complete": 60
+        },
+        "player/target": {
+          "complete": 60
+        }
+      },
+      "bosses": [
+        {
+          "encounter_id": 51107,
+          "boss": "Anub'Rekhan",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51108,
+          "boss": "Gluth",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51109,
+          "boss": "Gothik the Harvester",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51110,
+          "boss": "Grand Widow Faerlina",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51111,
+          "boss": "Grobbulus",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51112,
+          "boss": "Heigan the Unclean",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51113,
+          "boss": "Instructor Razuvious",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51114,
+          "boss": "Kel'Thuzad",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51115,
+          "boss": "Loatheb",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Stankfaçe: pet 159 has no valid owner",
+            "pets unknown for Efc: pet 141 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51116,
+          "boss": "Maexxna",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51117,
+          "boss": "Noth the Plaguebringer",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51118,
+          "boss": "Patchwerk",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Dreaktwo: pet 167 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51119,
+          "boss": "Sapphiron",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51120,
+          "boss": "Thaddius",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51121,
+          "boss": "The Four Horsemen",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for 乂暴力熊乂: pet 133 has no valid owner"
+          ]
+        }
+      ],
+      "complete_bosses": 12,
+      "below_minimum_bosses": 0
+    },
+    {
+      "entry": "naxxramas-druid-guardian-dps-alliance",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+      "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55",
+      "entries_sha256": "d51ac658c4e3acaa6d7721d4237e0b4d3ad16762a2a80d7747c85dd12646aabb",
+      "members": 685,
+      "format": "necropsy-live-snapshot-v3",
+      "kind": "necropsy.live-snapshot",
+      "subject": {
+        "id": 83306366,
+        "name": "Arianhrod",
+        "server": "Mankrik",
+        "faction": "Alliance"
+      },
+      "top_n": 3,
+      "cohort_mode": "same-faction-deep",
+      "stopped": null,
+      "fights": 59,
+      "participants": 59,
+      "streams": {
+        "critical/all": {
+          "complete": 59
+        },
+        "encounter/all": {
+          "complete": 59
+        },
+        "pet-discovery/listing": {
+          "missing": 9
+        },
+        "pet/source": {
+          "complete": 6
+        },
+        "pet/target": {
+          "complete": 6
+        },
+        "player/source": {
+          "complete": 59
+        },
+        "player/target": {
+          "complete": 59
+        }
+      },
+      "bosses": [
+        {
+          "encounter_id": 51107,
+          "boss": "Anub'Rekhan",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Arianhrod: pet 60 has no valid owner",
+            "pets unknown for Harryjam: pet 75 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51108,
+          "boss": "Gluth",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51109,
+          "boss": "Gothik the Harvester",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51110,
+          "boss": "Grand Widow Faerlina",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51111,
+          "boss": "Grobbulus",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51112,
+          "boss": "Heigan the Unclean",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51113,
+          "boss": "Instructor Razuvious",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Arianhrod: pet 108 has no valid owner"
+          ]
+        },
+        {
+          "encounter_id": 51114,
+          "boss": "Kel'Thuzad",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51115,
+          "boss": "Loatheb",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Arianhrod: pet 63 has no valid owner",
+            "pets unknown for Iol: pet 133 has no valid owner",
+            "unresolved pet ownership for Suncat: pet 92 has no valid owner; 1 confirmed pet-linked actors acquired"
+          ]
+        },
+        {
+          "encounter_id": 51116,
+          "boss": "Maexxna",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51117,
+          "boss": "Noth the Plaguebringer",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51118,
+          "boss": "Patchwerk",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "pets unknown for Arianhrod: pet 65 has no valid owner",
+            "unresolved pet ownership for Suncat: pet 95 has no valid owner; 1 confirmed pet-linked actors acquired",
+            "unresolved pet ownership for Hamtaró: pet 142 has no valid owner; 1 confirmed pet-linked actors acquired"
+          ]
+        },
+        {
+          "encounter_id": 51119,
+          "boss": "Sapphiron",
+          "attempted": true,
+          "subject_status": null,
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": false,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": [
+            "subject fight not acquired: excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; excluded: spec 'Restoration' is not Guardian; no valid subject fight"
+          ]
+        },
+        {
+          "encounter_id": 51120,
+          "boss": "Thaddius",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        },
+        {
+          "encounter_id": 51121,
+          "boss": "The Four Horsemen",
+          "attempted": true,
+          "subject_status": "complete",
+          "cohort": 3,
+          "usable_deep": 3,
+          "target": 3,
+          "complete": true,
+          "below_minimum": false,
+          "dropped": 0,
+          "selection_stop": "targets met",
+          "reasons": []
+        }
+      ],
+      "complete_bosses": 10,
+      "below_minimum_bosses": 0
+    }
+  ],
+  "limits": [
+    "No actor is registered, no comparison admitted, no cell status changed.",
+    "Archive bytes are pinned; a clean checkout needs them restored first."
+  ]
+}
