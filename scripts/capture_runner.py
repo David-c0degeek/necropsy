@@ -92,6 +92,7 @@ ALERT_TRIES = 12
 LOG_PART_BYTES = 50 * 1024**2
 """Each attempt keeps log.txt plus one rotated log.1.txt: at most 100 MB."""
 CLEAR_REQUEST = "clear-attention.request"
+APPROVE_REQUEST = "approve-stage.request"
 STOP_BUDGET_S = 90
 """Allow a poll (1 s), one alert request (nominal 30 s), child grace (20 s)
 and log drain (30 s). urllib's timeout is not a hard total wall-clock deadline."""
@@ -897,17 +898,23 @@ class Runner:
         return None, earliest
 
     def active_raid(self) -> str | None:
-        return next(
-            (
-                raid
-                for raid in self.raid_order
-                if any(
-                    e.raid == raid and self.state["entries"][e.entry_id]["state"] != COMPLETE
-                    for e in self.entries
-                )
-            ),
-            None,
-        )
+        """The first raid not yet passed.
+
+        A raid passes when every entry is complete, or when a person approved the
+        stage and every entry has ended (partial and refused results included).
+        Approval never marks an entry complete; it only lets later raids start.
+        """
+        approved = set(self.state.get("approved_stages", []))
+
+        def passed(raid: str) -> bool:
+            states = [
+                self.state["entries"][e.entry_id]["state"] for e in self.entries if e.raid == raid
+            ]
+            if raid in approved:
+                return all(s in TERMINAL for s in states)
+            return all(s == COMPLETE for s in states)
+
+        return next((raid for raid in self.raid_order if not passed(raid)), None)
 
     def stage_problem(self) -> str | None:
         active = self.active_raid()
@@ -1003,8 +1010,39 @@ class Runner:
             self.attempt(entry)
         return 0
 
+    def apply_approvals(self) -> bool:
+        """Record a person's stage approvals; True when the stage gate no longer holds."""
+        request = self.paths.state / APPROVE_REQUEST
+        if not request.exists():
+            return False
+        try:
+            data = json.loads(request.read_bytes())
+        except (OSError, ValueError):
+            data = None
+        request.unlink()
+        raids = data.get("raids") if isinstance(data, dict) else None
+        if (
+            not isinstance(raids, list)
+            or not raids
+            or data.get("queue_sha256") != self.state["queue_sha256"]
+            or any(r not in self.raid_order for r in raids)
+        ):
+            return False
+        approved = list(self.state.get("approved_stages", []))
+        approved += [r for r in raids if r not in approved]
+        self.state["approved_stages"] = approved
+        held = self.state["controller"]["state"] == ATTENTION and self.state["controller"][
+            "reason"
+        ].startswith("raid stage needs review:")
+        if held and self.stage_problem() is None:
+            self.set_controller(RUNNING)
+        self.commit()
+        return bool(held and self.state["controller"]["state"] == RUNNING)
+
     def idle(self) -> None:
         """At Finished or Needs attention: heartbeat, alert retries, clear requests."""
+        if self.apply_approvals():
+            return
         request = self.paths.state / CLEAR_REQUEST
         if request.exists():
             if self.clear_matches(request):
@@ -1330,6 +1368,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     dog.add_argument("--memory", type=Path, required=True)
     clear = sub.add_parser("clear-attention", help="Let a stopped queue continue after a fix.")
     clear.add_argument("--state", type=Path, required=True)
+    approve = sub.add_parser(
+        "approve-stage",
+        help="Let later raids start although these raids ended with partial or refused results.",
+    )
+    approve.add_argument("--state", type=Path, required=True)
+    approve.add_argument("--raid", action="append", required=True)
     extend = sub.add_parser("extend-queue", help="Append ordered raid work to an idle saved queue.")
     extend.add_argument("--previous-queue", type=Path, required=True)
     extend.add_argument("--queue", type=Path, required=True)
@@ -1352,6 +1396,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0 if sent else 1
     if args.command == "watchdog":
         return watchdog(args.status, args.memory, Notifier(args.secrets))
+    if args.command == "approve-stage":
+        try:
+            state = json.loads((args.state / "state.json").read_bytes())
+        except (OSError, ValueError):
+            print("no readable runner state", file=sys.stderr)
+            return 2
+        request = {"queue_sha256": state["queue_sha256"], "raids": args.raid}
+        write_json(args.state / APPROVE_REQUEST, request)
+        print(f"requested approval of raid stages {', '.join(args.raid)}")
+        return 0
     if args.command == "clear-attention":
         try:
             state = json.loads((args.state / "state.json").read_bytes())

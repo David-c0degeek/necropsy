@@ -114,6 +114,65 @@ def test_stage_order_survives_waits_and_restart_and_partials_need_review(tmp_pat
     assert runner.active_raid() is None and runner.stage_problem() is None
 
 
+def test_approved_stages_let_later_raids_start_without_marking_entries_complete(
+    tmp_path: Path,
+) -> None:
+    _, new = queues(tmp_path)
+    runner = _runner(tmp_path, Clock(), queue=new)
+    entries = runner.state["entries"]
+    entries["naxxramas-capture"]["state"] = cr.PARTIAL
+    assert runner.run() == 3 and runner.stage_problem() is not None
+    digest = runner.state["queue_sha256"]
+    request = runner.paths.state / cr.APPROVE_REQUEST
+
+    for bad in (
+        {"queue_sha256": "0" * 64, "raids": ["naxxramas"]},
+        {"queue_sha256": digest, "raids": ["zg"]},
+    ):
+        cr.write_json(request, bad)
+        assert runner.apply_approvals() is False and not request.exists()
+        assert runner.state["controller"]["state"] == cr.ATTENTION
+        assert "approved_stages" not in runner.state
+
+    assert (
+        cr.main(
+            ["approve-stage", "--state", str(runner.paths.state)]
+            + [a for r in ("naxxramas", "aq40", "bwl") for a in ("--raid", r)]
+        )
+        == 0
+    )
+    runner.idle()
+    assert runner.state["controller"]["state"] == cr.RUNNING
+    assert runner.state["approved_stages"] == ["naxxramas", "aq40", "bwl"]
+    assert entries["naxxramas-capture"]["state"] == cr.PARTIAL
+    assert runner.active_raid() == "aq40"
+    assert runner.next_entry()[0].entry_id == "aq40-capture"  # type: ignore[union-attr]
+
+    entries["aq40-capture"]["state"] = cr.REFUSED
+    entries["bwl-capture"]["state"] = cr.PARTIAL
+    assert runner.active_raid() == "mc"  # pre-approved stages pass once ended
+    entries["mc-capture"]["state"] = cr.PARTIAL
+    assert runner.active_raid() == "mc" and runner.stage_problem() is not None  # mc not approved
+
+    runner.save()
+    reloaded = _runner(tmp_path, Clock(), queue=new)
+    assert reloaded.state["approved_stages"] == ["naxxramas", "aq40", "bwl"]
+    assert reloaded.active_raid() == "mc"
+
+
+def test_approval_while_not_held_records_without_resuming(tmp_path: Path) -> None:
+    _, new = queues(tmp_path)
+    runner = _runner(tmp_path, Clock(), queue=new)
+    runner.set_controller(cr.ATTENTION, "free space below the floor on /x")
+    cr.write_json(
+        runner.paths.state / cr.APPROVE_REQUEST,
+        {"queue_sha256": runner.state["queue_sha256"], "raids": ["naxxramas"]},
+    )
+    assert runner.apply_approvals() is False
+    assert runner.state["controller"]["state"] == cr.ATTENTION
+    assert runner.state["approved_stages"] == ["naxxramas"]
+
+
 @pytest.mark.parametrize(
     "order", [None, [], ["mc", "mc"], ["unknown"], ["mc"], ["mc", "bwl", "aq40", "naxxramas"]]
 )
