@@ -249,6 +249,39 @@ def test_each_request_gets_at_most_the_remaining_time() -> None:
     assert seen and all(v is None or v <= 5 for v in seen[0].values())
 
 
+def _read_timeouts(query: str, **policy: Any) -> list[Any]:
+    seen: list[Any] = []
+
+    def capture(request: httpx.Request) -> httpx.Response:
+        seen.append(request.extensions.get("timeout", {}).get("read"))
+        return ok({"x": 1})
+
+    _client(Script(capture), FakeClock(), **policy).query(query)
+    return seen
+
+
+def test_rankings_queries_wait_long_enough_to_be_billed_once() -> None:
+    ranked = "query Q { r: rankings(fightIDs: [1]) " + c.RATE_FIELDS + " }"
+    assert _read_timeouts(ranked) == [c.RANKINGS_REQUEST_TIMEOUT_S]
+    assert _read_timeouts(Q) == [c.REQUEST_TIMEOUT_S]
+    # A short policy deadline is widened only for rankings queries.
+    assert _read_timeouts(ranked, call_deadline_s=5) == [c.RANKINGS_REQUEST_TIMEOUT_S]
+    assert _read_timeouts(Q, call_deadline_s=5) == [5]
+
+
+def test_a_timed_out_rankings_query_is_retried_once_within_its_deadline() -> None:
+    clock = FakeClock()
+    ranked = "query Q { r: rankings(fightIDs: [1]) " + c.RATE_FIELDS + " }"
+
+    def slow(request: httpx.Request) -> httpx.Response:
+        clock.t += c.RANKINGS_REQUEST_TIMEOUT_S
+        raise httpx.ReadTimeout("slow", request=request)
+
+    script = Script(slow, ok({"x": 3}), ok({"x": 4}))
+    assert _client(script, clock).query(ranked).data["x"] == 3
+    assert len(script.requests) == 2
+
+
 def test_reset_wait_must_fit_the_cap_including_the_extra_second() -> None:
     clock = FakeClock()
     client = _client(Script(), clock, wait_for_reset=True, max_reset_wait_s=900)

@@ -154,6 +154,12 @@ class Policy:
 
 _RETRY_STATUS = frozenset({429, 502, 503, 504})
 REQUEST_TIMEOUT_S = 30.0
+RANKINGS_REQUEST_TIMEOUT_S = 240.0
+"""Rankings-bearing queries can run past 30 s on WCL's side. Abandoning them
+does not stop the server work: production usage logs showed each timed-out
+attempt billed to the database allowance, so a retry paid for the same query
+again. Waiting longer pays once."""
+_RANKINGS_QUERY = re.compile(r"\b(?:rankings|characterRankings|encounterRankings)\s*\(")
 
 
 def _rate(data: Any) -> RateLimit | None:
@@ -363,7 +369,8 @@ class WclClient:
                 "saved acquisition boundary; new requests reserved for report finalization",
                 self.last_rate,
             )
-        if re.search(r"\b(?:rankings|characterRankings|encounterRankings)\s*\(", query):
+        ranked = _RANKINGS_QUERY.search(query) is not None
+        if ranked:
             rate = self.last_rate
             if (
                 rate is not None
@@ -375,7 +382,12 @@ class WclClient:
             ):
                 raise BudgetExceeded("the observed database points budget is exhausted", rate)
         url = self.site.client_api if endpoint == "client" else self.site.user_api
-        deadline = self.clock.monotonic() + self.policy.call_deadline_s
+        request_timeout = RANKINGS_REQUEST_TIMEOUT_S if ranked else REQUEST_TIMEOUT_S
+        call_deadline = self.policy.call_deadline_s
+        if ranked:
+            # Room for one full slow attempt plus a cheap retry of its cached answer.
+            call_deadline = max(call_deadline, request_timeout + REQUEST_TIMEOUT_S)
+        deadline = self.clock.monotonic() + call_deadline
         attempt = 0
         failure: WclError | None = None
         while True:
@@ -392,7 +404,7 @@ class WclClient:
                         "variables": dict(variables or {}),
                     },
                     headers={"Authorization": f"Bearer {self.tokens(endpoint)}"},
-                    timeout=min(REQUEST_TIMEOUT_S, remaining),
+                    timeout=min(request_timeout, remaining),
                 )
             except (httpx.TimeoutException, httpx.TransportError) as exc:
                 self._observe_attempt(query, variables, endpoint, attempt, None, type(exc).__name__)

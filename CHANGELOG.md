@@ -8,6 +8,9 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- Rankings-bearing Warcraft Logs queries wait up to 240 s per request instead
+  of 30 s. Abandoned slow requests were still billed, so retrying them paid
+  for the same database work several times per report.
 - New Era Naxxramas, AQ40, BWL and MC captures derive actor-source and critical-damage streams from
   each fight's complete encounter data, avoiding separate event requests when
   ownership and hit types support the projection. Unsupported inputs retain the
