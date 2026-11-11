@@ -51,8 +51,15 @@ edit. The child image `necropsy-capture:0.7.1-timeout-fix-20261111` (`e2c7a72c�
 the quota reset. The prior worker is kept as `necropsy-capture-before-timeout-20261111`.
 Tower record: unraid-tower `changes/2026-11-11-necropsy-timeout-fix.md`.
 
-## What this does not establish
+## First production hour (attempt 045, 10:35 UTC)
 
-That the 240 s wait is long enough for every report, or the exact
-reports-per-hour gain. Measure it over the next resets before estimating campaign
-duration.
+WCL's gateway answered the slow queries with HTTP 504 after about 60 s and a
+120 s Retry-After, so the 240 s client wait is never reached. The retry after 120 s
+returned the cached answer for 2 points. Each slow report was billed once:
+database spent 19 → 894 and 894 → 1,506. Previously, two 30 s timeouts per report
+cost about 1,600 points. Two reports finalized this hour, against one or two before.
+
+The gain comes from not re-requesting while WCL is still computing. It does not
+come from the longer read timeout itself. A slow rankings report still costs about
+600–900 database points, so the 1,050 hourly allowance remains the limit. Expect
+roughly two slow reports per hour, not a large speedup.
