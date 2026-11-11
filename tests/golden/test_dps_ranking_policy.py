@@ -20,6 +20,7 @@ import pytest
 
 from necropsy.rules import load_rules
 from scripts.check_raid_coverage import NO_PRODUCTION_EXCLUSIONS, POLICY_CONDITIONS
+from scripts.raw_projection import verify_projection
 
 pytestmark = pytest.mark.golden
 REPO = Path(__file__).parents[2]
@@ -72,6 +73,9 @@ def _stream_pages(
         and re.fullmatch(rf"{re.escape(stream['direction'])}_\d+\.json", n.rsplit("/", 1)[-1])
     )
     identity = stream["identity"]
+    if "derivation" in stream:
+        verify_projection(z, snapshot, stream, report)
+        identity = stream["derivation"]["parent"]
     assert identity is not None, "a derived stream needs a derivation-aware raw check"
     assert identity["start_time"] == fight["startTime"] and identity["end_time"] == fight["endTime"]
     assert identity["revision"] == report["revision"] and identity["code"] == report["code"]

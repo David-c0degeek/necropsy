@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import contextlib
+import copy
 import hashlib
 import json
 import os
@@ -42,7 +43,7 @@ from datetime import time as clock_time
 from pathlib import Path
 from typing import IO, Any
 
-QUEUE_VERSION = 1
+QUEUE_VERSION = 2
 STATE_VERSION = 2
 OUTCOME_VERSION = 1
 
@@ -204,7 +205,7 @@ def load_queue(path: Path) -> tuple[str, list[Entry]]:
     raw = path.read_bytes()
     try:
         data = json.loads(raw)
-        if data.get("version") != QUEUE_VERSION:
+        if type(data.get("version")) is not int or data["version"] not in (1, QUEUE_VERSION):
             raise ValueError("unsupported queue version")
         entries = []
         seen: set[str] = set()
@@ -230,9 +231,104 @@ def load_queue(path: Path) -> tuple[str, list[Entry]]:
         if "summary" in data and data["summary"] is None:
             raise ValueError("queue summary must be an object when supplied")
         validate_summary(data.get("summary"), len(entries))
+        raid_order(data, entries)
     except (ValueError, KeyError, TypeError, AttributeError) as error:
         raise QueueError(f"the queue is invalid: {error}") from None
     return hashlib.sha256(raw).hexdigest(), entries
+
+
+def raid_order(data: dict[str, Any], entries: list[Entry]) -> tuple[str, ...]:
+    """V1 preserves its scheduler; V2 requires explicit contiguous raid stages."""
+    if data["version"] == 1:
+        if "raid_order" in data:
+            raise ValueError("raid order requires queue version 2")
+        return ()
+    order = data.get("raid_order")
+    if (
+        not isinstance(order, list)
+        or not order
+        or any(not isinstance(r, str) or r not in {"naxxramas", "aq40", "bwl", "mc"} for r in order)
+        or len(set(order)) != len(order)
+        or set(order) != {e.raid for e in entries}
+    ):
+        raise ValueError("raid order must uniquely name every scheduled raid")
+    positions = [order.index(e.raid) for e in entries]
+    if positions != sorted(positions):
+        raise ValueError("entries must be grouped in raid order")
+    return tuple(order)
+
+
+def pending_entry() -> dict[str, Any]:
+    return {
+        "state": PENDING,
+        "candidate": 0,
+        "transient": 0,
+        "retry_at": None,
+        "reason": "",
+        "archives": [],
+        "attempts": 0,
+    }
+
+
+def extend_queue(previous: Path, queue: Path, state_dir: Path) -> dict[str, Any]:
+    """Explicit locked append-only migration; a changed existing definition is refused."""
+    old_hash, old_entries = load_queue(previous)
+    new_hash, new_entries = load_queue(queue)
+    old_data, new_data = json.loads(previous.read_bytes()), json.loads(queue.read_bytes())
+    if (
+        new_data["version"] != QUEUE_VERSION
+        or len(new_entries) <= len(old_entries)
+        or new_data["entries"][: len(old_entries)] != old_data["entries"]
+        or hashlib.sha256(previous.read_bytes()).hexdigest() != old_hash
+        or hashlib.sha256(queue.read_bytes()).hexdigest() != new_hash
+    ):
+        raise QueueError("queue extension must preserve the exact old entry prefix")
+    with single_instance(state_dir / "runner.lock"):
+        path = state_dir / "state.json"
+        raw = path.read_bytes()
+        state = json.loads(raw)
+        if state.get("queue_sha256") == new_hash and any(
+            m.get("previous") == old_hash and m.get("queue") == new_hash
+            for m in state.get("queue_migrations", [])
+        ):
+            return {"already_migrated": True, "queue_sha256": new_hash}
+        if (
+            state.get("version") != STATE_VERSION
+            or state.get("queue_sha256") != old_hash
+            or state.get("inflight") is not None
+            or set(state.get("entries", {})) != {e.entry_id for e in old_entries}
+        ):
+            raise QueueError("state is not an idle exact match for the previous queue")
+        backup = state_dir / f"state.before-queue-{old_hash[:16]}.json"
+        if backup.exists():
+            if backup.read_bytes() != raw:
+                raise QueueError("queue migration backup already exists with different state")
+        else:
+            with backup.open("xb") as handle:
+                handle.write(raw)
+                handle.flush()
+                os.fsync(handle.fileno())
+        updated = copy.deepcopy(state)
+        updated["queue_sha256"] = new_hash
+        for entry in new_entries[len(old_entries) :]:
+            updated["entries"][entry.entry_id] = pending_entry()
+        updated.setdefault("queue_migrations", []).append(
+            {
+                "previous": old_hash,
+                "queue": new_hash,
+                "at_utc": iso(utcnow()),
+                "backup": backup.name,
+                "preserved_entries": len(old_entries),
+                "appended_entries": len(new_entries) - len(old_entries),
+            }
+        )
+        write_json(path, updated)
+        return {
+            "queue_sha256": new_hash,
+            "preserved_entries": len(old_entries),
+            "appended_entries": len(new_entries) - len(old_entries),
+            "backup": backup.name,
+        }
 
 
 def validate_summary(value: Any, scheduled: int) -> dict[str, int | None]:
@@ -263,6 +359,8 @@ def public_reason(reason: str) -> str:
     """Fixed explanations only: arbitrary receipt strings and host paths stay private."""
     if reason == "running":
         return "Acquiring and saving raid data."
+    if reason.startswith("raid stage needs review:"):
+        return "The current raid has partial or refused captures. Later raids are held for review."
     if reason == "complete":
         return "Capture finished and its archive was verified."
     if reason == "finished with incomplete source data":
@@ -574,6 +672,7 @@ class Runner:
     state: dict[str, Any] = field(default_factory=dict)
     entries: list[Entry] = field(default_factory=list)
     summary: dict[str, int | None] = field(default_factory=dict)
+    raid_order: tuple[str, ...] = ()
     stopping: threading.Event = field(default_factory=threading.Event)
     _published: datetime | None = None
 
@@ -588,6 +687,7 @@ class Runner:
         if hashlib.sha256(raw_queue).hexdigest() != digest:
             raise QueueError("the queue changed while it was loading")
         self.summary = validate_summary(json.loads(raw_queue).get("summary"), len(self.entries))
+        self.raid_order = raid_order(json.loads(raw_queue), self.entries)
         if self.state_file.exists():
             state = json.loads(self.state_file.read_bytes())
             if state.get("version") != STATE_VERSION or state.get("queue_sha256") != digest:
@@ -608,15 +708,7 @@ class Runner:
         for entry in self.entries:
             self.state["entries"].setdefault(
                 entry.entry_id,
-                {
-                    "state": PENDING,
-                    "candidate": 0,
-                    "transient": 0,
-                    "retry_at": None,
-                    "reason": "",
-                    "archives": [],
-                    "attempts": 0,
-                },
+                pending_entry(),
             )
         self.restore_quota_gate()
 
@@ -788,7 +880,10 @@ class Runner:
         now = self.now()
         gate = parse_iso(self.state["quota_until_utc"])
         earliest: datetime | None = None
+        active = self.active_raid()
         for entry in self.entries:
+            if active is not None and entry.raid != active:
+                continue
             info = self.state["entries"][entry.entry_id]
             if info["state"] in TERMINAL:
                 continue
@@ -800,6 +895,29 @@ class Runner:
                 continue
             return entry, None
         return None, earliest
+
+    def active_raid(self) -> str | None:
+        return next(
+            (
+                raid
+                for raid in self.raid_order
+                if any(
+                    e.raid == raid and self.state["entries"][e.entry_id]["state"] != COMPLETE
+                    for e in self.entries
+                )
+            ),
+            None,
+        )
+
+    def stage_problem(self) -> str | None:
+        active = self.active_raid()
+        if active is not None and all(
+            self.state["entries"][e.entry_id]["state"] in TERMINAL
+            for e in self.entries
+            if e.raid == active
+        ):
+            return f"raid stage needs review: {active} has partial or refused captures"
+        return None
 
     def floor_problem(self) -> str | None:
         for path in (self.paths.out, self.paths.cache, self.paths.state):
@@ -833,12 +951,16 @@ class Runner:
                 self.set_controller(WAITING, "waiting for the observed quota reset")
             else:
                 self.set_controller(RUNNING)
-            self.alert(
-                "start:" + self.state["queue_sha256"],
-                "Necropsy capture started",
-                f"{len(self.entries)} scheduled capture runs. "
-                "This collects evidence; it does not validate cells.",
-            )
+            if not any(
+                m.get("queue") == self.state["queue_sha256"]
+                for m in self.state.get("queue_migrations", [])
+            ):
+                self.alert(
+                    "start:" + self.state["queue_sha256"],
+                    "Necropsy capture started",
+                    f"{len(self.entries)} scheduled capture runs. "
+                    "This collects evidence; it does not validate cells.",
+                )
         self.commit()
         while not self.stopping.is_set():
             controller = self.state["controller"]["state"]
@@ -849,6 +971,10 @@ class Runner:
                 continue
             entry, wait_until = self.next_entry()
             if entry is None and wait_until is None:
+                if problem := self.stage_problem():
+                    self.attention(problem, f"stage:{self.active_raid()}")
+                    self.commit()
+                    continue
                 self.set_controller(
                     FINISHED, "every queue entry has ended; this does not mean all data is complete"
                 )
@@ -1204,9 +1330,20 @@ def main(argv: Sequence[str] | None = None) -> int:
     dog.add_argument("--memory", type=Path, required=True)
     clear = sub.add_parser("clear-attention", help="Let a stopped queue continue after a fix.")
     clear.add_argument("--state", type=Path, required=True)
+    extend = sub.add_parser("extend-queue", help="Append ordered raid work to an idle saved queue.")
+    extend.add_argument("--previous-queue", type=Path, required=True)
+    extend.add_argument("--queue", type=Path, required=True)
+    extend.add_argument("--state", type=Path, required=True)
     test = sub.add_parser("test-alert")
     test.add_argument("--secrets", type=Path, required=True)
     args = parser.parse_args(argv)
+    if args.command == "extend-queue":
+        try:
+            print(json.dumps(extend_queue(args.previous_queue, args.queue, args.state)))
+            return 0
+        except (OSError, ValueError, QueueError) as error:
+            print(f"queue extension refused: {error}", file=sys.stderr)
+            return 2
     if args.command == "test-alert":
         sent = Notifier(args.secrets).send(
             "Necropsy capture test alert", "If you can read this, alerts reach you."

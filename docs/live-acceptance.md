@@ -106,6 +106,34 @@ The points line is an account-wide change between observed readings and may
 include other activity. It stays unknown when the accounting period cannot be
 proved. It is not an exact bill for the analysis or a sum of cached stream costs.
 
+Saved captures also keep `.necropsy-run/usage.jsonl`: one diagnostic entry per
+actual HTTP attempt, with its operation, request identity digest, status, observed
+application/database counters and WCL's per-request cost breakdown when supplied.
+Retries are separate entries; checkpoint replays add none. Missing cost fields
+remain unknown. This ledger can end with an incomplete line after interruption
+and is not an acquisition checkpoint or an authoritative invoice. `auth status
+--check` prints the database allowance when WCL returns it.
+
+Candidate screening and event acquisition fetch metadata without report rankings.
+New ranking evidence is acquired once per combined report set at finalization.
+When an existing checkpoint already holds a ranking-bearing single-fight report,
+it can finalize through an independent metadata check, retaining its exact
+original API report when the metadata matches. Combined fight sets and changed
+metadata use the full report query. Ranking data describes the retained capture,
+not a newly refreshed rank
+or a common timestamp across the corpus. Existing successful finalizations and
+legacy request checkpoints remain reusable.
+
+New Era Naxxramas/AQ40/BWL/MC captures also derive actor-source and critical-damage pages from
+the verified encounter-All pages when ownership and damage hit types support
+the versioned rules. Unsupported cases request the original scope. Previously
+verified requested cache entries remain reusable; corruption still stops the
+capture. The generated pages carry explicit parent/projection proofs in snapshot
+format 4, with no invented API identity or request cost. Readers released as
+0.7.1 cannot read format 4; use the matching updated reader for offline replay
+and raw verification. Existing formats remain readable. See the
+[event-stream evidence contract](evidence-model.md#captured-and-projected-event-streams).
+
 Secret scanning reports passed, findings, unavailable or failed. If gitleaks is
 missing, the receipt says unavailable; that is not a clean scan. A pattern scan
 with no findings does not prove no secrets exist. Findings or scanner failures

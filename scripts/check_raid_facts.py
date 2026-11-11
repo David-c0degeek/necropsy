@@ -12,11 +12,17 @@ import argparse
 import hashlib
 import json
 import math
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
 from necropsy.snapshot.archive import VerifiedArchive, load_entries_manifest
+
+if str(Path(__file__).resolve().parents[1]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from scripts.raw_projection import verify_projection
 
 
 def _pages(
@@ -181,8 +187,8 @@ def raw_encounter_facts(
 ) -> dict[str, Any]:
     """Independent scoped observations, without reconstructing ranking or assigning duties."""
     marker = archive.read_json("necropsy-snapshot.json")
-    if type(marker.get("formatVersion")) is not int or marker["formatVersion"] not in (2, 3):
-        raise ValueError("encounter facts require explicit live format 2 or 3")
+    if type(marker.get("formatVersion")) is not int or marker["formatVersion"] not in (2, 3, 4):
+        raise ValueError("encounter facts require explicit live format 2, 3 or 4")
     streams = {}
     for role, direction in (("encounter", "all"), ("critical", "critical")):
         proofs = [
@@ -212,10 +218,16 @@ def raw_encounter_facts(
         )
         if role == "critical":
             expected["filter_expression"] = 'type = "damage" AND isCritical = true'
+        identity = proof["identity"]
+        if "derivation" in proof:
+            verify_projection(archive, marker, proof, bundle)
+            identity = proof["derivation"]["parent"]
+            expected["role"] = "encounter"
+            expected.pop("filter_expression", None)
         if (
             proof["actor_id"] is not None
             or proof["direction"] != "all"
-            or json.dumps(proof["identity"], sort_keys=True) != json.dumps(expected, sort_keys=True)
+            or json.dumps(identity, sort_keys=True) != json.dumps(expected, sort_keys=True)
         ):
             raise ValueError("encounter scope identity differs from its exact raw request")
         rows, names = _pages(

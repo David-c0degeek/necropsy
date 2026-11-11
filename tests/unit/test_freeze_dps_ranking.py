@@ -6,6 +6,7 @@ import copy
 import hashlib
 import json
 import zipfile
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -372,6 +373,113 @@ def test_a_derived_target_stream_gives_the_same_independent_totals(tmp_path: Pat
     assert derived["totals"] == expected["totals"]
     assert derived["source_damage"] == expected["source_damage"]
     assert derived["residual"] == expected["residual"]
+
+
+def v4_case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
+    spec = case(tmp_path)
+    path = tmp_path / spec["archive"]
+    with zipfile.ZipFile(path) as z:
+        files = {n: z.read(n) for n in z.namelist()}
+    marker = json.loads(files["necropsy-snapshot.json"])
+    report = json.loads(files["reports/ABC/bundle.json"])["reportData"]["report"]
+    counts: Counter[str] = Counter()
+    for name, body in files.items():
+        if name.startswith("events/") and ("/source_" in name or "/target_" in name):
+            counts |= Counter(json.dumps(e, sort_keys=True) for e in json.loads(body)["data"])
+    events = [json.loads(e) for e, n in counts.items() for _ in range(n)]
+    events.sort(key=lambda e: e["timestamp"])
+    whole = json.dumps({"data": events, "nextPageTimestamp": None}).encode()
+    parent = dict(
+        marker["streams"][0]["identity"], role="encounter", actor_id=None, direction="all"
+    )
+    parent_proof = {
+        "report": "ABC",
+        "fight": 7,
+        "role": "encounter",
+        "actor_id": None,
+        "direction": "all",
+        "identity": parent,
+        "pages": [hashlib.sha256(whole).hexdigest()],
+    }
+    files["events/ABC/fight_7/encounter/all_001.json"] = whole
+    original = json.dumps({"endpoint": "user", "report": report}).encode()
+    files["reports/ABC/fight_7.json"] = original
+    marker["bosses"][0]["subject"] = {
+        "report": "ABC",
+        "fight": 7,
+        "player": "Example",
+        "status": "complete",
+        "pets": [6],
+        "bundle_generation": {
+            "report": "ABC",
+            "fight": 7,
+            "revision": 1,
+            "sha256": hashlib.sha256(original).hexdigest(),
+        },
+    }
+    marker.update(
+        formatVersion=4, zone={"id": 2006, "partition": 1}, encounter_streams=[parent_proof]
+    )
+    for proof in marker["streams"]:
+        source = proof["direction"] == "source"
+        ids = [1, 6] if proof["actor_id"] == 1 else [6]
+        body = whole
+        if source:
+            rows = [e for e in events if e["sourceID"] in ids or e["targetID"] in ids]
+            body = json.dumps(
+                {"data": rows, "nextPageTimestamp": None},
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=False,
+            ).encode()
+        proof.update(
+            identity=None,
+            meta={},
+            pages=[hashlib.sha256(body).hexdigest()],
+            derivation={
+                "rule": "source-owned-encounter-all-v1"
+                if source
+                else "target-equals-encounter-all-v1",
+                "parent": parent,
+                "parent_pages": parent_proof["pages"],
+                **({"actor_ids": ids} if source else {}),
+            },
+        )
+        if mutation == "owner" and source and proof["actor_id"] == 1:
+            proof["derivation"]["actor_ids"] = [1]
+        if mutation == "bytes" and source and proof["actor_id"] == 1:
+            payload = json.loads(body)
+            payload["data"].pop()
+            body = json.dumps(
+                payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False
+            ).encode()
+            proof["pages"] = [hashlib.sha256(body).hexdigest()]
+        files[
+            f"events/ABC/fight_7/{proof['role']}_{proof['actor_id']}_Example/{proof['direction']}_001.json"
+        ] = body
+    files["necropsy-snapshot.json"] = json.dumps(marker).encode()
+    with zipfile.ZipFile(path, "w") as z:
+        for name, body in files.items():
+            z.writestr(name, body)
+    return spec | {"sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def test_v4_sources_and_targets_preserve_independent_freezer_arithmetic(tmp_path: Path) -> None:
+    (tmp_path / "old").mkdir()
+    (tmp_path / "new").mkdir()
+    before = dps.compute(case(tmp_path / "old"), tmp_path / "old")
+    after = dps.compute(v4_case(tmp_path / "new"), tmp_path / "new")
+    assert before["totals"] == after["totals"]
+    assert before["source_damage"] == after["source_damage"]
+    assert before["residual"] == after["residual"]
+
+
+@pytest.mark.parametrize("mutation", ["owner", "bytes"])
+def test_v4_freezer_refuses_forged_projection_even_with_matching_child_hash(
+    tmp_path: Path, mutation: str
+) -> None:
+    with pytest.raises(ValueError, match=r"ownership|projection"):
+        dps.compute(v4_case(tmp_path, mutation), tmp_path)
 
 
 @pytest.mark.parametrize(

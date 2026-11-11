@@ -8,6 +8,32 @@ Development changes appear under **Unreleased** until built and published.
 
 ## Unreleased
 
+- New Era Naxxramas, AQ40, BWL and MC captures derive actor-source and critical-damage streams from
+  each fight's complete encounter data, avoiding separate event requests when
+  ownership and hit types support the projection. Unsupported inputs retain the
+  requested-stream path. Verified cached requests remain reusable.
+- These captures use snapshot format 4, with explicit parent hashes, ownership
+  evidence and exact ordered projection checks. Readers and independent raw
+  verification/freezer tools support the new format; released 0.7.1 readers
+  cannot open it. Existing formats remain readable. Request savings do not
+  establish a reduction in billed points or elapsed capture time.
+- The ordered capture queue keeps Naxxramas ahead of AQ40, then BWL and MC,
+  including across quota waits and restarts. Partial/refused stages pause for
+  review. Explicit append-only queue migration preserves existing progress;
+  older runners refuse the ordered v2 queue.
+- Live acquisition screens candidates with a smaller ranking-free metadata query.
+  New captures defer report rankings until finalization, fetching them once per
+  combined report set. The 25-row metadata context and top-ranked same-faction
+  selection are preserved.
+- Existing single-fight ranking-bearing answers finalize with independent
+  metadata validation and keep their exact acquired evidence. Changed metadata
+  and combined multi-fight sets retain the full report path. Existing checkpoints
+  and archives stay readable.
+- Capture checkpoints record database quota and per-request costs in
+  `.necropsy-run/usage.jsonl`, including failed network attempts. Replayed answers
+  are not billed again in this ledger. Known point-exhaustion errors stop without
+  retrying; transient throttling keeps its bounded retry behavior.
+
 - Developer: the comparison follow-up register admits comparisons at bosses with
   production ranking exclusions when their damage to the excluded targets is
   exactly 0, so the result does not depend on the untested exclusion list. Rows

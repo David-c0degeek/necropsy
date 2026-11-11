@@ -20,7 +20,7 @@ from __future__ import annotations
 
 import json
 import math
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field, replace
 from functools import cache
 from typing import Any
@@ -31,13 +31,14 @@ from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
 from necropsy.raids import (
     DEFAULT_RAID,
     DERIVED_TARGET_ZONES,
+    DERIVED_VIEW_ZONES,
     ENCOUNTER_CONTEXT_PARTITIONS,
     ENCOUNTER_CONTEXT_ZONES,
     RAIDS,
     raid_for_zone,
 )
 from necropsy.rules import load_rules
-from necropsy.wcl.cache import Cache, FightKey, StreamPages, valid_report_code
+from necropsy.wcl.cache import Cache, FightKey, StreamKey, StreamPages, valid_report_code
 from necropsy.wcl.client import (
     RATE_FIELDS,
     BudgetExceeded,
@@ -59,14 +60,24 @@ from necropsy.wcl.cohort import (
 )
 from necropsy.wcl.combatant import fetch_context
 from necropsy.wcl.context import CharacterContext
+from necropsy.wcl.derive import (
+    CRITICAL_RULE,
+    SOURCE_RULE,
+    DerivationUnsupported,
+    project_pages,
+    source_actor_ids,
+)
 from necropsy.wcl.fetch import (
+    REPORT_METADATA_QUERY,
     Bundle,
     ReportInaccessible,
+    ReportRankingsUnavailable,
     RevisionChanged,
     fetch_bundle,
     fetch_stream,
     report_query,
     report_query_for_metric,
+    stream_identity,
 )
 from necropsy.wcl.sites import Site
 
@@ -516,6 +527,7 @@ class Run:
         metric: str | None = None,
         encounter_context: bool = False,
         derive_targets: bool = False,
+        derive_views: bool = True,
     ) -> None:
         self.client, self.store, self.site, self.endpoint = client, store, site, endpoint
         self.policy = ranking_policy(class_id, category, metric)
@@ -523,17 +535,30 @@ class Run:
         if derive_targets and not encounter_context:
             raise ValueError("derived target streams need the encounter-All scope")
         self.derive_targets = derive_targets
+        self.derive_views = derive_targets and derive_views
         self.report_points_bound = 6.0
         """Conservative floor; observed account-wide report costs may only increase it."""
         self._bundles: dict[tuple[str, int], Bundle] = {}
+        self._metadata_bundles: dict[tuple[str, int], Bundle] = {}
         self.stage = "starting"
 
-    def bundle(self, code: str, fight: int, encounter: int, *, fresh: bool = False) -> Bundle:
+    def bundle(
+        self,
+        code: str,
+        fight: int,
+        encounter: int,
+        *,
+        fresh: bool = False,
+        metadata_only: bool = False,
+    ) -> Bundle:
         if fresh and self.client.journal is not None:
             self.client.journal.forget_report(code)
-        if fresh or (code, fight) not in self._bundles:
+        bundles = self._metadata_bundles if metadata_only else self._bundles
+        if metadata_only and not fresh and (code, fight) in self._bundles:
+            bundles = self._bundles
+        if fresh or (code, fight) not in bundles:
             before = self.client.last_rate
-            self._bundles[(code, fight)] = fetch_bundle(
+            bundles[(code, fight)] = fetch_bundle(
                 self.client,
                 self.store,
                 self.site,
@@ -542,6 +567,8 @@ class Run:
                 encounter,
                 endpoint=self.endpoint,
                 metric=self.policy.metric,
+                metadata_only=metadata_only,
+                include_rankings=False,
             )
             after = self.client.last_rate
             if (
@@ -552,7 +579,7 @@ class Run:
                 self.report_points_bound = max(
                     self.report_points_bound, after.points_spent - before.points_spent
                 )
-        found = self._bundles[(code, fight)]
+        found = bundles[(code, fight)]
         if _int(found.fight.get("encounterID")) != encounter:
             raise InvalidResponse(
                 f"{code} fight {fight} is encounter {found.fight.get('encounterID')!r}, "
@@ -568,7 +595,7 @@ class Run:
                 return Verdict("inaccessible", None, "no report reference")
             self.stage = f"faction check of {c.name} ({c.report_code} fight {c.fight_id})"
             try:
-                bundle = self.bundle(c.report_code, c.fight_id, encounter)
+                bundle = self.bundle(c.report_code, c.fight_id, encounter, metadata_only=True)
             except _UNREACHABLE as error:
                 return Verdict("inaccessible", None, f"{type(error).__name__}: {error}")
             except InvalidResponse as error:
@@ -641,12 +668,14 @@ class Run:
         entry.confirmed_pets = list(discovery.confirmed)
         targets = [("player", actor)] + [("pet", pid) for pid in entry.pet_ids]
         whole = None
+        whole_pages = None
         if self.derive_targets:
             # The whole-fight scope comes first: every actor's target stream is taken
             # from it, and nothing is derived when it cannot be acquired.
             self.stage = f"encounter events for {where}"
             stream = fetch_stream(self.client, self.store, bundle, "encounter", None, "all")
             whole = _record("encounter", None, "all", stream)
+            whole_pages = stream.pages
             entry.encounter_streams.append(whole)
         player_events = []
         for role, actor_id in targets:
@@ -655,10 +684,18 @@ class Run:
                     entry.streams.append(_derived_target(role, actor_id, whole))
                     continue
                 self.stage = f"{role} {actor_id} {direction} events for {where}"
-                stream = fetch_stream(self.client, self.store, bundle, role, actor_id, direction)
-                entry.streams.append(_record(role, actor_id, direction, stream))
+                record, data = self._view(
+                    bundle,
+                    role,
+                    actor_id,
+                    direction,
+                    whole,
+                    whole_pages,
+                    source_known=entry.pets is not None,
+                )
+                entry.streams.append(record)
                 if role == "player" and direction == "source":
-                    player_events = [e for p in stream.pages for e in p["data"]]
+                    player_events = [e for p in data for e in p["data"]]
         if any(e.get("sourceID") == actor for e in player_events) and not any(
             e.get("type") == "combatantinfo" and e.get("sourceID") == actor for e in player_events
         ):
@@ -673,10 +710,57 @@ class Run:
         if self.encounter_context:
             for role in ("critical",) if whole is not None else ("encounter", "critical"):
                 self.stage = f"{role} events for {where}"
-                stream = fetch_stream(self.client, self.store, bundle, role, None, "all")
-                entry.encounter_streams.append(_record(role, None, "all", stream))
+                record, _ = self._view(bundle, role, None, "all", whole, whole_pages)
+                entry.encounter_streams.append(record)
         entry.status = "complete"
         entry.reason = None if entry.pets is not None else f"pets unknown: {entry.pets_reason}"
+
+    def _view(
+        self,
+        bundle: Bundle,
+        role: str,
+        actor: int | None,
+        direction: str,
+        parent: StreamRecord | None,
+        pages: Sequence[dict[str, Any]] | None,
+        *,
+        source_known: bool = True,
+    ) -> tuple[StreamRecord, Sequence[dict[str, Any]]]:
+        identity = stream_identity(bundle, role, actor, direction)
+        cached = self.store.read_stream(
+            StreamKey(bundle.key, role, actor, direction, self.endpoint), identity
+        )
+        if cached is not None:
+            return _record(role, actor, direction, cached), cached.pages
+        if self.derive_views and parent is not None and pages is not None and source_known:
+            rule = CRITICAL_RULE if role == "critical" else SOURCE_RULE
+            try:
+                ids = (
+                    None
+                    if actor is None
+                    else source_actor_ids(bundle.report, bundle.key.fight, actor)
+                )
+                projected = project_pages(pages, rule, actor_ids=ids)
+            except DerivationUnsupported:
+                pass  # Request the original scope rather than guessing.
+            else:
+                assert parent.identity is not None
+                derivation: dict[str, Any] = {"rule": rule, "parent": dict(parent.identity)}
+                if ids is not None:
+                    derivation["actor_ids"] = list(ids)
+                return StreamRecord(
+                    role,
+                    actor,
+                    direction,
+                    None,
+                    len(projected),
+                    sum(len(p["data"]) for p in projected),
+                    True,
+                    {},
+                    derivation,
+                ), projected
+        stream = fetch_stream(self.client, self.store, bundle, role, actor, direction)
+        return _record(role, actor, direction, stream), stream.pages
 
 
 # -- per boss -----------------------------------------------------------------------
@@ -1074,6 +1158,7 @@ def acquire(
     encounters: tuple[int, ...] | None = None,
     progress: Callable[[str], None] | None = None,
     encounter_context: bool = False,
+    derive_views: bool = True,
 ) -> Acquisition:
     """Acquire every supported boss (or `encounters`), stopping cleanly on point limits."""
     if encounter_context and not supports_encounter_context(context):
@@ -1087,7 +1172,12 @@ def acquire(
         category=context.ranking_category,
         metric=context.ranking_metric,
         encounter_context=encounter_context,
-        derive_targets=encounter_context and context.zone_id in DERIVED_TARGET_ZONES,
+        derive_targets=encounter_context
+        and (
+            context.zone_id in DERIVED_TARGET_ZONES
+            or (derive_views and context.zone_id in DERIVED_VIEW_ZONES)
+        ),
+        derive_views=derive_views,
     )
     requested = tuple(encounters or boss_order(raid_for_zone(context.zone_id).slug))
     allowed = set(boss_order(raid_for_zone(context.zone_id).slug))
@@ -1113,6 +1203,19 @@ def acquire(
 
 
 def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]:
+    """Finalize under an independent scope, including callers outside the CLI."""
+    journal = run.client.journal
+    previous = journal.scope if journal is not None else None
+    try:
+        if journal is not None:
+            journal.scope = "finalization"
+        return _finalize_reports(run, acquisition)
+    finally:
+        if journal is not None and previous is not None:
+            journal.scope = previous
+
+
+def _finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]:
     """Fetch one combined report per code over the exact fight set of its complete entries.
 
     Network acquisition finalization (never part of the offline writer). Every
@@ -1139,22 +1242,29 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
                 raise InvalidResponse(f"{code} fight {e.fight_id} is claimed by two bosses")
         fight_ids = tuple(sorted(encounters))
         locate = FightKey(run.site, code, revision, fight_ids[0])
-        # Finalization has its own journal scope: the first answer is independent
-        # of acquisition metadata, which can change without a revision. Resume
-        # retains successful historical finalizations so small-quota runs progress;
-        # this is not a global point-in-time view. Bind the exact captured answer.
+        # Validation has an independent journal scope because metadata can change
+        # without a revision. Rankings retain their exact acquired API answer;
+        # successful historical finalizations also remain resumable. Neither path
+        # claims a global point-in-time view across reports.
         run.stage = f"combined report {code} fights {list(fight_ids)}"
+        rankings_unavailable = False
         try:
             run.client.ensure_budget(None)
-            result = report_query(
-                run.client,
-                report_query_for_metric(run.policy.metric),
-                {"code": code, "fightIDs": list(fight_ids)},
-                run.endpoint,
-            )
+            try:
+                report = _final_report(run, code, fight_ids, revision, items)
+            except ReportRankingsUnavailable:
+                # Never publish the partial answer. A separate successful query
+                # must establish metadata, revision, fight and actor identities.
+                result = report_query(
+                    run.client,
+                    REPORT_METADATA_QUERY,
+                    {"code": code, "fightIDs": list(fight_ids)},
+                    run.endpoint,
+                )
+                report = (result.data.get("reportData") or {}).get("report")
+                rankings_unavailable = True
         except _STOPS as error:
             raise RunStopped(f"{type(error).__name__} during {run.stage}: {error}") from error
-        report = (result.data.get("reportData") or {}).get("report")
         if not isinstance(report, dict) or report.get("code") != code:
             raise ReportInaccessible(f"WCL returned no usable combined report {code}")
         if _int(report.get("revision")) != revision:
@@ -1165,10 +1275,62 @@ def finalize_reports(run: Run, acquisition: Acquisition) -> dict[str, ReportSet]
                 f"entries are {revision}"
             )
         _check_report_set(report, code, encounters, [e for _, e in items], run.policy.class_name)
+        if rankings_unavailable:
+            reason = f"report rankings unavailable for {code}: WCL internal server error"
+            for boss, _ in items:
+                boss.coverage["complete"] = False
+                reasons = boss.coverage.setdefault("reasons", [])
+                if reason not in reasons:
+                    reasons.append(reason)
         digest = run.store.put_report_set(locate, fight_ids, run.endpoint, report)
         sets[code] = ReportSet(locate, fight_ids, run.endpoint, report, digest)
     acquisition.reports = sets
     return sets
+
+
+def _final_report(
+    run: Run,
+    code: str,
+    fight_ids: tuple[int, ...],
+    revision: int,
+    items: list[tuple[BossAcquisition, Entry]],
+) -> Any:
+    """Validate independently, retaining exact API evidence rather than splicing it.
+
+    Most report sets contain one fight. Their ranking-bearing acquisition answer
+    already contains exactly the needed scope: a fresh ranking-free response can
+    validate its metadata. If metadata changed or fights must be combined, fetch
+    the original full query. Rankings remain those of the retained API answer,
+    never a claim about a common capture time across reports.
+    """
+    variables = {"code": code, "fightIDs": list(fight_ids)}
+    full_query = report_query_for_metric(run.policy.metric)
+    saved = run.client.saved_result(full_query, variables, endpoint=run.endpoint)
+    if saved is not None:
+        return (saved.data.get("reportData") or {}).get("report")
+    if len(fight_ids) == 1:
+        entry = items[0][1]
+        original = (
+            run.store.get_bundle(entry.bundle_key, run.endpoint, entry.bundle_sha256)
+            if entry.bundle_key is not None and entry.bundle_sha256 is not None
+            else None
+        )
+        if original is not None and "rankings" in original["report"]:
+            result = report_query(run.client, REPORT_METADATA_QUERY, variables, run.endpoint)
+            fresh = (result.data.get("reportData") or {}).get("report")
+            if not isinstance(fresh, dict) or fresh.get("code") != code:
+                raise ReportInaccessible(f"WCL returned no usable combined report {code}")
+            if _int(fresh.get("revision")) != revision:
+                if run.client.journal is not None:
+                    run.client.journal.forget_report(code)
+                raise MixedRevision(f"combined report {code} revision changed from {revision}")
+            retained = original["report"]
+            if {k: v for k, v in fresh.items() if k != "rankings"} == {
+                k: v for k, v in retained.items() if k != "rankings"
+            }:
+                return retained
+    result = report_query(run.client, full_query, variables, run.endpoint)
+    return (result.data.get("reportData") or {}).get("report")
 
 
 def _check_report_set(

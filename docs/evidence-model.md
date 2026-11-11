@@ -6,6 +6,30 @@ Every value Necropsy reports says how it is known. Analyzers build values only
 through the factories in `necropsy.analysis.evidence`, which enforce the rules
 below.
 
+## Captured and projected event streams
+
+New Era Naxxramas/AQ40/BWL/MC captures can reuse a fight's complete encounter-All stream across
+selected players and classes. Snapshot format 4 stores generated actor-source
+and critical-damage pages with an explicit versioned projection rule, the exact
+parent request and all parent page hashes. Generated pages carry no API request
+identity or request costs. The reader verifies their bytes against the complete
+ordered parent projection, preserving duplicate events and empty pages.
+
+Actor-source projections include events involving the actor and its transitively
+owned units from the original report catalog and fight ownership evidence.
+Unknown ownership keeps the requested-stream path. Critical projections require
+a recognized damage hit type for every damage event; unsupported types keep the
+requested critical stream. Target projections retain the existing byte-identical
+encounter-All rule. Verified requested cache entries take precedence on resume;
+older captures keep their original format and evidence.
+
+These acquisition proofs establish stream coverage. Analytical values still use
+the evidence levels and completeness rules below. A reused fight does not make
+every participant an eligible top-ranked comparison: class, category, metric,
+faction and subject selection remain separate requirements.
+
+## Evidence levels
+
 | Level | Meaning | Example |
 |---|---|---|
 | OBSERVED | Read directly from a WCL field or event | Faction from `combatantinfo`; a Raptor Strike cast |

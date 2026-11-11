@@ -168,6 +168,10 @@ with 3 comparisons per boss (the current depth) also need the release that
 introduced that depth; earlier releases refuse them. Existing archives
 remain readable, and saved analysis JSON can still be rendered offline.
 
+Development captures can use format 4 for all four Era raids' source/critical projections.
+Released 0.7.1 readers refuse it; replay requires the matching updated reader.
+This compatibility change is unreleased. Existing formats remain supported.
+
 ## Verification and removal
 
 Automation verifies the TUI, native GUI/engine readiness, bootstrap/private runtime,

@@ -168,6 +168,11 @@ def status(
             f"points:           {rate.points_spent:.0f} of {rate.limit_per_hour} used this hour "
             f"(resets in {rate.reset_in_s // 60} min)"
         )
+        if rate.database_limit_per_hour is not None and rate.database_points_spent is not None:
+            typer.echo(
+                f"database points:  {rate.database_points_spent:.0f} of "
+                f"{rate.database_limit_per_hour} used this hour"
+            )
 
 
 @auth_app.command("logout")

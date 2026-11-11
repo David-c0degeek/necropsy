@@ -1,0 +1,48 @@
+{
+  "kind": "Two bounded live diagnostics during a verified collector idle period; no retries, token refresh, cache insertion, image or state changes",
+  "quota_probe": {
+    "at": "2026-11-04T13:52:08.996006+00:00",
+    "endpoint": "https://vanilla.warcraftlogs.com/api/v2/user",
+    "http_status": 200,
+    "rate": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 1736,
+      "pointsResetIn": 947,
+      "databaseLimitPerHour": 1050,
+      "databasePointsSpentThisHour": 1144,
+      "currentRequest": {"application": 0, "total": 1},
+      "userHasRemainingPoints": true,
+      "userPointsResetIn": 947
+    },
+    "errors": []
+  },
+  "metadata_only_probe": {
+    "at": "2026-11-04T13:53:33.279117+00:00",
+    "kind": "Installed REPORT_QUERY with its rankings field removed and expanded rateLimitData; one request outside the collector journal",
+    "variables": {"code": "Mgp1LQB46fcDh3mW", "fightIDs": [26]},
+    "http_status": 200,
+    "rate": {
+      "limitPerHour": 3000,
+      "pointsSpentThisHour": 1737,
+      "pointsResetIn": 862,
+      "databaseLimitPerHour": 1050,
+      "databasePointsSpentThisHour": 1144,
+      "currentRequest": {"application": 0, "user": 4.01, "total": 4.01},
+      "userHasRemainingPoints": true
+    },
+    "errors": [],
+    "report_summary": {
+      "revision": 23,
+      "fight_ids": [26],
+      "has_playerDetails": true,
+      "has_masterData": true,
+      "has_rankings": false
+    }
+  },
+  "limits": [
+    "Metadata-only success is one report/fight, not a throughput forecast or permission to change snapshot semantics.",
+    "No full rankings query was sent by these diagnostics; its exact currentRequest cost remains unknown.",
+    "The observed limits match the published beta Gold row; subscription identity and opt-in state were not independently inspected.",
+    "Independent budgets for newly created accounts or sibling clients were not tested."
+  ]
+}

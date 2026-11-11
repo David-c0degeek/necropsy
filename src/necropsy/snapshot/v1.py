@@ -742,6 +742,14 @@ def open_snapshot(archive: VerifiedArchive) -> V0Snapshot:
         if (
             isinstance(marker, dict)
             and type(marker.get("formatVersion")) is int
+            and marker["formatVersion"] == 4
+        ):
+            from necropsy.snapshot.v4 import V4Snapshot
+
+            return V4Snapshot(archive)
+        if (
+            isinstance(marker, dict)
+            and type(marker.get("formatVersion")) is int
             and marker["formatVersion"] == 2
         ):
             from necropsy.snapshot.v2 import V2Snapshot

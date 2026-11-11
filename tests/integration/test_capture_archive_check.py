@@ -179,10 +179,10 @@ def test_only_complete_v2_context_can_suppress_capture(
         monkeypatch.setattr(cq, "ROOT", written.archive.parent)
         covered = cq.complete_encounter_coverage(written.archive.name, written.sha256)
         assert covered == ({51118} if enabled else set())
-        # Naxx encounter captures derive their target streams (v3) and still count.
+        # Naxx encounter captures derive source/critical views (v4) and still count.
         with VerifiedArchive(written.archive) as archive:
             version = archive.read_json("necropsy-snapshot.json")["formatVersion"]
-        assert version == (3 if enabled else 1)
+        assert version == (4 if enabled else 1)
 
 
 def test_command_binds_the_queue_and_refuses_to_reuse_a_receipt(

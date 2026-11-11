@@ -1,13 +1,14 @@
 """Write a finalized live acquisition as a verified archive (no network here).
 
 Actor-only captures retain format v1. Encounter-context acquisitions use format
-v2 with additional certified whole-fight and filtered-critical streams.
+v2, v3 for byte-identical derived targets, or v4 for source/critical projections.
 
 Input is a finalized acquisition (`wcl.acquire.finalize_reports` has recorded
 one combined report per code) and the verified cache it was written to. Only
-complete entries become fights. Event pages are copied byte for byte from the
-cache after verification; their digests go into the provenance the reader
-checks. A pet list is written only when pet ownership was proven; unknown pets
+complete entries become fights. Requested pages are copied byte for byte from
+the verified cache; derived pages carry explicit parent/projection proofs.
+Their digests go into the provenance the reader checks. A pet list is written
+only when pet ownership was proven; unknown pets
 leave it out so the reader reports pet discovery as missing.
 
 The archive, its entries manifest and a SHA-256 file are published as one set:
@@ -31,7 +32,7 @@ from pathlib import Path
 from typing import Any
 
 from necropsy.analysis.roles import CLASS_NAMES, ranking_policy
-from necropsy.raids import RAIDS, raid_for_zone
+from necropsy.raids import DERIVED_TARGET_ZONES, RAIDS, raid_for_zone
 from necropsy.rules import load_rules
 from necropsy.snapshot.archive import (
     ArchiveError,
@@ -54,6 +55,7 @@ from necropsy.wcl.acquire import (
     player_actor,
 )
 from necropsy.wcl.cache import Cache, StreamKey, canonical_bytes, is_link, item_lock, publish
+from necropsy.wcl.derive import CRITICAL_RULE, SOURCE_RULE, project_pages, source_actor_ids
 
 GAME = "classic_era"
 COHORT = "same-faction-deep"
@@ -203,20 +205,32 @@ def _check_binding(acquisition: Acquisition, boss: BossAcquisition, e: Entry) ->
         raise WriteError(f"entry {e.name} fight is not in its combined report")
     bounds = (fight.get("startTime"), fight.get("endTime"))
     whole = [s for s in e.encounter_streams if s.role == "encounter"]
-    for s in e.streams:
+    for s in (*e.streams, *e.encounter_streams):
         if s.derivation is None:
             continue
         # A derived stream is never requested: it must name exactly this entry's own
         # certified encounter-All request as its parent.
         if (
             s.identity is not None
-            or s.direction != "target"
-            or s.derivation.get("rule") != DERIVATION_RULE
-            or set(s.derivation) != {"rule", "parent"}
+            or s.derivation.get("rule") not in {DERIVATION_RULE, SOURCE_RULE, CRITICAL_RULE}
             or len(whole) != 1
-            or s.derivation["parent"] != whole[0].identity
+            or s.derivation.get("parent") != whole[0].identity
+            or s.meta
         ):
             raise WriteError(f"a derived stream of {e.name} has no certified parent")
+        rule = s.derivation["rule"]
+        if (
+            (rule == DERIVATION_RULE and s.direction != "target")
+            or (
+                rule == SOURCE_RULE and (s.direction != "source" or s.role not in {"player", "pet"})
+            )
+            or (rule == CRITICAL_RULE and (s.role != "critical" or s.direction != "all"))
+        ):
+            raise WriteError("derivation rule does not describe this stream")
+        if set(s.derivation) != (
+            {"rule", "parent", "actor_ids"} if rule == SOURCE_RULE else {"rule", "parent"}
+        ):
+            raise WriteError("derivation has unexpected fields")
     certified = [s for s in (*e.streams, *e.encounter_streams) if s.derivation is None]
     for s in certified:
         assert s.identity is not None
@@ -379,6 +393,21 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                     StreamKey(e.bundle_key, "encounter", None, "all", acquisition.endpoint),
                     record.derivation["parent"],
                 )
+                rule = record.derivation["rule"]
+                if rule != DERIVATION_RULE:
+                    ids = None
+                    if rule == SOURCE_RULE:
+                        assert record.actor_id is not None
+                        ids = source_actor_ids(source_report, e.fight_id, record.actor_id)
+                        if list(ids) != record.derivation["actor_ids"]:
+                            raise WriteError("derived source ownership differs from acquisition")
+                    projected = project_pages([json.loads(p) for p in pages], rule, actor_ids=ids)
+                    if (
+                        len(projected) != record.pages
+                        or sum(len(p["data"]) for p in projected) != record.events
+                    ):
+                        raise WriteError("derived stream counts differ from its projection")
+                    pages = [canonical_bytes(p) for p in projected]
                 origin = EntryOrigin.GENERATED
             digests = []
             page_kind = "critical" if record.role == "critical" else record.direction
@@ -395,6 +424,11 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                         {
                             "derivation_rule": record.derivation["rule"],
                             "derivation_parent": record.derivation["parent"],
+                            **(
+                                {"derivation_actor_ids": record.derivation["actor_ids"]}
+                                if "actor_ids" in record.derivation
+                                else {}
+                            ),
                         }
                         if record.derivation is not None
                         else {}
@@ -471,6 +505,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                 }
             )
     derived = any("derivation_rule" in s for s in streams)
+    filtered = any(s.get("derivation_rule") in {SOURCE_RULE, CRITICAL_RULE} for s in streams)
     limitations = [LIVE_DESCRIPTION]
     for b in bosses:
         for reason in b["coverage"]["reasons"]:
@@ -480,7 +515,15 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
     assert context.partition is not None and context.faction.value is not None
     marker = {
         "kind": KIND,
-        "formatVersion": (3 if derived else 2 if acquisition.encounter_context else FORMAT_VERSION),
+        "formatVersion": (
+            4
+            if filtered or (derived and context.zone_id not in DERIVED_TARGET_ZONES)
+            else 3
+            if derived
+            else 2
+            if acquisition.encounter_context
+            else FORMAT_VERSION
+        ),
         "subject": {
             "id": context.character_id.value,
             "canonical_id": context.canonical_id.value,
@@ -533,21 +576,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                 "pages": s["pages"],
                 "identity": s["identity"],
                 "meta": s["meta"],
-                **(
-                    {
-                        "derivation": {
-                            "rule": s["derivation_rule"],
-                            "parent": s["derivation_parent"],
-                            "parent_pages": next(
-                                p["pages"]
-                                for p in streams
-                                if p["key"] == (*s["key"][:2], "encounter", None, "all")
-                            ),
-                        }
-                    }
-                    if "derivation_rule" in s
-                    else {}
-                ),
+                **_derivation_proof(s, streams),
             }
             for s in sorted(streams, key=lambda s: s["key"])
             if s["key"][2] in {"player", "pet"}
@@ -564,6 +593,7 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
                         "pages": s["pages"],
                         "identity": s["identity"],
                         "meta": s["meta"],
+                        **_derivation_proof(s, streams),
                     }
                     for s in sorted(streams, key=lambda s: s["key"])
                     if s["key"][2] in {"encounter", "critical"}
@@ -587,6 +617,27 @@ def build_members(acquisition: Acquisition, store: Cache) -> dict[str, tuple[byt
     }
     members[MARKER] = (canonical_bytes(marker), EntryOrigin.GENERATED)
     return members
+
+
+def _derivation_proof(stream: dict[str, Any], streams: list[dict[str, Any]]) -> dict[str, Any]:
+    if "derivation_rule" not in stream:
+        return {}
+    return {
+        "derivation": {
+            "rule": stream["derivation_rule"],
+            "parent": stream["derivation_parent"],
+            "parent_pages": next(
+                p["pages"]
+                for p in streams
+                if p["key"] == (*stream["key"][:2], "encounter", None, "all")
+            ),
+            **(
+                {"actor_ids": stream["derivation_actor_ids"]}
+                if "derivation_actor_ids" in stream
+                else {}
+            ),
+        }
+    }
 
 
 def _boss_record(boss: BossAcquisition, name: str) -> dict[str, Any]:

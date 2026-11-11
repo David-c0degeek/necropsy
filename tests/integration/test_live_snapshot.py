@@ -75,7 +75,8 @@ def test_balance_healing_metric_survives_acquisition_and_replay(tmp_path: Path) 
     assert subject["druid"]["role"]["value"] is None
     queries = [request["query"] for request in fake.requests]
     assert all("metric: hps" in q for q in queries if "NecropsySubject" in q)
-    assert all("playerMetric: hps" in q for q in queries if "NecropsyReport" in q)
+    assert all("playerMetric: hps" in q for q in queries if "query NecropsyReport(" in q)
+    assert all("rankings(" not in q for q in queries if "NecropsyReportScreen" in q)
     broken = _rewrite_marker(
         written, tmp_path / "wrong.zip", lambda d: d["subject"].update(ranking_metric="dps")
     )

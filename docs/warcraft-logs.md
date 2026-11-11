@@ -194,6 +194,12 @@ Failing to write the outcome file only prints a warning; it never changes the
 command's own result. An unknown reset time
 is `null`, never a guess. A missing outcome file means the runner must treat
 the run as needing attention.
+If WCL's report `rankings` field alone returns an internal server error during
+finalization, Necropsy fetches a separate metadata-only response and applies the
+same revision, fight, actor and pet checks. It preserves usable combat data and
+marks the affected boss coverage incomplete because report rankings are
+unavailable. It never publishes the partial response; errors in other fields
+still stop the run.
 It also refuses paths through symlinks or junctions and prevents simultaneous
 `analyze` runs in one output directory. The offline and render commands retain
 their existing replacement behavior.
@@ -372,9 +378,12 @@ pages use the same quota reserve, cache, endpoint, revision checks and resume
 journal. A quota stop retains reusable pages without claiming incomplete
 encounter context is complete. Resume creates a new immutable snapshot and
 preserves the previous archive. Other partitions keep actor-only collection.
-Naxxramas uses the complete fight data for selected actor target observations,
-avoiding separate target requests; its new archives use format 3 and require
-the compatible reader shipped in 0.7.0. MC/BWL/AQ40 retain format 2.
+All four supported Era raids use the complete fight data for selected actor target observations.
+New captures also derive actor-source and critical-damage views when ownership
+and hit types support the rules, avoiding those separate event requests. These
+archives use format 4 and need the updated development reader; released 0.7.1
+readers refuse them. Unsupported scopes use the original request path, and
+verified cached requests remain reusable. Existing format 2 archives remain readable.
 Existing saved analyses can still be opened without new requests. Avoiding
 duplicate event requests does not guarantee a particular quota saving.
 

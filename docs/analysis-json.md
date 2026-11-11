@@ -332,6 +332,12 @@ archive provenance, not the analysis JSON schema or actor coverage shape.
 The exact parent and generated-member proofs stay in the archive; no actor
 target request is claimed. See [derived targets](decisions/0024-derived-target-streams.md).
 
+Live format 4 extends this to exact ordered actor-source and critical-damage
+projections. Parent request/hash bindings and ownership proofs remain in the
+archive. Analysis JSON and coverage shapes are unchanged; generated streams
+claim no API request or costs. See
+[whole-fight projections](decisions/0025-derived-source-critical-streams.md).
+
 Optional `playbook.summon_observations` and `cohort_summon_observations` retain
 policy-qualified numbered NPC summons. Each target saves `summoned_s`,
 `first_positive_overkill_s` and `elapsed_to_overkill_s` as separate evidence

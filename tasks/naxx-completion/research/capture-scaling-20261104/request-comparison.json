@@ -1,0 +1,64 @@
+{
+  "kind": "Synthetic operation-count comparison; no API calls or live cost claim",
+  "baseline_acquire_sha256": "2b09922caf2ae7890994c9f71f52c8552e1b9f7d2d3a6937179f020c07ef9925",
+  "current_acquire_sha256": "63de35fc63c5c77b253e7d2a7937b506aa36301386dac216640c14032dc2b9a3",
+  "baseline_commit": "da5fe822c37ad83734d82b0b4d1c2ebcd9e1ffb3",
+  "cases": {
+    "separate_uploads": {
+      "before": {
+        "metadata_rows": 25,
+        "comparison_players": [
+          "Ally1",
+          "Ally2",
+          "Ally3"
+        ],
+        "subject_status": "complete",
+        "selected_report_sets": 4,
+        "ranking_bearing_report_requests": 30,
+        "screen_requests": 0,
+        "all_http_requests": 40
+      },
+      "after": {
+        "metadata_rows": 25,
+        "comparison_players": [
+          "Ally1",
+          "Ally2",
+          "Ally3"
+        ],
+        "subject_status": "complete",
+        "selected_report_sets": 4,
+        "ranking_bearing_report_requests": 4,
+        "screen_requests": 25,
+        "all_http_requests": 43
+      }
+    },
+    "shared_upload": {
+      "before": {
+        "metadata_rows": 25,
+        "comparison_players": [
+          "Ally1",
+          "Ally2",
+          "Ally3"
+        ],
+        "subject_status": "complete",
+        "selected_report_sets": 1,
+        "ranking_bearing_report_requests": 27,
+        "screen_requests": 0,
+        "all_http_requests": 37
+      },
+      "after": {
+        "metadata_rows": 25,
+        "comparison_players": [
+          "Ally1",
+          "Ally2",
+          "Ally3"
+        ],
+        "subject_status": "complete",
+        "selected_report_sets": 1,
+        "ranking_bearing_report_requests": 1,
+        "screen_requests": 25,
+        "all_http_requests": 40
+      }
+    }
+  }
+}

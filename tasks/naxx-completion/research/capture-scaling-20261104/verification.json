@@ -1,0 +1,51 @@
+{
+  "at_utc": "2026-11-04T14:49:59.359540+00:00",
+  "checks": [
+    {
+      "log": "workspace/capture-scaling-20261104/fast-tests-final.log",
+      "sha256": "94a6f90d0ae959aae095fec12f072a4e349cffa477ea38ee5a7164612abf6d22",
+      "passed": 2814,
+      "skipped": 29,
+      "summary": "2814 passed, 29 skipped in 230.92s (0:03:50)"
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/golden-tests.log",
+      "sha256": "4b5b88f2bf96fb21a6c256b5e84576e763dc0b3e285d3178de9bcad8894374b8",
+      "passed": 52,
+      "skipped": 0,
+      "summary": "52 passed in 408.51s (0:06:48)"
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/browser-tests.log",
+      "sha256": "5d338a9c903783c052bcff9cf49d04e96e481597ffcc5ade65db1b604f1062e2",
+      "passed": 96,
+      "skipped": 0,
+      "summary": "96 passed in 432.86s (0:07:12)"
+    }
+  ],
+  "static_checks": {
+    "ruff": "pass",
+    "ruff_format": "356 files already formatted",
+    "mypy": "289 source files passed",
+    "maintained_doc_links": 299,
+    "git_diff_check": "pass"
+  },
+  "changed_file_sha256": {
+    "CHANGELOG.md": "9b2e471045810fa928eacf488d765ba502d8834361e4fef66228cd86c033da18",
+    "docs/live-acceptance.md": "6f2c670101f0e7b56d5c9a383f551139efd69142a9197f48a2f4211bc9055d0d",
+    "src/necropsy/wcl/acquire.py": "63de35fc63c5c77b253e7d2a7937b506aa36301386dac216640c14032dc2b9a3",
+    "src/necropsy/wcl/checkpoint.py": "3a9aecf7323e113064e488219042f1d79854a13d8e28b2eb632f60d2ab7e37da",
+    "src/necropsy/wcl/cli.py": "c2baee24c91f124a931ce79a807fe2ea847a1c87bd11c23fbb44ed0cbfb66b03",
+    "src/necropsy/wcl/client.py": "8f8e960d79f9c942dedf3dce91d507b58783d397c5300e5b9a729264793db179",
+    "src/necropsy/wcl/fetch.py": "48e919e08c12505a77aa2dcea8066920a5a5277852fab0d02ae2c143e37396e8",
+    "tests/integration/test_live_snapshot.py": "f527b9945c87862880a391232dbab2bf170c7fe29e748ae62309d311d1ff6502",
+    "tests/unit/test_wcl_acquire.py": "9e9d137f393c4abb3c406fffd440c531135d8d7ccdaa4fed8e2e63e12041c861",
+    "tests/unit/test_wcl_optimization.py": "c24f6dd7dfb815741882f2787705bf3c3e19f10014b32800189839107782ba2a"
+  },
+  "production_rollout": false,
+  "limits": [
+    "Synthetic request counts are not live point invoices or throughput.",
+    "Golden command selects 52 seed-capture replays, not the entire golden suite.",
+    "No content/cell acceptance is implied."
+  ]
+}

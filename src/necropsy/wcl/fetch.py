@@ -79,6 +79,29 @@ def report_query_for_metric(metric: str = "dps") -> str:
     )
 
 
+REPORT_METADATA_QUERY = REPORT_QUERY.replace(
+    "query NecropsyReport(", "query NecropsyReportMetadata("
+).replace("      rankings(fightIDs: $fightIDs, playerMetric: dps)\n", "")
+
+REPORT_SCREEN_QUERY = f"""
+query NecropsyReportScreen($code: String!, $fightIDs: [Int]) {{
+  reportData {{
+    report(code: $code) {{
+      code revision
+      fights(fightIDs: $fightIDs, translate: true) {{
+        id encounterID startTime endTime
+      }}
+      masterData(translate: true) {{
+        actors {{ id name type subType server }}
+      }}
+      playerDetails(fightIDs: $fightIDs, includeCombatantInfo: true, translate: true)
+    }}
+  }}
+  {RATE_FIELDS}
+}}
+"""
+
+
 EVENTS_QUERY = f"""
 query NecropsyEvents($code: String!, $fightIDs: [Int], $sourceID: Int, $targetID: Int,
                      $startTime: Float, $endTime: Float) {{
@@ -109,8 +132,17 @@ class ReportInaccessible(WclError):
     """WCL returned no report for this code (private, deleted or archived)."""
 
 
+class ReportRankingsUnavailable(InvalidResponse):
+    """Only report rankings failed internally; metadata needs an independent query."""
+
+
 def report_query(
-    client: WclClient, query: str, variables: dict[str, Any], endpoint: Endpoint
+    client: WclClient,
+    query: str,
+    variables: dict[str, Any],
+    endpoint: Endpoint,
+    *,
+    saved_supersets: tuple[str, ...] = (),
 ) -> Result:
     """One report query; WCL's partial answers become typed errors, never a crash.
 
@@ -120,9 +152,20 @@ def report_query(
     invalid response.
     """
     try:
-        return client.query(query, variables, endpoint=endpoint)
+        return client.query(query, variables, endpoint=endpoint, saved_supersets=saved_supersets)
     except PartialResponse as error:
         text = str(error)
+        if (
+            query in (REPORT_QUERY, report_query_for_metric("hps"))
+            and error.errors
+            and all(
+                isinstance(item, dict)
+                and item.get("message") == "Internal server error"
+                and item.get("path") == ["reportData", "report", "rankings"]
+                for item in error.errors
+            )
+        ):
+            raise ReportRankingsUnavailable(text, error.rate) from None
         if error.errors and all(
             isinstance(item, dict)
             and isinstance(item.get("message"), str)
@@ -183,6 +226,8 @@ def fetch_bundle(
     *,
     endpoint: Endpoint = "client",
     metric: str = "dps",
+    metadata_only: bool = False,
+    include_rankings: bool = True,
 ) -> Bundle:
     """Fetch (and publish) the report bundle for one fight, validated before writing."""
     if not valid_report_code(code):
@@ -191,8 +236,18 @@ def fetch_bundle(
             "(including anonymized reports); candidate skipped"
         )
     client.ensure_budget(None)
+    full_query = report_query_for_metric(metric)
+    selected_query = full_query if include_rankings else REPORT_METADATA_QUERY
     result = report_query(
-        client, report_query_for_metric(metric), {"code": code, "fightIDs": [fight_id]}, endpoint
+        client,
+        REPORT_SCREEN_QUERY if metadata_only else selected_query,
+        {"code": code, "fightIDs": [fight_id]},
+        endpoint,
+        saved_supersets=(full_query, REPORT_METADATA_QUERY)
+        if metadata_only
+        else (full_query,)
+        if not include_rankings
+        else (),
     )
     report = _report(result.data, code)
     if report.get("code") != code:
@@ -345,11 +400,16 @@ PERIOD_TOLERANCE_S = 2.0
 def _rate(rate: RateLimit | None) -> dict[str, Any] | None:
     if rate is None:
         return None
-    return {
+    result: dict[str, Any] = {
         "limit_per_hour": rate.limit_per_hour,
         "points_spent": rate.points_spent,
         "reset_in_s": rate.reset_in_s,
     }
+    if rate.database_limit_per_hour is not None:
+        result["database_limit_per_hour"] = rate.database_limit_per_hour
+    if rate.database_points_spent is not None:
+        result["database_points_spent"] = rate.database_points_spent
+    return result
 
 
 def _period_end(reading: Reading) -> float | None:

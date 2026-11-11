@@ -1,0 +1,85 @@
+--- a/src/necropsy/wcl/fetch.py
++++ b/src/necropsy/wcl/fetch.py
+@@ -132,6 +132,10 @@
+     """WCL returned no report for this code (private, deleted or archived)."""
+ 
+ 
++class ReportRankingsUnavailable(InvalidResponse):
++    """Only report rankings failed internally; metadata needs an independent query."""
++
++
+ def report_query(
+     client: WclClient,
+     query: str,
+@@ -151,6 +155,17 @@
+         return client.query(query, variables, endpoint=endpoint, saved_supersets=saved_supersets)
+     except PartialResponse as error:
+         text = str(error)
++        if (
++            query in (REPORT_QUERY, report_query_for_metric("hps"))
++            and error.errors
++            and all(
++                isinstance(item, dict)
++                and item.get("message") == "Internal server error"
++                and item.get("path") == ["reportData", "report", "rankings"]
++                for item in error.errors
++            )
++        ):
++            raise ReportRankingsUnavailable(text, error.rate) from None
+         if error.errors and all(
+             isinstance(item, dict)
+             and isinstance(item.get("message"), str)
+--- a/src/necropsy/wcl/acquire.py
++++ b/src/necropsy/wcl/acquire.py
+@@ -71,6 +71,7 @@
+     REPORT_METADATA_QUERY,
+     Bundle,
+     ReportInaccessible,
++    ReportRankingsUnavailable,
+     RevisionChanged,
+     fetch_bundle,
+     fetch_stream,
+@@ -1246,15 +1247,22 @@
+         # successful historical finalizations also remain resumable. Neither path
+         # claims a global point-in-time view across reports.
+         run.stage = f"combined report {code} fights {list(fight_ids)}"
++        rankings_unavailable = False
+         try:
+             run.client.ensure_budget(None)
+-            report = _final_report(
+-                run,
+-                code,
+-                fight_ids,
+-                revision,
+-                items,
+-            )
++            try:
++                report = _final_report(run, code, fight_ids, revision, items)
++            except ReportRankingsUnavailable:
++                # Never publish the partial answer. A separate successful query
++                # must establish metadata, revision, fight and actor identities.
++                result = report_query(
++                    run.client,
++                    REPORT_METADATA_QUERY,
++                    {"code": code, "fightIDs": list(fight_ids)},
++                    run.endpoint,
++                )
++                report = (result.data.get("reportData") or {}).get("report")
++                rankings_unavailable = True
+         except _STOPS as error:
+             raise RunStopped(f"{type(error).__name__} during {run.stage}: {error}") from error
+         if not isinstance(report, dict) or report.get("code") != code:
+@@ -1267,6 +1275,13 @@
+                 f"entries are {revision}"
+             )
+         _check_report_set(report, code, encounters, [e for _, e in items], run.policy.class_name)
++        if rankings_unavailable:
++            reason = f"report rankings unavailable for {code}: WCL internal server error"
++            for boss, _ in items:
++                boss.coverage["complete"] = False
++                reasons = boss.coverage.setdefault("reasons", [])
++                if reason not in reasons:
++                    reasons.append(reason)
+         digest = run.store.put_report_set(locate, fight_ids, run.endpoint, report)
+         sets[code] = ReportSet(locate, fight_ids, run.endpoint, report, digest)
+     acquisition.reports = sets

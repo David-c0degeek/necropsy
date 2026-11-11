@@ -40,7 +40,13 @@ def _capture(root: Path, naxx: bool) -> tuple[Any, list[dict[str, Any]]]:
     client, store = _client(fake), Cache(root / "cache")
     try:
         result = acquire(
-            client, store, VANILLA, context, encounters=(encounter,), encounter_context=True
+            client,
+            store,
+            VANILLA,
+            context,
+            encounters=(encounter,),
+            encounter_context=True,
+            derive_views=False,
         )
         assert result.stopped is None
         finalize_reports(Run(client, store, VANILLA), result)
@@ -231,6 +237,7 @@ def _acquire(fake: Any, root: Path, *, zones: Any = None) -> Any:
         with pytest.MonkeyPatch.context() as patch:
             if zones is not None:
                 patch.setattr("necropsy.wcl.acquire.DERIVED_TARGET_ZONES", zones)
+                patch.setattr("necropsy.wcl.acquire.DERIVED_VIEW_ZONES", zones)
             result = acquire(
                 client, store, VANILLA, context, encounters=(PATCHWERK,), encounter_context=True
             )

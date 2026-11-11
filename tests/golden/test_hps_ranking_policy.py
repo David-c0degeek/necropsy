@@ -107,6 +107,11 @@ def _stream_pages(
     ]
     assert len(streams) == 1, (folder, direction)
     identity = streams[0]["identity"]
+    if "derivation" in streams[0]:
+        from scripts.raw_projection import verify_projection
+
+        verify_projection(z, snapshot, streams[0], report)
+        identity = streams[0]["derivation"]["parent"]
     assert identity is not None, "a derived stream needs a derivation-aware raw check"
     assert identity["start_time"] == fight["startTime"] and identity["end_time"] == fight["endTime"]
     assert identity["revision"] == report["revision"] and identity["code"] == report["code"]

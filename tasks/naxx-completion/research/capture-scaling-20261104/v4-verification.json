@@ -1,0 +1,169 @@
+{
+  "at_utc": "2026-11-04T20:06:02.730618+00:00",
+  "scope": "Offline validation of whole-fight projections; no production deployment, publication, WCL event acquisition or content acceptance.",
+  "checks": [
+    {
+      "log": "workspace/capture-scaling-20261104/v4-fast-rerun.log",
+      "sha256": "6c347b82018428daafb5bc815f07a8cb7c3284cf83bc3ac553e27fde16e10e80",
+      "tail": [
+        "sssssssssssssss.ss...........ssss....s.ss............................... [ 86%]",
+        "........................................................................ [ 89%]",
+        "........................................................................ [ 92%]",
+        "........................................................................ [ 94%]",
+        "........................................................................ [ 97%]",
+        "..........................................sss........................... [ 99%]",
+        "......                                                                   [100%]",
+        "2785 passed, 29 skipped in 192.76s (0:03:12)"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-golden-final.log",
+      "sha256": "674672ac80d852d6cfe66952b00eac1768e5202a0f74454f00945fe547e58098",
+      "tail": [
+        "bringing up nodes...",
+        "",
+        "........................................................................ [ 24%]",
+        "........................................................................ [ 48%]",
+        "........................................................................ [ 72%]",
+        "........................................................................ [ 96%]",
+        ".........                                                                [100%]",
+        "297 passed in 913.00s (0:15:13)"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-corpus-final.log",
+      "sha256": "41797a89d81c0f5658189cffbb4fac7fec3a7d46f58251e7c85edfe444964505",
+      "tail": [
+        "bringing up nodes...",
+        "bringing up nodes...",
+        "",
+        ".......                                                                  [100%]",
+        "7 passed in 204.50s (0:03:24)"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-browser-final.log",
+      "sha256": "2c259b4ba271063a3eceb0b72ab012e1b315cf1f61789ab73033d837ecc1a18e",
+      "tail": [
+        "bringing up nodes...",
+        "bringing up nodes...",
+        "",
+        "........................................................................ [ 74%]",
+        ".........................                                                [100%]",
+        "97 passed in 326.14s (0:05:26)"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-cli-final.log",
+      "sha256": "2ddc353806e8ec051affeb72f6eee4e0bf6647c47cb573f63fa818d5ae45961f",
+      "tail": [
+        "bringing up nodes...",
+        "bringing up nodes...",
+        "",
+        "........................................................................ [ 86%]",
+        "...........                                                              [100%]",
+        "83 passed in 27.72s"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-projection-final.log",
+      "sha256": "9823c4a40ec1cb54c8212ac01690266beb86bff1462564acf84447080ec675cc",
+      "tail": [
+        "bringing up nodes...",
+        "bringing up nodes...",
+        "",
+        "...................................................................      [100%]",
+        "67 passed in 3.41s"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-build.log",
+      "sha256": "04b5bdd9432f0c9a6178c86589b514054a077197a1d6520df4f6cdc5e72d3cc7",
+      "tail": [
+        "Building source distribution (uv build backend)...",
+        "Building wheel from source distribution (uv build backend)...",
+        "Successfully built workspace\\capture-scaling-20261104\\v4-build\\necropsy-0.7.1.tar.gz",
+        "Successfully built workspace\\capture-scaling-20261104\\v4-build\\necropsy-0.7.1-py3-none-any.whl"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-installed-smoke.log",
+      "sha256": "131a3d4ebd564b6a2934eec1ed0e6f31f5d3cf07e9b7d7c3ee419ac1e8a0c75e",
+      "tail": [
+        "  \"offline_bosses\": 1,",
+        "  \"outputs\": [",
+        "    \"C:\\\\repos\\\\necropsy\\\\workspace\\\\capture-scaling-20261104\\\\v4-installed-offline\\\\analysis.json\",",
+        "    \"C:\\\\repos\\\\necropsy\\\\workspace\\\\capture-scaling-20261104\\\\v4-installed-offline\\\\necropsy-86583560-2006.zip\",",
+        "    \"C:\\\\repos\\\\necropsy\\\\workspace\\\\capture-scaling-20261104\\\\v4-installed-offline\\\\playbook.html\",",
+        "    \"C:\\\\repos\\\\necropsy\\\\workspace\\\\capture-scaling-20261104\\\\v4-installed-offline\\\\report.html\"",
+        "  ]",
+        "}"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-secret-scan.log",
+      "sha256": "428d2229f4bbc3b269cf0a833df288dd54512996f3d75386709f37180296aa0f",
+      "tail": [
+        "9:06PM INF scanned ~958983 bytes (958.98 KB) in 71.4ms",
+        "9:06PM INF no leaks found"
+      ]
+    },
+    {
+      "log": "workspace/capture-scaling-20261104/v4-static-final.log",
+      "sha256": "2379da6096b02bd0a8d583b61f55347a634ebf1f6bd520d57d2b5452746f0f4e",
+      "tail": [
+        "All checks passed!",
+        "363 files already formatted",
+        "Success: no issues found in 295 source files",
+        "Checked 303 local links across 25 maintained Markdown files."
+      ]
+    }
+  ],
+  "artifacts": {
+    "workspace/capture-scaling-20261104/v4-build/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+    "workspace/capture-scaling-20261104/v4-build/necropsy-0.7.1-py3-none-any.whl": "942ca250062401563b1b74937354cfa5da7aafd952f0b86dc3f4850175a6f5af",
+    "workspace/capture-scaling-20261104/v4-build/necropsy-0.7.1.tar.gz": "af911087d247df53a30db6acc44fcbf835d04f1d738921f90013caafa177ee0e"
+  },
+  "changed_source_and_test_files": {
+    "CHANGELOG.md": "3bea833df94ad139ce5ed4f1ceeacbaa002be5747d7b40f580b5d99fd1639a18",
+    "docs/analysis-json.md": "dba249af2009d46c8710c2c6d666aeeb35d263cdaef83a5df07fdaa5e12e86f0",
+    "docs/architecture.md": "b7405ec0553721213be3b583777812bee7f36f0722b976367efe0ee7fcbd530b",
+    "docs/database.md": "dde842e30195945cdbaea53d711911502e72e5105d027cde3134ce8dfee5c4e9",
+    "docs/decisions/0025-derived-source-critical-streams.md": "de4cc5d095e5d161b357e9c7eba5d1921e5ff88c4b0af8325d36582bfb9ecc10",
+    "docs/decisions/README.md": "f0796ac9155f298e934e20957956adc1ce3d5b2c3660205a8c7e171ec2f8c595",
+    "docs/evidence-model.md": "38830bf76dc41bd712eead2a52eb033ed0214f61c2f7b5b7da4749bb9b6807bb",
+    "docs/installation.md": "9a6bd64f89ddebec2630cd73628e301906c0249a6ced379699a7ac2e0dbc0ad9",
+    "docs/live-acceptance.md": "3acebc972b724893255c752750f52cee40b9c5ed56feac0d2af8c8021550c481",
+    "docs/warcraft-logs.md": "2cc59fd5227c0b195a9f40113f7f4018a979dad213330132515c91687940c1c2",
+    "scripts/capture_queue.py": "25646a40b091e4100015d462835fdf71617f0dc7ed3b2952c6d8b5ce81af9c31",
+    "scripts/check_raid_facts.py": "dccbe86002b2e214cf9456df901989cbfdbf1aa7ba3b1a4e2c60e53be29ee800",
+    "scripts/freeze_dps_ranking.py": "7caebdccb3c3a4a4c0d609f57cc4b6b6fc0017b270613dccd4c1538e5048b466",
+    "scripts/raw_projection.py": "16438c269b0006547847a2b12316bac4bf5e6875d7d83e28b459ae05dab5a7bb",
+    "src/necropsy/snapshot/v1.py": "8d3c66a27e3d7c2c0b4217a43cdc57a2d36beef9c77a5d199e87ad0aa965eea8",
+    "src/necropsy/snapshot/v1_writer.py": "020d5369d83ce1a21f7447b3470b2d3e6369cdac4188ab2832f7ebfc1882c202",
+    "src/necropsy/snapshot/v2.py": "cfe64e7f644a47e118ddb45887dd2f57e26ab6e902f2adb9b9acfea106ac36c8",
+    "src/necropsy/snapshot/v3.py": "4c1c3c1b9992c906e0ed5f2874d960534f75204f204f169aabd52298a9ac93e8",
+    "src/necropsy/snapshot/v4.py": "ee83fab42005f76adad448df4d4b7ff1d3551332d113264d23669ce5871c2291",
+    "src/necropsy/wcl/acquire.py": "6ad4db47891a1067f876d7abb41ad41277ea6cd038481b18b00919c05e68cf3b",
+    "src/necropsy/wcl/checkpoint.py": "3a9aecf7323e113064e488219042f1d79854a13d8e28b2eb632f60d2ab7e37da",
+    "src/necropsy/wcl/cli.py": "c2baee24c91f124a931ce79a807fe2ea847a1c87bd11c23fbb44ed0cbfb66b03",
+    "src/necropsy/wcl/client.py": "8f8e960d79f9c942dedf3dce91d507b58783d397c5300e5b9a729264793db179",
+    "src/necropsy/wcl/derive.py": "4cf39670e0dc83fdc55f8c0092e1a39c58ef76af1f5540c852a61953306855d1",
+    "src/necropsy/wcl/fetch.py": "48e919e08c12505a77aa2dcea8066920a5a5277852fab0d02ae2c143e37396e8",
+    "tests/golden/raids/projection-corpus.json": "2dc0b03fb98a4283db62d9f465789854fea496afb475bbbc3098ec95382cd13e",
+    "tests/golden/test_derived_views_corpus.py": "9829a7977015a54963bef12d8b949795d7664bc72f4b3b22c9d8368356ae7ecc",
+    "tests/golden/test_dps_ranking_policy.py": "955cb0b0c6e61a5322887f3eaca8a7022bdf5f0ea1aaafaedf5fa2a1de1f77c8",
+    "tests/golden/test_hps_ranking_policy.py": "aa6be24c71ca74cad0815b30d886cdd51171467d2c4cd10703ae358dc71b670b",
+    "tests/integration/test_analyze_cli.py": "6bf3722d212fb26cc2137b1cc1704c6c72db4abde2cdd5fcbba16e402337e400",
+    "tests/integration/test_capture_archive_check.py": "b28fbc609d948fe50ab56b5fab2eb9d345a9bbd7418e8ac9c7a67fd9728792fa",
+    "tests/integration/test_derived_targets.py": "24b4422ea79dd19e48189b2be91f35b2a3582fca4024421f74c69352e13745a2",
+    "tests/integration/test_derived_views.py": "166582c8e2530347db33b409d7243f2d8f2fb3a9d1c4abd63ea8fc09c9a1148e",
+    "tests/integration/test_encounter_snapshot.py": "aadf3a9c759c8044fec784f9aa27d88144d1617e4e103ee9d7866f93745b7643",
+    "tests/integration/test_live_snapshot.py": "f527b9945c87862880a391232dbab2bf170c7fe29e748ae62309d311d1ff6502",
+    "tests/unit/test_freeze_dps_ranking.py": "7cfde43d512f10a1fce902f4503917e347cff40c432080b3eb16893d09ca1a32",
+    "tests/unit/test_raid_facts.py": "63cb21042aa7fd76b48184dce1102a4e767c98b2701241cc5671a1b3e5f14886",
+    "tests/unit/test_wcl_acquire.py": "9e9d137f393c4abb3c406fffd440c531135d8d7ccdaa4fed8e2e63e12041c861",
+    "tests/unit/test_wcl_derive.py": "ee26de4da08ed721be536064c04b7688392548c79e336e2e937db875f1061d79",
+    "tests/unit/test_wcl_optimization.py": "c24f6dd7dfb815741882f2787705bf3c3e19f10014b32800189839107782ba2a"
+  }
+}

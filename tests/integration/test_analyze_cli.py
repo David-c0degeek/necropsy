@@ -151,9 +151,9 @@ def test_normal_cli_selects_encounter_scopes_for_new_era_raids(
     with VerifiedArchive(out / "snapshot/scoped.zip") as archive:
         reader = open_snapshot(archive)
         assert reader.issues() == []
-        derived = context_enabled and slug == "naxxramas"
+        derived = context_enabled
         assert reader.descriptor().format == (
-            "necropsy-live-snapshot-v3"
+            "necropsy-live-snapshot-v4"
             if derived
             else "necropsy-live-snapshot-v2"
             if context_enabled
@@ -165,19 +165,22 @@ def test_normal_cli_selects_encounter_scopes_for_new_era_raids(
         scopes = marker.get("encounter_streams", [])
         assert len(scopes) == (12 if context_enabled else 0)
         assert all(s["actor_id"] is None and s["direction"] == "all" for s in scopes)
+        assert all(("derivation" in s) is derived for s in scopes if s["role"] == "critical")
     document = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
     assert document["zone"]["id"] == raid.zone_id
     assert len(document["bosses"]) == 1
     assert (out / "report.html").is_file() and (out / "playbook.html").is_file()
     assert list(out.glob("necropsy-*.zip"))
     critical = [r for r in fake["server"].requests if r["variables"].get("filterExpression")]
-    assert len(critical) == (6 if context_enabled else 0)
+    assert len(critical) == (6 if context_enabled and not derived else 0)
 
 
 @pytest.mark.usefixtures("historical_cohort_depth")
 def test_normal_encounter_context_quota_resume_preserves_completed_scopes(
     tmp_path: Path, fake: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:
+    # This fixture interrupts a requested critical scope from a legacy capture.
+    monkeypatch.setattr(acquire_mod, "DERIVED_VIEW_ZONES", frozenset())
     context = _context()
     assert context.partition is not None
     chosen = replace(context.partition, id=1)

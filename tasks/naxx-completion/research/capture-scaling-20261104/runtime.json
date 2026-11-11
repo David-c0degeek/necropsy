@@ -1,0 +1,1013 @@
+{
+  "observed_at_utc": "2026-11-04T13:54:58.476793+00:00",
+  "kind": "selected read-only runtime observations; no API requests",
+  "input_sha256": {
+    "status.json": "7f35a1e332af8f5261da15c0054a88319c0c1b1846b0a96c68d04514893809f4",
+    "state.json": "cd674a9aadc0e2fbcd8361c2e85a6a40ca055ba5e5fff8c170fd524118e1d726"
+  },
+  "status": {
+    "alert_failures": 1,
+    "alerts_pending": 0,
+    "counts": {
+      "complete": 0,
+      "deferred": 23,
+      "partial": 11,
+      "pending": 0,
+      "refused": 0,
+      "retry": 0
+    },
+    "current": null,
+    "finished_at_utc": null,
+    "headline": "Waiting for quota",
+    "heartbeat_utc": "2026-11-04T13:54:42+00:00",
+    "last_progress_utc": "2026-11-04T13:10:41+00:00",
+    "next_retry_utc": "2026-11-04T14:09:56+00:00",
+    "queue_sha256": "888b8d8d0355e985c7d8017f61b3dd864af56fd58d3701771647ce4eb9fc8552",
+    "reason": "Waiting until a scheduled retry. No new capture is running.",
+    "state": "waiting",
+    "summary": {
+      "all_registered_runs": 0,
+      "capture_ready_runs": 0,
+      "offline_reuse_runs": 0,
+      "scheduled_runs": 34,
+      "universe_runs": 34
+    },
+    "usable_archives": 11,
+    "version": 1
+  },
+  "inflight": false,
+  "entries": [
+    {
+      "state": "partial",
+      "attempts": 16,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-balance-dps-alliance",
+      "receipt_count": 16,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-24T12:19:42+00:00",
+        "incomplete_bosses": 5,
+        "reset_at_utc": "2026-10-24T13:10:14+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 45,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-balance-dps-horde",
+      "receipt_count": 45,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-27T09:39:25+00:00",
+        "incomplete_bosses": 5,
+        "reset_at_utc": "2026-10-27T10:26:21+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 37,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-balance-hps-alliance",
+      "receipt_count": 37,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-27T19:54:59+00:00",
+        "incomplete_bosses": 2,
+        "reset_at_utc": "2026-10-27T20:46:42+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 46,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-balance-hps-horde",
+      "receipt_count": 46,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-28T16:36:17+00:00",
+        "incomplete_bosses": 6,
+        "reset_at_utc": "2026-10-28T17:27:31+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 41,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-feral-dps-alliance",
+      "receipt_count": 41,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-29T07:03:47+00:00",
+        "incomplete_bosses": 6,
+        "reset_at_utc": "2026-10-29T07:56:04+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 52,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-feral-dps-horde",
+      "receipt_count": 52,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-30T09:57:24+00:00",
+        "incomplete_bosses": 3,
+        "reset_at_utc": "2026-10-30T10:49:03+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 1
+    },
+    {
+      "state": "partial",
+      "attempts": 49,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-guardian-dps-alliance",
+      "receipt_count": 48,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-31T07:39:53+00:00",
+        "incomplete_bosses": 5,
+        "reset_at_utc": "2026-10-31T08:31:58+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 3
+    },
+    {
+      "state": "partial",
+      "attempts": 54,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-guardian-dps-horde",
+      "receipt_count": 54,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-11-01T12:37:47+00:00",
+        "incomplete_bosses": 5,
+        "reset_at_utc": "2026-11-01T13:29:07+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 40,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-restoration-hps-alliance",
+      "receipt_count": 40,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-11-02T03:23:05+00:00",
+        "incomplete_bosses": 3,
+        "reset_at_utc": "2026-11-02T04:13:39+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 50,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-druid-restoration-hps-horde",
+      "receipt_count": 50,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-11-03T04:13:59+00:00",
+        "incomplete_bosses": 1,
+        "reset_at_utc": "2026-11-03T05:02:43+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "partial",
+      "attempts": 38,
+      "candidate": 0,
+      "retry_at": null,
+      "entry_id": "naxxramas-hunter-marksmanship-dps-alliance",
+      "receipt_count": 38,
+      "latest_outcome": {
+        "stop_class": "source-limit",
+        "exit_code": 4,
+        "written_at_utc": "2026-11-03T16:34:22+00:00",
+        "incomplete_bosses": 4,
+        "reset_at_utc": "2026-11-03T17:27:11+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 46,
+      "candidate": 0,
+      "retry_at": "2026-11-04T14:09:56+00:00",
+      "entry_id": "naxxramas-hunter-marksmanship-dps-horde",
+      "receipt_count": 46,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 3,
+        "written_at_utc": "2026-11-04T13:10:41+00:00",
+        "incomplete_bosses": null,
+        "reset_at_utc": "2026-11-04T14:07:56+00:00"
+      },
+      "last_failure": "analyze failed: stopped while finalizing reports: RateLimited during combined report Mgp1LQB46fcDh3mW fights [26]: no database points remaining; no snapshot or report was written (fetched data stays in the cache /data/cache for the next run)",
+      "latest_retry_wait_count": 2
+    },
+    {
+      "state": "deferred",
+      "attempts": 25,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-mage-fire-dps-alliance",
+      "receipt_count": 25,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:00+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 25,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-mage-fire-dps-horde",
+      "receipt_count": 25,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:03+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-mage-frost-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:07+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-mage-frost-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:10+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:13+00:00",
+      "entry_id": "naxxramas-paladin-holy-hps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:13+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:13+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-paladin-protection-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:16+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-paladin-retribution-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:20+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-priest-holy-hps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:23+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-priest-holy-hps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:26+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-priest-shadow-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:29+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:13+00:00",
+      "entry_id": "naxxramas-priest-shadow-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:32+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:13+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-rogue-assassination-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:36+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:13+00:00",
+      "entry_id": "naxxramas-rogue-assassination-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:39+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:13+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-shaman-elemental-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:42+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-shaman-enhancement-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:46+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-shaman-restoration-hps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:49+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-warlock-destruction-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:52+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-warlock-destruction-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:55+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:13+00:00",
+      "entry_id": "naxxramas-warrior-fury-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:48:58+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:13+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-warrior-fury-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:49:01+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-warrior-protection-dps-alliance",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:49:05+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    },
+    {
+      "state": "deferred",
+      "attempts": 24,
+      "candidate": 0,
+      "retry_at": "2026-10-26T15:46:12+00:00",
+      "entry_id": "naxxramas-warrior-protection-dps-horde",
+      "receipt_count": 24,
+      "latest_outcome": {
+        "stop_class": "quota-reset",
+        "exit_code": 4,
+        "written_at_utc": "2026-10-26T14:49:08+00:00",
+        "incomplete_bosses": 15,
+        "reset_at_utc": "2026-10-26T15:44:12+00:00"
+      },
+      "last_failure": null,
+      "latest_retry_wait_count": 0
+    }
+  ],
+  "current_journal": {
+    "entry_id": "naxxramas-hunter-marksmanship-dps-horde",
+    "total_successful_records": 1556,
+    "recent_24h_summary": {
+      "count": 1556,
+      "all_data_sha256_verified": true,
+      "by_scope": {
+        "acquisition": 1528,
+        "finalization": 28
+      },
+      "by_query": {
+        "NecropsySubject": 15,
+        "NecropsyReport": 1191,
+        "NecropsyEvents": 310,
+        "NecropsyCombatantContext": 4,
+        "NecropsyCombatantPrelude": 4,
+        "NecropsyLeaderboard": 32
+      },
+      "earliest_captured_at": "2026-11-03T16:34:25.213457+00:00",
+      "latest_captured_at": "2026-11-04T13:10:40.125395+00:00"
+    },
+    "latest_20_successful_records": [
+      {
+        "captured_at": "2026-11-04T08:02:25.148066+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyCombatantPrelude",
+        "variables": {
+          "code": "k8KCr1zbfpnVvXGT",
+          "endTime": 1411949.0,
+          "filterExpression": "target.id = 57016653 AND type IN (\"applybuff\", \"removebuff\", \"refreshbuff\", \"applybuffstack\", \"removebuffstack\")",
+          "startTime": 1181608,
+          "targetID": 7
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3318,
+          "pointsSpentThisHour": 1123.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:25.519600+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyEvents",
+        "variables": {
+          "code": "k8KCr1zbfpnVvXGT",
+          "endTime": 1550694.0,
+          "fightIDs": [
+            4
+          ],
+          "filterExpression": "type = \"damage\" AND isCritical = true",
+          "sourceID": null,
+          "startTime": 1411949.0,
+          "targetID": null
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3318,
+          "pointsSpentThisHour": 1124.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:26.202813+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyEvents",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "endTime": 4337586.0,
+          "fightIDs": [
+            31
+          ],
+          "sourceID": null,
+          "startTime": 4264152.0,
+          "targetID": null
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3318,
+          "pointsSpentThisHour": 1125.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:26.880445+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyEvents",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "endTime": 4337586.0,
+          "fightIDs": [
+            31
+          ],
+          "sourceID": null,
+          "startTime": 4303376.0,
+          "targetID": null
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3317,
+          "pointsSpentThisHour": 1126.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:27.424010+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyEvents",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "endTime": 4337586.0,
+          "fightIDs": [
+            31
+          ],
+          "sourceID": 38,
+          "startTime": 4264152.0,
+          "targetID": null
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3316,
+          "pointsSpentThisHour": 1127.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:27.753066+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyEvents",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "endTime": 4337586.0,
+          "fightIDs": [
+            31
+          ],
+          "sourceID": 83,
+          "startTime": 4264152.0,
+          "targetID": null
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3316,
+          "pointsSpentThisHour": 1128.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:28.027940+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyCombatantContext",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "fightIDs": [
+            31
+          ],
+          "sourceID": 38,
+          "startTime": null
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3316,
+          "pointsSpentThisHour": 1129.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:28.319509+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyCombatantPrelude",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "endTime": 4264152.0,
+          "filterExpression": "target.id = 54565267 AND type IN (\"applybuff\", \"removebuff\", \"refreshbuff\", \"applybuffstack\", \"removebuffstack\")",
+          "startTime": 4033995,
+          "targetID": 38
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3315,
+          "pointsSpentThisHour": 1130.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:28.683553+00:00",
+        "scope": "acquisition",
+        "query": "NecropsyEvents",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "endTime": 4337586.0,
+          "fightIDs": [
+            31
+          ],
+          "filterExpression": "type = \"damage\" AND isCritical = true",
+          "sourceID": null,
+          "startTime": 4264152.0,
+          "targetID": null
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3315,
+          "pointsSpentThisHour": 1131.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T08:02:29.876678+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "48KQFL3dhjPYMHbf",
+          "fightIDs": [
+            46
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3314,
+          "pointsSpentThisHour": 1132.37
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T09:00:58.887930+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "62LPGyFXQzKfJjmd",
+          "fightIDs": [
+            17
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3528,
+          "pointsSpentThisHour": 6
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T09:02:22.609625+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "6wqkZrpQfa3GMVJR",
+          "fightIDs": [
+            7
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3444,
+          "pointsSpentThisHour": 31
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T10:02:57.684273+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "9FPHbQxWmtNCLV4d",
+          "fightIDs": [
+            19
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3531,
+          "pointsSpentThisHour": 6
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T10:02:59.208917+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "9FQTa4bvmtWDP1Vk",
+          "fightIDs": [
+            14
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3529,
+          "pointsSpentThisHour": 13
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T10:04:14.856326+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "Ac1fKxGW6h3jmJpd",
+          "fightIDs": [
+            10
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3454,
+          "pointsSpentThisHour": 22
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T11:05:17.622685+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "DQjz7qGxmLvpWgK8",
+          "fightIDs": [
+            16
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3514,
+          "pointsSpentThisHour": 6
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T11:05:18.706172+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "FzyPBHNdRWc9JvVK",
+          "fightIDs": [
+            31
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3513,
+          "pointsSpentThisHour": 161
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T11:06:46.801861+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "HVKDMcWGAY3xwn6m",
+          "fightIDs": [
+            30
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3425,
+          "pointsSpentThisHour": 167
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T12:08:48.374659+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "KDQargNtfR4yJnB2",
+          "fightIDs": [
+            38
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3425,
+          "pointsSpentThisHour": 9
+        },
+        "data_sha256_verified": true
+      },
+      {
+        "captured_at": "2026-11-04T13:10:40.125395+00:00",
+        "scope": "finalization",
+        "query": "NecropsyReport",
+        "variables": {
+          "code": "MaTFxQzJvVcAYZ4k",
+          "fightIDs": [
+            51
+          ]
+        },
+        "rate": {
+          "limitPerHour": 3000,
+          "pointsResetIn": 3436,
+          "pointsSpentThisHour": 8
+        },
+        "data_sha256_verified": true
+      }
+    ]
+  }
+}

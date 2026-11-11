@@ -139,6 +139,18 @@ class Journal:
             ),
         )
 
+    def record_usage(self, value: Mapping[str, Any]) -> None:
+        """Diagnostic ledger of actual network attempts, never replayed as API data.
+
+        The output lock owns this journal. A final interrupted line may be incomplete;
+        this ledger is telemetry, not an acquisition or accounting authority.
+        """
+        path = self.root.parent / "usage.jsonl"
+        if is_link(path):
+            raise CacheCorrupt(f"usage ledger is a link: {path}")
+        with path.open("ab") as stream:
+            stream.write(canonical_bytes(value) + b"\n")
+
     def forget_report(self, code: str) -> None:
         """Discard this report's request journal when its revision changes."""
         for path in self.root.glob("*.json"):

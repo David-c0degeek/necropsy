@@ -143,9 +143,7 @@ class V2Snapshot(V1Snapshot):
             digests = tuple(hashlib.sha256(self._archive.read_bytes(n)).hexdigest() for n in names)
             if digests != proof.pages:
                 raise SnapshotError("encounter pages differ from certified digests")
-            self._check_stream_identity(
-                (proof.report, proof.fight, proof.role, None, "all"), proof.identity, names
-            )
+            self._check_encounter_proof(proof, names)
         actual = {n for n in self._names if "/encounter/" in n and n.startswith("events/")}
         if actual != listed:
             raise SnapshotError("encounter members differ from certified page scope")
@@ -174,3 +172,8 @@ class V2Snapshot(V1Snapshot):
                         raise SnapshotError(
                             "owned encounter events are missing from their actor direction stream"
                         )
+
+    def _check_encounter_proof(self, proof: EncounterStream, names: list[str]) -> None:
+        self._check_stream_identity(
+            (proof.report, proof.fight, proof.role, None, "all"), proof.identity, names
+        )

@@ -447,7 +447,9 @@ def _write_context(root: Path, members: dict[str, Any]) -> Path:
     return register
 
 
-@pytest.mark.parametrize(("version", "accepted"), [(2, True), (3, True), (1, False), (4, False)])
+@pytest.mark.parametrize(
+    ("version", "accepted"), [(2, True), (3, True), (4, True), (1, False), (5, False)]
+)
 def test_encounter_facts_accept_only_encounter_snapshot_versions(
     tmp_path: Path, version: int, accepted: bool
 ) -> None:
@@ -458,7 +460,7 @@ def test_encounter_facts_accept_only_encounter_snapshot_versions(
     if accepted:
         assert check_register(register) == []
     else:
-        with pytest.raises(ValueError, match="live format 2 or 3"):
+        with pytest.raises(ValueError, match="live format 2, 3 or 4"):
             check_register(register)
 
 

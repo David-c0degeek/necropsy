@@ -554,7 +554,7 @@ def complete_encounter_coverage(path: str, digest: str) -> set[int]:
 
     with VerifiedArchive(ROOT / path, expected_sha256=digest) as archive:
         marker = archive.read_json(SNAPSHOT)
-        if marker.get("formatVersion") not in (2, 3):
+        if marker.get("formatVersion") not in (2, 3, 4):
             return set()
         reader = open_snapshot(archive)
         descriptor = reader.descriptor()

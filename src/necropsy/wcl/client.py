@@ -11,20 +11,31 @@ missing or malformed page flags, repeated pages and runaway page counts.
 from __future__ import annotations
 
 import email.utils
+import hashlib
+import math
 import random
+import re
 import time
 from collections.abc import Callable, Iterator, Mapping
+from contextlib import suppress
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from typing import Any, Literal, Protocol
 
 import httpx
 
+from necropsy.wcl.cache import canonical_bytes
 from necropsy.wcl.checkpoint import Journal
 from necropsy.wcl.sites import Site, require_supported
 
 Endpoint = Literal["client", "user"]
 RATE_FIELDS = "rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn }"
+# Keep RATE_FIELDS in logical queries: it is part of durable request identities.
+# Expanded telemetry is sent only on the wire, so upgrading never invalidates work.
+WIRE_RATE_FIELDS = (
+    "rateLimitData { limitPerHour pointsSpentThisHour pointsResetIn "
+    "databaseLimitPerHour databasePointsSpentThisHour currentRequest }"
+)
 
 
 class WclError(Exception):
@@ -85,10 +96,19 @@ class RateLimit:
     limit_per_hour: int
     points_spent: float
     reset_in_s: int
+    database_limit_per_hour: int | None = None
+    database_points_spent: float | None = None
+    current_request: dict[str, float] | None = field(default=None, compare=False)
 
     @property
     def remaining(self) -> float:
         return max(0.0, self.limit_per_hour - self.points_spent)
+
+    @property
+    def database_remaining(self) -> float | None:
+        if self.database_limit_per_hour is None or self.database_points_spent is None:
+            return None
+        return max(0.0, self.database_limit_per_hour - self.database_points_spent)
 
 
 @dataclass(frozen=True, slots=True)
@@ -141,11 +161,35 @@ def _rate(data: Any) -> RateLimit | None:
     if not isinstance(raw, dict):
         return None
     try:
+        limit = _optional_number(raw.get("databaseLimitPerHour"))
+        spent = _optional_number(raw.get("databasePointsSpentThisHour"))
+        costs = raw.get("currentRequest")
+        costs = (
+            {
+                k: n
+                for k in ("total", "application", "user", "database")
+                if (n := _optional_number(costs.get(k))) is not None
+            }
+            if isinstance(costs, dict)
+            else None
+        )
         return RateLimit(
-            int(raw["limitPerHour"]), float(raw["pointsSpentThisHour"]), int(raw["pointsResetIn"])
+            int(raw["limitPerHour"]),
+            float(raw["pointsSpentThisHour"]),
+            int(raw["pointsResetIn"]),
+            int(limit) if limit is not None and limit.is_integer() else None,
+            spent,
+            costs or None,
         )
     except KeyError, TypeError, ValueError:
         return None
+
+
+def _optional_number(value: Any) -> float | None:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    number = float(value)
+    return number if math.isfinite(number) and number >= 0 else None
 
 
 def _retry_after(value: str | None, now: datetime) -> float | None:
@@ -214,6 +258,77 @@ class WclClient:
     def _backoff(self, attempt: int) -> float:
         return float(min(self.policy.max_backoff_s, 2.0**attempt + self.rng.uniform(0, 1)))
 
+    def saved_result(
+        self,
+        query: str,
+        variables: Mapping[str, Any],
+        *,
+        endpoint: Endpoint,
+        scope: str | None = None,
+    ) -> Result | None:
+        """Read an exact historical answer without changing the live budget."""
+        if self.journal is None:
+            return None
+        identity = self.journal.identity(self.site.host, endpoint, query, variables)
+        if scope is not None:
+            identity["scope"] = scope
+        data = self.journal.read(identity)
+        if data is None:
+            return None
+        rate = _rate(data)
+        if rate is None:
+            raise InvalidResponse("saved request has no rateLimitData")
+        return Result(data, rate, captured_at=self.journal.captured_at)
+
+    def _observe_attempt(
+        self,
+        query: str,
+        variables: Mapping[str, Any] | None,
+        endpoint: Endpoint,
+        attempt: int,
+        response: httpx.Response | None,
+        network_error: str | None = None,
+    ) -> Any:
+        body: Any = None
+        if response is not None:
+            with suppress(ValueError):
+                body = response.json()
+        data = body.get("data") if isinstance(body, dict) else None
+        rate = _rate(data)
+        if rate is not None:
+            self.last_rate, self.last_rate_at = rate, self.clock.monotonic()
+        if self.journal is not None:
+            operation = re.search(r"\bquery\s+(\w+)", query)
+            self.journal.record_usage(
+                {
+                    "at": self.clock.now().isoformat(),
+                    "site": self.site.host,
+                    "endpoint": endpoint,
+                    "scope": self.journal.scope,
+                    "operation": operation.group(1) if operation else None,
+                    "query_sha256": hashlib.sha256(query.encode()).hexdigest(),
+                    "request_identity_sha256": hashlib.sha256(
+                        canonical_bytes(
+                            self.journal.identity(self.site.host, endpoint, query, variables)
+                        )
+                    ).hexdigest(),
+                    "attempt": attempt,
+                    "http_status": None if response is None else response.status_code,
+                    "network_error": network_error,
+                    "rate": None
+                    if rate is None
+                    else {
+                        "limit_per_hour": rate.limit_per_hour,
+                        "points_spent": rate.points_spent,
+                        "reset_in_s": rate.reset_in_s,
+                        "database_limit_per_hour": rate.database_limit_per_hour,
+                        "database_points_spent": rate.database_points_spent,
+                    },
+                    "current_request": None if rate is None else rate.current_request,
+                }
+            )
+        return body
+
     def query(
         self,
         query: str,
@@ -221,6 +336,7 @@ class WclClient:
         *,
         endpoint: Endpoint = "client",
         allow_partial: bool = False,
+        saved_supersets: tuple[str, ...] = (),
     ) -> Result:
         """Run one GraphQL query; the query must select `rateLimitData`."""
         if "rateLimitData" not in query:
@@ -229,6 +345,13 @@ class WclClient:
         if self.journal is not None:
             identity = self.journal.identity(self.site.host, endpoint, query, variables)
             cached = self.journal.read(identity)
+            if cached is None:
+                for superset in saved_supersets:
+                    cached = self.journal.read(
+                        self.journal.identity(self.site.host, endpoint, superset, variables)
+                    )
+                    if cached is not None:
+                        break
             if cached is not None:
                 # Historical response data must never reset the live account budget.
                 rate = _rate(cached)
@@ -240,6 +363,17 @@ class WclClient:
                 "saved acquisition boundary; new requests reserved for report finalization",
                 self.last_rate,
             )
+        if re.search(r"\b(?:rankings|characterRankings|encounterRankings)\s*\(", query):
+            rate = self.last_rate
+            if (
+                rate is not None
+                and rate.database_remaining == 0
+                and (
+                    self.last_rate_at is None
+                    or self.clock.monotonic() - self.last_rate_at < rate.reset_in_s
+                )
+            ):
+                raise BudgetExceeded("the observed database points budget is exhausted", rate)
         url = self.site.client_api if endpoint == "client" else self.site.user_api
         deadline = self.clock.monotonic() + self.policy.call_deadline_s
         attempt = 0
@@ -253,13 +387,18 @@ class WclClient:
             try:
                 response = self._http.post(
                     url,
-                    json={"query": query, "variables": dict(variables or {})},
+                    json={
+                        "query": query.replace(RATE_FIELDS, WIRE_RATE_FIELDS),
+                        "variables": dict(variables or {}),
+                    },
                     headers={"Authorization": f"Bearer {self.tokens(endpoint)}"},
                     timeout=min(REQUEST_TIMEOUT_S, remaining),
                 )
             except (httpx.TimeoutException, httpx.TransportError) as exc:
+                self._observe_attempt(query, variables, endpoint, attempt, None, type(exc).__name__)
                 failure = ServerError(f"network error: {type(exc).__name__}", self.last_rate)
             else:
+                body = self._observe_attempt(query, variables, endpoint, attempt, response)
                 status = response.status_code
                 if status in (401, 403):
                     raise (AuthenticationError if status == 401 else PermissionDenied)(
@@ -280,6 +419,18 @@ class WclClient:
                         self.last_rate,
                     ) from None
                 if status in _RETRY_STATUS or status >= 500:
+                    errors = body.get("errors") if isinstance(body, dict) else None
+                    if (
+                        status == 429
+                        and isinstance(errors, list)
+                        and errors
+                        and re.search(
+                            r"no.*points remaining|points.*(?:exhausted|exceeded)",
+                            _error_summary(errors),
+                            re.IGNORECASE,
+                        )
+                    ):
+                        raise RateLimited(_error_summary(errors), self.last_rate)
                     failure = (RateLimited if status == 429 else ServerError)(
                         f"WCL answered HTTP {status}", self.last_rate
                     )

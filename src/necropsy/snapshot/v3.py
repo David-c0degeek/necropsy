@@ -21,7 +21,7 @@ from necropsy.snapshot.v2 import LiveSnapshotFileV2, V2Snapshot
 from necropsy.wcl.acquire import DERIVATION_RULE
 
 FORMAT = "necropsy-live-snapshot-v3"
-ENCOUNTER_FORMATS = frozenset({V2_FORMAT, FORMAT})
+ENCOUNTER_FORMATS = frozenset({V2_FORMAT, FORMAT, "necropsy-live-snapshot-v4"})
 """Snapshot formats that carry certified whole-encounter scopes."""
 
 

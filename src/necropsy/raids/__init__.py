@@ -19,11 +19,12 @@ DEFAULT_RAID = NAXXRAMAS
 # gains encounter context.
 ENCOUNTER_CONTEXT_ZONES = frozenset(r.zone_id for r in RAIDS)
 ENCOUNTER_CONTEXT_PARTITIONS = frozenset({1, 2})
-# Raids whose captures take each actor's target stream from the fight's certified
-# encounter-All stream instead of requesting it: the server answered every observed
-# actor target request with exactly the whole-fight data (capture-cost receipt,
-# 2026-10-26). Other raids keep requesting it.
+# Historical v3 allowlist: Naxx actor-target requests matched encounter-All
+# byte for byte (capture-cost receipt, 2026-10-26). V4 has its separate scope below.
 DERIVED_TARGET_ZONES = frozenset({NAXXRAMAS.zone_id})
+# V4 adds guarded source/critical projections and extends target reuse to the
+# other Era raids. Keep the historical v3 allowlist unchanged.
+DERIVED_VIEW_ZONES = ENCOUNTER_CONTEXT_ZONES
 
 
 def raid_for_zone(zone_id: int) -> Raid:

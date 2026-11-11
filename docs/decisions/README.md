@@ -42,3 +42,5 @@ recorded separately in [observed live validation](../live-validation.md). The co
 | [Owned curse context](0022-owned-curse-context.md) | Separate curse policy kind on the shared occurrence engine, with assignment-confirmation prompts |
 | [Unattended credential file](0023-unattended-credential-file.md) | Explicit POSIX-only private file selected by name, never a fallback; atomic durable rotation and export by direct pipe |
 | [Derived target streams](0024-derived-target-streams.md) | Naxx target streams copied from the certified encounter-All pages with explicit provenance, snapshot format 3 |
+| [Derived source and critical streams](0025-derived-source-critical-streams.md) | Exact ordered projections with original ownership evidence, conservative fallback and explicit snapshot format 4 |
+| [Ordered raid capture](0026-ordered-raid-capture.md) | Explicit raid barriers and locked append-only queue migration preserve existing work and quota waits |

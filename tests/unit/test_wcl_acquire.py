@@ -424,8 +424,8 @@ def test_subject_of_the_wrong_faction_is_rejected(tmp_path: Path) -> None:
 
 
 def test_a_revision_change_restarts_the_whole_entry(tmp_path: Path) -> None:
-    # Bundle r4 (verify), entry reuses it; events answer r5 -> restart: bundle r5.
-    fake = FakeWcl(_cohort(6), Player("Haplina"), revisions={"RAlly1": [4, 5]})
+    # Screen and selected bundle r4; events answer r5 -> restart: bundle r5.
+    fake = FakeWcl(_cohort(6), Player("Haplina"), revisions={"RAlly1": [4, 4, 5]})
     boss = _run(tmp_path, fake).bosses[0]
     first = boss.cohort[0]
     assert first.status == "complete" and first.generations == 2
@@ -435,7 +435,7 @@ def test_a_revision_change_restarts_the_whole_entry(tmp_path: Path) -> None:
 
 @pytest.mark.usefixtures("historical_cohort_depth")
 def test_two_revision_changes_fail_the_entry(tmp_path: Path) -> None:
-    fake = FakeWcl(_cohort(7), Player("Haplina"), revisions={"RAlly1": [4, 5, 6]})
+    fake = FakeWcl(_cohort(7), Player("Haplina"), revisions={"RAlly1": [4, 4, 5, 6]})
     boss = _run(tmp_path, fake).bosses[0]
     first = boss.cohort[0]
     assert first.status == "failed" and "twice" in (first.reason or "") and not first.streams
@@ -749,7 +749,9 @@ def test_cross_faction_is_not_applicable_when_number_one_is_own_faction(tmp_path
     boss = _run(tmp_path, fake, cross_faction=True).bosses[0]
     assert boss.cross_faction is None and boss.cross_faction_applicable is False
     assert boss.coverage["complete"], boss.coverage["reasons"]
-    assert _ops(fake, "NecropsyReport") == 6  # subject + 5 deep; no extra ceiling fetch
+    assert _ops(fake, "query NecropsyReport(") == 0  # ranking evidence is deferred to finalization
+    assert _ops(fake, "query NecropsyReportMetadata(") == 6  # subject + 5 deep
+    assert _ops(fake, "query NecropsyReportScreen(") == 5  # no extra ceiling check
 
 
 def test_cross_faction_unknown_or_unreachable_number_one_is_partial(tmp_path: Path) -> None:

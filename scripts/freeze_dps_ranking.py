@@ -26,6 +26,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts import fact_freeze as pages  # noqa: E402
+from scripts.raw_projection import verify_projection  # noqa: E402
 
 # Snapshot format 3 derives actor target streams only for these zones and Era
 # partitions, from an encounter-All request with exactly these fields.
@@ -174,7 +175,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         marker = read("necropsy-snapshot.json")
         require(marker.get("kind") == "necropsy.live-snapshot", "not a live snapshot")
         require(
-            type(marker.get("formatVersion")) is int and marker["formatVersion"] in (1, 2, 3),
+            type(marker.get("formatVersion")) is int and marker["formatVersion"] in (1, 2, 3, 4),
             "unsupported snapshot version",
         )
         code, fid, owner = spec["report"], spec["fight"], spec["actor"]
@@ -416,7 +417,11 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                 identity = proof["identity"]
                 requested = {"actor_id": source, "role": role, "direction": direction}
                 parent_names: list[str] = []
-                if "derivation" in proof:
+                if "derivation" in proof and marker["formatVersion"] == 4:
+                    verify_projection(z, marker, proof, report)
+                    identity = proof["derivation"]["parent"]
+                    requested = {"actor_id": None, "role": "encounter", "direction": "all"}
+                elif "derivation" in proof:
                     # A derived target stream was never requested: certify its parent,
                     # the same fight's encounter-All request, and require its bytes.
                     derivation = proof["derivation"]

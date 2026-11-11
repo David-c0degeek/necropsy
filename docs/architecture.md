@@ -97,13 +97,17 @@ requests bind the server `isCritical` filter in the immutable identity. They
 use separate cache paths and cannot impersonate an actor source/target stream.
 Normal CLI, terminal and desktop acquisition includes encounter context for Era
 Naxxramas/MC/BWL/AQ40 partitions1/2, with separately certified encounter and
-critical scopes. MC/BWL/AQ40 produce live v2. Naxxramas produces live v3: each
-selected actor's target pages are copies of its fight's encounter-All pages,
-with an explicit derivation proof instead of an actor target request identity.
-The copied members are generated, and no target request/cache marker is invented.
+critical scopes. New captures of all four supported Era raids produce live
+v4 when actor-source or critical streams derive from encounter-All; target pages
+retain their byte-identical parent rule. Unknown ownership or damage hit types
+retain requested scopes. Existing verified requests take precedence on resume,
+so a Naxx capture can still use v3; other raids use v4 for target-only reuse.
+Generated members carry explicit parent and
+projection proofs, with no invented request identity or costs. See
+[whole-fight projections](decisions/0025-derived-source-critical-streams.md).
 Other partitions retain actor-only live v1. Earlier
 actor-only Naxxramas archives keep their original analysis: encounter context and
-duty context apply to a Naxxramas archive only when it has certified v2/v3 scopes.
+duty context apply to a Naxxramas archive only when it has certified v2/v3/v4 scopes.
 The low-level acquisition API retains its explicit opt-in for compatibility.
 All live formats use the same report/finalization, page reader, normalizer and output
 pipeline. Extra scopes obey the existing quota/resume limits; incomplete scopes
