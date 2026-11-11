@@ -1,5 +1,14 @@
 # Remaining Naxx work — 2026-10-23
 
+Intake, 2026-11-11: every Naxx configuration is now captured (34, all
+partial). The 27 new archives pass strict read and are in Git LFS under
+`tests/golden/raids/raw/naxx-production-20261111/`
+(`research/production-intake-20261111/`). The follow-up register covers 390
+DPS cells: 208 meet the minimum, 182 need follow-up. Next blockers: the
+missing pet-discovery listing (145 refusals across all classes), Fire Mage
+published-vs-raw arithmetic, and Shaman pet listings. Then policies per
+configuration. No actor registration, policy or cell status follows yet.
+
 Intake, 2026-10-31: six new configurations (Balance DPS Horde, Balance HPS
 Alliance/Horde, Feral DPS Alliance/Horde, Guardian DPS Alliance) pass strict
 read and are in Git LFS under `tests/golden/raids/raw/naxx-production-20261031/`

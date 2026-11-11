@@ -103,6 +103,15 @@ def integer(value: Any, *, positive: bool = False) -> bool:
     return type(value) is int and value >= (1 if positive else 0)
 
 
+def realm_key(name: Any) -> Any:
+    """Realm identity across sources.
+
+    Report catalogs spell a realm without spaces ("PyrewoodVillage"), while
+    leaderboard rows and snapshot participants keep them ("Pyrewood Village").
+    """
+    return name.replace(" ", "") if isinstance(name, str) else name
+
+
 def one(rows: list[Any], reason: str) -> Any:
     require(len(rows) == 1, reason)
     return rows[0]
@@ -256,8 +265,13 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         require(len(actors) == len(catalog), "duplicate catalog identity")
         actor = actors[owner]
         require(
-            (actor.get("type"), actor.get("name"), actor.get("server"), actor.get("subType"))
-            == ("Player", spec["player"], spec["realm"], spec["class"]),
+            (
+                actor.get("type"),
+                actor.get("name"),
+                realm_key(actor.get("server")),
+                actor.get("subType"),
+            )
+            == ("Player", spec["player"], realm_key(spec["realm"]), spec["class"]),
             "wrong owner identity",
         )
         require(

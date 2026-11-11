@@ -151,8 +151,8 @@ def cells(archive: Path) -> list[dict[str, Any]]:
                 a["id"]
                 for a in actors[fight["reportID"]]
                 if a.get("type") == "Player"
-                and (a.get("name"), a.get("server"), a.get("subType"))
-                == (participant["player"], participant["server"], cls)
+                and (a.get("name"), dps.realm_key(a.get("server")), a.get("subType"))
+                == (participant["player"], dps.realm_key(participant["server"]), cls)
             ]
             if len(matches) != 1 or matches[0] not in players:
                 cell["refused"].append(who | {"reason": "no unique selected player stream"})
@@ -166,7 +166,7 @@ def cells(archive: Path) -> list[dict[str, Any]]:
                     r["report"]["code"],
                     r["report"]["fightID"],
                     r["name"],
-                    r["server"]["name"],
+                    (r.get("server") or {}).get("name"),  # hidden rows have none
                     r["class"],
                     r["spec"],
                 )

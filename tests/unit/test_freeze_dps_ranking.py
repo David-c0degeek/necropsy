@@ -19,7 +19,11 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
     def actor(identity: int, kind: str, game_id: int, **fields: Any) -> dict[str, Any]:
         return {"id": identity, "type": kind, "gameID": game_id, **fields}
 
-    me = actor(1, "Player", 101, name="Example", server="Realm", subType="Druid")
+    realm = "Pyrewood Village" if mutation in {"spaced_realm", "other_catalog_realm"} else "Realm"
+    catalog_realm = {"spaced_realm": "PyrewoodVillage", "other_catalog_realm": "Pyrewood"}.get(
+        mutation, realm
+    )
+    me = actor(1, "Player", 101, name="Example", server=catalog_realm, subType="Druid")
     pet = actor(6, "Pet", 8836, petOwner=1)
     fight = {
         "id": 7,
@@ -135,7 +139,7 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
                 "participants": [
                     {
                         "player": "Example",
-                        "server": "Realm",
+                        "server": realm,
                         "spec": "Balance",
                         "encounterID": 51118,
                     }
@@ -162,7 +166,7 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
     row = {
         "report": {"code": "ABC", "fightID": 7},
         "name": "Example",
-        "server": {"name": "Realm"},
+        "server": {"name": realm},
         "class": "Druid",
         "spec": "Balance",
         "duration": 10000,
@@ -193,7 +197,7 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         "fight": 7,
         "actor": 1,
         "player": "Example",
-        "realm": "Realm",
+        "realm": realm,
         "class": "Druid",
         "category": "Balance",
         "role": "balance-dps",
@@ -243,6 +247,18 @@ def test_raw_multiplicity_owned_damage_and_frozen_exclusions(tmp_path: Path) -> 
 def test_insufficient_or_wrong_evidence_is_refused(tmp_path: Path, mutation: str) -> None:
     spec = case(tmp_path, mutation)
     with pytest.raises((ValueError, KeyError)):
+        dps.compute(spec, tmp_path)
+
+
+def test_a_catalog_realm_without_spaces_is_the_same_realm(tmp_path: Path) -> None:
+    spec = case(tmp_path, "spaced_realm")
+    assert spec["realm"] == "Pyrewood Village"
+    assert dps.compute(spec, tmp_path)["totals"]["ranked"] == 240
+
+
+def test_a_different_catalog_realm_is_still_refused(tmp_path: Path) -> None:
+    spec = case(tmp_path, "other_catalog_realm")
+    with pytest.raises(ValueError, match="wrong owner identity"):
         dps.compute(spec, tmp_path)
 
 

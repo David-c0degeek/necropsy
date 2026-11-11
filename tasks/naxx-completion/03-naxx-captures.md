@@ -430,3 +430,15 @@ on-NAS copy is recorded in `unraid-tower` f506efd. Partial only through pet
 ownership and missing subject fights. The regenerated follow-up register lists
 21 of 75 DPS cells needing follow-up. No actor registration, policy or cell
 status follows; 03.5 stays open.
+
+2026-11-11 · 03.5 intake of the remaining configurations · The Naxx stage
+ended with all 34 configurations captured, all partial. The 27 archives not
+yet in the repository pass a whole-archive strict read
+(`research/production-intake-20261111/`) and are in Git LFS. The owner
+approved the later raid stages the same day (runner `approve-stage`), so
+Tower now captures AQ40, BWL and MC. The follow-up register now covers 390 DPS
+cells: 208 meet the minimum, 166 need more comparisons and 16 need admission
+work. A realm-spelling bug in the register and freezer is fixed. Open
+findings: the missing pet-discovery listing (145 refusals), Fire Mage
+arithmetic and Shaman pet listings. No actor registration, policy or cell
+status follows; 03.5 stays open.

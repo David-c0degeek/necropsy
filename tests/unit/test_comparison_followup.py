@@ -23,6 +23,8 @@ def _archive(
     *,
     shared_fight: bool = False,
     extra: list[dict[str, Any]] | None = None,
+    hidden_row: bool = False,
+    spaceless_catalog: bool = False,
 ) -> Path:
     """A minimal capture: per boss the subject plus PLAYERS-1 same-faction comparisons.
 
@@ -35,6 +37,16 @@ def _archive(
     rows: dict[int, list[dict[str, Any]]] = {ENCOUNTER_PLAIN: [], ENCOUNTER_EXCLUDED: []}
     actors: dict[str, list[dict[str, Any]]] = {}
     cohort: dict[int, list[dict[str, Any]]] = {ENCOUNTER_PLAIN: [], ENCOUNTER_EXCLUDED: []}
+    if hidden_row:  # an anonymous published row: WCL omits the server
+        rows[ENCOUNTER_PLAIN].append(
+            {
+                "report": {"code": "a:hidden", "fightID": 1},
+                "name": "Anonymous",
+                "hidden": True,
+                "class": "Druid",
+                "spec": "Balance",
+            }
+        )
 
     def add(
         encounter: int,
@@ -53,7 +65,13 @@ def _archive(
             {"player": name, "server": realm, "encounterID": encounter, "kind": kind}
         )
         actors.setdefault(code, []).append(
-            {"id": actor_id, "type": "Player", "name": name, "server": realm, "subType": "Druid"}
+            {
+                "id": actor_id,
+                "type": "Player",
+                "name": name,
+                "server": realm.replace(" ", "") if spaceless_catalog else realm,
+                "subType": "Druid",
+            }
         )
         streams.append({"role": "player", "report": code, "fight": 1, "actor_id": actor_id})
         rows[encounter].append(
@@ -151,6 +169,31 @@ def test_admitted_comparisons_exclude_the_subject_and_use_the_packaged_minimum(
     assert cell["admitted_distinct_players"] == 3  # the admitted subject never counts
     assert cell["minimum"] == 3 and cell["archive_depth"] == 5
     assert not cell["needs_followup"] and cell["followup"] is None
+
+
+def test_hidden_leaderboard_rows_without_a_server_never_match(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    seen: list[dict[str, Any]] = []
+    _patch(monkeypatch, _admit({"Ally1", "Ally2", "Ally3"}, seen))
+    cell = _cell(followup.cells(_archive(tmp_path, hidden_row=True)), ENCOUNTER_PLAIN)
+    assert cell["admitted_distinct_players"] == 3 and not cell["refused"]
+    assert all(spec["row"] >= 1 for spec in seen if spec["encounter"] == ENCOUNTER_PLAIN)
+
+
+def test_report_catalogs_spell_realms_without_spaces(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _patch(monkeypatch, _admit({"Ally1", "Ally2", "Ally3", "Spaced"}))
+    spaced = {
+        "name": "Spaced",
+        "realm": "Pyrewood Village",
+        "verdict": {"status": "observed", "faction": "Alliance"},
+        "encounter": ENCOUNTER_PLAIN,
+    }
+    found = followup.cells(_archive(tmp_path, extra=[spaced], spaceless_catalog=True))
+    cell = _cell(found, ENCOUNTER_PLAIN)
+    assert cell["admitted_distinct_players"] == 4 and not cell["refused"]
 
 
 def test_too_few_admitted_comparisons_need_more_comparisons(
