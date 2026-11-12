@@ -87,3 +87,10 @@ Open: 130 cells at the five exclusion bosses, 84 below the minimum of 3
 admitted players, 26 with contradictions (mostly Mage Fire). The golden test
 re-proves every row from raw pages. No independent Codex review (owner
 decision 2026-11-12). No engine emission or cell status follows.
+
+2026-11-12 · D027 policies at the five exclusion bosses ·
+`research/dps-exclusion-policies-20261112/` tests each production exclusion
+list per boss through list witnesses (3 to 34 per boss) and adds 87 policies
+(237 Naxx DPS policies in total). Open there: 32 cells below the minimum and 11
+with contradictions (mostly Mage Fire). Golden re-proof of every row and
+witness passes.

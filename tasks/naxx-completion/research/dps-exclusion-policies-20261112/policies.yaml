@@ -1,0 +1,2283 @@
+- rule: naxx-anubrekhan-balance-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 5 admitted of 5 in-scope Anub'Rekhan Balance Druid Alliance rows (5 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    5 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-balance-druid-alliance.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-balance-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 5 admitted of 5 in-scope Gluth Balance Druid Alliance rows (5 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-balance-druid-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-balance-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 5 admitted of 5 in-scope Grand Widow Faerlina Balance Druid Alliance rows (5
+    distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-balance-druid-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-balance-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 5 admitted of 5 in-scope Heigan the Unclean Balance Druid Alliance rows (5 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-balance-druid-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-balance-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 4 admitted of 5 in-scope Instructor Razuvious Balance Druid Alliance rows (4
+    distinct non-subject players, 0 exercising the list); 1 ownership refusals, unknown; 0
+    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-balance-druid-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-anubrekhan-balance-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 4 admitted of 5 in-scope Anub'Rekhan Balance Druid Horde rows (4 distinct non-subject
+    players, 0 exercising the list); 1 ownership refusals, unknown; 0 contradictions; 5 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-balance-druid-horde.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-balance-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 5 admitted of 5 in-scope Gluth Balance Druid Horde rows (5 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-balance-druid-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-balance-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 5 admitted of 5 in-scope Grand Widow Faerlina Balance Druid Horde rows (5 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-balance-druid-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-balance-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 5 admitted of 5 in-scope Heigan the Unclean Balance Druid Horde rows (5 distinct
+    non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-balance-druid-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-balance-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Balance
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 4 admitted of 5 in-scope Instructor Razuvious Balance Druid Horde rows (4 distinct
+    non-subject players, 0 exercising the list); 1 ownership refusals, unknown; 0 contradictions;
+    24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-balance-druid-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-feral-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Feral Druid Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-feral-druid-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-feral-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Feral Druid Alliance rows (3 distinct
+    non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-feral-druid-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-feral-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Feral Druid Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-feral-druid-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-feral-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Feral Druid Alliance rows (3 distinct
+    non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-feral-druid-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-anubrekhan-feral-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Feral Druid Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 5 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-feral-druid-horde.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-feral-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Feral Druid Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-feral-druid-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-feral-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Feral Druid Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-feral-druid-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-feral-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Feral Druid Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-feral-druid-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-feral-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Feral Druid Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-feral-druid-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-guardian-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Guardian Druid Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-guardian-druid-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-guardian-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Guardian Druid Alliance rows (3
+    distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-guardian-druid-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-guardian-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Guardian Druid Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-guardian-druid-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-guardian-druid-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Guardian Druid Alliance rows (3
+    distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-guardian-druid-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-protection-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Protection Warrior Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-protection-warrior-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-protection-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Protection Warrior Horde rows (3
+    distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-protection-warrior-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-protection-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Protection Warrior Horde rows (3
+    distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-protection-warrior-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-protection-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Protection Warrior Horde rows (3
+    distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-protection-warrior-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-assassination-rogue-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Assassination Rogue Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-assassination-rogue-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-assassination-rogue-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Assassination Rogue Horde rows
+    (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-assassination-rogue-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-assassination-rogue-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Assassination Rogue Horde rows (3
+    distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-assassination-rogue-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-anubrekhan-marksmanship-hunter-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Marksmanship Hunter Horde rows (3 distinct
+    non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    5 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-marksmanship-hunter-horde.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-marksmanship-hunter-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Marksmanship Hunter Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-marksmanship-hunter-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-marksmanship-hunter-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Marksmanship Hunter Horde rows
+    (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-marksmanship-hunter-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-marksmanship-hunter-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Marksmanship Hunter Horde rows (3
+    distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-marksmanship-hunter-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-marksmanship-hunter-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Marksmanship Hunter Horde rows
+    (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-marksmanship-hunter-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-anubrekhan-destruction-warlock-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Destruction Warlock Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    5 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-destruction-warlock-horde.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-faerlina-destruction-warlock-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Destruction Warlock Horde rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-destruction-warlock-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-destruction-warlock-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Destruction Warlock Horde rows (3
+    distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-destruction-warlock-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-destruction-warlock-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Destruction Warlock Horde rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-destruction-warlock-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-anubrekhan-shadow-priest-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Shadow Priest Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 5 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-shadow-priest-horde.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-faerlina-shadow-priest-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Shadow Priest Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-shadow-priest-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-shadow-priest-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Shadow Priest Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-shadow-priest-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-gluth-protection-paladin-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 6
+    category: Protection
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Protection Paladin Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-protection-paladin-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-protection-paladin-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 6
+    category: Protection
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Protection Paladin Alliance rows
+    (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-protection-paladin-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-protection-paladin-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 6
+    category: Protection
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Protection Paladin Alliance rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-protection-paladin-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-anubrekhan-guardian-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Guardian Druid Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 5 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-guardian-druid-horde.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-guardian-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Guardian Druid Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-guardian-druid-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-guardian-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Guardian Druid Horde rows (3 distinct
+    non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-guardian-druid-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-guardian-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Guardian Druid Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-guardian-druid-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-guardian-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Guardian Druid Horde rows (3 distinct
+    non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-guardian-druid-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-fury-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Fury Warrior Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-fury-warrior-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-heigan-fury-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Fury Warrior Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-fury-warrior-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-fury-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Fury Warrior Horde rows (3 distinct
+    non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-fury-warrior-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-protection-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Protection Warrior Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-protection-warrior-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-protection-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Protection Warrior Alliance rows
+    (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-protection-warrior-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-protection-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Protection Warrior Alliance rows
+    (3 distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-protection-warrior-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-gluth-marksmanship-hunter-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Marksmanship Hunter Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    3 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-marksmanship-hunter-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-marksmanship-hunter-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Marksmanship Hunter Alliance rows
+    (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-marksmanship-hunter-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-marksmanship-hunter-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Marksmanship Hunter Alliance rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-marksmanship-hunter-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-marksmanship-hunter-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 3
+    category: Marksmanship
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Marksmanship Hunter Alliance rows
+    (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-marksmanship-hunter-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-anubrekhan-fury-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Fury Warrior Alliance rows (3 distinct non-subject
+    players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 5 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-fury-warrior-alliance.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-fury-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Fury Warrior Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-fury-warrior-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-fury-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Fury Warrior Alliance rows (3 distinct
+    non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-fury-warrior-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-fury-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Fury Warrior Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-fury-warrior-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-gluth-retribution-paladin-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 6
+    category: Retribution
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Retribution Paladin Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    3 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-retribution-paladin-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-retribution-paladin-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 6
+    category: Retribution
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Retribution Paladin Alliance rows
+    (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-retribution-paladin-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-retribution-paladin-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 6
+    category: Retribution
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Retribution Paladin Alliance rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-retribution-paladin-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-anubrekhan-assassination-rogue-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Assassination Rogue Alliance rows (3 distinct
+    non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    5 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-assassination-rogue-alliance.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-assassination-rogue-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Assassination Rogue Alliance rows (3 distinct
+    non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    3 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-assassination-rogue-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-assassination-rogue-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Assassination Rogue Alliance rows
+    (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-assassination-rogue-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-razuvious-assassination-rogue-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Assassination Rogue Alliance rows
+    (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-assassination-rogue-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-shadow-priest-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Shadow Priest Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-shadow-priest-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-shadow-priest-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Shadow Priest Alliance rows (3
+    distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-shadow-priest-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-shadow-priest-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Shadow Priest Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-shadow-priest-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-shadow-priest-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Shadow Priest Alliance rows (3
+    distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-shadow-priest-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-destruction-warlock-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Destruction Warlock Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    3 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-destruction-warlock-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-destruction-warlock-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Destruction Warlock Alliance rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-destruction-warlock-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-destruction-warlock-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Destruction Warlock Alliance rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-destruction-warlock-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-destruction-warlock-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Destruction Warlock Alliance rows
+    (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
+    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-destruction-warlock-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-frost-mage-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Frost Mage Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-frost-mage-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-heigan-frost-mage-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Frost Mage Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-frost-mage-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-frost-mage-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Frost Mage Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-frost-mage-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-anubrekhan-frost-mage-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Frost Mage Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 5 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-frost-mage-alliance.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-frost-mage-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Frost Mage Alliance rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-frost-mage-alliance.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-frost-mage-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Frost Mage Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    34 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-frost-mage-alliance.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-frost-mage-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Frost Mage Alliance rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-frost-mage-alliance.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-frost-mage-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Frost Mage Alliance rows (3 distinct
+    non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    24 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-frost-mage-alliance.json
+  tested_exclusions:
+  - 16803

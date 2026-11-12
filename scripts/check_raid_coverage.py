@@ -18,7 +18,7 @@ import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -223,6 +223,8 @@ def content_problems(cell: CoverageCell) -> list[str]:
 
 VALIDATED_BASES = frozenset({"empirical"})
 NO_PRODUCTION_EXCLUSIONS = "encounter-has-no-production-ranking-exclusions"
+TESTED_PRODUCTION_EXCLUSIONS = "production-ranking-exclusions-exercised"
+"""D027: the boss's exact production exclusion list was exercised by matched rows."""
 # Each metric declares exactly the conditions its raw explanation rests on; a
 # metric without a declared set has no validated policy shape.
 POLICY_CONDITIONS = {
@@ -246,14 +248,29 @@ POLICY_CONDITIONS = {
         }
     ),
 }
+EXCLUSION_POLICY_CONDITIONS = (POLICY_CONDITIONS["dps"] - {NO_PRODUCTION_EXCLUSIONS}) | {
+    TESTED_PRODUCTION_EXCLUSIONS
+}
+"""The DPS shape at a boss with production ranking exclusions (D027)."""
 POLICY_FIELDS = frozenset(
     {"rule", "basis", "scope", "formula", "conditions", "bound", "validated", "evidence"}
 )
+EXCLUSION_POLICY_FIELDS = POLICY_FIELDS | {"tested_exclusions"}
+
+
+def _exclusion_ids(encounter: dict[str, Any] | None) -> list[int] | None:
+    if encounter is None:
+        return None
+    return sorted(int(x["game_id"]) for x in encounter.get("ranking_exclusions") or ())
 
 
 def _policy_scope(policy: object) -> tuple[int, int, str, str, str]:
     """A metric policy's exact cell scope; anything malformed is refused."""
-    if not isinstance(policy, dict) or set(policy) != POLICY_FIELDS:
+    tested = isinstance(policy, dict) and TESTED_PRODUCTION_EXCLUSIONS in (
+        policy.get("conditions") or ()
+    )
+    fields = EXCLUSION_POLICY_FIELDS if tested else POLICY_FIELDS
+    if not isinstance(policy, dict) or set(policy) != fields:
         raise ValueError("ranking metric policy fields are incomplete or unknown")
     if policy["basis"] not in VALIDATED_BASES:
         raise ValueError(f"{policy['rule']}: basis {policy['basis']!r} is not validated")
@@ -266,6 +283,16 @@ def _policy_scope(policy: object) -> tuple[int, int, str, str, str]:
     if not all(isinstance(scope[k], str) for k in keys[2:]):
         raise ValueError(f"{policy['rule']}: scope names must be strings")
     declared = POLICY_CONDITIONS.get(scope["metric"])
+    if tested:
+        listed = policy["tested_exclusions"]
+        if scope["metric"] != "dps" or not (
+            isinstance(listed, list)
+            and listed
+            and all(type(x) is int for x in listed)
+            and listed == sorted(set(listed))
+        ):
+            raise ValueError(f"{policy['rule']}: tested exclusions must be sorted game IDs")
+        declared = EXCLUSION_POLICY_CONDITIONS
     if declared is None:
         raise ValueError(f"{policy['rule']}: no policy shape for metric {scope['metric']!r}")
     conditions = policy["conditions"]
@@ -311,6 +338,16 @@ def ranking_problem(cell: CoverageCell) -> str | None:
                 return (
                     f"{policy['rule']}: encounter {cell.encounter_id} has production ranking "
                     "exclusions that its evidence never tested"
+                )
+        if TESTED_PRODUCTION_EXCLUSIONS in policy["conditions"]:
+            encounter = next(
+                (e for e in zone.get("encounters") or () if e.get("id") == cell.encounter_id),
+                None,
+            )
+            if _exclusion_ids(encounter) != policy["tested_exclusions"]:
+                return (
+                    f"{policy['rule']}: production ranking exclusions differ from the list "
+                    "its evidence tested"
                 )
         return None
     return "ranking policy remains unvalidated"

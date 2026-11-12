@@ -1,0 +1,1327 @@
+{
+  "version": 1,
+  "rule": "naxx-razuvious-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51113,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "tested_exclusions": [
+    16803
+  ],
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KwcMBgAmf1DdxRVk-19-38",
+      "purpose": "policy-scope",
+      "report": "KwcMBgAmf1DdxRVk",
+      "fight": 19,
+      "actor": 38,
+      "player": "Dafunc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 50925,
+      "published": "1614.98",
+      "totals": {
+        "raw": 82243,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 82243
+      },
+      "residual": "41/14550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "293e3d01ced5dcc9f760ec7ac6fb67ec72c25e185131a50e1e377f0bbf69c1b5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KwcMBgAmf1DdxRVk-19-41",
+      "purpose": "policy-scope",
+      "report": "KwcMBgAmf1DdxRVk",
+      "fight": 19,
+      "actor": 41,
+      "player": "Plasmavoid",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 10,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 50925,
+      "published": "1319",
+      "totals": {
+        "raw": 67170,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67170
+      },
+      "residual": "-1/679",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 210,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "293e3d01ced5dcc9f760ec7ac6fb67ec72c25e185131a50e1e377f0bbf69c1b5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ytcz8gpHNL2fn6BJ-23-8",
+      "purpose": "policy-scope",
+      "report": "ytcz8gpHNL2fn6BJ",
+      "fight": 23,
+      "actor": 8,
+      "player": "Secundus",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 20,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 53495,
+      "published": "1219.98",
+      "totals": {
+        "raw": 65263,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 65263
+      },
+      "residual": "1699/534950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 115,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "82840b026a0ca85c9410edb7054d5bf1ab1b7b04b74f73885a44bfcfb9cc570a",
+            "85973893ae781427895d61e31d9903eed2e22a6c297becc2015617313740d670"
+          ]
+        },
+        {
+          "pet": 242,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "82840b026a0ca85c9410edb7054d5bf1ab1b7b04b74f73885a44bfcfb9cc570a",
+            "85973893ae781427895d61e31d9903eed2e22a6c297becc2015617313740d670"
+          ]
+        },
+        {
+          "pet": 259,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "82840b026a0ca85c9410edb7054d5bf1ab1b7b04b74f73885a44bfcfb9cc570a",
+            "85973893ae781427895d61e31d9903eed2e22a6c297becc2015617313740d670"
+          ]
+        },
+        {
+          "pet": 292,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "82840b026a0ca85c9410edb7054d5bf1ab1b7b04b74f73885a44bfcfb9cc570a",
+            "85973893ae781427895d61e31d9903eed2e22a6c297becc2015617313740d670"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "NrMFABf4pvZVh3nt-43-49",
+      "purpose": "list-witness",
+      "report": "NrMFABf4pvZVh3nt",
+      "fight": 43,
+      "actor": 49,
+      "player": "Mckitty",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 86419,
+      "published": "1466.45",
+      "totals": {
+        "raw": 128398,
+        "self": 1024,
+        "excluded": 645,
+        "ranked": 126729
+      },
+      "residual": "-2851/1728380",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 84,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8d8e3a6f080495cc9d8c7f2010c0ef265677c14447a23b943a65cc20070711de",
+            "f77d4c68bf17c5f73e4ececf1b7c5bcf18aaa9b9136c8f2424992391093e864a"
+          ]
+        },
+        {
+          "pet": 136,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8d8e3a6f080495cc9d8c7f2010c0ef265677c14447a23b943a65cc20070711de",
+            "f77d4c68bf17c5f73e4ececf1b7c5bcf18aaa9b9136c8f2424992391093e864a"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+        "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+      }
+    },
+    {
+      "id": "q7CT3RhLfyF9bakn-13-32",
+      "purpose": "list-witness",
+      "report": "q7CT3RhLfyF9bakn",
+      "fight": 13,
+      "actor": 32,
+      "player": "Mcbear",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 59167,
+      "published": "1385.86",
+      "totals": {
+        "raw": 82790,
+        "self": 656,
+        "excluded": 137,
+        "ranked": 81997
+      },
+      "residual": "-8931/2958350",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "dd22fa160859a6e658ddf2ac48ea82775d2c468f1142fe7c6e3078be25952858",
+            "4aa4070062a5ac027a364aaac36050c77f0103e582d1b112c7c8604e886a2dc0"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+        "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+      }
+    },
+    {
+      "id": "LyNFAqgGcvrp2Bx8-41-14",
+      "purpose": "list-witness",
+      "report": "LyNFAqgGcvrp2Bx8",
+      "fight": 41,
+      "actor": 14,
+      "player": "Staminamaen",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 67162,
+      "published": "805.515",
+      "totals": {
+        "raw": 54375,
+        "self": 0,
+        "excluded": 275,
+        "ranked": 54100
+      },
+      "residual": "157/6716200",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+        "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+      }
+    },
+    {
+      "id": "2yr8PtYNJ3cqxkd9-6-36",
+      "purpose": "list-witness",
+      "report": "2yr8PtYNJ3cqxkd9",
+      "fight": 6,
+      "actor": 36,
+      "player": "Dates",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 7,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 64846,
+      "published": "1680.55",
+      "totals": {
+        "raw": 112001,
+        "self": 0,
+        "excluded": 3024,
+        "ranked": 108977
+      },
+      "residual": "547/648460",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+        "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+      }
+    },
+    {
+      "id": "w4VpKqfM9d86jcD3-34-42",
+      "purpose": "list-witness",
+      "report": "w4VpKqfM9d86jcD3",
+      "fight": 34,
+      "actor": 42,
+      "player": "Bora",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 4,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 63291,
+      "published": "1825.68",
+      "totals": {
+        "raw": 116190,
+        "self": 0,
+        "excluded": 641,
+        "ranked": 115549
+      },
+      "residual": "-166/93075",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 188,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e618b56fbb3a613817e53f6944c9a589ec4616c98e2acb0f903fc0ce81601fed",
+            "751fcf7e245fb74933ba261f47a477c4abeb5570b06ccc486b551f02004bea49"
+          ]
+        },
+        {
+          "pet": 252,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e618b56fbb3a613817e53f6944c9a589ec4616c98e2acb0f903fc0ce81601fed",
+            "751fcf7e245fb74933ba261f47a477c4abeb5570b06ccc486b551f02004bea49"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+        "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+      }
+    },
+    {
+      "id": "yahw7T8XVKNdqAn6-25-31",
+      "purpose": "list-witness",
+      "report": "yahw7T8XVKNdqAn6",
+      "fight": 25,
+      "actor": 31,
+      "player": "Convict",
+      "realm": "Gandling",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 9,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 47519,
+      "published": "1918.62",
+      "totals": {
+        "raw": 94262,
+        "self": 0,
+        "excluded": 3091,
+        "ranked": 91171
+      },
+      "residual": "4811/2375950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9dbda4b73b227fbaca10cf84cd94be1280b4e8cb155eb6fe69b09bc180edef91",
+            "bd3fe133051e8843cab5ab1634b42f465b17d5d6825f25142928abf69851eaa5"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+        "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+      }
+    },
+    {
+      "id": "9FPHbQxWmtNCLV4d-19-21",
+      "purpose": "list-witness",
+      "report": "9FPHbQxWmtNCLV4d",
+      "fight": 19,
+      "actor": 21,
+      "player": "Wwrrdd",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 14,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        52
+      ],
+      "duration_ms": 64421,
+      "published": "1179.06",
+      "totals": {
+        "raw": 84446,
+        "self": 0,
+        "excluded": 8490,
+        "ranked": 75956
+      },
+      "residual": "-11213/3221050",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 153,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fb40f1b805a1635538032fc4fceb0345f0aaeed153a867461c792ed180571a6b",
+            "0c8f1c68951dd620d17e7d5278666db948e8d6235ae4a24e04089f0ead5c2ff9"
+          ]
+        },
+        {
+          "pet": 215,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fb40f1b805a1635538032fc4fceb0345f0aaeed153a867461c792ed180571a6b",
+            "0c8f1c68951dd620d17e7d5278666db948e8d6235ae4a24e04089f0ead5c2ff9"
+          ]
+        },
+        {
+          "pet": 238,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fb40f1b805a1635538032fc4fceb0345f0aaeed153a867461c792ed180571a6b",
+            "0c8f1c68951dd620d17e7d5278666db948e8d6235ae4a24e04089f0ead5c2ff9"
+          ]
+        },
+        {
+          "pet": 295,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fb40f1b805a1635538032fc4fceb0345f0aaeed153a867461c792ed180571a6b",
+            "0c8f1c68951dd620d17e7d5278666db948e8d6235ae4a24e04089f0ead5c2ff9"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "9FQTa4bvmtWDP1Vk-14-64",
+      "purpose": "list-witness",
+      "report": "9FQTa4bvmtWDP1Vk",
+      "fight": 14,
+      "actor": 64,
+      "player": "Huntermain",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 8,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        65
+      ],
+      "duration_ms": 56152,
+      "published": "1242.57",
+      "totals": {
+        "raw": 72719,
+        "self": 0,
+        "excluded": 2946,
+        "ranked": 69773
+      },
+      "residual": "2617/701900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 69,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f7589bd394b142ee089d96063b5995ead3faa16a1c694804395271d36b014c6b",
+            "533141ff0d02f397759d670241cd037d447a7e0f66d07ae3d6da058e47bc311f"
+          ]
+        },
+        {
+          "pet": 284,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f7589bd394b142ee089d96063b5995ead3faa16a1c694804395271d36b014c6b",
+            "533141ff0d02f397759d670241cd037d447a7e0f66d07ae3d6da058e47bc311f"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "TnXmgPvCcN8q6Yw7-9-23",
+      "purpose": "list-witness",
+      "report": "TnXmgPvCcN8q6Yw7",
+      "fight": 9,
+      "actor": 23,
+      "player": "Jeyt",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 7,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        62
+      ],
+      "duration_ms": 51067,
+      "published": "1244.48",
+      "totals": {
+        "raw": 66659,
+        "self": 0,
+        "excluded": 3107,
+        "ranked": 63552
+      },
+      "residual": "3496/1276675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 63,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7f896cbacb418a87a962ec538ee1f0ef1e723965c4b54cdc2f672d67b1a7b3b8",
+            "c136ee5537f8686423b00558ffac32004d80988367e330b5c62bc9fbb1f14057"
+          ]
+        },
+        {
+          "pet": 194,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7f896cbacb418a87a962ec538ee1f0ef1e723965c4b54cdc2f672d67b1a7b3b8",
+            "c136ee5537f8686423b00558ffac32004d80988367e330b5c62bc9fbb1f14057"
+          ]
+        },
+        {
+          "pet": 262,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7f896cbacb418a87a962ec538ee1f0ef1e723965c4b54cdc2f672d67b1a7b3b8",
+            "c136ee5537f8686423b00558ffac32004d80988367e330b5c62bc9fbb1f14057"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "j8NWTLwzRm61YAB2-23-9",
+      "purpose": "list-witness",
+      "report": "j8NWTLwzRm61YAB2",
+      "fight": 23,
+      "actor": 9,
+      "player": "Gartog",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 21,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 64991,
+      "published": "410.903",
+      "totals": {
+        "raw": 27949,
+        "self": 0,
+        "excluded": 1244,
+        "ranked": 26705
+      },
+      "residual": "3127/64991000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39b5f5c42e825d885d891476716a2c69f419119b8a6b328137b38908dd7c56fc",
+            "85322949d3e9d30b180681385542e9b665d0687a0dfd696a231b3daed644a667"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+        "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+      }
+    },
+    {
+      "id": "3dqnzGTgB2fpvV1h-13-33",
+      "purpose": "list-witness",
+      "report": "3dqnzGTgB2fpvV1h",
+      "fight": 13,
+      "actor": 33,
+      "player": "Vague",
+      "realm": "Anathema",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 43279,
+      "published": "2723.19",
+      "totals": {
+        "raw": 118994,
+        "self": 0,
+        "excluded": 1137,
+        "ranked": 117857
+      },
+      "residual": "5999/4327900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 125,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f2e36a43cba86ea1ed6fd29e176faa2fde1198a8a697460f2789130f0aa89ab4",
+            "cb7c84ce95d1b604d35febe2731223295ba6967060f5672118a0aadb4d05e710"
+          ]
+        },
+        {
+          "pet": 153,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f2e36a43cba86ea1ed6fd29e176faa2fde1198a8a697460f2789130f0aa89ab4",
+            "cb7c84ce95d1b604d35febe2731223295ba6967060f5672118a0aadb4d05e710"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+        "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+      }
+    },
+    {
+      "id": "A1jhG8NmRzPL3V9k-28-75",
+      "purpose": "list-witness",
+      "report": "A1jhG8NmRzPL3V9k",
+      "fight": 28,
+      "actor": 75,
+      "player": "Ashbringer",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        131
+      ],
+      "duration_ms": 40133,
+      "published": "2686.37",
+      "totals": {
+        "raw": 109787,
+        "self": 0,
+        "excluded": 1975,
+        "ranked": 107812
+      },
+      "residual": "-8721/4013300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 277,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a5e374239f6ac704c43341c3b5eb15c52d4e7226a2d5ca6ce8251de4021da649",
+            "3d4cb4bcfb63dd159c9daa5255bd26d1ed65ea8cf18dd443f0b3ac527ba506d0"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+        "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+      }
+    },
+    {
+      "id": "xg7atNyMLXhwnrmv-19-123",
+      "purpose": "list-witness",
+      "report": "xg7atNyMLXhwnrmv",
+      "fight": 19,
+      "actor": 123,
+      "player": "Honeymoo",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        170
+      ],
+      "duration_ms": 56299,
+      "published": "2689.05",
+      "totals": {
+        "raw": 155405,
+        "self": 936,
+        "excluded": 3078,
+        "ranked": 151391
+      },
+      "residual": "3481/1125980",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5a0d737b9f4cda210136e38fbc45b943ead993f9fd2bbce67cd650519e580fb9",
+            "a1a127d58f19778a09d7a1ee86d29e38db33186299b53a989ab78b77ac13a4b4"
+          ]
+        },
+        {
+          "pet": 150,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5a0d737b9f4cda210136e38fbc45b943ead993f9fd2bbce67cd650519e580fb9",
+            "a1a127d58f19778a09d7a1ee86d29e38db33186299b53a989ab78b77ac13a4b4"
+          ]
+        },
+        {
+          "pet": 236,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5a0d737b9f4cda210136e38fbc45b943ead993f9fd2bbce67cd650519e580fb9",
+            "a1a127d58f19778a09d7a1ee86d29e38db33186299b53a989ab78b77ac13a4b4"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+        "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+      }
+    },
+    {
+      "id": "nLCdQwxWHZMYrcVj-47-38",
+      "purpose": "list-witness",
+      "report": "nLCdQwxWHZMYrcVj",
+      "fight": 47,
+      "actor": 38,
+      "player": "Noamí",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 5,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        165
+      ],
+      "duration_ms": 55974,
+      "published": "1779.11",
+      "totals": {
+        "raw": 100483,
+        "self": 0,
+        "excluded": 899,
+        "ranked": 99584
+      },
+      "residual": "4843/2798700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 150,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "34066f334bda80d14e7aa0b5bd7bb3f144df93ee8dfe233bba420e33e4221703",
+            "7c8d43456ad43e2802cbc95d04a373336127489510cf0b6ede4236d1f056986a"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+        "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+      }
+    },
+    {
+      "id": "NgC7L4FcvaVpKQXb-34-14",
+      "purpose": "list-witness",
+      "report": "NgC7L4FcvaVpKQXb",
+      "fight": 34,
+      "actor": 14,
+      "player": "Clicker",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        23
+      ],
+      "duration_ms": 50390,
+      "published": "1347.15",
+      "totals": {
+        "raw": 78267,
+        "self": 0,
+        "excluded": 10384,
+        "ranked": 67883
+      },
+      "residual": "223/100780",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 57,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "754417191e7ef05dcfce6a3bee7c69d283dba43575e75a39d615278ebdd5694a",
+            "aed0126ee01b0169ed4897c2b7c449c0b91af04266747049d47ede48a2c0415c"
+          ]
+        },
+        {
+          "pet": 140,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "754417191e7ef05dcfce6a3bee7c69d283dba43575e75a39d615278ebdd5694a",
+            "aed0126ee01b0169ed4897c2b7c449c0b91af04266747049d47ede48a2c0415c"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+        "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+      }
+    },
+    {
+      "id": "c3TpB2HmtXLGgx1v-14-13",
+      "purpose": "list-witness",
+      "report": "c3TpB2HmtXLGgx1v",
+      "fight": 14,
+      "actor": 13,
+      "player": "Xert",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        22
+      ],
+      "duration_ms": 57269,
+      "published": "1318.03",
+      "totals": {
+        "raw": 84875,
+        "self": 0,
+        "excluded": 9393,
+        "ranked": 75482
+      },
+      "residual": "-26007/5726900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 170,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ec8ebb3538c62f6deeefb36bf2caa3790896094d1116466eb9a4799d9669f7ee",
+            "b235b5cec0d111d7f62f7f68c10b2443f882a67cf959a60f296d27ed80cafe8d"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+        "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+      }
+    },
+    {
+      "id": "FdVDQWzmRJf2bLY8-29-45",
+      "purpose": "list-witness",
+      "report": "FdVDQWzmRJf2bLY8",
+      "fight": 29,
+      "actor": 45,
+      "player": "Zurzur",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        177
+      ],
+      "duration_ms": 42592,
+      "published": "2731.57",
+      "totals": {
+        "raw": 118168,
+        "self": 0,
+        "excluded": 1825,
+        "ranked": 116343
+      },
+      "residual": "-23/33275",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5ef220750235ff73fa0fdc0d56327a243654e955d91898a47aa5d92437e8e547",
+            "488357c00cac01149cf7869d5854db334749dba468be42c84bf4a32ed27f2276"
+          ]
+        },
+        {
+          "pet": 165,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5ef220750235ff73fa0fdc0d56327a243654e955d91898a47aa5d92437e8e547",
+            "488357c00cac01149cf7869d5854db334749dba468be42c84bf4a32ed27f2276"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+        "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+      }
+    },
+    {
+      "id": "YKCpdmH1wPjckZQM-31-28",
+      "purpose": "list-witness",
+      "report": "YKCpdmH1wPjckZQM",
+      "fight": 31,
+      "actor": 28,
+      "player": "Voomlxz",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 4,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        59
+      ],
+      "duration_ms": 43119,
+      "published": "2678.87",
+      "totals": {
+        "raw": 115648,
+        "self": 0,
+        "excluded": 138,
+        "ranked": 115510
+      },
+      "residual": "-19553/4311900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 125,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "796e3a9553e4be267dbff405c86d31e8b80d0c68f0ffb911881687c7c62d268b"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+        "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+      }
+    },
+    {
+      "id": "HnKjaFmQ6b2gtAy9-33-41",
+      "purpose": "list-witness",
+      "report": "HnKjaFmQ6b2gtAy9",
+      "fight": 33,
+      "actor": 41,
+      "player": "Derillian",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 53748,
+      "published": "1202.15",
+      "totals": {
+        "raw": 65538,
+        "self": 565,
+        "excluded": 360,
+        "ranked": 64613
+      },
+      "residual": "-791/268740",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 102,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f730c6c5fa490a2f3c9e1d07cc06a5c84d1eade351c47c3b40822f4ff94252f1",
+            "a5313326794af3eebeaa20084a1af607bf1f77d57770b45e378bf90abd712344"
+          ]
+        },
+        {
+          "pet": 140,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f730c6c5fa490a2f3c9e1d07cc06a5c84d1eade351c47c3b40822f4ff94252f1",
+            "a5313326794af3eebeaa20084a1af607bf1f77d57770b45e378bf90abd712344"
+          ]
+        },
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f730c6c5fa490a2f3c9e1d07cc06a5c84d1eade351c47c3b40822f4ff94252f1",
+            "a5313326794af3eebeaa20084a1af607bf1f77d57770b45e378bf90abd712344"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+        "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+      }
+    },
+    {
+      "id": "WdZXQxfBbAPtjn4g-47-44",
+      "purpose": "list-witness",
+      "report": "WdZXQxfBbAPtjn4g",
+      "fight": 47,
+      "actor": 44,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 58490,
+      "published": "1015.76",
+      "totals": {
+        "raw": 64366,
+        "self": 1324,
+        "excluded": 3630,
+        "ranked": 59412
+      },
+      "residual": "494/146225",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 64,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a2ca9d20b4ca4666a0b7aa694b35722323dfd5f6bc13625c50ba9d4d24b0a181",
+            "e08952022537305391fd4ce8d85a8bb84fe0d3da1c6cedbe53eb9d0bde8b74d0"
+          ]
+        },
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a2ca9d20b4ca4666a0b7aa694b35722323dfd5f6bc13625c50ba9d4d24b0a181",
+            "e08952022537305391fd4ce8d85a8bb84fe0d3da1c6cedbe53eb9d0bde8b74d0"
+          ]
+        },
+        {
+          "pet": 84,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a2ca9d20b4ca4666a0b7aa694b35722323dfd5f6bc13625c50ba9d4d24b0a181",
+            "e08952022537305391fd4ce8d85a8bb84fe0d3da1c6cedbe53eb9d0bde8b74d0"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+        "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+      }
+    },
+    {
+      "id": "JyBhLzMdXrpRZPt7-32-50",
+      "purpose": "list-witness",
+      "report": "JyBhLzMdXrpRZPt7",
+      "fight": 32,
+      "actor": 50,
+      "player": "Tusqaiprime",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        158
+      ],
+      "duration_ms": 56172,
+      "published": "2079.04",
+      "totals": {
+        "raw": 119174,
+        "self": 519,
+        "excluded": 1871,
+        "ranked": 116784
+      },
+      "residual": "344/117025",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9cf8b3059a21ab7abf68d4ad0329460b44e0ea974caef6b9c9451cbaadf95930",
+            "d9a6de14f41093cd21d2b42858c893c7dcda2eb8a67a0803c396e9d5e35bbf12"
+          ]
+        },
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9cf8b3059a21ab7abf68d4ad0329460b44e0ea974caef6b9c9451cbaadf95930",
+            "d9a6de14f41093cd21d2b42858c893c7dcda2eb8a67a0803c396e9d5e35bbf12"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "NcvAG9zYpPaRtH3F-21-37",
+      "purpose": "list-witness",
+      "report": "NcvAG9zYpPaRtH3F",
+      "fight": 21,
+      "actor": 37,
+      "player": "Yamazaki",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [
+        153
+      ],
+      "duration_ms": 39586,
+      "published": "1982.19",
+      "totals": {
+        "raw": 81632,
+        "self": 0,
+        "excluded": 3165,
+        "ranked": 78467
+      },
+      "residual": "1333/1979300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "05b573186b4a3d56835ce4a42473d2a7810f34e48a1b863150299d0db7f7ccc0"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "d1tKNHYmpMDVGq3g-30-49",
+      "purpose": "list-witness",
+      "report": "d1tKNHYmpMDVGq3g",
+      "fight": 30,
+      "actor": 49,
+      "player": "Riffriff",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 102480,
+      "published": "721.643",
+      "totals": {
+        "raw": 76632,
+        "self": 1104,
+        "excluded": 1574,
+        "ranked": 73954
+      },
+      "residual": "317/1281000",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+        "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+      }
+    },
+    {
+      "id": "V1FjzgHAvh93NCwQ-29-18",
+      "purpose": "list-witness",
+      "report": "V1FjzgHAvh93NCwQ",
+      "fight": 29,
+      "actor": 18,
+      "player": "Koldskaal",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16803
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 61093,
+      "published": "1387.13",
+      "totals": {
+        "raw": 88281,
+        "self": 0,
+        "excluded": 3537,
+        "ranked": 84744
+      },
+      "residual": "6691/6109300",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+        "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+      }
+    }
+  ]
+}

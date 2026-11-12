@@ -1,0 +1,359 @@
+{
+  "version": 1,
+  "rule": "naxx-gluth-fury-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51108,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+    "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+  },
+  "tested_exclusions": [
+    16360
+  ],
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "A7GFzRPwTHBmthfV-31-1",
+      "purpose": "policy-scope",
+      "report": "A7GFzRPwTHBmthfV",
+      "fight": 31,
+      "actor": 1,
+      "player": "Stärkish",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 15,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 41677,
+      "published": "2466.56",
+      "totals": {
+        "raw": 102799,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 102799
+      },
+      "residual": "4472/1041925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92884eeaed8ef25524ef0f9a95a06ca8908b6ebaa575564bed3dfa2c9299dc33"
+          ]
+        },
+        {
+          "pet": 153,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92884eeaed8ef25524ef0f9a95a06ca8908b6ebaa575564bed3dfa2c9299dc33"
+          ]
+        },
+        {
+          "pet": 205,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92884eeaed8ef25524ef0f9a95a06ca8908b6ebaa575564bed3dfa2c9299dc33"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bVmK3FLYDzagvT6w-26-1",
+      "purpose": "policy-scope",
+      "report": "bVmK3FLYDzagvT6w",
+      "fight": 26,
+      "actor": 1,
+      "player": "Kippah",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 39662,
+      "published": "2543.64",
+      "totals": {
+        "raw": 100886,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 100886
+      },
+      "residual": "1879/495775",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 93,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2f38eeacb05ac339415713de67f20c74938c201d2dfef4f81f85c02f0be26d1b"
+          ]
+        },
+        {
+          "pet": 167,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2f38eeacb05ac339415713de67f20c74938c201d2dfef4f81f85c02f0be26d1b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "y4aKPLqd1HfVFQp9-34-20",
+      "purpose": "policy-scope",
+      "report": "y4aKPLqd1HfVFQp9",
+      "fight": 34,
+      "actor": 20,
+      "player": "Pungmassage",
+      "realm": "Noggenfogger",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 17,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 40745,
+      "published": "2463.62",
+      "totals": {
+        "raw": 100380,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 100380
+      },
+      "residual": "-1969/407450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 104,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ee683dd520127ce871a2aaa0c6d651eed7732e53569aae6766cec3374808de2d"
+          ]
+        },
+        {
+          "pet": 169,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ee683dd520127ce871a2aaa0c6d651eed7732e53569aae6766cec3374808de2d"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "q1ctMgA2YjVBJv7n-69-131",
+      "purpose": "list-witness",
+      "report": "q1ctMgA2YjVBJv7n",
+      "fight": 69,
+      "actor": 131,
+      "player": "天可汗",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 93917,
+      "published": "2046.94",
+      "totals": {
+        "raw": 199126,
+        "self": 0,
+        "excluded": 6884,
+        "ranked": 192242
+      },
+      "residual": "-1221/247150",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "q1ctMgA2YjVBJv7n-69-143",
+      "purpose": "list-witness",
+      "report": "q1ctMgA2YjVBJv7n",
+      "fight": 69,
+      "actor": 143,
+      "player": "白浅灬",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 93917,
+      "published": "2144.29",
+      "totals": {
+        "raw": 214900,
+        "self": 0,
+        "excluded": 13515,
+        "ranked": 201385
+      },
+      "residual": "-28393/9391700",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "KhQaJt8fzTbFHgkR-49-26",
+      "purpose": "list-witness",
+      "report": "KhQaJt8fzTbFHgkR",
+      "fight": 49,
+      "actor": 26,
+      "player": "Bushmilfs",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [
+        207
+      ],
+      "duration_ms": 48234,
+      "published": "998.715",
+      "totals": {
+        "raw": 54542,
+        "self": 869,
+        "excluded": 5501,
+        "ranked": 48172
+      },
+      "residual": "-1931/4823400",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 93,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 132,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 250,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 267,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
+        "sha256": "750c3d91e175728e632f7b185f8cf3e078ad780c9fb94f7a0e43f0777e97f9d2"
+      }
+    }
+  ]
+}

@@ -20,7 +20,12 @@ import pytest
 
 from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.rules import load_rules
-from scripts.check_raid_coverage import NO_PRODUCTION_EXCLUSIONS, POLICY_CONDITIONS
+from scripts.check_raid_coverage import (
+    EXCLUSION_POLICY_CONDITIONS,
+    NO_PRODUCTION_EXCLUSIONS,
+    POLICY_CONDITIONS,
+    TESTED_PRODUCTION_EXCLUSIONS,
+)
 from scripts.raw_projection import verify_projection
 
 pytestmark = pytest.mark.golden
@@ -47,6 +52,25 @@ ALL_ROWS = [(rule, row) for rule in POLICIES for row in _evidence(rule)["rows"]]
 
 def _encounter(encounter_id: int) -> dict[str, Any]:
     return next(e for e in ZONE["encounters"] if e["id"] == encounter_id)
+
+
+def _production_exclusions(encounter_id: int) -> frozenset[int]:
+    return frozenset(
+        int(x["game_id"]) for x in _encounter(encounter_id).get("ranking_exclusions") or ()
+    )
+
+
+def _witnesses() -> list[tuple[int, dict[str, Any]]]:
+    """D027 boss-level list witnesses, once each, from every exclusion policy."""
+    seen: dict[tuple[str, str, int, int], tuple[int, dict[str, Any]]] = {}
+    for rule, policy in POLICIES.items():
+        for row in _evidence(rule).get("list_witnesses", ()):
+            key = (row["archive"]["path"], row["report"], row["fight"], row["actor"])
+            seen.setdefault(key, (policy["scope"]["encounter_id"], row))
+    return list(seen.values())
+
+
+WITNESSES = _witnesses()
 
 
 def _read(z: zipfile.ZipFile, name: str) -> Any:
@@ -129,7 +153,9 @@ def _owned_units(
     return set(ids)
 
 
-def _measure(archive: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
+def _measure(
+    archive: dict[str, Any], row: dict[str, Any], excluded_ids: frozenset[int] = frozenset()
+) -> dict[str, Any]:
     path = REPO / archive["path"]
     assert hashlib.sha256(path.read_bytes()).hexdigest() == archive["sha256"]
     with zipfile.ZipFile(path) as z:
@@ -198,11 +224,13 @@ def _measure(archive: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
         if event["targetID"] not in known:
             by_target[actors[event["targetID"]].get("gameID")] += event["amount"] * n
     raw = sum(by_source.values())
-    ranked = sum(by_target.values())
+    others = sum(by_target.values())
+    excluded = sum(v for g, v in by_target.items() if g in excluded_ids)
+    ranked = others - excluded
     return {
         "details": details,
         "owned": sorted(owned),
-        "totals": {"raw": raw, "self": raw - ranked, "excluded": 0, "ranked": ranked},
+        "totals": {"raw": raw, "self": raw - others, "excluded": excluded, "ranked": ranked},
         "owned_damage": sum(v for s, v in by_source.items() if s != actor),
         "by_target": by_target,
         "duration_ms": fight["endTime"] - fight["startTime"],
@@ -215,10 +243,22 @@ def test_policy_scope_matches_its_frozen_evidence(rule: str) -> None:
     policy = POLICIES[rule]
     evidence = _evidence(rule)
     assert evidence["rule"] == rule and evidence["scope"] == policy["scope"]
-    assert set(policy["conditions"]) == POLICY_CONDITIONS["dps"]
-    # The no-exclusions condition holds in the production rules this policy sits beside.
-    assert NO_PRODUCTION_EXCLUSIONS in policy["conditions"]
-    assert not _encounter(policy["scope"]["encounter_id"]).get("ranking_exclusions")
+    encounter = policy["scope"]["encounter_id"]
+    if TESTED_PRODUCTION_EXCLUSIONS in policy["conditions"]:
+        # D027: the exact production list, exercised by boss-level witnesses.
+        assert set(policy["conditions"]) == EXCLUSION_POLICY_CONDITIONS
+        listed = _production_exclusions(encounter)
+        assert listed and sorted(listed) == policy["tested_exclusions"]
+        assert evidence["tested_exclusions"] == policy["tested_exclusions"]
+        witnesses = evidence["list_witnesses"]
+        assert len(witnesses) >= MINIMUM_ADMITTED
+        assert all(w["totals"]["excluded"] > 0 for w in witnesses)
+        assert all(r["excluded_game_ids"] == policy["tested_exclusions"] for r in evidence["rows"])
+    else:
+        assert set(policy["conditions"]) == POLICY_CONDITIONS["dps"]
+        # The no-exclusions condition holds in the production rules this policy sits beside.
+        assert NO_PRODUCTION_EXCLUSIONS in policy["conditions"]
+        assert not _production_exclusions(encounter)
     rows, refusals = evidence["rows"], evidence["refusals"]
     counts = evidence["dispositions"]
     assert counts["n"] == counts["k"] + counts["r"] + counts["c"]
@@ -239,8 +279,8 @@ def test_published_dps_matches_raw_owner_and_owned_unit_damage(
     rule: str, row: dict[str, Any]
 ) -> None:
     policy = POLICIES[rule]
-    m = _measure(_evidence(rule)["archive"], row)
     scope = policy["scope"]
+    m = _measure(_evidence(rule)["archive"], row, _production_exclusions(scope["encounter_id"]))
     class_name = CLASS_NAMES[scope["class_id"]]
     externals = load_rules("classic_era", "externals")["factions"]
     faction = {int(k) for k, v in externals.items() if v == scope["faction"]}
@@ -270,11 +310,30 @@ def test_published_dps_matches_raw_owner_and_owned_unit_damage(
         assert not _consistent(m["totals"]["raw"], duration, amount)
     if m["owned_damage"]:
         assert not _consistent(ranked - m["owned_damage"], duration, amount)
+    if m["totals"]["excluded"]:
+        assert not _consistent(ranked + m["totals"]["excluded"], duration, amount)
     bosses = set(_encounter(policy["scope"]["encounter_id"])["boss_game_ids"])
     others = {g: v for g, v in m["by_target"].items() if g not in bosses and v}
     if others:
         largest = max(others.values())
         assert not _consistent(ranked - largest, duration, amount)
+
+
+@pytest.mark.parametrize(
+    ("encounter", "row"), WITNESSES, ids=lambda v: v["id"] if isinstance(v, dict) else str(v)
+)
+def test_a_list_witness_matches_with_the_production_list_and_not_without(
+    encounter: int, row: dict[str, Any]
+) -> None:
+    listed = _production_exclusions(encounter)
+    m = _measure(row["archive"], row, listed)
+    assert m["totals"] == row["totals"] and m["totals"]["excluded"] > 0
+    published = m["published"]
+    assert (published["name"], published["server"]["name"]) == (row["player"], row["realm"])
+    amount, duration = str(published["amount"]), m["duration_ms"]
+    assert int(published["duration"]) == duration and amount == row["published"]
+    assert _consistent(m["totals"]["ranked"], duration, amount)
+    assert not _consistent(m["totals"]["ranked"] + m["totals"]["excluded"], duration, amount)
 
 
 def test_every_wrong_policy_is_exercised_by_some_admitted_row() -> None:

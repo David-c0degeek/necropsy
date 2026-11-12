@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "rule": "naxx-gluth-retribution-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51108,
+    "class_id": 6,
+    "category": "Retribution",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+    "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+  },
+  "tested_exclusions": [
+    16360
+  ],
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "HnKjaFmQ6b2gtAy9-24-41",
+      "purpose": "policy-scope",
+      "report": "HnKjaFmQ6b2gtAy9",
+      "fight": 24,
+      "actor": 41,
+      "player": "Derillian",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 45511,
+      "published": "1098.64",
+      "totals": {
+        "raw": 50423,
+        "self": 423,
+        "excluded": 0,
+        "ranked": 50000
+      },
+      "residual": "-5126/1137775",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 102,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db1d37d8c41cbf9ad36bc801d1ed8c6ca77c6101ab74a4609f8b43c641ce7b64"
+          ]
+        },
+        {
+          "pet": 140,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db1d37d8c41cbf9ad36bc801d1ed8c6ca77c6101ab74a4609f8b43c641ce7b64"
+          ]
+        },
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db1d37d8c41cbf9ad36bc801d1ed8c6ca77c6101ab74a4609f8b43c641ce7b64"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NGbwHQ2P78LxDCZn-27-237",
+      "purpose": "policy-scope",
+      "report": "NGbwHQ2P78LxDCZn",
+      "fight": 27,
+      "actor": 237,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [
+        294
+      ],
+      "duration_ms": 59933,
+      "published": "1076.35",
+      "totals": {
+        "raw": 65606,
+        "self": 1097,
+        "excluded": 0,
+        "ranked": 64509
+      },
+      "residual": "2309/1198660",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 248,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "adc327147e9dffb91e61fa199b62f997f7327bac8dc1c5cce57d1f5467af8443",
+            "09e15cfde32aca72403b2e835c9b7fa076b663d01a802158ba7141b5e245649a"
+          ]
+        },
+        {
+          "pet": 268,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "adc327147e9dffb91e61fa199b62f997f7327bac8dc1c5cce57d1f5467af8443",
+            "09e15cfde32aca72403b2e835c9b7fa076b663d01a802158ba7141b5e245649a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VRGjK3Q8qHNzfgW7-41-26",
+      "purpose": "policy-scope",
+      "report": "VRGjK3Q8qHNzfgW7",
+      "fight": 41,
+      "actor": 26,
+      "player": "Markofmir",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 48317,
+      "published": "981.249",
+      "totals": {
+        "raw": 47411,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 47411
+      },
+      "residual": "-7933/48317000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 133,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "806bdc82e0863408be711324fe6362e10fd5d01b0f9c2b0b45aaffeb0d285074"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "q1ctMgA2YjVBJv7n-69-131",
+      "purpose": "list-witness",
+      "report": "q1ctMgA2YjVBJv7n",
+      "fight": 69,
+      "actor": 131,
+      "player": "天可汗",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 93917,
+      "published": "2046.94",
+      "totals": {
+        "raw": 199126,
+        "self": 0,
+        "excluded": 6884,
+        "ranked": 192242
+      },
+      "residual": "-1221/247150",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "q1ctMgA2YjVBJv7n-69-143",
+      "purpose": "list-witness",
+      "report": "q1ctMgA2YjVBJv7n",
+      "fight": 69,
+      "actor": 143,
+      "player": "白浅灬",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 93917,
+      "published": "2144.29",
+      "totals": {
+        "raw": 214900,
+        "self": 0,
+        "excluded": 13515,
+        "ranked": 201385
+      },
+      "residual": "-28393/9391700",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "KhQaJt8fzTbFHgkR-49-26",
+      "purpose": "list-witness",
+      "report": "KhQaJt8fzTbFHgkR",
+      "fight": 49,
+      "actor": 26,
+      "player": "Bushmilfs",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [
+        207
+      ],
+      "duration_ms": 48234,
+      "published": "998.715",
+      "totals": {
+        "raw": 54542,
+        "self": 869,
+        "excluded": 5501,
+        "ranked": 48172
+      },
+      "residual": "-1931/4823400",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 93,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 132,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 250,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 267,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
+        "sha256": "750c3d91e175728e632f7b185f8cf3e078ad780c9fb94f7a0e43f0777e97f9d2"
+      }
+    }
+  ]
+}

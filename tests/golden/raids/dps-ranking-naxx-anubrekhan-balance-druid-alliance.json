@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "rule": "naxx-anubrekhan-balance-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51107,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-balance-v2-measurement/77619978-2006-20261023T152230.zip",
+    "sha256": "caa199389d11dab0d3c0678d086a352fb679d3e3cd133e62f2da0ecfef86dcb5"
+  },
+  "tested_exclusions": [
+    16698
+  ],
+  "dispositions": {
+    "n": 5,
+    "k": 5,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "AP61829Zf7JXnGdW-22-53",
+      "purpose": "policy-scope",
+      "report": "AP61829Zf7JXnGdW",
+      "fight": 22,
+      "actor": 53,
+      "player": "Alyrian",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 32948,
+      "published": "1207.48",
+      "totals": {
+        "raw": 39784,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39784
+      },
+      "residual": "-319/205925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 103,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e490a8d49aba722a0866493e8279383f48a867b3ef03ca0ee9e84ee60a5c1f30",
+            "74a45b69949ff12475e0c40a821a334d2ba7c8594f25b5caed0fd6a187e32af0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C83YckmDTgWq71nw-1-24",
+      "purpose": "policy-scope",
+      "report": "C83YckmDTgWq71nw",
+      "fight": 1,
+      "actor": 24,
+      "player": "Hotsndots",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 48967,
+      "published": "1082.01",
+      "totals": {
+        "raw": 52983,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 52983
+      },
+      "residual": "21633/4896700"
+    },
+    {
+      "id": "VrQxm2FB1vLTzX3w-5-32",
+      "purpose": "policy-scope",
+      "report": "VrQxm2FB1vLTzX3w",
+      "fight": 5,
+      "actor": 32,
+      "player": "Frelserboom",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 5,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 32912,
+      "published": "968.461",
+      "totals": {
+        "raw": 31874,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 31874
+      },
+      "residual": "723/2057000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "59212a1d7f019d3d178b0201f2769b31103044b2017d32bc1053334a440566e9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4QVpBdP1HCnNDx7-5-28",
+      "purpose": "policy-scope",
+      "report": "t4QVpBdP1HCnNDx7",
+      "fight": 5,
+      "actor": 28,
+      "player": "Melnor",
+      "realm": "Noggenfogger",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 43394,
+      "published": "1106.35",
+      "totals": {
+        "raw": 48009,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 48009
+      },
+      "residual": "37/33380",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 136,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7a3c58d22bc13434863c6d77fc5acf6ac5d769b5909b472e19e6af8629685d6a",
+            "7b276386a121c78f4d9a314c44a6f70f2839750f8cd6e47ca57701a956c4e782"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xYGdLvCPVc7RTZXg-3-16",
+      "purpose": "policy-scope",
+      "report": "xYGdLvCPVc7RTZXg",
+      "fight": 3,
+      "actor": 16,
+      "player": "Zasko",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 42715,
+      "published": "1045.21",
+      "totals": {
+        "raw": 45437,
+        "self": 791,
+        "excluded": 0,
+        "ranked": 44646
+      },
+      "residual": "-2903/854300"
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "Amt374QbyThBrZnk-2-20",
+      "purpose": "list-witness",
+      "report": "Amt374QbyThBrZnk",
+      "fight": 2,
+      "actor": 20,
+      "player": "Kearzone",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 50091,
+      "published": "2594.8",
+      "totals": {
+        "raw": 133225,
+        "self": 0,
+        "excluded": 3249,
+        "ranked": 129976
+      },
+      "residual": "-634/250455",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "291747611fdb67dbe08ed85c3889aef119686872c054057be5aa79337c0265a1",
+            "0d2168b00a1246e958f322ca1f1c9e4bf3ff15efff5b2beafefe698e5c91ae81"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+        "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+      }
+    },
+    {
+      "id": "DQjz7qGxmLvpWgK8-16-51",
+      "purpose": "list-witness",
+      "report": "DQjz7qGxmLvpWgK8",
+      "fight": 16,
+      "actor": 51,
+      "player": "Kasvo",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [
+        52
+      ],
+      "duration_ms": 42036,
+      "published": "1949.64",
+      "totals": {
+        "raw": 85450,
+        "self": 0,
+        "excluded": 3495,
+        "ranked": 81955
+      },
+      "residual": "-419/262725",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 175,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1a8ab947887ed186a1c596b6f8b79ca584d975927f828ee92bfed6cc2508232c",
+            "b702635ff67b4408fab276d967bdf0487aef32887f7378cf20612e49731f157a"
+          ]
+        },
+        {
+          "pet": 220,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1a8ab947887ed186a1c596b6f8b79ca584d975927f828ee92bfed6cc2508232c",
+            "b702635ff67b4408fab276d967bdf0487aef32887f7378cf20612e49731f157a"
+          ]
+        },
+        {
+          "pet": 252,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1a8ab947887ed186a1c596b6f8b79ca584d975927f828ee92bfed6cc2508232c",
+            "b702635ff67b4408fab276d967bdf0487aef32887f7378cf20612e49731f157a"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "dcQ9ZTFXLWnkxb2y-35-48",
+      "purpose": "list-witness",
+      "report": "dcQ9ZTFXLWnkxb2y",
+      "fight": 35,
+      "actor": 48,
+      "player": "Dinkie",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 12,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 20744,
+      "published": "5410.29",
+      "totals": {
+        "raw": 118215,
+        "self": 0,
+        "excluded": 5984,
+        "ranked": 112231
+      },
+      "residual": "-697/259300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 82,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        },
+        {
+          "pet": 231,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+        "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+      }
+    },
+    {
+      "id": "dcQ9ZTFXLWnkxb2y-35-25",
+      "purpose": "list-witness",
+      "report": "dcQ9ZTFXLWnkxb2y",
+      "fight": 35,
+      "actor": 25,
+      "player": "Flaps",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 20744,
+      "published": "3428.36",
+      "totals": {
+        "raw": 132480,
+        "self": 580,
+        "excluded": 60782,
+        "ranked": 71118
+      },
+      "residual": "313/64825",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 62,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        },
+        {
+          "pet": 217,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "dcQ9ZTFXLWnkxb2y-35-33",
+      "purpose": "list-witness",
+      "report": "dcQ9ZTFXLWnkxb2y",
+      "fight": 35,
+      "actor": 33,
+      "player": "Virulent",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 20744,
+      "published": "6104.13",
+      "totals": {
+        "raw": 132080,
+        "self": 1141,
+        "excluded": 4315,
+        "ranked": 126624
+      },
+      "residual": "-909/259300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 56,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        },
+        {
+          "pet": 234,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    }
+  ]
+}

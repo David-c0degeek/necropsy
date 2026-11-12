@@ -234,7 +234,7 @@ def test_scoped_dps_policy_validates_only_its_exact_cell() -> None:
         "naxxramas/51115/2/Balance/dps/Horde",  # Loatheb: 2 admitted players
         "naxxramas/51118/2/Feral/dps/Alliance",  # Patchwerk: 2 admitted players
         "naxxramas/51109/2/Balance/hps/Alliance",
-        "naxxramas/51108/2/Balance/dps/Alliance",  # Gluth: exclusions untested, stays open
+        "naxxramas/51108/4/Fire/dps/Alliance",  # Gluth: Fire contradictions, stays open
         "naxxramas/51118/2/Balance/dps/Alliance",  # Patchwerk: no admitted row
     ):
         assert coverage_check.ranking_problem(_cell(key)) == "ranking policy remains unvalidated"
@@ -272,6 +272,95 @@ def test_an_added_production_exclusion_reopens_an_untested_dps_policy(
     problem = coverage_check.ranking_problem(_cell(DPS_CELL.format(51109)))
     assert problem is not None and "production ranking exclusions" in problem
     assert coverage_check.ranking_problem(_cell(DPS_CELL.format(51111))) is None
+
+
+FAERLINA_HORDE_SHADOW = "naxxramas/51110/7/Shadow/dps/Horde"
+
+
+def _exclusion_policy(data: dict[str, Any], tested: Any = None) -> dict[str, Any]:
+    faerlina = next(e for e in data["encounters"] if e["id"] == 51110)
+    listed = sorted(int(x["game_id"]) for x in faerlina["ranking_exclusions"])
+    return {
+        "rule": "naxx-test-faerlina-shadow-priest-horde-dps-v1",
+        "basis": "empirical",
+        "scope": {
+            "encounter_id": 51110,
+            "class_id": 7,
+            "category": "Shadow",
+            "metric": "dps",
+            "faction": "Horde",
+        },
+        "formula": "test",
+        "conditions": sorted(coverage_check.EXCLUSION_POLICY_CONDITIONS),
+        "bound": "test",
+        "validated": "test",
+        "evidence": "test",
+        "tested_exclusions": listed if tested is None else tested,
+    }
+
+
+def _drop_cell_policies(data: dict[str, Any], key: str) -> None:
+    data["ranking_metric_policies"] = [
+        p
+        for p in data["ranking_metric_policies"]
+        if "naxxramas/{encounter_id}/{class_id}/{category}/{metric}/{faction}".format(**p["scope"])
+        != key
+    ]
+
+
+def test_an_exclusion_policy_holds_only_for_the_exact_tested_list(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def add(data: dict[str, Any]) -> None:
+        _drop_cell_policies(data, FAERLINA_HORDE_SHADOW)
+        data["ranking_metric_policies"].append(_exclusion_policy(data))
+
+    _with_zone(monkeypatch, "zones/naxxramas", add)
+    assert coverage_check.ranking_problem(_cell(FAERLINA_HORDE_SHADOW)) is None
+
+    def changed(data: dict[str, Any]) -> None:
+        add(data)
+        faerlina = next(e for e in data["encounters"] if e["id"] == 51110)
+        faerlina["ranking_exclusions"] = [*faerlina["ranking_exclusions"], {"game_id": 1}]
+
+    _with_zone(monkeypatch, "zones/naxxramas", changed)
+    problem = coverage_check.ranking_problem(_cell(FAERLINA_HORDE_SHADOW))
+    assert problem is not None and "differ from the list its evidence tested" in problem
+
+
+@pytest.mark.parametrize("tested", [[], [3, 1], [1, 1], ["1"], "1"])
+def test_a_malformed_tested_exclusion_list_is_refused(
+    monkeypatch: pytest.MonkeyPatch, tested: Any
+) -> None:
+    def add(data: dict[str, Any]) -> None:
+        _drop_cell_policies(data, FAERLINA_HORDE_SHADOW)
+        data["ranking_metric_policies"].append(_exclusion_policy(data, tested))
+
+    _with_zone(monkeypatch, "zones/naxxramas", add)
+    problem = coverage_check.ranking_problem(_cell(FAERLINA_HORDE_SHADOW))
+    assert problem is not None and problem.startswith("malformed ranking metric policy")
+
+
+def test_an_exclusion_policy_needs_its_tested_list_and_shape(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def no_list(data: dict[str, Any]) -> None:
+        _drop_cell_policies(data, FAERLINA_HORDE_SHADOW)
+        policy = _exclusion_policy(data)
+        del policy["tested_exclusions"]
+        data["ranking_metric_policies"].append(policy)
+
+    _with_zone(monkeypatch, "zones/naxxramas", no_list)
+    assert "malformed" in str(coverage_check.ranking_problem(_cell(FAERLINA_HORDE_SHADOW)))
+
+    def mixed(data: dict[str, Any]) -> None:
+        _drop_cell_policies(data, FAERLINA_HORDE_SHADOW)
+        policy = _exclusion_policy(data)
+        policy["conditions"] = [*policy["conditions"], coverage_check.NO_PRODUCTION_EXCLUSIONS]
+        data["ranking_metric_policies"].append(policy)
+
+    _with_zone(monkeypatch, "zones/naxxramas", mixed)
+    assert "malformed" in str(coverage_check.ranking_problem(_cell(FAERLINA_HORDE_SHADOW)))
 
 
 @pytest.mark.parametrize(

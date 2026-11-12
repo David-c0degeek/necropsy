@@ -1,0 +1,1741 @@
+{
+  "version": 1,
+  "rule": "naxx-faerlina-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51110,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "tested_exclusions": [
+    16506
+  ],
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "LAVjrTPYp4B3HR7W-4-34",
+      "purpose": "policy-scope",
+      "report": "LAVjrTPYp4B3HR7W",
+      "fight": 4,
+      "actor": 34,
+      "player": "Koudebear",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 40450,
+      "published": "888.257",
+      "totals": {
+        "raw": 38354,
+        "self": 0,
+        "excluded": 2424,
+        "ranked": 35930
+      },
+      "residual": "87/809000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 72,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4d27b9e98c843ce7ccdfe9aa27fbc5aabeb5429374dbf3d370b804437d00089e"
+          ]
+        },
+        {
+          "pet": 148,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4d27b9e98c843ce7ccdfe9aa27fbc5aabeb5429374dbf3d370b804437d00089e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "XbqcJn9hGABkwVKC-5-36",
+      "purpose": "policy-scope",
+      "report": "XbqcJn9hGABkwVKC",
+      "fight": 5,
+      "actor": 36,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 53273,
+      "published": "1031.2",
+      "totals": {
+        "raw": 57404,
+        "self": 0,
+        "excluded": 2469,
+        "ranked": 54935
+      },
+      "residual": "-588/266365",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 96,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "58601da362c90e6fc261ecab41d8d4bbbeac37136703b3a962ea5f3486f4fb30",
+            "b992c6cf42d5b4cc8b3075021c14bb70ff9a4911deb5d1e898c37b2497cd8aba"
+          ]
+        },
+        {
+          "pet": 183,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "58601da362c90e6fc261ecab41d8d4bbbeac37136703b3a962ea5f3486f4fb30",
+            "b992c6cf42d5b4cc8b3075021c14bb70ff9a4911deb5d1e898c37b2497cd8aba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ZGnJ2X6cq1TDMmrH-24-1",
+      "purpose": "policy-scope",
+      "report": "ZGnJ2X6cq1TDMmrH",
+      "fight": 24,
+      "actor": 1,
+      "player": "Babyspínach",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 47926,
+      "published": "894.671",
+      "totals": {
+        "raw": 43000,
+        "self": 0,
+        "excluded": 122,
+        "ranked": 42878
+      },
+      "residual": "-1173/23963000"
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "DT9maZP1V8dNWLGq-21-20",
+      "purpose": "list-witness",
+      "report": "DT9maZP1V8dNWLGq",
+      "fight": 21,
+      "actor": 20,
+      "player": "Thunderoot",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 43591,
+      "published": "1676.06",
+      "totals": {
+        "raw": 74945,
+        "self": 1434,
+        "excluded": 450,
+        "ranked": 73061
+      },
+      "residual": "-6573/2179550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 70,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5eea8a2bdbadc81804218c38206a2cd526cc5f4f103368223de151d9c8ab6ec1"
+          ]
+        },
+        {
+          "pet": 89,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5eea8a2bdbadc81804218c38206a2cd526cc5f4f103368223de151d9c8ab6ec1"
+          ]
+        },
+        {
+          "pet": 179,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5eea8a2bdbadc81804218c38206a2cd526cc5f4f103368223de151d9c8ab6ec1"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+        "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+      }
+    },
+    {
+      "id": "qTGgDX3A1MVLmpfr-8-24",
+      "purpose": "list-witness",
+      "report": "qTGgDX3A1MVLmpfr",
+      "fight": 8,
+      "actor": 24,
+      "player": "Hélios",
+      "realm": "Golemagg",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 51540,
+      "published": "1459.99",
+      "totals": {
+        "raw": 79378,
+        "self": 453,
+        "excluded": 3677,
+        "ranked": 75248
+      },
+      "residual": "577/257700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 64,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "eaa1be7a7eedbd11e4705f46b21456441525442fc6a2968bbb78d2abad8f42cb",
+            "d979fe2ca2365e0ba609a49c7ac2d8e31d0571a2813dc45302dfbd0242b2775f"
+          ]
+        },
+        {
+          "pet": 145,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "eaa1be7a7eedbd11e4705f46b21456441525442fc6a2968bbb78d2abad8f42cb",
+            "d979fe2ca2365e0ba609a49c7ac2d8e31d0571a2813dc45302dfbd0242b2775f"
+          ]
+        },
+        {
+          "pet": 180,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "eaa1be7a7eedbd11e4705f46b21456441525442fc6a2968bbb78d2abad8f42cb",
+            "d979fe2ca2365e0ba609a49c7ac2d8e31d0571a2813dc45302dfbd0242b2775f"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+        "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+      }
+    },
+    {
+      "id": "LAVjrTPYp4B3HR7W-4-34",
+      "purpose": "list-witness",
+      "report": "LAVjrTPYp4B3HR7W",
+      "fight": 4,
+      "actor": 34,
+      "player": "Koudebear",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 40450,
+      "published": "888.257",
+      "totals": {
+        "raw": 38354,
+        "self": 0,
+        "excluded": 2424,
+        "ranked": 35930
+      },
+      "residual": "87/809000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 72,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4d27b9e98c843ce7ccdfe9aa27fbc5aabeb5429374dbf3d370b804437d00089e"
+          ]
+        },
+        {
+          "pet": 148,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4d27b9e98c843ce7ccdfe9aa27fbc5aabeb5429374dbf3d370b804437d00089e"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+        "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+      }
+    },
+    {
+      "id": "XbqcJn9hGABkwVKC-5-36",
+      "purpose": "list-witness",
+      "report": "XbqcJn9hGABkwVKC",
+      "fight": 5,
+      "actor": 36,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 53273,
+      "published": "1031.2",
+      "totals": {
+        "raw": 57404,
+        "self": 0,
+        "excluded": 2469,
+        "ranked": 54935
+      },
+      "residual": "-588/266365",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 96,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "58601da362c90e6fc261ecab41d8d4bbbeac37136703b3a962ea5f3486f4fb30",
+            "b992c6cf42d5b4cc8b3075021c14bb70ff9a4911deb5d1e898c37b2497cd8aba"
+          ]
+        },
+        {
+          "pet": 183,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "58601da362c90e6fc261ecab41d8d4bbbeac37136703b3a962ea5f3486f4fb30",
+            "b992c6cf42d5b4cc8b3075021c14bb70ff9a4911deb5d1e898c37b2497cd8aba"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+        "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+      }
+    },
+    {
+      "id": "ZGnJ2X6cq1TDMmrH-24-1",
+      "purpose": "list-witness",
+      "report": "ZGnJ2X6cq1TDMmrH",
+      "fight": 24,
+      "actor": 1,
+      "player": "Babyspínach",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 47926,
+      "published": "894.671",
+      "totals": {
+        "raw": 43000,
+        "self": 0,
+        "excluded": 122,
+        "ranked": 42878
+      },
+      "residual": "-1173/23963000",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+        "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+      }
+    },
+    {
+      "id": "KbCngQN1tDJrvLqm-5-28",
+      "purpose": "list-witness",
+      "report": "KbCngQN1tDJrvLqm",
+      "fight": 5,
+      "actor": 28,
+      "player": "Sakur",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 4,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 29214,
+      "published": "2130.69",
+      "totals": {
+        "raw": 64519,
+        "self": 0,
+        "excluded": 2273,
+        "ranked": 62246
+      },
+      "residual": "1117/1460700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 164,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a8188535e7ab72602c1ad7207ab12ccb5de74169f2f3f893472b99dc0a48b715"
+          ]
+        },
+        {
+          "pet": 200,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a8188535e7ab72602c1ad7207ab12ccb5de74169f2f3f893472b99dc0a48b715"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+        "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+      }
+    },
+    {
+      "id": "YVMgf9b1tP84r2D7-5-55",
+      "purpose": "list-witness",
+      "report": "YVMgf9b1tP84r2D7",
+      "fight": 5,
+      "actor": 55,
+      "player": "Ebonecapone",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 36319,
+      "published": "2141.63",
+      "totals": {
+        "raw": 83983,
+        "self": 0,
+        "excluded": 6201,
+        "ranked": 77782
+      },
+      "residual": "14003/3631900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 208,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "275682d8436d627483324f301b277ba97f849ebc2fd375c26eb79e6fddbae282",
+            "73e377d322fa45f91fc5b80e9114f76f18aceb63e36a22eddb1c11511f49da93"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+        "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+      }
+    },
+    {
+      "id": "T3anzN2HtvwZcJjd-6-34",
+      "purpose": "list-witness",
+      "report": "T3anzN2HtvwZcJjd",
+      "fight": 6,
+      "actor": 34,
+      "player": "Raserie",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 20,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 29342,
+      "published": "2400.86",
+      "totals": {
+        "raw": 93664,
+        "self": 0,
+        "excluded": 23218,
+        "ranked": 70446
+      },
+      "residual": "-853/733550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 134,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d0e2f3d1054c65cbea8c9250425ef151b86cac3fa93e9d0ee226c53999c414af"
+          ]
+        },
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d0e2f3d1054c65cbea8c9250425ef151b86cac3fa93e9d0ee226c53999c414af"
+          ]
+        },
+        {
+          "pet": 236,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d0e2f3d1054c65cbea8c9250425ef151b86cac3fa93e9d0ee226c53999c414af"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+        "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+      }
+    },
+    {
+      "id": "VDBydKHf9Y6bPMTA-5-39",
+      "purpose": "list-witness",
+      "report": "VDBydKHf9Y6bPMTA",
+      "fight": 5,
+      "actor": 39,
+      "player": "Whoracle",
+      "realm": "Bigglesworth",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 14,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 33611,
+      "published": "2486.42",
+      "totals": {
+        "raw": 93385,
+        "self": 0,
+        "excluded": 9814,
+        "ranked": 83571
+      },
+      "residual": "-3131/1680550",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+        "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+      }
+    },
+    {
+      "id": "6wqkZrpQfa3GMVJR-7-29",
+      "purpose": "list-witness",
+      "report": "6wqkZrpQfa3GMVJR",
+      "fight": 7,
+      "actor": 29,
+      "player": "Farao",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 11,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [
+        34
+      ],
+      "duration_ms": 36775,
+      "published": "1406.15",
+      "totals": {
+        "raw": 54342,
+        "self": 0,
+        "excluded": 2631,
+        "ranked": 51711
+      },
+      "residual": "-133/29420",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 274,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "76097bde8c05d7c90f78793a0c870b4d192c056c8c828b36302403cde84054b1"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "dgGPr6Wx3h7tvYR9-9-47",
+      "purpose": "list-witness",
+      "report": "dgGPr6Wx3h7tvYR9",
+      "fight": 9,
+      "actor": 47,
+      "player": "Shinazee",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 4,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [
+        48
+      ],
+      "duration_ms": 37957,
+      "published": "1473.72",
+      "totals": {
+        "raw": 62325,
+        "self": 0,
+        "excluded": 6387,
+        "ranked": 55938
+      },
+      "residual": "249/948925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "70211f15d36f8faa88213511d64d152f4d92f0bddd4ac90e8d3bbb55de692238",
+            "e593dc293d149ce3bbab123b11c6e7fe382833e9877cf37d6eb53d1d744e869e"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "70211f15d36f8faa88213511d64d152f4d92f0bddd4ac90e8d3bbb55de692238",
+            "e593dc293d149ce3bbab123b11c6e7fe382833e9877cf37d6eb53d1d744e869e"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "nk3A8XPaxRtTV7Y4-34-9",
+      "purpose": "list-witness",
+      "report": "nk3A8XPaxRtTV7Y4",
+      "fight": 34,
+      "actor": 9,
+      "player": "Smcadogx",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 12,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [
+        66
+      ],
+      "duration_ms": 43805,
+      "published": "1402.53",
+      "totals": {
+        "raw": 65345,
+        "self": 0,
+        "excluded": 3907,
+        "ranked": 61438
+      },
+      "residual": "3467/876100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f057d82070d7dd7dad315952f46dd7dd4cd27f075993de951ce8fdc23d57706f"
+          ]
+        },
+        {
+          "pet": 156,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f057d82070d7dd7dad315952f46dd7dd4cd27f075993de951ce8fdc23d57706f"
+          ]
+        },
+        {
+          "pet": 208,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f057d82070d7dd7dad315952f46dd7dd4cd27f075993de951ce8fdc23d57706f"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "L7PmYWZFXdv4nckf-70-25",
+      "purpose": "list-witness",
+      "report": "L7PmYWZFXdv4nckf",
+      "fight": 70,
+      "actor": 25,
+      "player": "Ecclesia",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 58353,
+      "published": "381.009",
+      "totals": {
+        "raw": 24976,
+        "self": 0,
+        "excluded": 2743,
+        "ranked": 22233
+      },
+      "residual": "-6059/19451000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f51c998f00dbb2890e69e265708075955116a93333adcfacfe6744ec7e1e9306",
+            "7f32204c428919388d691f79666bd503ac461da15fb52907e3c7c4a9bd3a7e61"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+        "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+      }
+    },
+    {
+      "id": "cnqhPkA9wTLB2M1D-9-19",
+      "purpose": "list-witness",
+      "report": "cnqhPkA9wTLB2M1D",
+      "fight": 9,
+      "actor": 19,
+      "player": "Cisternina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 43124,
+      "published": "560.801",
+      "totals": {
+        "raw": 31955,
+        "self": 595,
+        "excluded": 7176,
+        "ranked": 24184
+      },
+      "residual": "4419/10781000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 73,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "eec1d003a2e2e6900fc87c1e0c6b7f51b1927cde037ec979f31ae9fffadf68ec"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+        "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+      }
+    },
+    {
+      "id": "tvxGMDamc9nC4kp2-18-9",
+      "purpose": "list-witness",
+      "report": "tvxGMDamc9nC4kp2",
+      "fight": 18,
+      "actor": 9,
+      "player": "Antimiracle",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 51183,
+      "published": "426.411",
+      "totals": {
+        "raw": 27572,
+        "self": 0,
+        "excluded": 5747,
+        "ranked": 21825
+      },
+      "residual": "643/5687000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 145,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "168779cf4ce0b3cf34711479641b3f5694dff0f8f2b9e5bda70afe72b76e2e64"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+        "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+      }
+    },
+    {
+      "id": "CFa19RHMJvmX7ALD-5-47",
+      "purpose": "list-witness",
+      "report": "CFa19RHMJvmX7ALD",
+      "fight": 5,
+      "actor": 47,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 42650,
+      "published": "893.341",
+      "totals": {
+        "raw": 40141,
+        "self": 0,
+        "excluded": 2040,
+        "ranked": 38101
+      },
+      "residual": "127/853000",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+        "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+      }
+    },
+    {
+      "id": "fznBGYdA6RMpg3Cr-10-6",
+      "purpose": "list-witness",
+      "report": "fznBGYdA6RMpg3Cr",
+      "fight": 10,
+      "actor": 6,
+      "player": "Clownform",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 10,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 45175,
+      "published": "816.204",
+      "totals": {
+        "raw": 38361,
+        "self": 0,
+        "excluded": 1489,
+        "ranked": 36872
+      },
+      "residual": "-157/451750",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 181,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db9420a4239fd32682764b5a4138e81078838ea31bc29cf7952a54146aeb751d",
+            "db6666784349c209d43b28a8901d0daf0e014cbfa920ff825a7e77e714f685ae"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+        "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+      }
+    },
+    {
+      "id": "vcF814Pwj9CH3QmW-28-11",
+      "purpose": "list-witness",
+      "report": "vcF814Pwj9CH3QmW",
+      "fight": 28,
+      "actor": 11,
+      "player": "Rohme",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 4,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 46532,
+      "published": "881.608",
+      "totals": {
+        "raw": 42149,
+        "self": 0,
+        "excluded": 1126,
+        "ranked": 41023
+      },
+      "residual": "517/1454125",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+        "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+      }
+    },
+    {
+      "id": "9hmXJQHtcykVgbn3-8-63",
+      "purpose": "list-witness",
+      "report": "9hmXJQHtcykVgbn3",
+      "fight": 8,
+      "actor": 63,
+      "player": "Oblivions",
+      "realm": "Golemagg",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 30943,
+      "published": "3309.28",
+      "totals": {
+        "raw": 106467,
+        "self": 0,
+        "excluded": 4068,
+        "ranked": 102399
+      },
+      "residual": "-4/2425",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 211,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "634f5b5fb2abf9b16e2ade1b4aba8649efa9c4b8967e3772b44b199036dfa161"
+          ]
+        },
+        {
+          "pet": 215,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "634f5b5fb2abf9b16e2ade1b4aba8649efa9c4b8967e3772b44b199036dfa161"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+        "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+      }
+    },
+    {
+      "id": "nCVFQz7fpxvhgWjc-7-26",
+      "purpose": "list-witness",
+      "report": "nCVFQz7fpxvhgWjc",
+      "fight": 7,
+      "actor": 26,
+      "player": "Voomlz",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 33108,
+      "published": "3348.28",
+      "totals": {
+        "raw": 115596,
+        "self": 0,
+        "excluded": 4741,
+        "ranked": 110855
+      },
+      "residual": "911/206925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 114,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9b83671ec449b1c2690e7b6f4049fe593092fd2dc56ef78f75f51b5af87fffa3"
+          ]
+        },
+        {
+          "pet": 173,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9b83671ec449b1c2690e7b6f4049fe593092fd2dc56ef78f75f51b5af87fffa3"
+          ]
+        },
+        {
+          "pet": 251,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9b83671ec449b1c2690e7b6f4049fe593092fd2dc56ef78f75f51b5af87fffa3"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+        "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+      }
+    },
+    {
+      "id": "ft8vWkRjP3HKhJcN-9-35",
+      "purpose": "list-witness",
+      "report": "ft8vWkRjP3HKhJcN",
+      "fight": 9,
+      "actor": 35,
+      "player": "Zessling",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 41105,
+      "published": "2144.19",
+      "totals": {
+        "raw": 91052,
+        "self": 0,
+        "excluded": 2915,
+        "ranked": 88137
+      },
+      "residual": "1401/822100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 84,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f358476162b189dac7d2701e342be345bafe9a38dfd3a70e8fa3e6ade4904cc6"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+        "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+      }
+    },
+    {
+      "id": "j1GFgQzXP7DdKJfM-6-38",
+      "purpose": "list-witness",
+      "report": "j1GFgQzXP7DdKJfM",
+      "fight": 6,
+      "actor": 38,
+      "player": "Kaiin",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 28891,
+      "published": "2131.74",
+      "totals": {
+        "raw": 66704,
+        "self": 0,
+        "excluded": 5116,
+        "ranked": 61588
+      },
+      "residual": "-29/8350",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6bcca9e92c058135c6a6c37626fb97d10d628d049b4266f7c0f706a2c02e5f9f",
+            "9de7d424a9e53312d4363ea0e62fda1472494cb1cbc101cb87e4a29494d71970"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+        "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+      }
+    },
+    {
+      "id": "Ccx8LZyMXfnTJHbw-6-18",
+      "purpose": "list-witness",
+      "report": "Ccx8LZyMXfnTJHbw",
+      "fight": 6,
+      "actor": 18,
+      "player": "Andrenn",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [
+        31
+      ],
+      "duration_ms": 39545,
+      "published": "1546.79",
+      "totals": {
+        "raw": 62251,
+        "self": 0,
+        "excluded": 1083,
+        "ranked": 61168
+      },
+      "residual": "3789/790900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 50,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fee60162db8b24f1d933ef9c706722ec3cf7a92bc96e53f48d5567983e205ec2"
+          ]
+        },
+        {
+          "pet": 100,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fee60162db8b24f1d933ef9c706722ec3cf7a92bc96e53f48d5567983e205ec2"
+          ]
+        },
+        {
+          "pet": 228,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fee60162db8b24f1d933ef9c706722ec3cf7a92bc96e53f48d5567983e205ec2"
+          ]
+        },
+        {
+          "pet": 242,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fee60162db8b24f1d933ef9c706722ec3cf7a92bc96e53f48d5567983e205ec2"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+        "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+      }
+    },
+    {
+      "id": "XTdqLQAMhw3K4Nxv-9-14",
+      "purpose": "list-witness",
+      "report": "XTdqLQAMhw3K4Nxv",
+      "fight": 9,
+      "actor": 14,
+      "player": "Toy",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [
+        42
+      ],
+      "duration_ms": 45076,
+      "published": "1504.75",
+      "totals": {
+        "raw": 74310,
+        "self": 0,
+        "excluded": 6482,
+        "ranked": 67828
+      },
+      "residual": "-111/45076",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 55,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "704ed7911cb66400594815e9a48eda9303e6d6a3218ac83e29868575c44a1487"
+          ]
+        },
+        {
+          "pet": 70,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "704ed7911cb66400594815e9a48eda9303e6d6a3218ac83e29868575c44a1487"
+          ]
+        },
+        {
+          "pet": 116,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "704ed7911cb66400594815e9a48eda9303e6d6a3218ac83e29868575c44a1487"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+        "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+      }
+    },
+    {
+      "id": "gKX4RHVTrZvMqjL3-7-41",
+      "purpose": "list-witness",
+      "report": "gKX4RHVTrZvMqjL3",
+      "fight": 7,
+      "actor": 41,
+      "player": "Clicker",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [
+        49
+      ],
+      "duration_ms": 35009,
+      "published": "1545.63",
+      "totals": {
+        "raw": 60111,
+        "self": 0,
+        "excluded": 6000,
+        "ranked": 54111
+      },
+      "residual": "3933/3500900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 157,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1bc011756c324f8fe767d7084ab8fd2ce4acb63adc8285baa1903271141bbd27"
+          ]
+        },
+        {
+          "pet": 211,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1bc011756c324f8fe767d7084ab8fd2ce4acb63adc8285baa1903271141bbd27"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1bc011756c324f8fe767d7084ab8fd2ce4acb63adc8285baa1903271141bbd27"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+        "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+      }
+    },
+    {
+      "id": "9AHKWjVRnwL2TmMh-4-35",
+      "purpose": "list-witness",
+      "report": "9AHKWjVRnwL2TmMh",
+      "fight": 4,
+      "actor": 35,
+      "player": "Justbeaman",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 7,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 28993,
+      "published": "3093.92",
+      "totals": {
+        "raw": 97138,
+        "self": 0,
+        "excluded": 7436,
+        "ranked": 89702
+      },
+      "residual": "-564/724825",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 62,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8bf3f5d145f2505fabb5e60796c33926d5c4518e8b852673e1e143c05db98cc",
+            "e3d603de67f58f5ff9f4b9e3091221db2f53bb3146c9519f5016005ec855835a"
+          ]
+        },
+        {
+          "pet": 96,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8bf3f5d145f2505fabb5e60796c33926d5c4518e8b852673e1e143c05db98cc",
+            "e3d603de67f58f5ff9f4b9e3091221db2f53bb3146c9519f5016005ec855835a"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+        "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+      }
+    },
+    {
+      "id": "pnx2gFQXMKLhGmTR-6-1",
+      "purpose": "list-witness",
+      "report": "pnx2gFQXMKLhGmTR",
+      "fight": 6,
+      "actor": 1,
+      "player": "Achillês",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 28023,
+      "published": "3502.27",
+      "totals": {
+        "raw": 102596,
+        "self": 691,
+        "excluded": 3761,
+        "ranked": 98144
+      },
+      "residual": "-11221/2802300",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+        "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+      }
+    },
+    {
+      "id": "Dy2jrWBLbZvPdX4k-11-19",
+      "purpose": "list-witness",
+      "report": "Dy2jrWBLbZvPdX4k",
+      "fight": 11,
+      "actor": 19,
+      "player": "Derillian",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 43441,
+      "published": "1130.29",
+      "totals": {
+        "raw": 54883,
+        "self": 578,
+        "excluded": 5204,
+        "ranked": 49101
+      },
+      "residual": "7211/4344100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 60,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e055de79850f718b855b48dcab1484eec5ba9496ac4e23a18a59b64f52367e8"
+          ]
+        },
+        {
+          "pet": 64,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e055de79850f718b855b48dcab1484eec5ba9496ac4e23a18a59b64f52367e8"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e055de79850f718b855b48dcab1484eec5ba9496ac4e23a18a59b64f52367e8"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+        "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+      }
+    },
+    {
+      "id": "JnyzPLYFGAakXWcC-7-17",
+      "purpose": "list-witness",
+      "report": "JnyzPLYFGAakXWcC",
+      "fight": 7,
+      "actor": 17,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 47947,
+      "published": "1231.65",
+      "totals": {
+        "raw": 66967,
+        "self": 1521,
+        "excluded": 6392,
+        "ranked": 59054
+      },
+      "residual": "1549/958940",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 53,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f61260d3a6f1d0ed9d7e8a397221c4721011404f0cec7e4a90b8e0e21f28050b",
+            "3923891b180fb490d2b93c473745512a0c6ee9ff22fb23c71ad535840ac22b67"
+          ]
+        },
+        {
+          "pet": 58,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f61260d3a6f1d0ed9d7e8a397221c4721011404f0cec7e4a90b8e0e21f28050b",
+            "3923891b180fb490d2b93c473745512a0c6ee9ff22fb23c71ad535840ac22b67"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+        "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+      }
+    },
+    {
+      "id": "xLfvdzyWAZh62gHN-7-9",
+      "purpose": "list-witness",
+      "report": "xLfvdzyWAZh62gHN",
+      "fight": 7,
+      "actor": 9,
+      "player": "Zhor",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 52071,
+      "published": "1099.19",
+      "totals": {
+        "raw": 58558,
+        "self": 0,
+        "excluded": 1322,
+        "ranked": 57236
+      },
+      "residual": "7751/5207100",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+        "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+      }
+    },
+    {
+      "id": "GpgmvC9ykxTnf68H-6-36",
+      "purpose": "list-witness",
+      "report": "GpgmvC9ykxTnf68H",
+      "fight": 6,
+      "actor": 36,
+      "player": "Virulent",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 31768,
+      "published": "2945.42",
+      "totals": {
+        "raw": 96157,
+        "self": 0,
+        "excluded": 2587,
+        "ranked": 93570
+      },
+      "residual": "-641/198550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 88,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "286d487ce86725ba461f5cdf2e61de5009ffa5f6fe8a1ebc58e57d8e50a2ab80",
+            "36fbba9478d47ab57d1e55b7c29f2d06a62a427c1f7e17b033aa8606b6bac4f7"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "286d487ce86725ba461f5cdf2e61de5009ffa5f6fe8a1ebc58e57d8e50a2ab80",
+            "36fbba9478d47ab57d1e55b7c29f2d06a62a427c1f7e17b033aa8606b6bac4f7"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "f6xByZakCQnqpA79-10-22",
+      "purpose": "list-witness",
+      "report": "f6xByZakCQnqpA79",
+      "fight": 10,
+      "actor": 22,
+      "player": "Zifeng",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 36986,
+      "published": "2865.92",
+      "totals": {
+        "raw": 110909,
+        "self": 527,
+        "excluded": 4383,
+        "ranked": 105999
+      },
+      "residual": "1036/462325",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 55,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f7ac713ccbf7a38e89a7bfea88072b1e8478051685d7dc1108233d016bf53d27"
+          ]
+        },
+        {
+          "pet": 187,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f7ac713ccbf7a38e89a7bfea88072b1e8478051685d7dc1108233d016bf53d27"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "tVQMArPJkKhnBpYw-10-19",
+      "purpose": "list-witness",
+      "report": "tVQMArPJkKhnBpYw",
+      "fight": 10,
+      "actor": 19,
+      "player": "Valeerá",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 38753,
+      "published": "2853.38",
+      "totals": {
+        "raw": 120178,
+        "self": 0,
+        "excluded": 9601,
+        "ranked": 110577
+      },
+      "residual": "-1757/1937650",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 71,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "33e3b467812375c02673c3abd72cf245a891bb31e4cfbf2936cdf6e1cdaaefd2"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "7aPbMq4VR98xmNd2-11-23",
+      "purpose": "list-witness",
+      "report": "7aPbMq4VR98xmNd2",
+      "fight": 11,
+      "actor": 23,
+      "player": "Riffriff",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16506
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 52553,
+      "published": "993.568",
+      "totals": {
+        "raw": 56247,
+        "self": 0,
+        "excluded": 4032,
+        "ranked": 52215
+      },
+      "residual": "2612/6569125",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+        "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+      }
+    }
+  ]
+}

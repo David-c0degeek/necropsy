@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "rule": "naxx-heigan-shadow-priest-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51112,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
+    "sha256": "05aa6d44d37a8dcbf6a64ccc17060b81f0d42f4abaa4c69a8eba453510c3f6de"
+  },
+  "tested_exclusions": [
+    16036,
+    16037
+  ],
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4wFxvBWAy7jcCdVL-29-50",
+      "purpose": "policy-scope",
+      "report": "4wFxvBWAy7jcCdVL",
+      "fight": 29,
+      "actor": 50,
+      "player": "Ywfvniefjioe",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16036,
+        16037
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 64842,
+      "published": "853.058",
+      "totals": {
+        "raw": 55314,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 55314
+      },
+      "residual": "1097/5403500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 101,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8766df278d49b7878f5e210a3a5bf567eb6ea1638c381ae39337701e69573d2d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AWvKRzT4kP9MhFgx-35-8",
+      "purpose": "policy-scope",
+      "report": "AWvKRzT4kP9MhFgx",
+      "fight": 35,
+      "actor": 8,
+      "player": "Dabezd",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 10,
+      "excluded_game_ids": [
+        16036,
+        16037
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 58257,
+      "published": "749.283",
+      "totals": {
+        "raw": 43651,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 43651
+      },
+      "residual": "20269/58257000"
+    },
+    {
+      "id": "MWm21FQB3ryHja4n-48-7",
+      "purpose": "policy-scope",
+      "report": "MWm21FQB3ryHja4n",
+      "fight": 48,
+      "actor": 7,
+      "player": "Nanaomena",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 5,
+      "excluded_game_ids": [
+        16036,
+        16037
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 73514,
+      "published": "792.897",
+      "totals": {
+        "raw": 59268,
+        "self": 979,
+        "excluded": 0,
+        "ranked": 58289
+      },
+      "residual": "-2147/5251000"
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "wxgTFC36KJmqhQWy-62-26",
+      "purpose": "list-witness",
+      "report": "wxgTFC36KJmqhQWy",
+      "fight": 62,
+      "actor": 26,
+      "player": "Neakers",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 11,
+      "excluded_game_ids": [
+        16036,
+        16037
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 70861,
+      "published": "815.47",
+      "totals": {
+        "raw": 57938,
+        "self": 0,
+        "excluded": 153,
+        "ranked": 57785
+      },
+      "residual": "-281/1012300",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+        "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+      }
+    },
+    {
+      "id": "gFpJydcAP2KZ8fx7-38-48",
+      "purpose": "list-witness",
+      "report": "gFpJydcAP2KZ8fx7",
+      "fight": 38,
+      "actor": 48,
+      "player": "Shmeedy",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16036,
+        16037
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 61113,
+      "published": "1569.13",
+      "totals": {
+        "raw": 98855,
+        "self": 0,
+        "excluded": 2961,
+        "ranked": 95894
+      },
+      "residual": "-24169/6111300",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+        "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+      }
+    },
+    {
+      "id": "4HpKRm9MqdfPGJVc-16-7",
+      "purpose": "list-witness",
+      "report": "4HpKRm9MqdfPGJVc",
+      "fight": 16,
+      "actor": 7,
+      "player": "Feederation",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 7,
+      "excluded_game_ids": [
+        16036,
+        16037
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 64962,
+      "published": "1873.26",
+      "totals": {
+        "raw": 127333,
+        "self": 0,
+        "excluded": 5642,
+        "ranked": 121691
+      },
+      "residual": "7097/1624050",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 157,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "593d0f46bdbe3677b1f4c5f2f17f1bd600e6048b626e6b649dd5506384c3ff66",
+            "09fc0bb4163eaba14299eaf0ece60bbe4a4915cf7eaf277310f153fe6eaf28f0"
+          ]
+        },
+        {
+          "pet": 163,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "593d0f46bdbe3677b1f4c5f2f17f1bd600e6048b626e6b649dd5506384c3ff66",
+            "09fc0bb4163eaba14299eaf0ece60bbe4a4915cf7eaf277310f153fe6eaf28f0"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+        "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+      }
+    },
+    {
+      "id": "VT1MPxaq2rHh4WRj-30-30",
+      "purpose": "list-witness",
+      "report": "VT1MPxaq2rHh4WRj",
+      "fight": 30,
+      "actor": 30,
+      "player": "克瑞斯",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16036,
+        16037
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 80057,
+      "published": "1778.71",
+      "totals": {
+        "raw": 143870,
+        "self": 0,
+        "excluded": 1472,
+        "ranked": 142398
+      },
+      "residual": "-18647/8005700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 69,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e7d5e3213867f489d7a90e63609e051a7f59fd0c6410d2c0b44be69793aa38ed",
+            "ffaf9764133af26202bb3db5264bf3bc460e9209b03e73e26c789152639b16c9"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+        "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+      }
+    }
+  ]
+}
