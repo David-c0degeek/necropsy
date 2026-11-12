@@ -1,0 +1,645 @@
+{
+  "version": 1,
+  "rule": "naxx-gluth-elemental-shaman-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51108,
+    "class_id": 9,
+    "category": "Elemental",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
+    "sha256": "750c3d91e175728e632f7b185f8cf3e078ad780c9fb94f7a0e43f0777e97f9d2"
+  },
+  "tested_exclusions": [
+    16360
+  ],
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Gax6vp2Hd841yKwB-78-17",
+      "purpose": "policy-scope",
+      "report": "Gax6vp2Hd841yKwB",
+      "fight": 78,
+      "actor": 17,
+      "player": "Kanzen",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [
+        236
+      ],
+      "duration_ms": 62891,
+      "published": "1030",
+      "totals": {
+        "raw": 64778,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64778
+      },
+      "residual": "270/62891",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 78,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 84,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 88,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 103,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 122,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 160,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 167,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 188,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 248,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 255,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 263,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        },
+        {
+          "pet": 264,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0d6183faf25a188c023760d01267b01f7d6bcf2cec7aa7f870bcf9b7da9890fc",
+            "e7964ffa59ca9a12c00b3153361d0b89c250766d73c13c89f3a6823ad8b02afd"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 82,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "yqcMVmfDJK8Z16jY-76-85",
+      "purpose": "policy-scope",
+      "report": "yqcMVmfDJK8Z16jY",
+      "fight": 76,
+      "actor": 85,
+      "player": "Proberzk",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [
+        267
+      ],
+      "duration_ms": 61635,
+      "published": "994.613",
+      "totals": {
+        "raw": 61303,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61303
+      },
+      "residual": "5549/12327000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 86,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 102,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 118,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 185,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 201,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 224,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        },
+        {
+          "pet": 231,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f229e61d699cd1fa17776ff36b94c6b99c36b02e683c2b30756e234af932b836",
+            "cfd04df985a74baf461e7c3e64502c4fc7a937ab66abf33327ca57f953ad847c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KhQaJt8fzTbFHgkR-49-26",
+      "purpose": "policy-scope",
+      "report": "KhQaJt8fzTbFHgkR",
+      "fight": 49,
+      "actor": 26,
+      "player": "Bushmilfs",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [
+        207
+      ],
+      "duration_ms": 48234,
+      "published": "998.715",
+      "totals": {
+        "raw": 54542,
+        "self": 869,
+        "excluded": 5501,
+        "ranked": 48172
+      },
+      "residual": "-1931/4823400",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 93,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 132,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 250,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 267,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "82AKnWRrXFPHmVGN-51-16",
+      "purpose": "list-witness",
+      "report": "82AKnWRrXFPHmVGN",
+      "fight": 51,
+      "actor": 16,
+      "player": "Ywfvniefjioe",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 4,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 90265,
+      "published": "794.505",
+      "totals": {
+        "raw": 72264,
+        "self": 0,
+        "excluded": 548,
+        "ranked": 71716
+      },
+      "residual": "247/3610600",
+      "fight_active_catalog_units": [
+        {
+          "unit": 96,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
+        "sha256": "05aa6d44d37a8dcbf6a64ccc17060b81f0d42f4abaa4c69a8eba453510c3f6de"
+      }
+    },
+    {
+      "id": "q1ctMgA2YjVBJv7n-69-131",
+      "purpose": "list-witness",
+      "report": "q1ctMgA2YjVBJv7n",
+      "fight": 69,
+      "actor": 131,
+      "player": "天可汗",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 93917,
+      "published": "2046.94",
+      "totals": {
+        "raw": 199126,
+        "self": 0,
+        "excluded": 6884,
+        "ranked": 192242
+      },
+      "residual": "-1221/247150",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "q1ctMgA2YjVBJv7n-69-143",
+      "purpose": "list-witness",
+      "report": "q1ctMgA2YjVBJv7n",
+      "fight": 69,
+      "actor": 143,
+      "player": "白浅灬",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 93917,
+      "published": "2144.29",
+      "totals": {
+        "raw": 214900,
+        "self": 0,
+        "excluded": 13515,
+        "ranked": 201385
+      },
+      "residual": "-28393/9391700",
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "KhQaJt8fzTbFHgkR-49-26",
+      "purpose": "list-witness",
+      "report": "KhQaJt8fzTbFHgkR",
+      "fight": 49,
+      "actor": 26,
+      "player": "Bushmilfs",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16360
+      ],
+      "owned_actor_ids": [
+        207
+      ],
+      "duration_ms": 48234,
+      "published": "998.715",
+      "totals": {
+        "raw": 54542,
+        "self": 869,
+        "excluded": 5501,
+        "ranked": 48172
+      },
+      "residual": "-1931/4823400",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 93,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 132,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 250,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        },
+        {
+          "pet": 267,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "db0f04e5b9d266503fc9f59b050abc2c1cf5ae1f10f48af0245a99ee5e888308"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
+        "sha256": "750c3d91e175728e632f7b185f8cf3e078ad780c9fb94f7a0e43f0777e97f9d2"
+      }
+    }
+  ]
+}

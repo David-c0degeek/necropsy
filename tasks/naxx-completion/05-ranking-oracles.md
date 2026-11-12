@@ -94,3 +94,9 @@ list per boss through list witnesses (3 to 34 per boss) and adds 87 policies
 (237 Naxx DPS policies in total). Open there: 32 cells below the minimum and 11
 with contradictions (mostly Mage Fire). Golden re-proof of every row and
 witness passes.
+
+2026-11-12 · D028 fight-active catalog units · A catalog-owned unit that the
+fight's friendlyPets omit but its encounter-All pages name is the owner's unit
+there (Shaman totems). "Pet listings disagree" is gone from the register;
+policies rebuilt: 268 Naxx DPS policies of 390 DPS cells. Open: 84 below the
+minimum, 38 with contradictions (27 Mage Fire). Golden re-proof: 1,195 checks.

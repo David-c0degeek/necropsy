@@ -173,28 +173,35 @@ def _measure(
         listing_name = f"{folders.pop()}/pets.json"
         listing = _read(z, listing_name) if listing_name in z.namelist() else None
         absent = frozenset(p["pet"] for p in row.get("catalog_pets_out_of_scope", ()))
-        if absent:
+        active = frozenset(u["unit"] for u in row.get("fight_active_catalog_units", ()))
+        scope_events: list[dict[str, Any]] = []
+        if absent or active:
             # D022: a catalog pet is out of scope only if the fight's encounter-All
-            # pages never name it.
+            # pages never name it. D028: one they do name is the owner's unit there.
             prefix = f"events/{row['report']}/fight_{row['fight']}/encounter/"
             pages = sorted(n for n in z.namelist() if n.startswith(prefix))
             assert pages
             for name in pages:
-                for event in _read(z, name)["data"]:
-                    assert not absent & {event.get("sourceID"), event.get("targetID")}, name
-        owned = _owned_units(listing, fight, actors, actor, absent)
+                scope_events.extend(_read(z, name)["data"])
+            named = {i for e in scope_events for i in (e.get("sourceID"), e.get("targetID"))}
+            assert not absent & named
+            assert active <= named
+            assert all(
+                actors[u]["type"] == "Pet" and actors[u]["petOwner"] == actor for u in active
+            )
+        owned = _owned_units(listing, fight, actors, actor, absent | active)
         details = [
             p
             for role in report["playerDetails"]["data"]["playerDetails"].values()
             for p in role
             if p["id"] == actor
         ]
-        known = {actor} | owned
+        known = {actor} | owned | active
         observations = []
         for stream in snapshot["streams"]:
             if (stream["report"], stream["fight"]) != (row["report"], row["fight"]):
                 continue
-            if stream["actor_id"] not in known:
+            if stream["actor_id"] not in known - active:
                 continue
             counter: Counter[str] = Counter()
             for event in _stream_pages(z, snapshot, fight, report, stream):
@@ -209,10 +216,14 @@ def _measure(
             for s in snapshot["streams"]
             if (s["report"], s["fight"]) == (row["report"], row["fight"]) and s["actor_id"] in known
         }
-        assert directions == {(a, d) for a in known for d in ("source", "target")}
+        assert directions == {(a, d) for a in known - active for d in ("source", "target")}
         merged: Counter[str] = Counter()
         for counter in observations:
             merged |= counter  # maximum multiplicity: a row seen in both directions counts once
+        for event in scope_events:  # D028: each page event once, no requested stream
+            if event.get("type") == "damage" and event.get("sourceID") in active:
+                assert _key(event) not in merged
+                merged[_key(event)] += 1
         events = [(json.loads(k), n) for k, n in merged.items()]
         board = _read(z, row["leaderboard_member"])
         page = next(p for p in board["pages"] if p["page"] == row["page"])

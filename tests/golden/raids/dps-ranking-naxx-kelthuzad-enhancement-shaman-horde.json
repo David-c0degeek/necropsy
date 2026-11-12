@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-enhancement-shaman-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 9,
+    "category": "Enhancement",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
+    "sha256": "c794197d7cce61dd8817f1b85be4eb6a570c9880b9765922743b50586dc4592d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "6gwkQYhaW9K1DTv4-3-6",
+      "purpose": "policy-scope",
+      "report": "6gwkQYhaW9K1DTv4",
+      "fight": 3,
+      "actor": 6,
+      "player": "Ronka",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 160109,
+      "published": "890.575",
+      "totals": {
+        "raw": 143729,
+        "self": 1140,
+        "excluded": 0,
+        "ranked": 142589
+      },
+      "residual": "-2907/6404360",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 48,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ad82d4d4d8bba3c7fbe355761275cfc51abbbfe8590520625833bd1d1e58e49e",
+            "a75df361a459dcdf23875a31655c0c8f7ad04e71c8e5ff8f85917b50d3f67b5f",
+            "e74a82cb0c4e832b0eb48167e5fe3a1b24b9f449734d21adde2972461e09ae87"
+          ]
+        },
+        {
+          "pet": 81,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ad82d4d4d8bba3c7fbe355761275cfc51abbbfe8590520625833bd1d1e58e49e",
+            "a75df361a459dcdf23875a31655c0c8f7ad04e71c8e5ff8f85917b50d3f67b5f",
+            "e74a82cb0c4e832b0eb48167e5fe3a1b24b9f449734d21adde2972461e09ae87"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 53,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 54,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 57,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 79,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "Ma84VcTJ1nLYmqx3-2-19",
+      "purpose": "policy-scope",
+      "report": "Ma84VcTJ1nLYmqx3",
+      "fight": 2,
+      "actor": 19,
+      "player": "Stormstrike",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        71
+      ],
+      "duration_ms": 193366,
+      "published": "965.516",
+      "totals": {
+        "raw": 188030,
+        "self": 1332,
+        "excluded": 0,
+        "ranked": 186698
+      },
+      "residual": "4143/24170750",
+      "fight_active_catalog_units": [
+        {
+          "unit": 60,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 63,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 76,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 82,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "Qz8GJacyrLMFThmb-4-4",
+      "purpose": "policy-scope",
+      "report": "Qz8GJacyrLMFThmb",
+      "fight": 4,
+      "actor": 4,
+      "player": "Soren",
+      "realm": "Windseeker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 142942,
+      "published": "948.329",
+      "totals": {
+        "raw": 137294,
+        "self": 1738,
+        "excluded": 0,
+        "ranked": 135556
+      },
+      "residual": "-21959/71471000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 94,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8d541884738d0b0809b15f83c2ae13e303ba73b1aebb00f2ca364a8c45bd7e51",
+            "19d7495f4b8b748c00475b1471657d6f8757cb2261c6c3aec9331742c9fd5d23",
+            "06d143e2b5ee401a5d8597ac147c229e6b403fb4e15687893fe138412160b6c4"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 74,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 76,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 79,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 83,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

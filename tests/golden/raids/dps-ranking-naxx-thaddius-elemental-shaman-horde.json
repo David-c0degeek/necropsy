@@ -1,0 +1,420 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-elemental-shaman-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 9,
+    "category": "Elemental",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
+    "sha256": "750c3d91e175728e632f7b185f8cf3e078ad780c9fb94f7a0e43f0777e97f9d2"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1ymbq2jaK6rCRAgZ-44-5",
+      "purpose": "policy-scope",
+      "report": "1ymbq2jaK6rCRAgZ",
+      "fight": 44,
+      "actor": 5,
+      "player": "Repick",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        178
+      ],
+      "duration_ms": 150611,
+      "published": "1900.04",
+      "totals": {
+        "raw": 286167,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 286167
+      },
+      "residual": "1889/3765275",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 85,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 99,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 107,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 188,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 200,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 243,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 284,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 292,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 297,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        },
+        {
+          "pet": 316,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78aa6fadd10766a8606d0141d52021e12f7d51d92bec1386b59978c49f0904bb",
+            "4c836d3b1222f7733970fb61ece7bd86dcff9908fa7fe223b4d4b4f6a8fb53aa",
+            "6b0fe6766b99482450e09e0568a9aef86534e3f669985eb0c7f05d18467b6c2e"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 71,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 72,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "HfZFN9D3PhcYQbvr-38-46",
+      "purpose": "policy-scope",
+      "report": "HfZFN9D3PhcYQbvr",
+      "fight": 38,
+      "actor": 46,
+      "player": "Vitalîs",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        107
+      ],
+      "duration_ms": 147077,
+      "published": "1878.39",
+      "totals": {
+        "raw": 277094,
+        "self": 826,
+        "excluded": 0,
+        "ranked": 276268
+      },
+      "residual": "3397/14707700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 60,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 72,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 74,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 80,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 118,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 146,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 167,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 190,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6a6d7d7de2f029a26bfefd336f51009fae74871b781ffec05f51d79e97304d8",
+            "195e2be48ecb54ed19127b610140d378243db03df537408f4f80d1d3a668a9b9",
+            "474448a47503ee104d6005f8bca698847b0e7fd118ac15dde8e3d4cf87cd88b0"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 55,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 62,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "KhQaJt8fzTbFHgkR-51-26",
+      "purpose": "policy-scope",
+      "report": "KhQaJt8fzTbFHgkR",
+      "fight": 51,
+      "actor": 26,
+      "player": "Bushmilfs",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        132
+      ],
+      "duration_ms": 131758,
+      "published": "1907.14",
+      "totals": {
+        "raw": 252105,
+        "self": 824,
+        "excluded": 0,
+        "ranked": 251281
+      },
+      "residual": "1197/3293950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 93,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 207,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 250,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        },
+        {
+          "pet": 267,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68399b619777a5bb53f94b93b94beeddb6d2af9fdb299e91e15d9f70ab2ab806",
+            "f7c07d47034c9324d3b2898ed54ac0eab2db6bda73b2cefd1d1e6a4278408986",
+            "0acf958542f1749978f450b85019d2624feb19d23e9dd97ac0973a5e3e533dc9"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 109,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -26,27 +26,26 @@ reopens it when the production list differs.
 
 | Boss | Witnesses | Policies |
 |---|---|---|
-| Anub'Rekhan | 5 | 10 |
-| Gluth | 3 | 20 |
-| Grand Widow Faerlina | 34 | 20 |
-| Heigan the Unclean | 4 | 21 |
-| Instructor Razuvious | 24 | 16 |
+| Anub'Rekhan | 5 | 11 |
+| Gluth | 4 | 24 |
+| Grand Widow Faerlina | 37 | 22 |
+| Heigan the Unclean | 4 | 23 |
+| Instructor Razuvious | 30 | 19 |
 
-87 policies; 237 Naxx DPS policies in total. Open: 32 cells below 3 matched
-players and 11 with contradictions (9 Mage Fire, 1 Rogue Assassination at
-Heigan, 1 Mage Frost at Faerlina).
+99 policies (87 before D028); 268 Naxx DPS policies in total. Open: 19 cells
+below 3 matched players and 12 with contradictions, mostly Mage Fire.
 
 `tests/golden/test_dps_ranking_policy.py` re-proves every row, including the
 excluded damage, from raw pages without freezer code. It also checks each
-witness: matched with the list, contradicted without it. All 1,060 checks pass.
+witness: matched with the list, contradicted without it. All 1,195 checks pass (with D028).
 
 Check mode (the default) writes nothing and fails if a fresh build differs.
 `--write` refuses to overwrite. A build takes about 9 minutes.
 
 ## Limits
 
-- The list is tested per boss across configurations, not per cell. Gluth rests
-  on the minimum of 3 witnesses.
+- The list is tested per boss across configurations, not per cell. Gluth and
+  Heigan rest on 4 witnesses each.
 - No engine emission, product score, grade or COMPLETE cell follows.
 - No independent Codex review (owner, 2026-11-12). The golden re-proof is the
   independent check.

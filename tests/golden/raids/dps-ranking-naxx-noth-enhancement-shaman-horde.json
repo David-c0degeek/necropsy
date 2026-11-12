@@ -1,0 +1,370 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-enhancement-shaman-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 9,
+    "category": "Enhancement",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
+    "sha256": "c794197d7cce61dd8817f1b85be4eb6a570c9880b9765922743b50586dc4592d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "6zytcA1kgadN9VJH-43-27",
+      "purpose": "policy-scope",
+      "report": "6zytcA1kgadN9VJH",
+      "fight": 43,
+      "actor": 27,
+      "player": "Stormstrike",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        68,
+        69,
+        87
+      ],
+      "duration_ms": 69917,
+      "published": "1218.09",
+      "totals": {
+        "raw": 86424,
+        "self": 1259,
+        "excluded": 0,
+        "ranked": 85165
+      },
+      "residual": "-19853/6991700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 76,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 95,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 117,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 122,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 170,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 216,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 252,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        },
+        {
+          "pet": 257,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cb55fb86f0822d45e3744fccaa5b96b78f37bee901651df714cd10dd97f254e0",
+            "ba12e48f788a7767cb019ef46eb958459951254cfe40306e11a1b94d06d40804"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 64,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 65,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 181,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "CkFr67j3mJzWc4tT-37-55",
+      "purpose": "policy-scope",
+      "report": "CkFr67j3mJzWc4tT",
+      "fight": 37,
+      "actor": 55,
+      "player": "Kierky",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        105
+      ],
+      "duration_ms": 52053,
+      "published": "1122.24",
+      "totals": {
+        "raw": 58416,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 58416
+      },
+      "residual": "344/433775",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 78,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        },
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        },
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        },
+        {
+          "pet": 165,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        },
+        {
+          "pet": 191,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        },
+        {
+          "pet": 245,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        },
+        {
+          "pet": 274,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        },
+        {
+          "pet": 290,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3d3e9fcee153564317b117c6464e9f840a5e60aeec61e63fb162e62b39d370a7",
+            "9fc5f94f31e7cf8373dc7f9118bb9e90f926799483a0058b2dccb8efb24f73cd"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 101,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "vzmPtDJj9Fq6gX1x-16-40",
+      "purpose": "policy-scope",
+      "report": "vzmPtDJj9Fq6gX1x",
+      "fight": 16,
+      "actor": 40,
+      "player": "Philzthebest",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        69,
+        83,
+        128
+      ],
+      "duration_ms": 47616,
+      "published": "1133.67",
+      "totals": {
+        "raw": 54456,
+        "self": 475,
+        "excluded": 0,
+        "ranked": 53981
+      },
+      "residual": "529/148800",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 90,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 155,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 197,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 217,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 226,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 274,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 286,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 294,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        },
+        {
+          "pet": 296,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "39d162053d5bb9c4a051915955ad8311f51ddd70f345315375ad7632749954e6"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 56,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 60,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 66,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 79,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

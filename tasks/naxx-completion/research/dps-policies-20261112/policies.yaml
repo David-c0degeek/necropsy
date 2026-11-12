@@ -812,6 +812,50 @@
   validated: 3 admitted of 3 in-scope Gothik the Harvester Assassination Rogue Horde rows
     (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gothik-assassination-rogue-horde.json
+- rule: naxx-grobbulus-assassination-rogue-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Assassination Rogue Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-assassination-rogue-horde.json
+- rule: naxx-kelthuzad-assassination-rogue-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Assassination Rogue Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-assassination-rogue-horde.json
 - rule: naxx-maexxna-assassination-rogue-horde-dps-v1
   basis: empirical
   scope:
@@ -1054,6 +1098,28 @@
   validated: 3 admitted of 3 in-scope The Four Horsemen Marksmanship Hunter Horde rows (3
     distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-marksmanship-hunter-horde.json
+- rule: naxx-gothik-destruction-warlock-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Destruction Warlock Horde rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-destruction-warlock-horde.json
 - rule: naxx-grobbulus-destruction-warlock-horde-dps-v1
   basis: empirical
   scope:
@@ -1340,6 +1406,28 @@
   validated: 3 admitted of 3 in-scope Sapphiron Shadow Priest Horde rows (3 distinct non-subject
     players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-shadow-priest-horde.json
+- rule: naxx-thaddius-shadow-priest-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Shadow Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-shadow-priest-horde.json
 - rule: naxx-gothik-protection-paladin-alliance-dps-v1
   basis: empirical
   scope:
@@ -1604,6 +1692,160 @@
   validated: 3 admitted of 3 in-scope The Four Horsemen Guardian Druid Horde rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-guardian-druid-horde.json
+- rule: naxx-gothik-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Enhancement Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-enhancement-shaman-horde.json
+- rule: naxx-grobbulus-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Enhancement Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-enhancement-shaman-horde.json
+- rule: naxx-kelthuzad-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Enhancement Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-enhancement-shaman-horde.json
+- rule: naxx-maexxna-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Enhancement Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-maexxna-enhancement-shaman-horde.json
+- rule: naxx-noth-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Enhancement Shaman Horde rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-noth-enhancement-shaman-horde.json
+- rule: naxx-sapphiron-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Enhancement Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-enhancement-shaman-horde.json
+- rule: naxx-thaddius-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Enhancement Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-enhancement-shaman-horde.json
 - rule: naxx-gothik-fury-warrior-horde-dps-v1
   basis: empirical
   scope:
@@ -2640,6 +2882,28 @@
   validated: 3 admitted of 3 in-scope The Four Horsemen Shadow Priest Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-shadow-priest-alliance.json
+- rule: naxx-gothik-destruction-warlock-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Destruction Warlock Alliance rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-destruction-warlock-alliance.json
 - rule: naxx-grobbulus-destruction-warlock-alliance-dps-v1
   basis: empirical
   scope:
@@ -2795,6 +3059,160 @@
   validated: 3 admitted of 3 in-scope The Four Horsemen Destruction Warlock Alliance rows
     (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-destruction-warlock-alliance.json
+- rule: naxx-gothik-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Elemental Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-elemental-shaman-horde.json
+- rule: naxx-grobbulus-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-elemental-shaman-horde.json
+- rule: naxx-kelthuzad-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-elemental-shaman-horde.json
+- rule: naxx-maexxna-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-maexxna-elemental-shaman-horde.json
+- rule: naxx-sapphiron-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-elemental-shaman-horde.json
+- rule: naxx-thaddius-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-elemental-shaman-horde.json
+- rule: naxx-horsemen-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Elemental Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-horsemen-elemental-shaman-horde.json
 - rule: naxx-gothik-frost-mage-horde-dps-v1
   basis: empirical
   scope:

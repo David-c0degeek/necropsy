@@ -1,0 +1,602 @@
+{
+  "version": 1,
+  "rule": "naxx-anubrekhan-elemental-shaman-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51107,
+    "class_id": 9,
+    "category": "Elemental",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration. Damage to the production-excluded target game IDs is subtracted; the boss's list witnesses are re-proved to match with the list and to contradict without it.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
+    "sha256": "750c3d91e175728e632f7b185f8cf3e078ad780c9fb94f7a0e43f0777e97f9d2"
+  },
+  "tested_exclusions": [
+    16698
+  ],
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KhQaJt8fzTbFHgkR-3-26",
+      "purpose": "policy-scope",
+      "report": "KhQaJt8fzTbFHgkR",
+      "fight": 3,
+      "actor": 26,
+      "player": "Bushmilfs",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [
+        79
+      ],
+      "duration_ms": 40012,
+      "published": "1612.64",
+      "totals": {
+        "raw": 64525,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64525
+      },
+      "residual": "302/250075",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 132,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 207,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 250,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        },
+        {
+          "pet": 267,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d8ee8a084d491edc1020e44f0aeaa9b40314a133cb624ef9cb7f789715d19a3d"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 93,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "LYNXnvGfjy1xcrVF-4-37",
+      "purpose": "policy-scope",
+      "report": "LYNXnvGfjy1xcrVF",
+      "fight": 4,
+      "actor": 37,
+      "player": "Nolá",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 1,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [
+        65,
+        71,
+        96
+      ],
+      "duration_ms": 47904,
+      "published": "1489.88",
+      "totals": {
+        "raw": 73129,
+        "self": 1758,
+        "excluded": 0,
+        "ranked": 71371
+      },
+      "residual": "-661/149700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 84,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 87,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 108,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 184,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 223,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 232,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 285,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        },
+        {
+          "pet": 299,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0c9241a3738798282e4fd8ae164b93566ca6209d2580265c9d159b6fb6d2b0b3",
+            "36f51d7a419f051c1efbf01c441ea940a63b1a5b6d749c2fbc6a361b1985ffd1"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 90,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "w2aCBgZdFx6WMb83-5-18",
+      "purpose": "policy-scope",
+      "report": "w2aCBgZdFx6WMb83",
+      "fight": 5,
+      "actor": 18,
+      "player": "Toast",
+      "realm": "Bigglesworth",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 2,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [
+        75,
+        77
+      ],
+      "duration_ms": 51080,
+      "published": "1462.65",
+      "totals": {
+        "raw": 74712,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 74712
+      },
+      "residual": "-81/25540",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 106,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c8b8362c7cf228d05578ca56ff468747ca3342ca65997b09e0d7fa47d1eb5038",
+            "b8450495bf8b87e4d4ac654cb1b1170d0224cd4efd03b2384abc3da1f05f6483"
+          ]
+        },
+        {
+          "pet": 116,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c8b8362c7cf228d05578ca56ff468747ca3342ca65997b09e0d7fa47d1eb5038",
+            "b8450495bf8b87e4d4ac654cb1b1170d0224cd4efd03b2384abc3da1f05f6483"
+          ]
+        },
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c8b8362c7cf228d05578ca56ff468747ca3342ca65997b09e0d7fa47d1eb5038",
+            "b8450495bf8b87e4d4ac654cb1b1170d0224cd4efd03b2384abc3da1f05f6483"
+          ]
+        },
+        {
+          "pet": 244,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c8b8362c7cf228d05578ca56ff468747ca3342ca65997b09e0d7fa47d1eb5038",
+            "b8450495bf8b87e4d4ac654cb1b1170d0224cd4efd03b2384abc3da1f05f6483"
+          ]
+        },
+        {
+          "pet": 276,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c8b8362c7cf228d05578ca56ff468747ca3342ca65997b09e0d7fa47d1eb5038",
+            "b8450495bf8b87e4d4ac654cb1b1170d0224cd4efd03b2384abc3da1f05f6483"
+          ]
+        },
+        {
+          "pet": 278,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c8b8362c7cf228d05578ca56ff468747ca3342ca65997b09e0d7fa47d1eb5038",
+            "b8450495bf8b87e4d4ac654cb1b1170d0224cd4efd03b2384abc3da1f05f6483"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 48,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 59,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": [],
+  "list_witnesses": [
+    {
+      "id": "Amt374QbyThBrZnk-2-20",
+      "purpose": "list-witness",
+      "report": "Amt374QbyThBrZnk",
+      "fight": 2,
+      "actor": 20,
+      "player": "Kearzone",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 50091,
+      "published": "2594.8",
+      "totals": {
+        "raw": 133225,
+        "self": 0,
+        "excluded": 3249,
+        "ranked": 129976
+      },
+      "residual": "-634/250455",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "291747611fdb67dbe08ed85c3889aef119686872c054057be5aa79337c0265a1",
+            "0d2168b00a1246e958f322ca1f1c9e4bf3ff15efff5b2beafefe698e5c91ae81"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+        "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+      }
+    },
+    {
+      "id": "DQjz7qGxmLvpWgK8-16-51",
+      "purpose": "list-witness",
+      "report": "DQjz7qGxmLvpWgK8",
+      "fight": 16,
+      "actor": 51,
+      "player": "Kasvo",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [
+        52
+      ],
+      "duration_ms": 42036,
+      "published": "1949.64",
+      "totals": {
+        "raw": 85450,
+        "self": 0,
+        "excluded": 3495,
+        "ranked": 81955
+      },
+      "residual": "-419/262725",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 175,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1a8ab947887ed186a1c596b6f8b79ca584d975927f828ee92bfed6cc2508232c",
+            "b702635ff67b4408fab276d967bdf0487aef32887f7378cf20612e49731f157a"
+          ]
+        },
+        {
+          "pet": 220,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1a8ab947887ed186a1c596b6f8b79ca584d975927f828ee92bfed6cc2508232c",
+            "b702635ff67b4408fab276d967bdf0487aef32887f7378cf20612e49731f157a"
+          ]
+        },
+        {
+          "pet": 252,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1a8ab947887ed186a1c596b6f8b79ca584d975927f828ee92bfed6cc2508232c",
+            "b702635ff67b4408fab276d967bdf0487aef32887f7378cf20612e49731f157a"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+        "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+      }
+    },
+    {
+      "id": "dcQ9ZTFXLWnkxb2y-35-48",
+      "purpose": "list-witness",
+      "report": "dcQ9ZTFXLWnkxb2y",
+      "fight": 35,
+      "actor": 48,
+      "player": "Dinkie",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 12,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 20744,
+      "published": "5410.29",
+      "totals": {
+        "raw": 118215,
+        "self": 0,
+        "excluded": 5984,
+        "ranked": 112231
+      },
+      "residual": "-697/259300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 82,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        },
+        {
+          "pet": 231,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+        "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+      }
+    },
+    {
+      "id": "dcQ9ZTFXLWnkxb2y-35-25",
+      "purpose": "list-witness",
+      "report": "dcQ9ZTFXLWnkxb2y",
+      "fight": 35,
+      "actor": 25,
+      "player": "Flaps",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 3,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 20744,
+      "published": "3428.36",
+      "totals": {
+        "raw": 132480,
+        "self": 580,
+        "excluded": 60782,
+        "ranked": 71118
+      },
+      "residual": "313/64825",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 62,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        },
+        {
+          "pet": 217,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    },
+    {
+      "id": "dcQ9ZTFXLWnkxb2y-35-33",
+      "purpose": "list-witness",
+      "report": "dcQ9ZTFXLWnkxb2y",
+      "fight": 35,
+      "actor": 33,
+      "player": "Virulent",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 0,
+      "excluded_game_ids": [
+        16698
+      ],
+      "owned_actor_ids": [],
+      "duration_ms": 20744,
+      "published": "6104.13",
+      "totals": {
+        "raw": 132080,
+        "self": 1141,
+        "excluded": 4315,
+        "ranked": 126624
+      },
+      "residual": "-909/259300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 56,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        },
+        {
+          "pet": 234,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "63de865c0eb7e9d38cd4f95b4042c4e4e06fe7d56dd4ffe59fbd7d550f4b3fab"
+          ]
+        }
+      ],
+      "archive": {
+        "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+        "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+      }
+    }
+  ]
+}

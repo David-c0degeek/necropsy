@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "8WXy7LJR9YqQwx3M-64-41",
+      "purpose": "policy-scope",
+      "report": "8WXy7LJR9YqQwx3M",
+      "fight": 64,
+      "actor": 41,
+      "player": "蚀骨的诅咒",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 301584,
+      "published": "402.223",
+      "totals": {
+        "raw": 121304,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 121304
+      },
+      "residual": "-1327/18849000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 48,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fee443fc81bde2388665b2fc90368a036e14999083ed91e8de28e929ca8a92b7",
+            "6caae81e6925912d29cb709e6de6099a9a2ec2b851caa919cbf75ccef0434413",
+            "3b8c3d5637f7a4ecd7b44677b969499cd954062564ce59558bcd5980cf1651af"
+          ]
+        },
+        {
+          "pet": 87,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fee443fc81bde2388665b2fc90368a036e14999083ed91e8de28e929ca8a92b7",
+            "6caae81e6925912d29cb709e6de6099a9a2ec2b851caa919cbf75ccef0434413",
+            "3b8c3d5637f7a4ecd7b44677b969499cd954062564ce59558bcd5980cf1651af"
+          ]
+        },
+        {
+          "pet": 261,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fee443fc81bde2388665b2fc90368a036e14999083ed91e8de28e929ca8a92b7",
+            "6caae81e6925912d29cb709e6de6099a9a2ec2b851caa919cbf75ccef0434413",
+            "3b8c3d5637f7a4ecd7b44677b969499cd954062564ce59558bcd5980cf1651af"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GYqcrfjR41ZHwMJQ-22-15",
+      "purpose": "policy-scope",
+      "report": "GYqcrfjR41ZHwMJQ",
+      "fight": 22,
+      "actor": 15,
+      "player": "Saïsaï",
+      "realm": "Dragonfang",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 299741,
+      "published": "412.099",
+      "totals": {
+        "raw": 124224,
+        "self": 701,
+        "excluded": 0,
+        "ranked": 123523
+      },
+      "residual": "33641/299741000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 203,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "953a1ef9f3c64cd3ee11e706d9a3d3c787769d52d6b6d0b9c03f05e018b59d35",
+            "eab7bbabaef5e6a6123387f85bbf958f1ff76e212721165a50ed6844cd343694",
+            "ec537d279b63e5d7741fb3b4246c7c3fcbc6d4f538e50b94f1ba33d185d55379"
+          ]
+        },
+        {
+          "pet": 224,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "953a1ef9f3c64cd3ee11e706d9a3d3c787769d52d6b6d0b9c03f05e018b59d35",
+            "eab7bbabaef5e6a6123387f85bbf958f1ff76e212721165a50ed6844cd343694",
+            "ec537d279b63e5d7741fb3b4246c7c3fcbc6d4f538e50b94f1ba33d185d55379"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mpTHfnCxghq6J8AV-84-56",
+      "purpose": "policy-scope",
+      "report": "mpTHfnCxghq6J8AV",
+      "fight": 84,
+      "actor": 56,
+      "player": "Coughsyrup",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 297092,
+      "published": "428.376",
+      "totals": {
+        "raw": 127267,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 127267
+      },
+      "residual": "-2581/9284125",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5bbe93f7103b68b6e2f68945b424b1aba2907480cfdca3fba047606a4300f811",
+            "c9a39b64d311d1feb0ce49c41abeba3fbfbc94c22d59aeae1da9c7666b94c26a"
+          ]
+        },
+        {
+          "pet": 179,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5bbe93f7103b68b6e2f68945b424b1aba2907480cfdca3fba047606a4300f811",
+            "c9a39b64d311d1feb0ce49c41abeba3fbfbc94c22d59aeae1da9c7666b94c26a"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 57,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

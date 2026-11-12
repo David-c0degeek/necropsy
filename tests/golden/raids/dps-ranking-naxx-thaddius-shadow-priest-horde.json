@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-shadow-priest-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
+    "sha256": "05aa6d44d37a8dcbf6a64ccc17060b81f0d42f4abaa4c69a8eba453510c3f6de"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "AWvKRzT4kP9MhFgx-30-8",
+      "purpose": "policy-scope",
+      "report": "AWvKRzT4kP9MhFgx",
+      "fight": 30,
+      "actor": 8,
+      "player": "Dabezd",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 135383,
+      "published": "1271.15",
+      "totals": {
+        "raw": 175434,
+        "self": 3342,
+        "excluded": 0,
+        "ranked": 172092
+      },
+      "residual": "-2009/2707660"
+    },
+    {
+      "id": "YqjX8xPn7tWvLgGZ-55-7",
+      "purpose": "policy-scope",
+      "report": "YqjX8xPn7tWvLgGZ",
+      "fight": 55,
+      "actor": 7,
+      "player": "Varjo",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 185544,
+      "published": "1348.15",
+      "totals": {
+        "raw": 252382,
+        "self": 2241,
+        "excluded": 0,
+        "ranked": 250141
+      },
+      "residual": "-359/463860"
+    },
+    {
+      "id": "mFaAKHRxN2JM71qG-64-52",
+      "purpose": "policy-scope",
+      "report": "mFaAKHRxN2JM71qG",
+      "fight": 64,
+      "actor": 52,
+      "player": "Ywfvniefjioe",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 192121,
+      "published": "1433.03",
+      "totals": {
+        "raw": 277179,
+        "self": 1864,
+        "excluded": 0,
+        "ranked": 275315
+      },
+      "residual": "-15663/19212100",
+      "fight_active_catalog_units": [
+        {
+          "unit": 106,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

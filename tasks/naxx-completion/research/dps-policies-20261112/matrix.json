@@ -1,9 +1,9 @@
 {
   "kind": "Naxx cell-scoped DPS policy matrix; every register configuration",
   "inputs": {
-    "register_sha256": "00b448ea11996655c661ca9f9db097a18db4d4d7700ede01cd79733c2401332f",
-    "builder_sha256": "890046c580f3d7b6b56998847011b056d7c77296983f1166c82c7bf1bbe6a052",
-    "freezer_sha256": "a8cd21d8824d08546c017a4866df9dac95bbfab2704dcd0dbe727f808e3d9f29"
+    "register_sha256": "e91fabaf577369fac1dad16e6a5bf83478ed6a7e304da8bf33c112ccac64d410",
+    "builder_sha256": "3c8c87875679c0efc3012e74315788ee0f35e80c9dcc89a8dcbe17d3226448e9",
+    "freezer_sha256": "0fe0704a5c6104234aad6d8abe1704ddcd647509643a9c73f74742ca392d1f26"
   },
   "minimum_admitted_players": 3,
   "cells": [
@@ -272,9 +272,9 @@
       },
       "boss": "Anub'Rekhan",
       "archive": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
-      "admitted": 4,
-      "admitted_distinct_players": 4,
-      "refused": 1,
+      "admitted": 5,
+      "admitted_distinct_players": 5,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -1652,12 +1652,13 @@
       },
       "boss": "Grobbulus",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 2 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-assassination-rogue-horde-dps-v1"
     },
     {
       "scope": {
@@ -1703,12 +1704,13 @@
       },
       "boss": "Kel'Thuzad",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 2 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-assassination-rogue-horde-dps-v1"
     },
     {
       "scope": {
@@ -1930,7 +1932,7 @@
       "archive": "tests/golden/raids/raw/naxx-production-20261111/62428883-2006-20261104T171719.zip",
       "admitted": 2,
       "admitted_distinct_players": 2,
-      "refused": 1,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -2632,9 +2634,9 @@
       },
       "boss": "Gluth",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -2649,12 +2651,13 @@
       },
       "boss": "Gothik the Harvester",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 2 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-gothik-destruction-warlock-horde-dps-v1"
     },
     {
       "scope": {
@@ -2896,7 +2899,7 @@
       "archive": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
       "admitted": 2,
       "admitted_distinct_players": 2,
-      "refused": 1,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -3104,12 +3107,13 @@
       },
       "boss": "Thaddius",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 2 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-shadow-priest-horde-dps-v1"
     },
     {
       "scope": {
@@ -3660,9 +3664,9 @@
       },
       "boss": "Anub'Rekhan",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -3677,9 +3681,9 @@
       },
       "boss": "Gluth",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -3694,12 +3698,13 @@
       },
       "boss": "Gothik the Harvester",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-gothik-enhancement-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -3711,9 +3716,9 @@
       },
       "boss": "Grand Widow Faerlina",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -3728,12 +3733,13 @@
       },
       "boss": "Grobbulus",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-enhancement-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -3745,9 +3751,9 @@
       },
       "boss": "Heigan the Unclean",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -3762,9 +3768,9 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -3779,12 +3785,13 @@
       },
       "boss": "Kel'Thuzad",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-enhancement-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -3813,12 +3820,13 @@
       },
       "boss": "Maexxna",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-enhancement-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -3830,12 +3838,13 @@
       },
       "boss": "Noth the Plaguebringer",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-noth-enhancement-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -3847,12 +3856,12 @@
       },
       "boss": "Patchwerk",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "OPEN: 1 admitted players, fewer than 3"
     },
     {
       "scope": {
@@ -3864,12 +3873,13 @@
       },
       "boss": "Sapphiron",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-enhancement-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -3881,12 +3891,13 @@
       },
       "boss": "Thaddius",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-enhancement-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -3898,12 +3909,12 @@
       },
       "boss": "The Four Horsemen",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "OPEN: 2 admitted players, fewer than 3"
     },
     {
       "scope": {
@@ -4806,7 +4817,7 @@
       "archive": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
       "admitted": 0,
       "admitted_distinct_players": 0,
-      "refused": 1,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -5151,12 +5162,12 @@
       },
       "boss": "Patchwerk",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
-      "admitted": 1,
-      "admitted_distinct_players": 1,
-      "refused": 2,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 admitted players, fewer than 3"
+      "decision": "OPEN: 2 admitted players, fewer than 3"
     },
     {
       "scope": {
@@ -5781,12 +5792,13 @@
       },
       "boss": "Gothik the Harvester",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 2 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-gothik-destruction-warlock-alliance-dps-v1"
     },
     {
       "scope": {
@@ -6009,9 +6021,9 @@
       },
       "boss": "Anub'Rekhan",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -6026,9 +6038,9 @@
       },
       "boss": "Gluth",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 1,
-      "admitted_distinct_players": 1,
-      "refused": 1,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -6043,12 +6055,13 @@
       },
       "boss": "Gothik the Harvester",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-gothik-elemental-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -6062,7 +6075,7 @@
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
       "admitted": 0,
       "admitted_distinct_players": 0,
-      "refused": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -6077,12 +6090,13 @@
       },
       "boss": "Grobbulus",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-elemental-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -6094,9 +6108,9 @@
       },
       "boss": "Heigan the Unclean",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -6113,7 +6127,7 @@
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
       "admitted": 0,
       "admitted_distinct_players": 0,
-      "refused": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
       "decision": "OPEN: production ranking exclusions untested by policy evidence"
@@ -6128,12 +6142,13 @@
       },
       "boss": "Kel'Thuzad",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-elemental-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -6145,12 +6160,12 @@
       },
       "boss": "Loatheb",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 1,
-      "admitted_distinct_players": 1,
-      "refused": 2,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 admitted players, fewer than 3"
+      "decision": "OPEN: 2 admitted players, fewer than 3"
     },
     {
       "scope": {
@@ -6162,12 +6177,13 @@
       },
       "boss": "Maexxna",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 1,
-      "admitted_distinct_players": 1,
-      "refused": 2,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-elemental-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -6179,12 +6195,12 @@
       },
       "boss": "Noth the Plaguebringer",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "OPEN: 2 admitted players, fewer than 3"
     },
     {
       "scope": {
@@ -6196,12 +6212,12 @@
       },
       "boss": "Patchwerk",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 1,
-      "admitted_distinct_players": 1,
-      "refused": 2,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 admitted players, fewer than 3"
+      "decision": "OPEN: 2 admitted players, fewer than 3"
     },
     {
       "scope": {
@@ -6213,12 +6229,13 @@
       },
       "boss": "Sapphiron",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-elemental-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -6230,12 +6247,13 @@
       },
       "boss": "Thaddius",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 0 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-elemental-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -6247,12 +6265,13 @@
       },
       "boss": "The Four Horsemen",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/80764809-2006-20261109T140845.zip",
-      "admitted": 1,
-      "admitted_distinct_players": 1,
-      "refused": 2,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 admitted players, fewer than 3"
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-elemental-shaman-horde-dps-v1"
     },
     {
       "scope": {
@@ -6780,7 +6799,7 @@
       "rule": "naxx-horsemen-frost-mage-alliance-dps-v1"
     }
   ],
-  "policies": 142,
+  "policies": 161,
   "limits": [
     "Raw-to-published arithmetic for exactly each cell scope; no engine emission, product score, grade or COMPLETE cell.",
     "Ownership refusals are unknown, never matches or contradictions.",

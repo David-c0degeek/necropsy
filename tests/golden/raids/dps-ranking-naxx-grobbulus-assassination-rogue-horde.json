@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-assassination-rogue-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+    "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "9nRYxhGkCKNa2T3W-30-31",
+      "purpose": "policy-scope",
+      "report": "9nRYxhGkCKNa2T3W",
+      "fight": 30,
+      "actor": 31,
+      "player": "Painleecher",
+      "realm": "Gandling",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 21,
+      "owned_actor_ids": [],
+      "duration_ms": 52071,
+      "published": "1906.34",
+      "totals": {
+        "raw": 99265,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 99265
+      },
+      "residual": "-1507/2603550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 201,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "85699841465f861c355f164a8e6ceda967085142db57b1a9ae96418b557b62e7",
+            "0ffb748f908001955903e1ceb5270d2bc3b32efdeea9fad024f475490f87f29b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hcBrRfxHnDPAMjaX-41-75",
+      "purpose": "policy-scope",
+      "report": "hcBrRfxHnDPAMjaX",
+      "fight": 41,
+      "actor": 75,
+      "player": "Edelgift",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 58504,
+      "published": "2122.91",
+      "totals": {
+        "raw": 124386,
+        "self": 187,
+        "excluded": 0,
+        "ranked": 124199
+      },
+      "residual": "3417/731300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 167,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7327633b5697038a816d166a3a18e3c3059d064ec4212a09a83373de61d4b47c",
+            "8483a5f41fcc926f40cfad50a586052f4869326ac3b676941582a494acf0c14a"
+          ]
+        },
+        {
+          "pet": 173,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7327633b5697038a816d166a3a18e3c3059d064ec4212a09a83373de61d4b47c",
+            "8483a5f41fcc926f40cfad50a586052f4869326ac3b676941582a494acf0c14a"
+          ]
+        },
+        {
+          "pet": 207,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7327633b5697038a816d166a3a18e3c3059d064ec4212a09a83373de61d4b47c",
+            "8483a5f41fcc926f40cfad50a586052f4869326ac3b676941582a494acf0c14a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q8jtvVpM2WraAKR1-18-8",
+      "purpose": "policy-scope",
+      "report": "q8jtvVpM2WraAKR1",
+      "fight": 18,
+      "actor": 8,
+      "player": "Convict",
+      "realm": "Gandling",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 50648,
+      "published": "1966.2",
+      "totals": {
+        "raw": 99584,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 99584
+      },
+      "residual": "-61/31655",
+      "fight_active_catalog_units": [
+        {
+          "unit": 149,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

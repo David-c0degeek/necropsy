@@ -1091,6 +1091,50 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Gothik the Harvester Assassination Rogue Horde rows
     (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gothik-assassination-rogue-horde.json
+- rule: naxx-grobbulus-assassination-rogue-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Assassination Rogue Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-assassination-rogue-horde.json
+- rule: naxx-kelthuzad-assassination-rogue-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 8
+    category: Assassination
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Assassination Rogue Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-assassination-rogue-horde.json
 - rule: naxx-maexxna-assassination-rogue-horde-dps-v1
   basis: empirical
   scope:
@@ -1333,6 +1377,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Marksmanship Hunter Horde rows (3
     distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-marksmanship-hunter-horde.json
+- rule: naxx-gothik-destruction-warlock-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Destruction Warlock Horde rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-destruction-warlock-horde.json
 - rule: naxx-grobbulus-destruction-warlock-horde-dps-v1
   basis: empirical
   scope:
@@ -1619,6 +1685,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Sapphiron Shadow Priest Horde rows (3 distinct non-subject
     players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-shadow-priest-horde.json
+- rule: naxx-thaddius-shadow-priest-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Shadow Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-shadow-priest-horde.json
 - rule: naxx-gothik-protection-paladin-alliance-dps-v1
   basis: empirical
   scope:
@@ -1883,6 +1971,160 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Guardian Druid Horde rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-guardian-druid-horde.json
+- rule: naxx-gothik-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Enhancement Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-enhancement-shaman-horde.json
+- rule: naxx-grobbulus-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Enhancement Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-enhancement-shaman-horde.json
+- rule: naxx-kelthuzad-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Enhancement Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-enhancement-shaman-horde.json
+- rule: naxx-maexxna-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Enhancement Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-maexxna-enhancement-shaman-horde.json
+- rule: naxx-noth-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Enhancement Shaman Horde rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-noth-enhancement-shaman-horde.json
+- rule: naxx-sapphiron-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Enhancement Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-enhancement-shaman-horde.json
+- rule: naxx-thaddius-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Enhancement Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-enhancement-shaman-horde.json
 - rule: naxx-gothik-fury-warrior-horde-dps-v1
   basis: empirical
   scope:
@@ -2919,6 +3161,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Shadow Priest Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-shadow-priest-alliance.json
+- rule: naxx-gothik-destruction-warlock-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Destruction Warlock Alliance rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-destruction-warlock-alliance.json
 - rule: naxx-grobbulus-destruction-warlock-alliance-dps-v1
   basis: empirical
   scope:
@@ -3074,6 +3338,160 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Destruction Warlock Alliance rows
     (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-destruction-warlock-alliance.json
+- rule: naxx-gothik-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Elemental Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gothik-elemental-shaman-horde.json
+- rule: naxx-grobbulus-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-elemental-shaman-horde.json
+- rule: naxx-kelthuzad-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-elemental-shaman-horde.json
+- rule: naxx-maexxna-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-maexxna-elemental-shaman-horde.json
+- rule: naxx-sapphiron-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-elemental-shaman-horde.json
+- rule: naxx-thaddius-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Elemental Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-elemental-shaman-horde.json
+- rule: naxx-horsemen-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Elemental Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-horsemen-elemental-shaman-horde.json
 - rule: naxx-gothik-frost-mage-horde-dps-v1
   basis: empirical
   scope:
@@ -3452,7 +3870,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 5 admitted of 5 in-scope Gluth Balance Druid Alliance rows (5 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-balance-druid-alliance.json
   tested_exclusions:
@@ -3479,7 +3897,7 @@ ranking_metric_policies:
     not established.
   validated: 5 admitted of 5 in-scope Grand Widow Faerlina Balance Druid Alliance rows (5
     distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0
-    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-balance-druid-alliance.json
   tested_exclusions:
   - 16506
@@ -3532,7 +3950,7 @@ ranking_metric_policies:
     not established.
   validated: 4 admitted of 5 in-scope Instructor Razuvious Balance Druid Alliance rows (4
     distinct non-subject players, 0 exercising the list); 1 ownership refusals, unknown; 0
-    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-balance-druid-alliance.json
   tested_exclusions:
   - 16803
@@ -3556,8 +3974,8 @@ ranking_metric_policies:
   - production-ranking-exclusions-exercised
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
-  validated: 4 admitted of 5 in-scope Anub'Rekhan Balance Druid Horde rows (4 distinct non-subject
-    players, 0 exercising the list); 1 ownership refusals, unknown; 0 contradictions; 5 boss-level
+  validated: 5 admitted of 5 in-scope Anub'Rekhan Balance Druid Horde rows (5 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 5 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-balance-druid-horde.json
   tested_exclusions:
@@ -3583,7 +4001,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 5 admitted of 5 in-scope Gluth Balance Druid Horde rows (5 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-balance-druid-horde.json
   tested_exclusions:
@@ -3610,7 +4028,7 @@ ranking_metric_policies:
     not established.
   validated: 5 admitted of 5 in-scope Grand Widow Faerlina Balance Druid Horde rows (5 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    34 boss-level list witnesses. policy-exclusions-20261112.
+    37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-balance-druid-horde.json
   tested_exclusions:
   - 16506
@@ -3663,7 +4081,7 @@ ranking_metric_policies:
     not established.
   validated: 4 admitted of 5 in-scope Instructor Razuvious Balance Druid Horde rows (4 distinct
     non-subject players, 0 exercising the list); 1 ownership refusals, unknown; 0 contradictions;
-    24 boss-level list witnesses. policy-exclusions-20261112.
+    30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-balance-druid-horde.json
   tested_exclusions:
   - 16803
@@ -3688,7 +4106,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Feral Druid Alliance rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-feral-druid-alliance.json
   tested_exclusions:
@@ -3715,7 +4133,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Feral Druid Alliance rows (3 distinct
     non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    34 boss-level list witnesses. policy-exclusions-20261112.
+    37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-feral-druid-alliance.json
   tested_exclusions:
   - 16506
@@ -3768,7 +4186,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Feral Druid Alliance rows (3 distinct
     non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    24 boss-level list witnesses. policy-exclusions-20261112.
+    30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-feral-druid-alliance.json
   tested_exclusions:
   - 16803
@@ -3819,7 +4237,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Feral Druid Horde rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-feral-druid-horde.json
   tested_exclusions:
@@ -3846,7 +4264,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Feral Druid Horde rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    34 boss-level list witnesses. policy-exclusions-20261112.
+    37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-feral-druid-horde.json
   tested_exclusions:
   - 16506
@@ -3899,7 +4317,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Feral Druid Horde rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    24 boss-level list witnesses. policy-exclusions-20261112.
+    30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-feral-druid-horde.json
   tested_exclusions:
   - 16803
@@ -3924,7 +4342,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Guardian Druid Alliance rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-guardian-druid-alliance.json
   tested_exclusions:
@@ -3951,7 +4369,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Guardian Druid Alliance rows (3
     distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0
-    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-guardian-druid-alliance.json
   tested_exclusions:
   - 16506
@@ -4004,7 +4422,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Guardian Druid Alliance rows (3
     distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
-    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-guardian-druid-alliance.json
   tested_exclusions:
   - 16803
@@ -4029,7 +4447,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Protection Warrior Horde rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-protection-warrior-horde.json
   tested_exclusions:
@@ -4056,7 +4474,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Protection Warrior Horde rows (3
     distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0
-    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-protection-warrior-horde.json
   tested_exclusions:
   - 16506
@@ -4109,7 +4527,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Protection Warrior Horde rows (3
     distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0
-    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-protection-warrior-horde.json
   tested_exclusions:
   - 16803
@@ -4134,7 +4552,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Assassination Rogue Horde rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-assassination-rogue-horde.json
   tested_exclusions:
@@ -4161,7 +4579,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Assassination Rogue Horde rows
     (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-assassination-rogue-horde.json
   tested_exclusions:
   - 16506
@@ -4239,7 +4657,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Marksmanship Hunter Horde rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-marksmanship-hunter-horde.json
   tested_exclusions:
@@ -4266,7 +4684,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Marksmanship Hunter Horde rows
     (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-marksmanship-hunter-horde.json
   tested_exclusions:
   - 16506
@@ -4319,7 +4737,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Marksmanship Hunter Horde rows
     (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-marksmanship-hunter-horde.json
   tested_exclusions:
   - 16803
@@ -4349,6 +4767,32 @@ ranking_metric_policies:
   evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-destruction-warlock-horde.json
   tested_exclusions:
   - 16698
+- rule: naxx-gluth-destruction-warlock-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 10
+    category: Destruction
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Destruction Warlock Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-destruction-warlock-horde.json
+  tested_exclusions:
+  - 16360
 - rule: naxx-faerlina-destruction-warlock-horde-dps-v1
   basis: empirical
   scope:
@@ -4371,7 +4815,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Destruction Warlock Horde rows
     (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-destruction-warlock-horde.json
   tested_exclusions:
   - 16506
@@ -4424,7 +4868,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Destruction Warlock Horde rows
     (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-destruction-warlock-horde.json
   tested_exclusions:
   - 16803
@@ -4454,6 +4898,32 @@ ranking_metric_policies:
   evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-shadow-priest-horde.json
   tested_exclusions:
   - 16698
+- rule: naxx-gluth-shadow-priest-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 7
+    category: Shadow
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Shadow Priest Horde rows (3 distinct non-subject
+    players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-shadow-priest-horde.json
+  tested_exclusions:
+  - 16360
 - rule: naxx-faerlina-shadow-priest-horde-dps-v1
   basis: empirical
   scope:
@@ -4476,7 +4946,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Shadow Priest Horde rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    34 boss-level list witnesses. policy-exclusions-20261112.
+    37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-shadow-priest-horde.json
   tested_exclusions:
   - 16506
@@ -4528,7 +4998,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Protection Paladin Alliance rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-protection-paladin-alliance.json
   tested_exclusions:
@@ -4555,7 +5025,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Protection Paladin Alliance rows
     (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-protection-paladin-alliance.json
   tested_exclusions:
   - 16506
@@ -4633,7 +5103,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Guardian Druid Horde rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-guardian-druid-horde.json
   tested_exclusions:
@@ -4660,7 +5130,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Guardian Druid Horde rows (3 distinct
     non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    34 boss-level list witnesses. policy-exclusions-20261112.
+    37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-guardian-druid-horde.json
   tested_exclusions:
   - 16506
@@ -4713,8 +5183,113 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Guardian Druid Horde rows (3 distinct
     non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    24 boss-level list witnesses. policy-exclusions-20261112.
+    30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-guardian-druid-horde.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-gluth-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Enhancement Shaman Horde rows (3 distinct non-subject
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-enhancement-shaman-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Enhancement Shaman Horde rows (3
+    distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-enhancement-shaman-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Enhancement Shaman Horde rows (3
+    distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-enhancement-shaman-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-enhancement-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 9
+    category: Enhancement
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Enhancement Shaman Horde rows (3
+    distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-enhancement-shaman-horde.json
   tested_exclusions:
   - 16803
 - rule: naxx-gluth-fury-warrior-horde-dps-v1
@@ -4738,7 +5313,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Fury Warrior Horde rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-fury-warrior-horde.json
   tested_exclusions:
@@ -4792,7 +5367,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Fury Warrior Horde rows (3 distinct
     non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    24 boss-level list witnesses. policy-exclusions-20261112.
+    30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-fury-warrior-horde.json
   tested_exclusions:
   - 16803
@@ -4817,7 +5392,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Protection Warrior Alliance rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-protection-warrior-alliance.json
   tested_exclusions:
@@ -4844,7 +5419,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Protection Warrior Alliance rows
     (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-protection-warrior-alliance.json
   tested_exclusions:
   - 16506
@@ -4897,7 +5472,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Gluth Marksmanship Hunter Alliance rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    3 boss-level list witnesses. policy-exclusions-20261112.
+    4 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-marksmanship-hunter-alliance.json
   tested_exclusions:
   - 16360
@@ -4923,7 +5498,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Marksmanship Hunter Alliance rows
     (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-marksmanship-hunter-alliance.json
   tested_exclusions:
   - 16506
@@ -4976,7 +5551,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Marksmanship Hunter Alliance rows
     (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-marksmanship-hunter-alliance.json
   tested_exclusions:
   - 16803
@@ -5027,7 +5602,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Fury Warrior Alliance rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-fury-warrior-alliance.json
   tested_exclusions:
@@ -5054,7 +5629,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Fury Warrior Alliance rows (3 distinct
     non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    34 boss-level list witnesses. policy-exclusions-20261112.
+    37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-fury-warrior-alliance.json
   tested_exclusions:
   - 16506
@@ -5085,6 +5660,32 @@ ranking_metric_policies:
   tested_exclusions:
   - 16036
   - 16037
+- rule: naxx-razuvious-fury-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Fury Warrior Alliance rows (3 distinct
+    non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    30 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-fury-warrior-alliance.json
+  tested_exclusions:
+  - 16803
 - rule: naxx-gluth-retribution-paladin-alliance-dps-v1
   basis: empirical
   scope:
@@ -5107,7 +5708,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Gluth Retribution Paladin Alliance rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    3 boss-level list witnesses. policy-exclusions-20261112.
+    4 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-retribution-paladin-alliance.json
   tested_exclusions:
   - 16360
@@ -5133,7 +5734,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Retribution Paladin Alliance rows
     (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-retribution-paladin-alliance.json
   tested_exclusions:
   - 16506
@@ -5212,7 +5813,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Gluth Assassination Rogue Alliance rows (3 distinct
     non-subject players, 2 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    3 boss-level list witnesses. policy-exclusions-20261112.
+    4 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-assassination-rogue-alliance.json
   tested_exclusions:
   - 16360
@@ -5238,7 +5839,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Assassination Rogue Alliance rows
     (3 distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-assassination-rogue-alliance.json
   tested_exclusions:
   - 16506
@@ -5264,7 +5865,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Assassination Rogue Alliance rows
     (3 distinct non-subject players, 2 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-assassination-rogue-alliance.json
   tested_exclusions:
   - 16803
@@ -5289,7 +5890,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Shadow Priest Alliance rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-shadow-priest-alliance.json
   tested_exclusions:
@@ -5316,7 +5917,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Shadow Priest Alliance rows (3
     distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
-    contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-shadow-priest-alliance.json
   tested_exclusions:
   - 16506
@@ -5369,7 +5970,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Shadow Priest Alliance rows (3
     distinct non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0
-    contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-shadow-priest-alliance.json
   tested_exclusions:
   - 16803
@@ -5395,7 +5996,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Gluth Destruction Warlock Alliance rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    3 boss-level list witnesses. policy-exclusions-20261112.
+    4 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-destruction-warlock-alliance.json
   tested_exclusions:
   - 16360
@@ -5421,7 +6022,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Destruction Warlock Alliance rows
     (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 34 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-destruction-warlock-alliance.json
   tested_exclusions:
   - 16506
@@ -5474,8 +6075,139 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Destruction Warlock Alliance rows
     (3 distinct non-subject players, 0 exercising the list); 0 ownership refusals, unknown;
-    0 contradictions; 24 boss-level list witnesses. policy-exclusions-20261112.
+    0 contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-destruction-warlock-alliance.json
+  tested_exclusions:
+  - 16803
+- rule: naxx-anubrekhan-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Elemental Shaman Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    5 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-anubrekhan-elemental-shaman-horde.json
+  tested_exclusions:
+  - 16698
+- rule: naxx-gluth-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Elemental Shaman Horde rows (3 distinct non-subject
+    players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
+    list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-gluth-elemental-shaman-horde.json
+  tested_exclusions:
+  - 16360
+- rule: naxx-faerlina-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Elemental Shaman Horde rows (3
+    distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 37 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-faerlina-elemental-shaman-horde.json
+  tested_exclusions:
+  - 16506
+- rule: naxx-heigan-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Elemental Shaman Horde rows (3 distinct
+    non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
+    4 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-heigan-elemental-shaman-horde.json
+  tested_exclusions:
+  - 16036
+  - 16037
+- rule: naxx-razuvious-elemental-shaman-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 9
+    category: Elemental
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units and less damage to the encounter's production-excluded
+    target game IDs, divided by the fight duration.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - production-ranking-exclusions-exercised
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Elemental Shaman Horde rows (3
+    distinct non-subject players, 3 exercising the list); 0 ownership refusals, unknown; 0
+    contradictions; 30 boss-level list witnesses. policy-exclusions-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-razuvious-elemental-shaman-horde.json
   tested_exclusions:
   - 16803
 - rule: naxx-gluth-frost-mage-horde-dps-v1
@@ -5499,7 +6231,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Frost Mage Horde rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-frost-mage-horde.json
   tested_exclusions:
@@ -5553,7 +6285,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Frost Mage Horde rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    24 boss-level list witnesses. policy-exclusions-20261112.
+    30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-frost-mage-horde.json
   tested_exclusions:
   - 16803
@@ -5604,7 +6336,7 @@ ranking_metric_policies:
   bound: Within one unit of the published last decimal place; the upstream rounding mode is
     not established.
   validated: 3 admitted of 3 in-scope Gluth Frost Mage Alliance rows (3 distinct non-subject
-    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 3 boss-level
+    players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions; 4 boss-level
     list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-gluth-frost-mage-alliance.json
   tested_exclusions:
@@ -5631,7 +6363,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Grand Widow Faerlina Frost Mage Alliance rows (3 distinct
     non-subject players, 0 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    34 boss-level list witnesses. policy-exclusions-20261112.
+    37 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-faerlina-frost-mage-alliance.json
   tested_exclusions:
   - 16506
@@ -5684,7 +6416,7 @@ ranking_metric_policies:
     not established.
   validated: 3 admitted of 3 in-scope Instructor Razuvious Frost Mage Alliance rows (3 distinct
     non-subject players, 1 exercising the list); 0 ownership refusals, unknown; 0 contradictions;
-    24 boss-level list witnesses. policy-exclusions-20261112.
+    30 boss-level list witnesses. policy-exclusions-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-razuvious-frost-mage-alliance.json
   tested_exclusions:
   - 16803

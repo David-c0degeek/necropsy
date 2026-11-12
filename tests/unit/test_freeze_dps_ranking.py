@@ -534,7 +534,9 @@ def catalog_case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
     marker = json.loads(files["necropsy-snapshot.json"])
     report = json.loads(files["reports/ABC/bundle.json"])["reportData"]["report"]
     actors = report["masterData"]["actors"]
-    actors.append({"id": 9, "type": "Pet", "gameID": 510, "petOwner": 1})
+    actors.append(
+        {"id": 9, "type": "NPC" if mutation == "not_a_pet" else "Pet", "gameID": 510, "petOwner": 1}
+    )
     fight = report["fights"][0]
     if mutation == "listed_owned":
         fight["friendlyPets"].append({"id": 9, "type": "Pet", "gameID": 510, "petOwner": 1})
@@ -552,6 +554,18 @@ def catalog_case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         rows.append({"type": "cast", "sourceID": 9, "targetID": 3, "timestamp": 500, "fight": 7})
     if mutation == "as_target":
         rows.append({"type": "heal", "sourceID": 1, "targetID": 9, "timestamp": 500, "fight": 7})
+    if mutation in {"deals_damage", "deals_damage_unpublished", "not_a_pet"}:
+        ranked = next(
+            r
+            for r in rows
+            if r.get("type") == "damage" and r.get("sourceID") == 1 and r.get("targetID") == 3
+        )
+        rows.append(ranked | {"sourceID": 9, "amount": 50, "timestamp": 600})
+    if mutation == "deals_damage":
+        # 50 more ranked damage over the 10 s fight: published 24.0 -> 29.0.
+        board = json.loads(files["leaderboards/51118_Patchwerk.json"])
+        board["pages"][0]["characterRankings"]["rankings"][0]["amount"] = 29.0
+        files["leaderboards/51118_Patchwerk.json"] = json.dumps(board).encode()
     page: dict[str, Any] = {"data": rows, "nextPageTimestamp": None}
     if mutation == "unterminated":
         page["nextPageTimestamp"] = 600
@@ -591,6 +605,38 @@ def catalog_case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
 def test_agreeing_listings_keep_the_old_output_without_a_scope_record(tmp_path: Path) -> None:
     result = dps.compute(case(tmp_path), tmp_path)
     assert "catalog_pets_out_of_scope" not in result
+    assert "fight_active_catalog_units" not in result
+
+
+@pytest.mark.parametrize("mutation", ["as_source", "as_target"])
+def test_a_catalog_unit_named_in_the_fight_is_owned_there(tmp_path: Path, mutation: str) -> None:
+    """D028: e.g. a Shaman totem, catalog-owned but absent from friendlyPets."""
+    (tmp_path / "plain").mkdir()
+    (tmp_path / "unit").mkdir()
+    plain = dps.compute(case(tmp_path / "plain"), tmp_path / "plain")
+    seen = dps.compute(catalog_case(tmp_path / "unit", mutation), tmp_path / "unit")
+    assert seen["totals"] == plain["totals"]
+    assert seen["fight_active_catalog_units"] == [
+        {"unit": 9, "rule": "catalog-unit-active-in-fight-v1"}
+    ]
+    assert "catalog_pets_out_of_scope" not in seen
+
+
+def test_a_fight_active_catalog_units_damage_is_ranked_from_the_encounter_pages(
+    tmp_path: Path,
+) -> None:
+    result = dps.compute(catalog_case(tmp_path, "deals_damage"), tmp_path)
+    assert result["totals"]["ranked"] == 290 and result["source_damage"]["9"] == 50
+    [event] = [e for e in result["events"] if e["raw"]["sourceID"] == 9]
+    assert event["multiplicity"] == 1
+    assert event["locators"][0]["member"] == "events/ABC/fight_7/encounter/all_001.json"
+
+
+def test_dropping_a_fight_active_units_damage_contradicts_the_published_amount(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(dps.ArithmeticMismatch):
+        dps.compute(catalog_case(tmp_path, "deals_damage_unpublished"), tmp_path)
 
 
 def test_a_catalog_pet_absent_from_the_fight_is_out_of_that_fights_scope(tmp_path: Path) -> None:
@@ -607,8 +653,7 @@ def test_a_catalog_pet_absent_from_the_fight_is_out_of_that_fights_scope(tmp_pat
 @pytest.mark.parametrize(
     ("mutation", "reason"),
     [
-        ("as_source", "pet listings disagree"),
-        ("as_target", "pet listings disagree"),
+        ("not_a_pet", "pet listings disagree"),
         ("listed_owned", "pet listings disagree"),
         ("listed_other_owner", "pet listings disagree"),
         ("ownerless_guardian", "unresolved fight pet ownership"),

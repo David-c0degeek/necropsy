@@ -1,8 +1,10 @@
 # Remaining Naxx work — 2026-10-23
 
-Exclusion bosses, 2026-11-12 (D027): 87 more policies; 237 Naxx DPS
-policies in total. Still open: 116 DPS cells below the minimum, 37 with
-contradictions (mostly Mage Fire), and both Shaman DPS configurations.
+Exclusion bosses and totems, 2026-11-12 (D027, D028): 268 Naxx DPS policies
+of 390 DPS cells. Still open: 84 DPS cells below the minimum (mostly ownerless
+guardians, D026; follow-up D023 deferred) and 38 with contradictions (27 Mage
+Fire: WCL appears to redistribute Ignite among contributing mages, a separate
+research unit). HPS cells have no policy shape yet.
 
 Policies, 2026-11-12: 150 cell-scoped Naxx DPS policies now exist
 (`research/dps-policies-20261112/`). Open DPS cells: 130 at the five

@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-assassination-rogue-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+    "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7AJnmtDN46Bvdw2Z-56-19",
+      "purpose": "policy-scope",
+      "report": "7AJnmtDN46Bvdw2Z",
+      "fight": 56,
+      "actor": 19,
+      "player": "Hallowtide",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 14,
+      "owned_actor_ids": [],
+      "duration_ms": 121329,
+      "published": "1623.14",
+      "totals": {
+        "raw": 197593,
+        "self": 659,
+        "excluded": 0,
+        "ranked": 196934
+      },
+      "residual": "2347/6066450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 156,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e49fd84dc5363cd9f0f7a2c3c4a740a128b352c80badf62f6696fc701ccdc7b",
+            "80719b59d68309b00fa4cb24b2ee9cd0f240cfb6011d7ce59d82068fe146e4e6",
+            "68068fe53a566e383d216e80c4043d98e69a61309a66648948d37cd7a77fe225"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e49fd84dc5363cd9f0f7a2c3c4a740a128b352c80badf62f6696fc701ccdc7b",
+            "80719b59d68309b00fa4cb24b2ee9cd0f240cfb6011d7ce59d82068fe146e4e6",
+            "68068fe53a566e383d216e80c4043d98e69a61309a66648948d37cd7a77fe225"
+          ]
+        },
+        {
+          "pet": 213,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e49fd84dc5363cd9f0f7a2c3c4a740a128b352c80badf62f6696fc701ccdc7b",
+            "80719b59d68309b00fa4cb24b2ee9cd0f240cfb6011d7ce59d82068fe146e4e6",
+            "68068fe53a566e383d216e80c4043d98e69a61309a66648948d37cd7a77fe225"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GK93hgkyVCTnJ814-34-42",
+      "purpose": "policy-scope",
+      "report": "GK93hgkyVCTnJ814",
+      "fight": 34,
+      "actor": 42,
+      "player": "Greed",
+      "realm": "Bigglesworth",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 80758,
+      "published": "1654.09",
+      "totals": {
+        "raw": 133581,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 133581
+      },
+      "residual": "-11/4037900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 89,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fd217437d2bf194eeaa581f316151615eb461a10dae7ebcfc7843d0bbd1b9c65",
+            "9081f4e47d3bfddb9e1610fee489e63b2176b394f9a44f040d7144caa73c9251"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hQXtAzC4KL1awFHP-37-8",
+      "purpose": "policy-scope",
+      "report": "hQXtAzC4KL1awFHP",
+      "fight": 37,
+      "actor": 8,
+      "player": "Raserie",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 84331,
+      "published": "1683.47",
+      "totals": {
+        "raw": 142738,
+        "self": 769,
+        "excluded": 0,
+        "ranked": 141969
+      },
+      "residual": "29143/8433100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 143,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a30d9ed80ed4cb83cb1d2c9db90438f00baba28de9ede9842977780b8a1a4196",
+            "4d9752ae8f704aa5ea1543d4f4313b505177000054192c628463d4afd0c67437"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a30d9ed80ed4cb83cb1d2c9db90438f00baba28de9ede9842977780b8a1a4196",
+            "4d9752ae8f704aa5ea1543d4f4313b505177000054192c628463d4afd0c67437"
+          ]
+        },
+        {
+          "pet": 195,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a30d9ed80ed4cb83cb1d2c9db90438f00baba28de9ede9842977780b8a1a4196",
+            "4d9752ae8f704aa5ea1543d4f4313b505177000054192c628463d4afd0c67437"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 302,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

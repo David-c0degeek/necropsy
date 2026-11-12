@@ -1,0 +1,354 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-enhancement-shaman-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 9,
+    "category": "Enhancement",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
+    "sha256": "c794197d7cce61dd8817f1b85be4eb6a570c9880b9765922743b50586dc4592d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CkFr67j3mJzWc4tT-22-55",
+      "purpose": "policy-scope",
+      "report": "CkFr67j3mJzWc4tT",
+      "fight": 22,
+      "actor": 55,
+      "player": "Kierky",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 143473,
+      "published": "1878.53",
+      "totals": {
+        "raw": 272053,
+        "self": 2535,
+        "excluded": 0,
+        "ranked": 269518
+      },
+      "residual": "-33469/14347300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 78,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fbf5b26e603573e3699ef123c148c338e80e05fab856c3cbd182f516fe9ed8cb",
+            "e6d126c3b8b47ddff0dc9a390cb6848804733cca63a2c8f4d7e1c75ef3c75cac",
+            "24c5f5a66410e4808e7d870a561b0e34376caac7f3b3b2767adb232287c416a2"
+          ]
+        },
+        {
+          "pet": 105,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fbf5b26e603573e3699ef123c148c338e80e05fab856c3cbd182f516fe9ed8cb",
+            "e6d126c3b8b47ddff0dc9a390cb6848804733cca63a2c8f4d7e1c75ef3c75cac",
+            "24c5f5a66410e4808e7d870a561b0e34376caac7f3b3b2767adb232287c416a2"
+          ]
+        },
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fbf5b26e603573e3699ef123c148c338e80e05fab856c3cbd182f516fe9ed8cb",
+            "e6d126c3b8b47ddff0dc9a390cb6848804733cca63a2c8f4d7e1c75ef3c75cac",
+            "24c5f5a66410e4808e7d870a561b0e34376caac7f3b3b2767adb232287c416a2"
+          ]
+        },
+        {
+          "pet": 165,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fbf5b26e603573e3699ef123c148c338e80e05fab856c3cbd182f516fe9ed8cb",
+            "e6d126c3b8b47ddff0dc9a390cb6848804733cca63a2c8f4d7e1c75ef3c75cac",
+            "24c5f5a66410e4808e7d870a561b0e34376caac7f3b3b2767adb232287c416a2"
+          ]
+        },
+        {
+          "pet": 245,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fbf5b26e603573e3699ef123c148c338e80e05fab856c3cbd182f516fe9ed8cb",
+            "e6d126c3b8b47ddff0dc9a390cb6848804733cca63a2c8f4d7e1c75ef3c75cac",
+            "24c5f5a66410e4808e7d870a561b0e34376caac7f3b3b2767adb232287c416a2"
+          ]
+        },
+        {
+          "pet": 274,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fbf5b26e603573e3699ef123c148c338e80e05fab856c3cbd182f516fe9ed8cb",
+            "e6d126c3b8b47ddff0dc9a390cb6848804733cca63a2c8f4d7e1c75ef3c75cac",
+            "24c5f5a66410e4808e7d870a561b0e34376caac7f3b3b2767adb232287c416a2"
+          ]
+        },
+        {
+          "pet": 290,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fbf5b26e603573e3699ef123c148c338e80e05fab856c3cbd182f516fe9ed8cb",
+            "e6d126c3b8b47ddff0dc9a390cb6848804733cca63a2c8f4d7e1c75ef3c75cac",
+            "24c5f5a66410e4808e7d870a561b0e34376caac7f3b3b2767adb232287c416a2"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 79,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 101,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 191,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "ZWjmQpq98TCPctgf-82-150",
+      "purpose": "policy-scope",
+      "report": "ZWjmQpq98TCPctgf",
+      "fight": 82,
+      "actor": 150,
+      "player": "Enoset",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        153
+      ],
+      "duration_ms": 165490,
+      "published": "1638.34",
+      "totals": {
+        "raw": 271129,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 271129
+      },
+      "residual": "567/827450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 151,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        },
+        {
+          "pet": 155,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        },
+        {
+          "pet": 156,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        },
+        {
+          "pet": 161,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        },
+        {
+          "pet": 168,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        },
+        {
+          "pet": 175,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        },
+        {
+          "pet": 215,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        },
+        {
+          "pet": 238,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36d2bd6a2b76c71eb29b6a24375985235aa2a2a501050a5c263ac168d3eed399",
+            "414acb6a9ad2f582811ffdbc7e124a49db7a3071905f5b4c8f59f61e1256d4db",
+            "eb877227372c148737885ae34f3d0311d28a589461194937feaabc7be25e7cb5"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 165,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 166,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 167,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "wacr6LDfJY7bpXBh-24-9",
+      "purpose": "policy-scope",
+      "report": "wacr6LDfJY7bpXBh",
+      "fight": 24,
+      "actor": 9,
+      "player": "Stormstrike",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        65,
+        87
+      ],
+      "duration_ms": 171855,
+      "published": "1465.72",
+      "totals": {
+        "raw": 252979,
+        "self": 1087,
+        "excluded": 0,
+        "ranked": 251892
+      },
+      "residual": "383/95475",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 67,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28045c6d6dcaacd002a0839e1c939a6ed87f8f8f3cc16dfad98461c2b1a5e57e",
+            "37b0dcf96338db4654532c574cedc7d57fed707d5ba20724bf03b245259b76de",
+            "f9202324a661745d47a41ef623d884b511a4050719518182a470d4e1078305ac"
+          ]
+        },
+        {
+          "pet": 76,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28045c6d6dcaacd002a0839e1c939a6ed87f8f8f3cc16dfad98461c2b1a5e57e",
+            "37b0dcf96338db4654532c574cedc7d57fed707d5ba20724bf03b245259b76de",
+            "f9202324a661745d47a41ef623d884b511a4050719518182a470d4e1078305ac"
+          ]
+        },
+        {
+          "pet": 101,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28045c6d6dcaacd002a0839e1c939a6ed87f8f8f3cc16dfad98461c2b1a5e57e",
+            "37b0dcf96338db4654532c574cedc7d57fed707d5ba20724bf03b245259b76de",
+            "f9202324a661745d47a41ef623d884b511a4050719518182a470d4e1078305ac"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28045c6d6dcaacd002a0839e1c939a6ed87f8f8f3cc16dfad98461c2b1a5e57e",
+            "37b0dcf96338db4654532c574cedc7d57fed707d5ba20724bf03b245259b76de",
+            "f9202324a661745d47a41ef623d884b511a4050719518182a470d4e1078305ac"
+          ]
+        },
+        {
+          "pet": 123,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28045c6d6dcaacd002a0839e1c939a6ed87f8f8f3cc16dfad98461c2b1a5e57e",
+            "37b0dcf96338db4654532c574cedc7d57fed707d5ba20724bf03b245259b76de",
+            "f9202324a661745d47a41ef623d884b511a4050719518182a470d4e1078305ac"
+          ]
+        },
+        {
+          "pet": 140,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28045c6d6dcaacd002a0839e1c939a6ed87f8f8f3cc16dfad98461c2b1a5e57e",
+            "37b0dcf96338db4654532c574cedc7d57fed707d5ba20724bf03b245259b76de",
+            "f9202324a661745d47a41ef623d884b511a4050719518182a470d4e1078305ac"
+          ]
+        },
+        {
+          "pet": 149,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28045c6d6dcaacd002a0839e1c939a6ed87f8f8f3cc16dfad98461c2b1a5e57e",
+            "37b0dcf96338db4654532c574cedc7d57fed707d5ba20724bf03b245259b76de",
+            "f9202324a661745d47a41ef623d884b511a4050719518182a470d4e1078305ac"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 54,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 55,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 114,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

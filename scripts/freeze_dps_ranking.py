@@ -297,7 +297,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
 
         def encounter_scope(
             code: str, fid: int, revision: object, start: int, end: int
-        ) -> tuple[list[dict[str, Any]], list[str]]:
+        ) -> tuple[list[tuple[dict[str, Any], str, int]], list[str]]:
             """The fight's complete encounter-All events, certified from the marker proof."""
             proof = one(
                 [
@@ -347,7 +347,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
             require(bool(names) and proof.get("pages") == digests, "encounter scope pages differ")
             for name in names:
                 read(name)  # reject duplicate keys/nonfinite constants before page validation
-            return [event for event, _, _ in pages._pages(z, prefix, start, end, fid)], digests
+            return list(pages._pages(z, prefix, start, end, fid)), digests
 
         owner_folder = folder(owner, "player")
         listing = read(f"{owner_folder}/pets.json")
@@ -382,18 +382,23 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
             "pet listings disagree",
         )
         out_of_scope = []
+        active: list[int] = []
+        scope: list[tuple[dict[str, Any], str, int]] = []
         if catalog_owned != set(pet_ids):
             # A report-catalog pet the fight does not list is out of this fight's scope
             # only if the fight's certified encounter-All pages never name it (D022).
+            # One those pages do name is the owner's unit in this fight (D028: Shaman
+            # totems are catalog-owned but absent from friendlyPets); its damage is
+            # taken from the same certified pages.
             listed = {p["id"] for p in fight_pets}
             extras = sorted(catalog_owned - set(pet_ids))
             require(not listed & set(extras), "pet listings disagree")
             scope, scope_pages = encounter_scope(code, fid, report["revision"], start, end)
             for pet in extras:
-                require(
-                    not any(pet in (e.get("sourceID"), e.get("targetID")) for e in scope),
-                    "pet listings disagree",
-                )
+                if any(pet in (e.get("sourceID"), e.get("targetID")) for e, _, _ in scope):
+                    require(actors[pet].get("type") == "Pet", "pet listings disagree")
+                    active.append(pet)
+                    continue
                 out_of_scope.append(
                     {"pet": pet, "rule": "catalog-pet-absent-from-fight-v1", "pages": scope_pages}
                 )
@@ -572,8 +577,31 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                 read_json(k.encode())["amount"] * n for k, n in merged.items()
             )
             combined.update(merged)
+        for source in active:
+            # D028: no stream was requested for this unit; the certified encounter-All
+            # pages hold each of its events exactly once.
+            counts = Counter()
+            for event, name, index in scope:
+                if event.get("type") != "damage" or event.get("sourceID") != source:
+                    continue
+                require(
+                    type(event.get("targetID")) is int and event["targetID"] in actors,
+                    "damage target unresolved",
+                )
+                require(integer(event.get("amount")), "damage amount missing/noninteger/negative")
+                require(
+                    integer(actors[event["targetID"]].get("gameID")), "target game ID unresolved"
+                )
+                key = json.dumps(event, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+                require(key not in combined, "fight-active unit event also in a stream")
+                counts[key] += 1
+                observations.setdefault(key, []).append({"member": name, "index": index})
+            source_totals[str(source)] = sum(
+                read_json(k.encode())["amount"] * n for k, n in counts.items()
+            )
+            combined.update(counts)
 
-        own = {owner, *pet_ids}
+        own = {owner, *pet_ids, *active}
         totals = {"raw": 0, "self": 0, "excluded": 0, "ranked": 0}
         events = []
         for key, count in sorted(combined.items()):
@@ -663,6 +691,10 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         }
         if out_of_scope:
             result["catalog_pets_out_of_scope"] = out_of_scope
+        if active:
+            result["fight_active_catalog_units"] = [
+                {"unit": unit, "rule": "catalog-unit-active-in-fight-v1"} for unit in active
+            ]
         return result
 
 

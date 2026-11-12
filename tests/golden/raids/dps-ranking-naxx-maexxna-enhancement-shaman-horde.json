@@ -1,0 +1,400 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-enhancement-shaman-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 9,
+    "category": "Enhancement",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/74643978-2006-20261109T142333.zip",
+    "sha256": "c794197d7cce61dd8817f1b85be4eb6a570c9880b9765922743b50586dc4592d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "mRLbBnWt2FkTVvc1-14-11",
+      "purpose": "policy-scope",
+      "report": "mRLbBnWt2FkTVvc1",
+      "fight": 14,
+      "actor": 11,
+      "player": "Philzthebest",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        67,
+        86,
+        115
+      ],
+      "duration_ms": 38750,
+      "published": "1455.82",
+      "totals": {
+        "raw": 56552,
+        "self": 139,
+        "excluded": 0,
+        "ranked": 56413
+      },
+      "residual": "-1/1550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 64,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 139,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 155,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 195,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 214,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 219,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 229,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 292,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        },
+        {
+          "pet": 297,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a53376359a80f46c41a300bc073e896ab60cdc3d68523acde33e3e83e9b2a6dc"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 54,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 57,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 60,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 76,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "pbRqPycr7AXfWmLN-9-43",
+      "purpose": "policy-scope",
+      "report": "pbRqPycr7AXfWmLN",
+      "fight": 9,
+      "actor": 43,
+      "player": "Aquamass",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 34325,
+      "published": "1218.94",
+      "totals": {
+        "raw": 42670,
+        "self": 830,
+        "excluded": 0,
+        "ranked": 41840
+      },
+      "residual": "-231/68650",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 49,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 62,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 76,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 135,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 137,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 159,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 179,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 198,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 236,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        },
+        {
+          "pet": 290,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "77c8e3a26c98fba227988be87cb70a668d6179b2c19862115e039e820bdfb0cf"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 50,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 54,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 65,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 87,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "xNdGFRqhzrKkJBnQ-13-8",
+      "purpose": "policy-scope",
+      "report": "xNdGFRqhzrKkJBnQ",
+      "fight": 13,
+      "actor": 8,
+      "player": "Gesh",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        87
+      ],
+      "duration_ms": 31369,
+      "published": "1034.49",
+      "totals": {
+        "raw": 32451,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 32451
+      },
+      "residual": "8319/3136900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 94,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 96,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 104,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 118,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 125,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 126,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 168,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 217,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 250,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 272,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 273,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        },
+        {
+          "pet": 284,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f3dd3980182af40993e201d7d0aa3fc29856a1da8ad32bdc097f8440342e0041"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 45,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 62,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 66,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 88,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

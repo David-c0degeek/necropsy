@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "3dwngc2xaMHA84rB-63-26",
+      "purpose": "policy-scope",
+      "report": "3dwngc2xaMHA84rB",
+      "fight": 63,
+      "actor": 26,
+      "player": "毛怼怼",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 306414,
+      "published": "424.889",
+      "totals": {
+        "raw": 130192,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 130192
+      },
+      "residual": "30977/153207000",
+      "fight_active_catalog_units": [
+        {
+          "unit": 86,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "8DWF7wrNGPnA9cVz-30-44",
+      "purpose": "policy-scope",
+      "report": "8DWF7wrNGPnA9cVz",
+      "fight": 30,
+      "actor": 44,
+      "player": "Kalut",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 306925,
+      "published": "421.702",
+      "totals": {
+        "raw": 129431,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 129431
+      },
+      "residual": "2273/6138500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 51,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7a4c99e0edb47dfb0b4774efabba94fec9b1f3b817536a8b842caf476ad609ac",
+            "cd86716e67ebeb9a662c853e63b565d38c627c82ba137c13dd707c6cf7998354",
+            "42b6cecbc0d378614d66acf6e2cf8b7b6bd5446d2e264093a67d2e260376b3ee"
+          ]
+        },
+        {
+          "pet": 110,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7a4c99e0edb47dfb0b4774efabba94fec9b1f3b817536a8b842caf476ad609ac",
+            "cd86716e67ebeb9a662c853e63b565d38c627c82ba137c13dd707c6cf7998354",
+            "42b6cecbc0d378614d66acf6e2cf8b7b6bd5446d2e264093a67d2e260376b3ee"
+          ]
+        },
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7a4c99e0edb47dfb0b4774efabba94fec9b1f3b817536a8b842caf476ad609ac",
+            "cd86716e67ebeb9a662c853e63b565d38c627c82ba137c13dd707c6cf7998354",
+            "42b6cecbc0d378614d66acf6e2cf8b7b6bd5446d2e264093a67d2e260376b3ee"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jrYCR3HyTMhwD2VG-47-9",
+      "purpose": "policy-scope",
+      "report": "jrYCR3HyTMhwD2VG",
+      "fight": 47,
+      "actor": 9,
+      "player": "Loecklein",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 305148,
+      "published": "422.497",
+      "totals": {
+        "raw": 128924,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 128924
+      },
+      "residual": "-28639/76287000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "52141f605db0c4d1e88b828b9f2397b452c72c0f603a79f445998c78007a04b0",
+            "72ee564792d99956e3bfc71634df8fedc811fdb34c54be145da0522ba2cfa791",
+            "f1ec36e88aaabd8cea2f0c394f3dab5649181d60e036be287de1d366d2778c35"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

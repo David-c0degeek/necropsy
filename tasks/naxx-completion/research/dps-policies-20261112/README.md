@@ -33,23 +33,24 @@ Check mode (the default) writes nothing and fails if a fresh build differs.
 `tests/golden/test_dps_ranking_policy.py` re-proves every row of every policy
 from raw pages with standard-library code, without freezer, analyzer or metric
 code. It is now class- and spec-generic, and checks D022 catalog pets absent
-from the fight against the encounter-All pages. All 625 checks pass.
+from the fight against the encounter-All pages. All checks pass (1,195 with D027 and D028).
 
 ## Result
 
-142 new policies; 150 Naxx DPS policies in total.
+After D028 (fight-active catalog units such as Shaman totems), 161 new
+policies; 169 at bosses without exclusions.
 
 | Decision | Cells |
 |---|---|
-| New policy | 142 |
+| New policy | 161 |
 | Existing C1 policy | 8 |
-| OPEN: production exclusions (Anub'Rekhan, Gluth, Faerlina, Heigan, Razuvious) | 130 |
-| OPEN: fewer than 3 admitted players | 84 |
+| OPEN: production exclusions (handled by `../dps-exclusion-policies-20261112/`) | 130 |
+| OPEN: fewer than 3 admitted players | 65 |
 | OPEN: contradiction retained | 26 |
 
-No other refusal type occurred. Contradictions concentrate in Mage Fire (17
-cells, both factions). Shaman Elemental and Enhancement Horde have no policy:
-every cell is below the minimum because their pet listings disagree (totems).
+No other refusal type occurred. Contradictions concentrate in Mage Fire. The
+first build (before D028) had 142 policies; the Shaman configurations then had
+none because every totem-owning comparison was refused.
 
 ## Limits
 
